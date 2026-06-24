@@ -159,33 +159,26 @@ namespace Models
 
 
       protected:
-        // Custom Agent ID
+        // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
-        // Custom Agent usage stage:
-        // 
-        // - **debug** Debug stage
-        // 
-        // - **prod** Production stage
+        // The usage stage of the custom agent. Valid values:
+        // - **debug**: Debug stage.
+        // - **prod**: Production stage.
         shared_ptr<string> customAgentStage_ {};
-        // Whether web search is enabled
+        // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
-        // Language
-        // 
-        // - **CHINESE** Chinese
-        // 
-        // - **ENGLISH** English
+        // The language. Valid values:
+        // - **CHINESE**: Chinese.
+        // - **ENGLISH**: English.
         shared_ptr<string> language_ {};
-        // Mode:
-        // 
-        // - **ASK_DATA** Quick Inquiry Mode
-        // 
-        // - **ANALYSIS** Analysis mode
-        // 
-        // - **INSIGHT** Insight mode
+        // The mode. Valid values:
+        //  - **ASK_DATA**: Ask data mode.
+        //  - **ANALYSIS**: Analysis mode.
+        //  - **INSIGHT**: Insight mode.
         shared_ptr<string> mode_ {};
-        // User OSS bucket name
+        // The name of the user OSS bucket.
         // 
-        // - Files and reports generated during analysis can be uploaded to the user-specified OSS bucket.
+        // - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -272,27 +265,27 @@ namespace Models
 
 
     protected:
-      // Current Agent ID
+      // The current agent ID.
       shared_ptr<string> agentId_ {};
-      // Current Agent status
+      // The current agent status.
       shared_ptr<string> agentStatus_ {};
-      // Session creation time
+      // The session creation time.
       shared_ptr<int64_t> createTime_ {};
-      // Whether the session is saved by the current user in the workspace
+      // Indicates whether the session is favorited by the current logged-in user in the workspace.
       shared_ptr<bool> favoriteInWorkspace_ {};
-      // File ID
+      // The file ID.
       shared_ptr<string> file_ {};
-      // Whether the session is saved by the current user
+      // Indicates whether the session is favorited by the current logged-in user.
       shared_ptr<bool> saved_ {};
-      // Session configuration
+      // The session configuration item.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
-      // Data Agent session ID
+      // The Data Agent session ID.
       shared_ptr<string> sessionId_ {};
-      // Session status
+      // The session status.
       shared_ptr<string> sessionStatus_ {};
-      // Title
+      // The title.
       shared_ptr<string> title_ {};
-      // Session owner ID
+      // The ID of the session owner.
       shared_ptr<string> userId_ {};
     };
 
@@ -365,27 +358,26 @@ namespace Models
 
 
   protected:
-    // Response data
+    // The response struct.
     shared_ptr<vector<ListDataAgentSessionResponseBody::Data>> data_ {};
-    // Error code. Returned when the request fails.
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
-    // Error message returned when the call fails.
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Current page size
+    // The current page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the request succeeded. Possible values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request succeeded.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
-    // Total number of records
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

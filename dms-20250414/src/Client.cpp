@@ -2752,6 +2752,76 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTas
 }
 
 /**
+ * @summary Queries the operation logs of the SQL window.
+ *
+ * @param request GetSqlConsoleOperationLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSqlConsoleOperationLogResponse
+ */
+GetSqlConsoleOperationLogResponse Client::getSqlConsoleOperationLogWithOptions(const GetSqlConsoleOperationLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSchema()) {
+    query["Schema"] = request.getSchema();
+  }
+
+  if (!!request.hasSqlType()) {
+    query["SqlType"] = request.getSqlType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSqlConsoleOperationLog"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSqlConsoleOperationLogResponse>();
+}
+
+/**
+ * @summary Queries the operation logs of the SQL window.
+ *
+ * @param request GetSqlConsoleOperationLogRequest
+ * @return GetSqlConsoleOperationLogResponse
+ */
+GetSqlConsoleOperationLogResponse Client::getSqlConsoleOperationLog(const GetSqlConsoleOperationLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSqlConsoleOperationLogWithOptions(request, runtime);
+}
+
+/**
  * @summary Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
  *
  * @description Obtains the resource configuration limit information and the instance purchase status of the workspace.
@@ -3064,7 +3134,7 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 }
 
 /**
- * @summary Retrieve a list of Data Agent session descriptions.
+ * @summary Retrieves the list of historical session descriptions for a Data Agent.
  *
  * @param request ListDataAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3091,6 +3161,10 @@ ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListD
 
   if (!!request.hasIsSaved()) {
     query["IsSaved"] = request.getIsSaved();
+  }
+
+  if (!!request.hasMode()) {
+    query["Mode"] = request.getMode();
   }
 
   if (!!request.hasPageNumber()) {
@@ -3131,7 +3205,7 @@ ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListD
 }
 
 /**
- * @summary Retrieve a list of Data Agent session descriptions.
+ * @summary Retrieves the list of historical session descriptions for a Data Agent.
  *
  * @param request ListDataAgentSessionRequest
  * @return ListDataAgentSessionResponse
@@ -4846,8 +4920,8 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
  *
  * @description ## Request description
  * - `agent_id` and `session_id` are required fields.
- * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
- * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+ * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
+ * - `reply_to` indicates which Agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.
  * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
@@ -4951,8 +5025,8 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  *
  * @description ## Request description
  * - `agent_id` and `session_id` are required fields.
- * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
- * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+ * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
+ * - `reply_to` indicates which Agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.
  * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.

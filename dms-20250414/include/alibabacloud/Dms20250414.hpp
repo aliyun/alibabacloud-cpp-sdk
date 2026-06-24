@@ -819,6 +819,23 @@ namespace Dms20250414
       Models::GetNotebookTaskStatusResponse getNotebookTaskStatus(const Models::GetNotebookTaskStatusRequest &request);
 
       /**
+       * @summary Queries the operation logs of the SQL window.
+       *
+       * @param request GetSqlConsoleOperationLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSqlConsoleOperationLogResponse
+       */
+      Models::GetSqlConsoleOperationLogResponse getSqlConsoleOperationLogWithOptions(const Models::GetSqlConsoleOperationLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the operation logs of the SQL window.
+       *
+       * @param request GetSqlConsoleOperationLogRequest
+       * @return GetSqlConsoleOperationLogResponse
+       */
+      Models::GetSqlConsoleOperationLogResponse getSqlConsoleOperationLog(const Models::GetSqlConsoleOperationLogRequest &request);
+
+      /**
        * @summary Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
        *
        * @description Obtains the resource configuration limit information and the instance purchase status of the workspace.
@@ -937,7 +954,7 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
 
       /**
-       * @summary Retrieve a list of Data Agent session descriptions.
+       * @summary Retrieves the list of historical session descriptions for a Data Agent.
        *
        * @param request ListDataAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -946,7 +963,7 @@ namespace Dms20250414
       Models::ListDataAgentSessionResponse listDataAgentSessionWithOptions(const Models::ListDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve a list of Data Agent session descriptions.
+       * @summary Retrieves the list of historical session descriptions for a Data Agent.
        *
        * @param request ListDataAgentSessionRequest
        * @return ListDataAgentSessionResponse
@@ -1395,8 +1412,8 @@ namespace Dms20250414
        *
        * @description ## Request description
        * - `agent_id` and `session_id` are required fields.
-       * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
-       * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+       * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
+       * - `reply_to` indicates which Agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.
        * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
@@ -1412,8 +1429,8 @@ namespace Dms20250414
        *
        * @description ## Request description
        * - `agent_id` and `session_id` are required fields.
-       * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
-       * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+       * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
+       * - `reply_to` indicates which Agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.
        * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.

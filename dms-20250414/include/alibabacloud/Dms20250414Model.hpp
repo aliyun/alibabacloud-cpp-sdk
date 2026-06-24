@@ -28,11 +28,13 @@
 #include <alibabacloud/models/DLTable.hpp>
 #include <alibabacloud/models/DLTableInput.hpp>
 #include <alibabacloud/models/DLTablebaseInfo.hpp>
+#include <alibabacloud/models/DataAgentBillingInstance.hpp>
 #include <alibabacloud/models/DataMountInfo.hpp>
 #include <alibabacloud/models/DmsGatewayOrder.hpp>
 #include <alibabacloud/models/DmsKnowledgeSearchOrderInfoDO.hpp>
 #include <alibabacloud/models/ForeignInstance.hpp>
 #include <alibabacloud/models/ForeignInstanceCredInfo.hpp>
+#include <alibabacloud/models/MdbAgentInstanceVo.hpp>
 #include <alibabacloud/models/OneMetaDatabaseEngineMeta.hpp>
 #include <alibabacloud/models/OneMetaDatabase.hpp>
 #include <alibabacloud/models/OneMetaDatabaseObject.hpp>
@@ -196,6 +198,9 @@
 #include <alibabacloud/models/GetNotebookTaskStatusRequest.hpp>
 #include <alibabacloud/models/GetNotebookTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/GetNotebookTaskStatusResponse.hpp>
+#include <alibabacloud/models/GetSqlConsoleOperationLogRequest.hpp>
+#include <alibabacloud/models/GetSqlConsoleOperationLogResponseBody.hpp>
+#include <alibabacloud/models/GetSqlConsoleOperationLogResponse.hpp>
 #include <alibabacloud/models/GetWorkspaceCodeRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceCodeResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceCodeResponse.hpp>

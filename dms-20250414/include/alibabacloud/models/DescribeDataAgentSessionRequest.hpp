@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The current Data Management unit.
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The agent session ID.
+    // The DataAgent session ID. You can obtain this ID by calling CreateDataAgentSession.
     shared_ptr<string> sessionId_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

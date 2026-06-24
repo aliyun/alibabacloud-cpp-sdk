@@ -222,13 +222,16 @@ namespace Models
         // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The stage of the custom agent. Valid values:
-        // - **debug**: Debug stage.
-        // - **prod**: Production stage.
+        // - **debug**: the debugging stage.
+        // - **prod**: the production stage.
         shared_ptr<string> customAgentStage_ {};
         // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
+        // The encryption key for storing artifacts in OSS (including built-in and user-specified OSS). This is typically specified in CreateDataAgentSession.
         shared_ptr<string> encryptKey_ {};
+        // The encryption type for storing artifacts in OSS (including built-in and user-specified OSS).
         shared_ptr<string> encryptType_ {};
+        // The list of knowledge base IDs for this session.
         shared_ptr<vector<string>> kbUuidList_ {};
         // The language. Valid values:
         // - **CHINESE**: Chinese.
@@ -237,14 +240,15 @@ namespace Models
         // The list of MCP server IDs in the session configuration.
         shared_ptr<vector<string>> mcpServerIds_ {};
         // The mode. Valid values:
-        // - **ASK_DATA**: Ask data mode.
-        // - **ANALYSIS**: Analysis mode.
-        // - **INSIGHT**: Insight mode.
+        // - **ASK_DATA**: the data query mode.
+        // - **ANALYSIS**: the analysis mode.
+        // - **INSIGHT**: the insight mode.
         shared_ptr<string> mode_ {};
+        // The report page width.
         shared_ptr<int64_t> reportPageWidth_ {};
+        // The report watermark.
         shared_ptr<string> reportWaterMark_ {};
-        // The name of the user OSS bucket.
-        // - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+        // The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -295,8 +299,11 @@ namespace Models
 
 
       protected:
+        // The content of the recalled knowledge chunk.
         shared_ptr<string> content_ {};
+        // The similarity score of this data entry. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
         shared_ptr<double> score_ {};
+        // The type of recalled knowledge.
         shared_ptr<string> type_ {};
       };
 
@@ -338,7 +345,15 @@ namespace Models
 
 
       protected:
+        // The data source category. Valid values:
+        // 
+        // - **CHAT**: specified through the CreateDataAgentSession or SendChatMessage operation during a conversation.
+        // 
+        // - **CUSTOM_AGENT**: from the preset analysis data scope in a custom agent.
         shared_ptr<string> category_ {};
+        // The data source details.
+        // 
+        // When Category is CHAT or CUSTOM_AGENT, the structure of Detail is aligned with the structure of a single element in the DataSources parameter of the SendChatMessage operation.
         shared_ptr<string> detail_ {};
       };
 
@@ -479,13 +494,29 @@ namespace Models
 
 
       protected:
+        // The brief description of the artifact. This value may be empty.
         shared_ptr<string> description_ {};
+        // The time when the backend completed the artifact task. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> finishTime_ {};
+        // The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId returned by the SendChatMessage operation.
         shared_ptr<string> id_ {};
+        // The artifact name. This is typically a string concatenated by the system. It is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
         shared_ptr<string> name_ {};
+        // The time when the backend received the artifact request. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> receiveTime_ {};
+        // The time when the backend actually started running the artifact task. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> startTime_ {};
+        // The artifact status. Valid values:
+        // 
+        // - PENDING: The backend has received the task but has not started it.
+        // 
+        // - RUNNING: The backend has started the task but has not completed it.
+        // 
+        // - SUCCESS: The task succeeded. You can query the file information by calling the ListFileUpload operation.
+        // 
+        // - FAILED: The task failed.
         shared_ptr<string> status_ {};
+        // The artifact type. Valid values: TextReport and WebReport.
         shared_ptr<string> type_ {};
       };
 
@@ -613,18 +644,21 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The current agent status.
       shared_ptr<string> agentStatus_ {};
+      // The list of artifacts produced by the session. Currently, only reports are included.
       shared_ptr<vector<Data::Artifacts>> artifacts_ {};
       // The chat replay history.
       shared_ptr<vector<Data::ChatHistoryLocations>> chatHistoryLocations_ {};
-      // The session creation time.
+      // The time when the session was created.
       shared_ptr<int64_t> createTime_ {};
+      // The list of data sources used in the current session.
       shared_ptr<vector<Data::DataSources>> dataSources_ {};
-      // Indicates whether the session is saved as a favorite in the workspace by the current logged-in user.
+      // Indicates whether the session is saved to favorites in the workspace by the current user.
       shared_ptr<string> favoriteInWorkspace_ {};
       // The file ID.
       shared_ptr<string> file_ {};
+      // The recall results from the knowledge base and memory for this session.
       shared_ptr<vector<Data::RecallResults>> recallResults_ {};
-      // Indicates whether the session is saved as a favorite by the current logged-in user.
+      // Indicates whether the session is saved to favorites by the current user.
       shared_ptr<bool> saved_ {};
       // The session configuration item.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
@@ -688,8 +722,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The return value. Valid values:
     // 
-    // - **true**: Succeeded.
-    // - **false**: Failed.
+    // - **true**: The operation was successful.
+    // - **false**: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

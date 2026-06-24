@@ -97,6 +97,7 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // Message
       shared_ptr<string> message_ {};
+      // The message ID.
       shared_ptr<string> messageId_ {};
       // SessionId
       shared_ptr<string> sessionId_ {};

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(IsSaved, isSaved_);
+      DARABONBA_PTR_TO_JSON(Mode, mode_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(QueryType, queryType_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(IsSaved, isSaved_);
+      DARABONBA_PTR_FROM_JSON(Mode, mode_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(QueryType, queryType_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createEndTime_ == nullptr
-        && this->createStartTime_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->isSaved_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->queryType_ == nullptr && this->title_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->createStartTime_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->isSaved_ == nullptr && this->mode_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->queryType_ == nullptr && this->title_ == nullptr && this->workspaceId_ == nullptr; };
     // createEndTime Field Functions 
     bool hasCreateEndTime() const { return this->createEndTime_ != nullptr;};
     void deleteCreateEndTime() { this->createEndTime_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     void deleteIsSaved() { this->isSaved_ = nullptr;};
     inline bool getIsSaved() const { DARABONBA_PTR_GET_DEFAULT(isSaved_, false) };
     inline ListDataAgentSessionRequest& setIsSaved(bool isSaved) { DARABONBA_PTR_SET_VALUE(isSaved_, isSaved) };
+
+
+    // mode Field Functions 
+    bool hasMode() const { return this->mode_ != nullptr;};
+    void deleteMode() { this->mode_ = nullptr;};
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline ListDataAgentSessionRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // pageNumber Field Functions 
@@ -121,25 +130,26 @@ namespace Models
 
 
   protected:
-    // Session creation end time
+    // The end time of the session creation period.
     shared_ptr<int64_t> createEndTime_ {};
-    // Session creation start time
+    // The start time of the session creation period.
     shared_ptr<int64_t> createStartTime_ {};
-    // Custom Agent ID
+    // The custom agent ID.
     shared_ptr<string> customAgentId_ {};
-    // Current DMS unit
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // Whether to return only saved sessions
+    // Specifies whether to retrieve only favorited sessions.
     shared_ptr<bool> isSaved_ {};
-    // Page number for pagination
+    shared_ptr<string> mode_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of records per page
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Session type. Required when you specify a collaboration workspace.
+    // The session type. This parameter is required if a workspace is specified.
     shared_ptr<string> queryType_ {};
-    // Data Agent title (supports fuzzy search)
+    // The Data Agent title. Fuzzy match is supported.
     shared_ptr<string> title_ {};
-    // Collaboration workspace ID
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 
