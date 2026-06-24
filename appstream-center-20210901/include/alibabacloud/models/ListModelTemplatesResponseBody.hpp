@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The name of the Agent provider.
       shared_ptr<string> agentProvider_ {};
+      // The model group configuration JSON object.
       shared_ptr<string> config_ {};
+      // The template group description.
       shared_ptr<string> description_ {};
+      // Specifies whether models have been configured in the group.
       shared_ptr<bool> hasModel_ {};
+      // The model group ID.
       shared_ptr<string> modelTemplateId_ {};
+      // The template group name.
       shared_ptr<string> name_ {};
     };
 
@@ -160,10 +166,15 @@ namespace Models
 
 
   protected:
+    // The list of returned data objects.
     shared_ptr<vector<ListModelTemplatesResponseBody::Data>> data_ {};
+    // The page number of the current query result.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page in the query result.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries in the query result.
     shared_ptr<int32_t> totalCount_ {};
   };
 

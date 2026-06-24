@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the workstation.
+    // The ID of the cloud graphics workstation.
     // 
     // This parameter is required.
     shared_ptr<string> wuyingServerId_ {};

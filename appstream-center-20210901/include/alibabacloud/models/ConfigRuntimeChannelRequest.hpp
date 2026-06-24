@@ -106,17 +106,32 @@ namespace Models
 
 
   protected:
+    // The Agent platform (such as ENTERPRISE or JVS).
     shared_ptr<string> agentPlatform_ {};
+    // The Agent provider.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
+    // The third-party channel code.
+    // 
     // This parameter is required.
     shared_ptr<string> code_ {};
+    // The channel configuration JSON string.
+    // 
     // This parameter is required.
     shared_ptr<string> config_ {};
+    // The configuration mode.
     shared_ptr<string> configMode_ {};
+    // The channel name.
+    // 
+    // If you leave this parameter empty, the system automatically uses the value of Code as the name.
     shared_ptr<string> name_ {};
+    // The list of runtime IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> runtimeIds_ {};
+    // The Agent runtime type.
+    // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};
   };

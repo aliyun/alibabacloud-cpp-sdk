@@ -110,9 +110,9 @@ namespace Models
 
 
     protected:
-      // The key of the custom tag.
+      // The custom tag key.
       shared_ptr<string> key_ {};
-      // The value of the custom tag.
+      // The custom tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -289,106 +289,49 @@ namespace Models
 
 
   protected:
-    // The regions that are supported. The EDS images are centralized. Use this parameter to query the regions where the image is deployed.
+    // The list of supported regions.
+    // WUYING images are centralized. Use this parameter to query the regions where the image is deployed.
     shared_ptr<vector<string>> bizRegionIdList_ {};
-    // The service type. This parameter is not available publicly.
-    // 
-    // Valid value:
-    // 
-    // *   1 (default)
+    // The business type. This parameter is not publicly available.
     shared_ptr<int32_t> bizType_ {};
-    // The list of all service types. It is not available publicly.
+    // The list of all business types. This parameter is not publicly available.
     shared_ptr<vector<int32_t>> bizTypeList_ {};
     shared_ptr<string> distro_ {};
-    // The features supported by the image.
+    // The list of features supported by the image.
     shared_ptr<vector<string>> featureList_ {};
-    // The image version.
+    // The image version information.
     shared_ptr<string> fotaVersion_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
     // The image name. Fuzzy match is supported.
     shared_ptr<string> imageName_ {};
-    // The type of the images.
-    // 
-    // Valid values:
-    // 
-    // *   User: a custom image.
-    // *   Shared: a shared image.
-    // *   System: a system image.
-    // *   Community: a community image.
+    // The image type.
     shared_ptr<string> imageType_ {};
     // The language.
-    // 
-    // Valid values:
-    // 
-    // *   en-US: English.
-    // *   zh-HK: Chinese, Traditional (Hong Kong, China).
-    // *   zh-CN: Simplified Chinese.
-    // *   ja-JP: Japanese.
     shared_ptr<string> languageType_ {};
-    // The OS type of the image.
-    // 
-    // Valid values:
-    // 
-    // *   Linux
-    // *   Unknown
-    // *   Windows
-    // *   Android
+    // The operating system type of the image.
     shared_ptr<string> osType_ {};
-    // The image encapsulation type.
-    // 
-    // Valid values:
-    // 
-    // *   Ecs_Container: ECS and Docker image
-    // *   Ecs: ECS image
+    // The image package type.
     shared_ptr<string> packageType_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100. Default value: 10.
+    // The number of entries per page for paging queries. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the operating system platform.
-    // 
-    // Valid values:
-    // 
-    // *   Ubuntu
-    // *   Debian
-    // *   Windows Server 2022
-    // *   Windows Server 2019
-    // *   Windows Server 2016
-    // *   Windows 11
-    // *   Windows 10
+    // The operating system platform name.
     shared_ptr<string> platformName_ {};
     // The list of supported platform types. For valid values, refer to PlatformName above.
     shared_ptr<vector<string>> platformNameList_ {};
     // The product type.
-    // 
-    // Valid values:
-    // 
-    // *   CloudDesktop: Elastic Desktop Service
-    // *   CloudApp: App Streaming
-    // *   WuyingServer: Workstation
     shared_ptr<string> productType_ {};
-    // The list of products that are supported when the image supports multiple products.
+    // The list of products supported when the image supports multiple products.
     shared_ptr<vector<string>> productTypeList_ {};
     // The protocol type of the image.
-    // 
-    // Valid values:
-    // 
-    // *   HDX: the High-definition Experience (HDX) protocol
-    // *   ASP: the Alibaba Cloud-developed ASP protocol
     shared_ptr<string> protocolType_ {};
-    // Find images with certain fixed specifications.
+    // Queries images of specific defined specifications.
     shared_ptr<string> resourceInstanceType_ {};
-    // The status of the image. You can query images in the specified status. By default, all images in the Not Deleted state are queried.
-    // 
-    // Valid values:
-    // 
-    // *   AVAILABLE: The image is available.
-    // *   INIT: The image is being initialized.
-    // *   CREATE_FAILED: The image failed to be created.
-    // *   CREATING: The image is being created.
+    // The image status. Specifies the status of images to query. By default, all images that are not deleted are queried.
     shared_ptr<string> status_ {};
-    // The tags to query.
+    // The tags for query.
     shared_ptr<vector<ListImageRequest::TagList>> tagList_ {};
   };
 

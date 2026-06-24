@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
+    // The Agent provider name.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
+    // The business type.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
+    // The template group description.
     shared_ptr<string> description_ {};
+    // The template group name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

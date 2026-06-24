@@ -176,52 +176,41 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the resource resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-    // 
-    // Valid values:
-    // 
-    // *   cn-shanghai: China (Shanghai)
-    // *   cn-hangzhou: China (Hangzhou)
+    // The region ID of the resource. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     shared_ptr<string> bizRegionId_ {};
+    // The number of CPU cores.
     shared_ptr<float> cpu_ {};
+    // The number of GPUs.
     shared_ptr<float> gpu_ {};
+    // The GPU memory size. This parameter is meaningful only for GPU-accelerated cloud desktops. Unit: MB.
     shared_ptr<int32_t> gpuMemory_ {};
     shared_ptr<string> instanceTypeForModify_ {};
-    // The language that you want to use.
-    // 
-    // Valid values:
-    // 
-    // *   en-US: English (US)
-    // *   zh-CN: Simplified Chinese
+    // The language type.
     shared_ptr<string> language_ {};
+    // The memory size. Unit: MB.
     shared_ptr<int32_t> memory_ {};
-    // The resource type that you want to query. If you do not configure this parameter, all resource types are returned.
+    // The resource specification type to query. If you leave this parameter empty, all specification types are returned.
     shared_ptr<string> nodeInstanceType_ {};
+    // The instance family.
     shared_ptr<string> nodeInstanceTypeFamily_ {};
+    // CPU/Memory.
     shared_ptr<string> orderBy_ {};
     shared_ptr<string> orderType_ {};
-    // The operating system that is supported.
-    // 
-    // Valid value:
-    // 
-    // *   Windows: the Windows operating system
+    // The supported operating system type.
     shared_ptr<string> osType_ {};
-    // The number of the page to return.
+    // The page number of the query results to display.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100.
+    // The number of query results per page. Valid values: 1 to 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
     // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
-    // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
+    // DESC/ASC.
     shared_ptr<string> sortType_ {};
   };
 

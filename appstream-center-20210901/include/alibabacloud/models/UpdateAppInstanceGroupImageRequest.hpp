@@ -66,28 +66,19 @@ namespace Models
 
 
   protected:
-    // The image ID of the application. You can obtain the ID from the Images page in the App Streaming console.
+    // The application image ID. You can obtain this ID from the Image Management page in the WUYING Cloud Application console.
     // 
     // This parameter is required.
     shared_ptr<string> appCenterImageId_ {};
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-    // 
-    // Valid values:
-    // 
-    // *   cn-shanghai: China (Shanghai).
-    // *   cn-hangzhou: China (Hangzhou)
+    // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

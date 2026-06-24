@@ -122,12 +122,19 @@ namespace Models
 
 
     protected:
+      // The model configuration JSON object.
       shared_ptr<string> config_ {};
+      // The template description.
       shared_ptr<string> description_ {};
+      // Indicates whether this is the default model in the associated model group.
       shared_ptr<bool> isDefaultModel_ {};
+      // The model code.
       shared_ptr<string> llmCode_ {};
+      // The model template ID.
       shared_ptr<string> llmTemplateId_ {};
+      // The template name.
       shared_ptr<string> name_ {};
+      // The ID of the model provider template.
       shared_ptr<string> providerTemplateId_ {};
     };
 
@@ -171,10 +178,15 @@ namespace Models
 
 
   protected:
+    // The list of returned data objects.
     shared_ptr<vector<ListLlmTemplatesResponseBody::Data>> data_ {};
+    // The page number of the current page.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

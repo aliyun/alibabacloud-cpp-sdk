@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The model code that is skipped.
         shared_ptr<string> llmCode_ {};
+        // The reason why the model is skipped.
         shared_ptr<string> reason_ {};
       };
 
@@ -134,9 +136,13 @@ namespace Models
 
 
     protected:
+      // The list of IDs of the model templates that are created.
       shared_ptr<vector<string>> llmTemplateIds_ {};
+      // The list of skipped model configuration items.
       shared_ptr<vector<Data::SkippedItems>> skippedItems_ {};
+      // The number of model templates that are created.
       shared_ptr<int32_t> successCount_ {};
+      // The total number of requests.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -159,7 +165,9 @@ namespace Models
 
 
   protected:
+    // The returned data object.
     shared_ptr<BatchCreateLlmTemplatesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

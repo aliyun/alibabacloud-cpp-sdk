@@ -97,9 +97,9 @@ namespace Models
 
 
       protected:
-        // The description of the price calculation rule.
+        // The pricing rule description.
         shared_ptr<string> description_ {};
-        // The ID of the price calculation rule.
+        // The pricing rule ID.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -203,12 +203,7 @@ namespace Models
           shared_ptr<string> promotionId_ {};
           // The coupon name.
           shared_ptr<string> promotionName_ {};
-          // Indicates whether the coupon was used.
-          // 
-          // Valid values:
-          // 
-          // *   true
-          // *   false
+          // Indicates whether the coupon is selected.
           shared_ptr<bool> selected_ {};
         };
 
@@ -252,15 +247,15 @@ namespace Models
 
 
       protected:
-        // The currency type.
+        // The currency.
         shared_ptr<string> currency_ {};
-        // The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+        // The discount amount. The actual price equals the original price minus the discount amount.
         shared_ptr<string> discountPrice_ {};
         // The original price.
         shared_ptr<string> originalPrice_ {};
         // The coupon metadata.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+        // The actual price. The actual price equals the original price minus the discount amount.
         shared_ptr<string> tradePrice_ {};
       };
 
@@ -287,7 +282,7 @@ namespace Models
     protected:
       // The price details.
       shared_ptr<PriceModel::Price> price_ {};
-      // The price calculation rules.
+      // The pricing rules.
       shared_ptr<vector<PriceModel::Rules>> rules_ {};
     };
 
@@ -352,9 +347,9 @@ namespace Models
 
 
       protected:
-        // The description of the price calculation rule.
+        // The pricing rule description.
         shared_ptr<string> description_ {};
-        // The ID of the price calculation rule.
+        // The pricing rule ID.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -458,12 +453,7 @@ namespace Models
           shared_ptr<string> promotionId_ {};
           // The coupon name.
           shared_ptr<string> promotionName_ {};
-          // Indicates whether the coupon was used.
-          // 
-          // Valid values:
-          // 
-          // *   true
-          // *   false
+          // Indicates whether the coupon is selected.
           shared_ptr<bool> selected_ {};
         };
 
@@ -507,15 +497,15 @@ namespace Models
 
 
       protected:
-        // The currency type.
+        // The currency.
         shared_ptr<string> currency_ {};
-        // The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+        // The discount amount. The actual price equals the original price minus the discount amount.
         shared_ptr<string> discountPrice_ {};
         // The original price.
         shared_ptr<string> originalPrice_ {};
         // The coupon metadata.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+        // The actual price. The actual price equals the original price minus the discount amount.
         shared_ptr<string> tradePrice_ {};
       };
 
@@ -550,13 +540,8 @@ namespace Models
       // The price details.
       shared_ptr<PriceList::Price> price_ {};
       // The price type.
-      // 
-      // Valid values:
-      // 
-      // *   Connected: in use
-      // *   Standby: pending for use.
       shared_ptr<string> priceType_ {};
-      // The price calculation rules.
+      // The pricing rules.
       shared_ptr<vector<PriceList::Rules>> rules_ {};
     };
 
@@ -602,17 +587,17 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error code returned when an error occurs.
     shared_ptr<string> code_ {};
-    // The error message.
+    // The error message returned when an error occurs.
     shared_ptr<string> message_ {};
-    // The price objects.
+    // The list of price objects.
     // 
-    // This parameter is returned only if a value is specified for AppInstanceType.
+    // This parameter is returned when the request parameter AppInstanceType has a value.
     shared_ptr<vector<GetResourcePriceResponseBody::PriceList>> priceList_ {};
     // The price object.
     // 
-    // This parameter is returned only if a value is specified for NodeInstanceType.
+    // This parameter is returned when the request parameter NodeInstanceType has a value.
     shared_ptr<GetResourcePriceResponseBody::PriceModel> priceModel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

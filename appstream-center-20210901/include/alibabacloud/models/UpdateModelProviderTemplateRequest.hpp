@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // The API key of the model service, which is used for authentication. The key is encrypted after it is created.
       shared_ptr<string> apiKey_ {};
+      // The API protocol type.
       shared_ptr<string> apiType_ {};
+      // The base URL of the model service API.
       shared_ptr<string> baseUrl_ {};
     };
 
@@ -129,10 +132,16 @@ namespace Models
 
 
   protected:
+    // The model provider configuration.
     shared_ptr<UpdateModelProviderTemplateRequest::Config> config_ {};
+    // The description of the model provider template.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable the Wuying security gateway proxy.
     shared_ptr<bool> enableWuyingProxy_ {};
+    // The name of the model provider template.
     shared_ptr<string> name_ {};
+    // The ID of the model provider template.
+    // 
     // This parameter is required.
     shared_ptr<string> providerTemplateId_ {};
   };

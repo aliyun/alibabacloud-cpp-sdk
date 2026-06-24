@@ -68,6 +68,8 @@ namespace Models
 
 
     protected:
+      // product type
+      // 
       // This parameter is required.
       shared_ptr<string> productType_ {};
     };
@@ -119,13 +121,21 @@ namespace Models
 
 
   protected:
+    // List of delivery scopes
+    // 
     // This parameter is required.
     shared_ptr<vector<DeliverToUserSlsRequest::DeliveryScopes>> deliveryScopes_ {};
+    // Existing Simple Log Service project name; either this or ProjectName is required
     shared_ptr<string> existedProjectName_ {};
+    // LogStore name
     shared_ptr<string> logStoreName_ {};
+    // Simple Log Service project name; either this or ExistedProjectName is required
     shared_ptr<string> projectName_ {};
+    // Region ID of Simple Log Service
+    // 
     // This parameter is required.
     shared_ptr<string> slsRegionId_ {};
+    // Data retention period (Day), default 30
     shared_ptr<int32_t> ttl_ {};
   };
 

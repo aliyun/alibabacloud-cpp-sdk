@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The ID of the resource group. This parameter is returned if a resource group was created.
+      // The resource group ID. This parameter is returned if a resource group is created at the same time.
       shared_ptr<string> nodePoolId_ {};
       // The order ID.
       shared_ptr<string> orderId_ {};

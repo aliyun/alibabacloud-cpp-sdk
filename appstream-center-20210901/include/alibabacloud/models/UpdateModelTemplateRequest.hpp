@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The model group configuration JSON object.
     shared_ptr<string> config_ {};
+    // The template group description.
     shared_ptr<string> description_ {};
+    // The model group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> modelTemplateId_ {};
+    // The template group name.
     shared_ptr<string> name_ {};
   };
 

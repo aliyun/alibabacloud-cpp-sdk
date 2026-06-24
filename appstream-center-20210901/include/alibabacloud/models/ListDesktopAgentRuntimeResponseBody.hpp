@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_TO_JSON(HasAuthUser, hasAuthUser_);
+        DARABONBA_PTR_TO_JSON(ManagementStatuses, managementStatuses_);
         DARABONBA_PTR_TO_JSON(ModelConfigure, modelConfigure_);
         DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
         DARABONBA_PTR_TO_JSON(ModelTemplateName, modelTemplateName_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_FROM_JSON(HasAuthUser, hasAuthUser_);
+        DARABONBA_PTR_FROM_JSON(ManagementStatuses, managementStatuses_);
         DARABONBA_PTR_FROM_JSON(ModelConfigure, modelConfigure_);
         DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
         DARABONBA_PTR_FROM_JSON(ModelTemplateName, modelTemplateName_);
@@ -140,8 +142,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether the agent is uninstalled.
         shared_ptr<bool> agentUninstalled_ {};
+        // Indicates whether the third-party channel configuration is modified (inconsistent with the admin-distributed configuration).
         shared_ptr<bool> channelModified_ {};
+        // Indicates whether the model configuration is modified (inconsistent with the admin-distributed configuration).
         shared_ptr<bool> modelModified_ {};
       };
 
@@ -183,7 +188,9 @@ namespace Models
 
 
       protected:
+        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
+        // The resource group name.
         shared_ptr<string> resourceGroupName_ {};
       };
 
@@ -192,6 +199,8 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const AgentInstanceInfoList& obj) { 
           DARABONBA_PTR_TO_JSON(AgentInstanceStatus, agentInstanceStatus_);
           DARABONBA_PTR_TO_JSON(AgentInstanceVersion, agentInstanceVersion_);
+          DARABONBA_PTR_TO_JSON(AgentPlatform, agentPlatform_);
+          DARABONBA_PTR_TO_JSON(AgentProvider, agentProvider_);
           DARABONBA_PTR_TO_JSON(ChannelConfigure, channelConfigure_);
           DARABONBA_PTR_TO_JSON(ChannelConfiguredList, channelConfiguredList_);
           DARABONBA_PTR_TO_JSON(DeploymentSource, deploymentSource_);
@@ -201,6 +210,8 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, AgentInstanceInfoList& obj) { 
           DARABONBA_PTR_FROM_JSON(AgentInstanceStatus, agentInstanceStatus_);
           DARABONBA_PTR_FROM_JSON(AgentInstanceVersion, agentInstanceVersion_);
+          DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
+          DARABONBA_PTR_FROM_JSON(AgentProvider, agentProvider_);
           DARABONBA_PTR_FROM_JSON(ChannelConfigure, channelConfigure_);
           DARABONBA_PTR_FROM_JSON(ChannelConfiguredList, channelConfiguredList_);
           DARABONBA_PTR_FROM_JSON(DeploymentSource, deploymentSource_);
@@ -219,8 +230,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentInstanceStatus_ == nullptr
-        && this->agentInstanceVersion_ == nullptr && this->channelConfigure_ == nullptr && this->channelConfiguredList_ == nullptr && this->deploymentSource_ == nullptr && this->modelConfigure_ == nullptr
-        && this->modelTemplateId_ == nullptr; };
+        && this->agentInstanceVersion_ == nullptr && this->agentPlatform_ == nullptr && this->agentProvider_ == nullptr && this->channelConfigure_ == nullptr && this->channelConfiguredList_ == nullptr
+        && this->deploymentSource_ == nullptr && this->modelConfigure_ == nullptr && this->modelTemplateId_ == nullptr; };
         // agentInstanceStatus Field Functions 
         bool hasAgentInstanceStatus() const { return this->agentInstanceStatus_ != nullptr;};
         void deleteAgentInstanceStatus() { this->agentInstanceStatus_ = nullptr;};
@@ -233,6 +244,20 @@ namespace Models
         void deleteAgentInstanceVersion() { this->agentInstanceVersion_ = nullptr;};
         inline string getAgentInstanceVersion() const { DARABONBA_PTR_GET_DEFAULT(agentInstanceVersion_, "") };
         inline AgentInstanceInfoList& setAgentInstanceVersion(string agentInstanceVersion) { DARABONBA_PTR_SET_VALUE(agentInstanceVersion_, agentInstanceVersion) };
+
+
+        // agentPlatform Field Functions 
+        bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
+        void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
+        inline string getAgentPlatform() const { DARABONBA_PTR_GET_DEFAULT(agentPlatform_, "") };
+        inline AgentInstanceInfoList& setAgentPlatform(string agentPlatform) { DARABONBA_PTR_SET_VALUE(agentPlatform_, agentPlatform) };
+
+
+        // agentProvider Field Functions 
+        bool hasAgentProvider() const { return this->agentProvider_ != nullptr;};
+        void deleteAgentProvider() { this->agentProvider_ = nullptr;};
+        inline string getAgentProvider() const { DARABONBA_PTR_GET_DEFAULT(agentProvider_, "") };
+        inline AgentInstanceInfoList& setAgentProvider(string agentProvider) { DARABONBA_PTR_SET_VALUE(agentProvider_, agentProvider) };
 
 
         // channelConfigure Field Functions 
@@ -273,12 +298,21 @@ namespace Models
 
 
       protected:
+        // The agent instance status.
         shared_ptr<string> agentInstanceStatus_ {};
+        // The agent instance version.
         shared_ptr<string> agentInstanceVersion_ {};
+        shared_ptr<string> agentPlatform_ {};
+        shared_ptr<string> agentProvider_ {};
+        // Indicates whether the agent instance has a configured third-party channel.
         shared_ptr<bool> channelConfigure_ {};
+        // The list of third-party channels configured for the agent instance.
         shared_ptr<vector<string>> channelConfiguredList_ {};
+        // The deployment source.
         shared_ptr<string> deploymentSource_ {};
+        // Indicates whether the agent instance has a configured model.
         shared_ptr<bool> modelConfigure_ {};
+        // The configured model group ID.
         shared_ptr<string> modelTemplateId_ {};
       };
 
@@ -320,15 +354,17 @@ namespace Models
 
 
       protected:
+        // The agent IM status.
         shared_ptr<string> agentImStatus_ {};
+        // The CloudSpace status.
         shared_ptr<string> cloudSpaceStatus_ {};
       };
 
       virtual bool empty() const override { return this->agentImInfo_ == nullptr
         && this->agentInstanceInfoList_ == nullptr && this->authUsers_ == nullptr && this->channelConfigure_ == nullptr && this->channelConfiguredList_ == nullptr && this->desktopId_ == nullptr
-        && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->hasAuthUser_ == nullptr && this->modelConfigure_ == nullptr && this->modelTemplateId_ == nullptr
-        && this->modelTemplateName_ == nullptr && this->osType_ == nullptr && this->qrCodeConfiguringList_ == nullptr && this->regionId_ == nullptr && this->regionLocation_ == nullptr
-        && this->resourceGroup_ == nullptr && this->resourceId_ == nullptr && this->riskInfo_ == nullptr; };
+        && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->hasAuthUser_ == nullptr && this->managementStatuses_ == nullptr && this->modelConfigure_ == nullptr
+        && this->modelTemplateId_ == nullptr && this->modelTemplateName_ == nullptr && this->osType_ == nullptr && this->qrCodeConfiguringList_ == nullptr && this->regionId_ == nullptr
+        && this->regionLocation_ == nullptr && this->resourceGroup_ == nullptr && this->resourceId_ == nullptr && this->riskInfo_ == nullptr; };
       // agentImInfo Field Functions 
       bool hasAgentImInfo() const { return this->agentImInfo_ != nullptr;};
       void deleteAgentImInfo() { this->agentImInfo_ = nullptr;};
@@ -398,6 +434,15 @@ namespace Models
       void deleteHasAuthUser() { this->hasAuthUser_ = nullptr;};
       inline bool getHasAuthUser() const { DARABONBA_PTR_GET_DEFAULT(hasAuthUser_, false) };
       inline Data& setHasAuthUser(bool hasAuthUser) { DARABONBA_PTR_SET_VALUE(hasAuthUser_, hasAuthUser) };
+
+
+      // managementStatuses Field Functions 
+      bool hasManagementStatuses() const { return this->managementStatuses_ != nullptr;};
+      void deleteManagementStatuses() { this->managementStatuses_ = nullptr;};
+      inline const vector<string> & getManagementStatuses() const { DARABONBA_PTR_GET_CONST(managementStatuses_, vector<string>) };
+      inline vector<string> getManagementStatuses() { DARABONBA_PTR_GET(managementStatuses_, vector<string>) };
+      inline Data& setManagementStatuses(const vector<string> & managementStatuses) { DARABONBA_PTR_SET_VALUE(managementStatuses_, managementStatuses) };
+      inline Data& setManagementStatuses(vector<string> && managementStatuses) { DARABONBA_PTR_SET_RVALUE(managementStatuses_, managementStatuses) };
 
 
       // modelConfigure Field Functions 
@@ -477,24 +522,44 @@ namespace Models
 
 
     protected:
+      // The agent IM information.
       shared_ptr<Data::AgentImInfo> agentImInfo_ {};
+      // The list of agent instance information.
       shared_ptr<vector<Data::AgentInstanceInfoList>> agentInstanceInfoList_ {};
+      // The list of authorized users.
       shared_ptr<vector<string>> authUsers_ {};
+      // Indicates whether the agent runtime has a configured third-party channel.
       shared_ptr<bool> channelConfigure_ {};
+      // The list of third-party channels configured for the agent runtime.
       shared_ptr<vector<string>> channelConfiguredList_ {};
+      // The agent runtime ID.
       shared_ptr<string> desktopId_ {};
+      // The agent runtime name.
       shared_ptr<string> desktopName_ {};
+      // The cloud computer status.
       shared_ptr<string> desktopStatus_ {};
+      // Indicates whether authorized users exist.
       shared_ptr<bool> hasAuthUser_ {};
+      shared_ptr<vector<string>> managementStatuses_ {};
+      // Indicates whether the agent runtime has a configured model.
       shared_ptr<bool> modelConfigure_ {};
+      // The effective model template ID (returned only when modelConfigure=true).
       shared_ptr<string> modelTemplateId_ {};
+      // The effective model template name (returned only when modelConfigure=true).
       shared_ptr<string> modelTemplateName_ {};
+      // The operating system type.
       shared_ptr<string> osType_ {};
+      // The list of channels in QR code configuration.
       shared_ptr<vector<string>> qrCodeConfiguringList_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The region location (domestic/overseas).
       shared_ptr<string> regionLocation_ {};
+      // The resource group information.
       shared_ptr<Data::ResourceGroup> resourceGroup_ {};
+      // The resource ID, which is the cloud computer ID.
       shared_ptr<string> resourceId_ {};
+      // The risk information (returned only when the request parameter IncludeRiskInfo is set to true, otherwise null).
       shared_ptr<Data::RiskInfo> riskInfo_ {};
     };
 
@@ -538,10 +603,15 @@ namespace Models
 
 
   protected:
+    // The list of returned result objects.
     shared_ptr<vector<ListDesktopAgentRuntimeResponseBody::Data>> data_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

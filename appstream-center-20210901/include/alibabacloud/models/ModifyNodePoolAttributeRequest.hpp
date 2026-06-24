@@ -147,11 +147,11 @@ namespace Models
 
 
         protected:
-          // The number of resources.
+          // The resource count.
           shared_ptr<int32_t> amount_ {};
-          // The end of the time period during which the scaling policy is executed. Format: HH:mm.
+          // The end time. Format: HH:mm.
           shared_ptr<string> endTime_ {};
-          // The beginning of the time period during which the scaling policy is executed. Format: HH:mm.
+          // The start time. Format: HH:mm.
           shared_ptr<string> startTime_ {};
         };
 
@@ -183,21 +183,17 @@ namespace Models
 
 
       protected:
-        // The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
-        // 
-        // Valid values:
-        // 
-        // *   weekly: The scaling policy is executed on specific days each week.
+        // The type of the policy execution cycle. You must specify both `RecurrenceType` and `RecurrenceValues`.
         shared_ptr<string> recurrenceType_ {};
-        // The days of each week on which the scaling policy is executed.
+        // The list of values for the policy execution cycle.
         shared_ptr<vector<int32_t>> recurrenceValues_ {};
-        // The time periods during which the scaling policy can be executed. The time periods must meet the following requirements:
+        // The list of time periods for the policy execution cycle. Requirements for time period settings:
         // 
-        // *   Up to three time periods can be added.
-        // *   Time periods cannot be overlapped.
-        // *   The interval between two consecutive time periods must be greater than or equal to 5 minutes.
-        // *   Each time period must be greater than or equal to 15 minutes.
-        // *   The total length of the time periods that you specify cannot be greater than a day.
+        // - You can add up to three time periods.
+        // - Time periods must not overlap.
+        // - The interval between time periods must be at least 5 minutes.
+        // - Each time period must be at least 15 minutes long.
+        // - All time periods combined must not span across days.
         shared_ptr<vector<RecurrenceSchedules::TimerPeriods>> timerPeriods_ {};
       };
 
@@ -284,47 +280,39 @@ namespace Models
 
 
     protected:
-      // The maximum number of idle sessions. After you specify a value for this parameter, auto scaling is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that the idle sessions in the delivery group are sufficient and does not perform auto scaling.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
+      // The maximum number of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the current delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the idle sessions in the delivery group are considered sufficient, and no automatic scale-out is performed. This parameter can be used to flexibly control elastic scale-out behavior and reduce costs.
       shared_ptr<int32_t> maxIdleAppInstanceAmount_ {};
-      // The maximum number of resources that can be created for scale-out. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
+      // The maximum number of resources that can be created during scale-out. This parameter is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE`.
       shared_ptr<int32_t> maxScalingAmount_ {};
-      // The number of resources to purchase. Valid values: 1 to 100.
+      // The number of purchased resources. Valid values: 1 to 100.
       // 
       // > 
-      // 
-      // *   If you use subscription resources, you cannot modify this parameter.
-      // *   If you use pay-as-you-go resources, you can modify this parameter only if you set `StrategyType` to `NODE_FIXED` or `NODE_SCALING_BY_USAGE`.
+      // - If the resources are subscription resources, this parameter cannot be modified.
+      // - If the resources are pay-as-you-go resources, this parameter can be modified when the scaling mode (`StrategyType`) is set to fixed quantity (`NODE_FIXED`) or automatic scaling (`NODE_SCALING_BY_USAGE`).
       shared_ptr<int32_t> nodeAmount_ {};
-      // The intervals at which the scaling policy is executed. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // The list of policy execution cycles. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<vector<NodePoolStrategy::RecurrenceSchedules>> recurrenceSchedules_ {};
-      // The maximum retention period of a resource to which no session is connected. If no session is connected to a resource, the resource is automatically scaled in after the specified retention period elapses. Valid values: 5 to 120. Default value: 5. Unit: minutes. If one of the following situations occurs, the resource is not scaled in.
+      // The maximum duration (in minutes) that a resource without session connections is retained. When no sessions are connected to a resource, a countdown starts based on the duration specified here. The resource is scaled in when the countdown ends. Valid values: 5 to 120. Default value: 5. The following exceptions apply:
       // 
-      // *   If a scale-out is automatically triggered after the resource is scaled in, the scale-in is not executed. This prevents repeated scale-in and scale-out.
-      // *   If a scale-out is automatically triggered due to an increase in the number of sessions during the specified period of time, the resource is not scaled in and the countdown restarts.
+      // - If scale-in would trigger automatic scale-out again, the scale-in is not performed to avoid repeated scale-in and scale-out operations.
+      // - If automatic scale-out is triggered by an increase in sessions during this period, the resource is not scaled in as originally planned, and the countdown restarts.
       shared_ptr<int32_t> scalingDownAfterIdleMinutes_ {};
-      // The number of resources that are created each time resources are scaled out. Valid values: 1 to 10. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
+      // The number of resources created per scale-out operation. Valid values: 1 to 10. This parameter is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE`.
       shared_ptr<int32_t> scalingStep_ {};
-      // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
+      // The upper threshold of session usage (%). Automatic scale-out is triggered when the session usage exceeds this threshold. The session usage is calculated by using the following formula: `Session usage = Current sessions ÷ (Total resources × Concurrent sessions per resource) × 100%`. This parameter is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
       shared_ptr<string> scalingUsageThreshold_ {};
-      // The expiration date of the scaling policy. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be from 7 days to 1 year. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // The date when the policy expires. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be between 7 days and 1 year, inclusive. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<string> strategyDisableDate_ {};
-      // The effective date of the scaling policy. Format: yyyy-MM-dd. The date must be the same as or later than the current date. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // The date when the policy takes effect. Format: yyyy-MM-dd. The date must be equal to or later than the current date. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<string> strategyEnableDate_ {};
       // The scaling mode.
       // 
       // > 
-      // 
-      // *   `NODE_FIXED`: no scaling. This value is applicable to pay-as-you-go resources and subscription resources.
-      // *   `NODE_SCALING_BY_USAGE`: auto scaling. This value is applicable to pay-as-you-go resources and subscription resources.
-      // *   `NODE_SCALING_BY_SCHEDULE`: scheduled scaling. This value is applicable only to pay-as-you-go resources.
-      // 
-      // Valid values:
-      // 
-      // *   NODE_FIXED: no scaling
-      // *   NODE_SCALING_BY_SCHEDULE: scheduled scaling
-      // *   NODE_SCALING_BY_USAGE: auto scaling
+      // - `NODE_FIXED` (fixed quantity): Applicable to subscription and pay-as-you-go resources.
+      // - `NODE_SCALING_BY_USAGE` (automatic scaling): Applicable to subscription and pay-as-you-go resources.
+      // - `NODE_SCALING_BY_SCHEDULE` (scheduled scaling): Applicable only to pay-as-you-go resources.
       shared_ptr<string> strategyType_ {};
-      // Specifies whether to enable the warmup policy for resources. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // Specifies whether to enable the resource prefetch policy. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<bool> warmUp_ {};
     };
 
@@ -368,22 +356,21 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-    // 
-    // Valid values:
-    // 
-    // *   cn-shanghai: China (Shanghai)
-    // *   cn-hangzhou: China (Hangzhou)
+    // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     shared_ptr<string> bizRegionId_ {};
+    // The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
+    // 
+    // - appstreaming.general.4c8g: 1 to 2.
+    // - appstreaming.general.8c16g: 1 to 4.
+    // - appstreaming.vgpu.8c16g.4g: 1 to 4.
+    // - appstreaming.vgpu.8c31g.16g: 1 to 4.
+    // - appstreaming.vgpu.14c93g.12g: 1 to 6.
     shared_ptr<int32_t> nodeCapacity_ {};
-    // The auto scaling policy used by the delivery group.
+    // The automatic scaling policy of the delivery group.
     shared_ptr<ModifyNodePoolAttributeRequest::NodePoolStrategy> nodePoolStrategy_ {};
+    // The resource group ID.
     shared_ptr<string> poolId_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     shared_ptr<string> productType_ {};
   };
 

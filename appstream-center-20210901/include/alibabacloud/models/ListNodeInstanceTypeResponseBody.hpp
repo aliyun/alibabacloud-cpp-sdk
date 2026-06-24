@@ -135,28 +135,34 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The number of GPUs.
       shared_ptr<string> gpu_ {};
-      // The GPU size. Unit: MB.
+      // The GPU memory size. Unit: MB.
       shared_ptr<int64_t> gpuMemory_ {};
-      // The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
+      // The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
       // 
-      // *   appstreaming.general.4c8g: 1 to 2
-      // *   appstreaming.general.8c16g: 1 to 4
-      // *   appstreaming.vgpu.8c16g.4g: 1 to 4
-      // *   appstreaming.vgpu.8c31g.16g: 1 to 4
-      // *   appstreaming.vgpu.14c93g.12g: 1 to 6
+      // - appstreaming.general.2c4g: 1
+      // - appstreaming.general.4c8g: 1 to 2
+      // - appstreaming.general.8c16g: 1 to 4
+      // - appstreaming.vgpu.8c16g.4g: 1 to 4
+      // - appstreaming.vgpu.8c31g.16g: 1 to 4
+      // - appstreaming.vgpu.14c93g.12g: 1 to 7
+      // - appstreaming.vgpu.4c10g.2gt4: 1 to 2
+      // - appstreaming.vgpu.4c16g.2ga10: 1 to 2
+      // - appstreaming.vgpu.8c16g.4g: 1 to 4
+      // - appstreaming.vgpu.8c31g.16g: 1 to 4
+      // - appstreaming.vgpu.8c16g.4gt4: 1 to 4
+      // - appstreaming.vgpu.8c32g.4ga10: 1 to 4
+      // - appstreaming.vgpu.12c46g.11g28: 1 to 6
+      // - appstreaming.vgpu.14c93g.12g: 1 to 7
+      // - appstreaming.vgpu.16c32g.8g: 1 to 8
+      // - appstreaming.vgpu.16c62g.8ga10: 1 to 8.
       shared_ptr<int32_t> maxCapacity_ {};
       // The memory size. Unit: MB.
       shared_ptr<int64_t> memory_ {};
-      // The ID of the resource type.
+      // The ID of the resource specification type.
       shared_ptr<string> nodeInstanceType_ {};
-      // The resource type family.
-      // 
-      // Valid values:
-      // 
-      // *   appstreaming.general: WUYING - General
-      // *   appstreaming.vgpu: WUYING - Graphics
+      // The resource specification family.
       shared_ptr<string> nodeInstanceTypeFamily_ {};
-      // The name of the resource type.
+      // The name of the resource specification.
       shared_ptr<string> nodeTypeName_ {};
     };
 
@@ -200,15 +206,15 @@ namespace Models
 
 
   protected:
-    // The resource types.
+    // The list of resource specifications.
     shared_ptr<vector<ListNodeInstanceTypeResponseBody::NodeInstanceTypeModels>> nodeInstanceTypeModels_ {};
-    // The page number of the returned page.
+    // The page number of the query results currently displayed.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on each page.
+    // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

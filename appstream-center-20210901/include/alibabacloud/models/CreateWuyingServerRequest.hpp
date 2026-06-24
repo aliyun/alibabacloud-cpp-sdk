@@ -129,15 +129,11 @@ namespace Models
 
 
     protected:
-      // The data disk category.
-      // 
-      // Valid values:
-      // 
-      // *   cloud_auto.
+      // The type of the data cloud disk.
       shared_ptr<string> dataDiskCategory_ {};
-      // The PL of the data disk.
+      // The performance level of the data cloud disk.
       shared_ptr<string> dataDiskPerformanceLevel_ {};
-      // The data disk size.
+      // The size of the data cloud disk.
       shared_ptr<int32_t> dataDiskSize_ {};
     };
 
@@ -342,68 +338,79 @@ namespace Models
 
 
   protected:
-    // Quantity.
+    // The number of workstations to create.
     shared_ptr<int32_t> amount_ {};
-    // Auto payment.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // Auto-renewal.
+    // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // bandwidth value, the NetworkStrategyType is valid for DirectIp. Unit: Mbps, range 2~100
+    // The bandwidth value. This parameter takes effect only when NetworkStrategyType is set to DirectIp. Unit: Mbit/s. Valid values: 2 to 100.
     shared_ptr<int32_t> bandwidth_ {};
-    // Region.
+    // The region ID.
     shared_ptr<string> bizRegionId_ {};
     // The billing method.
-    // 
-    // Valid values:
-    // 
-    // *   PrePaid: subscription
     shared_ptr<string> chargeType_ {};
-    // The list of data disks.
+    // The list of data cloud disks.
     shared_ptr<vector<CreateWuyingServerRequest::DataDisk>> dataDisk_ {};
+    // The hostname. The following limits apply:
+    // 
+    // - A period (.) or hyphen (-) cannot be used as the first or last character, and consecutive periods or hyphens are not allowed.
+    // 
+    // - Windows workstations: The hostname must be 2 to 15 characters in length. It cannot contain periods (.), consecutive hyphens, or consist entirely of digits. It can contain uppercase and lowercase letters, digits, and hyphens (-).
+    // 
+    // - Linux workstations:
+    // 
+    //   - The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment separated by a period can contain uppercase and lowercase letters, digits, and hyphens (-).
+    // 
+    //   - You can use the placeholder `${instance_id}` to include the instance ID in the HostName parameter. For example, if you set `HostName=k8s-${instance_id}` and the ECS instance ID is `i-123abc****`, the hostname is `k8s-i-123abc****`.
+    // 
+    // - When you create multiple workstation instances at a time, you can use the `name_prefix[begin_number,bits]name_suffix` format to assign sequential hostnames. For example, if you set HostName to `ecd-[1,4]-test`, the hostname of the first workstation is `ecd-0001-test`, the hostname of the second workstation is `ecd-0002-test`, and so on.
+    // 
+    //   - `name_prefix`: the prefix of the hostname.
+    // 
+    //   - `[begin_number,bits]`: the sequential number in the hostname.
+    // 
+    //     - `begin_number`: the starting number. Valid values: 0 to 999999. Default value: 0. If the value is invalid, 0 is used.
+    // 
+    //     - `bits`: the number of digits. Valid values: 1 to 6. Default value: 6. If the value is invalid, 6 is used.
+    // 
+    //   - `name_suffix`: the suffix of the hostname.
     shared_ptr<string> hostName_ {};
-    // Idempotence token to ensure operation uniqueness
+    // The idempotence token that ensures the uniqueness of the operation.
     shared_ptr<string> idempotenceToken_ {};
-    // The ID of the image.
+    // The image ID.
     shared_ptr<string> imageId_ {};
     shared_ptr<float> maxPrice_ {};
-    // The type of the network policy (in invitational preview).
+    // The network policy type (in invitational preview).
     shared_ptr<string> networkStrategyType_ {};
-    // The office network IDs.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // Workstation login password.
+    // The logon password of the workstation.
     shared_ptr<string> password_ {};
-    // The subscription period.
+    // The subscription duration.
     shared_ptr<int32_t> period_ {};
-    // The time unit.
-    // 
-    // Valid values:
-    // 
-    // *   Month
-    // *   Year
+    // The unit of the subscription duration.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the discount.
+    // The promotion ID.
     // 
-    // >  If PromotionId is set, it will try to apply the corresponding discount.
+    // 
+    // > If PromotionId is specified, the corresponding discount is applied.
     shared_ptr<string> promotionId_ {};
     shared_ptr<string> savingPlanId_ {};
-    // Workstation specifications.
+    // The workstation instance type.
     shared_ptr<string> serverInstanceType_ {};
     shared_ptr<string> serverPortRange_ {};
     shared_ptr<string> subPayType_ {};
-    // The system disk category.
-    // 
-    // Valid values:
-    // 
-    // *   cloud_auto.
+    // The type of the system cloud disk.
     shared_ptr<string> systemDiskCategory_ {};
-    // The performance level (PL) of the system disk.
+    // The performance level of the system cloud disk.
     shared_ptr<string> systemDiskPerformanceLevel_ {};
-    // The size of the system disk. Unit: GB.
+    // The size of the system cloud disk. Unit: GB.
     shared_ptr<int32_t> systemDiskSize_ {};
-    // The list of office network vSwitches.
+    // The list of vSwitches in the office network.
     shared_ptr<vector<string>> vSwitchIds_ {};
     shared_ptr<string> virtualNodePoolId_ {};
-    // The name of the workstation. The numeric suffix is automatically added when multiple workstations are created.
+    // The workstation name. When you create multiple workstations, a numeric suffix is automatically appended.
     shared_ptr<string> wuyingServerName_ {};
   };
 

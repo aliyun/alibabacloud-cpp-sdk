@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the model template.
+    // 
     // This parameter is required.
     shared_ptr<string> llmTemplateId_ {};
   };

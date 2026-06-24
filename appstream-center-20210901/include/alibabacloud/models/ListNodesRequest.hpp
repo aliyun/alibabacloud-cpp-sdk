@@ -66,23 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The page number. Pages start from page 1.
+    // The page number of the query results to display, starting from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 200.
+    // The number of query results per page. Valid values: 1 to 200.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

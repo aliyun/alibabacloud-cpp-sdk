@@ -97,19 +97,10 @@ namespace Models
       // The OTA version.
       shared_ptr<string> otaVersion_ {};
       // The task status.
-      // 
-      // Valid values:
-      // 
-      // *   FAILED
-      // *   RUNNING
-      // *   TERMINATED
-      // *   PART_FINISHED
-      // *   STANDBY
-      // *   FINISHED
       shared_ptr<string> taskDisplayStatus_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The start time of the OTA update task. The time follows the ISO 8601 standard.
+      // The task start time in ISO 8601 format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> taskStartTime_ {};
@@ -155,15 +146,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the query results to display.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on each page.
+    // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The OTA update tasks.
+    // The list of over-the-air update tasks.
     shared_ptr<vector<ListOtaTaskResponseBody::TaskList>> taskList_ {};
-    // The total number of OTA update tasks.
+    // The total number of over-the-air update tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

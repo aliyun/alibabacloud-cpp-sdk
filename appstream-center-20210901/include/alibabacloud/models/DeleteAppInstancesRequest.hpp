@@ -60,19 +60,15 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group. You can call the [listAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+    // The delivery group ID. You can call [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The IDs of application instances.
+    // The list of application instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> appInstanceIds_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

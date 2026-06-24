@@ -83,17 +83,13 @@ namespace Models
 
 
     protected:
-      // The total number of subscription nodes after the change.
+      // The total number of subscription nodes after the upgrade.
       // 
       // This parameter is required.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The change mode of subscription nodes.
-      // 
-      // Valid value:
-      // 
-      // *   EXPAND_FROM_POST_PAID_EXPLICIT: changes from specified pay-as-you-go nodes
+      // The modification mode for subscription nodes.
       shared_ptr<string> prePaidNodeAmountModifyMode_ {};
-      // The nodes for which you want to change the billing method.
+      // The list of nodes whose billing type is to be changed.
       shared_ptr<vector<string>> prePaidNodeAmountModifyNodeIds_ {};
     };
 
@@ -123,19 +119,15 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The parameters related to the configuration change of the node pool.
+    // The node pool specification change parameters.
     // 
     // This parameter is required.
     shared_ptr<ModifyNodePoolAmountRequest::NodePool> nodePool_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

@@ -105,29 +105,29 @@ namespace Models
 
 
   protected:
-    // The app IDs. You can specify 1 to 100 IDs.
+    // The list of application IDs. You can specify 1 to 100 IDs.
     // 
-    // >  If you specify this parameter, only the bindings of the specified apps are returned.
+    // > If you specify this parameter, only the binding information of the specified applications is returned.
     shared_ptr<vector<string>> appIdList_ {};
-    // The IDs of the delivery groups. You can specify 1 to 100 IDs.
+    // The list of delivery group IDs. You can specify 1 to 100 IDs.
     // 
-    // >  If you specify this parameter, only the bindings of the specified delivery groups are returned.
+    // > If you specify this parameter, only the binding information of the specified delivery groups is returned.
     shared_ptr<vector<string>> appInstanceGroupIdList_ {};
-    // The IDs of app instances. You can specify 1 to 100 IDs.
+    // The list of application instance IDs. You can specify 1 to 100 IDs.
     // 
-    // >  If you specify this parameter, only the bindings of the specified app instances are returned.
+    // > If you specify this parameter, only the binding information of the specified application instances is returned.
     shared_ptr<vector<string>> appInstanceIdList_ {};
-    // The page number. Default value: `1`. We recommend that you specify this parameter.
+    // The page number of the query results to display. Default value: `1`. Specify this parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
+    // The number of query results per page. Maximum value: `100`. Default value: `20`. Specify this parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The user IDs. You can specify 1 to 100 IDs.
+    // The list of user IDs. You can specify 1 to 100 IDs.
     // 
-    // >  If you specify this parameter, only the bindings of the specified users are returned.
+    // > If you specify this parameter, only the binding information of the specified users is returned.
     shared_ptr<vector<string>> userIdList_ {};
-    // The IDs of the Alibaba Cloud Workspace users. You can specify 1 to 100 IDs.
+    // The list of WUYING user IDs. You can specify 1 to 100 IDs.
     // 
-    // >  If you specify this parameter, only the bindings of the specified Alibaba Cloud Workspace users are returned.
+    // > If you specify this parameter, only the binding information of the specified WUYING users is returned.
     shared_ptr<vector<string>> wyIdList_ {};
   };
 

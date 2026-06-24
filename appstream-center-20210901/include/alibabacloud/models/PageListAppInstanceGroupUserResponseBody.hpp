@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The users.
+    // The queried users.
     shared_ptr<vector<string>> users_ {};
   };
 

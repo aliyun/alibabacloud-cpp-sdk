@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the RDS image.
+    // The AppStream image ID.
     shared_ptr<string> imageId_ {};
   };
 

@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // Model provider template ID.
       shared_ptr<string> providerTemplateId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // Returned result object.
     shared_ptr<CreateModelProviderTemplateResponseBody::Data> data_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

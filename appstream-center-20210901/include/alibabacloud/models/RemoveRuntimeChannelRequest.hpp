@@ -78,13 +78,22 @@ namespace Models
 
 
   protected:
+    // The agent platform.
     shared_ptr<string> agentPlatform_ {};
+    // The agent provider.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
+    // The channel code.
+    // 
     // This parameter is required.
     shared_ptr<string> code_ {};
+    // The list of agent runtime IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> runtimeIds_ {};
+    // The runtime type.
+    // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};
   };

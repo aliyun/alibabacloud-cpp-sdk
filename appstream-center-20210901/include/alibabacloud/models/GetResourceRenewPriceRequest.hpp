@@ -66,34 +66,30 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+    // The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
+    // The numeric part of the purchase duration. This parameter is used together with PeriodUnit to specify the complete purchase duration.
     // 
     // This parameter is required.
     shared_ptr<int64_t> period_ {};
-    // The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
+    // The unit part of the purchase duration. This parameter is used together with Period to specify the complete purchase duration. Valid combinations of Period and PeriodUnit:
     // 
-    // *   1 Week
-    // *   1 Month
-    // *   2 Month
-    // *   3 Month
-    // *   6 Month
-    // *   1 Year
-    // *   2 Year
-    // *   3 Year
+    // - 1 Week
+    // - 1 Month
+    // - 2 Month
+    // - 3 Month
+    // - 6 Month
+    // - 1 Year
+    // - 2 Year
+    // - 3 Year
     // 
-    // >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid. If the request parameters do not match the combinations listed above, such as `2 Week`, the call to this operation succeeds, but an error occurs during the order placement phase.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

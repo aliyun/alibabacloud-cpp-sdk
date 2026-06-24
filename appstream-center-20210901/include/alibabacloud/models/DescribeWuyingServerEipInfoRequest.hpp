@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // The Internet service provider (ISP). Valid values:
-    // 
-    // *   ChinaMobile: China Mobile
-    // *   ChinaTelecom: China Telecom
-    // *   ChinaUnicom: China Unicom
+    // The Internet service operation provider (ISP). Valid values: 
+    // - ChinaMobile: Shift.
+    // - ChinaTelecom: China Telecom.
+    // - ChinaUnicom: China Unicom.
     shared_ptr<string> isp_ {};
-    // The ID of the workstation.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> wuyingServerId_ {};

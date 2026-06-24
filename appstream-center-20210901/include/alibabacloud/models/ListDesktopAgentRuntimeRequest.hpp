@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HasAuthUser, hasAuthUser_);
       DARABONBA_PTR_TO_JSON(HasRisk, hasRisk_);
       DARABONBA_PTR_TO_JSON(IncludeRiskInfo, includeRiskInfo_);
+      DARABONBA_PTR_TO_JSON(ManagementStatus, managementStatus_);
       DARABONBA_PTR_TO_JSON(ModelConfigure, modelConfigure_);
       DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HasAuthUser, hasAuthUser_);
       DARABONBA_PTR_FROM_JSON(HasRisk, hasRisk_);
       DARABONBA_PTR_FROM_JSON(IncludeRiskInfo, includeRiskInfo_);
+      DARABONBA_PTR_FROM_JSON(ManagementStatus, managementStatus_);
       DARABONBA_PTR_FROM_JSON(ModelConfigure, modelConfigure_);
       DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -71,8 +73,8 @@ namespace Models
     virtual bool empty() const override { return this->agentInstanceStatuses_ == nullptr
         && this->agentInstanceVersions_ == nullptr && this->agentPlatform_ == nullptr && this->agentProvider_ == nullptr && this->authUsers_ == nullptr && this->bizType_ == nullptr
         && this->channelConfigure_ == nullptr && this->deploymentSource_ == nullptr && this->desktopIds_ == nullptr && this->desktopNames_ == nullptr && this->desktopStatuses_ == nullptr
-        && this->hasAuthUser_ == nullptr && this->hasRisk_ == nullptr && this->includeRiskInfo_ == nullptr && this->modelConfigure_ == nullptr && this->modelTemplateId_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceIds_ == nullptr; };
+        && this->hasAuthUser_ == nullptr && this->hasRisk_ == nullptr && this->includeRiskInfo_ == nullptr && this->managementStatus_ == nullptr && this->modelConfigure_ == nullptr
+        && this->modelTemplateId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceIds_ == nullptr; };
     // agentInstanceStatuses Field Functions 
     bool hasAgentInstanceStatuses() const { return this->agentInstanceStatuses_ != nullptr;};
     void deleteAgentInstanceStatuses() { this->agentInstanceStatuses_ = nullptr;};
@@ -183,6 +185,13 @@ namespace Models
     inline ListDesktopAgentRuntimeRequest& setIncludeRiskInfo(bool includeRiskInfo) { DARABONBA_PTR_SET_VALUE(includeRiskInfo_, includeRiskInfo) };
 
 
+    // managementStatus Field Functions 
+    bool hasManagementStatus() const { return this->managementStatus_ != nullptr;};
+    void deleteManagementStatus() { this->managementStatus_ = nullptr;};
+    inline string getManagementStatus() const { DARABONBA_PTR_GET_DEFAULT(managementStatus_, "") };
+    inline ListDesktopAgentRuntimeRequest& setManagementStatus(string managementStatus) { DARABONBA_PTR_SET_VALUE(managementStatus_, managementStatus) };
+
+
     // modelConfigure Field Functions 
     bool hasModelConfigure() const { return this->modelConfigure_ != nullptr;};
     void deleteModelConfigure() { this->modelConfigure_ = nullptr;};
@@ -228,26 +237,48 @@ namespace Models
 
 
   protected:
+    // The list of agent instance statuses.
     shared_ptr<vector<string>> agentInstanceStatuses_ {};
+    // The list of agent instance versions.
     shared_ptr<vector<string>> agentInstanceVersions_ {};
+    // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // This parameter is required.
+    // The name of the agent provider.
     shared_ptr<string> agentProvider_ {};
+    // The list of authorized users.
     shared_ptr<vector<string>> authUsers_ {};
+    // The business type.
     shared_ptr<int32_t> bizType_ {};
+    // Specifies whether the third-party channel is configured.
     shared_ptr<bool> channelConfigure_ {};
+    // The deployment source.
     shared_ptr<string> deploymentSource_ {};
+    // The list of agent runtime IDs.
     shared_ptr<vector<string>> desktopIds_ {};
+    // The list of agent runtime names.
     shared_ptr<vector<string>> desktopNames_ {};
+    // The list of cloud computer statuses.
     shared_ptr<vector<string>> desktopStatuses_ {};
+    // Specifies whether authorized users exist.
     shared_ptr<bool> hasAuthUser_ {};
+    // Specifies whether a risk exists. Used to filter cloud computers with or without risks. This parameter takes effect only when IncludeRiskInfo is set to true.
+    // 
+    // Set to true to return only records with risks. Set to false to return only records without risks. If not specified, no filtering is applied.
     shared_ptr<bool> hasRisk_ {};
+    // Specifies whether to query and return risk information. Default value: false. When set to true, the response includes the RiskInfo field, and the HasRisk filter condition takes effect.
     shared_ptr<bool> includeRiskInfo_ {};
+    shared_ptr<string> managementStatus_ {};
+    // Specifies whether the model is configured.
     shared_ptr<bool> modelConfigure_ {};
+    // The model group ID.
     shared_ptr<string> modelTemplateId_ {};
+    // The page number, starting from 1. Values 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of resource IDs (underlying real resource IDs).
     shared_ptr<vector<string>> resourceIds_ {};
   };
 

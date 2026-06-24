@@ -174,26 +174,28 @@ namespace Models
 
 
   protected:
+    // The list of statuses for joining a virtual node pool.
     shared_ptr<vector<string>> addVirtualNodePoolStatusList_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<int32_t> bizType_ {};
-    // The billing method of the Internet access package.
+    // The billing type.
     shared_ptr<string> chargeType_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // The office network IDs.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> productType_ {};
-    // Workstation specifications.
+    // The workstation instance type.
     shared_ptr<string> serverInstanceType_ {};
-    // The status of the workstation.
+    // The workstation status.
     shared_ptr<string> status_ {};
     shared_ptr<vector<string>> users_ {};
+    // The virtual node pool ID.
     shared_ptr<string> virtualNodePoolId_ {};
     // The list of workstation IDs.
     shared_ptr<vector<string>> wuyingServerIdList_ {};

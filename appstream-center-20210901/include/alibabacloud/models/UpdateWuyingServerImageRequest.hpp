@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // The product type. Set this parameter to WuyingServer.
     shared_ptr<string> productType_ {};
-    // The ID of the workstation.
+    // The workstation ID.
     shared_ptr<string> wuyingServerId_ {};
   };
 

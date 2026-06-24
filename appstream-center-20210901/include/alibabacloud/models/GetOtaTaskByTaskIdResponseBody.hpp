@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error code returned if the request failed.
     shared_ptr<string> code_ {};
-    // The error message.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
     // The OTA version.
     shared_ptr<string> otaVersion_ {};
-    // The version description.
+    // The version description that describes the content of the over-the-air update.
     shared_ptr<string> releaseNote_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The execution time of the OTA update task. The time follows the ISO 8601 standard.
+    // The task execution time in ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> taskStartTime_ {};

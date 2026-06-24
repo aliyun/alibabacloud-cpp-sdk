@@ -97,14 +97,23 @@ namespace Models
 
 
   protected:
+    // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
+    // The name of the Agent provider.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
+    // The business type.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
+    // Specifies whether models have been configured in the group.
     shared_ptr<bool> hasModel_ {};
+    // The list of template group IDs used for filtering.
     shared_ptr<vector<string>> modelTemplateIdList_ {};
+    // The page number, starting from 1. Values 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

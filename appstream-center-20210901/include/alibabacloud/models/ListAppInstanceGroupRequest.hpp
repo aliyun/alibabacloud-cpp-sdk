@@ -94,7 +94,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -209,39 +211,32 @@ namespace Models
 
 
   protected:
-    // The image ID of the app. You can obtain the ID from the Images page in the App Streaming console.
+    // The application image ID. You can obtain this value from the Image Management page in the WUYING Cloud Application console.
     shared_ptr<string> appCenterImageId_ {};
-    // The ID of the delivery group.
+    // The delivery group ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The name of the delivery groups to query. Fuzzy match is used for queries. For example, if you set this parameter to `Office App`, all delivery groups whose names contain `Office App` are queried, such as `My Office Apps` and `Office App A`.
+    // The delivery group name. Fuzzy match is used for the query. For example, if you set the delivery group name to `Office App`, all delivery groups whose names contain `Office App` are returned, such as `My Office App` and `Office App A`.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-    // 
-    // Valid values:
-    // 
-    // *   cn-shanghai: China (Shanghai)
-    // *   cn-hangzhou: China (Hangzhou)
+    // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<vector<string>> excludedUserGroupIds_ {};
-    // The ID of the resource specification that you purchase. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain the ID.
+    // The specification type ID of the purchased resources. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain this value.
     shared_ptr<string> nodeInstanceType_ {};
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The page number.
+    // The page number of the query results to display.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The value cannot be greater than `100`.
+    // The number of query results per page. Maximum value: `100`.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
     // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
-    // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // The region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The status of the delivery groups.
+    // The list of delivery group statuses.
     shared_ptr<vector<string>> status_ {};
+    // The tags.
     shared_ptr<vector<ListAppInstanceGroupRequest::Tag>> tag_ {};
     shared_ptr<vector<string>> userGroupIds_ {};
   };

@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The model group ID.
       shared_ptr<string> modelTemplateId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The creation result.
     shared_ptr<CreateModelTemplateResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

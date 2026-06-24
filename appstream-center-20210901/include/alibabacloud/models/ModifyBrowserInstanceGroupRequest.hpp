@@ -84,11 +84,7 @@ namespace Models
     protected:
       // The interval.
       shared_ptr<int32_t> interval_ {};
-      // The timer type:
-      // 
-      // Valid value:
-      // 
-      // *   SESSION_TIMEOUT: Defines the timeout period before a disconnected session is terminated.
+      // The timer type.
       shared_ptr<string> timerType_ {};
     };
 
@@ -236,13 +232,8 @@ namespace Models
 
       protected:
         // Specifies whether to enable the watermark.
-        // 
-        // Valid values:
-        // 
-        // *   off
-        // *   on
         shared_ptr<string> watermarkSwitch_ {};
-        // The watermark types.
+        // The list of watermark types.
         shared_ptr<vector<string>> watermarkTypes_ {};
       };
 
@@ -464,43 +455,17 @@ namespace Models
 
       protected:
         // The clipboard policy.
-        // 
-        // Valid values:
-        // 
-        // *   read: Allows copying from the local device to the cloud browser.
-        // *   readwrite: Allows copying in both directions.
-        // *   write: Allows copying from the cloud browser to the local device.
-        // *   off: Blocks copying in both directions.
         shared_ptr<string> clipboard_ {};
-        // The maximum number of characters allowed when copying from the clipboard.
+        // The maximum length for clipboard read operations.
         shared_ptr<int32_t> clipboardReadLimit_ {};
         // The clipboard control scope.
-        // 
-        // Valid values:
-        // 
-        // *   grained: fine-grained control
-        // *   global: global control
         shared_ptr<string> clipboardScope_ {};
         shared_ptr<string> clipboardSizeUnit_ {};
-        // The maximum number of characters allowed when copying to the clipboard.
+        // The maximum length for clipboard write operations.
         shared_ptr<int32_t> clipboardWriteLimit_ {};
         // The file clipboard policy.
-        // 
-        // Valid values:
-        // 
-        // *   read: Allows copying from the local device to the cloud browser.
-        // *   readwrite: Allows copying in both directions.
-        // *   write: Allows copying from the cloud browser to the local device.
-        // *   off: Blocks copying in both directions.
         shared_ptr<string> fileClipboard_ {};
         // The rich text clipboard policy.
-        // 
-        // Valid values:
-        // 
-        // *   read: Allows copying from the local device to the cloud browser.
-        // *   readwrite: Allows copying in both directions.
-        // *   write: Allows copying from the cloud browser to the local device.
-        // *   off: Blocks copying in both directions.
         shared_ptr<string> richTextClipboard_ {};
         shared_ptr<int32_t> richTextClipboardLimit_ {};
         shared_ptr<int32_t> richTextClipboardReadLimit_ {};
@@ -509,13 +474,6 @@ namespace Models
         shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
         shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
         // The text clipboard policy.
-        // 
-        // Valid values:
-        // 
-        // *   read: Allows copying from the local device to the cloud browser.
-        // *   readwrite: Allows copying in both directions.
-        // *   write: Allows copying from the cloud browser to the local device.
-        // *   off: Blocks copying in both directions.
         shared_ptr<string> textClipboard_ {};
         shared_ptr<int32_t> textClipboardReadLimit_ {};
         shared_ptr<string> textClipboardReadSizeUnit_ {};
@@ -610,29 +568,22 @@ namespace Models
 
 
     protected:
-      // The settings related to clipboard control.
+      // The clipboard policy settings.
       shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
-      // Defines what happens to a session when a user disconnects.
-      // 
-      // Valid values:
-      // 
-      // *   customTime: The session will be terminated after a custom-defined timeout.
-      // *   persistent: The session will never be automatically terminated..
+      // The data retention policy for sessions after disconnection.
       shared_ptr<string> disconnectKeepSession_ {};
-      // The session persistence duration.
+      // The session retention duration after disconnection.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
       shared_ptr<string> fileManager_ {};
-      // The file transfer policy on the web client.
+      // The file transfer policy for the web client.
       shared_ptr<string> html5FileTransfer_ {};
+      // The policy for disconnecting sessions after no operation.
       shared_ptr<string> noOperationDisconnect_ {};
+      // The idle timeout period before disconnection, in seconds.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
-      // The ID of the policy.
+      // The policy ID.
       shared_ptr<string> policyId_ {};
       // The policy version.
-      // 
-      // Valid value:
-      // 
-      // *   Center: center policy
       shared_ptr<string> policyVersion_ {};
       // The display policy.
       shared_ptr<Policy::VideoPolicy> videoPolicy_ {};
@@ -703,9 +654,9 @@ namespace Models
 
 
       protected:
-        // The ID of the domain name. This parameter is required only when you want to modify the domain restriction configuration.
+        // The ID of the domain name configuration. This parameter is required only for modification.
         shared_ptr<string> restrictedURLId_ {};
-        // The restricted domain name.
+        // The domain name.
         shared_ptr<string> URL_ {};
       };
 
@@ -744,15 +695,11 @@ namespace Models
 
 
     protected:
-      // The type of the access control list.
-      // 
-      // Valid value:
-      // 
-      // *   ALLOW_LIST: The whitelist.
+      // The access restriction type.
       shared_ptr<string> accessRestriction_ {};
-      // The domain names to be removed.
+      // The list of domain names to remove.
       shared_ptr<vector<string>> removeRestrictedURLIds_ {};
-      // The domain restriction configurations.
+      // The restricted domain name configurations.
       shared_ptr<vector<Network::RestrictedURLs>> restrictedURLs_ {};
       shared_ptr<string> restrictedURLsFilePath_ {};
     };
@@ -842,15 +789,15 @@ namespace Models
 
 
       protected:
-        // The folder where the bookmark is located.
+        // The folder to which the bookmark belongs.
         shared_ptr<string> bookmarkFolder_ {};
-        // The ID of the bookmark. This parameter needs to be specified only to modify the bookmark.
+        // The bookmark ID. This parameter is required only for modification.
         shared_ptr<string> bookmarkId_ {};
-        // The name of the bookmark.
+        // The bookmark name.
         // 
         // This parameter is required.
         shared_ptr<string> bookmarkName_ {};
-        // The URL of the bookmark.
+        // The bookmark URL.
         // 
         // This parameter is required.
         shared_ptr<string> bookmarkURL_ {};
@@ -905,15 +852,15 @@ namespace Models
 
 
     protected:
-      // The bookmark.
+      // The bookmarks.
       shared_ptr<vector<BrowserConfig::Bookmarks>> bookmarks_ {};
       shared_ptr<string> bookmarksFilePath_ {};
-      // The startup parameter.
+      // The startup parameters.
       shared_ptr<string> browserParam_ {};
       shared_ptr<bool> cookiesSync_ {};
-      // The home page.
+      // The homepage.
       shared_ptr<string> homepage_ {};
-      // The removed bookmarks.
+      // The list of bookmarks to remove.
       shared_ptr<vector<string>> removeBookmarks_ {};
     };
 
@@ -987,21 +934,21 @@ namespace Models
 
 
   protected:
-    // The browser settings.
+    // The browser configuration.
     shared_ptr<ModifyBrowserInstanceGroupRequest::BrowserConfig> browserConfig_ {};
-    // The ID of the cloud browser to be modified.
+    // The ID of the cloud browser to modify.
     // 
     // This parameter is required.
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
     shared_ptr<int32_t> maxAmount_ {};
-    // The network configurations.
+    // The network configuration.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Network> network_ {};
     // The access policy.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Policy> policy_ {};
     shared_ptr<ModifyBrowserInstanceGroupRequest::StoragePolicy> storagePolicy_ {};
-    // The timer.
+    // The timers.
     shared_ptr<vector<ModifyBrowserInstanceGroupRequest::Timers>> timers_ {};
   };
 

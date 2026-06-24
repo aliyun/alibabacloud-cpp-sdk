@@ -48,13 +48,9 @@ namespace Models
 
 
   protected:
-    // >  This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<string> bizSource_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     shared_ptr<string> productType_ {};
   };
 

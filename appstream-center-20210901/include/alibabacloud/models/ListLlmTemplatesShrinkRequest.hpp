@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The model code used for filtering. Fuzzy match is supported.
     shared_ptr<string> llmCode_ {};
+    // The model template IDs used for filtering.
     shared_ptr<string> llmTemplateIdsShrink_ {};
+    // The ID of the associated model group.
     shared_ptr<string> modelTemplateId_ {};
+    // The page number. Pages start from page 1. Values 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the model provider template.
     shared_ptr<string> providerTemplateId_ {};
   };
 

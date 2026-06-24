@@ -48,15 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

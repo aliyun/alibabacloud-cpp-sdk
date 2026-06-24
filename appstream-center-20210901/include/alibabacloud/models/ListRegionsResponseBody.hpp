@@ -83,7 +83,7 @@ namespace Models
 
 
   protected:
-    // The region IDs.
+    // The list of region IDs.
     shared_ptr<vector<ListRegionsResponseBody::RegionModels>> regionModels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

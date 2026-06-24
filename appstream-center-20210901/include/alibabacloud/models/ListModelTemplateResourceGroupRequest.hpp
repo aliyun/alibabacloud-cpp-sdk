@@ -69,10 +69,15 @@ namespace Models
 
 
   protected:
+    // The ID of the model group.
+    // 
     // This parameter is required.
     shared_ptr<string> modelTemplateId_ {};
+    // The page number. Pages start from page 1. Both 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of resource group IDs.
     shared_ptr<vector<string>> resourceGroupIds_ {};
   };
 

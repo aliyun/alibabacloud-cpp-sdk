@@ -38,12 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the resource expiration reminder feature.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to enable resource expiration reminders.
     shared_ptr<bool> appInstanceGroupExpireRemind_ {};
   };
 

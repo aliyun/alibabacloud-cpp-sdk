@@ -84,27 +84,23 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The ID of the user group (exact match).
+    // The user group ID. This parameter is used for exact match.
     shared_ptr<string> groupId_ {};
-    // The name of the user group (fuzzy match).
+    // The user group name. This parameter is used for fuzzy match.
     shared_ptr<string> groupName_ {};
-    // The page number. Pages start from page 1.
+    // The page number, starting from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
-    // 
-    // Valid values:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

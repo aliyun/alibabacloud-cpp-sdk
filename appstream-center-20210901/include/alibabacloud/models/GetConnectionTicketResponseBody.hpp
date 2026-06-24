@@ -130,39 +130,28 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The ID of the application instance.
+    // The application instance ID.
     shared_ptr<string> appInstanceId_ {};
-    // The ID of the persistent session.
+    // The persistent session ID.
     shared_ptr<string> appInstancePersistentId_ {};
     // The avatar ID.
     shared_ptr<string> avatarId_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
-    // The operating system.
-    // 
-    // Valid value:
-    // 
-    // *   Windows: the Windows operating system
+    // The operating system type.
     shared_ptr<string> osType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
     // The task status.
-    // 
-    // Valid values:
-    // 
-    // *   Finished: The task is complete.
-    // *   Failed: The task failed.
-    // *   Running: The task is being executed.
     shared_ptr<string> taskStatus_ {};
-    // The ID of the Alibaba Cloud account.
+    // The tenant ID (Alibaba Cloud account UID).
     shared_ptr<int64_t> tenantId_ {};
-    // The credential that is used to connect to App Streaming.
-    // 
-    // >  This parameter is displayed for calls other than the first call to this operation.
+    // The credentials for connecting to the cloud application.
+    // > This parameter is returned only on non-initial calls.
     shared_ptr<string> ticket_ {};
   };
 

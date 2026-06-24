@@ -60,10 +60,16 @@ namespace Models
 
 
   protected:
+    // The model group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> modelTemplateId_ {};
+    // The list of Agent runtime IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> runtimeIds_ {};
+    // The Agent runtime type.
+    // 
     // This parameter is required.
     shared_ptr<string> runtimeType_ {};
   };

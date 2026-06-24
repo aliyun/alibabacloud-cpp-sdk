@@ -136,14 +136,25 @@ namespace Models
 
 
     protected:
+      // The channel avatar URL.
       shared_ptr<string> avatarUrl_ {};
+      // The channel type. Valid values: System: a system-supported channel. Custom: a custom channel.
       shared_ptr<string> channelType_ {};
+      // The channel code.
       shared_ptr<string> code_ {};
+      // The channel configuration JSON string.
+      // 
+      // Currently, only the simple configuration mode is supported. You must pass in AppKey and AppSecret.
       shared_ptr<string> config_ {};
+      // The configuration mode. Valid values: Simple: simple configuration mode. Custom: custom configuration mode.
       shared_ptr<string> configMode_ {};
+      // The QR code configuration notification page URL. This parameter is returned only for the ENTERPRISE or ENTERPRISE_JVS platform.
       shared_ptr<string> qrCodeNotifyUrl_ {};
+      // The QR code configuration status. This parameter is returned only when the status is not in a final state.
       shared_ptr<string> qrCodeStatus_ {};
+      // The risk type. This parameter is returned only when **includeRiskInfo=true**.
       shared_ptr<string> riskType_ {};
+      // The configuration status.
       shared_ptr<string> status_ {};
     };
 
@@ -173,8 +184,11 @@ namespace Models
 
 
   protected:
+    // The returned object.
     shared_ptr<vector<GetRuntimeChannelResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

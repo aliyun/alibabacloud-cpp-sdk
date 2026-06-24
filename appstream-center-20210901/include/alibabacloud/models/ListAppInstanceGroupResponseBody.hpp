@@ -178,8 +178,11 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag type.
         shared_ptr<string> scope_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -232,7 +235,7 @@ namespace Models
       protected:
         // The tag key.
         shared_ptr<string> key_ {};
-        // The tag type. Valid values: Custom System
+        // The tag type.
         shared_ptr<string> scope_ {};
         // The tag value.
         shared_ptr<string> value_ {};
@@ -285,11 +288,11 @@ namespace Models
 
 
       protected:
-        // The new OTA version. A null value indicates that no new version is available.
+        // The new OTA version. An empty value indicates that no new version is available.
         shared_ptr<string> newOtaVersion_ {};
         // The current OTA version.
         shared_ptr<string> otaVersion_ {};
-        // The ID of the OTA update task.
+        // The OTA upgrade task ID.
         shared_ptr<string> taskId_ {};
       };
 
@@ -418,11 +421,11 @@ namespace Models
 
 
           protected:
-            // The number of destination resources.
+            // The target resource count.
             shared_ptr<int32_t> amount_ {};
-            // The time when the scaling policy ends. Format: HH:mm.
+            // The end time. Format: HH:mm.
             shared_ptr<string> endTime_ {};
-            // The time when the scaling policy starts. Format: HH:mm.
+            // The start time. Format: HH:mm.
             shared_ptr<string> startTime_ {};
           };
 
@@ -454,15 +457,11 @@ namespace Models
 
 
         protected:
-          // The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
-          // 
-          // Valid value:
-          // 
-          // *   weekly: The scaling policy is executed on specific days each week.
+          // The type of the policy execution cycle. You must specify both `RecurrenceType` and `RecurrenceValues`.
           shared_ptr<string> recurrenceType_ {};
-          // The days of each week on which the scaling policy is executed.
+          // The list of values for the policy execution cycle.
           shared_ptr<vector<int32_t>> recurrenceValues_ {};
-          // The time periods during which the scaling policy can be executed.
+          // The list of time periods for the policy execution cycle.
           shared_ptr<vector<RecurrenceSchedules::TimerPeriods>> timerPeriods_ {};
         };
 
@@ -609,55 +608,43 @@ namespace Models
       protected:
         // The number of resources purchased when the delivery group was created.
         shared_ptr<int32_t> amount_ {};
-        // The maximum number of idle sessions. After you specify a value for this parameter, auto scale-out is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that idle sessions in the delivery group are sufficient and does not perform auto scale-out.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
+        // The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the delivery group is considered to have sufficient idle sessions and no automatic scale-out is performed. This parameter allows you to flexibly control elastic scaling behavior and reduce costs.
         shared_ptr<int32_t> maxIdleAppInstanceAmount_ {};
-        // The maximum number of resources that can be created for scale-out.
+        // The maximum number of resources that can be created during scale-out.
         shared_ptr<int32_t> maxScalingAmount_ {};
-        // The total number of subscription resources.
+        // The total number of current subscription resources.
         shared_ptr<int32_t> nodeAmount_ {};
-        // The maximum number of sessions that can be connected to a resource at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource specification. The following items describe the value ranges of different resource types:
-        // 
-        // *   appstreaming.general.4c8g: 1 to 2
-        // *   appstreaming.general.8c16g: 1 to 4
-        // *   appstreaming.vgpu.8c16g.4g: 1 to 4
-        // *   appstreaming.vgpu.8c31g.16g: 1 to 4
-        // *   appstreaming.vgpu.14c93g.12g: 1 to 6
+        // The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. Too many simultaneous sessions may degrade the application experience. The valid values vary depending on the resource specification.
         shared_ptr<int32_t> nodeCapacity_ {};
-        // The ID of the resource specification that you purchase.
+        // The specification type ID of the purchased resources.
         shared_ptr<string> nodeInstanceType_ {};
-        // The ID of the resource group.
+        // The resource group ID.
         shared_ptr<string> nodePoolId_ {};
-        // The name of the resource specification.
+        // The resource specification name.
         shared_ptr<string> nodeTypeName_ {};
-        // The number of subscription resources that are in use.
+        // The resource count of subscription resources in use.
         shared_ptr<int32_t> nodeUsed_ {};
-        // The intervals at which the scaling policy is executed.
+        // The list of policy execution cycles.
         shared_ptr<vector<NodePool::RecurrenceSchedules>> recurrenceSchedules_ {};
-        // The duration for which no session is connected. Unit: minutes. If no session is connected in the resources after the specified duration elapses, auto scale-in is triggered. Default value: 5.
+        // The duration of no session connections, in minutes. When a resource remains in a no-session-connection state for the specified duration, automatic scale-in is triggered. Default value: 5.
         shared_ptr<int32_t> scalingDownAfterIdleMinutes_ {};
-        // The total number of scalable resources.
+        // The total number of elastic resources.
         shared_ptr<int32_t> scalingNodeAmount_ {};
-        // The number of scalable resources that are in use.
+        // The resource count of elastic resources in use.
         shared_ptr<int32_t> scalingNodeUsed_ {};
-        // The number of resources that are created each time resources are scaled out. Valid values: 1 to 10.
+        // The number of resources created during each scale-out event. Valid values: 1 to 10.
         shared_ptr<int32_t> scalingStep_ {};
-        // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scale-out is triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`.
+        // The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: `Session usage = Number of current sessions ÷ (Total number of resources × Concurrent sessions per resource) × 100%`.
         shared_ptr<string> scalingUsageThreshold_ {};
-        // The expiration date of the scaling policy. Format: yyyy-MM-dd.
+        // The date when the policy expires. Format: yyyy-MM-dd.
         shared_ptr<string> strategyDisableDate_ {};
-        // The effective date of the scaling policy. Format: yyyy-MM-dd.
+        // The date when the policy takes effect. Format: yyyy-MM-dd.
         shared_ptr<string> strategyEnableDate_ {};
-        // The type of the scaling policy.
+        // The elastic policy type.
         // 
-        // >  `NODE_SCALING_BY_USAGE` is returned for this parameter only if ChargeType is set to `PrePaid`. `NODE_SCALING_BY_SCHEDULE` is returned for this parameter only if ChargeType is set to `PostPaid`.
-        // 
-        // Valid values:
-        // 
-        // *   NODE_FIXED: No scalable resources are used.
-        // *   NODE_SCALING_BY_SCHEDULE: Scheduled scaling is used.
-        // *   NODE_SCALING_BY_USAGE: Resources are scaled based on usage.
+        // > `NODE_SCALING_BY_USAGE` (usage-based scaling policy) applies only to `PrePaid` (subscription) resources. `NODE_SCALING_BY_SCHEDULE` (scheduled scaling policy) applies only to `PostPaid` (pay-as-you-go) resources.
         shared_ptr<string> strategyType_ {};
-        // Indicates whether resource prefetch is enabled.
+        // Indicates whether the resource prefetch policy is enabled.
         shared_ptr<bool> warmUp_ {};
       };
 
@@ -726,15 +713,15 @@ namespace Models
 
 
       protected:
-        // The app icon.
+        // The application icon.
         shared_ptr<string> appIcon_ {};
-        // The app ID.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The app name.
+        // The application name.
         shared_ptr<string> appName_ {};
-        // The app version.
+        // The application version.
         shared_ptr<string> appVersion_ {};
-        // The name of the app version.
+        // The application version name.
         shared_ptr<string> appVersionName_ {};
       };
 
@@ -1024,115 +1011,78 @@ namespace Models
 
 
     protected:
+      // The access type.
       shared_ptr<string> accessType_ {};
-      // The number of subscription resources. Minimum value: 1.
+      // The number of subscription resources configured by the user. Minimum value: 1.
       shared_ptr<int32_t> amount_ {};
-      // The image ID of the app.
+      // The application image ID.
       shared_ptr<string> appCenterImageId_ {};
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The name of the delivery group.
+      // The delivery group name.
       shared_ptr<string> appInstanceGroupName_ {};
-      // The resource type of the delivery group.
+      // The specification type of the delivery group.
       shared_ptr<string> appInstanceType_ {};
       // The policy ID.
       shared_ptr<string> appPolicyId_ {};
+      // Indicates whether the current image supports the unified policy.
       shared_ptr<bool> appPolicyImageCheck_ {};
+      // The policy version.
       shared_ptr<string> appPolicyVersion_ {};
-      // The apps.
+      // The application information.
       shared_ptr<vector<AppInstanceGroupModels::Apps>> apps_ {};
+      // The authorization mode.
       shared_ptr<string> authMode_ {};
       // The sales mode.
-      // 
-      // Valid values:
-      // 
-      // *   AppInstance: by session
-      // *   Node: by resource
       shared_ptr<string> chargeResourceMode_ {};
       // The billing method.
-      // 
-      // Valid values:
-      // 
-      // *   PostPaid: pay-as-you-go
-      // *   PrePaid: subscription
       shared_ptr<string> chargeType_ {};
-      // The time when the delivery group expires.
+      // The expiration time of the delivery group.
       shared_ptr<string> expiredTime_ {};
-      // The time when the delivery group was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
       // The maximum number of instances. Minimum value: 1.
       shared_ptr<int32_t> maxAmount_ {};
       // The minimum number of instances. Minimum value: 1.
       shared_ptr<int32_t> minAmount_ {};
-      // The resource groups.
+      // The resource group information.
       shared_ptr<vector<AppInstanceGroupModels::NodePool>> nodePool_ {};
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The type of the operating system.
-      // 
-      // Valid value:
-      // 
-      // *   Windows
+      // The operating system type.
       shared_ptr<string> osType_ {};
-      // The information about the over-the-air (OTA) update task.
+      // The over-the-air update task information.
       shared_ptr<AppInstanceGroupModels::OtaInfo> otaInfo_ {};
       // The product type.
-      // 
-      // Valid value:
-      // 
-      // *   CloudApp: App Streaming
       shared_ptr<string> productType_ {};
-      // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+      // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
       shared_ptr<string> regionId_ {};
-      // The percentage of reserved instances. The value indicates the percentage of unused sessions in the delivery group. Valid values: 0 to 99.
+      // The percentage of reserved instances, which represents the ratio of unused sessions in the delivery group. Valid values: 0 to 99.
       shared_ptr<string> reserveAmountRatio_ {};
-      // The maximum number of reserved instances. The value indicates the maximum number of unused sessions in the delivery group. Minimum value: 1.
+      // The maximum number of reserved instances, which represents the maximum number of unused sessions in the delivery group. Minimum value: 1.
       shared_ptr<int32_t> reserveMaxAmount_ {};
-      // The minimum number of reserved instances. The value indicates the minimum number of unused sessions in the delivery group. Minimum value: 1.
+      // The minimum number of reserved instances, which represents the minimum number of unused sessions in the delivery group. Minimum value: 1.
       shared_ptr<int32_t> reserveMinAmount_ {};
       // The resource status.
-      // 
-      // Valid values:
-      // 
-      // *   AVAILABLE
-      // *   RELEASED
-      // *   EXPIRED_IN_7_DAYS
-      // *   UNAVAILABLE
-      // *   UPGRADING
-      // *   CREATING
       shared_ptr<string> resourceStatus_ {};
-      // The resource tags.
+      // The list of resource tags.
       shared_ptr<vector<AppInstanceGroupModels::ResourceTags>> resourceTags_ {};
-      // The duration for which no session is connected. Unit: minutes. If no session is connected in the resources after the specified duration elapses, auto scale-in is triggered. Minimum value: 0.
+      // The duration of no session connections, in minutes. When a resource remains in a no-session-connection state for the specified duration, automatic scale-in is triggered. Minimum value: 0.
       shared_ptr<int32_t> scalingDownAfterIdleMinutes_ {};
-      // The number of sessions that are created each time the delivery group is scaled out. Minimum value: 1.
+      // The number of sessions created during each scale-out event. Minimum value: 1.
       shared_ptr<int32_t> scalingStep_ {};
-      // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scale-out is triggered. The session usage rate is calculated by using the following formula: Session usage rate = Number of sessions in use/Total number of sessions × 100%. Valid values: 0 to 99.
+      // The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: Session usage = Number of sessions in use ÷ Total number of sessions × 100%. Valid values: 0 to 99.
       shared_ptr<string> scalingUsageThreshold_ {};
-      // The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+      // The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
       shared_ptr<string> sessionTimeout_ {};
-      // Indicates whether user permission verification is skipped.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false: This is the default value.
+      // Indicates whether user authorization verification is skipped.
       shared_ptr<bool> skipUserAuthCheck_ {};
-      // The specification ID that uniquely corresponds to the ID of the delivery group.
+      // The ID that uniquely corresponds to the delivery group ID.
       shared_ptr<string> specId_ {};
-      // The status of the delivery group.
-      // 
-      // Valid values:
-      // 
-      // *   PUBLISHED: The delivery group is published.
-      // *   FAILED: The delivery group failed to be published.
-      // *   MAINTAIN_FAILED: The delivery group failed to be updated.
-      // *   EXPIRED: The delivery group is expired.
-      // *   MAINTAINING: The delivery group is being updated.
-      // *   CEASED: The delivery group has overdue payments.
-      // *   EXPIRED_RECYCLING: The delivery group is expired and being recycled.
-      // *   DEPLOYING: The delivery group is being published.
+      // The delivery group status.
       shared_ptr<string> status_ {};
       shared_ptr<bool> supportUserGroupMixedAuth_ {};
+      // The list of resource tags.
       shared_ptr<vector<AppInstanceGroupModels::Tags>> tags_ {};
       shared_ptr<string> userGroupAuthMode_ {};
     };
@@ -1177,15 +1127,15 @@ namespace Models
 
 
   protected:
-    // The delivery groups.
+    // The delivery group information.
     shared_ptr<vector<ListAppInstanceGroupResponseBody::AppInstanceGroupModels>> appInstanceGroupModels_ {};
-    // The page number.
+    // The page number of the query results currently displayed.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

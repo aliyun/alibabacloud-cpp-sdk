@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The browser settings.
+    // The browser configuration.
     shared_ptr<string> browserConfigShrink_ {};
-    // The ID of the cloud browser to be modified.
+    // The ID of the cloud browser to modify.
     // 
     // This parameter is required.
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
     shared_ptr<int32_t> maxAmount_ {};
-    // The network configurations.
+    // The network configuration.
     shared_ptr<string> networkShrink_ {};
     // The access policy.
     shared_ptr<string> policyShrink_ {};
     shared_ptr<string> storagePolicyShrink_ {};
-    // The timer.
+    // The timers.
     shared_ptr<string> timersShrink_ {};
   };
 

@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error code returned if the call failed.
     shared_ptr<string> code_ {};
-    // The error message.
+    // The error message returned if the call failed.
     shared_ptr<string> message_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

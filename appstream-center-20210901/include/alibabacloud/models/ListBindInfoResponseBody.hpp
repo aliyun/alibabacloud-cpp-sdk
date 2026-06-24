@@ -141,33 +141,22 @@ namespace Models
 
     protected:
       // The account type.
-      // 
-      // Valid values:
-      // 
-      // *   ad: Active Directory (AD) account
-      // *   simple: convenience account
       shared_ptr<string> accountType_ {};
-      // The app ID.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The ID of the app instance.
+      // The application instance ID.
       shared_ptr<string> appInstanceId_ {};
-      // The app version.
+      // The application version number.
       shared_ptr<string> appVersion_ {};
       // The product type.
-      // 
-      // Valid values:
-      // 
-      // *   CloudApp: App Streaming
-      // *   CloudBrowser: Cloud-based Browser
-      // *   AndroidCloud: Cloud Phone
       shared_ptr<string> productType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
-      // The ID of the Alibaba Cloud Workspace user.
+      // The WUYING user ID.
       shared_ptr<string> wyId_ {};
     };
 
@@ -211,15 +200,15 @@ namespace Models
 
 
   protected:
-    // The bindings.
+    // The list of binding information returned.
     shared_ptr<vector<ListBindInfoResponseBody::BindInfoModels>> bindInfoModels_ {};
-    // The page number.
+    // The page number of the query results currently displayed.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

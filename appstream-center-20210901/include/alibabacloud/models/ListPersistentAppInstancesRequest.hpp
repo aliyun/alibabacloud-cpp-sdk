@@ -78,23 +78,17 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The IDs of the persistent sessions.
+    // The list of persistent session IDs.
     shared_ptr<vector<string>> appInstancePersistentIds_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number of the query results to display. Minimum value: **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The value cannot be greater than **100**. Default value: **20**.
+    // The number of query results per page. Maximum value: **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
-    // 
-    // Valid values:
-    // 
-    // *   CloudApp: App Streaming
-    // *   CloudBrowser: Cloud-based Browser
-    // *   AndroidCloud: Cloud Phone
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

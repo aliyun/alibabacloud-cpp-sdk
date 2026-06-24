@@ -133,45 +133,21 @@ namespace Models
 
 
     protected:
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The ID of the app instance.
+      // The application instance ID.
       shared_ptr<string> appInstanceId_ {};
-      // The ID of the app instance of the persistent session type.
+      // The persistent session ID.
       shared_ptr<string> appInstancePersistentId_ {};
-      // The name of the app instance of the persistent session type.
+      // The name of the persistent session application instance.
       shared_ptr<string> appInstancePersistentName_ {};
-      // The status of the app instance of the persistent session type.
-      // 
-      // Valid values:
-      // 
-      // *   STARTING
-      // *   RUNNING
-      // *   STOPPED
-      // *   UNAVAILABLE
-      // *   DELETING
-      // *   PENDING
-      // *   STOPPING
-      // *   DELETED
-      // *   REBUILDING
+      // The instance status of the persistent session application.
       shared_ptr<string> appInstancePersistentStatus_ {};
-      // The status of the app instance.
-      // 
-      // Valid values:
-      // 
-      // *   INIT: The app instance is being initialized.
-      // *   STARTING: The app instance is being started.
-      // *   CLOSING: The app instance is being stopped.
-      // *   CLOSED: The app instance is closed.
-      // *   RUNNING: The app instance is running.
-      // *   idle: The app instance is idle.
-      // *   BOUND: The app instance is bound to an app instance group.
-      // *   UNAVAILABLE: The app instance is unavailable.
-      // *   DELETED: The app instance is deleted.
+      // The application instance status.
       shared_ptr<string> appInstanceStatus_ {};
-      // The authorized users.
+      // The list of authorized usernames.
       shared_ptr<vector<string>> authorizedUsers_ {};
-      // The time when the app instance was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
     };
 
@@ -215,15 +191,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the query results currently displayed.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The app instances of the persistent session type.
+    // The list of persistent session application instances.
     shared_ptr<vector<ListPersistentAppInstancesResponseBody::PersistentAppInstanceModels>> persistentAppInstanceModels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

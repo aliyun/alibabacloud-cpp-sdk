@@ -159,7 +159,9 @@ namespace Models
 
 
           protected:
+            // The list of request modalities, such as Text, Image, and Audio.
             shared_ptr<vector<string>> requestModality_ {};
+            // The list of response modalities, such as Text, Image, and Audio.
             shared_ptr<vector<string>> responseModality_ {};
           };
 
@@ -220,12 +222,19 @@ namespace Models
 
 
         protected:
+          // The model description.
           shared_ptr<string> description_ {};
+          // The list of model features, such as function-calling, web-search, and structured-outputs.
           shared_ptr<vector<string>> features_ {};
+          // The inference metadata, including request and response modalities.
           shared_ptr<LlmInfoList::InferenceMetadata> inferenceMetadata_ {};
+          // The model code.
           shared_ptr<string> llmCode_ {};
+          // The model name.
           shared_ptr<string> name_ {};
+          // The publish time in ISO 8601 format.
           shared_ptr<string> publishedTime_ {};
+          // The model risk type. This parameter is returned only when the request parameter IncludeRiskInfo is set to true.
           shared_ptr<string> riskType_ {};
         };
 
@@ -262,9 +271,13 @@ namespace Models
 
 
       protected:
+        // The list of model information.
         shared_ptr<vector<ModelProviderList::LlmInfoList>> llmInfoList_ {};
+        // The model provider template ID.
         shared_ptr<string> modelProviderTemplateId_ {};
+        // The model provider template name.
         shared_ptr<string> name_ {};
+        // The model provider name.
         shared_ptr<string> providerName_ {};
       };
 
@@ -315,11 +328,17 @@ namespace Models
 
 
     protected:
+      // The default model (format: providerName/llmCode).
       shared_ptr<string> defaultModel_ {};
+      // The list of model providers.
       shared_ptr<vector<Data::ModelProviderList>> modelProviderList_ {};
+      // The configured model group ID.
       shared_ptr<string> modelTemplateId_ {};
+      // The model group name.
       shared_ptr<string> modelTemplateName_ {};
+      // The model template association type (returned only when an association exists).
       shared_ptr<string> modelTemplateRefType_ {};
+      // The resource group ID to which the runtime belongs. The value is null if the runtime is not associated with a resource group.
       shared_ptr<string> resourceGroupId_ {};
     };
 
@@ -342,7 +361,9 @@ namespace Models
 
 
   protected:
+    // The returned result object.
     shared_ptr<GetRuntimeModelConfigResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

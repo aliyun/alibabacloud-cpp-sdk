@@ -88,18 +88,13 @@ namespace Models
 
 
     protected:
-      // The ID of the application instance.
+      // The application instance ID.
       shared_ptr<string> appInstanceId_ {};
-      // The error code.
+      // The error code returned when an error occurs.
       shared_ptr<string> code_ {};
-      // The error message.
+      // The error message returned when an error occurs.
       shared_ptr<string> message_ {};
-      // Specifies whether the application instance is deleted.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether the deletion is triggered.
       shared_ptr<bool> success_ {};
     };
 
@@ -122,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The list of instance deletion results.
     shared_ptr<vector<DeleteAppInstancesResponseBody::DeleteAppInstanceModels>> deleteAppInstanceModels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

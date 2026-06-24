@@ -109,11 +109,6 @@ namespace Models
         // The tag key.
         shared_ptr<string> key_ {};
         // The tag type.
-        // 
-        // Valid values:
-        // 
-        // *   Custom: custom tag.
-        // *   System: system tag.
         shared_ptr<string> scope_ {};
         // The tag value.
         shared_ptr<string> value_ {};
@@ -147,16 +142,9 @@ namespace Models
     protected:
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the cloud resource.
-      // 
-      // Valid values:
-      // 
-      // *   AppId: app ID.
-      // *   WyId: Alibaba Cloud Workspace user ID.
-      // *   AppInstanceGroupId: delivery group ID.
-      // *   AliUid: tenant ID.
+      // The cloud resource type.
       shared_ptr<string> resourceType_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<ResourceTags::Tags>> tags_ {};
     };
 
@@ -193,13 +181,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the next query is required.
+    // The pagination token that indicates whether more results are available for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags added to the cloud resources.
+    // The list of tags bound to the resources.
     shared_ptr<vector<ListTagCloudResourcesResponseBody::ResourceTags>> resourceTags_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

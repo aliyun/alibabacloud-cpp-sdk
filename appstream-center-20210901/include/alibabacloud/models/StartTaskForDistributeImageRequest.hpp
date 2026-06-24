@@ -87,25 +87,19 @@ namespace Models
 
 
   protected:
-    // The regions to which you want to replicate the image.
+    // The list of destination regions to which the image is copied.
     shared_ptr<vector<string>> destinationRegionList_ {};
     // The image ID.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
     // The product type.
-    // 
-    // Valid values:
-    // 
-    // *   CloudDesktop: Elastic Desktop Service
-    // *   CloudApp: App Streaming
-    // *   WuyingServer: Workstation
     shared_ptr<string> productType_ {};
     // This parameter is not publicly available.
     shared_ptr<string> retryType_ {};
-    // The region where the source image is located. If you leave this parameter empty, a random region is selected.
+    // The source region from which the image is copied. If this parameter is not specified, a random region is selected.
     shared_ptr<string> sourceRegion_ {};
-    // The ID of the image version. If you do not specify this parameter, the latest image version is used by default.
+    // The image version ID. If this parameter is not specified, the latest image version is used.
     shared_ptr<string> versionId_ {};
   };
 

@@ -153,14 +153,9 @@ namespace Models
 
 
       protected:
-        // The ID of the File Storage NAS (NAS) file system used to store user data.
+        // The ID of the user data storage system (NAS ID).
         shared_ptr<string> fileSystemId_ {};
-        // Specifies whether user data roaming is enabled.
-        // 
-        // Valid values:
-        // 
-        // *   true
-        // *   false
+        // Specifies whether to enable user data roaming.
         shared_ptr<bool> userProfileSwitch_ {};
       };
 
@@ -194,9 +189,9 @@ namespace Models
 
 
     protected:
-      // The storage types.
+      // The list of storage types.
       shared_ptr<vector<string>> storageTypeList_ {};
-      // The configurations of user data roaming.
+      // The user data roaming configuration.
       shared_ptr<StoragePolicy::UserProfile> userProfile_ {};
       shared_ptr<StoragePolicy::UserProfileFollow> userProfileFollow_ {};
     };
@@ -239,19 +234,9 @@ namespace Models
 
 
     protected:
-      // Specifies whether to reset after unbinding from a delivery group.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Specifies whether to reset after unbinding.
       shared_ptr<bool> resetAfterUnbind_ {};
-      // Specifies whether to skip user permission verification.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false: This is the default value.
+      // Specifies whether to skip user authorization verification.
       shared_ptr<bool> skipUserAuthCheck_ {};
     };
 
@@ -293,15 +278,9 @@ namespace Models
 
 
     protected:
-      // The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
-      // 
-      // *   appstreaming.general.4c8g: 1 to 2
-      // *   appstreaming.general.8c16g: 1 to 4
-      // *   appstreaming.vgpu.8c16g.4g: 1 to 4
-      // *   appstreaming.vgpu.8c31g.16g: 1 to 4
-      // *   appstreaming.vgpu.14c93g.12g: 1 to 6
+      // The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. Too many simultaneous sessions may degrade the application experience. The valid value range varies by resource specification. You can call the ListNodeInstanceType operation to query the valid value range for each resource specification.
       shared_ptr<int32_t> nodeCapacity_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> nodePoolId_ {};
     };
 
@@ -364,12 +343,7 @@ namespace Models
       protected:
         // The domain name.
         shared_ptr<string> domain_ {};
-        // The policy used for the domain name.
-        // 
-        // Valid values:
-        // 
-        // *   allow
-        // *   block
+        // The policy value.
         shared_ptr<string> policy_ {};
       };
 
@@ -384,7 +358,7 @@ namespace Models
 
 
     protected:
-      // The domain name rules.
+      // The domain name rule configurations.
       shared_ptr<vector<Network::DomainRules>> domainRules_ {};
     };
 
@@ -477,47 +451,32 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The name of the delivery group.
+    // The delivery group name.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The network settings.
+    // The network configuration.
     // 
-    // >  If you want to use this parameter, submit a ticket.
+    // > To use this parameter, submit a ticket.
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::Network> network_ {};
-    // The information about the resource group.
+    // The resource group object.
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::NodePool> nodePool_ {};
-    // Specifies whether only one application can be opened in a session.
-    // 
-    // *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to allow only one application per session.
+    // - If enabled, opening multiple applications within a delivery group allocates a separate session for each application, consuming more sessions.
     shared_ptr<bool> perSessionPerApp_ {};
-    // The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
+    // The AppId of the pre-open application. If the PreOpenMode parameter is set to `SINGLE_APP`, PreOpenAppId cannot be an empty string.
     shared_ptr<string> preOpenAppId_ {};
     // The pre-open mode.
-    // 
-    // Valid values:
-    // 
-    // *   SINGLE_APP: enables the pre-open mode for a single application.
-    // *   OFF: disables the pre-open mode. This is the default value.
     shared_ptr<string> preOpenMode_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
     // The security policy.
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::SecurityPolicy> securityPolicy_ {};
-    // The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+    // The session retention duration after disconnection, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
     shared_ptr<int32_t> sessionTimeout_ {};
     // The storage policy.
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::StoragePolicy> storagePolicy_ {};

@@ -121,18 +121,27 @@ namespace Models
 
 
   protected:
+    // The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the value.
+    // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // 持久会话ID。
+    // The persistent session ID.
     shared_ptr<string> appInstancePersistentId_ {};
+    // The list of user group IDs to be authorized.
     shared_ptr<vector<string>> authorizeUserGroupIds_ {};
-    // The IDs of the users that you want to add to the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+    // The list of usernames to be authorized for the delivery group. You can specify 1 to 100 usernames.
     shared_ptr<vector<string>> authorizeUserIds_ {};
+    // The user avatar ID.
+    // 
+    // > This parameter is not available for public use.
     shared_ptr<string> avatarId_ {};
+    // The product type.
+    // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
+    // The list of user group IDs to be deauthorized.
     shared_ptr<vector<string>> unAuthorizeUserGroupIds_ {};
-    // The IDs of the users that you want to remove from the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+    // The list of usernames to be deauthorized from the delivery group. You can specify 1 to 100 usernames.
     shared_ptr<vector<string>> unAuthorizeUserIds_ {};
     // The user information.
     shared_ptr<string> userMetaShrink_ {};

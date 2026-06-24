@@ -158,29 +158,29 @@ namespace Models
 
 
     protected:
-      // Frame rate (FPS).
+      // The frame rate (FPS).
       shared_ptr<int32_t> frameRate_ {};
-      // Resolution height, in pixels.
+      // The height of the resolution, in pixels.
       shared_ptr<int32_t> sessionResolutionHeight_ {};
-      // Resolution width, in pixels.
+      // The width of the resolution, in pixels.
       shared_ptr<int32_t> sessionResolutionWidth_ {};
-      // Streaming mode. Combined with the Webrtc parameter, it indicates the protocol type.
+      // The streaming mode. Used together with the `Webrtc` parameter to specify the protocol type.
       // 
-      // - When Webrtc=true and StreamingMode=video, it indicates a WebRTC stream.
-      // - When Webrtc=false and StreamingMode=video, it indicates a video stream.
-      // - When Webrtc=false and StreamingMode=mix, it indicates a mixed stream.
+      // - `Webrtc`=`true` and `StreamingMode`=`video`: WebRTC streaming.
+      // - `Webrtc`=`false` and `StreamingMode`=`video`: video streaming.
+      // - `Webrtc`=`false` and `StreamingMode`=`mix`: mixed streaming.
       shared_ptr<string> streamingMode_ {};
-      // Whether to use adaptive resolution.
+      // Specifies whether to use adaptive resolution.
       // 
-      // - true: The session resolution follows changes in the terminal\\"s display area. In this case, SessionResolutionWidth and SessionResolutionHeight represent the maximum values for resolution adjustment.
+      // - `true`: The session resolution follows the terminal display area. In this case, `SessionResolutionWidth` and `SessionResolutionHeight` specify the maximum resolution values.
       // 
-      // - false: The session resolution does not follow changes in the terminal\\"s display area. In this case, the resolution is fixed to the values of SessionResolutionWidth and SessionResolutionHeight.
+      // - `false`: The session resolution does not follow the terminal display area. In this case, the resolution is fixed to the values of `SessionResolutionWidth` and `SessionResolutionHeight`.
       shared_ptr<bool> terminalResolutionAdaptive_ {};
-      // Whether to enable WebRTC. Combined with the StreamingMode parameter, it indicates the protocol type.
+      // Specifies whether to enable WebRTC. Used together with the `StreamingMode` parameter to specify the protocol type.
       // 
-      // - When Webrtc=true and StreamingMode=video, it indicates a WebRTC stream.
-      // - When Webrtc=false and StreamingMode=video, it indicates a video stream.
-      // - When Webrtc=false and StreamingMode=mix, it indicates a mixed stream.
+      // - `Webrtc`=`true` and `StreamingMode`=`video`: WebRTC streaming.
+      // - `Webrtc`=`false` and `StreamingMode`=`video`: video streaming.
+      // - `Webrtc`=`false` and `StreamingMode`=`mix`: mixed streaming.
       shared_ptr<bool> webrtc_ {};
     };
 
@@ -212,11 +212,7 @@ namespace Models
 
 
     protected:
-      // The account type of the user.
-      // 
-      // Valid value:
-      // 
-      // *   Simple: convenience account
+      // The user account type.
       shared_ptr<string> type_ {};
     };
 
@@ -248,7 +244,7 @@ namespace Models
 
 
     protected:
-      // The content of the custom policy. The content must meet the specifications of image versions. To use this parameter, submit a ticket to apply to enable the whitelist feature.
+      // The custom policy content. The content must comply with the image version specifications. To use this parameter, submit a ticket to enable the whitelist.
       shared_ptr<string> customConfig_ {};
     };
 
@@ -320,14 +316,13 @@ namespace Models
 
 
       protected:
-        // Remote storage path for user data roaming.
-        // 
-        // - If left empty, the default value is the delivery group ID.
-        // - For cross-delivery-group (within the same VPC) user data roaming, the same value must be configured for all participating delivery groups.
+        // The remote storage path for user data roaming.
+        // - If not specified, the default value is the delivery group ID.
+        // - For cross-delivery-group (same VPC) user data roaming, set the same value for all delivery groups involved.
         shared_ptr<string> remoteStoragePath_ {};
-        // Remote storage type used for user data roaming.
+        // The remote storage type used for user data roaming.
         shared_ptr<string> remoteStorageType_ {};
-        // User data roaming toggle.
+        // Specifies whether to enable user data roaming.
         shared_ptr<bool> userProfileSwitch_ {};
       };
 
@@ -352,9 +347,9 @@ namespace Models
 
 
     protected:
-      // The storage types.
+      // The list of storage types.
       shared_ptr<vector<string>> storageTypeList_ {};
-      // User data roaming configuration.
+      // The user data roaming configuration.
       shared_ptr<StoragePolicy::UserProfile> userProfile_ {};
     };
 
@@ -396,19 +391,9 @@ namespace Models
 
 
     protected:
-      // Specifies whether to reset after unbinding from a delivery group.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Specifies whether to reset after unbinding.
       shared_ptr<bool> resetAfterUnbind_ {};
-      // Specifies whether to skip user permission verification.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false: This is the default value.
+      // Specifies whether to skip user authorization verification.
       shared_ptr<bool> skipUserAuthCheck_ {};
     };
 
@@ -486,32 +471,20 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the debugging mode. If you want to call the `GetDebugAppInstance` and `CreateImageFromAppInstanceGroup` operations, you must set this parameter to `ON`.
-      // 
-      // Valid values:
-      // 
-      // *   OFF
-      // *   ON
+      // Specifies whether to enable debug mode. To call `GetDebugAppInstance` and `CreateImageFromAppInstanceGroup`, set this field to `ON`.
       shared_ptr<string> debugMode_ {};
-      // Only one application is allowed to be opened within a single session.
-      // 
-      // - When enabled, launching multiple applications from the delivery group will allocate a separate session for each application, resulting in higher session consumption.
+      // Specifies whether to allow only one application per session.
+      // - When enabled, opening multiple applications in the delivery group allocates a separate session for each application, consuming more sessions.
       shared_ptr<bool> perSessionPerApp_ {};
-      // Persistent session scheduling mode.
+      // The scheduling mode for persistent sessions.
       shared_ptr<string> persistentAppInstanceScheduleMode_ {};
-      // Session pre-launch toggle.
-      // 
+      // Specifies whether to enable session pre-opening.
       // - If not specified, the default value is true.
       shared_ptr<string> sessionPreOpen_ {};
       // The session type.
-      // 
-      // Valid values:
-      // 
-      // *   CONSOLE: console session
-      // *   NORMAL: Remote Desktop Protocol (RDP)-based O\\&M session
       shared_ptr<string> sessionType_ {};
-      // The generation mode of the session users. Valid value:
-      // - wyid. In this case, you must set sessionPreOpen to false.
+      // The generation mode for session users.
+      // - wyid: The session pre-open (SessionPreOpen) must be set to false.
       shared_ptr<string> sessionUserGenerationMode_ {};
     };
 
@@ -628,11 +601,11 @@ namespace Models
 
 
         protected:
-          // The number of resources.
+          // The resource count.
           shared_ptr<int32_t> amount_ {};
-          // The end time of the time period. Format: HH:mm.
+          // The end time. Format: HH:mm.
           shared_ptr<string> endTime_ {};
-          // The start time of the time period. Format: HH:mm.
+          // The start time. Format: HH:mm.
           shared_ptr<string> startTime_ {};
         };
 
@@ -664,21 +637,17 @@ namespace Models
 
 
       protected:
-        // The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
-        // 
-        // Valid value:
-        // 
-        // *   Weekly: The scaling policy is executed on specific days each week.
+        // The type of the recurrence schedule. You must specify both `RecurrenceType` and `RecurrenceValues`.
         shared_ptr<string> recurrenceType_ {};
-        // The days of each week on which the scaling policy is executed.
+        // The list of recurrence values.
         shared_ptr<vector<int32_t>> recurrenceValues_ {};
-        // The time periods during which the scaling policy can be executed. The time periods must meet the following requirements:
+        // The list of time periods for the recurrence schedule. Requirements for time period settings:
         // 
-        // *   Up to three time periods can be added.
-        // *   Time periods cannot be overlapped.
-        // *   The interval between two consecutive time periods must be greater than or equal to 5 minutes.
-        // *   Each time period must be greater than or equal to 15 minutes.
-        // *   The total length of the time periods that you specify cannot be greater than a day.
+        // - You can add up to 3 time periods.
+        // - Time periods must not overlap.
+        // - The interval between time periods must be at least 5 minutes.
+        // - Each time period must be at least 15 minutes long.
+        // - All time periods combined must not span across days.
         shared_ptr<vector<RecurrenceSchedules::TimerPeriods>> timerPeriods_ {};
       };
 
@@ -780,68 +749,42 @@ namespace Models
 
 
     protected:
-      // Maximum number of idle sessions. When this value is specified, auto-scaling is triggered only if the session utilization exceeds `ScalingUsageThreshold` and the current number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, it is considered that sufficient idle sessions are available, and no auto-scaling will occur. This parameter allows flexible control over elastic scaling behavior and helps reduce usage costs.
+      // The maximum number of idle sessions. When this value is specified, auto scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the current delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the idle sessions are considered sufficient and no auto scale-out is performed. This parameter allows you to flexibly control elastic scaling behavior and reduce costs.
       shared_ptr<int32_t> maxIdleAppInstanceAmount_ {};
-      // The maximum number of resources that can be created for scale-out. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
+      // The maximum number of resources that can be created during scale-out. This field is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE` (elastic resources).
       shared_ptr<int32_t> maxScalingAmount_ {};
-      // The number of resources that you want to purchase. Valid values: 1 to 100.
+      // The number of resources to purchase. Valid values: 1 to 100.
       // 
-      // > 
-      // 
-      // *   This parameter is required if the resources are subscription resources.
-      // 
-      // *   If the resources are pay-as-you-go resources, this parameter is required only if you set `StrategyType` to `NODE_FIXED` or `NODE_SCALING_BY_USAGE`.
+      // >- This parameter is required for subscription resources.
+      // >- This parameter is required for pay-as-you-go resources when the scaling mode (`StrategyType`) is set to fixed quantity (`NODE_FIXED`) or auto scaling (`NODE_SCALING_BY_USAGE`).
       shared_ptr<int32_t> nodeAmount_ {};
-      // The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, the user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
-      // 
-      // *   appstreaming.general.4c8g: 1 to 2
-      // *   appstreaming.general.8c16g: 1 to 4
-      // *   appstreaming.vgpu.8c16g.4g: 1 to 4
-      // *   appstreaming.vgpu.8c31g.16g: 1 to 4
-      // *   appstreaming.vgpu.14c93g.12g: 1 to 6
+      // The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. Too many concurrent sessions may degrade the application experience. The valid value range varies by resource specification. You can call the ListNodeInstanceType operation to obtain the valid value range for each resource specification.
       shared_ptr<int32_t> nodeCapacity_ {};
-      // The ID of the resource type that you want to purchase. You can call the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) operation to obtain the ID.
-      // 
-      // Valid values:
-      // 
-      // *   appstreaming.vgpu.8c16g.4g: WUYING - Graphics_8 vCPUs, 16 GiB Memory, 4 GiB GPU Memory
-      // *   appstreaming.general.8c16g: WUYING - General_8 vCPUs, 16 GiB Memory
-      // *   appstreaming.general.4c8g: WUYING - General_4 vCPUs, 8 GiB Memory
-      // *   appstreaming.vgpu.14c93g.12g: WUYING - Graphics_14 vCPUs, 93 GiB Memory, 12 GiB GPU Memory.
-      // *   appstreaming.vgpu.8c31g.16g: WUYING - Graphics_8 vCPUs, 31 GiB Memory, 16 GiB GPU Memory
+      // The instance type ID of the resource to purchase. You can call the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) operation to obtain the ID.
       shared_ptr<string> nodeInstanceType_ {};
-      // The schedules of the scaling policy. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // The list of recurrence schedules. This field is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<vector<NodePool::RecurrenceSchedules>> recurrenceSchedules_ {};
-      // The maximum retention period of a resource to which no session is connected. If no session is connected to a resource, the resource is automatically scaled in after the specified retention period elapses. Valid values: 5 to 120. Default value: 5. Unit: minutes. If one of the following situations occurs, the resource is not scaled in.
+      // The maximum duration (in minutes) that a resource without active sessions is retained. When no sessions are connected to a resource, a countdown starts based on this value. The resource is released when the countdown ends. Valid values: 5 to 120. Default value: 5. The following exceptions apply:
       // 
-      // *   If automatic scale-out is triggered after the resource is scaled in, the scale-in is not executed. This prevents repeated scale-in and scale-out.
-      // *   If automatic scale-out is triggered due to an increase in the number of sessions during the specified period of time, the resource is not scaled in and the countdown restarts.
+      // - If releasing the resource would trigger auto scale-out again, the scale-down is not performed to avoid repeated scaling operations.
+      // - If auto scale-out is triggered due to increased sessions during this period, the resource is not released as originally planned, and the countdown restarts.
       shared_ptr<int32_t> scalingDownAfterIdleMinutes_ {};
-      // The number of resources that are created each time resources are scaled out. Valid values: 1 to 10. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
+      // The number of resources to create per scale-out operation. Valid values: 1 to 10. This field is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE` (elastic resources).
       shared_ptr<int32_t> scalingStep_ {};
-      // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
+      // The upper threshold of session usage (%). Auto scale-out is triggered when the session usage exceeds this threshold. The session usage is calculated as follows: `Session usage = Current sessions ÷ (Total resources × Concurrent sessions per resource) × 100%`. This field is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE` (elastic resources). Valid values: 0 to 100. Default value: 85.
       shared_ptr<string> scalingUsageThreshold_ {};
-      // The expiration date of the scaling policy. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be from 7 days to 1 year. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // The date when the policy expires. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be between 7 days and 1 year, inclusive. This field is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<string> strategyDisableDate_ {};
-      // The effective date of the scaling policy. Format: yyyy-MM-dd. The date must be the same as or later than the current date. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // The date when the policy takes effect. Format: yyyy-MM-dd. The date must be equal to or later than the current date. This field is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<string> strategyEnableDate_ {};
-      // The scaling policy of resources.
+      // The scaling mode.
       // 
       // > 
-      // 
-      // *   `NODE_FIXED`: fixed number of resources. This value is applicable to pay-as-you-go resources and subscription resources.
-      // 
-      // *   `NODE_SCALING_BY_USAGE`: auto scaling. This value is applicable to pay-as-you-go resources and subscription resources.
-      // 
-      // *   `NODE_SCALING_BY_SCHEDULE`: scheduled scaling. This value is applicable only to pay-as-you-go resources.
-      // 
-      // Valid values:
-      // 
-      // *   NODE_FIXED: fixed number of resources
-      // *   NODE_SCALING_BY_SCHEDULE: scheduled scaling
-      // *   NODE_SCALING_BY_USAGE: auto scaling
+      // >- `NODE_FIXED` (fixed quantity): applicable to subscription and pay-as-you-go resources.
+      // >- `NODE_SCALING_BY_USAGE` (auto scaling): applicable to subscription and pay-as-you-go resources.
+      // >- `NODE_SCALING_BY_SCHEDULE` (scheduled scaling): applicable only to pay-as-you-go resources.
       shared_ptr<string> strategyType_ {};
-      // Specifies whether to enable the warmup policy for resources. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
+      // Specifies whether to enable the resource prefetch policy. This field is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
       shared_ptr<bool> warmUp_ {};
     };
 
@@ -912,13 +855,9 @@ namespace Models
 
 
       protected:
-        // The destination. The value is a CIDR block.
+        // The access destination. CIDR format.
         shared_ptr<string> destination_ {};
         // The network egress mode.
-        // 
-        // Valid value:
-        // 
-        // *   Shared: accesses the network by using NAT Gateway.
         shared_ptr<string> mode_ {};
       };
 
@@ -962,12 +901,7 @@ namespace Models
       protected:
         // The domain name.
         shared_ptr<string> domain_ {};
-        // The policy used for the domain name.
-        // 
-        // Valid values:
-        // 
-        // *   allow
-        // *   block
+        // The policy value.
         shared_ptr<string> policy_ {};
       };
 
@@ -1022,22 +956,18 @@ namespace Models
 
 
     protected:
-      // The domain name rules.
+      // The domain name rule configurations.
       shared_ptr<vector<Network::DomainRules>> domainRules_ {};
-      // The validity period of the public IP address. If the specified value is exceeded, the IP address is updated at next logon. Minimum value: 60. Unit: minutes.
+      // The duration (in minutes) after which the public IP address is refreshed upon the next logon. Minimum value: 60.
       shared_ptr<int32_t> ipExpireMinutes_ {};
-      // Office Network ID.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The route settings. This parameter is available only if you set `StrategyType` to `Mixed`.
+      // The route configurations. This parameter can be configured only when the network policy type (`StrategyType`) is set to mixed mode (`Mixed`).
       shared_ptr<vector<Network::Routes>> routes_ {};
-      // The type of the network policy.
-      // 
-      // Valid values:
-      // 
-      // *   Mixed: the hybrid mode. In this mode, a device is deployed in one virtual private cloud (VPC). Two NICs are provided and an independent public IP address is configured for the device.
-      // *   Shared: the shared mode. In this mode, a single NIC is provided for a device and the network is accessed by using NAT Gateway.
+      // The network policy type.
       shared_ptr<string> strategyType_ {};
-      // List of virtual switch IDs.
+      // The list of vSwitch IDs.
+      // 
       // - Valid only for custom office networks.
       shared_ptr<vector<string>> vSwitchIds_ {};
     };
@@ -1266,110 +1196,77 @@ namespace Models
 
 
   protected:
-    // The image ID of the application. To obtain the image ID, log on to the [App Streaming console](https://appstreaming.console.aliyun.com/). In the left-side navigation pane, choose **Maintenance** > **Custom Images** or Maintenance > **System Images**.
+    // The application image ID. You can obtain the ID from the **O&M** > **Custom Images** or **System Images** page in the [WUYING Cloud Application console](https://appstreaming.console.aliyun.com/).
     // 
     // This parameter is required.
     shared_ptr<string> appCenterImageId_ {};
     // The name of the delivery group.
     shared_ptr<string> appInstanceGroupName_ {};
-    // Package type.
+    // The package type.
     shared_ptr<string> appPackageType_ {};
-    // Policy ID.
+    // The policy ID.
     shared_ptr<string> appPolicyId_ {};
-    // The authentication mode of the delivery group.
+    // The authorization mode of the delivery group.
     shared_ptr<string> authMode_ {};
     // Specifies whether to enable automatic payment.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false: manual payment. This is the default value.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false: manual payment. This is the default value.
     shared_ptr<bool> autoRenew_ {};
-    // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-    // 
-    // Valid values:
-    // 
-    // *   cn-shanghai: China (Shanghai)
-    // *   cn-hangzhou: China (Hangzhou)
+    // The region ID of the delivery group. For information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
     // The sales mode.
     // 
-    // Valid value:
-    // 
-    // *   Node: by resource
-    // 
     // This parameter is required.
     shared_ptr<string> chargeResourceMode_ {};
     // The billing method.
     // 
-    // Valid values:
-    // 
-    // *   PostPaid: pay-as-you-go
-    // *   PrePaid: subscription
-    // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // Cluster ID.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The network settings.
+    // The network configuration.
     // 
-    // >  If you want to use this parameter, submit a ticket.
+    // > To use this parameter, submit a ticket.
     shared_ptr<CreateAppInstanceGroupRequest::Network> network_ {};
     // The node pool object.
     shared_ptr<CreateAppInstanceGroupRequest::NodePool> nodePool_ {};
-    // The subscription duration of resources. This parameter is required if you set `ChargeType` to `PrePaid`. The unit of this parameter is specified by `PeriodUnit`.
+    // The subscription duration of the resource when `ChargeType` is set to `PrePaid`. This parameter is required. The unit is specified by `PeriodUnit`.
     // 
-    // *   Valid value if you set `PeriodUnit` to `Week`:
+    // - If `PeriodUnit` is set to `Week`, valid values:
     // 
-    //     *   1
+    //    - 1
     // 
-    // *   Valid values if you set `PeriodUnit` to `Month`:
+    // - If `PeriodUnit` is set to `Month`, valid values:
     // 
-    //     *   1
-    //     *   2
-    //     *   3
-    //     *   6
+    //    - 1
+    //    - 2
+    //    - 3
+    //    - 6
     // 
-    // *   Valid values if you set `PeriodUnit` to `Year`:
+    // - If `PeriodUnit` is set to `Year`, valid values:
     // 
-    //     *   1
-    //     *   2
-    //     *   3
+    //    - 1
+    //    - 2
+    //    - 3
     // 
-    // >  If you set `ChargeType` to `PostPaid`, set this parameter to 1.
+    // > If `ChargeType` is set to `PostPaid`, set this parameter to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration. This parameter is available if you set `ChargeType` to `PrePaid`.
+    // The unit of the subscription duration when `ChargeType` is set to `PrePaid`.
     // 
-    // >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify an invalid value combination for Period and PeriodUnit, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid.
+    // If the request parameters do not match the valid combinations, such as `2 Week`, the API call succeeds but an error occurs during the order placement.
     // 
-    // >  If you set `ChargeType` to `PostPaid`, set this parameter to `Month`.
-    // 
-    // Valid values:
-    // 
-    // *   Month
-    // *   Year
-    // *   Week
+    // > If `ChargeType` is set to `PostPaid`, set this parameter to `Month`.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the pre-open application.
+    // The pre-opened application ID.
     shared_ptr<string> preOpenAppId_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
@@ -1379,23 +1276,23 @@ namespace Models
     shared_ptr<CreateAppInstanceGroupRequest::RuntimePolicy> runtimePolicy_ {};
     // The security policy.
     shared_ptr<CreateAppInstanceGroupRequest::SecurityPolicy> securityPolicy_ {};
-    // The period of time during which the application can be recycled. The recycling period is the period of time between the time when the end user disconnects from the application and the time when processes exit the application. If you do not want to recycle the application, set this parameter to `-1`. Valid values:-1 and 3 to 300. The value must be an integer. Default value: `15`. Unit: minutes.
+    // The application recycling timeout period, in minutes. After an end user disconnects from a cloud application for a period of time, the cloud application process exits. This period is the application recycling timeout. Set this parameter to `-1` if you do not want the application to be recycled. Valid values: -1 and 3 to 300 (integer). Default value: `15`.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sessionTimeout_ {};
     // The storage policy.
     shared_ptr<CreateAppInstanceGroupRequest::StoragePolicy> storagePolicy_ {};
-    // Payment method subtype.
+    // The billing method subtype.
     shared_ptr<string> subPayType_ {};
-    // The custom policy.
+    // The user-defined policy.
     shared_ptr<CreateAppInstanceGroupRequest::UserDefinePolicy> userDefinePolicy_ {};
-    // List of authorized user group IDs.
+    // The list of authorized user group IDs.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The information about the user that you want to add to the assigned user list of the delivery group. This parameter is required if you configure `Users`.
+    // The user information of the users to be added to the delivery group. This field is required if the `Users` parameter is specified.
     shared_ptr<CreateAppInstanceGroupRequest::UserInfo> userInfo_ {};
-    // The users that you want to add to the assigned user list of the delivery group.
+    // The list of usernames to be added to the delivery group as assigned users.
     shared_ptr<vector<string>> users_ {};
-    // Display policy.
+    // The display policy.
     shared_ptr<CreateAppInstanceGroupRequest::VideoPolicy> videoPolicy_ {};
   };
 

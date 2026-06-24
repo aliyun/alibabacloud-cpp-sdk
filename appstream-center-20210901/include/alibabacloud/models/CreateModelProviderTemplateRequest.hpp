@@ -121,20 +121,38 @@ namespace Models
 
 
   protected:
+    // Agent platform.
     shared_ptr<string> agentPlatform_ {};
+    // Agent provider name.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
+    // Business type.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
+    // Model provider configuration JSON, containing connection information such as baseUrl, apiKey, and api. The apiKey is encrypted after creation. Not required when ProviderType is WuyingCredit, as it is copied from the system template.
+    // 
     // This parameter is required.
     shared_ptr<string> config_ {};
+    // Model provider template description.
     shared_ptr<string> description_ {};
+    // Whether to enable Wuying security proxy. Must be true when ProviderType is WuyingCredit.
     shared_ptr<bool> enableWuyingProxy_ {};
+    // Associated model group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> modelTemplateId_ {};
+    // Model provider template name.
     shared_ptr<string> name_ {};
+    // Model provider name. Must be unique within the same model template. Naming rules vary by ProviderType. For details, see the ProviderType description.
+    // 
     // This parameter is required.
     shared_ptr<string> providerName_ {};
+    // Model provider type. Different types impose different constraints on ProviderName and Config:
+    // - WuyingCredit: Wuying credit package. ProviderName must be wuying-credit. Created by copying from the system template. Config is not required.
+    // - Managed: Managed provider. System-reserved names such as wuying-credit cannot be used. Config is required.
+    // - Custom: User-defined provider. ProviderName must start with the provider- prefix. Config is required.
     shared_ptr<string> providerType_ {};
   };
 

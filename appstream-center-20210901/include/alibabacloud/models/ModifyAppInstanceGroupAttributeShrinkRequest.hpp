@@ -130,47 +130,32 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The name of the delivery group.
+    // The delivery group name.
     shared_ptr<string> appInstanceGroupName_ {};
-    // The network settings.
+    // The network configuration.
     // 
-    // >  If you want to use this parameter, submit a ticket.
+    // > To use this parameter, submit a ticket.
     shared_ptr<string> networkShrink_ {};
-    // The information about the resource group.
+    // The resource group object.
     shared_ptr<string> nodePoolShrink_ {};
-    // Specifies whether only one application can be opened in a session.
-    // 
-    // *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to allow only one application per session.
+    // - If enabled, opening multiple applications within a delivery group allocates a separate session for each application, consuming more sessions.
     shared_ptr<bool> perSessionPerApp_ {};
-    // The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
+    // The AppId of the pre-open application. If the PreOpenMode parameter is set to `SINGLE_APP`, PreOpenAppId cannot be an empty string.
     shared_ptr<string> preOpenAppId_ {};
     // The pre-open mode.
-    // 
-    // Valid values:
-    // 
-    // *   SINGLE_APP: enables the pre-open mode for a single application.
-    // *   OFF: disables the pre-open mode. This is the default value.
     shared_ptr<string> preOpenMode_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
     // The security policy.
     shared_ptr<string> securityPolicyShrink_ {};
-    // The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+    // The session retention duration after disconnection, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
     shared_ptr<int32_t> sessionTimeout_ {};
     // The storage policy.
     shared_ptr<string> storagePolicyShrink_ {};

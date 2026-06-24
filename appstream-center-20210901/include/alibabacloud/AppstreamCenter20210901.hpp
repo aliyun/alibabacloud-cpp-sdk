@@ -21,7 +21,7 @@ namespace AppstreamCenter20210901
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Sets the execution time of an over-the-air (OTA) update task.
+       * @summary Sets the execution time for an over-the-air update.
        *
        * @param request ApproveOtaTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AppstreamCenter20210901
       Models::ApproveOtaTaskResponse approveOtaTaskWithOptions(const Models::ApproveOtaTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the execution time of an over-the-air (OTA) update task.
+       * @summary Sets the execution time for an over-the-air update.
        *
        * @param request ApproveOtaTaskRequest
        * @return ApproveOtaTaskResponse
@@ -55,7 +55,9 @@ namespace AppstreamCenter20210901
       Models::AssignWuyingServerPrivateAddressesResponse assignWuyingServerPrivateAddresses(const Models::AssignWuyingServerPrivateAddressesRequest &request);
 
       /**
-       * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
+       * @summary Add or remove assigned users for a delivery group. Only users added as assigned users can access cloud applications.
+       *
+       * @description > After changing the assigned users, the selected users will receive corresponding notification emails. Generally, it takes about 2 minutes for the changes to take effect on the client.
        *
        * @param tmpReq AuthorizeInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +66,9 @@ namespace AppstreamCenter20210901
       Models::AuthorizeInstanceGroupResponse authorizeInstanceGroupWithOptions(const Models::AuthorizeInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
+       * @summary Add or remove assigned users for a delivery group. Only users added as assigned users can access cloud applications.
+       *
+       * @description > After changing the assigned users, the selected users will receive corresponding notification emails. Generally, it takes about 2 minutes for the changes to take effect on the client.
        *
        * @param request AuthorizeInstanceGroupRequest
        * @return AuthorizeInstanceGroupResponse
@@ -72,7 +76,10 @@ namespace AppstreamCenter20210901
       Models::AuthorizeInstanceGroupResponse authorizeInstanceGroup(const Models::AuthorizeInstanceGroupRequest &request);
 
       /**
-       * @summary 批量创建LLM模板
+       * @summary Creates LLM templates in batches.
+       *
+       * @description You can create model templates in batches under a model provider template in the Wuying Agent Management Center. You can add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped and are not created again.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request BatchCreateLlmTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +88,10 @@ namespace AppstreamCenter20210901
       Models::BatchCreateLlmTemplatesResponse batchCreateLlmTemplatesWithOptions(const Models::BatchCreateLlmTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量创建LLM模板
+       * @summary Creates LLM templates in batches.
+       *
+       * @description You can create model templates in batches under a model provider template in the Wuying Agent Management Center. You can add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped and are not created again.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request BatchCreateLlmTemplatesRequest
        * @return BatchCreateLlmTemplatesResponse
@@ -89,7 +99,11 @@ namespace AppstreamCenter20210901
       Models::BatchCreateLlmTemplatesResponse batchCreateLlmTemplates(const Models::BatchCreateLlmTemplatesRequest &request);
 
       /**
-       * @summary 配置资源组模型模板
+       * @summary Configures the model group for a resource group.
+       *
+       * @description You can assign a model group to resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
+       * When both an agent runtime and its resource group have model groups configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the agent runtime setting.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request ConfigResourceGroupModelTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +112,11 @@ namespace AppstreamCenter20210901
       Models::ConfigResourceGroupModelTemplateResponse configResourceGroupModelTemplateWithOptions(const Models::ConfigResourceGroupModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置资源组模型模板
+       * @summary Configures the model group for a resource group.
+       *
+       * @description You can assign a model group to resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
+       * When both an agent runtime and its resource group have model groups configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the agent runtime setting.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request ConfigResourceGroupModelTemplateRequest
        * @return ConfigResourceGroupModelTemplateResponse
@@ -106,7 +124,10 @@ namespace AppstreamCenter20210901
       Models::ConfigResourceGroupModelTemplateResponse configResourceGroupModelTemplate(const Models::ConfigResourceGroupModelTemplateRequest &request);
 
       /**
-       * @summary 配置Runtime通道
+       * @summary Configures a third-party channel for Agent runtime.
+       *
+       * @description You can configure third-party channels for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. These channels serve as extended Agent communication methods beyond the AgentIM channel.
+       * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request ConfigRuntimeChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +136,10 @@ namespace AppstreamCenter20210901
       Models::ConfigRuntimeChannelResponse configRuntimeChannelWithOptions(const Models::ConfigRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置Runtime通道
+       * @summary Configures a third-party channel for Agent runtime.
+       *
+       * @description You can configure third-party channels for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. These channels serve as extended Agent communication methods beyond the AgentIM channel.
+       * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request ConfigRuntimeChannelRequest
        * @return ConfigRuntimeChannelResponse
@@ -123,7 +147,10 @@ namespace AppstreamCenter20210901
       Models::ConfigRuntimeChannelResponse configRuntimeChannel(const Models::ConfigRuntimeChannelRequest &request);
 
       /**
-       * @summary 通过RuntimeIds配置模型模板
+       * @summary Configures model groups for Agent runtime resources.
+       *
+       * @description You can authorize model groups for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. The model groups serve as inference engines for Agent task execution.
+       * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
        *
        * @param request ConfigRuntimeModelTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +159,10 @@ namespace AppstreamCenter20210901
       Models::ConfigRuntimeModelTemplateResponse configRuntimeModelTemplateWithOptions(const Models::ConfigRuntimeModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过RuntimeIds配置模型模板
+       * @summary Configures model groups for Agent runtime resources.
+       *
+       * @description You can authorize model groups for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. The model groups serve as inference engines for Agent task execution.
+       * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
        *
        * @param request ConfigRuntimeModelTemplateRequest
        * @return ConfigRuntimeModelTemplateResponse
@@ -142,8 +172,8 @@ namespace AppstreamCenter20210901
       /**
        * @summary Creates a delivery group.
        *
-       * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
-       * A delivery group is a logical group that is used to deliver cloud applications to end users, including the images, resource management policies, and user groups on which the cloud applications rely. For more information, see [Publish delivery groups](https://help.aliyun.com/document_detail/426046.html).
+       * @description Make sure that you are familiar with the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application before you call this operation.
+       * A delivery group is a logical grouping for delivering cloud applications to end users. It includes the underlying cloud application resources, images that contain cloud applications, resource management policies, and user assignment settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
        *
        * @param tmpReq CreateAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -154,8 +184,8 @@ namespace AppstreamCenter20210901
       /**
        * @summary Creates a delivery group.
        *
-       * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
-       * A delivery group is a logical group that is used to deliver cloud applications to end users, including the images, resource management policies, and user groups on which the cloud applications rely. For more information, see [Publish delivery groups](https://help.aliyun.com/document_detail/426046.html).
+       * @description Make sure that you are familiar with the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application before you call this operation.
+       * A delivery group is a logical grouping for delivering cloud applications to end users. It includes the underlying cloud application resources, images that contain cloud applications, resource management policies, and user assignment settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
        *
        * @param request CreateAppInstanceGroupRequest
        * @return CreateAppInstanceGroupResponse
@@ -163,7 +193,7 @@ namespace AppstreamCenter20210901
       Models::CreateAppInstanceGroupResponse createAppInstanceGroup(const Models::CreateAppInstanceGroupRequest &request);
 
       /**
-       * @summary Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
+       * @summary Creates a custom image from a deployed WUYING instance. You can use the custom image to quickly create more WUYING instances with the same configurations, without having to repeatedly configure the instance environment each time.
        *
        * @param request CreateImageByInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -172,7 +202,7 @@ namespace AppstreamCenter20210901
       Models::CreateImageByInstanceResponse createImageByInstanceWithOptions(const Models::CreateImageByInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
+       * @summary Creates a custom image from a deployed WUYING instance. You can use the custom image to quickly create more WUYING instances with the same configurations, without having to repeatedly configure the instance environment each time.
        *
        * @param request CreateImageByInstanceRequest
        * @return CreateImageByInstanceResponse
@@ -180,7 +210,7 @@ namespace AppstreamCenter20210901
       Models::CreateImageByInstanceResponse createImageByInstance(const Models::CreateImageByInstanceRequest &request);
 
       /**
-       * @summary Creates a new image by debugging the delivery group.
+       * @summary Creates a new image from a debug delivery group.
        *
        * @param request CreateImageFromAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -189,7 +219,7 @@ namespace AppstreamCenter20210901
       Models::CreateImageFromAppInstanceGroupResponse createImageFromAppInstanceGroupWithOptions(const Models::CreateImageFromAppInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a new image by debugging the delivery group.
+       * @summary Creates a new image from a debug delivery group.
        *
        * @param request CreateImageFromAppInstanceGroupRequest
        * @return CreateImageFromAppInstanceGroupResponse
@@ -197,7 +227,10 @@ namespace AppstreamCenter20210901
       Models::CreateImageFromAppInstanceGroupResponse createImageFromAppInstanceGroup(const Models::CreateImageFromAppInstanceGroupRequest &request);
 
       /**
-       * @summary 创建模型提供商模板
+       * @summary Create Model Provider Template
+       *
+       * @description You can create a model provider template under a model template in the Wuying Agent Management Center. This template is used to configure the connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that Agents can call. After creation, the model provider template is automatically associated with the specified model template.
+       * Make sure you are fully familiar with the operations and usage of the Wuying Agent Management Center before calling this API.
        *
        * @param request CreateModelProviderTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -206,7 +239,10 @@ namespace AppstreamCenter20210901
       Models::CreateModelProviderTemplateResponse createModelProviderTemplateWithOptions(const Models::CreateModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模型提供商模板
+       * @summary Create Model Provider Template
+       *
+       * @description You can create a model provider template under a model template in the Wuying Agent Management Center. This template is used to configure the connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that Agents can call. After creation, the model provider template is automatically associated with the specified model template.
+       * Make sure you are fully familiar with the operations and usage of the Wuying Agent Management Center before calling this API.
        *
        * @param request CreateModelProviderTemplateRequest
        * @return CreateModelProviderTemplateResponse
@@ -214,7 +250,10 @@ namespace AppstreamCenter20210901
       Models::CreateModelProviderTemplateResponse createModelProviderTemplate(const Models::CreateModelProviderTemplateRequest &request);
 
       /**
-       * @summary 创建模型模板
+       * @summary Creates a model creation template.
+       *
+       * @description You can create a model group in the WUYING Agent Management Center to manage the model providers and model scope that an Agent can invoke. After creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
+       * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
        *
        * @param request CreateModelTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -223,7 +262,10 @@ namespace AppstreamCenter20210901
       Models::CreateModelTemplateResponse createModelTemplateWithOptions(const Models::CreateModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模型模板
+       * @summary Creates a model creation template.
+       *
+       * @description You can create a model group in the WUYING Agent Management Center to manage the model providers and model scope that an Agent can invoke. After creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
+       * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
        *
        * @param request CreateModelTemplateRequest
        * @return CreateModelTemplateResponse
@@ -231,14 +273,11 @@ namespace AppstreamCenter20210901
       Models::CreateModelTemplateResponse createModelTemplate(const Models::CreateModelTemplateRequest &request);
 
       /**
-       * @summary Create one or more workstations.
+       * @summary Creates one or more workstations.
        *
-       * @description 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
-       * 2.  If there are multiple versions behind the input parameter ContentId:
-       *     **
-       *     **Note** The default version is used.
-       *     Bind simultaneously
-       * 3.  You can call the current interface only if the default version of Content is available.
+       * @description 1. A project corresponds to the resource configuration module in the CloudFlow console.
+       * 2. If the ContentId specified in the request parameters has multiple versions, this API operation <notice>uses the default version</notice> for binding.
+       * 3. This operation succeeds only when the default version of the content is in an available state.
        *
        * @param request CreateWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -247,14 +286,11 @@ namespace AppstreamCenter20210901
       Models::CreateWuyingServerResponse createWuyingServerWithOptions(const Models::CreateWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create one or more workstations.
+       * @summary Creates one or more workstations.
        *
-       * @description 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
-       * 2.  If there are multiple versions behind the input parameter ContentId:
-       *     **
-       *     **Note** The default version is used.
-       *     Bind simultaneously
-       * 3.  You can call the current interface only if the default version of Content is available.
+       * @description 1. A project corresponds to the resource configuration module in the CloudFlow console.
+       * 2. If the ContentId specified in the request parameters has multiple versions, this API operation <notice>uses the default version</notice> for binding.
+       * 3. This operation succeeds only when the default version of the content is in an available state.
        *
        * @param request CreateWuyingServerRequest
        * @return CreateWuyingServerResponse
@@ -262,9 +298,9 @@ namespace AppstreamCenter20210901
       Models::CreateWuyingServerResponse createWuyingServer(const Models::CreateWuyingServerRequest &request);
 
       /**
-       * @summary Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+       * @summary Deletes a pay-as-you-go resource-based delivery group.
        *
-       * @description >  You cannot call this operation to delete a subscription delivery group.
+       * @description > This operation does not support deleting delivery groups that use subscription resources.
        *
        * @param request DeleteAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -273,9 +309,9 @@ namespace AppstreamCenter20210901
       Models::DeleteAppInstanceGroupResponse deleteAppInstanceGroupWithOptions(const Models::DeleteAppInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+       * @summary Deletes a pay-as-you-go resource-based delivery group.
        *
-       * @description >  You cannot call this operation to delete a subscription delivery group.
+       * @description > This operation does not support deleting delivery groups that use subscription resources.
        *
        * @param request DeleteAppInstanceGroupRequest
        * @return DeleteAppInstanceGroupResponse
@@ -283,9 +319,9 @@ namespace AppstreamCenter20210901
       Models::DeleteAppInstanceGroupResponse deleteAppInstanceGroup(const Models::DeleteAppInstanceGroupRequest &request);
 
       /**
-       * @summary Deletes an application instance.
+       * @summary Deletes a specified application instance.
        *
-       * @description Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
+       * @description Only instances in the init or idle state can be deleted. This operation is available only to specific customers.
        *
        * @param request DeleteAppInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -294,9 +330,9 @@ namespace AppstreamCenter20210901
       Models::DeleteAppInstancesResponse deleteAppInstancesWithOptions(const Models::DeleteAppInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application instance.
+       * @summary Deletes a specified application instance.
        *
-       * @description Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
+       * @description Only instances in the init or idle state can be deleted. This operation is available only to specific customers.
        *
        * @param request DeleteAppInstancesRequest
        * @return DeleteAppInstancesResponse
@@ -304,12 +340,12 @@ namespace AppstreamCenter20210901
       Models::DeleteAppInstancesResponse deleteAppInstances(const Models::DeleteAppInstancesRequest &request);
 
       /**
-       * @summary Delete a custom RDS image
+       * @summary Deletes a custom AppStream image.
        *
-       * @description *   You can only delete custom images to which a user belongs.
-       * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
-       * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
-       * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+       * @description - You can delete only custom images that belong to you.
+       * - For images associated with the AppStream Cloud Computer Pool, AppStream Cloud Application, or AppStream Workstation product lines, you must ensure that no AppStream instances are using the image before you can delete it.
+       * - If an AppStream Cloud Desktop template references an image, the template is also deleted when the image is deleted.
+       * - If an image is available in multiple regions, deleting the image removes it from all regions.
        *
        * @param request DeleteImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,12 +354,12 @@ namespace AppstreamCenter20210901
       Models::DeleteImageResponse deleteImageWithOptions(const Models::DeleteImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a custom RDS image
+       * @summary Deletes a custom AppStream image.
        *
-       * @description *   You can only delete custom images to which a user belongs.
-       * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
-       * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
-       * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+       * @description - You can delete only custom images that belong to you.
+       * - For images associated with the AppStream Cloud Computer Pool, AppStream Cloud Application, or AppStream Workstation product lines, you must ensure that no AppStream instances are using the image before you can delete it.
+       * - If an AppStream Cloud Desktop template references an image, the template is also deleted when the image is deleted.
+       * - If an image is available in multiple regions, deleting the image removes it from all regions.
        *
        * @param request DeleteImageRequest
        * @return DeleteImageResponse
@@ -331,7 +367,10 @@ namespace AppstreamCenter20210901
       Models::DeleteImageResponse deleteImage(const Models::DeleteImageRequest &request);
 
       /**
-       * @summary 删除LLM模板
+       * @summary Deletes an LLM template.
+       *
+       * @description You can delete a model template that has been created under a model provider template in the Wuying Agent Management Center. Before deletion, ensure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After deletion, the model configurations of associated cloud computers are automatically refreshed.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request DeleteLlmTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -340,7 +379,10 @@ namespace AppstreamCenter20210901
       Models::DeleteLlmTemplateResponse deleteLlmTemplateWithOptions(const Models::DeleteLlmTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除LLM模板
+       * @summary Deletes an LLM template.
+       *
+       * @description You can delete a model template that has been created under a model provider template in the Wuying Agent Management Center. Before deletion, ensure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After deletion, the model configurations of associated cloud computers are automatically refreshed.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request DeleteLlmTemplateRequest
        * @return DeleteLlmTemplateResponse
@@ -348,7 +390,10 @@ namespace AppstreamCenter20210901
       Models::DeleteLlmTemplateResponse deleteLlmTemplate(const Models::DeleteLlmTemplateRequest &request);
 
       /**
-       * @summary 删除模型提供商模板
+       * @summary Deletes a model provider template.
+       *
+       * @description You can delete a model provider template that has been created under model templates in the WUYING Agent Management Center. Before deletion, make sure that the model provider is not the provider of the default model and is not a system preset type provider (such as WUYING credits package). After deletion, the associated models and key configurations are also removed.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request DeleteModelProviderTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -357,7 +402,10 @@ namespace AppstreamCenter20210901
       Models::DeleteModelProviderTemplateResponse deleteModelProviderTemplateWithOptions(const Models::DeleteModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型提供商模板
+       * @summary Deletes a model provider template.
+       *
+       * @description You can delete a model provider template that has been created under model templates in the WUYING Agent Management Center. Before deletion, make sure that the model provider is not the provider of the default model and is not a system preset type provider (such as WUYING credits package). After deletion, the associated models and key configurations are also removed.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request DeleteModelProviderTemplateRequest
        * @return DeleteModelProviderTemplateResponse
@@ -365,7 +413,10 @@ namespace AppstreamCenter20210901
       Models::DeleteModelProviderTemplateResponse deleteModelProviderTemplate(const Models::DeleteModelProviderTemplateRequest &request);
 
       /**
-       * @summary 删除模型模板
+       * @summary Deletes a model template.
+       *
+       * @description You can delete a model group that has been created in the WUYING Agent Management Center. Before deletion, ensure that the template has not been authorized to any resource. Otherwise, the deletion fails. After deletion, the model providers and models under the model group are also removed.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request DeleteModelTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -374,7 +425,10 @@ namespace AppstreamCenter20210901
       Models::DeleteModelTemplateResponse deleteModelTemplateWithOptions(const Models::DeleteModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型模板
+       * @summary Deletes a model template.
+       *
+       * @description You can delete a model group that has been created in the WUYING Agent Management Center. Before deletion, ensure that the template has not been authorized to any resource. Otherwise, the deletion fails. After deletion, the model providers and models under the model group are also removed.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request DeleteModelTemplateRequest
        * @return DeleteModelTemplateResponse
@@ -382,9 +436,9 @@ namespace AppstreamCenter20210901
       Models::DeleteModelTemplateResponse deleteModelTemplate(const Models::DeleteModelTemplateRequest &request);
 
       /**
-       * @summary 删除工作站
+       * @summary Deletes a cloud graphics workstation.
        *
-       * @description Deletes a workstation.
+       * @description Deletes a cloud graphics workstation.
        *
        * @param request DeleteWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -393,9 +447,9 @@ namespace AppstreamCenter20210901
       Models::DeleteWuyingServerResponse deleteWuyingServerWithOptions(const Models::DeleteWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作站
+       * @summary Deletes a cloud graphics workstation.
        *
-       * @description Deletes a workstation.
+       * @description Deletes a cloud graphics workstation.
        *
        * @param request DeleteWuyingServerRequest
        * @return DeleteWuyingServerResponse
@@ -403,7 +457,7 @@ namespace AppstreamCenter20210901
       Models::DeleteWuyingServerResponse deleteWuyingServer(const Models::DeleteWuyingServerRequest &request);
 
       /**
-       * @summary 配置SLS日志投递
+       * @summary Configure LogShipper for Simple Log Service
        *
        * @param request DeliverToUserSlsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,7 +466,7 @@ namespace AppstreamCenter20210901
       Models::DeliverToUserSlsResponse deliverToUserSlsWithOptions(const Models::DeliverToUserSlsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置SLS日志投递
+       * @summary Configure LogShipper for Simple Log Service
        *
        * @param request DeliverToUserSlsRequest
        * @return DeliverToUserSlsResponse
@@ -437,7 +491,7 @@ namespace AppstreamCenter20210901
       Models::DescribeWuyingServerResponse describeWuyingServer(const Models::DescribeWuyingServerRequest &request);
 
       /**
-       * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
+       * @summary Queries the Elastic IP Address (EIP) information of a Wuying workspace.
        *
        * @param request DescribeWuyingServerEipInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -446,7 +500,7 @@ namespace AppstreamCenter20210901
       Models::DescribeWuyingServerEipInfoResponse describeWuyingServerEipInfoWithOptions(const Models::DescribeWuyingServerEipInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
+       * @summary Queries the Elastic IP Address (EIP) information of a Wuying workspace.
        *
        * @param request DescribeWuyingServerEipInfoRequest
        * @return DescribeWuyingServerEipInfoResponse
@@ -454,7 +508,7 @@ namespace AppstreamCenter20210901
       Models::DescribeWuyingServerEipInfoResponse describeWuyingServerEipInfo(const Models::DescribeWuyingServerEipInfoRequest &request);
 
       /**
-       * @summary Queries the details of a delivery group.
+       * @summary Queries the details of a specified delivery group.
        *
        * @param request GetAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -463,7 +517,7 @@ namespace AppstreamCenter20210901
       Models::GetAppInstanceGroupResponse getAppInstanceGroupWithOptions(const Models::GetAppInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a delivery group.
+       * @summary Queries the details of a specified delivery group.
        *
        * @param request GetAppInstanceGroupRequest
        * @return GetAppInstanceGroupResponse
@@ -471,11 +525,11 @@ namespace AppstreamCenter20210901
       Models::GetAppInstanceGroupResponse getAppInstanceGroup(const Models::GetAppInstanceGroupRequest &request);
 
       /**
-       * @summary Queries the credential that is used to connect to App Streaming.
+       * @summary Retrieves connection credentials for a cloud application.
        *
-       * @description You must call this operation at least twice to obtain a connection credential.
-       * The first time you call this operation, the system assigns an application instance to the specified convenience account and then starts the application. In this case, the ID of the started task, which is indicated by `TaskID`, is returned.
-       * In subsequent calls, you must configure `TaskID` to query whether the task is completed. If the value of `TaskStatus` in the response is `Finished`, the connection credential, which is indicated by `Ticket`, is returned.
+       * @description This operation requires multiple invokes (at least two) to obtain the connection credentials.
+       * On the first invoke, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
+       * On subsequent invokes, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
        *
        * @param request GetConnectionTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -484,11 +538,11 @@ namespace AppstreamCenter20210901
       Models::GetConnectionTicketResponse getConnectionTicketWithOptions(const Models::GetConnectionTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the credential that is used to connect to App Streaming.
+       * @summary Retrieves connection credentials for a cloud application.
        *
-       * @description You must call this operation at least twice to obtain a connection credential.
-       * The first time you call this operation, the system assigns an application instance to the specified convenience account and then starts the application. In this case, the ID of the started task, which is indicated by `TaskID`, is returned.
-       * In subsequent calls, you must configure `TaskID` to query whether the task is completed. If the value of `TaskStatus` in the response is `Finished`, the connection credential, which is indicated by `Ticket`, is returned.
+       * @description This operation requires multiple invokes (at least two) to obtain the connection credentials.
+       * On the first invoke, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
+       * On subsequent invokes, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
        *
        * @param request GetConnectionTicketRequest
        * @return GetConnectionTicketResponse
@@ -496,7 +550,7 @@ namespace AppstreamCenter20210901
       Models::GetConnectionTicketResponse getConnectionTicket(const Models::GetConnectionTicketRequest &request);
 
       /**
-       * @summary Queries information that is used to debug an application instance.
+       * @summary Retrieves the information about a debug application instance.
        *
        * @param request GetDebugAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -505,7 +559,7 @@ namespace AppstreamCenter20210901
       Models::GetDebugAppInstanceResponse getDebugAppInstanceWithOptions(const Models::GetDebugAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information that is used to debug an application instance.
+       * @summary Retrieves the information about a debug application instance.
        *
        * @param request GetDebugAppInstanceRequest
        * @return GetDebugAppInstanceResponse
@@ -513,7 +567,10 @@ namespace AppstreamCenter20210901
       Models::GetDebugAppInstanceResponse getDebugAppInstance(const Models::GetDebugAppInstanceRequest &request);
 
       /**
-       * @summary 查询模型提供商模板详情
+       * @summary Queries the details of a model provider template.
+       *
+       * @description You can query the details of a specified model provider template in the WUYING Agent Management Center, including the provider name, description, and connection configuration list.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request GetModelProviderTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -522,7 +579,10 @@ namespace AppstreamCenter20210901
       Models::GetModelProviderTemplateResponse getModelProviderTemplateWithOptions(const Models::GetModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型提供商模板详情
+       * @summary Queries the details of a model provider template.
+       *
+       * @description You can query the details of a specified model provider template in the WUYING Agent Management Center, including the provider name, description, and connection configuration list.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request GetModelProviderTemplateRequest
        * @return GetModelProviderTemplateResponse
@@ -530,7 +590,7 @@ namespace AppstreamCenter20210901
       Models::GetModelProviderTemplateResponse getModelProviderTemplate(const Models::GetModelProviderTemplateRequest &request);
 
       /**
-       * @summary Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
+       * @summary Queries the details of an over-the-air update task, including the available version and version description.
        *
        * @param request GetOtaTaskByTaskIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -539,7 +599,7 @@ namespace AppstreamCenter20210901
       Models::GetOtaTaskByTaskIdResponse getOtaTaskByTaskIdWithOptions(const Models::GetOtaTaskByTaskIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
+       * @summary Queries the details of an over-the-air update task, including the available version and version description.
        *
        * @param request GetOtaTaskByTaskIdRequest
        * @return GetOtaTaskByTaskIdResponse
@@ -547,7 +607,7 @@ namespace AppstreamCenter20210901
       Models::GetOtaTaskByTaskIdResponse getOtaTaskByTaskId(const Models::GetOtaTaskByTaskIdRequest &request);
 
       /**
-       * @summary Queries resource prices.
+       * @summary Queries the price information of a resource.
        *
        * @param request GetResourcePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -556,7 +616,7 @@ namespace AppstreamCenter20210901
       Models::GetResourcePriceResponse getResourcePriceWithOptions(const Models::GetResourcePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resource prices.
+       * @summary Queries the price information of a resource.
        *
        * @param request GetResourcePriceRequest
        * @return GetResourcePriceResponse
@@ -564,7 +624,7 @@ namespace AppstreamCenter20210901
       Models::GetResourcePriceResponse getResourcePrice(const Models::GetResourcePriceRequest &request);
 
       /**
-       * @summary Queries the renewal prices of App Streaming resources.
+       * @summary Queries the renewal price of WUYING Cloud Application resources.
        *
        * @param request GetResourceRenewPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -573,7 +633,7 @@ namespace AppstreamCenter20210901
       Models::GetResourceRenewPriceResponse getResourceRenewPriceWithOptions(const Models::GetResourceRenewPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the renewal prices of App Streaming resources.
+       * @summary Queries the renewal price of WUYING Cloud Application resources.
        *
        * @param request GetResourceRenewPriceRequest
        * @return GetResourceRenewPriceResponse
@@ -581,7 +641,10 @@ namespace AppstreamCenter20210901
       Models::GetResourceRenewPriceResponse getResourceRenewPrice(const Models::GetResourceRenewPriceRequest &request);
 
       /**
-       * @summary 查询Runtime通道配置
+       * @summary Queries the third-party channel configurations of an Agent runtime.
+       *
+       * @description You can query the third-party channel configuration status of Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request GetRuntimeChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -590,7 +653,10 @@ namespace AppstreamCenter20210901
       Models::GetRuntimeChannelResponse getRuntimeChannelWithOptions(const Models::GetRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Runtime通道配置
+       * @summary Queries the third-party channel configurations of an Agent runtime.
+       *
+       * @description You can query the third-party channel configuration status of Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request GetRuntimeChannelRequest
        * @return GetRuntimeChannelResponse
@@ -598,7 +664,9 @@ namespace AppstreamCenter20210901
       Models::GetRuntimeChannelResponse getRuntimeChannel(const Models::GetRuntimeChannelRequest &request);
 
       /**
-       * @summary 查询云电脑模型配置详情
+       * @summary Queries the model configuration details of a cloud computer.
+       *
+       * @description You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After you enable the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
        *
        * @param request GetRuntimeModelConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -607,7 +675,9 @@ namespace AppstreamCenter20210901
       Models::GetRuntimeModelConfigResponse getRuntimeModelConfigWithOptions(const Models::GetRuntimeModelConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云电脑模型配置详情
+       * @summary Queries the model configuration details of a cloud computer.
+       *
+       * @description You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After you enable the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
        *
        * @param request GetRuntimeModelConfigRequest
        * @return GetRuntimeModelConfigResponse
@@ -615,7 +685,7 @@ namespace AppstreamCenter20210901
       Models::GetRuntimeModelConfigResponse getRuntimeModelConfig(const Models::GetRuntimeModelConfigRequest &request);
 
       /**
-       * @summary Queries the details of multiple delivery groups that meet the query conditions.
+       * @summary Queries the details of multiple delivery groups. This operation does not specify a particular delivery group but queries the details of all delivery groups that meet the specified conditions.
        *
        * @param request ListAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -624,7 +694,7 @@ namespace AppstreamCenter20210901
       Models::ListAppInstanceGroupResponse listAppInstanceGroupWithOptions(const Models::ListAppInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of multiple delivery groups that meet the query conditions.
+       * @summary Queries the details of multiple delivery groups. This operation does not specify a particular delivery group but queries the details of all delivery groups that meet the specified conditions.
        *
        * @param request ListAppInstanceGroupRequest
        * @return ListAppInstanceGroupResponse
@@ -632,7 +702,7 @@ namespace AppstreamCenter20210901
       Models::ListAppInstanceGroupResponse listAppInstanceGroup(const Models::ListAppInstanceGroupRequest &request);
 
       /**
-       * @summary Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
+       * @summary Queries the details of session instances in a delivery group, including instance IDs, instance statuses, creation time, update time, session statuses, and public IP addresses of primary network interfaces.
        *
        * @param request ListAppInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -641,7 +711,7 @@ namespace AppstreamCenter20210901
       Models::ListAppInstancesResponse listAppInstancesWithOptions(const Models::ListAppInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
+       * @summary Queries the details of session instances in a delivery group, including instance IDs, instance statuses, creation time, update time, session statuses, and public IP addresses of primary network interfaces.
        *
        * @param request ListAppInstancesRequest
        * @return ListAppInstancesResponse
@@ -649,7 +719,7 @@ namespace AppstreamCenter20210901
       Models::ListAppInstancesResponse listAppInstances(const Models::ListAppInstancesRequest &request);
 
       /**
-       * @summary Queries the user groups authorized by a delivery group.
+       * @summary Queries the list of user groups authorized by a specified delivery group.
        *
        * @param request ListAuthorizedUserGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -658,7 +728,7 @@ namespace AppstreamCenter20210901
       Models::ListAuthorizedUserGroupsResponse listAuthorizedUserGroupsWithOptions(const Models::ListAuthorizedUserGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the user groups authorized by a delivery group.
+       * @summary Queries the list of user groups authorized by a specified delivery group.
        *
        * @param request ListAuthorizedUserGroupsRequest
        * @return ListAuthorizedUserGroupsResponse
@@ -666,7 +736,7 @@ namespace AppstreamCenter20210901
       Models::ListAuthorizedUserGroupsResponse listAuthorizedUserGroups(const Models::ListAuthorizedUserGroupsRequest &request);
 
       /**
-       * @summary Queries the bindings between users and resources.
+       * @summary Queries the binding information between users and resources.
        *
        * @param request ListBindInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -675,7 +745,7 @@ namespace AppstreamCenter20210901
       Models::ListBindInfoResponse listBindInfoWithOptions(const Models::ListBindInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the bindings between users and resources.
+       * @summary Queries the binding information between users and resources.
        *
        * @param request ListBindInfoRequest
        * @return ListBindInfoResponse
@@ -683,7 +753,7 @@ namespace AppstreamCenter20210901
       Models::ListBindInfoResponse listBindInfo(const Models::ListBindInfoRequest &request);
 
       /**
-       * @summary 查询桌面Agent运行时列表
+       * @summary Queries the list of desktop agent runtimes.
        *
        * @param request ListDesktopAgentRuntimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -692,7 +762,7 @@ namespace AppstreamCenter20210901
       Models::ListDesktopAgentRuntimeResponse listDesktopAgentRuntimeWithOptions(const Models::ListDesktopAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询桌面Agent运行时列表
+       * @summary Queries the list of desktop agent runtimes.
        *
        * @param request ListDesktopAgentRuntimeRequest
        * @return ListDesktopAgentRuntimeResponse
@@ -700,7 +770,7 @@ namespace AppstreamCenter20210901
       Models::ListDesktopAgentRuntimeResponse listDesktopAgentRuntime(const Models::ListDesktopAgentRuntimeRequest &request);
 
       /**
-       * @summary Queries the image information about an ECS instance.
+       * @summary Queries image information.
        *
        * @param request ListImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -709,7 +779,7 @@ namespace AppstreamCenter20210901
       Models::ListImageResponse listImageWithOptions(const Models::ListImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the image information about an ECS instance.
+       * @summary Queries image information.
        *
        * @param request ListImageRequest
        * @return ListImageResponse
@@ -717,7 +787,10 @@ namespace AppstreamCenter20210901
       Models::ListImageResponse listImage(const Models::ListImageRequest &request);
 
       /**
-       * @summary 查询LLM模板列表
+       * @summary Queries a list of LLM templates.
+       *
+       * @description You can use paging to retrieve the list of model templates under a model provider template in the Wuying Agent Management Center. You can filter results by model group ID, model provider template ID, model template ID, and model encoding. When you query by model group dimension, the default model is automatically pinned to the top.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param tmpReq ListLlmTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -726,7 +799,10 @@ namespace AppstreamCenter20210901
       Models::ListLlmTemplatesResponse listLlmTemplatesWithOptions(const Models::ListLlmTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询LLM模板列表
+       * @summary Queries a list of LLM templates.
+       *
+       * @description You can use paging to retrieve the list of model templates under a model provider template in the Wuying Agent Management Center. You can filter results by model group ID, model provider template ID, model template ID, and model encoding. When you query by model group dimension, the default model is automatically pinned to the top.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request ListLlmTemplatesRequest
        * @return ListLlmTemplatesResponse
@@ -751,7 +827,10 @@ namespace AppstreamCenter20210901
       Models::ListModelProviderEndpointsResponse listModelProviderEndpoints(const Models::ListModelProviderEndpointsRequest &request);
 
       /**
-       * @summary 查询模型提供商模板列表
+       * @summary Queries the list of model provider templates.
+       *
+       * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. You can filter results by provider name, model group ID, and provider template ID. Paging is supported.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param tmpReq ListModelProviderTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -760,7 +839,10 @@ namespace AppstreamCenter20210901
       Models::ListModelProviderTemplatesResponse listModelProviderTemplatesWithOptions(const Models::ListModelProviderTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型提供商模板列表
+       * @summary Queries the list of model provider templates.
+       *
+       * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. You can filter results by provider name, model group ID, and provider template ID. Paging is supported.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request ListModelProviderTemplatesRequest
        * @return ListModelProviderTemplatesResponse
@@ -768,7 +850,10 @@ namespace AppstreamCenter20210901
       Models::ListModelProviderTemplatesResponse listModelProviderTemplates(const Models::ListModelProviderTemplatesRequest &request);
 
       /**
-       * @summary 查询模型分组绑定的资源组列表
+       * @summary Queries the list of resource groups associated with a model group.
+       *
+       * @description You can call this operation to query the list of resource groups authorized by a model group in the Wuying Agent Management Center.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request ListModelTemplateResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -777,7 +862,10 @@ namespace AppstreamCenter20210901
       Models::ListModelTemplateResourceGroupResponse listModelTemplateResourceGroupWithOptions(const Models::ListModelTemplateResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型分组绑定的资源组列表
+       * @summary Queries the list of resource groups associated with a model group.
+       *
+       * @description You can call this operation to query the list of resource groups authorized by a model group in the Wuying Agent Management Center.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request ListModelTemplateResourceGroupRequest
        * @return ListModelTemplateResourceGroupResponse
@@ -785,7 +873,10 @@ namespace AppstreamCenter20210901
       Models::ListModelTemplateResourceGroupResponse listModelTemplateResourceGroup(const Models::ListModelTemplateResourceGroupRequest &request);
 
       /**
-       * @summary 查询模型模板列表
+       * @summary Queries a list of model templates.
+       *
+       * @description You can use paged query to retrieve model groups that have been created in the Wuying Agent Management Center, with paging support. You can filter results by Agent provider, Agent platform, template group ID, and whether models have been configured.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param tmpReq ListModelTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -794,7 +885,10 @@ namespace AppstreamCenter20210901
       Models::ListModelTemplatesResponse listModelTemplatesWithOptions(const Models::ListModelTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型模板列表
+       * @summary Queries a list of model templates.
+       *
+       * @description You can use paged query to retrieve model groups that have been created in the Wuying Agent Management Center, with paging support. You can filter results by Agent provider, Agent platform, template group ID, and whether models have been configured.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request ListModelTemplatesRequest
        * @return ListModelTemplatesResponse
@@ -802,7 +896,7 @@ namespace AppstreamCenter20210901
       Models::ListModelTemplatesResponse listModelTemplates(const Models::ListModelTemplatesRequest &request);
 
       /**
-       * @summary Queries the resource types that are available for purchase when you create a delivery group.
+       * @summary Queries the resource specifications available for selection when creating a delivery group.
        *
        * @param request ListNodeInstanceTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -811,7 +905,7 @@ namespace AppstreamCenter20210901
       Models::ListNodeInstanceTypeResponse listNodeInstanceTypeWithOptions(const Models::ListNodeInstanceTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resource types that are available for purchase when you create a delivery group.
+       * @summary Queries the resource specifications available for selection when creating a delivery group.
        *
        * @param request ListNodeInstanceTypeRequest
        * @return ListNodeInstanceTypeResponse
@@ -819,7 +913,7 @@ namespace AppstreamCenter20210901
       Models::ListNodeInstanceTypeResponse listNodeInstanceType(const Models::ListNodeInstanceTypeRequest &request);
 
       /**
-       * @summary Queries resource nodes.
+       * @summary Queries the list of resource nodes.
        *
        * @param request ListNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -828,7 +922,7 @@ namespace AppstreamCenter20210901
       Models::ListNodesResponse listNodesWithOptions(const Models::ListNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resource nodes.
+       * @summary Queries the list of resource nodes.
        *
        * @param request ListNodesRequest
        * @return ListNodesResponse
@@ -836,7 +930,7 @@ namespace AppstreamCenter20210901
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary Queries the information about over-the-air (OTA) update tasks.
+       * @summary Queries the history of over-the-air updates.
        *
        * @param request ListOtaTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -845,7 +939,7 @@ namespace AppstreamCenter20210901
       Models::ListOtaTaskResponse listOtaTaskWithOptions(const Models::ListOtaTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about over-the-air (OTA) update tasks.
+       * @summary Queries the history of over-the-air updates.
        *
        * @param request ListOtaTaskRequest
        * @return ListOtaTaskResponse
@@ -853,7 +947,7 @@ namespace AppstreamCenter20210901
       Models::ListOtaTaskResponse listOtaTask(const Models::ListOtaTaskRequest &request);
 
       /**
-       * @summary Queries app instances of the persistent session type in a delivery group.
+       * @summary Queries the list of persistent session application instances in a delivery group.
        *
        * @param request ListPersistentAppInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -862,7 +956,7 @@ namespace AppstreamCenter20210901
       Models::ListPersistentAppInstancesResponse listPersistentAppInstancesWithOptions(const Models::ListPersistentAppInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries app instances of the persistent session type in a delivery group.
+       * @summary Queries the list of persistent session application instances in a delivery group.
        *
        * @param request ListPersistentAppInstancesRequest
        * @return ListPersistentAppInstancesResponse
@@ -870,9 +964,9 @@ namespace AppstreamCenter20210901
       Models::ListPersistentAppInstancesResponse listPersistentAppInstances(const Models::ListPersistentAppInstancesRequest &request);
 
       /**
-       * @summary Queries the regions that are supported by App Streaming.
+       * @summary Queries the regions supported by WUYING Cloud Application.
        *
-       * @description >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
+       * @description > The regions returned by this operation are not necessarily all available regions. For information about available regions, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
        *
        * @param request ListRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -881,9 +975,9 @@ namespace AppstreamCenter20210901
       Models::ListRegionsResponse listRegionsWithOptions(const Models::ListRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the regions that are supported by App Streaming.
+       * @summary Queries the regions supported by WUYING Cloud Application.
        *
-       * @description >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
+       * @description > The regions returned by this operation are not necessarily all available regions. For information about available regions, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
        *
        * @param request ListRegionsRequest
        * @return ListRegionsResponse
@@ -891,7 +985,7 @@ namespace AppstreamCenter20210901
       Models::ListRegionsResponse listRegions(const Models::ListRegionsRequest &request);
 
       /**
-       * @summary Queries the tags added to one or more cloud resources.
+       * @summary Queries the tag list of one or more specified cloud resources.
        *
        * @param request ListTagCloudResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -900,7 +994,7 @@ namespace AppstreamCenter20210901
       Models::ListTagCloudResourcesResponse listTagCloudResourcesWithOptions(const Models::ListTagCloudResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags added to one or more cloud resources.
+       * @summary Queries the tag list of one or more specified cloud resources.
        *
        * @param request ListTagCloudResourcesRequest
        * @return ListTagCloudResourcesResponse
@@ -908,7 +1002,7 @@ namespace AppstreamCenter20210901
       Models::ListTagCloudResourcesResponse listTagCloudResources(const Models::ListTagCloudResourcesRequest &request);
 
       /**
-       * @summary Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
+       * @summary Queries the configuration information of an administrator account, such as whether resource expiration reminders are enabled.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTenantConfigResponse
@@ -916,7 +1010,7 @@ namespace AppstreamCenter20210901
       Models::ListTenantConfigResponse listTenantConfigWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
+       * @summary Queries the configuration information of an administrator account, such as whether resource expiration reminders are enabled.
        *
        * @return ListTenantConfigResponse
        */
@@ -940,9 +1034,9 @@ namespace AppstreamCenter20210901
       Models::ListWuyingServerResponse listWuyingServer(const Models::ListWuyingServerRequest &request);
 
       /**
-       * @summary Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+       * @summary Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling policies enabled.
        *
-       * @description >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
+       * @description > This operation is applicable only to pay-as-you-go resource delivery groups that have scheduled auto scaling policies enabled, and can be called successfully only outside the scaling time periods configured in the scheduled auto scaling policies.
        *
        * @param request LogOffAllSessionsInAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -951,9 +1045,9 @@ namespace AppstreamCenter20210901
       Models::LogOffAllSessionsInAppInstanceGroupResponse logOffAllSessionsInAppInstanceGroupWithOptions(const Models::LogOffAllSessionsInAppInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+       * @summary Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling policies enabled.
        *
-       * @description >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
+       * @description > This operation is applicable only to pay-as-you-go resource delivery groups that have scheduled auto scaling policies enabled, and can be called successfully only outside the scaling time periods configured in the scheduled auto scaling policies.
        *
        * @param request LogOffAllSessionsInAppInstanceGroupRequest
        * @return LogOffAllSessionsInAppInstanceGroupResponse
@@ -961,7 +1055,7 @@ namespace AppstreamCenter20210901
       Models::LogOffAllSessionsInAppInstanceGroupResponse logOffAllSessionsInAppInstanceGroup(const Models::LogOffAllSessionsInAppInstanceGroupRequest &request);
 
       /**
-       * @summary Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
+       * @summary Modifies the General Policy of a delivery group, including the number of concurrent sessions and the session retention duration after disconnection.
        *
        * @param tmpReq ModifyAppInstanceGroupAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -970,7 +1064,7 @@ namespace AppstreamCenter20210901
       Models::ModifyAppInstanceGroupAttributeResponse modifyAppInstanceGroupAttributeWithOptions(const Models::ModifyAppInstanceGroupAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
+       * @summary Modifies the General Policy of a delivery group, including the number of concurrent sessions and the session retention duration after disconnection.
        *
        * @param request ModifyAppInstanceGroupAttributeRequest
        * @return ModifyAppInstanceGroupAttributeResponse
@@ -978,7 +1072,7 @@ namespace AppstreamCenter20210901
       Models::ModifyAppInstanceGroupAttributeResponse modifyAppInstanceGroupAttribute(const Models::ModifyAppInstanceGroupAttributeRequest &request);
 
       /**
-       * @summary Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
+       * @summary Modifies the display policy of a delivery group, including settings such as frame rate, resolution, and protocol type.
        *
        * @param tmpReq ModifyAppPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -987,7 +1081,7 @@ namespace AppstreamCenter20210901
       Models::ModifyAppPolicyResponse modifyAppPolicyWithOptions(const Models::ModifyAppPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
+       * @summary Modifies the display policy of a delivery group, including settings such as frame rate, resolution, and protocol type.
        *
        * @param request ModifyAppPolicyRequest
        * @return ModifyAppPolicyResponse
@@ -995,9 +1089,9 @@ namespace AppstreamCenter20210901
       Models::ModifyAppPolicyResponse modifyAppPolicy(const Models::ModifyAppPolicyRequest &request);
 
       /**
-       * @summary Modifies the properties of the cloud browser.
+       * @summary Modifies the attributes of a Wuying Cloud Browser.
        *
-       * @description Modifies the properties of the cloud browser.
+       * @description Modifies the attributes of a Wuying Cloud Browser.
        *
        * @param tmpReq ModifyBrowserInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1006,9 +1100,9 @@ namespace AppstreamCenter20210901
       Models::ModifyBrowserInstanceGroupResponse modifyBrowserInstanceGroupWithOptions(const Models::ModifyBrowserInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the properties of the cloud browser.
+       * @summary Modifies the attributes of a Wuying Cloud Browser.
        *
-       * @description Modifies the properties of the cloud browser.
+       * @description Modifies the attributes of a Wuying Cloud Browser.
        *
        * @param request ModifyBrowserInstanceGroupRequest
        * @return ModifyBrowserInstanceGroupResponse
@@ -1016,7 +1110,7 @@ namespace AppstreamCenter20210901
       Models::ModifyBrowserInstanceGroupResponse modifyBrowserInstanceGroup(const Models::ModifyBrowserInstanceGroupRequest &request);
 
       /**
-       * @summary Changes the number of nodes in a subscription delivery group.
+       * @summary Upgrades the number of nodes in a subscription delivery group.
        *
        * @param tmpReq ModifyNodePoolAmountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1025,7 +1119,7 @@ namespace AppstreamCenter20210901
       Models::ModifyNodePoolAmountResponse modifyNodePoolAmountWithOptions(const Models::ModifyNodePoolAmountRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the number of nodes in a subscription delivery group.
+       * @summary Upgrades the number of nodes in a subscription delivery group.
        *
        * @param request ModifyNodePoolAmountRequest
        * @return ModifyNodePoolAmountResponse
@@ -1033,13 +1127,13 @@ namespace AppstreamCenter20210901
       Models::ModifyNodePoolAmountResponse modifyNodePoolAmount(const Models::ModifyNodePoolAmountRequest &request);
 
       /**
-       * @summary Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+       * @summary Modifies the scaling mode of a delivery group, including fixed quantity (no elastic scaling), scheduled scaling, and automatic scaling.
        *
-       * @description You can select one of the following scaling policies for cloud app resources:
-       * *   No scaling: Resources are not scaled.
-       * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
-       * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
-       * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       * @description You can configure the scaling pattern for WUYING Cloud Application resources in Settings:
+       * - Fixed quantity: Elastic scaling is not used.
+       * - Automatic scaling: Automatically scales resources based on the number of connected sessions and the idle duration without session connections.
+       * - Scheduled scaling: Executes resource scaling during specified time periods on specified dates.
+       * Before using this operation, make sure that you fully understand the [billing method and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application.
        *
        * @param tmpReq ModifyNodePoolAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1048,13 +1142,13 @@ namespace AppstreamCenter20210901
       Models::ModifyNodePoolAttributeResponse modifyNodePoolAttributeWithOptions(const Models::ModifyNodePoolAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+       * @summary Modifies the scaling mode of a delivery group, including fixed quantity (no elastic scaling), scheduled scaling, and automatic scaling.
        *
-       * @description You can select one of the following scaling policies for cloud app resources:
-       * *   No scaling: Resources are not scaled.
-       * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
-       * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
-       * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       * @description You can configure the scaling pattern for WUYING Cloud Application resources in Settings:
+       * - Fixed quantity: Elastic scaling is not used.
+       * - Automatic scaling: Automatically scales resources based on the number of connected sessions and the idle duration without session connections.
+       * - Scheduled scaling: Executes resource scaling during specified time periods on specified dates.
+       * Before using this operation, make sure that you fully understand the [billing method and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application.
        *
        * @param request ModifyNodePoolAttributeRequest
        * @return ModifyNodePoolAttributeResponse
@@ -1062,7 +1156,7 @@ namespace AppstreamCenter20210901
       Models::ModifyNodePoolAttributeResponse modifyNodePoolAttribute(const Models::ModifyNodePoolAttributeRequest &request);
 
       /**
-       * @summary Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+       * @summary Modifies the configuration of an administrator account, such as whether to enable resource expiration reminders.
        *
        * @param request ModifyTenantConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1071,7 +1165,7 @@ namespace AppstreamCenter20210901
       Models::ModifyTenantConfigResponse modifyTenantConfigWithOptions(const Models::ModifyTenantConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+       * @summary Modifies the configuration of an administrator account, such as whether to enable resource expiration reminders.
        *
        * @param request ModifyTenantConfigRequest
        * @return ModifyTenantConfigResponse
@@ -1079,7 +1173,7 @@ namespace AppstreamCenter20210901
       Models::ModifyTenantConfigResponse modifyTenantConfig(const Models::ModifyTenantConfigRequest &request);
 
       /**
-       * @summary Modify workstation properties.
+       * @summary Modifies the properties of a cloud graphics workstation.
        *
        * @param request ModifyWuyingServerAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1088,7 +1182,7 @@ namespace AppstreamCenter20210901
       Models::ModifyWuyingServerAttributeResponse modifyWuyingServerAttributeWithOptions(const Models::ModifyWuyingServerAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify workstation properties.
+       * @summary Modifies the properties of a cloud graphics workstation.
        *
        * @param request ModifyWuyingServerAttributeRequest
        * @return ModifyWuyingServerAttributeResponse
@@ -1096,7 +1190,7 @@ namespace AppstreamCenter20210901
       Models::ModifyWuyingServerAttributeResponse modifyWuyingServerAttribute(const Models::ModifyWuyingServerAttributeRequest &request);
 
       /**
-       * @summary Queries the assigned users that are added to a delivery group by page.
+       * @summary Performs a paged query on allocated users added to a delivery group.
        *
        * @param request PageListAppInstanceGroupUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1105,7 +1199,7 @@ namespace AppstreamCenter20210901
       Models::PageListAppInstanceGroupUserResponse pageListAppInstanceGroupUserWithOptions(const Models::PageListAppInstanceGroupUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the assigned users that are added to a delivery group by page.
+       * @summary Performs a paged query on allocated users added to a delivery group.
        *
        * @param request PageListAppInstanceGroupUserRequest
        * @return PageListAppInstanceGroupUserResponse
@@ -1113,7 +1207,12 @@ namespace AppstreamCenter20210901
       Models::PageListAppInstanceGroupUserResponse pageListAppInstanceGroupUser(const Models::PageListAppInstanceGroupUserRequest &request);
 
       /**
-       * @summary 移除资源组模型模板配置
+       * @summary Removes model groups from a resource group.
+       *
+       * @description You can authorize model groups for resources that belong to Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model groups serve as inference engines for Agents to execute tasks within the resource group.
+       * When an Agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the Agent runtime setting.
+       * When you remove the model group from the resource group to which an Agent runtime belongs, the model group configured on the Agent runtime itself automatically takes effect.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request RemoveResourceGroupModelTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1122,7 +1221,12 @@ namespace AppstreamCenter20210901
       Models::RemoveResourceGroupModelTemplateResponse removeResourceGroupModelTemplateWithOptions(const Models::RemoveResourceGroupModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除资源组模型模板配置
+       * @summary Removes model groups from a resource group.
+       *
+       * @description You can authorize model groups for resources that belong to Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model groups serve as inference engines for Agents to execute tasks within the resource group.
+       * When an Agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the Agent runtime setting.
+       * When you remove the model group from the resource group to which an Agent runtime belongs, the model group configured on the Agent runtime itself automatically takes effect.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request RemoveResourceGroupModelTemplateRequest
        * @return RemoveResourceGroupModelTemplateResponse
@@ -1130,7 +1234,10 @@ namespace AppstreamCenter20210901
       Models::RemoveResourceGroupModelTemplateResponse removeResourceGroupModelTemplate(const Models::RemoveResourceGroupModelTemplateRequest &request);
 
       /**
-       * @summary 移除Runtime通道
+       * @summary Removes a third-party channel configuration from an agent runtime.
+       *
+       * @description You can call this operation to remove a specific third-party channel configuration from agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request RemoveRuntimeChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1139,7 +1246,10 @@ namespace AppstreamCenter20210901
       Models::RemoveRuntimeChannelResponse removeRuntimeChannelWithOptions(const Models::RemoveRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除Runtime通道
+       * @summary Removes a third-party channel configuration from an agent runtime.
+       *
+       * @description You can call this operation to remove a specific third-party channel configuration from agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
+       * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request RemoveRuntimeChannelRequest
        * @return RemoveRuntimeChannelResponse
@@ -1147,7 +1257,10 @@ namespace AppstreamCenter20210901
       Models::RemoveRuntimeChannelResponse removeRuntimeChannel(const Models::RemoveRuntimeChannelRequest &request);
 
       /**
-       * @summary 通过RuntimeIds移除模型模板配置
+       * @summary Removes a model group from an Agent runtime resource.
+       *
+       * @description You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
+       * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
        *
        * @param request RemoveRuntimeModelTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1156,7 +1269,10 @@ namespace AppstreamCenter20210901
       Models::RemoveRuntimeModelTemplateResponse removeRuntimeModelTemplateWithOptions(const Models::RemoveRuntimeModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过RuntimeIds移除模型模板配置
+       * @summary Removes a model group from an Agent runtime resource.
+       *
+       * @description You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
+       * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
        *
        * @param request RemoveRuntimeModelTemplateRequest
        * @return RemoveRuntimeModelTemplateResponse
@@ -1166,7 +1282,7 @@ namespace AppstreamCenter20210901
       /**
        * @summary Renews a delivery group.
        *
-       * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       * @description Before you call this operation, make sure that you are familiar with the [Billable methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
        *
        * @param tmpReq RenewAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1177,7 +1293,7 @@ namespace AppstreamCenter20210901
       /**
        * @summary Renews a delivery group.
        *
-       * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       * @description Before you call this operation, make sure that you are familiar with the [Billable methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
        *
        * @param request RenewAppInstanceGroupRequest
        * @return RenewAppInstanceGroupResponse
@@ -1185,7 +1301,7 @@ namespace AppstreamCenter20210901
       Models::RenewAppInstanceGroupResponse renewAppInstanceGroup(const Models::RenewAppInstanceGroupRequest &request);
 
       /**
-       * @summary Renew one workstation.
+       * @summary Renews a workstation.
        *
        * @param request RenewWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1194,7 +1310,7 @@ namespace AppstreamCenter20210901
       Models::RenewWuyingServerResponse renewWuyingServerWithOptions(const Models::RenewWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renew one workstation.
+       * @summary Renews a workstation.
        *
        * @param request RenewWuyingServerRequest
        * @return RenewWuyingServerResponse
@@ -1202,7 +1318,7 @@ namespace AppstreamCenter20210901
       Models::RenewWuyingServerResponse renewWuyingServer(const Models::RenewWuyingServerRequest &request);
 
       /**
-       * @summary Restarts the workstation.
+       * @summary Restarts a workstation.
        *
        * @param request RestartWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1211,7 +1327,7 @@ namespace AppstreamCenter20210901
       Models::RestartWuyingServerResponse restartWuyingServerWithOptions(const Models::RestartWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts the workstation.
+       * @summary Restarts a workstation.
        *
        * @param request RestartWuyingServerRequest
        * @return RestartWuyingServerResponse
@@ -1219,7 +1335,7 @@ namespace AppstreamCenter20210901
       Models::RestartWuyingServerResponse restartWuyingServer(const Models::RestartWuyingServerRequest &request);
 
       /**
-       * @summary Initiates a task to replicate an image to another region.
+       * @summary Initiates a task to copy an image to other regions.
        *
        * @param request StartTaskForDistributeImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1228,7 +1344,7 @@ namespace AppstreamCenter20210901
       Models::StartTaskForDistributeImageResponse startTaskForDistributeImageWithOptions(const Models::StartTaskForDistributeImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiates a task to replicate an image to another region.
+       * @summary Initiates a task to copy an image to other regions.
        *
        * @param request StartTaskForDistributeImageRequest
        * @return StartTaskForDistributeImageResponse
@@ -1236,7 +1352,7 @@ namespace AppstreamCenter20210901
       Models::StartTaskForDistributeImageResponse startTaskForDistributeImage(const Models::StartTaskForDistributeImageRequest &request);
 
       /**
-       * @summary Start the workstation.
+       * @summary Starts a workstation.
        *
        * @param request StartWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1245,7 +1361,7 @@ namespace AppstreamCenter20210901
       Models::StartWuyingServerResponse startWuyingServerWithOptions(const Models::StartWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Start the workstation.
+       * @summary Starts a workstation.
        *
        * @param request StartWuyingServerRequest
        * @return StartWuyingServerResponse
@@ -1253,7 +1369,7 @@ namespace AppstreamCenter20210901
       Models::StartWuyingServerResponse startWuyingServer(const Models::StartWuyingServerRequest &request);
 
       /**
-       * @summary Stops the workstation.
+       * @summary Stops a workstation.
        *
        * @param request StopWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1262,7 +1378,7 @@ namespace AppstreamCenter20210901
       Models::StopWuyingServerResponse stopWuyingServerWithOptions(const Models::StopWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops the workstation.
+       * @summary Stops a workstation.
        *
        * @param request StopWuyingServerRequest
        * @return StopWuyingServerResponse
@@ -1270,7 +1386,7 @@ namespace AppstreamCenter20210901
       Models::StopWuyingServerResponse stopWuyingServer(const Models::StopWuyingServerRequest &request);
 
       /**
-       * @summary Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
+       * @summary Creates and attaches tags to cloud resources. If a tag already exists on a resource, the tag value is updated.
        *
        * @param request TagCloudResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1279,7 +1395,7 @@ namespace AppstreamCenter20210901
       Models::TagCloudResourcesResponse tagCloudResourcesWithOptions(const Models::TagCloudResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
+       * @summary Creates and attaches tags to cloud resources. If a tag already exists on a resource, the tag value is updated.
        *
        * @param request TagCloudResourcesRequest
        * @return TagCloudResourcesResponse
@@ -1304,7 +1420,7 @@ namespace AppstreamCenter20210901
       Models::UnassignWuyingServerPrivateAddressesResponse unassignWuyingServerPrivateAddresses(const Models::UnassignWuyingServerPrivateAddressesRequest &request);
 
       /**
-       * @summary Unbinds a user and a session.
+       * @summary Unbinds a user from a session.
        *
        * @param request UnbindRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1313,7 +1429,7 @@ namespace AppstreamCenter20210901
       Models::UnbindResponse unbindWithOptions(const Models::UnbindRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds a user and a session.
+       * @summary Unbinds a user from a session.
        *
        * @param request UnbindRequest
        * @return UnbindResponse
@@ -1321,7 +1437,7 @@ namespace AppstreamCenter20210901
       Models::UnbindResponse unbind(const Models::UnbindRequest &request);
 
       /**
-       * @summary Removes tags from cloud resources.
+       * @summary Unbinds tags from cloud resources in a unified manner.
        *
        * @param request UntagCloudResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1330,7 +1446,7 @@ namespace AppstreamCenter20210901
       Models::UntagCloudResourcesResponse untagCloudResourcesWithOptions(const Models::UntagCloudResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from cloud resources.
+       * @summary Unbinds tags from cloud resources in a unified manner.
        *
        * @param request UntagCloudResourcesRequest
        * @return UntagCloudResourcesResponse
@@ -1340,9 +1456,8 @@ namespace AppstreamCenter20210901
       /**
        * @summary Updates the image of a delivery group.
        *
-       * @description **
-       * **Warning** After the image is updated, the end user session accessing the cloud application will be disconnected. Exercise caution to avoid end user data loss.
-       * >  After the image of the delivery group is updated, the change takes effect on the terminal in approximately 2 minutes.
+       * @description >Warning: After the image update starts, sessions of end users who are accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
+       * > After the update is published, changes typically take about 2 minutes to take effect on the end user side.
        *
        * @param request UpdateAppInstanceGroupImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1353,9 +1468,8 @@ namespace AppstreamCenter20210901
       /**
        * @summary Updates the image of a delivery group.
        *
-       * @description **
-       * **Warning** After the image is updated, the end user session accessing the cloud application will be disconnected. Exercise caution to avoid end user data loss.
-       * >  After the image of the delivery group is updated, the change takes effect on the terminal in approximately 2 minutes.
+       * @description >Warning: After the image update starts, sessions of end users who are accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
+       * > After the update is published, changes typically take about 2 minutes to take effect on the end user side.
        *
        * @param request UpdateAppInstanceGroupImageRequest
        * @return UpdateAppInstanceGroupImageResponse
@@ -1363,7 +1477,10 @@ namespace AppstreamCenter20210901
       Models::UpdateAppInstanceGroupImageResponse updateAppInstanceGroupImage(const Models::UpdateAppInstanceGroupImageRequest &request);
 
       /**
-       * @summary 更新模型提供商模板
+       * @summary Updates a model provider template.
+       *
+       * @description You can update a model provider template that has been created in the Wuying Agent Management Center, including the template name, description, model service connection configuration, and Wuying security proxy switch. Partial field updates are supported. You only need to pass in the fields that you want to modify.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param tmpReq UpdateModelProviderTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1372,7 +1489,10 @@ namespace AppstreamCenter20210901
       Models::UpdateModelProviderTemplateResponse updateModelProviderTemplateWithOptions(const Models::UpdateModelProviderTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型提供商模板
+       * @summary Updates a model provider template.
+       *
+       * @description You can update a model provider template that has been created in the Wuying Agent Management Center, including the template name, description, model service connection configuration, and Wuying security proxy switch. Partial field updates are supported. You only need to pass in the fields that you want to modify.
+       * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request UpdateModelProviderTemplateRequest
        * @return UpdateModelProviderTemplateResponse
@@ -1380,7 +1500,10 @@ namespace AppstreamCenter20210901
       Models::UpdateModelProviderTemplateResponse updateModelProviderTemplate(const Models::UpdateModelProviderTemplateRequest &request);
 
       /**
-       * @summary 更新模型模板
+       * @summary Updates a model template.
+       *
+       * @description You can update a model group that has been created in the Wuying Agent Management Center, including the group name, description, and model configuration information. The updated configuration automatically takes effect on associated cloud desktops.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request UpdateModelTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1389,7 +1512,10 @@ namespace AppstreamCenter20210901
       Models::UpdateModelTemplateResponse updateModelTemplateWithOptions(const Models::UpdateModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型模板
+       * @summary Updates a model template.
+       *
+       * @description You can update a model group that has been created in the Wuying Agent Management Center, including the group name, description, and model configuration information. The updated configuration automatically takes effect on associated cloud desktops.
+       * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
        *
        * @param request UpdateModelTemplateRequest
        * @return UpdateModelTemplateResponse
@@ -1397,7 +1523,7 @@ namespace AppstreamCenter20210901
       Models::UpdateModelTemplateResponse updateModelTemplate(const Models::UpdateModelTemplateRequest &request);
 
       /**
-       * @summary Updates the workstation image.
+       * @summary Updates a workstation image.
        *
        * @param request UpdateWuyingServerImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1406,7 +1532,7 @@ namespace AppstreamCenter20210901
       Models::UpdateWuyingServerImageResponse updateWuyingServerImageWithOptions(const Models::UpdateWuyingServerImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the workstation image.
+       * @summary Updates a workstation image.
        *
        * @param request UpdateWuyingServerImageRequest
        * @return UpdateWuyingServerImageResponse

@@ -96,13 +96,13 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> appId_ {};
-    // The ID of the delivery group.
+    // The delivery group ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The ID of the application instance.
+    // The application instance ID.
     shared_ptr<string> appInstanceId_ {};
-    // The ID of the application version.
+    // The application version ID.
     shared_ptr<string> appVersion_ {};
-    // The authorization code. This authorization code is valid for 3 minutes and can be used only once, regardless of whether the authentication succeeds. If multiple authentication codes are generated for a user, only the latest authentication code takes effect.
+    // The authorization code. The authorization code is valid for 3 minutes and can be used only once regardless of whether the verification succeeds or fails. If multiple authorization codes are generated for a user, only the last generated code is valid.
     shared_ptr<string> authCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

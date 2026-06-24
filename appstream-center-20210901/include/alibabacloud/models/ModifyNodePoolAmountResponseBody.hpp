@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data object.
     shared_ptr<ModifyNodePoolAmountResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

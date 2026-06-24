@@ -110,28 +110,23 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The ID of the application instance.
+    // The application instance ID.
     shared_ptr<string> appInstanceId_ {};
-    // The IDs of the application instances. Up to 100 IDs can be specified.
+    // The list of application instance IDs. A maximum of 100 IDs can be specified.
     shared_ptr<vector<string>> appInstanceIdList_ {};
-    // Specifies whether to query the information about deleted app instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to query information about deleted instances. If this parameter is set to true, the AppInstanceIdList parameter is required. Otherwise, a parameter error is returned.
     shared_ptr<bool> includeDeleted_ {};
-    // The page number. Default value: `1`. We recommend that you specify this parameter.
+    // The page number of the query results to display. Default value: `1`. Specify this parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
+    // The number of query results per page. Maximum value: `100`. Default value: `20`. Specify this parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The status of the application instances.
+    // The list of application instance statuses.
     shared_ptr<vector<string>> status_ {};
-    // The user IDs. You can specify up to 100 IDs.
+    // The list of user IDs. A maximum of 100 IDs can be specified.
     shared_ptr<vector<string>> userIdList_ {};
   };
 

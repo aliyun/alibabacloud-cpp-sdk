@@ -59,12 +59,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the resource expiration reminder feature is enabled.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether resource expiration reminders are enabled.
       shared_ptr<bool> appInstanceGroupExpireRemind_ {};
     };
 
@@ -89,7 +84,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The user configurations.
+    // The user configuration information.
     shared_ptr<ListTenantConfigResponseBody::TenantConfigModel> tenantConfigModel_ {};
   };
 

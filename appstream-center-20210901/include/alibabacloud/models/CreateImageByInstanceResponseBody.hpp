@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // The ID of the RDS image.
+      // The WUYING image ID.
       shared_ptr<string> imageId_ {};
-      // The ID of the image creation task.
+      // The task ID for creating the image.
       shared_ptr<string> taskId_ {};
-      // The version of the image.
+      // The image version.
       shared_ptr<string> versionId_ {};
     };
 
@@ -132,15 +132,15 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error code returned if the request failed.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned object.
     shared_ptr<CreateImageByInstanceResponseBody::Data> data_ {};
-    // The error message.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

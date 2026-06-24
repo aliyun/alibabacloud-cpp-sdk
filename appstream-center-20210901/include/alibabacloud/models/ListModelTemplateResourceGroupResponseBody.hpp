@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
     };
 
@@ -109,10 +110,15 @@ namespace Models
 
 
   protected:
+    // The returned results.
     shared_ptr<vector<ListModelTemplateResourceGroupResponseBody::Data>> data_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

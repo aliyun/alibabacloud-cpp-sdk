@@ -48,15 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group. You can call the `listAppInstanceGroup` operation to obtain the ID.
+    // The delivery group ID. You can obtain this value by calling the listAppInstanceGroup operation.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
     // The product type.
-    // 
-    // Valid value:
-    // 
-    // *   CloudApp: App Streaming
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

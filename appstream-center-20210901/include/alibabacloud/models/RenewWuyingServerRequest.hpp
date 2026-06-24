@@ -75,20 +75,15 @@ namespace Models
 
 
   protected:
-    // Automatic payment.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
     // The renewal duration.
     shared_ptr<int32_t> period_ {};
-    // The unit of the renewal time.
-    // 
-    // Valid values:
-    // 
-    // *   Month: month.
-    // *   Year: year.
+    // The unit of the renewal duration.
     shared_ptr<string> periodUnit_ {};
     // The discount ID.
     shared_ptr<string> promotionId_ {};
-    // The ID of the workstation.
+    // The workstation ID.
     shared_ptr<string> wuyingServerId_ {};
   };
 

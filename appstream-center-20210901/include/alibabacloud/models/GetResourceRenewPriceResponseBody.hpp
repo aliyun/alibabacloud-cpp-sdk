@@ -91,9 +91,9 @@ namespace Models
 
 
       protected:
-        // The description of the price calculation rule.
+        // The pricing rule description.
         shared_ptr<string> description_ {};
-        // The ID of the price calculation rule.
+        // The pricing rule ID.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -191,18 +191,13 @@ namespace Models
         protected:
           // The coupon code.
           shared_ptr<string> optionCode_ {};
-          // The coupon description.
+          // The coupon descriptions.
           shared_ptr<string> promotionDesc_ {};
           // The coupon ID.
           shared_ptr<string> promotionId_ {};
           // The coupon name.
           shared_ptr<string> promotionName_ {};
-          // Indicates whether the coupon was used.
-          // 
-          // Valid values:
-          // 
-          // *   true
-          // *   false
+          // Indicates whether the coupon is selected.
           shared_ptr<bool> selected_ {};
         };
 
@@ -246,15 +241,15 @@ namespace Models
 
 
       protected:
-        // The currency type.
+        // The currency.
         shared_ptr<string> currency_ {};
-        // The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+        // The discount amount. The actual price is calculated by subtracting the discount amount from the original price.
         shared_ptr<string> discountPrice_ {};
         // The original price.
         shared_ptr<string> originalPrice_ {};
-        // The coupon description.
+        // The coupon descriptions.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+        // The actual price. The actual price is calculated by subtracting the discount amount from the original price.
         shared_ptr<string> tradePrice_ {};
       };
 
@@ -281,7 +276,7 @@ namespace Models
     protected:
       // The price details.
       shared_ptr<Data::Price> price_ {};
-      // The price calculation rules.
+      // The pricing rules.
       shared_ptr<vector<Data::Rules>> rules_ {};
     };
 

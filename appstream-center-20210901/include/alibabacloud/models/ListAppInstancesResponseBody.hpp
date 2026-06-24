@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // The ID of the end user that is bound to the application instance.
+        // The ID of the end user bound to the instance.
         shared_ptr<string> endUserId_ {};
-        // The use duration of the application instance. Unit: seconds.
+        // The usage duration of the instance. Unit: seconds.
         shared_ptr<int64_t> usageDuration_ {};
       };
 
@@ -214,39 +214,31 @@ namespace Models
 
 
     protected:
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The ID of the application instance.
+      // The application instance ID.
       shared_ptr<string> appInstanceId_ {};
-      // The information about the binding between the application instance and end users.
+      // The binding information between the instance and the user.
       shared_ptr<AppInstanceModels::BindInfo> bindInfo_ {};
-      // The billing method of the app instance. Valid values:
-      // 
-      // *   **PrePaid**: subscription.
-      // *   **PostPaid**: pay-as-you-go
-      // 
-      // >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the app instance belongs is set to Node.
+      // The billing method of the instance. Valid values:
+      // - **PrePaid**: subscription.
+      // - **PostPaid**: pay-as-you-go.
+      // > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> chargeType_ {};
-      // The time when the application instance was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the application instance was updated.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The public IP address associated with the primary NIC. This value is returned only if `StrategyType` is set to `Mixed`.
+      // The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to mixed mode pattern (`Mixed`). Otherwise, this value is empty.
       shared_ptr<string> mainEthPublicIp_ {};
       shared_ptr<string> networkInterfaceId_ {};
       shared_ptr<string> networkInterfaceIp_ {};
-      // The ID of the node on which the app instance runs.
-      // 
-      // >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the app instance belongs is set to Node.
+      // The ID of the node on which the instance runs.
+      // > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> nodeId_ {};
-      // The session status. This parameter is returned only if the application instance is in the `RUNNING` state.
-      // 
-      // Valid values:
-      // 
-      // *   disconnect: disconnected
-      // *   connect: connected
+      // The session connection status. This value is returned only when the instance status is running (`RUNNING`). Otherwise, this value is empty.
       shared_ptr<string> sessionStatus_ {};
-      // The status of the application instance.
+      // The application instance status.
       shared_ptr<string> status_ {};
     };
 
@@ -290,15 +282,15 @@ namespace Models
 
 
   protected:
-    // The app instances.
+    // The list of queried application instances.
     shared_ptr<vector<ListAppInstancesResponseBody::AppInstanceModels>> appInstanceModels_ {};
-    // The page number of the returned page. We recommend that you configure this parameter.
+    // The page number of the query results to display. Specify this parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
+    // The number of query results per page. Maximum value: `100`. Specify this parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

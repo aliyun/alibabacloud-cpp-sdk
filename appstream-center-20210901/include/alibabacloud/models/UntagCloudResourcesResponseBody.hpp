@@ -100,11 +100,6 @@ namespace Models
         // The tag key.
         shared_ptr<string> key_ {};
         // The tag type.
-        // 
-        // Valid values:
-        // 
-        // *   Custom: custom tag.
-        // *   System: system tag.
         shared_ptr<string> scope_ {};
       };
 
@@ -152,18 +147,11 @@ namespace Models
       shared_ptr<string> code_ {};
       // The error message.
       shared_ptr<string> message_ {};
-      // The resource IDs.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the cloud resource.
-      // 
-      // Valid values:
-      // 
-      // *   AppId: app ID.
-      // *   WyId: Alibaba Cloud Workspace user ID.
-      // *   AppInstanceGroupId: delivery group ID.
-      // *   AliUid: tenant ID.
+      // The cloud resource type.
       shared_ptr<string> resourceType_ {};
-      // The tags that failed to be removed from the cloud resources.
+      // The list of failed tag information.
       shared_ptr<vector<FailedResources::Tags>> tags_ {};
     };
 
@@ -186,7 +174,7 @@ namespace Models
 
 
   protected:
-    // The cloud resources whose tags failed to be removed and the corresponding tags.
+    // The list of failed resources and tag information.
     shared_ptr<vector<UntagCloudResourcesResponseBody::FailedResources>> failedResources_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

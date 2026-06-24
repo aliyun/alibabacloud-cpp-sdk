@@ -63,13 +63,9 @@ namespace Models
     shared_ptr<string> appPolicyId_ {};
     // The product type.
     // 
-    // Enumerated values:
-    // 
-    // *   CloudApp: RDS Cloud App
-    // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // Displays the policy.
+    // The display policy.
     shared_ptr<string> videoPolicyShrink_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The error code if an error occurred.
+    // The error code returned if the request failed.
     shared_ptr<string> code_ {};
-    // The ID of the image replication task.
+    // The ID of the image copy task.
     shared_ptr<string> data_ {};
-    // The error message if an error occurred.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the task is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

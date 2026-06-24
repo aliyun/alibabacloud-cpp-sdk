@@ -76,18 +76,12 @@ namespace Models
 
 
     protected:
-      // The billing method of the resource node.
+      // The billing type of the resource node.
       // 
-      // >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the resource node belongs is set to Node.
-      // 
-      // Valid values:
-      // 
-      // *   PostPaid: pay-as-you-go
-      // *   Prepaid: subscription
+      // > This parameter is returned only when the billing mode of the delivery group is per-resource billing (ChargeResourceMode=Node).
       shared_ptr<string> chargeType_ {};
-      // The ID of the resource node.
-      // 
-      // >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the resource node belongs is set to Node.
+      // The resource node ID.
+      // > This parameter is returned only when the billing mode of the delivery group is per-resource billing (ChargeResourceMode=Node).
       shared_ptr<string> nodeId_ {};
     };
 
@@ -131,15 +125,15 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The total number of entries that can be returned.
     shared_ptr<int32_t> count_ {};
-    // The resource nodes.
+    // The list of resource nodes.
     shared_ptr<vector<ListNodesResponseBody::NodeModels>> nodeModels_ {};
-    // The number of entries per page.
+    // The page size of the current page.
     shared_ptr<int32_t> perPageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The page number.
+    // The page number of the currently returned data.
     shared_ptr<int32_t> toPage_ {};
   };
 
