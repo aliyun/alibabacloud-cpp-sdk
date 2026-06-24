@@ -190,10 +190,19 @@ namespace Models
 
 
         protected:
+          // Indicates whether disk encryption is supported.
+          // 
+          // - true: supported
+          // 
+          // - false: not supported
           shared_ptr<bool> diskEncryption_ {};
+          // The disk storage type.
           shared_ptr<string> diskType_ {};
+          // The maximum disk size allowed.
           shared_ptr<int32_t> maxSize_ {};
+          // The minimum disk size allowed.
           shared_ptr<int32_t> minSize_ {};
+          // The maximum continuous value that can be set for the disk size.
           shared_ptr<int32_t> scaleLimit_ {};
           shared_ptr<vector<string>> valueLimitSet_ {};
         };
@@ -236,7 +245,9 @@ namespace Models
 
 
         protected:
+          // The maximum number of nodes.
           shared_ptr<int32_t> maxAmount_ {};
+          // The minimum number of nodes.
           shared_ptr<int32_t> minAmount_ {};
         };
 
@@ -270,7 +281,9 @@ namespace Models
 
 
       protected:
+        // The range for the number of nodes.
         shared_ptr<WarmNodeProperties::AmountRange> amountRange_ {};
+        // The list of disk configurations.
         shared_ptr<vector<WarmNodeProperties::DiskList>> diskList_ {};
         shared_ptr<vector<string>> spec_ {};
       };
@@ -334,7 +347,9 @@ namespace Models
 
 
         protected:
+          // The version available on the purchase page.
           shared_ptr<string> key_ {};
+          // The detailed version number.
           shared_ptr<string> value_ {};
         };
 
@@ -357,7 +372,13 @@ namespace Models
 
 
       protected:
+        // The instance category. Valid values:
+        // 
+        // - advanced: Enhanced Edition
+        // 
+        // - x-pack: Commercial Edition
         shared_ptr<string> instanceCategory_ {};
+        // The supported Elasticsearch version information.
         shared_ptr<vector<SupportVersions::SupportVersionList>> supportVersionList_ {};
       };
 
@@ -445,12 +466,28 @@ namespace Models
 
 
       protected:
+        // The number of CPU cores for this specification.
         shared_ptr<int32_t> cpuCount_ {};
+        // The disk size for this specification.
         shared_ptr<int32_t> disk_ {};
+        // The disk storage type.
         shared_ptr<string> diskType_ {};
+        // Indicates whether the specification is available for purchase.
+        // 
+        // - true: available
+        // - false: unavailable
         shared_ptr<bool> enable_ {};
+        // The memory size of the node.
         shared_ptr<int32_t> memorySize_ {};
+        // The specification name.
         shared_ptr<string> spec_ {};
+        // The storage type. Valid values:
+        // 
+        // - common: cloud disk
+        // 
+        // - local_efficiency: local SATA disk
+        // 
+        // - local_ssd: local SSD disk
         shared_ptr<string> specGroupType_ {};
       };
 
@@ -492,7 +529,9 @@ namespace Models
 
 
       protected:
+        // The maximum number of data nodes allowed.
         shared_ptr<int32_t> maxAmount_ {};
+        // The minimum number of data nodes allowed.
         shared_ptr<int32_t> minAmount_ {};
       };
 
@@ -552,9 +591,13 @@ namespace Models
 
 
       protected:
+        // The disk storage type.
         shared_ptr<string> diskType_ {};
+        // The maximum disk size allowed.
         shared_ptr<int32_t> maxSize_ {};
+        // The minimum disk size allowed.
         shared_ptr<int32_t> minSize_ {};
+        // The maximum continuous value that can be set for the disk size.
         shared_ptr<int32_t> scaleLimit_ {};
       };
 
@@ -617,7 +660,9 @@ namespace Models
 
 
         protected:
+          // The maximum number of nodes.
           shared_ptr<int32_t> maxAmount_ {};
+          // The minimum number of nodes.
           shared_ptr<int32_t> minAmount_ {};
         };
 
@@ -642,6 +687,7 @@ namespace Models
 
 
       protected:
+        // The allowed range for the number of nodes.
         shared_ptr<KibanaNodeProperties::AmountRange> amountRange_ {};
         shared_ptr<vector<string>> spec_ {};
       };
@@ -697,6 +743,7 @@ namespace Models
 
 
       protected:
+        // The minimum memory size required to enable JVM garbage collection.
         shared_ptr<int32_t> memory_ {};
         shared_ptr<vector<string>> supportEsVersions_ {};
         shared_ptr<vector<string>> supportGcs_ {};
@@ -740,7 +787,9 @@ namespace Models
 
 
       protected:
+        // The supported major version number.
         shared_ptr<string> key_ {};
+        // The full name of the supported minor version.
         shared_ptr<string> value_ {};
       };
 
@@ -843,10 +892,19 @@ namespace Models
 
 
         protected:
+          // Indicates whether disk encryption is supported.
+          // 
+          // - true: supported
+          // 
+          // - false: not supported
           shared_ptr<bool> diskEncryption_ {};
+          // The disk storage type.
           shared_ptr<string> diskType_ {};
+          // The maximum disk size allowed.
           shared_ptr<int32_t> maxSize_ {};
+          // The minimum disk size allowed.
           shared_ptr<int32_t> minSize_ {};
+          // The maximum continuous value that can be set for the disk size.
           shared_ptr<int32_t> scaleLimit_ {};
           shared_ptr<vector<string>> valueLimitSet_ {};
         };
@@ -889,7 +947,9 @@ namespace Models
 
 
         protected:
+          // The maximum number of nodes.
           shared_ptr<int32_t> maxAmount_ {};
+          // The minimum number of nodes.
           shared_ptr<int32_t> minAmount_ {};
         };
 
@@ -923,7 +983,9 @@ namespace Models
 
 
       protected:
+        // The range for the number of elastic nodes.
         shared_ptr<ElasticNodeProperties::AmountRange> amountRange_ {};
+        // The list of disk configurations.
         shared_ptr<vector<ElasticNodeProperties::DiskList>> diskList_ {};
         shared_ptr<vector<string>> spec_ {};
       };
@@ -995,9 +1057,13 @@ namespace Models
 
 
       protected:
+        // The disk storage type.
         shared_ptr<string> diskType_ {};
+        // The maximum disk size allowed.
         shared_ptr<int32_t> maxSize_ {};
+        // The minimum disk size allowed.
         shared_ptr<int32_t> minSize_ {};
+        // The maximum continuous value that can be set for the disk size.
         shared_ptr<int32_t> scaleLimit_ {};
         shared_ptr<vector<string>> valueLimitSet_ {};
       };
@@ -1058,9 +1124,13 @@ namespace Models
 
 
       protected:
+        // The disk storage type.
         shared_ptr<string> diskType_ {};
+        // The maximum disk size allowed.
         shared_ptr<int32_t> maxSize_ {};
+        // The minimum disk size allowed.
         shared_ptr<int32_t> minSize_ {};
+        // The maximum continuous value that can be set for the disk size.
         shared_ptr<int32_t> scaleLimit_ {};
       };
 
@@ -1102,7 +1172,9 @@ namespace Models
 
 
       protected:
+        // The maximum number of coordinating nodes.
         shared_ptr<int32_t> maxAmount_ {};
+        // The minimum number of coordinating nodes.
         shared_ptr<int32_t> minAmount_ {};
       };
 
@@ -1295,25 +1367,40 @@ namespace Models
 
 
     protected:
+      // The range for the number of coordinating nodes.
       shared_ptr<Result::ClientNodeAmountRange> clientNodeAmountRange_ {};
+      // The allowed values for coordinating node disks.
       shared_ptr<vector<Result::ClientNodeDiskList>> clientNodeDiskList_ {};
       shared_ptr<vector<string>> clientNodeSpec_ {};
+      // The URL of the purchase page.
       shared_ptr<string> createUrl_ {};
+      // The allowed values for data node disks.
       shared_ptr<vector<Result::DataDiskList>> dataDiskList_ {};
+      // The elastic node configuration.
       shared_ptr<Result::ElasticNodeProperties> elasticNodeProperties_ {};
+      // The environment flag.
       shared_ptr<string> env_ {};
       shared_ptr<vector<string>> esVersions_ {};
+      // The list of Elasticsearch versions available for purchase.
       shared_ptr<vector<Result::EsVersionsLatestList>> esVersionsLatestList_ {};
       shared_ptr<vector<string>> instanceSupportNodes_ {};
+      // The JVM validation configuration.
       shared_ptr<Result::JvmConfine> jvmConfine_ {};
+      // The Kibana node configuration.
       shared_ptr<Result::KibanaNodeProperties> kibanaNodeProperties_ {};
       shared_ptr<vector<string>> logstashZones_ {};
+      // The allowed values for dedicated master node disks.
       shared_ptr<vector<Result::MasterDiskList>> masterDiskList_ {};
       shared_ptr<vector<string>> masterSpec_ {};
+      // The node configuration.
       shared_ptr<Result::Node> node_ {};
+      // The list of data node specifications.
       shared_ptr<vector<Result::NodeSpecList>> nodeSpecList_ {};
+      // The current region ID.
       shared_ptr<string> regionId_ {};
+      // The supported version configurations.
       shared_ptr<vector<Result::SupportVersions>> supportVersions_ {};
+      // The warm node configuration.
       shared_ptr<Result::WarmNodeProperties> warmNodeProperties_ {};
       shared_ptr<vector<string>> zones_ {};
     };
@@ -1337,7 +1424,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned region configuration information.
     shared_ptr<GetRegionConfigurationResponseBody::Result> result_ {};
   };
 

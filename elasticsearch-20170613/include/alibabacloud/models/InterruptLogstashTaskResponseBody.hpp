@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The error code returned. If the API operation is successfully called, this parameter is not returned.
+    // The error code. This parameter is not returned if the call is successful.
     shared_ptr<string> code_ {};
-    // The error message returned. If the API operation is successfully called, this parameter is not returned.
+    // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the task is suspended. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The task is suspended.
+    // - false: The task failed to be suspended.
     shared_ptr<bool> result_ {};
   };
 

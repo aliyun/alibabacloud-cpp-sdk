@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result. Valid values:
+    // 
+    // - true: The index template was deleted.
+    // 
+    // - false: The index template failed to be deleted.
     shared_ptr<bool> result_ {};
   };
 

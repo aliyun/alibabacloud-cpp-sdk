@@ -84,19 +84,25 @@ namespace Models
 
 
   protected:
-    // 20
+    // The beginning of the time range to query logs. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> beginTime_ {};
-    // The ID of the request.
+    // The end of the time range to query logs. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The returned data.
+    // The page number of the instance list. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};
-    // 1
+    // The keyword to query.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
-    // The severity level of the log entry. Including trace, debug, info, warn, error, etc. (GC logs have no level).
+    // The number of entries per page for a paged query. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> size_ {};
-    // 1531910852074
+    // The log type. Valid values:
+    // 
+    // - LOGSTASH_INSTANCE_LOG: main log.
+    // - SEARCHSLOW: searching slow log.
+    // - INDEXINGSLOW: indexing slow log.
+    // - JVMLOG: GC log.
+    // - LOGSTASH_DEBUG_LOG: debug log.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

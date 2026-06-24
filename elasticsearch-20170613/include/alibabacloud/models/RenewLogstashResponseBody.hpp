@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // *   true: The cluster is renewed.
-    // *   false: The cluster fails to be renewed.
+    // - true: The renewal was successful.
+    // - false: The renewal failed.
     shared_ptr<bool> result_ {};
   };
 

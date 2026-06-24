@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the created cluster index template.
     shared_ptr<string> result_ {};
   };
 

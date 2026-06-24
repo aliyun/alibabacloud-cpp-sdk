@@ -99,12 +99,25 @@ namespace Models
 
 
   protected:
+    // The concurrency for force restart. This parameter does not need to be set during a blue-green restart because force restart is not supported in that scenario.
     shared_ptr<double> batchCount_ {};
+    // Specifies whether to perform a blue-green restart. Default value: false.
     shared_ptr<bool> blueGreenDep_ {};
+    // The type of role node to restart. This parameter is not supported.
     shared_ptr<vector<string>> nodeTypes_ {};
+    // The node information selected when restarting nodes.
     shared_ptr<vector<string>> nodes_ {};
+    // The restart type. Valid values:
+    // 
+    // - instance: restart the instance
+    // - nodeIp: restart a node.
     shared_ptr<string> restartType_ {};
+    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to force restart the instance. Valid values:
+    // 
+    // - true: force restart
+    // - false (default): do not force restart.
     shared_ptr<bool> force_ {};
   };
 

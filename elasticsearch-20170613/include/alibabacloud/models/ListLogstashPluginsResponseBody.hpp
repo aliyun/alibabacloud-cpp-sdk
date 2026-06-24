@@ -97,12 +97,23 @@ namespace Models
 
 
     protected:
-      // The source of the plug-in.
+      // The plugin description.
       shared_ptr<string> description_ {};
+      // The plugin name.
       shared_ptr<string> name_ {};
+      // The plugin source.
       shared_ptr<string> source_ {};
-      // The name of the plug-in.
+      // The URL of the plugin documentation.
       shared_ptr<string> specificationUrl_ {};
+      // The plugin status. Valid values:
+      // 
+      // - INSTALLED: installed
+      // - UNINSTALLED: not installed
+      // - INSTALLING: being installed
+      // - UNINSTALLING: being uninstalled
+      // - UPGRADING: being upgraded
+      // - FAILED: installation failed
+      // - UNKNOWN: the cluster is disconnected and the creation status cannot be retrieved.
       shared_ptr<string> state_ {};
     };
 
@@ -125,17 +136,9 @@ namespace Models
 
 
   protected:
-    // The address of the documentation for the plug-in.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the plug-in. Valid values:
-    // 
-    // *   INSTALLED: Installed
-    // *   UNINSTALLED: Not installed
-    // *   INSTALLING: The instance is being installed.
-    // *   UNINSTALLING: The instance is being uninstalled.
-    // *   UPGRADING: The backup gateway is being upgraded.
-    // *   FAILED: Installation failed
-    // *   UNKNOWN: The cluster is lost and cannot be created.
+    // The returned results.
     shared_ptr<vector<ListLogstashPluginsResponseBody::Result>> result_ {};
   };
 

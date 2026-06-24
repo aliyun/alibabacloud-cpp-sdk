@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the cluster is restored. Valid values:
+    // Indicates whether the instance is recovered. Valid values:
     // 
-    // *   true: The cluster is restored.
-    // *   false: The cluster fails to be restored.
+    // - true: The instance is recovered.
+    // - false: The instance failed to be recovered.
     shared_ptr<bool> result_ {};
   };
 

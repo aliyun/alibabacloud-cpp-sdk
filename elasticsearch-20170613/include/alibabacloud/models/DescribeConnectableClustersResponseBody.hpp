@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The instance ID of instances that can establish private network peering.
       shared_ptr<string> instances_ {};
+      // The network type of the instance.
       shared_ptr<string> networkType_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<vector<DescribeConnectableClustersResponseBody::Result>> result_ {};
   };
 

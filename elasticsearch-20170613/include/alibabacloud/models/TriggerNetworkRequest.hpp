@@ -66,12 +66,28 @@ namespace Models
 
 
   protected:
+    // The action type. Valid values:
+    // 
+    // - CLOSE: disable.
+    // - OPEN: enable.
+    // 
     // This parameter is required.
     shared_ptr<string> actionType_ {};
+    // The network type. Valid values:
+    // 
+    // - PUBLIC: public network.
+    // - PRIVATE: private network.
+    // 
     // This parameter is required.
     shared_ptr<string> networkType_ {};
+    // The instance type. Valid values:
+    // 
+    // - KIBANA: Kibana cluster.
+    // - WORKER: Elasticsearch cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeType_ {};
+    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
   };
 

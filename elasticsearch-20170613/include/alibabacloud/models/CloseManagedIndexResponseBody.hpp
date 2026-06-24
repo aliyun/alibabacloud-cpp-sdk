@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the index\\"s cloud management has been successfully closed:
+    // Indicates whether the cloud managed feature for the index is disabled. Valid values:
     // 
-    // - true: Success
+    // - true: The feature is disabled.
     // 
-    // - false: Failure
+    // - false: The feature failed to be disabled.
     shared_ptr<bool> result_ {};
   };
 

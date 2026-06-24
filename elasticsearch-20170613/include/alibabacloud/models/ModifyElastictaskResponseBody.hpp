@@ -120,10 +120,14 @@ namespace Models
 
 
       protected:
+        // The trigger cycle, specified as a Quartz Cron expression.
         shared_ptr<string> cronExpression_ {};
+        // The target number of elastic data nodes during off-peak hours.
         shared_ptr<int32_t> elasticNodeCount_ {};
+        // The number of replicas for the target index.
         shared_ptr<int32_t> replicaCount_ {};
         shared_ptr<vector<string>> targetIndices_ {};
+        // The cause. Valid values: crontab, which indicates scheduled triggering.
         shared_ptr<string> triggerType_ {};
       };
 
@@ -194,10 +198,14 @@ namespace Models
 
 
       protected:
+        // The trigger cycle, specified as a Quartz Cron expression.
         shared_ptr<string> cronExpression_ {};
+        // The target number of elastic data nodes during peak hours.
         shared_ptr<int32_t> elasticNodeCount_ {};
+        // The number of replicas for the target index.
         shared_ptr<int32_t> replicaCount_ {};
         shared_ptr<vector<string>> targetIndices_ {};
+        // The cause. The value is fixed as crontab, which indicates scheduled triggering.
         shared_ptr<string> triggerType_ {};
       };
 
@@ -222,7 +230,9 @@ namespace Models
 
 
     protected:
+      // The elastic node scale-out rule.
       shared_ptr<Result::ElasticExpansionTask> elasticExpansionTask_ {};
+      // The elastic node scale-in rule.
       shared_ptr<Result::ElasticShrinkTask> elasticShrinkTask_ {};
     };
 
@@ -245,7 +255,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<ModifyElastictaskResponseBody::Result> result_ {};
   };
 

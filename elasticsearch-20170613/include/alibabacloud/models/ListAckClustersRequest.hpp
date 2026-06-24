@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number. (Deprecated).
     shared_ptr<int32_t> page_ {};
-    // The number of entries to return on each page.
+    // The number of records per page. (Deprecated).
     shared_ptr<int32_t> size_ {};
-    // The ID of the virtual private cloud (VPC) to which the ACK clusters belong.
+    // The ID of the VPC where the ACK cluster resides.
     shared_ptr<string> vpcId_ {};
   };
 

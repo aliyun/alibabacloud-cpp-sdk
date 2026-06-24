@@ -203,7 +203,12 @@ namespace Models
 
 
       protected:
+        // The zone status. Valid values:
+        // 
+        // - ISOLATION: offline
+        // - NORMAL: normal.
         shared_ptr<string> status_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -281,11 +286,21 @@ namespace Models
 
 
       protected:
+        // The number of nodes.
         shared_ptr<int32_t> amount_ {};
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // Indicates whether cloud disk encryption is enabled. Valid values:
+        // 
+        // - true: Enabled.
+        // 
+        // - false: Not enabled.
         shared_ptr<bool> diskEncryption_ {};
+        // The storage type of the node. Only cloud_efficiency (ultra disk) is supported.
         shared_ptr<string> diskType_ {};
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -327,7 +342,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -387,9 +404,21 @@ namespace Models
 
 
       protected:
+        // The size of the dictionary file. Unit: bytes.
         shared_ptr<int64_t> fileSize_ {};
+        // The name of the dictionary file.
         shared_ptr<string> name_ {};
+        // The source type.
         shared_ptr<string> sourceType_ {};
+        // The dictionary type. Valid values:
+        // 
+        // - STOP: Stopword.
+        // 
+        // - MAIN: Main dictionary.
+        // 
+        // - SYNONYMS: Synonym dictionary.
+        // 
+        // - ALI_WS: Alibaba dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -467,11 +496,23 @@ namespace Models
 
 
       protected:
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // Indicates whether cloud disk encryption is enabled. Valid values:
+        // 
+        // - true: Enabled.
+        // - false: Not enabled.
         shared_ptr<bool> diskEncryption_ {};
+        // The disk type of the node. Valid values:
+        // 
+        // - cloud_ssd: standard SSD
+        // - cloud_efficiency: ultra disk.
         shared_ptr<string> diskType_ {};
+        // The performance level (PL) of the ESSD. This parameter is required when diskType is set to cloud_essd. Valid values: PL1, PL2, and PL3.
         shared_ptr<string> performanceLevel_ {};
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -551,8 +592,19 @@ namespace Models
 
 
         protected:
+          // The name of the whitelist group. The default group is included by default.
           shared_ptr<string> groupName_ {};
+          // The IP addresses in the whitelist group.
           shared_ptr<vector<string>> ips_ {};
+          // The whitelist type. Valid values:
+          // 
+          // - PRIVATE_ES: Elasticsearch private network.
+          // 
+          // - PUBLIC_ES: Elasticsearch public network.
+          // 
+          // - PRIVATE_KIBANA: Kibana private network.
+          // 
+          // - PUBLIC_KIBANA: Kibana public network.
           shared_ptr<string> whiteIpType_ {};
         };
 
@@ -596,10 +648,15 @@ namespace Models
 
 
       protected:
+        // The network type. Only Virtual Private Cloud (VPC) is supported.
         shared_ptr<string> type_ {};
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
+        // The zone where the instance is deployed.
         shared_ptr<string> vsArea_ {};
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
+        // The whitelist group list.
         shared_ptr<vector<NetworkConfig::WhiteIpGroupList>> whiteIpGroupList_ {};
       };
 
@@ -668,10 +725,15 @@ namespace Models
 
 
       protected:
+        // The number of nodes.
         shared_ptr<int32_t> amount_ {};
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -731,9 +793,13 @@ namespace Models
 
 
       protected:
+        // The number of nodes.
         shared_ptr<int32_t> amount_ {};
+        // The storage space of a single node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -793,9 +859,19 @@ namespace Models
 
 
       protected:
+        // The size of the dictionary file. Unit: bytes.
         shared_ptr<int32_t> fileSize_ {};
+        // The name of the dictionary file.
         shared_ptr<string> name_ {};
+        // The source type of the dictionary file. Valid values:
+        // 
+        // - OSS: Uses OSS.
+        // - ORIGIN: Retains the previously uploaded dictionary.
         shared_ptr<string> sourceType_ {};
+        // The type of the dictionary to update. Valid values:
+        // 
+        // - MAIN: IK main dictionary
+        // - STOP: IK stopword dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -846,8 +922,11 @@ namespace Models
 
 
       protected:
+        // The private endpoint of the zone.
         shared_ptr<string> endpoint_ {};
+        // vswitchId
         shared_ptr<string> vswitchId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -925,11 +1004,25 @@ namespace Models
 
 
       protected:
+        // The number of nodes.
         shared_ptr<int32_t> amount_ {};
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // Indicates whether cloud disk encryption is enabled for the node. Valid values:
+        // 
+        // - true: Enabled.
+        // 
+        // - false: Not enabled.
         shared_ptr<bool> diskEncryption_ {};
+        // The storage type of the node. Valid values:
+        // 
+        // - cloud_ssd: standard SSD.
+        // - cloud_essd: ESSD.
+        // - cloud_efficiency: ultra disk.
         shared_ptr<string> diskType_ {};
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -989,9 +1082,22 @@ namespace Models
 
 
       protected:
+        // The size of the dictionary file. Unit: bytes.
         shared_ptr<int64_t> fileSize_ {};
+        // The name of the dictionary file.
         shared_ptr<string> name_ {};
+        // The source type of the dictionary file. Valid values:
+        // 
+        // - OSS: Object Storage Service (OSS). Make sure that the OSS bucket has public read permissions.
+        // - ORIGIN: Open-source Elasticsearch.
+        // - UPLOAD: Uploaded file.
         shared_ptr<string> sourceType_ {};
+        // The type of the dictionary file. Valid values:
+        // 
+        // - STOP: Stopword.
+        // - MAIN: Main dictionary.
+        // - SYNONYMS: Synonym dictionary.
+        // - ALI_WS: Alibaba dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -1060,10 +1166,15 @@ namespace Models
 
 
       protected:
+        // The number of nodes.
         shared_ptr<int32_t> amount_ {};
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // The storage type of the node. Only cloud_efficiency (ultra disk) is supported.
         shared_ptr<string> diskType_ {};
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -1123,9 +1234,22 @@ namespace Models
 
 
       protected:
+        // The size of the dictionary file. Unit: bytes.
         shared_ptr<int64_t> fileSize_ {};
+        // The name of the dictionary file.
         shared_ptr<string> name_ {};
+        // The source type of the dictionary file. Valid values:
+        // 
+        // - OSS: Object Storage Service (OSS). Make sure that the OSS bucket has public read permissions.
+        // - ORIGIN: Open-source Elasticsearch.
+        // - UPLOAD: Uploaded file.
         shared_ptr<string> sourceType_ {};
+        // The type of the dictionary file. Valid values:
+        // 
+        // - STOP: Stopword.
+        // - MAIN: Main dictionary.
+        // - SYNONYMS: Synonym dictionary.
+        // - ALI_WS: Alibaba dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -1157,6 +1281,7 @@ namespace Models
 
 
       protected:
+        // The name of the garbage collector. Valid values: CMS and G1.
         shared_ptr<string> gcName_ {};
       };
 
@@ -1626,63 +1751,172 @@ namespace Models
 
 
     protected:
+      // Indicates whether the instance contains a dedicated master node. Valid values:
+      // 
+      // - true: The instance contains a dedicated master node.
+      // 
+      // - false: The instance does not contain a dedicated master node.
       shared_ptr<bool> advancedDedicateMaster_ {};
+      // The advanced settings.
       shared_ptr<Result::AdvancedSetting> advancedSetting_ {};
+      // The Alibaba tokenizer dictionary configuration.
       shared_ptr<vector<Result::AliwsDicts>> aliwsDicts_ {};
+      // The deployment mode and architecture type. Valid values:
+      // - exclusive: basic management and control.
+      // - public: cloud-native management and control.
       shared_ptr<string> archType_ {};
+      // The configuration of client nodes.
       shared_ptr<Result::ClientNodeConfiguration> clientNodeConfiguration_ {};
+      // The time when the instance was created.
       shared_ptr<string> createdAt_ {};
+      // The dedicated master node (deprecated).
       shared_ptr<bool> dedicateMaster_ {};
+      // The instance name.
       shared_ptr<string> description_ {};
+      // The IK dictionary configuration.
       shared_ptr<vector<Result::DictList>> dictList_ {};
+      // The internal endpoint of the instance.
       shared_ptr<string> domain_ {};
+      // The configuration of elastic data nodes.
       shared_ptr<Result::ElasticDataNodeConfiguration> elasticDataNodeConfiguration_ {};
+      // Indicates whether internal-facing access to Kibana is enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Not enabled.
       shared_ptr<bool> enableKibanaPrivateNetwork_ {};
+      // Indicates whether public network access to Kibana is enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Not enabled.
       shared_ptr<bool> enableKibanaPublicNetwork_ {};
+      // Indicates whether the public endpoint of the instance is enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Not enabled.
       shared_ptr<bool> enablePublic_ {};
       shared_ptr<int64_t> endTime_ {};
+      // The private endpoints for each zone of an HP_ALILB multi-zone instance.
       shared_ptr<vector<Result::Endpoints>> endpoints_ {};
+      // The YML file configuration of the instance.
       Darabonba::Json esConfig_ {};
+      // The internal-facing access blacklist (deprecated).
       shared_ptr<vector<string>> esIPBlacklist_ {};
+      // The internal-facing access whitelist (deprecated).
       shared_ptr<vector<string>> esIPWhitelist_ {};
+      // The instance version.
       shared_ptr<string> esVersion_ {};
+      // The extended configuration array of the instance.
       shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
+      // Indicates whether the instance contains client nodes. Valid values:
+      // 
+      // - true: The instance contains client nodes.
+      // 
+      // - false: The instance does not contain client nodes.
       shared_ptr<bool> haveClientNode_ {};
+      // Indicates whether the instance contains a Kibana node. Valid values:
+      // 
+      // - true: The instance contains a Kibana node.
+      // 
+      // - false: The instance does not contain a Kibana node.
       shared_ptr<bool> haveKibana_ {};
+      // The IK dictionary hot update configuration.
       shared_ptr<vector<Result::IkHotDicts>> ikHotDicts_ {};
       shared_ptr<bool> inited_ {};
+      // The edition of the instance. Valid values:
+      // - x-pack: Commercial Edition.
+      // - advanced/IS: Advanced Edition.
+      // - community: Basic Edition.
       shared_ptr<string> instanceCategory_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // Indicates whether the instance uses the new deployment architecture.
       shared_ptr<bool> isNewDeployment_ {};
+      // The configuration of the Kibana node.
       shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
+      // The Kibana endpoint.
       shared_ptr<string> kibanaDomain_ {};
+      // The Kibana public endpoint access whitelist.
       shared_ptr<vector<string>> kibanaIPWhitelist_ {};
+      // The access port of Kibana.
       shared_ptr<int32_t> kibanaPort_ {};
+      // The Kibana private endpoint.
       shared_ptr<string> kibanaPrivateDomain_ {};
+      // The Kibana private endpoint access whitelist.
       shared_ptr<vector<string>> kibanaPrivateIPWhitelist_ {};
+      // The Kibana private port.
       shared_ptr<string> kibanaPrivatePort_ {};
+      // The master node configuration.
       shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
+      // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
+      // The number of data nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
+      // The configuration of data nodes.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
+      // The billing method of the instance. Valid values:
+      // 
+      // - prepaid: subscription.
+      // 
+      // - postpaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
+      // The access port of the instance.
       shared_ptr<int32_t> port_ {};
+      // The status of the pay-as-you-go service that is overlaid on the subscription instance. Valid values:
+      // 
+      // - active: Normal.
+      // 
+      // - closed: Closed.
+      // 
+      // - indebt: Frozen due to overdue payment.
       shared_ptr<string> postpaidServiceStatus_ {};
+      // The private endpoint access whitelist of the instance.
       shared_ptr<vector<string>> privateNetworkIpWhiteList_ {};
+      // The access protocol. Valid values: HTTP and HTTPS.
       shared_ptr<string> protocol_ {};
+      // The public endpoint of the instance.
       shared_ptr<string> publicDomain_ {};
+      // The public endpoint access whitelist of the instance.
       shared_ptr<vector<string>> publicIpWhitelist_ {};
+      // The public network access port of the instance.
       shared_ptr<int32_t> publicPort_ {};
+      // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
+      // Indicates whether the instance is a service VPC instance.
       shared_ptr<bool> serviceVpc_ {};
+      // The status of the instance. Valid values:
+      // 
+      // - active: Normal.
+      // 
+      // - activating: Taking effect.
+      // 
+      // - inactive: Frozen.
+      // 
+      // - invalid: Invalid. The cluster does not exist or is inaccessible. In this case, some fields in the response may be missing, such as domain and kibanaDomain.
+      // 
+      // - unknown: Unknown. The cluster does not exist or is inaccessible. In this case, some fields in the response may be missing, such as domain and kibanaDomain.
       shared_ptr<string> status_ {};
+      // The synonym dictionary configuration.
       shared_ptr<vector<Result::SynonymsDicts>> synonymsDicts_ {};
+      // The instance tags.
       shared_ptr<vector<Result::Tags>> tags_ {};
+      // The time when the instance was last updated.
       shared_ptr<string> updatedAt_ {};
+      // The VPC ID.
       shared_ptr<string> vpcInstanceId_ {};
+      // Specifies whether warm data nodes are enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Not enabled.
       shared_ptr<bool> warmNode_ {};
+      // The configuration of warm data nodes.
       shared_ptr<Result::WarmNodeConfiguration> warmNodeConfiguration_ {};
+      // The number of zones for the instance.
       shared_ptr<int32_t> zoneCount_ {};
+      // The zone information.
       shared_ptr<vector<Result::ZoneInfos>> zoneInfos_ {};
     };
 
@@ -1705,7 +1939,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<DescribeInstanceResponseBody::Result> result_ {};
   };
 

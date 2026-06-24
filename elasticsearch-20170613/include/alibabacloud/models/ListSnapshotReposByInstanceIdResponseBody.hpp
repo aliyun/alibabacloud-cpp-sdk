@@ -88,13 +88,15 @@ namespace Models
 
 
     protected:
-      // Reference instance ID.
+      // The referenced instance ID.
       shared_ptr<string> instanceId_ {};
-      // The address of the repository.
+      // The repository address.
       shared_ptr<string> repoPath_ {};
-      // Reference warehouse name.
+      // The name of the referenced repository.
       shared_ptr<string> snapWarehouse_ {};
-      // Reference warehouse status. available indicates that it is valid. unavailable indicates that it is invalid.
+      // The status of the referenced repository. Valid values:
+      // - available: The repository is active.
+      // - unavailable: The repository is inactive.
       shared_ptr<string> status_ {};
     };
 
@@ -117,9 +119,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned results.
     shared_ptr<vector<ListSnapshotReposByInstanceIdResponseBody::Result>> result_ {};
   };
 

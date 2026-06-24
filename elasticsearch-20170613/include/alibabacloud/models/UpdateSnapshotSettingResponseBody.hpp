@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable automatic backup.
+      // Indicates whether automatic backup is enabled.
       shared_ptr<bool> enable_ {};
       // The start time of automatic backup.
       shared_ptr<string> quartzRegex_ {};
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned result.
     shared_ptr<UpdateSnapshotSettingResponseBody::Result> result_ {};
   };
 

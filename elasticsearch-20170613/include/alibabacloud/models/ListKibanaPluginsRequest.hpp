@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: 1.
+    // The page number of the instance list. Default value: 1.
     shared_ptr<string> page_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> size_ {};
   };
 

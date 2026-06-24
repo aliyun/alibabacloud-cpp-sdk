@@ -145,12 +145,31 @@ namespace Models
 
 
       protected:
+        // Plugin Description.
         shared_ptr<string> description_ {};
+        // Elasticsearch version of the plugin.
         shared_ptr<string> elasticsearchVersion_ {};
+        // Plugin UUID
         shared_ptr<string> fileVersion_ {};
+        // Plugin Name.
         shared_ptr<string> name_ {};
+        // Plugin Source. Valid values:
+        // 
+        // - USER: Custom plugin  
+        // - SYSTEM: Preset system plugin
         shared_ptr<string> source_ {};
+        // Plugin Status
+        // 
+        // - INSTALLED,
+        // - UNINSTALLED,
+        // - INSTALLING,
+        // - UNINSTALLING,
+        // - UPGRADING,
+        // - FAILED,
+        // - UNKNOWN,
+        // - UPLOADING,
         shared_ptr<string> state_ {};
+        // Plugin Version.
         shared_ptr<string> version_ {};
       };
 
@@ -194,10 +213,15 @@ namespace Models
 
 
     protected:
+      // List of plugins with the same name
       shared_ptr<vector<Result::BingoPlugins>> bingoPlugins_ {};
+      // Plugin Name.
       shared_ptr<string> name_ {};
+      // Plugin Source.
       shared_ptr<string> source_ {};
+      // Plugin Status.
       shared_ptr<string> state_ {};
+      // Plugin Version.
       shared_ptr<string> version_ {};
     };
 
@@ -229,8 +253,11 @@ namespace Models
 
 
   protected:
+    // Response header information.
     Darabonba::Json headers_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return Result array
     shared_ptr<vector<ListUserPluginResponseBody::Result>> result_ {};
   };
 

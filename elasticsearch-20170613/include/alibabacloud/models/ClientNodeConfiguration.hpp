@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The number of client nodes.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> amount_ {};
+    // The storage size of the client node. Unit: GB.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> disk_ {};
+    // The storage type of the client node. Only cloud_efficiency (ultra cloud disk) is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> diskType_ {};
+    // The node specifications of the client node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
+    // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
   };

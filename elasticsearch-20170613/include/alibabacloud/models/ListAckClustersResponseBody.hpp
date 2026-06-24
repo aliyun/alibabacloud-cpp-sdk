@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The ID of cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The type of the cluster. The value is fixed as ManagedKubernetes.
+      // The cluster type. Only ManagedKubernetes is supported, which indicates a managed Kubernetes cluster.
       shared_ptr<string> clusterType_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> name_ {};
-      // The ID of the VPC to which the cluster belongs.
+      // The ID of the VPC where the cluster resides.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -119,7 +119,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The list of ACK clusters returned by the current request.
     shared_ptr<vector<ListAckClustersResponseBody::Result>> result_ {};
   };
 

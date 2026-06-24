@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The request body parameters. For more information, see the RequestBody section below.
     shared_ptr<string> body_ {};
   };
 

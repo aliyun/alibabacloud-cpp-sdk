@@ -78,10 +78,18 @@ namespace Models
 
 
   protected:
+    // A unique token used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to enable X-Pack monitoring. Valid values:
+    // 
+    // - true: Enable X-Pack monitoring.
+    // - false: Disable X-Pack monitoring.
     shared_ptr<bool> enable_ {};
+    // The access endpoint of the Elasticsearch instance.
     shared_ptr<vector<string>> endpoints_ {};
+    // The password of the Elasticsearch instance.
     shared_ptr<string> password_ {};
+    // The username of the Elasticsearch instance.
     shared_ptr<string> userName_ {};
   };
 

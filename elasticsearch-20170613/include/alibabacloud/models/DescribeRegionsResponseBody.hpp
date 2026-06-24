@@ -97,12 +97,15 @@ namespace Models
 
 
     protected:
+      // The endpoint of the region exposed in the console.
       shared_ptr<string> consoleEndpoint_ {};
-      shared_ptr<string> localName_ {};
-      shared_ptr<string> regionEndpoint_ {};
       // The name of the region.
+      shared_ptr<string> localName_ {};
+      // The endpoint of the region.
+      shared_ptr<string> regionEndpoint_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The endpoint of the region that is exposed in the console.
+      // The availability status of the region.
       shared_ptr<string> status_ {};
     };
 
@@ -125,9 +128,9 @@ namespace Models
 
 
   protected:
-    // The available status of the region.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The endpoint of the region.
+    // The list of returned results.
     shared_ptr<vector<DescribeRegionsResponseBody::Result>> result_ {};
   };
 

@@ -99,14 +99,14 @@ namespace Models
 
 
     protected:
-      // The access addresses of the Elasticsearch cluster. Specify each address in the `http://Endpoint of the Elasticsearch cluster:Port number` format.
+      // The list of access endpoints for the Elasticsearch instance, in the format of `domain name:port number`.
       shared_ptr<string> endpoints_ {};
-      // The ID of the Elasticsearch cluster.
+      // The Elasticsearch instance ID.
       shared_ptr<string> esInstanceId_ {};
       shared_ptr<vector<string>> pipelineIds_ {};
       // The pipeline management method. Valid values: Kibana and MULTIPLE_PIPELINE.
       shared_ptr<string> pipelineManagementType_ {};
-      // The username that is used to access the Elasticsearch cluster.
+      // The username used to access the instance.
       shared_ptr<string> userName_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<DescribePipelineManagementConfigResponseBody::Result> result_ {};

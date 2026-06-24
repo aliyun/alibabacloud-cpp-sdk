@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The response code returned.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The color that indicates the health status of the cluster.
+    // The health status of the instance.
     shared_ptr<string> result_ {};
   };
 

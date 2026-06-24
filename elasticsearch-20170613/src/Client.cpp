@@ -19,6 +19,31 @@ namespace Elasticsearch20170613
 
 AlibabaCloud::Elasticsearch20170613::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "elasticsearch.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "elasticsearch.us-east-1.aliyuncs.com"},
+    {"eu-west-1" , "elasticsearch.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "elasticsearch.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "elasticsearch.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "elasticsearch.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "elasticsearch.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "elasticsearch.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "elasticsearch.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "elasticsearch.cn-qingdao.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "elasticsearch.cn-north-2-gov-1.aliyuncs.com"},
+    {"cn-hongkong" , "elasticsearch.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "elasticsearch.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "elasticsearch.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "elasticsearch.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "elasticsearch.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "elasticsearch.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-5" , "elasticsearch.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "elasticsearch.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "elasticsearch.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "elasticsearch.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "elasticsearch.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-1" , "elasticsearch.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("elasticsearch", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +62,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+ * @summary Resumes an offline zone. This operation is valid only for multi-zone instances.
  *
  * @param request ActivateZonesRequest
  * @param headers map
@@ -71,7 +96,7 @@ ActivateZonesResponse Client::activateZonesWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+ * @summary Resumes an offline zone. This operation is valid only for multi-zone instances.
  *
  * @param request ActivateZonesRequest
  * @return ActivateZonesResponse
@@ -83,7 +108,7 @@ ActivateZonesResponse Client::activateZones(const string &InstanceId, const Acti
 }
 
 /**
- * @summary Connects Elasticsearch clusters.
+ * @summary Configures network connectivity to establish a connection between different instances.
  *
  * @param request AddConnectableClusterRequest
  * @param headers map
@@ -117,7 +142,7 @@ AddConnectableClusterResponse Client::addConnectableClusterWithOptions(const str
 }
 
 /**
- * @summary Connects Elasticsearch clusters.
+ * @summary Configures network connectivity to establish a connection between different instances.
  *
  * @param request AddConnectableClusterRequest
  * @return AddConnectableClusterResponse
@@ -129,7 +154,7 @@ AddConnectableClusterResponse Client::addConnectableCluster(const string &Instan
 }
 
 /**
- * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+ * @summary Creates a reference repository when setting up a cross-cluster OSS repository.
  *
  * @param request AddSnapshotRepoRequest
  * @param headers map
@@ -157,7 +182,7 @@ AddSnapshotRepoResponse Client::addSnapshotRepoWithOptions(const string &Instanc
 }
 
 /**
- * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+ * @summary Creates a reference repository when setting up a cross-cluster OSS repository.
  *
  * @param request AddSnapshotRepoRequest
  * @return AddSnapshotRepoResponse
@@ -169,7 +194,7 @@ AddSnapshotRepoResponse Client::addSnapshotRepo(const string &InstanceId, const 
 }
 
 /**
- * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+ * @summary Recovers a frozen Elasticsearch instance that was released.
  *
  * @param request CancelDeletionRequest
  * @param headers map
@@ -202,7 +227,7 @@ CancelDeletionResponse Client::cancelDeletionWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+ * @summary Recovers a frozen Elasticsearch instance that was released.
  *
  * @param request CancelDeletionRequest
  * @return CancelDeletionResponse
@@ -214,7 +239,7 @@ CancelDeletionResponse Client::cancelDeletion(const string &InstanceId, const Ca
 }
 
 /**
- * @summary Restores a Logstash cluster that is frozen after it is released.
+ * @summary Resumes a frozen Logstash instance that was frozen after release.
  *
  * @param request CancelLogstashDeletionRequest
  * @param headers map
@@ -247,7 +272,7 @@ CancelLogstashDeletionResponse Client::cancelLogstashDeletionWithOptions(const s
 }
 
 /**
- * @summary Restores a Logstash cluster that is frozen after it is released.
+ * @summary Resumes a frozen Logstash instance that was frozen after release.
  *
  * @param request CancelLogstashDeletionRequest
  * @return CancelLogstashDeletionResponse
@@ -259,7 +284,7 @@ CancelLogstashDeletionResponse Client::cancelLogstashDeletion(const string &Inst
 }
 
 /**
- * @summary Call CancelTask to cancel a data migration task.
+ * @summary Cancels a running data migration task.
  *
  * @param request CancelTaskRequest
  * @param headers map
@@ -296,7 +321,7 @@ CancelTaskResponse Client::cancelTaskWithOptions(const string &InstanceId, const
 }
 
 /**
- * @summary Call CancelTask to cancel a data migration task.
+ * @summary Cancels a running data migration task.
  *
  * @param request CancelTaskRequest
  * @return CancelTaskResponse
@@ -308,7 +333,7 @@ CancelTaskResponse Client::cancelTask(const string &InstanceId, const CancelTask
 }
 
 /**
- * @summary Capacity Planning
+ * @summary Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
  *
  * @param request CapacityPlanRequest
  * @param headers map
@@ -353,7 +378,7 @@ CapacityPlanResponse Client::capacityPlanWithOptions(const CapacityPlanRequest &
 }
 
 /**
- * @summary Capacity Planning
+ * @summary Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
  *
  * @param request CapacityPlanRequest
  * @return CapacityPlanResponse
@@ -365,7 +390,7 @@ CapacityPlanResponse Client::capacityPlan(const CapacityPlanRequest &request) {
 }
 
 /**
- * @summary Disables the intelligent O\\&M feature for an Elasticsearch cluster.
+ * @summary Disables the intelligent O&M feature for an instance.
  *
  * @param request CloseDiagnosisRequest
  * @param headers map
@@ -402,7 +427,7 @@ CloseDiagnosisResponse Client::closeDiagnosisWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Disables the intelligent O\\&M feature for an Elasticsearch cluster.
+ * @summary Disables the intelligent O&M feature for an instance.
  *
  * @param request CloseDiagnosisRequest
  * @return CloseDiagnosisResponse
@@ -414,7 +439,7 @@ CloseDiagnosisResponse Client::closeDiagnosis(const string &InstanceId, const Cl
 }
 
 /**
- * @summary Call CloseHttps to close the HTTPS protocol.
+ * @summary Disables the HTTPS protocol for a cluster.
  *
  * @param request CloseHttpsRequest
  * @param headers map
@@ -447,7 +472,7 @@ CloseHttpsResponse Client::closeHttpsWithOptions(const string &InstanceId, const
 }
 
 /**
- * @summary Call CloseHttps to close the HTTPS protocol.
+ * @summary Disables the HTTPS protocol for a cluster.
  *
  * @param request CloseHttpsRequest
  * @return CloseHttpsResponse
@@ -459,7 +484,7 @@ CloseHttpsResponse Client::closeHttps(const string &InstanceId, const CloseHttps
 }
 
 /**
- * @summary Disable Managed Index
+ * @summary Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
  *
  * @param request CloseManagedIndexRequest
  * @param headers map
@@ -492,7 +517,7 @@ CloseManagedIndexResponse Client::closeManagedIndexWithOptions(const string &Ins
 }
 
 /**
- * @summary Disable Managed Index
+ * @summary Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
  *
  * @param request CloseManagedIndexRequest
  * @return CloseManagedIndexResponse
@@ -504,7 +529,7 @@ CloseManagedIndexResponse Client::closeManagedIndex(const string &InstanceId, co
 }
 
 /**
- * @summary 创建收集器
+ * @summary Creates a collector to collect data from a specified service.
  *
  * @param request CreateCollectorRequest
  * @param headers map
@@ -571,7 +596,7 @@ CreateCollectorResponse Client::createCollectorWithOptions(const CreateCollector
 }
 
 /**
- * @summary 创建收集器
+ * @summary Creates a collector to collect data from a specified service.
  *
  * @param request CreateCollectorRequest
  * @return CreateCollectorResponse
@@ -583,7 +608,9 @@ CreateCollectorResponse Client::createCollector(const CreateCollectorRequest &re
 }
 
 /**
- * @summary 创建Elasticsearch组合模板
+ * @summary Creates an Elasticsearch composable template.
+ *
+ * @description For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request CreateComponentIndexRequest
  * @param headers map
@@ -620,7 +647,9 @@ CreateComponentIndexResponse Client::createComponentIndexWithOptions(const strin
 }
 
 /**
- * @summary 创建Elasticsearch组合模板
+ * @summary Creates an Elasticsearch composable template.
+ *
+ * @description For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request CreateComponentIndexRequest
  * @return CreateComponentIndexResponse
@@ -632,7 +661,9 @@ CreateComponentIndexResponse Client::createComponentIndex(const string &Instance
 }
 
 /**
- * @summary 创建数据流
+ * @summary Creates a data stream to manage a set of indexes.
+ *
+ * @description > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
  *
  * @param request CreateDataStreamRequest
  * @param headers map
@@ -666,7 +697,9 @@ CreateDataStreamResponse Client::createDataStreamWithOptions(const string &Insta
 }
 
 /**
- * @summary 创建数据流
+ * @summary Creates a data stream to manage a set of indexes.
+ *
+ * @description > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
  *
  * @param request CreateDataStreamRequest
  * @return CreateDataStreamResponse
@@ -678,7 +711,7 @@ CreateDataStreamResponse Client::createDataStream(const string &InstanceId, cons
 }
 
 /**
- * @summary 创建索引生命周期策略
+ * @summary Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
  *
  * @param request CreateILMPolicyRequest
  * @param headers map
@@ -712,7 +745,7 @@ CreateILMPolicyResponse Client::createILMPolicyWithOptions(const string &Instanc
 }
 
 /**
- * @summary 创建索引生命周期策略
+ * @summary Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
  *
  * @param request CreateILMPolicyRequest
  * @return CreateILMPolicyResponse
@@ -724,7 +757,7 @@ CreateILMPolicyResponse Client::createILMPolicy(const string &InstanceId, const 
 }
 
 /**
- * @summary 创建索引模版
+ * @summary Creates a cluster index template that can be used for component-based index template settings.
  *
  * @param request CreateIndexTemplateRequest
  * @param headers map
@@ -783,7 +816,7 @@ CreateIndexTemplateResponse Client::createIndexTemplateWithOptions(const string 
 }
 
 /**
- * @summary 创建索引模版
+ * @summary Creates a cluster index template that can be used for component-based index template settings.
  *
  * @param request CreateIndexTemplateRequest
  * @return CreateIndexTemplateResponse
@@ -795,7 +828,11 @@ CreateIndexTemplateResponse Client::createIndexTemplate(const string &InstanceId
 }
 
 /**
- * @summary Creates a Logstash cluster.
+ * @summary Creates a Logstash instance by calling CreateLogstash.
+ *
+ * @description Before calling this operation, note the following:
+ * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
+ * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
  *
  * @param request CreateLogstashRequest
  * @param headers map
@@ -862,7 +899,11 @@ CreateLogstashResponse Client::createLogstashWithOptions(const CreateLogstashReq
 }
 
 /**
- * @summary Creates a Logstash cluster.
+ * @summary Creates a Logstash instance by calling CreateLogstash.
+ *
+ * @description Before calling this operation, note the following:
+ * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
+ * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
  *
  * @param request CreateLogstashRequest
  * @return CreateLogstashResponse
@@ -874,7 +915,7 @@ CreateLogstashResponse Client::createLogstash(const CreateLogstashRequest &reque
 }
 
 /**
- * @summary Creates a pipeline in a Logstash cluster.
+ * @summary Creates a Logstash pipeline to collect data.
  *
  * @param request CreatePipelinesRequest
  * @param headers map
@@ -912,7 +953,7 @@ CreatePipelinesResponse Client::createPipelinesWithOptions(const string &Instanc
 }
 
 /**
- * @summary Creates a pipeline in a Logstash cluster.
+ * @summary Creates a Logstash pipeline to collect data.
  *
  * @param request CreatePipelinesRequest
  * @return CreatePipelinesResponse
@@ -924,7 +965,7 @@ CreatePipelinesResponse Client::createPipelines(const string &InstanceId, const 
 }
 
 /**
- * @summary Call CreateSnapshot to manually back up a cluster snapshot.
+ * @summary Calls CreateSnapshot to manually create a snapshot backup of a cluster.
  *
  * @param request CreateSnapshotRequest
  * @param headers map
@@ -958,7 +999,7 @@ CreateSnapshotResponse Client::createSnapshotWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Call CreateSnapshot to manually back up a cluster snapshot.
+ * @summary Calls CreateSnapshot to manually create a snapshot backup of a cluster.
  *
  * @param request CreateSnapshotRequest
  * @return CreateSnapshotResponse
@@ -970,9 +1011,9 @@ CreateSnapshotResponse Client::createSnapshot(const string &InstanceId, const Cr
 }
 
 /**
- * @summary 创建私网链接VPC终端节点
+ * @summary Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
  *
- * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+ * @description For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
  *
  * @param request CreateVpcEndpointRequest
  * @param headers map
@@ -1019,9 +1060,9 @@ CreateVpcEndpointResponse Client::createVpcEndpointWithOptions(const string &Ins
 }
 
 /**
- * @summary 创建私网链接VPC终端节点
+ * @summary Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
  *
- * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+ * @description For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
  *
  * @param request CreateVpcEndpointRequest
  * @return CreateVpcEndpointResponse
@@ -1033,7 +1074,7 @@ CreateVpcEndpointResponse Client::createVpcEndpoint(const string &InstanceId, co
 }
 
 /**
- * @summary Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
+ * @summary Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
  *
  * @param request DeactivateZonesRequest
  * @param headers map
@@ -1067,7 +1108,7 @@ DeactivateZonesResponse Client::deactivateZonesWithOptions(const string &Instanc
 }
 
 /**
- * @summary Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
+ * @summary Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
  *
  * @param request DeactivateZonesRequest
  * @return DeactivateZonesResponse
@@ -1079,7 +1120,7 @@ DeactivateZonesResponse Client::deactivateZones(const string &InstanceId, const 
 }
 
 /**
- * @summary Deletes a shipper.
+ * @summary Deletes a specified collector.
  *
  * @param request DeleteCollectorRequest
  * @param headers map
@@ -1112,7 +1153,7 @@ DeleteCollectorResponse Client::deleteCollectorWithOptions(const string &ResId, 
 }
 
 /**
- * @summary Deletes a shipper.
+ * @summary Deletes a specified collector.
  *
  * @param request DeleteCollectorRequest
  * @return DeleteCollectorResponse
@@ -1124,7 +1165,9 @@ DeleteCollectorResponse Client::deleteCollector(const string &ResId, const Delet
 }
 
 /**
- * @summary 删除组合索引模板
+ * @summary Deletes a component index template of Elasticsearch.
+ *
+ * @description For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1149,7 +1192,9 @@ DeleteComponentIndexResponse Client::deleteComponentIndexWithOptions(const strin
 }
 
 /**
- * @summary 删除组合索引模板
+ * @summary Deletes a component index template of Elasticsearch.
+ *
+ * @description For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @return DeleteComponentIndexResponse
  */
@@ -1160,7 +1205,7 @@ DeleteComponentIndexResponse Client::deleteComponentIndex(const string &Instance
 }
 
 /**
- * @summary Call DeleteConnectedCluster to remove the interconnected instance.
+ * @summary Deletes the network connectivity between two instances.
  *
  * @param request DeleteConnectedClusterRequest
  * @param headers map
@@ -1197,7 +1242,7 @@ DeleteConnectedClusterResponse Client::deleteConnectedClusterWithOptions(const s
 }
 
 /**
- * @summary Call DeleteConnectedCluster to remove the interconnected instance.
+ * @summary Deletes the network connectivity between two instances.
  *
  * @param request DeleteConnectedClusterRequest
  * @return DeleteConnectedClusterResponse
@@ -1209,7 +1254,9 @@ DeleteConnectedClusterResponse Client::deleteConnectedCluster(const string &Inst
 }
 
 /**
- * @summary 删除数据流
+ * @summary Deletes a specified cluster data stream.
+ *
+ * @description > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
  *
  * @param request DeleteDataStreamRequest
  * @param headers map
@@ -1242,7 +1289,9 @@ DeleteDataStreamResponse Client::deleteDataStreamWithOptions(const string &Insta
 }
 
 /**
- * @summary 删除数据流
+ * @summary Deletes a specified cluster data stream.
+ *
+ * @description > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
  *
  * @param request DeleteDataStreamRequest
  * @return DeleteDataStreamResponse
@@ -1254,7 +1303,7 @@ DeleteDataStreamResponse Client::deleteDataStream(const string &InstanceId, cons
 }
 
 /**
- * @summary You can call this operation to delete an index migration task.
+ * @summary Deletes an Elasticsearch index migration task.
  *
  * @param request DeleteDataTaskRequest
  * @param headers map
@@ -1291,7 +1340,7 @@ DeleteDataTaskResponse Client::deleteDataTaskWithOptions(const string &InstanceI
 }
 
 /**
- * @summary You can call this operation to delete an index migration task.
+ * @summary Deletes an Elasticsearch index migration task.
  *
  * @param request DeleteDataTaskRequest
  * @return DeleteDataTaskResponse
@@ -1303,7 +1352,9 @@ DeleteDataTaskResponse Client::deleteDataTask(const string &InstanceId, const De
 }
 
 /**
- * @summary 删除历史索引模板
+ * @summary Deletes a historical index template.
+ *
+ * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1328,7 +1379,9 @@ DeleteDeprecatedTemplateResponse Client::deleteDeprecatedTemplateWithOptions(con
 }
 
 /**
- * @summary 删除历史索引模板
+ * @summary Deletes a historical index template.
+ *
+ * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @return DeleteDeprecatedTemplateResponse
  */
@@ -1339,6 +1392,10 @@ DeleteDeprecatedTemplateResponse Client::deleteDeprecatedTemplate(const string &
 }
 
 /**
+ * @summary Deletes a specified index lifecycle policy.
+ *
+ * @description > You cannot delete a policy that is currently in use. If the policy is being used to manage any index, the request fails and returns an error.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteILMPolicyResponse
@@ -1362,6 +1419,10 @@ DeleteILMPolicyResponse Client::deleteILMPolicyWithOptions(const string &Instanc
 }
 
 /**
+ * @summary Deletes a specified index lifecycle policy.
+ *
+ * @description > You cannot delete a policy that is currently in use. If the policy is being used to manage any index, the request fails and returns an error.
+ *
  * @return DeleteILMPolicyResponse
  */
 DeleteILMPolicyResponse Client::deleteILMPolicy(const string &InstanceId, const string &PolicyName) {
@@ -1371,7 +1432,9 @@ DeleteILMPolicyResponse Client::deleteILMPolicy(const string &InstanceId, const 
 }
 
 /**
- * @summary Deletes a top index template.
+ * @summary Deletes a specified index template.
+ *
+ * @description > Before deleting an index template, delete the data streams associated with the index template. Otherwise, the index template cannot be deleted.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1396,7 +1459,9 @@ DeleteIndexTemplateResponse Client::deleteIndexTemplateWithOptions(const string 
 }
 
 /**
- * @summary Deletes a top index template.
+ * @summary Deletes a specified index template.
+ *
+ * @description > Before deleting an index template, delete the data streams associated with the index template. Otherwise, the index template cannot be deleted.
  *
  * @return DeleteIndexTemplateResponse
  */
@@ -1407,7 +1472,10 @@ DeleteIndexTemplateResponse Client::deleteIndexTemplate(const string &InstanceId
 }
 
 /**
- * @summary You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+ * @summary All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+ *
+ * @description Before you invoke this operation, note the following:
+ * Data cannot be recovered after the instance is released. Back up your data before releasing the instance. For more information, see [Snapshot backup and recovery commands](https://help.aliyun.com/document_detail/65675.html).
  *
  * @param request DeleteInstanceRequest
  * @param headers map
@@ -1444,7 +1512,10 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const string &InstanceI
 }
 
 /**
- * @summary You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+ * @summary All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+ *
+ * @description Before you invoke this operation, note the following:
+ * Data cannot be recovered after the instance is released. Back up your data before releasing the instance. For more information, see [Snapshot backup and recovery commands](https://help.aliyun.com/document_detail/65675.html).
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -1456,9 +1527,10 @@ DeleteInstanceResponse Client::deleteInstance(const string &InstanceId, const De
 }
 
 /**
- * @summary Releases a Logstash cluster.
+ * @summary Proactively releases a Logstash instance.
  *
- * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+ * @description Before calling this operation, note the following:
+ * After the instance is released, all physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, cloud disks mounted to the instance nodes are also released, and the corresponding snapshots are deleted.
  *
  * @param request DeleteLogstashRequest
  * @param headers map
@@ -1495,9 +1567,10 @@ DeleteLogstashResponse Client::deleteLogstashWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Releases a Logstash cluster.
+ * @summary Proactively releases a Logstash instance.
  *
- * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+ * @description Before calling this operation, note the following:
+ * After the instance is released, all physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, cloud disks mounted to the instance nodes are also released, and the corresponding snapshots are deleted.
  *
  * @param request DeleteLogstashRequest
  * @return DeleteLogstashResponse
@@ -1509,7 +1582,7 @@ DeleteLogstashResponse Client::deleteLogstash(const string &InstanceId, const De
 }
 
 /**
- * @summary Deletes a pipeline that is configured for a Logstash cluster.
+ * @summary Deletes pipelines configured for a Logstash instance.
  *
  * @param request DeletePipelinesRequest
  * @param headers map
@@ -1546,7 +1619,7 @@ DeletePipelinesResponse Client::deletePipelinesWithOptions(const string &Instanc
 }
 
 /**
- * @summary Deletes a pipeline that is configured for a Logstash cluster.
+ * @summary Deletes pipelines configured for a Logstash instance.
  *
  * @param request DeletePipelinesRequest
  * @return DeletePipelinesResponse
@@ -1558,7 +1631,7 @@ DeletePipelinesResponse Client::deletePipelines(const string &InstanceId, const 
 }
 
 /**
- * @summary Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+ * @summary Deletes a cross-cluster OSS reference repository from an instance.
  *
  * @param request DeleteSnapshotRepoRequest
  * @param headers map
@@ -1595,7 +1668,7 @@ DeleteSnapshotRepoResponse Client::deleteSnapshotRepoWithOptions(const string &I
 }
 
 /**
- * @summary Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+ * @summary Deletes a cross-cluster OSS reference repository from an instance.
  *
  * @param request DeleteSnapshotRepoRequest
  * @return DeleteSnapshotRepoResponse
@@ -1607,7 +1680,7 @@ DeleteSnapshotRepoResponse Client::deleteSnapshotRepo(const string &InstanceId, 
 }
 
 /**
- * @summary Deletes an endpoint in the VPC within the Elasticsearch service account.
+ * @summary Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
  *
  * @param request DeleteVpcEndpointRequest
  * @param headers map
@@ -1640,7 +1713,7 @@ DeleteVpcEndpointResponse Client::deleteVpcEndpointWithOptions(const string &Ins
 }
 
 /**
- * @summary Deletes an endpoint in the VPC within the Elasticsearch service account.
+ * @summary Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
  *
  * @param request DeleteVpcEndpointRequest
  * @return DeleteVpcEndpointResponse
@@ -1652,9 +1725,9 @@ DeleteVpcEndpointResponse Client::deleteVpcEndpoint(const string &InstanceId, co
 }
 
 /**
- * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+ * @summary Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
  *
- * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+ * @description > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1679,9 +1752,9 @@ DescribeAckOperatorResponse Client::describeAckOperatorWithOptions(const string 
 }
 
 /**
- * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+ * @summary Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
  *
- * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+ * @description > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
  *
  * @return DescribeAckOperatorResponse
  */
@@ -1692,7 +1765,7 @@ DescribeAckOperatorResponse Client::describeAckOperator(const string &ClusterId)
 }
 
 /**
- * @summary Queries the detailed information of a shipper.
+ * @summary Retrieves the details of a collector instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1717,7 +1790,7 @@ DescribeCollectorResponse Client::describeCollectorWithOptions(const string &Res
 }
 
 /**
- * @summary Queries the detailed information of a shipper.
+ * @summary Retrieves the details of a collector instance.
  *
  * @return DescribeCollectorResponse
  */
@@ -1728,7 +1801,9 @@ DescribeCollectorResponse Client::describeCollector(const string &ResId) {
 }
 
 /**
- * @summary 查看组合索引模板详情
+ * @summary Queries the details of a composable index template in Elasticsearch.
+ *
+ * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1753,7 +1828,9 @@ DescribeComponentIndexResponse Client::describeComponentIndexWithOptions(const s
 }
 
 /**
- * @summary 查看组合索引模板详情
+ * @summary Queries the details of a composable index template in Elasticsearch.
+ *
+ * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
  *
  * @return DescribeComponentIndexResponse
  */
@@ -1764,7 +1841,7 @@ DescribeComponentIndexResponse Client::describeComponentIndex(const string &Inst
 }
 
 /**
- * @summary Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+ * @summary Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
  *
  * @param request DescribeConnectableClustersRequest
  * @param headers map
@@ -1797,7 +1874,7 @@ DescribeConnectableClustersResponse Client::describeConnectableClustersWithOptio
 }
 
 /**
- * @summary Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+ * @summary Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
  *
  * @param request DescribeConnectableClustersRequest
  * @return DescribeConnectableClustersResponse
@@ -1809,7 +1886,7 @@ DescribeConnectableClustersResponse Client::describeConnectableClusters(const st
 }
 
 /**
- * @summary DescribeDeprecatedTemplate
+ * @summary Queries the details of a historical index template.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1834,7 +1911,7 @@ DescribeDeprecatedTemplateResponse Client::describeDeprecatedTemplateWithOptions
 }
 
 /**
- * @summary DescribeDeprecatedTemplate
+ * @summary Queries the details of a historical index template.
  *
  * @return DescribeDeprecatedTemplateResponse
  */
@@ -1845,7 +1922,7 @@ DescribeDeprecatedTemplateResponse Client::describeDeprecatedTemplate(const stri
 }
 
 /**
- * @summary Queries a historical intelligent O\\&M report.
+ * @summary Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
  *
  * @param request DescribeDiagnoseReportRequest
  * @param headers map
@@ -1878,7 +1955,7 @@ DescribeDiagnoseReportResponse Client::describeDiagnoseReportWithOptions(const s
 }
 
 /**
- * @summary Queries a historical intelligent O\\&M report.
+ * @summary Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
  *
  * @param request DescribeDiagnoseReportRequest
  * @return DescribeDiagnoseReportResponse
@@ -1890,7 +1967,7 @@ DescribeDiagnoseReportResponse Client::describeDiagnoseReport(const string &Inst
 }
 
 /**
- * @summary Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+ * @summary Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
  *
  * @param request DescribeDiagnosisSettingsRequest
  * @param headers map
@@ -1923,7 +2000,7 @@ DescribeDiagnosisSettingsResponse Client::describeDiagnosisSettingsWithOptions(c
 }
 
 /**
- * @summary Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+ * @summary Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
  *
  * @param request DescribeDiagnosisSettingsRequest
  * @return DescribeDiagnosisSettingsResponse
@@ -1935,7 +2012,7 @@ DescribeDiagnosisSettingsResponse Client::describeDiagnosisSettings(const string
 }
 
 /**
- * @summary 获取集群动态指标
+ * @summary Retrieves dynamic metrics of a cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1960,7 +2037,7 @@ DescribeDynamicSettingsResponse Client::describeDynamicSettingsWithOptions(const
 }
 
 /**
- * @summary 获取集群动态指标
+ * @summary Retrieves dynamic metrics of a cluster.
  *
  * @return DescribeDynamicSettingsResponse
  */
@@ -1971,12 +2048,12 @@ DescribeDynamicSettingsResponse Client::describeDynamicSettings(const string &In
 }
 
 /**
- * @summary Check the health status of the cluster and whether it is running normally.
+ * @summary Queries the health status of a cluster to check whether it is running properly.
  *
- * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
- * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
- * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
- * *   RED: Primary shards are not normally allocated.
+ * @description The instance health status. The following three states are supported:
+ * - GREEN: Primary and replica shards are allocated properly.
+ * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
+ * - RED: Primary shards are not allocated properly.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2001,12 +2078,12 @@ DescribeElasticsearchHealthResponse Client::describeElasticsearchHealthWithOptio
 }
 
 /**
- * @summary Check the health status of the cluster and whether it is running normally.
+ * @summary Queries the health status of a cluster to check whether it is running properly.
  *
- * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
- * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
- * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
- * *   RED: Primary shards are not normally allocated.
+ * @description The instance health status. The following three states are supported:
+ * - GREEN: Primary and replica shards are allocated properly.
+ * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
+ * - RED: Primary shards are not allocated properly.
  *
  * @return DescribeElasticsearchHealthResponse
  */
@@ -2017,6 +2094,8 @@ DescribeElasticsearchHealthResponse Client::describeElasticsearchHealth(const st
 }
 
 /**
+ * @summary Queries the details of a specified index lifecycle policy.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeILMPolicyResponse
@@ -2040,6 +2119,8 @@ DescribeILMPolicyResponse Client::describeILMPolicyWithOptions(const string &Ins
 }
 
 /**
+ * @summary Queries the details of a specified index lifecycle policy.
+ *
  * @return DescribeILMPolicyResponse
  */
 DescribeILMPolicyResponse Client::describeILMPolicy(const string &InstanceId, const string &PolicyName) {
@@ -2049,6 +2130,8 @@ DescribeILMPolicyResponse Client::describeILMPolicy(const string &InstanceId, co
 }
 
 /**
+ * @summary Returns information about an index template.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeIndexTemplateResponse
@@ -2072,6 +2155,8 @@ DescribeIndexTemplateResponse Client::describeIndexTemplateWithOptions(const str
 }
 
 /**
+ * @summary Returns information about an index template.
+ *
  * @return DescribeIndexTemplateResponse
  */
 DescribeIndexTemplateResponse Client::describeIndexTemplate(const string &InstanceId, const string &IndexTemplate) {
@@ -2081,7 +2166,7 @@ DescribeIndexTemplateResponse Client::describeIndexTemplate(const string &Instan
 }
 
 /**
- * @summary The name of the dictionary file.
+ * @summary Queries the details of a specified instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2106,7 +2191,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const string &Insta
 }
 
 /**
- * @summary The name of the dictionary file.
+ * @summary Queries the details of a specified instance.
  *
  * @return DescribeInstanceResponse
  */
@@ -2117,7 +2202,7 @@ DescribeInstanceResponse Client::describeInstance(const string &InstanceId) {
 }
 
 /**
- * @summary Get the configuration of the Kibana node for the Elasticsearch cluster.
+ * @summary Retrieves the Kibana node configuration of an Elasticsearch instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2142,7 +2227,7 @@ DescribeKibanaSettingsResponse Client::describeKibanaSettingsWithOptions(const s
 }
 
 /**
- * @summary Get the configuration of the Kibana node for the Elasticsearch cluster.
+ * @summary Retrieves the Kibana node configuration of an Elasticsearch instance.
  *
  * @return DescribeKibanaSettingsResponse
  */
@@ -2153,7 +2238,7 @@ DescribeKibanaSettingsResponse Client::describeKibanaSettings(const string &Inst
 }
 
 /**
- * @summary Queries the information about a Logstash cluster.
+ * @summary Queries the details of a Logstash instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2178,7 +2263,7 @@ DescribeLogstashResponse Client::describeLogstashWithOptions(const string &Insta
 }
 
 /**
- * @summary Queries the information about a Logstash cluster.
+ * @summary Queries the details of a Logstash instance.
  *
  * @return DescribeLogstashResponse
  */
@@ -2189,7 +2274,7 @@ DescribeLogstashResponse Client::describeLogstash(const string &InstanceId) {
 }
 
 /**
- * @summary Queries the information about a pipeline in a Logstash cluster.
+ * @summary Retrieves the pipeline information of a Logstash instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2214,7 +2299,7 @@ DescribePipelineResponse Client::describePipelineWithOptions(const string &Insta
 }
 
 /**
- * @summary Queries the information about a pipeline in a Logstash cluster.
+ * @summary Retrieves the pipeline information of a Logstash instance.
  *
  * @return DescribePipelineResponse
  */
@@ -2225,7 +2310,7 @@ DescribePipelineResponse Client::describePipeline(const string &InstanceId, cons
 }
 
 /**
- * @summary Queries the management configurations of pipelines in a Logstash cluster.
+ * @summary Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
  *
  * @param request DescribePipelineManagementConfigRequest
  * @param headers map
@@ -2258,7 +2343,7 @@ DescribePipelineManagementConfigResponse Client::describePipelineManagementConfi
 }
 
 /**
- * @summary Queries the management configurations of pipelines in a Logstash cluster.
+ * @summary Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
  *
  * @param request DescribePipelineManagementConfigRequest
  * @return DescribePipelineManagementConfigResponse
@@ -2270,7 +2355,7 @@ DescribePipelineManagementConfigResponse Client::describePipelineManagementConfi
 }
 
 /**
- * @summary Get the region information of Alibaba Cloud Elasticsearch.
+ * @summary Retrieves the region information of Alibaba Cloud Elasticsearch.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2295,7 +2380,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const map<string, str
 }
 
 /**
- * @summary Get the region information of Alibaba Cloud Elasticsearch.
+ * @summary Retrieves the region information of Alibaba Cloud Elasticsearch.
  *
  * @return DescribeRegionsResponse
  */
@@ -2306,7 +2391,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Get the snapshot backup settings of the cluster, backup cycle.
+ * @summary Retrieves the snapshot backup settings and backup cycle of a cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2331,7 +2416,7 @@ DescribeSnapshotSettingResponse Client::describeSnapshotSettingWithOptions(const
 }
 
 /**
- * @summary Get the snapshot backup settings of the cluster, backup cycle.
+ * @summary Retrieves the snapshot backup settings and backup cycle of a cluster.
  *
  * @return DescribeSnapshotSettingResponse
  */
@@ -2342,6 +2427,8 @@ DescribeSnapshotSettingResponse Client::describeSnapshotSetting(const string &In
 }
 
 /**
+ * @summary Retrieves the scenario-specific template configuration and cluster settings of an instance.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeTemplatesResponse
@@ -2365,6 +2452,8 @@ DescribeTemplatesResponse Client::describeTemplatesWithOptions(const string &Ins
 }
 
 /**
+ * @summary Retrieves the scenario-specific template configuration and cluster settings of an instance.
+ *
  * @return DescribeTemplatesResponse
  */
 DescribeTemplatesResponse Client::describeTemplates(const string &InstanceId) {
@@ -2374,7 +2463,7 @@ DescribeTemplatesResponse Client::describeTemplates(const string &InstanceId) {
 }
 
 /**
- * @summary Queries the X-Pack Monitoring configurations of a Logstash cluster.
+ * @summary Retrieves the X-Pack monitoring configuration of a Logstash instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2399,7 +2488,7 @@ DescribeXpackMonitorConfigResponse Client::describeXpackMonitorConfigWithOptions
 }
 
 /**
- * @summary Queries the X-Pack Monitoring configurations of a Logstash cluster.
+ * @summary Retrieves the X-Pack monitoring configuration of a Logstash instance.
  *
  * @return DescribeXpackMonitorConfigResponse
  */
@@ -2410,7 +2499,7 @@ DescribeXpackMonitorConfigResponse Client::describeXpackMonitorConfig(const stri
 }
 
 /**
- * @summary Diagnoses an Elasticsearch cluster.
+ * @summary Calls DiagnoseInstance to immediately diagnose an instance.
  *
  * @param request DiagnoseInstanceRequest
  * @param headers map
@@ -2461,7 +2550,7 @@ DiagnoseInstanceResponse Client::diagnoseInstanceWithOptions(const string &Insta
 }
 
 /**
- * @summary Diagnoses an Elasticsearch cluster.
+ * @summary Calls DiagnoseInstance to immediately diagnose an instance.
  *
  * @param request DiagnoseInstanceRequest
  * @return DiagnoseInstanceResponse
@@ -2473,7 +2562,9 @@ DiagnoseInstanceResponse Client::diagnoseInstance(const string &InstanceId, cons
 }
 
 /**
- * @summary Disable Private Network Access of Kibana
+ * @summary Disables Kibana private network access.
+ *
+ * @description This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2498,7 +2589,9 @@ DisableKibanaPvlNetworkResponse Client::disableKibanaPvlNetworkWithOptions(const
 }
 
 /**
- * @summary Disable Private Network Access of Kibana
+ * @summary Disables Kibana private network access.
+ *
+ * @description This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
  *
  * @return DisableKibanaPvlNetworkResponse
  */
@@ -2509,7 +2602,10 @@ DisableKibanaPvlNetworkResponse Client::disableKibanaPvlNetwork(const string &In
 }
 
 /**
- * @summary 开启v3 kibana私网
+ * @summary Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
+ *
+ * @description 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+ * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
  *
  * @param request EnableKibanaPvlNetworkRequest
  * @param headers map
@@ -2560,7 +2656,10 @@ EnableKibanaPvlNetworkResponse Client::enableKibanaPvlNetworkWithOptions(const s
 }
 
 /**
- * @summary 开启v3 kibana私网
+ * @summary Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
+ *
+ * @description 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+ * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
  *
  * @param request EnableKibanaPvlNetworkRequest
  * @return EnableKibanaPvlNetworkResponse
@@ -2572,7 +2671,7 @@ EnableKibanaPvlNetworkResponse Client::enableKibanaPvlNetwork(const string &Inst
 }
 
 /**
- * @summary Queries the estimated time that is required to restart a Logstash cluster.
+ * @summary Retrieves the estimated restart time of a Logstash instance.
  *
  * @param request EstimatedLogstashRestartTimeRequest
  * @param headers map
@@ -2606,7 +2705,7 @@ EstimatedLogstashRestartTimeResponse Client::estimatedLogstashRestartTimeWithOpt
 }
 
 /**
- * @summary Queries the estimated time that is required to restart a Logstash cluster.
+ * @summary Retrieves the estimated restart time of a Logstash instance.
  *
  * @param request EstimatedLogstashRestartTimeRequest
  * @return EstimatedLogstashRestartTimeResponse
@@ -2618,7 +2717,7 @@ EstimatedLogstashRestartTimeResponse Client::estimatedLogstashRestartTime(const 
 }
 
 /**
- * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+ * @summary Retrieves the estimated restart time for an instance.
  *
  * @param request EstimatedRestartTimeRequest
  * @param headers map
@@ -2652,7 +2751,7 @@ EstimatedRestartTimeResponse Client::estimatedRestartTimeWithOptions(const strin
 }
 
 /**
- * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+ * @summary Retrieves the estimated restart time for an instance.
  *
  * @param request EstimatedRestartTimeRequest
  * @return EstimatedRestartTimeResponse
@@ -2664,7 +2763,7 @@ EstimatedRestartTimeResponse Client::estimatedRestartTime(const string &Instance
 }
 
 /**
- * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+ * @summary Retrieves index migration data information.
  *
  * @param request GetClusterDataInformationRequest
  * @param headers map
@@ -2692,7 +2791,7 @@ GetClusterDataInformationResponse Client::getClusterDataInformationWithOptions(c
 }
 
 /**
- * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+ * @summary Retrieves index migration data information.
  *
  * @param request GetClusterDataInformationRequest
  * @return GetClusterDataInformationResponse
@@ -2704,6 +2803,8 @@ GetClusterDataInformationResponse Client::getClusterDataInformation(const GetClu
 }
 
 /**
+ * @summary Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetElastictaskResponse
@@ -2727,6 +2828,8 @@ GetElastictaskResponse Client::getElastictaskWithOptions(const string &InstanceI
 }
 
 /**
+ * @summary Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+ *
  * @return GetElastictaskResponse
  */
 GetElastictaskResponse Client::getElastictask(const string &InstanceId) {
@@ -2793,7 +2896,7 @@ GetEmonAlarmRecordStatisticsDistributeResponse Client::getEmonAlarmRecordStatist
 }
 
 /**
- * @summary 获取高级监控报警自定义Grafana监控报警项
+ * @summary Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
  *
  * @param request GetEmonGrafanaAlertsRequest
  * @param headers map
@@ -2826,7 +2929,7 @@ GetEmonGrafanaAlertsResponse Client::getEmonGrafanaAlertsWithOptions(const strin
 }
 
 /**
- * @summary 获取高级监控报警自定义Grafana监控报警项
+ * @summary Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
  *
  * @param request GetEmonGrafanaAlertsRequest
  * @return GetEmonGrafanaAlertsResponse
@@ -2838,7 +2941,7 @@ GetEmonGrafanaAlertsResponse Client::getEmonGrafanaAlerts(const string &ProjectI
 }
 
 /**
- * @summary 获取高级监控报警自定义Grafana监控大盘列表
+ * @summary Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
  *
  * @param request GetEmonGrafanaDashboardsRequest
  * @param headers map
@@ -2871,7 +2974,7 @@ GetEmonGrafanaDashboardsResponse Client::getEmonGrafanaDashboardsWithOptions(con
 }
 
 /**
- * @summary 获取高级监控报警自定义Grafana监控大盘列表
+ * @summary Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
  *
  * @param request GetEmonGrafanaDashboardsRequest
  * @return GetEmonGrafanaDashboardsResponse
@@ -2883,7 +2986,7 @@ GetEmonGrafanaDashboardsResponse Client::getEmonGrafanaDashboards(const string &
 }
 
 /**
- * @summary GetEmonMonitorData
+ * @summary Queries the Grafana metric monitoring data of an Elasticsearch instance.
  *
  * @param request GetEmonMonitorDataRequest
  * @param headers map
@@ -2916,7 +3019,7 @@ GetEmonMonitorDataResponse Client::getEmonMonitorDataWithOptions(const string &P
 }
 
 /**
- * @summary GetEmonMonitorData
+ * @summary Queries the Grafana metric monitoring data of an Elasticsearch instance.
  *
  * @param request GetEmonMonitorDataRequest
  * @return GetEmonMonitorDataResponse
@@ -2928,7 +3031,7 @@ GetEmonMonitorDataResponse Client::getEmonMonitorData(const string &ProjectId, c
 }
 
 /**
- * @summary 获取keystore信息
+ * @summary Retrieve keystore information
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2953,7 +3056,7 @@ GetKeystoresResponse Client::getKeystoresWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary 获取keystore信息
+ * @summary Retrieve keystore information
  *
  * @return GetKeystoresResponse
  */
@@ -2964,7 +3067,7 @@ GetKeystoresResponse Client::getKeystores(const string &InstanceId) {
 }
 
 /**
- * @summary View the storage capacity and usage of the OpensStore instance.
+ * @summary Queries the storage capacity and usage of an OpenStore instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2989,7 +3092,7 @@ GetOpenStoreUsageResponse Client::getOpenStoreUsageWithOptions(const string &Ins
 }
 
 /**
- * @summary View the storage capacity and usage of the OpensStore instance.
+ * @summary Queries the storage capacity and usage of an OpenStore instance.
  *
  * @return GetOpenStoreUsageResponse
  */
@@ -3000,7 +3103,7 @@ GetOpenStoreUsageResponse Client::getOpenStoreUsage(const string &InstanceId) {
 }
 
 /**
- * @summary Queries the configuration information about the current region.
+ * @summary Retrieves the current region information.
  *
  * @param request GetRegionConfigurationRequest
  * @param headers map
@@ -3033,7 +3136,7 @@ GetRegionConfigurationResponse Client::getRegionConfigurationWithOptions(const G
 }
 
 /**
- * @summary Queries the configuration information about the current region.
+ * @summary Retrieves the current region information.
  *
  * @param request GetRegionConfigurationRequest
  * @return GetRegionConfigurationResponse
@@ -3081,7 +3184,7 @@ GetRegionalInstanceConfigResponse Client::getRegionalInstanceConfig() {
 }
 
 /**
- * @summary Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
+ * @summary Retrieves the nodes that can be removed based on the specified node type and quantity.
  *
  * @param request GetSuggestShrinkableNodesRequest
  * @param headers map
@@ -3122,7 +3225,7 @@ GetSuggestShrinkableNodesResponse Client::getSuggestShrinkableNodesWithOptions(c
 }
 
 /**
- * @summary Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
+ * @summary Retrieves the nodes that can be removed based on the specified node type and quantity.
  *
  * @param request GetSuggestShrinkableNodesRequest
  * @return GetSuggestShrinkableNodesResponse
@@ -3134,7 +3237,7 @@ GetSuggestShrinkableNodesResponse Client::getSuggestShrinkableNodes(const string
 }
 
 /**
- * @summary Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
+ * @summary Retrieves the nodes available for data migration based on the specified node type and count.
  *
  * @param request GetTransferableNodesRequest
  * @param headers map
@@ -3171,7 +3274,7 @@ GetTransferableNodesResponse Client::getTransferableNodesWithOptions(const strin
 }
 
 /**
- * @summary Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
+ * @summary Retrieves the nodes available for data migration based on the specified node type and count.
  *
  * @param request GetTransferableNodesRequest
  * @return GetTransferableNodesResponse
@@ -3183,7 +3286,7 @@ GetTransferableNodesResponse Client::getTransferableNodes(const string &Instance
 }
 
 /**
- * @summary 灰度完成继续变更
+ * @summary Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
  *
  * @param request GrayPublishRequest
  * @param headers map
@@ -3216,7 +3319,7 @@ GrayPublishResponse Client::grayPublishWithOptions(const string &InstanceId, con
 }
 
 /**
- * @summary 灰度完成继续变更
+ * @summary Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
  *
  * @param request GrayPublishRequest
  * @return GrayPublishResponse
@@ -3228,7 +3331,7 @@ GrayPublishResponse Client::grayPublish(const string &InstanceId, const GrayPubl
 }
 
 /**
- * @summary 初始化ai模型
+ * @summary Initialize AI model
  *
  * @param request InitModelRequest
  * @param headers map
@@ -3277,7 +3380,7 @@ InitModelResponse Client::initModelWithOptions(const string &InstanceId, const I
 }
 
 /**
- * @summary 初始化ai模型
+ * @summary Initialize AI model
  *
  * @param request InitModelRequest
  * @return InitModelResponse
@@ -3289,9 +3392,9 @@ InitModelResponse Client::initModel(const string &InstanceId, const InitModelReq
 }
 
 /**
- * @summary Creates a service-linked role.
+ * @summary Calls the InitializeOperationRole operation to create a service-linked role.
  *
- * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+ * @description > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
  *
  * @param request InitializeOperationRoleRequest
  * @param headers map
@@ -3325,9 +3428,9 @@ InitializeOperationRoleResponse Client::initializeOperationRoleWithOptions(const
 }
 
 /**
- * @summary Creates a service-linked role.
+ * @summary Calls the InitializeOperationRole operation to create a service-linked role.
  *
- * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+ * @description > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
  *
  * @param request InitializeOperationRoleRequest
  * @return InitializeOperationRoleResponse
@@ -3339,9 +3442,9 @@ InitializeOperationRoleResponse Client::initializeOperationRole(const Initialize
 }
 
 /**
- * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+ * @summary Installs the ACK Operator on a specified Container Service cluster.
  *
- * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+ * @description > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
  *
  * @param request InstallAckOperatorRequest
  * @param headers map
@@ -3375,9 +3478,9 @@ InstallAckOperatorResponse Client::installAckOperatorWithOptions(const string &C
 }
 
 /**
- * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+ * @summary Installs the ACK Operator on a specified Container Service cluster.
  *
- * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+ * @description > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
  *
  * @param request InstallAckOperatorRequest
  * @return InstallAckOperatorResponse
@@ -3389,7 +3492,7 @@ InstallAckOperatorResponse Client::installAckOperator(const string &ClusterId, c
 }
 
 /**
- * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+ * @summary Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
  *
  * @param request InstallKibanaSystemPluginRequest
  * @param headers map
@@ -3423,7 +3526,7 @@ InstallKibanaSystemPluginResponse Client::installKibanaSystemPluginWithOptions(c
 }
 
 /**
- * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+ * @summary Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
  *
  * @param request InstallKibanaSystemPluginRequest
  * @return InstallKibanaSystemPluginResponse
@@ -3435,9 +3538,10 @@ InstallKibanaSystemPluginResponse Client::installKibanaSystemPlugin(const string
 }
 
 /**
- * @summary Installs a plug-in.
+ * @summary Installs system plugins for a specified Logstash instance.
  *
- * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+ * @description Before calling this operation, note the following:
+ * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
  *
  * @param request InstallLogstashSystemPluginRequest
  * @param headers map
@@ -3471,9 +3575,10 @@ InstallLogstashSystemPluginResponse Client::installLogstashSystemPluginWithOptio
 }
 
 /**
- * @summary Installs a plug-in.
+ * @summary Installs system plugins for a specified Logstash instance.
  *
- * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+ * @description Before calling this operation, note the following:
+ * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
  *
  * @param request InstallLogstashSystemPluginRequest
  * @return InstallLogstashSystemPluginResponse
@@ -3485,7 +3590,7 @@ InstallLogstashSystemPluginResponse Client::installLogstashSystemPlugin(const st
 }
 
 /**
- * @summary Call InstallSystemPlugin to install a system preset plug-in.
+ * @summary Installs system plug-ins on an Elasticsearch instance.
  *
  * @param request InstallSystemPluginRequest
  * @param headers map
@@ -3519,7 +3624,7 @@ InstallSystemPluginResponse Client::installSystemPluginWithOptions(const string 
 }
 
 /**
- * @summary Call InstallSystemPlugin to install a system preset plug-in.
+ * @summary Installs system plug-ins on an Elasticsearch instance.
  *
  * @param request InstallSystemPluginRequest
  * @return InstallSystemPluginResponse
@@ -3531,7 +3636,9 @@ InstallSystemPluginResponse Client::installSystemPlugin(const string &InstanceId
 }
 
 /**
- * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+ * @summary Installs custom plugins that have been uploaded to the Elasticsearch console.
+ *
+ * @description > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
  *
  * @param request InstallUserPluginsRequest
  * @param headers map
@@ -3565,7 +3672,9 @@ InstallUserPluginsResponse Client::installUserPluginsWithOptions(const string &I
 }
 
 /**
- * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+ * @summary Installs custom plugins that have been uploaded to the Elasticsearch console.
+ *
+ * @description > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
  *
  * @param request InstallUserPluginsRequest
  * @return InstallUserPluginsResponse
@@ -3577,7 +3686,7 @@ InstallUserPluginsResponse Client::installUserPlugins(const string &InstanceId, 
 }
 
 /**
- * @summary Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+ * @summary Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
  *
  * @param request InterruptElasticsearchTaskRequest
  * @param headers map
@@ -3610,7 +3719,7 @@ InterruptElasticsearchTaskResponse Client::interruptElasticsearchTaskWithOptions
 }
 
 /**
- * @summary Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+ * @summary Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
  *
  * @param request InterruptElasticsearchTaskRequest
  * @return InterruptElasticsearchTaskResponse
@@ -3622,7 +3731,7 @@ InterruptElasticsearchTaskResponse Client::interruptElasticsearchTask(const stri
 }
 
 /**
- * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+ * @summary After the interruption, the instance enters the suspended state.
  *
  * @param request InterruptLogstashTaskRequest
  * @param headers map
@@ -3655,7 +3764,7 @@ InterruptLogstashTaskResponse Client::interruptLogstashTaskWithOptions(const str
 }
 
 /**
- * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+ * @summary After the interruption, the instance enters the suspended state.
  *
  * @param request InterruptLogstashTaskRequest
  * @return InterruptLogstashTaskResponse
@@ -3667,7 +3776,7 @@ InterruptLogstashTaskResponse Client::interruptLogstashTask(const string &Instan
 }
 
 /**
- * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+ * @summary Retrieves the list of Container Service for Kubernetes (ACK) clusters.
  *
  * @param request ListAckClustersRequest
  * @param headers map
@@ -3708,7 +3817,7 @@ ListAckClustersResponse Client::listAckClustersWithOptions(const ListAckClusters
 }
 
 /**
- * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+ * @summary Retrieves the list of Container Service for Kubernetes (ACK) clusters.
  *
  * @param request ListAckClustersRequest
  * @return ListAckClustersResponse
@@ -3720,9 +3829,9 @@ ListAckClustersResponse Client::listAckClusters(const ListAckClustersRequest &re
 }
 
 /**
- * @summary View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
+ * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
  *
- * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+ * @description This operation is deprecated and will be taken offline soon.
  *
  * @param request ListAckNamespacesRequest
  * @param headers map
@@ -3759,9 +3868,9 @@ ListAckNamespacesResponse Client::listAckNamespacesWithOptions(const string &Clu
 }
 
 /**
- * @summary View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
+ * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
  *
- * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+ * @description This operation is deprecated and will be taken offline soon.
  *
  * @param request ListAckNamespacesRequest
  * @return ListAckNamespacesResponse
@@ -3773,7 +3882,7 @@ ListAckNamespacesResponse Client::listAckNamespaces(const string &ClusterId, con
 }
 
 /**
- * @summary 变更记录 变更详情
+ * @summary Release notes Release notes details.
  *
  * @param request ListActionRecordsRequest
  * @param headers map
@@ -3834,7 +3943,7 @@ ListActionRecordsResponse Client::listActionRecordsWithOptions(const string &Ins
 }
 
 /**
- * @summary 变更记录 变更详情
+ * @summary Release notes Release notes details.
  *
  * @param request ListActionRecordsRequest
  * @return ListActionRecordsResponse
@@ -3846,7 +3955,7 @@ ListActionRecordsResponse Client::listActionRecords(const string &InstanceId, co
 }
 
 /**
- * @summary Queries the information of all the nodes in an Elasticsearch cluster.
+ * @summary Retrieves information about all nodes in an Elasticsearch cluster.
  *
  * @param request ListAllNodeRequest
  * @param headers map
@@ -3879,7 +3988,7 @@ ListAllNodeResponse Client::listAllNodeWithOptions(const string &InstanceId, con
 }
 
 /**
- * @summary Queries the information of all the nodes in an Elasticsearch cluster.
+ * @summary Retrieves information about all nodes in an Elasticsearch cluster.
  *
  * @param request ListAllNodeRequest
  * @return ListAllNodeResponse
@@ -3891,7 +4000,7 @@ ListAllNodeResponse Client::listAllNode(const string &InstanceId, const ListAllN
 }
 
 /**
- * @summary Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
+ * @summary Retrieves the OSS reference repositories that can be added to the current instance.
  *
  * @param request ListAlternativeSnapshotReposRequest
  * @param headers map
@@ -3924,7 +4033,7 @@ ListAlternativeSnapshotReposResponse Client::listAlternativeSnapshotReposWithOpt
 }
 
 /**
- * @summary Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
+ * @summary Retrieves the OSS reference repositories that can be added to the current instance.
  *
  * @param request ListAlternativeSnapshotReposRequest
  * @return ListAlternativeSnapshotReposResponse
@@ -3936,7 +4045,7 @@ ListAlternativeSnapshotReposResponse Client::listAlternativeSnapshotRepos(const 
 }
 
 /**
- * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+ * @summary Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3961,7 +4070,7 @@ ListAvailableEsInstanceIdsResponse Client::listAvailableEsInstanceIdsWithOptions
 }
 
 /**
- * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+ * @summary Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
  *
  * @return ListAvailableEsInstanceIdsResponse
  */
@@ -3972,7 +4081,7 @@ ListAvailableEsInstanceIdsResponse Client::listAvailableEsInstanceIds(const stri
 }
 
 /**
- * @summary Queries a list of shippers.
+ * @summary Retrieves a list of collectors.
  *
  * @param request ListCollectorsRequest
  * @param headers map
@@ -4025,7 +4134,7 @@ ListCollectorsResponse Client::listCollectorsWithOptions(const ListCollectorsReq
 }
 
 /**
- * @summary Queries a list of shippers.
+ * @summary Retrieves a list of collectors.
  *
  * @param request ListCollectorsRequest
  * @return ListCollectorsResponse
@@ -4037,7 +4146,9 @@ ListCollectorsResponse Client::listCollectors(const ListCollectorsRequest &reque
 }
 
 /**
- * @summary ES集群组合索引列表
+ * @summary Retrieves the list of composable templates for an Elasticsearch instance.
+ *
+ * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request ListComponentIndicesRequest
  * @param headers map
@@ -4078,7 +4189,9 @@ ListComponentIndicesResponse Client::listComponentIndicesWithOptions(const strin
 }
 
 /**
- * @summary ES集群组合索引列表
+ * @summary Retrieves the list of composable templates for an Elasticsearch instance.
+ *
+ * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request ListComponentIndicesRequest
  * @return ListComponentIndicesResponse
@@ -4090,7 +4203,7 @@ ListComponentIndicesResponse Client::listComponentIndices(const string &Instance
 }
 
 /**
- * @summary Call ListConnectedClusters to query the instances that are interconnected with the current instance.
+ * @summary Retrieves a list of instances that have established private network peering with the current instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4115,7 +4228,7 @@ ListConnectedClustersResponse Client::listConnectedClustersWithOptions(const str
 }
 
 /**
- * @summary Call ListConnectedClusters to query the instances that are interconnected with the current instance.
+ * @summary Retrieves a list of instances that have established private network peering with the current instance.
  *
  * @return ListConnectedClustersResponse
  */
@@ -4126,7 +4239,7 @@ ListConnectedClustersResponse Client::listConnectedClusters(const string &Instan
 }
 
 /**
- * @summary 查询数据流
+ * @summary Retrieves the list of index data streams in an Elasticsearch cluster.
  *
  * @param request ListDataStreamsRequest
  * @param headers map
@@ -4163,7 +4276,7 @@ ListDataStreamsResponse Client::listDataStreamsWithOptions(const string &Instanc
 }
 
 /**
- * @summary 查询数据流
+ * @summary Retrieves the list of index data streams in an Elasticsearch cluster.
  *
  * @param request ListDataStreamsRequest
  * @return ListDataStreamsResponse
@@ -4175,7 +4288,7 @@ ListDataStreamsResponse Client::listDataStreams(const string &InstanceId, const 
 }
 
 /**
- * @summary Call ListDataTasks to obtain the information of a data migration task.
+ * @summary Retrieves a list of data migration tasks between different Elasticsearch clusters.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4200,7 +4313,7 @@ ListDataTasksResponse Client::listDataTasksWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Call ListDataTasks to obtain the information of a data migration task.
+ * @summary Retrieves a list of data migration tasks between different Elasticsearch clusters.
  *
  * @return ListDataTasksResponse
  */
@@ -4211,7 +4324,7 @@ ListDataTasksResponse Client::listDataTasks(const string &InstanceId) {
 }
 
 /**
- * @summary Queries the default configuration files of shippers.
+ * @summary Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
  *
  * @param request ListDefaultCollectorConfigurationsRequest
  * @param headers map
@@ -4252,7 +4365,7 @@ ListDefaultCollectorConfigurationsResponse Client::listDefaultCollectorConfigura
 }
 
 /**
- * @summary Queries the default configuration files of shippers.
+ * @summary Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
  *
  * @param request ListDefaultCollectorConfigurationsRequest
  * @return ListDefaultCollectorConfigurationsResponse
@@ -4264,7 +4377,9 @@ ListDefaultCollectorConfigurationsResponse Client::listDefaultCollectorConfigura
 }
 
 /**
- * @summary ListDeprecatedTemplates
+ * @summary Queries the list of historical index templates.
+ *
+ * @description For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request ListDeprecatedTemplatesRequest
  * @param headers map
@@ -4305,7 +4420,9 @@ ListDeprecatedTemplatesResponse Client::listDeprecatedTemplatesWithOptions(const
 }
 
 /**
- * @summary ListDeprecatedTemplates
+ * @summary Queries the list of historical index templates.
+ *
+ * @description For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request ListDeprecatedTemplatesRequest
  * @return ListDeprecatedTemplatesResponse
@@ -4317,7 +4434,7 @@ ListDeprecatedTemplatesResponse Client::listDeprecatedTemplates(const string &In
 }
 
 /**
- * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+ * @summary Retrieves the diagnostic indexes from the intelligent O&M module for a specified instance.
  *
  * @param request ListDiagnoseIndicesRequest
  * @param headers map
@@ -4350,7 +4467,7 @@ ListDiagnoseIndicesResponse Client::listDiagnoseIndicesWithOptions(const string 
 }
 
 /**
- * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+ * @summary Retrieves the diagnostic indexes from the intelligent O&M module for a specified instance.
  *
  * @param request ListDiagnoseIndicesRequest
  * @return ListDiagnoseIndicesResponse
@@ -4362,7 +4479,7 @@ ListDiagnoseIndicesResponse Client::listDiagnoseIndices(const string &InstanceId
 }
 
 /**
- * @summary Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
+ * @summary Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
  *
  * @param request ListDiagnoseReportRequest
  * @param headers map
@@ -4419,7 +4536,7 @@ ListDiagnoseReportResponse Client::listDiagnoseReportWithOptions(const string &I
 }
 
 /**
- * @summary Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
+ * @summary Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
  *
  * @param request ListDiagnoseReportRequest
  * @return ListDiagnoseReportResponse
@@ -4431,7 +4548,7 @@ ListDiagnoseReportResponse Client::listDiagnoseReport(const string &InstanceId, 
 }
 
 /**
- * @summary Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
+ * @summary Retrieves all IDs of Intelligent O&M Center historical reports.
  *
  * @param request ListDiagnoseReportIdsRequest
  * @param headers map
@@ -4484,7 +4601,7 @@ ListDiagnoseReportIdsResponse Client::listDiagnoseReportIdsWithOptions(const str
 }
 
 /**
- * @summary Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
+ * @summary Retrieves all IDs of Intelligent O&M Center historical reports.
  *
  * @param request ListDiagnoseReportIdsRequest
  * @return ListDiagnoseReportIdsResponse
@@ -4496,7 +4613,7 @@ ListDiagnoseReportIdsResponse Client::listDiagnoseReportIds(const string &Instan
 }
 
 /**
- * @summary Queries the intelligent diagnostic items of an Elasticsearch cluster.
+ * @summary Lists the intelligent diagnostic items for an Elasticsearch instance.
  *
  * @param request ListDiagnosisItemsRequest
  * @param headers map
@@ -4506,6 +4623,10 @@ ListDiagnoseReportIdsResponse Client::listDiagnoseReportIds(const string &Instan
 ListDiagnosisItemsResponse Client::listDiagnosisItemsWithOptions(const ListDiagnosisItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.getInstanceId();
+  }
+
   if (!!request.hasLang()) {
     query["lang"] = request.getLang();
   }
@@ -4529,7 +4650,7 @@ ListDiagnosisItemsResponse Client::listDiagnosisItemsWithOptions(const ListDiagn
 }
 
 /**
- * @summary Queries the intelligent diagnostic items of an Elasticsearch cluster.
+ * @summary Lists the intelligent diagnostic items for an Elasticsearch instance.
  *
  * @param request ListDiagnosisItemsRequest
  * @return ListDiagnosisItemsResponse
@@ -4541,7 +4662,7 @@ ListDiagnosisItemsResponse Client::listDiagnosisItems(const ListDiagnosisItemsRe
 }
 
 /**
- * @summary Queries information about a dictionary.
+ * @summary Queries the information of a specified dictionary.
  *
  * @param request ListDictInformationRequest
  * @param headers map
@@ -4582,7 +4703,7 @@ ListDictInformationResponse Client::listDictInformationWithOptions(const string 
 }
 
 /**
- * @summary Queries information about a dictionary.
+ * @summary Queries the information of a specified dictionary.
  *
  * @param request ListDictInformationRequest
  * @return ListDictInformationResponse
@@ -4594,7 +4715,7 @@ ListDictInformationResponse Client::listDictInformation(const string &InstanceId
 }
 
 /**
- * @summary Queries the details of a specified type of dictionary.
+ * @summary Queries the details of the dictionary list for a specified type.
  *
  * @param request ListDictsRequest
  * @param headers map
@@ -4631,7 +4752,7 @@ ListDictsResponse Client::listDictsWithOptions(const string &InstanceId, const L
 }
 
 /**
- * @summary Queries the details of a specified type of dictionary.
+ * @summary Queries the details of the dictionary list for a specified type.
  *
  * @param request ListDictsRequest
  * @return ListDictsResponse
@@ -4643,9 +4764,10 @@ ListDictsResponse Client::listDicts(const string &InstanceId, const ListDictsReq
 }
 
 /**
- * @summary When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
+ * @summary Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
  *
- * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+ * @description >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+ * .
  *
  * @param request ListEcsInstancesRequest
  * @param headers map
@@ -4698,9 +4820,10 @@ ListEcsInstancesResponse Client::listEcsInstancesWithOptions(const ListEcsInstan
 }
 
 /**
- * @summary When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
+ * @summary Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
  *
- * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+ * @description >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+ * .
  *
  * @param request ListEcsInstancesRequest
  * @return ListEcsInstancesResponse
@@ -4712,7 +4835,7 @@ ListEcsInstancesResponse Client::listEcsInstances(const ListEcsInstancesRequest 
 }
 
 /**
- * @summary 获取事件列表
+ * @summary Obtain Event List
  *
  * @param request ListEventRecordsRequest
  * @param headers map
@@ -4765,7 +4888,7 @@ ListEventRecordsResponse Client::listEventRecordsWithOptions(const string &event
 }
 
 /**
- * @summary 获取事件列表
+ * @summary Obtain Event List
  *
  * @param request ListEventRecordsRequest
  * @return ListEventRecordsResponse
@@ -4777,7 +4900,7 @@ ListEventRecordsResponse Client::listEventRecords(const string &eventType, const
 }
 
 /**
- * @summary Queries the extended file configuration of a Logstash instance.
+ * @summary Retrieves the extension file configuration of a Logstash instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4802,7 +4925,7 @@ ListExtendfilesResponse Client::listExtendfilesWithOptions(const string &Instanc
 }
 
 /**
- * @summary Queries the extended file configuration of a Logstash instance.
+ * @summary Retrieves the extension file configuration of a Logstash instance.
  *
  * @return ListExtendfilesResponse
  */
@@ -4813,6 +4936,8 @@ ListExtendfilesResponse Client::listExtendfiles(const string &InstanceId) {
 }
 
 /**
+ * @summary Queries the list of index lifecycle policies that have been created for a cluster.
+ *
  * @param request ListILMPoliciesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4844,6 +4969,8 @@ ListILMPoliciesResponse Client::listILMPoliciesWithOptions(const string &Instanc
 }
 
 /**
+ * @summary Queries the list of index lifecycle policies that have been created for a cluster.
+ *
  * @param request ListILMPoliciesRequest
  * @return ListILMPoliciesResponse
  */
@@ -4854,6 +4981,8 @@ ListILMPoliciesResponse Client::listILMPolicies(const string &InstanceId, const 
 }
 
 /**
+ * @summary Queries a list of index templates.
+ *
  * @param request ListIndexTemplatesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4893,6 +5022,8 @@ ListIndexTemplatesResponse Client::listIndexTemplatesWithOptions(const string &I
 }
 
 /**
+ * @summary Queries a list of index templates.
+ *
  * @param request ListIndexTemplatesRequest
  * @return ListIndexTemplatesResponse
  */
@@ -4903,7 +5034,7 @@ ListIndexTemplatesResponse Client::listIndexTemplates(const string &InstanceId, 
 }
 
 /**
- * @summary Queries a list of Elasticsearch clusters.
+ * @summary Queries the information about Elasticsearch instances.
  *
  * @param request ListInstanceRequest
  * @param headers map
@@ -4980,7 +5111,7 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
 }
 
 /**
- * @summary Queries a list of Elasticsearch clusters.
+ * @summary Queries the information about Elasticsearch instances.
  *
  * @param request ListInstanceRequest
  * @return ListInstanceResponse
@@ -4992,7 +5123,7 @@ ListInstanceResponse Client::listInstance(const ListInstanceRequest &request) {
 }
 
 /**
- * @summary 集群触发的硬件运维事件列表
+ * @summary Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
  *
  * @param tmpReq ListInstanceHistoryEventsRequest
  * @param headers map
@@ -5088,7 +5219,7 @@ ListInstanceHistoryEventsResponse Client::listInstanceHistoryEventsWithOptions(c
 }
 
 /**
- * @summary 集群触发的硬件运维事件列表
+ * @summary Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
  *
  * @param request ListInstanceHistoryEventsRequest
  * @return ListInstanceHistoryEventsResponse
@@ -5100,7 +5231,10 @@ ListInstanceHistoryEventsResponse Client::listInstanceHistoryEvents(const ListIn
 }
 
 /**
- * @summary Queries the indexes stored on an Elasticsearch cluster.
+ * @summary Filters system indexes from the index list of a cluster.
+ *
+ * @description The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
+ * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
  *
  * @param request ListInstanceIndicesRequest
  * @param headers map
@@ -5153,7 +5287,10 @@ ListInstanceIndicesResponse Client::listInstanceIndicesWithOptions(const string 
 }
 
 /**
- * @summary Queries the indexes stored on an Elasticsearch cluster.
+ * @summary Filters system indexes from the index list of a cluster.
+ *
+ * @description The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
+ * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
  *
  * @param request ListInstanceIndicesRequest
  * @return ListInstanceIndicesResponse
@@ -5165,7 +5302,7 @@ ListInstanceIndicesResponse Client::listInstanceIndices(const string &InstanceId
 }
 
 /**
- * @summary Queries a list of Kibana plug-ins.
+ * @summary Retrieves the list of plugins installed on the Kibana node of an Elasticsearch instance.
  *
  * @param request ListKibanaPluginsRequest
  * @param headers map
@@ -5202,7 +5339,7 @@ ListKibanaPluginsResponse Client::listKibanaPluginsWithOptions(const string &Ins
 }
 
 /**
- * @summary Queries a list of Kibana plug-ins.
+ * @summary Retrieves the list of plugins installed on the Kibana node of an Elasticsearch instance.
  *
  * @param request ListKibanaPluginsRequest
  * @return ListKibanaPluginsResponse
@@ -5214,7 +5351,9 @@ ListKibanaPluginsResponse Client::listKibanaPlugins(const string &InstanceId, co
 }
 
 /**
- * @summary 查询kibana私网连接信息
+ * @summary Queries the details of the Kibana private network connection.
+ *
+ * @description This API operation supports only cloud-native instances.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5239,7 +5378,9 @@ ListKibanaPvlNetworkResponse Client::listKibanaPvlNetworkWithOptions(const strin
 }
 
 /**
- * @summary 查询kibana私网连接信息
+ * @summary Queries the details of the Kibana private network connection.
+ *
+ * @description This API operation supports only cloud-native instances.
  *
  * @return ListKibanaPvlNetworkResponse
  */
@@ -5250,7 +5391,7 @@ ListKibanaPvlNetworkResponse Client::listKibanaPvlNetwork(const string &Instance
 }
 
 /**
- * @summary Queries the information about a Logstash cluster or all Logstash clusters.
+ * @summary Displays the details of all or specified Logstash instances in a list.
  *
  * @param request ListLogstashRequest
  * @param headers map
@@ -5307,7 +5448,7 @@ ListLogstashResponse Client::listLogstashWithOptions(const ListLogstashRequest &
 }
 
 /**
- * @summary Queries the information about a Logstash cluster or all Logstash clusters.
+ * @summary Displays the details of all or specified Logstash instances in a list.
  *
  * @param request ListLogstashRequest
  * @return ListLogstashResponse
@@ -5319,7 +5460,7 @@ ListLogstashResponse Client::listLogstash(const ListLogstashRequest &request) {
 }
 
 /**
- * @summary Queries the logs of a Logstash cluster.
+ * @summary Queries the logs of a Logstash instance.
  *
  * @param request ListLogstashLogRequest
  * @param headers map
@@ -5372,7 +5513,7 @@ ListLogstashLogResponse Client::listLogstashLogWithOptions(const string &Instanc
 }
 
 /**
- * @summary Queries the logs of a Logstash cluster.
+ * @summary Queries the logs of a Logstash instance.
  *
  * @param request ListLogstashLogRequest
  * @return ListLogstashLogResponse
@@ -5384,7 +5525,7 @@ ListLogstashLogResponse Client::listLogstashLog(const string &InstanceId, const 
 }
 
 /**
- * @summary Queries the information about a plug-in or all plug-ins.
+ * @summary Calls ListLogstashPlugins to retrieve detailed information about all or specified plugins.
  *
  * @param request ListLogstashPluginsRequest
  * @param headers map
@@ -5429,7 +5570,7 @@ ListLogstashPluginsResponse Client::listLogstashPluginsWithOptions(const string 
 }
 
 /**
- * @summary Queries the information about a plug-in or all plug-ins.
+ * @summary Calls ListLogstashPlugins to retrieve detailed information about all or specified plugins.
  *
  * @param request ListLogstashPluginsRequest
  * @return ListLogstashPluginsResponse
@@ -5441,7 +5582,7 @@ ListLogstashPluginsResponse Client::listLogstashPlugins(const string &InstanceId
 }
 
 /**
- * @summary The list of historical reports of Intelligent Maintenance.
+ * @summary Historical report list of intelligent O&M.
  *
  * @param request ListNodesRequest
  * @param headers map
@@ -5490,7 +5631,7 @@ ListNodesResponse Client::listNodesWithOptions(const string &ResId, const ListNo
 }
 
 /**
- * @summary The list of historical reports of Intelligent Maintenance.
+ * @summary Historical report list of intelligent O&M.
  *
  * @param request ListNodesRequest
  * @return ListNodesResponse
@@ -5502,7 +5643,7 @@ ListNodesResponse Client::listNodes(const string &ResId, const ListNodesRequest 
 }
 
 /**
- * @summary Queries a list of pipelines.
+ * @summary Retrieves the pipeline list of a Logstash instance.
  *
  * @param request ListPipelineRequest
  * @param headers map
@@ -5543,7 +5684,7 @@ ListPipelineResponse Client::listPipelineWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary Queries a list of pipelines.
+ * @summary Retrieves the pipeline list of a Logstash instance.
  *
  * @param request ListPipelineRequest
  * @return ListPipelineResponse
@@ -5555,7 +5696,9 @@ ListPipelineResponse Client::listPipeline(const string &InstanceId, const ListPi
 }
 
 /**
- * @summary Queries the IDs of pipelines for a Logstash cluster.
+ * @summary Retrieves the list of pipeline IDs for a Logstash instance.
+ *
+ * @description > Pipeline management is divided into configuration file management and Kibana pipeline management. Kibana pipeline management is not available in the console for some regions.
  *
  * @param request ListPipelineIdsRequest
  * @param headers map
@@ -5583,7 +5726,9 @@ ListPipelineIdsResponse Client::listPipelineIdsWithOptions(const string &Instanc
 }
 
 /**
- * @summary Queries the IDs of pipelines for a Logstash cluster.
+ * @summary Retrieves the list of pipeline IDs for a Logstash instance.
+ *
+ * @description > Pipeline management is divided into configuration file management and Kibana pipeline management. Kibana pipeline management is not available in the console for some regions.
  *
  * @param request ListPipelineIdsRequest
  * @return ListPipelineIdsResponse
@@ -5595,7 +5740,7 @@ ListPipelineIdsResponse Client::listPipelineIds(const string &InstanceId, const 
 }
 
 /**
- * @summary Queries the plug-ins that are installed on a specified Elasticsearch cluster.
+ * @summary Retrieves the plugin list of a specified Alibaba Cloud Elasticsearch instance.
  *
  * @param request ListPluginsRequest
  * @param headers map
@@ -5640,7 +5785,7 @@ ListPluginsResponse Client::listPluginsWithOptions(const string &InstanceId, con
 }
 
 /**
- * @summary Queries the plug-ins that are installed on a specified Elasticsearch cluster.
+ * @summary Retrieves the plugin list of a specified Alibaba Cloud Elasticsearch instance.
  *
  * @param request ListPluginsRequest
  * @return ListPluginsResponse
@@ -5652,7 +5797,7 @@ ListPluginsResponse Client::listPlugins(const string &InstanceId, const ListPlug
 }
 
 /**
- * @summary Queries the logs of an Elasticsearch cluster.
+ * @summary Queries logs of different types for an Elasticsearch instance.
  *
  * @param request ListSearchLogRequest
  * @param headers map
@@ -5705,7 +5850,7 @@ ListSearchLogResponse Client::listSearchLogWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Queries the logs of an Elasticsearch cluster.
+ * @summary Queries logs of different types for an Elasticsearch instance.
  *
  * @param request ListSearchLogRequest
  * @return ListSearchLogResponse
@@ -5717,9 +5862,9 @@ ListSearchLogResponse Client::listSearchLog(const string &InstanceId, const List
 }
 
 /**
- * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+ * @summary Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
  *
- * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+ * @description > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
  *
  * @param request ListShardRecoveriesRequest
  * @param headers map
@@ -5752,9 +5897,9 @@ ListShardRecoveriesResponse Client::listShardRecoveriesWithOptions(const string 
 }
 
 /**
- * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+ * @summary Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
  *
- * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+ * @description > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
  *
  * @param request ListShardRecoveriesRequest
  * @return ListShardRecoveriesResponse
@@ -5766,7 +5911,7 @@ ListShardRecoveriesResponse Client::listShardRecoveries(const string &InstanceId
 }
 
 /**
- * @summary Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
+ * @summary Retrieves the list of cross-cluster OSS repository settings for the current instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5791,7 +5936,7 @@ ListSnapshotReposByInstanceIdResponse Client::listSnapshotReposByInstanceIdWithO
 }
 
 /**
- * @summary Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
+ * @summary Retrieves the list of cross-cluster OSS repository settings for the current instance.
  *
  * @return ListSnapshotReposByInstanceIdResponse
  */
@@ -5802,7 +5947,7 @@ ListSnapshotReposByInstanceIdResponse Client::listSnapshotReposByInstanceId(cons
 }
 
 /**
- * @summary 统计事件记录
+ * @summary Statistics of management event records
  *
  * @param request ListStatsEventRecordsRequest
  * @param headers map
@@ -5843,7 +5988,7 @@ ListStatsEventRecordsResponse Client::listStatsEventRecordsWithOptions(const Lis
 }
 
 /**
- * @summary 统计事件记录
+ * @summary Statistics of management event records
  *
  * @param request ListStatsEventRecordsRequest
  * @return ListStatsEventRecordsResponse
@@ -5855,7 +6000,7 @@ ListStatsEventRecordsResponse Client::listStatsEventRecords(const ListStatsEvent
 }
 
 /**
- * @summary Queries the tags that are added to one or more resources.
+ * @summary Retrieves the relationships between all instances and tags.
  *
  * @param request ListTagResourcesRequest
  * @param headers map
@@ -5908,7 +6053,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are added to one or more resources.
+ * @summary Retrieves the relationships between all instances and tags.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -5920,7 +6065,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary All tags created by the user in the current region.
+ * @summary Queries all labels created by the user in the current region.
  *
  * @param request ListTagsRequest
  * @param headers map
@@ -5957,7 +6102,7 @@ ListTagsResponse Client::listTagsWithOptions(const ListTagsRequest &request, con
 }
 
 /**
- * @summary All tags created by the user in the current region.
+ * @summary Queries all labels created by the user in the current region.
  *
  * @param request ListTagsRequest
  * @return ListTagsResponse
@@ -5969,7 +6114,7 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
 }
 
 /**
- * @summary 用户自定义插件列表
+ * @summary Custom plugin list
  *
  * @param request ListUserPluginRequest
  * @param headers map
@@ -6010,7 +6155,7 @@ ListUserPluginResponse Client::listUserPluginWithOptions(const string &instanceI
 }
 
 /**
- * @summary 用户自定义插件列表
+ * @summary Custom plugin list
  *
  * @param request ListUserPluginRequest
  * @return ListUserPluginResponse
@@ -6022,7 +6167,7 @@ ListUserPluginResponse Client::listUserPlugin(const string &instanceId, const Li
 }
 
 /**
- * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+ * @summary Queries the status of endpoints in the VPC of a service account.
  *
  * @param request ListVpcEndpointsRequest
  * @param headers map
@@ -6059,7 +6204,7 @@ ListVpcEndpointsResponse Client::listVpcEndpointsWithOptions(const string &Insta
 }
 
 /**
- * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+ * @summary Queries the status of endpoints in the VPC of a service account.
  *
  * @param request ListVpcEndpointsRequest
  * @return ListVpcEndpointsResponse
@@ -6071,13 +6216,13 @@ ListVpcEndpointsResponse Client::listVpcEndpoints(const string &InstanceId, cons
 }
 
 /**
- * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+ * @summary Migrates nodes in a specified zone to a destination zone.
  *
- * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
- * *   The error message returned because the current account is in a zone that has sufficient resources.
- *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
- * *   The cluster is in the healthy state.
- *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+ * @description When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+ * - Your account has a zone with sufficient resources.
+ *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+ * - The cluster is in a healthy state.
+ *    You can run the `GET _cat/health?v` command to check the cluster health status.
  *
  * @param request MigrateToOtherZoneRequest
  * @param headers map
@@ -6111,13 +6256,13 @@ MigrateToOtherZoneResponse Client::migrateToOtherZoneWithOptions(const string &I
 }
 
 /**
- * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+ * @summary Migrates nodes in a specified zone to a destination zone.
  *
- * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
- * *   The error message returned because the current account is in a zone that has sufficient resources.
- *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
- * *   The cluster is in the healthy state.
- *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+ * @description When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+ * - Your account has a zone with sufficient resources.
+ *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+ * - The cluster is in a healthy state.
+ *    You can run the `GET _cat/health?v` command to check the cluster health status.
  *
  * @param request MigrateToOtherZoneRequest
  * @return MigrateToOtherZoneResponse
@@ -6129,7 +6274,7 @@ MigrateToOtherZoneResponse Client::migrateToOtherZone(const string &InstanceId, 
 }
 
 /**
- * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+ * @summary Updates the ECS instances on which a collector is installed.
  *
  * @param request ModifyDeployMachineRequest
  * @param headers map
@@ -6163,7 +6308,7 @@ ModifyDeployMachineResponse Client::modifyDeployMachineWithOptions(const string 
 }
 
 /**
- * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+ * @summary Updates the ECS instances on which a collector is installed.
  *
  * @param request ModifyDeployMachineRequest
  * @return ModifyDeployMachineResponse
@@ -6175,6 +6320,8 @@ ModifyDeployMachineResponse Client::modifyDeployMachine(const string &ResId, con
 }
 
 /**
+ * @summary Updates the elastic scaling rules of a cluster.
+ *
  * @param request ModifyElastictaskRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6201,6 +6348,8 @@ ModifyElastictaskResponse Client::modifyElastictaskWithOptions(const string &Ins
 }
 
 /**
+ * @summary Updates the elastic scaling rules of a cluster.
+ *
  * @param request ModifyElastictaskRequest
  * @return ModifyElastictaskResponse
  */
@@ -6211,9 +6360,12 @@ ModifyElastictaskResponse Client::modifyElastictask(const string &InstanceId, co
 }
 
 /**
- * @summary Enables and modifies the maintenance window of an Elasticsearch cluster.
+ * @summary Modifies and enables the maintenance window for an instance.
  *
- * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+ * @description Before calling this operation, note the following:
+ * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+ * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
+ * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
  *
  * @param request ModifyInstanceMaintainTimeRequest
  * @param headers map
@@ -6247,9 +6399,12 @@ ModifyInstanceMaintainTimeResponse Client::modifyInstanceMaintainTimeWithOptions
 }
 
 /**
- * @summary Enables and modifies the maintenance window of an Elasticsearch cluster.
+ * @summary Modifies and enables the maintenance window for an instance.
  *
- * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+ * @description Before calling this operation, note the following:
+ * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+ * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
+ * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
  *
  * @param request ModifyInstanceMaintainTimeRequest
  * @return ModifyInstanceMaintainTimeResponse
@@ -6261,7 +6416,7 @@ ModifyInstanceMaintainTimeResponse Client::modifyInstanceMaintainTime(const stri
 }
 
 /**
- * @summary 修改计划执行时间
+ * @summary For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
  *
  * @param request ModifyScheduleExecuteTimeRequest
  * @param headers map
@@ -6298,7 +6453,7 @@ ModifyScheduleExecuteTimeResponse Client::modifyScheduleExecuteTimeWithOptions(c
 }
 
 /**
- * @summary 修改计划执行时间
+ * @summary For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
  *
  * @param request ModifyScheduleExecuteTimeRequest
  * @return ModifyScheduleExecuteTimeResponse
@@ -6310,9 +6465,14 @@ ModifyScheduleExecuteTimeResponse Client::modifyScheduleExecuteTime(const string
 }
 
 /**
- * @summary Updates an IP address whitelist of an Elasticsearch cluster.
+ * @summary Calls ModifyWhiteIps to update the access whitelist of a specified instance.
  *
- * @description The ID of the cluster.
+ * @description ## Before you begin
+ * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+ *     - IP whitelist list: whiteIpList, nodeType, networkType
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
  *
  * @param request ModifyWhiteIpsRequest
  * @param headers map
@@ -6367,9 +6527,14 @@ ModifyWhiteIpsResponse Client::modifyWhiteIpsWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Updates an IP address whitelist of an Elasticsearch cluster.
+ * @summary Calls ModifyWhiteIps to update the access whitelist of a specified instance.
  *
- * @description The ID of the cluster.
+ * @description ## Before you begin
+ * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+ *     - IP whitelist list: whiteIpList, nodeType, networkType
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
  *
  * @param request ModifyWhiteIpsRequest
  * @return ModifyWhiteIpsResponse
@@ -6381,7 +6546,7 @@ ModifyWhiteIpsResponse Client::modifyWhiteIps(const string &InstanceId, const Mo
 }
 
 /**
- * @summary Migrates an Elasticsearch cluster to a specified resource group.
+ * @summary Modifies the resource group to which an instance belongs.
  *
  * @param request MoveResourceGroupRequest
  * @param headers map
@@ -6415,7 +6580,7 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const string &Ins
 }
 
 /**
- * @summary Migrates an Elasticsearch cluster to a specified resource group.
+ * @summary Modifies the resource group to which an instance belongs.
  *
  * @param request MoveResourceGroupRequest
  * @return MoveResourceGroupResponse
@@ -6427,7 +6592,7 @@ MoveResourceGroupResponse Client::moveResourceGroup(const string &InstanceId, co
 }
 
 /**
- * @summary Enables the intelligent O\\\\\\&M feature for an instance.
+ * @summary Enables the intelligent O&M feature for an instance.
  *
  * @param request OpenDiagnosisRequest
  * @param headers map
@@ -6464,7 +6629,7 @@ OpenDiagnosisResponse Client::openDiagnosisWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Enables the intelligent O\\\\\\&M feature for an instance.
+ * @summary Enables the intelligent O&M feature for an instance.
  *
  * @param request OpenDiagnosisRequest
  * @return OpenDiagnosisResponse
@@ -6476,9 +6641,10 @@ OpenDiagnosisResponse Client::openDiagnosis(const string &InstanceId, const Open
 }
 
 /**
- * @summary Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+ * @summary Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
  *
- * @description >  To ensure data security, we recommend that you enable HTTPS.
+ * @description > - To ensure data security, enable the HTTPS protocol.
+ * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
  *
  * @param request OpenHttpsRequest
  * @param headers map
@@ -6511,9 +6677,10 @@ OpenHttpsResponse Client::openHttpsWithOptions(const string &InstanceId, const O
 }
 
 /**
- * @summary Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+ * @summary Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
  *
- * @description >  To ensure data security, we recommend that you enable HTTPS.
+ * @description > - To ensure data security, enable the HTTPS protocol.
+ * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
  *
  * @param request OpenHttpsRequest
  * @return OpenHttpsResponse
@@ -6525,7 +6692,7 @@ OpenHttpsResponse Client::openHttps(const string &InstanceId, const OpenHttpsReq
 }
 
 /**
- * @summary 自定义插件解析&上传接口
+ * @summary Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
  *
  * @param request PluginAnalysisRequest
  * @param headers map
@@ -6559,7 +6726,7 @@ PluginAnalysisResponse Client::pluginAnalysisWithOptions(const string &instanceI
 }
 
 /**
- * @summary 自定义插件解析&上传接口
+ * @summary Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
  *
  * @param request PluginAnalysisRequest
  * @return PluginAnalysisResponse
@@ -6571,7 +6738,9 @@ PluginAnalysisResponse Client::pluginAnalysis(const string &instanceId, const Pl
 }
 
 /**
- * @summary PostEmonTryAlarmRule
+ * @summary Sends a test alert message by calling PostEmonTryAlarmRule.
+ *
+ * @description > This API operation can be called up to 10 times per hour.
  *
  * @param request PostEmonTryAlarmRuleRequest
  * @param headers map
@@ -6604,7 +6773,9 @@ PostEmonTryAlarmRuleResponse Client::postEmonTryAlarmRuleWithOptions(const strin
 }
 
 /**
- * @summary PostEmonTryAlarmRule
+ * @summary Sends a test alert message by calling PostEmonTryAlarmRule.
+ *
+ * @description > This API operation can be called up to 10 times per hour.
  *
  * @param request PostEmonTryAlarmRuleRequest
  * @return PostEmonTryAlarmRuleResponse
@@ -6616,6 +6787,8 @@ PostEmonTryAlarmRuleResponse Client::postEmonTryAlarmRule(const string &ProjectI
 }
 
 /**
+ * @summary Calls RecommendTemplates to retrieve recommended cluster configurations.
+ *
  * @param request RecommendTemplatesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6647,6 +6820,8 @@ RecommendTemplatesResponse Client::recommendTemplatesWithOptions(const string &I
 }
 
 /**
+ * @summary Calls RecommendTemplates to retrieve recommended cluster configurations.
+ *
  * @param request RecommendTemplatesRequest
  * @return RecommendTemplatesResponse
  */
@@ -6657,7 +6832,7 @@ RecommendTemplatesResponse Client::recommendTemplates(const string &InstanceId, 
 }
 
 /**
- * @summary Installs a shipper that failed to be installed when you create the shipper.
+ * @summary Retries the installation of a collector that failed to install during creation.
  *
  * @param request ReinstallCollectorRequest
  * @param headers map
@@ -6691,7 +6866,7 @@ ReinstallCollectorResponse Client::reinstallCollectorWithOptions(const string &R
 }
 
 /**
- * @summary Installs a shipper that failed to be installed when you create the shipper.
+ * @summary Retries the installation of a collector that failed to install during creation.
  *
  * @param request ReinstallCollectorRequest
  * @return ReinstallCollectorResponse
@@ -6703,7 +6878,7 @@ ReinstallCollectorResponse Client::reinstallCollector(const string &ResId, const
 }
 
 /**
- * @summary 从插件库中删除插件，区别于卸载插件
+ * @summary You can delete uploaded but uninstalled plugins from the plugin library.
  *
  * @param request RemovePluginRequest
  * @param headers map
@@ -6731,7 +6906,7 @@ RemovePluginResponse Client::removePluginWithOptions(const string &instanceId, c
 }
 
 /**
- * @summary 从插件库中删除插件，区别于卸载插件
+ * @summary You can delete uploaded but uninstalled plugins from the plugin library.
  *
  * @param request RemovePluginRequest
  * @return RemovePluginResponse
@@ -6743,7 +6918,7 @@ RemovePluginResponse Client::removePlugin(const string &instanceId, const Remove
 }
 
 /**
- * @summary Call RenewInstance to renew a subscription instance.
+ * @summary Renews a subscription Elasticsearch instance.
  *
  * @param request RenewInstanceRequest
  * @param headers map
@@ -6777,7 +6952,7 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Call RenewInstance to renew a subscription instance.
+ * @summary Renews a subscription Elasticsearch instance.
  *
  * @param request RenewInstanceRequest
  * @return RenewInstanceResponse
@@ -6789,7 +6964,7 @@ RenewInstanceResponse Client::renewInstance(const string &InstanceId, const Rene
 }
 
 /**
- * @summary Renews a Logstash cluster.
+ * @summary Renews a specified Logstash instance.
  *
  * @param request RenewLogstashRequest
  * @param headers map
@@ -6823,7 +6998,7 @@ RenewLogstashResponse Client::renewLogstashWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Renews a Logstash cluster.
+ * @summary Renews a specified Logstash instance.
  *
  * @param request RenewLogstashRequest
  * @return RenewLogstashResponse
@@ -6835,7 +7010,7 @@ RenewLogstashResponse Client::renewLogstash(const string &InstanceId, const Rene
 }
 
 /**
- * @summary Restarts a shipper.
+ * @summary Restarts a collector to perform data collection.
  *
  * @param request RestartCollectorRequest
  * @param headers map
@@ -6868,7 +7043,7 @@ RestartCollectorResponse Client::restartCollectorWithOptions(const string &ResId
 }
 
 /**
- * @summary Restarts a shipper.
+ * @summary Restarts a collector to perform data collection.
  *
  * @param request RestartCollectorRequest
  * @return RestartCollectorResponse
@@ -6880,9 +7055,9 @@ RestartCollectorResponse Client::restartCollector(const string &ResId, const Res
 }
 
 /**
- * @summary You can call this operation to restart a specified Elasticsearch instance.
+ * @summary Restarts an Elasticsearch cluster.
  *
- * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+ * @description > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
  *
  * @param request RestartInstanceRequest
  * @param headers map
@@ -6920,9 +7095,9 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const string &Instanc
 }
 
 /**
- * @summary You can call this operation to restart a specified Elasticsearch instance.
+ * @summary Restarts an Elasticsearch cluster.
  *
- * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+ * @description > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
  *
  * @param request RestartInstanceRequest
  * @return RestartInstanceResponse
@@ -6934,7 +7109,7 @@ RestartInstanceResponse Client::restartInstance(const string &InstanceId, const 
 }
 
 /**
- * @summary Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
+ * @summary Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
  *
  * @param request RestartLogstashRequest
  * @param headers map
@@ -6993,7 +7168,7 @@ RestartLogstashResponse Client::restartLogstashWithOptions(const string &Instanc
 }
 
 /**
- * @summary Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
+ * @summary Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
  *
  * @param request RestartLogstashRequest
  * @return RestartLogstashResponse
@@ -7005,7 +7180,7 @@ RestartLogstashResponse Client::restartLogstash(const string &InstanceId, const 
 }
 
 /**
- * @summary Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+ * @summary Resumes an interrupted change task for an instance.
  *
  * @param request ResumeElasticsearchTaskRequest
  * @param headers map
@@ -7038,7 +7213,7 @@ ResumeElasticsearchTaskResponse Client::resumeElasticsearchTaskWithOptions(const
 }
 
 /**
- * @summary Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+ * @summary Resumes an interrupted change task for an instance.
  *
  * @param request ResumeElasticsearchTaskRequest
  * @return ResumeElasticsearchTaskResponse
@@ -7050,7 +7225,7 @@ ResumeElasticsearchTaskResponse Client::resumeElasticsearchTask(const string &In
 }
 
 /**
- * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+ * @summary Resumes an interrupted instance change task. After the task is resumed, the instance enters the activating state.
  *
  * @param request ResumeLogstashTaskRequest
  * @param headers map
@@ -7083,7 +7258,7 @@ ResumeLogstashTaskResponse Client::resumeLogstashTaskWithOptions(const string &I
 }
 
 /**
- * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+ * @summary Resumes an interrupted instance change task. After the task is resumed, the instance enters the activating state.
  *
  * @param request ResumeLogstashTaskRequest
  * @return ResumeLogstashTaskResponse
@@ -7095,7 +7270,7 @@ ResumeLogstashTaskResponse Client::resumeLogstashTask(const string &InstanceId, 
 }
 
 /**
- * @summary 滚动数据流，生成新索引
+ * @summary Creates a new index for a data stream or index alias.
  *
  * @param request RolloverDataStreamRequest
  * @param headers map
@@ -7128,7 +7303,7 @@ RolloverDataStreamResponse Client::rolloverDataStreamWithOptions(const string &I
 }
 
 /**
- * @summary 滚动数据流，生成新索引
+ * @summary Creates a new index for a data stream or index alias.
  *
  * @param request RolloverDataStreamRequest
  * @return RolloverDataStreamResponse
@@ -7140,7 +7315,7 @@ RolloverDataStreamResponse Client::rolloverDataStream(const string &InstanceId, 
 }
 
 /**
- * @summary Runs pipelines in a Logstash cluster.
+ * @summary Deploys Logstash pipelines immediately.
  *
  * @param request RunPipelinesRequest
  * @param headers map
@@ -7174,7 +7349,7 @@ RunPipelinesResponse Client::runPipelinesWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary Runs pipelines in a Logstash cluster.
+ * @summary Deploys Logstash pipelines immediately.
  *
  * @param request RunPipelinesRequest
  * @return RunPipelinesResponse
@@ -7186,7 +7361,10 @@ RunPipelinesResponse Client::runPipelines(const string &InstanceId, const RunPip
 }
 
 /**
- * @summary Removes nodes from an Elasticsearch cluster.
+ * @summary Scales in nodes of a specified role in an Elasticsearch cluster.
+ *
+ * @description Note the following when you invoke this operation:
+ * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
  *
  * @param request ShrinkNodeRequest
  * @param headers map
@@ -7232,7 +7410,10 @@ ShrinkNodeResponse Client::shrinkNodeWithOptions(const string &InstanceId, const
 }
 
 /**
- * @summary Removes nodes from an Elasticsearch cluster.
+ * @summary Scales in nodes of a specified role in an Elasticsearch cluster.
+ *
+ * @description Note the following when you invoke this operation:
+ * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
  *
  * @param request ShrinkNodeRequest
  * @return ShrinkNodeResponse
@@ -7289,7 +7470,7 @@ StartCollectorResponse Client::startCollector(const string &ResId, const StartCo
 }
 
 /**
- * @summary Stops a shipper.
+ * @summary Calls StopCollector to stop a running collector.
  *
  * @param request StopCollectorRequest
  * @param headers map
@@ -7322,7 +7503,7 @@ StopCollectorResponse Client::stopCollectorWithOptions(const string &ResId, cons
 }
 
 /**
- * @summary Stops a shipper.
+ * @summary Calls StopCollector to stop a running collector.
  *
  * @param request StopCollectorRequest
  * @return StopCollectorResponse
@@ -7334,7 +7515,7 @@ StopCollectorResponse Client::stopCollector(const string &ResId, const StopColle
 }
 
 /**
- * @summary Stops pipelines in a Logstash cluster.
+ * @summary Stops Logstash pipelines by calling StopPipelines.
  *
  * @param request StopPipelinesRequest
  * @param headers map
@@ -7368,7 +7549,7 @@ StopPipelinesResponse Client::stopPipelinesWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Stops pipelines in a Logstash cluster.
+ * @summary Stops Logstash pipelines by calling StopPipelines.
  *
  * @param request StopPipelinesRequest
  * @return StopPipelinesResponse
@@ -7380,7 +7561,7 @@ StopPipelinesResponse Client::stopPipelines(const string &InstanceId, const Stop
 }
 
 /**
- * @summary Adds tags to clusters.
+ * @summary Creates tag-resource relationships for a specified instance.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -7421,7 +7602,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to clusters.
+ * @summary Creates tag-resource relationships for a specified instance.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -7433,7 +7614,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Runs a data migration task for node scaling operations.
+ * @summary Performs data migration on a node to facilitate node scale-in operations.
  *
  * @param request TransferNodeRequest
  * @param headers map
@@ -7471,7 +7652,7 @@ TransferNodeResponse Client::transferNodeWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary Runs a data migration task for node scaling operations.
+ * @summary Performs data migration on a node to facilitate node scale-in operations.
  *
  * @param request TransferNodeRequest
  * @return TransferNodeResponse
@@ -7483,7 +7664,7 @@ TransferNodeResponse Client::transferNode(const string &InstanceId, const Transf
 }
 
 /**
- * @summary You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
+ * @summary Enables or shuts down public or private network access for an Elasticsearch or Kibana cluster.
  *
  * @param request TriggerNetworkRequest
  * @param headers map
@@ -7530,7 +7711,7 @@ TriggerNetworkResponse Client::triggerNetworkWithOptions(const string &InstanceI
 }
 
 /**
- * @summary You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
+ * @summary Enables or shuts down public or private network access for an Elasticsearch or Kibana cluster.
  *
  * @param request TriggerNetworkRequest
  * @return TriggerNetworkResponse
@@ -7542,7 +7723,9 @@ TriggerNetworkResponse Client::triggerNetwork(const string &InstanceId, const Tr
 }
 
 /**
- * @summary Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
+ * @summary Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+ *
+ * @description Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
  *
  * @param request TurnOffZoneRequest
  * @param headers map
@@ -7579,7 +7762,9 @@ TurnOffZoneResponse Client::turnOffZoneWithOptions(const string &instanceId, con
 }
 
 /**
- * @summary Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
+ * @summary Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+ *
+ * @description Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
  *
  * @param request TurnOffZoneRequest
  * @return TurnOffZoneResponse
@@ -7591,7 +7776,9 @@ TurnOffZoneResponse Client::turnOffZone(const string &instanceId, const TurnOffZ
 }
 
 /**
- * @summary Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
+ * @summary Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+ *
+ * @description Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
  *
  * @param request TurnOnZoneRequest
  * @param headers map
@@ -7628,7 +7815,9 @@ TurnOnZoneResponse Client::turnOnZoneWithOptions(const string &instanceId, const
 }
 
 /**
- * @summary Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
+ * @summary Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+ *
+ * @description Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
  *
  * @param request TurnOnZoneRequest
  * @return TurnOnZoneResponse
@@ -7640,7 +7829,7 @@ TurnOnZoneResponse Client::turnOnZone(const string &instanceId, const TurnOnZone
 }
 
 /**
- * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+ * @summary Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
  *
  * @param request UninstallKibanaPluginRequest
  * @param headers map
@@ -7674,7 +7863,7 @@ UninstallKibanaPluginResponse Client::uninstallKibanaPluginWithOptions(const str
 }
 
 /**
- * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+ * @summary Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
  *
  * @param request UninstallKibanaPluginRequest
  * @return UninstallKibanaPluginResponse
@@ -7686,7 +7875,7 @@ UninstallKibanaPluginResponse Client::uninstallKibanaPlugin(const string &Instan
 }
 
 /**
- * @summary Removes one or more Logstash plug-ins.
+ * @summary Uninstalls installed plug-ins from a Logstash instance.
  *
  * @param request UninstallLogstashPluginRequest
  * @param headers map
@@ -7720,7 +7909,7 @@ UninstallLogstashPluginResponse Client::uninstallLogstashPluginWithOptions(const
 }
 
 /**
- * @summary Removes one or more Logstash plug-ins.
+ * @summary Uninstalls installed plug-ins from a Logstash instance.
  *
  * @param request UninstallLogstashPluginRequest
  * @return UninstallLogstashPluginResponse
@@ -7732,7 +7921,7 @@ UninstallLogstashPluginResponse Client::uninstallLogstashPlugin(const string &In
 }
 
 /**
- * @summary Call UninstallPlugin to uninstall the preset plug-in.
+ * @summary Uninstalls system plug-ins from an Elasticsearch instance.
  *
  * @param request UninstallPluginRequest
  * @param headers map
@@ -7770,7 +7959,7 @@ UninstallPluginResponse Client::uninstallPluginWithOptions(const string &Instanc
 }
 
 /**
- * @summary Call UninstallPlugin to uninstall the preset plug-in.
+ * @summary Uninstalls system plug-ins from an Elasticsearch instance.
  *
  * @param request UninstallPluginRequest
  * @return UninstallPluginResponse
@@ -7782,12 +7971,13 @@ UninstallPluginResponse Client::uninstallPlugin(const string &InstanceId, const 
 }
 
 /**
- * @summary Deletes a user resource tag relationship.
+ * @summary Deletes user resource tag associations for a specified instance.
  *
- * @description When you call this operation, take note of the following items:
- * *   You can only delete user tags.
- * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
- * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+ * @description When calling this operation, note the following:
+ * - Only user tags can be deleted.
+ *   
+ *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
+ * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
  *
  * @param request UntagResourcesRequest
  * @param headers map
@@ -7836,12 +8026,13 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Deletes a user resource tag relationship.
+ * @summary Deletes user resource tag associations for a specified instance.
  *
- * @description When you call this operation, take note of the following items:
- * *   You can only delete user tags.
- * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
- * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+ * @description When calling this operation, note the following:
+ * - Only user tags can be deleted.
+ *   
+ *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
+ * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -7853,9 +8044,10 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
+ * @summary Updates the password of the elastic account for a specified Elasticsearch instance.
  *
- * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+ * @description When you invoke this operation, note the following:
+ * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateAdminPasswordRequest
  * @param headers map
@@ -7894,9 +8086,10 @@ UpdateAdminPasswordResponse Client::updateAdminPasswordWithOptions(const string 
 }
 
 /**
- * @summary You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
+ * @summary Updates the password of the elastic account for a specified Elasticsearch instance.
  *
- * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+ * @description When you invoke this operation, note the following:
+ * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateAdminPasswordRequest
  * @return UpdateAdminPasswordResponse
@@ -7908,7 +8101,7 @@ UpdateAdminPasswordResponse Client::updateAdminPassword(const string &InstanceId
 }
 
 /**
- * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+ * @summary Changes the garbage collector configuration of a specified Elasticsearch instance.
  *
  * @param request UpdateAdvancedSettingRequest
  * @param headers map
@@ -7942,7 +8135,7 @@ UpdateAdvancedSettingResponse Client::updateAdvancedSettingWithOptions(const str
 }
 
 /**
- * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+ * @summary Changes the garbage collector configuration of a specified Elasticsearch instance.
  *
  * @param request UpdateAdvancedSettingRequest
  * @return UpdateAdvancedSettingResponse
@@ -7954,12 +8147,12 @@ UpdateAdvancedSettingResponse Client::updateAdvancedSetting(const string &Instan
 }
 
 /**
- * @summary Updates the dictionary file of the analysis-aliws plug-in.
+ * @summary Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
  *
- * @description Before you call this operation, take note of the following items:
- * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
+ * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+ * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
  *
  * @param request UpdateAliwsDictRequest
  * @param headers map
@@ -7993,12 +8186,12 @@ UpdateAliwsDictResponse Client::updateAliwsDictWithOptions(const string &Instanc
 }
 
 /**
- * @summary Updates the dictionary file of the analysis-aliws plug-in.
+ * @summary Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
  *
- * @description Before you call this operation, take note of the following items:
- * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
+ * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+ * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
  *
  * @param request UpdateAliwsDictRequest
  * @return UpdateAliwsDictResponse
@@ -8012,7 +8205,7 @@ UpdateAliwsDictResponse Client::updateAliwsDict(const string &InstanceId, const 
 /**
  * @deprecated OpenAPI UpdateBlackIps is deprecated
  *
- * @summary 修改ES实例访问黑名单，已废弃
+ * @summary Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
  *
  * @param request UpdateBlackIpsRequest
  * @param headers map
@@ -8047,7 +8240,7 @@ UpdateBlackIpsResponse Client::updateBlackIpsWithOptions(const string &InstanceI
 /**
  * @deprecated OpenAPI UpdateBlackIps is deprecated
  *
- * @summary 修改ES实例访问黑名单，已废弃
+ * @summary Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
  *
  * @param request UpdateBlackIpsRequest
  * @return UpdateBlackIpsResponse
@@ -8059,7 +8252,7 @@ UpdateBlackIpsResponse Client::updateBlackIps(const string &InstanceId, const Up
 }
 
 /**
- * @summary Updates the configurations of a shipper.
+ * @summary Modifies the configuration of a collector.
  *
  * @param request UpdateCollectorRequest
  * @param headers map
@@ -8093,7 +8286,7 @@ UpdateCollectorResponse Client::updateCollectorWithOptions(const string &ResId, 
 }
 
 /**
- * @summary Updates the configurations of a shipper.
+ * @summary Modifies the configuration of a collector.
  *
  * @param request UpdateCollectorRequest
  * @return UpdateCollectorResponse
@@ -8105,7 +8298,7 @@ UpdateCollectorResponse Client::updateCollector(const string &ResId, const Updat
 }
 
 /**
- * @summary Changes the name of a shipper.
+ * @summary Calls UpdateCollectorName to modify the name of a collector.
  *
  * @param request UpdateCollectorNameRequest
  * @param headers map
@@ -8139,7 +8332,7 @@ UpdateCollectorNameResponse Client::updateCollectorNameWithOptions(const string 
 }
 
 /**
- * @summary Changes the name of a shipper.
+ * @summary Calls UpdateCollectorName to modify the name of a collector.
  *
  * @param request UpdateCollectorNameRequest
  * @return UpdateCollectorNameResponse
@@ -8151,7 +8344,9 @@ UpdateCollectorNameResponse Client::updateCollectorName(const string &ResId, con
 }
 
 /**
- * @summary 修改ES集群动态索引
+ * @summary Updates a composable index template for an Elasticsearch instance.
+ *
+ * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request UpdateComponentIndexRequest
  * @param headers map
@@ -8188,7 +8383,9 @@ UpdateComponentIndexResponse Client::updateComponentIndexWithOptions(const strin
 }
 
 /**
- * @summary 修改ES集群动态索引
+ * @summary Updates a composable index template for an Elasticsearch instance.
+ *
+ * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
  *
  * @param request UpdateComponentIndexRequest
  * @return UpdateComponentIndexResponse
@@ -8200,7 +8397,7 @@ UpdateComponentIndexResponse Client::updateComponentIndex(const string &Instance
 }
 
 /**
- * @summary Changes the name of a specified Elasticsearch cluster.
+ * @summary Changes the name of an Elasticsearch instance.
  *
  * @param request UpdateDescriptionRequest
  * @param headers map
@@ -8239,7 +8436,7 @@ UpdateDescriptionResponse Client::updateDescriptionWithOptions(const string &Ins
 }
 
 /**
- * @summary Changes the name of a specified Elasticsearch cluster.
+ * @summary Changes the name of an Elasticsearch instance.
  *
  * @param request UpdateDescriptionRequest
  * @return UpdateDescriptionResponse
@@ -8251,7 +8448,7 @@ UpdateDescriptionResponse Client::updateDescription(const string &InstanceId, co
 }
 
 /**
- * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
+ * @summary Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
  *
  * @param request UpdateDiagnosisSettingsRequest
  * @param headers map
@@ -8289,7 +8486,7 @@ UpdateDiagnosisSettingsResponse Client::updateDiagnosisSettingsWithOptions(const
 }
 
 /**
- * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
+ * @summary Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
  *
  * @param request UpdateDiagnosisSettingsRequest
  * @return UpdateDiagnosisSettingsResponse
@@ -8301,11 +8498,11 @@ UpdateDiagnosisSettingsResponse Client::updateDiagnosisSettings(const string &In
 }
 
 /**
- * @summary Updates a dictionary of an Elasticsearch cluster.
+ * @summary Updates the user dictionary of an Elasticsearch instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
+ * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
  *
  * @param request UpdateDictRequest
  * @param headers map
@@ -8339,11 +8536,11 @@ UpdateDictResponse Client::updateDictWithOptions(const string &InstanceId, const
 }
 
 /**
- * @summary Updates a dictionary of an Elasticsearch cluster.
+ * @summary Updates the user dictionary of an Elasticsearch instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
+ * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
  *
  * @param request UpdateDictRequest
  * @return UpdateDictResponse
@@ -8355,7 +8552,7 @@ UpdateDictResponse Client::updateDict(const string &InstanceId, const UpdateDict
 }
 
 /**
- * @summary 修改集群动态配置
+ * @summary Modify Cluster Dynamic Configuration
  *
  * @param request UpdateDynamicSettingsRequest
  * @param headers map
@@ -8397,7 +8594,7 @@ UpdateDynamicSettingsResponse Client::updateDynamicSettingsWithOptions(const str
 }
 
 /**
- * @summary 修改集群动态配置
+ * @summary Modify Cluster Dynamic Configuration
  *
  * @param request UpdateDynamicSettingsRequest
  * @return UpdateDynamicSettingsResponse
@@ -8409,6 +8606,8 @@ UpdateDynamicSettingsResponse Client::updateDynamicSettings(const string &Instan
 }
 
 /**
+ * @summary Modifies the scenario-based configuration template of an Elasticsearch instance.
+ *
  * @param request UpdateExtendConfigRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -8441,6 +8640,8 @@ UpdateExtendConfigResponse Client::updateExtendConfigWithOptions(const string &I
 }
 
 /**
+ * @summary Modifies the scenario-based configuration template of an Elasticsearch instance.
+ *
  * @param request UpdateExtendConfigRequest
  * @return UpdateExtendConfigResponse
  */
@@ -8451,9 +8652,9 @@ UpdateExtendConfigResponse Client::updateExtendConfig(const string &InstanceId, 
 }
 
 /**
- * @summary Updates the driver files of a Logstash cluster.
+ * @summary Updates the extension file configuration of a Logstash instance.
  *
- * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+ * @description When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
  *
  * @param request UpdateExtendfilesRequest
  * @param headers map
@@ -8487,9 +8688,9 @@ UpdateExtendfilesResponse Client::updateExtendfilesWithOptions(const string &Ins
 }
 
 /**
- * @summary Updates the driver files of a Logstash cluster.
+ * @summary Updates the extension file configuration of a Logstash instance.
  *
- * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+ * @description When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
  *
  * @param request UpdateExtendfilesRequest
  * @return UpdateExtendfilesResponse
@@ -8501,7 +8702,7 @@ UpdateExtendfilesResponse Client::updateExtendfiles(const string &InstanceId, co
 }
 
 /**
- * @summary 修改FalconSeek配置
+ * @summary Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
  *
  * @param request UpdateFalconSeekRequest
  * @param headers map
@@ -8534,7 +8735,7 @@ UpdateFalconSeekResponse Client::updateFalconSeekWithOptions(const string &Insta
 }
 
 /**
- * @summary 修改FalconSeek配置
+ * @summary Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
  *
  * @param request UpdateFalconSeekRequest
  * @return UpdateFalconSeekResponse
@@ -8546,11 +8747,11 @@ UpdateFalconSeekResponse Client::updateFalconSeek(const string &InstanceId, cons
 }
 
 /**
- * @summary null
+ * @summary Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+ * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
  *
  * @param request UpdateHotIkDictsRequest
  * @param headers map
@@ -8584,11 +8785,11 @@ UpdateHotIkDictsResponse Client::updateHotIkDictsWithOptions(const string &Insta
 }
 
 /**
- * @summary null
+ * @summary Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+ * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
  *
  * @param request UpdateHotIkDictsRequest
  * @return UpdateHotIkDictsResponse
@@ -8600,7 +8801,7 @@ UpdateHotIkDictsResponse Client::updateHotIkDicts(const string &InstanceId, cons
 }
 
 /**
- * @summary 修改ES集群索引生命周期策略
+ * @summary Modifies the lifecycle policy of an Elasticsearch index.
  *
  * @param request UpdateILMPolicyRequest
  * @param headers map
@@ -8634,7 +8835,7 @@ UpdateILMPolicyResponse Client::updateILMPolicyWithOptions(const string &Instanc
 }
 
 /**
- * @summary 修改ES集群索引生命周期策略
+ * @summary Modifies the lifecycle policy of an Elasticsearch index.
  *
  * @param request UpdateILMPolicyRequest
  * @return UpdateILMPolicyResponse
@@ -8646,7 +8847,7 @@ UpdateILMPolicyResponse Client::updateILMPolicy(const string &InstanceId, const 
 }
 
 /**
- * @summary 修改ES集群索引模版配置
+ * @summary Modifies the template configuration of an Elasticsearch instance.
  *
  * @param request UpdateIndexTemplateRequest
  * @param headers map
@@ -8680,7 +8881,7 @@ UpdateIndexTemplateResponse Client::updateIndexTemplateWithOptions(const string 
 }
 
 /**
- * @summary 修改ES集群索引模版配置
+ * @summary Modifies the template configuration of an Elasticsearch instance.
  *
  * @param request UpdateIndexTemplateRequest
  * @return UpdateIndexTemplateResponse
@@ -8692,9 +8893,10 @@ UpdateIndexTemplateResponse Client::updateIndexTemplate(const string &InstanceId
 }
 
 /**
- * @summary Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
+ * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
  *
- * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+ * @description When you call this operation, note the following items:
+ * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
  *
  * @param request UpdateInstanceRequest
  * @param headers map
@@ -8773,9 +8975,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
+ * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
  *
- * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+ * @description When you call this operation, note the following items:
+ * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
  *
  * @param request UpdateInstanceRequest
  * @return UpdateInstanceResponse
@@ -8787,7 +8990,7 @@ UpdateInstanceResponse Client::updateInstance(const string &InstanceId, const Up
 }
 
 /**
- * @summary null
+ * @summary Transforms the billing method of an Elasticsearch instance from pay-as-you-go to a subscription instance.
  *
  * @param request UpdateInstanceChargeTypeRequest
  * @param headers map
@@ -8830,7 +9033,7 @@ UpdateInstanceChargeTypeResponse Client::updateInstanceChargeTypeWithOptions(con
 }
 
 /**
- * @summary null
+ * @summary Transforms the billing method of an Elasticsearch instance from pay-as-you-go to a subscription instance.
  *
  * @param request UpdateInstanceChargeTypeRequest
  * @return UpdateInstanceChargeTypeResponse
@@ -8842,10 +9045,10 @@ UpdateInstanceChargeTypeResponse Client::updateInstanceChargeType(const string &
 }
 
 /**
- * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+ * @summary Modifies the YML parameter settings of a specified Elasticsearch instance.
  *
- * @description When you call this operation, take note of the following items:
- * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+ * @description When you invoke this operation, note the following:
+ * You cannot update the configuration when the instance status is activating, invalid, or inactive (freeze).
  *
  * @param request UpdateInstanceSettingsRequest
  * @param headers map
@@ -8892,10 +9095,10 @@ UpdateInstanceSettingsResponse Client::updateInstanceSettingsWithOptions(const s
 }
 
 /**
- * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+ * @summary Modifies the YML parameter settings of a specified Elasticsearch instance.
  *
- * @description When you call this operation, take note of the following items:
- * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+ * @description When you invoke this operation, note the following:
+ * You cannot update the configuration when the instance status is activating, invalid, or inactive (freeze).
  *
  * @param request UpdateInstanceSettingsRequest
  * @return UpdateInstanceSettingsResponse
@@ -8907,7 +9110,7 @@ UpdateInstanceSettingsResponse Client::updateInstanceSettings(const string &Inst
 }
 
 /**
- * @summary 更新keystore
+ * @summary Update keystore
  *
  * @param request UpdateKeystoresRequest
  * @param headers map
@@ -8950,7 +9153,7 @@ UpdateKeystoresResponse Client::updateKeystoresWithOptions(const string &Instanc
 }
 
 /**
- * @summary 更新keystore
+ * @summary Update keystore
  *
  * @param request UpdateKeystoresRequest
  * @return UpdateKeystoresResponse
@@ -8962,7 +9165,10 @@ UpdateKeystoresResponse Client::updateKeystores(const string &InstanceId, const 
 }
 
 /**
- * @summary 更新kibana私网链接
+ * @summary Update Kibana private network access
+ *
+ * @description 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+ * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
  *
  * @param request UpdateKibanaPvlNetworkRequest
  * @param headers map
@@ -9009,7 +9215,10 @@ UpdateKibanaPvlNetworkResponse Client::updateKibanaPvlNetworkWithOptions(const s
 }
 
 /**
- * @summary 更新kibana私网链接
+ * @summary Update Kibana private network access
+ *
+ * @description 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+ * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
  *
  * @param request UpdateKibanaPvlNetworkRequest
  * @return UpdateKibanaPvlNetworkResponse
@@ -9021,7 +9230,7 @@ UpdateKibanaPvlNetworkResponse Client::updateKibanaPvlNetwork(const string &Inst
 }
 
 /**
- * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+ * @summary Modifies the Kibana configuration. Currently, only the Kibana language configuration can be modified.
  *
  * @param request UpdateKibanaSettingsRequest
  * @param headers map
@@ -9055,7 +9264,7 @@ UpdateKibanaSettingsResponse Client::updateKibanaSettingsWithOptions(const strin
 }
 
 /**
- * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+ * @summary Modifies the Kibana configuration. Currently, only the Kibana language configuration can be modified.
  *
  * @param request UpdateKibanaSettingsRequest
  * @return UpdateKibanaSettingsResponse
@@ -9067,7 +9276,7 @@ UpdateKibanaSettingsResponse Client::updateKibanaSettings(const string &Instance
 }
 
 /**
- * @summary UpdateKibanaSso
+ * @summary Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
  *
  * @param request UpdateKibanaSsoRequest
  * @param headers map
@@ -9104,7 +9313,7 @@ UpdateKibanaSsoResponse Client::updateKibanaSsoWithOptions(const string &Instanc
 }
 
 /**
- * @summary UpdateKibanaSso
+ * @summary Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
  *
  * @param request UpdateKibanaSsoRequest
  * @return UpdateKibanaSsoResponse
@@ -9116,13 +9325,14 @@ UpdateKibanaSsoResponse Client::updateKibanaSso(const string &InstanceId, const 
 }
 
 /**
- * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+ * @summary Updates the Kibana access whitelist of a specified Alibaba Cloud Elasticsearch instance.
  *
- * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
- * *   You can update an IP address whitelist by using the following parameters:
- *     *   kibanaIPWhitelist
- *     *   modifyMode and whiteIpGroup
- * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+ * @description ## Before you begin
+ * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows: 
+ *     - IP whitelist list: kibanaIPWhitelist
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
  *
  * @param request UpdateKibanaWhiteIpsRequest
  * @param headers map
@@ -9169,13 +9379,14 @@ UpdateKibanaWhiteIpsResponse Client::updateKibanaWhiteIpsWithOptions(const strin
 }
 
 /**
- * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+ * @summary Updates the Kibana access whitelist of a specified Alibaba Cloud Elasticsearch instance.
  *
- * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
- * *   You can update an IP address whitelist by using the following parameters:
- *     *   kibanaIPWhitelist
- *     *   modifyMode and whiteIpGroup
- * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+ * @description ## Before you begin
+ * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows: 
+ *     - IP whitelist list: kibanaIPWhitelist
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
  *
  * @param request UpdateKibanaWhiteIpsRequest
  * @return UpdateKibanaWhiteIpsResponse
@@ -9187,7 +9398,10 @@ UpdateKibanaWhiteIpsResponse Client::updateKibanaWhiteIps(const string &Instance
 }
 
 /**
- * @summary Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
+ * @summary Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+ *
+ * @description ### Before you begin
+ * You cannot modify instance information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashRequest
  * @param headers map
@@ -9230,7 +9444,10 @@ UpdateLogstashResponse Client::updateLogstashWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
+ * @summary Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+ *
+ * @description ### Before you begin
+ * You cannot modify instance information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashRequest
  * @return UpdateLogstashResponse
@@ -9242,7 +9459,7 @@ UpdateLogstashResponse Client::updateLogstash(const string &InstanceId, const Up
 }
 
 /**
- * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+ * @summary Converts a pay-as-you-go Alibaba Cloud Logstash instance to a subscription instance.
  *
  * @param request UpdateLogstashChargeTypeRequest
  * @param headers map
@@ -9276,7 +9493,7 @@ UpdateLogstashChargeTypeResponse Client::updateLogstashChargeTypeWithOptions(con
 }
 
 /**
- * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+ * @summary Converts a pay-as-you-go Alibaba Cloud Logstash instance to a subscription instance.
  *
  * @param request UpdateLogstashChargeTypeRequest
  * @return UpdateLogstashChargeTypeResponse
@@ -9288,9 +9505,10 @@ UpdateLogstashChargeTypeResponse Client::updateLogstashChargeType(const string &
 }
 
 /**
- * @summary Changes the name of a specified Logstash cluster.
+ * @summary Modifies the name of a specified Logstash instance.
  *
- * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+ * @description When you call this operation, take note of the following items:
+ * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashDescriptionRequest
  * @param headers map
@@ -9329,9 +9547,10 @@ UpdateLogstashDescriptionResponse Client::updateLogstashDescriptionWithOptions(c
 }
 
 /**
- * @summary Changes the name of a specified Logstash cluster.
+ * @summary Modifies the name of a specified Logstash instance.
  *
- * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+ * @description When you call this operation, take note of the following items:
+ * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashDescriptionRequest
  * @return UpdateLogstashDescriptionResponse
@@ -9343,10 +9562,9 @@ UpdateLogstashDescriptionResponse Client::updateLogstashDescription(const string
 }
 
 /**
- * @summary Updates the configuration of the specified Logstash instance.
+ * @summary Updates the configuration of a specified Logstash instance.
  *
- * @description When you call this operation, take note of the following items:
- * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+ * @description When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashSettingsRequest
  * @param headers map
@@ -9380,10 +9598,9 @@ UpdateLogstashSettingsResponse Client::updateLogstashSettingsWithOptions(const s
 }
 
 /**
- * @summary Updates the configuration of the specified Logstash instance.
+ * @summary Updates the configuration of a specified Logstash instance.
  *
- * @description When you call this operation, take note of the following items:
- * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+ * @description When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashSettingsRequest
  * @return UpdateLogstashSettingsResponse
@@ -9395,7 +9612,9 @@ UpdateLogstashSettingsResponse Client::updateLogstashSettings(const string &Inst
 }
 
 /**
- * @summary Modifies the pipeline management method of the specified Logstash cluster.
+ * @summary Modifies the pipeline management method for a specified Logstash instance.
+ *
+ * @description > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
  *
  * @param request UpdatePipelineManagementConfigRequest
  * @param headers map
@@ -9454,7 +9673,9 @@ UpdatePipelineManagementConfigResponse Client::updatePipelineManagementConfigWit
 }
 
 /**
- * @summary Modifies the pipeline management method of the specified Logstash cluster.
+ * @summary Modifies the pipeline management method for a specified Logstash instance.
+ *
+ * @description > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
  *
  * @param request UpdatePipelineManagementConfigRequest
  * @return UpdatePipelineManagementConfigResponse
@@ -9466,7 +9687,7 @@ UpdatePipelineManagementConfigResponse Client::updatePipelineManagementConfig(co
 }
 
 /**
- * @summary Updates a pipeline of a Logstash cluster.
+ * @summary Calls UpdatePipelines to update Logstash pipeline information.
  *
  * @param request UpdatePipelinesRequest
  * @param headers map
@@ -9504,7 +9725,7 @@ UpdatePipelinesResponse Client::updatePipelinesWithOptions(const string &Instanc
 }
 
 /**
- * @summary Updates a pipeline of a Logstash cluster.
+ * @summary Calls UpdatePipelines to update Logstash pipeline information.
  *
  * @param request UpdatePipelinesRequest
  * @return UpdatePipelinesResponse
@@ -9516,9 +9737,14 @@ UpdatePipelinesResponse Client::updatePipelines(const string &InstanceId, const 
 }
 
 /**
- * @summary You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
+ * @summary Updates the VPC private network access whitelist of a specified instance.
  *
- * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+ * @description ## Before you begin
+ * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
+ * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+ *     - IP whitelist list: privateNetworkIpWhiteList
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
  *
  * @param request UpdatePrivateNetworkWhiteIpsRequest
  * @param headers map
@@ -9556,9 +9782,14 @@ UpdatePrivateNetworkWhiteIpsResponse Client::updatePrivateNetworkWhiteIpsWithOpt
 }
 
 /**
- * @summary You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
+ * @summary Updates the VPC private network access whitelist of a specified instance.
  *
- * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+ * @description ## Before you begin
+ * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
+ * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+ *     - IP whitelist list: privateNetworkIpWhiteList
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
  *
  * @param request UpdatePrivateNetworkWhiteIpsRequest
  * @return UpdatePrivateNetworkWhiteIpsResponse
@@ -9570,10 +9801,10 @@ UpdatePrivateNetworkWhiteIpsResponse Client::updatePrivateNetworkWhiteIps(const 
 }
 
 /**
- * @summary null
+ * @summary Enables or disables the public network address for a specified Elasticsearch instance.
  *
- * @description When you call this operation, take note of the following items:
- * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+ * @description When you call this operation, note the following:
+ * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdatePublicNetworkRequest
  * @param headers map
@@ -9607,10 +9838,10 @@ UpdatePublicNetworkResponse Client::updatePublicNetworkWithOptions(const string 
 }
 
 /**
- * @summary null
+ * @summary Enables or disables the public network address for a specified Elasticsearch instance.
  *
- * @description When you call this operation, take note of the following items:
- * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+ * @description When you call this operation, note the following:
+ * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdatePublicNetworkRequest
  * @return UpdatePublicNetworkResponse
@@ -9622,9 +9853,14 @@ UpdatePublicNetworkResponse Client::updatePublicNetwork(const string &InstanceId
 }
 
 /**
- * @summary null
+ * @summary Updates the public endpoint access whitelist of a specified Elasticsearch instance.
  *
- * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+ * @description ## Before you begin
+ * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:   
+ *     - IP whitelist list: publicIpWhitelist
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
  *
  * @param request UpdatePublicWhiteIpsRequest
  * @param headers map
@@ -9662,9 +9898,14 @@ UpdatePublicWhiteIpsResponse Client::updatePublicWhiteIpsWithOptions(const strin
 }
 
 /**
- * @summary null
+ * @summary Updates the public endpoint access whitelist of a specified Elasticsearch instance.
  *
- * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+ * @description ## Before you begin
+ * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:   
+ *     - IP whitelist list: publicIpWhitelist
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
  *
  * @param request UpdatePublicWhiteIpsRequest
  * @return UpdatePublicWhiteIpsResponse
@@ -9676,7 +9917,7 @@ UpdatePublicWhiteIpsResponse Client::updatePublicWhiteIps(const string &Instance
 }
 
 /**
- * @summary 更改ES集群高可用策略
+ * @summary Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
  *
  * @param request UpdateReadWritePolicyRequest
  * @param headers map
@@ -9710,7 +9951,7 @@ UpdateReadWritePolicyResponse Client::updateReadWritePolicyWithOptions(const str
 }
 
 /**
- * @summary 更改ES集群高可用策略
+ * @summary Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
  *
  * @param request UpdateReadWritePolicyRequest
  * @return UpdateReadWritePolicyResponse
@@ -9722,7 +9963,7 @@ UpdateReadWritePolicyResponse Client::updateReadWritePolicy(const string &Instan
 }
 
 /**
- * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+ * @summary Updates the data backup configuration of a specified instance.
  *
  * @param request UpdateSnapshotSettingRequest
  * @param headers map
@@ -9750,7 +9991,7 @@ UpdateSnapshotSettingResponse Client::updateSnapshotSettingWithOptions(const str
 }
 
 /**
- * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+ * @summary Updates the data backup configuration of a specified instance.
  *
  * @param request UpdateSnapshotSettingRequest
  * @return UpdateSnapshotSettingResponse
@@ -9762,11 +10003,11 @@ UpdateSnapshotSettingResponse Client::updateSnapshotSetting(const string &Instan
 }
 
 /**
- * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+ * @summary Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+ * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
  *
  * @param request UpdateSynonymsDictsRequest
  * @param headers map
@@ -9800,11 +10041,11 @@ UpdateSynonymsDictsResponse Client::updateSynonymsDictsWithOptions(const string 
 }
 
 /**
- * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+ * @summary Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
- * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+ * @description When calling this operation, note the following:
+ * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+ * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
  *
  * @param request UpdateSynonymsDictsRequest
  * @return UpdateSynonymsDictsResponse
@@ -9816,6 +10057,8 @@ UpdateSynonymsDictsResponse Client::updateSynonymsDicts(const string &InstanceId
 }
 
 /**
+ * @summary Modifies the scenario-specific template configuration of a cluster.
+ *
  * @param request UpdateTemplateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -9848,6 +10091,8 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const string &InstanceI
 }
 
 /**
+ * @summary Modifies the scenario-specific template configuration of a cluster.
+ *
  * @param request UpdateTemplateRequest
  * @return UpdateTemplateResponse
  */
@@ -9858,9 +10103,14 @@ UpdateTemplateResponse Client::updateTemplate(const string &InstanceId, const st
 }
 
 /**
- * @summary Updates a private IP address whitelist of an Elasticsearch cluster.
+ * @summary Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
  *
- * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+ * @description ## Before you begin
+ * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows: 
+ *     - IP whitelist list: esIPWhitelist
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
  *
  * @param request UpdateWhiteIpsRequest
  * @param headers map
@@ -9907,9 +10157,14 @@ UpdateWhiteIpsResponse Client::updateWhiteIpsWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Updates a private IP address whitelist of an Elasticsearch cluster.
+ * @summary Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
  *
- * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+ * @description ## Before you begin
+ * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+ * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows: 
+ *     - IP whitelist list: esIPWhitelist
+ *     - IP whitelist group: modifyMode, whiteIpGroup
+ * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
  *
  * @param request UpdateWhiteIpsRequest
  * @return UpdateWhiteIpsResponse
@@ -9921,7 +10176,7 @@ UpdateWhiteIpsResponse Client::updateWhiteIps(const string &InstanceId, const Up
 }
 
 /**
- * @summary Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
+ * @summary Updates the X-Pack monitoring and alerting configuration of a Logstash instance.
  *
  * @param request UpdateXpackMonitorConfigRequest
  * @param headers map
@@ -9972,7 +10227,7 @@ UpdateXpackMonitorConfigResponse Client::updateXpackMonitorConfigWithOptions(con
 }
 
 /**
- * @summary Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
+ * @summary Updates the X-Pack monitoring and alerting configuration of a Logstash instance.
  *
  * @param request UpdateXpackMonitorConfigRequest
  * @return UpdateXpackMonitorConfigResponse
@@ -9984,9 +10239,9 @@ UpdateXpackMonitorConfigResponse Client::updateXpackMonitorConfig(const string &
 }
 
 /**
- * @summary Upgrades the version or kernel of an Elasticsearch cluster.
+ * @summary Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
  *
- * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+ * @description > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
  *
  * @param request UpgradeEngineVersionRequest
  * @param headers map
@@ -10041,9 +10296,9 @@ UpgradeEngineVersionResponse Client::upgradeEngineVersionWithOptions(const strin
 }
 
 /**
- * @summary Upgrades the version or kernel of an Elasticsearch cluster.
+ * @summary Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
  *
- * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+ * @description > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
  *
  * @param request UpgradeEngineVersionRequest
  * @return UpgradeEngineVersionResponse
@@ -10055,7 +10310,7 @@ UpgradeEngineVersionResponse Client::upgradeEngineVersion(const string &Instance
 }
 
 /**
- * @summary 查询是否有可升级的小版本
+ * @summary Query whether a minor version is available for upgrade.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -10080,7 +10335,7 @@ UpgradeInfoResponse Client::upgradeInfoWithOptions(const string &instanceId, con
 }
 
 /**
- * @summary 查询是否有可升级的小版本
+ * @summary Query whether a minor version is available for upgrade.
  *
  * @return UpgradeInfoResponse
  */
@@ -10091,9 +10346,9 @@ UpgradeInfoResponse Client::upgradeInfo(const string &instanceId) {
 }
 
 /**
- * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+ * @summary Validates the connectivity of an Elasticsearch instance that provides X-Pack monitoring.
  *
- * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+ * @description > To enable X-Pack monitoring for Logstash, configure an Elasticsearch instance. After the configuration, you can monitor the Logstash instance in the Kibana console of the corresponding Elasticsearch instance.
  *
  * @param request ValidateConnectionRequest
  * @param headers map
@@ -10127,9 +10382,9 @@ ValidateConnectionResponse Client::validateConnectionWithOptions(const string &I
 }
 
 /**
- * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+ * @summary Validates the connectivity of an Elasticsearch instance that provides X-Pack monitoring.
  *
- * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+ * @description > To enable X-Pack monitoring for Logstash, configure an Elasticsearch instance. After the configuration, you can monitor the Logstash instance in the Kibana console of the corresponding Elasticsearch instance.
  *
  * @param request ValidateConnectionRequest
  * @return ValidateConnectionResponse
@@ -10141,7 +10396,7 @@ ValidateConnectionResponse Client::validateConnection(const string &InstanceId, 
 }
 
 /**
- * @summary Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
+ * @summary Checks whether specific nodes in a specified instance can be scaled in.
  *
  * @param request ValidateShrinkNodesRequest
  * @param headers map
@@ -10183,7 +10438,7 @@ ValidateShrinkNodesResponse Client::validateShrinkNodesWithOptions(const string 
 }
 
 /**
- * @summary Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
+ * @summary Checks whether specific nodes in a specified instance can be scaled in.
  *
  * @param request ValidateShrinkNodesRequest
  * @return ValidateShrinkNodesResponse
@@ -10195,7 +10450,9 @@ ValidateShrinkNodesResponse Client::validateShrinkNodes(const string &InstanceId
 }
 
 /**
- * @summary Verify the SLR permissions of the current account.
+ * @summary Verifies the service-linked role (SLR) permission of the current account.
+ *
+ * @description > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
  *
  * @param request ValidateSlrPermissionRequest
  * @param headers map
@@ -10232,7 +10489,9 @@ ValidateSlrPermissionResponse Client::validateSlrPermissionWithOptions(const Val
 }
 
 /**
- * @summary Verify the SLR permissions of the current account.
+ * @summary Verifies the service-linked role (SLR) permission of the current account.
+ *
+ * @description > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
  *
  * @param request ValidateSlrPermissionRequest
  * @return ValidateSlrPermissionResponse
@@ -10244,7 +10503,7 @@ ValidateSlrPermissionResponse Client::validateSlrPermission(const ValidateSlrPer
 }
 
 /**
- * @summary Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
+ * @summary Validates whether data on specific nodes in a specified instance can be migrated.
  *
  * @param request ValidateTransferableNodesRequest
  * @param headers map
@@ -10278,7 +10537,7 @@ ValidateTransferableNodesResponse Client::validateTransferableNodesWithOptions(c
 }
 
 /**
- * @summary Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
+ * @summary Validates whether data on specific nodes in a specified instance can be migrated.
  *
  * @param request ValidateTransferableNodesRequest
  * @return ValidateTransferableNodesResponse
@@ -10290,9 +10549,12 @@ ValidateTransferableNodesResponse Client::validateTransferableNodes(const string
 }
 
 /**
- * @summary Creates an Elasticsearch cluster.
+ * @summary Creates an Elasticsearch instance.
  *
- * @description The configurations of warm nodes.
+ * @description ### Precautions
+ * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+ * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+ * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
  *
  * @param request CreateInstanceRequest
  * @param headers map
@@ -10395,9 +10657,12 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary Creates an Elasticsearch cluster.
+ * @summary Creates an Elasticsearch instance.
  *
- * @description The configurations of warm nodes.
+ * @description ### Precautions
+ * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+ * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+ * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse

@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result. Valid values:
+    // 
+    // - true: The specified lifecycle policy definition is deleted.
+    // 
+    // - false: The specified lifecycle policy definition failed to be deleted.
     shared_ptr<bool> result_ {};
   };
 

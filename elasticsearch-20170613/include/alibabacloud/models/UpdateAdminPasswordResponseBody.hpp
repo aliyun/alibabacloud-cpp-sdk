@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the password is updated. Valid values:
+    // 
+    // - true: The password is updated.
+    // - false: The password failed to be updated.
     shared_ptr<bool> result_ {};
   };
 

@@ -37,8 +37,10 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Result& obj) { 
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(diagnoseItems, diagnoseItems_);
+        DARABONBA_PTR_TO_JSON(diagnosisMode, diagnosisMode_);
         DARABONBA_PTR_TO_JSON(health, health_);
         DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(items, items_);
         DARABONBA_PTR_TO_JSON(reportId, reportId_);
         DARABONBA_PTR_TO_JSON(state, state_);
         DARABONBA_PTR_TO_JSON(trigger, trigger_);
@@ -46,8 +48,10 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(diagnoseItems, diagnoseItems_);
+        DARABONBA_PTR_FROM_JSON(diagnosisMode, diagnosisMode_);
         DARABONBA_PTR_FROM_JSON(health, health_);
         DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(items, items_);
         DARABONBA_PTR_FROM_JSON(reportId, reportId_);
         DARABONBA_PTR_FROM_JSON(state, state_);
         DARABONBA_PTR_FROM_JSON(trigger, trigger_);
@@ -63,6 +67,90 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Items : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Items& obj) { 
+          DARABONBA_PTR_TO_JSON(desc, desc_);
+          DARABONBA_ANY_TO_JSON(detail, detail_);
+          DARABONBA_PTR_TO_JSON(item, item_);
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(state, state_);
+          DARABONBA_PTR_TO_JSON(suggest, suggest_);
+        };
+        friend void from_json(const Darabonba::Json& j, Items& obj) { 
+          DARABONBA_PTR_FROM_JSON(desc, desc_);
+          DARABONBA_ANY_FROM_JSON(detail, detail_);
+          DARABONBA_PTR_FROM_JSON(item, item_);
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(state, state_);
+          DARABONBA_PTR_FROM_JSON(suggest, suggest_);
+        };
+        Items() = default ;
+        Items(const Items &) = default ;
+        Items(Items &&) = default ;
+        Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Items() = default ;
+        Items& operator=(const Items &) = default ;
+        Items& operator=(Items &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->desc_ == nullptr
+        && this->detail_ == nullptr && this->item_ == nullptr && this->name_ == nullptr && this->state_ == nullptr && this->suggest_ == nullptr; };
+        // desc Field Functions 
+        bool hasDesc() const { return this->desc_ != nullptr;};
+        void deleteDesc() { this->desc_ = nullptr;};
+        inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+        inline Items& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
+
+
+        // detail Field Functions 
+        bool hasDetail() const { return this->detail_ != nullptr;};
+        void deleteDetail() { this->detail_ = nullptr;};
+        inline         const Darabonba::Json & getDetail() const { DARABONBA_GET(detail_) };
+        Darabonba::Json & getDetail() { DARABONBA_GET(detail_) };
+        inline Items& setDetail(const Darabonba::Json & detail) { DARABONBA_SET_VALUE(detail_, detail) };
+        inline Items& setDetail(Darabonba::Json && detail) { DARABONBA_SET_RVALUE(detail_, detail) };
+
+
+        // item Field Functions 
+        bool hasItem() const { return this->item_ != nullptr;};
+        void deleteItem() { this->item_ = nullptr;};
+        inline string getItem() const { DARABONBA_PTR_GET_DEFAULT(item_, "") };
+        inline Items& setItem(string item) { DARABONBA_PTR_SET_VALUE(item_, item) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Items& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // state Field Functions 
+        bool hasState() const { return this->state_ != nullptr;};
+        void deleteState() { this->state_ = nullptr;};
+        inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+        inline Items& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
+        // suggest Field Functions 
+        bool hasSuggest() const { return this->suggest_ != nullptr;};
+        void deleteSuggest() { this->suggest_ = nullptr;};
+        inline string getSuggest() const { DARABONBA_PTR_GET_DEFAULT(suggest_, "") };
+        inline Items& setSuggest(string suggest) { DARABONBA_PTR_SET_VALUE(suggest_, suggest) };
+
+
+      protected:
+        shared_ptr<string> desc_ {};
+        Darabonba::Json detail_ {};
+        shared_ptr<string> item_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> state_ {};
+        shared_ptr<string> suggest_ {};
+      };
+
       class DiagnoseItems : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DiagnoseItems& obj) { 
@@ -151,10 +239,15 @@ namespace Models
 
 
         protected:
+          // The description of the diagnostic item.
           shared_ptr<string> desc_ {};
+          // The full name of the diagnostic item.
           shared_ptr<string> name_ {};
+          // The diagnostic result.
           shared_ptr<string> result_ {};
+          // The diagnostic suggestion.
           shared_ptr<string> suggest_ {};
+          // The type of the diagnostic result. Valid values: TEXT (text description), CONSOLE_API (console-triggered), and ES_API (API-triggered).
           shared_ptr<string> type_ {};
         };
 
@@ -184,14 +277,17 @@ namespace Models
 
 
       protected:
+        // The details of the diagnostic item.
         shared_ptr<DiagnoseItems::Detail> detail_ {};
+        // The health status of the diagnostic item. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
         shared_ptr<string> health_ {};
+        // The name of the diagnostic item.
         shared_ptr<string> item_ {};
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->diagnoseItems_ == nullptr && this->health_ == nullptr && this->instanceId_ == nullptr && this->reportId_ == nullptr && this->state_ == nullptr
-        && this->trigger_ == nullptr; };
+        && this->diagnoseItems_ == nullptr && this->diagnosisMode_ == nullptr && this->health_ == nullptr && this->instanceId_ == nullptr && this->items_ == nullptr
+        && this->reportId_ == nullptr && this->state_ == nullptr && this->trigger_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -208,6 +304,13 @@ namespace Models
       inline Result& setDiagnoseItems(vector<Result::DiagnoseItems> && diagnoseItems) { DARABONBA_PTR_SET_RVALUE(diagnoseItems_, diagnoseItems) };
 
 
+      // diagnosisMode Field Functions 
+      bool hasDiagnosisMode() const { return this->diagnosisMode_ != nullptr;};
+      void deleteDiagnosisMode() { this->diagnosisMode_ = nullptr;};
+      inline string getDiagnosisMode() const { DARABONBA_PTR_GET_DEFAULT(diagnosisMode_, "") };
+      inline Result& setDiagnosisMode(string diagnosisMode) { DARABONBA_PTR_SET_VALUE(diagnosisMode_, diagnosisMode) };
+
+
       // health Field Functions 
       bool hasHealth() const { return this->health_ != nullptr;};
       void deleteHealth() { this->health_ = nullptr;};
@@ -220,6 +323,15 @@ namespace Models
       void deleteInstanceId() { this->instanceId_ = nullptr;};
       inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
       inline Result& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // items Field Functions 
+      bool hasItems() const { return this->items_ != nullptr;};
+      void deleteItems() { this->items_ = nullptr;};
+      inline const vector<Result::Items> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<Result::Items>) };
+      inline vector<Result::Items> getItems() { DARABONBA_PTR_GET(items_, vector<Result::Items>) };
+      inline Result& setItems(const vector<Result::Items> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+      inline Result& setItems(vector<Result::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
       // reportId Field Functions 
@@ -244,12 +356,21 @@ namespace Models
 
 
     protected:
+      // The timestamp when the report was created. Unit: ms.
       shared_ptr<int64_t> createTime_ {};
+      // The list of diagnostic items in the report.
       shared_ptr<vector<Result::DiagnoseItems>> diagnoseItems_ {};
+      shared_ptr<string> diagnosisMode_ {};
+      // The overall health status of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
       shared_ptr<string> health_ {};
+      // The ID of the diagnosed instance.
       shared_ptr<string> instanceId_ {};
+      shared_ptr<vector<Result::Items>> items_ {};
+      // The report ID.
       shared_ptr<string> reportId_ {};
+      // The diagnostic status. Valid values: SUCCESS, FAILED, and RUNNING.
       shared_ptr<string> state_ {};
+      // The method used to trigger the health diagnosis. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
       shared_ptr<string> trigger_ {};
     };
 
@@ -272,7 +393,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<DescribeDiagnoseReportResponseBody::Result> result_ {};
   };
 

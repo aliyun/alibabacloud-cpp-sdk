@@ -63,8 +63,11 @@ namespace Models
 
 
   protected:
+    // Delete keystore configuration
     shared_ptr<vector<string>> remove_ {};
+    // Add or update keystore
     shared_ptr<map<string, string>> update_ {};
+    // Whether to force the change. false: non-forced, true: forced
     shared_ptr<string> force_ {};
   };
 

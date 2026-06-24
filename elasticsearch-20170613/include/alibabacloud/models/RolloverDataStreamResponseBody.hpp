@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result. Valid values:
+    // 
+    // - true: The rollover succeeded.
+    // 
+    // - false: The rollover failed.
     shared_ptr<bool> result_ {};
   };
 

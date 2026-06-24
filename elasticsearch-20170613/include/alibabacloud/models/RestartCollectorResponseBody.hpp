@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the shipper is restarted. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true: The shipper is restarted.
-    // *   false: The shipper fails to be restarted.
+    // - true: The restart was successful.
+    // - false: The restart failed.
     shared_ptr<bool> result_ {};
   };
 

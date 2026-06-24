@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The details of the current instance.
     shared_ptr<Logstash> result_ {};
   };
 

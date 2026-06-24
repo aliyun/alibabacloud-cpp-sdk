@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the alert message was sent. Valid values: true (sent) and false (failed to send).
     shared_ptr<bool> success_ {};
   };
 

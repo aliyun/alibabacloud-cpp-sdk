@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The name of the index lifecycle policy.
       shared_ptr<string> name_ {};
+      // The index lifecycle content.
       Darabonba::Json phases_ {};
     };
 
@@ -95,7 +97,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of index lifecycle policies returned by the request.
     shared_ptr<vector<ListILMPoliciesResponseBody::Result>> result_ {};
   };
 

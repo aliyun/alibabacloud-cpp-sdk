@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the ECS instances are changed. Valid values:
+    // Indicates whether the update is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> result_ {};
   };
 

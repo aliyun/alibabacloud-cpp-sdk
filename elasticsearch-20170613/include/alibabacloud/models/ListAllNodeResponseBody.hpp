@@ -134,26 +134,30 @@ namespace Models
 
 
     protected:
-      // The disk usage.
+      // The CPU usage.
+      // > When **extended** is set to **true** and the monitoring information of the node is being synchronized, the parameter value returns null. In this case, wait 10 seconds and send the request again to retrieve the value.
       shared_ptr<string> cpuPercent_ {};
-      // The health status of the node. Valid values: GREEN, YELLOW, RED, and GRAY.
+      // The disk usage.
       shared_ptr<string> diskUsedPercent_ {};
+      // The health status of the node. Valid values: GREEN, YELLOW, RED, and GRAY.
       shared_ptr<string> health_ {};
-      // The IP address of the node.
+      // The JVM memory usage.
       shared_ptr<string> heapPercent_ {};
-      // The port that is used to connect to the node.
+      // The IP address of the node.
       shared_ptr<string> host_ {};
+      // The one-minute load average.
       shared_ptr<string> loadOneM_ {};
-      // The 1-minute load of the node.
-      shared_ptr<string> nodeType_ {};
-      shared_ptr<int32_t> port_ {};
-      // The type of the nodes. Valid values:
+      // The node type. Valid values:
       // 
-      // *   MASTER: dedicated master node
-      // *   WORKER: hot node
-      // *   WORKER_WARM: warm node
-      // *   COORDINATING: client node
-      // *   KIBANA: Kibana node
+      // - MASTER: dedicated master node
+      // - WORKER: hot node
+      // - WORKER_WARM: warm node
+      // - COORDINATING: client node
+      // - KIBANA: Kibana node.
+      shared_ptr<string> nodeType_ {};
+      // The access port of the node.
+      shared_ptr<int32_t> port_ {};
+      // The zone where the node resides.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -176,11 +180,9 @@ namespace Models
 
 
   protected:
-    // The zone ID of the node.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The CPU utilization.
-    // 
-    // >  If the **extended** request parameter is set to **true** and the monitoring information of the nodes in the cluster is being synchronized, the value of the cpuPercent parameter is null. In this case, you need to send a request again after 10 seconds to obtain the value of the cpuPercent parameter.
+    // The returned results.
     shared_ptr<vector<ListAllNodeResponseBody::Result>> result_ {};
   };
 

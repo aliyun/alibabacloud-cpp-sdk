@@ -167,6 +167,7 @@ namespace Models
 
 
               protected:
+                // The name of the lifecycle policy.
                 shared_ptr<string> name_ {};
               };
 
@@ -189,7 +190,12 @@ namespace Models
 
 
             protected:
+              // The index compression method. Valid values:
+              // 
+              // - LZ4: the default compression algorithm of Elasticsearch. It provides fast compression and decompression but a relatively lower compression ratio.
+              // - best_compression: uses the best_compression algorithm for compression, which provides a higher compression ratio.
               shared_ptr<string> codec_ {};
+              // The index lifecycle configuration.
               shared_ptr<Index::Lifecycle> lifecycle_ {};
             };
 
@@ -204,6 +210,7 @@ namespace Models
 
 
           protected:
+            // The index information.
             shared_ptr<Settings::Index> index_ {};
           };
 
@@ -218,6 +225,7 @@ namespace Models
 
 
         protected:
+          // The settings configuration of the template.
           shared_ptr<Template::Settings> settings_ {};
         };
 
@@ -249,8 +257,11 @@ namespace Models
 
 
       protected:
+        // The metadata, which is used to store information such as remarks.
         Darabonba::Json meta_ {};
+        // The composable template object.
         shared_ptr<Content::Template> template_ {};
+        // The version of the composable template.
         shared_ptr<int64_t> version_ {};
       };
 
@@ -282,8 +293,11 @@ namespace Models
 
 
     protected:
+      // The information about the index templates that reference this composable template.
       shared_ptr<vector<string>> composed_ {};
+      // The content of the composable template.
       shared_ptr<Result::Content> content_ {};
+      // The name of the composable template.
       shared_ptr<string> name_ {};
     };
 
@@ -315,6 +329,7 @@ namespace Models
 
 
     protected:
+      // The total number of entries returned.
       shared_ptr<int64_t> xTotalCount_ {};
     };
 
@@ -346,8 +361,11 @@ namespace Models
 
 
   protected:
+    // The response headers.
     shared_ptr<ListComponentIndicesResponseBody::Headers> headers_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The details of the returned results.
     shared_ptr<vector<ListComponentIndicesResponseBody::Result>> result_ {};
   };
 

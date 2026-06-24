@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -153,8 +153,8 @@ namespace Models
         shared_ptr<string> host_ {};
         // The type of the IP address. Valid values:
         // 
-        // *   public: public IP address
-        // *   private: private IP address
+        // - public: public IP address.
+        // - private: private IP address.
         shared_ptr<string> ipType_ {};
       };
 
@@ -222,37 +222,37 @@ namespace Models
 
 
     protected:
-      // The status of the shipper on the ECS instance. Valid values:
+      // The status of each collector on the ECS instance. Valid values:
       // 
-      // *   heartOk: The heartbeat is normal.
-      // *   heartLost: The heartbeat is abnormal.
-      // *   uninstalled: The shipper is not installed.
-      // *   failed: The shipper fails to be installed.
+      // - heartOk: normal heartbeat.
+      // - heartLost: abnormal heartbeat.
+      // - uninstalled: not installed.
+      // - failed: installation failed.
       shared_ptr<string> agentStatus_ {};
-      // Indicates whether the Cloud Assistant client is installed. Valid values:
+      // Indicates whether Cloud Assistant is enabled. Valid values:
       // 
-      // *   true: installed
-      // *   false: not installed
+      // - true: enabled.
+      // - false: not enabled.
       shared_ptr<string> cloudAssistantStatus_ {};
-      // The ID of the ECS instance.
+      // The ECS instance ID.
       shared_ptr<string> ecsInstanceId_ {};
-      // The name of the ECS instance.
+      // The ECS instance name.
       shared_ptr<string> ecsInstanceName_ {};
-      // The IP addresses of the ECS instance.
+      // The list of IP address information of the ECS instance.
       shared_ptr<vector<Result::IpAddress>> ipAddress_ {};
       // The operating system type of the ECS instance. Valid values:
       // 
-      // *   windows: Windows Server
-      // *   linux: Linux
+      // - windows: Windows Server.
+      // - linux: Linux.
       shared_ptr<string> osType_ {};
       // The status of the ECS instance. Valid values:
       // 
-      // *   running: The instance is running.
-      // *   starting: The instance is being started.
-      // *   stopping: The instance is being stopped.
-      // *   stopped: The instance is stopped.
+      // - running: running.
+      // - starting: starting.
+      // - stopping: stopping.
+      // - stopped: stopped.
       shared_ptr<string> status_ {};
-      // The tags of the ECS instance.
+      // The tag information of the ECS instance.
       shared_ptr<vector<Result::Tags>> tags_ {};
     };
 
@@ -284,7 +284,7 @@ namespace Models
 
 
     protected:
-      // The number of entries returned.
+      // The total number of returned records.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -316,11 +316,11 @@ namespace Models
 
 
   protected:
-    // The header of the response.
+    // The response headers.
     shared_ptr<ListNodesResponseBody::Headers> headers_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<vector<ListNodesResponseBody::Result>> result_ {};
   };
 

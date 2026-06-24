@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the connectivity is normal. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The validation succeeded.
+    // - false: The validation failed.
     shared_ptr<bool> result_ {};
   };
 

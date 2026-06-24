@@ -94,7 +94,16 @@ namespace Models
 
 
     protected:
+      // Specifies whether to sort in descending order. Valid values:
+      // 
+      // - true (default): Yes.
+      // - false: No.
       shared_ptr<bool> desc_ {};
+      // The field by which the results are sorted. Valid values:
+      // 
+      // - event_time: event creation time
+      // - event_execute_start_time: event execution time
+      // - event_execute_finish_time: event completion time.
       shared_ptr<string> sortField_ {};
     };
 
@@ -209,19 +218,33 @@ namespace Models
 
 
   protected:
+    // The request body parameters.
     shared_ptr<vector<ListInstanceHistoryEventsRequest::Body>> body_ {};
+    // The end time for querying by event creation time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventCreateEndTime_ {};
+    // The start time for querying by event creation time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventCreateStartTime_ {};
+    // The lifecycle status of the event.
     shared_ptr<vector<string>> eventCycleStatus_ {};
+    // The end time for querying by event execution time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventExecuteEndTime_ {};
+    // The start time for querying by event execution time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventExecuteStartTime_ {};
+    // The end time for querying by event completion time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventFinashEndTime_ {};
+    // The start time for querying by event completion time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventFinashStartTime_ {};
+    // The event level.
     shared_ptr<vector<string>> eventLevel_ {};
+    // The event type.
     shared_ptr<vector<string>> eventType_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The IP address of the node that triggered the event.
     shared_ptr<string> nodeIP_ {};
+    // The starting document offset. The value must be a non-negative integer. Default value: 0.
     shared_ptr<int32_t> page_ {};
+    // The number of events to return. The value must be a non-negative integer. Default value: 10.
     shared_ptr<int32_t> size_ {};
   };
 

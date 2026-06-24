@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The number of cold data nodes.
     shared_ptr<int64_t> amount_ {};
+    // The storage space size of cold data nodes, in GB.
     shared_ptr<int64_t> disk_ {};
+    // Specifies whether to enable cloud disk encryption for cold data nodes. Valid values:
+    // 
+    // - true: enabled.
+    // - false: not enabled.
     shared_ptr<bool> diskEncryption_ {};
+    // The storage type of cold data nodes. Only cloud_efficiency (ultra cloud disk) is supported.
     shared_ptr<string> diskType_ {};
+    // The performance level (PL) of the ESSD cloud disk. This parameter is required when the disk type of cold data nodes is a standard SSD. Valid values: PL1, PL2, and PL3.
     shared_ptr<string> performanceLevel_ {};
+    // The node specifications of cold data nodes. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+    // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
   };

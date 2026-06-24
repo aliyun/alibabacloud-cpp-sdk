@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Request body.
     shared_ptr<string> body_ {};
   };
 

@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // Whether to enable automatic backup.
+      // Indicates whether automatic backup is enabled.
       shared_ptr<bool> enable_ {};
-      // Automatic backup time configuration, using Quartz Cron expression.
+      // The automatic backup time configuration, specified as a Quartz Cron expression.
       shared_ptr<string> quartzRegex_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned result.
     shared_ptr<DescribeSnapshotSettingResponseBody::Result> result_ {};
   };
 

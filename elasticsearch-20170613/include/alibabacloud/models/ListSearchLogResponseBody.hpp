@@ -110,14 +110,25 @@ namespace Models
 
 
     protected:
-      // The ID of the instance.
+      // The detailed log content. This field has been migrated to the contentCollection field.
       shared_ptr<string> content_ {};
+      // The log details. Different log types return different content fields.
       Darabonba::Json contentCollection_ {};
-      // Details of the log entry. Different content fields are returned for different log types.
+      // The IP address of the node that generated the log.
       shared_ptr<string> host_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The timestamp when the log is generated. Unit: ms.
+      // The log level. Valid values:
+      // 
+      // - warn: warning log
+      // - info: information log
+      // - error: error log
+      // - trace: trace log
+      // - debug: debug log
+      // 
+      // The level information has been migrated to the contentCollection field.
       shared_ptr<string> level_ {};
+      // The timestamp when the log was generated, in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -149,7 +160,7 @@ namespace Models
 
 
     protected:
-      // The IP address of the node that generates the log.
+      // The total number of records for the instance.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -181,19 +192,11 @@ namespace Models
 
 
   protected:
-    // The level of the log. Valid values:
-    // 
-    // *   warn: warning log
-    // *   info: information log
-    // *   error: error log
-    // *   trace: trace logs
-    // *   debug: debug logs
-    // 
-    // The level information has been migrated to the contentCollection field.
+    // The response headers.
     shared_ptr<ListSearchLogResponseBody::Headers> headers_ {};
-    // The list of logs returned by the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The content of the log entry. Migrated to the contentCollection field.
+    // The list of logs returned by the request.
     shared_ptr<vector<ListSearchLogResponseBody::Result>> result_ {};
   };
 

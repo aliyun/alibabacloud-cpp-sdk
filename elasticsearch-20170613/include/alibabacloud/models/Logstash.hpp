@@ -105,7 +105,12 @@ namespace Models
 
 
     protected:
+      // The zone status. Valid values:
+      // 
+      // - ISOLATION: offline
+      // - NORMAL: Normal.
       shared_ptr<string> status_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -147,7 +152,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -198,8 +205,11 @@ namespace Models
 
 
     protected:
+      // The disk size of the node.
       shared_ptr<int64_t> disk_ {};
+      // The disk type of the node.
       shared_ptr<string> diskType_ {};
+      // The node specifications.
       shared_ptr<string> spec_ {};
     };
 
@@ -259,9 +269,13 @@ namespace Models
 
 
     protected:
+      // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
       shared_ptr<string> type_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The zone in which the instance resides.
       shared_ptr<string> vsArea_ {};
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -312,8 +326,11 @@ namespace Models
 
 
     protected:
+      // The IP address of the node.
       shared_ptr<string> host_ {};
+      // The access port number of the node.
       shared_ptr<int64_t> port_ {};
+      // The zone ID of the node.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -468,24 +485,52 @@ namespace Models
 
 
   protected:
+    // The instance configuration.
     shared_ptr<map<string, string>> config_ {};
+    // The time when the instance was created.
     shared_ptr<string> createdAt_ {};
+    // Specifies whether to enable data nodes. This parameter must be set to true.
     shared_ptr<bool> dataNode_ {};
+    // The instance name.
     shared_ptr<string> description_ {};
+    // The expiration time of the subscription instance.
     shared_ptr<int64_t> endTime_ {};
+    // The node information.
     shared_ptr<vector<Logstash::EndpointList>> endpointList_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The network configuration.
     shared_ptr<Logstash::NetworkConfig> networkConfig_ {};
+    // The number of nodes in the instance.
     shared_ptr<int64_t> nodeAmount_ {};
+    // The data node configuration.
     shared_ptr<Logstash::NodeSpec> nodeSpec_ {};
+    // The billing method of the instance. Valid values:
+    // 
+    // - prepaid: subscription
+    // - postpaid: pay-as-you-go.
     shared_ptr<string> paymentType_ {};
+    // The access protocol of the instance.
     shared_ptr<string> protocol_ {};
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
+    // The zone status. Valid values:
+    // 
+    // - ISOLATION: offline
+    // - NORMAL: Normal.
     shared_ptr<string> status_ {};
+    // The instance tags.
     shared_ptr<vector<Logstash::Tags>> tags_ {};
+    // The time when the instance was last updated.
     shared_ptr<string> updatedAt_ {};
+    // The instance version. Valid values:
+    // 
+    // - 6.7.0_with_X-Pack
+    // - 7.4.0_with_X-Pack.
     shared_ptr<string> version_ {};
+    // The number of zones for the instance.
     shared_ptr<int64_t> zoneCount_ {};
+    // The zone information.
     shared_ptr<vector<Logstash::ZoneInfos>> zoneInfos_ {};
   };
 

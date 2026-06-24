@@ -145,15 +145,37 @@ namespace Models
 
 
     protected:
+      // The ECS instance ID.
       shared_ptr<string> ecsId_ {};
+      // The event creation time.
       shared_ptr<string> eventCreateTime_ {};
+      // The event status. Valid values:
+      // - FAILED: failed
+      // - EXECUTED: executed
+      // - EXECUTING: executing.
       shared_ptr<string> eventCycleStatus_ {};
+      // The event execution time.
       shared_ptr<string> eventExecuteTime_ {};
+      // The event completion time.
       shared_ptr<string> eventFinashTime_ {};
+      // The event level. Valid values:
+      // - INFO: information
+      // - WARN: warning
+      // - CRITICAL: critical.
       shared_ptr<string> eventLevel_ {};
+      // The event type. Valid values:
+      // - ECS:AUTO_RESTART: Automatic restart of an ECS node.
+      // - Instance:InstanceFailure.Reboot:Executed: ECS instance reboot completed (instance error).
+      // - Instance:InstanceFailure.Reboot:Executing: ECS instance reboot started (instance error).
+      // - Instance:SystemFailure.Reboot:Executed: ECS instance reboot completed (system error).
+      // - Instance:SystemFailure.Reboot:Executing: ECS instance reboot started (system error).
+      // - Instance:SystemFailure.Reboot:Failed: ECS instance reboot failed (system error).
       shared_ptr<string> eventType_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The IP address of the node that generated the event.
       shared_ptr<string> nodeIP_ {};
+      // The region ID where the event occurred.
       shared_ptr<string> regionId_ {};
     };
 
@@ -204,8 +226,11 @@ namespace Models
 
 
     protected:
+      // The total number of records.
       shared_ptr<int64_t> xTotalCount_ {};
+      // The total number of failures.
       shared_ptr<int64_t> xTotalFailed_ {};
+      // The total number of successes.
       shared_ptr<int64_t> xTotalSuccess_ {};
     };
 
@@ -237,8 +262,11 @@ namespace Models
 
 
   protected:
+    // The response headers.
     shared_ptr<ListInstanceHistoryEventsResponseBody::Headers> headers_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned results.
     shared_ptr<vector<ListInstanceHistoryEventsResponseBody::Result>> result_ {};
   };
 

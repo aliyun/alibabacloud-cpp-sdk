@@ -133,17 +133,17 @@ namespace Models
 
 
       protected:
-        // The type of the source cluster. Default value: elasticsearch.
+        // The source cluster type. Default value: elasticsearch.
         shared_ptr<string> dataSourceType_ {};
-        // The index whose data you want to migrate.
+        // The index to be migrated.
         shared_ptr<string> index_ {};
         // The Mapping configuration of the cluster.
         shared_ptr<string> mapping_ {};
-        // The routing field to index the table. It is set to the primary key by default.
+        // The routing field of the index. The primary key field is used by default.
         shared_ptr<string> routing_ {};
-        // The Settings of the cluster.
+        // The Settings configuration of the cluster.
         shared_ptr<string> settings_ {};
-        // The type of the destination index.
+        // The index type.
         shared_ptr<string> type_ {};
       };
 
@@ -231,19 +231,19 @@ namespace Models
 
 
       protected:
-        // The type of the target cluster. Default value: elasticsearch.
+        // The destination cluster type. Default value: elasticsearch.
         shared_ptr<string> dataSourceType_ {};
-        // The public network access address of the target cluster.
+        // The public network access address of the destination cluster.
         shared_ptr<string> endpoint_ {};
-        // The target index.
+        // The destination index.
         shared_ptr<string> index_ {};
-        // The type of the destination index.
+        // The index type.
         shared_ptr<string> type_ {};
-        // The ID of the VPC to which the cluster belongs.
+        // The ID of the virtual private cloud (VPC) where the cluster resides.
         shared_ptr<string> vpcId_ {};
-        // The instance ID or Server Load Balancer (SLB) ID of the current cluster.
+        // The instance ID of the current cluster or the load balancing SLB (Server Load Balancer) instance ID.
         shared_ptr<string> vpcInstanceId_ {};
-        // The access port number of the cluster.
+        // The port number used to access the cluster.
         shared_ptr<string> vpcInstancePort_ {};
       };
 
@@ -289,15 +289,15 @@ namespace Models
 
 
     protected:
-      // The time when the site monitoring task was created.
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // The information of the target cluster.
+      // The destination cluster information.
       shared_ptr<Result::SinkCluster> sinkCluster_ {};
-      // The information about the source cluster.
+      // The source cluster information.
       shared_ptr<Result::SourceCluster> sourceCluster_ {};
-      // The status of the task.
+      // The task status.
       shared_ptr<string> status_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -320,9 +320,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned results.
     shared_ptr<vector<ListDataTasksResponseBody::Result>> result_ {};
   };
 

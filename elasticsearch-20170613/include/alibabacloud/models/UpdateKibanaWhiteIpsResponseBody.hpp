@@ -131,10 +131,11 @@ namespace Models
 
 
         protected:
-          // The IP addresses in the whitelist.
+          // The name of the whitelist group.
           shared_ptr<string> groupName_ {};
-          // The IP addresses in the whitelist.
+          // The list of IP addresses in the whitelist group.
           shared_ptr<vector<string>> ips_ {};
+          // The whitelist type.
           shared_ptr<string> whiteIpType_ {};
         };
 
@@ -178,15 +179,15 @@ namespace Models
 
 
       protected:
-        // The IP address whitelists.
-        shared_ptr<string> type_ {};
-        // The ID of the vSwitch.
-        shared_ptr<string> vpcId_ {};
         // The network type.
+        shared_ptr<string> type_ {};
+        // The VPC ID.
+        shared_ptr<string> vpcId_ {};
+        // The region where the instance resides.
         shared_ptr<string> vsArea_ {};
-        // The region ID.
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
-        // The IP address whitelists.
+        // The whitelist group list.
         shared_ptr<vector<NetworkConfig::WhiteIpGroupList>> whiteIpGroupList_ {};
       };
 
@@ -220,11 +221,11 @@ namespace Models
 
 
     protected:
-      // The public IP address whitelists for access to the Kibana console of the cluster.
+      // The Kibana access whitelist.
       shared_ptr<vector<string>> kibanaIPWhitelist_ {};
-      // The private IP address whitelists for access to the Kibana console of the cluster.
+      // The Kibana internal-facing whitelist.
       shared_ptr<vector<string>> kibanaPrivateIPWhitelist_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
     };
 
@@ -247,9 +248,9 @@ namespace Models
 
 
   protected:
-    // The details of the Elasticsearch cluster.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The private IP address whitelists for access to the Kibana console of the cluster.
+    // The details of the Elasticsearch instance.
     shared_ptr<UpdateKibanaWhiteIpsResponseBody::Result> result_ {};
   };
 

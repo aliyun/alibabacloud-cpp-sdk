@@ -63,6 +63,7 @@ namespace Models
 
   protected:
     Darabonba::Json headers_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<string>> result_ {};
   };

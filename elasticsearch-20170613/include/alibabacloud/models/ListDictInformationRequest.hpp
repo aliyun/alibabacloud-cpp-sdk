@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The type of the OSS dictionary to be added. Valid values: IK_HOT, IK, SYNONYMS, and ALIWS. Default value: IK.
     shared_ptr<string> analyzerType_ {};
+    // The name of the OSS bucket where the dictionary file is stored.
+    // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};
+    // The storage path of the dictionary file in the OSS bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
   };

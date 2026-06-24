@@ -121,9 +121,11 @@ namespace Models
 
 
         protected:
-          // The type of the whitelist. The value of this parameter is fixed as PRIVATE_ES, which indicates a private IP address whitelist.
+          // The name of the whitelist group. The default group is included by default.
           shared_ptr<string> groupName_ {};
+          // The IP address information in the whitelist group.
           shared_ptr<vector<string>> ips_ {};
+          // The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network internal-facing access whitelist.
           shared_ptr<string> whiteIpType_ {};
         };
 
@@ -138,7 +140,7 @@ namespace Models
 
 
       protected:
-        // The IP addresses in the whitelist.
+        // The list of whitelist groups.
         shared_ptr<vector<NetworkConfig::WhiteIpGroupList>> whiteIpGroupList_ {};
       };
 
@@ -163,9 +165,9 @@ namespace Models
 
 
     protected:
-      // The list of whitelists.
+      // The private network internal-facing access whitelist (deprecated).
       shared_ptr<vector<string>> esIPWhitelist_ {};
-      // The name of the whitelist. By default, the default whitelist is included.
+      // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
     };
 
@@ -188,9 +190,9 @@ namespace Models
 
 
   protected:
-    // The updated whitelist.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The network configurations.
+    // The returned result.
     shared_ptr<UpdateWhiteIpsResponseBody::Result> result_ {};
   };
 

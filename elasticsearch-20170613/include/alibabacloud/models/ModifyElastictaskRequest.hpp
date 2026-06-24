@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The scaling information.
     shared_ptr<string> body_ {};
   };
 

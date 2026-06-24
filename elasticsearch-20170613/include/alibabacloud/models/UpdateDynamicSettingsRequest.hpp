@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // A client token used to ensure the idempotency of the request.
     shared_ptr<string> clientToken_ {};
+    // The ID of the region where the instance is deployed.
     shared_ptr<string> regionId_ {};
+    // The request body, which contains the dynamic settings to be updated.
     shared_ptr<string> body_ {};
+    // The update mode for the dynamic settings.
     shared_ptr<string> mode_ {};
   };
 

@@ -101,9 +101,19 @@ namespace Models
 
 
     protected:
+      // The auto-renewal epoch. Unit: months. This parameter is required when **isAutoRenew** is set to **true**. The valid values are the same as those on the buy page.
       shared_ptr<int64_t> autoRenewDuration_ {};
+      // The subscription duration. You can purchase the instance on a monthly or yearly basis. Unit: 1 to 9 months, or 1 to 3 years.
       shared_ptr<int64_t> duration_ {};
+      // Specifies whether to enable auto-renewal. Valid values:
+      // 
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> isAutoRenew_ {};
+      // The unit of the subscription duration. Valid values:
+      // 
+      // - Year: year.
+      // - Month: month.
       shared_ptr<string> pricingCycle_ {};
     };
 
@@ -154,8 +164,15 @@ namespace Models
 
 
     protected:
+      // The disk size of the node. Unit: GB.
       shared_ptr<int64_t> disk_ {};
+      // The disk type of the node. Valid values:
+      // 
+      // - cloud_ssd
+      // - cloud_efficiency.
       shared_ptr<string> diskType_ {};
+      // The node specifications. For more information about specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+      // 
       // This parameter is required.
       shared_ptr<string> spec_ {};
     };
@@ -216,11 +233,18 @@ namespace Models
 
 
     protected:
+      // The network type. Currently, only VPC is supported.
       shared_ptr<string> type_ {};
+      // The VPC ID.
+      // 
       // This parameter is required.
       shared_ptr<string> vpcId_ {};
+      // The zone where the instance is deployed.
+      // 
       // This parameter is required.
       shared_ptr<string> vsArea_ {};
+      // The vSwitch ID.
+      // 
       // This parameter is required.
       shared_ptr<string> vswitchId_ {};
     };
@@ -298,18 +322,37 @@ namespace Models
 
 
   protected:
+    // The name of the instance.
     shared_ptr<string> description_ {};
+    // The network configuration.
+    // 
     // This parameter is required.
     shared_ptr<CreateLogstashRequest::NetworkConfig> networkConfig_ {};
+    // The number of nodes in the instance.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> nodeAmount_ {};
+    // The configuration of data nodes.
+    // 
     // This parameter is required.
     shared_ptr<CreateLogstashRequest::NodeSpec> nodeSpec_ {};
+    // The billing details of the subscription instance. This parameter is required when you create a subscription instance.
     shared_ptr<CreateLogstashRequest::PaymentInfo> paymentInfo_ {};
+    // The billing method of the instance. Valid values:
+    // 
+    // - prepaid: subscription.
+    // - postpaid: pay-as-you-go.
     shared_ptr<string> paymentType_ {};
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
+    // The instance version. Valid values:
+    // 
+    // - 6.7_with_X-Pack
+    // - 7.4_with_X-Pack.
+    // 
     // This parameter is required.
     shared_ptr<string> version_ {};
+    // A unique token that is used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
   };
 

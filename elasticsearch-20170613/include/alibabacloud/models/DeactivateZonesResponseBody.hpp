@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result:
+    // The returned result. Valid values:
     // 
-    // - true: Zone offline successful
-    // - false: Zone offline failed
+    // - true: The zones are taken offline.
+    // - false: The zones failed to be taken offline.
     shared_ptr<bool> result_ {};
   };
 

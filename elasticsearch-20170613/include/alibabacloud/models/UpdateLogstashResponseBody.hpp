@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the instance information is modified. Valid values:
+    // 
+    // - true: The instance information is modified.
+    // - false: The instance information failed to be modified.
     shared_ptr<bool> result_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The language of the returned result. Default value: en.
+    // The language of the returned results. Default value: en.
     shared_ptr<string> lang_ {};
   };
 

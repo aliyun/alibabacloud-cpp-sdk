@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the request.
+    // The request result. Valid values:
+    // 
+    // - true: The installation succeeded.
+    // - false: The installation failed.
     shared_ptr<bool> result_ {};
   };
 

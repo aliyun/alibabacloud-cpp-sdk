@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDIAGNOSISSETTINGSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDIAGNOSISSETTINGSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,11 +35,21 @@ namespace Models
     class Result : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_TO_JSON(dailyLimit, dailyLimit_);
+        DARABONBA_PTR_TO_JSON(dailyScheduleEnabled, dailyScheduleEnabled_);
+        DARABONBA_PTR_TO_JSON(diagnosisMode, diagnosisMode_);
         DARABONBA_PTR_TO_JSON(scene, scene_);
+        DARABONBA_PTR_TO_JSON(selectedItems, selectedItems_);
         DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_FROM_JSON(dailyLimit, dailyLimit_);
+        DARABONBA_PTR_FROM_JSON(dailyScheduleEnabled, dailyScheduleEnabled_);
+        DARABONBA_PTR_FROM_JSON(diagnosisMode, diagnosisMode_);
         DARABONBA_PTR_FROM_JSON(scene, scene_);
+        DARABONBA_PTR_FROM_JSON(selectedItems, selectedItems_);
         DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       };
       Result() = default ;
@@ -52,13 +63,51 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->scene_ == nullptr
+      virtual bool empty() const override { return this->authorizationStatus_ == nullptr
+        && this->dailyLimit_ == nullptr && this->dailyScheduleEnabled_ == nullptr && this->diagnosisMode_ == nullptr && this->scene_ == nullptr && this->selectedItems_ == nullptr
         && this->updateTime_ == nullptr; };
+      // authorizationStatus Field Functions 
+      bool hasAuthorizationStatus() const { return this->authorizationStatus_ != nullptr;};
+      void deleteAuthorizationStatus() { this->authorizationStatus_ = nullptr;};
+      inline bool getAuthorizationStatus() const { DARABONBA_PTR_GET_DEFAULT(authorizationStatus_, false) };
+      inline Result& setAuthorizationStatus(bool authorizationStatus) { DARABONBA_PTR_SET_VALUE(authorizationStatus_, authorizationStatus) };
+
+
+      // dailyLimit Field Functions 
+      bool hasDailyLimit() const { return this->dailyLimit_ != nullptr;};
+      void deleteDailyLimit() { this->dailyLimit_ = nullptr;};
+      inline int32_t getDailyLimit() const { DARABONBA_PTR_GET_DEFAULT(dailyLimit_, 0) };
+      inline Result& setDailyLimit(int32_t dailyLimit) { DARABONBA_PTR_SET_VALUE(dailyLimit_, dailyLimit) };
+
+
+      // dailyScheduleEnabled Field Functions 
+      bool hasDailyScheduleEnabled() const { return this->dailyScheduleEnabled_ != nullptr;};
+      void deleteDailyScheduleEnabled() { this->dailyScheduleEnabled_ = nullptr;};
+      inline bool getDailyScheduleEnabled() const { DARABONBA_PTR_GET_DEFAULT(dailyScheduleEnabled_, false) };
+      inline Result& setDailyScheduleEnabled(bool dailyScheduleEnabled) { DARABONBA_PTR_SET_VALUE(dailyScheduleEnabled_, dailyScheduleEnabled) };
+
+
+      // diagnosisMode Field Functions 
+      bool hasDiagnosisMode() const { return this->diagnosisMode_ != nullptr;};
+      void deleteDiagnosisMode() { this->diagnosisMode_ = nullptr;};
+      inline string getDiagnosisMode() const { DARABONBA_PTR_GET_DEFAULT(diagnosisMode_, "") };
+      inline Result& setDiagnosisMode(string diagnosisMode) { DARABONBA_PTR_SET_VALUE(diagnosisMode_, diagnosisMode) };
+
+
       // scene Field Functions 
       bool hasScene() const { return this->scene_ != nullptr;};
       void deleteScene() { this->scene_ = nullptr;};
       inline string getScene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
       inline Result& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
+
+
+      // selectedItems Field Functions 
+      bool hasSelectedItems() const { return this->selectedItems_ != nullptr;};
+      void deleteSelectedItems() { this->selectedItems_ = nullptr;};
+      inline const vector<string> & getSelectedItems() const { DARABONBA_PTR_GET_CONST(selectedItems_, vector<string>) };
+      inline vector<string> getSelectedItems() { DARABONBA_PTR_GET(selectedItems_, vector<string>) };
+      inline Result& setSelectedItems(const vector<string> & selectedItems) { DARABONBA_PTR_SET_VALUE(selectedItems_, selectedItems) };
+      inline Result& setSelectedItems(vector<string> && selectedItems) { DARABONBA_PTR_SET_RVALUE(selectedItems_, selectedItems) };
 
 
       // updateTime Field Functions 
@@ -69,9 +118,14 @@ namespace Models
 
 
     protected:
-      // Scenarios of intelligent maintenance.
+      shared_ptr<bool> authorizationStatus_ {};
+      shared_ptr<int32_t> dailyLimit_ {};
+      shared_ptr<bool> dailyScheduleEnabled_ {};
+      shared_ptr<string> diagnosisMode_ {};
+      // The scenario of intelligent O&M.
       shared_ptr<string> scene_ {};
-      // The timestamp of the last update for Intelligent Maintenance scenarios.
+      shared_ptr<vector<string>> selectedItems_ {};
+      // The timestamp when the intelligent O&M scenario was last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -94,9 +148,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned result.
     shared_ptr<DescribeDiagnosisSettingsResponseBody::Result> result_ {};
   };
 

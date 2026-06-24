@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The index template name.
     shared_ptr<string> indexTemplate_ {};
+    // The page number of the instance list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> size_ {};
   };
 

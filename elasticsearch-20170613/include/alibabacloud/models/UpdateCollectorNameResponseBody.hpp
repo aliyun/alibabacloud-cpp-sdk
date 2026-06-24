@@ -158,9 +158,9 @@ namespace Models
 
 
         protected:
-          // The status of the shipper on the ECS instance. Valid values: **heartOk**, **heartLost**, **uninstalled**, and **failed**.
+          // The status of the collector on the ECS instance. Valid values: **heartOk** (normal heartbeat), **heartLost** (abnormal heartbeat), **uninstalled** (not installed), and **failed** (installation failed).
           shared_ptr<string> agentStatus_ {};
-          // The IDs of the ECS instances.
+          // The list of ECS machine IDs.
           shared_ptr<string> instanceId_ {};
         };
 
@@ -273,40 +273,40 @@ namespace Models
       protected:
         // The configuration type. Valid values:
         // 
-        // *   collectorTargetInstance
-        // *   collectorDeployMachine
-        // *   collectorElasticsearchForKibana
+        // - collectorTargetInstance: the collector Output.
+        // - collectorDeployMachine: the machine on which the collector is deployed.
+        // - collectorElasticsearchForKibana: the Elasticsearch instance that supports Kibana Dashboard.
         shared_ptr<string> configType_ {};
-        // Indicates whether monitoring is enabled. This parameter is returned if the value of **configType** is **collectorTargetInstance** and the value of **instanceType** is **elasticsearch**. Valid values:
+        // Indicates whether Monitoring is enabled. Displayed when **configType** is **collectorTargetInstance** and **instanceType** is **elasticsearch**. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Enabled.
+        // - false: Not enabled.
         shared_ptr<bool> enableMonitoring_ {};
-        // The ID of the machine group. This parameter is returned if the value of **configType** is **collectorDeployMachine**.
+        // The machine group ID. Displayed when **configType** is **collectorDeployMachine**.
         shared_ptr<string> groupId_ {};
-        // The private endpoint of Kibana after you enable the Kibana dashboard. This parameter is returned if the value of **configType** is **collectorElasticsearchForKibana**.
+        // The internal-facing access address of Kibana on the private network after Kibana Dashboard is enabled. Displayed when **configType** is **collectorElasticsearchForKibana**.
         shared_ptr<string> host_ {};
         shared_ptr<vector<string>> hosts_ {};
-        // The ID of the resource that is associated with the shipper. If the value of **configType** is **collectorTargetInstance**, the value of this parameter is the ID of the resource specified in the output configuration part of the shipper. If the value of **configType** is **collectorDeployMachine** and the value of **type** is **ACKCluster**, the value of this parameter is the ID of the ACK cluster.
+        // The ID of the instance associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK cluster ID.
         shared_ptr<string> instanceId_ {};
-        // The type of the cluster specified in the output configuration part of the shipper. Valid values: elasticsearch and logstash. This parameter is returned if the value of **configType** is **collectorTargetInstance**.
+        // The type of instance specified in the collector Output. Valid values: elasticsearch and logstash. Displayed when **configType** is **collectorTargetInstance**.
         shared_ptr<string> instanceType_ {};
-        // The public endpoint of Kibana after you enable the Kibana dashboard. This parameter is returned if the value of **configType** is **collectorElasticsearchForKibana**.
+        // The public network access address of Kibana after Kibana Dashboard is enabled. Displayed when **configType** is **collectorElasticsearchForKibana**.
         shared_ptr<string> kibanaHost_ {};
-        // The information about the ECS instances on which the shipper is deployed. This parameter is returned if the value of **configType** is **collectorDeployMachine** and the value of **type** is **ECSInstanceId**.
+        // The list of ECS machines on which the collector is deployed. Displayed when **configType** is **collectorDeployMachines** and **type** is **ECSInstanceId**.
         shared_ptr<vector<ExtendConfigs::Machines>> machines_ {};
         // The transmission protocol. Valid values: **HTTP** and **HTTPS**.
         shared_ptr<string> protocol_ {};
-        // The number of pods from which data is successfully collected in the ACK cluster. This parameter is returned if the value of **configType** is **collectorDeployMachine** and the value of **type** is **ACKCluster**.
+        // The number of pods that are successfully collected in the ACK cluster. Displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
         shared_ptr<string> successPodsCount_ {};
-        // The total number of pods from which data is collected in the ACK cluster. This parameter is returned if the value of **configType** is **collectorDeployMachine** and the value of **type** is **ACKCluster**.
+        // The total number of pods collected in the ACK cluster. Displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
         shared_ptr<string> totalPodsCount_ {};
-        // The type of the machine on which the shipper is deployed. This parameter is returned if the value of **configType** is **collectorDeployMachine**. Valid values:
+        // The type of machine on which the collector is deployed. Displayed when **configType** is **collectorDeployMachine**. Valid values:
         // 
-        // *   ECSInstanceId
-        // *   ACKCluster
+        // - ECSInstanceId: ECS instance.
+        // - ACKCluster: Container Kubernetes cluster.
         shared_ptr<string> type_ {};
-        // The username that is used to access the resource specified in the output configuration part of the shipper. The default value is elastic. This parameter is returned if the value of **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
+        // The username used to access the instance specified in the collector Output. Default value: elastic. Displayed when **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
         shared_ptr<string> userName_ {};
       };
 
@@ -348,9 +348,9 @@ namespace Models
 
 
       protected:
-        // The content of the file.
+        // The file content.
         shared_ptr<string> content_ {};
-        // The name of the file.
+        // The file name.
         shared_ptr<string> fileName_ {};
       };
 
@@ -457,35 +457,35 @@ namespace Models
 
     protected:
       shared_ptr<vector<string>> collectorPaths_ {};
-      // The information about the configuration file of the shipper.
+      // The configuration file information of the collector.
       shared_ptr<vector<Result::Configs>> configs_ {};
-      // Indicates whether a dry run is performed. Valid values:
+      // Indicates whether the collector is validated only without being created. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Only validates without updating.
+      // - false: Validates and updates.
       shared_ptr<bool> dryRun_ {};
-      // The extended configurations of the shipper.
+      // The extended configurations of the collector.
       shared_ptr<vector<Result::ExtendConfigs>> extendConfigs_ {};
-      // The time when the shipper was created.
+      // The time when the collector was created.
       shared_ptr<string> gmtCreatedTime_ {};
-      // The time when the shipper was updated.
+      // The time when the collector was last updated.
       shared_ptr<string> gmtUpdateTime_ {};
-      // The name of the shipper.
+      // The collector name.
       shared_ptr<string> name_ {};
       // The account ID.
       shared_ptr<string> ownerId_ {};
-      // The ID of the shipper.
+      // The collector instance ID.
       shared_ptr<string> resId_ {};
-      // The type of the shipper. Valid values: fileBeat, metricBeat, heartBeat, and audiBeat.
+      // The collector type. Valid values: fileBeat, metricBeat, heartBeat, and audiBeat.
       shared_ptr<string> resType_ {};
-      // The version of the shipper. The version of a shipper depends on the type of the machine on which the shipper is deployed.
+      // The collector version. The supported versions depend on the type of machine on which the collector is deployed:
       // 
-      // *   Elastic Compute Service (ECS) instance: 6.8.5_with_community
-      // *   Container Service for Kubernetes (ACK) cluster: 6.8.13_with_community
+      // - ECS: 6.8.5_with_community
+      // - ACK: 6.8.13_with_community.
       shared_ptr<string> resVersion_ {};
-      // The status of the shipper. Valid values: activating and active.
+      // The collector status. Valid values: activing (taking effect) and active (active).
       shared_ptr<string> status_ {};
-      // The ID of the virtual private cloud (VPC) where the shipper resides.
+      // The ID of the VPC where the collector resides.
       shared_ptr<string> vpcId_ {};
     };
 

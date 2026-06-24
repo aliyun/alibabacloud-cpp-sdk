@@ -88,9 +88,17 @@ namespace Models
 
 
     protected:
+      // Indicates whether the pipeline is available. Valid values:
+      // 
+      // - true: Available.
+      // 
+      // - false: Not available.
       shared_ptr<bool> available_ {};
+      // The error code returned when the pipeline is unavailable.
       shared_ptr<string> code_ {};
+      // The error message returned when the pipeline is unavailable.
       shared_ptr<string> message_ {};
+      // The pipeline ID created in Kibana.
       shared_ptr<string> pipelineId_ {};
     };
 
@@ -113,7 +121,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of results.
     shared_ptr<vector<ListPipelineIdsResponseBody::Result>> result_ {};
   };
 

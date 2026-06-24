@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the service-linked role is created. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true: The service-linked role is created.
-    // *   false: The service-linked role fails to be created.
+    // - true: The service-linked role is created.
+    // - false: The service-linked role failed to be created.
     shared_ptr<bool> result_ {};
   };
 

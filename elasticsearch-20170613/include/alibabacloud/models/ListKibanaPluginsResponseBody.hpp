@@ -99,15 +99,15 @@ namespace Models
 
 
     protected:
-      // The description of the plug-in.
+      // The plugin description.
       shared_ptr<string> description_ {};
-      // The name of the plug-in.
+      // The plugin name.
       shared_ptr<string> name_ {};
-      // The source of the plug-in.
+      // The source of the plugin.
       shared_ptr<string> source_ {};
-      // The URL of the introduction to the plug-in. The value null is supported.
+      // The URL of the plugin introduction. The value can be null.
       shared_ptr<string> specificationUrl_ {};
-      // The installation status of the plug-in.
+      // The installation status of the plugin.
       shared_ptr<string> state_ {};
     };
 
@@ -171,11 +171,11 @@ namespace Models
 
 
   protected:
-    // The request header.
+    // The request headers.
     shared_ptr<ListKibanaPluginsResponseBody::Headers> headers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the plug-ins.
+    // The plugin information returned by the current request.
     shared_ptr<vector<ListKibanaPluginsResponseBody::Result>> result_ {};
   };
 

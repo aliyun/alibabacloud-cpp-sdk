@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // SYSTEM
+    // The plugin name.
     shared_ptr<string> name_ {};
-    // The ID of the request.
+    // The page number.
     shared_ptr<string> page_ {};
-    // The header of the response.
+    // The number of records per page.
     shared_ptr<int32_t> size_ {};
-    // The total number of entries returned.
+    // The plugin source type. Only SYSTEM (system plugin) is supported.
     shared_ptr<string> source_ {};
   };
 

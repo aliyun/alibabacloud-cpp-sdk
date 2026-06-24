@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether ES-operator is installed. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The installation was successful.
+    // - false: The installation failed.
     shared_ptr<bool> result_ {};
   };
 

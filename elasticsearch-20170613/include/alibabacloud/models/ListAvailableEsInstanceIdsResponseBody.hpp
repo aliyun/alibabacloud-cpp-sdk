@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The name of the Elasticsearch cluster.
+      // The name of the Elasticsearch instance.
       shared_ptr<string> description_ {};
-      // The address that is used to access the Elasticsearch cluster over the Internet.
+      // The public network access address of the Elasticsearch instance.
       shared_ptr<string> endpoint_ {};
-      // The ID of the Elasticsearch cluster.
+      // The Elasticsearch instance ID.
       shared_ptr<string> esInstanceId_ {};
-      // The address that is used to access the Kibana console of the Elasticsearch cluster over the Internet.
+      // The public network access address of Kibana.
       shared_ptr<string> kibanaEndpoint_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<vector<ListAvailableEsInstanceIdsResponseBody::Result>> result_ {};
   };
 

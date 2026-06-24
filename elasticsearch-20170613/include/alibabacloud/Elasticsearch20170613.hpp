@@ -21,7 +21,7 @@ namespace Elasticsearch20170613
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+       * @summary Resumes an offline zone. This operation is valid only for multi-zone instances.
        *
        * @param request ActivateZonesRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Elasticsearch20170613
       Models::ActivateZonesResponse activateZonesWithOptions(const string &InstanceId, const Models::ActivateZonesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+       * @summary Resumes an offline zone. This operation is valid only for multi-zone instances.
        *
        * @param request ActivateZonesRequest
        * @return ActivateZonesResponse
@@ -39,7 +39,7 @@ namespace Elasticsearch20170613
       Models::ActivateZonesResponse activateZones(const string &InstanceId, const Models::ActivateZonesRequest &request);
 
       /**
-       * @summary Connects Elasticsearch clusters.
+       * @summary Configures network connectivity to establish a connection between different instances.
        *
        * @param request AddConnectableClusterRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace Elasticsearch20170613
       Models::AddConnectableClusterResponse addConnectableClusterWithOptions(const string &InstanceId, const Models::AddConnectableClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Connects Elasticsearch clusters.
+       * @summary Configures network connectivity to establish a connection between different instances.
        *
        * @param request AddConnectableClusterRequest
        * @return AddConnectableClusterResponse
@@ -57,7 +57,7 @@ namespace Elasticsearch20170613
       Models::AddConnectableClusterResponse addConnectableCluster(const string &InstanceId, const Models::AddConnectableClusterRequest &request);
 
       /**
-       * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+       * @summary Creates a reference repository when setting up a cross-cluster OSS repository.
        *
        * @param request AddSnapshotRepoRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace Elasticsearch20170613
       Models::AddSnapshotRepoResponse addSnapshotRepoWithOptions(const string &InstanceId, const Models::AddSnapshotRepoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+       * @summary Creates a reference repository when setting up a cross-cluster OSS repository.
        *
        * @param request AddSnapshotRepoRequest
        * @return AddSnapshotRepoResponse
@@ -75,7 +75,7 @@ namespace Elasticsearch20170613
       Models::AddSnapshotRepoResponse addSnapshotRepo(const string &InstanceId, const Models::AddSnapshotRepoRequest &request);
 
       /**
-       * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+       * @summary Recovers a frozen Elasticsearch instance that was released.
        *
        * @param request CancelDeletionRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace Elasticsearch20170613
       Models::CancelDeletionResponse cancelDeletionWithOptions(const string &InstanceId, const Models::CancelDeletionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+       * @summary Recovers a frozen Elasticsearch instance that was released.
        *
        * @param request CancelDeletionRequest
        * @return CancelDeletionResponse
@@ -93,7 +93,7 @@ namespace Elasticsearch20170613
       Models::CancelDeletionResponse cancelDeletion(const string &InstanceId, const Models::CancelDeletionRequest &request);
 
       /**
-       * @summary Restores a Logstash cluster that is frozen after it is released.
+       * @summary Resumes a frozen Logstash instance that was frozen after release.
        *
        * @param request CancelLogstashDeletionRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace Elasticsearch20170613
       Models::CancelLogstashDeletionResponse cancelLogstashDeletionWithOptions(const string &InstanceId, const Models::CancelLogstashDeletionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores a Logstash cluster that is frozen after it is released.
+       * @summary Resumes a frozen Logstash instance that was frozen after release.
        *
        * @param request CancelLogstashDeletionRequest
        * @return CancelLogstashDeletionResponse
@@ -111,7 +111,7 @@ namespace Elasticsearch20170613
       Models::CancelLogstashDeletionResponse cancelLogstashDeletion(const string &InstanceId, const Models::CancelLogstashDeletionRequest &request);
 
       /**
-       * @summary Call CancelTask to cancel a data migration task.
+       * @summary Cancels a running data migration task.
        *
        * @param request CancelTaskRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace Elasticsearch20170613
       Models::CancelTaskResponse cancelTaskWithOptions(const string &InstanceId, const Models::CancelTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call CancelTask to cancel a data migration task.
+       * @summary Cancels a running data migration task.
        *
        * @param request CancelTaskRequest
        * @return CancelTaskResponse
@@ -129,7 +129,7 @@ namespace Elasticsearch20170613
       Models::CancelTaskResponse cancelTask(const string &InstanceId, const Models::CancelTaskRequest &request);
 
       /**
-       * @summary Capacity Planning
+       * @summary Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
        *
        * @param request CapacityPlanRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace Elasticsearch20170613
       Models::CapacityPlanResponse capacityPlanWithOptions(const Models::CapacityPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Capacity Planning
+       * @summary Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
        *
        * @param request CapacityPlanRequest
        * @return CapacityPlanResponse
@@ -147,7 +147,7 @@ namespace Elasticsearch20170613
       Models::CapacityPlanResponse capacityPlan(const Models::CapacityPlanRequest &request);
 
       /**
-       * @summary Disables the intelligent O\\&M feature for an Elasticsearch cluster.
+       * @summary Disables the intelligent O&M feature for an instance.
        *
        * @param request CloseDiagnosisRequest
        * @param headers map
@@ -157,7 +157,7 @@ namespace Elasticsearch20170613
       Models::CloseDiagnosisResponse closeDiagnosisWithOptions(const string &InstanceId, const Models::CloseDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the intelligent O\\&M feature for an Elasticsearch cluster.
+       * @summary Disables the intelligent O&M feature for an instance.
        *
        * @param request CloseDiagnosisRequest
        * @return CloseDiagnosisResponse
@@ -165,7 +165,7 @@ namespace Elasticsearch20170613
       Models::CloseDiagnosisResponse closeDiagnosis(const string &InstanceId, const Models::CloseDiagnosisRequest &request);
 
       /**
-       * @summary Call CloseHttps to close the HTTPS protocol.
+       * @summary Disables the HTTPS protocol for a cluster.
        *
        * @param request CloseHttpsRequest
        * @param headers map
@@ -175,7 +175,7 @@ namespace Elasticsearch20170613
       Models::CloseHttpsResponse closeHttpsWithOptions(const string &InstanceId, const Models::CloseHttpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call CloseHttps to close the HTTPS protocol.
+       * @summary Disables the HTTPS protocol for a cluster.
        *
        * @param request CloseHttpsRequest
        * @return CloseHttpsResponse
@@ -183,7 +183,7 @@ namespace Elasticsearch20170613
       Models::CloseHttpsResponse closeHttps(const string &InstanceId, const Models::CloseHttpsRequest &request);
 
       /**
-       * @summary Disable Managed Index
+       * @summary Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
        *
        * @param request CloseManagedIndexRequest
        * @param headers map
@@ -193,7 +193,7 @@ namespace Elasticsearch20170613
       Models::CloseManagedIndexResponse closeManagedIndexWithOptions(const string &InstanceId, const string &Index, const Models::CloseManagedIndexRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disable Managed Index
+       * @summary Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
        *
        * @param request CloseManagedIndexRequest
        * @return CloseManagedIndexResponse
@@ -201,7 +201,7 @@ namespace Elasticsearch20170613
       Models::CloseManagedIndexResponse closeManagedIndex(const string &InstanceId, const string &Index, const Models::CloseManagedIndexRequest &request);
 
       /**
-       * @summary 创建收集器
+       * @summary Creates a collector to collect data from a specified service.
        *
        * @param request CreateCollectorRequest
        * @param headers map
@@ -211,7 +211,7 @@ namespace Elasticsearch20170613
       Models::CreateCollectorResponse createCollectorWithOptions(const Models::CreateCollectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建收集器
+       * @summary Creates a collector to collect data from a specified service.
        *
        * @param request CreateCollectorRequest
        * @return CreateCollectorResponse
@@ -219,7 +219,9 @@ namespace Elasticsearch20170613
       Models::CreateCollectorResponse createCollector(const Models::CreateCollectorRequest &request);
 
       /**
-       * @summary 创建Elasticsearch组合模板
+       * @summary Creates an Elasticsearch composable template.
+       *
+       * @description For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request CreateComponentIndexRequest
        * @param headers map
@@ -229,7 +231,9 @@ namespace Elasticsearch20170613
       Models::CreateComponentIndexResponse createComponentIndexWithOptions(const string &InstanceId, const string &name, const Models::CreateComponentIndexRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Elasticsearch组合模板
+       * @summary Creates an Elasticsearch composable template.
+       *
+       * @description For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request CreateComponentIndexRequest
        * @return CreateComponentIndexResponse
@@ -237,7 +241,9 @@ namespace Elasticsearch20170613
       Models::CreateComponentIndexResponse createComponentIndex(const string &InstanceId, const string &name, const Models::CreateComponentIndexRequest &request);
 
       /**
-       * @summary 创建数据流
+       * @summary Creates a data stream to manage a set of indexes.
+       *
+       * @description > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
        *
        * @param request CreateDataStreamRequest
        * @param headers map
@@ -247,7 +253,9 @@ namespace Elasticsearch20170613
       Models::CreateDataStreamResponse createDataStreamWithOptions(const string &InstanceId, const Models::CreateDataStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据流
+       * @summary Creates a data stream to manage a set of indexes.
+       *
+       * @description > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
        *
        * @param request CreateDataStreamRequest
        * @return CreateDataStreamResponse
@@ -255,7 +263,7 @@ namespace Elasticsearch20170613
       Models::CreateDataStreamResponse createDataStream(const string &InstanceId, const Models::CreateDataStreamRequest &request);
 
       /**
-       * @summary 创建索引生命周期策略
+       * @summary Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
        *
        * @param request CreateILMPolicyRequest
        * @param headers map
@@ -265,7 +273,7 @@ namespace Elasticsearch20170613
       Models::CreateILMPolicyResponse createILMPolicyWithOptions(const string &InstanceId, const Models::CreateILMPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建索引生命周期策略
+       * @summary Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
        *
        * @param request CreateILMPolicyRequest
        * @return CreateILMPolicyResponse
@@ -273,7 +281,7 @@ namespace Elasticsearch20170613
       Models::CreateILMPolicyResponse createILMPolicy(const string &InstanceId, const Models::CreateILMPolicyRequest &request);
 
       /**
-       * @summary 创建索引模版
+       * @summary Creates a cluster index template that can be used for component-based index template settings.
        *
        * @param request CreateIndexTemplateRequest
        * @param headers map
@@ -283,7 +291,7 @@ namespace Elasticsearch20170613
       Models::CreateIndexTemplateResponse createIndexTemplateWithOptions(const string &InstanceId, const Models::CreateIndexTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建索引模版
+       * @summary Creates a cluster index template that can be used for component-based index template settings.
        *
        * @param request CreateIndexTemplateRequest
        * @return CreateIndexTemplateResponse
@@ -291,7 +299,11 @@ namespace Elasticsearch20170613
       Models::CreateIndexTemplateResponse createIndexTemplate(const string &InstanceId, const Models::CreateIndexTemplateRequest &request);
 
       /**
-       * @summary Creates a Logstash cluster.
+       * @summary Creates a Logstash instance by calling CreateLogstash.
+       *
+       * @description Before calling this operation, note the following:
+       * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
+       * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
        *
        * @param request CreateLogstashRequest
        * @param headers map
@@ -301,7 +313,11 @@ namespace Elasticsearch20170613
       Models::CreateLogstashResponse createLogstashWithOptions(const Models::CreateLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Logstash cluster.
+       * @summary Creates a Logstash instance by calling CreateLogstash.
+       *
+       * @description Before calling this operation, note the following:
+       * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
+       * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
        *
        * @param request CreateLogstashRequest
        * @return CreateLogstashResponse
@@ -309,7 +325,7 @@ namespace Elasticsearch20170613
       Models::CreateLogstashResponse createLogstash(const Models::CreateLogstashRequest &request);
 
       /**
-       * @summary Creates a pipeline in a Logstash cluster.
+       * @summary Creates a Logstash pipeline to collect data.
        *
        * @param request CreatePipelinesRequest
        * @param headers map
@@ -319,7 +335,7 @@ namespace Elasticsearch20170613
       Models::CreatePipelinesResponse createPipelinesWithOptions(const string &InstanceId, const Models::CreatePipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pipeline in a Logstash cluster.
+       * @summary Creates a Logstash pipeline to collect data.
        *
        * @param request CreatePipelinesRequest
        * @return CreatePipelinesResponse
@@ -327,7 +343,7 @@ namespace Elasticsearch20170613
       Models::CreatePipelinesResponse createPipelines(const string &InstanceId, const Models::CreatePipelinesRequest &request);
 
       /**
-       * @summary Call CreateSnapshot to manually back up a cluster snapshot.
+       * @summary Calls CreateSnapshot to manually create a snapshot backup of a cluster.
        *
        * @param request CreateSnapshotRequest
        * @param headers map
@@ -337,7 +353,7 @@ namespace Elasticsearch20170613
       Models::CreateSnapshotResponse createSnapshotWithOptions(const string &InstanceId, const Models::CreateSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call CreateSnapshot to manually back up a cluster snapshot.
+       * @summary Calls CreateSnapshot to manually create a snapshot backup of a cluster.
        *
        * @param request CreateSnapshotRequest
        * @return CreateSnapshotResponse
@@ -345,9 +361,9 @@ namespace Elasticsearch20170613
       Models::CreateSnapshotResponse createSnapshot(const string &InstanceId, const Models::CreateSnapshotRequest &request);
 
       /**
-       * @summary 创建私网链接VPC终端节点
+       * @summary Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
        *
-       * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+       * @description For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
        *
        * @param request CreateVpcEndpointRequest
        * @param headers map
@@ -357,9 +373,9 @@ namespace Elasticsearch20170613
       Models::CreateVpcEndpointResponse createVpcEndpointWithOptions(const string &InstanceId, const Models::CreateVpcEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建私网链接VPC终端节点
+       * @summary Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
        *
-       * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+       * @description For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
        *
        * @param request CreateVpcEndpointRequest
        * @return CreateVpcEndpointResponse
@@ -367,7 +383,7 @@ namespace Elasticsearch20170613
       Models::CreateVpcEndpointResponse createVpcEndpoint(const string &InstanceId, const Models::CreateVpcEndpointRequest &request);
 
       /**
-       * @summary Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
+       * @summary Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
        *
        * @param request DeactivateZonesRequest
        * @param headers map
@@ -377,7 +393,7 @@ namespace Elasticsearch20170613
       Models::DeactivateZonesResponse deactivateZonesWithOptions(const string &InstanceId, const Models::DeactivateZonesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
+       * @summary Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
        *
        * @param request DeactivateZonesRequest
        * @return DeactivateZonesResponse
@@ -385,7 +401,7 @@ namespace Elasticsearch20170613
       Models::DeactivateZonesResponse deactivateZones(const string &InstanceId, const Models::DeactivateZonesRequest &request);
 
       /**
-       * @summary Deletes a shipper.
+       * @summary Deletes a specified collector.
        *
        * @param request DeleteCollectorRequest
        * @param headers map
@@ -395,7 +411,7 @@ namespace Elasticsearch20170613
       Models::DeleteCollectorResponse deleteCollectorWithOptions(const string &ResId, const Models::DeleteCollectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a shipper.
+       * @summary Deletes a specified collector.
        *
        * @param request DeleteCollectorRequest
        * @return DeleteCollectorResponse
@@ -403,7 +419,9 @@ namespace Elasticsearch20170613
       Models::DeleteCollectorResponse deleteCollector(const string &ResId, const Models::DeleteCollectorRequest &request);
 
       /**
-       * @summary 删除组合索引模板
+       * @summary Deletes a component index template of Elasticsearch.
+       *
+       * @description For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,14 +430,16 @@ namespace Elasticsearch20170613
       Models::DeleteComponentIndexResponse deleteComponentIndexWithOptions(const string &InstanceId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除组合索引模板
+       * @summary Deletes a component index template of Elasticsearch.
+       *
+       * @description For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @return DeleteComponentIndexResponse
        */
       Models::DeleteComponentIndexResponse deleteComponentIndex(const string &InstanceId, const string &name);
 
       /**
-       * @summary Call DeleteConnectedCluster to remove the interconnected instance.
+       * @summary Deletes the network connectivity between two instances.
        *
        * @param request DeleteConnectedClusterRequest
        * @param headers map
@@ -429,7 +449,7 @@ namespace Elasticsearch20170613
       Models::DeleteConnectedClusterResponse deleteConnectedClusterWithOptions(const string &InstanceId, const Models::DeleteConnectedClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call DeleteConnectedCluster to remove the interconnected instance.
+       * @summary Deletes the network connectivity between two instances.
        *
        * @param request DeleteConnectedClusterRequest
        * @return DeleteConnectedClusterResponse
@@ -437,7 +457,9 @@ namespace Elasticsearch20170613
       Models::DeleteConnectedClusterResponse deleteConnectedCluster(const string &InstanceId, const Models::DeleteConnectedClusterRequest &request);
 
       /**
-       * @summary 删除数据流
+       * @summary Deletes a specified cluster data stream.
+       *
+       * @description > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
        *
        * @param request DeleteDataStreamRequest
        * @param headers map
@@ -447,7 +469,9 @@ namespace Elasticsearch20170613
       Models::DeleteDataStreamResponse deleteDataStreamWithOptions(const string &InstanceId, const string &DataStream, const Models::DeleteDataStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据流
+       * @summary Deletes a specified cluster data stream.
+       *
+       * @description > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
        *
        * @param request DeleteDataStreamRequest
        * @return DeleteDataStreamResponse
@@ -455,7 +479,7 @@ namespace Elasticsearch20170613
       Models::DeleteDataStreamResponse deleteDataStream(const string &InstanceId, const string &DataStream, const Models::DeleteDataStreamRequest &request);
 
       /**
-       * @summary You can call this operation to delete an index migration task.
+       * @summary Deletes an Elasticsearch index migration task.
        *
        * @param request DeleteDataTaskRequest
        * @param headers map
@@ -465,7 +489,7 @@ namespace Elasticsearch20170613
       Models::DeleteDataTaskResponse deleteDataTaskWithOptions(const string &InstanceId, const Models::DeleteDataTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to delete an index migration task.
+       * @summary Deletes an Elasticsearch index migration task.
        *
        * @param request DeleteDataTaskRequest
        * @return DeleteDataTaskResponse
@@ -473,7 +497,9 @@ namespace Elasticsearch20170613
       Models::DeleteDataTaskResponse deleteDataTask(const string &InstanceId, const Models::DeleteDataTaskRequest &request);
 
       /**
-       * @summary 删除历史索引模板
+       * @summary Deletes a historical index template.
+       *
+       * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -482,13 +508,19 @@ namespace Elasticsearch20170613
       Models::DeleteDeprecatedTemplateResponse deleteDeprecatedTemplateWithOptions(const string &InstanceId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除历史索引模板
+       * @summary Deletes a historical index template.
+       *
+       * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @return DeleteDeprecatedTemplateResponse
        */
       Models::DeleteDeprecatedTemplateResponse deleteDeprecatedTemplate(const string &InstanceId, const string &name);
 
       /**
+       * @summary Deletes a specified index lifecycle policy.
+       *
+       * @description > You cannot delete a policy that is currently in use. If the policy is being used to manage any index, the request fails and returns an error.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteILMPolicyResponse
@@ -496,12 +528,18 @@ namespace Elasticsearch20170613
       Models::DeleteILMPolicyResponse deleteILMPolicyWithOptions(const string &InstanceId, const string &PolicyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a specified index lifecycle policy.
+       *
+       * @description > You cannot delete a policy that is currently in use. If the policy is being used to manage any index, the request fails and returns an error.
+       *
        * @return DeleteILMPolicyResponse
        */
       Models::DeleteILMPolicyResponse deleteILMPolicy(const string &InstanceId, const string &PolicyName);
 
       /**
-       * @summary Deletes a top index template.
+       * @summary Deletes a specified index template.
+       *
+       * @description > Before deleting an index template, delete the data streams associated with the index template. Otherwise, the index template cannot be deleted.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,14 +548,19 @@ namespace Elasticsearch20170613
       Models::DeleteIndexTemplateResponse deleteIndexTemplateWithOptions(const string &InstanceId, const string &IndexTemplate, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a top index template.
+       * @summary Deletes a specified index template.
+       *
+       * @description > Before deleting an index template, delete the data streams associated with the index template. Otherwise, the index template cannot be deleted.
        *
        * @return DeleteIndexTemplateResponse
        */
       Models::DeleteIndexTemplateResponse deleteIndexTemplate(const string &InstanceId, const string &IndexTemplate);
 
       /**
-       * @summary You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+       * @summary All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+       *
+       * @description Before you invoke this operation, note the following:
+       * Data cannot be recovered after the instance is released. Back up your data before releasing the instance. For more information, see [Snapshot backup and recovery commands](https://help.aliyun.com/document_detail/65675.html).
        *
        * @param request DeleteInstanceRequest
        * @param headers map
@@ -527,7 +570,10 @@ namespace Elasticsearch20170613
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const string &InstanceId, const Models::DeleteInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+       * @summary All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+       *
+       * @description Before you invoke this operation, note the following:
+       * Data cannot be recovered after the instance is released. Back up your data before releasing the instance. For more information, see [Snapshot backup and recovery commands](https://help.aliyun.com/document_detail/65675.html).
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -535,9 +581,10 @@ namespace Elasticsearch20170613
       Models::DeleteInstanceResponse deleteInstance(const string &InstanceId, const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary Releases a Logstash cluster.
+       * @summary Proactively releases a Logstash instance.
        *
-       * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+       * @description Before calling this operation, note the following:
+       * After the instance is released, all physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, cloud disks mounted to the instance nodes are also released, and the corresponding snapshots are deleted.
        *
        * @param request DeleteLogstashRequest
        * @param headers map
@@ -547,9 +594,10 @@ namespace Elasticsearch20170613
       Models::DeleteLogstashResponse deleteLogstashWithOptions(const string &InstanceId, const Models::DeleteLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a Logstash cluster.
+       * @summary Proactively releases a Logstash instance.
        *
-       * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+       * @description Before calling this operation, note the following:
+       * After the instance is released, all physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, cloud disks mounted to the instance nodes are also released, and the corresponding snapshots are deleted.
        *
        * @param request DeleteLogstashRequest
        * @return DeleteLogstashResponse
@@ -557,7 +605,7 @@ namespace Elasticsearch20170613
       Models::DeleteLogstashResponse deleteLogstash(const string &InstanceId, const Models::DeleteLogstashRequest &request);
 
       /**
-       * @summary Deletes a pipeline that is configured for a Logstash cluster.
+       * @summary Deletes pipelines configured for a Logstash instance.
        *
        * @param request DeletePipelinesRequest
        * @param headers map
@@ -567,7 +615,7 @@ namespace Elasticsearch20170613
       Models::DeletePipelinesResponse deletePipelinesWithOptions(const string &InstanceId, const Models::DeletePipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a pipeline that is configured for a Logstash cluster.
+       * @summary Deletes pipelines configured for a Logstash instance.
        *
        * @param request DeletePipelinesRequest
        * @return DeletePipelinesResponse
@@ -575,7 +623,7 @@ namespace Elasticsearch20170613
       Models::DeletePipelinesResponse deletePipelines(const string &InstanceId, const Models::DeletePipelinesRequest &request);
 
       /**
-       * @summary Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+       * @summary Deletes a cross-cluster OSS reference repository from an instance.
        *
        * @param request DeleteSnapshotRepoRequest
        * @param headers map
@@ -585,7 +633,7 @@ namespace Elasticsearch20170613
       Models::DeleteSnapshotRepoResponse deleteSnapshotRepoWithOptions(const string &InstanceId, const Models::DeleteSnapshotRepoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+       * @summary Deletes a cross-cluster OSS reference repository from an instance.
        *
        * @param request DeleteSnapshotRepoRequest
        * @return DeleteSnapshotRepoResponse
@@ -593,7 +641,7 @@ namespace Elasticsearch20170613
       Models::DeleteSnapshotRepoResponse deleteSnapshotRepo(const string &InstanceId, const Models::DeleteSnapshotRepoRequest &request);
 
       /**
-       * @summary Deletes an endpoint in the VPC within the Elasticsearch service account.
+       * @summary Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
        *
        * @param request DeleteVpcEndpointRequest
        * @param headers map
@@ -603,7 +651,7 @@ namespace Elasticsearch20170613
       Models::DeleteVpcEndpointResponse deleteVpcEndpointWithOptions(const string &InstanceId, const string &EndpointId, const Models::DeleteVpcEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an endpoint in the VPC within the Elasticsearch service account.
+       * @summary Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
        *
        * @param request DeleteVpcEndpointRequest
        * @return DeleteVpcEndpointResponse
@@ -611,9 +659,9 @@ namespace Elasticsearch20170613
       Models::DeleteVpcEndpointResponse deleteVpcEndpoint(const string &InstanceId, const string &EndpointId, const Models::DeleteVpcEndpointRequest &request);
 
       /**
-       * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+       * @summary Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
        *
-       * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+       * @description > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -622,16 +670,16 @@ namespace Elasticsearch20170613
       Models::DescribeAckOperatorResponse describeAckOperatorWithOptions(const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+       * @summary Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
        *
-       * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+       * @description > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
        *
        * @return DescribeAckOperatorResponse
        */
       Models::DescribeAckOperatorResponse describeAckOperator(const string &ClusterId);
 
       /**
-       * @summary Queries the detailed information of a shipper.
+       * @summary Retrieves the details of a collector instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -640,14 +688,16 @@ namespace Elasticsearch20170613
       Models::DescribeCollectorResponse describeCollectorWithOptions(const string &ResId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information of a shipper.
+       * @summary Retrieves the details of a collector instance.
        *
        * @return DescribeCollectorResponse
        */
       Models::DescribeCollectorResponse describeCollector(const string &ResId);
 
       /**
-       * @summary 查看组合索引模板详情
+       * @summary Queries the details of a composable index template in Elasticsearch.
+       *
+       * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -656,14 +706,16 @@ namespace Elasticsearch20170613
       Models::DescribeComponentIndexResponse describeComponentIndexWithOptions(const string &InstanceId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看组合索引模板详情
+       * @summary Queries the details of a composable index template in Elasticsearch.
+       *
+       * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
        *
        * @return DescribeComponentIndexResponse
        */
       Models::DescribeComponentIndexResponse describeComponentIndex(const string &InstanceId, const string &name);
 
       /**
-       * @summary Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+       * @summary Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
        *
        * @param request DescribeConnectableClustersRequest
        * @param headers map
@@ -673,7 +725,7 @@ namespace Elasticsearch20170613
       Models::DescribeConnectableClustersResponse describeConnectableClustersWithOptions(const string &InstanceId, const Models::DescribeConnectableClustersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+       * @summary Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
        *
        * @param request DescribeConnectableClustersRequest
        * @return DescribeConnectableClustersResponse
@@ -681,7 +733,7 @@ namespace Elasticsearch20170613
       Models::DescribeConnectableClustersResponse describeConnectableClusters(const string &InstanceId, const Models::DescribeConnectableClustersRequest &request);
 
       /**
-       * @summary DescribeDeprecatedTemplate
+       * @summary Queries the details of a historical index template.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,14 +742,14 @@ namespace Elasticsearch20170613
       Models::DescribeDeprecatedTemplateResponse describeDeprecatedTemplateWithOptions(const string &InstanceId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeDeprecatedTemplate
+       * @summary Queries the details of a historical index template.
        *
        * @return DescribeDeprecatedTemplateResponse
        */
       Models::DescribeDeprecatedTemplateResponse describeDeprecatedTemplate(const string &InstanceId, const string &name);
 
       /**
-       * @summary Queries a historical intelligent O\\&M report.
+       * @summary Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
        *
        * @param request DescribeDiagnoseReportRequest
        * @param headers map
@@ -707,7 +759,7 @@ namespace Elasticsearch20170613
       Models::DescribeDiagnoseReportResponse describeDiagnoseReportWithOptions(const string &InstanceId, const string &ReportId, const Models::DescribeDiagnoseReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a historical intelligent O\\&M report.
+       * @summary Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
        *
        * @param request DescribeDiagnoseReportRequest
        * @return DescribeDiagnoseReportResponse
@@ -715,7 +767,7 @@ namespace Elasticsearch20170613
       Models::DescribeDiagnoseReportResponse describeDiagnoseReport(const string &InstanceId, const string &ReportId, const Models::DescribeDiagnoseReportRequest &request);
 
       /**
-       * @summary Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+       * @summary Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
        *
        * @param request DescribeDiagnosisSettingsRequest
        * @param headers map
@@ -725,7 +777,7 @@ namespace Elasticsearch20170613
       Models::DescribeDiagnosisSettingsResponse describeDiagnosisSettingsWithOptions(const string &InstanceId, const Models::DescribeDiagnosisSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+       * @summary Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
        *
        * @param request DescribeDiagnosisSettingsRequest
        * @return DescribeDiagnosisSettingsResponse
@@ -733,7 +785,7 @@ namespace Elasticsearch20170613
       Models::DescribeDiagnosisSettingsResponse describeDiagnosisSettings(const string &InstanceId, const Models::DescribeDiagnosisSettingsRequest &request);
 
       /**
-       * @summary 获取集群动态指标
+       * @summary Retrieves dynamic metrics of a cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -742,19 +794,19 @@ namespace Elasticsearch20170613
       Models::DescribeDynamicSettingsResponse describeDynamicSettingsWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取集群动态指标
+       * @summary Retrieves dynamic metrics of a cluster.
        *
        * @return DescribeDynamicSettingsResponse
        */
       Models::DescribeDynamicSettingsResponse describeDynamicSettings(const string &InstanceId);
 
       /**
-       * @summary Check the health status of the cluster and whether it is running normally.
+       * @summary Queries the health status of a cluster to check whether it is running properly.
        *
-       * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-       * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-       * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-       * *   RED: Primary shards are not normally allocated.
+       * @description The instance health status. The following three states are supported:
+       * - GREEN: Primary and replica shards are allocated properly.
+       * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
+       * - RED: Primary shards are not allocated properly.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -763,18 +815,20 @@ namespace Elasticsearch20170613
       Models::DescribeElasticsearchHealthResponse describeElasticsearchHealthWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Check the health status of the cluster and whether it is running normally.
+       * @summary Queries the health status of a cluster to check whether it is running properly.
        *
-       * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-       * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-       * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-       * *   RED: Primary shards are not normally allocated.
+       * @description The instance health status. The following three states are supported:
+       * - GREEN: Primary and replica shards are allocated properly.
+       * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
+       * - RED: Primary shards are not allocated properly.
        *
        * @return DescribeElasticsearchHealthResponse
        */
       Models::DescribeElasticsearchHealthResponse describeElasticsearchHealth(const string &InstanceId);
 
       /**
+       * @summary Queries the details of a specified index lifecycle policy.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeILMPolicyResponse
@@ -782,11 +836,15 @@ namespace Elasticsearch20170613
       Models::DescribeILMPolicyResponse describeILMPolicyWithOptions(const string &InstanceId, const string &PolicyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the details of a specified index lifecycle policy.
+       *
        * @return DescribeILMPolicyResponse
        */
       Models::DescribeILMPolicyResponse describeILMPolicy(const string &InstanceId, const string &PolicyName);
 
       /**
+       * @summary Returns information about an index template.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeIndexTemplateResponse
@@ -794,12 +852,14 @@ namespace Elasticsearch20170613
       Models::DescribeIndexTemplateResponse describeIndexTemplateWithOptions(const string &InstanceId, const string &IndexTemplate, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Returns information about an index template.
+       *
        * @return DescribeIndexTemplateResponse
        */
       Models::DescribeIndexTemplateResponse describeIndexTemplate(const string &InstanceId, const string &IndexTemplate);
 
       /**
-       * @summary The name of the dictionary file.
+       * @summary Queries the details of a specified instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -808,14 +868,14 @@ namespace Elasticsearch20170613
       Models::DescribeInstanceResponse describeInstanceWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The name of the dictionary file.
+       * @summary Queries the details of a specified instance.
        *
        * @return DescribeInstanceResponse
        */
       Models::DescribeInstanceResponse describeInstance(const string &InstanceId);
 
       /**
-       * @summary Get the configuration of the Kibana node for the Elasticsearch cluster.
+       * @summary Retrieves the Kibana node configuration of an Elasticsearch instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -824,14 +884,14 @@ namespace Elasticsearch20170613
       Models::DescribeKibanaSettingsResponse describeKibanaSettingsWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the configuration of the Kibana node for the Elasticsearch cluster.
+       * @summary Retrieves the Kibana node configuration of an Elasticsearch instance.
        *
        * @return DescribeKibanaSettingsResponse
        */
       Models::DescribeKibanaSettingsResponse describeKibanaSettings(const string &InstanceId);
 
       /**
-       * @summary Queries the information about a Logstash cluster.
+       * @summary Queries the details of a Logstash instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -840,14 +900,14 @@ namespace Elasticsearch20170613
       Models::DescribeLogstashResponse describeLogstashWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a Logstash cluster.
+       * @summary Queries the details of a Logstash instance.
        *
        * @return DescribeLogstashResponse
        */
       Models::DescribeLogstashResponse describeLogstash(const string &InstanceId);
 
       /**
-       * @summary Queries the information about a pipeline in a Logstash cluster.
+       * @summary Retrieves the pipeline information of a Logstash instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -856,14 +916,14 @@ namespace Elasticsearch20170613
       Models::DescribePipelineResponse describePipelineWithOptions(const string &InstanceId, const string &PipelineId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a pipeline in a Logstash cluster.
+       * @summary Retrieves the pipeline information of a Logstash instance.
        *
        * @return DescribePipelineResponse
        */
       Models::DescribePipelineResponse describePipeline(const string &InstanceId, const string &PipelineId);
 
       /**
-       * @summary Queries the management configurations of pipelines in a Logstash cluster.
+       * @summary Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
        *
        * @param request DescribePipelineManagementConfigRequest
        * @param headers map
@@ -873,7 +933,7 @@ namespace Elasticsearch20170613
       Models::DescribePipelineManagementConfigResponse describePipelineManagementConfigWithOptions(const string &InstanceId, const Models::DescribePipelineManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the management configurations of pipelines in a Logstash cluster.
+       * @summary Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
        *
        * @param request DescribePipelineManagementConfigRequest
        * @return DescribePipelineManagementConfigResponse
@@ -881,7 +941,7 @@ namespace Elasticsearch20170613
       Models::DescribePipelineManagementConfigResponse describePipelineManagementConfig(const string &InstanceId, const Models::DescribePipelineManagementConfigRequest &request);
 
       /**
-       * @summary Get the region information of Alibaba Cloud Elasticsearch.
+       * @summary Retrieves the region information of Alibaba Cloud Elasticsearch.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -890,14 +950,14 @@ namespace Elasticsearch20170613
       Models::DescribeRegionsResponse describeRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the region information of Alibaba Cloud Elasticsearch.
+       * @summary Retrieves the region information of Alibaba Cloud Elasticsearch.
        *
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary Get the snapshot backup settings of the cluster, backup cycle.
+       * @summary Retrieves the snapshot backup settings and backup cycle of a cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -906,13 +966,15 @@ namespace Elasticsearch20170613
       Models::DescribeSnapshotSettingResponse describeSnapshotSettingWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the snapshot backup settings of the cluster, backup cycle.
+       * @summary Retrieves the snapshot backup settings and backup cycle of a cluster.
        *
        * @return DescribeSnapshotSettingResponse
        */
       Models::DescribeSnapshotSettingResponse describeSnapshotSetting(const string &InstanceId);
 
       /**
+       * @summary Retrieves the scenario-specific template configuration and cluster settings of an instance.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeTemplatesResponse
@@ -920,12 +982,14 @@ namespace Elasticsearch20170613
       Models::DescribeTemplatesResponse describeTemplatesWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the scenario-specific template configuration and cluster settings of an instance.
+       *
        * @return DescribeTemplatesResponse
        */
       Models::DescribeTemplatesResponse describeTemplates(const string &InstanceId);
 
       /**
-       * @summary Queries the X-Pack Monitoring configurations of a Logstash cluster.
+       * @summary Retrieves the X-Pack monitoring configuration of a Logstash instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -934,14 +998,14 @@ namespace Elasticsearch20170613
       Models::DescribeXpackMonitorConfigResponse describeXpackMonitorConfigWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the X-Pack Monitoring configurations of a Logstash cluster.
+       * @summary Retrieves the X-Pack monitoring configuration of a Logstash instance.
        *
        * @return DescribeXpackMonitorConfigResponse
        */
       Models::DescribeXpackMonitorConfigResponse describeXpackMonitorConfig(const string &InstanceId);
 
       /**
-       * @summary Diagnoses an Elasticsearch cluster.
+       * @summary Calls DiagnoseInstance to immediately diagnose an instance.
        *
        * @param request DiagnoseInstanceRequest
        * @param headers map
@@ -951,7 +1015,7 @@ namespace Elasticsearch20170613
       Models::DiagnoseInstanceResponse diagnoseInstanceWithOptions(const string &InstanceId, const Models::DiagnoseInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Diagnoses an Elasticsearch cluster.
+       * @summary Calls DiagnoseInstance to immediately diagnose an instance.
        *
        * @param request DiagnoseInstanceRequest
        * @return DiagnoseInstanceResponse
@@ -959,7 +1023,9 @@ namespace Elasticsearch20170613
       Models::DiagnoseInstanceResponse diagnoseInstance(const string &InstanceId, const Models::DiagnoseInstanceRequest &request);
 
       /**
-       * @summary Disable Private Network Access of Kibana
+       * @summary Disables Kibana private network access.
+       *
+       * @description This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -968,14 +1034,19 @@ namespace Elasticsearch20170613
       Models::DisableKibanaPvlNetworkResponse disableKibanaPvlNetworkWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disable Private Network Access of Kibana
+       * @summary Disables Kibana private network access.
+       *
+       * @description This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
        *
        * @return DisableKibanaPvlNetworkResponse
        */
       Models::DisableKibanaPvlNetworkResponse disableKibanaPvlNetwork(const string &InstanceId);
 
       /**
-       * @summary 开启v3 kibana私网
+       * @summary Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
+       *
+       * @description 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+       * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
        *
        * @param request EnableKibanaPvlNetworkRequest
        * @param headers map
@@ -985,7 +1056,10 @@ namespace Elasticsearch20170613
       Models::EnableKibanaPvlNetworkResponse enableKibanaPvlNetworkWithOptions(const string &InstanceId, const Models::EnableKibanaPvlNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启v3 kibana私网
+       * @summary Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
+       *
+       * @description 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+       * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
        *
        * @param request EnableKibanaPvlNetworkRequest
        * @return EnableKibanaPvlNetworkResponse
@@ -993,7 +1067,7 @@ namespace Elasticsearch20170613
       Models::EnableKibanaPvlNetworkResponse enableKibanaPvlNetwork(const string &InstanceId, const Models::EnableKibanaPvlNetworkRequest &request);
 
       /**
-       * @summary Queries the estimated time that is required to restart a Logstash cluster.
+       * @summary Retrieves the estimated restart time of a Logstash instance.
        *
        * @param request EstimatedLogstashRestartTimeRequest
        * @param headers map
@@ -1003,7 +1077,7 @@ namespace Elasticsearch20170613
       Models::EstimatedLogstashRestartTimeResponse estimatedLogstashRestartTimeWithOptions(const string &InstanceId, const Models::EstimatedLogstashRestartTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the estimated time that is required to restart a Logstash cluster.
+       * @summary Retrieves the estimated restart time of a Logstash instance.
        *
        * @param request EstimatedLogstashRestartTimeRequest
        * @return EstimatedLogstashRestartTimeResponse
@@ -1011,7 +1085,7 @@ namespace Elasticsearch20170613
       Models::EstimatedLogstashRestartTimeResponse estimatedLogstashRestartTime(const string &InstanceId, const Models::EstimatedLogstashRestartTimeRequest &request);
 
       /**
-       * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+       * @summary Retrieves the estimated restart time for an instance.
        *
        * @param request EstimatedRestartTimeRequest
        * @param headers map
@@ -1021,7 +1095,7 @@ namespace Elasticsearch20170613
       Models::EstimatedRestartTimeResponse estimatedRestartTimeWithOptions(const string &InstanceId, const Models::EstimatedRestartTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+       * @summary Retrieves the estimated restart time for an instance.
        *
        * @param request EstimatedRestartTimeRequest
        * @return EstimatedRestartTimeResponse
@@ -1029,7 +1103,7 @@ namespace Elasticsearch20170613
       Models::EstimatedRestartTimeResponse estimatedRestartTime(const string &InstanceId, const Models::EstimatedRestartTimeRequest &request);
 
       /**
-       * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+       * @summary Retrieves index migration data information.
        *
        * @param request GetClusterDataInformationRequest
        * @param headers map
@@ -1039,7 +1113,7 @@ namespace Elasticsearch20170613
       Models::GetClusterDataInformationResponse getClusterDataInformationWithOptions(const Models::GetClusterDataInformationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+       * @summary Retrieves index migration data information.
        *
        * @param request GetClusterDataInformationRequest
        * @return GetClusterDataInformationResponse
@@ -1047,6 +1121,8 @@ namespace Elasticsearch20170613
       Models::GetClusterDataInformationResponse getClusterDataInformation(const Models::GetClusterDataInformationRequest &request);
 
       /**
+       * @summary Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetElastictaskResponse
@@ -1054,6 +1130,8 @@ namespace Elasticsearch20170613
       Models::GetElastictaskResponse getElastictaskWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+       *
        * @return GetElastictaskResponse
        */
       Models::GetElastictaskResponse getElastictask(const string &InstanceId);
@@ -1077,7 +1155,7 @@ namespace Elasticsearch20170613
       Models::GetEmonAlarmRecordStatisticsDistributeResponse getEmonAlarmRecordStatisticsDistribute(const Models::GetEmonAlarmRecordStatisticsDistributeRequest &request);
 
       /**
-       * @summary 获取高级监控报警自定义Grafana监控报警项
+       * @summary Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
        *
        * @param request GetEmonGrafanaAlertsRequest
        * @param headers map
@@ -1087,7 +1165,7 @@ namespace Elasticsearch20170613
       Models::GetEmonGrafanaAlertsResponse getEmonGrafanaAlertsWithOptions(const string &ProjectId, const Models::GetEmonGrafanaAlertsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取高级监控报警自定义Grafana监控报警项
+       * @summary Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
        *
        * @param request GetEmonGrafanaAlertsRequest
        * @return GetEmonGrafanaAlertsResponse
@@ -1095,7 +1173,7 @@ namespace Elasticsearch20170613
       Models::GetEmonGrafanaAlertsResponse getEmonGrafanaAlerts(const string &ProjectId, const Models::GetEmonGrafanaAlertsRequest &request);
 
       /**
-       * @summary 获取高级监控报警自定义Grafana监控大盘列表
+       * @summary Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
        *
        * @param request GetEmonGrafanaDashboardsRequest
        * @param headers map
@@ -1105,7 +1183,7 @@ namespace Elasticsearch20170613
       Models::GetEmonGrafanaDashboardsResponse getEmonGrafanaDashboardsWithOptions(const string &ProjectId, const Models::GetEmonGrafanaDashboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取高级监控报警自定义Grafana监控大盘列表
+       * @summary Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
        *
        * @param request GetEmonGrafanaDashboardsRequest
        * @return GetEmonGrafanaDashboardsResponse
@@ -1113,7 +1191,7 @@ namespace Elasticsearch20170613
       Models::GetEmonGrafanaDashboardsResponse getEmonGrafanaDashboards(const string &ProjectId, const Models::GetEmonGrafanaDashboardsRequest &request);
 
       /**
-       * @summary GetEmonMonitorData
+       * @summary Queries the Grafana metric monitoring data of an Elasticsearch instance.
        *
        * @param request GetEmonMonitorDataRequest
        * @param headers map
@@ -1123,7 +1201,7 @@ namespace Elasticsearch20170613
       Models::GetEmonMonitorDataResponse getEmonMonitorDataWithOptions(const string &ProjectId, const Models::GetEmonMonitorDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetEmonMonitorData
+       * @summary Queries the Grafana metric monitoring data of an Elasticsearch instance.
        *
        * @param request GetEmonMonitorDataRequest
        * @return GetEmonMonitorDataResponse
@@ -1131,7 +1209,7 @@ namespace Elasticsearch20170613
       Models::GetEmonMonitorDataResponse getEmonMonitorData(const string &ProjectId, const Models::GetEmonMonitorDataRequest &request);
 
       /**
-       * @summary 获取keystore信息
+       * @summary Retrieve keystore information
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1140,14 +1218,14 @@ namespace Elasticsearch20170613
       Models::GetKeystoresResponse getKeystoresWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取keystore信息
+       * @summary Retrieve keystore information
        *
        * @return GetKeystoresResponse
        */
       Models::GetKeystoresResponse getKeystores(const string &InstanceId);
 
       /**
-       * @summary View the storage capacity and usage of the OpensStore instance.
+       * @summary Queries the storage capacity and usage of an OpenStore instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1156,14 +1234,14 @@ namespace Elasticsearch20170613
       Models::GetOpenStoreUsageResponse getOpenStoreUsageWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View the storage capacity and usage of the OpensStore instance.
+       * @summary Queries the storage capacity and usage of an OpenStore instance.
        *
        * @return GetOpenStoreUsageResponse
        */
       Models::GetOpenStoreUsageResponse getOpenStoreUsage(const string &InstanceId);
 
       /**
-       * @summary Queries the configuration information about the current region.
+       * @summary Retrieves the current region information.
        *
        * @param request GetRegionConfigurationRequest
        * @param headers map
@@ -1173,7 +1251,7 @@ namespace Elasticsearch20170613
       Models::GetRegionConfigurationResponse getRegionConfigurationWithOptions(const Models::GetRegionConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration information about the current region.
+       * @summary Retrieves the current region information.
        *
        * @param request GetRegionConfigurationRequest
        * @return GetRegionConfigurationResponse
@@ -1197,7 +1275,7 @@ namespace Elasticsearch20170613
       Models::GetRegionalInstanceConfigResponse getRegionalInstanceConfig();
 
       /**
-       * @summary Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
+       * @summary Retrieves the nodes that can be removed based on the specified node type and quantity.
        *
        * @param request GetSuggestShrinkableNodesRequest
        * @param headers map
@@ -1207,7 +1285,7 @@ namespace Elasticsearch20170613
       Models::GetSuggestShrinkableNodesResponse getSuggestShrinkableNodesWithOptions(const string &InstanceId, const Models::GetSuggestShrinkableNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
+       * @summary Retrieves the nodes that can be removed based on the specified node type and quantity.
        *
        * @param request GetSuggestShrinkableNodesRequest
        * @return GetSuggestShrinkableNodesResponse
@@ -1215,7 +1293,7 @@ namespace Elasticsearch20170613
       Models::GetSuggestShrinkableNodesResponse getSuggestShrinkableNodes(const string &InstanceId, const Models::GetSuggestShrinkableNodesRequest &request);
 
       /**
-       * @summary Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
+       * @summary Retrieves the nodes available for data migration based on the specified node type and count.
        *
        * @param request GetTransferableNodesRequest
        * @param headers map
@@ -1225,7 +1303,7 @@ namespace Elasticsearch20170613
       Models::GetTransferableNodesResponse getTransferableNodesWithOptions(const string &InstanceId, const Models::GetTransferableNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
+       * @summary Retrieves the nodes available for data migration based on the specified node type and count.
        *
        * @param request GetTransferableNodesRequest
        * @return GetTransferableNodesResponse
@@ -1233,7 +1311,7 @@ namespace Elasticsearch20170613
       Models::GetTransferableNodesResponse getTransferableNodes(const string &InstanceId, const Models::GetTransferableNodesRequest &request);
 
       /**
-       * @summary 灰度完成继续变更
+       * @summary Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
        *
        * @param request GrayPublishRequest
        * @param headers map
@@ -1243,7 +1321,7 @@ namespace Elasticsearch20170613
       Models::GrayPublishResponse grayPublishWithOptions(const string &InstanceId, const Models::GrayPublishRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 灰度完成继续变更
+       * @summary Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
        *
        * @param request GrayPublishRequest
        * @return GrayPublishResponse
@@ -1251,7 +1329,7 @@ namespace Elasticsearch20170613
       Models::GrayPublishResponse grayPublish(const string &InstanceId, const Models::GrayPublishRequest &request);
 
       /**
-       * @summary 初始化ai模型
+       * @summary Initialize AI model
        *
        * @param request InitModelRequest
        * @param headers map
@@ -1261,7 +1339,7 @@ namespace Elasticsearch20170613
       Models::InitModelResponse initModelWithOptions(const string &InstanceId, const Models::InitModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 初始化ai模型
+       * @summary Initialize AI model
        *
        * @param request InitModelRequest
        * @return InitModelResponse
@@ -1269,9 +1347,9 @@ namespace Elasticsearch20170613
       Models::InitModelResponse initModel(const string &InstanceId, const Models::InitModelRequest &request);
 
       /**
-       * @summary Creates a service-linked role.
+       * @summary Calls the InitializeOperationRole operation to create a service-linked role.
        *
-       * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+       * @description > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
        *
        * @param request InitializeOperationRoleRequest
        * @param headers map
@@ -1281,9 +1359,9 @@ namespace Elasticsearch20170613
       Models::InitializeOperationRoleResponse initializeOperationRoleWithOptions(const Models::InitializeOperationRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service-linked role.
+       * @summary Calls the InitializeOperationRole operation to create a service-linked role.
        *
-       * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+       * @description > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
        *
        * @param request InitializeOperationRoleRequest
        * @return InitializeOperationRoleResponse
@@ -1291,9 +1369,9 @@ namespace Elasticsearch20170613
       Models::InitializeOperationRoleResponse initializeOperationRole(const Models::InitializeOperationRoleRequest &request);
 
       /**
-       * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+       * @summary Installs the ACK Operator on a specified Container Service cluster.
        *
-       * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+       * @description > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
        *
        * @param request InstallAckOperatorRequest
        * @param headers map
@@ -1303,9 +1381,9 @@ namespace Elasticsearch20170613
       Models::InstallAckOperatorResponse installAckOperatorWithOptions(const string &ClusterId, const Models::InstallAckOperatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+       * @summary Installs the ACK Operator on a specified Container Service cluster.
        *
-       * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+       * @description > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
        *
        * @param request InstallAckOperatorRequest
        * @return InstallAckOperatorResponse
@@ -1313,7 +1391,7 @@ namespace Elasticsearch20170613
       Models::InstallAckOperatorResponse installAckOperator(const string &ClusterId, const Models::InstallAckOperatorRequest &request);
 
       /**
-       * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+       * @summary Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
        *
        * @param request InstallKibanaSystemPluginRequest
        * @param headers map
@@ -1323,7 +1401,7 @@ namespace Elasticsearch20170613
       Models::InstallKibanaSystemPluginResponse installKibanaSystemPluginWithOptions(const string &InstanceId, const Models::InstallKibanaSystemPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+       * @summary Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
        *
        * @param request InstallKibanaSystemPluginRequest
        * @return InstallKibanaSystemPluginResponse
@@ -1331,9 +1409,10 @@ namespace Elasticsearch20170613
       Models::InstallKibanaSystemPluginResponse installKibanaSystemPlugin(const string &InstanceId, const Models::InstallKibanaSystemPluginRequest &request);
 
       /**
-       * @summary Installs a plug-in.
+       * @summary Installs system plugins for a specified Logstash instance.
        *
-       * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+       * @description Before calling this operation, note the following:
+       * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
        *
        * @param request InstallLogstashSystemPluginRequest
        * @param headers map
@@ -1343,9 +1422,10 @@ namespace Elasticsearch20170613
       Models::InstallLogstashSystemPluginResponse installLogstashSystemPluginWithOptions(const string &InstanceId, const Models::InstallLogstashSystemPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs a plug-in.
+       * @summary Installs system plugins for a specified Logstash instance.
        *
-       * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+       * @description Before calling this operation, note the following:
+       * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
        *
        * @param request InstallLogstashSystemPluginRequest
        * @return InstallLogstashSystemPluginResponse
@@ -1353,7 +1433,7 @@ namespace Elasticsearch20170613
       Models::InstallLogstashSystemPluginResponse installLogstashSystemPlugin(const string &InstanceId, const Models::InstallLogstashSystemPluginRequest &request);
 
       /**
-       * @summary Call InstallSystemPlugin to install a system preset plug-in.
+       * @summary Installs system plug-ins on an Elasticsearch instance.
        *
        * @param request InstallSystemPluginRequest
        * @param headers map
@@ -1363,7 +1443,7 @@ namespace Elasticsearch20170613
       Models::InstallSystemPluginResponse installSystemPluginWithOptions(const string &InstanceId, const Models::InstallSystemPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call InstallSystemPlugin to install a system preset plug-in.
+       * @summary Installs system plug-ins on an Elasticsearch instance.
        *
        * @param request InstallSystemPluginRequest
        * @return InstallSystemPluginResponse
@@ -1371,7 +1451,9 @@ namespace Elasticsearch20170613
       Models::InstallSystemPluginResponse installSystemPlugin(const string &InstanceId, const Models::InstallSystemPluginRequest &request);
 
       /**
-       * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+       * @summary Installs custom plugins that have been uploaded to the Elasticsearch console.
+       *
+       * @description > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
        *
        * @param request InstallUserPluginsRequest
        * @param headers map
@@ -1381,7 +1463,9 @@ namespace Elasticsearch20170613
       Models::InstallUserPluginsResponse installUserPluginsWithOptions(const string &InstanceId, const Models::InstallUserPluginsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+       * @summary Installs custom plugins that have been uploaded to the Elasticsearch console.
+       *
+       * @description > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
        *
        * @param request InstallUserPluginsRequest
        * @return InstallUserPluginsResponse
@@ -1389,7 +1473,7 @@ namespace Elasticsearch20170613
       Models::InstallUserPluginsResponse installUserPlugins(const string &InstanceId, const Models::InstallUserPluginsRequest &request);
 
       /**
-       * @summary Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+       * @summary Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
        *
        * @param request InterruptElasticsearchTaskRequest
        * @param headers map
@@ -1399,7 +1483,7 @@ namespace Elasticsearch20170613
       Models::InterruptElasticsearchTaskResponse interruptElasticsearchTaskWithOptions(const string &InstanceId, const Models::InterruptElasticsearchTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+       * @summary Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
        *
        * @param request InterruptElasticsearchTaskRequest
        * @return InterruptElasticsearchTaskResponse
@@ -1407,7 +1491,7 @@ namespace Elasticsearch20170613
       Models::InterruptElasticsearchTaskResponse interruptElasticsearchTask(const string &InstanceId, const Models::InterruptElasticsearchTaskRequest &request);
 
       /**
-       * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+       * @summary After the interruption, the instance enters the suspended state.
        *
        * @param request InterruptLogstashTaskRequest
        * @param headers map
@@ -1417,7 +1501,7 @@ namespace Elasticsearch20170613
       Models::InterruptLogstashTaskResponse interruptLogstashTaskWithOptions(const string &InstanceId, const Models::InterruptLogstashTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+       * @summary After the interruption, the instance enters the suspended state.
        *
        * @param request InterruptLogstashTaskRequest
        * @return InterruptLogstashTaskResponse
@@ -1425,7 +1509,7 @@ namespace Elasticsearch20170613
       Models::InterruptLogstashTaskResponse interruptLogstashTask(const string &InstanceId, const Models::InterruptLogstashTaskRequest &request);
 
       /**
-       * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+       * @summary Retrieves the list of Container Service for Kubernetes (ACK) clusters.
        *
        * @param request ListAckClustersRequest
        * @param headers map
@@ -1435,7 +1519,7 @@ namespace Elasticsearch20170613
       Models::ListAckClustersResponse listAckClustersWithOptions(const Models::ListAckClustersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+       * @summary Retrieves the list of Container Service for Kubernetes (ACK) clusters.
        *
        * @param request ListAckClustersRequest
        * @return ListAckClustersResponse
@@ -1443,9 +1527,9 @@ namespace Elasticsearch20170613
       Models::ListAckClustersResponse listAckClusters(const Models::ListAckClustersRequest &request);
 
       /**
-       * @summary View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
+       * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
        *
-       * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+       * @description This operation is deprecated and will be taken offline soon.
        *
        * @param request ListAckNamespacesRequest
        * @param headers map
@@ -1455,9 +1539,9 @@ namespace Elasticsearch20170613
       Models::ListAckNamespacesResponse listAckNamespacesWithOptions(const string &ClusterId, const Models::ListAckNamespacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
+       * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
        *
-       * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+       * @description This operation is deprecated and will be taken offline soon.
        *
        * @param request ListAckNamespacesRequest
        * @return ListAckNamespacesResponse
@@ -1465,7 +1549,7 @@ namespace Elasticsearch20170613
       Models::ListAckNamespacesResponse listAckNamespaces(const string &ClusterId, const Models::ListAckNamespacesRequest &request);
 
       /**
-       * @summary 变更记录 变更详情
+       * @summary Release notes Release notes details.
        *
        * @param request ListActionRecordsRequest
        * @param headers map
@@ -1475,7 +1559,7 @@ namespace Elasticsearch20170613
       Models::ListActionRecordsResponse listActionRecordsWithOptions(const string &InstanceId, const Models::ListActionRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 变更记录 变更详情
+       * @summary Release notes Release notes details.
        *
        * @param request ListActionRecordsRequest
        * @return ListActionRecordsResponse
@@ -1483,7 +1567,7 @@ namespace Elasticsearch20170613
       Models::ListActionRecordsResponse listActionRecords(const string &InstanceId, const Models::ListActionRecordsRequest &request);
 
       /**
-       * @summary Queries the information of all the nodes in an Elasticsearch cluster.
+       * @summary Retrieves information about all nodes in an Elasticsearch cluster.
        *
        * @param request ListAllNodeRequest
        * @param headers map
@@ -1493,7 +1577,7 @@ namespace Elasticsearch20170613
       Models::ListAllNodeResponse listAllNodeWithOptions(const string &InstanceId, const Models::ListAllNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of all the nodes in an Elasticsearch cluster.
+       * @summary Retrieves information about all nodes in an Elasticsearch cluster.
        *
        * @param request ListAllNodeRequest
        * @return ListAllNodeResponse
@@ -1501,7 +1585,7 @@ namespace Elasticsearch20170613
       Models::ListAllNodeResponse listAllNode(const string &InstanceId, const Models::ListAllNodeRequest &request);
 
       /**
-       * @summary Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
+       * @summary Retrieves the OSS reference repositories that can be added to the current instance.
        *
        * @param request ListAlternativeSnapshotReposRequest
        * @param headers map
@@ -1511,7 +1595,7 @@ namespace Elasticsearch20170613
       Models::ListAlternativeSnapshotReposResponse listAlternativeSnapshotReposWithOptions(const string &InstanceId, const Models::ListAlternativeSnapshotReposRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
+       * @summary Retrieves the OSS reference repositories that can be added to the current instance.
        *
        * @param request ListAlternativeSnapshotReposRequest
        * @return ListAlternativeSnapshotReposResponse
@@ -1519,7 +1603,7 @@ namespace Elasticsearch20170613
       Models::ListAlternativeSnapshotReposResponse listAlternativeSnapshotRepos(const string &InstanceId, const Models::ListAlternativeSnapshotReposRequest &request);
 
       /**
-       * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+       * @summary Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1528,14 +1612,14 @@ namespace Elasticsearch20170613
       Models::ListAvailableEsInstanceIdsResponse listAvailableEsInstanceIdsWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+       * @summary Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
        *
        * @return ListAvailableEsInstanceIdsResponse
        */
       Models::ListAvailableEsInstanceIdsResponse listAvailableEsInstanceIds(const string &InstanceId);
 
       /**
-       * @summary Queries a list of shippers.
+       * @summary Retrieves a list of collectors.
        *
        * @param request ListCollectorsRequest
        * @param headers map
@@ -1545,7 +1629,7 @@ namespace Elasticsearch20170613
       Models::ListCollectorsResponse listCollectorsWithOptions(const Models::ListCollectorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of shippers.
+       * @summary Retrieves a list of collectors.
        *
        * @param request ListCollectorsRequest
        * @return ListCollectorsResponse
@@ -1553,7 +1637,9 @@ namespace Elasticsearch20170613
       Models::ListCollectorsResponse listCollectors(const Models::ListCollectorsRequest &request);
 
       /**
-       * @summary ES集群组合索引列表
+       * @summary Retrieves the list of composable templates for an Elasticsearch instance.
+       *
+       * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request ListComponentIndicesRequest
        * @param headers map
@@ -1563,7 +1649,9 @@ namespace Elasticsearch20170613
       Models::ListComponentIndicesResponse listComponentIndicesWithOptions(const string &InstanceId, const Models::ListComponentIndicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ES集群组合索引列表
+       * @summary Retrieves the list of composable templates for an Elasticsearch instance.
+       *
+       * @description For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request ListComponentIndicesRequest
        * @return ListComponentIndicesResponse
@@ -1571,7 +1659,7 @@ namespace Elasticsearch20170613
       Models::ListComponentIndicesResponse listComponentIndices(const string &InstanceId, const Models::ListComponentIndicesRequest &request);
 
       /**
-       * @summary Call ListConnectedClusters to query the instances that are interconnected with the current instance.
+       * @summary Retrieves a list of instances that have established private network peering with the current instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1580,14 +1668,14 @@ namespace Elasticsearch20170613
       Models::ListConnectedClustersResponse listConnectedClustersWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call ListConnectedClusters to query the instances that are interconnected with the current instance.
+       * @summary Retrieves a list of instances that have established private network peering with the current instance.
        *
        * @return ListConnectedClustersResponse
        */
       Models::ListConnectedClustersResponse listConnectedClusters(const string &InstanceId);
 
       /**
-       * @summary 查询数据流
+       * @summary Retrieves the list of index data streams in an Elasticsearch cluster.
        *
        * @param request ListDataStreamsRequest
        * @param headers map
@@ -1597,7 +1685,7 @@ namespace Elasticsearch20170613
       Models::ListDataStreamsResponse listDataStreamsWithOptions(const string &InstanceId, const Models::ListDataStreamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据流
+       * @summary Retrieves the list of index data streams in an Elasticsearch cluster.
        *
        * @param request ListDataStreamsRequest
        * @return ListDataStreamsResponse
@@ -1605,7 +1693,7 @@ namespace Elasticsearch20170613
       Models::ListDataStreamsResponse listDataStreams(const string &InstanceId, const Models::ListDataStreamsRequest &request);
 
       /**
-       * @summary Call ListDataTasks to obtain the information of a data migration task.
+       * @summary Retrieves a list of data migration tasks between different Elasticsearch clusters.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1614,14 +1702,14 @@ namespace Elasticsearch20170613
       Models::ListDataTasksResponse listDataTasksWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call ListDataTasks to obtain the information of a data migration task.
+       * @summary Retrieves a list of data migration tasks between different Elasticsearch clusters.
        *
        * @return ListDataTasksResponse
        */
       Models::ListDataTasksResponse listDataTasks(const string &InstanceId);
 
       /**
-       * @summary Queries the default configuration files of shippers.
+       * @summary Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
        *
        * @param request ListDefaultCollectorConfigurationsRequest
        * @param headers map
@@ -1631,7 +1719,7 @@ namespace Elasticsearch20170613
       Models::ListDefaultCollectorConfigurationsResponse listDefaultCollectorConfigurationsWithOptions(const Models::ListDefaultCollectorConfigurationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the default configuration files of shippers.
+       * @summary Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
        *
        * @param request ListDefaultCollectorConfigurationsRequest
        * @return ListDefaultCollectorConfigurationsResponse
@@ -1639,7 +1727,9 @@ namespace Elasticsearch20170613
       Models::ListDefaultCollectorConfigurationsResponse listDefaultCollectorConfigurations(const Models::ListDefaultCollectorConfigurationsRequest &request);
 
       /**
-       * @summary ListDeprecatedTemplates
+       * @summary Queries the list of historical index templates.
+       *
+       * @description For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request ListDeprecatedTemplatesRequest
        * @param headers map
@@ -1649,7 +1739,9 @@ namespace Elasticsearch20170613
       Models::ListDeprecatedTemplatesResponse listDeprecatedTemplatesWithOptions(const string &InstanceId, const Models::ListDeprecatedTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListDeprecatedTemplates
+       * @summary Queries the list of historical index templates.
+       *
+       * @description For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request ListDeprecatedTemplatesRequest
        * @return ListDeprecatedTemplatesResponse
@@ -1657,7 +1749,7 @@ namespace Elasticsearch20170613
       Models::ListDeprecatedTemplatesResponse listDeprecatedTemplates(const string &InstanceId, const Models::ListDeprecatedTemplatesRequest &request);
 
       /**
-       * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+       * @summary Retrieves the diagnostic indexes from the intelligent O&M module for a specified instance.
        *
        * @param request ListDiagnoseIndicesRequest
        * @param headers map
@@ -1667,7 +1759,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseIndicesResponse listDiagnoseIndicesWithOptions(const string &InstanceId, const Models::ListDiagnoseIndicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+       * @summary Retrieves the diagnostic indexes from the intelligent O&M module for a specified instance.
        *
        * @param request ListDiagnoseIndicesRequest
        * @return ListDiagnoseIndicesResponse
@@ -1675,7 +1767,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseIndicesResponse listDiagnoseIndices(const string &InstanceId, const Models::ListDiagnoseIndicesRequest &request);
 
       /**
-       * @summary Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
+       * @summary Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
        *
        * @param request ListDiagnoseReportRequest
        * @param headers map
@@ -1685,7 +1777,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportResponse listDiagnoseReportWithOptions(const string &InstanceId, const Models::ListDiagnoseReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
+       * @summary Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
        *
        * @param request ListDiagnoseReportRequest
        * @return ListDiagnoseReportResponse
@@ -1693,7 +1785,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportResponse listDiagnoseReport(const string &InstanceId, const Models::ListDiagnoseReportRequest &request);
 
       /**
-       * @summary Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
+       * @summary Retrieves all IDs of Intelligent O&M Center historical reports.
        *
        * @param request ListDiagnoseReportIdsRequest
        * @param headers map
@@ -1703,7 +1795,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportIdsResponse listDiagnoseReportIdsWithOptions(const string &InstanceId, const Models::ListDiagnoseReportIdsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
+       * @summary Retrieves all IDs of Intelligent O&M Center historical reports.
        *
        * @param request ListDiagnoseReportIdsRequest
        * @return ListDiagnoseReportIdsResponse
@@ -1711,7 +1803,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnoseReportIdsResponse listDiagnoseReportIds(const string &InstanceId, const Models::ListDiagnoseReportIdsRequest &request);
 
       /**
-       * @summary Queries the intelligent diagnostic items of an Elasticsearch cluster.
+       * @summary Lists the intelligent diagnostic items for an Elasticsearch instance.
        *
        * @param request ListDiagnosisItemsRequest
        * @param headers map
@@ -1721,7 +1813,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnosisItemsResponse listDiagnosisItemsWithOptions(const Models::ListDiagnosisItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the intelligent diagnostic items of an Elasticsearch cluster.
+       * @summary Lists the intelligent diagnostic items for an Elasticsearch instance.
        *
        * @param request ListDiagnosisItemsRequest
        * @return ListDiagnosisItemsResponse
@@ -1729,7 +1821,7 @@ namespace Elasticsearch20170613
       Models::ListDiagnosisItemsResponse listDiagnosisItems(const Models::ListDiagnosisItemsRequest &request);
 
       /**
-       * @summary Queries information about a dictionary.
+       * @summary Queries the information of a specified dictionary.
        *
        * @param request ListDictInformationRequest
        * @param headers map
@@ -1739,7 +1831,7 @@ namespace Elasticsearch20170613
       Models::ListDictInformationResponse listDictInformationWithOptions(const string &InstanceId, const Models::ListDictInformationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a dictionary.
+       * @summary Queries the information of a specified dictionary.
        *
        * @param request ListDictInformationRequest
        * @return ListDictInformationResponse
@@ -1747,7 +1839,7 @@ namespace Elasticsearch20170613
       Models::ListDictInformationResponse listDictInformation(const string &InstanceId, const Models::ListDictInformationRequest &request);
 
       /**
-       * @summary Queries the details of a specified type of dictionary.
+       * @summary Queries the details of the dictionary list for a specified type.
        *
        * @param request ListDictsRequest
        * @param headers map
@@ -1757,7 +1849,7 @@ namespace Elasticsearch20170613
       Models::ListDictsResponse listDictsWithOptions(const string &InstanceId, const Models::ListDictsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified type of dictionary.
+       * @summary Queries the details of the dictionary list for a specified type.
        *
        * @param request ListDictsRequest
        * @return ListDictsResponse
@@ -1765,9 +1857,10 @@ namespace Elasticsearch20170613
       Models::ListDictsResponse listDicts(const string &InstanceId, const Models::ListDictsRequest &request);
 
       /**
-       * @summary When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
+       * @summary Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
        *
-       * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+       * @description >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+       * .
        *
        * @param request ListEcsInstancesRequest
        * @param headers map
@@ -1777,9 +1870,10 @@ namespace Elasticsearch20170613
       Models::ListEcsInstancesResponse listEcsInstancesWithOptions(const Models::ListEcsInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
+       * @summary Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
        *
-       * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+       * @description >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+       * .
        *
        * @param request ListEcsInstancesRequest
        * @return ListEcsInstancesResponse
@@ -1787,7 +1881,7 @@ namespace Elasticsearch20170613
       Models::ListEcsInstancesResponse listEcsInstances(const Models::ListEcsInstancesRequest &request);
 
       /**
-       * @summary 获取事件列表
+       * @summary Obtain Event List
        *
        * @param request ListEventRecordsRequest
        * @param headers map
@@ -1797,7 +1891,7 @@ namespace Elasticsearch20170613
       Models::ListEventRecordsResponse listEventRecordsWithOptions(const string &eventType, const Models::ListEventRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取事件列表
+       * @summary Obtain Event List
        *
        * @param request ListEventRecordsRequest
        * @return ListEventRecordsResponse
@@ -1805,7 +1899,7 @@ namespace Elasticsearch20170613
       Models::ListEventRecordsResponse listEventRecords(const string &eventType, const Models::ListEventRecordsRequest &request);
 
       /**
-       * @summary Queries the extended file configuration of a Logstash instance.
+       * @summary Retrieves the extension file configuration of a Logstash instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1814,13 +1908,15 @@ namespace Elasticsearch20170613
       Models::ListExtendfilesResponse listExtendfilesWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the extended file configuration of a Logstash instance.
+       * @summary Retrieves the extension file configuration of a Logstash instance.
        *
        * @return ListExtendfilesResponse
        */
       Models::ListExtendfilesResponse listExtendfiles(const string &InstanceId);
 
       /**
+       * @summary Queries the list of index lifecycle policies that have been created for a cluster.
+       *
        * @param request ListILMPoliciesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1829,12 +1925,16 @@ namespace Elasticsearch20170613
       Models::ListILMPoliciesResponse listILMPoliciesWithOptions(const string &InstanceId, const Models::ListILMPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the list of index lifecycle policies that have been created for a cluster.
+       *
        * @param request ListILMPoliciesRequest
        * @return ListILMPoliciesResponse
        */
       Models::ListILMPoliciesResponse listILMPolicies(const string &InstanceId, const Models::ListILMPoliciesRequest &request);
 
       /**
+       * @summary Queries a list of index templates.
+       *
        * @param request ListIndexTemplatesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1843,13 +1943,15 @@ namespace Elasticsearch20170613
       Models::ListIndexTemplatesResponse listIndexTemplatesWithOptions(const string &InstanceId, const Models::ListIndexTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of index templates.
+       *
        * @param request ListIndexTemplatesRequest
        * @return ListIndexTemplatesResponse
        */
       Models::ListIndexTemplatesResponse listIndexTemplates(const string &InstanceId, const Models::ListIndexTemplatesRequest &request);
 
       /**
-       * @summary Queries a list of Elasticsearch clusters.
+       * @summary Queries the information about Elasticsearch instances.
        *
        * @param request ListInstanceRequest
        * @param headers map
@@ -1859,7 +1961,7 @@ namespace Elasticsearch20170613
       Models::ListInstanceResponse listInstanceWithOptions(const Models::ListInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Elasticsearch clusters.
+       * @summary Queries the information about Elasticsearch instances.
        *
        * @param request ListInstanceRequest
        * @return ListInstanceResponse
@@ -1867,7 +1969,7 @@ namespace Elasticsearch20170613
       Models::ListInstanceResponse listInstance(const Models::ListInstanceRequest &request);
 
       /**
-       * @summary 集群触发的硬件运维事件列表
+       * @summary Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
        *
        * @param tmpReq ListInstanceHistoryEventsRequest
        * @param headers map
@@ -1877,7 +1979,7 @@ namespace Elasticsearch20170613
       Models::ListInstanceHistoryEventsResponse listInstanceHistoryEventsWithOptions(const Models::ListInstanceHistoryEventsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 集群触发的硬件运维事件列表
+       * @summary Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
        *
        * @param request ListInstanceHistoryEventsRequest
        * @return ListInstanceHistoryEventsResponse
@@ -1885,7 +1987,10 @@ namespace Elasticsearch20170613
       Models::ListInstanceHistoryEventsResponse listInstanceHistoryEvents(const Models::ListInstanceHistoryEventsRequest &request);
 
       /**
-       * @summary Queries the indexes stored on an Elasticsearch cluster.
+       * @summary Filters system indexes from the index list of a cluster.
+       *
+       * @description The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
+       * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
        *
        * @param request ListInstanceIndicesRequest
        * @param headers map
@@ -1895,7 +2000,10 @@ namespace Elasticsearch20170613
       Models::ListInstanceIndicesResponse listInstanceIndicesWithOptions(const string &InstanceId, const Models::ListInstanceIndicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the indexes stored on an Elasticsearch cluster.
+       * @summary Filters system indexes from the index list of a cluster.
+       *
+       * @description The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
+       * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
        *
        * @param request ListInstanceIndicesRequest
        * @return ListInstanceIndicesResponse
@@ -1903,7 +2011,7 @@ namespace Elasticsearch20170613
       Models::ListInstanceIndicesResponse listInstanceIndices(const string &InstanceId, const Models::ListInstanceIndicesRequest &request);
 
       /**
-       * @summary Queries a list of Kibana plug-ins.
+       * @summary Retrieves the list of plugins installed on the Kibana node of an Elasticsearch instance.
        *
        * @param request ListKibanaPluginsRequest
        * @param headers map
@@ -1913,7 +2021,7 @@ namespace Elasticsearch20170613
       Models::ListKibanaPluginsResponse listKibanaPluginsWithOptions(const string &InstanceId, const Models::ListKibanaPluginsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Kibana plug-ins.
+       * @summary Retrieves the list of plugins installed on the Kibana node of an Elasticsearch instance.
        *
        * @param request ListKibanaPluginsRequest
        * @return ListKibanaPluginsResponse
@@ -1921,7 +2029,9 @@ namespace Elasticsearch20170613
       Models::ListKibanaPluginsResponse listKibanaPlugins(const string &InstanceId, const Models::ListKibanaPluginsRequest &request);
 
       /**
-       * @summary 查询kibana私网连接信息
+       * @summary Queries the details of the Kibana private network connection.
+       *
+       * @description This API operation supports only cloud-native instances.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1930,14 +2040,16 @@ namespace Elasticsearch20170613
       Models::ListKibanaPvlNetworkResponse listKibanaPvlNetworkWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询kibana私网连接信息
+       * @summary Queries the details of the Kibana private network connection.
+       *
+       * @description This API operation supports only cloud-native instances.
        *
        * @return ListKibanaPvlNetworkResponse
        */
       Models::ListKibanaPvlNetworkResponse listKibanaPvlNetwork(const string &InstanceId);
 
       /**
-       * @summary Queries the information about a Logstash cluster or all Logstash clusters.
+       * @summary Displays the details of all or specified Logstash instances in a list.
        *
        * @param request ListLogstashRequest
        * @param headers map
@@ -1947,7 +2059,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashResponse listLogstashWithOptions(const Models::ListLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a Logstash cluster or all Logstash clusters.
+       * @summary Displays the details of all or specified Logstash instances in a list.
        *
        * @param request ListLogstashRequest
        * @return ListLogstashResponse
@@ -1955,7 +2067,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashResponse listLogstash(const Models::ListLogstashRequest &request);
 
       /**
-       * @summary Queries the logs of a Logstash cluster.
+       * @summary Queries the logs of a Logstash instance.
        *
        * @param request ListLogstashLogRequest
        * @param headers map
@@ -1965,7 +2077,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashLogResponse listLogstashLogWithOptions(const string &InstanceId, const Models::ListLogstashLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the logs of a Logstash cluster.
+       * @summary Queries the logs of a Logstash instance.
        *
        * @param request ListLogstashLogRequest
        * @return ListLogstashLogResponse
@@ -1973,7 +2085,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashLogResponse listLogstashLog(const string &InstanceId, const Models::ListLogstashLogRequest &request);
 
       /**
-       * @summary Queries the information about a plug-in or all plug-ins.
+       * @summary Calls ListLogstashPlugins to retrieve detailed information about all or specified plugins.
        *
        * @param request ListLogstashPluginsRequest
        * @param headers map
@@ -1983,7 +2095,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashPluginsResponse listLogstashPluginsWithOptions(const string &InstanceId, const Models::ListLogstashPluginsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a plug-in or all plug-ins.
+       * @summary Calls ListLogstashPlugins to retrieve detailed information about all or specified plugins.
        *
        * @param request ListLogstashPluginsRequest
        * @return ListLogstashPluginsResponse
@@ -1991,7 +2103,7 @@ namespace Elasticsearch20170613
       Models::ListLogstashPluginsResponse listLogstashPlugins(const string &InstanceId, const Models::ListLogstashPluginsRequest &request);
 
       /**
-       * @summary The list of historical reports of Intelligent Maintenance.
+       * @summary Historical report list of intelligent O&M.
        *
        * @param request ListNodesRequest
        * @param headers map
@@ -2001,7 +2113,7 @@ namespace Elasticsearch20170613
       Models::ListNodesResponse listNodesWithOptions(const string &ResId, const Models::ListNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The list of historical reports of Intelligent Maintenance.
+       * @summary Historical report list of intelligent O&M.
        *
        * @param request ListNodesRequest
        * @return ListNodesResponse
@@ -2009,7 +2121,7 @@ namespace Elasticsearch20170613
       Models::ListNodesResponse listNodes(const string &ResId, const Models::ListNodesRequest &request);
 
       /**
-       * @summary Queries a list of pipelines.
+       * @summary Retrieves the pipeline list of a Logstash instance.
        *
        * @param request ListPipelineRequest
        * @param headers map
@@ -2019,7 +2131,7 @@ namespace Elasticsearch20170613
       Models::ListPipelineResponse listPipelineWithOptions(const string &InstanceId, const Models::ListPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of pipelines.
+       * @summary Retrieves the pipeline list of a Logstash instance.
        *
        * @param request ListPipelineRequest
        * @return ListPipelineResponse
@@ -2027,7 +2139,9 @@ namespace Elasticsearch20170613
       Models::ListPipelineResponse listPipeline(const string &InstanceId, const Models::ListPipelineRequest &request);
 
       /**
-       * @summary Queries the IDs of pipelines for a Logstash cluster.
+       * @summary Retrieves the list of pipeline IDs for a Logstash instance.
+       *
+       * @description > Pipeline management is divided into configuration file management and Kibana pipeline management. Kibana pipeline management is not available in the console for some regions.
        *
        * @param request ListPipelineIdsRequest
        * @param headers map
@@ -2037,7 +2151,9 @@ namespace Elasticsearch20170613
       Models::ListPipelineIdsResponse listPipelineIdsWithOptions(const string &InstanceId, const Models::ListPipelineIdsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IDs of pipelines for a Logstash cluster.
+       * @summary Retrieves the list of pipeline IDs for a Logstash instance.
+       *
+       * @description > Pipeline management is divided into configuration file management and Kibana pipeline management. Kibana pipeline management is not available in the console for some regions.
        *
        * @param request ListPipelineIdsRequest
        * @return ListPipelineIdsResponse
@@ -2045,7 +2161,7 @@ namespace Elasticsearch20170613
       Models::ListPipelineIdsResponse listPipelineIds(const string &InstanceId, const Models::ListPipelineIdsRequest &request);
 
       /**
-       * @summary Queries the plug-ins that are installed on a specified Elasticsearch cluster.
+       * @summary Retrieves the plugin list of a specified Alibaba Cloud Elasticsearch instance.
        *
        * @param request ListPluginsRequest
        * @param headers map
@@ -2055,7 +2171,7 @@ namespace Elasticsearch20170613
       Models::ListPluginsResponse listPluginsWithOptions(const string &InstanceId, const Models::ListPluginsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the plug-ins that are installed on a specified Elasticsearch cluster.
+       * @summary Retrieves the plugin list of a specified Alibaba Cloud Elasticsearch instance.
        *
        * @param request ListPluginsRequest
        * @return ListPluginsResponse
@@ -2063,7 +2179,7 @@ namespace Elasticsearch20170613
       Models::ListPluginsResponse listPlugins(const string &InstanceId, const Models::ListPluginsRequest &request);
 
       /**
-       * @summary Queries the logs of an Elasticsearch cluster.
+       * @summary Queries logs of different types for an Elasticsearch instance.
        *
        * @param request ListSearchLogRequest
        * @param headers map
@@ -2073,7 +2189,7 @@ namespace Elasticsearch20170613
       Models::ListSearchLogResponse listSearchLogWithOptions(const string &InstanceId, const Models::ListSearchLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the logs of an Elasticsearch cluster.
+       * @summary Queries logs of different types for an Elasticsearch instance.
        *
        * @param request ListSearchLogRequest
        * @return ListSearchLogResponse
@@ -2081,9 +2197,9 @@ namespace Elasticsearch20170613
       Models::ListSearchLogResponse listSearchLog(const string &InstanceId, const Models::ListSearchLogRequest &request);
 
       /**
-       * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+       * @summary Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
        *
-       * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+       * @description > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
        *
        * @param request ListShardRecoveriesRequest
        * @param headers map
@@ -2093,9 +2209,9 @@ namespace Elasticsearch20170613
       Models::ListShardRecoveriesResponse listShardRecoveriesWithOptions(const string &InstanceId, const Models::ListShardRecoveriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+       * @summary Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
        *
-       * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+       * @description > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
        *
        * @param request ListShardRecoveriesRequest
        * @return ListShardRecoveriesResponse
@@ -2103,7 +2219,7 @@ namespace Elasticsearch20170613
       Models::ListShardRecoveriesResponse listShardRecoveries(const string &InstanceId, const Models::ListShardRecoveriesRequest &request);
 
       /**
-       * @summary Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
+       * @summary Retrieves the list of cross-cluster OSS repository settings for the current instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2112,14 +2228,14 @@ namespace Elasticsearch20170613
       Models::ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceIdWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
+       * @summary Retrieves the list of cross-cluster OSS repository settings for the current instance.
        *
        * @return ListSnapshotReposByInstanceIdResponse
        */
       Models::ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceId(const string &InstanceId);
 
       /**
-       * @summary 统计事件记录
+       * @summary Statistics of management event records
        *
        * @param request ListStatsEventRecordsRequest
        * @param headers map
@@ -2129,7 +2245,7 @@ namespace Elasticsearch20170613
       Models::ListStatsEventRecordsResponse listStatsEventRecordsWithOptions(const Models::ListStatsEventRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 统计事件记录
+       * @summary Statistics of management event records
        *
        * @param request ListStatsEventRecordsRequest
        * @return ListStatsEventRecordsResponse
@@ -2137,7 +2253,7 @@ namespace Elasticsearch20170613
       Models::ListStatsEventRecordsResponse listStatsEventRecords(const Models::ListStatsEventRecordsRequest &request);
 
       /**
-       * @summary Queries the tags that are added to one or more resources.
+       * @summary Retrieves the relationships between all instances and tags.
        *
        * @param request ListTagResourcesRequest
        * @param headers map
@@ -2147,7 +2263,7 @@ namespace Elasticsearch20170613
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are added to one or more resources.
+       * @summary Retrieves the relationships between all instances and tags.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -2155,7 +2271,7 @@ namespace Elasticsearch20170613
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary All tags created by the user in the current region.
+       * @summary Queries all labels created by the user in the current region.
        *
        * @param request ListTagsRequest
        * @param headers map
@@ -2165,7 +2281,7 @@ namespace Elasticsearch20170613
       Models::ListTagsResponse listTagsWithOptions(const Models::ListTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary All tags created by the user in the current region.
+       * @summary Queries all labels created by the user in the current region.
        *
        * @param request ListTagsRequest
        * @return ListTagsResponse
@@ -2173,7 +2289,7 @@ namespace Elasticsearch20170613
       Models::ListTagsResponse listTags(const Models::ListTagsRequest &request);
 
       /**
-       * @summary 用户自定义插件列表
+       * @summary Custom plugin list
        *
        * @param request ListUserPluginRequest
        * @param headers map
@@ -2183,7 +2299,7 @@ namespace Elasticsearch20170613
       Models::ListUserPluginResponse listUserPluginWithOptions(const string &instanceId, const Models::ListUserPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户自定义插件列表
+       * @summary Custom plugin list
        *
        * @param request ListUserPluginRequest
        * @return ListUserPluginResponse
@@ -2191,7 +2307,7 @@ namespace Elasticsearch20170613
       Models::ListUserPluginResponse listUserPlugin(const string &instanceId, const Models::ListUserPluginRequest &request);
 
       /**
-       * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+       * @summary Queries the status of endpoints in the VPC of a service account.
        *
        * @param request ListVpcEndpointsRequest
        * @param headers map
@@ -2201,7 +2317,7 @@ namespace Elasticsearch20170613
       Models::ListVpcEndpointsResponse listVpcEndpointsWithOptions(const string &InstanceId, const Models::ListVpcEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+       * @summary Queries the status of endpoints in the VPC of a service account.
        *
        * @param request ListVpcEndpointsRequest
        * @return ListVpcEndpointsResponse
@@ -2209,13 +2325,13 @@ namespace Elasticsearch20170613
       Models::ListVpcEndpointsResponse listVpcEndpoints(const string &InstanceId, const Models::ListVpcEndpointsRequest &request);
 
       /**
-       * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+       * @summary Migrates nodes in a specified zone to a destination zone.
        *
-       * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-       * *   The error message returned because the current account is in a zone that has sufficient resources.
-       *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-       * *   The cluster is in the healthy state.
-       *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+       * @description When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+       * - Your account has a zone with sufficient resources.
+       *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+       * - The cluster is in a healthy state.
+       *    You can run the `GET _cat/health?v` command to check the cluster health status.
        *
        * @param request MigrateToOtherZoneRequest
        * @param headers map
@@ -2225,13 +2341,13 @@ namespace Elasticsearch20170613
       Models::MigrateToOtherZoneResponse migrateToOtherZoneWithOptions(const string &InstanceId, const Models::MigrateToOtherZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+       * @summary Migrates nodes in a specified zone to a destination zone.
        *
-       * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-       * *   The error message returned because the current account is in a zone that has sufficient resources.
-       *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-       * *   The cluster is in the healthy state.
-       *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+       * @description When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+       * - Your account has a zone with sufficient resources.
+       *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+       * - The cluster is in a healthy state.
+       *    You can run the `GET _cat/health?v` command to check the cluster health status.
        *
        * @param request MigrateToOtherZoneRequest
        * @return MigrateToOtherZoneResponse
@@ -2239,7 +2355,7 @@ namespace Elasticsearch20170613
       Models::MigrateToOtherZoneResponse migrateToOtherZone(const string &InstanceId, const Models::MigrateToOtherZoneRequest &request);
 
       /**
-       * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+       * @summary Updates the ECS instances on which a collector is installed.
        *
        * @param request ModifyDeployMachineRequest
        * @param headers map
@@ -2249,7 +2365,7 @@ namespace Elasticsearch20170613
       Models::ModifyDeployMachineResponse modifyDeployMachineWithOptions(const string &ResId, const Models::ModifyDeployMachineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+       * @summary Updates the ECS instances on which a collector is installed.
        *
        * @param request ModifyDeployMachineRequest
        * @return ModifyDeployMachineResponse
@@ -2257,6 +2373,8 @@ namespace Elasticsearch20170613
       Models::ModifyDeployMachineResponse modifyDeployMachine(const string &ResId, const Models::ModifyDeployMachineRequest &request);
 
       /**
+       * @summary Updates the elastic scaling rules of a cluster.
+       *
        * @param request ModifyElastictaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2265,15 +2383,20 @@ namespace Elasticsearch20170613
       Models::ModifyElastictaskResponse modifyElastictaskWithOptions(const string &InstanceId, const Models::ModifyElastictaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates the elastic scaling rules of a cluster.
+       *
        * @param request ModifyElastictaskRequest
        * @return ModifyElastictaskResponse
        */
       Models::ModifyElastictaskResponse modifyElastictask(const string &InstanceId, const Models::ModifyElastictaskRequest &request);
 
       /**
-       * @summary Enables and modifies the maintenance window of an Elasticsearch cluster.
+       * @summary Modifies and enables the maintenance window for an instance.
        *
-       * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+       * @description Before calling this operation, note the following:
+       * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+       * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
+       * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
        *
        * @param request ModifyInstanceMaintainTimeRequest
        * @param headers map
@@ -2283,9 +2406,12 @@ namespace Elasticsearch20170613
       Models::ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTimeWithOptions(const string &InstanceId, const Models::ModifyInstanceMaintainTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables and modifies the maintenance window of an Elasticsearch cluster.
+       * @summary Modifies and enables the maintenance window for an instance.
        *
-       * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+       * @description Before calling this operation, note the following:
+       * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+       * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
+       * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
        *
        * @param request ModifyInstanceMaintainTimeRequest
        * @return ModifyInstanceMaintainTimeResponse
@@ -2293,7 +2419,7 @@ namespace Elasticsearch20170613
       Models::ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTime(const string &InstanceId, const Models::ModifyInstanceMaintainTimeRequest &request);
 
       /**
-       * @summary 修改计划执行时间
+       * @summary For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
        *
        * @param request ModifyScheduleExecuteTimeRequest
        * @param headers map
@@ -2303,7 +2429,7 @@ namespace Elasticsearch20170613
       Models::ModifyScheduleExecuteTimeResponse modifyScheduleExecuteTimeWithOptions(const string &instanceId, const Models::ModifyScheduleExecuteTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改计划执行时间
+       * @summary For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
        *
        * @param request ModifyScheduleExecuteTimeRequest
        * @return ModifyScheduleExecuteTimeResponse
@@ -2311,9 +2437,14 @@ namespace Elasticsearch20170613
       Models::ModifyScheduleExecuteTimeResponse modifyScheduleExecuteTime(const string &instanceId, const Models::ModifyScheduleExecuteTimeRequest &request);
 
       /**
-       * @summary Updates an IP address whitelist of an Elasticsearch cluster.
+       * @summary Calls ModifyWhiteIps to update the access whitelist of a specified instance.
        *
-       * @description The ID of the cluster.
+       * @description ## Before you begin
+       * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+       *     - IP whitelist list: whiteIpList, nodeType, networkType
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
        *
        * @param request ModifyWhiteIpsRequest
        * @param headers map
@@ -2323,9 +2454,14 @@ namespace Elasticsearch20170613
       Models::ModifyWhiteIpsResponse modifyWhiteIpsWithOptions(const string &InstanceId, const Models::ModifyWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an IP address whitelist of an Elasticsearch cluster.
+       * @summary Calls ModifyWhiteIps to update the access whitelist of a specified instance.
        *
-       * @description The ID of the cluster.
+       * @description ## Before you begin
+       * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+       *     - IP whitelist list: whiteIpList, nodeType, networkType
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
        *
        * @param request ModifyWhiteIpsRequest
        * @return ModifyWhiteIpsResponse
@@ -2333,7 +2469,7 @@ namespace Elasticsearch20170613
       Models::ModifyWhiteIpsResponse modifyWhiteIps(const string &InstanceId, const Models::ModifyWhiteIpsRequest &request);
 
       /**
-       * @summary Migrates an Elasticsearch cluster to a specified resource group.
+       * @summary Modifies the resource group to which an instance belongs.
        *
        * @param request MoveResourceGroupRequest
        * @param headers map
@@ -2343,7 +2479,7 @@ namespace Elasticsearch20170613
       Models::MoveResourceGroupResponse moveResourceGroupWithOptions(const string &InstanceId, const Models::MoveResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Migrates an Elasticsearch cluster to a specified resource group.
+       * @summary Modifies the resource group to which an instance belongs.
        *
        * @param request MoveResourceGroupRequest
        * @return MoveResourceGroupResponse
@@ -2351,7 +2487,7 @@ namespace Elasticsearch20170613
       Models::MoveResourceGroupResponse moveResourceGroup(const string &InstanceId, const Models::MoveResourceGroupRequest &request);
 
       /**
-       * @summary Enables the intelligent O\\\\\\&M feature for an instance.
+       * @summary Enables the intelligent O&M feature for an instance.
        *
        * @param request OpenDiagnosisRequest
        * @param headers map
@@ -2361,7 +2497,7 @@ namespace Elasticsearch20170613
       Models::OpenDiagnosisResponse openDiagnosisWithOptions(const string &InstanceId, const Models::OpenDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the intelligent O\\\\\\&M feature for an instance.
+       * @summary Enables the intelligent O&M feature for an instance.
        *
        * @param request OpenDiagnosisRequest
        * @return OpenDiagnosisResponse
@@ -2369,9 +2505,10 @@ namespace Elasticsearch20170613
       Models::OpenDiagnosisResponse openDiagnosis(const string &InstanceId, const Models::OpenDiagnosisRequest &request);
 
       /**
-       * @summary Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+       * @summary Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
        *
-       * @description >  To ensure data security, we recommend that you enable HTTPS.
+       * @description > - To ensure data security, enable the HTTPS protocol.
+       * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
        *
        * @param request OpenHttpsRequest
        * @param headers map
@@ -2381,9 +2518,10 @@ namespace Elasticsearch20170613
       Models::OpenHttpsResponse openHttpsWithOptions(const string &InstanceId, const Models::OpenHttpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+       * @summary Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
        *
-       * @description >  To ensure data security, we recommend that you enable HTTPS.
+       * @description > - To ensure data security, enable the HTTPS protocol.
+       * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
        *
        * @param request OpenHttpsRequest
        * @return OpenHttpsResponse
@@ -2391,7 +2529,7 @@ namespace Elasticsearch20170613
       Models::OpenHttpsResponse openHttps(const string &InstanceId, const Models::OpenHttpsRequest &request);
 
       /**
-       * @summary 自定义插件解析&上传接口
+       * @summary Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
        *
        * @param request PluginAnalysisRequest
        * @param headers map
@@ -2401,7 +2539,7 @@ namespace Elasticsearch20170613
       Models::PluginAnalysisResponse pluginAnalysisWithOptions(const string &instanceId, const Models::PluginAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义插件解析&上传接口
+       * @summary Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
        *
        * @param request PluginAnalysisRequest
        * @return PluginAnalysisResponse
@@ -2409,7 +2547,9 @@ namespace Elasticsearch20170613
       Models::PluginAnalysisResponse pluginAnalysis(const string &instanceId, const Models::PluginAnalysisRequest &request);
 
       /**
-       * @summary PostEmonTryAlarmRule
+       * @summary Sends a test alert message by calling PostEmonTryAlarmRule.
+       *
+       * @description > This API operation can be called up to 10 times per hour.
        *
        * @param request PostEmonTryAlarmRuleRequest
        * @param headers map
@@ -2419,7 +2559,9 @@ namespace Elasticsearch20170613
       Models::PostEmonTryAlarmRuleResponse postEmonTryAlarmRuleWithOptions(const string &ProjectId, const string &AlarmGroupId, const Models::PostEmonTryAlarmRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary PostEmonTryAlarmRule
+       * @summary Sends a test alert message by calling PostEmonTryAlarmRule.
+       *
+       * @description > This API operation can be called up to 10 times per hour.
        *
        * @param request PostEmonTryAlarmRuleRequest
        * @return PostEmonTryAlarmRuleResponse
@@ -2427,6 +2569,8 @@ namespace Elasticsearch20170613
       Models::PostEmonTryAlarmRuleResponse postEmonTryAlarmRule(const string &ProjectId, const string &AlarmGroupId, const Models::PostEmonTryAlarmRuleRequest &request);
 
       /**
+       * @summary Calls RecommendTemplates to retrieve recommended cluster configurations.
+       *
        * @param request RecommendTemplatesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2435,13 +2579,15 @@ namespace Elasticsearch20170613
       Models::RecommendTemplatesResponse recommendTemplatesWithOptions(const string &InstanceId, const Models::RecommendTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls RecommendTemplates to retrieve recommended cluster configurations.
+       *
        * @param request RecommendTemplatesRequest
        * @return RecommendTemplatesResponse
        */
       Models::RecommendTemplatesResponse recommendTemplates(const string &InstanceId, const Models::RecommendTemplatesRequest &request);
 
       /**
-       * @summary Installs a shipper that failed to be installed when you create the shipper.
+       * @summary Retries the installation of a collector that failed to install during creation.
        *
        * @param request ReinstallCollectorRequest
        * @param headers map
@@ -2451,7 +2597,7 @@ namespace Elasticsearch20170613
       Models::ReinstallCollectorResponse reinstallCollectorWithOptions(const string &ResId, const Models::ReinstallCollectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs a shipper that failed to be installed when you create the shipper.
+       * @summary Retries the installation of a collector that failed to install during creation.
        *
        * @param request ReinstallCollectorRequest
        * @return ReinstallCollectorResponse
@@ -2459,7 +2605,7 @@ namespace Elasticsearch20170613
       Models::ReinstallCollectorResponse reinstallCollector(const string &ResId, const Models::ReinstallCollectorRequest &request);
 
       /**
-       * @summary 从插件库中删除插件，区别于卸载插件
+       * @summary You can delete uploaded but uninstalled plugins from the plugin library.
        *
        * @param request RemovePluginRequest
        * @param headers map
@@ -2469,7 +2615,7 @@ namespace Elasticsearch20170613
       Models::RemovePluginResponse removePluginWithOptions(const string &instanceId, const Models::RemovePluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从插件库中删除插件，区别于卸载插件
+       * @summary You can delete uploaded but uninstalled plugins from the plugin library.
        *
        * @param request RemovePluginRequest
        * @return RemovePluginResponse
@@ -2477,7 +2623,7 @@ namespace Elasticsearch20170613
       Models::RemovePluginResponse removePlugin(const string &instanceId, const Models::RemovePluginRequest &request);
 
       /**
-       * @summary Call RenewInstance to renew a subscription instance.
+       * @summary Renews a subscription Elasticsearch instance.
        *
        * @param request RenewInstanceRequest
        * @param headers map
@@ -2487,7 +2633,7 @@ namespace Elasticsearch20170613
       Models::RenewInstanceResponse renewInstanceWithOptions(const string &InstanceId, const Models::RenewInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call RenewInstance to renew a subscription instance.
+       * @summary Renews a subscription Elasticsearch instance.
        *
        * @param request RenewInstanceRequest
        * @return RenewInstanceResponse
@@ -2495,7 +2641,7 @@ namespace Elasticsearch20170613
       Models::RenewInstanceResponse renewInstance(const string &InstanceId, const Models::RenewInstanceRequest &request);
 
       /**
-       * @summary Renews a Logstash cluster.
+       * @summary Renews a specified Logstash instance.
        *
        * @param request RenewLogstashRequest
        * @param headers map
@@ -2505,7 +2651,7 @@ namespace Elasticsearch20170613
       Models::RenewLogstashResponse renewLogstashWithOptions(const string &InstanceId, const Models::RenewLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews a Logstash cluster.
+       * @summary Renews a specified Logstash instance.
        *
        * @param request RenewLogstashRequest
        * @return RenewLogstashResponse
@@ -2513,7 +2659,7 @@ namespace Elasticsearch20170613
       Models::RenewLogstashResponse renewLogstash(const string &InstanceId, const Models::RenewLogstashRequest &request);
 
       /**
-       * @summary Restarts a shipper.
+       * @summary Restarts a collector to perform data collection.
        *
        * @param request RestartCollectorRequest
        * @param headers map
@@ -2523,7 +2669,7 @@ namespace Elasticsearch20170613
       Models::RestartCollectorResponse restartCollectorWithOptions(const string &ResId, const Models::RestartCollectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts a shipper.
+       * @summary Restarts a collector to perform data collection.
        *
        * @param request RestartCollectorRequest
        * @return RestartCollectorResponse
@@ -2531,9 +2677,9 @@ namespace Elasticsearch20170613
       Models::RestartCollectorResponse restartCollector(const string &ResId, const Models::RestartCollectorRequest &request);
 
       /**
-       * @summary You can call this operation to restart a specified Elasticsearch instance.
+       * @summary Restarts an Elasticsearch cluster.
        *
-       * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+       * @description > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
        *
        * @param request RestartInstanceRequest
        * @param headers map
@@ -2543,9 +2689,9 @@ namespace Elasticsearch20170613
       Models::RestartInstanceResponse restartInstanceWithOptions(const string &InstanceId, const Models::RestartInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to restart a specified Elasticsearch instance.
+       * @summary Restarts an Elasticsearch cluster.
        *
-       * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+       * @description > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
        *
        * @param request RestartInstanceRequest
        * @return RestartInstanceResponse
@@ -2553,7 +2699,7 @@ namespace Elasticsearch20170613
       Models::RestartInstanceResponse restartInstance(const string &InstanceId, const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
+       * @summary Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
        *
        * @param request RestartLogstashRequest
        * @param headers map
@@ -2563,7 +2709,7 @@ namespace Elasticsearch20170613
       Models::RestartLogstashResponse restartLogstashWithOptions(const string &InstanceId, const Models::RestartLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
+       * @summary Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
        *
        * @param request RestartLogstashRequest
        * @return RestartLogstashResponse
@@ -2571,7 +2717,7 @@ namespace Elasticsearch20170613
       Models::RestartLogstashResponse restartLogstash(const string &InstanceId, const Models::RestartLogstashRequest &request);
 
       /**
-       * @summary Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+       * @summary Resumes an interrupted change task for an instance.
        *
        * @param request ResumeElasticsearchTaskRequest
        * @param headers map
@@ -2581,7 +2727,7 @@ namespace Elasticsearch20170613
       Models::ResumeElasticsearchTaskResponse resumeElasticsearchTaskWithOptions(const string &InstanceId, const Models::ResumeElasticsearchTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+       * @summary Resumes an interrupted change task for an instance.
        *
        * @param request ResumeElasticsearchTaskRequest
        * @return ResumeElasticsearchTaskResponse
@@ -2589,7 +2735,7 @@ namespace Elasticsearch20170613
       Models::ResumeElasticsearchTaskResponse resumeElasticsearchTask(const string &InstanceId, const Models::ResumeElasticsearchTaskRequest &request);
 
       /**
-       * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+       * @summary Resumes an interrupted instance change task. After the task is resumed, the instance enters the activating state.
        *
        * @param request ResumeLogstashTaskRequest
        * @param headers map
@@ -2599,7 +2745,7 @@ namespace Elasticsearch20170613
       Models::ResumeLogstashTaskResponse resumeLogstashTaskWithOptions(const string &InstanceId, const Models::ResumeLogstashTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+       * @summary Resumes an interrupted instance change task. After the task is resumed, the instance enters the activating state.
        *
        * @param request ResumeLogstashTaskRequest
        * @return ResumeLogstashTaskResponse
@@ -2607,7 +2753,7 @@ namespace Elasticsearch20170613
       Models::ResumeLogstashTaskResponse resumeLogstashTask(const string &InstanceId, const Models::ResumeLogstashTaskRequest &request);
 
       /**
-       * @summary 滚动数据流，生成新索引
+       * @summary Creates a new index for a data stream or index alias.
        *
        * @param request RolloverDataStreamRequest
        * @param headers map
@@ -2617,7 +2763,7 @@ namespace Elasticsearch20170613
       Models::RolloverDataStreamResponse rolloverDataStreamWithOptions(const string &InstanceId, const string &DataStream, const Models::RolloverDataStreamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 滚动数据流，生成新索引
+       * @summary Creates a new index for a data stream or index alias.
        *
        * @param request RolloverDataStreamRequest
        * @return RolloverDataStreamResponse
@@ -2625,7 +2771,7 @@ namespace Elasticsearch20170613
       Models::RolloverDataStreamResponse rolloverDataStream(const string &InstanceId, const string &DataStream, const Models::RolloverDataStreamRequest &request);
 
       /**
-       * @summary Runs pipelines in a Logstash cluster.
+       * @summary Deploys Logstash pipelines immediately.
        *
        * @param request RunPipelinesRequest
        * @param headers map
@@ -2635,7 +2781,7 @@ namespace Elasticsearch20170613
       Models::RunPipelinesResponse runPipelinesWithOptions(const string &InstanceId, const Models::RunPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs pipelines in a Logstash cluster.
+       * @summary Deploys Logstash pipelines immediately.
        *
        * @param request RunPipelinesRequest
        * @return RunPipelinesResponse
@@ -2643,7 +2789,10 @@ namespace Elasticsearch20170613
       Models::RunPipelinesResponse runPipelines(const string &InstanceId, const Models::RunPipelinesRequest &request);
 
       /**
-       * @summary Removes nodes from an Elasticsearch cluster.
+       * @summary Scales in nodes of a specified role in an Elasticsearch cluster.
+       *
+       * @description Note the following when you invoke this operation:
+       * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
        *
        * @param request ShrinkNodeRequest
        * @param headers map
@@ -2653,7 +2802,10 @@ namespace Elasticsearch20170613
       Models::ShrinkNodeResponse shrinkNodeWithOptions(const string &InstanceId, const Models::ShrinkNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes nodes from an Elasticsearch cluster.
+       * @summary Scales in nodes of a specified role in an Elasticsearch cluster.
+       *
+       * @description Note the following when you invoke this operation:
+       * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
        *
        * @param request ShrinkNodeRequest
        * @return ShrinkNodeResponse
@@ -2679,7 +2831,7 @@ namespace Elasticsearch20170613
       Models::StartCollectorResponse startCollector(const string &ResId, const Models::StartCollectorRequest &request);
 
       /**
-       * @summary Stops a shipper.
+       * @summary Calls StopCollector to stop a running collector.
        *
        * @param request StopCollectorRequest
        * @param headers map
@@ -2689,7 +2841,7 @@ namespace Elasticsearch20170613
       Models::StopCollectorResponse stopCollectorWithOptions(const string &ResId, const Models::StopCollectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a shipper.
+       * @summary Calls StopCollector to stop a running collector.
        *
        * @param request StopCollectorRequest
        * @return StopCollectorResponse
@@ -2697,7 +2849,7 @@ namespace Elasticsearch20170613
       Models::StopCollectorResponse stopCollector(const string &ResId, const Models::StopCollectorRequest &request);
 
       /**
-       * @summary Stops pipelines in a Logstash cluster.
+       * @summary Stops Logstash pipelines by calling StopPipelines.
        *
        * @param request StopPipelinesRequest
        * @param headers map
@@ -2707,7 +2859,7 @@ namespace Elasticsearch20170613
       Models::StopPipelinesResponse stopPipelinesWithOptions(const string &InstanceId, const Models::StopPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops pipelines in a Logstash cluster.
+       * @summary Stops Logstash pipelines by calling StopPipelines.
        *
        * @param request StopPipelinesRequest
        * @return StopPipelinesResponse
@@ -2715,7 +2867,7 @@ namespace Elasticsearch20170613
       Models::StopPipelinesResponse stopPipelines(const string &InstanceId, const Models::StopPipelinesRequest &request);
 
       /**
-       * @summary Adds tags to clusters.
+       * @summary Creates tag-resource relationships for a specified instance.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -2725,7 +2877,7 @@ namespace Elasticsearch20170613
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to clusters.
+       * @summary Creates tag-resource relationships for a specified instance.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2733,7 +2885,7 @@ namespace Elasticsearch20170613
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Runs a data migration task for node scaling operations.
+       * @summary Performs data migration on a node to facilitate node scale-in operations.
        *
        * @param request TransferNodeRequest
        * @param headers map
@@ -2743,7 +2895,7 @@ namespace Elasticsearch20170613
       Models::TransferNodeResponse transferNodeWithOptions(const string &InstanceId, const Models::TransferNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a data migration task for node scaling operations.
+       * @summary Performs data migration on a node to facilitate node scale-in operations.
        *
        * @param request TransferNodeRequest
        * @return TransferNodeResponse
@@ -2751,7 +2903,7 @@ namespace Elasticsearch20170613
       Models::TransferNodeResponse transferNode(const string &InstanceId, const Models::TransferNodeRequest &request);
 
       /**
-       * @summary You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
+       * @summary Enables or shuts down public or private network access for an Elasticsearch or Kibana cluster.
        *
        * @param request TriggerNetworkRequest
        * @param headers map
@@ -2761,7 +2913,7 @@ namespace Elasticsearch20170613
       Models::TriggerNetworkResponse triggerNetworkWithOptions(const string &InstanceId, const Models::TriggerNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
+       * @summary Enables or shuts down public or private network access for an Elasticsearch or Kibana cluster.
        *
        * @param request TriggerNetworkRequest
        * @return TriggerNetworkResponse
@@ -2769,7 +2921,9 @@ namespace Elasticsearch20170613
       Models::TriggerNetworkResponse triggerNetwork(const string &InstanceId, const Models::TriggerNetworkRequest &request);
 
       /**
-       * @summary Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
+       * @summary Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+       *
+       * @description Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
        *
        * @param request TurnOffZoneRequest
        * @param headers map
@@ -2779,7 +2933,9 @@ namespace Elasticsearch20170613
       Models::TurnOffZoneResponse turnOffZoneWithOptions(const string &instanceId, const Models::TurnOffZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
+       * @summary Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+       *
+       * @description Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
        *
        * @param request TurnOffZoneRequest
        * @return TurnOffZoneResponse
@@ -2787,7 +2943,9 @@ namespace Elasticsearch20170613
       Models::TurnOffZoneResponse turnOffZone(const string &instanceId, const Models::TurnOffZoneRequest &request);
 
       /**
-       * @summary Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
+       * @summary Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+       *
+       * @description Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
        *
        * @param request TurnOnZoneRequest
        * @param headers map
@@ -2797,7 +2955,9 @@ namespace Elasticsearch20170613
       Models::TurnOnZoneResponse turnOnZoneWithOptions(const string &instanceId, const Models::TurnOnZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
+       * @summary Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+       *
+       * @description Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
        *
        * @param request TurnOnZoneRequest
        * @return TurnOnZoneResponse
@@ -2805,7 +2965,7 @@ namespace Elasticsearch20170613
       Models::TurnOnZoneResponse turnOnZone(const string &instanceId, const Models::TurnOnZoneRequest &request);
 
       /**
-       * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+       * @summary Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
        *
        * @param request UninstallKibanaPluginRequest
        * @param headers map
@@ -2815,7 +2975,7 @@ namespace Elasticsearch20170613
       Models::UninstallKibanaPluginResponse uninstallKibanaPluginWithOptions(const string &InstanceId, const Models::UninstallKibanaPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+       * @summary Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
        *
        * @param request UninstallKibanaPluginRequest
        * @return UninstallKibanaPluginResponse
@@ -2823,7 +2983,7 @@ namespace Elasticsearch20170613
       Models::UninstallKibanaPluginResponse uninstallKibanaPlugin(const string &InstanceId, const Models::UninstallKibanaPluginRequest &request);
 
       /**
-       * @summary Removes one or more Logstash plug-ins.
+       * @summary Uninstalls installed plug-ins from a Logstash instance.
        *
        * @param request UninstallLogstashPluginRequest
        * @param headers map
@@ -2833,7 +2993,7 @@ namespace Elasticsearch20170613
       Models::UninstallLogstashPluginResponse uninstallLogstashPluginWithOptions(const string &InstanceId, const Models::UninstallLogstashPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes one or more Logstash plug-ins.
+       * @summary Uninstalls installed plug-ins from a Logstash instance.
        *
        * @param request UninstallLogstashPluginRequest
        * @return UninstallLogstashPluginResponse
@@ -2841,7 +3001,7 @@ namespace Elasticsearch20170613
       Models::UninstallLogstashPluginResponse uninstallLogstashPlugin(const string &InstanceId, const Models::UninstallLogstashPluginRequest &request);
 
       /**
-       * @summary Call UninstallPlugin to uninstall the preset plug-in.
+       * @summary Uninstalls system plug-ins from an Elasticsearch instance.
        *
        * @param request UninstallPluginRequest
        * @param headers map
@@ -2851,7 +3011,7 @@ namespace Elasticsearch20170613
       Models::UninstallPluginResponse uninstallPluginWithOptions(const string &InstanceId, const Models::UninstallPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UninstallPlugin to uninstall the preset plug-in.
+       * @summary Uninstalls system plug-ins from an Elasticsearch instance.
        *
        * @param request UninstallPluginRequest
        * @return UninstallPluginResponse
@@ -2859,12 +3019,13 @@ namespace Elasticsearch20170613
       Models::UninstallPluginResponse uninstallPlugin(const string &InstanceId, const Models::UninstallPluginRequest &request);
 
       /**
-       * @summary Deletes a user resource tag relationship.
+       * @summary Deletes user resource tag associations for a specified instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * *   You can only delete user tags.
-       * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-       * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+       * @description When calling this operation, note the following:
+       * - Only user tags can be deleted.
+       *   
+       *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
+       * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
        *
        * @param request UntagResourcesRequest
        * @param headers map
@@ -2874,12 +3035,13 @@ namespace Elasticsearch20170613
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a user resource tag relationship.
+       * @summary Deletes user resource tag associations for a specified instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * *   You can only delete user tags.
-       * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-       * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+       * @description When calling this operation, note the following:
+       * - Only user tags can be deleted.
+       *   
+       *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
+       * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -2887,9 +3049,10 @@ namespace Elasticsearch20170613
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
+       * @summary Updates the password of the elastic account for a specified Elasticsearch instance.
        *
-       * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+       * @description When you invoke this operation, note the following:
+       * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateAdminPasswordRequest
        * @param headers map
@@ -2899,9 +3062,10 @@ namespace Elasticsearch20170613
       Models::UpdateAdminPasswordResponse updateAdminPasswordWithOptions(const string &InstanceId, const Models::UpdateAdminPasswordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
+       * @summary Updates the password of the elastic account for a specified Elasticsearch instance.
        *
-       * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+       * @description When you invoke this operation, note the following:
+       * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateAdminPasswordRequest
        * @return UpdateAdminPasswordResponse
@@ -2909,7 +3073,7 @@ namespace Elasticsearch20170613
       Models::UpdateAdminPasswordResponse updateAdminPassword(const string &InstanceId, const Models::UpdateAdminPasswordRequest &request);
 
       /**
-       * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+       * @summary Changes the garbage collector configuration of a specified Elasticsearch instance.
        *
        * @param request UpdateAdvancedSettingRequest
        * @param headers map
@@ -2919,7 +3083,7 @@ namespace Elasticsearch20170613
       Models::UpdateAdvancedSettingResponse updateAdvancedSettingWithOptions(const string &InstanceId, const Models::UpdateAdvancedSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+       * @summary Changes the garbage collector configuration of a specified Elasticsearch instance.
        *
        * @param request UpdateAdvancedSettingRequest
        * @return UpdateAdvancedSettingResponse
@@ -2927,12 +3091,12 @@ namespace Elasticsearch20170613
       Models::UpdateAdvancedSettingResponse updateAdvancedSetting(const string &InstanceId, const Models::UpdateAdvancedSettingRequest &request);
 
       /**
-       * @summary Updates the dictionary file of the analysis-aliws plug-in.
+       * @summary Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
+       * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+       * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
        *
        * @param request UpdateAliwsDictRequest
        * @param headers map
@@ -2942,12 +3106,12 @@ namespace Elasticsearch20170613
       Models::UpdateAliwsDictResponse updateAliwsDictWithOptions(const string &InstanceId, const Models::UpdateAliwsDictRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the dictionary file of the analysis-aliws plug-in.
+       * @summary Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
+       * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+       * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
        *
        * @param request UpdateAliwsDictRequest
        * @return UpdateAliwsDictResponse
@@ -2957,7 +3121,7 @@ namespace Elasticsearch20170613
       /**
        * @deprecated OpenAPI UpdateBlackIps is deprecated
        *
-       * @summary 修改ES实例访问黑名单，已废弃
+       * @summary Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
        *
        * @param request UpdateBlackIpsRequest
        * @param headers map
@@ -2969,7 +3133,7 @@ namespace Elasticsearch20170613
       /**
        * @deprecated OpenAPI UpdateBlackIps is deprecated
        *
-       * @summary 修改ES实例访问黑名单，已废弃
+       * @summary Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
        *
        * @param request UpdateBlackIpsRequest
        * @return UpdateBlackIpsResponse
@@ -2977,7 +3141,7 @@ namespace Elasticsearch20170613
       Models::UpdateBlackIpsResponse updateBlackIps(const string &InstanceId, const Models::UpdateBlackIpsRequest &request);
 
       /**
-       * @summary Updates the configurations of a shipper.
+       * @summary Modifies the configuration of a collector.
        *
        * @param request UpdateCollectorRequest
        * @param headers map
@@ -2987,7 +3151,7 @@ namespace Elasticsearch20170613
       Models::UpdateCollectorResponse updateCollectorWithOptions(const string &ResId, const Models::UpdateCollectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of a shipper.
+       * @summary Modifies the configuration of a collector.
        *
        * @param request UpdateCollectorRequest
        * @return UpdateCollectorResponse
@@ -2995,7 +3159,7 @@ namespace Elasticsearch20170613
       Models::UpdateCollectorResponse updateCollector(const string &ResId, const Models::UpdateCollectorRequest &request);
 
       /**
-       * @summary Changes the name of a shipper.
+       * @summary Calls UpdateCollectorName to modify the name of a collector.
        *
        * @param request UpdateCollectorNameRequest
        * @param headers map
@@ -3005,7 +3169,7 @@ namespace Elasticsearch20170613
       Models::UpdateCollectorNameResponse updateCollectorNameWithOptions(const string &ResId, const Models::UpdateCollectorNameRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the name of a shipper.
+       * @summary Calls UpdateCollectorName to modify the name of a collector.
        *
        * @param request UpdateCollectorNameRequest
        * @return UpdateCollectorNameResponse
@@ -3013,7 +3177,9 @@ namespace Elasticsearch20170613
       Models::UpdateCollectorNameResponse updateCollectorName(const string &ResId, const Models::UpdateCollectorNameRequest &request);
 
       /**
-       * @summary 修改ES集群动态索引
+       * @summary Updates a composable index template for an Elasticsearch instance.
+       *
+       * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request UpdateComponentIndexRequest
        * @param headers map
@@ -3023,7 +3189,9 @@ namespace Elasticsearch20170613
       Models::UpdateComponentIndexResponse updateComponentIndexWithOptions(const string &InstanceId, const string &name, const Models::UpdateComponentIndexRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改ES集群动态索引
+       * @summary Updates a composable index template for an Elasticsearch instance.
+       *
+       * @description For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
        *
        * @param request UpdateComponentIndexRequest
        * @return UpdateComponentIndexResponse
@@ -3031,7 +3199,7 @@ namespace Elasticsearch20170613
       Models::UpdateComponentIndexResponse updateComponentIndex(const string &InstanceId, const string &name, const Models::UpdateComponentIndexRequest &request);
 
       /**
-       * @summary Changes the name of a specified Elasticsearch cluster.
+       * @summary Changes the name of an Elasticsearch instance.
        *
        * @param request UpdateDescriptionRequest
        * @param headers map
@@ -3041,7 +3209,7 @@ namespace Elasticsearch20170613
       Models::UpdateDescriptionResponse updateDescriptionWithOptions(const string &InstanceId, const Models::UpdateDescriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the name of a specified Elasticsearch cluster.
+       * @summary Changes the name of an Elasticsearch instance.
        *
        * @param request UpdateDescriptionRequest
        * @return UpdateDescriptionResponse
@@ -3049,7 +3217,7 @@ namespace Elasticsearch20170613
       Models::UpdateDescriptionResponse updateDescription(const string &InstanceId, const Models::UpdateDescriptionRequest &request);
 
       /**
-       * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
+       * @summary Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
        *
        * @param request UpdateDiagnosisSettingsRequest
        * @param headers map
@@ -3059,7 +3227,7 @@ namespace Elasticsearch20170613
       Models::UpdateDiagnosisSettingsResponse updateDiagnosisSettingsWithOptions(const string &InstanceId, const Models::UpdateDiagnosisSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
+       * @summary Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
        *
        * @param request UpdateDiagnosisSettingsRequest
        * @return UpdateDiagnosisSettingsResponse
@@ -3067,11 +3235,11 @@ namespace Elasticsearch20170613
       Models::UpdateDiagnosisSettingsResponse updateDiagnosisSettings(const string &InstanceId, const Models::UpdateDiagnosisSettingsRequest &request);
 
       /**
-       * @summary Updates a dictionary of an Elasticsearch cluster.
+       * @summary Updates the user dictionary of an Elasticsearch instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
+       * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
        *
        * @param request UpdateDictRequest
        * @param headers map
@@ -3081,11 +3249,11 @@ namespace Elasticsearch20170613
       Models::UpdateDictResponse updateDictWithOptions(const string &InstanceId, const Models::UpdateDictRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a dictionary of an Elasticsearch cluster.
+       * @summary Updates the user dictionary of an Elasticsearch instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
+       * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
        *
        * @param request UpdateDictRequest
        * @return UpdateDictResponse
@@ -3093,7 +3261,7 @@ namespace Elasticsearch20170613
       Models::UpdateDictResponse updateDict(const string &InstanceId, const Models::UpdateDictRequest &request);
 
       /**
-       * @summary 修改集群动态配置
+       * @summary Modify Cluster Dynamic Configuration
        *
        * @param request UpdateDynamicSettingsRequest
        * @param headers map
@@ -3103,7 +3271,7 @@ namespace Elasticsearch20170613
       Models::UpdateDynamicSettingsResponse updateDynamicSettingsWithOptions(const string &InstanceId, const Models::UpdateDynamicSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改集群动态配置
+       * @summary Modify Cluster Dynamic Configuration
        *
        * @param request UpdateDynamicSettingsRequest
        * @return UpdateDynamicSettingsResponse
@@ -3111,6 +3279,8 @@ namespace Elasticsearch20170613
       Models::UpdateDynamicSettingsResponse updateDynamicSettings(const string &InstanceId, const Models::UpdateDynamicSettingsRequest &request);
 
       /**
+       * @summary Modifies the scenario-based configuration template of an Elasticsearch instance.
+       *
        * @param request UpdateExtendConfigRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -3119,15 +3289,17 @@ namespace Elasticsearch20170613
       Models::UpdateExtendConfigResponse updateExtendConfigWithOptions(const string &InstanceId, const Models::UpdateExtendConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies the scenario-based configuration template of an Elasticsearch instance.
+       *
        * @param request UpdateExtendConfigRequest
        * @return UpdateExtendConfigResponse
        */
       Models::UpdateExtendConfigResponse updateExtendConfig(const string &InstanceId, const Models::UpdateExtendConfigRequest &request);
 
       /**
-       * @summary Updates the driver files of a Logstash cluster.
+       * @summary Updates the extension file configuration of a Logstash instance.
        *
-       * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+       * @description When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
        *
        * @param request UpdateExtendfilesRequest
        * @param headers map
@@ -3137,9 +3309,9 @@ namespace Elasticsearch20170613
       Models::UpdateExtendfilesResponse updateExtendfilesWithOptions(const string &InstanceId, const Models::UpdateExtendfilesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the driver files of a Logstash cluster.
+       * @summary Updates the extension file configuration of a Logstash instance.
        *
-       * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+       * @description When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
        *
        * @param request UpdateExtendfilesRequest
        * @return UpdateExtendfilesResponse
@@ -3147,7 +3319,7 @@ namespace Elasticsearch20170613
       Models::UpdateExtendfilesResponse updateExtendfiles(const string &InstanceId, const Models::UpdateExtendfilesRequest &request);
 
       /**
-       * @summary 修改FalconSeek配置
+       * @summary Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
        *
        * @param request UpdateFalconSeekRequest
        * @param headers map
@@ -3157,7 +3329,7 @@ namespace Elasticsearch20170613
       Models::UpdateFalconSeekResponse updateFalconSeekWithOptions(const string &InstanceId, const Models::UpdateFalconSeekRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改FalconSeek配置
+       * @summary Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
        *
        * @param request UpdateFalconSeekRequest
        * @return UpdateFalconSeekResponse
@@ -3165,11 +3337,11 @@ namespace Elasticsearch20170613
       Models::UpdateFalconSeekResponse updateFalconSeek(const string &InstanceId, const Models::UpdateFalconSeekRequest &request);
 
       /**
-       * @summary null
+       * @summary Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+       * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
        *
        * @param request UpdateHotIkDictsRequest
        * @param headers map
@@ -3179,11 +3351,11 @@ namespace Elasticsearch20170613
       Models::UpdateHotIkDictsResponse updateHotIkDictsWithOptions(const string &InstanceId, const Models::UpdateHotIkDictsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary null
+       * @summary Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+       * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
        *
        * @param request UpdateHotIkDictsRequest
        * @return UpdateHotIkDictsResponse
@@ -3191,7 +3363,7 @@ namespace Elasticsearch20170613
       Models::UpdateHotIkDictsResponse updateHotIkDicts(const string &InstanceId, const Models::UpdateHotIkDictsRequest &request);
 
       /**
-       * @summary 修改ES集群索引生命周期策略
+       * @summary Modifies the lifecycle policy of an Elasticsearch index.
        *
        * @param request UpdateILMPolicyRequest
        * @param headers map
@@ -3201,7 +3373,7 @@ namespace Elasticsearch20170613
       Models::UpdateILMPolicyResponse updateILMPolicyWithOptions(const string &InstanceId, const string &PolicyName, const Models::UpdateILMPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改ES集群索引生命周期策略
+       * @summary Modifies the lifecycle policy of an Elasticsearch index.
        *
        * @param request UpdateILMPolicyRequest
        * @return UpdateILMPolicyResponse
@@ -3209,7 +3381,7 @@ namespace Elasticsearch20170613
       Models::UpdateILMPolicyResponse updateILMPolicy(const string &InstanceId, const string &PolicyName, const Models::UpdateILMPolicyRequest &request);
 
       /**
-       * @summary 修改ES集群索引模版配置
+       * @summary Modifies the template configuration of an Elasticsearch instance.
        *
        * @param request UpdateIndexTemplateRequest
        * @param headers map
@@ -3219,7 +3391,7 @@ namespace Elasticsearch20170613
       Models::UpdateIndexTemplateResponse updateIndexTemplateWithOptions(const string &InstanceId, const string &IndexTemplate, const Models::UpdateIndexTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改ES集群索引模版配置
+       * @summary Modifies the template configuration of an Elasticsearch instance.
        *
        * @param request UpdateIndexTemplateRequest
        * @return UpdateIndexTemplateResponse
@@ -3227,9 +3399,10 @@ namespace Elasticsearch20170613
       Models::UpdateIndexTemplateResponse updateIndexTemplate(const string &InstanceId, const string &IndexTemplate, const Models::UpdateIndexTemplateRequest &request);
 
       /**
-       * @summary Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
+       * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
        *
-       * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+       * @description When you call this operation, note the following items:
+       * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
        *
        * @param request UpdateInstanceRequest
        * @param headers map
@@ -3239,9 +3412,10 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceResponse updateInstanceWithOptions(const string &InstanceId, const Models::UpdateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
+       * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
        *
-       * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+       * @description When you call this operation, note the following items:
+       * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
        *
        * @param request UpdateInstanceRequest
        * @return UpdateInstanceResponse
@@ -3249,7 +3423,7 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceResponse updateInstance(const string &InstanceId, const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary null
+       * @summary Transforms the billing method of an Elasticsearch instance from pay-as-you-go to a subscription instance.
        *
        * @param request UpdateInstanceChargeTypeRequest
        * @param headers map
@@ -3259,7 +3433,7 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceChargeTypeResponse updateInstanceChargeTypeWithOptions(const string &InstanceId, const Models::UpdateInstanceChargeTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary null
+       * @summary Transforms the billing method of an Elasticsearch instance from pay-as-you-go to a subscription instance.
        *
        * @param request UpdateInstanceChargeTypeRequest
        * @return UpdateInstanceChargeTypeResponse
@@ -3267,10 +3441,10 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceChargeTypeResponse updateInstanceChargeType(const string &InstanceId, const Models::UpdateInstanceChargeTypeRequest &request);
 
       /**
-       * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+       * @summary Modifies the YML parameter settings of a specified Elasticsearch instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+       * @description When you invoke this operation, note the following:
+       * You cannot update the configuration when the instance status is activating, invalid, or inactive (freeze).
        *
        * @param request UpdateInstanceSettingsRequest
        * @param headers map
@@ -3280,10 +3454,10 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceSettingsResponse updateInstanceSettingsWithOptions(const string &InstanceId, const Models::UpdateInstanceSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+       * @summary Modifies the YML parameter settings of a specified Elasticsearch instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+       * @description When you invoke this operation, note the following:
+       * You cannot update the configuration when the instance status is activating, invalid, or inactive (freeze).
        *
        * @param request UpdateInstanceSettingsRequest
        * @return UpdateInstanceSettingsResponse
@@ -3291,7 +3465,7 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceSettingsResponse updateInstanceSettings(const string &InstanceId, const Models::UpdateInstanceSettingsRequest &request);
 
       /**
-       * @summary 更新keystore
+       * @summary Update keystore
        *
        * @param request UpdateKeystoresRequest
        * @param headers map
@@ -3301,7 +3475,7 @@ namespace Elasticsearch20170613
       Models::UpdateKeystoresResponse updateKeystoresWithOptions(const string &InstanceId, const Models::UpdateKeystoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新keystore
+       * @summary Update keystore
        *
        * @param request UpdateKeystoresRequest
        * @return UpdateKeystoresResponse
@@ -3309,7 +3483,10 @@ namespace Elasticsearch20170613
       Models::UpdateKeystoresResponse updateKeystores(const string &InstanceId, const Models::UpdateKeystoresRequest &request);
 
       /**
-       * @summary 更新kibana私网链接
+       * @summary Update Kibana private network access
+       *
+       * @description 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+       * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
        *
        * @param request UpdateKibanaPvlNetworkRequest
        * @param headers map
@@ -3319,7 +3496,10 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaPvlNetworkResponse updateKibanaPvlNetworkWithOptions(const string &InstanceId, const Models::UpdateKibanaPvlNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新kibana私网链接
+       * @summary Update Kibana private network access
+       *
+       * @description 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+       * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
        *
        * @param request UpdateKibanaPvlNetworkRequest
        * @return UpdateKibanaPvlNetworkResponse
@@ -3327,7 +3507,7 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaPvlNetworkResponse updateKibanaPvlNetwork(const string &InstanceId, const Models::UpdateKibanaPvlNetworkRequest &request);
 
       /**
-       * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+       * @summary Modifies the Kibana configuration. Currently, only the Kibana language configuration can be modified.
        *
        * @param request UpdateKibanaSettingsRequest
        * @param headers map
@@ -3337,7 +3517,7 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaSettingsResponse updateKibanaSettingsWithOptions(const string &InstanceId, const Models::UpdateKibanaSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+       * @summary Modifies the Kibana configuration. Currently, only the Kibana language configuration can be modified.
        *
        * @param request UpdateKibanaSettingsRequest
        * @return UpdateKibanaSettingsResponse
@@ -3345,7 +3525,7 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaSettingsResponse updateKibanaSettings(const string &InstanceId, const Models::UpdateKibanaSettingsRequest &request);
 
       /**
-       * @summary UpdateKibanaSso
+       * @summary Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
        *
        * @param request UpdateKibanaSsoRequest
        * @param headers map
@@ -3355,7 +3535,7 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaSsoResponse updateKibanaSsoWithOptions(const string &InstanceId, const Models::UpdateKibanaSsoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UpdateKibanaSso
+       * @summary Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
        *
        * @param request UpdateKibanaSsoRequest
        * @return UpdateKibanaSsoResponse
@@ -3363,13 +3543,14 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaSsoResponse updateKibanaSso(const string &InstanceId, const Models::UpdateKibanaSsoRequest &request);
 
       /**
-       * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+       * @summary Updates the Kibana access whitelist of a specified Alibaba Cloud Elasticsearch instance.
        *
-       * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-       * *   You can update an IP address whitelist by using the following parameters:
-       *     *   kibanaIPWhitelist
-       *     *   modifyMode and whiteIpGroup
-       * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+       * @description ## Before you begin
+       * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows: 
+       *     - IP whitelist list: kibanaIPWhitelist
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
        *
        * @param request UpdateKibanaWhiteIpsRequest
        * @param headers map
@@ -3379,13 +3560,14 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaWhiteIpsResponse updateKibanaWhiteIpsWithOptions(const string &InstanceId, const Models::UpdateKibanaWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+       * @summary Updates the Kibana access whitelist of a specified Alibaba Cloud Elasticsearch instance.
        *
-       * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-       * *   You can update an IP address whitelist by using the following parameters:
-       *     *   kibanaIPWhitelist
-       *     *   modifyMode and whiteIpGroup
-       * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+       * @description ## Before you begin
+       * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows: 
+       *     - IP whitelist list: kibanaIPWhitelist
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
        *
        * @param request UpdateKibanaWhiteIpsRequest
        * @return UpdateKibanaWhiteIpsResponse
@@ -3393,7 +3575,10 @@ namespace Elasticsearch20170613
       Models::UpdateKibanaWhiteIpsResponse updateKibanaWhiteIps(const string &InstanceId, const Models::UpdateKibanaWhiteIpsRequest &request);
 
       /**
-       * @summary Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
+       * @summary Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+       *
+       * @description ### Before you begin
+       * You cannot modify instance information when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateLogstashRequest
        * @param headers map
@@ -3403,7 +3588,10 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashResponse updateLogstashWithOptions(const string &InstanceId, const Models::UpdateLogstashRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
+       * @summary Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+       *
+       * @description ### Before you begin
+       * You cannot modify instance information when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateLogstashRequest
        * @return UpdateLogstashResponse
@@ -3411,7 +3599,7 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashResponse updateLogstash(const string &InstanceId, const Models::UpdateLogstashRequest &request);
 
       /**
-       * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+       * @summary Converts a pay-as-you-go Alibaba Cloud Logstash instance to a subscription instance.
        *
        * @param request UpdateLogstashChargeTypeRequest
        * @param headers map
@@ -3421,7 +3609,7 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashChargeTypeResponse updateLogstashChargeTypeWithOptions(const string &InstanceId, const Models::UpdateLogstashChargeTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+       * @summary Converts a pay-as-you-go Alibaba Cloud Logstash instance to a subscription instance.
        *
        * @param request UpdateLogstashChargeTypeRequest
        * @return UpdateLogstashChargeTypeResponse
@@ -3429,9 +3617,10 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashChargeTypeResponse updateLogstashChargeType(const string &InstanceId, const Models::UpdateLogstashChargeTypeRequest &request);
 
       /**
-       * @summary Changes the name of a specified Logstash cluster.
+       * @summary Modifies the name of a specified Logstash instance.
        *
-       * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+       * @description When you call this operation, take note of the following items:
+       * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateLogstashDescriptionRequest
        * @param headers map
@@ -3441,9 +3630,10 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashDescriptionResponse updateLogstashDescriptionWithOptions(const string &InstanceId, const Models::UpdateLogstashDescriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the name of a specified Logstash cluster.
+       * @summary Modifies the name of a specified Logstash instance.
        *
-       * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+       * @description When you call this operation, take note of the following items:
+       * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateLogstashDescriptionRequest
        * @return UpdateLogstashDescriptionResponse
@@ -3451,10 +3641,9 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashDescriptionResponse updateLogstashDescription(const string &InstanceId, const Models::UpdateLogstashDescriptionRequest &request);
 
       /**
-       * @summary Updates the configuration of the specified Logstash instance.
+       * @summary Updates the configuration of a specified Logstash instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+       * @description When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateLogstashSettingsRequest
        * @param headers map
@@ -3464,10 +3653,9 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashSettingsResponse updateLogstashSettingsWithOptions(const string &InstanceId, const Models::UpdateLogstashSettingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of the specified Logstash instance.
+       * @summary Updates the configuration of a specified Logstash instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+       * @description When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdateLogstashSettingsRequest
        * @return UpdateLogstashSettingsResponse
@@ -3475,7 +3663,9 @@ namespace Elasticsearch20170613
       Models::UpdateLogstashSettingsResponse updateLogstashSettings(const string &InstanceId, const Models::UpdateLogstashSettingsRequest &request);
 
       /**
-       * @summary Modifies the pipeline management method of the specified Logstash cluster.
+       * @summary Modifies the pipeline management method for a specified Logstash instance.
+       *
+       * @description > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
        *
        * @param request UpdatePipelineManagementConfigRequest
        * @param headers map
@@ -3485,7 +3675,9 @@ namespace Elasticsearch20170613
       Models::UpdatePipelineManagementConfigResponse updatePipelineManagementConfigWithOptions(const string &InstanceId, const Models::UpdatePipelineManagementConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the pipeline management method of the specified Logstash cluster.
+       * @summary Modifies the pipeline management method for a specified Logstash instance.
+       *
+       * @description > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
        *
        * @param request UpdatePipelineManagementConfigRequest
        * @return UpdatePipelineManagementConfigResponse
@@ -3493,7 +3685,7 @@ namespace Elasticsearch20170613
       Models::UpdatePipelineManagementConfigResponse updatePipelineManagementConfig(const string &InstanceId, const Models::UpdatePipelineManagementConfigRequest &request);
 
       /**
-       * @summary Updates a pipeline of a Logstash cluster.
+       * @summary Calls UpdatePipelines to update Logstash pipeline information.
        *
        * @param request UpdatePipelinesRequest
        * @param headers map
@@ -3503,7 +3695,7 @@ namespace Elasticsearch20170613
       Models::UpdatePipelinesResponse updatePipelinesWithOptions(const string &InstanceId, const Models::UpdatePipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a pipeline of a Logstash cluster.
+       * @summary Calls UpdatePipelines to update Logstash pipeline information.
        *
        * @param request UpdatePipelinesRequest
        * @return UpdatePipelinesResponse
@@ -3511,9 +3703,14 @@ namespace Elasticsearch20170613
       Models::UpdatePipelinesResponse updatePipelines(const string &InstanceId, const Models::UpdatePipelinesRequest &request);
 
       /**
-       * @summary You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
+       * @summary Updates the VPC private network access whitelist of a specified instance.
        *
-       * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+       * @description ## Before you begin
+       * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
+       * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+       *     - IP whitelist list: privateNetworkIpWhiteList
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
        *
        * @param request UpdatePrivateNetworkWhiteIpsRequest
        * @param headers map
@@ -3523,9 +3720,14 @@ namespace Elasticsearch20170613
       Models::UpdatePrivateNetworkWhiteIpsResponse updatePrivateNetworkWhiteIpsWithOptions(const string &InstanceId, const Models::UpdatePrivateNetworkWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
+       * @summary Updates the VPC private network access whitelist of a specified instance.
        *
-       * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+       * @description ## Before you begin
+       * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
+       * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+       *     - IP whitelist list: privateNetworkIpWhiteList
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
        *
        * @param request UpdatePrivateNetworkWhiteIpsRequest
        * @return UpdatePrivateNetworkWhiteIpsResponse
@@ -3533,10 +3735,10 @@ namespace Elasticsearch20170613
       Models::UpdatePrivateNetworkWhiteIpsResponse updatePrivateNetworkWhiteIps(const string &InstanceId, const Models::UpdatePrivateNetworkWhiteIpsRequest &request);
 
       /**
-       * @summary null
+       * @summary Enables or disables the public network address for a specified Elasticsearch instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+       * @description When you call this operation, note the following:
+       * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdatePublicNetworkRequest
        * @param headers map
@@ -3546,10 +3748,10 @@ namespace Elasticsearch20170613
       Models::UpdatePublicNetworkResponse updatePublicNetworkWithOptions(const string &InstanceId, const Models::UpdatePublicNetworkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary null
+       * @summary Enables or disables the public network address for a specified Elasticsearch instance.
        *
-       * @description When you call this operation, take note of the following items:
-       * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+       * @description When you call this operation, note the following:
+       * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
        *
        * @param request UpdatePublicNetworkRequest
        * @return UpdatePublicNetworkResponse
@@ -3557,9 +3759,14 @@ namespace Elasticsearch20170613
       Models::UpdatePublicNetworkResponse updatePublicNetwork(const string &InstanceId, const Models::UpdatePublicNetworkRequest &request);
 
       /**
-       * @summary null
+       * @summary Updates the public endpoint access whitelist of a specified Elasticsearch instance.
        *
-       * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+       * @description ## Before you begin
+       * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:   
+       *     - IP whitelist list: publicIpWhitelist
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
        *
        * @param request UpdatePublicWhiteIpsRequest
        * @param headers map
@@ -3569,9 +3776,14 @@ namespace Elasticsearch20170613
       Models::UpdatePublicWhiteIpsResponse updatePublicWhiteIpsWithOptions(const string &InstanceId, const Models::UpdatePublicWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary null
+       * @summary Updates the public endpoint access whitelist of a specified Elasticsearch instance.
        *
-       * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+       * @description ## Before you begin
+       * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:   
+       *     - IP whitelist list: publicIpWhitelist
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
        *
        * @param request UpdatePublicWhiteIpsRequest
        * @return UpdatePublicWhiteIpsResponse
@@ -3579,7 +3791,7 @@ namespace Elasticsearch20170613
       Models::UpdatePublicWhiteIpsResponse updatePublicWhiteIps(const string &InstanceId, const Models::UpdatePublicWhiteIpsRequest &request);
 
       /**
-       * @summary 更改ES集群高可用策略
+       * @summary Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
        *
        * @param request UpdateReadWritePolicyRequest
        * @param headers map
@@ -3589,7 +3801,7 @@ namespace Elasticsearch20170613
       Models::UpdateReadWritePolicyResponse updateReadWritePolicyWithOptions(const string &InstanceId, const Models::UpdateReadWritePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更改ES集群高可用策略
+       * @summary Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
        *
        * @param request UpdateReadWritePolicyRequest
        * @return UpdateReadWritePolicyResponse
@@ -3597,7 +3809,7 @@ namespace Elasticsearch20170613
       Models::UpdateReadWritePolicyResponse updateReadWritePolicy(const string &InstanceId, const Models::UpdateReadWritePolicyRequest &request);
 
       /**
-       * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+       * @summary Updates the data backup configuration of a specified instance.
        *
        * @param request UpdateSnapshotSettingRequest
        * @param headers map
@@ -3607,7 +3819,7 @@ namespace Elasticsearch20170613
       Models::UpdateSnapshotSettingResponse updateSnapshotSettingWithOptions(const string &InstanceId, const Models::UpdateSnapshotSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+       * @summary Updates the data backup configuration of a specified instance.
        *
        * @param request UpdateSnapshotSettingRequest
        * @return UpdateSnapshotSettingResponse
@@ -3615,11 +3827,11 @@ namespace Elasticsearch20170613
       Models::UpdateSnapshotSettingResponse updateSnapshotSetting(const string &InstanceId, const Models::UpdateSnapshotSettingRequest &request);
 
       /**
-       * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+       * @summary Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+       * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
        *
        * @param request UpdateSynonymsDictsRequest
        * @param headers map
@@ -3629,11 +3841,11 @@ namespace Elasticsearch20170613
       Models::UpdateSynonymsDictsResponse updateSynonymsDictsWithOptions(const string &InstanceId, const Models::UpdateSynonymsDictsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+       * @summary Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
        *
-       * @description Before you call this operation, take note of the following items:
-       * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-       * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+       * @description When calling this operation, note the following:
+       * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+       * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
        *
        * @param request UpdateSynonymsDictsRequest
        * @return UpdateSynonymsDictsResponse
@@ -3641,6 +3853,8 @@ namespace Elasticsearch20170613
       Models::UpdateSynonymsDictsResponse updateSynonymsDicts(const string &InstanceId, const Models::UpdateSynonymsDictsRequest &request);
 
       /**
+       * @summary Modifies the scenario-specific template configuration of a cluster.
+       *
        * @param request UpdateTemplateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -3649,15 +3863,22 @@ namespace Elasticsearch20170613
       Models::UpdateTemplateResponse updateTemplateWithOptions(const string &InstanceId, const string &TemplateName, const Models::UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies the scenario-specific template configuration of a cluster.
+       *
        * @param request UpdateTemplateRequest
        * @return UpdateTemplateResponse
        */
       Models::UpdateTemplateResponse updateTemplate(const string &InstanceId, const string &TemplateName, const Models::UpdateTemplateRequest &request);
 
       /**
-       * @summary Updates a private IP address whitelist of an Elasticsearch cluster.
+       * @summary Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
        *
-       * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+       * @description ## Before you begin
+       * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows: 
+       *     - IP whitelist list: esIPWhitelist
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
        *
        * @param request UpdateWhiteIpsRequest
        * @param headers map
@@ -3667,9 +3888,14 @@ namespace Elasticsearch20170613
       Models::UpdateWhiteIpsResponse updateWhiteIpsWithOptions(const string &InstanceId, const Models::UpdateWhiteIpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a private IP address whitelist of an Elasticsearch cluster.
+       * @summary Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
        *
-       * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+       * @description ## Before you begin
+       * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+       * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows: 
+       *     - IP whitelist list: esIPWhitelist
+       *     - IP whitelist group: modifyMode, whiteIpGroup
+       * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
        *
        * @param request UpdateWhiteIpsRequest
        * @return UpdateWhiteIpsResponse
@@ -3677,7 +3903,7 @@ namespace Elasticsearch20170613
       Models::UpdateWhiteIpsResponse updateWhiteIps(const string &InstanceId, const Models::UpdateWhiteIpsRequest &request);
 
       /**
-       * @summary Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
+       * @summary Updates the X-Pack monitoring and alerting configuration of a Logstash instance.
        *
        * @param request UpdateXpackMonitorConfigRequest
        * @param headers map
@@ -3687,7 +3913,7 @@ namespace Elasticsearch20170613
       Models::UpdateXpackMonitorConfigResponse updateXpackMonitorConfigWithOptions(const string &InstanceId, const Models::UpdateXpackMonitorConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
+       * @summary Updates the X-Pack monitoring and alerting configuration of a Logstash instance.
        *
        * @param request UpdateXpackMonitorConfigRequest
        * @return UpdateXpackMonitorConfigResponse
@@ -3695,9 +3921,9 @@ namespace Elasticsearch20170613
       Models::UpdateXpackMonitorConfigResponse updateXpackMonitorConfig(const string &InstanceId, const Models::UpdateXpackMonitorConfigRequest &request);
 
       /**
-       * @summary Upgrades the version or kernel of an Elasticsearch cluster.
+       * @summary Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
        *
-       * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+       * @description > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
        *
        * @param request UpgradeEngineVersionRequest
        * @param headers map
@@ -3707,9 +3933,9 @@ namespace Elasticsearch20170613
       Models::UpgradeEngineVersionResponse upgradeEngineVersionWithOptions(const string &InstanceId, const Models::UpgradeEngineVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades the version or kernel of an Elasticsearch cluster.
+       * @summary Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
        *
-       * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+       * @description > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
        *
        * @param request UpgradeEngineVersionRequest
        * @return UpgradeEngineVersionResponse
@@ -3717,7 +3943,7 @@ namespace Elasticsearch20170613
       Models::UpgradeEngineVersionResponse upgradeEngineVersion(const string &InstanceId, const Models::UpgradeEngineVersionRequest &request);
 
       /**
-       * @summary 查询是否有可升级的小版本
+       * @summary Query whether a minor version is available for upgrade.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -3726,16 +3952,16 @@ namespace Elasticsearch20170613
       Models::UpgradeInfoResponse upgradeInfoWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询是否有可升级的小版本
+       * @summary Query whether a minor version is available for upgrade.
        *
        * @return UpgradeInfoResponse
        */
       Models::UpgradeInfoResponse upgradeInfo(const string &instanceId);
 
       /**
-       * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+       * @summary Validates the connectivity of an Elasticsearch instance that provides X-Pack monitoring.
        *
-       * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+       * @description > To enable X-Pack monitoring for Logstash, configure an Elasticsearch instance. After the configuration, you can monitor the Logstash instance in the Kibana console of the corresponding Elasticsearch instance.
        *
        * @param request ValidateConnectionRequest
        * @param headers map
@@ -3745,9 +3971,9 @@ namespace Elasticsearch20170613
       Models::ValidateConnectionResponse validateConnectionWithOptions(const string &InstanceId, const Models::ValidateConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+       * @summary Validates the connectivity of an Elasticsearch instance that provides X-Pack monitoring.
        *
-       * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+       * @description > To enable X-Pack monitoring for Logstash, configure an Elasticsearch instance. After the configuration, you can monitor the Logstash instance in the Kibana console of the corresponding Elasticsearch instance.
        *
        * @param request ValidateConnectionRequest
        * @return ValidateConnectionResponse
@@ -3755,7 +3981,7 @@ namespace Elasticsearch20170613
       Models::ValidateConnectionResponse validateConnection(const string &InstanceId, const Models::ValidateConnectionRequest &request);
 
       /**
-       * @summary Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
+       * @summary Checks whether specific nodes in a specified instance can be scaled in.
        *
        * @param request ValidateShrinkNodesRequest
        * @param headers map
@@ -3765,7 +3991,7 @@ namespace Elasticsearch20170613
       Models::ValidateShrinkNodesResponse validateShrinkNodesWithOptions(const string &InstanceId, const Models::ValidateShrinkNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
+       * @summary Checks whether specific nodes in a specified instance can be scaled in.
        *
        * @param request ValidateShrinkNodesRequest
        * @return ValidateShrinkNodesResponse
@@ -3773,7 +3999,9 @@ namespace Elasticsearch20170613
       Models::ValidateShrinkNodesResponse validateShrinkNodes(const string &InstanceId, const Models::ValidateShrinkNodesRequest &request);
 
       /**
-       * @summary Verify the SLR permissions of the current account.
+       * @summary Verifies the service-linked role (SLR) permission of the current account.
+       *
+       * @description > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
        *
        * @param request ValidateSlrPermissionRequest
        * @param headers map
@@ -3783,7 +4011,9 @@ namespace Elasticsearch20170613
       Models::ValidateSlrPermissionResponse validateSlrPermissionWithOptions(const Models::ValidateSlrPermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verify the SLR permissions of the current account.
+       * @summary Verifies the service-linked role (SLR) permission of the current account.
+       *
+       * @description > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
        *
        * @param request ValidateSlrPermissionRequest
        * @return ValidateSlrPermissionResponse
@@ -3791,7 +4021,7 @@ namespace Elasticsearch20170613
       Models::ValidateSlrPermissionResponse validateSlrPermission(const Models::ValidateSlrPermissionRequest &request);
 
       /**
-       * @summary Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
+       * @summary Validates whether data on specific nodes in a specified instance can be migrated.
        *
        * @param request ValidateTransferableNodesRequest
        * @param headers map
@@ -3801,7 +4031,7 @@ namespace Elasticsearch20170613
       Models::ValidateTransferableNodesResponse validateTransferableNodesWithOptions(const string &InstanceId, const Models::ValidateTransferableNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
+       * @summary Validates whether data on specific nodes in a specified instance can be migrated.
        *
        * @param request ValidateTransferableNodesRequest
        * @return ValidateTransferableNodesResponse
@@ -3809,9 +4039,12 @@ namespace Elasticsearch20170613
       Models::ValidateTransferableNodesResponse validateTransferableNodes(const string &InstanceId, const Models::ValidateTransferableNodesRequest &request);
 
       /**
-       * @summary Creates an Elasticsearch cluster.
+       * @summary Creates an Elasticsearch instance.
        *
-       * @description The configurations of warm nodes.
+       * @description ### Precautions
+       * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+       * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+       * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
        *
        * @param request CreateInstanceRequest
        * @param headers map
@@ -3821,9 +4054,12 @@ namespace Elasticsearch20170613
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an Elasticsearch cluster.
+       * @summary Creates an Elasticsearch instance.
        *
-       * @description The configurations of warm nodes.
+       * @description ### Precautions
+       * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+       * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+       * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse

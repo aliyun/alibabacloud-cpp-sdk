@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<EstimatedRestartTimeResponseBody::Result> result_ {};

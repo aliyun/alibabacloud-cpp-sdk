@@ -72,14 +72,11 @@ namespace Models
 
 
     protected:
-      // The returned object.
+      // The tag key.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // Indicates whether tags are added to the clusters. Valid values:
-      // 
-      // *   true
-      // *   false
+      // The tag value.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -113,15 +110,15 @@ namespace Models
 
 
   protected:
-    // A tag.
+    // The resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The request ID.
+    // The resource type. Set this parameter to INSTANCE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The value of the tag.
+    // The tag information.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tags>> tags_ {};

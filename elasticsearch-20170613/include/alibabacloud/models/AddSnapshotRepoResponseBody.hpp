@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The result. Valid values:
     // 
-    // *   true: Reference warehouse created successfully
-    // *   false: Reference warehouse created failed
+    // - true: The reference repository is created.
+    // - false: The reference repository failed to be created.
     shared_ptr<bool> result_ {};
   };
 

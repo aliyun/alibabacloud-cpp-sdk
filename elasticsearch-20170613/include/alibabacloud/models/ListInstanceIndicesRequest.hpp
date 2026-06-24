@@ -84,17 +84,29 @@ namespace Models
 
 
   protected:
-    // false
+    // Specifies whether to retrieve all indexes. Valid values:
+    // 
+    // - true: Returns the index list that includes system indexes.
+    // 
+    // - false (default): Returns the index list that excludes system indexes.
     shared_ptr<bool> all_ {};
-    // 15
+    // Specifies whether to display only managed indexes. Valid values:
+    // 
+    // - true: Displays only managed indexes.
+    // 
+    // - false (default): Displays all indexes.
     shared_ptr<bool> isManaged_ {};
-    // The ID of the request.
+    // Specifies whether to display only OpenStore cold-phase indexes. Valid values:
+    // 
+    // - true: Displays only OpenStore cold-phase indexes.
+    // 
+    // - false (default): Displays all indexes.
     shared_ptr<bool> isOpenstore_ {};
-    // 1
+    // The index name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The header of the response.
+    // The page number of the instance list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The total size of the index in Cloud Hosting. Unit: bytes.
+    // The number of entries per page for paging. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> size_ {};
   };
 

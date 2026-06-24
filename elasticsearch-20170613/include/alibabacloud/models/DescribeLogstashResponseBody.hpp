@@ -141,16 +141,16 @@ namespace Models
 
 
       protected:
-        // Whether to use disk encryption:
-        // 
-        // *   true
-        // *   false
-        shared_ptr<int32_t> disk_ {};
-        // The disk type of the node.
-        shared_ptr<bool> diskEncryption_ {};
-        // The network configurations.
-        shared_ptr<string> diskType_ {};
         // The disk size of the node.
+        shared_ptr<int32_t> disk_ {};
+        // Indicates whether cloud disk encryption is enabled. Valid values:
+        // 
+        // - true: Enabled.
+        // - false: Disabled.
+        shared_ptr<bool> diskEncryption_ {};
+        // The disk type of the node.
+        shared_ptr<string> diskType_ {};
+        // The specification of the node.
         shared_ptr<string> spec_ {};
       };
 
@@ -210,12 +210,13 @@ namespace Models
 
 
       protected:
-        // The ID of the vSwitch to which the instance is connected.
+        // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
         shared_ptr<string> type_ {};
-        // The zone where the cluster resides.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The network type of the instance. Valid values: Currently, only Virtual Private Cloud (VPC) are supported.
+        // The zone in which the instance resides.
         shared_ptr<string> vsArea_ {};
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -266,11 +267,11 @@ namespace Models
 
 
       protected:
-        // The tags added to the ALB instance.
-        shared_ptr<string> host_ {};
         // The IP address of the node.
-        shared_ptr<string> port_ {};
+        shared_ptr<string> host_ {};
         // The port number.
+        shared_ptr<string> port_ {};
+        // The zone ID of the node.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -312,9 +313,12 @@ namespace Models
 
 
       protected:
-        // The zone ID of the new instance.
+        // The status of the zone. Valid values:
+        // 
+        // - ISOLATION: offline.
+        // - NORMAL: Normal.
         shared_ptr<string> status_ {};
-        // The configuration of cluster extension parameters.
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -356,9 +360,9 @@ namespace Models
 
 
       protected:
-        // The value of the tag.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The information about the zones.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -508,51 +512,47 @@ namespace Models
 
 
     protected:
-      // The configuration information of the node.
       shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
-      // The number of data nodes.
+      // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The key of the tag.
+      // The instance labels.
       shared_ptr<vector<Result::Tags>> tags_ {};
-      // The status of the zone. Valid values:
-      // 
-      // *   ISOLATION: offline
-      // *   NORMAL
+      // The zone information.
       shared_ptr<vector<Result::ZoneInfos>> zoneInfos_ {};
-      // The billing method of the instance. Valid values:
-      // 
-      // *   prepaid: subscription
-      // *   postpaid: pay-as-you-go
+      // The instance configuration.
       Darabonba::Json config_ {};
-      // The state of the instance. Four states are supported:
-      // 
-      // *   Normal: active
-      // *   Active: activating
-      // *   Freeze: inactive
-      // *   Invalid: invalid
-      shared_ptr<string> createdAt_ {};
       // The time when the instance was created.
+      shared_ptr<string> createdAt_ {};
+      // The name of the instance.
       shared_ptr<string> description_ {};
       shared_ptr<int64_t> endTime_ {};
-      // The ID of the zone where the node resides.
+      // The access information of the nodes.
       shared_ptr<vector<Result::EndpointList>> endpointList_ {};
-      // The access information of the node.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
-      // The name of the instance.
+      // The number of nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The specifications of the node.
+      // The configuration of the node.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
-      // The ID of the resource group to which the instance belongs.
+      // The billing method of the instance. Valid values:
+      // 
+      // - prepaid: subscription
+      // - postpaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
-      // The ID of the virtual private cloud (VPC) to which the elastic container instances belong.
+      // The status of the instance. Valid values:
+      // 
+      // - active: Normal.
+      // - activating: Taking effect.
+      // - inactive: Frozen.
+      // - invalid: Expired.
       shared_ptr<string> status_ {};
-      // The edition of the dedicated KMS instance.
-      shared_ptr<string> updatedAt_ {};
-      // The ID of the instance.
-      shared_ptr<string> version_ {};
       // The time when the instance was last updated.
+      shared_ptr<string> updatedAt_ {};
+      // The version of the instance.
+      shared_ptr<string> version_ {};
+      // The ID of the VPC to which the instance belongs.
       shared_ptr<string> vpcInstanceId_ {};
     };
 
@@ -575,9 +575,9 @@ namespace Models
 
 
   protected:
-    // Detailed information about the instance.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The configurations of the instance.
+    // The details of the instance.
     shared_ptr<DescribeLogstashResponseBody::Result> result_ {};
   };
 

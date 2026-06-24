@@ -133,13 +133,16 @@ namespace Models
 
 
       protected:
-        // The network configurations.
+        // The disk size of the node.
         shared_ptr<int32_t> disk_ {};
-        // The ID of the VPC.
+        // Indicates whether disk encryption is enabled. Valid values:
+        // 
+        // - true: Enabled.
+        // - false: Disabled.
         shared_ptr<bool> diskEncryption_ {};
-        // The zone where the cluster resides.
+        // The disk type.
         shared_ptr<string> diskType_ {};
-        // The type of the disk.
+        // The instance specification.
         shared_ptr<string> spec_ {};
       };
 
@@ -199,10 +202,13 @@ namespace Models
 
 
       protected:
+        // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
         shared_ptr<string> type_ {};
-        // The ID of the vSwitch.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
+        // The zone where the instance resides.
         shared_ptr<string> vsArea_ {};
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -244,9 +250,9 @@ namespace Models
 
 
       protected:
-        // The disk size of the node.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The instance type of the ECS instance.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -352,32 +358,29 @@ namespace Models
 
 
     protected:
-      // The configuration information of the data node.
+      // The instance tags.
       shared_ptr<vector<Result::Tags>> tags_ {};
-      // The ID of the instance.
+      // The time when the instance was created.
       shared_ptr<string> createdAt_ {};
-      // The time when the instance was last updated.
+      // The instance name.
       shared_ptr<string> description_ {};
       shared_ptr<int64_t> endTime_ {};
-      // The tag value of the cloud disk.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+      // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
-      // The state of the instance. Valid values: Normal, Active, Inactive, and Invalid.
+      // The number of nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
-      // Specifies whether to use disk encryption. Valid values:
-      // 
-      // *   true: Enables the concurrent query feature for queries other than aggregate queries.
-      // *   false: Disables the concurrent query feature for queries other than aggregate queries.
+      // The configuration information of data nodes.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
-      // The time when the instance was created.
+      // The billing method of the instance. Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
       shared_ptr<string> paymentType_ {};
       shared_ptr<string> resourceGroupId_ {};
-      // The version of the instance. Currently, only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
+      // The status of the instance. Valid values: active (Normal), activating (Taking Effect), inactive (Frozen), and invalid (Expired).
       shared_ptr<string> status_ {};
-      // The tag of the instance. Valid values:
+      // The time when the instance was last updated.
       shared_ptr<string> updatedAt_ {};
-      // The tag key of the cloud disk.
+      // The instance version. Currently, only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
       shared_ptr<string> version_ {};
     };
 
@@ -409,7 +412,7 @@ namespace Models
 
 
     protected:
-      // The number of data nodes.
+      // The total number of instances.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -441,11 +444,11 @@ namespace Models
 
 
   protected:
-    // The billing method of the instance. Supported: prepaid (subscription) and postpaid (pay-as-you-go).
+    // The request header information.
     shared_ptr<ListLogstashResponseBody::Headers> headers_ {};
-    // Detailed information about the matching instances.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the VPC.
+    // The list of instances returned by the current request.
     shared_ptr<vector<ListLogstashResponseBody::Result>> result_ {};
   };
 

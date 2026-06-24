@@ -111,10 +111,13 @@ namespace Models
 
 
       protected:
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
+        // The resource type. The value is fixed as `ALIYUN::ELASTICSEARCH::INSTANCE`.
         shared_ptr<string> resourceType_ {};
-        shared_ptr<string> tagKey_ {};
         // The tag key.
+        shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -129,7 +132,7 @@ namespace Models
 
 
     protected:
-      // Indicates the ID of a resource.
+      // The tag resource.
       shared_ptr<vector<TagResources::TagResource>> tagResource_ {};
     };
 
@@ -161,7 +164,7 @@ namespace Models
 
 
     protected:
-      // The value of the tag.
+      // The resource count of TagResource resources found.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -200,13 +203,14 @@ namespace Models
 
 
   protected:
-    // The labels of the resource.
+    // The response header information. This parameter is empty and is for reference only. Do not create a dependency on this parameter in your program.
+    // > This parameter is not included in the response example.
     shared_ptr<ListTagResourcesResponseBody::Headers> headers_ {};
-    // The number of resources to query.
+    // The page number.
     shared_ptr<int32_t> pageSize_ {};
-    // A list of resources that have tags.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The type of the resource. Fixed to `ALIYUN::ELASTICSEARCH::INSTANCE`.
+    // The tag resource group.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

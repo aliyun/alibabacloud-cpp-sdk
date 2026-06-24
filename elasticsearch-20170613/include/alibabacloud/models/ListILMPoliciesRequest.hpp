@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the index lifecycle policy.
     shared_ptr<string> policyName_ {};
   };
 

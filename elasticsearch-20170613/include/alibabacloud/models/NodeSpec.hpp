@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // Storage space size of data nodes, in GB.
     shared_ptr<int32_t> disk_ {};
+    // Whether to enable cloud disk encryption for data nodes:
+    // 
+    // - true: Enabled
+    // - false: Disabled
     shared_ptr<bool> diskEncryption_ {};
+    // Storage preference.
     shared_ptr<string> diskPreference_ {};
+    // Storage type of data nodes. Supported values:
+    // 
+    // - cloud_ssd: SSD cloud disk
+    // - cloud_essd: ESSD cloud disk
+    // - cloud_efficiency: Ultra cloud disk
     shared_ptr<string> diskType_ {};
+    // Performance level of ESSD cloud disks. Required when the disk type of data nodes is ESSD cloud disk. Supported values: PL1, PL2, PL3.
     shared_ptr<string> performanceLevel_ {};
+    // Data node specification. Specification details can be viewed in [Product Specifications](https://help.aliyun.com/document_detail/271718.html).
+    // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
   };

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Start time for event query.
     shared_ptr<string> beginTime_ {};
+    // End time for event query.
     shared_ptr<string> endTime_ {};
+    // Page number for paged query.
     shared_ptr<int32_t> page_ {};
+    // Number of entries per page for paged query.
     shared_ptr<int32_t> size_ {};
+    // Object content used for filtering. This parameter is optional. If empty, event records for all instances are returned. Note: The value passed must correspond to the selected filter type.
     shared_ptr<string> termContent_ {};
+    // Object type used for filtering. This parameter is optional. If empty, event records of all types are returned.
     shared_ptr<string> termType_ {};
   };
 

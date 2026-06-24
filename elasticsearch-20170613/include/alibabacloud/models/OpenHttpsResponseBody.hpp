@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The returned result. Valid values:
     // 
-    // *   true: open the HTTPS protocol successfully
-    // *   false: open the HTTPS protocol failed
+    // - true: The HTTPS protocol is enabled.
+    // - false: The HTTPS protocol failed to be enabled.
     shared_ptr<bool> result_ {};
   };
 

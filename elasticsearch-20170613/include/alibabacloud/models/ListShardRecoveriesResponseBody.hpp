@@ -162,36 +162,41 @@ namespace Models
 
 
     protected:
-      // The data restoration progress.
+      // The data recovery progress.
       shared_ptr<string> bytesPercent_ {};
-      // The total amount of data that is restored.
+      // The total amount of data to be recovered.
       shared_ptr<int64_t> bytesTotal_ {};
-      // The file execution progress.
+      // The file recovery progress.
       shared_ptr<string> filesPercent_ {};
       // The total number of files.
       shared_ptr<int64_t> filesTotal_ {};
-      // The name of the index.
+      // The index name.
       shared_ptr<string> index_ {};
       // The IP address of the source node.
       shared_ptr<string> sourceHost_ {};
-      // The name of the source node.
+      // The source node.
       shared_ptr<string> sourceNode_ {};
-      // The data restoration status. Valid values:
+      // The stage of the data recovery process. Valid values:
       // 
-      // *   done: Data restoration is complete.
-      // *   finalize: Data is being cleared.
-      // *   index: Index metadata is being read, and bytes are being copied from source to destination.
-      // *   init: Data restoration is not started.
-      // *   start: Data restoration is started.
-      // *   translog: Translogs are being redone.
+      // - done: Recovery is complete.
+      // 
+      // - finalize: Cleanup operations are in progress.
+      // 
+      // - index: Reading index metadata and copying bytes from the source to the target.
+      // 
+      // - init: Recovery has not started.
+      // 
+      // - start: Recovery is starting.
+      // 
+      // - translog: Replaying the transaction log.
       shared_ptr<string> stage_ {};
-      // The IP address of the destination node.
+      // The IP address of the target node.
       shared_ptr<string> targetHost_ {};
-      // The name of the destination node.
+      // The target node.
       shared_ptr<string> targetNode_ {};
-      // The number of translog operations to be restored.
+      // The number of translog operations to be recovered.
       shared_ptr<int64_t> translogOps_ {};
-      // The restoration progress of translog operations.
+      // The progress of translog operation recovery.
       shared_ptr<string> translogOpsPercent_ {};
     };
 
@@ -214,9 +219,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<vector<ListShardRecoveriesResponseBody::Result>> result_ {};
   };
 

@@ -66,12 +66,22 @@ namespace Models
 
 
   protected:
+    // The number of dedicated master nodes.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> amount_ {};
+    // The storage space of dedicated master nodes. Unit: GB.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> disk_ {};
+    // The storage type of dedicated master nodes. Valid values:
+    // - cloud_ssd: standard SSD
+    // - cloud_essd (default): Enterprise SSD (ESSD).
+    // 
     // This parameter is required.
     shared_ptr<string> diskType_ {};
+    // The node specifications of dedicated master nodes. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+    // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
   };

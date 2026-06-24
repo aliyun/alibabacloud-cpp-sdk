@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // A unique token used to ensure idempotence of the request. The client generates this value. The value must be unique across different requests and can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
   };
 

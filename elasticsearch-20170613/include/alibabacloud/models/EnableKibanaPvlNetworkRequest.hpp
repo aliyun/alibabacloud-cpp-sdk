@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -122,11 +124,17 @@ namespace Models
 
 
   protected:
+    // The endpoint name.
     shared_ptr<string> endpointName_ {};
+    // The security groups.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> securityGroups_ {};
+    // The vSwitch and zone information.
     shared_ptr<vector<EnableKibanaPvlNetworkRequest::VSwitchIdsZone>> vSwitchIdsZone_ {};
+    // The VPC-connected instance ID.
     shared_ptr<string> vpcId_ {};
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
   };
 

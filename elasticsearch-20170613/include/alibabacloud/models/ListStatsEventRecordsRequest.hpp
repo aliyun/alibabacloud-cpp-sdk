@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Event type
     shared_ptr<string> eventType_ {};
+    // Event level
     shared_ptr<string> level_ {};
+    // Status of the management event
     shared_ptr<string> status_ {};
   };
 

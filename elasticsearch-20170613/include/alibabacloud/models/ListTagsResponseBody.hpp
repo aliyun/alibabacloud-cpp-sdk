@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The label key.
       shared_ptr<string> tagKey_ {};
+      // The label value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -93,8 +95,9 @@ namespace Models
 
 
   protected:
-    // The key of the tag.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<vector<ListTagsResponseBody::Result>> result_ {};
   };
 

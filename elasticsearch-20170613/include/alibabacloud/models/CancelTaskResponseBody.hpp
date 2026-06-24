@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The result of the operation. Valid values:
     // 
-    // *   true: the task was cancelled successfully
-    // *   false: the task was cancelled successfully failed
+    // - true: The task was canceled.
+    // - false: The task failed to be canceled.
     shared_ptr<bool> result_ {};
   };
 

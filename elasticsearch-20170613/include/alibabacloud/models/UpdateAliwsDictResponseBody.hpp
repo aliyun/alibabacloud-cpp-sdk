@@ -88,16 +88,15 @@ namespace Models
 
 
     protected:
-      // The size of the dictionary file. Unit: bytes.
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> fileSize_ {};
-      // The name of the uploaded dictionary file.
+      // The name of the uploaded file.
       shared_ptr<string> name_ {};
       // The source type of the dictionary file. Valid values:
-      // 
-      // *   OSS
-      // *   ORIGIN
+      // - OSS: uses OSS open storage.
+      // - ORIGIN: retains the previously uploaded dictionary.
       shared_ptr<string> sourceType_ {};
-      // The dictionary type. The value is fixed as ALI_WS.
+      // The dictionary type. Valid values: ALI_WS (AliNLP tokenizer).
       shared_ptr<string> type_ {};
     };
 

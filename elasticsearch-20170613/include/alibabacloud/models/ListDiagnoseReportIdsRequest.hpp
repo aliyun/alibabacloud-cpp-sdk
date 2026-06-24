@@ -84,21 +84,30 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value must be a UNIX timestamp.
+    // The end timestamp of the query.
+    // Minimum value: 1000000000000 ms
+    // Maximum value: 2000000000000 ms.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The language of the reports.
+    // The language of the reports to retrieve. Default value: the browser language. Valid values:
+    // - en: English
+    // - zh: Simplified Chinese
+    // - zt: Traditional Chinese
+    // - es: Spanish
+    // - fr: French.
     shared_ptr<string> lang_ {};
-    // The number of the page to return. Valid values: 1 to 200. Default value: 1.
+    // The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};
-    // The number of entries to return on each page. Valid values: 1 to 500. Default value: 10.
+    // The number of report IDs per page. Default value: 10. Minimum value: 1. Maximum value: 500.
     shared_ptr<int32_t> size_ {};
-    // The beginning of the time range to query. The value must be a UNIX timestamp.
+    // The start timestamp of the query.
+    // Minimum value: 1000000000000 ms
+    // Maximum value: 2000000000000 ms.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The method that is used to trigger health diagnostics. Valid values: SYSTEM, INNER, and USER.
+    // The trigger method of the health diagnostics. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
     shared_ptr<string> trigger_ {};
   };
 

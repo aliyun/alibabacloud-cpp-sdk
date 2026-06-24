@@ -199,9 +199,9 @@ namespace Models
 
 
       protected:
-        // The size of the node storage space. Unit: GB.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The storage type of the node. Only ultra disks (cloud_efficiency) are supported.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -279,11 +279,24 @@ namespace Models
 
 
       protected:
+        // The storage size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // Indicates whether disk encryption is used. Valid values:
+        // 
+        // - true: Disk encryption is used.
+        // - false: Disk encryption is not used.
         shared_ptr<bool> diskEncryption_ {};
+        // The storage type of the node. Valid values:
+        // 
+        // - cloud_ssd: standard SSD
+        // 
+        // - cloud_efficiency: ultra disk
         shared_ptr<string> diskType_ {};
+        // The performance level of the ESSD. This parameter is required when diskType is cloud_essd. Valid values: PL1, PL2, and PL3.
         shared_ptr<string> performanceLevel_ {};
+        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The description of node specifications.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -363,8 +376,11 @@ namespace Models
 
 
         protected:
+          // The group name.
           shared_ptr<string> groupName_ {};
+          // The IP address whitelist.
           shared_ptr<vector<string>> ips_ {};
+          // The network type. PRIVATE_ES: Elasticsearch private network. PUBLIC_KIBANA: Kibana public network. PUBLIC_ES: Elasticsearch public network. PRIVATE_KIBANA: Kibana private network.
           shared_ptr<string> whiteIpType_ {};
         };
 
@@ -408,20 +424,15 @@ namespace Models
 
 
       protected:
-        // The storage type of the node. Valid values:
-        // 
-        // *   cloud_ssd: standard SSD
-        // *   cloud_efficiency: ultra disk
+        // The network type. Only Virtual Private Cloud (VPC) is supported.
         shared_ptr<string> type_ {};
-        // The storage space of the node. Unit: GB.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // Specifies whether to use disk encryption. Valid values:
-        // 
-        // *   true
-        // *   false
+        // The zone where the instance is deployed.
         shared_ptr<string> vsArea_ {};
-        // The performance level of the ESSD. This parameter is required when the diskType parameter is set to cloud_essd. Valid values: PL1, PL2, and PL3.
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
+        // The whitelist group settings for the public and private networks of the cluster.
         shared_ptr<vector<NetworkConfig::WhiteIpGroupList>> whiteIpGroupList_ {};
       };
 
@@ -490,14 +501,15 @@ namespace Models
 
 
       protected:
-        // The network type. Only Virtual Private Cloud (VPC) is supported.
+        // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The vSwitch ID of the cluster.
+        // The storage size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
-        // The configuration of data nodes.
+        // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
-        // The zone where the cluster resides.
+        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The description of node specifications.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -566,14 +578,15 @@ namespace Models
 
 
       protected:
-        // The size of the node storage space. Unit: GB.
-        shared_ptr<int32_t> amount_ {};
-        // The storage type of the node. Only cloud_ssd(SSD cloud disk) is supported.
-        shared_ptr<int32_t> disk_ {};
-        // The network configurations.
-        shared_ptr<string> diskType_ {};
         // The number of nodes.
+        shared_ptr<int32_t> amount_ {};
+        // The storage size of the node. Unit: GB.
+        shared_ptr<int32_t> disk_ {};
+        // The storage type of the node.
+        shared_ptr<string> diskType_ {};
+        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The description of node specifications.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -653,14 +666,25 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The size of the node storage space. Unit: GB.
+        // The storage size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
-        // The storage type of the node.
+        // Indicates whether disk encryption is enabled for the node. Valid values:
+        // 
+        // - true: Disk encryption is enabled.
+        // 
+        // - false: Disk encryption is not enabled.
         shared_ptr<bool> diskEncryption_ {};
-        // The configuration of dedicated master nodes.
+        // The storage type of the node. Valid values:
+        // 
+        // - cloud_ssd: standard SSD
+        // 
+        // - cloud_essd: enhanced SSD (ESSD)
+        // 
+        // - cloud_efficiency: ultra disk
         shared_ptr<string> diskType_ {};
-        // The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
+        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The description of node specifications.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -729,21 +753,15 @@ namespace Models
 
 
       protected:
-        // The size of the node storage space. Unit: GB.
-        shared_ptr<int32_t> amount_ {};
-        // Specifies whether to enable disk encryption for the node. Valid values:
-        // 
-        // *   true: enables instant image cache.
-        // *   false: disables reuse of image cache layers.
-        shared_ptr<int32_t> disk_ {};
-        // The storage type of the node. Valid values:
-        // 
-        // *   cloud_ssd: SSD.
-        // *   cloud_essd: ESSD.
-        // *   cloud_efficiency: ultra disk
-        shared_ptr<string> diskType_ {};
         // The number of nodes.
+        shared_ptr<int32_t> amount_ {};
+        // The storage size of the node. Unit: GB.
+        shared_ptr<int32_t> disk_ {};
+        // The storage type of the node. Only ultra disks (cloud_efficiency) are supported.
+        shared_ptr<string> diskType_ {};
+        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
+        // The description of node specifications.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -1020,66 +1038,100 @@ namespace Models
 
 
     protected:
+      // Indicates whether the instance contains dedicated master nodes. Valid values:
+      // 
+      // - true: The instance contains dedicated master nodes.
+      // 
+      // - false: The instance does not contain dedicated master nodes.
+      shared_ptr<bool> advancedDedicateMaster_ {};
+      // The deployment mode and architecture type:
+      // exclusive: basic management and control
+      // public: cloud-native management and control
+      shared_ptr<string> archType_ {};
+      // The configuration of client nodes.
+      shared_ptr<Result::ClientNodeConfiguration> clientNodeConfiguration_ {};
+      // The time when the instance was created.
+      shared_ptr<string> createdAt_ {};
+      // Indicates whether the instance contains dedicated master nodes (deprecated). Valid values:
+      // 
+      // - true: The instance contains dedicated master nodes.
+      // 
+      // - false: The instance does not contain dedicated master nodes.
+      shared_ptr<bool> dedicateMaster_ {};
+      // The instance name.
+      shared_ptr<string> description_ {};
+      // The internal endpoint of the instance.
+      shared_ptr<string> domain_ {};
+      // The configuration of elastic data nodes.
+      shared_ptr<Result::ElasticDataNodeConfiguration> elasticDataNodeConfiguration_ {};
+      // The expiration time of the instance.
+      shared_ptr<int64_t> endTime_ {};
+      // The instance version.
+      shared_ptr<string> esVersion_ {};
+      // The extended configurations of the cluster.
+      shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
+      // The instance ID.
+      shared_ptr<string> instanceId_ {};
+      // Indicates whether the instance uses the new deployment architecture.
+      shared_ptr<string> isNewDeployment_ {};
+      // The configuration of Kibana nodes.
+      shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
+      // The public network access whitelist for Kibana nodes of the cluster.
+      shared_ptr<vector<string>> kibanaIPWhitelist_ {};
+      // The private network access whitelist for Kibana nodes of the cluster.
+      shared_ptr<vector<string>> kibanaPrivateIPWhitelist_ {};
+      // The configuration of master nodes.
+      shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
+      // The network configuration.
+      shared_ptr<Result::NetworkConfig> networkConfig_ {};
+      // The number of data nodes in the instance.
+      shared_ptr<int32_t> nodeAmount_ {};
+      // The configuration of data nodes.
+      shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
-      // *   **prepaid**: subscription
-      // *   **postpaid**: pay-as-you-go
-      shared_ptr<bool> advancedDedicateMaster_ {};
-      shared_ptr<string> archType_ {};
-      // The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
-      shared_ptr<Result::ClientNodeConfiguration> clientNodeConfiguration_ {};
+      // - **prepaid**: subscription
+      // 
+      // - **postpaid**: pay-as-you-go
+      shared_ptr<string> paymentType_ {};
+      // The access port of the instance.
+      // >Notice: When the instance is being created or the instance status is abnormal, this value may be empty or 0.
+      shared_ptr<string> port_ {};
       // The status of the pay-as-you-go service that is overlaid on a subscription instance. Valid values:
       // 
-      // *   **active**: normal
-      // *   **closed**: Close
-      // *   **indebt**: Overdue payments are frozen
-      shared_ptr<string> createdAt_ {};
-      // The edition of the dedicated KMS instance.
-      shared_ptr<bool> dedicateMaster_ {};
-      // The key of the tag.
-      shared_ptr<string> description_ {};
-      shared_ptr<string> domain_ {};
-      // The configuration of Kibana nodes.
-      shared_ptr<Result::ElasticDataNodeConfiguration> elasticDataNodeConfiguration_ {};
-      shared_ptr<int64_t> endTime_ {};
-      // The value of the tag.
-      shared_ptr<string> esVersion_ {};
-      // The configurations of elastic data nodes.
-      shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
-      // The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
-      shared_ptr<string> instanceId_ {};
-      // The configuration of cluster extension parameters.
-      shared_ptr<string> isNewDeployment_ {};
-      // The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
-      shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
-      shared_ptr<vector<string>> kibanaIPWhitelist_ {};
-      shared_ptr<vector<string>> kibanaPrivateIPWhitelist_ {};
-      // The VPC ID of the cluster.
-      shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
-      // The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
-      shared_ptr<Result::NetworkConfig> networkConfig_ {};
-      // The ID of the resource group.
-      shared_ptr<int32_t> nodeAmount_ {};
-      // The VPC ID of the cluster.
-      shared_ptr<Result::NodeSpec> nodeSpec_ {};
-      // The time when the instance was last updated.
-      shared_ptr<string> paymentType_ {};
-      shared_ptr<string> port_ {};
-      // The tags of the instance. Each tag is a key-value pair.
+      // - **active**: normal
+      // 
+      // - **closed**: closed
+      // 
+      // - **indebt**: frozen due to overdue payment
       shared_ptr<string> postpaidServiceStatus_ {};
+      // The private network access whitelist for the Elasticsearch cluster.
       shared_ptr<vector<string>> privateNetworkIpWhiteList_ {};
+      // The access protocol. Valid values: HTTP and HTTPS.
       shared_ptr<string> protocol_ {};
+      // The public network access whitelist for the Elasticsearch cluster.
       shared_ptr<vector<string>> publicIpWhitelist_ {};
-      // The ID of the instance.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Specifies whether to deploy the new architecture.
+      // Indicates whether the instance is a service VPC.
       shared_ptr<bool> serviceVpc_ {};
-      // The name of the instance.
+      // The status of the instance. Valid values:
+      // 
+      // - active: normal
+      // 
+      // - activating: taking effect
+      // 
+      // - inactive: frozen
+      // 
+      // - invalid: invalid. The cluster does not exist or is inaccessible. In this case, some fields in the API response may be missing, such as domain and kibanaDomain.
+      // 
+      // - unknown: unknown. The cluster does not exist or is inaccessible. In this case, some fields in the API response may be missing, such as domain and kibanaDomain.
       shared_ptr<string> status_ {};
-      // The number of nodes.
+      // The instance tags.
       shared_ptr<vector<Result::Tags>> tags_ {};
-      // Coordination node configuration.
+      // The time when the instance was last updated.
       shared_ptr<string> updatedAt_ {};
+      // The VPC ID.
       shared_ptr<string> vpcInstanceId_ {};
       shared_ptr<int32_t> zoneCount_ {};
       shared_ptr<vector<Result::ZoneInfos>> zoneInfos_ {};
@@ -1113,10 +1165,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to include dedicated master nodes (obsolete). Valid values:
-      // 
-      // *   true: The files contain data that is dumped to the IA storage medium.
-      // *   false: The files do not contain data that is dumped to the IA storage medium.
+      // The total number of instances.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -1148,16 +1197,11 @@ namespace Models
 
 
   protected:
-    // The status of the instance. Valid values:
-    // 
-    // *   active: normal
-    // *   activating: taking effect
-    // *   inactive: frozen
-    // *   invalid: invalid
+    // The response headers.
     shared_ptr<ListInstanceResponseBody::Headers> headers_ {};
-    // The time when the node is created.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether it is a service VPC.
+    // The returned results.
     shared_ptr<vector<ListInstanceResponseBody::Result>> result_ {};
   };
 

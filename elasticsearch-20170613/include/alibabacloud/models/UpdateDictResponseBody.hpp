@@ -94,13 +94,13 @@ namespace Models
       shared_ptr<string> name_ {};
       // The source type of the dictionary file. Valid values:
       // 
-      // *   OSS
-      // *   ORIGIN
+      // - OSS: Object Storage Service (OSS).
+      // - ORIGIN: Retains the previously uploaded dictionary.
       shared_ptr<string> sourceType_ {};
-      // The dictionary type. Valid values:
+      // The type of the dictionary. Valid values:
       // 
-      // *   MAIN: IK main dicrionary
-      // *   STOP: IK stopword list
+      // - MAIN: IK main dictionary.
+      // - STOP: IK stopword dictionary.
       shared_ptr<string> type_ {};
     };
 
@@ -125,7 +125,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<vector<UpdateDictResponseBody::Result>> result_ {};
   };
 

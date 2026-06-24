@@ -76,7 +76,16 @@ namespace Models
 
 
     protected:
+      // Model category  
+      // - a. Text embedding: text_embedding  
+      // - b. Reranking: rerank  
+      // - c. Document segmentation: doc_split  
+      // - d. Large Language Model (LLM) service: completion  
+      // - e. Query analysis: query_analyze  
+      // - f. Document content parsing: doc_analyze  
+      // - g. Image content parsing: img_analyze
       shared_ptr<string> modelType_ {};
+      // Service ID of the Search Open Platform
       shared_ptr<string> serviceId_ {};
     };
 
@@ -120,13 +129,22 @@ namespace Models
 
 
   protected:
+    // API key for the AI Search Open Platform
+    // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // Service registration endpoint of the AI Search Open Platform
+    // 
     // This parameter is required.
     shared_ptr<string> host_ {};
+    // HTTP protocol type
+    // 
     // This parameter is required.
     shared_ptr<string> httpSchema_ {};
+    // Specify the models to initialize. If empty, all built-in models will be initialized.
     shared_ptr<vector<InitModelRequest::Models>> models_ {};
+    // Workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};
   };

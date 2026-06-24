@@ -139,11 +139,28 @@ namespace Models
 
 
       protected:
+        // The time when the data stream list was queried.
         shared_ptr<string> createTime_ {};
+        // The index status. Valid values:
+        // 
+        // - Green: healthy.
+        // 
+        // - Yellow: warning.
+        // 
+        // - Red: abnormal.
         shared_ptr<string> health_ {};
+        // This field is deprecated and can be ignored.
         shared_ptr<bool> isManaged_ {};
+        // The managed status of the index. Valid values:
+        // - following: managed.
+        // 
+        // - closing: being unmanaged.
+        // 
+        // - closed: not managed.
         shared_ptr<string> managedStatus_ {};
+        // The data stream name.
         shared_ptr<string> name_ {};
+        // The total storage space occupied by the current index. Unit: bytes.
         shared_ptr<int64_t> size_ {};
       };
 
@@ -202,12 +219,25 @@ namespace Models
 
 
     protected:
+      // The data stream status. Valid values:
+      // 
+      // - Green: healthy.
+      // 
+      // - Yellow: warning.
+      // 
+      // - Red: abnormal.
       shared_ptr<string> health_ {};
+      // The index lifecycle policy name.
       shared_ptr<string> ilmPolicyName_ {};
+      // The index template name.
       shared_ptr<string> indexTemplateName_ {};
+      // The index information under the current data stream.
       shared_ptr<vector<Result::Indices>> indices_ {};
+      // The total storage space occupied by managed indexes under the current data stream. Unit: bytes.
       shared_ptr<int64_t> managedStorageSize_ {};
+      // The index name.
       shared_ptr<string> name_ {};
+      // The total storage space occupied by all indexes under the current data stream. Unit: bytes.
       shared_ptr<int64_t> totalStorageSize_ {};
     };
 
@@ -249,7 +279,9 @@ namespace Models
 
 
     protected:
+      // The total number of data streams.
       shared_ptr<int32_t> xManagedCount_ {};
+      // The total storage size of indexes. Unit: bytes.
       shared_ptr<int64_t> xManagedStorageSize_ {};
     };
 
@@ -281,8 +313,11 @@ namespace Models
 
 
   protected:
+    // The response headers.
     shared_ptr<ListDataStreamsResponseBody::Headers> headers_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The details of the returned data streams.
     shared_ptr<vector<ListDataStreamsResponseBody::Result>> result_ {};
   };
 

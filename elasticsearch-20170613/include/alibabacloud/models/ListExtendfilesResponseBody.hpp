@@ -88,11 +88,11 @@ namespace Models
 
 
     protected:
-      // The path of the driver file.
+      // The extension file path.
       shared_ptr<string> filePath_ {};
-      // The size of the driver file.
+      // The extension file size.
       shared_ptr<int64_t> fileSize_ {};
-      // The name of the driver file.
+      // The extension file name.
       shared_ptr<string> name_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};

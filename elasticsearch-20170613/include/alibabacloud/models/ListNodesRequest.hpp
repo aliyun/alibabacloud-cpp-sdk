@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The IDs of the ECS instances.
+    // The list of ECS instance IDs.
     shared_ptr<string> ecsInstanceIds_ {};
-    // The name of the ECS instance.
+    // The ECS instance name.
     shared_ptr<string> ecsInstanceName_ {};
-    // The number of the page to return.
+    // The page number of the returned results.
     shared_ptr<int32_t> page_ {};
-    // The number of entries to return on each page.
+    // The number of results per page.
     shared_ptr<int32_t> size_ {};
-    // The tags of the ECS instance. You must configure tagKey and tagValue.
+    // The tag information of the ECS instance. The tag key (tagKey) and tag value (tagValue) must be included.
     shared_ptr<string> tags_ {};
   };
 

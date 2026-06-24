@@ -51,9 +51,8 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result shows a list of uninstalled plug-ins.
     shared_ptr<vector<string>> result_ {};
   };
 

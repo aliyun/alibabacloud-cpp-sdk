@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The IP address of the node.
     shared_ptr<string> host_ {};
+    // The node name. This parameter is supported only for instances of version 7.16 deployed on ACK.
     shared_ptr<string> hostName_ {};
+    // The port number of the node.
     shared_ptr<int64_t> port_ {};
+    // The zone ID of the node.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
+    // 
+    // - true: The nodes can be scaled in.
+    // - false: The nodes cannot be scaled in.
     shared_ptr<bool> result_ {};
   };
 

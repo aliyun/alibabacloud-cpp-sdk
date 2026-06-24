@@ -161,30 +161,36 @@ namespace Models
 
 
     protected:
-      // The time when the pipeline was created.
+      // The batch delay of the pipeline. Unit: milliseconds.
       shared_ptr<int32_t> batchDelay_ {};
+      // The batch size of the pipeline.
       shared_ptr<int32_t> batchSize_ {};
-      // The description of the pipeline.
-      shared_ptr<string> config_ {};
-      // The state of the MPS queue. Valid values:
-      // 
-      // *   NOT_DEPLOYED: The node is not deployed.
-      // *   RUNNING
-      // *   DELETED: Deleted. The console does not display this status.
-      shared_ptr<string> description_ {};
-      shared_ptr<string> gmtCreatedTime_ {};
-      // The total capacity of the queue in bytes. Unit: MB.
-      shared_ptr<string> gmtUpdateTime_ {};
-      // Number of queue checkpoint writes.
-      shared_ptr<string> pipelineId_ {};
-      shared_ptr<string> pipelineStatus_ {};
-      // Pipeline batch delay. Unit: milliseconds.
-      shared_ptr<int32_t> queueCheckPointWrites_ {};
-      // The number of pipeline workers.
-      shared_ptr<int32_t> queueMaxBytes_ {};
       // The specific configuration of the pipeline.
+      shared_ptr<string> config_ {};
+      // The pipeline description.
+      shared_ptr<string> description_ {};
+      // The time when the pipeline was created.
+      shared_ptr<string> gmtCreatedTime_ {};
+      // The time when the pipeline was last updated.
+      shared_ptr<string> gmtUpdateTime_ {};
+      // The pipeline ID.
+      shared_ptr<string> pipelineId_ {};
+      // The pipeline status. Valid values:
+      // 
+      // - NOT_DEPLOYED: not deployed.
+      // - RUNNING: running.
+      // - DELETED: deleted. This status is not displayed in the console.
+      shared_ptr<string> pipelineStatus_ {};
+      // The number of queue checkpoint writes.
+      shared_ptr<int32_t> queueCheckPointWrites_ {};
+      // The total capacity of the queue, in bytes. Unit: MB.
+      shared_ptr<int32_t> queueMaxBytes_ {};
+      // The queue type. Valid values:
+      // 
+      // - MEMORY: a traditional memory-based queue.
+      // - PERSISTED: a disk-based ACKed queue (persistent queue).
       shared_ptr<string> queueType_ {};
-      // The size of the pipeline batch.
+      // The number of pipeline worker threads.
       shared_ptr<int32_t> workers_ {};
     };
 
@@ -207,12 +213,9 @@ namespace Models
 
 
   protected:
-    // The time when the pipeline was updated.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The type of the queue. Valid values:
-    // 
-    // *   MEMORY: a traditional memory-based queue.
-    // *   PERSISTED: disk-based ACKed queue (persistent queue).
+    // The returned pipeline information. For more information, see [logstash.yml](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html).
     shared_ptr<DescribePipelineResponseBody::Result> result_ {};
   };
 

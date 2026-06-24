@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // true: Enabled; false: shutdown
+    // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
     // PUBLIC, PRIVATE

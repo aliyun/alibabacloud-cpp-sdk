@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Some configurable Kibana settings. For more information, see [Kibana settings](https://www.elastic.co/guide/cn/kibana/current/settings.html).
     Darabonba::Json result_ {};
   };
 

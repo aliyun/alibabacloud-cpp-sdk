@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The number of Kibana nodes.
     shared_ptr<int64_t> amount_ {};
+    // The storage space of the Kibana node. Unit: GB.
     shared_ptr<int64_t> disk_ {};
+    // The Kibana node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+    // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
   };

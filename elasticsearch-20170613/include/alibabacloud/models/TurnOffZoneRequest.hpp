@@ -49,6 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> hpAlbZoneDrained_ {};
+    // The zone of the instance.
     shared_ptr<string> zone_ {};
   };
 

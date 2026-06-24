@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The error code returned. If the API operation is successfully called, this parameter is not returned.
+    // The error code. This parameter is not returned if the call is successful.
     shared_ptr<string> code_ {};
-    // The error message returned. If the API operation is successfully called, this parameter is not returned.
+    // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the change task is resumed. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true: The change task is resumed.
-    // *   false: The change task fails to be resumed.
+    // - true: The task is resumed.
+    // - false: The task failed to be resumed.
     shared_ptr<bool> result_ {};
   };
 

@@ -124,15 +124,12 @@ namespace Models
 
 
       protected:
-        // The fields in the Mapping for the index.
         shared_ptr<vector<string>> fields_ {};
-        // The index list of the cluster.
         shared_ptr<vector<string>> indices_ {};
-        // The Mapping configuration of the cluster.
+        // The mapping configuration of the cluster.
         shared_ptr<string> mapping_ {};
-        // The Settings of the cluster.
+        // The settings configuration of the cluster.
         shared_ptr<string> settings_ {};
-        // Specifies the type of the index.
         shared_ptr<vector<string>> typeName_ {};
       };
 
@@ -155,9 +152,9 @@ namespace Models
 
 
     protected:
-      // Whether it is connectable.
+      // Indicates whether the cluster is connectable.
       shared_ptr<bool> connectable_ {};
-      // The metadata of the cluster.
+      // The metadata information of the cluster.
       shared_ptr<Result::MetaInfo> metaInfo_ {};
     };
 
@@ -180,9 +177,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned result.
     shared_ptr<GetClusterDataInformationResponseBody::Result> result_ {};
   };
 

@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the intelligent O&M feature is enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Failed.
     shared_ptr<bool> result_ {};
   };
 

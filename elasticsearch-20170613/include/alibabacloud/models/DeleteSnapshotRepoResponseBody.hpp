@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The returned result. Valid values:
     // 
-    // *   true: reference warehouse deleted successfully
-    // *   false: reference warehouse deleted successfully failed
+    // - true: The reference repository is deleted.
+    // - false: The reference repository failed to be deleted.
     shared_ptr<bool> result_ {};
   };
 

@@ -105,8 +105,11 @@ namespace Models
 
 
       protected:
+        // The alias configuration of the template.
         Darabonba::Json aliases_ {};
+        // The mappings configuration of the template.
         Darabonba::Json mappings_ {};
+        // The settings configuration of the template.
         Darabonba::Json settings_ {};
       };
 
@@ -131,7 +134,9 @@ namespace Models
 
 
     protected:
+      // The metadata, which is used to store information such as remarks.
       Darabonba::Json meta_ {};
+      // The template information.
       shared_ptr<Result::Template> template_ {};
     };
 
@@ -154,7 +159,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<DescribeComponentIndexResponseBody::Result> result_ {};
   };
 

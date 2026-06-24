@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the pipeline is updated. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true: The pipeline is updated.
-    // *   false: The pipeline fails to be updated.
+    // - true: The update was successful.
+    // - false: The update failed.
     shared_ptr<bool> result_ {};
   };
 

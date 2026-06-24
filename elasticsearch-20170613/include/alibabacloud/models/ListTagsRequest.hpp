@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The return results.
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The tag value of the ENI.
+    // The resource type. Fixed value: INSTANCE.
     shared_ptr<string> resourceType_ {};
   };
 

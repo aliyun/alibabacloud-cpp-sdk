@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The size of the driver file. Unit: byte.
+      // The size of the extension file. Unit: bytes.
       shared_ptr<int64_t> fileSize_ {};
-      // The name of the driver file.
+      // The name of the extension file.
       shared_ptr<string> name_ {};
-      // The source of the driver file. This parameter is fixed as ORIGIN, which indicates that the driver file is retained.
+      // The source of the extension file. Only ORIGIN (retained original extension file) is supported.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<vector<UpdateExtendfilesResponseBody::Result>> result_ {};

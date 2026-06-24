@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The result of the operation. Valid values:
     // 
-    // *   true: remove the interworking instance successfully
-    // *   false: remove the interworking instance failed
+    // - true: The connected instance is removed.
+    // - false: The connected instance failed to be removed.
     shared_ptr<bool> result_ {};
   };
 

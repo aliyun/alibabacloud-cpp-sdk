@@ -48,7 +48,14 @@ namespace Models
 
 
   protected:
+    // Request body parameters  
+    // 
+    // ```json
     shared_ptr<string> body_ {};
+    // Whether to perform pre-upgrade validation:  
+    // 
+    // - true: Validate only  
+    // - false: Upload directly
     shared_ptr<string> dryRun_ {};
   };
 

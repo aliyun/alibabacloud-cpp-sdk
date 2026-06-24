@@ -99,12 +99,21 @@ namespace Models
 
 
   protected:
+    // The list of access addresses of the Elasticsearch instance where Kibana resides after Kibana pipeline management is enabled.
     shared_ptr<vector<string>> endpoints_ {};
     shared_ptr<string> esInstanceId_ {};
+    // The password used to log on to Kibana.
     shared_ptr<string> password_ {};
+    // The list of pipelines managed by Kibana.
     shared_ptr<vector<string>> pipelineIds_ {};
+    // The pipeline management method. Valid values:
+    // 
+    // - ES: Kibana pipeline management.
+    // - MULTIPLE_PIPELINE: configuration file management.
     shared_ptr<string> pipelineManagementType_ {};
+    // The username used to log on to Kibana.
     shared_ptr<string> userName_ {};
+    // A unique token used to ensure idempotence of the request. The client generates this value. The value must be unique across different requests and can contain up to 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
   };
 

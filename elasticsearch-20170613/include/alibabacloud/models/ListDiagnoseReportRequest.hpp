@@ -94,23 +94,38 @@ namespace Models
 
 
   protected:
-    // SYSTEM
+    // Specifies whether to display the details of diagnostic items.
     shared_ptr<bool> detail_ {};
-    // 1
+    // The end timestamp of the query. Unit: milliseconds.
+    // - Minimum value: 1000000000000
+    // - Maximum value: 2000000000000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // 1594569600000
+    // The language of the reports to retrieve. Default value: the browser language. Valid values:
+    // 
+    // - en: English
+    // - zh: Simplified Chinese
+    // - zt: Traditional Chinese
+    // - es: Spanish
+    // - fr: French.
     shared_ptr<string> lang_ {};
-    // 20
+    // The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};
-    // true
+    // The number of reports per page. Default value: 10. Minimum value: 1. Maximum value: 500.
     shared_ptr<int32_t> size_ {};
-    // 1595174399999
+    // The start timestamp of the query. Unit: milliseconds.
+    // 
+    // - Minimum value: 1000000000000
+    // - Maximum value: 2000000000000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The ID of the request.
+    // The trigger method of the health diagnostics. Valid values:
+    // 
+    // - SYSTEM (default): automatically triggered by the system
+    // - INNER: internally triggered
+    // - USER: manually triggered by the user.
     shared_ptr<string> trigger_ {};
   };
 

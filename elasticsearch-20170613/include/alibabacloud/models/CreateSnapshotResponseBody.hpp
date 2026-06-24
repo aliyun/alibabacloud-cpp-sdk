@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The returned result. Valid values:
     // 
-    // *   true: manual snapshot backup successfully
-    // *   false: manual snapshot backup failed
+    // - true: The manual snapshot backup is successful.
+    // - false: The manual snapshot backup failed.
     shared_ptr<bool> result_ {};
   };
 

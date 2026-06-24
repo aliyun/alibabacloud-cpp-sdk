@@ -102,12 +102,17 @@ namespace Models
 
 
       protected:
+        // The error code.
         shared_ptr<string> errorCode_ {};
+        // The error message.
         shared_ptr<string> errorMsg_ {};
-        // The verification is passed. Valid values:
+        // The error type. Valid values:
         // 
-        // *   success: through
-        // *   failed: failed
+        // - clusterStatus: cluster health status.
+        // - clusterConfigYml: cluster YML file.
+        // - clusterConfigPlugins: cluster configuration file.
+        // - clusterResource: cluster resources.
+        // - clusterSnapshot: cluster snapshot.
         shared_ptr<string> errorType_ {};
       };
 
@@ -137,10 +142,19 @@ namespace Models
 
 
     protected:
+      // Indicates whether the check is passed. Valid values:
+      // 
+      // - success: passed.
+      // - failed: not passed.
       shared_ptr<string> status_ {};
-      // The error message returned.
+      // The check information.
       shared_ptr<vector<Result::ValidateResult>> validateResult_ {};
-      // The error code returned if the request failed.
+      // The check type. Valid values:
+      // 
+      // - checkClusterHealth: cluster health status.
+      // - checkConfigCompatible: configuration compatibility status.
+      // - checkClusterResource: resource space status.
+      // - checkClusterSnapshot: whether a snapshot exists.
       shared_ptr<string> validateType_ {};
     };
 
@@ -163,15 +177,9 @@ namespace Models
 
 
   protected:
-    // The verification information.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The type of the error. Valid values:
-    // 
-    // *   clusterStatus: the health status of the cluster.
-    // *   clusterConfigYml: Cluster YML File
-    // *   clusterConfigPlugins: Cluster Configuration File
-    // *   clusterResource: cluster resources
-    // *   clusterSnapshot: cluster snapshot
+    // The returned result.
     shared_ptr<vector<UpgradeEngineVersionResponseBody::Result>> result_ {};
   };
 

@@ -176,8 +176,11 @@ namespace Models
 
 
           protected:
+            // Operation suggestion
             shared_ptr<vector<string>> suggestActions_ {};
+            // Operation suggestion text
             shared_ptr<string> suggestText_ {};
+            // Operation suggestion type
             shared_ptr<string> suggestType_ {};
           };
 
@@ -243,13 +246,21 @@ namespace Models
 
 
         protected:
+          // Operation suggestion
           shared_ptr<ShowContent::ActionSuggest> actionSuggest_ {};
+          // Description of the management event
           shared_ptr<string> desc_ {};
+          // Management event status
           shared_ptr<string> eventStatus_ {};
+          // Time of occurrence
           shared_ptr<string> eventTime_ {};
+          // End Time of O&M execution for the management event
           shared_ptr<string> executeFinishTime_ {};
+          // Start Time of O&M execution for the management event
           shared_ptr<string> executeStartTime_ {};
+          // Instance ID of the occurrence
           shared_ptr<string> instanceId_ {};
+          // Execution ID of the cluster Change
           shared_ptr<string> opsChangeId_ {};
         };
 
@@ -344,17 +355,29 @@ namespace Models
 
 
       protected:
+        // Is auto-alarm enabled
         shared_ptr<bool> autoAlarm_ {};
+        // Management event display name
         shared_ptr<string> displayName_ {};
+        // is Preview
         shared_ptr<bool> dryRun_ {};
+        // event level
         shared_ptr<string> level_ {};
+        // is O&M processing required
         shared_ptr<bool> mustOps_ {};
+        // product type of the management event
         shared_ptr<string> product_ {};
+        // scheduled running time
         shared_ptr<string> scheduleExecuteTime_ {};
+        // scheduled end time
         shared_ptr<string> scheduleFinishTime_ {};
+        // Management event content
         shared_ptr<ResultItem::ShowContent> showContent_ {};
+        // Event occurrence source
         shared_ptr<string> source_ {};
+        // Event status
         shared_ptr<string> status_ {};
+        // Event type
         shared_ptr<string> type_ {};
       };
 
@@ -377,7 +400,9 @@ namespace Models
 
 
     protected:
+      // Content
       shared_ptr<vector<Result::ResultItem>> result_ {};
+      // Total number of records
       shared_ptr<string> total_ {};
     };
 
@@ -400,7 +425,9 @@ namespace Models
 
 
   protected:
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Return Result
     shared_ptr<ListEventRecordsResponseBody::Result> result_ {};
   };
 

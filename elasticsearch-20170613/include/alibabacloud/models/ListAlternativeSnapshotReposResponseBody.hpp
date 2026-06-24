@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The address of the repository.
+      // The repository address.
       shared_ptr<string> repoPath_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned result.
     shared_ptr<vector<ListAlternativeSnapshotReposResponseBody::Result>> result_ {};
   };
 

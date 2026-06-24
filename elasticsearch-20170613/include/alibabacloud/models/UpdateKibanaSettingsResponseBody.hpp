@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The returned result. Valid values:
     // 
-    // *   true: The Kibana language modified successfully
-    // *   false: The Kibana language modified failed
+    // - true: The Kibana language was modified.
+    // - false: The Kibana language failed to be modified.
     shared_ptr<bool> result_ {};
   };
 

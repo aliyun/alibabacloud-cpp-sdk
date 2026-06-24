@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the composable template.
     shared_ptr<string> name_ {};
+    // The page number for paging. Default value: 1.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page for paging. Default value: 10.
     shared_ptr<int32_t> size_ {};
   };
 

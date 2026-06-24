@@ -72,7 +72,7 @@ namespace Models
     protected:
       // The namespace of the cluster.
       shared_ptr<string> namespace_ {};
-      // The status of the namespace.
+      // The namespace status.
       shared_ptr<string> status_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<vector<ListAckNamespacesResponseBody::Result>> result_ {};

@@ -94,13 +94,13 @@ namespace Models
       shared_ptr<string> name_ {};
       // The source type of the dictionary file. Valid values:
       // 
-      // *   OSS
-      // *   ORIGIN
+      // - OSS: uses OSS open storage.
+      // - ORIGIN: retains a previously uploaded dictionary.
       shared_ptr<string> sourceType_ {};
-      // The type of the dictionaries. Valid values:
+      // The dictionary type. Valid values:
       // 
-      // *   MAIN: IK main dictionary
-      // *   STOP: IK stopword list
+      // - MAIN: IK main tokenizer dictionary.
+      // - STOP: IK stopword dictionary.
       shared_ptr<string> type_ {};
     };
 

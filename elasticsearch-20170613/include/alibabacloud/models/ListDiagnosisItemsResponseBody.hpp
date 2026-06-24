@@ -36,11 +36,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Result& obj) { 
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(esApiRequired, esApiRequired_);
         DARABONBA_PTR_TO_JSON(key, key_);
         DARABONBA_PTR_TO_JSON(name, name_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(esApiRequired, esApiRequired_);
         DARABONBA_PTR_FROM_JSON(key, key_);
         DARABONBA_PTR_FROM_JSON(name, name_);
       };
@@ -56,12 +58,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->key_ == nullptr && this->name_ == nullptr; };
+        && this->esApiRequired_ == nullptr && this->key_ == nullptr && this->name_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Result& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // esApiRequired Field Functions 
+      bool hasEsApiRequired() const { return this->esApiRequired_ != nullptr;};
+      void deleteEsApiRequired() { this->esApiRequired_ = nullptr;};
+      inline bool getEsApiRequired() const { DARABONBA_PTR_GET_DEFAULT(esApiRequired_, false) };
+      inline Result& setEsApiRequired(bool esApiRequired) { DARABONBA_PTR_SET_VALUE(esApiRequired_, esApiRequired) };
 
 
       // key Field Functions 
@@ -79,8 +88,12 @@ namespace Models
 
 
     protected:
+      // The diagnostic item description.
       shared_ptr<string> description_ {};
+      shared_ptr<bool> esApiRequired_ {};
+      // The diagnostic item identifier.
       shared_ptr<string> key_ {};
+      // The diagnostic item name.
       shared_ptr<string> name_ {};
     };
 
@@ -103,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<vector<ListDiagnosisItemsResponseBody::Result>> result_ {};
   };
 

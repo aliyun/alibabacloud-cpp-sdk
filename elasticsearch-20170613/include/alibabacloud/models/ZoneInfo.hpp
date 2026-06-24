@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The zone status. Valid values:
+    // 
+    // - ISOLATION: offline
+    // - NORMAL: Normal.
     shared_ptr<string> status_ {};
+    // The zone ID, which uniquely identifies the zone.
     shared_ptr<string> zoneId_ {};
   };
 

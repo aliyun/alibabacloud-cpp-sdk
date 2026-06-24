@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the pipeline is deleted. Valid values:
+    // The returned result:
     // 
-    // *   true: The pipeline is deleted.
-    // *   false: The pipeline fails to be deleted.
+    // - true: The pipelines are deleted.
+    // - false: The pipelines failed to be deleted.
     shared_ptr<bool> result_ {};
   };
 

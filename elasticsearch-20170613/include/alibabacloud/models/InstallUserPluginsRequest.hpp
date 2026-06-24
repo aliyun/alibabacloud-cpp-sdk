@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The list of custom plugins to install.
     shared_ptr<string> body_ {};
     shared_ptr<bool> force_ {};
   };

@@ -51,9 +51,8 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of plug-ins to be installed.
     shared_ptr<vector<string>> result_ {};
   };
 

@@ -178,6 +178,7 @@ namespace Models
 
 
     protected:
+      // GC垃圾回收器名称。支持CMS和G1。
       shared_ptr<string> gcName_ {};
     };
 
@@ -623,60 +624,156 @@ namespace Models
 
 
   protected:
+    // Indicates whether the new dedicated master node is enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> advancedDedicateMaster_ {};
+    // The advanced settings.
     shared_ptr<Elasticsearch::AdvancedSetting> advancedSetting_ {};
+    // The Aliws dictionary configuration.
     shared_ptr<vector<DictInfo>> aliwsDicts_ {};
+    // The client node configuration.
     shared_ptr<ClientNodeConfiguration> clientNodeConfiguration_ {};
+    // The time when the instance was created.
     shared_ptr<string> createdAt_ {};
+    // Indicates whether the instance contains data nodes. Valid values:
+    // 
+    // - true: The instance contains data nodes.
+    // - false: The instance does not contain data nodes.
     shared_ptr<bool> dataNode_ {};
+    // Indicates whether the instance contains legacy dedicated master nodes (deprecated).
     shared_ptr<bool> dedicateMaster_ {};
+    // The instance name.
     shared_ptr<string> description_ {};
+    // The IK dictionary configuration.
     shared_ptr<vector<DictInfo>> dictList_ {};
+    // The private network access address of the Elasticsearch instance.
     shared_ptr<string> domain_ {};
+    // The elastic data node configuration.
     shared_ptr<ElasticDataNodeConfiguration> elasticDataNodeConfiguration_ {};
+    // Indicates whether private network access to Kibana is enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enableKibanaPrivateNetwork_ {};
+    // Indicates whether public network access to Kibana is enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enableKibanaPublicNetwork_ {};
+    // Indicates whether the public network address of the instance is enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enablePublic_ {};
+    // The time when the instance expires. For pay-as-you-go instances, the default value is 100 years.
     shared_ptr<int64_t> endTime_ {};
+    // The YML file configuration of the instance.
     shared_ptr<map<string, string>> esConfig_ {};
+    // The private network access whitelist configuration of the instance (deprecated).
     shared_ptr<vector<string>> esIPWhitelist_ {};
+    // The instance version.
     shared_ptr<string> esVersion_ {};
+    // The extension parameter settings of the instance.
     shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
+    // Indicates whether client nodes are enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> haveClientNode_ {};
+    // Indicates whether elastic data nodes are enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> haveElasticDataNode_ {};
+    // Indicates whether the instance contains Kibana nodes. Valid values:
+    // 
+    // - true: The instance contains Kibana nodes.
+    // - false: The instance does not contain Kibana nodes.
     shared_ptr<bool> haveKibana_ {};
+    // The IK hot dictionary configuration.
     shared_ptr<vector<DictInfo>> ikHotDicts_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The Kibana node configuration.
     shared_ptr<KibanaNodeConfiguration> kibanaConfiguration_ {};
+    // The public network access address of Kibana.
     shared_ptr<string> kibanaDomain_ {};
+    // The public network access whitelist configuration of Kibana.
     shared_ptr<vector<string>> kibanaIPWhitelist_ {};
+    // The public network access port of Kibana.
     shared_ptr<int64_t> kibanaPort_ {};
+    // The private network access address of Kibana.
     shared_ptr<string> kibanaPrivateDomain_ {};
+    // The IP whitelist configuration for private network access to Kibana.
     shared_ptr<vector<string>> kibanaPrivateIPWhitelist_ {};
+    // The private network access port of Kibana.
     shared_ptr<int64_t> kibanaPrivatePort_ {};
+    // The access protocol for Kibana. Valid values: HTTP and HTTPS.
     shared_ptr<string> kibanaProtocol_ {};
+    // The dedicated master node configuration.
     shared_ptr<MasterNodeConfiguration> masterConfiguration_ {};
+    // The network configuration of the instance.
     shared_ptr<NetworkConfig> networkConfig_ {};
+    // The number of data nodes in the instance.
     shared_ptr<int64_t> nodeAmount_ {};
+    // The data node configuration.
     shared_ptr<NodeSpec> nodeSpec_ {};
+    // The billing method of the instance. Valid values:
+    // 
+    // - prepaid: subscription.
+    // - postpaid: pay-as-you-go.
     shared_ptr<string> paymentType_ {};
+    // The private network access port of the instance.
     shared_ptr<int64_t> port_ {};
+    // The private network address access whitelist configuration of the instance.
     shared_ptr<vector<string>> privateNetworkIpWhiteList_ {};
+    // The instance edition. Valid values:
+    // 
+    // - logEnhancement: Advanced Edition.
+    // - generalBusiness: general commercial edition.
     shared_ptr<string> productType_ {};
+    // The access protocol of the instance. Valid values: HTTP and HTTPS.
     shared_ptr<string> protocol_ {};
+    // The public network access address of the Elasticsearch instance.
     shared_ptr<string> publicDomain_ {};
+    // The public network access whitelist configuration of the instance.
     shared_ptr<vector<string>> publicIpWhitelist_ {};
+    // The public network access port of the Elasticsearch instance.
     shared_ptr<int64_t> publicPort_ {};
+    // The high availability configuration of the instance.
     shared_ptr<ReadWritePolicy> readWritePolicy_ {};
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
+    // Indicates whether the instance is in the Elasticsearch service VPC. Valid values:
+    // 
+    // - true: The instance is in the service VPC.
+    // - false: The instance is not in the service VPC.
     shared_ptr<bool> serviceVpc_ {};
+    // The status of the instance. Valid values:
+    // 
+    // - active: Normal.
+    // - activating: Taking effect.
+    // - inactive: Frozen.
+    // - invalid: Expired.
     shared_ptr<string> status_ {};
+    // The synonym dictionary configuration of the instance.
     shared_ptr<vector<DictInfo>> synonymsDicts_ {};
+    // The instance tags.
     shared_ptr<vector<Tag>> tags_ {};
+    // The time when the instance was last updated.
     shared_ptr<string> updatedAt_ {};
+    // Indicates whether warm data nodes are enabled. Valid values:
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> warmNode_ {};
+    // The warm data node configuration.
     shared_ptr<WarmNodeConfiguration> warmNodeConfiguration_ {};
+    // The number of zones for the instance.
     shared_ptr<int64_t> zoneCount_ {};
+    // The zone information of the instance.
     shared_ptr<vector<ZoneInfo>> zoneInfos_ {};
   };
 

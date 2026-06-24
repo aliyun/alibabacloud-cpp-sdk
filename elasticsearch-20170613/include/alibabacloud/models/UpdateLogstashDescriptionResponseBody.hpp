@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The name of the cluster.
+      // The instance name.
       shared_ptr<string> description_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result returned.
+    // The returned result.
     shared_ptr<UpdateLogstashDescriptionResponseBody::Result> result_ {};
   };
 

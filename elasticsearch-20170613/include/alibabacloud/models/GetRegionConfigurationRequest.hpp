@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The current zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

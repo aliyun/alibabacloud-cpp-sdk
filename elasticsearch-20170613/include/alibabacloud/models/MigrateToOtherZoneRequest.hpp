@@ -49,7 +49,9 @@ namespace Models
 
   protected:
     shared_ptr<string> body_ {};
-    // Verify whether the zone node can be migrated. true indicates that the data is only verified and the migration task is not executed. false indicates that the migration task is executed after the verification is successful.
+    // Specifies whether to perform a dry run to check whether zone node migration is feasible. Valid values:
+    // - true: performs only a validation check without executing the migration task.
+    // - false: executes the migration task after the validation check succeeds.
     // 
     // This parameter is required.
     shared_ptr<bool> dryRun_ {};

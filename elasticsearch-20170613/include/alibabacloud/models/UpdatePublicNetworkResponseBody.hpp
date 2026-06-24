@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The status of the public network access switch.
+      // The status of the public network address switch.
       shared_ptr<bool> enablePublic_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned result.
     shared_ptr<UpdatePublicNetworkResponseBody::Result> result_ {};
   };
 

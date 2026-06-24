@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result. Valid values:
+    // 
+    // - true: The whitelist is updated.
+    // - false: The whitelist failed to be updated.
     shared_ptr<bool> result_ {};
   };
 

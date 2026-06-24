@@ -90,14 +90,17 @@ namespace Models
 
 
     protected:
+      // The time when the pipeline was created.
       shared_ptr<string> gmtCreatedTime_ {};
+      // The time when the pipeline was last updated.
       shared_ptr<string> gmtUpdateTime_ {};
-      // The status of the pipeline. Supported:
-      // 
-      // *   NOT_DEPLOYED: The node is not deployed.
-      // *   RUNNING
-      // *   DELETED: Deleted. The console does not display this status.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
+      // The pipeline status. Valid values:
+      // 
+      // - NOT_DEPLOYED: not deployed.
+      // - RUNNING: running.
+      // - DELETED: deleted. This status is not displayed in the console.
       shared_ptr<string> pipelineStatus_ {};
     };
 
@@ -129,7 +132,7 @@ namespace Models
 
 
     protected:
-      // The time when the pipeline was updated.
+      // The total number of records.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -161,11 +164,11 @@ namespace Models
 
 
   protected:
-    // The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+    // The response headers.
     shared_ptr<ListPipelineResponseBody::Headers> headers_ {};
-    // The response.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the pipeline was created.
+    // The returned results.
     shared_ptr<vector<ListPipelineResponseBody::Result>> result_ {};
   };
 

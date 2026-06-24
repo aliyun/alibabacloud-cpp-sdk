@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the shipper is deleted. Valid values:
-    // 
-    // *   true: The shipper is deleted.
-    // *   false: The shipper fails to be deleted.
+    // The returned result. Valid values:
+    // - true: The deletion was successful.
+    // - false: The deletion failed.
     shared_ptr<bool> result_ {};
   };
 

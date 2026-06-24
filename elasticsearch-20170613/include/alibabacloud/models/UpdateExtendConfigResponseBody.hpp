@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result. Valid values:
+    // 
+    // - true: The scenario-based configuration template was modified.
+    // - false: The scenario-based configuration template failed to be modified.
     shared_ptr<bool> result_ {};
   };
 

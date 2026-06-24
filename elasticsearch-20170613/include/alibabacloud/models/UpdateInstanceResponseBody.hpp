@@ -121,11 +121,14 @@ namespace Models
 
 
       protected:
-        // The node specifications.
+        // The storage size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
-        // The number of nodes.
+        // The storage type of the node. Valid values:
+        // 
+        // - cloud_ssd: standard SSD
+        // - cloud_efficiency: ultra disk.
         shared_ptr<string> diskType_ {};
-        // The configuration of Kibana nodes.
+        // 节点规格。
         shared_ptr<string> spec_ {};
       };
 
@@ -185,10 +188,13 @@ namespace Models
 
 
       protected:
+        // The number of nodes.
         shared_ptr<int32_t> amount_ {};
+        // The storage size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
+        // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
-        // The storage type of the node. Only cloud_ssd(SSD cloud disk) is supported.
+        // 节点规格。
         shared_ptr<string> spec_ {};
       };
 
@@ -248,13 +254,13 @@ namespace Models
 
 
       protected:
-        // The configuration of dedicated master nodes.
-        shared_ptr<int32_t> amount_ {};
-        // The node specifications.
-        shared_ptr<int32_t> disk_ {};
         // The number of nodes.
+        shared_ptr<int32_t> amount_ {};
+        // The storage size of the node.
+        shared_ptr<int32_t> disk_ {};
+        // The storage type of the node. You can ignore this parameter.
         shared_ptr<string> diskType_ {};
-        // The storage type of the node. This parameter can be ignored.
+        // 节点规格。
         shared_ptr<string> spec_ {};
       };
 
@@ -345,33 +351,35 @@ namespace Models
 
 
     protected:
-      // The private domain name of the instance.
+      // The time when the instance was created.
       shared_ptr<string> createdAt_ {};
-      // The configuration of data nodes.
+      // The instance name.
       shared_ptr<string> description_ {};
-      // The ID of the instance.
+      // 实例的私网访问域名。
       shared_ptr<string> domain_ {};
-      // The node specifications.
+      // The instance version.
       shared_ptr<string> esVersion_ {};
-      // The storage space of the node. Unit: GB.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The size of the node storage space.
+      // The Kibana node configuration.
       shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
-      // The storage space of the node. Unit: GB.
+      // The master node configuration.
       shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
+      // The number of data nodes.
+      shared_ptr<int32_t> nodeAmount_ {};
+      // The data node configuration.
+      shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
-      // *   prepaid: subscription
-      // *   postpaid: pay-as-you-go
-      shared_ptr<int32_t> nodeAmount_ {};
-      // The storage type of the node. Valid values:
-      // 
-      // *   cloud_ssd: standard SSD
-      // *   cloud_efficiency: ultra disk
-      shared_ptr<Result::NodeSpec> nodeSpec_ {};
-      // The edition of the dedicated KMS instance.
+      // - prepaid: subscription
+      // - postpaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
-      // The name of the instance.
+      // The status of the instance. Valid values:
+      // 
+      // - active: Normal
+      // - activating: Taking effect
+      // - inactive: Frozen
+      // - invalid: Invalid.
       shared_ptr<string> status_ {};
     };
 
@@ -410,14 +418,9 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // The time when the instance was created.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the instance. Valid values:
-    // 
-    // *   active: normal
-    // *   activating: taking effect
-    // *   inactive: frozen
-    // *   invalid: invalid
+    // The returned result.
     shared_ptr<UpdateInstanceResponseBody::Result> result_ {};
   };
 

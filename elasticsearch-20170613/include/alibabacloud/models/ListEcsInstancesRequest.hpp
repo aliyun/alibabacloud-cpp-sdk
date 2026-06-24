@@ -84,17 +84,20 @@ namespace Models
 
 
   protected:
-    // test
+    // The list of ECS instance IDs. The value can be a JSON array that consists of up to 100 instance IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> ecsInstanceIds_ {};
-    // [{ "tagKey":"a","tagValue":"b"}]
+    // The name of the ECS instance.
     shared_ptr<string> ecsInstanceName_ {};
-    // 10
+    // The page number of the returned results. Maximum value: 500.
     shared_ptr<int32_t> page_ {};
-    // ["i-bp13y63575oypr9d\\*\\*\\*\\*","i-bp1gyhphjaj73jsr\\*\\*\\*\\*"]
+    // The number of results per page. Default value: 10. Maximum value: 500.
     shared_ptr<int32_t> size_ {};
-    // vpc-bp16k1dvzxtmagcva\\*\\*\\*\\*
+    // Instance tags of the ECS instance. The following fields must be included:
+    // 
+    // - tagKey: instance tag key.
+    // - tagValue: instance tag value.
     shared_ptr<string> tags_ {};
-    // The ID of the request.
+    // The ID of the VPC where the ECS instance resides.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -70,15 +70,15 @@ namespace Models
 
 
     protected:
+      // The template configuration content.
       shared_ptr<string> content_ {};
-      // *
-      // *
-      // *
-      // *
+      // The template name. Valid values:
+      // - staticSettings: cluster static configuration
+      // - dynamicSettings: cluster dynamic configuration
+      // - indexTemplate: index template configuration
+      // - ilmPolicy: index lifecycle configuration
       // 
-      // **
-      // 
-      // ****
+      // > Advanced Edition instances of version 6.7.0 or later support enabling the index lifecycle template.
       shared_ptr<string> templateName_ {};
     };
 
@@ -101,7 +101,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned results.
     shared_ptr<vector<RecommendTemplatesResponseBody::Result>> result_ {};
   };
 

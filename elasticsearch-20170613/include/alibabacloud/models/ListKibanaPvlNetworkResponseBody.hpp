@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -171,13 +173,25 @@ namespace Models
 
 
     protected:
+      // The time when the Kibana private network connection was created.
       shared_ptr<string> createTime_ {};
+      // The endpoint ID.
       shared_ptr<string> endpointId_ {};
+      // The endpoint name.
       shared_ptr<string> endpointName_ {};
+      // The endpoint status. Valid values:
+      // 
+      // - Disconnected: not connected.
+      // 
+      // - Connected: connected.
       shared_ptr<string> endpointStatus_ {};
+      // The Kibana private network connection ID.
       shared_ptr<string> pvlId_ {};
+      // The list of security groups.
       shared_ptr<vector<string>> securityGroups_ {};
+      // The vSwitch and zone information.
       shared_ptr<vector<Result::VSwitchIdsZone>> vSwitchIdsZone_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -200,8 +214,9 @@ namespace Models
 
 
   protected:
-    // request id
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The array of result objects.
     shared_ptr<vector<ListKibanaPvlNetworkResponseBody::Result>> result_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The cross-cluster backup information, which specifies the reference instance.
     shared_ptr<string> body_ {};
   };
 

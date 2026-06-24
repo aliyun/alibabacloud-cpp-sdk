@@ -97,12 +97,15 @@ namespace Models
 
 
     protected:
-      // The IP address of the node that generates the log.
+      // The detailed content of the log.
       shared_ptr<string> content_ {};
+      // The IP address of the node that generated the log.
       shared_ptr<string> host_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the instance.
+      // The log level. Valid values: trace, debug, info, warn, and error. GC logs do not have a level.
       shared_ptr<string> level_ {};
+      // The timestamp when the log was generated. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -125,9 +128,9 @@ namespace Models
 
 
   protected:
-    // The details of the log.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The timestamp of log generation. Unit: ms.
+    // The returned result.
     shared_ptr<vector<ListLogstashLogResponseBody::Result>> result_ {};
   };
 

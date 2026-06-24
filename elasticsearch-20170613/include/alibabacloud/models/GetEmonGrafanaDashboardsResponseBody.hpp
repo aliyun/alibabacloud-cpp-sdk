@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the Grafana dashboard list is retrieved. Valid values:
+    // 
+    // - true: succeeded.
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

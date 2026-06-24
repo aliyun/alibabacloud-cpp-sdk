@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The ID of the collector that is created.
       shared_ptr<string> resId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<CreateCollectorResponseBody::Result> result_ {};
   };
 

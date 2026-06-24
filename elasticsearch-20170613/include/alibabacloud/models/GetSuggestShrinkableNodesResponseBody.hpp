@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return results.
+    // The returned results.
     shared_ptr<vector<GetSuggestShrinkableNodesResponseBody::Result>> result_ {};
   };
 

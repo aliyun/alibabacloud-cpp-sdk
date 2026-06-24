@@ -60,8 +60,16 @@ namespace Models
 
 
   protected:
+    // The type of the IP address whitelist. Valid values:
+    // 
+    // - PRIVATE_ES: Elasticsearch private network access whitelist
+    // - PUBLIC_ES: Elasticsearch public network access whitelist
+    // - PRIVATE_KIBANA: Kibana private network access whitelist
+    // - PUBLIC_KIBANA: Kibana public network access whitelist.
     shared_ptr<string> whiteIpType_ {};
+    // The name of the IP address whitelist group.
     shared_ptr<string> groupName_ {};
+    // The list of IP addresses in the whitelist group.
     shared_ptr<vector<string>> ips_ {};
   };
 

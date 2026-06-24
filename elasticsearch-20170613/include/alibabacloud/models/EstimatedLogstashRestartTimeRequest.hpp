@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<string> body_ {};
-    // Specifies whether to forcibly restart the cluster. Default value: false.
+    // Specifies whether to forcibly restart the instance. Default value: false.
     shared_ptr<bool> force_ {};
   };
 

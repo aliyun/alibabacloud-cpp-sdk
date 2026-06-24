@@ -52,8 +52,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // *   true: The pipelines are stopped.
-    // *   false: The pipelines fail to be stopped.
+    // - true: The pipelines are stopped.
+    // - false: The pipelines failed to be stopped.
     shared_ptr<bool> result_ {};
   };
 

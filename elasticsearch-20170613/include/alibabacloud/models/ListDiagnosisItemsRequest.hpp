@@ -13,9 +13,11 @@ namespace Models
   class ListDiagnosisItemsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDiagnosisItemsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(lang, lang_);
     };
     friend void from_json(const Darabonba::Json& j, ListDiagnosisItemsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(lang, lang_);
     };
     ListDiagnosisItemsRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->lang_ == nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->lang_ == nullptr; };
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline ListDiagnosisItemsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -38,6 +48,14 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> instanceId_ {};
+    // The language of the request. Default value: the browser language. Valid values:
+    // 
+    // - en: English
+    // - zh: Simplified Chinese
+    // - zt: Traditional Chinese
+    // - es: Spanish
+    // - fr: French.
     shared_ptr<string> lang_ {};
   };
 

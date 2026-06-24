@@ -99,12 +99,15 @@ namespace Models
 
 
     protected:
-      // The source type of the plug-in.
+      // The plugin description.
       shared_ptr<string> description_ {};
+      // The plugin name.
       shared_ptr<string> name_ {};
+      // The plugin source type.
       shared_ptr<string> source_ {};
-      // The name of the plug-in.
+      // The URL of the plugin documentation.
       shared_ptr<string> specificationUrl_ {};
+      // The plugin status.
       shared_ptr<string> state_ {};
     };
 
@@ -136,7 +139,7 @@ namespace Models
 
 
     protected:
-      // The address of the plug-in description document.
+      // The total number of records returned.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -168,11 +171,11 @@ namespace Models
 
 
   protected:
-    // The description of the plug-in.
+    // The response headers.
     shared_ptr<ListPluginsResponseBody::Headers> headers_ {};
-    // The return results.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the plug-in.
+    // The returned results.
     shared_ptr<vector<ListPluginsResponseBody::Result>> result_ {};
   };
 

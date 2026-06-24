@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The IP address of the node.
       shared_ptr<string> host_ {};
+      // The access port number of the node.
       shared_ptr<int32_t> port_ {};
+      // The zone ID of the instance node. For example, the ID of Zone C in the China (Shanghai) region is cn-shanghai-c.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -103,7 +106,15 @@ namespace Models
 
 
   protected:
+    // The request body.
     shared_ptr<vector<ValidateTransferableNodesRequest::Body>> body_ {};
+    // The node type. Valid values:
+    // 
+    // - WORKER: hot node
+    // - WORKER_WARM: warm node
+    // 
+    // > COORDINATING (client node) and KIBANA (Kibana node) are not supported.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeType_ {};
   };

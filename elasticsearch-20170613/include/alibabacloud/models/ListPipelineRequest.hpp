@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The header of the response.
+    // The page number of the current page for a paged query. Valid values: 1 to 200. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The ID of the request.
+    // The pipeline ID.
     shared_ptr<string> pipelineId_ {};
-    // The total number of returned entries.
+    // The number of pipelines per page for a paged query. Valid values: 1 to 200.
     shared_ptr<int32_t> size_ {};
   };
 

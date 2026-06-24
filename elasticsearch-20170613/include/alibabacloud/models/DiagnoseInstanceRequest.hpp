@@ -80,12 +80,24 @@ namespace Models
 
 
   protected:
-    // The timestamp when the diagnostic report was generated.
+    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The diagnostic items.
     shared_ptr<vector<string>> diagnoseItems_ {};
+    // The list of indexes to diagnose.
     shared_ptr<vector<string>> indices_ {};
+    // The type of the diagnostic task. Valid values:
+    // 
+    // - ALL: Diagnoses all indexes.
+    // - SELECT: Diagnoses selected indexes.
     shared_ptr<string> type_ {};
-    // The returned data.
+    // The language of the report. Default value: browser language. Valid values:
+    // 
+    // - en: English
+    // - zh: Simplified Chinese
+    // - zt: Traditional Chinese
+    // - es: Spanish
+    // - fr: French.
     shared_ptr<string> lang_ {};
   };
 

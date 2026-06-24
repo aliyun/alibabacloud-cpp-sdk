@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the updated index template.
     shared_ptr<string> result_ {};
   };
 

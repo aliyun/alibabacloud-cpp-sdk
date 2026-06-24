@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The number of nodes to be migrated.
+    // The expected number of nodes to retrieve for data migration.
     // 
     // This parameter is required.
     shared_ptr<int32_t> count_ {};
-    // The type of nodes.**WORKER**represents a hot node,**WORKER_WARM** represents a warm node.
+    // The type of node for data migration. **WORKER** indicates a hot node. **WORKER_WARM** indicates a warm node.
     // 
     // This parameter is required.
     shared_ptr<string> nodeType_ {};

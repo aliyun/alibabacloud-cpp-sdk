@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The endpoint name.
     shared_ptr<string> endpointName_ {};
+    // The list of security groups.
     shared_ptr<vector<string>> securityGroups_ {};
+    // Used to ensure the idempotency of the request.
     shared_ptr<string> clientToken_ {};
+    // The Kibana private network connection ID.
     shared_ptr<string> pvlId_ {};
   };
 

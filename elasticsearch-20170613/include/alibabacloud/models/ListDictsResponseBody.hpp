@@ -99,18 +99,19 @@ namespace Models
 
 
     protected:
-      // The link that is used to download the dictionary over the Internet. The link is valid for 90s.
+      // The publicly accessible download URL. The URL is valid for 90 seconds.
       shared_ptr<string> downloadUrl_ {};
-      // The size of the dictionary file. Unit: byte.
+      // The size of the dictionary file, in bytes.
       shared_ptr<int64_t> fileSize_ {};
-      // The name of the dictionary file.
+      // The file name of the dictionary file.
       shared_ptr<string> name_ {};
-      // The source type.
+      // A fixed value.
       shared_ptr<string> sourceType_ {};
       // The type of the IK dictionary. Valid values:
       // 
-      // *   MAIN: main dictionary
-      // *   STOP: stopword list
+      // - MAIN: main tokenization dictionary.
+      // 
+      // - STOP: stopword dictionary.
       shared_ptr<string> type_ {};
     };
 
@@ -142,7 +143,7 @@ namespace Models
 
 
     protected:
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -174,11 +175,11 @@ namespace Models
 
 
   protected:
-    // The header of the response.
+    // The response headers.
     shared_ptr<ListDictsResponseBody::Headers> headers_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The request result.
     shared_ptr<vector<ListDictsResponseBody::Result>> result_ {};
   };
 

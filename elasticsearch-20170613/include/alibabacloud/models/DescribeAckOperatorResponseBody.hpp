@@ -69,14 +69,14 @@ namespace Models
 
 
     protected:
-      // The installation status of ES-operator. Valid values:
+      // The Operator installation status. Valid values:
       // 
-      // *   deployed: ES-operator is installed.
-      // *   not-deploy: ES-operator is not installed.
-      // *   failed: ES-operator fails to be installed.
-      // *   unknown: The installation status of ES-operator is unknown.
+      // - deployed: installed
+      // - not-deploy: not installed
+      // - failed: installation failed
+      // - unknown: unknown status.
       shared_ptr<string> status_ {};
-      // The version of ES-operator.
+      // The Operator version.
       shared_ptr<string> version_ {};
     };
 
@@ -99,7 +99,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<DescribeAckOperatorResponseBody::Result> result_ {};

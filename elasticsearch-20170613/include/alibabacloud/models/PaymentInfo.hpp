@@ -66,9 +66,19 @@ namespace Models
 
 
   protected:
+    // The auto-renewal cycle. Unit: month. This parameter is required when **isAutoRenew** is set to **true**. The valid values are the same as those on the buy page.
     shared_ptr<int64_t> autoRenewDuration_ {};
+    // The subscription duration. This parameter is required. You can specify the duration in months or years.
     shared_ptr<int64_t> duration_ {};
+    // Specifies whether to enable auto-renewal. Valid values:
+    // 
+    // - true: enabled.
+    // - false (default): disabled.
     shared_ptr<bool> isAutoRenew_ {};
+    // The unit of the subscription duration. This parameter is required. Valid values:
+    // 
+    // - Year: year
+    // - Month: month.
     shared_ptr<string> pricingCycle_ {};
   };
 

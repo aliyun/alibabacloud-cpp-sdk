@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result. Valid values:
+    // 
+    // - true: The data can be migrated.
+    // - false: The data cannot be migrated.
     shared_ptr<bool> result_ {};
   };
 

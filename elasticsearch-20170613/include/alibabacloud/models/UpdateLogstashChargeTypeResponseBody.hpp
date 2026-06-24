@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the billing method of the cluster is switched. Valid values:
+    // The returned result. Valid values:
     // 
-    // *   true: The billing method is switched.
-    // *   false: The billing method fails to be switched.
+    // - true: The conversion succeeded.
+    // - false: The conversion failed.
     shared_ptr<bool> result_ {};
   };
 

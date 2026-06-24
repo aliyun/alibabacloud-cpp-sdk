@@ -70,7 +70,13 @@ namespace Models
 
 
     protected:
+      // The template content.
       shared_ptr<string> content_ {};
+      // The template name. Valid values:
+      // - staticSettings: elasticsearch.yml configuration
+      // - ilmPolicy: index lifecycle configuration
+      // - indexTemplate: index template configuration
+      // - dynamicSettings: cluster dynamic configuration.
       shared_ptr<string> templateName_ {};
     };
 
@@ -93,7 +99,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<vector<DescribeTemplatesResponseBody::Result>> result_ {};
   };
 

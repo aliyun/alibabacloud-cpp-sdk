@@ -101,8 +101,11 @@ namespace Models
 
 
       protected:
+        // The name of the OSS bucket where the file is stored.
         shared_ptr<string> bucketName_ {};
+        // The MD5 checksum (ETag) of the OSS file, in uppercase.
         shared_ptr<string> etag_ {};
+        // The storage path of the dictionary file in the OSS bucket.
         shared_ptr<string> key_ {};
       };
 
@@ -132,8 +135,15 @@ namespace Models
 
 
     protected:
+      // The size of the dictionary file. Unit: bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The details of the OSS file.
       shared_ptr<Result::OssObject> ossObject_ {};
+      // The dictionary type. Valid values:
+      // 
+      // - MAIN: primary tokenization dictionary
+      // 
+      // - STOP: stopword dictionary.
       shared_ptr<string> type_ {};
     };
 
@@ -156,7 +166,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<ListDictInformationResponseBody::Result> result_ {};
   };
 

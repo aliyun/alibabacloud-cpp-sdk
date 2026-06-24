@@ -134,39 +134,49 @@ namespace Models
 
 
     protected:
-      // The status of the endpoint connection. Valid values:
+      // The endpoint connection status. Valid values:
       // 
-      // *   Pending
-      // *   Connecting
-      // *   Connected
-      // *   Disconnecting
-      // *   Disconnected
-      // *   Deleting
-      // *   ServiceDeleted
+      // - Pending: Being modified.
+      // 
+      // - Connecting: Connecting.
+      // 
+      // - Connected: Connected.
+      // 
+      // - Disconnecting: Disconnecting.
+      // 
+      // - Disconnected: Not connected.
+      // 
+      // - Deleting: Being deleted.
+      // 
+      // - ServiceDeleted: The service associated with the endpoint has been deleted.
       shared_ptr<string> connectionStatus_ {};
       // The time when the endpoint was created.
       shared_ptr<string> createTime_ {};
       // The business status of the endpoint. Valid values:
       // 
-      // *   Normal
-      // *   FinancialLocked
-      shared_ptr<string> endpointBusinessStatus_ {};
-      // The domain name of the endpoint. The domain name is used for connection configuration.
-      shared_ptr<string> endpointDomain_ {};
-      // The ID of the endpoint.
-      shared_ptr<string> endpointId_ {};
-      // The name of the endpoint.
-      shared_ptr<string> endpointName_ {};
-      // The status of the endpoint. Valid values:
+      // - Normal: Normal.
       // 
-      // *   Creating
-      // *   Active
-      // *   Pending
-      // *   Deleting
+      // - FinancialLocked: Locked due to overdue payment.
+      shared_ptr<string> endpointBusinessStatus_ {};
+      // The endpoint domain name, which is used for connection configuration.
+      shared_ptr<string> endpointDomain_ {};
+      // The endpoint ID.
+      shared_ptr<string> endpointId_ {};
+      // The endpoint name.
+      shared_ptr<string> endpointName_ {};
+      // The endpoint status. Valid values:
+      // 
+      // - Creating: Being created.
+      // 
+      // - Active: Available.
+      // 
+      // - Pending: Being modified.
+      // 
+      // - Deleting: Being deleted.
       shared_ptr<string> endpointStatus_ {};
-      // The ID of the endpoint service with which the endpoint is associated.
+      // The ID of the endpoint service associated with the endpoint.
       shared_ptr<string> serviceId_ {};
-      // The name of the endpoint service with which the endpoint is associated.
+      // The name of the endpoint service associated with the endpoint.
       shared_ptr<string> serviceName_ {};
     };
 
@@ -191,7 +201,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the endpoints.
+    // The endpoint details.
     shared_ptr<vector<ListVpcEndpointsResponseBody::Result>> result_ {};
   };
 

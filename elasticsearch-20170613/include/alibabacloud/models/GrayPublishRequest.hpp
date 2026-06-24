@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Change ID
     shared_ptr<string> xRequestChangeId_ {};
   };
 

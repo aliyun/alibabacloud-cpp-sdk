@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // The total number of entries returned.
+      // The total number of records returned.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -94,10 +94,11 @@ namespace Models
 
 
   protected:
-    // The header of the response.
+    // The response headers.
     shared_ptr<ListDiagnoseReportIdsResponseBody::Headers> headers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned results.
     shared_ptr<vector<string>> result_ {};
   };
 

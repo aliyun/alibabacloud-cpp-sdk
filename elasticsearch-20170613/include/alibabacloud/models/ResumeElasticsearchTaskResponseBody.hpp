@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The return result:
     // 
-    // *   true: resume the interrupted change successfully
-    // *   false: resume the interrupted change successfully failed
+    // - true: The interrupted change was resumed successfully.
+    // - false: The interrupted change failed to be resumed.
     shared_ptr<bool> result_ {};
   };
 

@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The ID of the resource with which the shipper is associated.
+    // The instance ID associated with the collector.
     shared_ptr<string> instanceId_ {};
-    // The name of the shipper.
+    // The collector name.
     shared_ptr<string> name_ {};
-    // The number of the page to return. Valid values: 1 to 200. Default value: 1.
+    // The page number of the returned results. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};
-    // The ID of the shipper.
+    // The collector ID.
     shared_ptr<string> resId_ {};
-    // The number of entries to return on each page. Valid values: 1 to 500. Default value: 20.
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 500.
     shared_ptr<int32_t> size_ {};
-    // The type of the machine on which the shipper is deployed. If you leave this parameter empty, shippers deployed on all types of machines are returned. Valid values:
+    // The type of machine on which the collector is deployed. If this parameter is not specified, all types are returned. Valid values:
     // 
-    // *   ECS
-    // *   ACK
+    // - ECS: ECS instance
+    // 
+    // - ACK: Container Kubernetes cluster.
     shared_ptr<string> sourceType_ {};
   };
 

@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return results:
+    // The returned result.
     // 
-    // *   true: deleted
-    // *   false: Failed
+    // - true: The deletion was successful.
+    // - false: The deletion failed.
     shared_ptr<bool> result_ {};
   };
 

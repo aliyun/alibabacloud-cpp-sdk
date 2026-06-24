@@ -120,25 +120,25 @@ namespace Models
 
 
     protected:
-      // Average QPS.
+      // The average QPS.
       shared_ptr<int32_t> averageQps_ {};
-      // Search or write metric code. Options:
+      // The search or write metric code. Valid values:
       // 
-      // - write: Write
-      // - search: Search
+      // - write: write
+      // - search: search.
       shared_ptr<string> code_ {};
-      // Concurrent number.
+      // The number of concurrent connections.
       shared_ptr<int64_t> concurrent_ {};
-      // Peak QPS.
+      // The peak QPS.
       shared_ptr<int32_t> peakQps_ {};
-      // Expected average response time, unit: milliseconds.
+      // The expected average response time, in milliseconds.
       shared_ptr<int32_t> responseTime_ {};
-      // Throughput, unit: MB/S.
+      // The throughput, in MB/s.
       shared_ptr<int64_t> throughput_ {};
-      // Search/write peak type. Options:
+      // The search or write peak type. Valid values:
       // 
-      // - common: Regular
-      // - peak: Peak
+      // - common: normal
+      // - peak: peak.
       shared_ptr<string> type_ {};
     };
 
@@ -207,28 +207,28 @@ namespace Models
 
 
     protected:
-      // Disk data metric code. Options:
+      // The disk data metric code. Valid values:
       // 
-      // - totalRawData: Raw data information
-      // - document: Data document information, estimated document count
-      // - dailyIncrement: Daily data growth
-      // - dailyIncrementDoc: Daily incremental document count
-      // - retentionTime: Data retention period
-      // - replica: Replica settings
+      // - totalRawData: source data information
+      // - document: data document information, estimated number of documents
+      // - dailyIncrement: daily data growth
+      // - dailyIncrement: daily incremental documents
+      // - retentionTime: data retention period
+      // - replica: replica settings.
       shared_ptr<string> code_ {};
-      // Disk usage metric value.
+      // The metric value of disk usage.
       shared_ptr<int64_t> size_ {};
-      // Total number of data entries.
+      // The total number of data entries.
       shared_ptr<int32_t> totalCount_ {};
-      // Disk data type. Options:
+      // The disk data type. Valid values:
       // 
-      // - hot: Hot data
-      // - warm: Cold data
+      // - hot: hot data
+      // - warm: warm data.
       shared_ptr<string> type_ {};
-      // Data or time unit. Options:
+      // The data unit or time unit. Valid values:
       // 
       // - Data units: MiB, GiB, TB, PB
-      // - Time units: DAYS, WEEKS, MONTHS, YEARS
+      // - Time units: DAYS, WEEKS, MONTHS, YEARS.
       shared_ptr<string> unit_ {};
     };
 
@@ -267,22 +267,22 @@ namespace Models
 
 
   protected:
-    // Indicates whether there is a need for complex aggregation queries. Options:
+    // Specifies whether complex aggregate query is required. Valid values:
     // 
-    // - true: Yes
-    // - false (default): No
+    // - true: Required.
+    // - false (default): Not required.
     shared_ptr<bool> complexQueryAvailable_ {};
-    // Disk usage status.
+    // The disk usage information.
     shared_ptr<vector<CapacityPlanRequest::DataInfo>> dataInfo_ {};
-    // Metrics information including disk usage, search and write operations, aggregation requests, etc.
+    // The metric information, including disk usage, search and write operations, and aggregation requests.
     shared_ptr<vector<CapacityPlanRequest::Metric>> metric_ {};
-    // Usage scenarios, options:
+    // Scenarios. Valid values:
     // 
-    // - general: General scenario
-    // - analysisVisualization: Data analysis scenario
-    // - dbAcceleration: Database acceleration scenario
-    // - search: Search scenario
-    // - log: Log scenario
+    // - general: general-purpose scenario
+    // - analysisVisualization: data analytics scenario
+    // - dbAcceleration: database acceleration scenario
+    // - search: search scenario
+    // - log: log scenario.
     shared_ptr<string> usageScenario_ {};
   };
 

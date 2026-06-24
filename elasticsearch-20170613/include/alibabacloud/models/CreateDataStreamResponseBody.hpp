@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The data stream name.
       shared_ptr<string> name_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the created data stream.
     shared_ptr<CreateDataStreamResponseBody::Result> result_ {};
   };
 
