@@ -11,6 +11,9 @@
 #include <alibabacloud/models/AllocateInstancePublicConnectionRequest.hpp>
 #include <alibabacloud/models/AllocateInstancePublicConnectionResponseBody.hpp>
 #include <alibabacloud/models/AllocateInstancePublicConnectionResponse.hpp>
+#include <alibabacloud/models/AllocateMem0PublicConnectionRequest.hpp>
+#include <alibabacloud/models/AllocateMem0PublicConnectionResponseBody.hpp>
+#include <alibabacloud/models/AllocateMem0PublicConnectionResponse.hpp>
 #include <alibabacloud/models/AttachColumnarInstanceRequest.hpp>
 #include <alibabacloud/models/AttachColumnarInstanceResponseBody.hpp>
 #include <alibabacloud/models/AttachColumnarInstanceResponse.hpp>
@@ -377,6 +380,9 @@
 #include <alibabacloud/models/ReleaseInstancePublicConnectionRequest.hpp>
 #include <alibabacloud/models/ReleaseInstancePublicConnectionResponseBody.hpp>
 #include <alibabacloud/models/ReleaseInstancePublicConnectionResponse.hpp>
+#include <alibabacloud/models/ReleaseMem0PublicConnectionRequest.hpp>
+#include <alibabacloud/models/ReleaseMem0PublicConnectionResponseBody.hpp>
+#include <alibabacloud/models/ReleaseMem0PublicConnectionResponse.hpp>
 #include <alibabacloud/models/ResetAccountPasswordRequest.hpp>
 #include <alibabacloud/models/ResetAccountPasswordResponseBody.hpp>
 #include <alibabacloud/models/ResetAccountPasswordResponse.hpp>

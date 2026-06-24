@@ -68,6 +68,27 @@ namespace Polardbx20200202
       Models::AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(const Models::AllocateInstancePublicConnectionRequest &request);
 
       /**
+       * @summary Enables a public domain name for a Mem0 instance.
+       *
+       * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+       *
+       * @param request AllocateMem0PublicConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AllocateMem0PublicConnectionResponse
+       */
+      Models::AllocateMem0PublicConnectionResponse allocateMem0PublicConnectionWithOptions(const Models::AllocateMem0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables a public domain name for a Mem0 instance.
+       *
+       * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+       *
+       * @param request AllocateMem0PublicConnectionRequest
+       * @return AllocateMem0PublicConnectionResponse
+       */
+      Models::AllocateMem0PublicConnectionResponse allocateMem0PublicConnection(const Models::AllocateMem0PublicConnectionRequest &request);
+
+      /**
        * @summary Mounts a columnar instance to a specified primary database instance.
        *
        * @param request AttachColumnarInstanceRequest
@@ -2203,9 +2224,9 @@ namespace Polardbx20200202
       Models::ModifyEngineMigrationResponse modifyEngineMigration(const Models::ModifyEngineMigrationRequest &request);
 
       /**
-       * @summary Modifies the whitelist of a memory engine instance.
+       * @summary Modifies the whitelist of a memory engine.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ModifyMem0SecurityIpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2214,9 +2235,9 @@ namespace Polardbx20200202
       Models::ModifyMem0SecurityIpsResponse modifyMem0SecurityIpsWithOptions(const Models::ModifyMem0SecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the whitelist of a memory engine instance.
+       * @summary Modifies the whitelist of a memory engine.
        *
-       * @description ****.
+       * @description ****
        *
        * @param request ModifyMem0SecurityIpsRequest
        * @return ModifyMem0SecurityIpsResponse
@@ -2324,6 +2345,27 @@ namespace Polardbx20200202
        * @return ReleaseInstancePublicConnectionResponse
        */
       Models::ReleaseInstancePublicConnectionResponse releaseInstancePublicConnection(const Models::ReleaseInstancePublicConnectionRequest &request);
+
+      /**
+       * @summary Releases the public domain name for a Mem0 instance.
+       *
+       * @description This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+       *
+       * @param request ReleaseMem0PublicConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReleaseMem0PublicConnectionResponse
+       */
+      Models::ReleaseMem0PublicConnectionResponse releaseMem0PublicConnectionWithOptions(const Models::ReleaseMem0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Releases the public domain name for a Mem0 instance.
+       *
+       * @description This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+       *
+       * @param request ReleaseMem0PublicConnectionRequest
+       * @return ReleaseMem0PublicConnectionResponse
+       */
+      Models::ReleaseMem0PublicConnectionResponse releaseMem0PublicConnection(const Models::ReleaseMem0PublicConnectionRequest &request);
 
       /**
        * @summary Resets the password of an account.

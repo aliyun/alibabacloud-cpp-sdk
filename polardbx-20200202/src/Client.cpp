@@ -269,6 +269,64 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 }
 
 /**
+ * @summary Enables a public domain name for a Mem0 instance.
+ *
+ * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+ *
+ * @param request AllocateMem0PublicConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AllocateMem0PublicConnectionResponse
+ */
+AllocateMem0PublicConnectionResponse Client::allocateMem0PublicConnectionWithOptions(const AllocateMem0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionStringPrefix()) {
+    query["ConnectionStringPrefix"] = request.getConnectionStringPrefix();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AllocateMem0PublicConnection"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AllocateMem0PublicConnectionResponse>();
+}
+
+/**
+ * @summary Enables a public domain name for a Mem0 instance.
+ *
+ * @description This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+ *
+ * @param request AllocateMem0PublicConnectionRequest
+ * @return AllocateMem0PublicConnectionResponse
+ */
+AllocateMem0PublicConnectionResponse Client::allocateMem0PublicConnection(const AllocateMem0PublicConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return allocateMem0PublicConnectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Mounts a columnar instance to a specified primary database instance.
  *
  * @param request AttachColumnarInstanceRequest
@@ -6827,9 +6885,9 @@ ModifyEngineMigrationResponse Client::modifyEngineMigration(const ModifyEngineMi
 }
 
 /**
- * @summary Modifies the whitelist of a memory engine instance.
+ * @summary Modifies the whitelist of a memory engine.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ModifyMem0SecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6876,9 +6934,9 @@ ModifyMem0SecurityIpsResponse Client::modifyMem0SecurityIpsWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the whitelist of a memory engine instance.
+ * @summary Modifies the whitelist of a memory engine.
  *
- * @description ****.
+ * @description ****
  *
  * @param request ModifyMem0SecurityIpsRequest
  * @return ModifyMem0SecurityIpsResponse
@@ -7210,6 +7268,60 @@ ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnectionW
 ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnection(const ReleaseInstancePublicConnectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return releaseInstancePublicConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Releases the public domain name for a Mem0 instance.
+ *
+ * @description This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+ *
+ * @param request ReleaseMem0PublicConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReleaseMem0PublicConnectionResponse
+ */
+ReleaseMem0PublicConnectionResponse Client::releaseMem0PublicConnectionWithOptions(const ReleaseMem0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentConnectionString()) {
+    query["CurrentConnectionString"] = request.getCurrentConnectionString();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReleaseMem0PublicConnection"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReleaseMem0PublicConnectionResponse>();
+}
+
+/**
+ * @summary Releases the public domain name for a Mem0 instance.
+ *
+ * @description This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+ *
+ * @param request ReleaseMem0PublicConnectionRequest
+ * @return ReleaseMem0PublicConnectionResponse
+ */
+ReleaseMem0PublicConnectionResponse Client::releaseMem0PublicConnection(const ReleaseMem0PublicConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return releaseMem0PublicConnectionWithOptions(request, runtime);
 }
 
 /**

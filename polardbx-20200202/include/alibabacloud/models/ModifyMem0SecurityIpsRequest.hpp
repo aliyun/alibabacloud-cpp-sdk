@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The name of the whitelist group for the instance.
+    // The name of the whitelist group of the instance.
     shared_ptr<string> groupName_ {};
     // The modification mode of the whitelist. Valid values:
     // 
