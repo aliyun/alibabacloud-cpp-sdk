@@ -2265,17 +2265,17 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
-    // The pagination token returned in this call.
+    // The query token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The page number of the instance list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page that you specified in the request.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of instances queried.
+    // The total number of queried instances.
     // 
-    // > When you use the `MaxResults` and `NextToken` parameters for paged queries, the value of the `TotalCount` parameter is meaningless.
+    // > When you use the MaxResults and NextToken parameters for paging query, the returned TotalCount parameter value is meaningless.
     shared_ptr<int32_t> totalCount_ {};
   };
 

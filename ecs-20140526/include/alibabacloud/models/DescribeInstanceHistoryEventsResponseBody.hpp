@@ -110,6 +110,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(HostId, hostId_);
             DARABONBA_PTR_TO_JSON(HostType, hostType_);
             DARABONBA_PTR_TO_JSON(InactiveDisks, inactiveDisks_);
+            DARABONBA_PTR_TO_JSON(InitialNotBefore, initialNotBefore_);
             DARABONBA_PTR_TO_JSON(MetricName, metricName_);
             DARABONBA_PTR_TO_JSON(MetricValue, metricValue_);
             DARABONBA_PTR_TO_JSON(MigrationOptions, migrationOptions_);
@@ -128,6 +129,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(HostId, hostId_);
             DARABONBA_PTR_FROM_JSON(HostType, hostType_);
             DARABONBA_PTR_FROM_JSON(InactiveDisks, inactiveDisks_);
+            DARABONBA_PTR_FROM_JSON(InitialNotBefore, initialNotBefore_);
             DARABONBA_PTR_FROM_JSON(MetricName, metricName_);
             DARABONBA_PTR_FROM_JSON(MetricValue, metricValue_);
             DARABONBA_PTR_FROM_JSON(MigrationOptions, migrationOptions_);
@@ -289,8 +291,9 @@ namespace Models
 
           virtual bool empty() const override { return this->canAccept_ == nullptr
         && this->code_ == nullptr && this->device_ == nullptr && this->diskId_ == nullptr && this->hostId_ == nullptr && this->hostType_ == nullptr
-        && this->inactiveDisks_ == nullptr && this->metricName_ == nullptr && this->metricValue_ == nullptr && this->migrationOptions_ == nullptr && this->onlineRepairPolicy_ == nullptr
-        && this->punishDomain_ == nullptr && this->punishType_ == nullptr && this->punishUrl_ == nullptr && this->rack_ == nullptr && this->responseResult_ == nullptr; };
+        && this->inactiveDisks_ == nullptr && this->initialNotBefore_ == nullptr && this->metricName_ == nullptr && this->metricValue_ == nullptr && this->migrationOptions_ == nullptr
+        && this->onlineRepairPolicy_ == nullptr && this->punishDomain_ == nullptr && this->punishType_ == nullptr && this->punishUrl_ == nullptr && this->rack_ == nullptr
+        && this->responseResult_ == nullptr; };
           // canAccept Field Functions 
           bool hasCanAccept() const { return this->canAccept_ != nullptr;};
           void deleteCanAccept() { this->canAccept_ = nullptr;};
@@ -340,6 +343,13 @@ namespace Models
           inline ExtendedAttribute::InactiveDisks getInactiveDisks() { DARABONBA_PTR_GET(inactiveDisks_, ExtendedAttribute::InactiveDisks) };
           inline ExtendedAttribute& setInactiveDisks(const ExtendedAttribute::InactiveDisks & inactiveDisks) { DARABONBA_PTR_SET_VALUE(inactiveDisks_, inactiveDisks) };
           inline ExtendedAttribute& setInactiveDisks(ExtendedAttribute::InactiveDisks && inactiveDisks) { DARABONBA_PTR_SET_RVALUE(inactiveDisks_, inactiveDisks) };
+
+
+          // initialNotBefore Field Functions 
+          bool hasInitialNotBefore() const { return this->initialNotBefore_ != nullptr;};
+          void deleteInitialNotBefore() { this->initialNotBefore_ = nullptr;};
+          inline string getInitialNotBefore() const { DARABONBA_PTR_GET_DEFAULT(initialNotBefore_, "") };
+          inline ExtendedAttribute& setInitialNotBefore(string initialNotBefore) { DARABONBA_PTR_SET_VALUE(initialNotBefore_, initialNotBefore) };
 
 
           // metricName Field Functions 
@@ -415,6 +425,7 @@ namespace Models
           shared_ptr<string> hostId_ {};
           shared_ptr<string> hostType_ {};
           shared_ptr<ExtendedAttribute::InactiveDisks> inactiveDisks_ {};
+          shared_ptr<string> initialNotBefore_ {};
           shared_ptr<string> metricName_ {};
           shared_ptr<string> metricValue_ {};
           shared_ptr<ExtendedAttribute::MigrationOptions> migrationOptions_ {};
@@ -681,31 +692,24 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceHistoryEventsResponseBody::InstanceSystemEventSet> instanceSystemEventSet_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
-    // 
-    // > If the NextToken parameter is not returned when you use the MaxResults and NextToken parameters to perform a paged query, no more data is returned.
+    // The query token returned in this invocation.
+    // > When you use MaxResults and NextToken for paging and no NextToken is returned, no more data is available.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number of the instance event list.
     // 
-    // >
-    // 
-    // - If MaxResults and NextToken are used to query results by page, ignore this parameter.
-    // 
-    // - This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+    // > * When you use MaxResults and NextToken for paging, the returned PageNumber parameter value is meaningless.
+    // > * This parameter will be deprecated. Use NextToken and MaxResults for paging instead.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page as specified in the request.
     // 
-    // >
-    // 
-    // - If MaxResults and NextToken are used to query results by page, ignore this parameter.
-    // 
-    // - This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+    // > * When you use MaxResults and NextToken for paging, the returned PageSize parameter value is meaningless.
+    // > * This parameter will be deprecated. Use NextToken and MaxResults for paging instead.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of instances.
+    // The total number of instance events.
     // 
-    // > If you specify the MaxResults and NextToken request parameters to perform a paged query, the value of the TotalCount response parameter is invalid.
+    // > When you use MaxResults and NextToken for paging, the returned TotalCount parameter value is meaningless.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -486,25 +486,13 @@ namespace Models
 
     protected:
       shared_ptr<Invocation::InvocationResults> invocationResults_ {};
-      // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+      // The pagination token returned in this call.
       shared_ptr<string> nextToken_ {};
-      // The encoding mode of the `CommandContent` and `Output` values in the response. Valid values:
-      // 
-      // - PlainText: returns the original command content and command output.
-      // 
-      // - Base64: returns the Base64-encoded command content and command output.
-      // 
-      // Default value: Base64.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // Specifies whether to return the results of historical scheduled executions. Valid values:
-      // 
-      // - true: returns the results of historical scheduled executions. If you set this parameter to true, you must set InvokeId to the ID of a task that is run on a schedule (RepeatMode set to Period) or on each system startup (RepeatMode set to EveryReboot).
-      // 
-      // - false: does not return the results of historical scheduled executions.
-      // 
-      // Default value: false.
+      // The number of entries per page in the paging query.
       shared_ptr<int64_t> pageSize_ {};
-      // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+      // The total number of commands.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -527,43 +515,9 @@ namespace Models
 
 
   protected:
-    // The execution status of the command task. Valid values:
-    // 
-    // - Running:
-    // 
-    //   - Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
-    // 
-    //   - One-time task: If the command is being run on instances, the execution state is Running.
-    // 
-    // - Finished:
-    // 
-    //   - Scheduled task: The execution state can never be Finished.
-    // 
-    //   - One-time task: The execution is complete on all instances, or the execution is stopped on some instances and is complete on the other instances.
-    // 
-    // - Success:
-    // 
-    //   - One-time task: The execution is complete, and the exit code is 0.
-    // 
-    //   - Scheduled task: The last execution is complete, the exit code is 0, and the specified period ends.
-    // 
-    // - Failed:
-    // 
-    //   - Scheduled task: The execution state can never be Failed.
-    // 
-    //   - One-time task: The execution fails on all instances.
-    // 
-    // - PartialFailed:
-    // 
-    //   - Scheduled task: The execution state can never be PartialFailed.
-    // 
-    //   - One-time task: The execution fails on some instances.
-    // 
-    // - Stopped: The task is stopped.
-    // 
-    // - Stopping: The task is being stopped.
+    // The collection of command execution results.
     shared_ptr<DescribeInvocationResultsResponseBody::Invocation> invocation_ {};
-    // The ID of the command.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

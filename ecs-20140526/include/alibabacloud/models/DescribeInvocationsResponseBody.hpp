@@ -704,15 +704,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInvocationsResponseBody::Invocations> invocations_ {};
-    // Query credential value returned by this call.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // Page number of the query result.
+    // The page number of the query results.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of entries per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of commands.
+    // The total number of commands.
     shared_ptr<int64_t> totalCount_ {};
   };
 

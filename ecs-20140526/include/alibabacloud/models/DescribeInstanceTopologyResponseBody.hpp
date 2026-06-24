@@ -56,10 +56,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Topology& obj) { 
           DARABONBA_PTR_TO_JSON(HostId, hostId_);
           DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(NetworkNodes, networkNodes_);
         };
         friend void from_json(const Darabonba::Json& j, Topology& obj) { 
           DARABONBA_PTR_FROM_JSON(HostId, hostId_);
           DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(NetworkNodes, networkNodes_);
         };
         Topology() = default ;
         Topology(const Topology &) = default ;
@@ -72,8 +74,41 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class NetworkNodes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const NetworkNodes& obj) { 
+            DARABONBA_PTR_TO_JSON(NetworkNodes, networkNodes_);
+          };
+          friend void from_json(const Darabonba::Json& j, NetworkNodes& obj) { 
+            DARABONBA_PTR_FROM_JSON(NetworkNodes, networkNodes_);
+          };
+          NetworkNodes() = default ;
+          NetworkNodes(const NetworkNodes &) = default ;
+          NetworkNodes(NetworkNodes &&) = default ;
+          NetworkNodes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~NetworkNodes() = default ;
+          NetworkNodes& operator=(const NetworkNodes &) = default ;
+          NetworkNodes& operator=(NetworkNodes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->networkNodes_ == nullptr; };
+          // networkNodes Field Functions 
+          bool hasNetworkNodes() const { return this->networkNodes_ != nullptr;};
+          void deleteNetworkNodes() { this->networkNodes_ = nullptr;};
+          inline const vector<string> & getNetworkNodes() const { DARABONBA_PTR_GET_CONST(networkNodes_, vector<string>) };
+          inline vector<string> getNetworkNodes() { DARABONBA_PTR_GET(networkNodes_, vector<string>) };
+          inline NetworkNodes& setNetworkNodes(const vector<string> & networkNodes) { DARABONBA_PTR_SET_VALUE(networkNodes_, networkNodes) };
+          inline NetworkNodes& setNetworkNodes(vector<string> && networkNodes) { DARABONBA_PTR_SET_RVALUE(networkNodes_, networkNodes) };
+
+
+        protected:
+          shared_ptr<vector<string>> networkNodes_ {};
+        };
+
         virtual bool empty() const override { return this->hostId_ == nullptr
-        && this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->networkNodes_ == nullptr; };
         // hostId Field Functions 
         bool hasHostId() const { return this->hostId_ != nullptr;};
         void deleteHostId() { this->hostId_ = nullptr;};
@@ -88,9 +123,19 @@ namespace Models
         inline Topology& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+        // networkNodes Field Functions 
+        bool hasNetworkNodes() const { return this->networkNodes_ != nullptr;};
+        void deleteNetworkNodes() { this->networkNodes_ = nullptr;};
+        inline const Topology::NetworkNodes & getNetworkNodes() const { DARABONBA_PTR_GET_CONST(networkNodes_, Topology::NetworkNodes) };
+        inline Topology::NetworkNodes getNetworkNodes() { DARABONBA_PTR_GET(networkNodes_, Topology::NetworkNodes) };
+        inline Topology& setNetworkNodes(const Topology::NetworkNodes & networkNodes) { DARABONBA_PTR_SET_VALUE(networkNodes_, networkNodes) };
+        inline Topology& setNetworkNodes(Topology::NetworkNodes && networkNodes) { DARABONBA_PTR_SET_RVALUE(networkNodes_, networkNodes) };
+
+
       protected:
         shared_ptr<string> hostId_ {};
         shared_ptr<string> instanceId_ {};
+        shared_ptr<Topology::NetworkNodes> networkNodes_ {};
       };
 
       virtual bool empty() const override { return this->topology_ == nullptr; };

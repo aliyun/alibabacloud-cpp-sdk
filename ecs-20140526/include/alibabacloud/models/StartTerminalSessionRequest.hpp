@@ -103,26 +103,20 @@ namespace Models
 
 
     protected:
-      // Enable end-to-end encryption for the session connection.
+      // Specifies whether to enable end-to-end encryption for the session connection.
       shared_ptr<bool> enabled_ {};
-      // KMS key ID.<br>
-      // Notes:
-      // 
+      // The KMS key ID.
+      // Note:
       // - Only KMS symmetric keys are supported.
-      // 
-      // - This parameter can be specified only when the encryption mode is Kms.
+      // - This parameter is supported only when the encryption mode is set to Kms.
       shared_ptr<string> KMSKeyId_ {};
-      // Encryption mode. Valid values:
-      // 
-      // - Auto: Use autonegotiation to encrypt the session with a secret key.
-      // 
-      // - Kms: Use a KMS key to encrypt the session.
-      // 
+      // The encryption pattern. Valid values:
+      // - Auto: uses an automatically negotiated secret key encryption for the session.
+      // - Kms: uses a KMS secret key encryption for the session.
       // - Default value: Auto.
       // 
-      // Notes:
-      // 
-      // - This parameter can be specified only when session encryption is enabled.
+      // Note:
+      // - This parameter is supported only when session encryption is enabled.
       shared_ptr<string> mode_ {};
     };
 
@@ -233,44 +227,42 @@ namespace Models
 
 
   protected:
-    // Ensures the idempotence of the request. Generate a unique parameter value from your client to guarantee uniqueness across different requests. **ClientToken** supports only ASCII characters and must not exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The command to run after the session is initiated. The command length cannot exceed 512 characters.
+    // The command to run after the session is initiated. The command can be up to 512 characters in length.
     // 
-    // > If you specify the `CommandLine` parameter, you cannot specify the `PortNumber` or `TargetServer` parameter.
+    // > After you specify CommandLine, you cannot specify PortNumber or TargetServer.
     shared_ptr<string> commandLine_ {};
-    // The network type of the WebSocket URL required to connect to the instance. Valid values:
-    // 
-    // - Internet (default)
-    // 
-    // - Intranet
+    // The network type of the WebSocket URL for the remote connection to the instance. Valid values:
+    // - Internet: public network. This is the default value.
+    // - Intranet: internal network.
     shared_ptr<string> connectionType_ {};
-    // Session encryption configuration items.
+    // The session encryption configuration.
     shared_ptr<StartTerminalSessionRequest::EncryptionOptions> encryptionOptions_ {};
-    // The instance IDs.
+    // The instance ID list.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The password name of the user when using Session Manager on a Windows instance. The length cannot exceed 255 characters.<br>
-    // When you want to use Session Manager on a Windows instance as a non-default user (System), you must pass both Username and this parameter. To reduce the risk of password disclosure, store the plaintext password in the parameter repository of CloudOps Orchestration Service, and pass only the password name here. For more information, see [encrypted parameters](https://help.aliyun.com/document_detail/186828.html).
+    // The name of the password used by the user when using Session Manager on a Windows instance. The name can be up to 255 characters in length.
+    // When you want to use Session Manager on a Windows instance as a non-default user (System), you must specify both Username and this parameter. To reduce the risk of password leaks, store the plaintext password in the parameter repository of operations management and specify only the password name here. For more information, see [Encryption parameters](https://help.aliyun.com/document_detail/186828.html).
     shared_ptr<string> passwordName_ {};
-    // The port number of the ECS instance. The port is used to forward data. After this parameter is configured, Cloud Assistant Agent forwards data to the specified port. For example, you can set this parameter to 22 for data forwarding over SSH.
+    // The port number of the ECS instance for data forwarding. After this parameter is set, Cloud Assistant Agent forwards data to the specified port for port forwarding. For example, SSH uses port 22.
     // 
-    // This parameter is empty by default, which indicates that no port is configured to forward data.
+    // Default value: empty, which indicates that no port number is set for data forwarding.
     shared_ptr<int32_t> portNumber_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IP address of the instance. You can use the IP address to access the destination service in a virtual private cloud (VPC).
+    // The address of the destination server in the VPC that you want to access through the instance.
     // 
-    // > If this parameter is not empty, `PortNumber` specifies the port number that is used by the managed instance to access the destination service in the VPC.
+    // > When this parameter is not empty, PortNumber specifies the port number of the destination server in the VPC that you want to access through the managed instance.
     shared_ptr<string> targetServer_ {};
-    // The username used for connection establishment.
+    // The username used for the connection.
     shared_ptr<string> username_ {};
   };
 
