@@ -50,10 +50,11 @@ namespace Models
   protected:
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh_cn**: Simplified Chinese (default)
-    // *   **en_us**: English
+    // - **zh_cn**: The default value. Simplified Chinese.
+    // 
+    // - **en_us**: American English.
     shared_ptr<string> lang_ {};
   };
 

@@ -21,9 +21,9 @@ namespace Sddp20190103
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Modifies the configurations of a common configuration item for alerts.
+       * @summary Modifies the general alert configuration parameters.
        *
-       * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+       * @description Creates or restores configurations based on the codes of common alert configuration items, allowing you to manage these configurations.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -34,9 +34,9 @@ namespace Sddp20190103
       Models::CreateConfigResponse createConfigWithOptions(const Models::CreateConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of a common configuration item for alerts.
+       * @summary Modifies the general alert configuration parameters.
        *
-       * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+       * @description Creates or restores configurations based on the codes of common alert configuration items, allowing you to manage these configurations.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -46,9 +46,11 @@ namespace Sddp20190103
       Models::CreateConfigResponse createConfig(const Models::CreateConfigRequest &request);
 
       /**
-       * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+       * @summary You can call the CreateDataLimit operation to grant permissions to scan databases, projects, and buckets.
        *
-       * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+       * @description You can use this operation to grant permissions to scan your data assets. This helps improve the security of your data assets.
+       * ## QPS limits
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, the system throttles your API calls. This may affect your business. Plan your calls accordingly.
        *
        * @param request CreateDataLimitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -57,9 +59,11 @@ namespace Sddp20190103
       Models::CreateDataLimitResponse createDataLimitWithOptions(const Models::CreateDataLimitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+       * @summary You can call the CreateDataLimit operation to grant permissions to scan databases, projects, and buckets.
        *
-       * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+       * @description You can use this operation to grant permissions to scan your data assets. This helps improve the security of your data assets.
+       * ## QPS limits
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, the system throttles your API calls. This may affect your business. Plan your calls accordingly.
        *
        * @param request CreateDataLimitRequest
        * @return CreateDataLimitResponse
@@ -67,7 +71,7 @@ namespace Sddp20190103
       Models::CreateDataLimitResponse createDataLimit(const Models::CreateDataLimitRequest &request);
 
       /**
-       * @summary Creates a custom sensitive data detection rule.
+       * @summary Call CreateRule to create a custom sensitive data detection rule.
        *
        * @param request CreateRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -76,7 +80,7 @@ namespace Sddp20190103
       Models::CreateRuleResponse createRuleWithOptions(const Models::CreateRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom sensitive data detection rule.
+       * @summary Call CreateRule to create a custom sensitive data detection rule.
        *
        * @param request CreateRuleRequest
        * @return CreateRuleResponse
@@ -84,11 +88,11 @@ namespace Sddp20190103
       Models::CreateRuleResponse createRule(const Models::CreateRuleRequest &request);
 
       /**
-       * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+       * @summary You can call the CreateScanTask operation to create a custom scan task to detect sensitive data in authorized assets.
        *
-       * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation creates custom scan tasks for authorized assets. You can control the run interval and runtime of each scan task.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If you exceed this limit, API calls are throttled. This may impact your business. Plan your calls accordingly.
        *
        * @param request CreateScanTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -97,11 +101,11 @@ namespace Sddp20190103
       Models::CreateScanTaskResponse createScanTaskWithOptions(const Models::CreateScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+       * @summary You can call the CreateScanTask operation to create a custom scan task to detect sensitive data in authorized assets.
        *
-       * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation creates custom scan tasks for authorized assets. You can control the run interval and runtime of each scan task.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If you exceed this limit, API calls are throttled. This may impact your business. Plan your calls accordingly.
        *
        * @param request CreateScanTaskRequest
        * @return CreateScanTaskResponse
@@ -109,11 +113,11 @@ namespace Sddp20190103
       Models::CreateScanTaskResponse createScanTask(const Models::CreateScanTaskRequest &request);
 
       /**
-       * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+       * @summary Call CreateSlrRole to create a service-linked role for Data Security Center (DSC). This role authorizes DSC to access your cloud resources.
        *
-       * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation allows DSC to access the resources of Alibaba Cloud services such as OSS, RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role. The role is named AliyunServiceRoleForSDDP, and its access policy is AliyunServiceRolePolicyForSDDP.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled, which can affect your business. Call this operation at a reasonable rate.
        *
        * @param request CreateSlrRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -122,11 +126,11 @@ namespace Sddp20190103
       Models::CreateSlrRoleResponse createSlrRoleWithOptions(const Models::CreateSlrRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+       * @summary Call CreateSlrRole to create a service-linked role for Data Security Center (DSC). This role authorizes DSC to access your cloud resources.
        *
-       * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation allows DSC to access the resources of Alibaba Cloud services such as OSS, RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role. The role is named AliyunServiceRoleForSDDP, and its access policy is AliyunServiceRolePolicyForSDDP.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled, which can affect your business. Call this operation at a reasonable rate.
        *
        * @param request CreateSlrRoleRequest
        * @return CreateSlrRoleResponse
@@ -134,11 +138,11 @@ namespace Sddp20190103
       Models::CreateSlrRoleResponse createSlrRole(const Models::CreateSlrRoleRequest &request);
 
       /**
-       * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+       * @summary Revokes the scan authorization for a data asset, such as a database, instance, or bucket.
        *
-       * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is typically used to revoke authorization for data assets. This helps you manage data access permissions.
+       * ## QPS limit
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you call this operation within this limit.
        *
        * @param request DeleteDataLimitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -147,11 +151,11 @@ namespace Sddp20190103
       Models::DeleteDataLimitResponse deleteDataLimitWithOptions(const Models::DeleteDataLimitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+       * @summary Revokes the scan authorization for a data asset, such as a database, instance, or bucket.
        *
-       * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is typically used to revoke authorization for data assets. This helps you manage data access permissions.
+       * ## QPS limit
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you call this operation within this limit.
        *
        * @param request DeleteDataLimitRequest
        * @return DeleteDataLimitResponse
@@ -159,7 +163,7 @@ namespace Sddp20190103
       Models::DeleteDataLimitResponse deleteDataLimit(const Models::DeleteDataLimitRequest &request);
 
       /**
-       * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+       * @summary Deletes a custom sensitive data detection rule.
        *
        * @param request DeleteRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -168,7 +172,7 @@ namespace Sddp20190103
       Models::DeleteRuleResponse deleteRuleWithOptions(const Models::DeleteRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+       * @summary Deletes a custom sensitive data detection rule.
        *
        * @param request DeleteRuleRequest
        * @return DeleteRuleResponse
@@ -176,7 +180,11 @@ namespace Sddp20190103
       Models::DeleteRuleResponse deleteRule(const Models::DeleteRuleRequest &request);
 
       /**
-       * @summary 查询审计告警日志列表
+       * @summary Retrieves a list of audit alert logs.
+       *
+       * @description This operation queries a list of data audit alert logs, allowing you to search for and handle alerts.
+       * ## QPS limit
+       * The QPS limit for a single user is 10. If you exceed this limit, the system throttles your API calls. Plan your calls accordingly.
        *
        * @param request DescribeAuditLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -185,7 +193,11 @@ namespace Sddp20190103
       Models::DescribeAuditLogsResponse describeAuditLogsWithOptions(const Models::DescribeAuditLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询审计告警日志列表
+       * @summary Retrieves a list of audit alert logs.
+       *
+       * @description This operation queries a list of data audit alert logs, allowing you to search for and handle alerts.
+       * ## QPS limit
+       * The QPS limit for a single user is 10. If you exceed this limit, the system throttles your API calls. Plan your calls accordingly.
        *
        * @param request DescribeAuditLogsRequest
        * @return DescribeAuditLogsResponse
@@ -193,7 +205,7 @@ namespace Sddp20190103
       Models::DescribeAuditLogsResponse describeAuditLogs(const Models::DescribeAuditLogsRequest &request);
 
       /**
-       * @summary Call this interface to query the list of industry templates.
+       * @summary Lists industry-specific templates.
        *
        * @param request DescribeCategoryTemplateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -202,7 +214,7 @@ namespace Sddp20190103
       Models::DescribeCategoryTemplateListResponse describeCategoryTemplateListWithOptions(const Models::DescribeCategoryTemplateListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call this interface to query the list of industry templates.
+       * @summary Lists industry-specific templates.
        *
        * @param request DescribeCategoryTemplateListRequest
        * @return DescribeCategoryTemplateListResponse
@@ -210,11 +222,11 @@ namespace Sddp20190103
       Models::DescribeCategoryTemplateListResponse describeCategoryTemplateList(const Models::DescribeCategoryTemplateListRequest &request);
 
       /**
-       * @summary Queries rules in a classification template by page.
+       * @summary Queries a paginated list of rules in a data classification template.
        *
-       * @description You can call this operation to query rules in a classification template.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Retrieves the rules in a data classification template to help you review the rule details.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user on this operation is 10 calls per second. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeCategoryTemplateRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -223,11 +235,11 @@ namespace Sddp20190103
       Models::DescribeCategoryTemplateRuleListResponse describeCategoryTemplateRuleListWithOptions(const Models::DescribeCategoryTemplateRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries rules in a classification template by page.
+       * @summary Queries a paginated list of rules in a data classification template.
        *
-       * @description You can call this operation to query rules in a classification template.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Retrieves the rules in a data classification template to help you review the rule details.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user on this operation is 10 calls per second. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeCategoryTemplateRuleListRequest
        * @return DescribeCategoryTemplateRuleListResponse
@@ -235,13 +247,13 @@ namespace Sddp20190103
       Models::DescribeCategoryTemplateRuleListResponse describeCategoryTemplateRuleList(const Models::DescribeCategoryTemplateRuleListRequest &request);
 
       /**
-       * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+       * @summary You can call the DescribeColumns API to query column data in data asset tables, such as MaxCompute and RDS, that are authorized to connect to Data Security Center.
        *
-       * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-       * ## [](#)Precautions
-       * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
-       * ## [](#qps)Limits
-       * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API is typically used to view column data in sensitive data asset information tables. This helps users accurately analyze sensitive data.
+       * ## Notes
+       * The DescribeColumns API has been revised and replaced by DescribeColumnsV2. Use the newer DescribeColumnsV2 version when developing applications.
+       * ## QPS Limits
+       * The single-user QPS limit for this API is 10 calls per second. If you exceed this limit, API calls will be rate-limited. This may affect your business. You should call the API reasonably.
        *
        * @param request DescribeColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,13 +262,13 @@ namespace Sddp20190103
       Models::DescribeColumnsResponse describeColumnsWithOptions(const Models::DescribeColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+       * @summary You can call the DescribeColumns API to query column data in data asset tables, such as MaxCompute and RDS, that are authorized to connect to Data Security Center.
        *
-       * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-       * ## [](#)Precautions
-       * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
-       * ## [](#qps)Limits
-       * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API is typically used to view column data in sensitive data asset information tables. This helps users accurately analyze sensitive data.
+       * ## Notes
+       * The DescribeColumns API has been revised and replaced by DescribeColumnsV2. Use the newer DescribeColumnsV2 version when developing applications.
+       * ## QPS Limits
+       * The single-user QPS limit for this API is 10 calls per second. If you exceed this limit, API calls will be rate-limited. This may affect your business. You should call the API reasonably.
        *
        * @param request DescribeColumnsRequest
        * @return DescribeColumnsResponse
@@ -264,7 +276,7 @@ namespace Sddp20190103
       Models::DescribeColumnsResponse describeColumns(const Models::DescribeColumnsRequest &request);
 
       /**
-       * @summary Query data in columns of data assets such as MaxCompute, RDS, etc., that are authorized by the Data Security Center.
+       * @summary The DescribeColumnsV2 operation queries data in the columns of data asset tables, such as those in MaxCompute and RDS, that are authorized in Data Security Center.
        *
        * @param request DescribeColumnsV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -273,7 +285,7 @@ namespace Sddp20190103
       Models::DescribeColumnsV2Response describeColumnsV2WithOptions(const Models::DescribeColumnsV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query data in columns of data assets such as MaxCompute, RDS, etc., that are authorized by the Data Security Center.
+       * @summary The DescribeColumnsV2 operation queries data in the columns of data asset tables, such as those in MaxCompute and RDS, that are authorized in Data Security Center.
        *
        * @param request DescribeColumnsV2Request
        * @return DescribeColumnsV2Response
@@ -281,7 +293,12 @@ namespace Sddp20190103
       Models::DescribeColumnsV2Response describeColumnsV2(const Models::DescribeColumnsV2Request &request);
 
       /**
-       * @summary Queries common configuration items for alerts.
+       * @summary Queries common configuration items for anomaly alerts.
+       *
+       * @description # Usage notes
+       * Queries common configuration items for anomaly alerts, which you can use to create or restore alert configurations.
+       * # QPS limit
+       * The maximum number of queries per second (QPS) per user is 10. If this limit is exceeded, API calls are throttled. This may impact your business. Call this operation only as needed.
        *
        * @param request DescribeConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -290,7 +307,12 @@ namespace Sddp20190103
       Models::DescribeConfigsResponse describeConfigsWithOptions(const Models::DescribeConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries common configuration items for alerts.
+       * @summary Queries common configuration items for anomaly alerts.
+       *
+       * @description # Usage notes
+       * Queries common configuration items for anomaly alerts, which you can use to create or restore alert configurations.
+       * # QPS limit
+       * The maximum number of queries per second (QPS) per user is 10. If this limit is exceeded, API calls are throttled. This may impact your business. Call this operation only as needed.
        *
        * @param request DescribeConfigsRequest
        * @return DescribeConfigsResponse
@@ -298,7 +320,13 @@ namespace Sddp20190103
       Models::DescribeConfigsResponse describeConfigs(const Models::DescribeConfigsRequest &request);
 
       /**
-       * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+       * @summary Searches for data assets on the Overview page of Data Security Center (DSC).
+       *
+       * @description This operation is typically used to query data assets of different types on the overview page of DSC.
+       * ## Usage notes
+       * This operation is deprecated and no longer maintained.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeDataAssetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -307,7 +335,13 @@ namespace Sddp20190103
       Models::DescribeDataAssetsResponse describeDataAssetsWithOptions(const Models::DescribeDataAssetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+       * @summary Searches for data assets on the Overview page of Data Security Center (DSC).
+       *
+       * @description This operation is typically used to query data assets of different types on the overview page of DSC.
+       * ## Usage notes
+       * This operation is deprecated and no longer maintained.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeDataAssetsRequest
        * @return DescribeDataAssetsResponse
@@ -315,7 +349,7 @@ namespace Sddp20190103
       Models::DescribeDataAssetsResponse describeDataAssets(const Models::DescribeDataAssetsRequest &request);
 
       /**
-       * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+       * @summary Retrieves the details of an authorized data asset, such as a MaxCompute project, ApsaraDB RDS database, or OSS bucket.
        *
        * @param request DescribeDataLimitDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -324,7 +358,7 @@ namespace Sddp20190103
       Models::DescribeDataLimitDetailResponse describeDataLimitDetailWithOptions(const Models::DescribeDataLimitDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+       * @summary Retrieves the details of an authorized data asset, such as a MaxCompute project, ApsaraDB RDS database, or OSS bucket.
        *
        * @param request DescribeDataLimitDetailRequest
        * @return DescribeDataLimitDetailResponse
@@ -332,11 +366,13 @@ namespace Sddp20190103
       Models::DescribeDataLimitDetailResponse describeDataLimitDetail(const Models::DescribeDataLimitDetailRequest &request);
 
       /**
-       * @summary Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
+       * @summary Call the DescribeDataLimitSet operation to query the authorization list for unstructured assets or the list of regions supported by Data Security Center.
        *
-       * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Use this operation to retrieve a list of authorized product assets. This list helps you search for and aggregate resources.
+       * ## Notes
+       * In the future, this operation will be used only to retrieve the list of regions that a product supports. Other features will no longer be maintained.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. API calls that exceed this limit are throttled. Throttling can affect your business. We recommend that you call this operation a reasonable number of times.
        *
        * @param request DescribeDataLimitSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -345,11 +381,13 @@ namespace Sddp20190103
       Models::DescribeDataLimitSetResponse describeDataLimitSetWithOptions(const Models::DescribeDataLimitSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
+       * @summary Call the DescribeDataLimitSet operation to query the authorization list for unstructured assets or the list of regions supported by Data Security Center.
        *
-       * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Use this operation to retrieve a list of authorized product assets. This list helps you search for and aggregate resources.
+       * ## Notes
+       * In the future, this operation will be used only to retrieve the list of regions that a product supports. Other features will no longer be maintained.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. API calls that exceed this limit are throttled. Throttling can affect your business. We recommend that you call this operation a reasonable number of times.
        *
        * @param request DescribeDataLimitSetRequest
        * @return DescribeDataLimitSetResponse
@@ -357,7 +395,7 @@ namespace Sddp20190103
       Models::DescribeDataLimitSetResponse describeDataLimitSet(const Models::DescribeDataLimitSetRequest &request);
 
       /**
-       * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+       * @summary Queries the list of data assets for authorized instances, databases, and buckets.
        *
        * @param request DescribeDataLimitsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -366,7 +404,7 @@ namespace Sddp20190103
       Models::DescribeDataLimitsResponse describeDataLimitsWithOptions(const Models::DescribeDataLimitsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+       * @summary Queries the list of data assets for authorized instances, databases, and buckets.
        *
        * @param request DescribeDataLimitsRequest
        * @return DescribeDataLimitsResponse
@@ -374,11 +412,11 @@ namespace Sddp20190103
       Models::DescribeDataLimitsResponse describeDataLimits(const Models::DescribeDataLimitsRequest &request);
 
       /**
-       * @summary Queries the execution information about a de-identification task.
+       * @summary You can call DescribeDataMaskingRunHistory to query the execution history of data masking tasks.
        *
-       * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation retrieves the execution history of static data masking tasks. You can use it to search for task statuses and view task progress.
+       * ## QPS limits
+       * The queries per second (QPS) limit for a single user on this operation is 10 calls per second. Calls that exceed this limit are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeDataMaskingRunHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,11 +425,11 @@ namespace Sddp20190103
       Models::DescribeDataMaskingRunHistoryResponse describeDataMaskingRunHistoryWithOptions(const Models::DescribeDataMaskingRunHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution information about a de-identification task.
+       * @summary You can call DescribeDataMaskingRunHistory to query the execution history of data masking tasks.
        *
-       * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation retrieves the execution history of static data masking tasks. You can use it to search for task statuses and view task progress.
+       * ## QPS limits
+       * The queries per second (QPS) limit for a single user on this operation is 10 calls per second. Calls that exceed this limit are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeDataMaskingRunHistoryRequest
        * @return DescribeDataMaskingRunHistoryResponse
@@ -399,11 +437,11 @@ namespace Sddp20190103
       Models::DescribeDataMaskingRunHistoryResponse describeDataMaskingRunHistory(const Models::DescribeDataMaskingRunHistoryRequest &request);
 
       /**
-       * @summary Queries de-identification tasks.
+       * @summary Call DescribeDataMaskingTasks to retrieve a list of data masking tasks.
        *
-       * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation retrieves a list of static data masking tasks, which you can then search and manage.
+       * ## QPS limits
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
        *
        * @param request DescribeDataMaskingTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,11 +450,11 @@ namespace Sddp20190103
       Models::DescribeDataMaskingTasksResponse describeDataMaskingTasksWithOptions(const Models::DescribeDataMaskingTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries de-identification tasks.
+       * @summary Call DescribeDataMaskingTasks to retrieve a list of data masking tasks.
        *
-       * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation retrieves a list of static data masking tasks, which you can then search and manage.
+       * ## QPS limits
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
        *
        * @param request DescribeDataMaskingTasksRequest
        * @return DescribeDataMaskingTasksResponse
@@ -424,10 +462,10 @@ namespace Sddp20190103
       Models::DescribeDataMaskingTasksResponse describeDataMaskingTasks(const Models::DescribeDataMaskingTasksRequest &request);
 
       /**
-       * @summary View data object column details
+       * @summary Queries the detection results for columns in a data table.
        *
        * @description ## Notes
-       * The DescribeDataObjectColumnDetail interface has been revised to DescribeDataObjectColumnDetailV2. It is recommended that you use the newer version, DescribeDataObjectColumnDetailV2, when developing your application.
+       * The DescribeDataObjectColumnDetail operation has been updated to DescribeDataObjectColumnDetailV2. We recommend that you use the latest version, DescribeDataObjectColumnDetailV2, for application development.
        *
        * @param request DescribeDataObjectColumnDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -436,10 +474,10 @@ namespace Sddp20190103
       Models::DescribeDataObjectColumnDetailResponse describeDataObjectColumnDetailWithOptions(const Models::DescribeDataObjectColumnDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View data object column details
+       * @summary Queries the detection results for columns in a data table.
        *
        * @description ## Notes
-       * The DescribeDataObjectColumnDetail interface has been revised to DescribeDataObjectColumnDetailV2. It is recommended that you use the newer version, DescribeDataObjectColumnDetailV2, when developing your application.
+       * The DescribeDataObjectColumnDetail operation has been updated to DescribeDataObjectColumnDetailV2. We recommend that you use the latest version, DescribeDataObjectColumnDetailV2, for application development.
        *
        * @param request DescribeDataObjectColumnDetailRequest
        * @return DescribeDataObjectColumnDetailResponse
@@ -447,7 +485,7 @@ namespace Sddp20190103
       Models::DescribeDataObjectColumnDetailResponse describeDataObjectColumnDetail(const Models::DescribeDataObjectColumnDetailRequest &request);
 
       /**
-       * @summary View Data Object Column Details V2
+       * @summary Queries the detection results for the columns of a data table.
        *
        * @param request DescribeDataObjectColumnDetailV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -456,7 +494,7 @@ namespace Sddp20190103
       Models::DescribeDataObjectColumnDetailV2Response describeDataObjectColumnDetailV2WithOptions(const Models::DescribeDataObjectColumnDetailV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View Data Object Column Details V2
+       * @summary Queries the detection results for the columns of a data table.
        *
        * @param request DescribeDataObjectColumnDetailV2Request
        * @return DescribeDataObjectColumnDetailV2Response
@@ -464,7 +502,11 @@ namespace Sddp20190103
       Models::DescribeDataObjectColumnDetailV2Response describeDataObjectColumnDetailV2(const Models::DescribeDataObjectColumnDetailV2Request &request);
 
       /**
-       * @summary Paginated Query of Data Catalog Objects
+       * @summary Query data detection results for tables and files.
+       *
+       * @description This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+       * ## QPS limit
+       * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
        *
        * @param request DescribeDataObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -473,7 +515,11 @@ namespace Sddp20190103
       Models::DescribeDataObjectsResponse describeDataObjectsWithOptions(const Models::DescribeDataObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Paginated Query of Data Catalog Objects
+       * @summary Query data detection results for tables and files.
+       *
+       * @description This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+       * ## QPS limit
+       * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
        *
        * @param request DescribeDataObjectsRequest
        * @return DescribeDataObjectsResponse
@@ -481,7 +527,7 @@ namespace Sddp20190103
       Models::DescribeDataObjectsResponse describeDataObjects(const Models::DescribeDataObjectsRequest &request);
 
       /**
-       * @summary Queries a list of OSS object types that can be identified.
+       * @summary Queries a list of file types supported by Object Storage Service (OSS).
        *
        * @param request DescribeDocTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -490,7 +536,7 @@ namespace Sddp20190103
       Models::DescribeDocTypesResponse describeDocTypesWithOptions(const Models::DescribeDocTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of OSS object types that can be identified.
+       * @summary Queries a list of file types supported by Object Storage Service (OSS).
        *
        * @param request DescribeDocTypesRequest
        * @return DescribeDocTypesResponse
@@ -498,7 +544,7 @@ namespace Sddp20190103
       Models::DescribeDocTypesResponse describeDocTypes(const Models::DescribeDocTypesRequest &request);
 
       /**
-       * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+       * @summary Retrieves the details of an anomalous event, including its occurrence time, description, and handling status.
        *
        * @param request DescribeEventDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -507,7 +553,7 @@ namespace Sddp20190103
       Models::DescribeEventDetailResponse describeEventDetailWithOptions(const Models::DescribeEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+       * @summary Retrieves the details of an anomalous event, including its occurrence time, description, and handling status.
        *
        * @param request DescribeEventDetailRequest
        * @return DescribeEventDetailResponse
@@ -515,7 +561,7 @@ namespace Sddp20190103
       Models::DescribeEventDetailResponse describeEventDetail(const Models::DescribeEventDetailRequest &request);
 
       /**
-       * @summary Queries the types of anomalous events.
+       * @summary Queries anomalous activity types.
        *
        * @param request DescribeEventTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -524,7 +570,7 @@ namespace Sddp20190103
       Models::DescribeEventTypesResponse describeEventTypesWithOptions(const Models::DescribeEventTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the types of anomalous events.
+       * @summary Queries anomalous activity types.
        *
        * @param request DescribeEventTypesRequest
        * @return DescribeEventTypesResponse
@@ -532,11 +578,11 @@ namespace Sddp20190103
       Models::DescribeEventTypesResponse describeEventTypes(const Models::DescribeEventTypesRequest &request);
 
       /**
-       * @summary Queries anomalous events.
+       * @summary Lists anomalous events.
        *
-       * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries alerts for data breach risks to help you find and handle them.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, your API calls are throttled. This may affect your business. Plan your API calls accordingly.
        *
        * @param request DescribeEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -545,11 +591,11 @@ namespace Sddp20190103
       Models::DescribeEventsResponse describeEventsWithOptions(const Models::DescribeEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries anomalous events.
+       * @summary Lists anomalous events.
        *
-       * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries alerts for data breach risks to help you find and handle them.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, your API calls are throttled. This may affect your business. Plan your API calls accordingly.
        *
        * @param request DescribeEventsRequest
        * @return DescribeEventsResponse
@@ -557,10 +603,10 @@ namespace Sddp20190103
       Models::DescribeEventsResponse describeEvents(const Models::DescribeEventsRequest &request);
 
       /**
-       * @summary Query the status of an identification task
+       * @summary Retrieves the completion status of a detection task based on the task ID. You can obtain the task ID from the Id field in the return value of a CreateScanTask or ScanOssObjectV1 API call.
        *
-       * @description ## QPS Limit
-       * The QPS limit for this interface per user is 10 times/second. Exceeding the limit will result in API calls being rate-limited, which may affect your business. Please call it reasonably.
+       * @description ## QPS limit
+       * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
        *
        * @param request DescribeIdentifyTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -569,10 +615,10 @@ namespace Sddp20190103
       Models::DescribeIdentifyTaskStatusResponse describeIdentifyTaskStatusWithOptions(const Models::DescribeIdentifyTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the status of an identification task
+       * @summary Retrieves the completion status of a detection task based on the task ID. You can obtain the task ID from the Id field in the return value of a CreateScanTask or ScanOssObjectV1 API call.
        *
-       * @description ## QPS Limit
-       * The QPS limit for this interface per user is 10 times/second. Exceeding the limit will result in API calls being rate-limited, which may affect your business. Please call it reasonably.
+       * @description ## QPS limit
+       * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
        *
        * @param request DescribeIdentifyTaskStatusRequest
        * @return DescribeIdentifyTaskStatusResponse
@@ -582,8 +628,10 @@ namespace Sddp20190103
       /**
        * @summary Queries a list of data assets.
        *
-       * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
-       * This operation is no longer used for the KMS console of the new version.
+       * @description Queries the list of authorized or unauthorized data assets based on the AuthStatus parameter to help you understand the authorization status of your data assets.
+       * This operation is no longer used in the new console.
+       * ## QPS limit
+       * Each user can call this operation up to 10 times per second. If this limit is exceeded, API calls are throttled, which may affect your business.
        *
        * @param request DescribeInstanceSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -594,8 +642,10 @@ namespace Sddp20190103
       /**
        * @summary Queries a list of data assets.
        *
-       * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
-       * This operation is no longer used for the KMS console of the new version.
+       * @description Queries the list of authorized or unauthorized data assets based on the AuthStatus parameter to help you understand the authorization status of your data assets.
+       * This operation is no longer used in the new console.
+       * ## QPS limit
+       * Each user can call this operation up to 10 times per second. If this limit is exceeded, API calls are throttled, which may affect your business.
        *
        * @param request DescribeInstanceSourcesRequest
        * @return DescribeInstanceSourcesResponse
@@ -603,11 +653,11 @@ namespace Sddp20190103
       Models::DescribeInstanceSourcesResponse describeInstanceSources(const Models::DescribeInstanceSourcesRequest &request);
 
       /**
-       * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+       * @summary Retrieves a list of authorized MaxCompute, RDS, and OSS data asset instances.
        *
-       * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description When you call the DescribeInstances operation, you can set parameters such as search keywords and the threat level of data asset instances to retrieve a list of instances that meet your requirements.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user for this operation is 10 calls per second. If you exceed this limit, API calls are throttled. This can affect your business. Plan your calls accordingly.
        *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,11 +666,11 @@ namespace Sddp20190103
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+       * @summary Retrieves a list of authorized MaxCompute, RDS, and OSS data asset instances.
        *
-       * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description When you call the DescribeInstances operation, you can set parameters such as search keywords and the threat level of data asset instances to retrieve a list of instances that meet your requirements.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user for this operation is 10 calls per second. If you exceed this limit, API calls are throttled. This can affect your business. Plan your calls accordingly.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -628,13 +678,13 @@ namespace Sddp20190103
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+       * @summary Obtains detailed information about an authorized OSS object in Data Security Center.
        *
-       * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
-       * ## [](#)Precautions
-       * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
-       * ## [](#qps)Limits
-       * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is typically used to query the details of OSS objects. This information helps you accurately locate sensitive data assets in OSS.
+       * ## Usage notes
+       * The DescribeOssObjectDetail operation has been updated to DescribeOssObjectDetailV2. We recommend that you use the new version, DescribeOssObjectDetailV2, when you develop applications.
+       * ## QPS limit
+       * A single user can make up to 10 queries per second (QPS). If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
        *
        * @param request DescribeOssObjectDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -643,13 +693,13 @@ namespace Sddp20190103
       Models::DescribeOssObjectDetailResponse describeOssObjectDetailWithOptions(const Models::DescribeOssObjectDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+       * @summary Obtains detailed information about an authorized OSS object in Data Security Center.
        *
-       * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
-       * ## [](#)Precautions
-       * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
-       * ## [](#qps)Limits
-       * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is typically used to query the details of OSS objects. This information helps you accurately locate sensitive data assets in OSS.
+       * ## Usage notes
+       * The DescribeOssObjectDetail operation has been updated to DescribeOssObjectDetailV2. We recommend that you use the new version, DescribeOssObjectDetailV2, when you develop applications.
+       * ## QPS limit
+       * A single user can make up to 10 queries per second (QPS). If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
        *
        * @param request DescribeOssObjectDetailRequest
        * @return DescribeOssObjectDetailResponse
@@ -657,9 +707,9 @@ namespace Sddp20190103
       Models::DescribeOssObjectDetailResponse describeOssObjectDetail(const Models::DescribeOssObjectDetailRequest &request);
 
       /**
-       * @summary Call this interface to query the details of a single storage object in OSS that is authorized by the Data Security Center.
+       * @summary Obtains detailed information about an authorized OSS object in Data Security Center.
        *
-       * @description This interface is generally used to query the detailed information of OSS storage objects, which facilitates the accurate positioning of sensitive OSS assets.
+       * @description This operation queries the details of OSS objects. You can use this operation to locate sensitive data assets in OSS.
        *
        * @param request DescribeOssObjectDetailV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -668,9 +718,9 @@ namespace Sddp20190103
       Models::DescribeOssObjectDetailV2Response describeOssObjectDetailV2WithOptions(const Models::DescribeOssObjectDetailV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call this interface to query the details of a single storage object in OSS that is authorized by the Data Security Center.
+       * @summary Obtains detailed information about an authorized OSS object in Data Security Center.
        *
-       * @description This interface is generally used to query the detailed information of OSS storage objects, which facilitates the accurate positioning of sensitive OSS assets.
+       * @description This operation queries the details of OSS objects. You can use this operation to locate sensitive data assets in OSS.
        *
        * @param request DescribeOssObjectDetailV2Request
        * @return DescribeOssObjectDetailV2Response
@@ -678,7 +728,7 @@ namespace Sddp20190103
       Models::DescribeOssObjectDetailV2Response describeOssObjectDetailV2(const Models::DescribeOssObjectDetailV2Request &request);
 
       /**
-       * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+       * @summary Lists authorized OSS objects.
        *
        * @param request DescribeOssObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -687,7 +737,7 @@ namespace Sddp20190103
       Models::DescribeOssObjectsResponse describeOssObjectsWithOptions(const Models::DescribeOssObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+       * @summary Lists authorized OSS objects.
        *
        * @param request DescribeOssObjectsRequest
        * @return DescribeOssObjectsResponse
@@ -695,11 +745,11 @@ namespace Sddp20190103
       Models::DescribeOssObjectsResponse describeOssObjects(const Models::DescribeOssObjectsRequest &request);
 
       /**
-       * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+       * @summary Retrieves information about MaxCompute packages authorized for scanning, including package names, owner accounts, and risk levels.
        *
-       * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API is typically used to query a list of MaxCompute packages. This helps you search for packages and obtain an overview of sensitive information.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled. This can affect your business. Make sure to call this API within the limit.
        *
        * @param request DescribePackagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -708,11 +758,11 @@ namespace Sddp20190103
       Models::DescribePackagesResponse describePackagesWithOptions(const Models::DescribePackagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+       * @summary Retrieves information about MaxCompute packages authorized for scanning, including package names, owner accounts, and risk levels.
        *
-       * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API is typically used to query a list of MaxCompute packages. This helps you search for packages and obtain an overview of sensitive information.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled. This can affect your business. Make sure to call this API within the limit.
        *
        * @param request DescribePackagesRequest
        * @return DescribePackagesResponse
@@ -720,7 +770,7 @@ namespace Sddp20190103
       Models::DescribePackagesResponse describePackages(const Models::DescribePackagesRequest &request);
 
       /**
-       * @summary Gets the list of first-level authorizations.
+       * @summary Lists assets and their authorization status.
        *
        * @param request DescribeParentInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -729,7 +779,7 @@ namespace Sddp20190103
       Models::DescribeParentInstanceResponse describeParentInstanceWithOptions(const Models::DescribeParentInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the list of first-level authorizations.
+       * @summary Lists assets and their authorization status.
        *
        * @param request DescribeParentInstanceRequest
        * @return DescribeParentInstanceResponse
@@ -737,11 +787,11 @@ namespace Sddp20190103
       Models::DescribeParentInstanceResponse describeParentInstance(const Models::DescribeParentInstanceRequest &request);
 
       /**
-       * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+       * @summary Call the DescribeRiskLevels operation to retrieve a list of risk levels for sensitive data.
        *
-       * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description You can use this operation to retrieve a list of risk levels for sensitive data that are defined in the current template. This lets you view the number of rules that reference each risk level and the maximum risk level in the template.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If you exceed this limit, your API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeRiskLevelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -750,11 +800,11 @@ namespace Sddp20190103
       Models::DescribeRiskLevelsResponse describeRiskLevelsWithOptions(const Models::DescribeRiskLevelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+       * @summary Call the DescribeRiskLevels operation to retrieve a list of risk levels for sensitive data.
        *
-       * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description You can use this operation to retrieve a list of risk levels for sensitive data that are defined in the current template. This lets you view the number of rules that reference each risk level and the maximum risk level in the template.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If you exceed this limit, your API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request DescribeRiskLevelsRequest
        * @return DescribeRiskLevelsResponse
@@ -762,7 +812,7 @@ namespace Sddp20190103
       Models::DescribeRiskLevelsResponse describeRiskLevels(const Models::DescribeRiskLevelsRequest &request);
 
       /**
-       * @summary Queries sensitive data detection rules.
+       * @summary Queries a list of sensitive data detection rules.
        *
        * @param request DescribeRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -771,7 +821,7 @@ namespace Sddp20190103
       Models::DescribeRulesResponse describeRulesWithOptions(const Models::DescribeRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries sensitive data detection rules.
+       * @summary Queries a list of sensitive data detection rules.
        *
        * @param request DescribeRulesRequest
        * @return DescribeRulesResponse
@@ -779,11 +829,11 @@ namespace Sddp20190103
       Models::DescribeRulesResponse describeRules(const Models::DescribeRulesRequest &request);
 
       /**
-       * @summary Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
+       * @summary Queries tables in data assets, such as MaxCompute and RDS, that Data Security Center is authorized to access.
        *
-       * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
-       * # Limits
-       * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+       * @description You can call the DescribeTables operation to retrieve information about specific data asset tables. You can specify parameters such as search keywords and risk levels.
+       * ## QPS limits
+       * Each Alibaba Cloud account can call this operation up to 10 times per second. If you exceed this limit, throttling is triggered, which may affect your business. We recommend that you call this operation at a sustainable rate.
        *
        * @param request DescribeTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -792,11 +842,11 @@ namespace Sddp20190103
       Models::DescribeTablesResponse describeTablesWithOptions(const Models::DescribeTablesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
+       * @summary Queries tables in data assets, such as MaxCompute and RDS, that Data Security Center is authorized to access.
        *
-       * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
-       * # Limits
-       * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+       * @description You can call the DescribeTables operation to retrieve information about specific data asset tables. You can specify parameters such as search keywords and risk levels.
+       * ## QPS limits
+       * Each Alibaba Cloud account can call this operation up to 10 times per second. If you exceed this limit, throttling is triggered, which may affect your business. We recommend that you call this operation at a sustainable rate.
        *
        * @param request DescribeTablesRequest
        * @return DescribeTablesResponse
@@ -804,7 +854,7 @@ namespace Sddp20190103
       Models::DescribeTablesResponse describeTables(const Models::DescribeTablesRequest &request);
 
       /**
-       * @summary Call this interface to query all models list of industry templates.
+       * @summary Lists all rules in an industry-specific template.
        *
        * @param request DescribeTemplateAllRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -813,7 +863,7 @@ namespace Sddp20190103
       Models::DescribeTemplateAllRulesResponse describeTemplateAllRulesWithOptions(const Models::DescribeTemplateAllRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call this interface to query all models list of industry templates.
+       * @summary Lists all rules in an industry-specific template.
        *
        * @param request DescribeTemplateAllRulesRequest
        * @return DescribeTemplateAllRulesResponse
@@ -821,11 +871,11 @@ namespace Sddp20190103
       Models::DescribeTemplateAllRulesResponse describeTemplateAllRules(const Models::DescribeTemplateAllRulesRequest &request);
 
       /**
-       * @summary Queries the information about an account.
+       * @summary Queries the status of a user account.
        *
-       * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Retrieves information about the current account, such as your usage of Data Security Center (DSC).
+       * ## QPS limit
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeUserStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -834,11 +884,11 @@ namespace Sddp20190103
       Models::DescribeUserStatusResponse describeUserStatusWithOptions(const Models::DescribeUserStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an account.
+       * @summary Queries the status of a user account.
        *
-       * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Retrieves information about the current account, such as your usage of Data Security Center (DSC).
+       * ## QPS limit
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeUserStatusRequest
        * @return DescribeUserStatusResponse
@@ -846,11 +896,11 @@ namespace Sddp20190103
       Models::DescribeUserStatusResponse describeUserStatus(const Models::DescribeUserStatusRequest &request);
 
       /**
-       * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+       * @summary You can call the DisableUserConfig operation to disable a user configuration. After a configuration is disabled, you can call the CreateConfig operation and specify the same Code parameter to restore the general anomaly alert configuration.
        *
-       * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation disables a user configuration based on the code of a configuration item in the general anomaly alert configuration module. This lets you promptly change the status of the user configuration.
+       * ## QPS limits
+       * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled. Throttling may impact your business. Plan your calls accordingly.
        *
        * @param request DisableUserConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -859,11 +909,11 @@ namespace Sddp20190103
       Models::DisableUserConfigResponse disableUserConfigWithOptions(const Models::DisableUserConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+       * @summary You can call the DisableUserConfig operation to disable a user configuration. After a configuration is disabled, you can call the CreateConfig operation and specify the same Code parameter to restore the general anomaly alert configuration.
        *
-       * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation disables a user configuration based on the code of a configuration item in the general anomaly alert configuration module. This lets you promptly change the status of the user configuration.
+       * ## QPS limits
+       * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled. Throttling may impact your business. Plan your calls accordingly.
        *
        * @param request DisableUserConfigRequest
        * @return DisableUserConfigResponse
@@ -871,7 +921,7 @@ namespace Sddp20190103
       Models::DisableUserConfigResponse disableUserConfig(const Models::DisableUserConfigRequest &request);
 
       /**
-       * @summary Dynamically de-identifies sensitive data.
+       * @summary You can call the ExecDatamask operation to dynamically mask data.
        *
        * @param request ExecDatamaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +930,7 @@ namespace Sddp20190103
       Models::ExecDatamaskResponse execDatamaskWithOptions(const Models::ExecDatamaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Dynamically de-identifies sensitive data.
+       * @summary You can call the ExecDatamask operation to dynamically mask data.
        *
        * @param request ExecDatamaskRequest
        * @return ExecDatamaskResponse
@@ -888,7 +938,7 @@ namespace Sddp20190103
       Models::ExecDatamaskResponse execDatamask(const Models::ExecDatamaskRequest &request);
 
       /**
-       * @summary Triggers a de-identification task.
+       * @summary Triggers a data masking task.
        *
        * @param request ManualTriggerMaskingProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +947,7 @@ namespace Sddp20190103
       Models::ManualTriggerMaskingProcessResponse manualTriggerMaskingProcessWithOptions(const Models::ManualTriggerMaskingProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers a de-identification task.
+       * @summary Triggers a data masking task.
        *
        * @param request ManualTriggerMaskingProcessRequest
        * @return ManualTriggerMaskingProcessResponse
@@ -905,7 +955,16 @@ namespace Sddp20190103
       Models::ManualTriggerMaskingProcessResponse manualTriggerMaskingProcess(const Models::ManualTriggerMaskingProcessRequest &request);
 
       /**
-       * @summary OSS图片脱敏
+       * @summary Use the MaskOssImage operation to mask images stored as objects.
+       *
+       * @description **Prerequisites**
+       * To use this operation, you must have an image masking quota. Each call deducts one unit from your quota.
+       * **QPS limit**
+       * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled, which can affect your business. To prevent service disruptions, operate within this limit.
+       * **Usage notes**
+       * After masking is complete, the system stores the masked image in the aliyun_dsc_desensitization folder within the source bucket.
+       * For example, an image at exampledir/test.png in a bucket is saved as aliyun_dsc_desensitization/exampledir/test.png after masking.
+       * For more information, see https\\://help.aliyun.com/zh/dsc/data-security-center/user-guide/picture-desensitization
        *
        * @param request MaskOssImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -914,7 +973,16 @@ namespace Sddp20190103
       Models::MaskOssImageResponse maskOssImageWithOptions(const Models::MaskOssImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary OSS图片脱敏
+       * @summary Use the MaskOssImage operation to mask images stored as objects.
+       *
+       * @description **Prerequisites**
+       * To use this operation, you must have an image masking quota. Each call deducts one unit from your quota.
+       * **QPS limit**
+       * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled, which can affect your business. To prevent service disruptions, operate within this limit.
+       * **Usage notes**
+       * After masking is complete, the system stores the masked image in the aliyun_dsc_desensitization folder within the source bucket.
+       * For example, an image at exampledir/test.png in a bucket is saved as aliyun_dsc_desensitization/exampledir/test.png after masking.
+       * For more information, see https\\://help.aliyun.com/zh/dsc/data-security-center/user-guide/picture-desensitization
        *
        * @param request MaskOssImageRequest
        * @return MaskOssImageResponse
@@ -922,7 +990,7 @@ namespace Sddp20190103
       Models::MaskOssImageResponse maskOssImage(const Models::MaskOssImageRequest &request);
 
       /**
-       * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+       * @summary You can call ModifyDataLimit to modify the configuration items of a connection authorization in Data Security Center (DSC).
        *
        * @param request ModifyDataLimitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +999,7 @@ namespace Sddp20190103
       Models::ModifyDataLimitResponse modifyDataLimitWithOptions(const Models::ModifyDataLimitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+       * @summary You can call ModifyDataLimit to modify the configuration items of a connection authorization in Data Security Center (DSC).
        *
        * @param request ModifyDataLimitRequest
        * @return ModifyDataLimitResponse
@@ -939,11 +1007,11 @@ namespace Sddp20190103
       Models::ModifyDataLimitResponse modifyDataLimit(const Models::ModifyDataLimitRequest &request);
 
       /**
-       * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+       * @summary Modifies the rules that define threat levels for sensitive data. This includes the default threat level for unidentified data and the threat levels for data that is classified as sensitive.
        *
-       * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API modifies the rules that define threat levels for sensitive data to help with threat level planning.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. Throttling can impact your business. We recommend that you call this API at a reasonable rate.
        *
        * @param request ModifyDefaultLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -952,11 +1020,11 @@ namespace Sddp20190103
       Models::ModifyDefaultLevelResponse modifyDefaultLevelWithOptions(const Models::ModifyDefaultLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+       * @summary Modifies the rules that define threat levels for sensitive data. This includes the default threat level for unidentified data and the threat levels for data that is classified as sensitive.
        *
-       * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API modifies the rules that define threat levels for sensitive data to help with threat level planning.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. Throttling can impact your business. We recommend that you call this API at a reasonable rate.
        *
        * @param request ModifyDefaultLevelRequest
        * @return ModifyDefaultLevelResponse
@@ -964,11 +1032,11 @@ namespace Sddp20190103
       Models::ModifyDefaultLevelResponse modifyDefaultLevel(const Models::ModifyDefaultLevelRequest &request);
 
       /**
-       * @summary Handles an anomalous event.
+       * @summary Handles anomalous activities.
        *
-       * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation is typically used to handle alerts for data breach threats, helping you protect your data assets promptly.
+       * ## QPS limits
+       * This API operation has a queries per second (QPS) limit of 10 for each user. If you exceed the limit, API calls are throttled, which can affect your business. We recommend calling the API operation at a reasonable rate.
        *
        * @param request ModifyEventStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -977,11 +1045,11 @@ namespace Sddp20190103
       Models::ModifyEventStatusResponse modifyEventStatusWithOptions(const Models::ModifyEventStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Handles an anomalous event.
+       * @summary Handles anomalous activities.
        *
-       * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation is typically used to handle alerts for data breach threats, helping you protect your data assets promptly.
+       * ## QPS limits
+       * This API operation has a queries per second (QPS) limit of 10 for each user. If you exceed the limit, API calls are throttled, which can affect your business. We recommend calling the API operation at a reasonable rate.
        *
        * @param request ModifyEventStatusRequest
        * @return ModifyEventStatusResponse
@@ -989,7 +1057,7 @@ namespace Sddp20190103
       Models::ModifyEventStatusResponse modifyEventStatus(const Models::ModifyEventStatusRequest &request);
 
       /**
-       * @summary Enables the detection of anomalous events of subtypes.
+       * @summary This operation enables anomalous activity detection for subtypes.
        *
        * @param request ModifyEventTypeStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -998,7 +1066,7 @@ namespace Sddp20190103
       Models::ModifyEventTypeStatusResponse modifyEventTypeStatusWithOptions(const Models::ModifyEventTypeStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the detection of anomalous events of subtypes.
+       * @summary This operation enables anomalous activity detection for subtypes.
        *
        * @param request ModifyEventTypeStatusRequest
        * @return ModifyEventTypeStatusResponse
@@ -1006,11 +1074,11 @@ namespace Sddp20190103
       Models::ModifyEventTypeStatusResponse modifyEventTypeStatus(const Models::ModifyEventTypeStatusRequest &request);
 
       /**
-       * @summary Enables or disables the report task.
+       * @summary You can call the ModifyReportTaskStatus operation to enable or disable report tasks.
        *
-       * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description After you activate Data Security Center (DSC), report tasks are enabled by default. If you disable report tasks, Report Center, Cloud-native Data Audit Overview, and Data Security Lab will not generate new statistical data. Existing data is not affected.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
        *
        * @param request ModifyReportTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1019,11 +1087,11 @@ namespace Sddp20190103
       Models::ModifyReportTaskStatusResponse modifyReportTaskStatusWithOptions(const Models::ModifyReportTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the report task.
+       * @summary You can call the ModifyReportTaskStatus operation to enable or disable report tasks.
        *
-       * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description After you activate Data Security Center (DSC), report tasks are enabled by default. If you disable report tasks, Report Center, Cloud-native Data Audit Overview, and Data Security Lab will not generate new statistical data. Existing data is not affected.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
        *
        * @param request ModifyReportTaskStatusRequest
        * @return ModifyReportTaskStatusResponse
@@ -1033,9 +1101,9 @@ namespace Sddp20190103
       /**
        * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
        *
-       * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description You must specify the rule name, rule ID, and rule content.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If the limit is exceeded, API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request ModifyRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1046,9 +1114,9 @@ namespace Sddp20190103
       /**
        * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
        *
-       * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description You must specify the rule name, rule ID, and rule content.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If the limit is exceeded, API calls are throttled. This may affect your business. Plan your calls accordingly.
        *
        * @param request ModifyRuleRequest
        * @return ModifyRuleResponse
@@ -1056,7 +1124,7 @@ namespace Sddp20190103
       Models::ModifyRuleResponse modifyRule(const Models::ModifyRuleRequest &request);
 
       /**
-       * @summary Enables or disables a sensitive data detection rule.
+       * @summary Enables or disables sensitive data detection rules.
        *
        * @param request ModifyRuleStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1065,7 +1133,7 @@ namespace Sddp20190103
       Models::ModifyRuleStatusResponse modifyRuleStatusWithOptions(const Models::ModifyRuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables a sensitive data detection rule.
+       * @summary Enables or disables sensitive data detection rules.
        *
        * @param request ModifyRuleStatusRequest
        * @return ModifyRuleStatusResponse
@@ -1073,7 +1141,10 @@ namespace Sddp20190103
       Models::ModifyRuleStatusResponse modifyRuleStatus(const Models::ModifyRuleStatusRequest &request);
 
       /**
-       * @summary 图片复原
+       * @summary You can call the RestoreOssImage operation to restore desensitized images.
+       *
+       * @description You can use RestoreOssImage to retrieve the original images that were processed by the MaskOssImage operation if the IsAlwaysUpload parameter is set to `true`.
+       * For example, the image `aliyun_dsc_desensitization/exampledir/test.png` in a bucket is restored and saved as `aliyun_dsc_original/exampledir/test.png`.
        *
        * @param request RestoreOssImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1082,7 +1153,10 @@ namespace Sddp20190103
       Models::RestoreOssImageResponse restoreOssImageWithOptions(const Models::RestoreOssImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 图片复原
+       * @summary You can call the RestoreOssImage operation to restore desensitized images.
+       *
+       * @description You can use RestoreOssImage to retrieve the original images that were processed by the MaskOssImage operation if the IsAlwaysUpload parameter is set to `true`.
+       * For example, the image `aliyun_dsc_desensitization/exampledir/test.png` in a bucket is restored and saved as `aliyun_dsc_original/exampledir/test.png`.
        *
        * @param request RestoreOssImageRequest
        * @return RestoreOssImageResponse
@@ -1090,15 +1164,15 @@ namespace Sddp20190103
       Models::RestoreOssImageResponse restoreOssImage(const Models::RestoreOssImageRequest &request);
 
       /**
-       * @summary Creates an identification task to scan sensitive data in Object Storage Service (OSS) objects.
+       * @summary The ScanOssObjectV1 operation creates a scan task to detect sensitive data in a specified object.
        *
-       * @description ### [](#)Prerequisites
-       * To call this operation, make sure that asset authorization for your OSS bucket is complete and the bucket is connected. If the authorization is not complete, the bucket_not_authorized error code is returned when you call the operation.
-       * ### [](#qps-)Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-       * ### [](#)Additional information
-       * After you call this operation, you can obtain the task ID. You can specify the task ID in the DescribeIdentifyTaskDetail operation to query the state of the task.
-       * After the task is complete, you can call the DescribeOssObjectDetailV2 operation to query the identification results of sensitive data in the related OSS objects. When you call the DescribeOssObjectDetailV2 operation, you must specify BucketName, ServiceRegionId, and ObjectKey.
+       * @description ### Prerequisites
+       * You must authorize and connect to the specified bucket before you call this operation. If the bucket is not authorized, the API call returns the bucket_not_authorized error code.
+       * ### QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you call the operation at a reasonable rate.
+       * ### Usage notes
+       * You can use the returned task ID to call the DescribeIdentifyTaskStatus operation to check the running status of the task.
+       * After the task is complete, call the DescribeOssObjectDetailV2 operation and provide the BucketName, ServiceRegionId, and ObjectKey to view the sensitive data detection results for the object.
        *
        * @param tmpReq ScanOssObjectV1Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -1107,15 +1181,15 @@ namespace Sddp20190103
       Models::ScanOssObjectV1Response scanOssObjectV1WithOptions(const Models::ScanOssObjectV1Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an identification task to scan sensitive data in Object Storage Service (OSS) objects.
+       * @summary The ScanOssObjectV1 operation creates a scan task to detect sensitive data in a specified object.
        *
-       * @description ### [](#)Prerequisites
-       * To call this operation, make sure that asset authorization for your OSS bucket is complete and the bucket is connected. If the authorization is not complete, the bucket_not_authorized error code is returned when you call the operation.
-       * ### [](#qps-)Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-       * ### [](#)Additional information
-       * After you call this operation, you can obtain the task ID. You can specify the task ID in the DescribeIdentifyTaskDetail operation to query the state of the task.
-       * After the task is complete, you can call the DescribeOssObjectDetailV2 operation to query the identification results of sensitive data in the related OSS objects. When you call the DescribeOssObjectDetailV2 operation, you must specify BucketName, ServiceRegionId, and ObjectKey.
+       * @description ### Prerequisites
+       * You must authorize and connect to the specified bucket before you call this operation. If the bucket is not authorized, the API call returns the bucket_not_authorized error code.
+       * ### QPS limits
+       * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you call the operation at a reasonable rate.
+       * ### Usage notes
+       * You can use the returned task ID to call the DescribeIdentifyTaskStatus operation to check the running status of the task.
+       * After the task is complete, call the DescribeOssObjectDetailV2 operation and provide the BucketName, ServiceRegionId, and ObjectKey to view the sensitive data detection results for the object.
        *
        * @param request ScanOssObjectV1Request
        * @return ScanOssObjectV1Response
@@ -1123,11 +1197,11 @@ namespace Sddp20190103
       Models::ScanOssObjectV1Response scanOssObjectV1(const Models::ScanOssObjectV1Request &request);
 
       /**
-       * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+       * @summary You can call the StopMaskingProcess operation to stop a data masking task. You can call the ManualTriggerMaskingProcess operation to restart a stopped task using its unique resource ID.
        *
-       * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation stops a running data masking task. For example, you can call this operation if you no longer need to mask data for a previously configured task.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. This may affect your business. Ensure that you call this operation within the specified limit.
        *
        * @param request StopMaskingProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1136,11 +1210,11 @@ namespace Sddp20190103
       Models::StopMaskingProcessResponse stopMaskingProcessWithOptions(const Models::StopMaskingProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+       * @summary You can call the StopMaskingProcess operation to stop a data masking task. You can call the ManualTriggerMaskingProcess operation to restart a stopped task using its unique resource ID.
        *
-       * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
-       * # Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation stops a running data masking task. For example, you can call this operation if you no longer need to mask data for a previously configured task.
+       * ## QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. This may affect your business. Ensure that you call this operation within the specified limit.
        *
        * @param request StopMaskingProcessRequest
        * @return StopMaskingProcessResponse

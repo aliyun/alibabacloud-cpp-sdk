@@ -142,17 +142,21 @@ namespace Models
 
 
       protected:
-        // The number of times that the rule is hit.
+        // The number of times the rule is matched.
         shared_ptr<int64_t> count_ {};
-        // The search keyword. Fuzzy match is supported.
+        // The name of the rule.
         shared_ptr<string> name_ {};
-        // The ID of the sensitivity level of the OSS object. Valid values:
+        // The risk level ID of the rule. Valid values:
         // 
-        // *   **1**: N/A, which indicates that no sensitive data is detected.
-        // *   **2**: S1, which indicates the low sensitivity level.
-        // *   **3**: S2, which indicates the medium sensitivity level.
-        // *   **4**: S3, which indicates the high sensitivity level.
-        // *   **5**: S4, which indicates the highest sensitivity level.
+        // - **1**: N/A. No sensitive data is detected.
+        // 
+        // - **2**: S1. Level 1 sensitive data.
+        // 
+        // - **3**: S2. Level 2 sensitive data.
+        // 
+        // - **4**: S3. Level 3 sensitive data.
+        // 
+        // - **5**: S4. Level 4 sensitive data.
         shared_ptr<int64_t> riskLevelId_ {};
       };
 
@@ -283,45 +287,49 @@ namespace Models
 
 
     protected:
-      // The name of the bucket.
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The type of the OSS object. Valid values include **900001**, **800015**, or **800005**, which indicates the MP4 file, PDF file, or OSS configuration file, respectively.
+      // The type of the OSS object, such as **900001** (MP4 video file), **800015** (PDF document), and **800005** (OSS configuration file).
       shared_ptr<int64_t> category_ {};
       // The name of the file type.
       shared_ptr<string> categoryName_ {};
-      // The code of the file type.
+      // The code of the file category.
       shared_ptr<int64_t> fileCategoryCode_ {};
-      // The name of the file type.
+      // The name of the file category.
       shared_ptr<string> fileCategoryName_ {};
-      // The file ID of the OSS object.
+      // The ID of the OSS file.
       shared_ptr<string> fileId_ {};
-      // The ID of the OSS object.
+      // The unique ID of the OSS object.
       shared_ptr<string> id_ {};
-      // The ID of the instance to which the OSS object belongs.
+      // The ID of the asset instance to which the OSS object belongs.
       shared_ptr<int64_t> instanceId_ {};
       // The time when the file was last modified.
       shared_ptr<int64_t> lastModifiedTime_ {};
       // The name of the OSS object.
       shared_ptr<string> name_ {};
-      // The region ID of the OSS object.
+      // The region ID of the OSS object owner.
       shared_ptr<string> regionId_ {};
-      // The ID of the sensitivity level of the OSS object. Valid values:
+      // The risk level ID of the OSS object. Valid values:
       // 
-      // *   **1**: N/A, which indicates that no sensitive data is detected.
-      // *   **2**: S1, which indicates the low sensitivity level.
-      // *   **3**: S2, which indicates the medium sensitivity level.
-      // *   **4**: S3, which indicates the high sensitivity level.
-      // *   **5**: S4, which indicates the highest sensitivity level.
+      // - **1**: N/A. No sensitive data is detected.
+      // 
+      // - **2**: S1. Level 1 sensitive data.
+      // 
+      // - **3**: S2. Level 2 sensitive data.
+      // 
+      // - **4**: S3. Level 3 sensitive data.
+      // 
+      // - **5**: S4. Level 4 sensitive data.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The name of the sensitivity level for the OSS object.
+      // The name of the risk level for the OSS object.
       shared_ptr<string> riskLevelName_ {};
-      // The number of rules that are hit.
+      // The number of matched rules.
       shared_ptr<int32_t> ruleCount_ {};
-      // The rules.
+      // A list of rules.
       shared_ptr<vector<Items::RuleList>> ruleList_ {};
-      // The number of fields that are hit.
+      // The number of matched fields.
       shared_ptr<int32_t> sensitiveCount_ {};
-      // The size of the file. Unit: bytes.
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -389,24 +397,25 @@ namespace Models
   protected:
     // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
-    // The OSS objects.
+    // A list of OSS objects.
     shared_ptr<vector<DescribeOssObjectsResponseBody::Items>> items_ {};
     // This parameter is deprecated.
     shared_ptr<string> marker_ {};
-    // The ID value from which the next page of results starts.
+    // The token that marks the start of the next page of results.
     // 
-    // >  This parameter is returned only when the `Truncated` parameter is set to `true`.
+    // > This parameter is returned only when `Truncated` is `true`.
     shared_ptr<string> nextMarker_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // Indicates whether the queried entries are truncated. Valid values:
+    // Indicates whether the results are truncated. The default value is false. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The results are truncated.
+    // 
+    // - **false**: The results are not truncated.
     shared_ptr<bool> truncated_ {};
   };
 

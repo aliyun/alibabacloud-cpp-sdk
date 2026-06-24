@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const MaskOssImageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
       DARABONBA_PTR_TO_JSON(IsAlwaysUpload, isAlwaysUpload_);
+      DARABONBA_PTR_TO_JSON(IsCoverObject, isCoverObject_);
       DARABONBA_PTR_TO_JSON(IsSupportRestore, isSupportRestore_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(MaskRuleIdList, maskRuleIdList_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, MaskOssImageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
       DARABONBA_PTR_FROM_JSON(IsAlwaysUpload, isAlwaysUpload_);
+      DARABONBA_PTR_FROM_JSON(IsCoverObject, isCoverObject_);
       DARABONBA_PTR_FROM_JSON(IsSupportRestore, isSupportRestore_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(MaskRuleIdList, maskRuleIdList_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && this->isAlwaysUpload_ == nullptr && this->isSupportRestore_ == nullptr && this->lang_ == nullptr && this->maskRuleIdList_ == nullptr && this->objectKey_ == nullptr
-        && this->serviceRegionId_ == nullptr; };
+        && this->isAlwaysUpload_ == nullptr && this->isCoverObject_ == nullptr && this->isSupportRestore_ == nullptr && this->lang_ == nullptr && this->maskRuleIdList_ == nullptr
+        && this->objectKey_ == nullptr && this->serviceRegionId_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteIsAlwaysUpload() { this->isAlwaysUpload_ = nullptr;};
     inline bool getIsAlwaysUpload() const { DARABONBA_PTR_GET_DEFAULT(isAlwaysUpload_, false) };
     inline MaskOssImageRequest& setIsAlwaysUpload(bool isAlwaysUpload) { DARABONBA_PTR_SET_VALUE(isAlwaysUpload_, isAlwaysUpload) };
+
+
+    // isCoverObject Field Functions 
+    bool hasIsCoverObject() const { return this->isCoverObject_ != nullptr;};
+    void deleteIsCoverObject() { this->isCoverObject_ = nullptr;};
+    inline bool getIsCoverObject() const { DARABONBA_PTR_GET_DEFAULT(isCoverObject_, false) };
+    inline MaskOssImageRequest& setIsCoverObject(bool isCoverObject) { DARABONBA_PTR_SET_VALUE(isCoverObject_, isCoverObject) };
 
 
     // isSupportRestore Field Functions 
@@ -94,15 +103,46 @@ namespace Models
 
 
   protected:
+    // The name of the OSS bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};
+    // Specifies whether to always upload the processed image.
+    // 
+    // If you set this to false, the image is uploaded only if it matches a masking rule.
+    // 
+    // If you set this to true, the processed image is always uploaded.
     shared_ptr<bool> isAlwaysUpload_ {};
+    shared_ptr<bool> isCoverObject_ {};
+    // Specifies whether you can restore the original image from the masked version.
     shared_ptr<bool> isSupportRestore_ {};
     shared_ptr<string> lang_ {};
+    // A comma-separated list of masking rule IDs.
+    // 
+    // The following rule IDs correspond to the listed sensitive data types:
+    // 
+    // 3000: Images that contain ID card information (Chinese mainland)
+    // 
+    // 3009: Images that contain license plate information (Chinese mainland)
+    // 
+    // 3002: Images that contain faces
+    // 
+    // 1002: Names (Simplified Chinese)
+    // 
+    // 1003: Addresses (Chinese mainland)
+    // 
+    // 4003: Unified Social Credit Code
+    // 
+    // 63009: Images that contain eyes
+    // 
     // This parameter is required.
     shared_ptr<string> maskRuleIdList_ {};
+    // The full key of the object stored in OSS.
+    // 
     // This parameter is required.
     shared_ptr<string> objectKey_ {};
+    // The region where the bucket is located.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceRegionId_ {};
   };

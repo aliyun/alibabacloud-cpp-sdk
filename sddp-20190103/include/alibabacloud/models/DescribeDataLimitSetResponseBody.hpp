@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The name of the region.
+        // The region name.
         shared_ptr<string> localName_ {};
-        // The ID of the region.
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -143,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The name of the OSS bucket to which the OSS object belongs.
+        // The name of the OSS bucket.
         shared_ptr<string> bucketName_ {};
-        // The region ID of the OSS object.
+        // The ID of the region where the OSS bucket is located.
         shared_ptr<string> regionId_ {};
       };
 
@@ -269,43 +269,57 @@ namespace Models
 
 
       protected:
-        // Indicates whether the test of connectivity between DSC and the data asset is passed.
+        // The status of the connectivity test between Security Center and the authorized data asset.
         // 
-        // *   **2**: The connectivity test is in progress.
-        // *   **3**: The connectivity test is passed.
-        // *   **4**: The connectivity test failed.
+        // - **2**: The connectivity test is in progress.
+        // 
+        // - **3**: The connectivity test is passed.
+        // 
+        // - **4**: The connectivity test has failed.
         shared_ptr<int32_t> checkStatus_ {};
-        // The name of the data detection status.
+        // The name of the connectivity test status.
         shared_ptr<string> checkStatusName_ {};
-        // The connection string that is used to access the data asset.
+        // The connection string for the data asset.
         shared_ptr<string> connector_ {};
-        // The time when the data asset was created. Unit: milliseconds.
+        // The time when the data asset was created. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The ID of the data asset.
+        // The unique ID of the data asset.
         shared_ptr<int64_t> id_ {};
-        // The region in which the data asset resides.
+        // The name of the region where the data asset is located.
         shared_ptr<string> localName_ {};
-        // The parent asset ID of the data asset.
+        // The ID of the parent asset.
         shared_ptr<string> parentId_ {};
-        // The region in which the data asset resides.
+        // The ID of the region where the data asset is located.
         shared_ptr<string> regionId_ {};
-        // The type of service to which the data asset belongs. Valid values:
+        // The type of the data asset. Valid values:
         // 
-        // *   **1**: MaxCompute
-        // *   **2**: OSS
-        // *   **3**: AnalyticDB for MySQL
-        // *   **4**: Tablestore
-        // *   **5**: ApsaraDB RDS
+        // - **1**: MaxCompute.
+        // 
+        // - **2**: OSS.
+        // 
+        // - **3**: ADS.
+        // 
+        // - **4**: OTS.
+        // 
+        // - **5**: RDS.
+        // 
+        // - **6**: SELF_DB.
         shared_ptr<int64_t> resourceType_ {};
-        // The code of the service to which the data asset belongs. Valid values:
+        // The code for the data asset type. Valid values:
         // 
-        // *   **ODPS**
-        // *   **OSS**
-        // *   **ADS**
-        // *   **OTS**
-        // *   **RDS**
+        // - **MaxCompute**
+        // 
+        // - **OSS**
+        // 
+        // - **ADS**
+        // 
+        // - **OTS**
+        // 
+        // - **RDS**
+        // 
+        // - **SELF_DB**
         shared_ptr<string> resourceTypeCode_ {};
-        // The username that is used to access the data asset.
+        // The username of the data owner.
         shared_ptr<string> userName_ {};
       };
 
@@ -360,29 +374,41 @@ namespace Models
 
 
     protected:
-      // An array that consists of data assets that DSC is authorized to scan.
+      // A list of authorized data assets.
       shared_ptr<vector<DataLimitSet::DataLimitList>> dataLimitList_ {};
-      // An array consisting of the OSS objects that DSC is authorized to scan.
+      // A list of authorized OSS buckets.
       shared_ptr<vector<DataLimitSet::OssBucketList>> ossBucketList_ {};
-      // An array consisting of the regions in which the data assets can be scanned.
+      // A list of regions that support scanning.
       shared_ptr<vector<DataLimitSet::RegionList>> regionList_ {};
-      // The type of service to which the data asset belongs. Valid values:
+      // The type of the data asset. Valid values:
       // 
-      // *   **1**: MaxCompute
-      // *   **2**: OSS
-      // *   **3**: AnalyticDB for MySQL
-      // *   **4**: Tablestore
-      // *   **5**: ApsaraDB RDS
+      // - **1**: MaxCompute.
+      // 
+      // - **2**: OSS.
+      // 
+      // - **3**: ADS.
+      // 
+      // - **4**: OTS.
+      // 
+      // - **5**: RDS.
+      // 
+      // - **6**: SELF_DB.
       shared_ptr<int64_t> resourceType_ {};
-      // The service to which the data asset belongs. Valid values:
+      // The code for the data asset type. Valid values:
       // 
-      // *   **ODPS**
-      // *   **OSS**
-      // *   **ADS**
-      // *   **OTS**
-      // *   **RDS**
+      // - **MaxCompute**
+      // 
+      // - **OSS**
+      // 
+      // - **ADS**
+      // 
+      // - **OTS**
+      // 
+      // - **RDS**
+      // 
+      // - **SELF_DB**
       shared_ptr<string> resourceTypeCode_ {};
-      // The total number of data objects in the data assets.
+      // The total number of assets found.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -405,7 +431,7 @@ namespace Models
 
 
   protected:
-    // The information about the data asset.
+    // Information about the authorized data assets.
     shared_ptr<DescribeDataLimitSetResponseBody::DataLimitSet> dataLimitSet_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // The code of the common configuration item.
+      // The code of the configuration item.
       shared_ptr<string> code_ {};
-      // The description of the default value for the common configuration item.
+      // The default value of the configuration item.
       shared_ptr<string> defaultValue_ {};
-      // The description of the common configuration item.
+      // The description of the configuration item.
       shared_ptr<string> description_ {};
-      // The unique ID of the common configuration item.
+      // The unique ID of the configuration item.
       shared_ptr<int64_t> id_ {};
-      // The value of the common configuration item.
+      // The value of the configuration item.
       shared_ptr<string> value_ {};
     };
 
@@ -128,7 +128,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of common configuration items for alerts.
+    // A list of common configuration items for anomaly alerts.
     shared_ptr<vector<DescribeConfigsResponseBody::ConfigList>> configList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

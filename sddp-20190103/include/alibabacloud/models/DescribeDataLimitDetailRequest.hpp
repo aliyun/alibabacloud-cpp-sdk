@@ -76,13 +76,15 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The language of the content within the request and response. Valid values:
     // 
-    // *   **zh**: Simplified Chinese.
-    // *   **en**: English
+    // - **zh**: Simplified Chinese.
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The network type of the data asset that you want to query. Valid values:
     // 
-    // *   **1**: virtual private cloud (VPC)
-    // *   **2**: classic network
+    // - **1**: virtual private cloud (VPC)
+    // 
+    // - **2**: classic network
     shared_ptr<int32_t> networkType_ {};
   };
 

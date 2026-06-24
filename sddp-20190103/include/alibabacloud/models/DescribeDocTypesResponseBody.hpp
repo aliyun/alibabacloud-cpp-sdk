@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The code of the object type.
+      // The code of the file type.
       shared_ptr<int64_t> code_ {};
-      // The ID of the object type.
+      // The unique ID of the file type.
       shared_ptr<int64_t> id_ {};
-      // The name of the object type.
+      // The name of the file type.
       shared_ptr<string> name_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // A list of OSS object types.
+    // A list of OSS file types.
     shared_ptr<vector<DescribeDocTypesResponseBody::DocTypeList>> docTypeList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

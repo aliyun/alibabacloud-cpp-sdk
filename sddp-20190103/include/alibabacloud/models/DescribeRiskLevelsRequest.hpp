@@ -59,12 +59,15 @@ namespace Models
   protected:
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   zh_cn: Chinese (default)
-    // *   en_us: English
+    // - zh_cn: Chinese. This is the default value.
+    // 
+    // - en_us: English.
     shared_ptr<string> lang_ {};
-    // The ID of the industry-specific rule template.
+    // The ID of the industry-specific template.
+    // 
+    // > Call [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) to get the ID of the industry-specific template.
     shared_ptr<int64_t> templateId_ {};
   };
 

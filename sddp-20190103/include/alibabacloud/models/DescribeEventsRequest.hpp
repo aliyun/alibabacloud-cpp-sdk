@@ -80,8 +80,8 @@ namespace Models
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
-    inline DescribeEventsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline DescribeEventsRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // id Field Functions 
@@ -122,8 +122,8 @@ namespace Models
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
-    inline DescribeEventsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline DescribeEventsRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
@@ -178,52 +178,59 @@ namespace Models
   protected:
     // The page number of the page to return.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the account that handles the anomalous event.
+    // The ID of the account that handled the anomalous activity.
     shared_ptr<string> dealUserId_ {};
-    // The end of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
-    shared_ptr<string> endTime_ {};
-    // The unique ID of the anomalous event.
+    // The time when the detection of the anomalous activity ended. The value is a UNIX timestamp. Unit: milliseconds.
+    shared_ptr<int64_t> endTime_ {};
+    // The unique ID of the anomalous activity.
     shared_ptr<int64_t> id_ {};
-    // The name of the data asset.
+    // The name of the data asset instance.
     shared_ptr<string> instanceName_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // The language of the request and response. The default value is **zh_cn**. Valid values:
     // 
-    // *   **zh_cn**: Chinese
-    // *   **en_us**: English
+    // - **zh_cn**: Chinese.
+    // 
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
     // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+    // The service to which the data asset belongs. Valid values include MaxCompute, OSS, ADS, OTS, and **RDS**.
     shared_ptr<string> productCode_ {};
-    // The beginning of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
-    shared_ptr<string> startTime_ {};
-    // The handling status of the anomalous event. Valid values:
+    // The time when the anomalous activity occurred. This is the start time of the detection. The value is a UNIX timestamp. Unit: milliseconds.
+    shared_ptr<int64_t> startTime_ {};
+    // The processing status of the anomalous activity.
     // 
-    // *   0: unhandled
-    // *   1: confirmed
-    // *   2: marked as false positive
+    // - 0: Unhandled.
+    // 
+    // - 1: Confirmed.
+    // 
+    // - 2: Dismissed.
     shared_ptr<string> status_ {};
-    // The name of the anomalous event subtype.
+    // The name of the child type of the anomalous activity.
     // 
-    // > You can call the **DescribeEventTypes** operation to query the name of the anomalous event subtype.
+    // > To query anomalous activities by the child type name, call the **DescribeEventTypes** operation to get the name.
     shared_ptr<string> subTypeCode_ {};
-    // The name of the destination service in an anomalous data flow. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**
+    // The destination service for an anomalous data flow event. Valid values include MaxCompute, OSS, ADS, OTS, and **RDS**.
     shared_ptr<string> targetProductCode_ {};
-    // The name of the anomalous event type. Valid values:
+    // The code of the parent type of the anomalous activity.
     // 
-    // *   01: anomalous permission usage
-    // *   02: anomalous data flow
-    // *   03: anomalous data operation
+    // - 01: Anomalous permission access.
+    // 
+    // - 02: Anomalous data flow.
+    // 
+    // - 03: Anomalous data operation.
     shared_ptr<string> typeCode_ {};
-    // The ID of the account that triggered the anomalous event.
+    // The ID of the account that performed the operation that triggered the anomalous activity.
     shared_ptr<int64_t> userId_ {};
     // The username of the RAM user.
     shared_ptr<string> userName_ {};
-    // The risk level of the alert that is triggered. Valid values:
+    // The risk level of the anomalous activity.
     // 
-    // *   **1**: low
-    // *   **2**: medium
-    // *   **3**: high
+    // - **1**: Low.
+    // 
+    // - **2**: Medium.
+    // 
+    // - **3**: High.
     shared_ptr<int32_t> warnLevel_ {};
   };
 

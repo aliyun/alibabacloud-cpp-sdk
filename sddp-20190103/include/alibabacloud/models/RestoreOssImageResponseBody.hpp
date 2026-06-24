@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The storage path of the restored image in the bucket.
     shared_ptr<string> restoredImageKey_ {};
   };
 

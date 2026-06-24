@@ -241,56 +241,61 @@ namespace Models
 
 
     protected:
-      // The time when an alert was triggered for the anomalous event. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when an alert was generated for the anomalous activity. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> alertTime_ {};
-      // Indicates whether the detection of anomalous events is enhanced. If the detection of anomalous events is enhanced, the detection accuracy and the rate of triggering alerts for anomalous events are improved. Valid values:
+      // Indicates whether enhanced detection is enabled for the anomalous activity. Enhanced detection improves detection accuracy and the alert reporting rate.
       // 
-      // *   true: yes
-      // *   false: no
+      // - true: Enhanced detection is enabled.
+      // 
+      // - false: Enhanced detection is disabled.
       shared_ptr<bool> backed_ {};
-      // The display name of the account that is used to handle the anomalous event.
+      // The display name of the account that handled the anomalous activity.
       shared_ptr<string> dealDisplayName_ {};
-      // The username of the account that is used to handle the anomalous event.
+      // The logon name of the account that handled the anomalous activity.
       shared_ptr<string> dealLoginName_ {};
-      // The time when the anomalous event was handled. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the anomalous activity was handled. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> dealTime_ {};
-      // The ID of the account that is used to handle the anomalous event.
+      // The ID of the account that handled the anomalous activity.
       shared_ptr<int64_t> dealUserId_ {};
-      // The display name of the account that triggered the anomalous event.
+      // The display name of the account that performed the operation.
       shared_ptr<string> displayName_ {};
-      // The time when the anomalous event occurred. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the anomalous activity occurred. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> eventTime_ {};
-      // The ID of the anomalous event.
+      // The unique ID of the anomalous activity that is recorded in Data Security Center (DSC).
       shared_ptr<int64_t> id_ {};
-      // The username of the account that triggered the anomalous event.
+      // The logon name of the account that performed the operation.
       shared_ptr<string> loginName_ {};
-      // The name of the service in which the anomalous event was detected.
+      // The service to which the anomalous activity belongs.
       shared_ptr<string> productCode_ {};
-      // The handling status for the anomalous event. Valid values:
+      // The processing status of the anomalous activity.
       // 
-      // *   0: unhandled
-      // *   1: confirmed
-      // *   2: marked as false positive
+      // - 0: Unhandled.
+      // 
+      // - 1: Confirmed.
+      // 
+      // - 2: Dismissed.
       shared_ptr<int32_t> status_ {};
-      // The name of the handling status for the anomalous event.
+      // The name of the processing status.
       shared_ptr<string> statusName_ {};
-      // The code of the anomalous event subtype.
+      // The code of the child type of the anomalous activity.
       shared_ptr<string> subTypeCode_ {};
-      // The name of the anomalous event subtype.
+      // The name of the child type of the anomalous activity.
       shared_ptr<string> subTypeName_ {};
-      // The name of the destination service in an anomalous data flow.
+      // The destination service for the anomalous data flow event.
       shared_ptr<string> targetProductCode_ {};
-      // The code of the anomalous event type.
+      // The code of the parent type of the anomalous activity.
       shared_ptr<string> typeCode_ {};
-      // The name of the anomalous event type.
+      // The name of the parent type of the anomalous activity.
       shared_ptr<string> typeName_ {};
-      // The ID of the account that triggered the anomalous event.
+      // The ID of the account that performed the operation.
       shared_ptr<int64_t> userId_ {};
-      // The severity of the anomalous event.
+      // The risk level of the anomalous activity.
       // 
-      // *   **1**: low
-      // *   **2**: medium
-      // *   **3**: high
+      // - **1**: Low.
+      // 
+      // - **2**: Medium.
+      // 
+      // - **3**: High.
       shared_ptr<int32_t> warnLevel_ {};
     };
 
@@ -336,7 +341,7 @@ namespace Models
   protected:
     // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
-    // An array that consists of the anomalous events.
+    // A list of anomalous activities.
     shared_ptr<vector<DescribeEventsResponseBody::Items>> items_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};

@@ -42,6 +42,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(Categories, categories_);
+        DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
         DARABONBA_PTR_TO_JSON(Comment, comment_);
         DARABONBA_PTR_TO_JSON(DataType, dataType_);
         DARABONBA_PTR_TO_JSON(DbName, dbName_);
@@ -80,6 +81,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(Categories, categories_);
+        DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
         DARABONBA_PTR_FROM_JSON(Comment, comment_);
         DARABONBA_PTR_FROM_JSON(DataType, dataType_);
         DARABONBA_PTR_FROM_JSON(DbName, dbName_);
@@ -211,27 +213,39 @@ namespace Models
 
 
       protected:
-        // Risk level ID for sensitive data identification rules. Values:
-        // - **1**: N/A: No sensitive data identified.
-        // - **2**: S1: Level 1 sensitive data.
-        // - **3**: S2: Level 2 sensitive data.
-        // - **4**: S3: Level 3 sensitive data.
-        // - **5**: S4: Level 4 sensitive data.
+        // The ID of the risk level. Valid values:
+        // 
+        // - **1**: N/A - No sensitive data is detected
+        // 
+        // - **2**: S1 - Level-1 sensitive data
+        // 
+        // - **3**: S2 - Level-2 sensitive data
+        // 
+        // - **4**: S3 - Level-3 sensitive data
+        // 
+        // - **5**: S4 - Level-4 sensitive data
         shared_ptr<int64_t> riskLevelId_ {};
-        // Risk level name for the data asset table. Values:
-        // - **N/A**: No sensitive data identified.
-        // - **S1**: Level 1 sensitive data.
-        // - **S2**: Level 2 sensitive data.
-        // - **S3**: Level 3 sensitive data.
-        // - **S4**: Level 4 sensitive data.
+        // The name of the risk level. Valid values:
+        // 
+        // - **N/A**: No sensitive data is detected
+        // 
+        // - **S1**: Level-1 sensitive data
+        // 
+        // - **S2**: Level-2 sensitive data
+        // 
+        // - **S3**: Level-3 sensitive data
+        // 
+        // - **S4**: Level-4 sensitive data
         shared_ptr<string> riskLevelName_ {};
+        // The hierarchical category of the rule, from the top-level to the leaf-level category in the template.
         shared_ptr<string> ruleCategoryNameList_ {};
-        // Number of matched identification models.
+        // The number of matched detection models.
         shared_ptr<int32_t> ruleCount_ {};
-        // Identification model ID.
+        // The ID of the detection model.
         shared_ptr<int64_t> ruleId_ {};
-        // Identification model name.
+        // The name of the detection model.
         shared_ptr<string> ruleName_ {};
+        // The sample data.
         shared_ptr<string> sampleList_ {};
       };
 
@@ -273,26 +287,33 @@ namespace Models
 
 
       protected:
-        // Data tag ID. Values:
-        // - **101**: Personal sensitive information.
-        // - **102**: Personal information.
-        // - **107**: General information.
+        // The ID of the data tag. Valid values:
+        // 
+        // - **101**: Personal sensitive information
+        // 
+        // - **102**: Personal information
+        // 
+        // - **107**: General information
         shared_ptr<int64_t> id_ {};
-        // Data tag name. Values:
-        // - **Personal sensitive information.**
-        // - **Personal information.**
-        // - **General information.**
+        // The name of the data tag. Valid values:
+        // 
+        // - **Personal sensitive information**
+        // 
+        // - **Personal information**
+        // 
+        // - **General information**
         shared_ptr<string> name_ {};
       };
 
       virtual bool empty() const override { return this->categories_ == nullptr
-        && this->comment_ == nullptr && this->dataType_ == nullptr && this->dbName_ == nullptr && this->fileCategoryCode_ == nullptr && this->id_ == nullptr
-        && this->instanceDescription_ == nullptr && this->instanceId_ == nullptr && this->isRevision_ == nullptr && this->lastModifiedTime_ == nullptr && this->lastScanTime_ == nullptr
-        && this->logStore_ == nullptr && this->maskStatus_ == nullptr && this->memberAccount_ == nullptr && this->modelTags_ == nullptr && this->name_ == nullptr
-        && this->objectFileCategory_ == nullptr && this->objectType_ == nullptr && this->path_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr
-        && this->project_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr && this->riskLevelId_ == nullptr && this->ruleCount_ == nullptr
-        && this->ruleList_ == nullptr && this->sensitiveCount_ == nullptr && this->size_ == nullptr && this->sx_ == nullptr && this->tableName_ == nullptr
-        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskNumber_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr; };
+        && this->clusterType_ == nullptr && this->comment_ == nullptr && this->dataType_ == nullptr && this->dbName_ == nullptr && this->fileCategoryCode_ == nullptr
+        && this->id_ == nullptr && this->instanceDescription_ == nullptr && this->instanceId_ == nullptr && this->isRevision_ == nullptr && this->lastModifiedTime_ == nullptr
+        && this->lastScanTime_ == nullptr && this->logStore_ == nullptr && this->maskStatus_ == nullptr && this->memberAccount_ == nullptr && this->modelTags_ == nullptr
+        && this->name_ == nullptr && this->objectFileCategory_ == nullptr && this->objectType_ == nullptr && this->path_ == nullptr && this->productCode_ == nullptr
+        && this->productId_ == nullptr && this->project_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr && this->riskLevelId_ == nullptr
+        && this->ruleCount_ == nullptr && this->ruleList_ == nullptr && this->sensitiveCount_ == nullptr && this->size_ == nullptr && this->sx_ == nullptr
+        && this->tableName_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskNumber_ == nullptr && this->templateId_ == nullptr
+        && this->templateName_ == nullptr; };
       // categories Field Functions 
       bool hasCategories() const { return this->categories_ != nullptr;};
       void deleteCategories() { this->categories_ = nullptr;};
@@ -300,6 +321,13 @@ namespace Models
       inline vector<string> getCategories() { DARABONBA_PTR_GET(categories_, vector<string>) };
       inline Items& setCategories(const vector<string> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
       inline Items& setCategories(vector<string> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
+
+
+      // clusterType Field Functions 
+      bool hasClusterType() const { return this->clusterType_ != nullptr;};
+      void deleteClusterType() { this->clusterType_ = nullptr;};
+      inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+      inline Items& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
       // comment Field Functions 
@@ -552,84 +580,126 @@ namespace Models
 
 
     protected:
-      // List of industry categories for the sensitive data.
+      // An array of industry categories to which the sensitive data belongs.
       shared_ptr<vector<string>> categories_ {};
+      shared_ptr<string> clusterType_ {};
+      // The comment on the column.
       shared_ptr<string> comment_ {};
+      // The data type of the database column.
       shared_ptr<string> dataType_ {};
+      // The name of the database.
       shared_ptr<string> dbName_ {};
+      // The code for the file category.
       shared_ptr<int32_t> fileCategoryCode_ {};
-      // The unique identifier ID of the data object.
+      // The unique ID of the data object.
       shared_ptr<string> id_ {};
-      // The instance description of the data object.
+      // The description of the data asset instance.
       shared_ptr<string> instanceDescription_ {};
-      // Data asset instance ID.
+      // The ID of the data asset instance.
       shared_ptr<string> instanceId_ {};
+      // The revision status.
       shared_ptr<int32_t> isRevision_ {};
-      // Latest file modification time, in milliseconds.
+      // The last modification time of the file, in milliseconds.
       shared_ptr<int64_t> lastModifiedTime_ {};
       // The timestamp of the last scan, in milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
+      // The name of the Logstore in SLS.
       shared_ptr<string> logStore_ {};
+      // The column encryption status.
       shared_ptr<int32_t> maskStatus_ {};
-      // Member account ID.
+      // The ID of the member account.
       shared_ptr<int64_t> memberAccount_ {};
-      // List of data tags.
+      // A list of data tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // The name of the data object.
       shared_ptr<string> name_ {};
-      // File category name.
+      // The name of the file category.
       shared_ptr<string> objectFileCategory_ {};
       // The type of the data object.
       shared_ptr<string> objectType_ {};
       // The path of the data object.
       shared_ptr<string> path_ {};
-      // The product name that the data object belongs to. Values:
+      // The name of the product to which the data object belongs. Valid values:
+      // 
       // - **MaxCompute**
+      // 
       // - **OSS**
+      // 
       // - **ADB-MYSQL**
-      // - **TableStore**
+      // 
+      // - **Table Store**
+      // 
       // - **RDS**
+      // 
       // - **SELF_DB**
+      // 
       // - **PolarDB-X**
+      // 
       // - **PolarDB**
+      // 
       // - **ADB-PG**
+      // 
       // - **OceanBase**
+      // 
       // - **MongoDB**
+      // 
       // - **Redis**
       shared_ptr<string> productCode_ {};
-      // The ID corresponding to the product name that the data object belongs to. Values:
+      // The ID of the product to which the data object belongs. Valid values:
+      // 
       // - **1**: MaxCompute
+      // 
       // - **2**: OSS
+      // 
       // - **3**: ADB-MYSQL
-      // - **4**: TableStore
+      // 
+      // - **4**: Table Store
+      // 
       // - **5**: RDS
+      // 
       // - **6**: SELF_DB
+      // 
       // - **7**: PolarDB-X
+      // 
       // - **8**: PolarDB
+      // 
       // - **9**: ADB-PG
+      // 
       // - **10**: OceanBase
+      // 
       // - **11**: MongoDB
+      // 
       // - **25**: Redis
       shared_ptr<int64_t> productId_ {};
+      // The name of the Simple Log Service (SLS) project.
       shared_ptr<string> project_ {};
-      // The region ID to which the OSS storage object belongs.
+      // The ID of the region where the data object is located.
       shared_ptr<string> regionId_ {};
-      // Region name.
+      // The name of the region.
       shared_ptr<string> regionName_ {};
+      // The risk level.
       shared_ptr<int32_t> riskLevelId_ {};
+      // The number of matched rules.
       shared_ptr<int32_t> ruleCount_ {};
-      // List of matched identification models.
+      // A list of matched detection models.
       shared_ptr<vector<Items::RuleList>> ruleList_ {};
-      // Number of sensitive data items.
+      // The number of sensitive data fields.
       shared_ptr<int32_t> sensitiveCount_ {};
+      // The size of the file in bytes.
       shared_ptr<int64_t> size_ {};
+      // A comma-separated string that specifies the count of matched rules for each risk level. The string follows the format `S1,S2...S10`, where the value at each position represents the count for the corresponding risk level.
       shared_ptr<string> sx_ {};
+      // The name of the table.
       shared_ptr<string> tableName_ {};
+      // The ID of the task.
       shared_ptr<int64_t> taskId_ {};
+      // The name of the task.
       shared_ptr<string> taskName_ {};
+      // The task number.
       shared_ptr<int64_t> taskNumber_ {};
-      // Industry template ID
+      // The ID of the industry template.
       shared_ptr<int64_t> templateId_ {};
+      // The name of the template.
       shared_ptr<string> templateName_ {};
     };
 
@@ -673,15 +743,15 @@ namespace Models
 
 
   protected:
-    // When performing a paginated query, set the current page number. Default value: **1**.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // List of data objects.
+    // A list of data objects.
     shared_ptr<vector<DescribeDataObjectsResponseBody::Items>> items_ {};
-    // When performing a paginated query, this sets the maximum number of data asset instances to display per page. Default value: **10**.
+    // The number of data asset instances to return on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of this call request is a unique identifier generated by Alibaba Cloud for the request, which can be used to troubleshoot and locate issues.
+    // The unique ID of the request. Alibaba Cloud generates this ID to help you troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of query results.
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

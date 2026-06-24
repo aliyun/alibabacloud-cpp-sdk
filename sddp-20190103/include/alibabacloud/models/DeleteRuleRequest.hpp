@@ -72,7 +72,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+    // The language of the data asset. Valid values: -**zh**: Chinese -**en**: English
     shared_ptr<string> lang_ {};
     // This parameter is deprecated.
     shared_ptr<string> sourceIp_ {};

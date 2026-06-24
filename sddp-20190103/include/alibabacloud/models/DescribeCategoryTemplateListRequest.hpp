@@ -75,23 +75,25 @@ namespace Models
 
 
   protected:
-    // Page number for paginated queries. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // Set the language type for the request and response messages, default is **zh_cn**.
-    // Values:
+    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
     // 
-    // - **zh_cn**: Chinese (Simplified)
-    // - **en_us**: English (United States)
+    // - **zh_cn**: Simplified Chinese
+    // 
+    // - **en_us**: U.S. English
     shared_ptr<string> lang_ {};
-    // When performing a paginated query, set the number of items per page. Default value is **10**.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // API call scenario, default is **null**.
-    // Values:
-    // - **null**: Old version
-    // - **0**: Old version
-    // - **1**: New version
+    // The scenario in which the operation is called. Default value: **null**. Valid values:
+    // 
+    // - **null**: an earlier version
+    // 
+    // - **0**: an earlier version
+    // 
+    // - **1**: the latest version
     shared_ptr<int32_t> usageScenario_ {};
   };
 

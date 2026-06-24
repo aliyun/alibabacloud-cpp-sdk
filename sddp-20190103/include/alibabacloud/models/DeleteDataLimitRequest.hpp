@@ -68,16 +68,17 @@ namespace Models
   protected:
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The ID of the data asset.
+    // The unique ID of the data asset. The data asset can be an instance, a database, or a bucket.
     // 
-    // You can call the DescribeDataLimits operation to query the IDs of data assets. The value of the Id response parameter indicates the ID of a data asset.
+    // Call the DescribeDataLimits operation and check the Id parameter in the response to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // The language of the request and response. The default value is **zh_cn**. Valid values:
     // 
-    // *   **zh_cn**: Chinese
-    // *   **en_us**: English
+    // - **zh_cn**: Chinese.
+    // 
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
     // This parameter is deprecated.
     shared_ptr<string> sourceIp_ {};

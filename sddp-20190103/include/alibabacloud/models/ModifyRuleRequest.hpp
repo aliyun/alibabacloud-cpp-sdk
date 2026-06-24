@@ -158,33 +158,37 @@ namespace Models
 
 
   protected:
-    // The content type of the sensitive data detection rule. Valid values:
+    // The type of the content in the sensitive data detection rule. Valid values:
     // 
-    // *   **2**: regular expression
-    // *   **3**: algorithm
-    // *   **5**: keyword
+    // - **2**: regular expression.
+    // 
+    // - **3**: algorithm.
+    // 
+    // - **5**: keyword.
     shared_ptr<int32_t> category_ {};
-    // The content of the sensitive data detection rule. You can specify a regular expression, an algorithm, or keywords that are used to match sensitive fields or text.
+    // The content of the sensitive data detection rule. The rule can be a regular expression, an algorithm, or a keyword, and matches fields or text that contain sensitive data.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The ID of the sensitive data detection rule.
+    // The unique ID of the sensitive data detection rule.
     // 
-    // You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule ID.
+    // You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // The language of the request and response. The default value is **zh_cn**. Valid values:
     // 
-    // *   **zh_cn**: Simplified Chinese
-    // *   **en_us**: English
+    // - **zh_cn**: Simplified Chinese.
+    // 
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
     // The match type. Valid values:
     // 
-    // *   **1**: rule-based match
-    // *   **2**: dictionary-based match
+    // - **1**: rule-based match.
+    // 
+    // - **2**: dictionary-based match.
     shared_ptr<int32_t> matchType_ {};
-    // The IDs of the models for sensitive data audit.
+    // A collection of model IDs for sensitive data auditing.
     shared_ptr<string> modelRuleIds_ {};
     // The name of the sensitive data detection rule.
     // 
@@ -192,37 +196,71 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The service to which the sensitive data detection rule is applied. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
-    shared_ptr<string> productCode_ {};
-    // The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-    shared_ptr<int64_t> productId_ {};
-    // The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+    // The type of the product resource that contains the sensitive data detection rule. Valid values:
     // 
-    // *   **1**: N/A, which indicates that no sensitive data is detected.
-    // *   **2**: S1, which indicates the low sensitivity level.
-    // *   **3**: S2, which indicates the medium sensitivity level.
-    // *   **4**: S3, which indicates the high sensitivity level.
-    // *   **5**: S4, which indicates the highest sensitivity level.
+    // - **MaxCompute**.
+    // 
+    // - **OSS**.
+    // 
+    // - **ADS**.
+    // 
+    // - **OTS**.
+    // 
+    // - **RDS**.
+    // 
+    // - **SELF_DB**.
+    shared_ptr<string> productCode_ {};
+    // The ID of the product that contains the sensitive data detection rule. Valid values:
+    // 
+    // - **1**: MaxCompute.
+    // 
+    // - **2**: OSS.
+    // 
+    // - **3**: ADS.
+    // 
+    // - **4**: OTS.
+    // 
+    // - **5**: RDS.
+    // 
+    // - **6**: SELF_DB.
+    shared_ptr<int64_t> productId_ {};
+    // The ID of the risk level for the sensitive data detection rule. Valid values:
+    // 
+    // - **1**: N/A. No sensitive data is detected.
+    // 
+    // - **2**: S1. Level 1 sensitive data.
+    // 
+    // - **3**: S2. Level 2 sensitive data.
+    // 
+    // - **4**: S3. Level 3 sensitive data.
+    // 
+    // - **5**: S4. Level 4 sensitive data.
     shared_ptr<int64_t> riskLevelId_ {};
     // The type of the sensitive data detection rule. Valid values:
     // 
-    // *   **1**: data detection rule
-    // *   **2**: audit rule
-    // *   **3**: anomalous event detection rule
+    // - **1**: data detection rule.
+    // 
+    // - **2**: audit policy.
+    // 
+    // - **3**: abnormal event rule.
     shared_ptr<int32_t> ruleType_ {};
-    // The data assets supported by the sensitive data detection rule. Valid values:
+    // The type of data asset that the rule supports. Valid values:
     // 
-    // *   **0**: all data assets
-    // *   **1**: structured data assets
-    // *   **2**: unstructured data assets
+    // - **0**: all assets.
+    // 
+    // - **1**: structured assets.
+    // 
+    // - **2**: unstructured assets.
     shared_ptr<int32_t> supportForm_ {};
-    // The IDs of the templates that are used to audit sensitive data.
+    // A collection of template IDs for sensitive data auditing.
     shared_ptr<string> templateRuleIds_ {};
-    // The risk level of the alert that is triggered by the sensitive data detection rule. Valid values:
+    // The risk level of the sensitive data detection rule. Valid values:
     // 
-    // *   **1**: low level
-    // *   **2**: medium level
-    // *   **3**: high level
+    // - **1**: low.
+    // 
+    // - **2**: medium.
+    // 
+    // - **3**: high.
     shared_ptr<int32_t> warnLevel_ {};
   };
 

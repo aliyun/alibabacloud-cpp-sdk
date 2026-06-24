@@ -149,57 +149,71 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the security audit feature. Valid values:
+    // The audit status. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Auditing is enabled.
+    // 
+    // - **0**: Auditing is disabled.
     shared_ptr<int32_t> auditStatus_ {};
-    // Specifies whether DSC is authorized to access the data asset.
+    // The authorization status of the data asset instance.
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: Unauthorized.
+    // 
+    // - **1**: Authorized.
     shared_ptr<int32_t> authStatus_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The engine type. Valid values:
+    // The database engine type. Valid values:
     // 
-    // *   **MySQL**
-    // *   **MariaDB**
-    // *   **Oracle**
-    // *   **PostgreSQL**
-    // *   **SQLServer**
+    // - **MySQL**
+    // 
+    // - **MariaDB**
+    // 
+    // - **Oracle**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **SQLServer**
     shared_ptr<string> engineType_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh_cn**: Simplified Chinese (default)
-    // *   **en_us**: English
+    // - **zh_cn**: Simplified Chinese. This is the default value.
+    // 
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page in a paginated query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the service to which the data asset to query belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+    // The name of the product to query. Valid values: MaxCompute, OSS, ADS, OTS, and RDS.
     shared_ptr<string> productCode_ {};
-    // The ID of the service to which the asset belongs. Valid values:
+    // The product type ID to query. Valid values:
     // 
-    // *   **1**: MaxCompute
-    // *   **2**: Object Storage Service (OSS)
-    // *   **3**: AnalyticDB for MySQL
-    // *   **4**: Tablestore (OTS)
-    // *   **5**: ApsaraDB RDS
-    // *   **6**: self-managed databases
+    // - **1**: MaxCompute
+    // 
+    // - **2**: OSS
+    // 
+    // - **3**: ADS
+    // 
+    // - **4**: OTS
+    // 
+    // - **5**: RDS
+    // 
+    // - **6**: SELF_DB
     shared_ptr<int64_t> productId_ {};
-    // The content based on which a fuzzy search is performed.
+    // The keyword for the fuzzy search of data assets.
     shared_ptr<string> searchKey_ {};
-    // The data asset type based on which a fuzzy search is performed.
+    // The type of the fuzzy search for data assets. Valid values:
     // 
-    // *   **InstanceId**: the ID of the instance.
-    // *   **InstanceName**: the name of the instance.
-    // *   **DatabaseName**: the name of the database.
+    // - **InstanceId**: The instance ID.
+    // 
+    // - **InstanceName**: The instance name.
+    // 
+    // - **DatabaseName**: The database name.
     shared_ptr<string> searchType_ {};
-    // The region in which the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+    // The region where the asset is located. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
     shared_ptr<string> serviceRegionId_ {};
   };
 

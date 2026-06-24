@@ -153,15 +153,19 @@ namespace Models
     protected:
       // The status of the connectivity test between the data asset and DSC. Valid values:
       // 
-      // *   **2**: indicates that the data asset was being connected.
-      // *   **3**: indicates that the data asset was connected to DSC.
-      // *   **4**: indicates that the data asset failed to be connected.
+      // - **2**: indicates that the data asset was being connected.
+      // 
+      // - **3**: indicates that the data asset was connected to DSC.
+      // 
+      // - **4**: indicates that the data asset failed to be connected.
       shared_ptr<int32_t> checkStatus_ {};
       // The result that indicates the status of the connectivity test between the data asset and DSC. Valid values:
       // 
-      // *   **Passed**
-      // *   **Failed**
-      // *   **Testing**
+      // - **Passed**
+      // 
+      // - **Failed**
+      // 
+      // - **Testing**
       shared_ptr<string> checkStatusName_ {};
       // The time when the data asset was connected to DSC. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
@@ -177,19 +181,27 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The type of the service to which the data asset belongs. Valid values:
       // 
-      // *   **1**: MaxCompute
-      // *   **2**: OSS
-      // *   **3**: AnalyticDB for MySQL
-      // *   **4**: Tablestore
-      // *   **5**: ApsaraDB RDS
+      // - **1**: MaxCompute
+      // 
+      // - **2**: OSS
+      // 
+      // - **3**: AnalyticDB for MySQL
+      // 
+      // - **4**: Tablestore
+      // 
+      // - **5**: ApsaraDB RDS
       shared_ptr<int64_t> resourceType_ {};
       // The service to which the data asset belongs. Valid values:
       // 
-      // *   **MaxCompute**
-      // *   **OSS**
-      // *   **ADS**
-      // *   **OTS**
-      // *   **RDS**
+      // - **MaxCompute**
+      // 
+      // - **OSS**
+      // 
+      // - **ADS**
+      // 
+      // - **OTS**
+      // 
+      // - **RDS**
       shared_ptr<string> resourceTypeCode_ {};
       // The account of the user who manages the data asset.
       shared_ptr<string> userName_ {};

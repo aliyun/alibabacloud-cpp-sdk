@@ -243,73 +243,87 @@ namespace Models
 
 
     protected:
-      // The AccessKey ID of the current account.
+      // The authorized AccessKey ID of the user.
       shared_ptr<string> accessKeyId_ {};
+      // Indicates whether the currently logged-in account has been granted the service role permissions for DSC asset synchronization. Valid values:
+      // 
+      // - **true**: authorized.
+      // 
+      // - **false**: unauthorized.
       shared_ptr<bool> assetRoleAuthed_ {};
-      // Indicates whether the SQL Explorer feature can be disabled. Valid values:
+      // Indicates whether SQL Insights can be disabled. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes.
+      // 
+      // - **false**: no.
       shared_ptr<bool> auditClosable_ {};
-      // Indicates whether the audit resources can be released.
+      // Indicates whether SQL Insights can be released.
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes.
+      // 
+      // - **false**: no.
       shared_ptr<bool> auditReleasable_ {};
-      // Indicates whether DSC has permission to access user resources within the current account. Valid values:
+      // Indicates whether the current account is granted Resource Access Management (RAM) permissions on DSC. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: The account is granted the permissions.
+      // 
+      // - **false**: The account is not granted the permissions.
       shared_ptr<bool> authed_ {};
-      // The billing method of DCS that is purchased by using the current account. Valid values:
+      // The billing method of the DSC service for the current account. Valid values:
       // 
-      // *   **PREPAY**: subscription
-      // *   **POSTPAY**: pay-as-you-go
+      // - **PREPAY**: subscription.
+      // 
+      // - **POSTPAY**: pay-as-you-go.
       shared_ptr<string> chargeType_ {};
       // The permissions that the current account has. Valid values:
       // 
-      // *   **0**: The current account has the administrative permissions or read-only permissions on Data Security Center.
-      // *   **1**: The current account has the permissions to manage data domains.
+      // - **0**: The account has the management or read-only permissions on Data Security Center.
+      // 
+      // - **1**: The account has the management permissions on data domains.
       shared_ptr<int32_t> dataManagerRole_ {};
-      // The ID of the data security center instance purchased by the main account.
+      // The ID of the Data Security Center instance purchased by the Alibaba Cloud account.
       shared_ptr<string> instanceId_ {};
-      // The number of instances within the current account.
+      // The number of instances in the current account.
       shared_ptr<int32_t> instanceNum_ {};
       // The total number of instances.
       shared_ptr<int64_t> instanceTotalCount_ {};
-      // Indicates whether the data security lab feature is enabled. Valid values:
+      // Indicates whether the Asset Lab feature is enabled. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: enabled.
+      // 
+      // - **0**: disabled.
       shared_ptr<int32_t> labStatus_ {};
-      // OSS total storage capacity. Unit: Bytes.
+      // The total OSS storage. Unit: bytes.
       shared_ptr<int64_t> ossTotalSize_ {};
-      // Accumulate the number of days to protect user assets.
+      // The total number of days that assets have been protected.
       shared_ptr<int32_t> protectionDays_ {};
-      // Indicates whether DSC is purchased. Valid values:
+      // Indicates whether the DSC service is purchased. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes.
+      // 
+      // - **false**: no.
       shared_ptr<bool> purchased_ {};
-      // The grace period between when DSC is expired and when DSC is released. Unit: days.
+      // The number of days from service expiration to service release. Unit: days.
       shared_ptr<int32_t> releaseDays_ {};
-      // The time when the audit resources are released. Unit: milliseconds.
+      // The release time. Unit: milliseconds.
       shared_ptr<int64_t> releaseTime_ {};
-      // The remaining period for which the data assets within the current account can be protected by DSC.
+      // The number of remaining days in the protection period for the assets of the current account.
       shared_ptr<int32_t> remainDays_ {};
-      // Indicates whether the current account uses a free trial of DSC. Valid values:
+      // Indicates whether the current account uses the trial version of the DSC service. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes.
+      // 
+      // - **false**: no.
       shared_ptr<bool> trail_ {};
-      // Indicates whether the agent audit feature is used. Valid values:
+      // Indicates whether the agent-based audit feature has been used. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: yes.
+      // 
+      // - **0**: no.
       shared_ptr<bool> useAgentAudit_ {};
-      // The number of instances that are used.
+      // The number of used instances.
       shared_ptr<int32_t> useInstanceNum_ {};
-      // The occupied space of the Object Storage Service (OSS) bucket. Unit: bytes.
+      // The used Object Storage Service (OSS) storage. Unit: bytes.
       shared_ptr<int64_t> useOssSize_ {};
     };
 
@@ -334,7 +348,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the current account.
+    // The details of the current account.
     shared_ptr<DescribeUserStatusResponseBody::UserStatus> userStatus_ {};
   };
 

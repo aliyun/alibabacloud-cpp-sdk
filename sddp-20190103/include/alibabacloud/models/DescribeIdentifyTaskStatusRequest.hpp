@@ -48,13 +48,15 @@ namespace Models
 
 
   protected:
-    // Task ID, obtained from the ID field in the response after calling CreateScanTask or ScanOssObjectV1.
+    // The ID of the task. Obtain this ID from the Id field in the response from calling the CreateScanTask or ScanOssObjectV1 operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Language type for request and response messages, default is **zh_cn**. Values:
-    // - **zh_cn**: Chinese (Simplified)
-    // - **en_us**: English (United States)
+    // The language of the request and response. Default value: **zh_cn**. Valid values:
+    // 
+    // - **zh_cn**: Simplified Chinese
+    // 
+    // - **en_us**: U.S. English
     shared_ptr<string> lang_ {};
   };
 

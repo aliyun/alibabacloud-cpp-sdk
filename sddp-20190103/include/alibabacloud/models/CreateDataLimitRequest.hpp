@@ -204,99 +204,125 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the security audit feature. Valid values:
+    // Specifies whether to enable auditing. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: Do not enable auditing.
+    // 
+    // - **1**: Enable auditing.
     shared_ptr<int32_t> auditStatus_ {};
-    // Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+    // Specifies whether to automatically trigger a rescan when a rule changes. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: Do not trigger an automatic scan.
     // 
-    // > When a re-scan is triggered, DSC scans all data in your data asset.
+    // - **1**: Trigger an automatic scan.
+    // 
+    // > If you enable this feature, a rule change triggers a full scan of all data in the data source.
     shared_ptr<int32_t> autoScan_ {};
-    // The permissions. Valid values:
+    // The permission level of the credential. Valid values:
     // 
-    // *   **ReadOnly**: read-only permissions
-    // *   **ReadWrite**: read and write permissions
+    // - **ReadOnly**: Read-only permissions.
+    // 
+    // - **ReadWrite**: Read and write permissions.
     shared_ptr<string> certificatePermission_ {};
     // Specifies whether to enable sensitive data detection. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Enabled.
     // 
-    // > If this is your first time to authorize DSC to access the data asset, the default value is 1. If this is not your first time to authorize DSC to access the data asset, the default value is the same as that used in the last authorization operation. Both 1 and 0 are possible.
+    // - **0**: Disabled.
+    // 
+    // > The default value is 1 for the first authorization. For later authorizations, the value from the previous authorization is used. Set this parameter to 1 to detect sensitive data.
     shared_ptr<int32_t> enable_ {};
-    // The database engine that is run by the instance. Valid values:
+    // The database engine type. Valid values:
     // 
-    // *   **MySQL**
-    // *   **SQLServer**
+    // - **MySQL**
+    // 
+    // - **SQLServer**
     shared_ptr<string> engineType_ {};
-    // Specifies whether to enable anomalous event detection. Valid values:
+    // Specifies whether to enable anomalous activity detection. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes (default)
+    // - **0**: Disabled.
+    // 
+    // - **1**: Enabled. This is the default value.
     shared_ptr<int32_t> eventStatus_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // Specifies whether to immediately scan the authorized asset. Valid values:
+    // Specifies whether to immediately scan the authorized data asset. Valid values:
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**: Do not scan immediately.
+    // 
+    // - **true**: Scan immediately.
     shared_ptr<bool> instantlyScan_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // The language of the content that is returned in the response. Default value: **zh_cn**. Valid values:
     // 
-    // *   **zh_cn**: Chinese
-    // *   **en_us**: English
+    // - **zh_cn**: Chinese
+    // 
+    // - **en_us**: English
     shared_ptr<string> lang_ {};
-    // The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+    // The retention period of raw logs after you enable auditing. Unit: days. Valid values:
     // 
-    // *   **30**
-    // *   **90**
-    // *   **180**
-    // *   **365**
+    // - **30**
+    // 
+    // - **90**
+    // 
+    // - **180**
+    // 
+    // - **365**
     shared_ptr<int32_t> logStoreDay_ {};
-    // Specifies whether to enable optical character recognition (OCR). Valid values:
+    // Specifies whether to enable Optical Character Recognition (OCR). Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Enabled.
+    // 
+    // - **0**: Disabled.
     shared_ptr<int32_t> ocrStatus_ {};
-    // The name of the asset. The value is a connection string. It consists of an instance ID and a database name, which are separated by a comma (,). This parameter is required.
+    // The name of the data asset. The name consists of the instance ID and the database name, separated by a period (.).
     shared_ptr<string> parentId_ {};
-    // The password that is used to access the database.
+    // The password to access the database.
     shared_ptr<string> password_ {};
-    // The port that is used to connect to the database.
+    // The database connection port.
     shared_ptr<int32_t> port_ {};
-    // The type of service to which the data asset belongs. Valid values:
+    // The service to which the data asset belongs. Valid values:
     // 
-    // *   **1** :MaxCompute
-    // *   **2**: Object Storage Service (OSS)
-    // *   **3**: AnalyticDB for MySQL
-    // *   **4** :Tablestore
-    // *   **5**: ApsaraDB RDS
+    // - **1**: MaxCompute
+    // 
+    // - **2**: OSS
+    // 
+    // - **3**: ADS
+    // 
+    // - **4**: OTS
+    // 
+    // - **5**: RDS
     // 
     // This parameter is required.
     shared_ptr<int32_t> resourceType_ {};
-    // The number of sensitive data samples that are collected after sensitive data detection is enabled. Valid values:
+    // The number of sensitive data samples to return after a scan. Valid values:
     // 
-    // *   **0**
-    // *   **5**
-    // *   **10**
+    // - **0**
+    // 
+    // - **5**
+    // 
+    // - **10**
+    // 
+    // > The default value is 10.
     shared_ptr<int32_t> samplingSize_ {};
-    // The region in which the data asset resides. Valid values:
+    // The region where the data asset is located. Valid values:
     // 
-    // *   **cn-beijing**: China (Beijing).
-    // *   **cn-zhangjiakou**: China (Zhangjiakou)
-    // *   **cn-huhehaote**: China (Hohhot)
-    // *   **cn-hangzhou**: China (Hangzhou)
-    // *   **cn-shanghai**: China (Shanghai)
-    // *   **cn-shenzhen**: China (Shenzhen)
-    // *   **cn-hongkong**: China (Hong Kong)
+    // - **cn-beijing**: China (Beijing)
+    // 
+    // - **cn-zhangjiakou**: China (Zhangjiakou)
+    // 
+    // - **cn-huhehaote**: China (Hohhot)
+    // 
+    // - **cn-hangzhou**: China (Hangzhou)
+    // 
+    // - **cn-shanghai**: China (Shanghai)
+    // 
+    // - **cn-shenzhen**: China (Shenzhen)
+    // 
+    // - **cn-hongkong**: China (Hong Kong)
     shared_ptr<string> serviceRegionId_ {};
     // This parameter is deprecated.
     shared_ptr<string> sourceIp_ {};
-    // The username that is used to access the database.
+    // The username for the database.
     shared_ptr<string> userName_ {};
   };
 

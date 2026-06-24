@@ -232,56 +232,63 @@ namespace Models
 
 
     protected:
-      // The number of rows that are in conflict with the data to be de-identified in the destination table to which the data to be de-identified is moved.
+      // The number of data conflicts. This is the number of rows to be inserted into the destination table that conflict with existing data.
       shared_ptr<int64_t> conflictCount_ {};
-      // The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+      // The type of service to which the masked data is destined. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
       shared_ptr<int32_t> dstType_ {};
-      // The service that stores the de-identified data. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The type of the destination service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
       shared_ptr<string> dstTypeCode_ {};
-      // The end time of the de-identification task.
+      // The time when the execution ended. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The error code that is returned when the de-identification task fails.
+      // The error code returned when the task fails. This parameter has a value only if the task fails.
       shared_ptr<string> failCode_ {};
-      // The reason why the de-identification task fails.
+      // The reason the task failed.
       shared_ptr<string> failMsg_ {};
-      // Indicates whether a file is available for download.
+      // Indicates whether a download file is available.
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: Yes.
+      // 
+      // - **0**: No.
       shared_ptr<int32_t> hasDownloadFile_ {};
       // The number of created subtasks.
       shared_ptr<int32_t> hasSubProcess_ {};
-      // The ID of the task execution record.
+      // The ID of the execution record.
       shared_ptr<int64_t> id_ {};
-      // The number of rows that are de-identified.
+      // The number of masked rows.
       shared_ptr<int64_t> maskingCount_ {};
-      // The progress of the de-identification task.
+      // The execution progress.
       shared_ptr<int32_t> percentage_ {};
-      // The number of times that the de-identification task is executed.
+      // The number of times the task has been executed.
       shared_ptr<int32_t> runIndex_ {};
       // The name of the source table.
       shared_ptr<string> srcTableName_ {};
-      // The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+      // The type of service to which the source data belongs. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
       shared_ptr<int32_t> srcType_ {};
-      // The service to which the data to be de-identified belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The type of the source service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
       shared_ptr<string> srcTypeCode_ {};
-      // The time when the de-identification task was executed. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the execution started. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the de-identification task. Valid values:
+      // The execution status of the task. Valid values:
       // 
-      // *   **-1**: waiting
-      // *   **0**: being executed
-      // *   **1**: executed
-      // *   **2**: failed to be executed
-      // *   **3**: terminated
-      // *   **4**: partially failed
+      // - -**1**: pending.
+      // 
+      // - **0**: running.
+      // 
+      // - **1**: successful.
+      // 
+      // - **2**: failed.
+      // 
+      // - **3**: stopped by user.
+      // 
+      // - **4**: partially failed.
       shared_ptr<int32_t> status_ {};
-      // The ID of the identification task.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
-      // The mode in which the de-identification task is executed. Valid values:
+      // The execution method. Valid values:
       // 
-      // *   **1**: manual
-      // *   **2**: scheduled
+      // - **1**: manual.
+      // 
+      // - **2**: scheduled.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -327,7 +334,7 @@ namespace Models
   protected:
     // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
-    // The execution information about the de-identification task.
+    // A list of data masking task details.
     shared_ptr<vector<DescribeDataMaskingRunHistoryResponseBody::Items>> items_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};

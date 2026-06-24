@@ -241,76 +241,105 @@ namespace Models
 
 
     protected:
-      // Audit authorization status. The values are as follows:
-      // - **1**: Authorized
-      // - **0**: Unauthorized
+      // The audit authorization status. Valid values:
+      // 
+      // - **1**: Authorized.
+      // 
+      // - **0**: Unauthorized.
       shared_ptr<int32_t> auditStatus_ {};
-      // Authorization status of the data asset instance.
-      // - **0**: Unauthorized
-      // - **1**: Authorized
+      // The authorization status of the data asset instance.
+      // 
+      // - **0**: Unauthorized.
+      // 
+      // - **1**: Authorized.
       shared_ptr<int32_t> authStatus_ {};
-      // Instance authorization time, in milliseconds.
+      // The time when the instance was authorized. Unit: milliseconds.
       shared_ptr<int64_t> authTime_ {};
-      // Instance status.
+      // The instance status.
       shared_ptr<string> clusterStatus_ {};
-      // Connection node type, valid only for MongoDB assets.
+      // The type of the connection node. This parameter is valid only for MongoDB assets.
       shared_ptr<string> connectNode_ {};
-      // Number of databases under the instance.
+      // The number of databases in the instance.
       shared_ptr<string> dbNum_ {};
-      // The engine type. Valid values:
-      // - **MySQL**
-      // - **MariaDB**
-      // - **Oracle**
-      // - **PostgreSQL**
-      // - **SQLServer**
+      // The type of the database engine. Valid values:
+      // 
+      // - **MySQL**.
+      // 
+      // - **MariaDB**.
+      // 
+      // - **Oracle**.
+      // 
+      // - **PostgreSQL**.
+      // 
+      // - **SQLServer**.
       shared_ptr<string> engineType_ {};
-      // Description of the instance.
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Instance space size, valid only for OSS assets. Unit: bytes.
+      // The storage space of the instance. This parameter is valid only for OSS assets. Unit: bytes.
       shared_ptr<int64_t> instanceSize_ {};
-      // Region name. The values are as follows:
+      // The name of the region. The following list describes the valid values:
       // 
       // - **China (Hangzhou)**
+      // 
       // - **China (Shanghai)**
+      // 
       // - **China (Beijing)**
+      // 
       // - **China (Zhangjiakou)**
+      // 
       // - **China (Shenzhen)**
+      // 
       // - **China (Guangzhou)**
+      // 
       // - **China (Hong Kong)**
+      // 
       // - **Singapore**
+      // 
       // - **US (Silicon Valley)**
       shared_ptr<string> localName_ {};
-      // Member account ID.
+      // The ID of the member account.
       shared_ptr<int64_t> memberAccount_ {};
-      // Identifier for the authorized asset. For structured data, it is identified by `instanceID.databaseName`.
+      // The identifier of the authorized asset. If the asset is structured data, the identifier is in the format of \\`Instance ID.Database name\\`.
       shared_ptr<string> parentId_ {};
-      // The region in which the asset resides.
+      // The region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // Asset type name. The values are as follows:
+      // The name of the asset type. Valid values:
+      // 
       // - **MaxCompute**
+      // 
       // - **OSS**
+      // 
       // - **ADB-MYSQL**
+      // 
       // - **TableStore**
+      // 
       // - **RDS**
+      // 
       // - **SelfDB**
+      // 
       // - **PolarDB-X**
+      // 
       // - **PolarDB**
+      // 
       // - **ADB-PG**
+      // 
       // - **OceanBase**
+      // 
       // - **MongoDB**
+      // 
       // - **Redis**
       shared_ptr<string> resourceType_ {};
-      // Supported connection nodes, separated by commas.
+      // The supported connection nodes. Multiple nodes are separated by commas.
       shared_ptr<string> supportConnectNodes_ {};
-      // Tenant ID, valid only for OceanBase assets.
+      // The tenant ID. This parameter is valid only for OceanBase assets.
       shared_ptr<string> tenantId_ {};
-      // Tenant name, valid only for OceanBase assets.
+      // The tenant name. This parameter is valid only for OceanBase assets.
       shared_ptr<string> tenantName_ {};
-      // Number of unconnected databases under the instance.
+      // The number of unconnected databases in the instance.
       shared_ptr<string> unConnectDbCount_ {};
-      // Reason for not supporting one-click authorization.
+      // The reason why one-click authorization is not supported.
       shared_ptr<string> unSupportOneClickAuthReason_ {};
     };
 
@@ -354,15 +383,15 @@ namespace Models
 
 
   protected:
-    // When performing a paginated query, set the current page number. Default value: **1**.
+    // The page number of the returned page. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The assets.
+    // The list of queried data assets.
     shared_ptr<vector<DescribeParentInstanceResponseBody::Items>> items_ {};
-    // When performing a paginated query, set the maximum number of data asset instances displayed per page. Default value: **10**.
+    // The maximum number of data asset instances returned on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID of the result.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of data items in the result.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

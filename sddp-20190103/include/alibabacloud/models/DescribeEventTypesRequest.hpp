@@ -77,23 +77,37 @@ namespace Models
   protected:
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of anomalous event for which you want to query the anomalous events of subtypes. Valid values:
+    // The ID of the parent anomalous activity type to which the child anomalous activity type belongs. Valid values:
     // 
-    // *   **01**: anomalous permission usage
-    // *   **02**: anomalous data flow
-    // *   **03**: anomalous data operation
+    // - **01**: anomalous permission access.
+    // 
+    // - **02**: anomalous data flow.
+    // 
+    // - **03**: anomalous data operation.
     shared_ptr<int64_t> parentTypeId_ {};
-    // The type of the resource. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-    shared_ptr<int32_t> resourceId_ {};
-    // The status of the anomalous event. Valid values:
+    // The resource type of the product. Valid values:
     // 
-    // *   **1**: enabled
-    // *   **2**: disabled
+    // - **1**: MaxCompute.
+    // 
+    // - **2**: Object Storage Service (OSS).
+    // 
+    // - **3**: AnalyticDB for MySQL.
+    // 
+    // - **4**: Tablestore.
+    // 
+    // - **5**. ApsaraDB RDS.
+    shared_ptr<int32_t> resourceId_ {};
+    // The status. Valid values:
+    // 
+    // - **1**: active.
+    // 
+    // - **2**: inactive.
     shared_ptr<int32_t> status_ {};
   };
 

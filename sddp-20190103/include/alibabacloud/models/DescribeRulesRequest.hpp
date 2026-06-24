@@ -213,92 +213,145 @@ namespace Models
 
 
   protected:
-    // The content type of the sensitive data detection rule. Valid values:
+    // The type of content in the sensitive data detection rule. Valid values:
     // 
-    // *   **0**: keyword
-    // *   **2**: regular expression
+    // - **0**: keyword
+    // 
+    // - **2**: regular expression
     shared_ptr<int32_t> category_ {};
-    // The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
-    shared_ptr<int32_t> contentCategory_ {};
-    // The external cooperation channel. Valid values:
+    // The content type. Valid values:
     // 
-    // *   DAS
-    // *   YAOCHI
+    // - **1**: SQL injection exploits
+    // 
+    // - **2**: SQL injection bypass attempts
+    // 
+    // - **3**: stored procedure abuse
+    // 
+    // - **4**: buffer overflows
+    // 
+    // - **5**: error-based SQL injections
+    shared_ptr<int32_t> contentCategory_ {};
+    // The source of the external cooperation request. Valid values:
+    // 
+    // - DAS
+    // 
+    // - YAOCHI
     shared_ptr<string> cooperationChannel_ {};
-    // The page number of the page to return.
+    // The page number of the paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The type of the sensitive data detection rule. Valid values:
     // 
-    // *   **0**: built-in rule
-    // *   **1**: custom rule
+    // - **0**: built-in
+    // 
+    // - **1**: custom
     shared_ptr<int32_t> customType_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The parent group type of the rule.
+    // The parent group of the rule.
     shared_ptr<string> groupId_ {};
-    // Specifies whether to allow earlier versions of request parameters to support keywords that are supported in later versions of request parameters. Valid values:
+    // Specifies whether the keyword is compatible with earlier versions. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**
     // 
-    // > To specify keywords as the content type of the sensitive data detection rule, you can set the Category parameter to 0 for earlier versions of request parameters and set the Category parameter to 5 for later versions of request parameters. You can specify the KeywordCompatible parameter based on your business requirements.
+    // - **false**
+    // 
+    // > In earlier versions, the Category parameter for keywords had a value of 0. In the current version, it has a value of 5. Enable this parameter based on your business needs.
     shared_ptr<bool> keywordCompatible_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response messages. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The match type. Valid values:
     // 
-    // *   1: rule-based match
-    // *   2: dictionary-based match
+    // - 1: rule-based match
+    // 
+    // - 2: dictionary-based match
     shared_ptr<int32_t> matchType_ {};
     // The name of the sensitive data detection rule. Fuzzy match is supported.
     shared_ptr<string> name_ {};
     // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
-    shared_ptr<int32_t> productCode_ {};
-    // The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-    shared_ptr<int64_t> productId_ {};
-    // The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+    // The name of the service to which the data asset belongs. Valid values:
     // 
-    // *   **1**: N/A, which indicates that no sensitive data is detected.
-    // *   **2**: S1, which indicates the low sensitivity level.
-    // *   **3**: S2, which indicates the medium sensitivity level.
-    // *   **4**: S3, which indicates the high sensitivity level.
-    // *   **5**: S4, which indicates the highest sensitivity level.
+    // - **MaxCompute**
+    // 
+    // - **OSS**
+    // 
+    // - **ADS**
+    // 
+    // - **OTS**
+    // 
+    // - **RDS**
+    // 
+    // - **SELF_DB**
+    shared_ptr<int32_t> productCode_ {};
+    // The ID of the service to which the data asset belongs. Valid values:
+    // 
+    // - **1**: MaxCompute
+    // 
+    // - **2**: OSS
+    // 
+    // - **3**: ADS
+    // 
+    // - **4**: OTS
+    // 
+    // - **5**: RDS
+    // 
+    // - **6**: SELF_DB
+    shared_ptr<int64_t> productId_ {};
+    // The sensitivity level ID of the sensitive data detection rule. Valid values:
+    // 
+    // - **1**: N/A. No sensitive data is detected.
+    // 
+    // - **2**: S1. Level 1 sensitive data.
+    // 
+    // - **3**: S2. Level 2 sensitive data.
+    // 
+    // - **4**: S3. Level 3 sensitive data.
+    // 
+    // - **5**: S4. Level 4 sensitive data.
     shared_ptr<int64_t> riskLevelId_ {};
     // The type of the sensitive data detection rule. Valid values:
     // 
-    // *   **1**: sensitive data detection rule
-    // *   **2**: audit rule
-    // *   **3**: anomalous event detection rule
-    // *   **99**: custom rule
+    // - **1**: data detection rule
+    // 
+    // - **2**: audit policy
+    // 
+    // - **3**: anomaly detection rule
+    // 
+    // - **99**: custom rule
     shared_ptr<int32_t> ruleType_ {};
-    // Specifies whether to query a simplified rule. The simplified rule contains only the rule name. Valid values:
+    // Specifies whether to return a simplified version of the rule that contains only the rule name. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> simplify_ {};
-    // The status of the sensitive data detection rule. Valid values:
+    // The status. Valid values:
     // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // - **1**: Normal
+    // 
+    // - **0**: Disabled
     shared_ptr<int32_t> status_ {};
-    // The type of the data asset. Valid values:
+    // The type of data asset that the rule supports. Valid values:
     // 
-    // *   **0**: all data assets
-    // *   **1**: structured data asset
-    // *   **2**: unstructured data asset
+    // - **0**: all assets
     // 
-    // > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
+    // - **1**: structured assets
+    // 
+    // - **2**: unstructured assets
+    // 
+    // > When you query for rules that support structured or unstructured assets, the response also includes rules that support all asset types.
     shared_ptr<int32_t> supportForm_ {};
-    // The severity level of the alert. Valid values:
+    // The risk level.
     // 
-    // *   **1**: low
-    // *   **2**: medium
-    // *   **3**: high
+    // - **1**: Low
+    // 
+    // - **2**: Medium
+    // 
+    // - **3**: High
     shared_ptr<int32_t> warnLevel_ {};
   };
 

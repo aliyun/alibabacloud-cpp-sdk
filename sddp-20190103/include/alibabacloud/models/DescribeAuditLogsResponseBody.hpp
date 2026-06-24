@@ -69,6 +69,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PackageName, packageName_);
         DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
         DARABONBA_PTR_TO_JSON(ProductId, productId_);
+        DARABONBA_PTR_TO_JSON(RamConsoleLink, ramConsoleLink_);
         DARABONBA_PTR_TO_JSON(RuleCategory, ruleCategory_);
         DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
         DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
@@ -106,6 +107,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PackageName, packageName_);
         DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
         DARABONBA_PTR_FROM_JSON(ProductId, productId_);
+        DARABONBA_PTR_FROM_JSON(RamConsoleLink, ramConsoleLink_);
         DARABONBA_PTR_FROM_JSON(RuleCategory, ruleCategory_);
         DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
         DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
@@ -133,8 +135,8 @@ namespace Models
         && this->inWhiteList_ == nullptr && this->instanceAuditStatus_ == nullptr && this->instanceDescription_ == nullptr && this->instanceName_ == nullptr && this->ipType_ == nullptr
         && this->logSource_ == nullptr && this->logTime_ == nullptr && this->memberAccount_ == nullptr && this->message_ == nullptr && this->modelName_ == nullptr
         && this->operateType_ == nullptr && this->ossObjectKey_ == nullptr && this->packageName_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr
-        && this->ruleCategory_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr && this->tableName_ == nullptr
-        && this->userId_ == nullptr && this->userName_ == nullptr && this->warnLevel_ == nullptr && this->warnLevelName_ == nullptr; };
+        && this->ramConsoleLink_ == nullptr && this->ruleCategory_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr
+        && this->tableName_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr && this->warnLevel_ == nullptr && this->warnLevelName_ == nullptr; };
       // clientIp Field Functions 
       bool hasClientIp() const { return this->clientIp_ != nullptr;};
       void deleteClientIp() { this->clientIp_ = nullptr;};
@@ -317,6 +319,13 @@ namespace Models
       inline Items& setProductId(int64_t productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
 
 
+      // ramConsoleLink Field Functions 
+      bool hasRamConsoleLink() const { return this->ramConsoleLink_ != nullptr;};
+      void deleteRamConsoleLink() { this->ramConsoleLink_ = nullptr;};
+      inline string getRamConsoleLink() const { DARABONBA_PTR_GET_DEFAULT(ramConsoleLink_, "") };
+      inline Items& setRamConsoleLink(string ramConsoleLink) { DARABONBA_PTR_SET_VALUE(ramConsoleLink_, ramConsoleLink) };
+
+
       // ruleCategory Field Functions 
       bool hasRuleCategory() const { return this->ruleCategory_ != nullptr;};
       void deleteRuleCategory() { this->ruleCategory_ = nullptr;};
@@ -381,40 +390,104 @@ namespace Models
 
 
     protected:
+      // The client IP address.
       shared_ptr<string> clientIp_ {};
+      // The client port.
       shared_ptr<string> clientPort_ {};
+      // The user agent of the client.
       shared_ptr<string> clientUa_ {};
+      // The name of the column.
       shared_ptr<string> columnName_ {};
+      // The time when the alert was generated. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
+      // The SQL result set.
       shared_ptr<string> dataSet_ {};
+      // The name of the database.
       shared_ptr<string> databaseName_ {};
+      // The type of the database.
       shared_ptr<string> dbType_ {};
+      // The number of affected rows.
       shared_ptr<int64_t> effectRow_ {};
+      // The execution status. Valid values: 0 (failed) and 1 (successful).
       shared_ptr<int32_t> executeStatus_ {};
+      // The execution duration in milliseconds.
       shared_ptr<int64_t> executeTime_ {};
+      // Indicates whether the operation is whitelisted.
       shared_ptr<bool> inWhiteList_ {};
+      // The audit status of the instance.
       shared_ptr<string> instanceAuditStatus_ {};
+      // The description of the data asset.
       shared_ptr<string> instanceDescription_ {};
+      // The name of the data asset.
       shared_ptr<string> instanceName_ {};
+      // The network type. Valid values:
+      // 
+      // **default**: a non-Alibaba Cloud service. This is the default value.
+      // 
+      // **aliyun**: an Alibaba Cloud service.
       shared_ptr<string> ipType_ {};
+      // The data source.
       shared_ptr<string> logSource_ {};
+      // The time when the operation was logged. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> logTime_ {};
+      // The ID of the member.
       shared_ptr<string> memberAccount_ {};
+      // The raw log content.
       shared_ptr<string> message_ {};
+      // The sensitive data detection rule that was matched.
       shared_ptr<string> modelName_ {};
+      // The operation type.
       shared_ptr<string> operateType_ {};
+      // The key of the OSS object.
       shared_ptr<string> ossObjectKey_ {};
+      // The name of the MaxCompute package.
       shared_ptr<string> packageName_ {};
+      // The code of the Alibaba Cloud service. Examples: **MaxCompute, OSS, ADS, OTS, and RDS**.
       shared_ptr<string> productCode_ {};
+      // The ID of the Alibaba Cloud service that contains the data asset. Valid values:
+      // 
+      // - **1**: MaxCompute
+      // 
+      // - **2**: OSS
+      // 
+      // - **3**: ADS
+      // 
+      // - **4**: OTS
+      // 
+      // - **5**: RDS
+      // 
+      // - **6**: SELF_DB
       shared_ptr<int64_t> productId_ {};
+      shared_ptr<string> ramConsoleLink_ {};
+      // The type of the rule.
       shared_ptr<string> ruleCategory_ {};
+      // The ID of the audit rule.
       shared_ptr<string> ruleId_ {};
+      // The name of the audit rule.
       shared_ptr<string> ruleName_ {};
+      // The SQL statement in the alert log.
       shared_ptr<string> sqlText_ {};
+      // The name of the table.
       shared_ptr<string> tableName_ {};
+      // The ID of the user.
       shared_ptr<string> userId_ {};
+      // The name of the user.
       shared_ptr<string> userName_ {};
+      // The risk level. Valid values:
+      // 
+      // - **1**: Low
+      // 
+      // - **2**: Medium
+      // 
+      // - **3**: High
       shared_ptr<string> warnLevel_ {};
+      // The name of the risk level. Valid values:
+      // 
+      // - Low
+      // 
+      // - Medium
+      // 
+      // - High
       shared_ptr<string> warnLevelName_ {};
     };
 
@@ -465,11 +538,17 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> asyncRequestId_ {};
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // An array of alert logs.
     shared_ptr<vector<DescribeAuditLogsResponseBody::Items>> items_ {};
+    // The number of entries per page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

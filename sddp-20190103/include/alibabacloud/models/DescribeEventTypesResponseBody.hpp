@@ -179,33 +179,35 @@ namespace Models
 
 
       protected:
-        // The service to which the anomalous event detection rule applies. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+        // The products to which the rule applies, including MaxCompute, OSS, AnalyticDB for MySQL, Tablestore, and ApsaraDB RDS.
         shared_ptr<string> adaptedProduct_ {};
-        // The code of the anomalous event subtype.
+        // The code of the child anomalous activity type.
         shared_ptr<string> code_ {};
-        // The code of the configuration.
+        // The configuration code.
         shared_ptr<string> configCode_ {};
-        // The content format of anomalous event detection rule. Valid values:
+        // The format of the rule item. Valid values:
         // 
-        // *   **0**: numeric values such as thresholds
-        // *   **1**: text such as IP addresses
+        // - **0**: numeric (such as a threshold).
+        // 
+        // - **1**: text (such as an IP address).
         shared_ptr<int32_t> configContentType_ {};
-        // The description of the configuration.
+        // The configuration description.
         shared_ptr<string> configDescription_ {};
-        // The value of the configuration.
+        // The configuration value.
         shared_ptr<string> configValue_ {};
-        // The description of the anomalous event subtype.
+        // The description of the child anomalous activity type.
         shared_ptr<string> description_ {};
-        // The number of times that the anomalous event hits the anomalous event detection rule.
+        // The number of times the rule is hit.
         shared_ptr<int32_t> eventHitCount_ {};
-        // The ID of the anomalous event subtype.
+        // The unique ID of the child anomalous activity type.
         shared_ptr<int64_t> id_ {};
-        // The name of the anomalous event subtype.
+        // The name of the child anomalous activity type.
         shared_ptr<string> name_ {};
-        // Indicates whether detection is enabled for the anomalous event subtype. Valid values:
+        // The detection feature of Data Security Center (DSC) for the child anomalous activity type. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: enabled.
+        // 
+        // - **0**: disabled.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -249,15 +251,15 @@ namespace Models
 
 
     protected:
-      // The code of the anomalous event type.
+      // The code of the parent anomalous activity type.
       shared_ptr<string> code_ {};
-      // The description of the anomalous event type.
+      // The description of the parent anomalous activity type.
       shared_ptr<string> description_ {};
-      // The ID of the anomalous event type.
+      // The unique ID of the parent anomalous activity type.
       shared_ptr<int64_t> id_ {};
-      // The name of the anomalous event type.
+      // The name of the parent anomalous activity type.
       shared_ptr<string> name_ {};
-      // An array that consists of anomalous event subtypes.
+      // The list of child anomalous activity types.
       shared_ptr<vector<EventTypeList::SubTypeList>> subTypeList_ {};
     };
 
@@ -280,9 +282,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of the types of anomalous events.
+    // The list of anomalous activity types.
     // 
-    // > If you leave the ParentTypeId parameter empty, anomalous event types are returned. If you set the ParentTypeId parameter, anomalous event subtypes under the specified anomalous event type are returned.
+    // > If ParentTypeId is empty, the parent anomalous activity types are returned. If ParentTypeId is not empty, the child anomalous activity types are returned.
     shared_ptr<vector<DescribeEventTypesResponseBody::EventTypeList>> eventTypeList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

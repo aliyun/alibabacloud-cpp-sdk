@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
+    // The IDs of the rules whose status failed to be changed. Multiple IDs are separated by commas.
     shared_ptr<string> failedIds_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

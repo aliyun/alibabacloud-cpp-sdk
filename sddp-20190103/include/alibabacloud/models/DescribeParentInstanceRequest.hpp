@@ -140,66 +140,103 @@ namespace Models
 
 
   protected:
-    // Authorization status of the data asset instance.
-    // - **0**: Unauthorized
-    // - **1**: Authorized
+    // The authorization status of the data asset instance.
+    // 
+    // - **0**: Unauthorized.
+    // 
+    // - **1**: Authorized.
     shared_ptr<int32_t> authStatus_ {};
-    // Connection status of the instance or the database under the instance. Values:
-    // - **-3**: Database not created
-    // - **-2**: Released
-    // - **-1**: Not connected
-    // - **2**: Connectivity test in progress
-    // - **3**: Connected
-    // - **4**: Connection failed
+    // The connection status of the instance or a database in the instance. Valid values:
+    // 
+    // - **-3**: The database is not created.
+    // 
+    // - **-2**: Released.
+    // 
+    // - **-1**: Not connected.
+    // 
+    // - **2**: Testing connectivity.
+    // 
+    // - **3**: Connected.
+    // 
+    // - **4**: Connection failed.
     shared_ptr<int32_t> checkStatus_ {};
-    // Instance status.
-    // - **Running**: Running
-    // - **Released**: Released
-    // - **DatabaseNotCreated**: Database not created
+    // The instance status.
+    // 
+    // - **Running**: Running.
+    // 
+    // - **Released**: Released.
+    // 
+    // - **DatabaseNotCreated**: Database not created.
     shared_ptr<string> clusterStatus_ {};
-    // When performing a paginated query, set the current page number. Default value: **1**.
+    // The number of the page to return for a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // Database name.
+    // The name of the database.
     shared_ptr<string> dbName_ {};
-    // Engine type. Values:
-    // - **MySQL**
-    // - **MariaDB**
-    // - **Oracle**
-    // - **PostgreSQL**
-    // - **SQLServer**
+    // The type of the database engine. Valid values:
+    // 
+    // - **MySQL**.
+    // 
+    // - **MariaDB**.
+    // 
+    // - **Oracle**.
+    // 
+    // - **PostgreSQL**.
+    // 
+    // - **SQLServer**.
     shared_ptr<string> engineType_ {};
-    // The instance ID to which the data in the data asset table belongs.
+    // The ID of the data asset instance.
     shared_ptr<string> instanceId_ {};
-    // Language type for request and response messages. Values:
-    // - **zh_cn**: Default, Simplified Chinese
-    // - **en_us**: English (US)
+    // The language of the content within the request and response. Valid values:
+    // 
+    // - **zh_cn**: Simplified Chinese. This is the default value.
+    // 
+    // - **en_us**: U.S. English.
     shared_ptr<string> lang_ {};
-    // Member account ID.
+    // The ID of the member account.
     shared_ptr<int64_t> memberAccount_ {};
-    // When performing a paginated query, set the number of rows per page. Default value: 10.
+    // The number of entries to return on each page for a paged query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The product type. Valid values:
+    // This parameter is required. The type of the product. Valid values:
+    // 
     // - **1**: MaxCompute
+    // 
     // - **2**: OSS
+    // 
     // - **3**: ADB-MYSQL
+    // 
     // - **4**: TableStore
+    // 
     // - **5**: RDS
-    // - **6**: SelfDB
+    // 
+    // - **6**: Self-managed database
+    // 
     // - **7**: PolarDB-X
+    // 
     // - **8**: PolarDB
+    // 
     // - **9**: ADB-PG
+    // 
     // - **10**: OceanBase
+    // 
     // - **11**: MongoDB
+    // 
     // - **25**: Redis
     shared_ptr<int64_t> resourceType_ {};
-    // The region where the asset is located. Values:
-    // - **cn-beijing**: China (Beijing)
-    // - **cn-zhangjiakou**: China (Zhangjiakou)
-    // - **cn-huhehaote**: China (Hohhot)
-    // - **cn-hangzhou**: China (Hangzhou)
-    // - **cn-shanghai**: China (Shanghai)
-    // - **cn-shenzhen**: China (Shenzhen)
-    // - **cn-hongkong**:  China (Hong Kong)
+    // The region where the asset resides. Valid values:
+    // 
+    // - **cn-beijing**: China (Beijing).
+    // 
+    // - **cn-zhangjiakou**: China (Zhangjiakou).
+    // 
+    // - **cn-huhehaote**: China (Hohhot).
+    // 
+    // - **cn-hangzhou**: China (Hangzhou).
+    // 
+    // - **cn-shanghai**: China (Shanghai).
+    // 
+    // - **cn-shenzhen**: China (Shenzhen).
+    // 
+    // - **cn-hongkong**: China (Hong Kong).
     shared_ptr<string> serviceRegionId_ {};
   };
 

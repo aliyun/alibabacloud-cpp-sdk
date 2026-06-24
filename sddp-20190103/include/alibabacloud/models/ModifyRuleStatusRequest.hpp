@@ -66,23 +66,25 @@ namespace Models
 
 
   protected:
-    // The ID of the sensitive data detection rule.
+    // The unique ID of the sensitive data detection rule.
     // 
-    // > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+    // > To enable or disable the detection feature for a sensitive data detection rule, provide the unique ID of the rule. Call the **DescribeRules** operation to obtain the ID.
     shared_ptr<int64_t> id_ {};
-    // The ID of the sensitive data detection rule. Separate multiple IDs with commas (,).
+    // The unique IDs of the sensitive data detection rules. Separate multiple IDs with commas.
     // 
-    // > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+    // > To enable or disable the detection feature for sensitive data detection rules, provide the unique IDs of the rules. Call the **DescribeRules** operation to obtain the IDs.
     shared_ptr<string> ids_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Specifies whether to enable or disable the sensitive data detection rule. Valid values:
+    // Specifies whether to enable or disable the detection feature for the sensitive data detection rules. Valid values:
     // 
-    // *   **0**: disables the sensitive data detection rule.
-    // *   **1**: enables the sensitive data detection rule.
+    // - **0**: Disable.
+    // 
+    // - **1**: Enable.
     // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};

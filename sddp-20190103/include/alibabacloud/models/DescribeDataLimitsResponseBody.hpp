@@ -438,142 +438,167 @@ namespace Models
 
 
     protected:
-      // Indicates whether the security audit feature is enabled. Valid values:
+      // The audit status. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: Auditing enabled.
+      // 
+      // - **0**: Auditing disabled.
       shared_ptr<int32_t> auditStatus_ {};
-      // Indicates whether the data asset can be automatically scanned. Valid values:
+      // Indicates whether automatic scanning is enabled. Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes
+      // - **0**: No.
+      // 
+      // - **1**: Yes.
       shared_ptr<int32_t> autoScan_ {};
-      // The data detection status. Valid values:
+      // The connectivity test status. Valid values:
       // 
-      // *   **0**: The data detection is ready.
-      // *   **1**: The data detection is running.
-      // *   **2**: The connectivity test is in progress.
-      // *   **3**: The connectivity test is passed.
-      // *   **4**: The connectivity test failed.
+      // - **0**: Ready.
+      // 
+      // - **1**: Running.
+      // 
+      // - **2**: Connectivity test in progress.
+      // 
+      // - **3**: Connectivity test passed.
+      // 
+      // - **4**: Connectivity test failed.
       shared_ptr<int32_t> checkStatus_ {};
-      // The name of the data detection status.
+      // The name of the connectivity test status.
       shared_ptr<string> checkStatusName_ {};
-      // Indicates whether DSC has the data de-identification permissions on the data asset. Valid values:
+      // The data masking status. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: Enabled.
+      // 
+      // - **0**: Disabled.
       shared_ptr<int32_t> datamaskStatus_ {};
-      // The database engine version.
+      // The database version.
       shared_ptr<string> dbVersion_ {};
-      // Indicates whether DSC has the data identification permissions on the data asset. Valid values:
+      // The sensitive data detection status. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: Enabled.
+      // 
+      // - **0**: Disabled.
       shared_ptr<int32_t> enable_ {};
-      // The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+      // The database engine type. Examples: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
       shared_ptr<string> engineType_ {};
-      // The error code.
+      // The error code that is returned if the connectivity test fails.
       shared_ptr<string> errorCode_ {};
-      // The reason for the failure.
+      // The error message that is returned if the connectivity test fails.
       shared_ptr<string> errorMessage_ {};
-      // Indicates whether the data leak prevention feature is enabled. Valid values:
+      // The anomaly detection status. Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes (default)
+      // - **0**: Disabled.
+      // 
+      // - **1**: Enabled (default).
       shared_ptr<int32_t> eventStatus_ {};
-      // The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the data asset was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
       // The unique ID of the data asset.
       shared_ptr<int64_t> id_ {};
       // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
-      // The ID of the data asset to which the table belongs.
+      // The ID of the instance to which the data asset belongs.
       shared_ptr<string> instanceId_ {};
-      // The time when the last scan is performed.
+      // The time when the last full scan was complete. This value is a UNIX timestamp in milliseconds.
       // 
-      // *   The value is a UNIX timestamp.
-      // *   Unit: milliseconds.
+      // - Format: UNIX timestamp
+      // 
+      // - Unit: milliseconds
       shared_ptr<int64_t> lastFinishedTime_ {};
-      // The last scan start time of data assets, in milliseconds.
+      // The time when the last scan started. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastStartTime_ {};
-      // The region in which the data asset resides.
+      // The name of the region in which the data asset is located.
       shared_ptr<string> localName_ {};
-      // The retention period of raw logs. Unit: days.
+      // The retention period of raw logs, in days.
       shared_ptr<int32_t> logStoreDay_ {};
-      // The ID of the member.
+      // The ID of the member account to which the data asset belongs.
       shared_ptr<int64_t> memberAccount_ {};
-      // The next time when the data asset is scanned. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the next scan is scheduled to start. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> nextStartTime_ {};
-      // Indicates whether the optical character recognition (OCR) feature is enabled. Valid values:
+      // The status of Optical Character Recognition (OCR). Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes
+      // - **0**: Disabled.
+      // 
+      // - **1**: Enabled.
       shared_ptr<int32_t> ocrStatus_ {};
-      // The parent ID of the data asset that you want to query. Valid values include **bucket, db, and project**.
+      // The ID of the parent asset, such as a bucket, DB, or **project**.
       shared_ptr<string> parentId_ {};
       // The port number of the self-managed database.
       shared_ptr<int32_t> port_ {};
-      // The status of the data asset scan. Valid values:
+      // The status of the scan task. Valid values:
       // 
-      // *   **-1**: invalid
-      // *   **0**: waiting
-      // *   **1**: being scanned
-      // *   **2**: suspended
-      // *   **3**: completed
+      // - **-1**: Invalid.
+      // 
+      // - **0**: Pending.
+      // 
+      // - **1**: Scanning.
+      // 
+      // - **2**: Paused.
+      // 
+      // - **3**: Completed.
       shared_ptr<int32_t> processStatus_ {};
       // The total number of data tables or files.
       shared_ptr<int32_t> processTotalCount_ {};
-      // The region in which the asset resides.
+      // The ID of the region in which the data asset is located.
       shared_ptr<string> regionId_ {};
-      // The type of the service to which the data asset belongs. Valid values:
+      // The type of service to which the data asset belongs. Data assets can be instances, databases, or buckets. Valid values:
       // 
-      // *   **1**: MaxCompute
-      // *   **2**: OSS
-      // *   **3**: AnalyticDB for MySQL
-      // *   **4**: Tablestore
-      // *   **5**: ApsaraDB RDS
-      // *   **6**: self-managed database
+      // - **1**: MaxCompute
+      // 
+      // - **2**: OSS
+      // 
+      // - **3**: AnalyticDB for MySQL
+      // 
+      // - **4**: Tablestore
+      // 
+      // - **5**: RDS
+      // 
+      // - **6**: A self-managed database
       shared_ptr<int64_t> resourceType_ {};
-      // The code of the service to which the data asset belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The code of the service to which the data asset belongs. Examples: MaxCompute, OSS, ADS, OTS, and **RDS**.
       shared_ptr<string> resourceTypeCode_ {};
-      // The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: data entries.
+      // The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: entries.
       shared_ptr<int32_t> samplingSize_ {};
-      // A list of the IDs of the security groups that are used by PrivateLink when you install the DSC agent.
+      // A list of security group IDs that are used by PrivateLink for agent-based auditing.
       shared_ptr<vector<string>> securityGroupIdList_ {};
-      // Indicates whether the security audit feature is supported. Valid values:
+      // Indicates whether auditing is supported. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: Yes.
+      // 
+      // - **false**: No.
       shared_ptr<bool> supportAudit_ {};
-      // Indicates whether the data de-identification feature is supported. Valid values:
+      // Indicates whether data masking is supported. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: Yes.
+      // 
+      // - **false**: No.
       shared_ptr<bool> supportDatamask_ {};
-      // Indicates whether anomalous event detection is supported. Valid values:
+      // Indicates whether anomaly detection is supported. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Yes.
+      // 
+      // - **false**: No.
       shared_ptr<bool> supportEvent_ {};
       // Indicates whether OCR is supported. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
-      shared_ptr<bool> supportOcr_ {};
-      // Indicates whether the data asset scan feature is supported. Valid values:
+      // - **true**: Yes.
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **false**: No.
+      shared_ptr<bool> supportOcr_ {};
+      // Indicates whether sensitive data detection is supported. Valid values:
+      // 
+      // - **true**: Yes.
+      // 
+      // - **false**: No.
       shared_ptr<bool> supportScan_ {};
       // The alias of the tenant.
       shared_ptr<string> tenantName_ {};
-      // The total number of fields in the table.
+      // The total number of fields. This parameter is returned only when the data asset is a table.
       shared_ptr<int32_t> totalCount_ {};
-      // The username that is used to access the data asset.
+      // The username of the data asset owner.
       shared_ptr<string> userName_ {};
-      // A list of the IDs of the vSwitches that are used by PrivateLink when you install the DSC agent.
+      // A list of vSwitch IDs that are used by PrivateLink for agent-based auditing.
       shared_ptr<vector<string>> vSwitchIdList_ {};
-      // The ID of the virtual private cloud (VPC) to which the data asset belongs.
+      // The ID of the virtual private cloud (VPC) in which the data asset resides.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -617,15 +642,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
-    // The data assets.
+    // A list of data assets.
     shared_ptr<vector<DescribeDataLimitsResponseBody::Items>> items_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

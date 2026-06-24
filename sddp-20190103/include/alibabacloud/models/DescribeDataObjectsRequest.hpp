@@ -305,87 +305,129 @@ namespace Models
 
 
   protected:
+    // The version of the API.
     shared_ptr<int32_t> APIVersion_ {};
+    // The name of the OSS bucket.
     shared_ptr<string> bucket_ {};
-    // Page number for the paginated query. Default value: 1.
+    // The page number of the returned page. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The name of the database.
     shared_ptr<string> dbName_ {};
-    // ID of the data domain to which the data asset belongs.
+    // The ID of the data domain to which the data asset belongs.
     shared_ptr<int64_t> domainId_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // File category code.
+    // The code of the file category.
     shared_ptr<int64_t> fileCategoryCode_ {};
-    // OSS file types that are supported for recognition.
+    // The type of the OSS file.
     // 
-    // > You can obtain the supported OSS file types by calling [DescribeDocTypes](https://help.aliyun.com/document_detail/2536492.html), using the Code field value from the response. This parameter is only valid for querying OSS-type assets.
+    // > This parameter is valid only for querying data assets of the OSS type. You can call the [DescribeDocTypes](https://help.aliyun.com/document_detail/2536492.html) operation to obtain the supported OSS file types. Use the value of the `Code` parameter in the response.
     shared_ptr<int64_t> fileType_ {};
-    // Keyword for the asset instance ID.
+    // The keyword of the instance ID.
     shared_ptr<string> instanceId_ {};
-    // The language type for request and response messages, default is **zh_cn**. Values:
+    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // 
     // - **zh_cn**: Chinese.
+    // 
     // - **en_us**: English.
     shared_ptr<string> lang_ {};
+    // The name of the Logstore.
     shared_ptr<string> logStore_ {};
+    // Specifies whether to query data at the Logstore level. The Simple Log Service data catalog has two layers. Set this parameter to 1 to query data at the Logstore level.
     shared_ptr<int32_t> logStoreFlag_ {};
-    // Member account ID.
+    // The ID of the member.
     shared_ptr<int64_t> memberAccount_ {};
-    // Model IDs of the industry template, separated by commas.
-    // > You can obtain the industry template model identifier ID by calling [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html).
+    // The model ID of the industry-specific rule template. You can specify multiple IDs. Separate them with commas (,).
+    // 
+    // > You can call the [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html) operation to obtain the model ID of the industry-specific rule template.
     shared_ptr<string> modelIds_ {};
-    // Data labels to be queried, separated by commas. Values:
-    // - **101**: Personal Sensitive Information.
-    // - **102**: Personal Information.
-    // - **107**: General Information.
+    // The data labels to be queried. You can specify multiple data labels. Separate them with commas (,). Valid values:
+    // 
+    // - **101**: personal sensitive information
+    // 
+    // - **102**: personal information
+    // 
+    // - **107**: general information
     shared_ptr<string> modelTagIds_ {};
-    // When performing a paginated query, set the maximum number of data asset instances to display per page. Default value: **10**.
+    // The number of data assets to return on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // List of parent category IDs for the template to be queried, separated by commas.
+    // The IDs of the parent asset categories to be queried. You can specify multiple IDs. Separate them with commas (,).
     shared_ptr<string> parentCategoryIds_ {};
+    // The path of the file.
     shared_ptr<string> path_ {};
+    // The ID of the product.
     shared_ptr<int32_t> productId_ {};
-    // It is recommended to fill in the list of product IDs to be queried, separated by commas. Values:
+    // The IDs of the products to which the data assets to be queried belong. You can specify multiple product IDs. Separate them with commas (,). We recommend that you specify this parameter. Valid values:
+    // 
     // - **1**: MaxCompute
+    // 
     // - **2**: OSS
+    // 
     // - **3**: ADB-MYSQL
+    // 
     // - **4**: TableStore
+    // 
     // - **5**: RDS
+    // 
     // - **6**: SELF_DB
+    // 
     // - **7**: PolarDB-X
+    // 
     // - **8**: PolarDB
+    // 
     // - **9**: ADB-PG
+    // 
     // - **10**: OceanBase
+    // 
     // - **11**: MongoDB
+    // 
     // - **25**: Redis
     // 
-    // > OSS is mutually exclusive with other products, meaning if OSS is included in the query, no other products can be listed; by default, non-OSS products are queried.
+    // > If you want to query data assets that belong to OSS, you cannot query data assets of other products. By default, data assets of products other than OSS are queried.
     shared_ptr<string> productIds_ {};
+    // The name of the Simple Log Service project.
     shared_ptr<string> project_ {};
-    // Keyword for the data object to be queried.
+    // The keyword of the data asset to be queried.
     shared_ptr<string> queryName_ {};
+    // The region in which the data asset catalog resides.
     shared_ptr<string> regionId_ {};
+    // The IDs of the sensitivity levels. You can specify multiple sensitivity level IDs. Separate them with commas (,).
     shared_ptr<string> riskLevelIdList_ {};
-    // Specify the risk levels of the data assets to be queried, separated by commas if multiple.
-    // - **2**: S1, low risk level.
-    // - **3**: S2, medium risk level.
-    // - **4**: S3, high risk level.
-    // - **5**: S4, highest risk level.
-    shared_ptr<string> riskLevels_ {};
-    shared_ptr<string> ruleIds_ {};
-    // Region where the asset is located. Values:
-    // - **cn-beijing**: North China 2 (Beijing).
-    // - **cn-zhangjiakou**: North China 3 (Zhangjiakou).
-    // - **cn-huhehaote**: North China 5 (Hohhot).
-    // - **cn-hangzhou**: East China 1 (Hangzhou).
-    // - **cn-shanghai**: East China 2 (Shanghai).
-    // - **cn-shenzhen**: South China 1 (Shenzhen).
-    // - **cn-hongkong**: Hong Kong, China.
-    shared_ptr<string> serviceRegionId_ {};
-    shared_ptr<string> tableName_ {};
-    shared_ptr<int64_t> taskId_ {};
-    // Industry template ID.
+    // The sensitivity level of the data asset. You can specify multiple sensitivity levels. Separate them with commas (,).
     // 
-    // > You can obtain the industry template identifier ID by calling [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html).
+    // - **2**: S1, low sensitivity level
+    // 
+    // - **3**: S2, medium sensitivity level
+    // 
+    // - **4**: S3, high sensitivity level
+    // 
+    // - **5**: S4, highest sensitivity level
+    shared_ptr<string> riskLevels_ {};
+    // The IDs of the rules. You can specify multiple rule IDs. Separate them with commas (,).
+    shared_ptr<string> ruleIds_ {};
+    // The region where the data asset resides. Valid values:
+    // 
+    // - **cn-beijing**: China (Beijing)
+    // 
+    // - **cn-zhangjiakou**: China (Zhangjiakou)
+    // 
+    // - **cn-huhehaote**: China (Hohhot)
+    // 
+    // - **cn-hangzhou**: China (Hangzhou)
+    // 
+    // - **cn-shanghai**: China (Shanghai)
+    // 
+    // - **cn-shenzhen**: China (Shenzhen)
+    // 
+    // - **cn-hongkong**: China (Hong Kong)
+    shared_ptr<string> serviceRegionId_ {};
+    // The name of the table.
+    shared_ptr<string> tableName_ {};
+    // The ID of the task.
+    shared_ptr<int64_t> taskId_ {};
+    // The ID of the industry-specific rule template.
+    // 
+    // > You can call the [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) operation to obtain the ID of the industry-specific rule template.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};

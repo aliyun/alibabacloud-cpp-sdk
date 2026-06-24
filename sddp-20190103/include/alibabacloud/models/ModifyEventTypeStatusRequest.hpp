@@ -59,11 +59,11 @@ namespace Models
   protected:
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+    // The language of the request and response. Valid values are **zh** for Chinese and **en** for English.
     shared_ptr<string> lang_ {};
-    // The ID of the anomalous event subtype. Separate multiple IDs with commas (,).
+    // The unique IDs of the anomalous activity subtypes. Separate multiple IDs with commas.
     // 
-    // > You can call the **DescribeEventTypes** operation to query the ID of anomalous event subtype.
+    // > To enable SDDP to detect anomalous activities for subtypes, provide the unique IDs of the anomalous activity subtypes. Call the **DescribeEventTypes** operation to obtain the IDs.
     shared_ptr<string> subTypeIds_ {};
   };
 

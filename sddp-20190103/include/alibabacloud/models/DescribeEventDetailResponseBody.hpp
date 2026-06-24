@@ -190,26 +190,29 @@ namespace Models
 
 
       protected:
-        // The account that is used to handle the anomalous event.
+        // Specifies the account that handled the event.
         shared_ptr<string> currentValue_ {};
-        // The time when the account is disabled. The value is a UNIX timestamp. Unit: milliseconds.
+        // The time when the handling action was disabled. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> disableTime_ {};
-        // The time when the disabled account is enabled. The value is a UNIX timestamp. Unit: milliseconds.
+        // The time when the handling action was enabled. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> enableTime_ {};
         // The handling method.
         shared_ptr<string> handlerName_ {};
-        // The type of the handling method.
+        // The handling type.
         shared_ptr<string> handlerType_ {};
-        // The duration for which the handling operation takes effect. If you leave this parameter empty, the handling operation is permanently valid. Unit: minutes.
+        // The duration of the handling action. Unit: minutes. If this parameter is empty, the handling action is permanent.
         shared_ptr<int32_t> handlerValue_ {};
-        // The ID of the handling rule.
+        // The handling ID.
         shared_ptr<int64_t> id_ {};
-        // The status of the account that triggered the anomalous event. Valid values:
+        // The status of the handling action. Valid values:
         // 
-        // *   **0**: disabled
-        // *   **1**: enabled
-        // *   **-1**: failed to disable the account
-        // *   **-2**: failed to enable the account
+        // - **0**: disabled.
+        // 
+        // - **1**: enabled.
+        // 
+        // - **-1**: disabling failed.
+        // 
+        // - **-2**: enabling failed.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -274,9 +277,9 @@ namespace Models
 
 
         protected:
-          // The source title.
+          // The title of the source of the anomalous activity.
           shared_ptr<string> label_ {};
-          // The source description.
+          // The description of the source of the anomalous activity.
           shared_ptr<string> value_ {};
         };
 
@@ -327,11 +330,11 @@ namespace Models
 
 
         protected:
-          // The title of the content in the anomalous event.
+          // The title of the anomalous activity content.
           shared_ptr<string> label_ {};
-          // Exception event name.
+          // The name of the anomalous activity.
           shared_ptr<string> name_ {};
-          // The description of the content in the anomalous event.
+          // The description of the anomalous activity content.
           shared_ptr<string> value_ {};
         };
 
@@ -421,11 +424,11 @@ namespace Models
 
 
           protected:
-            // The value of the data item on the X axis.
+            // The values of the data items on the x-axis.
             shared_ptr<vector<string>> x_ {};
-            // The value of the data item on the Y axis.
+            // The values of the data items on the y-axis.
             shared_ptr<vector<string>> y_ {};
-            // The value of the data item for the Z axis.
+            // The values of the data items on the z-axis.
             shared_ptr<vector<string>> z_ {};
           };
 
@@ -493,31 +496,33 @@ namespace Models
         protected:
           // The type of the chart. Valid values:
           // 
-          // *   **1**: column chart
-          // *   **2**: line chart
+          // - **1**: column chart.
           // 
-          // >This field will be returned only when NewAlarm is true.
+          // - **2**: line chart.
+          // 
+          // > This parameter is returned only when NewAlarm is set to true.
           shared_ptr<int32_t> chatType_ {};
-          // The data in the baseline behavior profile of the anomalous event.
+          // The data items of the baseline behavior profile for the anomalous activity.
           shared_ptr<Chart::Data> data_ {};
-          // The name of the baseline behavior chart of the anomalous event.
+          // The name of the baseline behavior profile for the anomalous activity.
           shared_ptr<string> label_ {};
-          // Icon title.
+          // The title of the chart.
           // 
-          // >This field will be returned only when NewAlarm is true.
+          // > This parameter is returned only when NewAlarm is set to true.
           shared_ptr<string> name_ {};
           // The type of the chart. Valid values:
           // 
-          // *   **1**: column chart
-          // *   **2**: line chart
-          shared_ptr<string> type_ {};
-          // The descriptive label of data items on the X axis.
-          shared_ptr<string> XLabel_ {};
-          // The descriptive label of data items on the Y axis.
-          shared_ptr<string> YLabel_ {};
-          // The descriptive label of data items on the Z axis.
+          // - **1**: column chart.
           // 
-          // >This field will be returned only when NewAlarm is true.
+          // - **2**: line chart.
+          shared_ptr<string> type_ {};
+          // The label of the x-axis.
+          shared_ptr<string> XLabel_ {};
+          // The label of the y-axis.
+          shared_ptr<string> YLabel_ {};
+          // The label of the z-axis.
+          // 
+          // > This parameter is returned only when NewAlarm is set to true.
           shared_ptr<string> ZLabel_ {};
         };
 
@@ -551,11 +556,11 @@ namespace Models
 
 
       protected:
-        // The baseline behavior chart of the anomalous event.
+        // The baseline behavior profile for the anomalous activity.
         shared_ptr<vector<Detail::Chart>> chart_ {};
-        // The content in the anomalous event.
+        // The content of the anomalous activity.
         shared_ptr<vector<Detail::Content>> content_ {};
-        // An array that consists of the source from which the information of the anomalous event is recorded.
+        // The information about the source of the anomalous activity.
         shared_ptr<vector<Detail::ResourceInfo>> resourceInfo_ {};
       };
 
@@ -738,68 +743,75 @@ namespace Models
 
 
     protected:
-      // The time when the alert for the anomalous event was generated. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the alert for the anomalous activity was triggered. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> alertTime_ {};
-      // Indicates whether the handling result of the anomalous event is used to enhance the detection of anomalous events. Valid values:
+      // Indicates whether the detection of the anomalous activity is enhanced. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes.
       // 
-      // > If you enhance the detection of anomalous events, the detection accuracy and the rate of triggering alerts for anomalous events are improved.
+      // - **false**: no.
+      // 
+      // > Enhancing the detection of anomalous activities improves detection accuracy and the alert reporting rate.
       shared_ptr<bool> backed_ {};
-      // The instance name of the service in which the anomalous event was detected.
+      // The name of the asset instance in which the anomalous activity occurred.
       shared_ptr<string> dataInstance_ {};
-      // The display name of the account that is used to handle the anomalous event.
+      // The display name of the account that handled the anomalous activity.
       shared_ptr<string> dealDisplayName_ {};
-      // The username of the account that is used to handle the anomalous event.
+      // The logon name of the account that handled the anomalous activity.
       shared_ptr<string> dealLoginName_ {};
-      // The reason why the anomalous event is handled.
+      // The reason for handling the anomalous activity.
       shared_ptr<string> dealReason_ {};
-      // The time when the anomalous event was handled. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the anomalous activity was handled. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> dealTime_ {};
-      // The ID of the account that is used to handle the anomalous event.
+      // The ID of the account that handled the anomalous activity.
       shared_ptr<int64_t> dealUserId_ {};
-      // The content in the details of the anomalous event.
+      // The specific content of the anomalous activity details.
       shared_ptr<Event::Detail> detail_ {};
-      // The display name of the account that triggered the anomalous event.
+      // The display name of the account that performed the operation.
       shared_ptr<string> displayName_ {};
-      // The time when the anomalous event occurred. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the anomalous activity occurred. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> eventTime_ {};
-      // An array that consists of the handling records of the anomalous event.
+      // The handling history.
       shared_ptr<vector<Event::HandleInfoList>> handleInfoList_ {};
-      // The unique ID of the anomalous event.
+      // The unique ID of the anomalous activity that is recorded in Data Security Center.
       shared_ptr<int64_t> id_ {};
-      // The details of the alert logs.
+      // The details of the alert log.
       shared_ptr<string> logDetail_ {};
-      // The username of the account that triggered the anomalous event.
+      // The name of the account that performed the operation.
       shared_ptr<string> loginName_ {};
-      // Whether it is a new version of the alarm. Value:
-      // - **true**: Yes. 
-      // - **false**: No.
+      // Indicates whether the alert is of the new version. Valid values:
+      // 
+      // - **true**: yes.
+      // 
+      // - **false**: no.
       shared_ptr<bool> newAlarm_ {};
-      // The name of the service in which the anomalous event was detected. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The name of the product in which the anomalous activity is detected. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
       shared_ptr<string> productCode_ {};
-      // The handling status for the anomalous event. Valid values:
+      // The processing status of the anomalous activity. Valid values:
       // 
-      // *   **0**: unhandled
-      // *   **1**: confirmed
-      // *   **2**: marked as false positive
+      // - **0**: unhandled.
+      // 
+      // - **1**: confirmed.
+      // 
+      // - **2**: dismissed.
       shared_ptr<int32_t> status_ {};
-      // The name of the handling status for the anomalous event.
+      // The name of the processing status of the anomalous activity.
       shared_ptr<string> statusName_ {};
-      // The code of the anomalous event subtype.
+      // The code of the anomalous activity subtype.
       shared_ptr<string> subTypeCode_ {};
-      // The name of the anomalous event subtype.
+      // The name of the anomalous activity subtype.
       shared_ptr<string> subTypeName_ {};
-      // The code of the anomalous event type.
+      // The code of the anomalous activity type.
       shared_ptr<string> typeCode_ {};
-      // The name of the anomalous event type. Valid values:
+      // The name of the anomalous activity type. Valid values:
       // 
-      // *   **01**: anomalous permission usage
-      // *   **02**: anomalous data flow
-      // *   **03**: anomalous data operation
+      // - **01**: anomalous permission access.
+      // 
+      // - **02**: anomalous data flow.
+      // 
+      // - **03**: anomalous data operation.
       shared_ptr<string> typeName_ {};
-      // The ID of the account that triggered the anomalous event.
+      // The ID of the account that performed the operation.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -822,7 +834,7 @@ namespace Models
 
 
   protected:
-    // The details of the anomalous event.
+    // The details of the anomalous activity.
     shared_ptr<DescribeEventDetailResponseBody::Event> event_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

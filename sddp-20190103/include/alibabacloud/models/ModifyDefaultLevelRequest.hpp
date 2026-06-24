@@ -57,26 +57,35 @@ namespace Models
 
 
   protected:
-    // The default sensitivity level of data that Data Security Center (DSC) cannot classify as sensitive or insensitive. Valid values:
+    // The ID of the default threat level for unidentified data. Valid values:
     // 
-    // *   **1**: N/A
-    // *   **2**: S1
-    // *   **3**: S2
-    // *   **4**: S3
-    // *   **5**: S4
+    // - **1**: N/A.
+    // 
+    // - **2**: S1.
+    // 
+    // - **3**: S2.
+    // 
+    // - **4**: S3.
+    // 
+    // - **5**: S4.
     shared_ptr<int64_t> defaultId_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // The language of the request and response. Default value: **zh_cn**. Valid values:
     // 
-    // *   **zh_cn**: Chinese
-    // *   **en_us**: English
+    // - **zh_cn**: Chinese.
+    // 
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
-    // The sensitivity level ID of data that DSC classifies as sensitive. Separate multiple IDs with commas (,). Valid values:
+    // The IDs of the threat levels for data classified as sensitive. If you specify multiple IDs, separate them with commas. Valid values:
     // 
-    // *   **1**: N/A
-    // *   **2**: S1
-    // *   **3**: S2
-    // *   **4**: S3
-    // *   **5**: S4
+    // - **1**: N/A.
+    // 
+    // - **2**: S1.
+    // 
+    // - **3**: S2.
+    // 
+    // - **4**: S3.
+    // 
+    // - **5**: S4.
     shared_ptr<string> sensitiveIds_ {};
   };
 

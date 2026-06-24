@@ -167,64 +167,79 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the security audit feature. Valid values:
+    // The audit status. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Auditing enabled.
+    // 
+    // - **0**: Auditing disabled.
     shared_ptr<int32_t> auditStatus_ {};
-    // The data detection status. Valid values:
+    // The connectivity test status. Valid values:
     // 
-    // *   **0**: The data detection is ready.
-    // *   **1**: The data detection is running.
-    // *   **2**: The connectivity test is in progress.
-    // *   **3**: The connectivity test passed.
-    // *   **4**: The connectivity test failed.
+    // - **0**: Ready.
+    // 
+    // - **1**: Running.
+    // 
+    // - **2**: Connectivity test in progress.
+    // 
+    // - **3**: Connectivity test passed.
+    // 
+    // - **4**: Connectivity test failed.
     shared_ptr<int32_t> checkStatus_ {};
-    // The number of the page to return.
+    // The page number to return.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether DSC has the data de-identification permissions on the data asset. Valid values:
+    // The data masking status. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Enabled.
+    // 
+    // - **0**: Disabled.
     shared_ptr<int32_t> datamaskStatus_ {};
-    // Specifies whether DSC has the data detection permissions on the data asset. Valid values:
+    // The sensitive data detection status. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Enabled.
+    // 
+    // - **0**: Disabled.
     shared_ptr<int32_t> enable_ {};
-    // The end of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+    // The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+    // The type of the database engine. Examples: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
     shared_ptr<string> engineType_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
     // The language of the content within the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the member.
+    // The ID of the member account.
     shared_ptr<int64_t> memberAccount_ {};
     // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The parent ID of the data asset to be queried. Valid values:
+    // The ID of the parent asset to which the data asset belongs. Valid values:
     // 
-    // *   The name or ID of the MaxCompute project.
-    // *   The name or ID of the OSS bucket.
-    // *   The name or ID of the ApsaraDB RDS instance or database.
+    // - The name or ID of a MaxCompute project.
+    // 
+    // - The name or ID of an OSS bucket.
+    // 
+    // - The name or ID of an RDS instance or database.
     shared_ptr<string> parentId_ {};
-    // The type of the service to which the data asset belongs. This parameter is required. Valid values:
+    // The type of service to which the data asset belongs. Data assets can be instances, databases, or buckets. Valid values:
     // 
-    // *   **1**: MaxCompute
-    // *   **2**: Object Storage Service (OSS)
-    // *   **3**: AnalyticDB for MySQL
-    // *   **4**: Tablestore
-    // *   **5**: ApsaraDB RDS
-    // *   **6**: self-managed database
+    // - **1**: MaxCompute
+    // 
+    // - **2**: OSS
+    // 
+    // - **3**: AnalyticDB for MySQL
+    // 
+    // - **4**: Tablestore
+    // 
+    // - **5**: RDS
+    // 
+    // - **6**: A self-managed database
     shared_ptr<int32_t> resourceType_ {};
-    // The region in which the data asset resides.
+    // The ID of the region where the data asset is located.
     shared_ptr<string> serviceRegionId_ {};
-    // The beginning of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -48,14 +48,15 @@ namespace Models
 
 
   protected:
-    // The unique ID of the de-identification task. You can query the task ID by calling the [DescribeDataMaskingTasks](~~DescribeDataMaskingTasks~~) operation.
+    // The unique ID of the data masking task. You can obtain the ID of a data masking task from the return value of the [DescribeDataMaskingTasks](~~DescribeDataMaskingTasks~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh_cn**: Simplified Chinese (default)
-    // *   **en_us**: English
+    // - **zh_cn**: Chinese (Simplified). This is the default value.
+    // 
+    // - **en_us**: English (US).
     shared_ptr<string> lang_ {};
   };
 

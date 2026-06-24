@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the data asset.
+    // The ID of the authorized data asset.
     shared_ptr<int32_t> id_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

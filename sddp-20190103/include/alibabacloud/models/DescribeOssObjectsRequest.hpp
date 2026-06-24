@@ -149,44 +149,49 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return.
+    // The page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The code of the file type.
+    // The code of the file category.
     shared_ptr<int64_t> fileCategoryCode_ {};
-    // The ID of the instance to which the OSS object belongs.
+    // The ID of the asset instance to which the OSS object belongs.
     // 
-    // > You can call the **DescribeInstances** operation to query the instance ID.
+    // > To query the list of authorized OSS objects by the ID of the asset instance, call the **DescribeInstances** operation to obtain the instance ID.
     shared_ptr<string> instanceId_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The end time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> lastScanTimeEnd_ {};
     // The start time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> lastScanTimeStart_ {};
-    // When you query data by page, use the `Marker` parameter to query the data that follows the `Marker` value.
+    // The position where the query starts. To retrieve the next page of results, set this parameter to the value of `NextMarker` from the previous response.
     shared_ptr<int64_t> marker_ {};
     // The search keyword. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The sensitivity level of the OSS object. Valid values:
+    // The risk level ID of the OSS object. Valid values:
     // 
-    // *   **1**: N/A, which indicates that no sensitive data is detected.
-    // *   **2**: S1, which indicates the low sensitivity level.
-    // *   **3**: S2, which indicates the medium sensitivity level.
-    // *   **4**: S3, which indicates the high sensitivity level.
-    // *   **5**: S4, which indicates the highest sensitivity level.
+    // - **1**: N/A. No sensitive data is detected.
+    // 
+    // - **2**: S1. Level 1 sensitive data.
+    // 
+    // - **3**: S2. Level 2 sensitive data.
+    // 
+    // - **4**: S3. Level 3 sensitive data.
+    // 
+    // - **5**: S4. Level 4 sensitive data.
     shared_ptr<int32_t> riskLevelId_ {};
-    // The ID of the sensitive data detection rule that the OSS object hits.
+    // The ID of the sensitive data detection rule that the OSS object matches.
     // 
-    // > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+    // > To query the list of authorized OSS objects by the ID of a matched sensitive data detection rule, call the **DescribeRules** operation to obtain the rule ID.
     shared_ptr<int64_t> ruleId_ {};
-    // The region in which the data asset resides.
+    // The region of the asset.
     shared_ptr<string> serviceRegionId_ {};
-    // The ID of the industry-specific rule template.
+    // The ID of the industry-specific template.
     shared_ptr<int64_t> templateId_ {};
   };
 

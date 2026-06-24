@@ -149,45 +149,63 @@ namespace Models
 
 
   protected:
-    // The unique ID of the data asset, such as an instance, a database, and a bucket. You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the unique ID.
+    // The unique ID of the data asset. The asset can be an instance, a database, or a bucket. Call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> dataLimitId_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The interval between two consecutive custom scan tasks. Unit: days. Valid values: 1 to 2147483648.
+    // The interval in days between two consecutive custom scan tasks. The value must be between 1 and 2147483648.
     // 
     // This parameter is required.
     shared_ptr<int32_t> intervalDay_ {};
-    // The language of the content within the request and response.
+    // The language of the request and response.
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The data to be scanned in the Object Storage Service (OSS) bucket. Prefix match, suffix match, and regular expression match are supported.
+    // The scan scope for OSS assets. You can specify a prefix, a suffix, or a regular expression to match objects.
     shared_ptr<string> ossScanPath_ {};
-    // The type of the service to which the data assets to be scanned belong. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+    // The type of resource to query. Valid values:
+    // 
+    // - **1**: MaxCompute.
+    // 
+    // - **2**: OSS.
+    // 
+    // - **3**: AnalyticDB.
+    // 
+    // - **4**: Tablestore.
+    // 
+    // - **5**: RDS.
+    // 
+    // - **6**: a self-managed database.
     // 
     // This parameter is required.
     shared_ptr<int64_t> resourceType_ {};
-    // The time when the scan task is executed next time. Unit: hours.
+    // The hour at which the next scan task runs.
     // 
     // This parameter is required.
     shared_ptr<int32_t> runHour_ {};
-    // The time when the scan task is executed next time. Unit: minutes.
+    // The minute at which the next scan task runs.
     // 
     // This parameter is required.
     shared_ptr<int32_t> runMinute_ {};
-    // The matching rule that specifies the scan scope of the custom scan task. This parameter takes effect only if you set the **ScanRangeContent** parameter. Valid values:
+    // The matching rule for the scan scope of the custom scan task. This parameter takes effect only when you configure the **ScanRangeContent** parameter. Valid values:
     // 
-    // *   **0**: exact match
-    // *   **1**: prefix match
-    // *   **2**: suffix match
-    // *   **3**: regular expression match
+    // - **0**: full match.
+    // 
+    // - **1**: prefix match.
+    // 
+    // - **2**: suffix match.
+    // 
+    // - **3**: regular expression match.
     // 
     // This parameter is required.
     shared_ptr<int32_t> scanRange_ {};
-    // The data to be scanned in a structured data asset. Prefix match, suffix match, and regular expression match are supported.
+    // The content to match for the scan of structured data assets. This parameter is used with the ScanRange parameter.
+    // 
+    // > If you set ScanRange to 0, the scan matches the exact value of this parameter. If you set ScanRange to 1, the scan matches items that have the prefix specified by this parameter. For example, if you set this parameter to \\`test/abc\\`, file paths that start with \\`test/abc\\` are matched. If you set ScanRange to 2, the scan matches items that have the suffix specified by this parameter. If you set ScanRange to 3, the scan matches items that match the regular expression specified by this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> scanRangeContent_ {};
@@ -197,7 +215,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The account that is used to create the scan task.
+    // The account that creates the scan task.
     shared_ptr<string> taskUserName_ {};
   };
 

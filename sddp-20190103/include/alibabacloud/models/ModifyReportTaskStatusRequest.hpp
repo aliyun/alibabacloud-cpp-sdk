@@ -59,17 +59,21 @@ namespace Models
   protected:
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // The language of the request and response. Default value: **zh_cn**. Valid values:
     // 
-    // *   **zh_cn**: Simplified Chinese
-    // *   **en_us**: English
+    // - **zh_cn**: Chinese
+    // 
+    // - **en_us**: English
     shared_ptr<string> lang_ {};
-    // Specifies the status of the report task. Valid values:
+    // The status to set for the report task. Valid values:
     // 
-    // *   **0**: disabled
-    // *   **1**: enabled
+    // - **0**: Disable
     // 
-    // > This parameter is required.
+    // - **1**: Enable
+    // 
+    // >Notice: 
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> reportTaskStatus_ {};
   };
 

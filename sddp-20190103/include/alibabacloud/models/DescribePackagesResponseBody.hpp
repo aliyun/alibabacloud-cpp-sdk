@@ -149,34 +149,39 @@ namespace Models
 
 
     protected:
-      // The point in time when the MaxCompute package was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the data asset package was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> creationTime_ {};
-      // The ID of the package.
+      // The unique ID of the data asset package.
       shared_ptr<int64_t> id_ {};
-      // The ID of the instance to which the package belongs.
+      // The ID of the asset instance to which the data asset package belongs.
       shared_ptr<int64_t> instanceId_ {};
-      // The name of the package.
+      // The name of the data asset package.
       shared_ptr<string> name_ {};
-      // The account of the user that owns the package.
+      // The account of the data asset package owner.
       shared_ptr<string> owner_ {};
-      // The sensitivity level of the package. Valid values:
+      // The ID of the risk level for the data asset package.
       // 
-      // *   **1**: N/A, which indicates that no sensitive data is detected.
-      // *   **2**: S1, which indicates the low sensitivity level.
-      // *   **3**: S2, which indicates the medium sensitivity level.
-      // *   **4**: S3, which indicates the high sensitivity level.
-      // *   **5**: S4, which indicates the highest sensitivity level.
+      // - **1**: N/A: No sensitive data is detected.
+      // 
+      // - **2**: S1: Level 1 sensitive data.
+      // 
+      // - **3**: S2: Level 2 sensitive data.
+      // 
+      // - **4**: S3: Level 3 sensitive data.
+      // 
+      // - **5**: S4: Level 4 sensitive data.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The name of the sensitivity level for the package.
+      // The name of the risk level for the package.
       shared_ptr<string> riskLevelName_ {};
-      // Indicates whether the package contains sensitive data. Valid values:
+      // Indicates whether the data asset package contains sensitive data.
       // 
-      // *   true: yes
-      // *   false: no
+      // - true: Yes.
+      // 
+      // - false: No.
       shared_ptr<bool> sensitive_ {};
-      // The total volume of sensitive data in the package. For example, the value can be the total number of sensitive tables in the MaxCompute package.
+      // The total number of sensitive data entries in the data asset package. For example, the total number of sensitive tables in MaxCompute.
       shared_ptr<int32_t> sensitiveCount_ {};
-      // The total volume of data in the package. For example, the value can be the total number of tables in the MaxCompute package.
+      // The total number of data entries in the data asset package. For example, the total number of tables in MaxCompute.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -222,9 +227,9 @@ namespace Models
   protected:
     // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
-    // An array that consists of the information about the packages.
+    // The information about the data asset packages.
     shared_ptr<vector<DescribePackagesResponseBody::Items>> items_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

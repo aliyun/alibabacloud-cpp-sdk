@@ -103,36 +103,41 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return.
+    // The page number to return.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the instance to which the package belongs.
+    // The ID of the asset instance to which the data asset package belongs.
     // 
-    // > You can call the **DescribeInstances** operation to query the ID of the instance.
+    // > To query the list of MaxCompute data asset packages that are authorized for an SDPP connection by instance ID, call the **DescribeInstances** operation to obtain the instance ID.
     shared_ptr<int64_t> instanceId_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+    // The language of the request and response. The default value is **zh_cn**. Valid values:
     // 
-    // *   **zh_cn**: Chinese
-    // *   **en_us**: English
+    // - **zh_cn**: Chinese.
+    // 
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
-    // The search keyword. Fuzzy match is supported.
+    // The keyword for the search. Fuzzy matching is supported.
     shared_ptr<string> name_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the service to which the package belongs.
+    // The ID of the product to which the data asset package belongs.
     // 
-    // > You can call the **DescribeDataAssets** operation to query the ID of the service.
+    // > To query the list of MaxCompute data asset packages that are authorized for an SDPP connection by product ID, call the **DescribeDataAssets** operation to obtain the product ID.
     shared_ptr<int64_t> productId_ {};
-    // The sensitivity level of the package. Valid values:
+    // The ID of the risk level for the data asset package.
     // 
-    // *   **1**: N/A, which indicates that no sensitive data is detected.
-    // *   **2**: S1, which indicates the low sensitivity level.
-    // *   **3**: S2, which indicates the medium sensitivity level.
-    // *   **4**: S3, which indicates the high sensitivity level.
-    // *   **5**: S4, which indicates the highest sensitivity level.
+    // - **1**: N/A: No sensitive data is detected.
+    // 
+    // - **2**: S1: Level 1 sensitive data.
+    // 
+    // - **3**: S2: Level 2 sensitive data.
+    // 
+    // - **4**: S3: Level 3 sensitive data.
+    // 
+    // - **5**: S4: Level 4 sensitive data.
     shared_ptr<int64_t> riskLevelId_ {};
-    // The ID of the sensitive data detection rule that the package hits.
+    // The ID of the sensitive data detection rule that the data asset package matches.
     // 
-    // > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+    // > To query the list of MaxCompute data asset packages that are authorized for an SDPP connection by the ID of a matching sensitive data detection rule, call the **DescribeRules** operation to obtain the rule ID.
     shared_ptr<int64_t> ruleId_ {};
   };
 

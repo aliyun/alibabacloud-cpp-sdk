@@ -75,13 +75,20 @@ namespace Models
 
 
   protected:
+    // The OSS bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> bucket_ {};
     shared_ptr<string> lang_ {};
+    // The full path of the file stored in OSS.
+    // 
     // This parameter is required.
     shared_ptr<string> objectKey_ {};
+    // The ID of the region where the bucket is located.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceRegionId_ {};
+    // The storage path for the restored image.
     shared_ptr<string> targetObjectKey_ {};
   };
 

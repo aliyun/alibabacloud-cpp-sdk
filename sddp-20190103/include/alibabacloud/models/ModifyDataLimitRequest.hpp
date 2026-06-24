@@ -191,83 +191,103 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the security audit feature. Valid values:
+    // Specifies whether to enable auditing. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: Disable auditing.
+    // 
+    // - **1**: Enable auditing.
     shared_ptr<int32_t> auditStatus_ {};
-    // Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+    // Specifies whether to automatically trigger a rescan when a rule is changed. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: Do not automatically trigger a rescan.
     // 
-    // > When a re-scan is triggered, DSC scans all data in your data asset.
+    // - **1**: Automatically trigger a rescan.
+    // 
+    // > If a rescan is automatically triggered, a full scan is performed on the data asset.
     shared_ptr<int32_t> autoScan_ {};
-    // The database engine that is run by the instance. Valid values:
+    // The type of the database. Valid values:
     // 
-    // *   **MySQL**
-    // *   **SQLServer**
+    // - **MySQL**
+    // 
+    // - **SQLServer**
     shared_ptr<string> engineType_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The unique ID of the data asset for which you want to modify configuration items.
+    // The unique ID of the data asset.
     // 
-    // > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+    // > Call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
     // The language of the content within the request and response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh**: Chinese (default)
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+    // The retention period of raw logs after auditing is enabled. Unit: days. Valid values:
     // 
-    // *   **30**
-    // *   **90**
-    // *   **180**
-    // *   **365**
+    // - **30**
+    // 
+    // - **90**
+    // 
+    // - **180**
+    // 
+    // - **365**
     shared_ptr<int32_t> logStoreDay_ {};
-    // Specifies whether to change the username and password that are used to log on to the ApsaraDB RDS database. Valid values:
+    // Specifies whether to modify the username and password that are used to connect to the database. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: Modify the username and password.
+    // 
+    // - **false**: Do not modify the username and password.
     shared_ptr<bool> modifyPassword_ {};
-    // The password used to log on to the ApsaraDB RDS database that you authorize DSC to access.
+    // The password for the ApsaraDB RDS database.
     shared_ptr<string> password_ {};
-    // The port that is used to connect to the database.
+    // The port used to connect to the database.
     shared_ptr<int32_t> port_ {};
-    // The name of the service to which the data asset belongs. Valid values:
+    // The service to which the data asset belongs. Valid values:
     // 
-    // *   **1**: MaxCompute
-    // *   **2**: Object Storage Service (OSS)
-    // *   **3**: AnalyticDB for MySQL
-    // *   **4**: Tablestore
-    // *   **5**: ApsaraDB RDS
+    // - **1**: MaxCompute
+    // 
+    // - **2**: OSS
+    // 
+    // - **3**: ADS
+    // 
+    // - **4**: OTS
+    // 
+    // - **5**: RDS
     // 
     // This parameter is required.
     shared_ptr<int32_t> resourceType_ {};
-    // The number of sensitive data samples tht are collected after sensitive data detection is enabled. Valid values:
+    // The number of sensitive data samples to return. This parameter takes effect only after data detection is enabled. Valid values:
     // 
-    // *   **0**
-    // *   **5**
-    // *   **10**
+    // - **0**
+    // 
+    // - **5**
+    // 
+    // - **10**
     shared_ptr<int32_t> samplingSize_ {};
-    // The security group that is used by PrivateLink when you install the DSC agent.
+    // The security groups for agent-based auditing that uses PrivateLink.
     shared_ptr<vector<string>> securityGroupIdList_ {};
-    // The region in which the data asset resides. Valid values:
+    // The ID of the region in which the data asset is located. Valid values:
     // 
-    // *   **cn-beijing**: China (Beijing)
-    // *   **cn-zhangjiakou**: China (Zhangjiakou)
-    // *   **cn-huhehaote**: China (Hohhot)
-    // *   **cn-hangzhou**: China (Hangzhou)
-    // *   **cn-shanghai**: China (Shanghai)
-    // *   **cn-shenzhen**: China (Shenzhen)
-    // *   **cn-hongkong**: China (Hong Kong)
+    // - **cn-beijing**: China (Beijing)
+    // 
+    // - **cn-zhangjiakou**: China (Zhangjiakou)
+    // 
+    // - **cn-huhehaote**: China (Hohhot)
+    // 
+    // - **cn-hangzhou**: China (Hangzhou)
+    // 
+    // - **cn-shanghai**: China (Shanghai)
+    // 
+    // - **cn-shenzhen**: China (Shenzhen)
+    // 
+    // - **cn-hongkong**: China (Hong Kong)
     shared_ptr<string> serviceRegionId_ {};
-    // The username used to log on to the ApsaraDB RDS database that you authorize DSC to access.
+    // The username for the ApsaraDB RDS database.
     shared_ptr<string> userName_ {};
-    // The vSwitch that is used by PrivateLink when you install the DSC agent.
+    // The vSwitches for agent-based auditing that uses PrivateLink.
     shared_ptr<vector<string>> vSwitchIdList_ {};
     // The ID of the virtual private cloud (VPC) to which the data asset belongs.
     shared_ptr<string> vpcId_ {};

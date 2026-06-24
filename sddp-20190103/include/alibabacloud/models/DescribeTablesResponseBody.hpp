@@ -140,13 +140,17 @@ namespace Models
         shared_ptr<int64_t> count_ {};
         // The name of the rule.
         shared_ptr<string> name_ {};
-        // The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+        // The ID of the risk level for the sensitive data detection rule. Valid values:
         // 
-        // *   **1**: N/A, which indicates that no sensitive data is detected.
-        // *   **2**: S1, which indicates the low sensitivity level.
-        // *   **3**: S2, which indicates the medium sensitivity level.
-        // *   **4**: S3, which indicates the high sensitivity level.
-        // *   **5**: S4, which indicates the highest sensitivity level.
+        // - **1**: N/A. No sensitive data is detected.
+        // 
+        // - **2**: S1. Level 1 sensitive data.
+        // 
+        // - **3**: S2. Level 2 sensitive data.
+        // 
+        // - **4**: S3. Level 3 sensitive data.
+        // 
+        // - **5**: S4. Level 4 sensitive data.
         shared_ptr<int64_t> riskLevelId_ {};
       };
 
@@ -277,54 +281,63 @@ namespace Models
 
 
     protected:
-      // The point in time when the table was created. Unit: milliseconds.
+      // The time when the data asset table was created. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> creationTime_ {};
-      // The ID of the table.
+      // The unique ID of the data asset table.
       shared_ptr<int64_t> id_ {};
-      // The description of the data asset.
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
-      // The ID of the data asset to which the table belongs.
+      // The ID of the instance to which the data asset table belongs.
       shared_ptr<int64_t> instanceId_ {};
-      // The name of the data asset to which the table belongs.
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
-      // The name of the table.
+      // The name of the data asset table.
       shared_ptr<string> name_ {};
-      // The Alibaba Cloud account to which the table belongs.
+      // The Alibaba Cloud account that owns the data asset table.
       shared_ptr<string> owner_ {};
-      // The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+      // The name of the product to which the data asset table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**. For more information about the supported products, see [Data asset types that support sensitive data detection](https://help.aliyun.com/document_detail/212906.html).
       shared_ptr<string> productCode_ {};
-      // The ID of the service to which the table belongs.
+      // The ID of the product to which the data asset table belongs.
       shared_ptr<string> productId_ {};
-      // The sensitivity level of the table. Each sensitivity level ID corresponds to a sensitivity level name. Valid values:
+      // The ID of the risk level for the data asset table. Each risk level ID corresponds to a risk level name. Valid values:
       // 
-      // *   **1**: N/A, which indicates that no sensitive data is detected.
-      // *   **2**: S1, which indicates the low sensitivity level.
-      // *   **3**: S2, which indicates the medium sensitivity level.
-      // *   **4**: S3, which indicates the high sensitivity level.
-      // *   **5**: S4, which indicates the highest sensitivity level.
+      // - **1**: N/A. No sensitive data is detected.
+      // 
+      // - **2**: S1. Level 1 sensitive data.
+      // 
+      // - **3**: S2. Level 2 sensitive data.
+      // 
+      // - **4**: S3. Level 3 sensitive data.
+      // 
+      // - **5**: S4. Level 4 sensitive data.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The name of the sensitivity level for the table. Valid values:
+      // The name of the risk level for the data asset table. Valid values:
       // 
-      // *   **N/A**: indicates that no sensitive data is detected.
-      // *   **S1**: indicates the low sensitivity level.
-      // *   **S2**: indicates the medium sensitivity level.
-      // *   **S3**: indicates the high sensitivity level.
-      // *   **S4**: indicates the highest sensitivity level.
+      // - **N/A**: No sensitive data is detected.
+      // 
+      // - **S1**: Level 1 sensitive data.
+      // 
+      // - **S2**: Level 2 sensitive data.
+      // 
+      // - **S3**: Level 3 sensitive data.
+      // 
+      // - **S4**: Level 4 sensitive data.
       shared_ptr<string> riskLevelName_ {};
-      // The information about the sensitive data detection rules that are hit.
+      // The information about the sensitive data detection rules that the data asset table hits.
       shared_ptr<vector<Items::RuleList>> ruleList_ {};
-      // Indicates whether the table contains sensitive fields. Valid values:
+      // Indicates whether the data asset table contains sensitive fields.
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes.
+      // 
+      // - **false**: no.
       shared_ptr<bool> sensitive_ {};
-      // The total number of sensitive fields in the table.
+      // The total number of sensitive fields in the data asset table.
       shared_ptr<int32_t> sensitiveCount_ {};
-      // The percentage of sensitive fields in the table.
+      // The percentage of sensitive fields in the data asset table.
       shared_ptr<string> sensitiveRatio_ {};
       // The name of the tenant.
       shared_ptr<string> tenantName_ {};
-      // The total number of fields in the table.
+      // The total number of fields in the data asset table.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -370,7 +383,7 @@ namespace Models
   protected:
     // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
-    // An array that consists of tables.
+    // A list of data asset tables.
     shared_ptr<vector<DescribeTablesResponseBody::Items>> items_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};

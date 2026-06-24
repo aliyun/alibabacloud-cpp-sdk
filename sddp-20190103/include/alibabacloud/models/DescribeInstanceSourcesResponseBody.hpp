@@ -287,88 +287,107 @@ namespace Models
 
 
     protected:
-      // Indicates whether the security audit feature is enabled. Valid values:
+      // The audit authorization status. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: Authorized.
+      // 
+      // - **0**: Unauthorized.
       shared_ptr<int32_t> auditStatus_ {};
-      // Indicates whether the automatic scan feature is enabled to detect sensitive data. Valid values:
+      // Indicates whether automatic scanning for sensitive data is enabled. Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes
+      // - **0**: Disabled.
+      // 
+      // - **1**: Enabled.
       shared_ptr<int32_t> autoScan_ {};
-      // Indicates whether the username and password can be changed. Valid values:
+      // Indicates whether the username and password can be modified. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: Yes.
+      // 
+      // - **false**: No.
       shared_ptr<bool> canModifyUserName_ {};
-      // The data detection status. Valid values:
+      // The data check status. Valid values:
       // 
-      // *   **0**: The data detection is ready.
-      // *   **1**: The data detection is running.
-      // *   **2**: The connectivity test is in progress.
-      // *   **3**: The connectivity test passed.
-      // *   **4**: The connectivity test failed.
+      // - **0**: Ready.
+      // 
+      // - **1**: Running.
+      // 
+      // - **2**: Connectivity test in progress.
+      // 
+      // - **3**: Connectivity test passed.
+      // 
+      // - **4**: Connectivity test failed.
       shared_ptr<int32_t> checkStatus_ {};
-      // Indicates whether DSC has the data de-identification permissions on the data asset. Valid values:
+      // The status of data masking authorization. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: Enabled.
+      // 
+      // - **0**: Disabled.
       shared_ptr<int32_t> datamaskStatus_ {};
-      // The name of the database to which the data asset belongs.
+      // The name of the database to which the asset belongs.
       shared_ptr<string> dbName_ {};
-      // Indicates whether sensitive data detection is enabled for the data asset. Valid values:
+      // Indicates whether sensitive data detection is enabled for the asset. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: Enabled.
+      // 
+      // - **0**: Disabled.
       shared_ptr<int32_t> enable_ {};
-      // The engine type. Valid values:
+      // The database engine type. Valid values:
       // 
-      // *   **MySQL**
-      // *   **MariaDB**
-      // *   **Oracle**
-      // *   **PostgreSQL**
-      // *   **SQLServer**
+      // - **MySQL**
+      // 
+      // - **MariaDB**
+      // 
+      // - **Oracle**
+      // 
+      // - **PostgreSQL**
+      // 
+      // - **SQLServer**
       shared_ptr<string> engineType_ {};
       // The reason for the failure.
       shared_ptr<string> errorMessage_ {};
-      // The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the asset was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The unique ID of the data asset.
+      // The unique ID of the asset.
       shared_ptr<int64_t> id_ {};
       // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
-      // The ID of the instance
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The storage space size of the instance. This parameter is valid only if the value of the ProductId parameter is 2. Unit: bytes.
+      // The size of the instance. This parameter is valid only for OSS assets. Unit: bytes.
       shared_ptr<int64_t> instanceSize_ {};
-      // The time when the data asset was last modified. Unit: milliseconds.
+      // The timestamp when the asset was last modified. Unit: milliseconds.
       shared_ptr<int64_t> lastModifyTime_ {};
-      // The ID of the account that is last used to modify the data asset.
+      // The ID of the account that last modified the asset.
       shared_ptr<string> lastModifyUserId_ {};
-      // The retention period of raw logs. Unit: days.
+      // The storage duration of raw logs. Unit: days.
       shared_ptr<int32_t> logStoreDay_ {};
-      // Indicates whether the password is used. Valid values:
+      // The status of the password. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: In use.
+      // 
+      // - **0**: Not in use.
       shared_ptr<int32_t> passwordStatus_ {};
-      // The ID of the service to which the asset belongs. Valid values:
+      // The product type ID. Valid values:
       // 
-      // *   **1**: MaxCompute
-      // *   **2**: OSS
-      // *   **3**: AnalyticDB for MySQL
-      // *   **4**: OTS
-      // *   **5**: ApsaraDB RDS
-      // *   **6**: self-managed databases
+      // - **1**: MaxCompute
+      // 
+      // - **2**: OSS
+      // 
+      // - **3**: ADS
+      // 
+      // - **4**: OTS
+      // 
+      // - **5**: RDS
+      // 
+      // - **6**: SELF_DB
       shared_ptr<int64_t> productId_ {};
-      // The ID of the region where the instance resides.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The name of the region.
       shared_ptr<string> regionName_ {};
-      // The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: data entries.
+      // The sensitive data sampling size. Valid values: **0**, **5**, and **10**. Unit: number of entries.
       shared_ptr<int32_t> samplingSize_ {};
-      // The ID of the tenant.
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
       // The name of the tenant.
       shared_ptr<string> tenantName_ {};
@@ -416,15 +435,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The assets.
+    // A list of assets.
     shared_ptr<vector<DescribeInstanceSourcesResponseBody::Items>> items_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of assets.
     shared_ptr<int32_t> totalCount_ {};
   };
 

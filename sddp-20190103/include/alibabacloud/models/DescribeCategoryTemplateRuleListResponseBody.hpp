@@ -124,42 +124,57 @@ namespace Models
     protected:
       // The description of the rule.
       shared_ptr<string> description_ {};
-      // The unique ID of the rule.
+      // The unique ID of the template rule.
       shared_ptr<int64_t> id_ {};
-      // The IDs of sensitive data types. Multiple IDs are separated by commas (,).
+      // A comma-separated list of IDs of the associated atomic models.
       shared_ptr<string> identificationRuleIds_ {};
-      // The scan scope of the rule. The value is a JSON array of the STRING type. Each element in a JSON array indicates a scan scope that contains the following fields:
+      // The scope of data that the template rule scans. This parameter is a string converted from a JSON array. Each element in the JSON array represents a data scanning scope and contains the following fields:
       // 
-      // *   **Asset**: the data asset type. Valid values: RDS, DRDS, PolarDB, OTS, ADB, and OceanBase. The value is of the STRING type.
+      // - **Asset**: A string that indicates the asset type. Valid values include RDS, DRDS, PolarDB, OTS, ADB, OceanBase, and ODPS.
       // 
-      // *   **Content**: the scan scope. The value is of the STRING type. Each element in a JSON array indicates a scan scope that contains the following fields:
+      // - **Content**: The specific scope of the asset to scan. This is an array of objects, where each object contains the following fields:
       // 
-      //     *   **Range**: the matching condition. Valid values: Instance, database, table, column, project, bucket, and object. The value project is valid only for data assets in MaxCompute. The values bucket and object are valid only for data assets in Object Storage Service (OSS). The value of this parameter is of the STRING type.
-      //     *   **Operator**: the operator. Valid values: equals, regex, prefix, and suffix. The operator equals indicates a full match. The operator regex indicates a match by regular expression. The operator prefix indicates a match by prefix. The operator suffix indicates a match by suffix.
-      //     *   **Value**: the matching content. The value is of the STRING type.
+      //   - **Range**: A string that indicates the matching range. Valid values include instance, database, table, column, project (for MaxCompute assets only), bucket (for OSS assets only), and object (for OSS assets only).
+      // 
+      //   - **Operator**: A string that indicates the matching condition. Valid values include equals, regex (regular expression), prefix, and suffix.
+      // 
+      //   - **Value**: A string that indicates the content to match.
       shared_ptr<string> identificationScope_ {};
-      // The name of the rule.
+      // The name of the template rule.
       shared_ptr<string> name_ {};
-      // The sensitivity level of the data that is not compliant with the rule. Valid values: **1** to **11**.
+      // The risk level of the template rule. The value ranges from **1** to **11**. Valid values:
       // 
-      // *   **1**: No sensitive data is detected.
-      // *   **2**: indicates the S1 sensitivity level.
-      // *   **3**: indicates the S2 sensitivity level.
-      // *   **4**: indicates the S3 sensitivity level.
-      // *   **5**: indicates the S4 sensitivity level.
-      // *   **6**: indicates the S5 sensitivity level.
-      // *   **7**: indicates the S6 sensitivity level.
-      // *   **8**: indicates the S7 sensitivity level.
-      // *   **9**: indicates the S8 sensitivity level.
-      // *   **10**: indicates the S9 sensitivity level.
-      // *   **11**: indicates the S10 sensitivity level.
-      // *   **null**: indicates all preceding sensitivity levels.
+      // - **1**: No risk.
+      // 
+      // - **2**: S1.
+      // 
+      // - **3**: S2.
+      // 
+      // - **4**: S3.
+      // 
+      // - **5**: S4.
+      // 
+      // - **6**: S5.
+      // 
+      // - **7**: S6.
+      // 
+      // - **8**: S7.
+      // 
+      // - **9**: S8.
+      // 
+      // - **10**: S9.
+      // 
+      // - **11**: S10.
+      // 
+      // - **null**: Indicates all risk levels, including No risk, S1, S2, S3, S4, S5, S6, S7, S8, S9, and S10.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The status of the rule. Valid values:
+      // The status of the template rule. Valid values:
       // 
-      // *   **0**: disabled
-      // *   **1**: enabled
-      // *   **null**: all states
+      // - **0**: disabled.
+      // 
+      // - **1**: enabled.
+      // 
+      // - **null**: Represents all statuses, including enabled and disabled.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -203,11 +218,11 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of rules.
+    // A list of template rules.
     shared_ptr<vector<DescribeCategoryTemplateRuleListResponseBody::Items>> items_ {};
-    // The number of entries returned per page.
+    // The number of template rules returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

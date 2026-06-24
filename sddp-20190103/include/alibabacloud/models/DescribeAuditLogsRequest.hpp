@@ -296,34 +296,95 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> asyncRequestId_ {};
+    // The client IP address.
     shared_ptr<string> clientIp_ {};
+    // The client type.
     shared_ptr<string> clientUa_ {};
+    // The page number to return. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The database name.
     shared_ptr<string> databaseName_ {};
+    // The range of affected rows.
     shared_ptr<string> effectRowRange_ {};
+    // The end time for querying alert logs, provided as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The execution time range.
     shared_ptr<string> executeTimeRange_ {};
+    // The name of the data asset instance.
     shared_ptr<string> instanceName_ {};
+    // The network type. Valid values:
+    // 
+    // - **default**: The IP address is from outside of Alibaba Cloud. This is the default value.
+    // 
+    // - **aliyun**: The IP address is from within Alibaba Cloud.
     shared_ptr<string> ipType_ {};
+    // Specifies the language of the request and response. Default value: **zh_cn**. Valid values:
+    // 
+    // - **zh_cn**: Chinese.
+    // 
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
+    // Specifies whether to retrieve the whitelist status.
     shared_ptr<bool> loadWhiteList_ {};
+    // A JSON string that specifies which query conditions to include or exclude.
     shared_ptr<string> logQueryOpJson_ {};
+    // The data source.
     shared_ptr<string> logSource_ {};
+    // The UID of the member account.
     shared_ptr<string> memberAccount_ {};
+    // The message content.
     shared_ptr<string> message_ {};
+    // The operation type.
     shared_ptr<string> operateType_ {};
+    // The key of the OSS object.
     shared_ptr<string> ossObjectKey_ {};
+    // The number of entries per page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
+    // The service to which the data asset belongs. Valid values include **MaxCompute, OSS, AnalyticDB for MySQL, TableStore, and RDS**.
     shared_ptr<string> productCode_ {};
+    // The ID of the service to which the data object belongs. Valid values:
+    // 
+    // - **1**: MaxCompute
+    // 
+    // - **2**: OSS
+    // 
+    // - **3**: AnalyticDB for MySQL
+    // 
+    // - **4**: TableStore
+    // 
+    // - **5**: RDS
+    // 
+    // - **6**: SELF_DB
+    // 
+    // - **7**: PolarDB-X
+    // 
+    // - **8**: PolarDB
+    // 
+    // - **9**: AnalyticDB for PostgreSQL
+    // 
+    // - **10**: OceanBase
+    // 
+    // - **11**: MongoDB
+    // 
+    // - **25**: Redis
     shared_ptr<int64_t> productId_ {};
+    // Specifies whether to perform an aggregate query.
     shared_ptr<bool> ruleAggQuery_ {};
+    // The rule type.
     shared_ptr<string> ruleCategory_ {};
+    // The ID of the audit rule.
     shared_ptr<string> ruleID_ {};
+    // The ID of the audit rule.
     shared_ptr<string> ruleId_ {};
+    // The name of the audit rule.
     shared_ptr<string> ruleName_ {};
+    // The SQL statement.
     shared_ptr<string> sqlText_ {};
+    // The start time for querying alert logs, provided as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

@@ -223,48 +223,99 @@ namespace Models
 
 
     protected:
-      // The member account to which the desensitization target belongs.
+      // The member account that the data masking destination belongs to.
       shared_ptr<int64_t> dstMemberAccount_ {};
       // The destination path.
       shared_ptr<string> dstPath_ {};
-      // The service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+      // The product that the destination data source belongs to. Valid values:
+      // 
+      // - **1**: MaxCompute.
+      // 
+      // - **2**: OSS.
+      // 
+      // - **3**: ADS.
+      // 
+      // - **4**: OTS.
+      // 
+      // - **5**: RDS.
+      // 
+      // - **6**: SELF_DB.
       shared_ptr<int32_t> dstType_ {};
-      // The type of the service to which the de-identified data belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The type of the destination product. Valid values:
+      // 
+      // - **MaxCompute**.
+      // 
+      // - **OSS**.
+      // 
+      // - **ADS**.
+      // 
+      // - **OTS**.
+      // 
+      // - **RDS**.
+      // 
+      // - **SELF_DB**.
       shared_ptr<string> dstTypeCode_ {};
-      // The time when the de-identification task is created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the task was created. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Indicates whether the de-identification task is running.
+      // Indicates whether the task is running.
       shared_ptr<bool> hasUnfinishProcess_ {};
-      // The task ID.
+      // The numerical ID of the task.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the source table is de-identified.
+      // Indicates whether the source table is masked.
       shared_ptr<bool> originalTable_ {};
-      // The user who created the de-identification task.
+      // The creator of the task.
       shared_ptr<string> owner_ {};
-      // The number of times that the de-identification task is run.
+      // The number of executions.
       shared_ptr<int32_t> runCount_ {};
-      // The member account to which the desensitization source belongs.
+      // The member account that the data masking source belongs to.
       shared_ptr<int64_t> srcMemberAccount_ {};
       // The source path.
       shared_ptr<string> srcPath_ {};
-      // The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+      // The type of the source product. Valid values:
+      // 
+      // - **1**: MaxCompute.
+      // 
+      // - **2**: OSS.
+      // 
+      // - **3**: ADS.
+      // 
+      // - **4**: OTS.
+      // 
+      // - **5**: RDS.
+      // 
+      // - **6**: SELF_DB.
       shared_ptr<int32_t> srcType_ {};
-      // The type of the service to which the data to be de-identified belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The type of the source product. Valid values:
+      // 
+      // - **MaxCompute**.
+      // 
+      // - **OSS**.
+      // 
+      // - **ADS**.
+      // 
+      // - **OTS**.
+      // 
+      // - **RDS**.
+      // 
+      // - **SELF_DB**.
       shared_ptr<string> srcTypeCode_ {};
       // The status of the task. Valid values:
       // 
-      // *   **0**: disabled
-      // *   **1**: enabled
+      // - **0**: Disabled.
+      // 
+      // - **1**: Enabled.
       shared_ptr<int32_t> status_ {};
-      // The ID of the task.
+      // The string ID of the task.
       shared_ptr<string> taskId_ {};
       // The name of the task.
       shared_ptr<string> taskName_ {};
-      // The mode in which the de-identification task is run. Valid values:
+      // The execution method of the task. Valid values:
       // 
-      // *   **1**: manual
-      // *   **2**: scheduled
-      // *   **3**: manual and scheduled
+      // - **1**: Manual.
+      // 
+      // - **2**: Scheduled.
+      // 
+      // - **3**: Manual and scheduled.
       shared_ptr<int32_t> triggerType_ {};
     };
 
@@ -310,7 +361,7 @@ namespace Models
   protected:
     // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
-    // A list of de-identification tasks.
+    // A list of data masking tasks.
     shared_ptr<vector<DescribeDataMaskingTasksResponseBody::Items>> items_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
