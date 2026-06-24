@@ -55,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FreezeAmount, freezeAmount_);
         DARABONBA_PTR_TO_JSON(IcpNumber, icpNumber_);
         DARABONBA_PTR_TO_JSON(IcpStatus, icpStatus_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Introduction, introduction_);
         DARABONBA_PTR_TO_JSON(IsPremium, isPremium_);
         DARABONBA_PTR_TO_JSON(PartnerTypes, partnerTypes_);
@@ -97,6 +98,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FreezeAmount, freezeAmount_);
         DARABONBA_PTR_FROM_JSON(IcpNumber, icpNumber_);
         DARABONBA_PTR_FROM_JSON(IcpStatus, icpStatus_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Introduction, introduction_);
         DARABONBA_PTR_FROM_JSON(IsPremium, isPremium_);
         DARABONBA_PTR_FROM_JSON(PartnerTypes, partnerTypes_);
@@ -133,11 +135,11 @@ namespace Models
         && this->auctionRemainingSeconds_ == nullptr && this->baiduAntiLink_ == nullptr && this->baiduExLink_ == nullptr && this->baiduIndex_ == nullptr && this->baiduWeight_ == nullptr
         && this->bookEndTime_ == nullptr && this->bookRemainingSeconds_ == nullptr && this->bookedPartners_ == nullptr && this->constitute_ == nullptr && this->currencyType_ == nullptr
         && this->deliveryTime_ == nullptr && this->domainLen_ == nullptr && this->domainName_ == nullptr && this->domainType_ == nullptr && this->expireDate_ == nullptr
-        && this->extend_ == nullptr && this->freezeAmount_ == nullptr && this->icpNumber_ == nullptr && this->icpStatus_ == nullptr && this->introduction_ == nullptr
-        && this->isPremium_ == nullptr && this->partnerTypes_ == nullptr && this->price_ == nullptr && this->productId_ == nullptr && this->publishTime_ == nullptr
-        && this->regDate_ == nullptr && this->registrar_ == nullptr && this->reserved_ == nullptr && this->s360Weight_ == nullptr && this->seoAttributes_ == nullptr
-        && this->shortName_ == nullptr && this->snatchNo_ == nullptr && this->snatchTypeDesc_ == nullptr && this->sougouAntiLink_ == nullptr && this->sougouIndex_ == nullptr
-        && this->sougouWeight_ == nullptr && this->suffix_ == nullptr && this->transferInPrice_ == nullptr && this->weight_ == nullptr; };
+        && this->extend_ == nullptr && this->freezeAmount_ == nullptr && this->icpNumber_ == nullptr && this->icpStatus_ == nullptr && this->id_ == nullptr
+        && this->introduction_ == nullptr && this->isPremium_ == nullptr && this->partnerTypes_ == nullptr && this->price_ == nullptr && this->productId_ == nullptr
+        && this->publishTime_ == nullptr && this->regDate_ == nullptr && this->registrar_ == nullptr && this->reserved_ == nullptr && this->s360Weight_ == nullptr
+        && this->seoAttributes_ == nullptr && this->shortName_ == nullptr && this->snatchNo_ == nullptr && this->snatchTypeDesc_ == nullptr && this->sougouAntiLink_ == nullptr
+        && this->sougouIndex_ == nullptr && this->sougouWeight_ == nullptr && this->suffix_ == nullptr && this->transferInPrice_ == nullptr && this->weight_ == nullptr; };
       // auctionEndTime Field Functions 
       bool hasAuctionEndTime() const { return this->auctionEndTime_ != nullptr;};
       void deleteAuctionEndTime() { this->auctionEndTime_ = nullptr;};
@@ -276,6 +278,13 @@ namespace Models
       void deleteIcpStatus() { this->icpStatus_ = nullptr;};
       inline bool getIcpStatus() const { DARABONBA_PTR_GET_DEFAULT(icpStatus_, false) };
       inline Data& setIcpStatus(bool icpStatus) { DARABONBA_PTR_SET_VALUE(icpStatus_, icpStatus) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline Data& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
       // introduction Field Functions 
@@ -439,6 +448,7 @@ namespace Models
       shared_ptr<double> freezeAmount_ {};
       shared_ptr<string> icpNumber_ {};
       shared_ptr<bool> icpStatus_ {};
+      shared_ptr<int64_t> id_ {};
       shared_ptr<string> introduction_ {};
       shared_ptr<bool> isPremium_ {};
       shared_ptr<string> partnerTypes_ {};
