@@ -106,6 +106,40 @@ namespace AmqpOpen20191212
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
+       * @summary Creates an open-source username and password.
+       *
+       * @param request CreateOpenSourceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOpenSourceAccountResponse
+       */
+      Models::CreateOpenSourceAccountResponse createOpenSourceAccountWithOptions(const Models::CreateOpenSourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an open-source username and password.
+       *
+       * @param request CreateOpenSourceAccountRequest
+       * @return CreateOpenSourceAccountResponse
+       */
+      Models::CreateOpenSourceAccountResponse createOpenSourceAccount(const Models::CreateOpenSourceAccountRequest &request);
+
+      /**
+       * @summary Creates an open source permission.
+       *
+       * @param request CreateOpenSourcePermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOpenSourcePermissionResponse
+       */
+      Models::CreateOpenSourcePermissionResponse createOpenSourcePermissionWithOptions(const Models::CreateOpenSourcePermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an open source permission.
+       *
+       * @param request CreateOpenSourcePermissionRequest
+       * @return CreateOpenSourcePermissionResponse
+       */
+      Models::CreateOpenSourcePermissionResponse createOpenSourcePermission(const Models::CreateOpenSourcePermissionRequest &request);
+
+      /**
        * @summary A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
        *
        * @param request CreateQueueRequest
@@ -197,6 +231,40 @@ namespace AmqpOpen20191212
        * @return DeleteExchangeResponse
        */
       Models::DeleteExchangeResponse deleteExchange(const Models::DeleteExchangeRequest &request);
+
+      /**
+       * @summary Deletes the username and password of an open-source user.
+       *
+       * @param request DeleteOpenSourceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOpenSourceAccountResponse
+       */
+      Models::DeleteOpenSourceAccountResponse deleteOpenSourceAccountWithOptions(const Models::DeleteOpenSourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the username and password of an open-source user.
+       *
+       * @param request DeleteOpenSourceAccountRequest
+       * @return DeleteOpenSourceAccountResponse
+       */
+      Models::DeleteOpenSourceAccountResponse deleteOpenSourceAccount(const Models::DeleteOpenSourceAccountRequest &request);
+
+      /**
+       * @summary Deletes an open source permission.
+       *
+       * @param request DeleteOpenSourcePermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOpenSourcePermissionResponse
+       */
+      Models::DeleteOpenSourcePermissionResponse deleteOpenSourcePermissionWithOptions(const Models::DeleteOpenSourcePermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an open source permission.
+       *
+       * @param request DeleteOpenSourcePermissionRequest
+       * @return DeleteOpenSourcePermissionResponse
+       */
+      Models::DeleteOpenSourcePermissionResponse deleteOpenSourcePermission(const Models::DeleteOpenSourcePermissionRequest &request);
 
       /**
        * @summary Deletes a queue.
@@ -390,6 +458,40 @@ namespace AmqpOpen20191212
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
+       * @summary Enumerates open-source usernames and passwords.
+       *
+       * @param request ListOpenSourceAccountsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOpenSourceAccountsResponse
+       */
+      Models::ListOpenSourceAccountsResponse listOpenSourceAccountsWithOptions(const Models::ListOpenSourceAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enumerates open-source usernames and passwords.
+       *
+       * @param request ListOpenSourceAccountsRequest
+       * @return ListOpenSourceAccountsResponse
+       */
+      Models::ListOpenSourceAccountsResponse listOpenSourceAccounts(const Models::ListOpenSourceAccountsRequest &request);
+
+      /**
+       * @summary Lists open source permissions.
+       *
+       * @param request ListOpenSourcePermissionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOpenSourcePermissionsResponse
+       */
+      Models::ListOpenSourcePermissionsResponse listOpenSourcePermissionsWithOptions(const Models::ListOpenSourcePermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists open source permissions.
+       *
+       * @param request ListOpenSourcePermissionsRequest
+       * @return ListOpenSourcePermissionsResponse
+       */
+      Models::ListOpenSourcePermissionsResponse listOpenSourcePermissions(const Models::ListOpenSourcePermissionsRequest &request);
+
+      /**
        * @summary Queries the online consumer clients of a specified queue.
        *
        * @description ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
@@ -513,7 +615,7 @@ namespace AmqpOpen20191212
       Models::UpdateInstanceNameResponse updateInstanceName(const Models::UpdateInstanceNameRequest &request);
 
       /**
-       * @summary Updates the elastic scaling switch of a serverless instance.
+       * @summary Update serverless switch
        *
        * @param request UpdateInstanceServerlessSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -522,12 +624,46 @@ namespace AmqpOpen20191212
       Models::UpdateInstanceServerlessSwitchResponse updateInstanceServerlessSwitchWithOptions(const Models::UpdateInstanceServerlessSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the elastic scaling switch of a serverless instance.
+       * @summary Update serverless switch
        *
        * @param request UpdateInstanceServerlessSwitchRequest
        * @return UpdateInstanceServerlessSwitchResponse
        */
       Models::UpdateInstanceServerlessSwitchResponse updateInstanceServerlessSwitch(const Models::UpdateInstanceServerlessSwitchRequest &request);
+
+      /**
+       * @summary Updates the username and password for open-source access.
+       *
+       * @param request UpdateOpenSourceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOpenSourceAccountResponse
+       */
+      Models::UpdateOpenSourceAccountResponse updateOpenSourceAccountWithOptions(const Models::UpdateOpenSourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the username and password for open-source access.
+       *
+       * @param request UpdateOpenSourceAccountRequest
+       * @return UpdateOpenSourceAccountResponse
+       */
+      Models::UpdateOpenSourceAccountResponse updateOpenSourceAccount(const Models::UpdateOpenSourceAccountRequest &request);
+
+      /**
+       * @summary Updates open source permissions.
+       *
+       * @param request UpdateOpenSourcePermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOpenSourcePermissionResponse
+       */
+      Models::UpdateOpenSourcePermissionResponse updateOpenSourcePermissionWithOptions(const Models::UpdateOpenSourcePermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates open source permissions.
+       *
+       * @param request UpdateOpenSourcePermissionRequest
+       * @return UpdateOpenSourcePermissionResponse
+       */
+      Models::UpdateOpenSourcePermissionResponse updateOpenSourcePermission(const Models::UpdateOpenSourcePermissionRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AmqpOpen20191212

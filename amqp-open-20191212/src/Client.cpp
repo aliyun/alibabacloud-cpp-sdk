@@ -492,6 +492,130 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
+ * @summary Creates an open-source username and password.
+ *
+ * @param request CreateOpenSourceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOpenSourceAccountResponse
+ */
+CreateOpenSourceAccountResponse Client::createOpenSourceAccountWithOptions(const CreateOpenSourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOpenSourceAccount"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOpenSourceAccountResponse>();
+}
+
+/**
+ * @summary Creates an open-source username and password.
+ *
+ * @param request CreateOpenSourceAccountRequest
+ * @return CreateOpenSourceAccountResponse
+ */
+CreateOpenSourceAccountResponse Client::createOpenSourceAccount(const CreateOpenSourceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOpenSourceAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an open source permission.
+ *
+ * @param request CreateOpenSourcePermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOpenSourcePermissionResponse
+ */
+CreateOpenSourcePermissionResponse Client::createOpenSourcePermissionWithOptions(const CreateOpenSourcePermissionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConfigure()) {
+    query["Configure"] = request.getConfigure();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRead()) {
+    query["Read"] = request.getRead();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasVhost()) {
+    query["Vhost"] = request.getVhost();
+  }
+
+  if (!!request.hasWrite()) {
+    query["Write"] = request.getWrite();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOpenSourcePermission"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOpenSourcePermissionResponse>();
+}
+
+/**
+ * @summary Creates an open source permission.
+ *
+ * @param request CreateOpenSourcePermissionRequest
+ * @return CreateOpenSourcePermissionResponse
+ */
+CreateOpenSourcePermissionResponse Client::createOpenSourcePermission(const CreateOpenSourcePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOpenSourcePermissionWithOptions(request, runtime);
+}
+
+/**
  * @summary A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
  *
  * @param request CreateQueueRequest
@@ -783,6 +907,102 @@ DeleteExchangeResponse Client::deleteExchangeWithOptions(const DeleteExchangeReq
 DeleteExchangeResponse Client::deleteExchange(const DeleteExchangeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteExchangeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the username and password of an open-source user.
+ *
+ * @param request DeleteOpenSourceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOpenSourceAccountResponse
+ */
+DeleteOpenSourceAccountResponse Client::deleteOpenSourceAccountWithOptions(const DeleteOpenSourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOpenSourceAccount"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOpenSourceAccountResponse>();
+}
+
+/**
+ * @summary Deletes the username and password of an open-source user.
+ *
+ * @param request DeleteOpenSourceAccountRequest
+ * @return DeleteOpenSourceAccountResponse
+ */
+DeleteOpenSourceAccountResponse Client::deleteOpenSourceAccount(const DeleteOpenSourceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOpenSourceAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an open source permission.
+ *
+ * @param request DeleteOpenSourcePermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOpenSourcePermissionResponse
+ */
+DeleteOpenSourcePermissionResponse Client::deleteOpenSourcePermissionWithOptions(const DeleteOpenSourcePermissionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasVhost()) {
+    query["Vhost"] = request.getVhost();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOpenSourcePermission"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOpenSourcePermissionResponse>();
+}
+
+/**
+ * @summary Deletes an open source permission.
+ *
+ * @param request DeleteOpenSourcePermissionRequest
+ * @return DeleteOpenSourcePermissionResponse
+ */
+DeleteOpenSourcePermissionResponse Client::deleteOpenSourcePermission(const DeleteOpenSourcePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOpenSourcePermissionWithOptions(request, runtime);
 }
 
 /**
@@ -1240,6 +1460,110 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
+ * @summary Enumerates open-source usernames and passwords.
+ *
+ * @param request ListOpenSourceAccountsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOpenSourceAccountsResponse
+ */
+ListOpenSourceAccountsResponse Client::listOpenSourceAccountsWithOptions(const ListOpenSourceAccountsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOpenSourceAccounts"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOpenSourceAccountsResponse>();
+}
+
+/**
+ * @summary Enumerates open-source usernames and passwords.
+ *
+ * @param request ListOpenSourceAccountsRequest
+ * @return ListOpenSourceAccountsResponse
+ */
+ListOpenSourceAccountsResponse Client::listOpenSourceAccounts(const ListOpenSourceAccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOpenSourceAccountsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists open source permissions.
+ *
+ * @param request ListOpenSourcePermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOpenSourcePermissionsResponse
+ */
+ListOpenSourcePermissionsResponse Client::listOpenSourcePermissionsWithOptions(const ListOpenSourcePermissionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOpenSourcePermissions"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOpenSourcePermissionsResponse>();
+}
+
+/**
+ * @summary Lists open source permissions.
+ *
+ * @param request ListOpenSourcePermissionsRequest
+ * @return ListOpenSourcePermissionsResponse
+ */
+ListOpenSourcePermissionsResponse Client::listOpenSourcePermissions(const ListOpenSourcePermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOpenSourcePermissionsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the online consumer clients of a specified queue.
  *
  * @description ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
@@ -1598,7 +1922,7 @@ UpdateInstanceNameResponse Client::updateInstanceName(const UpdateInstanceNameRe
 }
 
 /**
- * @summary Updates the elastic scaling switch of a serverless instance.
+ * @summary Update serverless switch
  *
  * @param request UpdateInstanceServerlessSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1637,7 +1961,7 @@ UpdateInstanceServerlessSwitchResponse Client::updateInstanceServerlessSwitchWit
 }
 
 /**
- * @summary Updates the elastic scaling switch of a serverless instance.
+ * @summary Update serverless switch
  *
  * @param request UpdateInstanceServerlessSwitchRequest
  * @return UpdateInstanceServerlessSwitchResponse
@@ -1645,6 +1969,130 @@ UpdateInstanceServerlessSwitchResponse Client::updateInstanceServerlessSwitchWit
 UpdateInstanceServerlessSwitchResponse Client::updateInstanceServerlessSwitch(const UpdateInstanceServerlessSwitchRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateInstanceServerlessSwitchWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the username and password for open-source access.
+ *
+ * @param request UpdateOpenSourceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOpenSourceAccountResponse
+ */
+UpdateOpenSourceAccountResponse Client::updateOpenSourceAccountWithOptions(const UpdateOpenSourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateOpenSourceAccount"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOpenSourceAccountResponse>();
+}
+
+/**
+ * @summary Updates the username and password for open-source access.
+ *
+ * @param request UpdateOpenSourceAccountRequest
+ * @return UpdateOpenSourceAccountResponse
+ */
+UpdateOpenSourceAccountResponse Client::updateOpenSourceAccount(const UpdateOpenSourceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateOpenSourceAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates open source permissions.
+ *
+ * @param request UpdateOpenSourcePermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOpenSourcePermissionResponse
+ */
+UpdateOpenSourcePermissionResponse Client::updateOpenSourcePermissionWithOptions(const UpdateOpenSourcePermissionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConfigure()) {
+    query["Configure"] = request.getConfigure();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRead()) {
+    query["Read"] = request.getRead();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasVhost()) {
+    query["Vhost"] = request.getVhost();
+  }
+
+  if (!!request.hasWrite()) {
+    query["Write"] = request.getWrite();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateOpenSourcePermission"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOpenSourcePermissionResponse>();
+}
+
+/**
+ * @summary Updates open source permissions.
+ *
+ * @param request UpdateOpenSourcePermissionRequest
+ * @return UpdateOpenSourcePermissionResponse
+ */
+UpdateOpenSourcePermissionResponse Client::updateOpenSourcePermission(const UpdateOpenSourcePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateOpenSourcePermissionWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AmqpOpen20191212

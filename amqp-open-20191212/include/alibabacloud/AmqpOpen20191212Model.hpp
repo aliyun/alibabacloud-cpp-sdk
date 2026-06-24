@@ -20,6 +20,12 @@
 #include <alibabacloud/models/CreateInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceResponse.hpp>
+#include <alibabacloud/models/CreateOpenSourceAccountRequest.hpp>
+#include <alibabacloud/models/CreateOpenSourceAccountResponseBody.hpp>
+#include <alibabacloud/models/CreateOpenSourceAccountResponse.hpp>
+#include <alibabacloud/models/CreateOpenSourcePermissionRequest.hpp>
+#include <alibabacloud/models/CreateOpenSourcePermissionResponseBody.hpp>
+#include <alibabacloud/models/CreateOpenSourcePermissionResponse.hpp>
 #include <alibabacloud/models/CreateQueueRequest.hpp>
 #include <alibabacloud/models/CreateQueueResponseBody.hpp>
 #include <alibabacloud/models/CreateQueueResponse.hpp>
@@ -35,6 +41,12 @@
 #include <alibabacloud/models/DeleteExchangeRequest.hpp>
 #include <alibabacloud/models/DeleteExchangeResponseBody.hpp>
 #include <alibabacloud/models/DeleteExchangeResponse.hpp>
+#include <alibabacloud/models/DeleteOpenSourceAccountRequest.hpp>
+#include <alibabacloud/models/DeleteOpenSourceAccountResponseBody.hpp>
+#include <alibabacloud/models/DeleteOpenSourceAccountResponse.hpp>
+#include <alibabacloud/models/DeleteOpenSourcePermissionRequest.hpp>
+#include <alibabacloud/models/DeleteOpenSourcePermissionResponseBody.hpp>
+#include <alibabacloud/models/DeleteOpenSourcePermissionResponse.hpp>
 #include <alibabacloud/models/DeleteQueueRequest.hpp>
 #include <alibabacloud/models/DeleteQueueResponseBody.hpp>
 #include <alibabacloud/models/DeleteQueueResponse.hpp>
@@ -68,6 +80,12 @@
 #include <alibabacloud/models/ListInstancesRequest.hpp>
 #include <alibabacloud/models/ListInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListInstancesResponse.hpp>
+#include <alibabacloud/models/ListOpenSourceAccountsRequest.hpp>
+#include <alibabacloud/models/ListOpenSourceAccountsResponseBody.hpp>
+#include <alibabacloud/models/ListOpenSourceAccountsResponse.hpp>
+#include <alibabacloud/models/ListOpenSourcePermissionsRequest.hpp>
+#include <alibabacloud/models/ListOpenSourcePermissionsResponseBody.hpp>
+#include <alibabacloud/models/ListOpenSourcePermissionsResponse.hpp>
 #include <alibabacloud/models/ListQueueConsumersRequest.hpp>
 #include <alibabacloud/models/ListQueueConsumersResponseBody.hpp>
 #include <alibabacloud/models/ListQueueConsumersResponse.hpp>
@@ -92,5 +110,11 @@
 #include <alibabacloud/models/UpdateInstanceServerlessSwitchRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceServerlessSwitchResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceServerlessSwitchResponse.hpp>
+#include <alibabacloud/models/UpdateOpenSourceAccountRequest.hpp>
+#include <alibabacloud/models/UpdateOpenSourceAccountResponseBody.hpp>
+#include <alibabacloud/models/UpdateOpenSourceAccountResponse.hpp>
+#include <alibabacloud/models/UpdateOpenSourcePermissionRequest.hpp>
+#include <alibabacloud/models/UpdateOpenSourcePermissionResponseBody.hpp>
+#include <alibabacloud/models/UpdateOpenSourcePermissionResponse.hpp>
 
 #endif

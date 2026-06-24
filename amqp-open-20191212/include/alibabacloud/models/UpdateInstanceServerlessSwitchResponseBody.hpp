@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The request result.
+    // The result of the request.
     shared_ptr<bool> success_ {};
   };
 
