@@ -309,6 +309,12 @@
 #include <alibabacloud/models/NotifyAppNotificationForAdminRequest.hpp>
 #include <alibabacloud/models/NotifyAppNotificationForAdminResponseBody.hpp>
 #include <alibabacloud/models/NotifyAppNotificationForAdminResponse.hpp>
+#include <alibabacloud/models/OfflineAppInstanceRequest.hpp>
+#include <alibabacloud/models/OfflineAppInstanceResponseBody.hpp>
+#include <alibabacloud/models/OfflineAppInstanceResponse.hpp>
+#include <alibabacloud/models/OnlineAppInstanceRequest.hpp>
+#include <alibabacloud/models/OnlineAppInstanceResponseBody.hpp>
+#include <alibabacloud/models/OnlineAppInstanceResponse.hpp>
 #include <alibabacloud/models/OperateAppInstanceForPartnerRequest.hpp>
 #include <alibabacloud/models/OperateAppInstanceForPartnerResponseBody.hpp>
 #include <alibabacloud/models/OperateAppInstanceForPartnerResponse.hpp>

@@ -5248,6 +5248,90 @@ NotifyAppNotificationForAdminResponse Client::notifyAppNotificationForAdmin(cons
 }
 
 /**
+ * @summary Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+ *
+ * @param request OfflineAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OfflineAppInstanceResponse
+ */
+OfflineAppInstanceResponse Client::offlineAppInstanceWithOptions(const OfflineAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OfflineAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OfflineAppInstanceResponse>();
+}
+
+/**
+ * @summary Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+ *
+ * @param request OfflineAppInstanceRequest
+ * @return OfflineAppInstanceResponse
+ */
+OfflineAppInstanceResponse Client::offlineAppInstance(const OfflineAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return offlineAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+ *
+ * @param request OnlineAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OnlineAppInstanceResponse
+ */
+OnlineAppInstanceResponse Client::onlineAppInstanceWithOptions(const OnlineAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OnlineAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OnlineAppInstanceResponse>();
+}
+
+/**
+ * @summary Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+ *
+ * @param request OnlineAppInstanceRequest
+ * @return OnlineAppInstanceResponse
+ */
+OnlineAppInstanceResponse Client::onlineAppInstance(const OnlineAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return onlineAppInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Operates an application by a partner.
  *
  * @param request OperateAppInstanceForPartnerRequest
@@ -6861,9 +6945,9 @@ RollbackAppInstancePublishResponse Client::rollbackAppInstancePublish(const Roll
 }
 
 /**
- * @summary Save requirements
+ * @summary Save Requirement
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Get code generation plugin configuration information
  *
  * @param request SaveAppRequirementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6900,9 +6984,9 @@ SaveAppRequirementResponse Client::saveAppRequirementWithOptions(const SaveAppRe
 }
 
 /**
- * @summary Save requirements
+ * @summary Save Requirement
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Get code generation plugin configuration information
  *
  * @param request SaveAppRequirementRequest
  * @return SaveAppRequirementResponse
@@ -7505,9 +7589,9 @@ UpdateAppCodeResponse Client::updateAppCode(const UpdateAppCodeRequest &request)
 }
 
 /**
- * @summary Update file
+ * @summary Updates a file.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateAppFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7546,9 +7630,9 @@ UpdateAppFileResponse Client::updateAppFileWithOptions(const UpdateAppFileReques
 }
 
 /**
- * @summary Update file
+ * @summary Updates a file.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateAppFileRequest
  * @return UpdateAppFileResponse

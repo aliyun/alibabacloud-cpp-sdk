@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SAVEAPPREQUIREMENTRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_SAVEAPPREQUIREMENTRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_ONLINEAPPINSTANCERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_ONLINEAPPINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,41 +11,41 @@ namespace WebsiteBuild20250429
 {
 namespace Models
 {
-  class SaveAppRequirementResponseBody : public Darabonba::Model {
+  class OnlineAppInstanceResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SaveAppRequirementResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const OnlineAppInstanceResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(AllowRetry, allowRetry_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(DynamicCode, dynamicCode_);
       DARABONBA_PTR_TO_JSON(DynamicMessage, dynamicMessage_);
       DARABONBA_PTR_TO_JSON(ErrorArgs, errorArgs_);
-      DARABONBA_PTR_TO_JSON(Module, module_);
+      DARABONBA_ANY_TO_JSON(Module, module_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RootErrorCode, rootErrorCode_);
       DARABONBA_PTR_TO_JSON(RootErrorMsg, rootErrorMsg_);
       DARABONBA_PTR_TO_JSON(Synchro, synchro_);
     };
-    friend void from_json(const Darabonba::Json& j, SaveAppRequirementResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, OnlineAppInstanceResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(AllowRetry, allowRetry_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(DynamicCode, dynamicCode_);
       DARABONBA_PTR_FROM_JSON(DynamicMessage, dynamicMessage_);
       DARABONBA_PTR_FROM_JSON(ErrorArgs, errorArgs_);
-      DARABONBA_PTR_FROM_JSON(Module, module_);
+      DARABONBA_ANY_FROM_JSON(Module, module_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RootErrorCode, rootErrorCode_);
       DARABONBA_PTR_FROM_JSON(RootErrorMsg, rootErrorMsg_);
       DARABONBA_PTR_FROM_JSON(Synchro, synchro_);
     };
-    SaveAppRequirementResponseBody() = default ;
-    SaveAppRequirementResponseBody(const SaveAppRequirementResponseBody &) = default ;
-    SaveAppRequirementResponseBody(SaveAppRequirementResponseBody &&) = default ;
-    SaveAppRequirementResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SaveAppRequirementResponseBody() = default ;
-    SaveAppRequirementResponseBody& operator=(const SaveAppRequirementResponseBody &) = default ;
-    SaveAppRequirementResponseBody& operator=(SaveAppRequirementResponseBody &&) = default ;
+    OnlineAppInstanceResponseBody() = default ;
+    OnlineAppInstanceResponseBody(const OnlineAppInstanceResponseBody &) = default ;
+    OnlineAppInstanceResponseBody(OnlineAppInstanceResponseBody &&) = default ;
+    OnlineAppInstanceResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~OnlineAppInstanceResponseBody() = default ;
+    OnlineAppInstanceResponseBody& operator=(const OnlineAppInstanceResponseBody &) = default ;
+    OnlineAppInstanceResponseBody& operator=(OnlineAppInstanceResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -57,35 +57,35 @@ namespace Models
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
     inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
-    inline SaveAppRequirementResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline OnlineAppInstanceResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // allowRetry Field Functions 
     bool hasAllowRetry() const { return this->allowRetry_ != nullptr;};
     void deleteAllowRetry() { this->allowRetry_ = nullptr;};
     inline bool getAllowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
-    inline SaveAppRequirementResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
+    inline OnlineAppInstanceResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
     inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
-    inline SaveAppRequirementResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+    inline OnlineAppInstanceResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
     inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
-    inline SaveAppRequirementResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
+    inline OnlineAppInstanceResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
     inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
-    inline SaveAppRequirementResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
+    inline OnlineAppInstanceResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errorArgs Field Functions 
@@ -93,68 +93,69 @@ namespace Models
     void deleteErrorArgs() { this->errorArgs_ = nullptr;};
     inline const vector<Darabonba::Json> & getErrorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
     inline vector<Darabonba::Json> getErrorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
-    inline SaveAppRequirementResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
-    inline SaveAppRequirementResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
+    inline OnlineAppInstanceResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
+    inline OnlineAppInstanceResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline bool getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, false) };
-    inline SaveAppRequirementResponseBody& setModule(bool module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline     const Darabonba::Json & getModule() const { DARABONBA_GET(module_) };
+    Darabonba::Json & getModule() { DARABONBA_GET(module_) };
+    inline OnlineAppInstanceResponseBody& setModule(const Darabonba::Json & module) { DARABONBA_SET_VALUE(module_, module) };
+    inline OnlineAppInstanceResponseBody& setModule(Darabonba::Json && module) { DARABONBA_SET_RVALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline SaveAppRequirementResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline OnlineAppInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rootErrorCode Field Functions 
     bool hasRootErrorCode() const { return this->rootErrorCode_ != nullptr;};
     void deleteRootErrorCode() { this->rootErrorCode_ = nullptr;};
     inline string getRootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
-    inline SaveAppRequirementResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
+    inline OnlineAppInstanceResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
 
 
     // rootErrorMsg Field Functions 
     bool hasRootErrorMsg() const { return this->rootErrorMsg_ != nullptr;};
     void deleteRootErrorMsg() { this->rootErrorMsg_ = nullptr;};
     inline string getRootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
-    inline SaveAppRequirementResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
+    inline OnlineAppInstanceResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
 
 
     // synchro Field Functions 
     bool hasSynchro() const { return this->synchro_ != nullptr;};
     void deleteSynchro() { this->synchro_ = nullptr;};
     inline bool getSynchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
-    inline SaveAppRequirementResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
+    inline OnlineAppInstanceResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
 
 
   protected:
-    // Detailed reason for access denial.
+    // The authentication failure details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name, used to query the application with this name
+    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name can be up to 36 characters in length.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // Error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
-    shared_ptr<bool> module_ {};
-    // Id of the request
+    // The application module.
+    Darabonba::Json module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Exception message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

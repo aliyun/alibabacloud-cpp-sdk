@@ -1855,6 +1855,40 @@ namespace WebsiteBuild20250429
       Models::NotifyAppNotificationForAdminResponse notifyAppNotificationForAdmin(const Models::NotifyAppNotificationForAdminRequest &request);
 
       /**
+       * @summary Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+       *
+       * @param request OfflineAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OfflineAppInstanceResponse
+       */
+      Models::OfflineAppInstanceResponse offlineAppInstanceWithOptions(const Models::OfflineAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+       *
+       * @param request OfflineAppInstanceRequest
+       * @return OfflineAppInstanceResponse
+       */
+      Models::OfflineAppInstanceResponse offlineAppInstance(const Models::OfflineAppInstanceRequest &request);
+
+      /**
+       * @summary Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+       *
+       * @param request OnlineAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OnlineAppInstanceResponse
+       */
+      Models::OnlineAppInstanceResponse onlineAppInstanceWithOptions(const Models::OnlineAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+       *
+       * @param request OnlineAppInstanceRequest
+       * @return OnlineAppInstanceResponse
+       */
+      Models::OnlineAppInstanceResponse onlineAppInstance(const Models::OnlineAppInstanceRequest &request);
+
+      /**
        * @summary Operates an application by a partner.
        *
        * @param request OperateAppInstanceForPartnerRequest
@@ -2345,9 +2379,9 @@ namespace WebsiteBuild20250429
       Models::RollbackAppInstancePublishResponse rollbackAppInstancePublish(const Models::RollbackAppInstancePublishRequest &request);
 
       /**
-       * @summary Save requirements
+       * @summary Save Requirement
        *
-       * @description Obtain barcode generation plugin configuration information
+       * @description Get code generation plugin configuration information
        *
        * @param request SaveAppRequirementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2356,9 +2390,9 @@ namespace WebsiteBuild20250429
       Models::SaveAppRequirementResponse saveAppRequirementWithOptions(const Models::SaveAppRequirementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Save requirements
+       * @summary Save Requirement
        *
-       * @description Obtain barcode generation plugin configuration information
+       * @description Get code generation plugin configuration information
        *
        * @param request SaveAppRequirementRequest
        * @return SaveAppRequirementResponse
@@ -2556,9 +2590,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppCodeResponse updateAppCode(const Models::UpdateAppCodeRequest &request);
 
       /**
-       * @summary Update file
+       * @summary Updates a file.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request UpdateAppFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2567,9 +2601,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppFileResponse updateAppFileWithOptions(const Models::UpdateAppFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update file
+       * @summary Updates a file.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request UpdateAppFileRequest
        * @return UpdateAppFileResponse
