@@ -34,6 +34,23 @@ namespace Domain20180208
       Models::AcceptDemandResponse acceptDemand(const Models::AcceptDemandRequest &request);
 
       /**
+       * @summary 买家（接收方）确认接收带价PUSH，触发域名过户转移
+       *
+       * @param request AcceptPushRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AcceptPushResponse
+       */
+      Models::AcceptPushResponse acceptPushWithOptions(const Models::AcceptPushRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 买家（接收方）确认接收带价PUSH，触发域名过户转移
+       *
+       * @param request AcceptPushRequest
+       * @return AcceptPushResponse
+       */
+      Models::AcceptPushResponse acceptPush(const Models::AcceptPushRequest &request);
+
+      /**
        * @summary 闯入接口
        *
        * @param tmpReq BatchIntrudeDomainsRequest
@@ -66,6 +83,23 @@ namespace Domain20180208
        * @return BatchQueryPushStatusResponse
        */
       Models::BatchQueryPushStatusResponse batchQueryPushStatus(const Models::BatchQueryPushStatusRequest &request);
+
+      /**
+       * @summary 买家视角批量查询Push接收状态
+       *
+       * @param tmpReq BatchQueryReceivedPushStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchQueryReceivedPushStatusResponse
+       */
+      Models::BatchQueryReceivedPushStatusResponse batchQueryReceivedPushStatusWithOptions(const Models::BatchQueryReceivedPushStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 买家视角批量查询Push接收状态
+       *
+       * @param request BatchQueryReceivedPushStatusRequest
+       * @return BatchQueryReceivedPushStatusResponse
+       */
+      Models::BatchQueryReceivedPushStatusResponse batchQueryReceivedPushStatus(const Models::BatchQueryReceivedPushStatusRequest &request);
 
       /**
        * @summary 批量撤回带价PUSH
@@ -164,6 +198,23 @@ namespace Domain20180208
        * @return CheckSelectedDomainStatusResponse
        */
       Models::CheckSelectedDomainStatusResponse checkSelectedDomainStatus(const Models::CheckSelectedDomainStatusRequest &request);
+
+      /**
+       * @summary 创建清仓拍订单
+       *
+       * @param request CreateCloseoutOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCloseoutOrderResponse
+       */
+      Models::CreateCloseoutOrderResponse createCloseoutOrderWithOptions(const Models::CreateCloseoutOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建清仓拍订单
+       *
+       * @param request CreateCloseoutOrderRequest
+       * @return CreateCloseoutOrderResponse
+       */
+      Models::CreateCloseoutOrderResponse createCloseoutOrder(const Models::CreateCloseoutOrderRequest &request);
 
       /**
        * @summary 创建一口价需求单
@@ -381,6 +432,40 @@ namespace Domain20180208
       Models::QueryBuyerDomainTradeRecordsResponse queryBuyerDomainTradeRecords(const Models::QueryBuyerDomainTradeRecordsRequest &request);
 
       /**
+       * @summary 查询清仓拍域名信息
+       *
+       * @param request QueryCloseoutDomainInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryCloseoutDomainInfoResponse
+       */
+      Models::QueryCloseoutDomainInfoResponse queryCloseoutDomainInfoWithOptions(const Models::QueryCloseoutDomainInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询清仓拍域名信息
+       *
+       * @param request QueryCloseoutDomainInfoRequest
+       * @return QueryCloseoutDomainInfoResponse
+       */
+      Models::QueryCloseoutDomainInfoResponse queryCloseoutDomainInfo(const Models::QueryCloseoutDomainInfoRequest &request);
+
+      /**
+       * @summary 查询清仓拍域名列表
+       *
+       * @param request QueryCloseoutDomainListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryCloseoutDomainListResponse
+       */
+      Models::QueryCloseoutDomainListResponse queryCloseoutDomainListWithOptions(const Models::QueryCloseoutDomainListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询清仓拍域名列表
+       *
+       * @param request QueryCloseoutDomainListRequest
+       * @return QueryCloseoutDomainListResponse
+       */
+      Models::QueryCloseoutDomainListResponse queryCloseoutDomainList(const Models::QueryCloseoutDomainListRequest &request);
+
+      /**
        * @param request QueryDomainTransferStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDomainTransferStatusResponse
@@ -445,6 +530,23 @@ namespace Domain20180208
       Models::QueryExportDomainExpireSnatchsResponse queryExportDomainExpireSnatchs(const Models::QueryExportDomainExpireSnatchsRequest &request);
 
       /**
+       * @summary 查询当前账号待接收的Push列表（买家视角）
+       *
+       * @param request QueryPendingPushListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPendingPushListResponse
+       */
+      Models::QueryPendingPushListResponse queryPendingPushListWithOptions(const Models::QueryPendingPushListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询当前账号待接收的Push列表（买家视角）
+       *
+       * @param request QueryPendingPushListRequest
+       * @return QueryPendingPushListResponse
+       */
+      Models::QueryPendingPushListResponse queryPendingPushList(const Models::QueryPendingPushListRequest &request);
+
+      /**
        * @param request QueryPurchasedDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryPurchasedDomainsResponse
@@ -482,6 +584,23 @@ namespace Domain20180208
        * @return RefuseDemandResponse
        */
       Models::RefuseDemandResponse refuseDemand(const Models::RefuseDemandRequest &request);
+
+      /**
+       * @summary 买家（接收方）拒绝接收带价PUSH
+       *
+       * @param request RejectPushRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RejectPushResponse
+       */
+      Models::RejectPushResponse rejectPushWithOptions(const Models::RejectPushRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 买家（接收方）拒绝接收带价PUSH
+       *
+       * @param request RejectPushRequest
+       * @return RejectPushResponse
+       */
+      Models::RejectPushResponse rejectPush(const Models::RejectPushRequest &request);
 
       /**
        * @param request RequestPayDemandRequest

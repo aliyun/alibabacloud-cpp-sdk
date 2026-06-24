@@ -239,7 +239,6 @@ namespace Models
 
   protected:
     shared_ptr<QueryBuyerDomainTradeRecordsResponseBody::Module> module_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

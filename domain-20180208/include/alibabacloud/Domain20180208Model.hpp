@@ -5,6 +5,9 @@
 #include <alibabacloud/models/AcceptDemandRequest.hpp>
 #include <alibabacloud/models/AcceptDemandResponseBody.hpp>
 #include <alibabacloud/models/AcceptDemandResponse.hpp>
+#include <alibabacloud/models/AcceptPushRequest.hpp>
+#include <alibabacloud/models/AcceptPushResponseBody.hpp>
+#include <alibabacloud/models/AcceptPushResponse.hpp>
 #include <alibabacloud/models/BatchIntrudeDomainsRequest.hpp>
 #include <alibabacloud/models/BatchIntrudeDomainsShrinkRequest.hpp>
 #include <alibabacloud/models/BatchIntrudeDomainsResponseBody.hpp>
@@ -13,6 +16,10 @@
 #include <alibabacloud/models/BatchQueryPushStatusShrinkRequest.hpp>
 #include <alibabacloud/models/BatchQueryPushStatusResponseBody.hpp>
 #include <alibabacloud/models/BatchQueryPushStatusResponse.hpp>
+#include <alibabacloud/models/BatchQueryReceivedPushStatusRequest.hpp>
+#include <alibabacloud/models/BatchQueryReceivedPushStatusShrinkRequest.hpp>
+#include <alibabacloud/models/BatchQueryReceivedPushStatusResponseBody.hpp>
+#include <alibabacloud/models/BatchQueryReceivedPushStatusResponse.hpp>
 #include <alibabacloud/models/BatchRecallPushRequest.hpp>
 #include <alibabacloud/models/BatchRecallPushShrinkRequest.hpp>
 #include <alibabacloud/models/BatchRecallPushResponseBody.hpp>
@@ -32,6 +39,9 @@
 #include <alibabacloud/models/CheckSelectedDomainStatusRequest.hpp>
 #include <alibabacloud/models/CheckSelectedDomainStatusResponseBody.hpp>
 #include <alibabacloud/models/CheckSelectedDomainStatusResponse.hpp>
+#include <alibabacloud/models/CreateCloseoutOrderRequest.hpp>
+#include <alibabacloud/models/CreateCloseoutOrderResponseBody.hpp>
+#include <alibabacloud/models/CreateCloseoutOrderResponse.hpp>
 #include <alibabacloud/models/CreateFixedPriceDemandOrderRequest.hpp>
 #include <alibabacloud/models/CreateFixedPriceDemandOrderResponseBody.hpp>
 #include <alibabacloud/models/CreateFixedPriceDemandOrderResponse.hpp>
@@ -77,6 +87,12 @@
 #include <alibabacloud/models/QueryBuyerDomainTradeRecordsShrinkRequest.hpp>
 #include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponseBody.hpp>
 #include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponse.hpp>
+#include <alibabacloud/models/QueryCloseoutDomainInfoRequest.hpp>
+#include <alibabacloud/models/QueryCloseoutDomainInfoResponseBody.hpp>
+#include <alibabacloud/models/QueryCloseoutDomainInfoResponse.hpp>
+#include <alibabacloud/models/QueryCloseoutDomainListRequest.hpp>
+#include <alibabacloud/models/QueryCloseoutDomainListResponseBody.hpp>
+#include <alibabacloud/models/QueryCloseoutDomainListResponse.hpp>
 #include <alibabacloud/models/QueryDomainTransferStatusRequest.hpp>
 #include <alibabacloud/models/QueryDomainTransferStatusResponseBody.hpp>
 #include <alibabacloud/models/QueryDomainTransferStatusResponse.hpp>
@@ -90,6 +106,9 @@
 #include <alibabacloud/models/QueryExportDomainExpireSnatchsShrinkRequest.hpp>
 #include <alibabacloud/models/QueryExportDomainExpireSnatchsResponseBody.hpp>
 #include <alibabacloud/models/QueryExportDomainExpireSnatchsResponse.hpp>
+#include <alibabacloud/models/QueryPendingPushListRequest.hpp>
+#include <alibabacloud/models/QueryPendingPushListResponseBody.hpp>
+#include <alibabacloud/models/QueryPendingPushListResponse.hpp>
 #include <alibabacloud/models/QueryPurchasedDomainsRequest.hpp>
 #include <alibabacloud/models/QueryPurchasedDomainsResponseBody.hpp>
 #include <alibabacloud/models/QueryPurchasedDomainsResponse.hpp>
@@ -99,6 +118,9 @@
 #include <alibabacloud/models/RefuseDemandRequest.hpp>
 #include <alibabacloud/models/RefuseDemandResponseBody.hpp>
 #include <alibabacloud/models/RefuseDemandResponse.hpp>
+#include <alibabacloud/models/RejectPushRequest.hpp>
+#include <alibabacloud/models/RejectPushResponseBody.hpp>
+#include <alibabacloud/models/RejectPushResponse.hpp>
 #include <alibabacloud/models/RequestPayDemandRequest.hpp>
 #include <alibabacloud/models/RequestPayDemandResponseBody.hpp>
 #include <alibabacloud/models/RequestPayDemandResponse.hpp>

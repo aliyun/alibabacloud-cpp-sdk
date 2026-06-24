@@ -17,7 +17,11 @@ namespace Domain20180208
 {
 
 AlibabaCloud::Domain20180208::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "central";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-hangzhou" , "domain.aliyuncs.com"},
+    {"ap-southeast-1" , "domain-intl.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("domain", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -75,6 +79,52 @@ AcceptDemandResponse Client::acceptDemandWithOptions(const AcceptDemandRequest &
 AcceptDemandResponse Client::acceptDemand(const AcceptDemandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return acceptDemandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 买家（接收方）确认接收带价PUSH，触发域名过户转移
+ *
+ * @param request AcceptPushRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AcceptPushResponse
+ */
+AcceptPushResponse Client::acceptPushWithOptions(const AcceptPushRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContactTemplateId()) {
+    query["ContactTemplateId"] = request.getContactTemplateId();
+  }
+
+  if (!!request.hasPushNo()) {
+    query["PushNo"] = request.getPushNo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AcceptPush"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AcceptPushResponse>();
+}
+
+/**
+ * @summary 买家（接收方）确认接收带价PUSH，触发域名过户转移
+ *
+ * @param request AcceptPushRequest
+ * @return AcceptPushResponse
+ */
+AcceptPushResponse Client::acceptPush(const AcceptPushRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return acceptPushWithOptions(request, runtime);
 }
 
 /**
@@ -187,6 +237,62 @@ BatchQueryPushStatusResponse Client::batchQueryPushStatusWithOptions(const Batch
 BatchQueryPushStatusResponse Client::batchQueryPushStatus(const BatchQueryPushStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return batchQueryPushStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 买家视角批量查询Push接收状态
+ *
+ * @param tmpReq BatchQueryReceivedPushStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchQueryReceivedPushStatusResponse
+ */
+BatchQueryReceivedPushStatusResponse Client::batchQueryReceivedPushStatusWithOptions(const BatchQueryReceivedPushStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchQueryReceivedPushStatusShrinkRequest request = BatchQueryReceivedPushStatusShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPushNos()) {
+    request.setPushNosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPushNos(), "PushNos", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPushNosShrink()) {
+    query["PushNos"] = request.getPushNosShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchQueryReceivedPushStatus"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchQueryReceivedPushStatusResponse>();
+}
+
+/**
+ * @summary 买家视角批量查询Push接收状态
+ *
+ * @param request BatchQueryReceivedPushStatusRequest
+ * @return BatchQueryReceivedPushStatusResponse
+ */
+BatchQueryReceivedPushStatusResponse Client::batchQueryReceivedPushStatus(const BatchQueryReceivedPushStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchQueryReceivedPushStatusWithOptions(request, runtime);
 }
 
 /**
@@ -445,6 +551,52 @@ CheckSelectedDomainStatusResponse Client::checkSelectedDomainStatusWithOptions(c
 CheckSelectedDomainStatusResponse Client::checkSelectedDomainStatus(const CheckSelectedDomainStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkSelectedDomainStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建清仓拍订单
+ *
+ * @param request CreateCloseoutOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloseoutOrderResponse
+ */
+CreateCloseoutOrderResponse Client::createCloseoutOrderWithOptions(const CreateCloseoutOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContactId()) {
+    query["ContactId"] = request.getContactId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCloseoutOrder"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloseoutOrderResponse>();
+}
+
+/**
+ * @summary 创建清仓拍订单
+ *
+ * @param request CreateCloseoutOrderRequest
+ * @return CreateCloseoutOrderResponse
+ */
+CreateCloseoutOrderResponse Client::createCloseoutOrder(const CreateCloseoutOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCloseoutOrderWithOptions(request, runtime);
 }
 
 /**
@@ -1194,6 +1346,94 @@ QueryBuyerDomainTradeRecordsResponse Client::queryBuyerDomainTradeRecords(const 
 }
 
 /**
+ * @summary 查询清仓拍域名信息
+ *
+ * @param request QueryCloseoutDomainInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryCloseoutDomainInfoResponse
+ */
+QueryCloseoutDomainInfoResponse Client::queryCloseoutDomainInfoWithOptions(const QueryCloseoutDomainInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryCloseoutDomainInfo"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryCloseoutDomainInfoResponse>();
+}
+
+/**
+ * @summary 查询清仓拍域名信息
+ *
+ * @param request QueryCloseoutDomainInfoRequest
+ * @return QueryCloseoutDomainInfoResponse
+ */
+QueryCloseoutDomainInfoResponse Client::queryCloseoutDomainInfo(const QueryCloseoutDomainInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryCloseoutDomainInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询清仓拍域名列表
+ *
+ * @param request QueryCloseoutDomainListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryCloseoutDomainListResponse
+ */
+QueryCloseoutDomainListResponse Client::queryCloseoutDomainListWithOptions(const QueryCloseoutDomainListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentId()) {
+    query["CurrentId"] = request.getCurrentId();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryCloseoutDomainList"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryCloseoutDomainListResponse>();
+}
+
+/**
+ * @summary 查询清仓拍域名列表
+ *
+ * @param request QueryCloseoutDomainListRequest
+ * @return QueryCloseoutDomainListResponse
+ */
+QueryCloseoutDomainListResponse Client::queryCloseoutDomainList(const QueryCloseoutDomainListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryCloseoutDomainListWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryDomainTransferStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryDomainTransferStatusResponse
@@ -1384,6 +1624,60 @@ QueryExportDomainExpireSnatchsResponse Client::queryExportDomainExpireSnatchs(co
 }
 
 /**
+ * @summary 查询当前账号待接收的Push列表（买家视角）
+ *
+ * @param request QueryPendingPushListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryPendingPushListResponse
+ */
+QueryPendingPushListResponse Client::queryPendingPushListWithOptions(const QueryPendingPushListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryPendingPushList"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryPendingPushListResponse>();
+}
+
+/**
+ * @summary 查询当前账号待接收的Push列表（买家视角）
+ *
+ * @param request QueryPendingPushListRequest
+ * @return QueryPendingPushListResponse
+ */
+QueryPendingPushListResponse Client::queryPendingPushList(const QueryPendingPushListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryPendingPushListWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryPurchasedDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryPurchasedDomainsResponse
@@ -1535,6 +1829,48 @@ RefuseDemandResponse Client::refuseDemandWithOptions(const RefuseDemandRequest &
 RefuseDemandResponse Client::refuseDemand(const RefuseDemandRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return refuseDemandWithOptions(request, runtime);
+}
+
+/**
+ * @summary 买家（接收方）拒绝接收带价PUSH
+ *
+ * @param request RejectPushRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RejectPushResponse
+ */
+RejectPushResponse Client::rejectPushWithOptions(const RejectPushRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPushNo()) {
+    query["PushNo"] = request.getPushNo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RejectPush"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RejectPushResponse>();
+}
+
+/**
+ * @summary 买家（接收方）拒绝接收带价PUSH
+ *
+ * @param request RejectPushRequest
+ * @return RejectPushResponse
+ */
+RejectPushResponse Client::rejectPush(const RejectPushRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rejectPushWithOptions(request, runtime);
 }
 
 /**
