@@ -94,11 +94,23 @@ namespace Models
 
 
   protected:
+    // The account ID for which the report is generated.
     shared_ptr<int64_t> accountId_ {};
+    // The governance maturity evaluation score.
     shared_ptr<double> evaluationScore_ {};
+    // The evaluation time.
     shared_ptr<string> evaluationTime_ {};
+    // Indicates whether the report generation is complete.
+    // 
+    // > - true: The report generation is complete.
+    // > - false: The report generation is not complete.
     shared_ptr<string> finished_ {};
+    // The report type. Valid values:
+    // - EvaluationAccountHtmlReport: single-account HTML report.
+    // - EvaluationAccountExcelReport: single-account Excel report.
+    // - EvaluationMultiAccountExcelReport: multi-account Excel report.
     shared_ptr<string> reportType_ {};
+    // The download URL of the report.
     shared_ptr<string> reportUrl_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

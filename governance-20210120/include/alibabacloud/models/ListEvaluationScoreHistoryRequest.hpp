@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListEvaluationScoreHistoryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(EndDate, endDate_);
+      DARABONBA_PTR_TO_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(StartDate, startDate_);
     };
     friend void from_json(const Darabonba::Json& j, ListEvaluationScoreHistoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(EndDate, endDate_);
+      DARABONBA_PTR_FROM_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(StartDate, startDate_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->endDate_ == nullptr && this->regionId_ == nullptr && this->startDate_ == nullptr; };
+        && this->endDate_ == nullptr && this->evaluationDomain_ == nullptr && this->regionId_ == nullptr && this->startDate_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteEndDate() { this->endDate_ = nullptr;};
     inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline ListEvaluationScoreHistoryRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
+
+
+    // evaluationDomain Field Functions 
+    bool hasEvaluationDomain() const { return this->evaluationDomain_ != nullptr;};
+    void deleteEvaluationDomain() { this->evaluationDomain_ = nullptr;};
+    inline string getEvaluationDomain() const { DARABONBA_PTR_GET_DEFAULT(evaluationDomain_, "") };
+    inline ListEvaluationScoreHistoryRequest& setEvaluationDomain(string evaluationDomain) { DARABONBA_PTR_SET_VALUE(evaluationDomain_, evaluationDomain) };
 
 
     // regionId Field Functions 
@@ -66,17 +75,18 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+    // The ID of the member accounts. This parameter is applicable only to the multi-account detection pattern.
     shared_ptr<int64_t> accountId_ {};
-    // The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The end date of the query. Format: YYYY-MM-DD.
     // 
-    // By default, the historical scores that were generated in the seven days before the current date are queried.
+    // By default, the historical scores from the last 7 days are returned.
     shared_ptr<string> endDate_ {};
+    shared_ptr<string> evaluationDomain_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The start date of the query. Format: YYYY-MM-DD.
     // 
-    // You can query the historical scores within the previous 180 days.
+    // You can query records from the last 180 days.
     shared_ptr<string> startDate_ {};
   };
 

@@ -61,9 +61,7 @@ namespace Models
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
-    // 
-    // You do not need to specify this parameter for the first request.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

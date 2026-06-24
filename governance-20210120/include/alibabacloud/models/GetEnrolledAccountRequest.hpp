@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The account ID.
+    // The ID of the account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> accountUid_ {};

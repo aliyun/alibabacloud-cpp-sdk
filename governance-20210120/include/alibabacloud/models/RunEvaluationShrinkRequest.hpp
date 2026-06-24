@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RunEvaluationShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+      DARABONBA_PTR_TO_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_TO_JSON(MetricIds, metricIdsShrink_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Scope, scope_);
     };
     friend void from_json(const Darabonba::Json& j, RunEvaluationShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+      DARABONBA_PTR_FROM_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_FROM_JSON(MetricIds, metricIdsShrink_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Scope, scope_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->metricIdsShrink_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr; };
+        && this->evaluationDomain_ == nullptr && this->metricIdsShrink_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
     inline int64_t getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
     inline RunEvaluationShrinkRequest& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+    // evaluationDomain Field Functions 
+    bool hasEvaluationDomain() const { return this->evaluationDomain_ != nullptr;};
+    void deleteEvaluationDomain() { this->evaluationDomain_ = nullptr;};
+    inline string getEvaluationDomain() const { DARABONBA_PTR_GET_DEFAULT(evaluationDomain_, "") };
+    inline RunEvaluationShrinkRequest& setEvaluationDomain(string evaluationDomain) { DARABONBA_PTR_SET_VALUE(evaluationDomain_, evaluationDomain) };
 
 
     // metricIdsShrink Field Functions 
@@ -66,16 +75,17 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+    // The ID of the member account. This parameter is applicable only to the multi-account check pattern.
     shared_ptr<int64_t> accountId_ {};
-    // The IDs of the check items to be checked.
+    shared_ptr<string> evaluationDomain_ {};
+    // The list of check item IDs to check.
     shared_ptr<string> metricIdsShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The check range of the governance maturity check. Valid values:
+    // The scope of the governance maturity check. Valid values:
     // 
-    // *   Account (default): A single-account governance maturity check is performed to check only the Alibaba Cloud account that you use to access Cloud Governance Center.
-    // *   ResourceDirectory: A multi-account governance maturity check is performed to check all members within a resource directory. Before you perform a multi-account governance maturity check, you must enable the multi-account governance maturity check feature.
+    // - Account (default): runs a single-account governance maturity check that checks only the current account.
+    // - ResourceDirectory: runs a multi-account governance maturity check that checks all member accounts in the resource directory. Before you perform this operation, upgrade to the multi-account governance maturity check.
     shared_ptr<string> scope_ {};
   };
 

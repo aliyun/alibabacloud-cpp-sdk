@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListEvaluationMetricDetailsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(Date, date_);
+      DARABONBA_PTR_TO_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListEvaluationMetricDetailsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(Date, date_);
+      DARABONBA_PTR_FROM_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->date_ == nullptr && this->id_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr
-        && this->scope_ == nullptr && this->snapshotId_ == nullptr; };
+        && this->date_ == nullptr && this->evaluationDomain_ == nullptr && this->id_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->regionId_ == nullptr && this->scope_ == nullptr && this->snapshotId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteDate() { this->date_ = nullptr;};
     inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline ListEvaluationMetricDetailsRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+
+
+    // evaluationDomain Field Functions 
+    bool hasEvaluationDomain() const { return this->evaluationDomain_ != nullptr;};
+    void deleteEvaluationDomain() { this->evaluationDomain_ = nullptr;};
+    inline string getEvaluationDomain() const { DARABONBA_PTR_GET_DEFAULT(evaluationDomain_, "") };
+    inline ListEvaluationMetricDetailsRequest& setEvaluationDomain(string evaluationDomain) { DARABONBA_PTR_SET_VALUE(evaluationDomain_, evaluationDomain) };
 
 
     // id Field Functions 
@@ -103,20 +112,27 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+    // The ID of the member account. This parameter is applicable only to the multi-account check pattern.
     shared_ptr<int64_t> accountId_ {};
+    // The date to query.
     shared_ptr<string> date_ {};
-    // The ID of the check item.
+    shared_ptr<string> evaluationDomain_ {};
+    // The ID of the check item for which you want to retrieve non-compliant resources.
     // 
-    // You can call the [ListEvaluationMetadata](https://help.aliyun.com/document_detail/2841889.html) operation to query the ID of the check item.
+    // You can call the [ListEvaluationMetadata](https://help.aliyun.com/document_detail/2841889.html) operation to obtain the check item ID.
     shared_ptr<string> id_ {};
-    // The maximum number of entries to return for a single request. Default value: 5.
+    // The maximum number of entries to return in a single request. Default value: 5.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The scope of the governance maturity check. Valid values:
+    // 
+    // - Account (default): queries the check item details for the current account.
+    // - ResourceDirectory: queries the check item details for all member accounts in the resource directory. Before using this value, upgrade to multi-account governance maturity check.
     shared_ptr<string> scope_ {};
+    // The check snapshot ID.
     shared_ptr<string> snapshotId_ {};
   };
 

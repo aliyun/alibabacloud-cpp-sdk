@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // The account ID.
+      // The ID of the account.
       shared_ptr<int64_t> accountUid_ {};
-      // The ID of the baseline that is implemented.
+      // The ID of the baseline that is applied.
       shared_ptr<string> baselineId_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
@@ -137,16 +137,21 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The ID of the parent folder.
       shared_ptr<string> folderId_ {};
-      // The ID of the settlement account.
+      // The ID of the billing account.
       shared_ptr<int64_t> payerAccountUid_ {};
-      // The creation status. Valid values:
+      // The enrollment status. Valid values:
       // 
-      // *   Pending: The account is pending to be created.
-      // *   Running: The account is being created.
-      // *   Finished: The account is created.
-      // *   Failed: The account fails to be created.
-      // *   Scheduling: The account is being scheduled.
-      // *   ScheduleFailed: The account fails to be scheduled.
+      // - Pending: The account is waiting to be enrolled.
+      // 
+      // - Running: The account is being enrolled.
+      // 
+      // - Finished: The account is enrolled.
+      // 
+      // - Failed: The account failed to be enrolled.
+      // 
+      // - Scheduling: The account is being scheduled.
+      // 
+      // - ScheduleFailed: The account failed to be scheduled.
       shared_ptr<string> status_ {};
       // The update time.
       shared_ptr<string> updateTime_ {};
@@ -180,7 +185,7 @@ namespace Models
   protected:
     // The enrolled accounts.
     shared_ptr<vector<ListEnrolledAccountsResponseBody::EnrolledAccounts>> enrolledAccounts_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

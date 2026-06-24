@@ -163,7 +163,7 @@ namespace Models
 
 
   protected:
-    // The baseline ID.
+    // The ID of the baseline.
     shared_ptr<string> baselineId_ {};
     // The baseline items.
     shared_ptr<vector<GetAccountFactoryBaselineResponseBody::BaselineItems>> baselineItems_ {};
@@ -177,8 +177,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The type of the baseline. Valid values:
     // 
-    // *   System: default baseline.
-    // *   Custom: custom baseline.
+    // - System: The baseline is a default baseline.
+    // 
+    // - Custom: The baseline is a custom baseline.
     shared_ptr<string> type_ {};
     // The time when the baseline was updated.
     shared_ptr<string> updateTime_ {};

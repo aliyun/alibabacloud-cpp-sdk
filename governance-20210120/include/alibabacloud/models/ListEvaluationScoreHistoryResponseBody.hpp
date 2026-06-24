@@ -89,7 +89,7 @@ namespace Models
 
 
       protected:
-        // The time when the score was generated. The time is in UTC.
+        // The time when the score was generated, in UTC.
         shared_ptr<string> evaluationTime_ {};
         // The score.
         // 
@@ -108,7 +108,7 @@ namespace Models
 
 
     protected:
-      // The historical scores.
+      // The historical detection scores.
       shared_ptr<vector<ScoreHistory::TotalScoreHistory>> totalScoreHistory_ {};
     };
 
@@ -133,7 +133,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The historical scores.
+    // The historical detection scores.
     shared_ptr<ListEvaluationScoreHistoryResponseBody::ScoreHistory> scoreHistory_ {};
   };
 

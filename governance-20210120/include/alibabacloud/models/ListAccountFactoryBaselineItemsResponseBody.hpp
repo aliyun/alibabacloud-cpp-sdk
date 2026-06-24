@@ -156,7 +156,7 @@ namespace Models
 
 
     protected:
-      // The dependency of the baseline item.
+      // The dependencies of the baseline item.
       shared_ptr<vector<BaselineItems::DependsOn>> dependsOn_ {};
       // The description of the baseline item.
       shared_ptr<string> description_ {};

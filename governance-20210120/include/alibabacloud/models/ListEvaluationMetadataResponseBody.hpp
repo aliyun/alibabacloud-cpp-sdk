@@ -156,11 +156,11 @@ namespace Models
 
 
           protected:
-            // The display name of the resource property.
+            // The display name of the property.
             shared_ptr<string> displayName_ {};
-            // The name of the resource property.
+            // The resource property name.
             shared_ptr<string> propertyName_ {};
-            // The type of the resource property.
+            // The resource property type.
             shared_ptr<string> propertyType_ {};
           };
 
@@ -175,7 +175,7 @@ namespace Models
 
 
         protected:
-          // The metadata of the resource properties.
+          // The resource property metadata.
           shared_ptr<vector<ResourceMetadata::ResourcePropertyMetadata>> resourcePropertyMetadata_ {};
         };
 
@@ -304,13 +304,13 @@ namespace Models
 
 
               protected:
-                // The display name of the fixing button.
+                // The display name of the remediation step button.
                 shared_ptr<string> buttonName_ {};
-                // The navigation URL of the fixing button.
+                // The URL that the remediation step button links to.
                 shared_ptr<string> buttonRef_ {};
-                // The fixing procedure.
+                // The content of the remediation step.
                 shared_ptr<string> content_ {};
-                // The title of the fixing procedure.
+                // The title of the remediation step.
                 shared_ptr<string> title_ {};
               };
 
@@ -361,23 +361,23 @@ namespace Models
 
 
             protected:
-              // The fixing method.
+              // The remediation method category.
               // 
-              // >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+              // > This parameter is returned only when `RemediationType` is set to `Analysis`.
               shared_ptr<string> classification_ {};
-              // The fixing cost.
+              // The remediation cost.
               shared_ptr<string> costDescription_ {};
-              // The description of the fixing item.
+              // The remediation description.
               // 
-              // >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+              // > This parameter is returned only when `RemediationType` is set to `Analysis`.
               shared_ptr<string> description_ {};
-              // The content of the fixing items.
+              // The remediation guidance.
               shared_ptr<vector<Actions::Guidance>> guidance_ {};
-              // The usage notes of the fixing item.
+              // The remediation precautions.
               shared_ptr<string> notice_ {};
-              // The fixing suggestion.
+              // The remediation suggestion.
               // 
-              // >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+              // > This parameter is returned only when `RemediationType` is set to `Analysis`.
               shared_ptr<string> suggestion_ {};
             };
 
@@ -400,13 +400,13 @@ namespace Models
 
 
           protected:
-            // The fixing operations.
+            // The remediation actions.
             shared_ptr<vector<Remediation::Actions>> actions_ {};
-            // The type of the fixing method. Valid values:
+            // The remediation type. Valid values:
             // 
-            // *   Manual: manual fixing
-            // *   QuickFix: quick fixing
-            // *   Analysis: auxiliary decision-making
+            // - Manual: Manual remediation.
+            // - QuickFix: Quick fix.
+            // - Analysis: Assisted decision-making.
             shared_ptr<string> remediationType_ {};
           };
 
@@ -421,7 +421,7 @@ namespace Models
 
 
         protected:
-          // The fixing items.
+          // The remediation item.
           shared_ptr<vector<RemediationMetadata::Remediation>> remediation_ {};
         };
 
@@ -503,30 +503,31 @@ namespace Models
 
 
       protected:
-        // The category of the check item.
+        // The pillar to which the evaluation item belongs.
         shared_ptr<string> category_ {};
-        // The description of the check item.
+        // The description of the evaluation item.
         shared_ptr<string> description_ {};
-        // The display name of the check item.
+        // The display name.
         shared_ptr<string> displayName_ {};
-        // The ID of the metadata.
+        // The random ID of the metadata.
         shared_ptr<string> id_ {};
-        // The governance level of the check item.
+        // The recommended governance level of the evaluation item.
         shared_ptr<string> recommendationLevel_ {};
-        // The metadata of the fixing task.
+        // The remediation metadata.
         shared_ptr<Metadata::RemediationMetadata> remediationMetadata_ {};
-        // The metadata of the checked resources.
+        // The resource metadata of the evaluation item.
         shared_ptr<Metadata::ResourceMetadata> resourceMetadata_ {};
-        // The scope of the check item. Valid values:
+        // The scope to which the evaluation item belongs. Valid values:
         // 
-        // *   Account: the check item in a single-account governance maturity check
-        // *   ResourceDirectory: the check item in a multi-account governance maturity check
+        // - Account: single-account evaluation item.
+        // - ResourceDirectory: multi-account evaluation item.
         shared_ptr<string> scope_ {};
-        // The status of the check item. Valid values:
+        // The status of the evaluation item. Valid values:
         // 
-        // *   Released: The check item is released.
-        // *   Beta: The check item is pre-released.
+        // - Released: officially released.
+        // - Beta: pre-release.
         shared_ptr<string> stage_ {};
+        // The governance topic code to which the evaluation item belongs.
         shared_ptr<string> topicCode_ {};
       };
 
@@ -549,11 +550,11 @@ namespace Models
 
 
     protected:
-      // The metadata objects of a specific metadata type.
+      // The list of metadata objects under a specific metadata type.
       shared_ptr<vector<EvaluationMetadata::Metadata>> metadata_ {};
-      // The type of the metadata. Valid values:
+      // The metadata type. Valid values:
       // 
-      // *   Metric: the check item
+      // - Metric: evaluation item.
       shared_ptr<string> type_ {};
     };
 
@@ -576,7 +577,7 @@ namespace Models
 
 
   protected:
-    // The metadata of a governance maturity check.
+    // The governance evaluation definition metadata.
     shared_ptr<vector<ListEvaluationMetadataResponseBody::EvaluationMetadata>> evaluationMetadata_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

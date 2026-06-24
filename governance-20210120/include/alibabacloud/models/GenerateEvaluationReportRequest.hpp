@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GenerateEvaluationReportRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(AccountIds, accountIds_);
+      DARABONBA_PTR_TO_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
     };
     friend void from_json(const Darabonba::Json& j, GenerateEvaluationReportRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(AccountIds, accountIds_);
+      DARABONBA_PTR_FROM_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
     };
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->accountIds_ == nullptr && this->regionId_ == nullptr && this->reportType_ == nullptr; };
+        && this->accountIds_ == nullptr && this->evaluationDomain_ == nullptr && this->regionId_ == nullptr && this->reportType_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -52,6 +54,13 @@ namespace Models
     inline vector<int64_t> getAccountIds() { DARABONBA_PTR_GET(accountIds_, vector<int64_t>) };
     inline GenerateEvaluationReportRequest& setAccountIds(const vector<int64_t> & accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
     inline GenerateEvaluationReportRequest& setAccountIds(vector<int64_t> && accountIds) { DARABONBA_PTR_SET_RVALUE(accountIds_, accountIds) };
+
+
+    // evaluationDomain Field Functions 
+    bool hasEvaluationDomain() const { return this->evaluationDomain_ != nullptr;};
+    void deleteEvaluationDomain() { this->evaluationDomain_ = nullptr;};
+    inline string getEvaluationDomain() const { DARABONBA_PTR_GET_DEFAULT(evaluationDomain_, "") };
+    inline GenerateEvaluationReportRequest& setEvaluationDomain(string evaluationDomain) { DARABONBA_PTR_SET_VALUE(evaluationDomain_, evaluationDomain) };
 
 
     // regionId Field Functions 
@@ -69,10 +78,18 @@ namespace Models
 
 
   protected:
+    // The account ID. If this parameter is not specified, the report is generated for the current account by default. A management account (MA) can pass in a member account ID to generate a report for the member account.
     shared_ptr<int64_t> accountId_ {};
+    // The list of member account IDs for which to generate reports.
+    // Note: This parameter is required only when you generate a multi-account report and want to specify the scope of accounts.
     shared_ptr<vector<int64_t>> accountIds_ {};
+    shared_ptr<string> evaluationDomain_ {};
     // RegionId
     shared_ptr<string> regionId_ {};
+    // The report type. Valid values:
+    // - EvaluationAccountHtmlReport: single-account HTML report.
+    // - EvaluationAccountExcelReport: single-account Excel report.
+    // - EvaluationMultiAccountExcelReport: multi-account Excel report.
     shared_ptr<string> reportType_ {};
   };
 

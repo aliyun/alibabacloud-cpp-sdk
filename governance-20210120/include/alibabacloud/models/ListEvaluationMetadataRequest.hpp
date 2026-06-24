@@ -13,12 +13,14 @@ namespace Models
   class ListEvaluationMetadataRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListEvaluationMetadataRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(LensCode, lensCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(TopicCode, topicCode_);
     };
     friend void from_json(const Darabonba::Json& j, ListEvaluationMetadataRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(LensCode, lensCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->language_ == nullptr
-        && this->lensCode_ == nullptr && this->regionId_ == nullptr && this->topicCode_ == nullptr; };
+    virtual bool empty() const override { return this->evaluationDomain_ == nullptr
+        && this->language_ == nullptr && this->lensCode_ == nullptr && this->regionId_ == nullptr && this->topicCode_ == nullptr; };
+    // evaluationDomain Field Functions 
+    bool hasEvaluationDomain() const { return this->evaluationDomain_ != nullptr;};
+    void deleteEvaluationDomain() { this->evaluationDomain_ = nullptr;};
+    inline string getEvaluationDomain() const { DARABONBA_PTR_GET_DEFAULT(evaluationDomain_, "") };
+    inline ListEvaluationMetadataRequest& setEvaluationDomain(string evaluationDomain) { DARABONBA_PTR_SET_VALUE(evaluationDomain_, evaluationDomain) };
+
+
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
@@ -66,14 +75,22 @@ namespace Models
 
 
   protected:
-    // The language. The information is returned in the specified language. Valid values:
+    shared_ptr<string> evaluationDomain_ {};
+    // The language type. Governance evaluation definitions are returned in this language. Valid values:
     // 
-    // *   en: English
-    // *   zh: Chinese
+    // - en: English.
+    // - zh: Chinese.
     shared_ptr<string> language_ {};
+    // The specialized evaluation code. Valid values:
+    // 
+    // - basic (default): foundation model (governance maturity) evaluation.
+    // - ack: container building specialized evaluation.
+    // - ai: machine learning specialized evaluation.
+    // - nis: network service specialized evaluation.
     shared_ptr<string> lensCode_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The governance topic code.
     shared_ptr<string> topicCode_ {};
   };
 

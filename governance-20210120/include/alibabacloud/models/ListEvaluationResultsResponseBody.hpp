@@ -124,7 +124,7 @@ namespace Models
 
 
         protected:
-          // The number of non-compliant resources.
+          // Number of non-compliant resources.
           shared_ptr<int32_t> nonCompliant_ {};
         };
 
@@ -166,9 +166,9 @@ namespace Models
 
 
         protected:
-          // The error code.
+          // Error code.
           shared_ptr<string> code_ {};
-          // The error message.
+          // Error message.
           shared_ptr<string> message_ {};
         };
 
@@ -200,6 +200,7 @@ namespace Models
 
 
         protected:
+          // Remediation template ID.
           shared_ptr<string> remediationTemplateId_ {};
         };
 
@@ -231,6 +232,7 @@ namespace Models
 
 
         protected:
+          // Number of non-compliant accounts.
           shared_ptr<int32_t> nonCompliant_ {};
         };
 
@@ -316,32 +318,35 @@ namespace Models
 
 
       protected:
+        // Evaluation item account assessment summary.
         shared_ptr<MetricResults::AccountSummary> accountSummary_ {};
+        // List of available remediations.
         shared_ptr<vector<MetricResults::AvailableRemediation>> availableRemediation_ {};
-        // The error information.
+        // Error information.
         // 
-        // >  This parameter is returned only if the value of `Status` is `Failed`.
+        // > This error information is returned when `Status` is `Failed`.
         shared_ptr<MetricResults::ErrorInfo> errorInfo_ {};
-        // The end time of the check item. The time is displayed in UTC.
+        // Individual evaluation item end time (UTC).
         shared_ptr<string> evaluationTime_ {};
-        // The ID of the check item.
+        // Evaluation item ID.
         shared_ptr<string> id_ {};
+        // Potential score increase.
         shared_ptr<double> potentialScoreIncrease_ {};
-        // The checked resources.
+        // Evaluation item resource assessment summary.
         shared_ptr<MetricResults::ResourcesSummary> resourcesSummary_ {};
-        // The rate of the non-compliant resources.
+        // Evaluation item resource compliance rate.
         shared_ptr<double> result_ {};
-        // The risk level. Valid values:
+        // Evaluation risk level. Valid values:
         // 
-        // *   Error: high risk
-        // *   Warning: medium risk
-        // *   None: no risk
+        // - Error: High risk.
+        // - Warning: Medium risk.
+        // - None: No risk.
         shared_ptr<string> risk_ {};
-        // The status of the check item. Valid values:
+        // Individual evaluation item status. Valid values:
         // 
-        // *   Running: The check is in progress.
-        // *   Finished: The check is complete.
-        // *   failed: The check fails.
+        // - Running: Evaluation in progress.
+        // - Finished: Evaluation completed.
+        // - Failed: Evaluation failed.
         shared_ptr<string> status_ {};
       };
 
@@ -378,17 +383,17 @@ namespace Models
 
 
     protected:
-      // The end time of the overall check. The time is displayed in UTC.
+      // Overall evaluation end time (UTC).
       shared_ptr<string> evaluationTime_ {};
-      // The check result.
+      // Evaluation results.
       shared_ptr<vector<Results::MetricResults>> metricResults_ {};
-      // The status of the overall check. Valid values:
+      // Overall evaluation status. Valid values:
       // 
-      // *   Running: The check is in progress.
-      // *   Finished: The check is complete.
-      // *   failed: The check fails.
+      // - Running: Evaluation in progress.
+      // - Finished: Evaluation completed.
+      // - Failed: Evaluation failed.
       shared_ptr<string> status_ {};
-      // The overall score.
+      // Overall score.
       shared_ptr<double> totalScore_ {};
     };
 
@@ -418,11 +423,11 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member.
+    // Member account ID.
     shared_ptr<int64_t> accountId_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The check results, including the status of the overall check and the results of check items.
+    // Evaluation results, including overall evaluation status and sub-item evaluation results.
     shared_ptr<ListEvaluationResultsResponseBody::Results> results_ {};
   };
 

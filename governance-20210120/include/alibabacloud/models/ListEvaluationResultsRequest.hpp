@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListEvaluationResultsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+      DARABONBA_PTR_TO_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_TO_JSON(Filters, filters_);
       DARABONBA_PTR_TO_JSON(LensCode, lensCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListEvaluationResultsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+      DARABONBA_PTR_FROM_JSON(EvaluationDomain, evaluationDomain_);
       DARABONBA_PTR_FROM_JSON(Filters, filters_);
       DARABONBA_PTR_FROM_JSON(LensCode, lensCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -82,24 +84,31 @@ namespace Models
 
 
     protected:
-      // The key of the filter condition. Valid values:
+      // Filter condition key. Valid values:
       // 
-      // *   ResourceId: the resource ID.
-      // *   ResourceName: the name of the resource.
-      // *   ResourceType: the resource type.
+      // - ResourceId: Resource ID.
+      // - ResourceName: Resource name.
+      // - ResourceType: Resource type.
       shared_ptr<string> key_ {};
-      // The list of filter condition values.
+      // List of filter condition values.
       shared_ptr<vector<string>> values_ {};
     };
 
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->filters_ == nullptr && this->lensCode_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr && this->snapshotId_ == nullptr
-        && this->topicCode_ == nullptr; };
+        && this->evaluationDomain_ == nullptr && this->filters_ == nullptr && this->lensCode_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr
+        && this->snapshotId_ == nullptr && this->topicCode_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
     inline int64_t getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
     inline ListEvaluationResultsRequest& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+    // evaluationDomain Field Functions 
+    bool hasEvaluationDomain() const { return this->evaluationDomain_ != nullptr;};
+    void deleteEvaluationDomain() { this->evaluationDomain_ = nullptr;};
+    inline string getEvaluationDomain() const { DARABONBA_PTR_GET_DEFAULT(evaluationDomain_, "") };
+    inline ListEvaluationResultsRequest& setEvaluationDomain(string evaluationDomain) { DARABONBA_PTR_SET_VALUE(evaluationDomain_, evaluationDomain) };
 
 
     // filters Field Functions 
@@ -147,15 +156,28 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+    // Member account ID. This parameter is only applicable to multi-account evaluation mode.
     shared_ptr<int64_t> accountId_ {};
-    // The filter conditions.
+    shared_ptr<string> evaluationDomain_ {};
+    // Filter conditions.
     shared_ptr<vector<ListEvaluationResultsRequest::Filters>> filters_ {};
+    // Special evaluation code. Valid values:
+    // 
+    // - basic (default): Basic model (governance maturity) evaluation.
+    // - ack: Container construction special evaluation.
+    // - ai: Machine learning special evaluation.
+    // - nis: Network service special evaluation.
     shared_ptr<string> lensCode_ {};
-    // The region ID.
+    // Region ID.
     shared_ptr<string> regionId_ {};
+    // Governance maturity evaluation scope. Valid values:
+    // 
+    // - Account (default): Performs single-account governance maturity evaluation, evaluating only the current account.
+    // - ResourceDirectory: Performs multi-account governance maturity evaluation, evaluating all member accounts in the resource directory. Before performing this operation, you must first upgrade to multi-account governance maturity evaluation.
     shared_ptr<string> scope_ {};
+    // Evaluation snapshot ID.
     shared_ptr<string> snapshotId_ {};
+    // Governance topic code.
     shared_ptr<string> topicCode_ {};
   };
 

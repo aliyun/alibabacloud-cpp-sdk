@@ -100,10 +100,13 @@ namespace Models
       shared_ptr<string> name_ {};
       // The status of applying the baseline to the account. Valid values:
       // 
-      // *   Pending: The baseline is pending to be applied to the account.
-      // *   Running: The baseline is being applied to the account.
-      // *   Finished: : The baseline is applied to the account.
-      // *   Failed: : The baseline fails to be applied to the account.
+      // - Pending: The baseline is waiting to be applied to the account.
+      // 
+      // - Running: The baseline is being applied to the account.
+      // 
+      // - Finished: The baseline is applied to the account.
+      // 
+      // - Failed: The baseline failed to be applied to the account.
       shared_ptr<string> status_ {};
     };
 
@@ -242,10 +245,11 @@ namespace Models
         shared_ptr<string> config_ {};
         // The name of the baseline item.
         shared_ptr<string> name_ {};
-        // Indicates whether baseline item is skipped. Valid values:
+        // Indicates whether the baseline item is skipped. Valid values:
         // 
-        // *   false
-        // *   true
+        // - false: The baseline item is not skipped.
+        // 
+        // - true: The baseline item is skipped.
         shared_ptr<bool> skip_ {};
         // The version of the baseline item.
         shared_ptr<string> version_ {};
@@ -310,7 +314,7 @@ namespace Models
     protected:
       // The prefix of the account name.
       shared_ptr<string> accountNamePrefix_ {};
-      // The account ID.
+      // The ID of the account.
       shared_ptr<int64_t> accountUid_ {};
       // The baseline items.
       shared_ptr<vector<Inputs::BaselineItems>> baselineItems_ {};
@@ -318,7 +322,7 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The ID of the parent folder.
       shared_ptr<string> folderId_ {};
-      // The ID of the settlement account.
+      // The ID of the billing account.
       shared_ptr<int64_t> payerAccountUid_ {};
       // The tag.
       shared_ptr<vector<Inputs::Tag>> tag_ {};
@@ -450,10 +454,11 @@ namespace Models
       shared_ptr<string> config_ {};
       // The name of the baseline item.
       shared_ptr<string> name_ {};
-      // Indicates whether baseline item is skipped. Valid values:
+      // Indicates whether the baseline item is skipped. Valid values:
       // 
-      // *   false
-      // *   true
+      // - false: The baseline item is not skipped.
+      // 
+      // - true: The baseline item is skipped.
       shared_ptr<bool> skip_ {};
       // The version of the baseline item.
       shared_ptr<string> version_ {};
@@ -577,11 +582,11 @@ namespace Models
 
 
   protected:
-    // The account ID.
+    // The ID of the account.
     shared_ptr<int64_t> accountUid_ {};
-    // The ID of the baseline that is implemented.
+    // The ID of the baseline that is applied.
     shared_ptr<string> baselineId_ {};
-    // The array that contains baseline items.
+    // The baseline items.
     shared_ptr<vector<GetEnrolledAccountResponseBody::BaselineItems>> baselineItems_ {};
     // The time when the account was created.
     shared_ptr<string> createTime_ {};
@@ -589,33 +594,39 @@ namespace Models
     shared_ptr<string> displayName_ {};
     // The error message.
     // 
-    // >  This parameter is returned if the value of `Status` is `Failed` or `ScheduleFailed`.
+    // > This parameter is returned if the value of `Status` is `Failed` or `ScheduleFailed`.
     shared_ptr<GetEnrolledAccountResponseBody::ErrorInfo> errorInfo_ {};
     // The ID of the parent folder.
     shared_ptr<string> folderId_ {};
     // Indicates whether the initialization is complete. Valid values:
     // 
-    // *   false
-    // *   true
+    // - false: The initialization is not complete.
+    // 
+    // - true: The initialization is complete.
     shared_ptr<bool> initialized_ {};
-    // Input parameters used to create an account.
+    // The input parameters that were specified when the account was enrolled.
     shared_ptr<GetEnrolledAccountResponseBody::Inputs> inputs_ {};
     // The ID of the management account of the resource directory to which the account belongs.
     shared_ptr<int64_t> masterAccountUid_ {};
-    // The ID of the settlement account.
+    // The ID of the billing account.
     shared_ptr<int64_t> payerAccountUid_ {};
-    // The progress of the applying the baseline to the account.
+    // The progress of applying the baseline to the account.
     shared_ptr<vector<GetEnrolledAccountResponseBody::Progress>> progress_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The status of the account. Valid values:
     // 
-    // *   Pending: The account is pending to be created.
-    // *   Running: The account is being created.
-    // *   Finished: The account is created.
-    // *   Failed: The account fails to be created.
-    // *   Scheduling: The account is being scheduled.
-    // *   ScheduleFailed: The account fails to be scheduled.
+    // - Pending: The account is waiting to be enrolled.
+    // 
+    // - Running: The account is being enrolled.
+    // 
+    // - Finished: The account is enrolled.
+    // 
+    // - Failed: The account failed to be enrolled.
+    // 
+    // - Scheduling: The account is being scheduled.
+    // 
+    // - ScheduleFailed: The account failed to be scheduled.
     shared_ptr<string> status_ {};
     // The update time.
     shared_ptr<string> updateTime_ {};

@@ -108,10 +108,11 @@ namespace Models
       shared_ptr<string> config_ {};
       // The name of the baseline item.
       shared_ptr<string> name_ {};
-      // Whether to skip the baseline item. Valid values:
+      // Specifies whether to skip the baseline item. Valid values:
       // 
-      // *   false: The baseline item is not skipped.
-      // *   true: The baseline item is skipped.
+      // - false (default): does not skip the baseline item.
+      // 
+      // - true: skips the baseline item.
       shared_ptr<bool> skip_ {};
       // The version of the baseline item.
       shared_ptr<string> version_ {};
@@ -193,45 +194,49 @@ namespace Models
 
 
   protected:
-    // The prefix for the account name of the member.
+    // The prefix for the account name.
     // 
-    // *   If the account baseline is applied to an account that is newly created, you must configure this parameter.
-    // *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+    // - If you are creating a new resource account, this parameter is required.
+    // 
+    // - If you are enrolling an existing account, this parameter is not required.
     shared_ptr<string> accountNamePrefix_ {};
-    // The account ID.
+    // The ID of the account to enroll.
     // 
-    // *   If the account baseline is applied to an account that is newly created, you do not need to configure this parameter.
-    // *   If the account baseline is applied to an existing account, you must configure this parameter.
+    // - If you are creating a new resource account, this parameter is not required.
+    // 
+    // - If you are enrolling an existing account, this parameter is required.
     shared_ptr<int64_t> accountUid_ {};
-    // The baseline ID.
-    // 
-    // If this parameter is left empty, the default baseline is used.
+    // The ID of the baseline. If you leave this parameter empty, the default baseline is used.
     shared_ptr<string> baselineId_ {};
-    // The array that contains baseline items.
+    // The baseline items.
     // 
-    // If this parameter is specified, the configurations of the baseline items are merged with the baseline applied to the specified account. The configurations of the same baseline items are subject to the configurations of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configurations of the account baseline to the account.
+    // If you specify this parameter, the baseline item configurations are merged with the configurations of the baseline specified by `BaselineId`. For duplicate baseline items, the configurations in this parameter take precedence. We recommend that you leave this parameter empty and use `BaselineId` to apply baseline configurations.
     shared_ptr<vector<EnrollAccountShrinkRequest::BaselineItems>> baselineItems_ {};
     // The display name of the account.
     // 
-    // *   If the account baseline is applied to an account that is newly created, you must configure this parameter.
-    // *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+    // - If you are creating a new resource account, this parameter is required.
+    // 
+    // - If you are enrolling an existing account, this parameter is not required.
     shared_ptr<string> displayName_ {};
     // The ID of the parent folder.
     // 
-    // *   If the account baseline is applied to an account that is newly created, you need to specify a parent folder. If you do not configure this parameter, the account is created in the Root folder.
-    // *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+    // - If you are creating a new resource account and do not specify this parameter, the account is created in the Root folder.
+    // 
+    // - If you are enrolling an existing account, this parameter is not required.
     shared_ptr<string> folderId_ {};
     // The ID of the billing account.
     // 
-    // *   If the account baseline is applied to an account that is newly created, you need to specify a billing account. If you do not configure this parameter, the self-pay settlement method is used for the account.
-    // *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+    // - If you are creating a new resource account and do not specify this parameter, the self-pay settlement method is used.
+    // 
+    // - If you are enrolling an existing account, this parameter is not required.
     shared_ptr<int64_t> payerAccountUid_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The identity type of the member. Valid values:
     // 
-    // *   resell (default): The member is an account for a reseller. A relationship is automatically established between the member and the reseller. The management account of the resource directory must be used as the billing account of the member.
-    // *   non_resell: The member is not an account for a reseller. The member is an account that is not associated with a reseller. You can directly use the account to purchase Alibaba Cloud resources. The member is used as its own billing account.
+    // - resell (default): The member is a reseller account. A reseller relationship is automatically established between the member and the reseller. The management account of the resource directory is used as the billing account of the member.
+    // 
+    // - non_resell: The member is a non-reseller account. The member is not associated with a reseller and can directly purchase Alibaba Cloud resources. The member is used as its own billing account.
     // 
     // > This parameter is available only for resellers at the international site (alibabacloud.com).
     shared_ptr<string> resellAccountType_ {};

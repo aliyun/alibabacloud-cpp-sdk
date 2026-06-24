@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The baseline ID.
+    // The ID of the baseline.
     shared_ptr<string> baselineId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

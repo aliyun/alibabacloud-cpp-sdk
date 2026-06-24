@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
-    // The account ID.
+    // The ID of the enrolled account.
+    // 
+    // colspan="1" rowspan="1">
+    // 
+    // 143165363236\\*\\*\\*\\*
     shared_ptr<int64_t> accountUid_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

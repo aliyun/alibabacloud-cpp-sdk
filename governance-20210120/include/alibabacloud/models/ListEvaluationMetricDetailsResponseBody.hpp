@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // The name of the resource attribute.
+        // The name of the resource property.
         shared_ptr<string> propertyName_ {};
-        // The value of the resource attribute.
+        // The value of the resource property.
         shared_ptr<string> propertyValue_ {};
       };
 
@@ -175,28 +175,27 @@ namespace Models
 
 
     protected:
-      // The compliance status of the resource. Valid values:
-      // 
-      // *   NonCompliant: non-compliant.
-      // *   Excluded: ignored.
-      // *   PendingExclusion: to be ignored.
-      // *   PendingInclusion: to be unignored.
+      // The compliance status. Valid values:
+      // - NonCompliant: non-compliant.
+      // - Excluded: ignored.
+      // - PendingExclusion: ignored but not yet effective.
+      // - PendingInclusion: unignored but not yet effective.
       shared_ptr<string> complianceType_ {};
       // The region ID of the resource.
       shared_ptr<string> regionId_ {};
-      // The check results further analyzed by auxiliary decision-making.
+      // The decision assistance classification.
       // 
-      // >  This parameter is returned only when the check item supports the auxiliary decision-making feature.
+      // > This parameter is returned only for check items that support decision assistance.
       shared_ptr<string> resourceClassification_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The name of the resource.
+      // The resource name.
       shared_ptr<string> resourceName_ {};
-      // The ID of the Alibaba Cloud account that owns the resource.
+      // The Alibaba Cloud account ID to which the resource belongs.
       shared_ptr<int64_t> resourceOwnerId_ {};
-      // The attributes of the resource.
+      // The list of additional resource properties.
       shared_ptr<vector<Resources::ResourceProperties>> resourceProperties_ {};
-      // The type of the resource.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -233,12 +232,13 @@ namespace Models
 
 
   protected:
+    // The date.
     shared_ptr<string> date_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token used to retrieve the next page of data.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the non-compliant resources.
+    // The details of non-compliant resources.
     shared_ptr<vector<ListEvaluationMetricDetailsResponseBody::Resources>> resources_ {};
   };
 

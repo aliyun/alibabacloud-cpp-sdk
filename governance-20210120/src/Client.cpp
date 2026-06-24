@@ -18,6 +18,12 @@ namespace Governance20210120
 
 AlibabaCloud::Governance20210120::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"eu-central-1" , "governance.eu-central-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "governance.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-hangzhou" , "governance.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-1" , "governance.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("governance", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -38,8 +44,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary Applies an account baseline to multiple existing resource accounts at a time.
  *
- * @description You can call this operation to apply an account baseline to existing resource accounts.
- * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
+ * @description Applies an account baseline to multiple existing resource accounts at a time.
+ * Account enrollment is an asynchronous process. After the accounts are enrolled, the account factory baseline is applied to each account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html).
  *
  * @param request BatchEnrollAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -84,8 +90,8 @@ BatchEnrollAccountsResponse Client::batchEnrollAccountsWithOptions(const BatchEn
 /**
  * @summary Applies an account baseline to multiple existing resource accounts at a time.
  *
- * @description You can call this operation to apply an account baseline to existing resource accounts.
- * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
+ * @description Applies an account baseline to multiple existing resource accounts at a time.
+ * Account enrollment is an asynchronous process. After the accounts are enrolled, the account factory baseline is applied to each account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html).
  *
  * @param request BatchEnrollAccountsRequest
  * @return BatchEnrollAccountsResponse
@@ -196,10 +202,10 @@ DeleteAccountFactoryBaselineResponse Client::deleteAccountFactoryBaseline(const 
 }
 
 /**
- * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
+ * @summary Creates a new resource account or enrolls an existing resource account in Account Factory.
  *
- * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
- * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+ * @description Creates a new resource account or enrolls an existing resource account, and applies the account factory baseline to the account.
+ * Account enrollment is an asynchronous process. After an account is created, the account factory baseline is applied to the account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](~~GetEnrolledAccount~~).
  *
  * @param tmpReq EnrollAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -272,10 +278,10 @@ EnrollAccountResponse Client::enrollAccountWithOptions(const EnrollAccountReques
 }
 
 /**
- * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
+ * @summary Creates a new resource account or enrolls an existing resource account in Account Factory.
  *
- * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
- * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+ * @description Creates a new resource account or enrolls an existing resource account, and applies the account factory baseline to the account.
+ * Account enrollment is an asynchronous process. After an account is created, the account factory baseline is applied to the account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](~~GetEnrolledAccount~~).
  *
  * @param request EnrollAccountRequest
  * @return EnrollAccountResponse
@@ -286,7 +292,11 @@ EnrollAccountResponse Client::enrollAccount(const EnrollAccountRequest &request)
 }
 
 /**
- * @summary 生成治理检测报告
+ * @summary Generate Governance Evaluation Report
+ *
+ * @description Generates a governance evaluation report.
+ * > 
+ * > - This is an asynchronous API. You can check the `Finished` field in the response to determine the report generation status.
  *
  * @param tmpReq GenerateEvaluationReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -307,6 +317,10 @@ GenerateEvaluationReportResponse Client::generateEvaluationReportWithOptions(con
 
   if (!!request.hasAccountIdsShrink()) {
     query["AccountIds"] = request.getAccountIdsShrink();
+  }
+
+  if (!!request.hasEvaluationDomain()) {
+    query["EvaluationDomain"] = request.getEvaluationDomain();
   }
 
   if (!!request.hasRegionId()) {
@@ -335,7 +349,11 @@ GenerateEvaluationReportResponse Client::generateEvaluationReportWithOptions(con
 }
 
 /**
- * @summary 生成治理检测报告
+ * @summary Generate Governance Evaluation Report
+ *
+ * @description Generates a governance evaluation report.
+ * > 
+ * > - This is an asynchronous API. You can check the `Finished` field in the response to determine the report generation status.
  *
  * @param request GenerateEvaluationReportRequest
  * @return GenerateEvaluationReportResponse
@@ -600,7 +618,7 @@ ListEnrolledAccountsResponse Client::listEnrolledAccounts(const ListEnrolledAcco
 }
 
 /**
- * @summary Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
+ * @summary Retrieves information about all available governance evaluation items, including names, IDs, descriptions, stages, resource detail metadata, and remediation guidance.
  *
  * @param request ListEvaluationMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -609,6 +627,10 @@ ListEnrolledAccountsResponse Client::listEnrolledAccounts(const ListEnrolledAcco
 ListEvaluationMetadataResponse Client::listEvaluationMetadataWithOptions(const ListEvaluationMetadataRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEvaluationDomain()) {
+    query["EvaluationDomain"] = request.getEvaluationDomain();
+  }
+
   if (!!request.hasLanguage()) {
     query["Language"] = request.getLanguage();
   }
@@ -643,7 +665,7 @@ ListEvaluationMetadataResponse Client::listEvaluationMetadataWithOptions(const L
 }
 
 /**
- * @summary Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
+ * @summary Retrieves information about all available governance evaluation items, including names, IDs, descriptions, stages, resource detail metadata, and remediation guidance.
  *
  * @param request ListEvaluationMetadataRequest
  * @return ListEvaluationMetadataResponse
@@ -654,7 +676,7 @@ ListEvaluationMetadataResponse Client::listEvaluationMetadata(const ListEvaluati
 }
 
 /**
- * @summary Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
+ * @summary Retrieves non-compliant resource information for a specified check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
  *
  * @param request ListEvaluationMetricDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -669,6 +691,10 @@ ListEvaluationMetricDetailsResponse Client::listEvaluationMetricDetailsWithOptio
 
   if (!!request.hasDate()) {
     query["Date"] = request.getDate();
+  }
+
+  if (!!request.hasEvaluationDomain()) {
+    query["EvaluationDomain"] = request.getEvaluationDomain();
   }
 
   if (!!request.hasId()) {
@@ -713,7 +739,7 @@ ListEvaluationMetricDetailsResponse Client::listEvaluationMetricDetailsWithOptio
 }
 
 /**
- * @summary Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
+ * @summary Retrieves non-compliant resource information for a specified check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
  *
  * @param request ListEvaluationMetricDetailsRequest
  * @return ListEvaluationMetricDetailsResponse
@@ -724,7 +750,7 @@ ListEvaluationMetricDetailsResponse Client::listEvaluationMetricDetails(const Li
 }
 
 /**
- * @summary Queries the result and status of a governance check.
+ * @summary Get governance evaluation results and status.
  *
  * @param request ListEvaluationResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -735,6 +761,10 @@ ListEvaluationResultsResponse Client::listEvaluationResultsWithOptions(const Lis
   json query = {};
   if (!!request.hasAccountId()) {
     query["AccountId"] = request.getAccountId();
+  }
+
+  if (!!request.hasEvaluationDomain()) {
+    query["EvaluationDomain"] = request.getEvaluationDomain();
   }
 
   if (!!request.hasFilters()) {
@@ -779,7 +809,7 @@ ListEvaluationResultsResponse Client::listEvaluationResultsWithOptions(const Lis
 }
 
 /**
- * @summary Queries the result and status of a governance check.
+ * @summary Get governance evaluation results and status.
  *
  * @param request ListEvaluationResultsRequest
  * @return ListEvaluationResultsResponse
@@ -790,7 +820,7 @@ ListEvaluationResultsResponse Client::listEvaluationResults(const ListEvaluation
 }
 
 /**
- * @summary Queries the historical scores of a governance maturity check.
+ * @summary Retrieves the historical scores of governance detection.
  *
  * @param request ListEvaluationScoreHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -805,6 +835,10 @@ ListEvaluationScoreHistoryResponse Client::listEvaluationScoreHistoryWithOptions
 
   if (!!request.hasEndDate()) {
     query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasEvaluationDomain()) {
+    query["EvaluationDomain"] = request.getEvaluationDomain();
   }
 
   if (!!request.hasRegionId()) {
@@ -833,7 +867,7 @@ ListEvaluationScoreHistoryResponse Client::listEvaluationScoreHistoryWithOptions
 }
 
 /**
- * @summary Queries the historical scores of a governance maturity check.
+ * @summary Retrieves the historical scores of governance detection.
  *
  * @param request ListEvaluationScoreHistoryRequest
  * @return ListEvaluationScoreHistoryResponse
@@ -844,7 +878,7 @@ ListEvaluationScoreHistoryResponse Client::listEvaluationScoreHistory(const List
 }
 
 /**
- * @summary Performs a governance maturity check.
+ * @summary Runs a Cloud Governance Center governance check.
  *
  * @param tmpReq RunEvaluationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -861,6 +895,10 @@ RunEvaluationResponse Client::runEvaluationWithOptions(const RunEvaluationReques
   json query = {};
   if (!!request.hasAccountId()) {
     query["AccountId"] = request.getAccountId();
+  }
+
+  if (!!request.hasEvaluationDomain()) {
+    query["EvaluationDomain"] = request.getEvaluationDomain();
   }
 
   if (!!request.hasMetricIdsShrink()) {
@@ -893,7 +931,7 @@ RunEvaluationResponse Client::runEvaluationWithOptions(const RunEvaluationReques
 }
 
 /**
- * @summary Performs a governance maturity check.
+ * @summary Runs a Cloud Governance Center governance check.
  *
  * @param request RunEvaluationRequest
  * @return RunEvaluationResponse
