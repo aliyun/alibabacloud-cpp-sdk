@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The agent ID. This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The service returns output starting from this checkpoint.
+    // The backend will return output starting from this checkpoint.
     shared_ptr<string> checkpoint_ {};
-    // The DMS unit. For users on the Alibaba Cloud China site, the default value is cn-hangzhou.
+    // The current DMS unit. Chinese mainland users of Alibaba Cloud should use cn-hangzhou by default.
     shared_ptr<string> DMSUnit_ {};
     // The session ID. This parameter is required.
     shared_ptr<string> sessionId_ {};

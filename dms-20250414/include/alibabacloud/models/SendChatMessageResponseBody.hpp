@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // AgentId
+      // The agent ID.
       shared_ptr<string> agentId_ {};
-      // Message
+      // The message.
       shared_ptr<string> message_ {};
       // The message ID.
       shared_ptr<string> messageId_ {};
-      // SessionId
+      // The session ID.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Success
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

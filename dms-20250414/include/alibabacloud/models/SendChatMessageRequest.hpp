@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SessionConfig, sessionConfig_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(TaskConfig, taskConfig_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, SendChatMessageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SessionConfig, sessionConfig_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(TaskConfig, taskConfig_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     SendChatMessageRequest() = default ;
     SendChatMessageRequest(const SendChatMessageRequest &) = default ;
@@ -120,14 +122,11 @@ namespace Models
 
 
       protected:
-        // The prompt that the report must follow.
+        // The prompt that this report should follow.
         shared_ptr<string> reportPrompt_ {};
-        // The report theme. Valid values: default, journal, legacy, and neobrutalism.
+        // The report theme. Currently supported values: [default, journal, legacy, neobrutalism].
         shared_ptr<string> reportTheme_ {};
-        // The service type. Valid values:
-        // - TextReport: generates a text report.
-        // - WebReport: generates a web report.
-        // Currently only WebReport is supported.
+        // The service type. Valid values: TextReport and WebReport, which indicate whether this task generates a text report or a web report. Currently, only the WebReport type is supported.
         shared_ptr<string> reportType_ {};
       };
 
@@ -142,7 +141,7 @@ namespace Models
 
 
     protected:
-      // The report rule configuration. Only when MessageType is REPORT, a report task is executed based on this configuration.
+      // The report rule configuration. Only when MessageType is REPORT, a report task will be executed based on this configuration.
       shared_ptr<TaskConfig::ReportConfig> reportConfig_ {};
     };
 
@@ -248,18 +247,18 @@ namespace Models
 
 
     protected:
-      // Deprecated. Use the input parameter of CreateAgentSession instead.
+      // Deprecated. The value specified in CreateAgentSession takes precedence.
       shared_ptr<string> customAgentId_ {};
-      // Deprecated. Use the input parameter of CreateAgentSession instead.
+      // Deprecated. The value specified in CreateAgentSession takes precedence.
       shared_ptr<string> customAgentStage_ {};
-      // Currently only Chinese and English are supported. The default value is Chinese. Only uppercase values are supported.
+      // Currently only Chinese and English are supported. The default is Chinese. Only uppercase values are supported.
       shared_ptr<string> language_ {};
-      // The mode. Valid values:
-      //  - **ASK_DATA**: data query mode.
-      //  - **ANALYSIS**: analysis mode.
-      //  - **INSIGHT**: insight mode.
+      // The mode:
+      //  - **ASK_DATA**: Ask Data mode
+      //  - **ANALYSIS**: Analysis mode
+      //  - **INSIGHT**: Insight mode
       shared_ptr<string> mode_ {};
-      // The text of up to 64 characters that is used as a watermark in the generated PDF report.
+      // You can enter text of up to 64 characters, which will be used as a watermark in the generated PDF report.
       shared_ptr<string> reportWaterMark_ {};
       // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
@@ -395,17 +394,15 @@ namespace Models
     protected:
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values:
-      // - remote_data_center: file
-      // - database: database.
+      // The data source type. Valid values: [remote_data_center, database], which indicate whether the current analysis is for a file or a database respectively.
       shared_ptr<string> dataSourceType_ {};
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
-      // The ID of the database in Data Management.
+      // The ID of the database in DMS.
       shared_ptr<string> dmsDatabaseId_ {};
-      // The ID of the instance in Data Management.
+      // The ID of the instance in DMS.
       shared_ptr<string> dmsInstanceId_ {};
       // The database engine type.
       shared_ptr<string> engine_ {};
@@ -543,17 +540,15 @@ namespace Models
     protected:
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values:
-      // - remote_data_center: file
-      // - database: database.
+      // The data source type. Valid values: `[remote_data_center, database]`, which indicate whether the current analysis is for a file or a database respectively.
       shared_ptr<string> dataSourceType_ {};
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
-      // The ID of the database in Data Management.
+      // The ID of the database in DMS.
       shared_ptr<string> dmsDatabaseId_ {};
-      // The ID of the instance in Data Management.
+      // The ID of the instance in DMS.
       shared_ptr<string> dmsInstanceId_ {};
       // The database engine type.
       shared_ptr<string> engine_ {};
@@ -570,7 +565,7 @@ namespace Models
     virtual bool empty() const override { return this->agentId_ == nullptr
         && this->DMSUnit_ == nullptr && this->dataSource_ == nullptr && this->dataSources_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr
         && this->parentSessionId_ == nullptr && this->question_ == nullptr && this->quotedMessage_ == nullptr && this->replyTo_ == nullptr && this->sessionConfig_ == nullptr
-        && this->sessionId_ == nullptr && this->taskConfig_ == nullptr; };
+        && this->sessionId_ == nullptr && this->taskConfig_ == nullptr && this->workspaceId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -670,51 +665,59 @@ namespace Models
     inline SendChatMessageRequest& setTaskConfig(SendChatMessageRequest::TaskConfig && taskConfig) { DARABONBA_PTR_SET_RVALUE(taskConfig_, taskConfig) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline SendChatMessageRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The agent ID. This is a required field. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
+    // The agent ID. This is a required field. You can obtain the current AgentId from the return value of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to pass in each request may change.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can check your current Data Management unit in the Data Management console. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to ap-southeast-1.
+    // The DMS unit you are currently in. If you choose to analyze a database, this information will be used to correctly connect to your DMS instance through DMS. You can go to the DMS console to check your current DMS unit. If you are a China site user of Alibaba Cloud, you can directly enter cn-hangzhou.
     shared_ptr<string> DMSUnit_ {};
-    // The data source information. This parameter can be left empty. This parameter supports only a single data source. Use the DataSources parameter instead.
+    // The data source information. This parameter can be left empty. Only one data source can be passed in through this parameter. We recommend that you use the DataSources parameter instead.
     shared_ptr<SendChatMessageRequest::DataSource> dataSource_ {};
     // The detailed data source information. This parameter can be left empty.
     shared_ptr<vector<SendChatMessageRequest::DataSources>> dataSources_ {};
-    // The message content to send to the Agent in this request.
+    // The content of the message to be sent to the Agent.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The message type. Default value: `[primary]`.  
+    // The message type. Default value: `[primary]`.
     // 
-    // - For regular interactions with the Agent, set the message type to `[primary]`.
+    // - In normal cases, when interacting with the Agent, the message type is `[primary]`.
     // 
-    // - When the message is a response to the Agent\\"s Human-in-Loop question, set the type to `[additional]`.
+    // - When the message is a response to the Agent\\"s Human-in-Loop question, the type should be `[additional]`.
     // 
-    // - When the message is intended to trigger report generation, set the type to `[report]`.
+    // - When the message is intended to trigger a report generation, the type should be `[report]`.
     // 
-    // - When the message is intended to cancel the current session, set the type to `[cancel]`.
+    // - When the message is intended to cancel the current session, the type should be `[cancel]`.
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // This field is required when the message type is `additional`. Specify the specific question that the Agent asks the user through Human-in-Loop.
+    // This field is required when the message type is `additional`. Pass in the specific question that the Agent asked the user through Human-in-Loop.
     shared_ptr<string> question_ {};
-    // The quoted content to pass in. This is typically used during interactions with the Agent.
+    // Pass in the current quoted content, typically used when interacting with the Agent.
     shared_ptr<string> quotedMessage_ {};
     // **Important**
     // 
-    // When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried by that Agent message. If this message is not a targeted reply, such as requesting further in-depth analysis after analysis is complete, leave reply_to empty or set it to "0".  
+    // When this message is a reply to an Agent message (for example, when the Agent asks for clarification through ASK_HUMAN), reply_to must be set to the exact Checkpoint number carried in that Agent message. If this message is not a specific reply, such as requesting the Agent for further in-depth analysis after analysis is completed, reply_to can be left empty or set to "0".
     // 
     // This field affects how the Agent decides to process the message. Passing an incorrect value may lead to analysis results that do not meet expectations.
     shared_ptr<string> replyTo_ {};
-    // The special configuration for this session. For the same session, only the configuration passed with the first SendMessage call takes effect.
+    // The special configuration for this session. For the same session, only the configuration passed in the first SendMessage call takes effect.
     shared_ptr<SendChatMessageRequest::SessionConfig> sessionConfig_ {};
-    // The session ID. This is a required field. You can obtain the SessionId by calling the CreateAgentSession operation.
+    // The session ID. This is a required field. You can obtain the SessionId by calling CreateAgentSession.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // The configuration items that affect only the current task.
+    // The configuration items that only affect the current task.
     shared_ptr<SendChatMessageRequest::TaskConfig> taskConfig_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
