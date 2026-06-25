@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AliCustomizedVoice, aliCustomizedVoice_);
       DARABONBA_PTR_TO_JSON(AppKey, appKey_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
+      DARABONBA_PTR_TO_JSON(ExtParams, extParams_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NlsServiceType, nlsServiceType_);
       DARABONBA_PTR_TO_JSON(PitchRate, pitchRate_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AliCustomizedVoice, aliCustomizedVoice_);
       DARABONBA_PTR_FROM_JSON(AppKey, appKey_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
+      DARABONBA_PTR_FROM_JSON(ExtParams, extParams_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NlsServiceType, nlsServiceType_);
       DARABONBA_PTR_FROM_JSON(PitchRate, pitchRate_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessKey_ == nullptr
-        && this->aliCustomizedVoice_ == nullptr && this->appKey_ == nullptr && this->engine_ == nullptr && this->instanceId_ == nullptr && this->nlsServiceType_ == nullptr
-        && this->pitchRate_ == nullptr && this->scriptId_ == nullptr && this->secretKey_ == nullptr && this->speechRate_ == nullptr && this->text_ == nullptr
-        && this->voice_ == nullptr && this->volume_ == nullptr; };
+        && this->aliCustomizedVoice_ == nullptr && this->appKey_ == nullptr && this->engine_ == nullptr && this->extParams_ == nullptr && this->instanceId_ == nullptr
+        && this->nlsServiceType_ == nullptr && this->pitchRate_ == nullptr && this->scriptId_ == nullptr && this->secretKey_ == nullptr && this->speechRate_ == nullptr
+        && this->text_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
     // accessKey Field Functions 
     bool hasAccessKey() const { return this->accessKey_ != nullptr;};
     void deleteAccessKey() { this->accessKey_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     void deleteEngine() { this->engine_ = nullptr;};
     inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline DescribeTTSDemoRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
+
+
+    // extParams Field Functions 
+    bool hasExtParams() const { return this->extParams_ != nullptr;};
+    void deleteExtParams() { this->extParams_ = nullptr;};
+    inline string getExtParams() const { DARABONBA_PTR_GET_DEFAULT(extParams_, "") };
+    inline DescribeTTSDemoRequest& setExtParams(string extParams) { DARABONBA_PTR_SET_VALUE(extParams_, extParams) };
 
 
     // instanceId Field Functions 
@@ -150,66 +159,68 @@ namespace Models
 
   protected:
     // The AccessKey (AK) for this namespace.
-    // 
-    // > Enter the AK when the engine is xunfei.
+    // > When the engine is set to xunfei, you must enter the AK.
     shared_ptr<string> accessKey_ {};
-    // Alibaba Cloud custom voice ID
+    // Alibaba Cloud customized voice, which is the voice call ID.
     shared_ptr<string> aliCustomizedVoice_ {};
-    // Speech service type
+    // Voice service type.
     // 
-    // - When using **ali** as a custom service, enter the appKey of your Intelligent Speech Interaction project.
+    // - When using **ali** as the custom service, this field stores the appKey of the Intelligent Speech Interaction product project.
     // 
-    // - When using **xunfei** as a custom service, enter its appKey.
+    // - When using **xunfei** as the custom service provider, this field stores the corresponding appKey.
     shared_ptr<string> appKey_ {};
-    // Storage engine. Choose from ali, volc, or xunfei.
+    // Storage engine. Valid values: ali, volc, and xunfei.
     // 
-    // - Enter **ali** when using the default service or Alibaba Cloud as a custom service.
+    // - When using the default service or selecting Alibaba Cloud as the custom service, set this parameter to **ali**.
     // 
-    // - Enter **volc** when using the doubao service.
-    // 
-    // - Enter **xunfei** when using iFLYTEK as a service provider. This option is only available for small-model scenarios.
+    // - When using the Doubao service, set this parameter to **volc**.
+    // - When using xunfei as the service provider, set this parameter to **xunfei**. This value can only be used in small model scenarios.
     shared_ptr<string> engine_ {};
-    // Instance ID
+    shared_ptr<string> extParams_ {};
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Service type
-    // Managed: The default Intelligent Speech Interaction service for Intelligent Outbound Calling (public service).
-    // Authorized: An Intelligent Speech Interaction service you purchased on Alibaba Cloud public cloud (your private service). You can grant authorization by going to Scenario Management > Edit > Call Service > Custom Service.
+    // Service type.
+    // Managed: The default Intelligent Speech Interaction product service of the Outbound Bot product (public service).
+    // Authorized: The Intelligent Speech Interaction product service purchased by the public cloud customer (customer\\"s private service), authorized through Script Management > Edit > Call Service > Custom Service.
     // 
-    // > Set this parameter to Authorized when using Alibaba Cloud\\"s Intelligent Speech Interaction as your custom service provider.
+    // > When using Alibaba Cloud Intelligent Speech Interaction, that is, when using Alibaba Cloud as the custom service provider, set this parameter to Authorized.
     shared_ptr<string> nlsServiceType_ {};
-    // Pitch. An integer between -500 and 500. Default is 0.
+    // Pitch.
+    // An integer between [-500, 500]. Default value: 0.
     // 
-    // A value greater than 0 raises pitch.
+    // A value greater than 0 indicates a higher pitch.
     // 
-    // A value less than 0 lowers pitch.
+    // A value less than 0 indicates a lower pitch.
     shared_ptr<int32_t> pitchRate_ {};
-    // Scenario ID
+    // Script ID.
     shared_ptr<string> scriptId_ {};
-    // The AccessKey secret (SK) for this namespace.
+    // The AccessKey Secret (SK) for this namespace.
     // 
-    // > Enter the SK when the engine is xunfei.
+    // > When the engine is set to xunfei, you must enter the SK.
     shared_ptr<string> secretKey_ {};
-    // Speech rate. An integer between -500 and 500. Default is 0.
+    // Speech rate.
+    // An integer between [-500, 500]. Default value: 0.
     // 
-    // A value greater than 0 increases speech speed.
+    // A value greater than 0 indicates a faster speech rate.
     // 
-    // A value less than 0 decreases speech speed.
+    // A value less than 0 indicates a slower speech rate.
     shared_ptr<int32_t> speechRate_ {};
-    // Text to convert to speech
+    // Text content.
     // 
     // This parameter is required.
     shared_ptr<string> text_ {};
-    // Voice ID. Examples include aixia, siyue, and xiaoyun. For the full list of available voices, see the voice list below.
+    // Voice information, such as aixia, siyue, or xiaoyun. For the complete list of available voices, refer to the voice list below.
     // 
-    // > Cloned voices use dynamic Voice IDs that are generated during voice cloning. Therefore, specific Voice IDs for cloned voices are not listed here. To get a cloned voice’s Voice ID, call ListVoiceClone from the voice cloning page.
+    // > Because the Voice value of a cloned voice is a unique, non-fixed value generated during voice cloning, the specific Voice value cannot be provided at this stage. You must obtain the specific VoiceID from the voice cloning page by calling the ListVoiceClone API.
     shared_ptr<string> voice_ {};
-    // Volume. An integer between 0 and 100. Default is 50.
+    // Volume.
+    // An integer between [0, 100]. Default value: 50.
     // 
-    // A value greater than 50 increases volume.
+    // A value greater than 50 indicates a higher volume.
     // 
-    // A value less than 50 decreases volume.
+    // A value less than 50 indicates a lower volume.
     shared_ptr<int32_t> volume_ {};
   };
 

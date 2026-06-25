@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The status code of the API.
     shared_ptr<string> code_ {};
-    // The public key in PEM format.
+    // The public key.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

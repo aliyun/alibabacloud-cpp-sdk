@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The variable description.
+      // The description.
       shared_ptr<string> description_ {};
-      // The variable display name.
+      // The display name of the variable.
       shared_ptr<string> displayName_ {};
-      // The variable name.
+      // The name of the variable.
       shared_ptr<string> name_ {};
     };
 
@@ -146,13 +146,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The API message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
-    // The script variables.
+    // The list of variables.
     shared_ptr<vector<ListScriptVariablesResponseBody::Variables>> variables_ {};
   };
 

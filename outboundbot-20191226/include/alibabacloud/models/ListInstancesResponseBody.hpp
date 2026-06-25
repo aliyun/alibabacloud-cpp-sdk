@@ -123,9 +123,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -214,25 +214,25 @@ namespace Models
     protected:
       // The time when the instance was created.
       shared_ptr<int64_t> creationTime_ {};
-      // The ID of the user who created the instance.
+      // The ID of the creator.
       shared_ptr<int64_t> creatorId_ {};
-      // The name of the user who created the instance.
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // The description of the Outbound Calling Bot service instance.
+      // The description of the Outbound Bot service instance.
       shared_ptr<string> instanceDescription_ {};
-      // The ID of the service instance.
+      // The service instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the Outbound Calling Bot service instance.
+      // The name of the Outbound Bot service instance.
       shared_ptr<string> instanceName_ {};
-      // Indicates whether the instance is a system-predefined instance.
+      // Indicates whether the instance is a system preset instance.
       shared_ptr<bool> isPreset_ {};
-      // The maximum number of concurrent outbound calls.
+      // The maximum number of concurrent outbound calls allowed.
       shared_ptr<int32_t> maxConcurrentConversation_ {};
       // The name of the Alibaba Cloud account.
       shared_ptr<string> ownerName_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags.
+      // The tag information.
       shared_ptr<vector<Instances::ResourceTags>> resourceTags_ {};
     };
 
@@ -309,7 +309,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // A list of service instances.
+    // The list of service instances.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
     // The response message.
     shared_ptr<string> message_ {};
@@ -317,7 +317,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

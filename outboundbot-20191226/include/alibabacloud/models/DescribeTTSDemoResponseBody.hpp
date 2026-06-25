@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // URL of the preview audio file
+    // URL of the preview audio file.
     shared_ptr<string> auditionUrl_ {};
-    // API status code
+    // API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API message
+    // API response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

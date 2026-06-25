@@ -983,7 +983,7 @@ namespace OutboundBot20191226
       Models::DescribeTTSConfigResponse describeTTSConfig(const Models::DescribeTTSConfigRequest &request);
 
       /**
-       * @summary Preview text-to-speech (TTS) audio.
+       * @summary TTS preview.
        *
        * @param request DescribeTTSDemoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -992,7 +992,7 @@ namespace OutboundBot20191226
       Models::DescribeTTSDemoResponse describeTTSDemoWithOptions(const Models::DescribeTTSDemoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Preview text-to-speech (TTS) audio.
+       * @summary TTS preview.
        *
        * @param request DescribeTTSDemoRequest
        * @return DescribeTTSDemoResponse
@@ -1400,7 +1400,7 @@ namespace OutboundBot20191226
       Models::GetNumberDistrictInfoTemplateDownloadUrlResponse getNumberDistrictInfoTemplateDownloadUrl();
 
       /**
-       * @summary Retrieves the public key for an asymmetric encryption algorithm.
+       * @summary Obtains the public key of the asymmetric encryption algorithm.
        *
        * @param request GetPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1409,7 +1409,7 @@ namespace OutboundBot20191226
       Models::GetPublicKeyResponse getPublicKeyWithOptions(const Models::GetPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the public key for an asymmetric encryption algorithm.
+       * @summary Obtains the public key of the asymmetric encryption algorithm.
        *
        * @param request GetPublicKeyRequest
        * @return GetPublicKeyResponse
@@ -1736,7 +1736,7 @@ namespace OutboundBot20191226
       Models::ListGlobalQuestionsResponse listGlobalQuestions(const Models::ListGlobalQuestionsRequest &request);
 
       /**
-       * @summary Lists Outbound Calling Bot service instances.
+       * @summary Queries the list of Outbound Bot service instances.
        *
        * @param request ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1745,7 +1745,7 @@ namespace OutboundBot20191226
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists Outbound Calling Bot service instances.
+       * @summary Queries the list of Outbound Bot service instances.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -1923,7 +1923,7 @@ namespace OutboundBot20191226
       Models::ListScriptRecordingResponse listScriptRecording(const Models::ListScriptRecordingRequest &request);
 
       /**
-       * @summary Queries the variables used in a script.
+       * @summary Queries the variables that are currently used in a scenario.
        *
        * @param request ListScriptVariablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1932,7 +1932,7 @@ namespace OutboundBot20191226
       Models::ListScriptVariablesResponse listScriptVariablesWithOptions(const Models::ListScriptVariablesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the variables used in a script.
+       * @summary Queries the variables that are currently used in a scenario.
        *
        * @param request ListScriptVariablesRequest
        * @return ListScriptVariablesResponse

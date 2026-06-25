@@ -18,6 +18,9 @@ namespace OutboundBot20191226
 
 AlibabaCloud::OutboundBot20191226::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shanghai" , "outboundbot.cn-shanghai.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("outboundbot", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -3143,7 +3146,7 @@ DescribeTTSConfigResponse Client::describeTTSConfig(const DescribeTTSConfigReque
 }
 
 /**
- * @summary Preview text-to-speech (TTS) audio.
+ * @summary TTS preview.
  *
  * @param request DescribeTTSDemoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3166,6 +3169,10 @@ DescribeTTSDemoResponse Client::describeTTSDemoWithOptions(const DescribeTTSDemo
 
   if (!!request.hasEngine()) {
     query["Engine"] = request.getEngine();
+  }
+
+  if (!!request.hasExtParams()) {
+    query["ExtParams"] = request.getExtParams();
   }
 
   if (!!request.hasInstanceId()) {
@@ -3222,7 +3229,7 @@ DescribeTTSDemoResponse Client::describeTTSDemoWithOptions(const DescribeTTSDemo
 }
 
 /**
- * @summary Preview text-to-speech (TTS) audio.
+ * @summary TTS preview.
  *
  * @param request DescribeTTSDemoRequest
  * @return DescribeTTSDemoResponse
@@ -4377,7 +4384,7 @@ GetNumberDistrictInfoTemplateDownloadUrlResponse Client::getNumberDistrictInfoTe
 }
 
 /**
- * @summary Retrieves the public key for an asymmetric encryption algorithm.
+ * @summary Obtains the public key of the asymmetric encryption algorithm.
  *
  * @param request GetPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4401,7 +4408,7 @@ GetPublicKeyResponse Client::getPublicKeyWithOptions(const GetPublicKeyRequest &
 }
 
 /**
- * @summary Retrieves the public key for an asymmetric encryption algorithm.
+ * @summary Obtains the public key of the asymmetric encryption algorithm.
  *
  * @param request GetPublicKeyRequest
  * @return GetPublicKeyResponse
@@ -5342,7 +5349,7 @@ ListGlobalQuestionsResponse Client::listGlobalQuestions(const ListGlobalQuestion
 }
 
 /**
- * @summary Lists Outbound Calling Bot service instances.
+ * @summary Queries the list of Outbound Bot service instances.
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5389,7 +5396,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Lists Outbound Calling Bot service instances.
+ * @summary Queries the list of Outbound Bot service instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -5976,7 +5983,7 @@ ListScriptRecordingResponse Client::listScriptRecording(const ListScriptRecordin
 }
 
 /**
- * @summary Queries the variables used in a script.
+ * @summary Queries the variables that are currently used in a scenario.
  *
  * @param request ListScriptVariablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6015,7 +6022,7 @@ ListScriptVariablesResponse Client::listScriptVariablesWithOptions(const ListScr
 }
 
 /**
- * @summary Queries the variables used in a script.
+ * @summary Queries the variables that are currently used in a scenario.
  *
  * @param request ListScriptVariablesRequest
  * @return ListScriptVariablesResponse
