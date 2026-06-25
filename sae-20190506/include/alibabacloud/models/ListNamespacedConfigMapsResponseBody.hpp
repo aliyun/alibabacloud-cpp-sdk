@@ -132,9 +132,9 @@ namespace Models
 
 
         protected:
-          // The ID of the application.
+          // The application ID.
           shared_ptr<string> appId_ {};
-          // The name of the application.
+          // The application name.
           shared_ptr<string> appName_ {};
         };
 
@@ -204,23 +204,21 @@ namespace Models
       protected:
         // The ID of the ConfigMap instance.
         shared_ptr<int64_t> configMapId_ {};
-        // The time when the instance was created.
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
-        // The data of ConfigMap key-value pairs. Format:
+        // The key-value pairs of the ConfigMap instance.
         // 
-        // {"k1":"v1", "k2":"v2"}
-        // 
-        // k specifies a key and v specifies a value. For more information, see [Manage and use configurations](https://help.aliyun.com/document_detail/171326.html).
+        // For more information about the ConfigMap, see [Manage and use configuration items](https://help.aliyun.com/document_detail/171326.html).
         Darabonba::Json data_ {};
         // The description of the instance.
         shared_ptr<string> description_ {};
-        // The name of the ConfigMap instance.
+        // The name of the instance.
         shared_ptr<string> name_ {};
-        // The ID of the namespace.
+        // The namespace ID.
         shared_ptr<string> namespaceId_ {};
-        // The application that is associated with the instance.
+        // The associated applications.
         shared_ptr<vector<ConfigMaps::RelateApps>> relateApps_ {};
-        // The time when the instance was last modified.
+        // The last update time.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -235,7 +233,7 @@ namespace Models
 
 
     protected:
-      // The ConfigMap instances.
+      // The list of ConfigMap instances.
       shared_ptr<vector<Data::ConfigMaps>> configMaps_ {};
     };
 
@@ -296,31 +294,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: indicates that the call was successful.
-    // *   **3xx**: indicates that the call was redirected.
-    // *   **4xx**: indicates that the call failed.
-    // *   **5xx**: indicates that a server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The data returned by the request.
     shared_ptr<ListNamespacedConfigMapsResponseBody::Data> data_ {};
-    // The returned error code. Valid values:
+    // The error code.
     // 
-    // - If the call is successful, the **ErrorCode** parameter is not returned.
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // -
+    // 
+    // - This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned information. Valid values:
+    // The response message. Valid values:
     // 
-    // *   If the call is successful, **success** is returned.
-    // *   If the call fails, an error code is returned.
+    // - Returns **success** if the request is successful.
+    // 
+    // - Returns an error message if the request fails.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the ConfigMap instances were obtained. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The instances were obtained.
-    // *   **false**: The instances failed to be obtained.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID. You can use this ID to trace the request.
     shared_ptr<string> traceId_ {};
   };
 

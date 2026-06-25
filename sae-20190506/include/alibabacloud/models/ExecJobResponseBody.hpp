@@ -97,24 +97,29 @@ namespace Models
 
 
     protected:
-      // The HTTP status code. Valid values: 
+      // The HTTP status code or a POP error code.
       // 
-      // *   **2xx**: The call was successful.
-      // *   **3xx**: The call was redirected.
-      // *   **4xx**: The call failed.
-      // *   **5xx**: A server error occurred.
+      // - **2xx**: Success.
+      // 
+      // - **3xx**: Redirection.
+      // 
+      // - **4xx**: Request error.
+      // 
+      // - **5xx**: Server error.
       shared_ptr<string> code_ {};
       // The job ID.
       shared_ptr<string> data_ {};
-      // The returned message. Valid values:
+      // The returned message.
       // 
-      // - success: If the call is successful, **success** is returned.
-      // - An error code: If the call fails, an error code is returned.
+      // - If the request is successful, **success** is returned.
+      // 
+      // - If the request fails, an error code is returned.
       shared_ptr<string> msg_ {};
-      // Indicates whether the request was successful. Valid values:
+      // Whether the job was successfully executed.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The execution was successful.
+      // 
+      // - **false**: The execution failed.
       shared_ptr<string> success_ {};
     };
 
@@ -173,33 +178,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values: 
+    // The HTTP status code or a POP error code.
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Request error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ExecJobResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - This parameter is omitted for successful requests.
+    // 
+    // - This parameter is included for failed requests. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The returned message.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. This parameter is used to query the exact call information.
+    // The trace ID for retrieving detailed information about the call.
     shared_ptr<string> traceId_ {};
   };
 

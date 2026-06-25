@@ -140,10 +140,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The call was successful.
+    // 
+    // - **3xx**: The call was redirected.
+    // 
+    // - **4xx**: The call failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<bool> success_ {};
     // The returned message.
     shared_ptr<string> traceId_ {};

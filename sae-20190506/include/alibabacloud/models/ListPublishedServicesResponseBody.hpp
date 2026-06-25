@@ -130,19 +130,19 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The reserved parameter. This parameter does not take effect.
+      // A reserved field.
       shared_ptr<string> group2Ip_ {};
-      // The service group that corresponds to the consumed service.
+      // The groups to which the service belongs.
       shared_ptr<vector<string>> groups_ {};
-      // The addresses where services can be subscribed to.
+      // The service subscription addresses.
       shared_ptr<vector<string>> ips_ {};
-      // The name of the published service.
+      // The published service name.
       shared_ptr<string> name_ {};
-      // The type of the published service.
+      // The published service type.
       shared_ptr<string> type_ {};
-      // The version of the published services.
+      // The published service version.
       shared_ptr<string> version_ {};
     };
 
@@ -203,31 +203,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A client error occurs.
+    // 
+    // - **5xx**: A server error occurs.
     shared_ptr<string> code_ {};
-    // The details of the microservices.
+    // The list of published microservices.
     shared_ptr<vector<ListPublishedServicesResponseBody::Data>> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - For more information about error codes, see the **Error codes** section.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The returned message.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - Returns **success** if the request is successful.
+    // 
+    // - Returns an error code if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the list of microservices was queried. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The list was queried.
-    // *   **false**: The list failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID for querying call details.
     shared_ptr<string> traceId_ {};
   };
 

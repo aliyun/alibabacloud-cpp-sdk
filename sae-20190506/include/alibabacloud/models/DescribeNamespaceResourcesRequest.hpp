@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the namespace. The region ID is not included. We recommend that you use this parameter.
     shared_ptr<string> nameSpaceShortId_ {};
-    // cn-shanghai:test
+    // The ID of the namespace. The format is `Region ID:Namespace name`. This parameter is retained for backward compatibility. If you specify this parameter, `NameSpaceShortId` is ignored. We recommend that you use `NameSpaceShortId` to simplify the request.
     shared_ptr<string> namespaceId_ {};
   };
 

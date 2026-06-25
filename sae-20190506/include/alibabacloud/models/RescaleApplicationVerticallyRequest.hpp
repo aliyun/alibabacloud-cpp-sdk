@@ -121,28 +121,28 @@ namespace Models
 
 
   protected:
-    // The app ID.
+    // The ID of the application.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // Target CPU specification. Unit: millicore.
+    // The CPU specifications, in millicores.
     // 
     // This parameter is required.
     shared_ptr<string> cpu_ {};
     shared_ptr<bool> deploy_ {};
-    // The disk size. Unit: GB.
+    // The disk size for each node, in GB.
     shared_ptr<string> diskSize_ {};
-    // Target memory specification. Unit: MB.
+    // The memory size, in MB.
     // 
     // This parameter is required.
     shared_ptr<string> memory_ {};
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> vSwitchId_ {};
-    // Enable application scale rules automatically.
+    // Specifies whether to automatically enable the auto scaling rule.
     shared_ptr<bool> autoEnableApplicationScalingRule_ {};
-    // The ratio of minimum ready instances.
+    // The minimum percentage of ready instances.
     shared_ptr<int32_t> minReadyInstanceRatio_ {};
-    // Minimum ready instances.
+    // The minimum number of ready instances.
     shared_ptr<int32_t> minReadyInstances_ {};
   };
 

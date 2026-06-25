@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The ID of the application that is created.
+      // The ID of the successfully created application.
       shared_ptr<string> appId_ {};
-      // The ID of the change order. It can be used to query the task status.
+      // The returned release order ID, used to query the task execution status.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -140,33 +140,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status or POP error code. Valid values:
     // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Request error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<CreateApplicationResponseBody::Data> data_ {};
     // The error code. Valid values:
     // 
-    // *   The **ErrorCode** parameter is not returned when the request succeeds.
-    // *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // 
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // Additional information. Valid values:
     // 
-    // *   If the request was successful, a success message is returned.
-    // *   If the request failed, an error code is returned.
+    // - If the request is normal, **success** is returned.
+    // 
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application is created. Valid values:
+    // Whether the application is created successfully. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Created successfully.
+    // 
+    // - **false**: Failed to create.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. It is used to query the details of a request.
+    // The trace ID, used for term query of call information.
     shared_ptr<string> traceId_ {};
   };
 

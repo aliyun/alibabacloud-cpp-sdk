@@ -69,10 +69,7 @@ namespace Models
 
 
     protected:
-      // The returned error code. Valid values:
-      // 
-      // *   If the call is successful, the **ErrorCode** parameter is not returned.
-      // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+      // The ID of the ConfigMap instance.
       shared_ptr<string> configMapId_ {};
     };
 
@@ -131,26 +128,35 @@ namespace Models
 
 
   protected:
-    // Indicates whether the ConfigMap instance was updated. Valid values:
+    // The HTTP status code or the POP error code.
     // 
-    // *   **true**: The instance was updated.
-    // *   **false**: The instance failed to be updated.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The ID of the ConfigMap instance.
-    shared_ptr<UpdateConfigMapResponseBody::Data> data_ {};
-    // The HTTP status code. Valid values:
-    // 
-    // *   **2xx:**: indicates that the call was successful.
-    // *   **3xx**: indicates that the call was redirected.
-    // *   **4xx**: indicates that the call failed.
-    // *   **5xx**: indicates that a server error occurred.
-    shared_ptr<string> errorCode_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
-    shared_ptr<string> message_ {};
-    // The returned information.
-    shared_ptr<string> requestId_ {};
-    shared_ptr<bool> success_ {};
     // The returned result.
+    shared_ptr<UpdateConfigMapResponseBody::Data> data_ {};
+    // The error code.
+    // 
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    shared_ptr<string> errorCode_ {};
+    // Additional information about the call.
+    shared_ptr<string> message_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the ConfigMap instance was updated.
+    // 
+    // - **true**: The instance was updated.
+    // 
+    // - **false**: The instance failed to be updated.
+    shared_ptr<bool> success_ {};
+    // The trace ID that is used to query the details of the call.
     shared_ptr<string> traceId_ {};
   };
 

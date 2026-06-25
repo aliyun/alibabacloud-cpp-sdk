@@ -201,12 +201,15 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Client error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // Additional information about the response.
     shared_ptr<string> message_ {};
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.

@@ -66,13 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of an application.
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of a namespace.
+    // The namespace ID.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
   };
 

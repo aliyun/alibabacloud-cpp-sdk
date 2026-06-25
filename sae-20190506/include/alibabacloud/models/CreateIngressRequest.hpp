@@ -241,88 +241,109 @@ namespace Models
 
 
   protected:
-    // -
+    // The address type. Valid values:
+    // 
+    // - `Internet`: A public address.
+    // 
+    // - `Intranet`: A private address.
     shared_ptr<string> addressType_ {};
-    // The ID of the **CLB** certificate. Valid values:
+    // The ID of the **CLB** certificate.
     // 
-    // *   If you set **LoadBalanceType** to **clb**, you can use CertId to configure a certificate for the HTTPS listener.
+    // - If `LoadBalanceType` is set to `clb`, use this parameter to configure the HTTPS listener certificate.
     // 
-    // For more information about how to use SSL certificate IDs for CLB, see [Manage certificates (CLB)](https://help.aliyun.com/document_detail/90792.html).
+    // For more information about how to use SSL certificate IDs for CLB, see [Manage Certificates (CLB)](https://help.aliyun.com/document_detail/90792.html).
     shared_ptr<string> certId_ {};
-    // The ID of the multi-certificate **ALB**. Valid values:
+    // The IDs of the **ALB** certificates.
     // 
-    // *   If the **LoadBalanceType** is **alb**, use this field to configure multiple certificates for HTTPS listeners. Separate multiple certificate IDs with commas (,).
-    // *   The ID of the SSL certificate used by ALB must be obtained from the digital certificate product. For example, in the configuration `756***-cn-hangzhou`, the `756***` is the certificate ID obtained from the product page, and the `-cn-hangzhou` is a fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
+    // - If `LoadBalanceType` is set to `alb`, use this parameter to configure multiple certificates for the HTTPS listener. Separate multiple certificate IDs with a comma (,).
+    // 
+    // - Obtain the SSL certificate ID for an ALB instance from the digital certificate service. For example, if you configure `756***-cn-hangzhou`, `756***` is the certificate ID obtained from the product page and `-cn-hangzhou` is a fixed suffix. For more information, see [Manage Certificates (ALB)](https://help.aliyun.com/document_detail/209076.html).
     shared_ptr<string> certIds_ {};
-    // -
+    // Specifies the Cross-Origin Resource Sharing (CORS) configuration.
     shared_ptr<string> corsConfig_ {};
-    // The default forwarding rule. Forwards traffic to a specified application through a specified port based on the IP address. The following table describes the parameters.
+    // The default forwarding rule. Requests that do not match any forwarding rule in the `Rules` parameter are forwarded to the application specified in this rule. The value is a JSON string with the following parameters:
     // 
-    // *   **appId**: the ID of the application.
-    // *   **containerPort**: The port of the application instance.
+    // - `appId`: The ID of the application.
     // 
-    // >  All requests that do not match or satisfy **Rules** forwarding rules are forwarded to the specified application.
+    // - `containerPort`: The port of the application instance.
+    // 
+    // > This rule serves as a catch-all for traffic that is not handled by other specific forwarding rules.
     // 
     // This parameter is required.
     shared_ptr<string> defaultRule_ {};
     // The name of the routing rule.
     shared_ptr<string> description_ {};
-    // -
+    // Specifies whether to enable Gzip for data compression.
     shared_ptr<bool> enableGzip_ {};
-    // -
+    // Specifies whether to use the `X-Forwarded-For` header to retrieve the IP address of the client.
     shared_ptr<bool> enableXForwardedFor_ {};
-    // -
+    // Specifies whether to use the `X-Forwarded-Port` header to retrieve the source port of the client.
     shared_ptr<bool> enableXForwardedForClientSrcPort_ {};
-    // -
+    // Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol of the load balancer instance.
     shared_ptr<bool> enableXForwardedForProto_ {};
-    // -
+    // Specifies whether to use the `SLB-ID` header to retrieve the ID of the load balancer instance.
     shared_ptr<bool> enableXForwardedForSlbId_ {};
-    // -
+    // Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the load balancer instance.
     shared_ptr<bool> enableXForwardedForSlbPort_ {};
-    // Specifies the connection idle timeout period. Unit: seconds. Valid values: 1 to 60. If there is no access request within the timeout period, the SLB will temporarily interrupt the current connection until the next request comes to re-establish a new connection.
+    // The connection idle timeout, in seconds. Valid values: 1 to 60. If no request is received within the timeout period, the load balancer temporarily closes the connection. The connection is re-established when the next request is received.
     shared_ptr<int32_t> idleTimeout_ {};
-    // The SLB listening port. This port cannot be occupied.
+    // The listener port for the SLB instance. This port must be available.
     // 
     // This parameter is required.
     shared_ptr<int32_t> listenerPort_ {};
     // The request forwarding protocol. Valid values:
     // 
-    // *   **HTTP**: suitable for applications that need to identify data content.
-    // *   **HTTPS**: suitable for applications that require encrypted transmission.
-    shared_ptr<string> listenerProtocol_ {};
-    // SLB the type of the SLB instance. It depends on the type that you entered when you created the routing rule and cannot be changed when you update it. Valid values:
+    // - `HTTP`: for applications that do not require encryption.
     // 
-    // *   **clb**: traditional SLB CLB (formerly SLB).
-    // *   **alb**: Applied SLB ALB.
+    // - `HTTPS`: suitable for applications that require encrypted data transmission.
+    shared_ptr<string> listenerProtocol_ {};
+    // The type of the Server Load Balancer (SLB) instance. This parameter cannot be changed after the routing rule is created. Valid values:
+    // 
+    // - `clb`: Classic Load Balancer (CLB), formerly known as SLB.
+    // 
+    // - `alb`: Application Load Balancer (ALB).
     shared_ptr<string> loadBalanceType_ {};
-    // -
+    // The edition of the Application Load Balancer (ALB) instance. Different editions have different features and billing policies. Valid values:
+    // 
+    // - `Standard`: Standard edition.
+    // 
+    // - `StandardWithWaf`: WAF-enhanced edition.
     shared_ptr<string> loadBalancerEdition_ {};
-    // The ID of the namespace where the application resides. Currently, cross-namespace applications are not supported.
+    // The ID of the namespace where the application is located. Cross-namespace applications are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
-    // Specifies the request timeout period. Unit: seconds. Valid values: 1 to 180. If the backend server does not respond within the timeout period, the SLB abandons the wait and returns an HTTP 504 error code to the client.
+    // The request timeout, in seconds. Valid values: 1 to 180. If a backend server does not respond within the timeout period, the load balancer stops waiting and returns an HTTP 504 error to the client.
     shared_ptr<int32_t> requestTimeout_ {};
-    // The forwarding rule. Forwards traffic to a specified application through a specified port based on the domain name and request path. The following table describes the parameters.
+    // The forwarding rules. These rules route traffic to a specified application based on the domain name and path. The value is a JSON string. Each rule contains the following parameters:
     // 
-    // *   **appId**: the ID of the application.
-    // *   **containerPort**: The port of the application instance.
-    // *   **domain**: the domain name.
-    // *   **path**: the request path.
-    // *   **backendProtocol**: The backend service protocol. Valid values: http, https, and grpc. Default value: http.
-    // *   **rewritePath**: Rewrite the path.
+    // - `appId`: The ID of the application.
     // 
-    // >  Only ALB allows you to set the RewritePath feature. CLB does not support this feature.
+    // - `containerPort`: The port of the application instance.
+    // 
+    // - `domain`: The domain name.
+    // 
+    // - `path`: The request path.
+    // 
+    // - `backendProtocol`: The protocol used by backend servers. Valid values: `http`, `https`, and `grpc`. Default value: `http`.
+    // 
+    // - `rewritePath`: The rewritten path.
+    // 
+    // > Only ALB supports path rewriting (`RewritePath`). CLB does not support this feature.
     // 
     // This parameter is required.
     shared_ptr<string> rules_ {};
     // The ID of the security policy instance.
     shared_ptr<string> securityPolicyId_ {};
-    // The Server Load Balancer (SLB) instance that is used by the routing rule.
+    // The ID of the Server Load Balancer (SLB) instance associated with the routing rule.
     // 
-    // >  SLB SLB instances include CLB instances and ALB instances.
+    // > Server Load Balancer (SLB) includes Classic Load Balancer (CLB) and Application Load Balancer (ALB) instances.
     shared_ptr<string> slbId_ {};
-    // -
+    // A JSON string that contains the mappings between availability zones and VSwitches. If the current region supports two or more availability zones, you must specify at least two. A ZoneMapping consists of the following parameters:
+    // 
+    // - `VSwitchId`: a string that specifies the ID of the VSwitch that corresponds to the availability zone. Each availability zone can have only one VSwitch and one subnet.
+    // 
+    // - `ZoneId`: a string that specifies the ID of the availability zone for the load balancer instance.
     shared_ptr<string> zoneMappings_ {};
   };
 

@@ -195,43 +195,49 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The app ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The name of the app.
       shared_ptr<string> appName_ {};
-      // The number of instances of the microservice.
+      // The number of instances of the service.
       shared_ptr<string> instanceCount_ {};
-      // The ID of the namespace to which the application belongs.
+      // The ID of the namespace that contains the app.
       shared_ptr<string> namespaceId_ {};
       // The name of the namespace.
       shared_ptr<string> namespaceName_ {};
-      // The registry type. Valid values:
+      // The type of the service registry. Valid values:
       // 
-      // *   **0**：SAE Nacos
-      // *   **1**: SAE built-in Nacos
-      // *   **2**: MSE Nacos
-      // *   **9**: SAE Kubernets service
+      // - **0**: SAE Nacos
+      // 
+      // - **1**: self-managed registry
+      // 
+      // - **2**: MSE Nacos
+      // 
+      // - **9**: SAE K8s Service
       shared_ptr<string> registryType_ {};
-      // The IDs of the security groups.
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // The group to which the microservice belongs.
+      // The service group.
       shared_ptr<string> serviceGroup_ {};
-      // The name of the microservice.
+      // The name of the service.
       shared_ptr<string> serviceName_ {};
-      // The ports and protocols.
+      // A map of ports and protocols.
       shared_ptr<map<string, string>> servicePortAndProtocol_ {};
-      // The list of ports.
+      // A list of ports.
       shared_ptr<vector<int32_t>> servicePorts_ {};
-      // The protocol used by the microservice.
+      // The protocol used by the service.
       shared_ptr<string> serviceProtocol_ {};
-      // The type of the microservice. Valid values:
+      // The type of the service. Valid values:
       // 
-      // *   **dubbo**
-      // *   **springCloud**
-      // *   **hsf**
-      // *   **k8sService**
+      // - **dubbo**
+      // 
+      // - **springCloud**
+      // 
+      // - **hsf**
+      // 
+      // - **k8sService**
       shared_ptr<string> serviceType_ {};
-      // The version of the microservice.
+      // The version of the service.
       shared_ptr<string> serviceVersion_ {};
     };
 
@@ -290,33 +296,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned. Valid values:
+    // The HTTP status code or a POP error code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: The request is invalid.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The details of the microservice.
+    // The list of services.
     shared_ptr<vector<ListAppServicesResponseBody::Data>> data_ {};
-    // The status code. Valid values:
+    // The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section.
     // 
-    // *   If the request was successful, the **ErrorCode** parameter is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - Successful requests do not return the **ErrorCode** field.
+    // 
+    // - Failed requests return the **ErrorCode** field. For more information, see the **error code** list in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Valid values:
+    // The response message.
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   If the request failed, an error message is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID. You can use this ID to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

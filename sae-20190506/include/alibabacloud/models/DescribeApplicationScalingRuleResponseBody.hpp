@@ -162,11 +162,13 @@ namespace Models
 
 
         protected:
-          // The point in time. Format: **Hour:Minute**.
+          // The point in time. Format: **HH:mm**.
           shared_ptr<string> atTime_ {};
+          // The maximum number of instances.
           shared_ptr<int32_t> maxReplicas_ {};
+          // The minimum number of instances.
           shared_ptr<int32_t> minReplicas_ {};
-          // The expected number of instances.
+          // The target number of instances.
           shared_ptr<int32_t> targetReplicas_ {};
         };
 
@@ -203,33 +205,41 @@ namespace Models
 
 
       protected:
-        // The start date of the validity period of the scheduled auto scaling policy. Valid values:
+        // The start date of a short-term scheduled scaling policy. The following list describes the valid values:
         // 
-        // *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
-        // *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is **2021-03-25** and **EndDate** is **2021-04-25**, the auto scaling policy is valid for one month.
+        // - If you leave both **BeginDate** and **EndDate** empty, the policy is a long-term policy. This is the default value.
+        // 
+        // - If you specify a date, for example, you set **BeginDate** to **2021-03-25** and **EndDate** to **2021-04-25**, the policy is effective for one month.
         shared_ptr<string> beginDate_ {};
-        // The end date of the validity period of the scheduled auto scaling policy. Valid values:
+        // The end date of a short-term scheduled scaling policy. The following list describes the valid values:
         // 
-        // *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
-        // *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is **2021-03-25** and **EndDate** is **2021-04-25**, the auto scaling policy is valid for one month.
+        // - If you leave both **BeginDate** and **EndDate** empty, the policy is a long-term policy. This is the default value.
+        // 
+        // - If you specify a date, for example, you set **BeginDate** to **2021-03-25** and **EndDate** to **2021-04-25**, the policy is effective for one month.
         shared_ptr<string> endDate_ {};
-        // The days on which the scheduled auto scaling policy takes effect. Valid values:
+        // The period in which the scheduled scaling policy is executed. Valid values:
         // 
-        // *   **\\* \\* \\***: The scheduled auto scaling policy takes effect at a specified time every day.
+        // - **\\* \\* \\***: The policy is executed at a specified time every day.
         // 
-        // *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a week. The specified time is in the GMT+8 time zone. Valid values:
+        // - **\\* \\* Fri,Mon**: The policy is executed at a specified time on one or more days of a week. You can select multiple days. The time is in GMT+8. Valid values:
         // 
-        //     *   **Sun**: Sunday
-        //     *   **Mon**: Monday
-        //     *   **Tue**: Tuesday
-        //     *   **Wed**: Wednesday
-        //     *   **Thu**: Thursday
-        //     *   **Fri**: Friday
-        //     *   **Sat**: Saturday
+        //   - **Sun**: Sunday
         // 
-        // *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy takes effect on the specified days other than the 31st day.
+        //   - **Mon**: Monday
+        // 
+        //   - **Tue**: Tuesday
+        // 
+        //   - **Wed**: Wednesday
+        // 
+        //   - **Thu**: Thursday
+        // 
+        //   - **Fri**: Friday
+        // 
+        //   - **Sat**: Saturday
+        // 
+        // - **1,2,3,28,31 \\* \\***: The policy is executed at a specified time on one or more days of a month. You can select multiple days. The value can be an integer from 1 to 31. If a month does not have a 31st day, the policy is not executed on that day.
         shared_ptr<string> period_ {};
-        // The points in time when the auto scaling policy is triggered within one day.
+        // The points in time when the auto scaling policy is triggered within a day.
         shared_ptr<vector<Timer::Schedules>> schedules_ {};
       };
 
@@ -309,16 +319,17 @@ namespace Models
 
 
         protected:
-          // Indicates whether the application scale-in is disabled. Valid values:
+          // Indicates whether scale-in is disabled. Valid values:
           // 
-          // *   **true**: The application scale-in is disabled.
-          // *   **false**: The application scale-in is enabled.
+          // - **true**: enabled.
           // 
-          // >  When this parameter is set to true, the application instances are never reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+          // - **false**: disabled.
+          // 
+          // > If you enable this feature, the application is never scaled in. This prevents business risks that are caused by scale-ins during peak hours. By default, this feature is disabled.
           shared_ptr<bool> disabled_ {};
-          // The cooldown time of the scale-out. Valid values: 0 to 3600. Unit: seconds. Default value: 0.
+          // The cooldown period for scale-outs. The value can be an integer from 0 to 3600. Unit: seconds. Default value: 0.
           shared_ptr<int64_t> stabilizationWindowSeconds_ {};
-          // The step size for the scale-out. The maximum number of instances that can be added within a specific period of time.
+          // The scaling step size for scale-outs. The maximum number of instances that can be added at a time.
           shared_ptr<int64_t> step_ {};
         };
 
@@ -369,16 +380,17 @@ namespace Models
 
 
         protected:
-          // Indicates whether the application scale-in is disabled. Valid values:
+          // Indicates whether scale-in is disabled. Valid values:
           // 
-          // *   **true**: disabled.
-          // *   **false**: enabled.
+          // - **true**: enabled.
           // 
-          // >  When this parameter is set to true, the application instances are never reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+          // - **false**: disabled.
+          // 
+          // > If you enable this feature, the application is never scaled in. This prevents business risks that are caused by scale-ins during peak hours. By default, this feature is disabled.
           shared_ptr<bool> disabled_ {};
-          // The cooldown time of the scale-in. Valid values: 0 to 3600. Unit: seconds. Default value: 0.
+          // The cooldown period for scale-ins. The value can be an integer from 0 to 3600. Unit: seconds. Default value: 0.
           shared_ptr<int64_t> stabilizationWindowSeconds_ {};
-          // The step size for the scale-in. The maximum number of instances that can be reduced within a specific period of time.
+          // The scaling step size for scale-ins. The maximum number of instances that can be removed at a time.
           shared_ptr<int64_t> step_ {};
         };
 
@@ -460,15 +472,27 @@ namespace Models
           protected:
             // The name of the metric.
             // 
-            // *   **cpu**: the CPU utilization.
-            // *   **memory**: the memory usage.
-            // *   **tcpActiveConn**: the number of active TCP connections.
-            // *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
-            // *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+            // - **cpu**: CPU utilization.
+            // 
+            // - **memory**: memory usage.
+            // 
+            // - **arms_incall_qps**: the average QPS of a single instance of a Java application in one minute.
+            // 
+            // - **arms_incall_rt**: the average RT of all service interfaces of a Java application in one minute.
+            // 
+            // - **tcpActiveConn**: the number of active TCP connections.
+            // 
+            // - **slb_incall_qps**: the QPS of a public-facing SLB instance.
+            // 
+            // - **slb_incall_rt**: the RT of a public-facing SLB instance.
+            // 
+            // - **intranet_slb_incall_qps**: the QPS of a private SLB instance.
+            // 
+            // - **intranet_slb_incall_rt**: the RT of a private SLB instance.
             shared_ptr<string> name_ {};
-            // The metric value as a percentage that triggers the application scale-in next time.
+            // The metric threshold for the next scale-in. The value is a percentage.
             shared_ptr<int32_t> nextScaleInAverageUtilization_ {};
-            // The metric value as a percentage that triggers the application scale-out next time.
+            // The metric threshold for the next scale-out. The value is a percentage.
             shared_ptr<int32_t> nextScaleOutAverageUtilization_ {};
           };
 
@@ -519,21 +543,35 @@ namespace Models
 
 
           protected:
-            // The current value of the metric.
+            // The current value.
             shared_ptr<int64_t> currentValue_ {};
             // The name of the metric.
             // 
-            // *   **cpu**: the CPU utilization.
-            // *   **memory**: the memory usage.
-            // *   **tcpActiveConn**: the number of active TCP connections.
-            // *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
-            // *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
-            shared_ptr<string> name_ {};
-            // The type of the data. This parameter corresponds to the metric.
+            // - **cpu**: CPU utilization.
             // 
-            // *   **Resource**: used when the metric is the **CPU utilization** or **memory usage**.
-            // *   **Pods**: used when the metric is the **number of active TCP connections**.
-            // *   **External**: used when the metric is about the **SLB** instance or from **Application Real-Time Monitoring Service (ARMS)**.
+            // - **memory**: memory usage.
+            // 
+            // - **arms_incall_qps**: the average QPS of a single instance of a Java application in one minute.
+            // 
+            // - **arms_incall_rt**: the average RT of all service interfaces of a Java application in one minute.
+            // 
+            // - **tcpActiveConn**: the number of active TCP connections.
+            // 
+            // - **slb_incall_qps**: the QPS of a public-facing SLB instance.
+            // 
+            // - **slb_incall_rt**: the RT of a public-facing SLB instance.
+            // 
+            // - **intranet_slb_incall_qps**: the QPS of a private SLB instance.
+            // 
+            // - **intranet_slb_incall_rt**: the RT of a private SLB instance.
+            shared_ptr<string> name_ {};
+            // The type of the metric. This parameter is associated with the monitoring metric.
+            // 
+            // - **Resource**: the metric value of **cpu** or **memory**.
+            // 
+            // - **Pods**: the metric value of **tcpActiveConn**.
+            // 
+            // - **External**: the metric value of **arms** or **slb**.
             shared_ptr<string> type_ {};
           };
 
@@ -586,17 +624,17 @@ namespace Models
 
 
         protected:
-          // The metrics that is used to trigger the current auto scaling policy.
+          // The data of the current metric-based scaling.
           shared_ptr<vector<MetricsStatus::CurrentMetrics>> currentMetrics_ {};
           // The current number of instances.
           shared_ptr<int64_t> currentReplicas_ {};
-          // The expected number of instances.
+          // The target number of instances.
           shared_ptr<int64_t> desiredReplicas_ {};
-          // The time when the auto scaling policy was last triggered.
+          // The time of the last scaling activity.
           shared_ptr<string> lastScaleTime_ {};
-          // The metrics that are used to trigger the auto scaling policy next time.
+          // The list of metrics for the next scaling activity.
           shared_ptr<vector<MetricsStatus::NextScaleMetrics>> nextScaleMetrics_ {};
-          // The duration for which the metric-based auto scaling policy takes effect next time.
+          // The period of the next metric-based scaling.
           shared_ptr<int32_t> nextScaleTimePeriod_ {};
         };
 
@@ -674,25 +712,53 @@ namespace Models
 
 
         protected:
-          // The limit on the metric.
+          // The target value of the metric.
           // 
-          // *   The limit on the CPU utilization. Unit: percentage.
-          // *   The limit on the memory usage. Unit: percentage.
-          // *   The limit on the average number of active TCP connections per second.
-          // *   The limit on the QPS of the Internet-facing SLB instance.
-          // *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+          // - The target CPU utilization. Unit: percent.
+          // 
+          // - The target memory usage. Unit: percent.
+          // 
+          // - The number of queries per second (QPS).
+          // 
+          // - The response time. Unit: milliseconds.
+          // 
+          // - The average number of active TCP connections per second.
+          // 
+          // - The QPS of a public-facing SLB instance.
+          // 
+          // - The response time of a public-facing SLB instance. Unit: milliseconds.
+          // 
+          // - The QPS of a private SLB instance.
+          // 
+          // - The response time of a private SLB instance. Unit: milliseconds.
           shared_ptr<int32_t> metricTargetAverageUtilization_ {};
           // The metric that is used to trigger the auto scaling policy. Valid values:
           // 
-          // *   **CPU**: the CPU utilization.
-          // *   **MEMORY**: the memory usage.
-          // *   **tcpActiveConn**: the average number of active TCP connections for an instance in 30 seconds.
-          // *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance associated with an application instance in 15 seconds.
-          // *   **SLB_RT**: the average response time of the Internet-facing SLB instance in 15 seconds.
+          // - **CPU**: CPU utilization.
+          // 
+          // - **MEMORY**: memory usage.
+          // 
+          // - **QPS**: the average QPS of a single instance of a Java application in one minute.
+          // 
+          // - **RT**: the average response time (RT) of all service interfaces of a Java application in one minute.
+          // 
+          // - **tcpActiveConn**: the average number of active TCP connections of a single instance in 30 seconds.
+          // 
+          // - **SLB_QPS**: the average QPS of a single instance for a public-facing SLB instance in 15 seconds.
+          // 
+          // - **SLB_RT**: the average RT of a public-facing SLB instance in 15 seconds.
+          // 
+          // - **INTRANET_SLB_QPS**: the average QPS of a single instance for a private SLB instance in 15 seconds.
+          // 
+          // - **INTRANET_SLB_RT**: the average RT of a private SLB instance in 15 seconds.
           shared_ptr<string> metricType_ {};
+          // The ID of the SLB instance.
           shared_ptr<string> slbId_ {};
+          // The SLB access log Logstore.
           shared_ptr<string> slbLogstore_ {};
+          // The SLB access log Project.
           shared_ptr<string> slbProject_ {};
+          // The port of the SLB instance.
           shared_ptr<string> vport_ {};
         };
 
@@ -751,15 +817,15 @@ namespace Models
       protected:
         // The maximum number of instances.
         shared_ptr<int32_t> maxReplicas_ {};
-        // The list of metrics that are used to trigger the auto scaling policy.
+        // The list of metric-based scaling policies.
         shared_ptr<vector<Metric::Metrics>> metrics_ {};
-        // The execution status of the metric-based auto scaling policy.
+        // The status of the metric-based scaling policy.
         shared_ptr<Metric::MetricsStatus> metricsStatus_ {};
         // The minimum number of instances.
         shared_ptr<int32_t> minReplicas_ {};
-        // Rules that determine the application scale-in.
+        // The scale-in rules.
         shared_ptr<Metric::ScaleDownRules> scaleDownRules_ {};
-        // Rules that determine the application scale-out.
+        // The scale-out rules.
         shared_ptr<Metric::ScaleUpRules> scaleUpRules_ {};
       };
 
@@ -848,42 +914,47 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
       // The time when the auto scaling policy was created. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The time when the auto scaling policy was last disabled.
       shared_ptr<int64_t> lastDisableTime_ {};
-      // The details of the metric-based auto scaling policy.
+      // The metric-based scaling policy.
       shared_ptr<Data::Metric> metric_ {};
-      // The ratio of the minimum number of available instances to the current number of instances. Valid values:
+      // The percentage of the minimum number of ready instances. Valid values:
       // 
-      // *   **-1** (default value): The minimum number of available instances is not determined based on this parameter.
-      // *   **0 to 100**: The minimum number of available instances is calculated by using the following formula: Number of existing instances × Value of MinReadyInstanceRatio × 100%. The calculation result is rounded up to the nearest integer. For example, if the number of existing instances is 5 and MinReadyInstanceRatio is set to 50, the minimum number of available instances is 3.
+      // - **-1**: an initial value, which indicates that a percentage is not used.
       // 
-      // >  If the **MinReadyInstanceRatio** and **MinReadyInstanceRatio** parameters are configured and the **MinReadyInstanceRatio** parameter is set to a number from 0 to 100, the value of the MinReadyInstanceRatio parameter takes precedence. For example, if the **MinReadyInstances** parameter is set to **5**, and the **MinReadyInstanceRatio** parameter is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Nmber of existing instances × **50**.
+      // - **0 to 100**: a percentage that is rounded up. For example, if you set this parameter to 50% and the current number of instances is 5, the minimum number of ready instances is 3.
+      // 
+      // > If you specify both MinReadyInstances and MinReadyInstanceRatio, and the value of **MinReadyInstanceRatio** is not **-1**, the value of **MinReadyInstanceRatio** prevails. For example, if **MinReadyInstances** is set to **5** and **MinReadyInstanceRatio** is set to **50**, the value **50** is used to calculate the minimum number of ready instances.
       shared_ptr<int32_t> minReadyInstanceRatio_ {};
-      // The minimum number of available instances. Valid values:
+      // The minimum number of ready instances. Valid values:
       // 
-      // *   If you set the value to **0**, business is interrupted when the application is updated.
-      // *   If you set this property to -1, the system calculates a recommended value as the minimum number of available instances by using the following formula: Recommended value = Number of existing instances × 25%. The calculation result is rounded up to the nearest integer. For example, if the number of existing instances is 5, the recommended value is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+      // - If you set this parameter to **0**, the application is interrupted during an upgrade.
       // 
-      // >  To ensure business continuity, make sure that at least one instance is available during application deployment and rollback.
+      // - If you set this parameter to -1, the system uses a recommended value for the minimum number of ready instances. The value is 25% of the current number of instances. For example, if the current number of instances is 5, the minimum number of ready instances is 2 after 5 × 25% = 1.25 is rounded up.
+      // 
+      // > Set the minimum number of ready instances to a value greater than or equal to 1 for each rolling deployment to ensure business continuity.
       shared_ptr<int32_t> minReadyInstances_ {};
       // Indicates whether the auto scaling policy is enabled. Valid values:
       // 
-      // *   **true**: enabled
-      // *   **false**: disabled
+      // - **true**: The policy is enabled.
+      // 
+      // - **false**: The policy is disabled.
       shared_ptr<bool> scaleRuleEnabled_ {};
       // The name of the auto scaling policy.
       shared_ptr<string> scaleRuleName_ {};
       // The type of the auto scaling policy. Valid values:
       // 
-      // *   **timing**: the scheduled auto scaling policy.
-      // *   **metric**: the metric-based auto scaling policy.
-      // *   **mix**: the hybrid auto scaling policy.
+      // - **timing**: scheduled scaling.
+      // 
+      // - **metric**: metric-based scaling.
+      // 
+      // - **mix**: hybrid scaling.
       shared_ptr<string> scaleRuleType_ {};
-      // The details of the scheduled auto scaling policy.
+      // The scheduled scaling policy.
       shared_ptr<Data::Timer> timer_ {};
       // The time when the auto scaling policy was updated. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
@@ -944,15 +1015,39 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or a POP error code. Valid values:
+    // 
+    // - **2xx**: The operation is successful.
+    // 
+    // - **3xx**: A redirection is required.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeApplicationScalingRuleResponseBody::Data> data_ {};
+    // The error code. Valid values:
+    // 
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // 
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
+    // The additional information. Valid values:
+    // 
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the application instance was successfully restarted.
+    // 
+    // - **true**: The restart succeeded.
+    // 
+    // - **false**: The restart failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID. Use this ID to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

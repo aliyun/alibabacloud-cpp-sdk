@@ -84,19 +84,35 @@ namespace Models
 
 
   protected:
-    // 2
+    // The change order status. Valid values:
+    // 
+    // - **0**: Preparing.
+    // 
+    // - **1**: Executing.
+    // 
+    // - **2**: Succeeded.
+    // 
+    // - **3**: Failed.
+    // 
+    // - **6**: Terminated.
+    // 
+    // - **10**: System Error.
     shared_ptr<string> coStatus_ {};
-    // CoBatchStartApplication
+    // The change order type. Valid values:
+    // 
+    // - **CoBatchStartApplication**: Batch Start Application.
+    // 
+    // - **CoBatchStopApplication**: Batch Stop Application.
     shared_ptr<string> coType_ {};
-    // 1
+    // The current page.
     shared_ptr<int32_t> currentPage_ {};
-    // test
+    // A keyword for a fuzzy search of change order descriptions. Change orders whose descriptions contain this **key** are returned.
     shared_ptr<string> key_ {};
-    // cn-shanghai:test
+    // The namespace ID.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
-    // 20
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
   };
 

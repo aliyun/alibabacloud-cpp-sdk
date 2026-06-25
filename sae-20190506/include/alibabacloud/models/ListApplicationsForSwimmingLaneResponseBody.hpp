@@ -136,9 +136,9 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
       // The ID of the baseline application.
       shared_ptr<string> baseAppId_ {};
@@ -146,11 +146,11 @@ namespace Models
       shared_ptr<string> baseAppName_ {};
       // The ID of the MSE instance.
       shared_ptr<string> mseAppId_ {};
-      // MSE Instance Name
+      // The name of the MSE instance.
       shared_ptr<string> mseAppName_ {};
-      // The ID of the namespace to which the MSE instance belongs.
+      // The ID of the namespace in which the MSE instance resides.
       shared_ptr<string> mseNamespaceId_ {};
-      // The canary tag configured for the application.
+      // The canary tags configured for the application.
       shared_ptr<map<string, string>> serviceTags_ {};
     };
 
@@ -201,31 +201,37 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code. Valid values:
+    // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Client error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The list of applications.
+    // The application list.
     shared_ptr<vector<ListApplicationsForSwimmingLaneResponseBody::Data>> data_ {};
-    // The status code. Value values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, the **ErrorCode** parameter is returned. For more information, see **Error codes** section in this topic.
+    // - The parameter is an empty string if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. The following limits are imposed on the ID:
+    // The response message. Valid values:
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   An error code is returned when a request failed.
+    // - **success** is returned if the request is successful.
+    // 
+    // - A specific error code is returned if the request fails.
     shared_ptr<string> message_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID used to query the details of a request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the list of application instances was queried. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The instance groups were obtained.
-    // *   **false**: The instance groups failed to be obtained.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -116,20 +116,21 @@ namespace Models
 
 
     protected:
-      // The CPU specification of the instance type. Unit: millicore.
+      // The CPU specification. Unit: millicores.
       shared_ptr<int32_t> cpu_ {};
-      // Indicates whether the instance type is available. Valid values:
+      // Indicates whether the instance specification is available. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: available
+      // 
+      // - **false**: unavailable
       shared_ptr<bool> enable_ {};
-      // The ID of the instance type.
+      // The ID of the instance specification.
       shared_ptr<int32_t> id_ {};
-      // The memory size of the instance type. Unit: MB.
+      // The memory specification. Unit: MB.
       shared_ptr<int32_t> memory_ {};
-      // The name of the instance type.
+      // The name of the instance specification.
       shared_ptr<string> specInfo_ {};
-      // The version number of the instance type.
+      // The version of the instance specification.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -190,31 +191,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: The request is invalid.
+    // 
+    // - **5xx**: A server error occurs.
     shared_ptr<string> code_ {};
-    // The information about the instance types.
+    // The instance specifications.
     shared_ptr<vector<DescribeInstanceSpecificationsResponseBody::Data>> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - The **ErrorCode** parameter is not returned if the request is successful.
+    // 
+    // - The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The returned message.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   If the request failed, an error code is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the instance types were queried. Valid values:
+    // Indicates whether the instance specifications are obtained. Valid values:
     // 
-    // *   **true**: The instance types were queried.
-    // *   **false**: The instance types failed to be queried.
+    // - **true**: The instance specifications are obtained.
+    // 
+    // - **false**: The instance specifications fail to be obtained.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID that is used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

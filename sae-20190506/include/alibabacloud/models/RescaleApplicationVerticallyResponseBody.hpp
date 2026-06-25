@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ticked ID of updates.
+      // The ID of the change order.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -128,30 +128,35 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code.
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // Data returned.
+    // The returned data.
     shared_ptr<RescaleApplicationVerticallyResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, this parameter is not returned.
+    // 
+    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // Messages returned for additional information.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the update of instance specifications was successful. Valid values:
+    // Indicates whether the instance type was successfully changed.
     // 
-    // *   **true**: Updated.
-    // *   **false**: Failed to update.
+    // - **true**: The change was successful.
+    // 
+    // - **false**: The change failed.
     shared_ptr<bool> success_ {};
-    // Trace ID for request information.
+    // The trace ID of the request. You can use this ID to query the details of the request.
     shared_ptr<string> traceId_ {};
   };
 

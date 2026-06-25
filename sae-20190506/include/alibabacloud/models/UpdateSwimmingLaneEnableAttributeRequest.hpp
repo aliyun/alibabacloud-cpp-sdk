@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // Lane status:
+    // The enabled status of the swimming lane. Valid values:
     // 
-    // *   true: enabled
-    // *   false: disabled
+    // - true: enabled
+    // 
+    // - false: disabled
     shared_ptr<bool> enable_ {};
-    // The ID of the lane group.
+    // The swimming lane group ID.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of the lane.
+    // The swimming lane ID.
     shared_ptr<int64_t> laneId_ {};
-    // The ID of a namespace.
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
   };
 

@@ -130,28 +130,33 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
-    shared_ptr<string> code_ {};
-    // The returned result.
-    shared_ptr<DeleteIngressResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // - **2xx**: The request is successful.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A client-side error occurred.
+    // 
+    // - **5xx**: A server-side error occurred.
+    shared_ptr<string> code_ {};
+    // The response data.
+    shared_ptr<DeleteIngressResponseBody::Data> data_ {};
+    // The error code that is returned if the request fails.
+    // 
+    // - This parameter is not returned if the request succeeds.
+    // 
+    // - For a list of error codes, see the **Error codes** section.
     shared_ptr<string> errorCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the routing rule was deleted. Valid values:
+    // Indicates whether the ingress instance was deleted successfully. Valid values:
     // 
-    // *   **true**: The routing rule was deleted.
-    // *   **false**: The routing rule failed to be deleted.
+    // - **true**: The deletion was successful.
+    // 
+    // - **false**: The deletion failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID for the request.
     shared_ptr<string> traceId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The password for the image repository.
     shared_ptr<string> password_ {};
+    // The username for the image repository.
     shared_ptr<string> userName_ {};
   };
 

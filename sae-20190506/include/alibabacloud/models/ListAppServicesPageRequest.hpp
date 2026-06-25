@@ -70,14 +70,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page. Valid values: 0 to 9999.
+    // The page size. The value must be an integer from 0 to 9,999.
     shared_ptr<int32_t> pageSize_ {};
     // The service type. Valid values:
     // 
-    // *   **dubbo**
-    // *   **springCloud**
+    // - **Dubbo**
+    // 
+    // - **Spring Cloud**
     // 
     // This parameter is required.
     shared_ptr<string> serviceType_ {};

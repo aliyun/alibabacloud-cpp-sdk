@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the job template.
+    // The job template ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};

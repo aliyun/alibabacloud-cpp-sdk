@@ -140,15 +140,15 @@ namespace Models
       shared_ptr<string> logo_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The name of the repository.
+      // The image repository name.
       shared_ptr<string> repoName_ {};
-      // The name of the namespace to which the image repository belongs.
+      // The image namespace.
       shared_ptr<string> repoNamespace_ {};
-      // The type of the repository. Only Container Registry is supported.
+      // The image repository type. Currently, only Container Registry is supported.
       shared_ptr<string> repoOriginType_ {};
-      // The tag of the image.
+      // The image tag.
       shared_ptr<string> repoTag_ {};
-      // This parameter is reserved.
+      // A reserved field.
       shared_ptr<string> repoType_ {};
     };
 
@@ -209,31 +209,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client-side error occurred.
+    // 
+    // - **5xx**: A server-side error occurred.
     shared_ptr<string> code_ {};
-    // The information about the image of the application.
+    // The application image information.
     shared_ptr<DescribeApplicationImageResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - This parameter is left empty if the request is successful.
+    // 
+    // - This parameter returns an error code if the request fails. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The returned message.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - **success** is returned if the request is successful.
+    // 
+    // - An error code is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the information about the image was obtained. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The information was obtained.
-    // *   **false**: The information failed to be obtained.
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID that is used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

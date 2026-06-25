@@ -160,21 +160,21 @@ namespace Models
 
 
       protected:
-        // The path of logs.
+        // The name of the Simple Log Service configuration.
         shared_ptr<string> configName_ {};
-        // The storage type of logs.
+        // The time when the log configuration was created.
         shared_ptr<string> createTime_ {};
-        // The path of the log file (log source).
+        // The path of the log file. This is the log source.
         shared_ptr<string> logDir_ {};
-        // The ID of the region.
+        // The log type. Only **file_log** is supported.
         shared_ptr<string> logType_ {};
-        // The number of the returned page.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The time when the configuration was created.
+        // The name of the Logstore in Simple Log Service.
         shared_ptr<string> slsLogStore_ {};
-        // The type of the log. Set this value to **file_log**.
+        // The ID of the Simple Log Service project.
         shared_ptr<string> slsProject_ {};
-        // The ID of the Log Service project.
+        // The storage class for Simple Log Service.
         shared_ptr<string> storeType_ {};
       };
 
@@ -211,16 +211,13 @@ namespace Models
 
 
     protected:
-      // The total number of returned entries.
+      // The page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The details of the logging configuration.
+      // The log configurations.
       shared_ptr<vector<Data::LogConfigs>> logConfigs_ {};
-      // The error code.
-      // 
-      // *   The **ErrorCode** parameter is not returned when the request succeeds.
-      // *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The number of entries returned on each page.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -279,29 +276,39 @@ namespace Models
 
 
   protected:
-    // Indicates whether the logging configurations of an application were obtained. Valid values:
-    // 
-    // *   **true**: indicates that the configurations were obtained.
-    // *   **false**: indicates that the configurations could not be obtained.
-    shared_ptr<string> code_ {};
-    // The logging configurations.
-    shared_ptr<ListLogConfigsResponseBody::Data> data_ {};
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
+    shared_ptr<string> code_ {};
+    // The information about the file logs.
+    shared_ptr<ListLogConfigsResponseBody::Data> data_ {};
+    // The error code.
+    // 
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** list in this topic.
     shared_ptr<string> errorCode_ {};
-    // The ID of the trace. It can be used to query the details of a request.
-    shared_ptr<string> message_ {};
     // The returned message.
     // 
-    // *   **success** is returned when the request succeeds.
-    // *   An error code is returned when the request fails.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error code is returned.
+    shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the list of application logs was obtained. Valid values:
+    // 
+    // - **true**: The list was obtained.
+    // 
+    // - **false**: The list failed to be obtained.
     shared_ptr<bool> success_ {};
-    // The logging configurations.
+    // The trace ID of the request. You can use the trace ID to query the details of the request.
     shared_ptr<string> traceId_ {};
   };
 

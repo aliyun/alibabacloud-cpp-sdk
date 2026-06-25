@@ -50,13 +50,15 @@ namespace Models
   protected:
     // Specifies whether to return custom namespaces. Valid values:
     // 
-    // *   **true**: The system returns custom namespaces.
-    // *   **false**: The system does not return custom namespaces.
+    // - **true**: The system returns custom namespaces.
+    // 
+    // - **false**: The system does not return custom namespaces.
     shared_ptr<bool> containCustom_ {};
     // Indicates whether hybrid cloud namespaces are excluded. Valid values:
     // 
-    // *   **true**: Hybrid cloud namespaces are excluded.
-    // *   **false**: Hybrid cloud namespaces are included.
+    // - **true**: Hybrid cloud namespaces are excluded.
+    // 
+    // - **false**: Hybrid cloud namespaces are included.
     shared_ptr<bool> hybridCloudExclude_ {};
   };
 

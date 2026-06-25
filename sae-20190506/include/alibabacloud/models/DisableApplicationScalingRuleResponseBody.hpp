@@ -84,30 +84,37 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code.
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: The request was invalid.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The error codes. Valid values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The returned message.
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   If the request failed, an error code is returned.
+    // - **success** is returned if the request is successful.
+    // 
+    // - An error code is returned if the request fails.
     shared_ptr<string> message_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the auto scaling policy was disabled. Valid values:
+    // Indicates whether the Auto Scaling policy was disabled. Valid values:
     // 
-    // *   **true**: The auto scaling policy was disabled.
-    // *   **false**: The auto scaling policy failed to be disabled.
+    // - **true**: The policy was disabled.
+    // 
+    // - **false**: The policy failed to be disabled.
     shared_ptr<bool> success_ {};
+    // The trace ID that is used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

@@ -160,11 +160,13 @@ namespace Models
 
 
         protected:
-          // The point in time. Format: **Hour:Minute**.
+          // The time at which the scaling action is triggered. Format: **HH:mm**.
           shared_ptr<string> atTime_ {};
+          // The maximum number of instances.
           shared_ptr<int32_t> maxReplicas_ {};
+          // The minimum number of instances.
           shared_ptr<int32_t> minReplicas_ {};
-          // The expected number of instances.
+          // The target number of instances.
           shared_ptr<int32_t> targetReplicas_ {};
         };
 
@@ -201,33 +203,41 @@ namespace Models
 
 
       protected:
-        // The start date of the validity period of the scheduled auto scaling policy. Parameter description:
+        // The start date of the short-term scheduled scaling policy.
         // 
-        // *   If **BeginDate** and **EndDate** are set to **null**, the auto scaling policy is a long-term policy. Default values of the beginDate and endDate parameters: null.
-        // *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
+        // - If **BeginDate** and **EndDate** are both set to **null**, the policy is long-term by default.
+        // 
+        // - If you specify a date range, for example, **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the policy is effective for one month.
         shared_ptr<string> beginDate_ {};
-        // The end date of the validity period of the scheduled auto scaling policy. Take note of the following rules:
+        // The end date of the short-term scheduled scaling policy.
         // 
-        // *   If **BeginDate** and **EndDate** are set to **null**, the auto scaling policy is a long-term policy. Default values of the beginDate and endDate parameters: null.
-        // *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
+        // - If **BeginDate** and **EndDate** are both set to **null**, the policy is long-term by default.
+        // 
+        // - If you specify a date range, for example, **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the policy is effective for one month.
         shared_ptr<string> endDate_ {};
-        // The frequency at which the scheduled auto scaling policy is executed. Valid values:
+        // The recurrence schedule for the scaling policy.
         // 
-        // *   **\\* \\* \\***: The scheduled auto scaling policy is executed at a specified point in time every day.
+        // - **\\* \\* \\***: The policy runs at a specified time every day.
         // 
-        // *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each week. GMT+8 is used. Valid values:
+        // - **\\* \\* Fri,Mon**: The policy runs at a specified time on specific days of a week. You can select multiple days. The time is in the GMT+8 time zone. Valid values:
         // 
-        //     *   **Sun**
-        //     *   **Mon**
-        //     *   **Tue**
-        //     *   **Wed**
-        //     *   **Thu**
-        //     *   **Fri**
-        //     *   **Sat**
+        //   - **Sun**: Sunday
         // 
-        // *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy is executed on the specified days other than the 31st day.
+        //   - **Mon**: Monday
+        // 
+        //   - **Tue**: Tuesday
+        // 
+        //   - **Wed**: Wednesday
+        // 
+        //   - **Thu**: Thursday
+        // 
+        //   - **Fri**: Friday
+        // 
+        //   - **Sat**: Saturday
+        // 
+        // - **1,2,3,28,31 \\* \\***: The policy runs at a specified time on specific days of a month. You can select multiple days. If a month does not have a specific day, such as the 31st, the policy skips that day.
         shared_ptr<string> period_ {};
-        // The points in time at which the auto scaling policy is triggered within one day.
+        // The schedules for the scaling policy.
         shared_ptr<vector<Timer::Schedules>> schedules_ {};
       };
 
@@ -328,25 +338,53 @@ namespace Models
 
 
         protected:
-          // The limit on the metric.
+          // The target value for the specified metric. The unit varies based on the metric type.
           // 
-          // *   The limit on the CPU utilization. Unit: percentage.
-          // *   The limit on the memory usage. Unit: percentage.
-          // *   The limit on the average number of active TCP connections per second.
-          // *   The limit on the QPS of the Internet-facing SLB instance.
-          // *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+          // - Target CPU utilization, in percentage.
+          // 
+          // - Target memory usage, in percentage.
+          // 
+          // - Target queries per second (QPS).
+          // 
+          // - Target response time, in milliseconds.
+          // 
+          // - The target number of active TCP connections.
+          // 
+          // - Target QPS for the public-facing SLB instance.
+          // 
+          // - Target response time of the public-facing SLB instance, in milliseconds.
+          // 
+          // - Target QPS for the internal SLB instance.
+          // 
+          // - Target response time of the internal SLB instance, in milliseconds.
           shared_ptr<int32_t> metricTargetAverageUtilization_ {};
-          // The metric that is used to trigger the auto scaling policy. Valid values:
+          // The metric that triggers the scaling policy. Valid values:
           // 
-          // *   **CPU**: the CPU utilization.
-          // *   **MEMORY**: the memory usage.
-          // *   **tcpActiveConn**: the average number of active TCP connections of an application instance within 30 seconds.
-          // *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance associated with an application instance within 15 seconds.
-          // *   **SLB_RT**: the average response time of the Internet-facing SLB instance within 15 seconds.
+          // - **CPU**: CPU utilization.
+          // 
+          // - **MEMORY**: memory usage.
+          // 
+          // - **QPS**: The average queries per second (QPS) per instance over the last minute. This applies only to Java applications.
+          // 
+          // - **RT**: The average response time (RT) of all service interfaces in the application over the last minute. This applies only to Java applications.
+          // 
+          // - **tcpActiveConn**: The average number of active TCP connections per instance over the last 30 seconds.
+          // 
+          // - **SLB_QPS**: The average QPS from the public-facing SLB, per instance, over the last 15 seconds.
+          // 
+          // - **SLB_RT**: The average response time of a public-facing SLB instance over the last 15 seconds.
+          // 
+          // - **INTRANET_SLB_QPS**: The average QPS from the internal SLB, per instance, over the last 15 seconds.
+          // 
+          // - **INTRANET_SLB_RT**: The average response time of an internal SLB instance over the last 15 seconds.
           shared_ptr<string> metricType_ {};
+          // The SLB instance ID.
           shared_ptr<string> slbId_ {};
+          // The name of the Logstore for SLB access logs.
           shared_ptr<string> slbLogstore_ {};
+          // The name of the Log Service Project for SLB access logs.
           shared_ptr<string> slbProject_ {};
+          // The SLB port.
           shared_ptr<string> vport_ {};
         };
 
@@ -378,7 +416,7 @@ namespace Models
       protected:
         // The maximum number of instances.
         shared_ptr<int32_t> maxReplicas_ {};
-        // The metrics that are used to trigger the auto scaling policy.
+        // The metrics that trigger scaling actions.
         shared_ptr<vector<Metric::Metrics>> metrics_ {};
         // The minimum number of instances.
         shared_ptr<int32_t> minReplicas_ {};
@@ -464,29 +502,33 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The time when the auto scaling policy was created. Unit: milliseconds.
+      // The time when the scaling policy was created, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // Specifies whether to enable idle mode.
       shared_ptr<bool> enableIdle_ {};
-      // The time when the auto scaling policy was last disabled.
+      // The time when the scaling policy was last disabled, in milliseconds.
       shared_ptr<int64_t> lastDisableTime_ {};
-      // The details of the metric-based auto scaling policy.
+      // The configuration for metric-based scaling.
       shared_ptr<Data::Metric> metric_ {};
-      // Specifies whether to enable the auto scaling policy. Valid values:
+      // Specifies whether the scaling policy is enabled. Valid values:
       // 
-      // *   **true**: The auto scaling policy is enabled.
-      // *   **false**: The auto scaling policy is disabled.
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> scaleRuleEnabled_ {};
-      // The name of the auto scaling policy.
+      // The name of the scaling policy.
       shared_ptr<string> scaleRuleName_ {};
-      // The type of the auto scaling policy. Valid values:
+      // The type of the scaling policy. Valid values:
       // 
-      // *   **timing**: a scheduled auto scaling policy
-      // *   **metric**: a metric-based auto scaling policy
-      // *   **mix**: a hybrid auto scaling policy
+      // - **timing**: scheduled scaling
+      // 
+      // - **metric**: metric-based scaling
+      // 
+      // - **mix**: hybrid scaling
       shared_ptr<string> scaleRuleType_ {};
-      // The details of the scheduled auto scaling policy.
+      // The configuration for scheduled scaling.
       shared_ptr<Data::Timer> timer_ {};
-      // The time when the auto scaling policy was updated. Unit: milliseconds.
+      // The time when the scaling policy was updated, in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -545,33 +587,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code or a POP error code.
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client-side error occurred.
+    // 
+    // - **5xx**: A server-side error occurred.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The response data.
     shared_ptr<UpdateApplicationScalingRuleResponseBody::Data> data_ {};
-    // The error code returned. Take note of the following rules:
+    // The error code.
     // 
-    // *   If the call is successful, **ErrorCode** is not returned.
-    // *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+    // - This parameter is returned only if the request fails.
+    // 
+    // - For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Take note of the following rules:
+    // The response message.
     // 
-    // *   If the call is successful, **success** is returned.
-    // *   If the call fails, an error code is returned.
+    // - **success** is returned if the request is successful.
+    // 
+    // - An error message is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the instances are successfully restarted. Valid values:
+    // Specifies whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID used to query call details.
     shared_ptr<string> traceId_ {};
   };
 

@@ -79,11 +79,13 @@ namespace Models
 
 
     protected:
-      // The description of the returned code.
+      // Details about the operation\\"s result.
       shared_ptr<string> msg_ {};
-      // Indicates whether the traffic was removed. Valid values:
-      // *   **true**: The traffic was removed.
-      // *   **false**: The traffic failed to be removed.
+      // Indicates whether the traffic was resumed.
+      // 
+      // - **True**: The traffic was resumed.
+      // 
+      // - **False**: The traffic was not resumed.
       shared_ptr<bool> success_ {};
     };
 
@@ -142,30 +144,35 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: A client-side error occurred.
+    // 
+    // - **5xx**: A server-side error occurred.
     shared_ptr<string> code_ {};
     // The returned results.
     shared_ptr<ResumeTrafficResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
-    shared_ptr<string> errorCode_ {};
-    // The message returned for the operation. Valid values:
+    // The error code.
     // 
-    // *   If the request is successful, **success** is returned.
-    // *   If the request fails, a specific error code is returned.
+    // - This parameter is empty if the request is successful.
+    // 
+    // - If the request fails, this parameter contains an error code. For more information, see the "**Error codes**" section of this topic.
+    shared_ptr<string> errorCode_ {};
+    // The returned message.
+    // 
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **True**: The traffic was resumed.
-    // *   **False**: The traffic failed to be resumed.
+    // Indicates whether the traffic was resumed. **True** indicates that the traffic was resumed, and **False** indicates that the traffic was not resumed.
     shared_ptr<string> success_ {};
-    // The trace ID.
+    // The trace ID of the request. You can use this ID to troubleshoot the request.
     shared_ptr<string> traceId_ {};
   };
 

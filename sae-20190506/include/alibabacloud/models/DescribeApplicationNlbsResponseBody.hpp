@@ -73,7 +73,7 @@ namespace Models
 
 
     protected:
-      // The details of the instance.
+      // A collection of instance details.
       shared_ptr<map<string, DataInstancesValue>> instances_ {};
     };
 
@@ -134,28 +134,33 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
-    shared_ptr<string> code_ {};
-    // The returned data.
-    shared_ptr<DescribeApplicationNlbsResponseBody::Data> data_ {};
-    // The status code. Value values:
+    // - **2xx**: The request is successful.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section in this topic.
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
+    shared_ptr<string> code_ {};
+    // The data returned in the response.
+    shared_ptr<DescribeApplicationNlbsResponseBody::Data> data_ {};
+    // The error code.
+    // 
+    // - This parameter is returned only if the request fails.
+    // 
+    // - For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Valid values:If the request was successful, success is returned. If the request failed, an error code is returned.
+    // The returned message. A value of `success` indicates a successful request; otherwise, an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the NLB instance was successfully associated with the application. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The application was associated.
-    // *   **false**: The application failed to be associated.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID used to query the details of the request.
     shared_ptr<string> traceId_ {};
   };
 

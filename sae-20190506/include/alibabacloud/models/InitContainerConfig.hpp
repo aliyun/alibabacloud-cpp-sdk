@@ -103,12 +103,19 @@ namespace Models
 
 
   protected:
+    // Start command for the image.
     shared_ptr<string> command_ {};
+    // Arguments for the image start command.
     shared_ptr<string> commandArgs_ {};
+    // ConfigMap mount description.
     shared_ptr<string> configMapMountDesc_ {};
+    // EmptyDir mount description.
     shared_ptr<string> emptyDirDesc_ {};
+    // Environment variable parameters for the container.
     shared_ptr<string> envs_ {};
+    // The address of the image registry.
     shared_ptr<string> imageUrl_ {};
+    // Container name.
     shared_ptr<string> name_ {};
     shared_ptr<string> secretMountDesc_ {};
   };

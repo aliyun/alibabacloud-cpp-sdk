@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the canary release rule. The ID is globally unique.
+      // The globally unique ID of the canary release rule.
       shared_ptr<int64_t> greyTagRouteId_ {};
     };
 
@@ -130,28 +130,33 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The information about the canary release rule.
+    // The details of the canary release rule.
     shared_ptr<CreateGreyTagRouteResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   **ErrorCode** is not returned if a request is successful.
-    // *   **ErrorCode** is returned if a request failed. For more information, see **Error code** section of this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - If the request fails, see the **Error codes** list in this topic for more information.
     shared_ptr<string> errorCode_ {};
-    // The message returned for the operation.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the information of the change order was queried. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The information was queried.
-    // *   **false**: The information failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID. You can use this ID to query the call details.
     shared_ptr<string> traceId_ {};
   };
 

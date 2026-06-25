@@ -94,23 +94,25 @@ namespace Models
 
 
   protected:
-    // The ID of the baseline application.
+    // The IDs of the baseline applications.
     shared_ptr<string> appIdsShrink_ {};
-    // The unique ID of the corresponding gateway.
+    // The unique ID of the gateway.
     shared_ptr<string> entryAppId_ {};
-    // The application entry type (gateway type).
+    // The type of the gateway that acts as the application\\"s entry point.
     // 
-    // *   **apig:** cloud-native API Gateway
-    // *   **mse:** Java Services Gateway
-    // *   **mse-gw:** MSE cloud-native Gateway
+    // - **apig:** cloud-native API gateway
+    // 
+    // - **mse:** java service gateway
+    // 
+    // - **mse-gw:** MSE Cloud Native Gateway
     shared_ptr<string> entryAppType_ {};
-    // The ID of the lane group. This is required when you update a lane group.
+    // The ID of the swimming lane group. This parameter is required when you update a swimming lane group.
     shared_ptr<int64_t> groupId_ {};
-    // The name of the lane group.
+    // The name of the swimming lane group.
     shared_ptr<string> groupName_ {};
-    // The ID of a namespace.
+    // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};
-    // The end-to-end grayscale version. Valid values: 0 and 2 (recommended).
+    // The version of the end-to-end canary release. Valid values: 0 and 2. The value 2 is recommended.
     shared_ptr<string> swimVersion_ {};
   };
 

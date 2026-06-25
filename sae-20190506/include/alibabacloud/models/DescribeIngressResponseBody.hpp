@@ -178,7 +178,13 @@ namespace Models
 
 
         protected:
+          // The configuration of the action.
           shared_ptr<string> actionConfig_ {};
+          // The type of the action. Valid values:
+          // 
+          // - rewrite: a rewrite policy
+          // 
+          // - redirect: a redirection policy
           shared_ptr<string> actionType_ {};
         };
 
@@ -244,26 +250,29 @@ namespace Models
 
 
       protected:
-        // The ID of the application specified in the forwarding rule.
+        // The ID of the destination application.
         shared_ptr<string> appId_ {};
-        // The name of the application specified in the forwarding rules.
+        // The name of the destination application.
         shared_ptr<string> appName_ {};
         // The backend protocol. Valid values:
         // 
-        // *   **http**: HTTP is suitable for applications that need to identify the transmitted data.
-        // *   **https**: HTTPS is suitable for applications that require encrypted data transmission.
-        // *   **grpc**: GRPC is suitable for load balancing scenarios in which you want to deploy services in multi-language frameworks, such as the .NET framework.
+        // - **http**: Suitable for applications that need to identify data content.
         // 
-        // This parameter is returned only if the **LoadBalanceType** parameter is set to **ALB** and the **ListenerProtocol** parameter is set to **HTTPS**.
+        // - **https**: Suitable for applications that require encrypted transmission.
+        // 
+        // - **grpc**: Suitable for load balancing gRPC services developed in multiple languages, such as .NET.
+        // 
+        // This parameter is valid only when the `LoadBalanceType` parameter is set to `alb` and the `ListenerProtocol` parameter is set to `HTTPS`.
         shared_ptr<string> backendProtocol_ {};
-        // Tthe container port of the application specified in the forwarding rules.
+        // The backend port of the application.
         shared_ptr<int32_t> containerPort_ {};
-        // The domain name of the application specified in the forwarding rules.
+        // The domain name of the application.
         shared_ptr<string> domain_ {};
-        // The path of a URL.
+        // The URL path.
         shared_ptr<string> path_ {};
-        // The path that is used to rewrite the original path.
+        // The rewritten path.
         shared_ptr<string> rewritePath_ {};
+        // The actions of the forwarding rule.
         shared_ptr<vector<Rules::RuleActions>> ruleActions_ {};
       };
 
@@ -323,19 +332,21 @@ namespace Models
 
 
       protected:
-        // The ID of the application that is specified in the default rule.
+        // The ID of the application for the default rule.
         shared_ptr<string> appId_ {};
-        // The name of the application that is specified in the default rule.
+        // The name of the application for the default rule.
         shared_ptr<string> appName_ {};
         // The backend protocol. Valid values:
         // 
-        // *   **http**: HTTP is suitable for applications that need to identify the transmitted data.
-        // *   **https**: HTTP is suitable for applications that require encrypted data transmission.
-        // *   **grpc**: GRPC is suitable for load balancing scenarios in which you want to deploy services in multi-language frameworks, such as the .NET framework.
+        // - **http**: Suitable for applications that need to identify data content.
         // 
-        // This parameter is returned only if the**LoadBalanceType** parameter is set to **ALB** and the **ListenerProtocol** parameter **is set to HTTPS**.
+        // - **https**: Suitable for applications that require encrypted transmission.
+        // 
+        // - **grpc**: Suitable for load balancing gRPC services developed in multiple languages, such as .NET.
+        // 
+        // This parameter is valid only when the `LoadBalanceType` parameter is set to `alb` and the `ListenerProtocol` parameter is set to `HTTPS`.
         shared_ptr<string> backendProtocol_ {};
-        // The container port of the application that is specified in the default rule.
+        // The backend port for the default rule.
         shared_ptr<int32_t> containerPort_ {};
       };
 
@@ -423,12 +434,29 @@ namespace Models
 
 
       protected:
+        // Specifies whether to allow credentials in cross-origin requests. Valid values:
+        // 
+        // - **on**: yes
+        // 
+        // - **off**: no
         shared_ptr<string> allowCredentials_ {};
+        // The headers that are allowed in cross-origin requests.
         shared_ptr<string> allowHeaders_ {};
+        // The HTTP methods that are allowed for cross-origin requests.
         shared_ptr<string> allowMethods_ {};
+        // The origins that are allowed to access the resource. You can specify a single asterisk (`*`) or one or more specific origins.
+        // 
+        // - A specific origin must start with `http://` or `https://` and be a valid domain name or a first-level wildcard domain name. Example: `http://*.test.abc.example.com`.
+        // 
+        // - You can optionally specify a port. The valid port range is **1** to **65535**.
         shared_ptr<string> allowOrigin_ {};
+        // Specifies whether to enable CORS.
         shared_ptr<string> enable_ {};
+        // The headers that are exposed to clients.
         shared_ptr<string> exposeHeaders_ {};
+        // The maximum cache duration of preflight requests in the browser, in seconds.
+        // 
+        // Valid values: **-1** to **172800**.
         shared_ptr<string> maxAge_ {};
       };
 
@@ -613,53 +641,93 @@ namespace Models
 
 
     protected:
-      // The ID of the certificate that is associated with a Classic Load Balancer (**CLB**) instance.
+      // The ID of the **Classic Load Balancer (CLB)** certificate.
       shared_ptr<string> certId_ {};
-      // The ID of the certificate that is associated with an Application Load Balancer **ALB** instance.
+      // The comma-separated IDs of the **Application Load Balancer (ALB)** certificates.
       shared_ptr<string> certIds_ {};
+      // The configurations for Cross-Origin Resource Sharing (CORS). Valid HTTP methods:
+      // 
+      // - **GET**
+      // 
+      // - **POST**
+      // 
+      // - **PUT**
+      // 
+      // - **DELETE**
+      // 
+      // - **HEAD**
+      // 
+      // - **OPTIONS**
+      // 
+      // - **PATCH**
       shared_ptr<Data::CorsConfig> corsConfig_ {};
+      // Indicates whether the Application Load Balancer (ALB) instance was provisioned by SAE.
       shared_ptr<bool> createdBySae_ {};
       // The default rule.
       shared_ptr<Data::DefaultRule> defaultRule_ {};
-      // The name of a routing rule.
+      // The description of the Ingress.
       shared_ptr<string> description_ {};
+      // Specifies whether to enable Gzip compression.
       shared_ptr<bool> enableGzip_ {};
+      // Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses.
       shared_ptr<bool> enableXForwardedFor_ {};
+      // Specifies whether to use a header to retrieve the source port of the client.
       shared_ptr<bool> enableXForwardedForClientSrcPort_ {};
+      // Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol of the SLB instance.
       shared_ptr<bool> enableXForwardedForProto_ {};
+      // Specifies whether to use the `SLB-ID` header to retrieve the ID of the SLB instance.
       shared_ptr<bool> enableXForwardedForSlbId_ {};
+      // Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the SLB instance.
       shared_ptr<bool> enableXForwardedForSlbPort_ {};
-      // The ID of a routing rule.
+      // The ID of the Ingress.
       shared_ptr<int64_t> id_ {};
+      // The connection idle timeout, in seconds.
+      // 
+      // Valid values: 1 to 60.
+      // 
+      // Default value: 15.
+      // 
+      // If no request is received within the timeout period, the load balancer closes the connection. A new connection is established when the next request is received.
       shared_ptr<int32_t> idleTimeout_ {};
-      // The listener ports for an SLB instance.
+      // The listener port of the SLB instance.
       shared_ptr<int32_t> listenerPort_ {};
-      // The protocol used to forward requests. Valid values:
+      // The request forwarding protocol. Valid values:
       // 
-      // *   **HTTP**: HTTP is suitable for applications that need to identify the transmitted data.
-      // *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+      // - **HTTP**: Suitable for applications that need to identify data content.
       // 
-      // This parameter is optional in the **CreateIngress** and **UpadateIngress** operations. If you do not configure this parameter when you call the CreateIngress or UpdateIngress operation to create or update a gateway routing rule, this parameter is not returned for the corresponding response.
+      // - **HTTPS**: Suitable for applications that require encrypted transmission.
+      // 
+      // This parameter is optional for the `CreateIngress` and `UpdateIngress` operations. It is not returned if it was not specified when the Ingress was created or updated.
       shared_ptr<string> listenerProtocol_ {};
-      // The type of SLB instances. Valid values:
+      // The type of the Server Load Balancer (SLB) instance. Valid values:
       // 
-      // *   **clb**: Classic Load Balancer (formerly known as SLB).
-      // *   **alb**: Application Load Balancer.
+      // - **clb**: Classic Load Balancer (CLB), formerly known as SLB.
+      // 
+      // - **alb**: Application Load Balancer (ALB).
       shared_ptr<string> loadBalanceType_ {};
-      // The name of a routing rule.
+      // The name of the Ingress.
       shared_ptr<string> name_ {};
-      // The ID of a namespace.
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
+      // The request timeout, in seconds.
+      // 
+      // Valid values: 1 to 180.
+      // 
+      // Default value: 60.
+      // 
+      // If a backend server does not respond within the specified timeout period, the load balancer terminates the request and returns an HTTP 504 error to the client.
       shared_ptr<int32_t> requestTimeout_ {};
       // The forwarding rules.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // The ID of the security policy instance.
       shared_ptr<string> securityPolicyId_ {};
-      // The ID of a Server Load Balancer (SLB) instance.
+      // The ID of the Server Load Balancer (SLB) instance.
       shared_ptr<string> slbId_ {};
-      // The type of an SLB instance. Valid values:
+      // The type of the SLB instance. Valid values:
       // 
-      // *   **internet**: an Internet-facing SLB instance
-      // *   **intranet**: an Intranet-facing SLB instance
+      // - **internet**: An internet-facing instance.
+      // 
+      // - **intranet**: An internal-facing instance.
       shared_ptr<string> slbType_ {};
     };
 
@@ -718,33 +786,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code returned for the request. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The result returned.
+    // The returned data.
     shared_ptr<DescribeIngressResponseBody::Data> data_ {};
-    // The error codes. Valid values:
+    // The error code.
     // 
-    // *   **ErrorCode** is not returned if a request is successful.
-    // *   **ErrorCode** is returned if a request failed. For more information, see **Error code** section of this topic.
+    // - This parameter is returned only if the request fails.
+    // 
+    // - For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Valid values:
+    // The returned message.
     // 
-    // *   **success** is returned when a request is successful.
-    // *   An error code is returned when the request failed.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of a request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the configurations of Ingresses were queried successfully. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The information was queried.
-    // *   **false**: The information failed to be queried.
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of a trace. The ID is used to query the details of a request.
+    // The trace ID used to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

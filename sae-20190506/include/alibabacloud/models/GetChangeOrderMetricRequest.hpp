@@ -103,18 +103,23 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
     shared_ptr<string> appId_ {};
-    // The SAE application type. Valid values:
+    // The type of the SAE application.
     // 
-    // *   **micro_service**
-    // *   **web**
-    // *   **job**
+    // - **micro_service**
+    // 
+    // - **web**
+    // 
+    // - **job**
     shared_ptr<string> appSource_ {};
+    // The type of the change order.
     shared_ptr<string> coType_ {};
-    // The CPU allocation policy. Valid values:
+    // The CPU allocation policy.
     // 
-    // *   **request**: CPU cores are allocated only when a request is initiated.
-    // *   **always**: Fixed CPU cores are always allocated.
+    // - **request**: CPU is allocated only when a request is received.
+    // 
+    // - **always**: A fixed amount of CPU is always allocated.
     shared_ptr<string> cpuStrategy_ {};
     // The start time when the change order was created.
     // 
@@ -124,11 +129,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> limit_ {};
-    // The field based on which you want to sort the returned entries.
+    // The field by which to sort the query results. The value of this parameter must be a field in the response parameters.
     // 
     // This parameter is required.
     shared_ptr<string> orderBy_ {};
-    // The region ID.
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
   };
 

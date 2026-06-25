@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The authentication configuration for the image repository.
     shared_ptr<RegistryAuthenticationConfig> authConfig_ {};
+    // The certificate configuration for the image repository.
     shared_ptr<RegistryCertificateConfig> certConfig_ {};
   };
 

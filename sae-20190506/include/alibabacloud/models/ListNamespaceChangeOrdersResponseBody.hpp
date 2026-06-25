@@ -224,48 +224,51 @@ namespace Models
 
 
       protected:
-        // The number of release batches.
+        // The batch count.
         shared_ptr<int32_t> batchCount_ {};
-        // The mode in which the release batches are determined. Valid values:
-        // 
-        // *   **auto**: SAE automatically determines the release batches.
-        // *   **manual**: You must manually determine the release batches.
+        // The batch type.
         shared_ptr<string> batchType_ {};
-        // The ID of the change order.
+        // The change order ID.
         shared_ptr<string> changeOrderId_ {};
-        // The type of the change order, which corresponds the **CoTypeCode** parameter.
+        // The type of the change order, which corresponds to the `CoTypeCode`.
         shared_ptr<string> coType_ {};
-        // The code of the change order type. Valid values:
+        // The type code of the change order. Valid values:
         // 
-        // *   **CoBatchStartApplication**: starts multiple applications concurrently.
-        // *   **CoBatchStopApplication**: stops multiple applications concurrently.
+        // - **CoBatchStartApplication**: Starts applications in batches.
+        // 
+        // - **CoBatchStopApplication**: Stops applications in batches.
         shared_ptr<string> coTypeCode_ {};
-        // The time when the change order was created.
+        // The creation time of the change order.
         shared_ptr<string> createTime_ {};
         // The ID of the user who created the change order.
         shared_ptr<string> createUserId_ {};
         // The description of the change order.
         shared_ptr<string> description_ {};
-        // The time when the change order was completed.
+        // The completion time of the change order.
         shared_ptr<string> finishTime_ {};
-        // The ID of the group.
+        // The group ID.
         shared_ptr<string> groupId_ {};
-        // The ID of the namespace.
+        // The namespace ID.
         shared_ptr<string> namespaceId_ {};
-        // The information about release batches.
+        // The pipeline.
         shared_ptr<string> pipelines_ {};
-        // The source of the change order.
+        // The initiation source for the change order.
         shared_ptr<string> source_ {};
         // The status of the change order. Valid values:
         // 
-        // *   **0**: The change order is being prepared.
-        // *   **1**: The change order is being executed.
-        // *   **2**: The change order was executed.
-        // *   **3**: The change order could not be executed.
-        // *   **6**: The change order was terminated.
-        // *   **10**: The change order could not be executed due to a system exception.
+        // - **0**: Preparing
+        // 
+        // - **1**: In progress
+        // 
+        // - **2**: Succeeded
+        // 
+        // - **3**: Failed
+        // 
+        // - **6**: Terminated
+        // 
+        // - **10**: Failed due to a system exception
         shared_ptr<int32_t> status_ {};
-        // The ID of the user.
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -304,9 +307,9 @@ namespace Models
     protected:
       // The list of change orders.
       shared_ptr<vector<Data::ChangeOrderList>> changeOrderList_ {};
-      // The number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned on each page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of change orders.
       shared_ptr<int32_t> totalSize_ {};
@@ -367,30 +370,35 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code or POP error code.
     // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned results.
     shared_ptr<ListNamespaceChangeOrdersResponseBody::Data> data_ {};
     // The error code.
     // 
-    // *   The **ErrorCode** parameter is not returned when the request succeeds.
-    // *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
-    shared_ptr<string> errorCode_ {};
-    // The returned message.
-    shared_ptr<string> message_ {};
-    // The ID of the request.
-    shared_ptr<string> requestId_ {};
-    // Indicates whether the list of change orders was obtained. Valid values:
+    // - This parameter is returned only when a request fails.
     // 
-    // *   **true**: indicates that the list was obtained.
-    // *   **false**: indicates that the list could not be obtained.
+    // - For more information, see the **Error codes** section of this topic.
+    shared_ptr<string> errorCode_ {};
+    // The response message.
+    shared_ptr<string> message_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. It is used to query the details of a request.
+    // The trace ID, which is used to query the details of the request.
     shared_ptr<string> traceId_ {};
   };
 

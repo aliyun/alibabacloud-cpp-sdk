@@ -155,15 +155,15 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
-        // The type of the application.
+        // The application type.
         shared_ptr<string> appType_ {};
         // The ID of the MSE instance.
         shared_ptr<string> mseAppId_ {};
-        // MSE Instance Name
+        // The name of the MSE instance.
         shared_ptr<string> mseAppName_ {};
         // The ID of the namespace to which the MSE instance belongs.
         shared_ptr<string> mseNamespaceId_ {};
@@ -234,9 +234,9 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
         // The ID of the MSE instance.
         shared_ptr<string> mseAppId_ {};
@@ -333,34 +333,37 @@ namespace Models
 
 
     protected:
-      // The IDs of the applications associated with the lane group.
+      // The IDs of the applications that are associated with the swimming lane group.
       shared_ptr<vector<string>> appIds_ {};
-      // The application information.
+      // The information about the applications.
       shared_ptr<vector<Data::Apps>> apps_ {};
-      // Full-link Grayscale Mode:
+      // The canary release mode.
       // 
-      // *   0: The request is routed based on the content of the request.
-      // *   1: Proportional routing
+      // - 0: content-based routing
+      // 
+      // - 1: percentage-based routing
       shared_ptr<int32_t> canaryModel_ {};
-      // The entry application.
+      // The ingress application.
       shared_ptr<Data::EntryApp> entryApp_ {};
       // The ID of the gateway.
       shared_ptr<string> entryAppId_ {};
-      // The application entry type (gateway type).
+      // The type of the ingress application. This parameter is equivalent to the gateway type.
       // 
-      // *   **apig:** cloud-native API Gateway
-      // *   **mse-gw:** an MSE cloud original gateway
-      // *   **mse:** Java Services Gateway
+      // - **apig:** API Gateway
+      // 
+      // - **mse-gw:** cloud-native gateway
+      // 
+      // - **mse:** Java service gateway
       shared_ptr<string> entryAppType_ {};
-      // The ID of the lane group.
+      // The ID of the swimming lane group.
       shared_ptr<int64_t> groupId_ {};
-      // The name of a lane group.
+      // The name of the swimming lane group.
       shared_ptr<string> groupName_ {};
       // The ID of the namespace to which the MSE instance belongs.
       shared_ptr<string> mseNamespaceId_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
-      // The end-to-end grayscale version. Valid values: 0 and 2 (recommended).
+      // The version of the canary release. Valid values: 0 and 2. We recommend that you use 2.
       shared_ptr<string> swimVersion_ {};
     };
 
@@ -419,33 +422,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code. Valid values:
+    // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: The request was invalid.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // Responses.
+    // The returned data.
     shared_ptr<vector<ListAllSwimmingLaneGroupsResponseBody::Data>> data_ {};
-    // The status code. Value values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - For a list of error codes, see the "**Error codes**" section in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information. Valid values:
+    // The response message.
     // 
-    // *   The error message returned because the request is normal and **success** is returned.
-    // *   If the request is abnormal, the specific exception error code is returned.
+    // - **success** is returned if the request is successful.
+    // 
+    // - An error message is returned if the request fails.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The information was queried.
-    // *   **false**: The information failed to be queried.
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
-    // The ID of the trace. This parameter is used to query the exact call information.
+    // The trace ID that is used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

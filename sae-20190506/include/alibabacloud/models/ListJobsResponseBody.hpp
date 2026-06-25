@@ -164,9 +164,9 @@ namespace Models
 
 
         protected:
-          // The key of the tag.
+          // The tag key.
           shared_ptr<string> key_ {};
-          // The value of the tag.
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -319,57 +319,77 @@ namespace Models
         shared_ptr<string> appId_ {};
         // The name of the job template.
         shared_ptr<string> appName_ {};
-        // The time when the job was last completed.
+        // The time when the last job was completed.
         shared_ptr<int64_t> completionTime_ {};
-        // The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+        // The CPU required for each instance, in millicores. The value cannot be 0. Only the following defined specifications are supported:
         // 
-        // *   **500**
-        // *   **1000**
-        // *   **2000**
-        // *   **4000**
-        // *   **8000**
-        // *   **16000**
-        // *   **32000**
+        // - **500**
+        // 
+        // - **1000**
+        // 
+        // - **2000**
+        // 
+        // - **4000**
+        // 
+        // - **8000**
+        // 
+        // - **16000**
+        // 
+        // - **32000**
         shared_ptr<int32_t> cpu_ {};
-        // The number of instances that failed to run.
+        // The number of failed instances.
         shared_ptr<int64_t> failed_ {};
+        // The image URL.
         shared_ptr<string> imageUrl_ {};
-        // Indicates whether the latest change order was executed. Valid values:
+        // Indicates whether the last release order was successfully executed. Valid values:
         // 
-        // *   **0**: The latest change order failed to be executed.
-        // *   **1**: The latest change order was executed.
+        // - **0**: The release order failed to be executed.
+        // 
+        // - **1**: The release order was successfully executed.
         shared_ptr<string> lastChangeorderState_ {};
-        // The status of the latest job. Valid values:
+        // The state of the last job. Valid values:
         // 
-        // *   **0**: The job is not executed.
-        // *   **1**: The job was executed.
-        // *   **2**: The job failed to be executed.
-        // *   **3**: The job is being executed.
+        // - **0**: Not executed.
+        // 
+        // - **1**: Successful.
+        // 
+        // - **2**: Failed.
+        // 
+        // - **3**: Running.
         shared_ptr<string> lastJobState_ {};
-        // The time when the job was last started.
+        // The time when the last job was started.
         shared_ptr<int64_t> lastStartTime_ {};
-        // The size of memory that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+        // The memory required for each instance, in MB. The value cannot be 0. This parameter corresponds to the CPU parameter. Only the following defined specifications are supported:
         // 
-        // *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
-        // *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
-        // *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
-        // *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
-        // *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
-        // *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
-        // *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
-        // *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
-        // *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
-        // *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+        // - **1024**: corresponds to 500 and 1,000 millicores of CPU.
+        // 
+        // - **2048**: corresponds to 500, 1,000, and 2,000 millicores of CPU.
+        // 
+        // - **4096**: corresponds to 1,000, 2,000, and 4,000 millicores of CPU.
+        // 
+        // - **8192**: corresponds to 2,000, 4,000, and 8,000 millicores of CPU.
+        // 
+        // - **12288**: corresponds to 12,000 millicores of CPU.
+        // 
+        // - **16384**: corresponds to 4,000, 8,000, and 16,000 millicores of CPU.
+        // 
+        // - **24576**: corresponds to 12,000 millicores of CPU.
+        // 
+        // - **32768**: corresponds to 16,000 millicores of CPU.
+        // 
+        // - **65536**: corresponds to 8,000, 16,000, and 32,000 millicores of CPU.
+        // 
+        // - **131072**: corresponds to 32,000 millicores of CPU.
         shared_ptr<int32_t> mem_ {};
-        // The returned message.
+        // Additional information about the call.
         shared_ptr<string> message_ {};
-        // The ID of the namespace.
+        // The namespace ID.
         shared_ptr<string> namespaceId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The number of instances that were successfully run.
+        // The number of successful instances.
         shared_ptr<int64_t> succeeded_ {};
-        // Indicates whether the job template is suspended.
+        // Indicates whether the job template is paused.
         shared_ptr<bool> suspend_ {};
         // The tags of the job template.
         shared_ptr<vector<Applications::Tags>> tags_ {};
@@ -409,11 +429,11 @@ namespace Models
 
 
     protected:
-      // The job templates.
+      // The list of job templates.
       shared_ptr<vector<Data::Applications>> applications_ {};
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned on each page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of job templates.
       shared_ptr<int32_t> totalSize_ {};
@@ -488,32 +508,37 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The status of the interface or the POP error code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The job templates.
+    // The list of job templates.
     shared_ptr<ListJobsResponseBody::Data> data_ {};
-    // The error code returned. Take note of the following rules:
+    // The error code.
     // 
-    // *   If the call is successful, **ErrorCode** is not returned.
-    // *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+    // - If the request is successful, this parameter is not returned.
+    // 
+    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // Additional information about the call.
     shared_ptr<string> message_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the applications were obtained. Valid values:
+    // Indicates whether the list of job templates was obtained. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The list was obtained.
+    // 
+    // - **false**: The list failed to be obtained.
     shared_ptr<bool> success_ {};
     // The total number of job templates.
     shared_ptr<int32_t> totalSize_ {};

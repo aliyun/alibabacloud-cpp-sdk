@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> appId_ {};
   };
 

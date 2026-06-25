@@ -69,12 +69,7 @@ namespace Models
 
 
     protected:
-      // The HTTP status code. Valid values:
-      // 
-      // *   **2xx**: indicates that the request was successful.
-      // *   **3xx**: indicates that the request was redirected.
-      // *   **4xx**: indicates that the request was invalid.
-      // *   **5xx**: indicates that a server error occurred.
+      // The ID of the change order.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -133,23 +128,39 @@ namespace Models
 
 
   protected:
+    // The status of the API call or a POP error code. Valid values:
+    // 
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The error code.
-    // 
-    // *   If the request is successful, this parameter is not returned.****
-    // *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
-    shared_ptr<StopApplicationResponseBody::Data> data_ {};
-    // Indicates whether the specified application is stopped. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
-    shared_ptr<string> errorCode_ {};
     // The returned data.
+    shared_ptr<StopApplicationResponseBody::Data> data_ {};
+    // The error code. Valid values:
+    // 
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    shared_ptr<string> errorCode_ {};
+    // The returned message. Valid values:
+    // 
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the trace. It can be used to query the details of a request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the application was stopped. Valid values:
+    // 
+    // - **true**: The application was stopped.
+    // 
+    // - **false**: The application failed to be stopped.
     shared_ptr<bool> success_ {};
-    // The ID of the change order.
+    // The ID of the call chain. Use this ID to query detailed information about the call.
     shared_ptr<string> traceId_ {};
   };
 

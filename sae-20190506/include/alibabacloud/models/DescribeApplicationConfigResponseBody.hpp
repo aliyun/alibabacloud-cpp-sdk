@@ -302,9 +302,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -411,9 +411,13 @@ namespace Models
 
 
         protected:
+          // The key of the data value that is encoded in Base64.
           shared_ptr<string> key_ {};
+          // The mount path.
           shared_ptr<string> mountPath_ {};
+          // The ID of the secret instance.
           shared_ptr<int64_t> secretId_ {};
+          // The name of the secret instance.
           shared_ptr<string> secretName_ {};
         };
 
@@ -455,9 +459,9 @@ namespace Models
 
 
         protected:
-          // Mount path of the data volume within the container.
+          // The path on which the volume is mounted in the container.
           shared_ptr<string> mountPath_ {};
-          // The name of the shared temporary storage.
+          // The name of the temporary storage.
           shared_ptr<string> name_ {};
         };
 
@@ -517,13 +521,13 @@ namespace Models
 
 
         protected:
-          // The ConfigMap ID.
+          // The ID of the ConfigMap instance.
           shared_ptr<int64_t> configMapId_ {};
-          // The ConfigMap name.
+          // The name of the ConfigMap.
           shared_ptr<string> configMapName_ {};
-          // The ConfigMap key
+          // The key of the ConfigMap.
           shared_ptr<string> key_ {};
-          // The mount path.
+          // The mount path of the container.
           shared_ptr<string> mountPath_ {};
         };
 
@@ -643,61 +647,73 @@ namespace Models
 
 
       protected:
-        // The ID of Container Registry Enterprise Edition instance. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
+        // The ID of the Container Registry Enterprise Edition instance. This parameter is required if **ImageUrl** is set to an image in Container Registry Enterprise Edition.
         shared_ptr<string> acrInstanceId_ {};
-        // The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
+        // The startup command of the image. The command must be an executable object that exists in the container. Example:
         // 
-        //     command:
-        //           - echo
-        //           - abc
-        //           - >
-        //           - file0
+        // ```
+        // command:
+        //       - echo
+        //       - abc
+        //       - >
+        //       - file0
+        // ```
         // 
-        // In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+        // Based on the preceding example, `Command="echo", CommandArgs=["abc", ">", "file0"]`.
         shared_ptr<string> command_ {};
-        // The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. You can specify the name in one of the following formats:
+        // The arguments of the image startup command. The arguments are required by the preceding startup command **Command**. Format:
         // 
         // `["a","b"]`
         // 
-        // In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+        // In the preceding example, `CommandArgs=["abc", ">", "file0"]`. The value `["abc", ">", "file0"]` must be converted into a string in the JSON array format. If this parameter is not required, you do not need to specify it.
         shared_ptr<string> commandArgs_ {};
-        // The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following table describes the parameters that are used in the preceding statements.
+        // The description of the ConfigMap that you want to mount. Use the configuration item that you created on the Namespace Configuration Items page to inject configuration information into the container. The parameters are described as follows:
         // 
-        // *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
-        // *   **key**: the key.
+        // - **configMapId**: The ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
         // 
-        // > You can use the `sae-sys-configmap-all` key to mount all keys.
+        // - **key**: The key.
         // 
-        // *   **mountPath**: the mount path in the container.
+        // > You can pass the `sae-sys-configmap-all` parameter to mount all keys.
+        // 
+        // - **mountPath**: The mount path.
+        // 
+        // - **ConfigMapName**: The name of the ConfigMap.
         shared_ptr<vector<SidecarContainersConfig::ConfigMapMountDesc>> configMapMountDesc_ {};
-        // Set the CPU resource limit of the primary container that can be used by Sidecar container.
+        // The maximum CPU resources that the sidecar container can use from the main container.
         shared_ptr<int32_t> cpu_ {};
-        // Shared temporary storage mounted to the primary container and the Sidecar container.
+        // The shared temporary storage. Set a temporary storage directory and mount it to the main container and the sidecar container.
         shared_ptr<vector<SidecarContainersConfig::EmptyDirDesc>> emptyDirDesc_ {};
-        // The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
+        // The environment variables of the container. You can customize environment variables or reference a ConfigMap. To reference a ConfigMap, you must first create a ConfigMap instance. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
         // 
-        // *   Customize
+        // - Custom configuration
         // 
-        //     *   **name**: the name of the environment variable.
-        //     *   **value**: the value of the environment variable.
+        //   - **name**: The name of the environment variable.
         // 
-        // *   Reference ConfigMap
+        //   - **value**: The value of the environment variable. This parameter takes precedence over valueFrom.
         // 
-        //     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
-        //     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
-        //     *   **configMapId**: the ConfigMap ID.
-        //     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+        // - Reference a configuration item (valueFrom)
+        // 
+        //   - **name**: The name of the environment variable. You can reference a single key or all keys. To reference all keys, enter `sae-sys-configmap-all-<ConfigMap name>`, for example, `sae-sys-configmap-all-test1`.
+        // 
+        //   - **valueFrom**: The reference of the environment variable. Set the value to `configMapRef`.
+        // 
+        //     - **configMapId**: The ID of the ConfigMap.
+        // 
+        //     - **key**: The key. If you want to reference all keys, do not specify this parameter.
         shared_ptr<string> envs_ {};
-        // The URL of the image.
+        // The image URL.
         shared_ptr<string> imageUrl_ {};
+        // The health check on the container.
         shared_ptr<string> liveness_ {};
-        // Set the memory limit of the primary container that can be used by Sidecar container.
+        // The maximum memory resources that the sidecar container can use from the main container.
         shared_ptr<int32_t> memory_ {};
         // The container name.
         shared_ptr<string> name_ {};
         shared_ptr<string> postStart_ {};
         shared_ptr<string> preStop_ {};
+        // The check on the application startup status.
         shared_ptr<string> readiness_ {};
+        // The description of the secret that you want to mount.
         shared_ptr<vector<SidecarContainersConfig::SecretMountDesc>> secretMountDesc_ {};
       };
 
@@ -757,13 +773,13 @@ namespace Models
 
 
       protected:
-        // The key to Base64 encode values.
+        // The key of the data value that is encoded in Base64.
         shared_ptr<string> key_ {};
         // The mount path.
         shared_ptr<string> mountPath_ {};
-        // The secret ID of the instance.
+        // The ID of the queried secret instance.
         shared_ptr<int64_t> secretId_ {};
-        // The name of the secret.
+        // The name of the secret instance.
         shared_ptr<string> secretName_ {};
       };
 
@@ -823,16 +839,17 @@ namespace Models
 
 
       protected:
-        // The name of the OSS bucket.
+        // The bucket name.
         shared_ptr<string> bucketName_ {};
-        // The directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+        // The directory or object that you created in OSS. An error occurs if the mount directory does not exist.
         shared_ptr<string> bucketPath_ {};
-        // The path of the container in SAE. The parameter value that you specified overwrites the original value. If the specified path does not exist, SAE automatically creates the path.
+        // The path of the container in SAE. If the path exists, the path is overwritten. If the path does not exist, a new path is created.
         shared_ptr<string> mountPath_ {};
-        // Indicates whether the application can use the container path to read data from or write data to resources in the directory of the OSS bucket. Valid values:
+        // Specifies whether the container has the read-only permission on the mount directory resources. Valid values:
         // 
-        // *   **true**: The application has the read-only permissions.
-        // *   **false**: The application has the read and write permissions.
+        // - **true**: The read-only permission.
+        // 
+        // - **false**: The read and write permissions.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -874,9 +891,9 @@ namespace Models
 
 
       protected:
-        // The path on which the NAS file system is mounted.
+        // The mount path of the container.
         shared_ptr<string> mountPath_ {};
-        // The directory in the NAS file system.
+        // The path of the NAS file system.
         shared_ptr<string> nasPath_ {};
       };
 
@@ -969,9 +986,13 @@ namespace Models
 
 
         protected:
+          // The key.
           shared_ptr<string> key_ {};
+          // The mount path.
           shared_ptr<string> mountPath_ {};
+          // The ID of the secret instance.
           shared_ptr<int64_t> secretId_ {};
+          // The name of the secret instance.
           shared_ptr<string> secretName_ {};
         };
 
@@ -1013,7 +1034,9 @@ namespace Models
 
 
         protected:
+          // The path on which the volume is mounted in the container.
           shared_ptr<string> mountPath_ {};
+          // The name of the temporary storage.
           shared_ptr<string> name_ {};
         };
 
@@ -1073,13 +1096,13 @@ namespace Models
 
 
         protected:
-          // ConfigMap ID。
+          // The ID of the ConfigMap.
           shared_ptr<int64_t> configMapId_ {};
           // The name of the ConfigMap.
           shared_ptr<string> configMapName_ {};
-          // The key.
+          // The key of the key-value pair.
           shared_ptr<string> key_ {};
-          // The mount path.
+          // The mount path of the container.
           shared_ptr<string> mountPath_ {};
         };
 
@@ -1149,43 +1172,61 @@ namespace Models
 
 
       protected:
-        // The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
+        // The startup command of the image. The command must be an executable object that exists in the container. Example:
         // 
-        //     command:
-        //           - echo
-        //           - abc
-        //           - >
-        //           - file0
+        // ```
+        // command:
+        //       - echo
+        //       - abc
+        //       - >
+        //       - file0
+        // ```
         // 
-        // In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+        // Based on the preceding example, `Command="echo", CommandArgs=["abc", ">", "file0"]`.
         shared_ptr<string> command_ {};
-        // The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. You can specify the name in one of the following formats:
+        // The arguments of the image startup command. The arguments are required by the preceding startup command **Command**. Format:
         // 
         // `["a","b"]`
         // 
-        // In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+        // In the preceding example, `CommandArgs=["abc", ">", "file0"]`. The value `["abc", ">", "file0"]` must be converted into a string in the JSON array format. If this parameter is not required, you do not need to specify it.
         shared_ptr<string> commandArgs_ {};
-        // The information of ConfigMap.
+        // The configurations of the ConfigMap.
         shared_ptr<vector<InitContainersConfig::ConfigMapMountDesc>> configMapMountDesc_ {};
+        // The shared temporary storage.
         shared_ptr<vector<InitContainersConfig::EmptyDirDesc>> emptyDirDesc_ {};
-        // The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
+        // The environment variables of the container. You can customize environment variables or reference a ConfigMap. To reference a ConfigMap, you must first create a ConfigMap instance. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
         // 
-        // *   Customize
+        // - Custom configuration
         // 
-        //     *   **name**: the name of the environment variable.
-        //     *   **value**: the value of the environment variable.
+        //   - **name**: The name of the environment variable.
         // 
-        // *   Reference ConfigMap
+        //   - **value**: The value of the environment variable. This parameter takes precedence over valueFrom.
         // 
-        //     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
-        //     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
-        //     *   **configMapId**: the ConfigMap ID.
-        //     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+        // - Reference a configuration item (valueFrom)
+        // 
+        //   - **name**: The name of the environment variable. You can reference a single key or all keys. To reference all keys, enter `sae-sys-configmap-all-<ConfigMap name>`, for example, `sae-sys-configmap-all-test1`.
+        // 
+        //   - **valueFrom**: The reference of the environment variable. Set the value to `configMapRef`.
+        // 
+        //   - **configMapId**: The ID of the ConfigMap.
+        // 
+        //   - **key**: The key. If you want to reference all keys, do not specify this parameter.
+        // 
+        // - Reference a secret (valueFrom)
+        // 
+        //   - **name**: The name of the environment variable. You can reference a single key or all keys. To reference all keys, enter `sae-sys-secret-all-<Secret name>`, for example, `sae-sys-secret-all-test1`.
+        // 
+        //   - **valueFrom**: The reference of the environment variable. Set the value to `secretRef`.
+        // 
+        //   - **secretId**: The ID of the secret.
+        // 
+        //   - **key**: The key. If you want to reference all keys, do not specify this parameter.
         shared_ptr<string> envs_ {};
-        // The image URL of the initialized container.
+        // The URL of the image that is used by the init container.
         shared_ptr<string> imageUrl_ {};
-        // The name of the initialized container.
+        // The name of the init container.
         shared_ptr<string> name_ {};
+        // The description of the secret that you want to mount.
         shared_ptr<vector<InitContainersConfig::SecretMountDesc>> secretMountDesc_ {};
       };
 
@@ -1227,7 +1268,9 @@ namespace Models
 
 
       protected:
+        // The mount path.
         shared_ptr<string> mountPath_ {};
+        // The name of the temporary storage.
         shared_ptr<string> name_ {};
       };
 
@@ -1291,9 +1334,9 @@ namespace Models
         shared_ptr<int64_t> configMapId_ {};
         // The name of the ConfigMap.
         shared_ptr<string> configMapName_ {};
-        // The key-value pair that is stored in the ConfigMap.
+        // The key of the key-value pair.
         shared_ptr<string> key_ {};
-        // The path on which the ConfigMap is mounted.
+        // The mount path of the container.
         shared_ptr<string> mountPath_ {};
       };
 
@@ -2054,40 +2097,45 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Pull images across Alibaba Cloud accounts](https://help.aliyun.com/document_detail/190675.html) and [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+      // The Alibaba Cloud Resource Name (ARN) of the RAM role that is required to pull images across accounts. For more information, see [Pull images across Alibaba Cloud accounts](https://help.aliyun.com/document_detail/190675.html) and [Use a RAM role to grant permissions across Alibaba Cloud accounts](https://help.aliyun.com/document_detail/223585.html).
       shared_ptr<string> acrAssumeRoleArn_ {};
       // The ID of the Container Registry Enterprise Edition instance.
       shared_ptr<string> acrInstanceId_ {};
+      // The agent version.
       shared_ptr<string> agentVersion_ {};
+      // The configuration of the Application Load Balancer (ALB) gateway readiness gate.
       shared_ptr<string> albIngressReadinessGate_ {};
-      // The description of the application.
+      // The application description.
       shared_ptr<string> appDescription_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The SAE application type.
+      // The type of the SAE application.
       // 
-      // *   micro_service
-      // *   web
-      // *   job
+      // - micro_service
+      // 
+      // - web
+      // 
+      // - job
       shared_ptr<string> appSource_ {};
-      // Indicates whether an elastic IP address (EIP) is associated with the application instance. Valid values:
+      // Specifies whether to bind an elastic IP address (EIP). Valid values:
       // 
-      // *   **true**: The EIP is associated with the application instance.
-      // *   **false**: The EIP is not associated with the application instance.
+      // - **true**: Bind an EIP.
+      // 
+      // - **false**: Do not bind an EIP.
       shared_ptr<bool> associateEip_ {};
-      // The base app ID.
+      // The ID of the baseline application.
       shared_ptr<string> baseAppId_ {};
       // The interval between batches in a phased release. Unit: seconds.
       shared_ptr<int32_t> batchWaitTime_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The Cloud Monitor service ID.
       shared_ptr<string> cmsServiceId_ {};
-      // The command that is used to start the image. The command must be an existing executable object in the container. Example:
+      // The startup command of the image. The command must be an executable object that exists in the container. Example:
       // 
       // ```
-      // 
       // command:
       //       - echo
       //       - abc
@@ -2095,371 +2143,464 @@ namespace Models
       //       - file0
       // ```
       // 
-      // In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+      // Based on the preceding example, `Command="echo", CommandArgs=["abc", ">", "file0"]`.
       shared_ptr<string> command_ {};
-      // The parameters of the image startup command. The CommandArgs parameter contains the parameters that are required for the **Command** parameter. Format:
+      // The arguments of the image startup command. The arguments are required by the **Command** parameter. Format:
       // 
       // `["a","b"]`
       // 
-      // In the preceding **Command** example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. You do not need to configure this parameter if it does not exist in the Command parameter.
+      // In the example of the **Command** parameter, `CommandArgs=["abc", ">", "file0"]`. The value `["abc", ">", "file0"]` must be converted into a string in the JSON array format. If this parameter is not required, you do not need to specify it.
       shared_ptr<string> commandArgs_ {};
-      // The details of the ConfigMap.
+      // The configurations of the ConfigMap.
       shared_ptr<vector<Data::ConfigMapMountDesc>> configMapMountDesc_ {};
-      // The CPU specifications that are required for each instance. Unit: millicores. You cannot set this parameter to 0. Valid values:
+      // The CPU required by each instance. Unit: millicores. The value cannot be 0. The following specifications are supported:
       // 
-      // *   **500**
-      // *   **1000**
-      // *   **2000**
-      // *   **4000**
-      // *   **8000**
-      // *   **16000**
-      // *   **32000**
+      // - **500**
+      // 
+      // - **1000**
+      // 
+      // - **2000**
+      // 
+      // - **4000**
+      // 
+      // - **8000**
+      // 
+      // - **16000**
+      // 
+      // - **32000**
       shared_ptr<int32_t> cpu_ {};
-      // The custom mappings between hostnames and IP addresses in the container. Valid values:
+      // The custom mapping between a domain name and an IP address in the container. Valid values:
       // 
-      // *   **hostName**: the domain name or hostname.
-      // *   **ip**: the IP address.
+      // - **hostName**: The domain name or hostname.
+      // 
+      // - **ip**: The IP address.
       shared_ptr<string> customHostAlias_ {};
-      // The type of custom image. Set to empty string if using pre-built image.
+      // The type of the custom image. If you do not use a custom image, set this parameter to an empty string. Valid values:
       // 
-      // - internet: public network image.
+      // - internet: a public image
       // 
-      // - intranet: private network image.
+      // - intranet: a private image
       shared_ptr<string> customImageNetworkType_ {};
+      // The instance name of the application in the ASI cluster.
       shared_ptr<string> deploymentName_ {};
-      // The disk size. Unit: GB.
+      // The disk storage size. Unit: GB.
       shared_ptr<int32_t> diskSize_ {};
-      // The version of .NET.
+      // The version of the .NET framework:
       // 
       // - .NET 3.1
+      // 
       // - .NET 5.0
+      // 
       // - .NET 6.0
+      // 
       // - .NET 7.0
+      // 
       // - .NET 8.0
       shared_ptr<string> dotnet_ {};
-      // The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+      // The version of the application runtime environment in the High-Speed Service Framework (HSF), such as an Ali-Tomcat container.
       shared_ptr<string> edasContainerVersion_ {};
+      // The shared temporary storage.
       shared_ptr<vector<Data::EmptyDirDesc>> emptyDirDesc_ {};
-      // Indicates whether access to Application High Availability Service (AHAS) is enabled. Valid values:
+      // Specifies whether to enable Application High Availability Service (AHAS). Valid values:
       // 
-      // *   **true**: Access to AHAS is enabled.
-      // *   **false**: Access to AHAS is disabled.
+      // - **true**: Enable AHAS.
+      // 
+      // - **false**: Disable AHAS.
       shared_ptr<string> enableAhas_ {};
-      // Enable CPU Burst.
+      // Specifies whether to enable the CPU burst feature:
       // 
-      // - true: enable
+      // - true: Enable
       // 
-      // - false: disable
+      // - false: Disable
       shared_ptr<string> enableCpuBurst_ {};
-      // Indicates whether canary release rules are enabled. Canary release rules apply only to applications in Spring Cloud and Dubbo frameworks. Valid values:
+      // Specifies whether to enable the canary release rule. This rule is applicable only to applications that use the Spring Cloud and Dubbo frameworks. Valid values:
       // 
-      // *   **true**: The canary release rules are enabled.
-      // *   **false**: The canary release rules are disabled.
+      // - **true**: Enable the canary release rule.
+      // 
+      // - **false**: Disable the canary release rule.
       shared_ptr<bool> enableGreyTagRoute_ {};
-      // Enable idle mode.
+      // Specifies whether to enable the idle mode:
       // 
-      // - true: enable
+      // - true: Enable
       // 
-      // - false: disable
+      // - false: Disable
       shared_ptr<bool> enableIdle_ {};
+      // Specifies whether to reuse the agent version configuration of the namespace.
       shared_ptr<bool> enableNamespaceAgentVersion_ {};
-      // Enable new ARMS feature.
+      // Specifies whether to enable the new ARMS feature:
       // 
-      // - true: enable
+      // - true: Enable
       // 
-      // - false: disable
+      // - false: Disable
       shared_ptr<bool> enableNewArms_ {};
+      // Specifies whether to enable custom metric collection for Prometheus.
       shared_ptr<bool> enablePrometheus_ {};
-      // The environment variables. Variable description:
+      // The environment variables for the container. You can customize environment variables or reference a ConfigMap. To reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
       // 
-      // *   **name**: the name of the environment variable.
-      // *   **value**: the value or reference of the environment variable.
+      // - Custom configuration
+      // 
+      //   - **name**: The name of the environment variable.
+      // 
+      //   - **value**: The value of the environment variable.
+      // 
+      // - Reference a configuration item
+      // 
+      //   - **name**: The name of the environment variable. You can reference a single key or all keys. To reference all keys, enter `sae-sys-configmap-all-<ConfigMap name>`, for example, `sae-sys-configmap-all-test1`.
+      // 
+      //   - **valueFrom**: The reference of the environment variable. Set the value to `configMapRef`.
+      // 
+      //   - **configMapId**: The ID of the ConfigMap.
+      // 
+      //   - **key**: The key. If you want to reference all keys, do not specify this parameter.
       shared_ptr<string> envs_ {};
+      // The number of GPUs.
       shared_ptr<string> gpuCount_ {};
+      // The GPU card type.
       shared_ptr<string> gpuType_ {};
       shared_ptr<string> headlessPvtzDiscovery_ {};
       shared_ptr<string> html_ {};
       shared_ptr<string> idleHour_ {};
-      // The ID of the corresponding secret dictionary.
+      // The ID of the secret.
       shared_ptr<string> imagePullSecrets_ {};
-      // The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
+      // The URL of the image. This parameter is required when **Package Type** is set to **Image**.
       shared_ptr<string> imageUrl_ {};
-      // Initialize container configuration.
+      // The configurations of the init container.
       shared_ptr<vector<Data::InitContainersConfig>> initContainersConfig_ {};
+      // Specifies whether the application is a stateful application.
       shared_ptr<bool> isStateful_ {};
-      // The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+      // The arguments for starting the JAR package. The default startup command is: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
       shared_ptr<string> jarStartArgs_ {};
-      // The option settings in the JAR package. The settings are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+      // The options for starting the JAR package. The default startup command is: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
       shared_ptr<string> jarStartOptions_ {};
-      // The version of the Java development kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+      // The version of the Java Development Kit (JDK) that the deployment package requires. The following versions are supported:
       // 
-      // *   **Open JDK 8**
-      // *   **Open JDK 7**
-      // *   **Dragonwell 11**
-      // *   **Dragonwell 8**
-      // *   **openjdk-8u191-jdk-alpine3.9**
-      // *   **openjdk-7u201-jdk-alpine3.9**
+      // - **Open JDK 8**
       // 
-      // This parameter is not returned if the **PackageType** parameter is set to **Image**.
+      // - **Open JDK 7**
+      // 
+      // - **Dragonwell 11**
+      // 
+      // - **Dragonwell 8**
+      // 
+      // - **openjdk-8u191-jdk-alpine3.9**
+      // 
+      // - **openjdk-7u201-jdk-alpine3.9**
+      // 
+      // This parameter is not supported when **Package Type** is set to **Image**.
       shared_ptr<string> jdk_ {};
-      // The logging configurations of Message Queue for Apache Kafka. The following parameters are involved:
+      // The configurations for collecting logs to Kafka. Valid values:
       // 
-      // *   **KafkaConfigs**: the configurations of Message Queue for Apache Kafka.
+      // - **kafkaEndpoint**: The endpoint of the Kafka API.
       // 
-      // *   **createTime**: the time when the Message Queue for Apache Kafka instance was created.
+      // - **kafkaInstanceId**: The ID of the Kafka instance.
       // 
-      // *   **kafkaTopic**: the message topic that is used to classify messages.
-      // 
-      // *   **logDir**: the path in which logs are stored.
-      // 
-      // *   **logType**: the type of collected logs. Valid values:
-      // 
-      //     *   **file_log**: the file log that is stored in the container. The path of the file logs in the container is returned.
-      //     *   **stdout**: the standard output log of the container. You can specify only one stdout value.
-      // 
-      // *   **kafkaEndpoint**: the endpoint of the Message Queue for Apache Kafka service.
-      // 
-      // *   **kafkaInstanceId**: the ID of the Message Queue for Apache Kafka instance.
-      // 
-      // *   **region**: the region where the Message Queue for Apache Kafka instance resides.
+      // - **kafkaConfigs**: The configurations of one or more logs. For more information about the example and parameters, see the **kafkaConfigs** request parameter in this topic.
       shared_ptr<string> kafkaConfigs_ {};
+      // The labels.
       shared_ptr<map<string, string>> labels_ {};
-      // The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
+      // The liveness probe of the container. A container that fails the health check is shut down and restored. The following methods are supported:
       // 
-      // *   Sample code of the **exec** method: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
-      // *   Sample code of the **httpGet** method: `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
-      // *   Sample code of the **tcpSocket** method: `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+      // - **exec**: example: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
       // 
-      // >  You can use only one method to perform the health check.
+      // - **httpGet**: example:`{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
       // 
-      // The following parameters are involved:
+      // - **tcpSocket**: example:`{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
       // 
-      // *   **exec.command**: the health check command.
-      // *   **httpGet.path**: the request path.
-      // *   **httpGet.scheme**: the protocol that is used to perform the health check. Valid values: **HTTP** and **HTTPS**.
-      // *   **httpGet.isContainKeyWord**: indicates whether the response contains keywords. Valid values: **true** and **false**. If this field is not returned, the advanced settings are not used.
-      // *   **httpGet.keyWord**: the custom keyword. This parameter is available only if the **isContainKeyWord** field is returned.
-      // *   **tcpSocket.port**: the port that is used to check the status of TCP connections.
-      // *   **initialDelaySeconds**: the delay of the health check. Default value: 10. Unit: seconds.
-      // *   **periodSeconds**: the interval at which health checks are performed. Default value: 30. Unit: seconds.
-      // *   **timeoutSeconds**: the timeout period of the health check. Default value: 1. Unit: seconds. If you set this parameter to 0 or leave this parameter empty, the timeout period is automatically set to 1 second.
+      // > You can use only one method for a health check.
+      // 
+      // The parameters are described as follows:
+      // 
+      // - **exec.command**: The command that is used for the health check.
+      // 
+      // - **httpGet.path**: The request path.
+      // 
+      // - **httpGet.scheme**: **HTTP** or **HTTPS**.
+      // 
+      // - **httpGet.isContainKeyWord**: Specifies whether the response must contain a keyword. A value of **true** indicates that the response must contain the keyword. A value of **false** indicates that the response does not need to contain the keyword. If you do not specify this parameter, this advanced feature is not used.
+      // 
+      // - **httpGet.keyWord**: The custom keyword. This parameter is required if you set the **isContainKeyWord** parameter.
+      // 
+      // - **tcpSocket.port**: The port that is used for the TCP connection check.
+      // 
+      // - **initialDelaySeconds**: The delay for the health check. Default value: 10. Unit: seconds.
+      // 
+      // - **periodSeconds**: The interval for the health check. Default value: 30. Unit: seconds.
+      // 
+      // - **timeoutSeconds**: The timeout period for the health check. Default value: 1. Unit: seconds. If you set this parameter to 0 or do not specify this parameter, the default value is used.
       shared_ptr<string> liveness_ {};
+      // The Loki configurations.
       shared_ptr<string> lokiConfigs_ {};
+      // The maximum surge instance ratio.
       shared_ptr<int32_t> maxSurgeInstanceRatio_ {};
+      // The maximum number of surge instances.
       shared_ptr<int32_t> maxSurgeInstances_ {};
-      // The size of memory required by each instance. Unit: MB. You cannot set this parameter to 0. The values of this parameter correspond to the values of the Cpu parameter:
+      // The memory required by each instance. Unit: MB. The value cannot be 0. This parameter corresponds to the \\`Cpu\\` parameter. The following specifications are supported:
       // 
-      // *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
-      // *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 1000.
-      // *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
-      // *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
-      // *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
-      // *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
-      // *   This parameter is set to **24567** if the Cpu parameter is set to 12000.
-      // *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
-      // *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
-      // *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+      // - **1024**: corresponds to 500 millicores and 1,000 millicores.
+      // 
+      // - **2048**: corresponds to 500, 1,000, and 2,000 millicores.
+      // 
+      // - **4096**: corresponds to 1,000, 2,000, and 4,000 millicores.
+      // 
+      // - **8192**: corresponds to 2,000, 4,000, and 8,000 millicores.
+      // 
+      // - **12288**: corresponds to 12,000 millicores.
+      // 
+      // - **16384**: corresponds to 4,000, 8,000, and 16,000 millicores.
+      // 
+      // - **24576**: corresponds to 12,000 millicores.
+      // 
+      // - **32768**: corresponds to 16,000 millicores.
+      // 
+      // - **65536**: corresponds to 8,000, 16,000, and 32,000 millicores.
+      // 
+      // - **131072**: corresponds to 32,000 millicores.
       shared_ptr<int32_t> memory_ {};
       // The Nacos registry. Valid values:
       // 
-      // *   **0**: SAE built-in Nacos registry
-      // *   **1**: self-managed Nacos registry
-      // *   **2** : MSE Nacos registry
+      // - **0**: SAE built-in Nacos.
+      // 
+      // - **1**: User-created Nacos.
+      // 
+      // - **2**: MSE Nacos.
       shared_ptr<string> microRegistration_ {};
-      // The configuration of registration center. Takes effect only the type of registration center is MSE enterprise Nacos.
+      // The configuration of the registry. This parameter takes effect only when the registry is MSE Nacos Enterprise Edition.
       shared_ptr<string> microRegistrationConfig_ {};
-      // Configure microservices governance
+      // The configurations of microservice governance.
       // 
-      // enable: Whether to enable microservices governance
+      // - Specifies whether to enable microservice governance (enable):
       // 
-      // - true: Enable
-      // - false: Disable
+      //   - true: Enable
       // 
-      // mseLosslessRule: Configure lossless online/offline deployment
+      //   - false: Disable
       // 
-      // - delayTime: Delay duration (unit: seconds)
-      // - enable: Whether to enable lossless deployment. Set to "true" to enable; set to "false" to disable.
-      // - notice: Whether to enable notifications. Set to "true" to enable; set to "false" to disable.
-      // - warmupTime: Small-traffic warm-up duration (unit: seconds)
+      // - The configuration of graceful start and shutdown (mseLosslessRule):
+      // 
+      //   - delayTime: The delay time.
+      // 
+      //   - enable: Specifies whether to enable graceful start. true indicates that graceful start is enabled. false indicates that graceful start is not enabled.
+      // 
+      //   - notice: Specifies whether to enable notifications. true indicates that notifications are enabled. false indicates that notifications are not enabled.
+      // 
+      //   - warmupTime: The warm-up duration for a small amount of traffic. Unit: seconds.
       shared_ptr<string> microserviceEngineConfig_ {};
-      // The percentage of the minimum number of available instances. Valid values:
+      // The percentage of the minimum number of ready instances. Valid values:
       // 
-      // *   **-1**: the default value. This value indicates that the minimum number of available instances is not measured by percentage. If you do not configure this parameter, the default value **-1** is used.
-      // *   **0 to 100**: indicates that the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). If the calculated result is not an integer, the result is rounded up to the nearest integer. For example, if the percentage is set to **50**% and five instances are available, the minimum number of available instances is 3.
+      // - -1: The default value. This value indicates that the percentage is not used. If you do not specify this parameter, the system uses the default value **-1**.
       // 
-      // >  If the **MinReadyInstance** and **MinReadyInstanceRatio** parameters are returned and the value of the **MinReadyInstanceRatio** parameter is not **-1**, the value of the **MinReadyInstanceRatio** parameter takes effect. If the **MinReadyInstances** parameter is set to **5** and the **MinReadyInstanceRatio** parameter is set to **50**, the value of the **MinReadyInstanceRatio** parameter determines the minimum number of available instances.
+      // - **0 to 100**: The percentage of the minimum number of ready instances. The value is rounded up. For example, if you set this parameter to **50**%, and you have five instances, the minimum number of ready instances is 3.
+      // 
+      // > If you specify both \\`MinReadyInstances\\` and **MinReadyInstanceRatio**, and the value of **MinReadyInstanceRatio** is not **-1**, the value of **MinReadyInstanceRatio** takes precedence. For example, if **MinReadyInstances** is set to **5** and **MinReadyInstanceRatio** is set to **50**, the minimum number of ready instances is calculated based on the value of **MinReadyInstanceRatio**.
       shared_ptr<int32_t> minReadyInstanceRatio_ {};
-      // The minimum number of available instances. Valid values:
+      // The minimum number of ready instances. Valid values:
       // 
-      // *   If you set the value to **0**, business interruptions occur when the application is updated.
-      // *   If you set the value to **-1**, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+      // - If you set this parameter to **0**, the application may be interrupted during an upgrade.
       // 
-      // >  Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+      // - If you set this parameter to -1, the system uses a recommended value, which is 25% of the total number of instances. For example, if you have five instances, the minimum number of ready instances is 2 after the value is rounded up.
+      // 
+      // > We recommend that you set the minimum number of ready instances to a value of 1 or greater to ensure that the application is not interrupted during a rolling update.
       shared_ptr<int32_t> minReadyInstances_ {};
-      // The details of the mounted NAS file system.
+      // The mount description.
       shared_ptr<vector<Data::MountDesc>> mountDesc_ {};
-      // The mount target of the NAS file system in the VPC where the application is deployed. If you do not need to modify this configuration during the deployment, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you need to remove this configuration, leave the **MountHost** parameter empty in the request.
+      // The mount target of the Apsara File Storage NAS file system in the application VPC. If you do not change the NAS configuration during a deployment, you do not need to specify this parameter. If you want to clear the NAS configuration, set this parameter to an empty string ("").
       shared_ptr<string> mountHost_ {};
-      // The ID of the microservice application.
+      // The ID of the application in Microservices Engine (MSE).
       shared_ptr<string> mseApplicationId_ {};
-      // The application name of SAE service registered in MSE.
+      // The name of the application after the SAE service is registered with MSE.
       shared_ptr<string> mseApplicationName_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
-      // The configurations for mounting the NAS file system.
+      // The configurations for mounting a NAS file system.
       shared_ptr<string> nasConfigs_ {};
       // The ID of the NAS file system.
       shared_ptr<string> nasId_ {};
-      // The SAE application edition.
+      // The application version.
       // 
-      // - lite: The lightweight edition.
-      // - std: The standard edition.
-      // - pro: The professional edition.
+      // - lite: Lightweight Edition
+      // 
+      // - std: Standard Edition
+      // 
+      // - pro: Professional Edition
       shared_ptr<string> newSaeVersion_ {};
-      // The name of the RAM role used to authenticate the user identity.
+      // The RAM role for identity authentication.
       // 
-      // >  You need to create an OpenID Connect (OIDC) identity provider (IdP) and an identity provider (IdP) for role-based single sign-on (SSO) in advance. For more information, see [Creates an OpenID Connect (OIDC) identity provider (IdP)](https://help.aliyun.com/document_detail/2331022.html) and [Creates an identity provider (IdP) for role-based single sign-on (SSO)](https://help.aliyun.com/document_detail/2331016.html).
+      // > You must create an OpenID Connect (OIDC) identity provider (IdP) and a RAM role for the IdP in the same region beforehand. For more information, see [Create an OIDC IdP](https://help.aliyun.com/document_detail/2331022.html) and [Create a RAM role for a trusted IdP](https://help.aliyun.com/document_detail/2331016.html).
       shared_ptr<string> oidcRoleName_ {};
-      // The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
+      // The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS).
       shared_ptr<string> ossAkId_ {};
-      // The AccessKey secret that is used to read data from and write data to OSS buckets.
+      // The AccessKey secret that is used to read data from and write data to OSS.
       shared_ptr<string> ossAkSecret_ {};
-      // The description of the mounted OSS bucket.
+      // The description of the OSS mount.
       shared_ptr<vector<Data::OssMountDescs>> ossMountDescs_ {};
-      // The type of the deployment package. Valid values:
+      // The type of the application package. Valid values:
       // 
-      // *   If you deploy the application by using a Java Archive (JAR) package, you can set this parameter to **FatJar**, **War**, or **Image**.
+      // - If you deploy the application using Java, valid values are **FatJar**, **War**, and **Image**.
       // 
-      // *   If you deploy the application by using a PHP package, you can set this parameter to one of the following values:
+      // - If you deploy the application using PHP, the following values are supported:
       // 
-      //     *   **PhpZip**
-      //     *   **IMAGE_PHP_5_4**
-      //     *   **IMAGE_PHP_5_4_ALPINE**
-      //     *   **IMAGE_PHP_5_5**
-      //     *   **IMAGE_PHP_5_5_ALPINE**
-      //     *   **IMAGE_PHP_5_6**
-      //     *   **IMAGE_PHP_5_6_ALPINE**
-      //     *   **IMAGE_PHP_7_0**
-      //     *   **IMAGE_PHP_7_0_ALPINE**
-      //     *   **IMAGE_PHP_7_1**
-      //     *   **IMAGE_PHP_7_1_ALPINE**
-      //     *   **IMAGE_PHP_7_2**
-      //     *   **IMAGE_PHP_7_2_ALPINE**
-      //     *   **IMAGE_PHP_7_3**
-      //     *   **IMAGE_PHP_7_3_ALPINE**
+      //   - **PhpZip**
+      // 
+      //   - **IMAGE_PHP_5_4**
+      // 
+      //   - **IMAGE_PHP_5_4_ALPINE**
+      // 
+      //   - **IMAGE_PHP_5_5**
+      // 
+      //   - **IMAGE_PHP_5_5_ALPINE**
+      // 
+      //   - **IMAGE_PHP_5_6**
+      // 
+      //   - **IMAGE_PHP_5_6_ALPINE**
+      // 
+      //   - **IMAGE_PHP_7_0**
+      // 
+      //   - **IMAGE_PHP_7_0_ALPINE**
+      // 
+      //   - **IMAGE_PHP_7_1**
+      // 
+      //   - **IMAGE_PHP_7_1_ALPINE**
+      // 
+      //   - **IMAGE_PHP_7_2**
+      // 
+      //   - **IMAGE_PHP_7_2_ALPINE**
+      // 
+      //   - **IMAGE_PHP_7_3**
+      // 
+      //   - **IMAGE_PHP_7_3_ALPINE**
       shared_ptr<string> packageType_ {};
-      // The URL of the deployment package. This parameter is returned only if the **PackageType** parameter is set to **FatJar** or **War**.
+      // The URL of the deployment package. If you upload the deployment package using SAE, note the following:
+      // 
+      // - You cannot download the package from this URL. Call the \\`GetPackageVersionAccessableUrl\\` operation to obtain a download URL that is valid for 10 minutes.
+      // 
+      // - SAE stores the package for a maximum of 90 days. After 90 days, the URL is not returned and you cannot download the package.
       shared_ptr<string> packageUrl_ {};
-      // The version of the deployment package. This parameter is returned only if the **PackageType** parameter is set to **FatJar** or **War**.
+      // The version of the deployment package. This parameter is required when **Package Type** is set to **FatJar** or **War**.
       shared_ptr<string> packageVersion_ {};
-      // The version of PHP supporting PHP deployment packages. Image is not supported.
+      // The PHP version required for the deployment package. This parameter is not supported for images.
       shared_ptr<string> php_ {};
-      // The path on which the PHP configuration file for application monitoring is mounted. Make sure that the PHP server loads the configuration file.
+      // The mount path of the Application Real-Time Monitoring Service (ARMS) configuration file for a PHP application. Make sure that the PHP server loads the configuration file from this path.
       // 
-      // SAE automatically generates the corresponding configuration file. No manual operations are required.
+      // SAE automatically renders the correct configuration file. You do not need to manage the content of the configuration file.
       shared_ptr<string> phpArmsConfigLocation_ {};
-      // The details of the PHP configuration file.
+      // The content of the PHP configuration file.
       shared_ptr<string> phpConfig_ {};
-      // The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+      // The mount path of the PHP application startup configuration file. Make sure that the PHP server uses this configuration file to start.
       shared_ptr<string> phpConfigLocation_ {};
-      // The script that is run immediately after the container is started. Example: `{"exec":{"command":["cat","/etc/group"]}}`
+      // The script that runs after the container starts. The script runs immediately after the container is created. Example: `{"exec":{"command":["cat","/etc/group"]}}`
       shared_ptr<string> postStart_ {};
-      // The script that is run before the container is stopped. Example: `{"exec":{"command":["cat","/etc/group"]}}`
+      // The script that runs before the container is stopped. The script runs before the container is deleted. Example: `{"exec":{"command":["cat","/etc/group"]}}`
       shared_ptr<string> preStop_ {};
-      // The programming language that is used to create the application. Valid values:
+      // The programming language of the application. Valid values:
       // 
-      // *   **java**: Java
-      // *   **php**: PHP
-      // *   **other**: Other programming languages, such as Python, C++, Go, .NET, and Node.js.
+      // - **java**: Java
+      // 
+      // - **php**: PHP
+      // 
+      // - **other**: other languages, such as Python, C++, Go, .NET, and Node.js.
       shared_ptr<string> programmingLanguage_ {};
-      // Enable K8s Service discovery and registration.
+      // Enables service registration and discovery for a Kubernetes Service.
       shared_ptr<string> pvtzDiscovery_ {};
       // The Python environment. PYTHON 3.9.15 is supported.
       shared_ptr<string> python_ {};
-      // The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If no software package is configured, you can specify dependencies based on your business requirements.
+      // The dependencies for custom installation modules. By default, the dependencies that are defined in the requirements.txt file in the root directory are installed. If no software package is configured or a custom software package is used, you can specify the dependencies to be installed.
       shared_ptr<string> pythonModules_ {};
-      // The details of the health check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. Containers that fail health checks cannot receive traffic from Server Load Balancer (SLB) instances. You can use the **exec**, **httpGet**, or **tcpSocket** method to perform health checks. For more information, see the description of the **Liveness** parameter.
+      // The readiness probe of the application. A container that fails the health check multiple times is shut down and restarted. A container that fails the health check does not receive traffic from a Server Load Balancer (SLB) instance. You can perform the health check using the **exec**, **httpGet**, or **tcpSocket** method. For more information, see the **Liveness** parameter.
       // 
-      // >  You can use only one method to perform the health check.
+      // > You can use only one method for a health check.
       shared_ptr<string> readiness_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The number of application instances.
       shared_ptr<int32_t> replicas_ {};
-      // The type of the resource. Set the value to `application`.
+      // The resource type. Only `application` is supported.
       shared_ptr<string> resourceType_ {};
-      // Secret mount description.
+      // The description of the secret that you want to mount.
       shared_ptr<vector<Data::SecretMountDesc>> secretMountDesc_ {};
       // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The canary tag configured for the application.
+      // The canary release tags of the application configuration.
       shared_ptr<map<string, string>> serviceTags_ {};
-      // The configuration of the Sidecar container.
+      // The configurations of the sidecar container.
       shared_ptr<vector<Data::SidecarContainersConfig>> sidecarContainersConfig_ {};
-      // The logging configurations of Log Service.
+      // The configurations for collecting logs to Simple Log Service (SLS).
       // 
-      // *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
-      // *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+      // - To use an SLS resource that is automatically created by SAE: `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
       // 
-      // The following parameters are involved:
+      // - To use a custom SLS resource: `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
       // 
-      // *   **projectName**: the name of the Log Service project.
-      // *   **logDir**: the path in which logs are stored.
-      // *   **logType**: the log type. **stdout**: the standard output log of the container. You can specify only one stdout value for this parameter. If you leave this parameter empty, file logs are collected.
-      // *   **logstoreName**: the name of the Logstore in Log Service.
-      // *   **logtailName**: the name of the Logtail configuration in Log Service. If you do not configure this parameter, a new Logtail configuration is created.
+      // The parameters are described as follows:
       // 
-      // If you do not need to modify the logging configurations when you deploy the application, configure the **SlsConfigs** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use Log Service, leave the **SlsConfigs** parameter empty in the request.
+      // - **projectName**: The name of the SLS project.
+      // 
+      // - **logDir**: The log path.
+      // 
+      // - **logType**: The log type. **stdout** indicates the standard output log of the container. You can specify only one log of this type. If you do not specify this parameter, file logs are collected.
+      // 
+      // - **logstoreName**: The name of the Logstore in SLS.
+      // 
+      // - **logtailName**: The name of the Logtail configuration in SLS. If you do not specify this parameter, a new Logtail configuration is created.
+      // 
+      // If you do not change the log collection configuration during a deployment, you do not need to specify this parameter. If you no longer need to use the log collection feature, set this parameter to an empty string ("") in the request.
       shared_ptr<string> slsConfigs_ {};
+      // The environment tags for SLS logs.
       shared_ptr<string> slsLogEnvTags_ {};
-      // Enable startup probe.
+      // The startup probe of the application.
       shared_ptr<string> startupProbe_ {};
-      // Configuration of K8s Service discovery and registration, and full-chain gray-release feature.
+      // The configuration for service registration and discovery based on a Kubernetes Service and for end-to-end canary release.
       shared_ptr<string> swimlanePvtzDiscovery_ {};
-      // The details of the tags.
+      // The tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+      // The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. The value can range from 1 to 300.
       shared_ptr<int32_t> terminationGracePeriodSeconds_ {};
       // The time zone. Default value: **Asia/Shanghai**.
       shared_ptr<string> timezone_ {};
-      // The Tomcat configuration. If you want to delete the configuration, set this parameter to {} or leave this parameter empty. The following parameters are involved:
+      // The Tomcat configuration. To delete the configuration, set this parameter to "" or "{}".
       // 
-      // *   **port**: the port number. Valid values: 1024 to 65535. The root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If you do not configure this parameter, the default port number 8080 is used.
-      // *   **contextPath**: the path. Default value: /. This value indicates the root directory.
-      // *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
-      // *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. If you do not configure this parameter, the default value **ISO-8859-1** is used.
-      // *   **useBodyEncoding**: indicates whether to use the encoding scheme that is specified by **BodyEncoding for URL**. Default value: **true**.
+      // - **port**: The port number. The port number can range from 1024 to 65535. A port number smaller than 1024 requires the root permission to be operated. Because the container is configured with the administrator permission, specify a port number that is greater than 1024. If you do not configure this parameter, the default port 8080 is used.
+      // 
+      // - **contextPath**: The access path. The default value is the root directory "/".
+      // 
+      // - **maxThreads**: The maximum number of connections in the connection pool. Default value: 400.
+      // 
+      // - **uriEncoding**: The URI encoding scheme of Tomcat. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. If you do not set this parameter, the default value **ISO-8859-1** is used.
+      // 
+      // - **useBodyEncoding**: Specifies whether to use **BodyEncoding for URL**. Default value: **true**.
       shared_ptr<string> tomcatConfig_ {};
-      // The deployment policy. If the minimum number of available instances is 1, the value of the **UpdateStrategy** parameter is an empty string (""). If the minimum number of available instances is greater than 1, the following strategies can be configured:
+      // The deployment policy. If the minimum number of ready instances is 1, the value of the **UpdateStrategy** parameter is "". If the minimum number of ready instances is greater than 1, see the following examples:
       // 
-      // *   The application is deployed on an instance. The remaining instances are automatically classified into two release batches whose interval is set to 1. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`.
-      // *   The application is deployed on an instance. The remaining instances are manually classified into two release batches. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`.
-      // *   All instances are automatically classified into two release batches. The application is deployed on the instances of the two batches in parallel. In this case, the parameter is set to `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
+      // - Canary release of one instance, phased release in two batches, automatic batching, and a 1-minute interval between batches: `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`
       // 
-      // The following parameters are involved:
+      // - Canary release of one instance and phased release in two batches with manual batching: `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`
       // 
-      // *   **type**: the type of the release policy. Valid values: **GrayBatchUpdate** and **BatchUpdate**.
+      // - Phased release in two batches, automatic batching, and a 0-minute interval between batches: `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
       // 
-      // *   **batchUpdate**: the phased release policy.
+      // The parameters are described as follows:
       // 
-      //     *   **batch**: the number of release batches.
-      //     *   **releaseType**: the processing method for the batches. Valid values: **auto** and **manual**.
-      //     *   **batchWaitTime**: the interval between release batches. Unit: seconds.
+      // - **type**: The type of the release policy. Valid values: **GrayBatchUpdate** (canary release) and **BatchUpdate** (phased release).
       // 
-      // *   **grayUpdate**: the number of release batches in the phased release after a canary release. This parameter is returned only if the **type** parameter is set to **GrayBatchUpdate**.
+      // - **batchUpdate**: The phased release policy.
+      // 
+      //   - **batch**: The number of release batches.
+      // 
+      //   - **releaseType**: The processing method for batches. Valid values: **auto** and **manual**.
+      // 
+      //   - **batchWaitTime**: The interval between batches. Unit: seconds.
+      // 
+      // - **grayUpdate**: The number of batches for the remaining instances after the canary release. This parameter is required when **type** is set to **GrayBatchUpdate**.
       shared_ptr<string> updateStrategy_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
       // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
-      // The option settings in the WAR package. The settings are used to start the application container. The default startup command is `java $JAVA_OPTS $CATALINA_OPTS -Options org.apache.catalina.startup.Bootstrap "$@" start`.
+      // The options for starting the WAR package. The default startup command is: `java $JAVA_OPTS $CATALINA_OPTS -Options org.apache.catalina.startup.Bootstrap "$@" start`.
       shared_ptr<string> warStartOptions_ {};
-      // The version of the Tomcat container on which the deployment package depends. Valid values:
+      // The Tomcat version that the deployment package requires. The following versions are supported:
       // 
-      // *   **apache-tomcat-7.0.91**
-      // *   **apache-tomcat-8.5.42**
+      // - **apache-tomcat-7.0.91**
       // 
-      // This parameter is not returned if the **PackageType** parameter is set to **Image**.
+      // - **apache-tomcat-8.5.42**
+      // 
+      // This parameter is not supported when **Package Type** is set to **Image**.
       shared_ptr<string> webContainer_ {};
     };
 
@@ -2520,26 +2661,31 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: The request is invalid.
+    // 
+    // - **5xx**: A server error occurs.
     shared_ptr<string> code_ {};
     // The information about the application.
     shared_ptr<DescribeApplicationConfigResponseBody::Data> data_ {};
-    // The returned error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - If the request fails, this parameter is returned. For more information, see the "Error codes" section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned information.
+    // The additional information that is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the configurations of an application were obtained. Valid values:
+    // Indicates whether the application configuration was retrieved. Valid values:
     // 
-    // *   **true**: The configurations were obtained.
-    // *   **false**: The configurations failed to be obtained.
+    // - **true**: The configuration was retrieved.
+    // 
+    // - **false**: The configuration failed to be retrieved.
     shared_ptr<bool> success_ {};
     // The trace ID that is used to query the details of the request.
     shared_ptr<string> traceId_ {};

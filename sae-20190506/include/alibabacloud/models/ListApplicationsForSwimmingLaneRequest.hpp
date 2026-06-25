@@ -59,11 +59,11 @@ namespace Models
   protected:
     // The ID of the application group. You can call the [DescribeApplicationGroups](https://help.aliyun.com/document_detail/126249.html) operation to obtain the ID.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of a namespace.
+    // The namespace ID.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
-    // The canary tag
+    // The canary tag.
     shared_ptr<string> tag_ {};
   };
 

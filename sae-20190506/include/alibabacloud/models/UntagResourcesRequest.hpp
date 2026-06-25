@@ -75,24 +75,25 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all the specified tags. This parameter takes effect only if the TagKeys parameter is specified. Valid values:
+    // Specifies whether to remove all tags. This parameter applies only when TagKeys is not specified. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: All tags are removed.
+    // 
+    // - **false**: Only the tags specified in the TagKeys parameter are removed.
     shared_ptr<bool> deleteAll_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of resources. Separate multiple resource IDs with comma (,).
+    // The resource IDs. To specify multiple resource IDs, separate them with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> resourceIds_ {};
-    // The type of the resource. Set the value to `application`.
+    // The resource type. Only `application` is supported.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag keys. Separate multiple tag keys with commas (,).
+    // The tag keys. To specify multiple tag keys, separate them with commas (,).
     shared_ptr<string> tagKeys_ {};
   };
 

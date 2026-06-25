@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the change order. The ID can be used to query the status of the change task.
+      // The change order ID. Use this ID to check the task\\"s execution status.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -128,33 +128,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code.
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Client error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<UnbindNlbResponseBody::Data> data_ {};
-    // The status code. Valid values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
+    // - The **ErrorCode** parameter is not returned if the request is successful.
+    // 
+    // - The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Valid values:
+    // The returned message.
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   If the request failed, an error code is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error code is returned.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the internal-facing or Internet-facing NLB instance was disassociated. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   **true**: The NLB instance was disassociated.
-    // *   **false**: The NLB instance failed to be disassociated.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID for the request. Use this ID to query request details.
     shared_ptr<string> traceId_ {};
   };
 

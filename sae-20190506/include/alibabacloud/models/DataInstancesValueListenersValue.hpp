@@ -77,19 +77,23 @@ namespace Models
   protected:
     // The listener protocol.
     shared_ptr<string> protocol_ {};
-    // The listener port of the NLB instance.
+    // The listener port.
     shared_ptr<int32_t> port_ {};
-    // The status of the NLB listener.
+    // The state of the NLB listener. Valid values:
     // 
-    // *   **Creating**: The listener is being created.
-    // *   **Configuring**: The listener is being configured.
-    // *   **Bounded**: The listener runs as expected.
-    // *   **Unbinding**: The listener is being deleted.
-    // *   **Failed**: The listener is unavailable.
+    // - **Creating**: The listener is being created.
+    // 
+    // - **Configuring**: The listener is being configured.
+    // 
+    // - **Bounded**: The listener is running as expected.
+    // 
+    // - **Unbinding**: The listener is being deleted.
+    // 
+    // - **Failed**: The listener is unavailable.
     shared_ptr<string> status_ {};
-    // The open ports of the NLB instance.
+    // The target port.
     shared_ptr<int32_t> targetPort_ {};
-    // The server certificates.
+    // The server certificate ID.
     shared_ptr<string> certIds_ {};
   };
 

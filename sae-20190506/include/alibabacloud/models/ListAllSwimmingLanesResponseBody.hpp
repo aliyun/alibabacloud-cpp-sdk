@@ -238,9 +238,9 @@ namespace Models
         protected:
           // The route ID.
           shared_ptr<int64_t> routeId_ {};
-          // The name of the route.
+          // The route name.
           shared_ptr<string> routeName_ {};
-          // The routing rule.
+          // The route\\"s matching rule.
           shared_ptr<Routes::RoutePredicate> routePredicate_ {};
         };
 
@@ -304,9 +304,9 @@ namespace Models
           shared_ptr<string> condition_ {};
           // The parameter name.
           shared_ptr<string> name_ {};
-          // The type of the parameter.
+          // The parameter type.
           shared_ptr<string> type_ {};
-          // The match value of the condition.
+          // The value to match in the condition.
           shared_ptr<string> value_ {};
         };
 
@@ -371,19 +371,19 @@ namespace Models
 
 
       protected:
-        // The logical connector between conditions.
+        // The logical operator used to join conditions.
         shared_ptr<string> conditionJoiner_ {};
-        // The matching condition.
+        // The matching conditions.
         shared_ptr<vector<MseGatewayEntryRule::Conditions>> conditions_ {};
-        // Whether to enable proportional grayscale.
+        // Indicates whether to enable canary release by percentage.
         shared_ptr<bool> independentPercentageEnable_ {};
-        // The proportion of path traffic.
+        // The percentage of traffic for the path.
         shared_ptr<int32_t> percentage_ {};
-        // The traffic configuration.
+        // A map of route IDs to their corresponding traffic percentages.
         shared_ptr<map<string, int32_t>> percentageByRoute_ {};
-        // The IDs of the route tables.
+        // The route IDs.
         shared_ptr<vector<int64_t>> routeIds_ {};
-        // The detailed configuration of the routing rule.
+        // The route configurations.
         shared_ptr<vector<MseGatewayEntryRule::Routes>> routes_ {};
       };
 
@@ -452,15 +452,15 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
-        // The ID of the MSE instance.
+        // The MSE instance ID.
         shared_ptr<string> mseAppId_ {};
-        // The name of the MSE instance.
+        // The MSE instance name.
         shared_ptr<string> mseAppName_ {};
-        // The ID of the namespace to which the MSE instance belongs.
+        // The ID of the namespace in which the MSE instance resides.
         shared_ptr<string> mseNamespaceId_ {};
       };
 
@@ -564,11 +564,11 @@ namespace Models
           shared_ptr<string> condition_ {};
           // The parameter name.
           shared_ptr<string> name_ {};
-          // The type of the parameter.
+          // The parameter type.
           shared_ptr<string> type_ {};
-          // The match value.
+          // The value to match in the condition.
           shared_ptr<string> value_ {};
-          // The match value of the condition.
+          // The values to match in the condition.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -623,20 +623,21 @@ namespace Models
 
 
       protected:
-        // Logical connectors between conditions:
+        // The logical operator used to join conditions:
         // 
-        // *   AND: All conditions are met at the same time.
-        // *   OR: Any condition is met.
+        // - AND: All conditions must be met.
+        // 
+        // - OR: One of the conditions must be met.
         shared_ptr<string> conditionJoiner_ {};
-        // The matching condition.
+        // The matching conditions.
         shared_ptr<vector<AppEntryRule::Conditions>> conditions_ {};
-        // Whether to enable proportional grayscale.
+        // Indicates whether to enable canary release by percentage.
         shared_ptr<bool> independentPercentageEnable_ {};
-        // The request path.
+        // The request paths.
         shared_ptr<vector<string>> paths_ {};
-        // The traffic ratio. Valid values: 0 to 100.
+        // The percentage of traffic (0-100) to be routed when the route by percentage model is used.
         shared_ptr<int32_t> percentage_ {};
-        // Traffic matching.
+        // A map of paths to their corresponding traffic percentages.
         shared_ptr<map<string, int32_t>> percentageByPath_ {};
       };
 
@@ -713,29 +714,31 @@ namespace Models
 
 
     protected:
-      // Apply ingress rules.
+      // The application entry rule.
       shared_ptr<Data::AppEntryRule> appEntryRule_ {};
-      // The associated application.
+      // The applications associated with the swimming lane.
       shared_ptr<vector<Data::Apps>> apps_ {};
-      // Full-link Grayscale Mode:
+      // The canary model for the end-to-end canary release:
       // 
-      // *   0: The request is routed based on the content of the request.
-      // *   1: Proportional routing
+      // - 0: Route by request content.
+      // 
+      // - 1: Route by percentage.
       shared_ptr<int32_t> canaryModel_ {};
-      // Lane status:
+      // Indicates whether the swimming lane is enabled.
       // 
-      // *   true: enabled
-      // *   false: disabled
+      // - true: enabled
+      // 
+      // - false: disabled
       shared_ptr<bool> enable_ {};
-      // Whether the traffic rule is enabled.
+      // Indicates whether traffic rules are enabled.
       shared_ptr<bool> enableRules_ {};
-      // The ID of the lane.
+      // The swimming lane ID.
       shared_ptr<int64_t> laneId_ {};
-      // The name of the lane group.
+      // The swimming lane name.
       shared_ptr<string> laneName_ {};
-      // The tag of the lane.
+      // The swimming lane tag.
       shared_ptr<string> laneTag_ {};
-      // MSE gateway routing
+      // The MSE gateway route.
       shared_ptr<Data::MseGatewayEntryRule> mseGatewayEntryRule_ {};
     };
 
@@ -794,33 +797,39 @@ namespace Models
 
 
   protected:
-    // The interface status or POP error code. Valid values:
+    // The HTTP status code returned. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: Redirection.
-    // *   **4xx**: Request error.
-    // *   **5xx**: Server error.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: The request is invalid.
+    // 
+    // - **5xx**: A server error occurs.
     shared_ptr<string> code_ {};
-    // The output parameters of the node.
+    // The response data.
     shared_ptr<vector<ListAllSwimmingLanesResponseBody::Data>> data_ {};
-    // Error code. Valid values:
+    // The error code.
     // 
-    // *   If the request is successful, no **ErrorCode** fields are returned.
-    // *   Request failed: **ErrorCode** fields are returned. For more information, see **Error codes**.
+    // - The **ErrorCode** parameter is omitted if the request is successful.
+    // 
+    // - The **ErrorCode** parameter is returned if the request fails. For details, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information. Valid values:
+    // The response message. Valid values:
     // 
-    // *   The error message returned because the request is normal and **success** is returned.
-    // *   If the request is abnormal, the specific exception error code is returned.
+    // - Returns **success** if the request is successful.
+    // 
+    // - Returns a specific error code if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the data is successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**: The application instances were restarted.
-    // *   **false**: Restart failed.
+    // - **true**: The request is successful.
+    // 
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. This parameter is used to query the exact call information.
+    // The trace ID used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

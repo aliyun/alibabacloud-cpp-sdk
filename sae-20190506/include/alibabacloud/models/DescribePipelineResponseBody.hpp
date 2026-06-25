@@ -208,8 +208,9 @@ namespace Models
           shared_ptr<string> errorCode_ {};
           // Indicates whether to execute the subsequent tasks when the task failed. Valid values:
           // 
-          // *   **0**: The subsequent tasks cannot be executed.
-          // *   **1**: The subsequent tasks can be executed.
+          // - **0**: The subsequent tasks cannot be executed.
+          // 
+          // - **1**: The subsequent tasks can be executed.
           shared_ptr<int32_t> errorIgnore_ {};
           // The error message returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
           shared_ptr<string> errorMessage_ {};
@@ -217,19 +218,25 @@ namespace Models
           shared_ptr<string> message_ {};
           // Indicates whether a running task can be manually skipped. Valid values:
           // 
-          // *   **true**: The running task can be skipped.
-          // *   **false**: The zone does not allow you to change the network type of an ApsaraDB for Redis instance from classic network to VPC.
+          // - **true**: The running task can be skipped.
+          // 
+          // - **false**: The zone does not allow you to change the network type of an ApsaraDB for Redis instance from classic network to VPC.
           shared_ptr<bool> showManualIgnore_ {};
           // The ID of the stage.
           shared_ptr<string> stageId_ {};
           // The task status. Valid values:
           // 
-          // *   **0**: The task is prepared for execution.
-          // *   **1**: The task is being executed.
-          // *   **2**: successful
-          // *   **3**: The task could not be executed.
-          // *   **5**: The task is pending retry.
-          // *   **6**: The task was terminated.
+          // - **0**: The task is prepared for execution.
+          // 
+          // - **1**: The task is being executed.
+          // 
+          // - **2**: successful
+          // 
+          // - **3**: The task could not be executed.
+          // 
+          // - **5**: The task is pending retry.
+          // 
+          // - **6**: The task was terminated.
           shared_ptr<int32_t> status_ {};
           // The ID of the task.
           shared_ptr<string> taskId_ {};
@@ -279,8 +286,9 @@ namespace Models
       protected:
         // The execution type of the stage. Valid values:
         // 
-        // *   **0**: in sequence.
-        // *   **1**: in parallel.
+        // - **0**: in sequence.
+        // 
+        // - **1**: in parallel.
         shared_ptr<int32_t> executorType_ {};
         // The ID of the stage.
         shared_ptr<string> stageId_ {};
@@ -288,11 +296,15 @@ namespace Models
         shared_ptr<string> stageName_ {};
         // The status of the batch processing stage. Valid values:
         // 
-        // *   **0**: The batch is prepared for this processing stage.
-        // *   **1**: The task is being executed.
-        // *   **2**: successful
-        // *   **3**: The processing failed in this stage.
-        // *   **6**: The processing stage was terminated.
+        // - **0**: The batch is prepared for this processing stage.
+        // 
+        // - **1**: The task is being executed.
+        // 
+        // - **2**: successful
+        // 
+        // - **3**: The processing failed in this stage.
+        // 
+        // - **6**: The processing stage was terminated.
         shared_ptr<int32_t> status_ {};
         // The list of task statuses.
         shared_ptr<vector<StageList::TaskList>> taskList_ {};
@@ -372,17 +384,23 @@ namespace Models
       shared_ptr<string> pipelineName_ {};
       // The batch status. Valid values:
       // 
-      // *   **0**: The batch is prepared for processing.
-      // *   **1**: The task is being executed.
-      // *   **2**: successful
-      // *   **3**: The processing failed in this stage.
-      // *   **6**: The batch processing was terminated.
-      // *   **10**: The batch could not be processed due to a system exception.
+      // - **0**: The batch is prepared for processing.
+      // 
+      // - **1**: The task is being executed.
+      // 
+      // - **2**: successful
+      // 
+      // - **3**: The processing failed in this stage.
+      // 
+      // - **6**: The batch processing was terminated.
+      // 
+      // - **10**: The batch could not be processed due to a system exception.
       shared_ptr<int32_t> pipelineStatus_ {};
       // Indicates whether to start processing the next batch. Valid values:
       // 
-      // *   **false**: indicates that the next batch cannot be processed yet.
-      // *   **true**: indicates that the next batch can be processed now.
+      // - **false**: indicates that the next batch cannot be processed yet.
+      // 
+      // - **true**: indicates that the next batch can be processed now.
       shared_ptr<bool> showBatch_ {};
       // The list of batch processing stages.
       shared_ptr<vector<Data::StageList>> stageList_ {};
@@ -445,17 +463,21 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The call was successful.
+    // 
+    // - **3xx**: The call was redirected.
+    // 
+    // - **4xx**: The call failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The batch information.
     shared_ptr<DescribePipelineResponseBody::Data> data_ {};
     // The error code returned if the request failed. Take note of the following rules:
     // 
-    // *   The **ErrorCode** parameter is not returned if the request succeeds.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - The **ErrorCode** parameter is not returned if the request succeeds.
+    // 
+    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
     shared_ptr<string> errorCode_ {};
     // The message returned for the operation.
     shared_ptr<string> message_ {};
@@ -463,8 +485,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the batch information was obtained. Valid values:
     // 
-    // *   **true**: The information was queried.
-    // *   **false**: The image failed to be found.
+    // - **true**: The information was queried.
+    // 
+    // - **false**: The image failed to be found.
     shared_ptr<bool> success_ {};
     // The trace ID that is used to query the details of the request.
     shared_ptr<string> traceId_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // cn-hangzhou
+    // The ID of the namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};

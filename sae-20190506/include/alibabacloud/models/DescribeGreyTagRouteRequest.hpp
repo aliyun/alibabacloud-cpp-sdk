@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the canary release rule.
+    // The ID of the rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> greyTagRouteId_ {};

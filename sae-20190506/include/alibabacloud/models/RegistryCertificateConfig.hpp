@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The Base64-encoded certificate of the image repository.
     shared_ptr<string> certBase64_ {};
+    // Specifies whether to access the image repository in an insecure manner.
     shared_ptr<bool> insecure_ {};
   };
 

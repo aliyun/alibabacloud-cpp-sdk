@@ -115,31 +115,21 @@ namespace Models
 
 
     protected:
-      // Indicates whether the SAE built-in registry is enabled:
+      // Indicates whether the built-in service registry of SAE is enabled.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> enableMicroRegistration_ {};
-      // Indicates whether the namespace was created. Valid values:
-      // 
-      // *   **true**: The instance was created.
-      // *   **false**: The call failed to be created.
+      // The short-format namespace ID.
       shared_ptr<string> nameSpaceShortId_ {};
-      // The short ID of the namespace.
+      // The description of the namespace.
       shared_ptr<string> namespaceDescription_ {};
-      // The error code returned. Take note of the following rules:
-      // 
-      // *   The **ErrorCode** parameter is not returned if the request succeeds.
-      // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+      // The ID of the namespace.
       shared_ptr<string> namespaceId_ {};
-      // Null
+      // The name of the namespace.
       shared_ptr<string> namespaceName_ {};
-      // The HTTP status code. Valid values:
-      // 
-      // *   **2xx**: The call was successful.
-      // *   **3xx**: The call was redirected.
-      // *   **4xx**: The call failed.
-      // *   **5xx**: A server error occurred.
+      // The region where the namespace resides.
       shared_ptr<string> regionId_ {};
     };
 
@@ -198,19 +188,35 @@ namespace Models
 
 
   protected:
-    // bucketPath
+    // The HTTP status code or a POP error code. Valid values:
+    // 
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The information about a namespace.
+    // The information about the namespace.
     shared_ptr<CreateNamespaceResponseBody::Data> data_ {};
-    // http://sae_pop_pre/#vpc
+    // The error code.
+    // 
+    // - If the request is successful, this parameter is not returned.
+    // 
+    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The ID of the namespace.
+    // The additional information returned.
     shared_ptr<string> message_ {};
-    // The description of the custom namespace.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // mountDir
+    // Indicates whether the namespace was successfully created. Valid values:
+    // 
+    // - **true**: The namespace was created.
+    // 
+    // - **false**: The namespace failed to be created.
     shared_ptr<bool> success_ {};
-    // The name of the namespace.
+    // The trace ID. You can use the trace ID to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

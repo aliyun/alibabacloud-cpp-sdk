@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The canary release rule of the application for which ALB gateway routing is configured.
+    // The grey tag route for an ALB gateway route.
     shared_ptr<string> albRules_ {};
-    // The description of the canary release rule.
+    // The description of the rule.
     shared_ptr<string> description_ {};
-    // The canary release rule of the Dubbo application.
+    // The grey tag route for a Dubbo application.
     shared_ptr<string> dubboRules_ {};
-    // The ID of the canary release rule.
+    // The grey tag route ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> greyTagRouteId_ {};
-    // The canary release rule of the Spring Cloud application.
+    // The grey tag route for a Spring Cloud application.
     shared_ptr<string> scRules_ {};
   };
 

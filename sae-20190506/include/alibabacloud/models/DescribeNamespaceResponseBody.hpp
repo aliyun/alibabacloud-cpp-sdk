@@ -117,8 +117,9 @@ namespace Models
     protected:
       // Indicates whether the SAE built-in registry is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> enableMicroRegistration_ {};
       // The short ID of the namespace.
       shared_ptr<string> nameSpaceShortId_ {};
@@ -189,29 +190,35 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The call was successful.
+    // 
+    // - **3xx**: The call was redirected.
+    // 
+    // - **4xx**: The call failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The information about the namespace.
     shared_ptr<DescribeNamespaceResponseBody::Data> data_ {};
     // The error code returned. Take note of the following rules:
     // 
-    // *   The **ErrorCode** parameter is not returned if the request succeeds.
-    // *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+    // - The **ErrorCode** parameter is not returned if the request succeeds.
+    // 
+    // - The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
     // The additional information that is returned. Valid values:
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - success: If the call is successful, **success** is returned.
+    // 
+    // - An error code: If the call fails, an error code is returned.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the information about the namespace was queried successfully. Valid values:
     // 
-    // *   **true**: The information was queried.
-    // *   **false**: The image failed to be found.
+    // - **true**: The information was queried.
+    // 
+    // - **false**: The image failed to be found.
     shared_ptr<bool> success_ {};
     // The trace ID that is used to query the details of the request.
     shared_ptr<string> traceId_ {};

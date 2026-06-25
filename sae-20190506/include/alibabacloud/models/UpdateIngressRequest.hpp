@@ -204,60 +204,73 @@ namespace Models
 
 
   protected:
-    // The ID of the **CLB** certificate. Valid values:
+    // **CLB** certificate ID. Details are as follows:
     // 
-    // *   If the **LoadBalanceType** is **clb**, use this field to configure the HTTPS listener certificate.
+    // - If **LoadBalanceType** is **clb**, use this field to configure the HTTPS listener certificate.
     // 
-    // For more information about how to use SSL certificate IDs for CLB, see [Manage certificates (CLB)](https://help.aliyun.com/document_detail/90792.html).
+    // For more information about using SSL certificate IDs with CLB, see [Manage Certificates (CLB)]().
     shared_ptr<string> certId_ {};
-    // The ID of the multi-certificate **ALB**. Valid values:
+    // **ALB** multiple certificate IDs. Details are as follows:
     // 
-    // *   If the **LoadBalanceType** is **alb**, use this field to configure multiple certificates for HTTPS listeners. Separate multiple certificate IDs with commas (,).
-    // *   The ID of the SSL certificate used by ALB must be obtained from the digital certificate product. For example, in the configuration `756***-cn-hangzhou`, the `756***` is the certificate ID obtained from the product page, and the `-cn-hangzhou` is a fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
+    // - If **LoadBalanceType** is **alb**, use this field to configure multiple HTTPS listener certificates. Separate multiple certificate IDs with commas.
+    // 
+    // - Obtain the SSL certificate ID used by ALB from the digital certificate product. For example, configure `756***-cn-hangzhou`, where `756***` is the certificate ID obtained from the product page, and `-cn-hangzhou` is a fixed suffix. For more information, see [Manage Certificates (ALB)]().
     shared_ptr<string> certIds_ {};
+    // Cross-domain configuration.
     shared_ptr<string> corsConfig_ {};
-    // The default forwarding rule. Forwards traffic to a specified application through a specified port based on the IP address. The following table describes the parameters.
+    // Default forwarding rule. Forward traffic to the specified application by IP address through the specified port. Parameter description:
     // 
-    // *   **appId**: the ID of the application.
-    // *   **containerPort**: the container port of the application.
+    // - **appId**: Application ID.
     // 
-    // >  All requests that do not match the forwarding rules specified for Rules are forwarded over the port to the application.
+    // - **containerPort**: Application instance port.
+    // 
+    // > All requests that do not match or satisfy the **Rules** forwarding rule are forwarded to this specified application.
     shared_ptr<string> defaultRule_ {};
-    // The name of the routing rule.
+    // Routing rule name.
     shared_ptr<string> description_ {};
+    // Enable or disable data compression.
     shared_ptr<bool> enableGzip_ {};
+    // Enable or disable obtaining the client IP address of the visitor through the X-Forwarded-For header field.
     shared_ptr<bool> enableXForwardedFor_ {};
+    // Obtain the listening port of the SLB instance through the X-Forwarded-Port header field.
     shared_ptr<bool> enableXForwardedForClientSrcPort_ {};
+    // Specifies whether to determine the listener protocol of the SLB instance from the X-Forwarded-Proto header field.
     shared_ptr<bool> enableXForwardedForProto_ {};
+    // Obtain the SLB instance ID through the SLB-ID header field.
     shared_ptr<bool> enableXForwardedForSlbId_ {};
+    // Whether to obtain the listening port of the Server Load Balancer instance from the X-Forwarded-Port header field.
     shared_ptr<bool> enableXForwardedForSlbPort_ {};
-    // The timeout period of idle connections. Unit: seconds.
+    // Idle connection timeout, in seconds (s).
     // 
-    // >  A value of 0 indicates that the default value is used.
+    // > A value of 0 indicates that the default idle timeout is used.
     shared_ptr<int32_t> idleTimeout_ {};
-    // The ID of the routing rule.
+    // Routing rule ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ingressId_ {};
-    // The SLB listening port. This port cannot be occupied.
+    // SLB listening port. This port must not be occupied.
     shared_ptr<string> listenerPort_ {};
-    // The protocol that is used to forward requests. Valid values:
+    // Forwarding Protocol. Details are as follows:
     // 
-    // *   **HTTP**: HTTP is suitable for applications that need to identify transmitted data.
-    // *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+    // - **HTTP**: Applies to applications that need to identify data content.
+    // 
+    // - **HTTPS**: Applies to applications that need encrypted transmission.
     shared_ptr<string> listenerProtocol_ {};
-    // The parameter is deprecated and cannot be updated.
+    // Deprecated parameter. Updates are no longer supported.
     shared_ptr<string> loadBalanceType_ {};
-    // The request timed out. Unit: seconds.
+    // Request timeout, in seconds (s).
     shared_ptr<int32_t> requestTimeout_ {};
-    // The forwarding rule. Forwards traffic to a specified application through a specified port based on the domain name and request path. The following table describes the parameters.
+    // Forwarding rules. Forward traffic to the specified application by domain name and URI of the request through the specified port. Parameter description:
     // 
-    // *   **appId**: the ID of the application.
-    // *   **containerPort**: The port of the application instance.
-    // *   **domain**: the domain name.
-    // *   **path**: the request path.
+    // - **appId**: Application ID.
+    // 
+    // - **containerPort**: Application instance port.
+    // 
+    // - **domain**: Domain name.
+    // 
+    // - **path**: URI of the request.
     shared_ptr<string> rules_ {};
-    // The ID of a security policy.
+    // Security policy instance ID.
     shared_ptr<string> securityPolicyId_ {};
   };
 

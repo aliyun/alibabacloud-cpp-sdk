@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the lane.
+      // The ID of the swimlane.
       shared_ptr<int64_t> laneId_ {};
     };
 
@@ -128,33 +128,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code. Valid values:
+    // The HTTP status code or an error code of Platform as a Service (PaaS). Valid values:
     // 
-    // *   **2xx**: Success.
-    // *   **3xx**: Redirection.
-    // *   **4xx**: Request error.
-    // *   **5xx**: Server error.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A request error occurs.
+    // 
+    // - **5xx**: A server error occurs.
     shared_ptr<string> code_ {};
-    // The returned information.
+    // The returned data.
     shared_ptr<CreateOrUpdateSwimmingLaneResponseBody::Data> data_ {};
-    // The status code. Value values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - For more information, see the "**Error codes**" section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Value description:
+    // The response message. Valid values:
     // 
-    // *   If the request was successful, a success message is returned.
-    // *   An error code is returned if the request failed.
+    // - If the request is successful, `success` is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the creation or update was successful. Valid values:
+    // Indicates whether the swimlane was created or updated. Valid values:
     // 
-    // *   true: created.
-    // *   false: failed to create.
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The request trace ID. You can use this ID to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

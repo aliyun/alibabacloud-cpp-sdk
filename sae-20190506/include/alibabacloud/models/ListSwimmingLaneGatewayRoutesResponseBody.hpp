@@ -122,9 +122,9 @@ namespace Models
 
 
         protected:
-          // The route URL.
+          // The route path.
           shared_ptr<string> path_ {};
-          // The type of the protection rule.
+          // The type of the rule.
           shared_ptr<string> type_ {};
         };
 
@@ -169,9 +169,9 @@ namespace Models
 
 
     protected:
-      // The ID of the route.
+      // The route ID.
       shared_ptr<int64_t> routeId_ {};
-      // The name of the route.
+      // The route name.
       shared_ptr<string> routeName_ {};
       // The routing rule.
       shared_ptr<Data::RoutePredicate> routePredicate_ {};
@@ -232,33 +232,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code.
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: Indicates a client error.
+    // 
+    // - **5xx**: Indicates a server error.
     shared_ptr<string> code_ {};
-    // Responses.
+    // The list of gateway routes.
     shared_ptr<vector<ListSwimmingLaneGatewayRoutesResponseBody::Data>> data_ {};
-    // The status code. Value values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - This parameter is returned only if the request fails.
+    // 
+    // - For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information. Valid values:
+    // The message returned for the request.
     // 
-    // *   The error message returned because the request is normal and **success** is returned.
-    // *   If the request is abnormal, the specific exception error code is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   **true**: The configurations were obtained.
-    // *   **false**: The configurations failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. This parameter is used to query the exact call information.
+    // The trace ID of the request.
     shared_ptr<string> traceId_ {};
   };
 

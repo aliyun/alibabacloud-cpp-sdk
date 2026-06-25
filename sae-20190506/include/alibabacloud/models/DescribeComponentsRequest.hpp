@@ -50,10 +50,11 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> appId_ {};
-    // The type of the supported components. Valid values:
+    // The supported component type. Valid values:
     // 
-    // *   **TOMCAT**
-    // *   **JDK**
+    // - **TOMCAT**
+    // 
+    // - **JDK**
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

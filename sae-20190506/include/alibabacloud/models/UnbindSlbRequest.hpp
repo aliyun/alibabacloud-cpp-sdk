@@ -61,15 +61,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // Specifies whether to disassociate the Internet-facing SLB instance. Valid values:
+    // Specifies whether to unbind the public network SLB. Valid values:
     // 
-    // *   **true**: dissociates the Internet-facing SLB instance.
-    // *   **false**: does not dissociate the Internet-facing SLB instance.
+    // - **true**: unbinds the public network SLB.
+    // 
+    // - **false**: does not unbind the public network SLB.
     shared_ptr<bool> internet_ {};
-    // Specifies whether to disassociate the internal-facing SLB instance. Valid values:
+    // Specifies whether to unbind the private network SLB. Valid values:
     // 
-    // *   **true**: dissociates the internal-facing SLB instance.
-    // *   **false**: does not dissociate the internal-facing SLB instance.
+    // - **true**: unbinds the private network SLB.
+    // 
+    // - **false**: does not unbind the private network SLB.
     shared_ptr<bool> intranet_ {};
   };
 

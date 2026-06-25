@@ -158,20 +158,21 @@ namespace Models
 
 
       protected:
+        // The cause analysis.
         shared_ptr<string> causeAnalysis_ {};
-        // The type of the event. Valid values:
+        // The event type.
         shared_ptr<string> eventType_ {};
-        // The timestamp of the first occurrence of the event.
+        // The timestamp of the event\\"s first occurrence.
         shared_ptr<string> firstTimestamp_ {};
-        // The timestamp of the last occurrence of the event.
+        // The timestamp of the event\\"s last occurrence.
         shared_ptr<string> lastTimestamp_ {};
-        // The information about the event.
+        // The event message.
         shared_ptr<string> message_ {};
-        // The type of the object.
+        // The object kind.
         shared_ptr<string> objectKind_ {};
-        // The name of the object.
+        // The object name.
         shared_ptr<string> objectName_ {};
-        // The cause of the event.
+        // The reason for the event.
         shared_ptr<string> reason_ {};
       };
 
@@ -208,13 +209,13 @@ namespace Models
 
 
     protected:
-      // The events.
+      // An array of application events.
       shared_ptr<vector<Data::AppEventEntity>> appEventEntity_ {};
-      // The number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
       // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of events that occurred in an application.
+      // The total count of application events.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -265,28 +266,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code returned for the request. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Client error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The events.
+    // The event list.
     shared_ptr<ListAppEventsResponseBody::Data> data_ {};
-    // The error code returned if the call failed. Take note of the following rules:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+    // - If the request is successful, the **ErrorCode** parameter is not returned.
+    // 
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error Codes** section.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // Additional information about the request result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the events that occurred in the application were queried. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The events were queried.
-    // *   **false**: The events failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

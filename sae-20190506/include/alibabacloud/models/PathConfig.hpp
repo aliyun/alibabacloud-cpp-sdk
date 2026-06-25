@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // applicationName
+    // The name of the application.
     shared_ptr<string> applicationName_ {};
-    // path
+    // The path.
     shared_ptr<string> path_ {};
   };
 

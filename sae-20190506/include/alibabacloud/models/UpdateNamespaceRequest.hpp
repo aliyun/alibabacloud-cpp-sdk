@@ -77,8 +77,9 @@ namespace Models
   protected:
     // Indicates whether to enable SAE built-in registry:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     // 
     // If you set this parameter to true, a shared registry is created for the namespace. The registry cannot be disabled after it is created.
     shared_ptr<bool> enableMicroRegistration_ {};

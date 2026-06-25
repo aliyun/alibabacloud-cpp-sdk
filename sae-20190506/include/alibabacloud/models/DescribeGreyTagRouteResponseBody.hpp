@@ -184,28 +184,33 @@ namespace Models
 
 
         protected:
-          // The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+          // The comparison operator. Valid values are **>**, **<**, **>=**, **<=**, **==**, and **!=**.
           shared_ptr<string> cond_ {};
-          // This parameter is not returned for Spring Cloud applications.
+          // Not used in Spring Cloud applications.
           shared_ptr<string> expr_ {};
-          // This parameter is not returned for Spring Cloud applications.
+          // Not used in Spring Cloud applications.
           shared_ptr<int32_t> index_ {};
-          // The name of the parameter.
+          // The name of the element to match, as specified by the type parameter. For example, a header name or cookie name.
           shared_ptr<string> name_ {};
-          // The operator. Valid values:
+          // The matching operator. Valid values:
           // 
-          // *   **rawvalue**: direct comparison.
-          // *   **list**: whitelist.
-          // *   **mod**: mods 100.
-          // *   **deterministic_proportional_steaming_division**: percentage.
+          // - **rawvalue**: Performs a direct comparison.
+          // 
+          // - **list**: Matches against an allowlist of values.
+          // 
+          // - **mod**: Calculates the remainder of a division by 100.
+          // 
+          // - **deterministic_proportional_steaming_division**: Performs a percentage-based match.
           shared_ptr<string> operator_ {};
-          // The type of the comparison. Valid values:
+          // The type of request element to match against. Valid values:
           // 
-          // *   **param**: parameter
-          // *   **cookie**: cookie
-          // *   **header**: header
+          // - **param**: A request parameter.
+          // 
+          // - **cookie**: A cookie.
+          // 
+          // - **header**: A request header.
           shared_ptr<string> type_ {};
-          // The value of the parameter. This value is compared with the value that is obtained based on the **type** and **name** parameters.
+          // The value to match. This value is compared with the actual value of the element specified by **type** and **name**.
           shared_ptr<string> value_ {};
         };
 
@@ -235,14 +240,15 @@ namespace Models
 
 
       protected:
-        // The relationship between the conditions in the canary release rule. Valid values:
+        // The relationship between the conditions in the rule. Valid values:
         // 
-        // *   **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
-        // *   **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+        // - **AND**: All conditions must be met.
+        // 
+        // - **OR**: At least one condition must be met.
         shared_ptr<string> condition_ {};
-        // The conditions.
+        // The list of conditions.
         shared_ptr<vector<ScRules::Items>> items_ {};
-        // The path of the canary release rule of the Spring Cloud application.
+        // The path to which the rule applies.
         shared_ptr<string> path_ {};
       };
 
@@ -359,31 +365,39 @@ namespace Models
 
 
         protected:
-          // The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+          // The comparison operator. Valid values are **>**, **<**, **>=**, **<=**, **==**, and **!=**.
           shared_ptr<string> cond_ {};
-          // The expression that is used to obtain the value of the parameter. Valid values:
+          // The expression that is used to obtain the parameter value. Valid values:
           // 
-          // *   **Empty**: obtains the value of the parameter.
-          // *   **.name**: obtains the name property of the parameter. This expression works the same way as args0.getName().
-          // *   **.isEnabled()**: obtains the enabled property of the parameter. This expression works the same way as args0.isEnabled().
-          // *   **[0]**: indicates that the value of the parameter is an array and obtains the first value of the array. This expression works the same way as args0[0]. This expression does not start with a period (.).
-          // *   **.get(0)**: indicates that the value of the parameter is a list and obtains the first value of the list. This expression works the same way as args0.get(0).
-          // *   **.get("key")**: indicates that the value of the parameter is a map and obtains the value of the key in the map. This expression works the same way as args0.get("key").
+          // - **Leave empty**: If left empty, the value of the parameter itself is used.
+          // 
+          // - **.name**: Obtains the value of the `name` attribute of the parameter. This is equivalent to `args0.getName()`.
+          // 
+          // - **.isEnabled()**: Obtains the value of the `enabled` attribute of the parameter. This is equivalent to `args0.isEnabled()`.
+          // 
+          // - **[0]**: The parameter must be an array. This expression obtains the first value of the array, which is equivalent to `args0[0]`. Note that the expression does not start with a period (.).
+          // 
+          // - **.get(0)**: The parameter must be a list. This expression obtains the first value of the list, which is equivalent to `args0.get(0)`.
+          // 
+          // - **.get("key")**: The parameter must be a map. This expression obtains the value that corresponds to a key. This is equivalent to `args0.get("key")`.
           shared_ptr<string> expr_ {};
-          // The index of the parameter. The value 0 indicates the first parameter.
+          // The parameter index. `0` indicates the first parameter.
           shared_ptr<int32_t> index_ {};
-          // This parameter is not returned for Dubbo services.
+          // Not used in Dubbo services.
           shared_ptr<string> name_ {};
-          // The operator. Valid values:
+          // The matching operator. Valid values:
           // 
-          // *   **rawvalue**: direct comparison.
-          // *   **list**: whitelist.
-          // *   **mod**: mods 100.
-          // *   **deterministic_proportional_steaming_division**: percentage.
+          // - **rawvalue**: Performs a direct comparison.
+          // 
+          // - **list**: Matches against an allowlist of values.
+          // 
+          // - **mod**: Calculates the remainder of a division by 100.
+          // 
+          // - **deterministic_proportional_steaming_division**: Performs a percentage-based match.
           shared_ptr<string> operator_ {};
-          // This parameter is not returned for Dubbo services.
+          // Not used in Dubbo services.
           shared_ptr<string> type_ {};
-          // The value of the parameter. This value is compared with the value that is obtained based on the **expr** and **index** parameters.
+          // The value to match. This value is compared with the actual value retrieved by using the specified **expr** and **index**.
           shared_ptr<string> value_ {};
         };
 
@@ -434,20 +448,21 @@ namespace Models
 
 
       protected:
-        // The relationship between the conditions in the canary release rule. Valid values:
+        // The relationship between the conditions in the rule. Valid values:
         // 
-        // *   **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
-        // *   **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+        // - **AND**: All conditions must be met.
+        // 
+        // - **OR**: At least one condition must be met.
         shared_ptr<string> condition_ {};
-        // The group of the Dubbo service that corresponds to the canary release rule.
+        // The service group to which the canary rule applies.
         shared_ptr<string> group_ {};
-        // The conditions.
+        // The list of conditions.
         shared_ptr<vector<DubboRules::Items>> items_ {};
         // The method name of the Dubbo service.
         shared_ptr<string> methodName_ {};
-        // The name of the Dubbo service.
+        // The Dubbo service name.
         shared_ptr<string> serviceName_ {};
-        // The version of the Dubbo service.
+        // The Dubbo service version.
         shared_ptr<string> version_ {};
       };
 
@@ -560,23 +575,25 @@ namespace Models
 
 
         protected:
-          // Valid value: ==.
+          // Currently supports ==.
           shared_ptr<string> cond_ {};
-          // This parameter is not returned for applications that are associated with ALB instances.
+          // Not required for ALB applications.
           shared_ptr<string> expr_ {};
-          // This parameter is not returned for applications that are associated with Application Load Balancer (ALB) instances.
+          // Not required for ALB applications.
           shared_ptr<int32_t> index_ {};
-          // The name of the parameter.
+          // The name of the element to match, such as a header or cookie name. This parameter is not used if type is set to sourceIp.
           shared_ptr<string> name_ {};
-          // The operator. Valid value: **rawvalue**. This value indicates direct comparison.
+          // The matching operator. Only **rawvalue** is supported, which indicates a direct comparison.
           shared_ptr<string> operator_ {};
-          // The type of the comparison. Valid values:
+          // The type of request element to match against. Valid values:
           // 
-          // *   **sourceIp**: SourceIp
-          // *   **cookie**: cookie
-          // *   **header**: header
+          // - **sourceIp**: The source IP address.
+          // 
+          // - **cookie**: A cookie.
+          // 
+          // - **header**: A request header.
           shared_ptr<string> type_ {};
-          // The value of the parameter. This value is compared with the value that is obtained based on the type and name parameters.
+          // The value to match. This value is compared with the actual value of the element specified by **type** and **name**.
           shared_ptr<string> value_ {};
         };
 
@@ -613,12 +630,13 @@ namespace Models
 
 
       protected:
-        // The condition mode of the canary release rule. Valid value: AND. This value indicates that that all conditions must be met.
+        // The relationship between the conditions in the canary rule. Only **AND** is supported, which indicates that all conditions must be met.
         shared_ptr<string> condition_ {};
-        // The ID of the gateway routing rule.
+        // The ID of the Ingress.
         shared_ptr<string> ingressId_ {};
+        // The list of conditions.
         shared_ptr<vector<AlbRules::Items>> items_ {};
-        // The service ID.
+        // The routing service ID.
         shared_ptr<string> serviceId_ {};
       };
 
@@ -695,22 +713,23 @@ namespace Models
 
 
     protected:
+      // The canary rules for the Application Load Balancer (ALB) instance.
       shared_ptr<vector<Data::AlbRules>> albRules_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The timestamp when the canary release rule was created. Unit: milliseconds.
+      // The creation timestamp of the rule, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the canary release rule.
+      // The description of the canary rule.
       shared_ptr<string> description_ {};
-      // The canary release rule of the Dubbo service.
+      // The canary rules for the Dubbo service.
       shared_ptr<vector<Data::DubboRules>> dubboRules_ {};
-      // The ID of the canary release rule. The ID is globally unique.
+      // The globally unique ID of the canary rule.
       shared_ptr<int64_t> greyTagRouteId_ {};
-      // The name of the canary release rule.
+      // The name of the canary rule.
       shared_ptr<string> name_ {};
-      // The canary release rule of the Spring Cloud application.
+      // The canary rules for the Spring Cloud application.
       shared_ptr<vector<Data::ScRules>> scRules_ {};
-      // The timestamp when the canary release rule was updated. Unit: milliseconds.
+      // The timestamp of the rule\\"s last update, in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -769,30 +788,35 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The status code of the API call or a POP error code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A client-side error occurred.
+    // 
+    // - **5xx**: A server-side error occurred.
     shared_ptr<string> code_ {};
-    // The information about the canary release rule.
+    // The details of the canary rule.
     shared_ptr<DescribeGreyTagRouteResponseBody::Data> data_ {};
     // The error code. Valid values:
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The message that indicates the result of the call.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the information of the change order was queried. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The information was queried.
-    // *   **false**: The information failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID for querying the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

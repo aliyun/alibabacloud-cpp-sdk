@@ -120,7 +120,6 @@ namespace Models
       shared_ptr<string> status_ {};
       shared_ptr<string> vSwitchId_ {};
       shared_ptr<string> vSwitchName_ {};
-      // vpcid。
       shared_ptr<string> vpcId_ {};
       shared_ptr<string> zoneId_ {};
     };

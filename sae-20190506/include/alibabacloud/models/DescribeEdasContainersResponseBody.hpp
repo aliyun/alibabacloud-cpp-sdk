@@ -82,10 +82,11 @@ namespace Models
     protected:
       // Indicates whether the component is disabled. Valid values:
       // 
-      // *   **true**: The component is disabled.
-      // *   **false**: The component is not disabled.
+      // - **true**: The component is disabled.
+      // 
+      // - **false**: The component is not disabled.
       shared_ptr<bool> disabled_ {};
-      // The version of the container, such as Ali-Tomcat, in which an application that is developed based on High-speed Service Framework (HSF) is deployed.
+      // The version of the application container provided by the HSF framework, such as the Ali-Tomcat container.
       shared_ptr<string> edasContainerVersion_ {};
     };
 
@@ -146,28 +147,33 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
-    shared_ptr<string> code_ {};
-    // The components.
-    shared_ptr<vector<DescribeEdasContainersResponseBody::Data>> data_ {};
-    // The error code. Valid values:
+    // - **2xx**: success
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - **3xx**: redirection
+    // 
+    // - **4xx**: request error
+    // 
+    // - **5xx**: server error
+    shared_ptr<string> code_ {};
+    // A list of components.
+    shared_ptr<vector<DescribeEdasContainersResponseBody::Data>> data_ {};
+    // The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section of this topic.
+    // 
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // 
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the list of container components of a microservices application was obtained. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   **true**: The list was obtained.
-    // *   **false**: The list failed to be obtained.
+    // - **true**: The operation succeeded.
+    // 
+    // - **false**: The operation failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The request trace ID.
     shared_ptr<string> traceId_ {};
   };
 

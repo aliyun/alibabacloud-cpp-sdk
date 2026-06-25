@@ -79,11 +79,13 @@ namespace Models
 
 
     protected:
-      // The description of the returned code.
+      // A detailed description of the result.
       shared_ptr<string> msg_ {};
-      // Indicates whether the traffic was removed. Valid values:
-      // *   **true**: The traffic was removed.
-      // *   **false**: The traffic failed to be removed.
+      // Indicates whether the traffic was successfully removed. Valid values:
+      // 
+      // - **true**: The traffic was removed.
+      // 
+      // - **false**: The traffic was not removed.
       shared_ptr<bool> success_ {};
     };
 
@@ -144,29 +146,27 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client-side error occurred.
+    // 
+    // - **5xx**: A server-side error occurred.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<SuspendTrafficResponseBody::Data> data_ {};
-    // The error code. 
-    // 
-    // - The **ErrorCode** parameter is not returned when the request succeeds.
-    // - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+    // The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Valid values:
+    // The response message.
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   If the request failed, an error code is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the traffic was removed. Valid values: 
-    // 
-    // - **true**: The traffic was removed.
-    // - **false**: The traffic failed to be removed.
+    // Indicates whether the request was successful. Valid values:
     shared_ptr<string> success_ {};
     // The trace ID.
     shared_ptr<string> traceId_ {};

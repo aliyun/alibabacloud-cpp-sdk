@@ -215,78 +215,97 @@ namespace Models
 
 
       protected:
-        // The number of entries returned on each page.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The ID of the user who created the change order.
+        // The number of batches.
         shared_ptr<int32_t> batchCount_ {};
-        // The ID of the group.
+        // The batch type. Valid values:
+        // 
+        // - **auto**: Automatic.
+        // 
+        // - **manual**: Manual.
         shared_ptr<string> batchType_ {};
-        // The mode in which the release batches are determined. Valid values:
-        // 
-        // *   **auto**: SAE automatically determines the release batches.
-        // *   **manual**: You must manually determine the release batches.
+        // The change order ID.
         shared_ptr<string> changeOrderId_ {};
-        // The ID of the application.
+        // The description of the change type code (**CoTypeCode**).
         shared_ptr<string> coType_ {};
-        // The code of the change order. Valid values:
-        // 
-        // *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
-        // *   **CoUnbindSlb**: disassociates an SLB instance from the application.
-        // *   **CoCreateApp**: creates the application.
-        // *   **CoDeleteApp**: deletes the application.
-        // *   **CoDeploy**: deploys the application.
-        // *   **CoRestartApplication**: restarts the application.
-        // *   **CoRollback**: rolls back the application.
-        // *   **CoScaleIn**: scales in the application.
-        // *   **CoScaleOut**: scales out the application.
-        // *   **CoStartApplication**: starts the application.
-        // *   **CoStopApplication**: stops the application.
-        // *   **CoRescaleApplicationVertically**: modifies the instance type.
-        // *   **CoDeployHistroy**: rolls back the application to an earlier version.
-        // *   **CoBindNas**: associates a network-attached storage (NAS) file system with the application.
-        // *   **CoUnbindNas**: disassociates a NAS file system from the application.
-        // *   **CoBatchStartApplication**: starts multiple applications concurrently.
-        // *   **CoBatchStopApplication**: stops multiple applications concurrently.
-        // *   **CoRestartInstances**: restarts the instance.
-        // *   **CoDeleteInstances**: deletes the instance.
-        // *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
-        shared_ptr<string> coTypeCode_ {};
-        // The ID of the user.
-        shared_ptr<string> createTime_ {};
         // The code of the change type. Valid values:
         // 
-        // *   **CoBindSlb**: associates an SLB instance with the application.
-        // *   **CoUnbindSlb**: disassociates the SLB instance from the application.
-        // *   **CoCreateApp**: creates the application.
-        // *   **CoDeleteApp**: deletes the application.
-        // *   **CoDeploy**: deploys the application.
-        // *   **CoRestartApplication**: restarts the application.
-        // *   **CoRollback**: rolls back the application.
-        // *   **CoScaleIn**: scales in the application.
-        // *   **CoScaleOut**: scales out the application.
-        // *   **CoStart**: starts the application.
-        // *   **CoStop**: stops the application.
-        // *   **CoRescaleApplicationVertically**: modifies the instance specifications.
-        // *   **CoDeployHistroy**: rolls back the application to a historical version.
-        // *   **CoBindNas**: associates a NAS file system with the application.
-        // *   **CoUnbindNas**: disassociates the NAS file system from the application.
-        // *   **CoBatchStartApplication**: starts multiple applications concurrently.
-        // *   **CoBatchStopApplication**: stops multiple applications concurrently.
-        // *   **CoRestartInstances**: restarts the instances.
-        // *   **CoDeleteInstances**: deletes the instances.
-        // *   **CoScaleInAppWithInstances**: reduces the number of the specified application instances.
+        // - **CoBindSlb**: Bind an SLB instance.
+        // 
+        // - **CoUnbindSlb**: Unbind an SLB instance.
+        // 
+        // - **CoCreateApp**: Create an application.
+        // 
+        // - **CoDeleteApp**: Delete an application.
+        // 
+        // - **CoDeploy**: Deploy an application.
+        // 
+        // - **CoRestartApplication**: Restart an application.
+        // 
+        // - **CoRollback**: Roll back an application.
+        // 
+        // - **CoScaleIn**: Scale in an application.
+        // 
+        // - **CoScaleOut**: Scale out an application.
+        // 
+        // - **CoStartApplication**: Start an application.
+        // 
+        // - **CoStopApplication**: Stop an application.
+        // 
+        // - **CoRescaleApplicationVertically**: Change the instance type.
+        // 
+        // - **CoDeployHistroy**: Roll back to a previous version.
+        // 
+        // - **CoBindNas**: Bind a NAS file system.
+        // 
+        // - **CoUnbindNas**: Unbind a NAS file system.
+        // 
+        // - **CoBatchStartApplication**: Start multiple applications.
+        // 
+        // - **CoBatchStopApplication**: Stop multiple applications.
+        // 
+        // - **CoRestartInstances**: Restart instances.
+        // 
+        // - **CoDeleteInstances**: Delete instances.
+        // 
+        // - **CoScaleInAppWithInstances**: Scale in an application by specifying instances.
+        shared_ptr<string> coTypeCode_ {};
+        // The time the change order was created.
+        shared_ptr<string> createTime_ {};
+        // The ID of the user who created the change order.
         shared_ptr<string> createUserId_ {};
-        // The change type, which corresponds to the **CoTypeCode** parameter.
+        // The description.
         shared_ptr<string> description_ {};
-        // The time when the change order was created.
+        // The time the change order was completed.
         shared_ptr<string> finishTime_ {};
-        // The description about the application.
+        // The group ID.
         shared_ptr<string> groupId_ {};
-        // The number of release batches.
-        shared_ptr<string> source_ {};
-        // The time when the change order was completed.
-        shared_ptr<int32_t> status_ {};
         // The source of the change order.
+        shared_ptr<string> source_ {};
+        // The status of the change order. Valid values:
+        // 
+        // - **0**: Preparing.
+        // 
+        // - **1**: In progress.
+        // 
+        // - **2**: Succeeded.
+        // 
+        // - **3**: Failed.
+        // 
+        // - **6**: Aborted.
+        // 
+        // - **8**: Paused for manual confirmation.
+        // 
+        // - **9**: Paused for automatic confirmation.
+        // 
+        // - **10**: Failed due to a system exception.
+        // 
+        // - **11**: Pending approval.
+        // 
+        // - **12**: Approved and pending execution.
+        shared_ptr<int32_t> status_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -323,16 +342,13 @@ namespace Models
 
 
     protected:
-      // The change orders.
-      shared_ptr<vector<Data::ChangeOrderList>> changeOrderList_ {};
-      // The total number of change orders.
-      shared_ptr<int32_t> currentPage_ {};
-      // The error code.
-      // 
-      // *   The **ErrorCode** parameter is not returned when the request succeeds.
-      // *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
-      shared_ptr<int32_t> pageSize_ {};
       // The list of change orders.
+      shared_ptr<vector<Data::ChangeOrderList>> changeOrderList_ {};
+      // The current page number.
+      shared_ptr<int32_t> currentPage_ {};
+      // The page size.
+      shared_ptr<int32_t> pageSize_ {};
+      // The total number of change orders.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -391,26 +407,35 @@ namespace Models
 
 
   protected:
-    // Indicates whether the list of change orders was obtained. Valid values:
+    // The HTTP status code or the POP error code. Valid values:
     // 
-    // *   **true**: indicates that the list was obtained.
-    // *   **false**: indicates that the list could not be obtained.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirect.
+    // 
+    // - **4xx**: Request error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // The information about change orders.
+    // The information about the change orders.
     shared_ptr<ListChangeOrdersResponseBody::Data> data_ {};
-    // The HTTP status code. Valid values:
+    // The error code.
     // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
+    // - This parameter is not returned on successful requests.
+    // 
+    // - Returned if the request fails. For more information, see the **error code** list in this topic.
     shared_ptr<string> errorCode_ {};
-    // The ID of the trace. It is used to query the details of a request.
+    // Additional information about the response.
     shared_ptr<string> message_ {};
-    // The returned message.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the list of change orders was retrieved. Valid values:
+    // 
+    // - **true**: The list was retrieved.
+    // 
+    // - **false**: The list could not be retrieved.
     shared_ptr<bool> success_ {};
-    // The information about change orders.
+    // The trace ID used to query request details.
     shared_ptr<string> traceId_ {};
   };
 

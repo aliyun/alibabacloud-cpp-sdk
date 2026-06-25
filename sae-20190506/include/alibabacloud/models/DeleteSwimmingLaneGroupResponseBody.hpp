@@ -84,31 +84,37 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code. Valid values:
+    // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The status code. Value values:
+    // The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section of this topic.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // 
+    // - A failed request returns the **ErrorCode** field. For more information, see the **error code** list in this article.
     shared_ptr<string> errorCode_ {};
-    // null null
+    // The returned message.
     // 
-    // *   null****
-    // *   null
+    // - **success** is returned for a successful request.
+    // 
+    // - An error code is returned for a failed request.
     shared_ptr<string> message_ {};
-    // null
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The policy was deleted.
-    // *   **false**: Delete failed.
+    // - **true**: The swimming lane group was successfully deleted.
+    // 
+    // - **false**: The swimming lane group was not deleted.
     shared_ptr<bool> success_ {};
-    // null
+    // The trace ID. Use this ID to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

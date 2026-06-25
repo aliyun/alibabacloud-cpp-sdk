@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> appId_ {};
-    // The instance ID.
+    // The IDs of the instances.
     shared_ptr<string> instanceIds_ {};
   };
 

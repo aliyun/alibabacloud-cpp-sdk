@@ -143,17 +143,17 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> edasAppId_ {};
-        // The name of the application.
+        // The application name.
         shared_ptr<string> edasAppName_ {};
-        // The group to which the service belongs. You can create a custom group.
+        // The service group. This value is user-defined.
         shared_ptr<string> group_ {};
         // The number of instances.
         shared_ptr<int64_t> instanceNum_ {};
         // The service name.
         shared_ptr<string> serviceName_ {};
-        // The version of a service. You can create a custom version.
+        // The service version. This value is user-defined.
         shared_ptr<string> version_ {};
       };
 
@@ -197,15 +197,15 @@ namespace Models
 
 
     protected:
-      // The page number of the current page.
+      // The current page number.
       shared_ptr<string> currentPage_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<string> pageNumber_ {};
-      // The number of entries returned on each page. Valid values: 0 to 9999.
+      // The number of entries per page. The value must be in the range of 0 to 9999.
       shared_ptr<string> pageSize_ {};
-      // The result returned.
+      // The returned results.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The total number of returned pages.
+      // The total number of entries.
       shared_ptr<string> totalSize_ {};
     };
 
@@ -264,30 +264,35 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status code or POP error code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirect.
+    // 
+    // - **4xx**: client error.
+    // 
+    // - **5xx**: server error.
     shared_ptr<string> code_ {};
-    // The details of services.
+    // The service list.
     shared_ptr<vector<ListAppServicesPageResponseBody::Data>> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // A message that describes the outcome of the request.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the microservice list was obtained. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The list was obtained.
-    // *   **false**: The list failed to be obtained.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

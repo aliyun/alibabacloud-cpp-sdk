@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the sidecar container. You can call the [DescribeApplicationInstances](https://help.aliyun.com/document_detail/2834847.html) to obtain the ID.
+    // The ID of the sidecar container. Call the [ListApplicationInstances](https://help.aliyun.com/document_detail/2834847.html) operation to obtain this ID.
     shared_ptr<string> containerId_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to view the log of the instance from before its last restart. Note: This parameter is active only if the instance was restarted.
     shared_ptr<string> previous_ {};
   };
 

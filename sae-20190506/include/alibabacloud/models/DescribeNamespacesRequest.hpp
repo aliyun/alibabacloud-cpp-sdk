@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};

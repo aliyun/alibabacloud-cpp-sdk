@@ -195,7 +195,9 @@ namespace Models
 
 
           protected:
+            // The action configuration.
             shared_ptr<string> actionConfig_ {};
+            // The action type.
             shared_ptr<string> actionType_ {};
           };
 
@@ -261,13 +263,21 @@ namespace Models
 
 
         protected:
+          // The application ID.
           shared_ptr<string> appId_ {};
+          // The application name.
           shared_ptr<string> appName_ {};
+          // The backend protocol.
           shared_ptr<string> backendProtocol_ {};
+          // The container port.
           shared_ptr<int32_t> containerPort_ {};
+          // The domain name.
           shared_ptr<string> domain_ {};
+          // The path.
           shared_ptr<string> path_ {};
+          // The rewritten path.
           shared_ptr<string> rewritePath_ {};
+          // The list of rule actions.
           shared_ptr<vector<Rules::RuleActions>> ruleActions_ {};
         };
 
@@ -327,9 +337,13 @@ namespace Models
 
 
         protected:
+          // The application ID.
           shared_ptr<string> appId_ {};
+          // The application name.
           shared_ptr<string> appName_ {};
+          // The backend protocol.
           shared_ptr<string> backendProtocol_ {};
+          // The container port.
           shared_ptr<int32_t> containerPort_ {};
         };
 
@@ -417,12 +431,19 @@ namespace Models
 
 
         protected:
+          // Indicates whether credentials can be carried.
           shared_ptr<string> allowCredentials_ {};
+          // The allowed headers.
           shared_ptr<string> allowHeaders_ {};
+          // The allowed methods.
           shared_ptr<string> allowMethods_ {};
+          // The allowed origins.
           shared_ptr<string> allowOrigin_ {};
+          // Indicates whether cross-domain access is enabled.
           shared_ptr<string> enable_ {};
+          // The allowed exposed headers.
           shared_ptr<string> exposeHeaders_ {};
+          // The time-to-live (TTL).
           shared_ptr<string> maxAge_ {};
         };
 
@@ -578,53 +599,63 @@ namespace Models
 
 
       protected:
-        // The ID of the certificate that is associated with a Classic Load Balancer (**CLB**) instance.
+        // The ID of the Classic Load Balancer (CLB) certificate.
         shared_ptr<string> certId_ {};
-        // The ID of the certificate that is associated with an Application Load Balancer **ALB** instance.
+        // The IDs of the Application Load Balancer (ALB) certificates.
         shared_ptr<string> certIds_ {};
+        // The cross-domain configuration.
         shared_ptr<IngressList::CorsConfig> corsConfig_ {};
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
+        // The default rule.
         shared_ptr<IngressList::DefaultRule> defaultRule_ {};
-        // The name of a routing rule.
+        // The name of the Ingress rule.
         shared_ptr<string> description_ {};
-        // The ID of a routing rule.
+        // The ID of the routing rule.
         shared_ptr<int64_t> id_ {};
+        // The connection idle timeout period.
         shared_ptr<int64_t> idleTimeout_ {};
-        // The listener ports for an SLB instance.
+        // The listening port of the SLB instance.
         shared_ptr<string> listenerPort_ {};
-        // The protocol that is supported by SLB to forward requests. Valid values:
+        // The forwarding protocol of the SLB instance. Valid values:
         // 
-        // *   **HTTP**: HTTP is suitable for applications that need to identify the transmitted data.
-        // *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+        // - **HTTP**: suitable for applications that need to identify data content.
         // 
-        // This parameter is optional in the **CreateIngress** and **UpadateIngress** operations. If you do not configure this parameter when you call the CreateIngress or UpdateIngress operation to create or update a gateway routing rule, this parameter is not returned for the corresponding response.
+        // - **HTTPS**: suitable for applications that require encrypted transmission.
+        // 
+        // This parameter is optional for the **CreateIngress** and **UpdateIngress** operations. If you do not set this parameter when you create or update a gateway routing rule, this parameter is not returned.
         shared_ptr<string> listenerProtocol_ {};
-        // The type of SLB instances. Valid values:
+        // The type of the SLB instance. Valid values:
         // 
-        // *   **clb**: Classic Load Balancer (formerly known as SLB).
-        // *   **alb**: Application Load Balancer.
+        // - **clb**: Classic Load Balancer.
+        // 
+        // - **alb**: Application Load Balancer.
         shared_ptr<string> loadBalanceType_ {};
-        // The ID of an MSE cloud-native gateway.
+        // The ID of the MSE cloud-native gateway instance.
         shared_ptr<string> mseGatewayId_ {};
-        // The port of a service.
+        // The port that corresponds to the service.
         shared_ptr<string> mseGatewayPort_ {};
-        // The protocol that is supported by an MSE cloud-native gateway to forward requests. Valid values:
+        // The forwarding protocol supported by the MSE cloud-native gateway. Valid values:
         // 
-        // *   **HTTP**: HTTP is suitable for applications that need to identify transmitted data.
-        // *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+        // - **HTTP**: suitable for applications that need to identify data content.
+        // 
+        // - **HTTPS**: suitable for applications that require encrypted transmission.
         shared_ptr<string> mseGatewayProtocol_ {};
-        // The name of a routing rule.
+        // The name of the routing rule.
         shared_ptr<string> name_ {};
-        // The ID of a namespace.
+        // The namespace ID.
         shared_ptr<string> namespaceId_ {};
+        // The request timeout period.
         shared_ptr<int64_t> requestTimeout_ {};
+        // The rules.
         shared_ptr<vector<IngressList::Rules>> rules_ {};
-        // The ID of a Server Load Balancer (SLB) instance.
+        // The ID of the Server Load Balancer (SLB) instance.
         shared_ptr<string> slbId_ {};
-        // The type of SLB instances. Valid values:
+        // The type of the SLB instance. Valid values:
         // 
-        // *   **internet**: an Internet-facing SLB instance
-        // *   **intranet**: an Intranet-facing SLB instance
+        // - **internet**: public network.
+        // 
+        // - **intranet**: private network.
         shared_ptr<string> slbType_ {};
       };
 
@@ -661,10 +692,13 @@ namespace Models
 
 
     protected:
+      // The current page.
       shared_ptr<int32_t> currentPage_ {};
       // The list of routing rules.
       shared_ptr<vector<Data::IngressList>> ingressList_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries found.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -723,33 +757,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The status of the API call or a POP error code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The call was successful.
+    // 
+    // - **3xx**: The call was redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The result returned.
+    // The result.
     shared_ptr<ListIngressesResponseBody::Data> data_ {};
-    // The error code returned if the request failed. Valid values:
+    // The error code.
     // 
-    // *   **ErrorCode** is not returned if a request is successful.
-    // *   **ErrorCode** is returned if a request failed. For more information, see **Error codes**.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Valid values:
+    // The response message.
     // 
-    // *   **success** is returned when a request is successful.
-    // *   An error code is returned when a request failed.
+    // - **success** is returned if the call is successful.
+    // 
+    // - An error code is returned if the call fails.
     shared_ptr<string> message_ {};
-    // The ID of a request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the list of Ingresses was obtained. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**: The list were obtained.
-    // *   **false**: The list failed to be queried.
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The ID of a trace. The ID is used to query the details of a request.
+    // The trace ID. You can use it to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

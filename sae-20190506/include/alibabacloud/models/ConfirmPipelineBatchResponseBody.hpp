@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the batch.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
     };
 
@@ -128,30 +128,35 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code for the request.
     // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The batch information.
+    // The pipeline information.
     shared_ptr<ConfirmPipelineBatchResponseBody::Data> data_ {};
     // The error code.
     // 
-    // *   The **ErrorCode** parameter is not returned when the request succeeds.
-    // *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+    // - The **ErrorCode** field is not returned if the request is successful.
+    // 
+    // - The **ErrorCode** field is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the processing of the next batch started as required. Valid values:
+    // Indicates whether the batch confirmation was successful.
     // 
-    // *   **true**: The processing started.
-    // *   **false**: The processing could not start.
+    // - **true**: The confirmation was successful.
+    // 
+    // - **false**: The confirmation failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. It is used to query the details of a request.
+    // The trace ID. You can use this ID to look up the details of the call.
     shared_ptr<string> traceId_ {};
   };
 

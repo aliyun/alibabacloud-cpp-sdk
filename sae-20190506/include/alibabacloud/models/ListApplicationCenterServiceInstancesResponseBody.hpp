@@ -206,7 +206,6 @@ namespace Models
     shared_ptr<ListApplicationCenterServiceInstancesResponseBody::Data> data_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<string> traceId_ {};

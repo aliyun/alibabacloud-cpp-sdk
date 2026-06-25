@@ -151,17 +151,21 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
+      // The average duration of a change order, in milliseconds.
       shared_ptr<float> avgTimeCostMs_ {};
-      // The number of abnormal change orders.
+      // The number of failed change orders.
       shared_ptr<int64_t> error_ {};
-      // The percentage of change failures.
+      // The percentage of failed change orders.
       shared_ptr<float> errorPercent_ {};
+      // The maximum duration, in milliseconds.
       shared_ptr<float> maxTimeCostMs_ {};
       // The application name.
       shared_ptr<string> name_ {};
+      // The optimization suggestions.
       shared_ptr<string> optimizeSuggestions_ {};
       // The namespace ID.
       shared_ptr<string> regionId_ {};
+      // The average task duration, in milliseconds.
       shared_ptr<string> taskTimeCostMsAvg_ {};
       // The total number of change orders.
       shared_ptr<int64_t> total_ {};
@@ -207,26 +211,31 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The following limits are imposed on the ID:
+    // The HTTP status code.
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client-side error occurred.
+    // 
+    // - **5xx**: A server-side error occurred.
     shared_ptr<string> code_ {};
-    // The details of applications.
+    // The list of application information.
     shared_ptr<vector<GetChangeOrderMetricResponseBody::Data>> data_ {};
-    // The additional information that is returned. The following limits are imposed on the ID:
+    // The response message.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - Returns **success** if the request is successful.
+    // 
+    // - Returns an error code if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the microservice list was obtained. The following limits are imposed on the ID:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The namespaces were obtained.
-    // *   **false**: no
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

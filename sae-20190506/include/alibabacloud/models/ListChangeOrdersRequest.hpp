@@ -103,42 +103,87 @@ namespace Models
 
 
   protected:
-    // 1
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The ID of the request.
+    // The status of the change order. Valid values:
+    // 
+    // - **0**: Preparing.
+    // 
+    // - **1**: In progress.
+    // 
+    // - **2**: Succeeded.
+    // 
+    // - **3**: Failed.
+    // 
+    // - **6**: Stopped.
+    // 
+    // - **8**: Paused for manual confirmation.
+    // 
+    // - **9**: Paused for automatic confirmation.
+    // 
+    // - **10**: Failed due to a system exception.
+    // 
+    // - **11**: Pending approval.
+    // 
+    // - **12**: Approved and pending execution.
     shared_ptr<string> coStatus_ {};
     // The type of the change order. Valid values:
     // 
-    // *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
-    // *   **CoUnbindSlb**: disassociates an SLB instance from the application.
-    // *   **CoCreateApp**: creates the application.
-    // *   **CoDeleteApp**: deletes the application.
-    // *   **CoDeploy**: deploys the application.
-    // *   **CoRestartApplication**: restarts the application.
-    // *   **CoRollback**: rolls back the application.
-    // *   **CoScaleIn**: scales in the application.
-    // *   **CoScaleOut**: scales out the application.
-    // *   **CoStartApplication**: starts the application.
-    // *   **CoStopApplication**: stops the application.
-    // *   **CoRescaleApplicationVertically**: modifies the instance type.
-    // *   **CoDeployHistroy**: rolls back the application to an earlier version.
-    // *   **CoBindNas**: associates a network-attached storage (NAS) file system with the application.
-    // *   **CoUnbindNas**: disassociates a NAS file system from the application.
-    // *   **CoBatchStartApplication**: starts multiple applications concurrently.
-    // *   **CoBatchStopApplication**: stops multiple applications concurrently.
-    // *   **CoRestartInstances**: restarts the instance.
-    // *   **CoDeleteInstances**: deletes the instance.
-    // *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
+    // - **CoBindSlb**: Attach an SLB instance.
+    // 
+    // - **CoUnbindSlb**: Detach an SLB instance.
+    // 
+    // - **CoCreateApp**: Create an application.
+    // 
+    // - **CoDeleteApp**: Delete an application.
+    // 
+    // - **CoDeploy**: Deploy an application.
+    // 
+    // - **CoRestartApplication**: Restart an application.
+    // 
+    // - **CoRollback**: Roll back an application.
+    // 
+    // - **CoScaleIn**: Scale in an application.
+    // 
+    // - **CoScaleOut**: Scale out an application.
+    // 
+    // - **CoStartApplication**: Start an application.
+    // 
+    // - **CoStopApplication**: Stop an application.
+    // 
+    // - **CoRescaleApplicationVertically**: Change the instance type.
+    // 
+    // - **CoDeployHistroy**: Roll back to a previous version.
+    // 
+    // - **CoBindNas**: Attach a NAS file system.
+    // 
+    // - **CoUnbindNas**: Detach a NAS file system.
+    // 
+    // - **CoBatchStartApplication**: Batch start applications.
+    // 
+    // - **CoBatchStopApplication**: Batch stop applications.
+    // 
+    // - **CoRestartInstances**: Restart instances.
+    // 
+    // - **CoDeleteInstances**: Delete instances.
+    // 
+    // - **CoScaleInAppWithInstances**: Scale in an application by specifying instances.
     shared_ptr<string> coType_ {};
-    // 20
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // CoCreateApp
+    // The keyword for a fuzzy search of change order descriptions. The operation returns only the change orders whose descriptions contain the **keyword**.
     shared_ptr<string> key_ {};
+    // The field by which to sort the results.
     shared_ptr<string> orderBy_ {};
-    // test
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The sort order for the field specified by the **OrderBy** parameter. Valid values:
+    // 
+    // - **true**: The results are sorted in ascending order.
+    // 
+    // - **false**: The results are sorted in descending order.
     shared_ptr<bool> reverse_ {};
   };
 

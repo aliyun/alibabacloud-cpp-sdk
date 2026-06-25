@@ -112,33 +112,35 @@ namespace Models
 
 
   protected:
-    // The route configuration of the gateway.
+    // The configuration of the gateway route.
     // 
-    // >  This parameter is required if the gateway entry of the lane group is Java.
+    // > This parameter is required if the gateway entry application for the swimlane group is a Java application.
     shared_ptr<string> appEntryRuleShrink_ {};
-    // Full-link Grayscale Mode:
+    // The end-to-end canary release mode.
     // 
-    // *   0: The request is routed based on the content of the request.
-    // *   1: routing based on percentages
+    // - `0`: content-based routing
+    // 
+    // - `1`: percentage-based routing
     shared_ptr<int32_t> canaryModel_ {};
-    // Lane Status
+    // The status of the swimlane.
     // 
-    // *   true: enabled
-    // *   false: disabled
+    // - `true`: enabled
+    // 
+    // - `false`: disabled
     shared_ptr<bool> enable_ {};
-    // The ID of the lane group to which the lane belongs.
+    // The ID of the swimlane group.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of the lane.
+    // The ID of the swimlane.
     shared_ptr<int64_t> laneId_ {};
-    // The name of the lane.
+    // The name of the swimlane.
     shared_ptr<string> laneName_ {};
-    // The tag of the lane.
+    // The tag of the swimlane.
     shared_ptr<string> laneTag_ {};
-    // The route configuration of the MSE gateway.
+    // Configuration for the MSE gateway route.
     // 
-    // >  If the **EntryAppType** is set to **apig** or **mse-gw**, it is required.
+    // > This parameter is required if the **EntryAppType** parameter is set to **apig** or **mse-gw**.
     shared_ptr<string> mseGatewayEntryRuleShrink_ {};
-    // The namespace ID.
+    // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};
   };
 

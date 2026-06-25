@@ -94,35 +94,39 @@ namespace Models
 
 
   protected:
-    // The interface state or POP error code. Valid values:
+    // The HTTP status code.
     // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The information of instance logs.
+    // The instance log.
     shared_ptr<string> data_ {};
-    // Error code.
+    // The error code.
     // 
-    // - No error code returned if the request succeeded.
+    // - This parameter is not returned if the request is successful.
     // 
-    // - Error code returned if the request failed. Refer to error code list below for details.
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The message returned.
     // 
-    // success is returned when the request succeeds.
-    // An error code is returned when the request fails.
+    // - **success** is returned if the request is successful.
+    // 
+    // - An error code is returned if the request fails.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the logs of the instance is obtained.
+    // Indicates whether the instance log was obtained. Valid values:
     // 
-    // - true: logs obtained.
+    // - **true**: The instance log was obtained.
     // 
-    // - false: failed to obtain logs.
+    // - **false**: The instance log failed to be obtained.
     shared_ptr<bool> success_ {};
-    // Trace ID.
+    // The trace ID.
     shared_ptr<string> traceId_ {};
   };
 

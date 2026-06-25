@@ -84,30 +84,37 @@ namespace Models
 
 
   protected:
-    // Indicates whether the VPC information was updated. Valid values:
+    // The HTTP status code. The value can be a POP error code. Valid values:
     // 
-    // *   **true**: indicates that the information was updated.
-    // *   **false**: indicates that the information could not be updated.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: The request was invalid.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The HTTP status code. Valid values:
-    // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
-    shared_ptr<string> errorCode_ {};
-    // The ID of the trace. It can be used to query the details of a request.
-    shared_ptr<string> message_ {};
-    // The returned message.
-    // 
-    // *   **success** is returned when the request succeeds.
-    // *   An error code is returned when the request fails.
-    shared_ptr<string> requestId_ {};
-    shared_ptr<bool> success_ {};
     // The error code.
     // 
-    // *   The **ErrorCode** parameter is not returned when the request succeeds.
-    // *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+    shared_ptr<string> errorCode_ {};
+    // The returned message.
+    // 
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error code is returned.
+    shared_ptr<string> message_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the VPC was updated. Valid values:
+    // 
+    // - **true**: The VPC was updated.
+    // 
+    // - **false**: The VPC failed to be updated.
+    shared_ptr<bool> success_ {};
+    // The trace ID. You can use it to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

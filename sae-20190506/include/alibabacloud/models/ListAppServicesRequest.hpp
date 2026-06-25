@@ -112,33 +112,39 @@ namespace Models
 
 
   protected:
-    // The ID of the application. You must specify only one of the following parameters: vpcId, namespace ID, and application ID.
+    // The application ID. Specify exactly one of the following parameters: `VpcId`, `NamespaceId`, or `AppId`.
     shared_ptr<string> appId_ {};
-    // The ID of the MSE Nacos instance. This parameter is required when the registry type is set to MSE Nacos.
+    // The instance ID of MSE Nacos. This parameter is required if the service registry is MSE Nacos.
     shared_ptr<string> nacosInstanceId_ {};
-    // The ID of the MSE Nacos namespace. This parameter is required when the registry type is set to MSE Nacos.
+    // The namespace ID of MSE Nacos. This parameter is required if the service registry is MSE Nacos.
     shared_ptr<string> nacosNamespaceId_ {};
-    // The ID of the namespace. You must specify only one of the following parameters: VPC ID, namespace ID, and application ID.
+    // The namespace ID. Specify exactly one of the following parameters: `VpcId`, `NamespaceId`, or `AppId`.
     shared_ptr<string> namespaceId_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The registry type. Valid values:
+    // The service registry type. Valid values:
     // 
-    // *   **0**: SAE Nacos
-    // *   **1**: SAE built-in Nacos
-    // *   **2** :MSE Nacos
-    // *   **9**: SAE Kubernetes service
+    // - **0**: SAE Nacos
+    // 
+    // - **1**: self-managed service registry
+    // 
+    // - **2**: MSE Nacos
+    // 
+    // - **9**: SAE K8s Service
     shared_ptr<string> registryType_ {};
     // The service type. Valid values:
     // 
-    // *   **dubbo**
-    // *   **springCloud**
-    // *   **hsf**
-    // *   **k8sService**
+    // - **dubbo**
+    // 
+    // - **springCloud**
+    // 
+    // - **hsf**
+    // 
+    // - **k8sService**
     shared_ptr<string> serviceType_ {};
-    // The unique identifier of the VPC. You must specify only one of the following parameters: VPC ID, namespace ID, and application ID.
+    // The ID of the VPC. Specify exactly one of the following parameters: `VpcId`, `NamespaceId`, or `AppId`.
     shared_ptr<string> vpcId_ {};
   };
 

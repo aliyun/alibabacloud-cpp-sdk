@@ -130,29 +130,35 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The call was successful.
+    // 
+    // - **3xx**: The call was redirected.
+    // 
+    // - **4xx**: The call failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<StartApplicationResponseBody::Data> data_ {};
     // The error code returned. Take note of the following rules:
     // 
-    // *   If the call is successful, **ErrorCode** is not returned.
-    // *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+    // - If the call is successful, **ErrorCode** is not returned.
+    // 
+    // - If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
     shared_ptr<string> errorCode_ {};
     // The returned message. Take note of the following rules:
     // 
-    // *   If the call is successful, **success** is returned.
-    // *   If the call fails, an error code is returned.
+    // - If the call is successful, **success** is returned.
+    // 
+    // - If the call fails, an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the application is started. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
     // The trace ID that is used to query the details of the request.
     shared_ptr<string> traceId_ {};

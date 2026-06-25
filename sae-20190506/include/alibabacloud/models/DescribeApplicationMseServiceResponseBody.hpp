@@ -105,11 +105,15 @@ namespace Models
       shared_ptr<string> mseAppNameSpace_ {};
       // The application status. Valid values:
       // 
-      // *   EXPIRED
-      // *   REBOOTING
-      // *   WAITING
-      // *   FAIL
-      // *   NULL/SUCCESS
+      // - EXPIRED
+      // 
+      // - REBOOTING
+      // 
+      // - WAITING
+      // 
+      // - FAIL
+      // 
+      // - NULL/SUCCESS
       shared_ptr<string> status_ {};
     };
 
@@ -174,20 +178,23 @@ namespace Models
     shared_ptr<DescribeApplicationMseServiceResponseBody::Data> data_ {};
     // The error code. Value description:
     // 
-    // *   If the request succeeds, this field is not returned.
-    // *   For more information, see the **Error codes** section of this topic.
+    // - If the request succeeds, this field is not returned.
+    // 
+    // - For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
     // The additional information. Value description:
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   If the request failed, an error code is returned.
+    // - If the request was successful, **success** is returned.
+    // 
+    // - If the request failed, an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the application instance groups were obtained successfully. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
     // The ID of the trace, which is used to query the exact call information.
     shared_ptr<string> traceId_ {};

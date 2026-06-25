@@ -54,8 +54,9 @@ namespace Models
     shared_ptr<string> appId_ {};
     // Start or suspend a job template.
     // 
-    // *   true: Start a job template.
-    // *   false: Suspend a job template.
+    // - true: Start a job template.
+    // 
+    // - false: Suspend a job template.
     // 
     // This parameter is required.
     shared_ptr<bool> suspend_ {};

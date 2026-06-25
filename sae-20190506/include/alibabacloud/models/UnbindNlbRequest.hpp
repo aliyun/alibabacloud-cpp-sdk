@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
-    // A short description of struct
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // The ID of NLB instance.
+    // The NLB instance ID.
     shared_ptr<string> nlbId_ {};
-    // The listener port of the instance. Valid values: 0 to 65535.
+    // The listener port, which must be between 0 and 65535.
     shared_ptr<int32_t> port_ {};
-    // The type of the protocol. Valid values:
+    // The protocol. Valid values:
     // 
-    // *   **TCP**.
-    // *   **UDP**.
-    // *   **TCPSSL**.
+    // - **TCP**
+    // 
+    // - **UDP**
+    // 
+    // - **TCPSSL**
     shared_ptr<string> protocol_ {};
   };
 

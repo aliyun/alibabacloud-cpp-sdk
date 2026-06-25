@@ -79,10 +79,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Indicates whether to deploy the application immediately. Valid values:
+    // 
+    // - **true**: Deploys the application immediately. This is the default.
+    // 
+    // - **false**: The application is not deployed.
     shared_ptr<bool> deploy_ {};
+    // The minimum percentage of ready instances.
     shared_ptr<int32_t> minReadyInstanceRatio_ {};
+    // The minimum number of ready instances.
     shared_ptr<int32_t> minReadyInstances_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

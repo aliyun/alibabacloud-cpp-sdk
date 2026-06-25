@@ -96,31 +96,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // Indicates that the operation was successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - This parameter is returned only if the request fails.
+    // 
+    // - For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The additional information returned.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether tags were added to the specified resources. Valid values:
+    // Indicates whether the tags were added to the resources. Valid values:
     // 
-    // *   **true**: The tags were added.
-    // *   **false**: The tags failed to be added.
+    // - **true**: The tags were added.
+    // 
+    // - **false**: The tags failed to be added.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID that you can use to query the details of the request.
     shared_ptr<string> traceId_ {};
   };
 

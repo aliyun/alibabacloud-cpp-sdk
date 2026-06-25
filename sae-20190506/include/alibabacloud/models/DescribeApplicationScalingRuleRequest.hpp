@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // a0d2e04c-159d-40a8-b240-d2f2c263\\*\\*\\*\\*
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // test
+    // The name of the auto scaling policy.
     // 
     // This parameter is required.
     shared_ptr<string> scalingRuleName_ {};

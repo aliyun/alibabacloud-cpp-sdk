@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the routing rule to be queried.
+    // The ID of the routing rule. Call the [ListIngresses](https://help.aliyun.com/document_detail/2834910.html) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ingressId_ {};

@@ -155,19 +155,21 @@ namespace Models
 
 
       protected:
-        // The usage of active vCPU. Unit: Core*min.
+        // The active vCPU usage, in Core·min.
         shared_ptr<float> activeCpu_ {};
-        // The CPU usage. Unit: core per minute.
+        // The CPU usage, in Core·min.
         shared_ptr<float> cpu_ {};
-        // The CU usage.
+        // The number of CUs used.
         shared_ptr<float> cu_ {};
-        // The storage size of the temporary storage space. Unit: GiB.
+        // The ephemeral storage usage, in GiB·min.
         shared_ptr<float> ephemeralStorage_ {};
+        // The GpuA10 usage.
         shared_ptr<float> gpuA10_ {};
+        // The GpuPpu810e usage.
         shared_ptr<float> gpuPpu810e_ {};
-        // The usage of idle CPU. Unit: Core*min.
+        // The idle vCPU usage, in Core·min.
         shared_ptr<float> idleCpu_ {};
-        // The memory usage. Unit: GiB per minute.
+        // The memory usage, in GiB·min.
         shared_ptr<float> memory_ {};
       };
 
@@ -218,11 +220,11 @@ namespace Models
 
 
       protected:
-        // The CPU usage. Unit: core per minute.
+        // The CPU usage, in Core·min.
         shared_ptr<float> cpu_ {};
-        // The storage size of the temporary storage space. Unit: GiB.
+        // The ephemeral storage usage, in GiB·min.
         shared_ptr<float> ephemeralStorage_ {};
-        // The memory usage. Unit: GiB per minute.
+        // The memory usage, in GiB·min.
         shared_ptr<float> memory_ {};
       };
 
@@ -249,7 +251,7 @@ namespace Models
     protected:
       // The real-time resource usage.
       shared_ptr<Data::RealTimeRes> realTimeRes_ {};
-      // The resource usage of the current month.
+      // The resource usage in the current month.
       shared_ptr<Data::Summary> summary_ {};
     };
 
@@ -310,31 +312,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: indicates that the request was successful.
-    // *   **3xx**: indicates that the request was redirected.
-    // *   **4xx**: indicates that the request was invalid.
-    // *   **5xx**: indicates that a server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The resource usage.
+    // The resource usage information.
     shared_ptr<QueryResourceStaticsResponseBody::Data> data_ {};
-    // The error code. 
+    // The error code.
     // 
-    // - The **ErrorCode** parameter is not returned when the request succeeds.
-    // - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // The response message.
     // 
-    // *   **success** is returned when the request succeeds.
-    // *   An error code is returned when the request fails.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the resource usage of an application was obtained. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: indicates that the resource usage was obtained.
-    // *   **false**: indicates that the resource usage could not be obtained.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. It can be used to query the details of a request.
+    // The trace ID used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

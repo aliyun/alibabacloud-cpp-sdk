@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the change order. The ID can be used to query the status of the change task.
+      // The ID of the change order. You can call the DescribeChangeOrder operation to query the execution status of a task.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -130,31 +130,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request is successful.
+    // 
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
-    // The result returned.
+    // The returned data.
     shared_ptr<DeleteApplicationResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
+    // - This parameter is not returned if the request is successful.
+    // 
+    // - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The message returned. Valid values:
+    // The response message. If the request is successful, **success** is returned. If the request fails, an error code is returned.
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   If the request failed, an error code is returned.
+    // - A successful request returns **success**.
+    // 
+    // - A failed request returns a specific error code.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application is deleted. Valid values:
+    // Indicates whether the application was deleted. Valid values:
     // 
-    // *   **true**: The applications were deleted
-    // *   **false**: The applications failed to be deleted.
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID that is used to query the details of the request.
     shared_ptr<string> traceId_ {};
   };
 

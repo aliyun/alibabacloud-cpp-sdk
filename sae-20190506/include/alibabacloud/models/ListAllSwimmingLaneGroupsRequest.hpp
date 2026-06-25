@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of a namespace.
+    // The namespace ID.
     shared_ptr<string> namespaceId_ {};
   };
 

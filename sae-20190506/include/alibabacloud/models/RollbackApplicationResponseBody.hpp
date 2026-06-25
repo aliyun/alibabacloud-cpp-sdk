@@ -83,8 +83,9 @@ namespace Models
       shared_ptr<string> changeOrderId_ {};
       // Specifies whether approval is required when a RAM user performs release. Take note of the following rules:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isNeedApproval_ {};
     };
 
@@ -145,17 +146,21 @@ namespace Models
   protected:
     // The HTTP status code. Take note of the following rules:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The call was successful.
+    // 
+    // - **3xx**: The call was redirected.
+    // 
+    // - **4xx**: The call failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The response.
     shared_ptr<RollbackApplicationResponseBody::Data> data_ {};
     // The error code returned if the request failed. Take note of the following rules:
     // 
-    // *   The **ErrorCode** parameter is not returned if the request succeeds.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - The **ErrorCode** parameter is not returned if the request succeeds.
+    // 
+    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
     shared_ptr<string> errorCode_ {};
     // The message returned for the operation.
     shared_ptr<string> message_ {};
@@ -163,8 +168,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the application is successfully rolled back. Take note of the following rules:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
     // The trace ID that is used to query the details of the request.
     shared_ptr<string> traceId_ {};

@@ -169,21 +169,21 @@ namespace Models
 
 
       protected:
-        // The ACM-specific AccessKey ID. It can be used to manage data in an Application Configuration Management (ACM) namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](https://help.aliyun.com/document_detail/68941.html).
+        // The access key ID for Application Configuration Management (ACM), used to manage data in an ACM namespace. For more information, see [Differences between an Alibaba Cloud access key and an ACM-specific access key](https://help.aliyun.com/document_detail/68941.html).
         shared_ptr<string> accessKey_ {};
-        // The endpoint of the host.
+        // The service endpoint.
         shared_ptr<string> addressServerHost_ {};
         // The short ID of the namespace.
         shared_ptr<string> nameSpaceShortId_ {};
         // The description of the namespace.
         shared_ptr<string> namespaceDescription_ {};
-        // The ID of the namespace. You cannot query, modify, or delete the default namespace.
+        // The namespace ID. The default namespace cannot be queried, modified, or deleted.
         shared_ptr<string> namespaceId_ {};
         // The name of the namespace.
         shared_ptr<string> namespaceName_ {};
-        // The region ID.
+        // The ID of the region. For example, \\"cn-beijing\\" indicates China (Beijing).
         shared_ptr<string> regionId_ {};
-        // The ACM-specific AccessKey secret. It can be used to manage data in an ACM namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](https://help.aliyun.com/document_detail/68941.html).
+        // The secret access key for Application Configuration Management (ACM), used to manage data in an ACM namespace. For more information, see [Differences between an Alibaba Cloud access key and an ACM-specific access key](https://help.aliyun.com/document_detail/68941.html).
         shared_ptr<string> secretKey_ {};
         // The tenant ID.
         shared_ptr<string> tenantId_ {};
@@ -222,11 +222,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The namespaces.
+      // The list of namespaces.
       shared_ptr<vector<Data::Namespaces>> namespaces_ {};
-      // The number of entries per page.
+      // The number of entries returned on each page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of namespaces.
       shared_ptr<int32_t> totalSize_ {};
@@ -287,33 +287,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code.
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: The request was invalid.
+    // 
+    // - **5xx**: A server-side error occurred.
     shared_ptr<string> code_ {};
-    // The information of namespaces.
+    // The details of the namespaces.
     shared_ptr<DescribeNamespacesResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - This parameter is returned only if the request fails.
+    // 
+    // - For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The message returned by the system.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - Returns **success** if the request is successful.
+    // 
+    // - Returns a specific error message if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the list of namespaces was queried. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   **true**: The list was queried.
-    // *   **false**: The list failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID that can be used to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

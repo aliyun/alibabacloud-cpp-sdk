@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 10
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The ID of the request.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // 1
+    // The number of entries to return on each page. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

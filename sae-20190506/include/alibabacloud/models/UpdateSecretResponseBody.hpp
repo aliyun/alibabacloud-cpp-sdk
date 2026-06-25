@@ -69,6 +69,7 @@ namespace Models
 
 
     protected:
+      // The ID of the Secret instance.
       shared_ptr<int64_t> secretId_ {};
     };
 
@@ -127,12 +128,35 @@ namespace Models
 
 
   protected:
+    // The status of the API call or a POP error code. Valid values:
+    // 
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: A request error occurred.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
+    // The returned result.
     shared_ptr<UpdateSecretResponseBody::Data> data_ {};
+    // The error code. The following list describes the values:
+    // 
+    // - If the request is successful, this parameter is not returned.
+    // 
+    // - If the request fails, this parameter is returned. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
+    // Additional information about the call result.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the Secret instance was updated. Valid values:
+    // 
+    // - **true**: The instance was updated.
+    // 
+    // - **false**: The update failed.
     shared_ptr<bool> success_ {};
+    // The ID of the call chain. You can use this ID to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

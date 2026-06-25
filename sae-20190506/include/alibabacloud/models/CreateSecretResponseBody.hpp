@@ -130,17 +130,21 @@ namespace Models
   protected:
     // The HTTP status code or the error code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: The request failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<CreateSecretResponseBody::Data> data_ {};
     // The status code. Value values:
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+    // - If the request was successful, **ErrorCode** is not returned.
+    // 
+    // - If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
     shared_ptr<string> errorCode_ {};
     // The message returned for the operation.
     shared_ptr<string> message_ {};
@@ -148,8 +152,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the Secret was created. Valid values:
     // 
-    // *   **true**: The ConfigMap was created.
-    // *   **false**: The ConfigMap failed to be created.
+    // - **true**: The ConfigMap was created.
+    // 
+    // - **false**: The ConfigMap failed to be created.
     shared_ptr<bool> success_ {};
     // The ID of the trace. The ID is used to query the details of a request.
     shared_ptr<string> traceId_ {};

@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the change order. The ID can be used to query the status of the change task.
+      // The change order ID. You can use this ID to query the status of the task.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -130,31 +130,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
-    shared_ptr<string> code_ {};
-    // The returned result.
-    shared_ptr<UnbindSlbResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // - **2xx**: success
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - **3xx**: redirection
+    // 
+    // - **4xx**: request error
+    // 
+    // - **5xx**: server error
+    shared_ptr<string> code_ {};
+    // The response data.
+    shared_ptr<UnbindSlbResponseBody::Data> data_ {};
+    // The returned error code.
+    // 
+    // - This parameter is left empty if the request is successful.
+    // 
+    // - If the request fails, this parameter contains an error code. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
     // The returned message. Valid values:
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - If the request succeeds, **success** is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the internal-facing or Internet-facing SLB instance was disassociated. Valid values:
+    // Indicates whether the operation was successful.
     // 
-    // *   **true**: The SLB instance was disassociated.
-    // *   **false**: The SLB instance failed to be disassociated.
+    // - **true**: The operation was successful.
+    // 
+    // - **false**: The operation failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID of the request. You can use this ID to query call details.
     shared_ptr<string> traceId_ {};
   };
 

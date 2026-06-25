@@ -71,10 +71,13 @@ namespace Models
     protected:
       // The HTTP status code. Valid values:
       // 
-      // *   **2xx**: indicates that the request was successful.
-      // *   **3xx**: indicates that the request was redirected.
-      // *   **4xx**: indicates that the request was invalid.
-      // *   **5xx**: indicates that a server error occurred.
+      // - **2xx**: indicates that the request was successful.
+      // 
+      // - **3xx**: indicates that the request was redirected.
+      // 
+      // - **4xx**: indicates that the request was invalid.
+      // 
+      // - **5xx**: indicates that a server error occurred.
       shared_ptr<string> changeOrderId_ {};
     };
 
@@ -136,18 +139,23 @@ namespace Models
     // The HTTP status code. Take note of the following rules:
     // 
     // - **2xx**: The call was successful.
+    // 
     // - **3xx**: The call was redirected.
+    // 
     // - **4xx**: The call failed.
+    // 
     // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The error code.
     // 
-    // *   If the request is successful, this parameter is not returned.****
-    // *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+    // - If the request is successful, this parameter is not returned.\\*\\*\\*\\*
+    // 
+    // - This parameter is returned only if the request failed.\\*\\*\\*\\* For more information, see **Error codes** in this topic.
     shared_ptr<BatchStartApplicationsResponseBody::Data> data_ {};
     // The error code returned if the request failed. Take note of the following rules:
     // 
     // - The ErrorCode parameter is not returned if the request succeeds.
+    // 
     // - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
     shared_ptr<string> errorCode_ {};
     // The returned data.
@@ -157,6 +165,7 @@ namespace Models
     // Indicates whether the application deployment is successful. Take note of the following rules:
     // 
     // - **true**
+    // 
     // - **false**
     shared_ptr<bool> success_ {};
     // The ID of the change order.

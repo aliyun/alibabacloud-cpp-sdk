@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the deleted ConfigMap.
+      // The ID of the deleted ConfigMap instance.
       shared_ptr<int64_t> configMapId_ {};
     };
 
@@ -128,33 +128,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code returned for the request.
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: success
+    // 
+    // - **3xx**: redirection
+    // 
+    // - **4xx**: client error
+    // 
+    // - **5xx**: server error
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The operation result.
     shared_ptr<DeleteConfigMapResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - Not returned if the request is successful.
+    // 
+    // - Returned if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The response message.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - If the request is successful, **success** is returned.
+    // 
+    // - If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the ConfigMap was deleted. Valid values:
+    // Indicates whether the deletion succeeded. Valid values:
     // 
-    // *   **true**: The ConfigMap was deleted.
-    // *   **false**: The ConfigMap failed to be deleted.
+    // - **true**: The deletion was successful.
+    // 
+    // - **false**: The deletion failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID for querying request details.
     shared_ptr<string> traceId_ {};
   };
 

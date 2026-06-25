@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The URL of the image.
+    // The image URL.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

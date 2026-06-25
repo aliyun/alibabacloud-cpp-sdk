@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the canary release rule. The ID is globally unique.
+      // The globally unique grey tag route ID.
       shared_ptr<int64_t> greyTagRouteId_ {};
     };
 
@@ -130,28 +130,33 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
-    shared_ptr<string> code_ {};
-    // The information about the canary release rule.
-    shared_ptr<UpdateGreyTagRouteResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // - **2xx**: The request is successful.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - **3xx**: The request is redirected.
+    // 
+    // - **4xx**: A client error occurred.
+    // 
+    // - **5xx**: A server error occurred.
+    shared_ptr<string> code_ {};
+    // The grey tag route information.
+    shared_ptr<UpdateGreyTagRouteResponseBody::Data> data_ {};
+    // The error code.
+    // 
+    // - The **ErrorCode** parameter is not returned for successful requests.
+    // 
+    // - The **ErrorCode** parameter is returned for failed requests. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message.
+    // Additional information about the call result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the information of the change order was queried. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The information was queried.
-    // *   **false**: The information failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID. You can use this ID to query the details of a call.
     shared_ptr<string> traceId_ {};
   };
 

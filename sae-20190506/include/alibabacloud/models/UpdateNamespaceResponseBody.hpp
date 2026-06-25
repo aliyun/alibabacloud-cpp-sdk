@@ -117,8 +117,9 @@ namespace Models
     protected:
       // Indicates whether to enable SAE built-in registry:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> enableMicroRegistration_ {};
       // The short ID of the namespace.
       shared_ptr<string> nameSpaceShortId_ {};
@@ -189,17 +190,21 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The call was successful.
+    // 
+    // - **3xx**: The call was redirected.
+    // 
+    // - **4xx**: The call failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The information about a namespace.
     shared_ptr<UpdateNamespaceResponseBody::Data> data_ {};
     // The error code returned. Take note of the following rules:
     // 
-    // *   The **ErrorCode** parameter is not returned if the request succeeds.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - The **ErrorCode** parameter is not returned if the request succeeds.
+    // 
+    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
     shared_ptr<string> errorCode_ {};
     // The message returned for the operation.
     shared_ptr<string> message_ {};
@@ -207,8 +212,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the information about the namespace was updated. Valid values:
     // 
-    // *   **true**: The instance was updated.
-    // *   **false**: The instance failed to be updated.
+    // - **true**: The instance was updated.
+    // 
+    // - **false**: The instance failed to be updated.
     shared_ptr<bool> success_ {};
     // The trace ID that is used to query the details of the request.
     shared_ptr<string> traceId_ {};

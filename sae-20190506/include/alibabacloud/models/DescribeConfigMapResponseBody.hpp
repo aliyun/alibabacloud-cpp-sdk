@@ -113,9 +113,9 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
       };
 
@@ -183,25 +183,25 @@ namespace Models
 
 
     protected:
-      // The ID of the ConfigMap.
+      // The ID of the ConfigMap instance.
       shared_ptr<int64_t> configMapId_ {};
-      // The time when the ConfigMap was created.
+      // The time when the instance was created.
       shared_ptr<int64_t> createTime_ {};
-      // The key-value pairs of the ConfigMap. Format:
+      // The key-value pairs of the ConfigMap. The data is in the following format:
       // 
       // {"k1":"v1", "k2":"v2"}
       // 
-      // k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
+      // For more information about configuration items, see [Manage and use configuration items](https://help.aliyun.com/document_detail/171326.html).
       Darabonba::Json data_ {};
-      // The description of the ConfigMap.
+      // The description of the ConfigMap instance.
       shared_ptr<string> description_ {};
-      // The name of the ConfigMap.
+      // The name of the ConfigMap instance.
       shared_ptr<string> name_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
-      // The application that is associated with the ConfigMap.
+      // The associated applications.
       shared_ptr<vector<Data::RelateApps>> relateApps_ {};
-      // The time when the ConfigMap was updated.
+      // The time when the instance was last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -262,31 +262,37 @@ namespace Models
   protected:
     // The HTTP status code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: success
+    // 
+    // - **3xx**: redirection
+    // 
+    // - **4xx**: client error
+    // 
+    // - **5xx**: server error
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned data.
     shared_ptr<DescribeConfigMapResponseBody::Data> data_ {};
-    // The error code. Valid values:
+    // The error code returned if the request fails.
     // 
-    // *   If the call is successful, the **ErrorCode** parameter is not returned.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+    // - This parameter is empty if the request succeeds.
+    // 
+    // - This parameter contains an error code if the request fails. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned message. Valid values:
+    // The returned message.
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // - The value is **success** if the request succeeds.
+    // 
+    // - The value is an error code if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the details of the ConfigMap were queried. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The details were queried.
-    // *   **false**: The details failed to be queried.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The trace ID that is used to query the details of the request.
+    // The trace ID. You can use it to locate the call details.
     shared_ptr<string> traceId_ {};
   };
 

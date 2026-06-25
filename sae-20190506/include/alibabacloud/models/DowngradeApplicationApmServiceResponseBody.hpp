@@ -71,8 +71,9 @@ namespace Models
     protected:
       // Indicates whether ARMS advanced monitoring is disabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> status_ {};
     };
 
@@ -133,10 +134,13 @@ namespace Models
   protected:
     // The HTTP status code or the error code. Valid values:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: The request was successful.
+    // 
+    // - **3xx**: The request was redirected.
+    // 
+    // - **4xx**: The request failed.
+    // 
+    // - **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<DowngradeApplicationApmServiceResponseBody::Data> data_ {};
@@ -148,8 +152,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether ARMS advanced monitoring is disabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
     // The ID of the trace. The ID is used to query the details of a request.
     shared_ptr<string> traceId_ {};

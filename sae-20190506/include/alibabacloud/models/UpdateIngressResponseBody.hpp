@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the routing rule.
+      // Routing rule ID.
       shared_ptr<int64_t> ingressId_ {};
     };
 
@@ -128,33 +128,39 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code. Valid values:
+    // API status or POP error code. Details are as follows:
     // 
-    // *   **2xx**: The request was successful.
-    // *   **3xx**: The request was redirected.
-    // *   **4xx**: The request failed.
-    // *   **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Request error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // Responses.
+    // Returned result.
     shared_ptr<UpdateIngressResponseBody::Data> data_ {};
-    // The status code. Value values:
+    // Error code. Details are as follows:
     // 
-    // *   If the request was successful, **ErrorCode** is not returned.
-    // *   If the request failed, **ErrorCode** is returned. For more information, see the **Error codes** section of this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // 
+    // - If the request failed, the **ErrorCode** field is returned. For more information, see the **Error Codes** list in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information. Valid values:
+    // Additional information. Details are as follows:
     // 
-    // *   The error message returned because the request is normal and **success** is returned.
-    // *   If the request is abnormal, the specific exception error code is returned.
+    // - If the request is normal, **success** is returned.
+    // 
+    // - If the request is abnormal, a specific abnormal error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the configuration of the Ingress instance is updated. Valid values:
+    // Indicates whether the Ingress instance configuration was successfully updated. Details are as follows:
     // 
-    // *   **true**: The update was successful.
-    // *   **false**: Update failed.
+    // - **true**: The update was successful.
+    // 
+    // - **false**: The update failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace.
+    // Call chain ID.
     shared_ptr<string> traceId_ {};
   };
 

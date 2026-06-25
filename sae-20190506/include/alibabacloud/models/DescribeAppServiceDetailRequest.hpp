@@ -94,21 +94,25 @@ namespace Models
 
 
   protected:
-    // 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     // The ID of the MSE Nacos instance.
     shared_ptr<string> nacosInstanceId_ {};
-    // The ID of the namespace for the MSE Nacos instance.
+    // The ID of the MSE Nacos namespace.
     shared_ptr<string> nacosNamespaceId_ {};
-    // springCloud
+    // The service group. This is a custom parameter.
     shared_ptr<string> serviceGroup_ {};
-    // edas.service.provider
+    // The service name.
     shared_ptr<string> serviceName_ {};
-    // springCloud
+    // The service type. Valid values:
+    // 
+    // - **dubbo**
+    // 
+    // - **springCloud**
     shared_ptr<string> serviceType_ {};
-    // 1.0.0
+    // The service version. This is a custom parameter.
     shared_ptr<string> serviceVersion_ {};
   };
 

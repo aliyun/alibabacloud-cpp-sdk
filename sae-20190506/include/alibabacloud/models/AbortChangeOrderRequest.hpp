@@ -52,6 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> changeOrderId_ {};
+    // Specifies whether to roll back the change order.
     shared_ptr<bool> rollback_ {};
   };
 

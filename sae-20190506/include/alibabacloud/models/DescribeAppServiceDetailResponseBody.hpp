@@ -169,9 +169,9 @@ namespace Models
         protected:
           // The description of the parameter.
           shared_ptr<string> description_ {};
-          // The name of the parameter.
+          // The parameter name.
           shared_ptr<string> name_ {};
-          // The type of the parameter.
+          // The parameter type.
           shared_ptr<string> type_ {};
         };
 
@@ -261,28 +261,23 @@ namespace Models
       protected:
         // The class to which the method belongs.
         shared_ptr<string> methodController_ {};
-        // The name of the method.
+        // The method name.
         shared_ptr<string> name_ {};
         // The details of the method.
         shared_ptr<string> nameDetail_ {};
-        // The definition of the parameter.
+        // The parameter definitions.
         shared_ptr<vector<Methods::ParameterDefinitions>> parameterDefinitions_ {};
         // The details of the parameters.
         shared_ptr<vector<string>> parameterDetails_ {};
-        // The types of the parameters.
+        // The parameter types.
         shared_ptr<vector<string>> parameterTypes_ {};
-        // The request paths. Format:
-        // 
-        // `/path`
+        // The request paths.
         shared_ptr<vector<string>> paths_ {};
-        // The request methods. Valid values:
-        // 
-        // *   **GET**
-        // *   **ALL**
+        // The request methods.
         shared_ptr<vector<string>> requestMethods_ {};
-        // The details of the response.
+        // The details of the returned data.
         shared_ptr<string> returnDetails_ {};
-        // The data format of the response.
+        // The return type.
         shared_ptr<string> returnType_ {};
       };
 
@@ -385,30 +380,31 @@ namespace Models
     protected:
       // The name of the Dubbo application.
       shared_ptr<string> dubboApplicationName_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> edasAppName_ {};
-      // The group to which the service belongs. You can create a custom group.
+      // The service group. This is a custom parameter.
       shared_ptr<string> group_ {};
-      // The metadata. Example: `{side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}`.
+      // The metadata. Example: `{side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}`
       Darabonba::Json metadata_ {};
-      // The methods.
+      // The list of methods.
       shared_ptr<vector<Data::Methods>> methods_ {};
-      // The name of the service.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // The port used by the service.
+      // The ports used by the service.
       shared_ptr<vector<int64_t>> servicePorts_ {};
       // The protocol used by the service.
       shared_ptr<string> serviceProtocol_ {};
-      // The tag of the service.
+      // The tags of the service.
       shared_ptr<vector<string>> serviceTags_ {};
-      // The type of the service. Valid values:
+      // The service type. Valid values:
       // 
-      // *   **dubbo**
-      // *   **springCloud**
+      // - **dubbo**
+      // 
+      // - **springCloud**
       shared_ptr<string> serviceType_ {};
       // The name of the Spring Cloud application.
       shared_ptr<string> springApplicationName_ {};
-      // The version of the service. You can create a custom version.
+      // The service version. This is a custom parameter.
       shared_ptr<string> version_ {};
     };
 
@@ -467,30 +463,35 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The status of the API call or a POP error code. Valid values:
     // 
-    // - **2xx**: indicates that the call was successful.
-    // - **3xx**: indicates that the call was redirected.
-    // - **4xx**: indicates that the call failed.
-    // - **5xx**: indicates that a server error occurred.
+    // - **2xx**: success.
+    // 
+    // - **3xx**: redirection.
+    // 
+    // - **4xx**: client error.
+    // 
+    // - **5xx**: server error.
     shared_ptr<string> code_ {};
-    // The data that is returned.
+    // The returned data.
     shared_ptr<DescribeAppServiceDetailResponseBody::Data> data_ {};
-    // The returned error code. Valid values:
+    // The error code.
     // 
-    // - If the call is successful, the **ErrorCode** parameter is not returned.
-    // - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // 
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the list of **error codes** in this topic.
     shared_ptr<string> errorCode_ {};
-    // The returned information.
+    // The additional information returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the meta data was obtained. Valid values:
+    // Indicates whether the metadata was obtained. Valid values:
     // 
-    // *   **true**: The metadata was obtained.
-    // *   **false**: The metadata failed to be obtained.
+    // - **true**: The metadata was obtained.
+    // 
+    // - **false**: The metadata failed to be obtained.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The call chain ID. Use this ID for a term query of call details.
     shared_ptr<string> traceId_ {};
   };
 
