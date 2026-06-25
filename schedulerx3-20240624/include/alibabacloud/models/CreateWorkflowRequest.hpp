@@ -130,19 +130,49 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The custom calendar. This parameter applies only when `TimeType` is `cron`.
     shared_ptr<string> calendar_ {};
+    // A unique client token to ensure request idempotence. The token must contain only ASCII characters. If you omit this parameter, the system uses the RequestId as the ClientToken. The RequestId is unique to each request.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The workflow description.
     shared_ptr<string> description_ {};
+    // The maximum concurrency for the workflow.
     shared_ptr<int32_t> maxConcurrency_ {};
+    // The workflow name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The status of the workflow. By default, the workflow is disabled. Valid values:
+    // 
+    // - 0: Disabled
+    // 
+    // - 1: Enabled
     shared_ptr<int32_t> status_ {};
+    // The time expression, which depends on the `TimeType` parameter.
+    // 
+    // - **none**: This parameter is not required.
+    // 
+    // - **cron**: Enter a standard cron expression. Online validation is supported.
+    // 
+    // - **api**: This parameter is not required.
     shared_ptr<string> timeExpression_ {};
+    // The schedule type. Valid values:
+    // 
+    // - -1: none<br>
+    // 
+    // - 1: cron<br>
+    // 
+    // - 100: api
     shared_ptr<int32_t> timeType_ {};
+    // The time zone for the schedule.
     shared_ptr<string> timezone_ {};
   };
 

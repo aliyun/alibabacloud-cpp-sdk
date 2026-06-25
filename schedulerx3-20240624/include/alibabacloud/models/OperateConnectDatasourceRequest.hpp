@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // Cluster ID
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Connection parameters of the data source
+    // 
     // This parameter is required.
     shared_ptr<string> connectionParams_ {};
+    // Password of the database user.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // Type of the data source.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};
   };

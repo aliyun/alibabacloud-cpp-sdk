@@ -174,15 +174,25 @@ namespace Models
 
 
       protected:
+        // The name of the application.
         shared_ptr<string> appName_ {};
+        // The log content.
         shared_ptr<string> content_ {};
+        // The severity level of the event.
         shared_ptr<string> event_ {};
+        // The type of the event.
         shared_ptr<string> eventType_ {};
+        // The job execution ID.
         shared_ptr<string> jobExecutionId_ {};
+        // The name of the job.
         shared_ptr<string> jobName_ {};
+        // The time when the log was recorded. The time is in the `yyyy-MM-dd HH:mm:ss` format.
         shared_ptr<string> time_ {};
+        // The address of the worker that runs the job.
         shared_ptr<string> workerAddr_ {};
+        // The workflow execution ID.
         shared_ptr<string> workflowExecutionId_ {};
+        // The name of the workflow.
         shared_ptr<string> workflowName_ {};
       };
 
@@ -219,10 +229,13 @@ namespace Models
 
 
     protected:
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // -
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -266,11 +279,19 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. A value of `200` indicates a successful request.
     shared_ptr<int32_t> code_ {};
     // -
     shared_ptr<GetLogEventResponseBody::Data> data_ {};
+    // The error message that is returned if the request fails.
     shared_ptr<string> message_ {};
+    // The unique, server-generated ID for the request. This ID is used for troubleshooting purposes.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

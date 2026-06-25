@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The executor address.
     shared_ptr<string> executorAddr_ {};
+    // The job execution ID.
     shared_ptr<string> jobExecutionId_ {};
   };
 

@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The job ID.
     shared_ptr<int64_t> jobId_ {};
+    // The label.
     shared_ptr<string> label_ {};
   };
 

@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The maximum number of results to return. The default value is 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. Omit this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    // The workflow ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};
   };

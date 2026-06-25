@@ -84,16 +84,31 @@ namespace Models
 
 
   protected:
+    // A list of machine addresses to designate.
+    // 
     // This parameter is required.
     shared_ptr<string> addressListShrink_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The designation type. Valid values:
+    // 
+    // - **1**: By worker.
+    // 
+    // - **2**: By label.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> designateType_ {};
+    // The job ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
+    // Specifies whether to enable failover.
     shared_ptr<bool> transferable_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // DataSource ID, which can be obtained by invoking the ListDatasources API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> datasourceId_ {};
   };

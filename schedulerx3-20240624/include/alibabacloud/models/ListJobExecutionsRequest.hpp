@@ -130,17 +130,55 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The job execution ID.
     shared_ptr<string> jobExecutionId_ {};
+    // The job ID.
     shared_ptr<int64_t> jobId_ {};
+    // The job name.
     shared_ptr<string> jobName_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The job execution status. Valid values:
+    // 
+    // - 0: **UNKNOWN**.
+    // 
+    // - 1: **WAITING**.
+    // 
+    // - 2: **READY**.
+    // 
+    // - 3: **RUNNING**.
+    // 
+    // - 4: **SUCCESS**.
+    // 
+    // - 5: **FAILED**.
+    // 
+    // - 6: **PAUSED**.
+    // 
+    // - 7: **SUBMITTED**.
+    // 
+    // - 8: **REJECTED**.
+    // 
+    // - 9: **ACCEPTED**.
+    // 
+    // - 10: **PARTIAL_FAILED**.
+    // 
+    // - 11: **SKIPPED**.
+    // 
+    // - 12: **REMOVED**.
     shared_ptr<int32_t> status_ {};
+    // The workflow execution ID.
     shared_ptr<int64_t> workflowExecutionId_ {};
   };
 

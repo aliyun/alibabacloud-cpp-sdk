@@ -111,11 +111,17 @@ namespace Models
 
 
     protected:
+      // The Application Group ID.
       shared_ptr<int64_t> appGroupId_ {};
+      // The Application type.
       shared_ptr<int32_t> appType_ {};
+      // The Kubernetes services that failed to import.
       shared_ptr<string> failedService_ {};
+      // The Worker ID.
       shared_ptr<int32_t> workId_ {};
+      // The Worker type.
       shared_ptr<string> workerType_ {};
+      // A JSON-formatted string that contains a list of Workers.
       shared_ptr<string> workers_ {};
     };
 
@@ -159,12 +165,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // - The returned data.
     shared_ptr<UpdateExecutorsResponseBody::Data> data_ {};
+    // The returned error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
+    // 
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

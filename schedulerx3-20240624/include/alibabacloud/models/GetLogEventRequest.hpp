@@ -158,20 +158,39 @@ namespace Models
 
 
   protected:
+    // The name of the application.
     shared_ptr<string> appName_ {};
+    // The unique identifier for the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The end of the query\\"s time range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The severity level for filtering events.
     shared_ptr<string> event_ {};
+    // The type of event to retrieve.
     shared_ptr<string> eventType_ {};
+    // The unique identifier for the job execution.
     shared_ptr<int64_t> jobExecutionId_ {};
+    // The name of the job.
     shared_ptr<string> jobName_ {};
+    // A keyword to search for in log events.
     shared_ptr<string> keyword_ {};
+    // The page number to retrieve.
     shared_ptr<int32_t> pageNum_ {};
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies the sort order of events.
+    // 
+    // - **true**: Sorts events in descending order.
+    // 
+    // - **false**: Sorts events in ascending order.
     shared_ptr<bool> reverse_ {};
+    // The start of the query\\"s time range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The unique identifier for the workflow execution.
     shared_ptr<int64_t> workflowExecutionId_ {};
+    // The name of the workflow.
     shared_ptr<string> workflowName_ {};
   };
 

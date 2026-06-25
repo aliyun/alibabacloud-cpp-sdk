@@ -146,9 +146,13 @@ namespace Models
 
 
         protected:
+          // The node height. This parameter is optional.
           shared_ptr<float> height_ {};
+          // The node width. This parameter is optional.
           shared_ptr<float> width_ {};
+          // The x-coordinate.
           shared_ptr<float> x_ {};
+          // The y-coordinate.
           shared_ptr<float> y_ {};
         };
 
@@ -207,12 +211,23 @@ namespace Models
 
 
       protected:
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The node coordinates.
         shared_ptr<Nodes::Coordinate> coordinate_ {};
+        // The dependency strategy.
         shared_ptr<int32_t> dependentStrategy_ {};
+        // The job ID.
         shared_ptr<int64_t> id_ {};
+        // The job type.
         shared_ptr<string> jobType_ {};
+        // The job name.
         shared_ptr<string> name_ {};
+        // The job status. Valid values:
+        // 
+        // - `0`: Disabled
+        // 
+        // - `1`: Enabled
         shared_ptr<int32_t> status_ {};
       };
 
@@ -254,7 +269,9 @@ namespace Models
 
 
       protected:
+        // The ID of the source node.
         shared_ptr<int64_t> source_ {};
+        // The ID of the target node.
         shared_ptr<int64_t> target_ {};
       };
 
@@ -279,7 +296,9 @@ namespace Models
 
 
     protected:
+      // The workflow edges.
       shared_ptr<vector<Data::Edges>> edges_ {};
+      // The workflow nodes.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -323,11 +342,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The returned data.
     shared_ptr<GetWorkflowDAGPreviewResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

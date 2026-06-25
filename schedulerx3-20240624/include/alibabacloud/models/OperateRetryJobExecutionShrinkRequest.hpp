@@ -75,13 +75,23 @@ namespace Models
 
 
   protected:
+    // The Application Name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The Cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The Job Execution ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobExecutionId_ {};
+    // A list of Sub-task execution IDs for a Broadcast Sharding Job.
+    // 
+    // > To retry a specific Sub-task of a Broadcast Sharding Job, set this parameter to the execution ID of that Sub-task.
     shared_ptr<string> taskListShrink_ {};
+    // Specifies whether to trigger downstream jobs.
     shared_ptr<bool> triggerChild_ {};
   };
 

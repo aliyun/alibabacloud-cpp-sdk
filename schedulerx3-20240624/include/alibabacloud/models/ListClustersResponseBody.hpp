@@ -78,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(InternetDomain, internetDomain_);
           DARABONBA_PTR_TO_JSON(IntranetDomain, intranetDomain_);
           DARABONBA_PTR_TO_JSON(ProductType, productType_);
+          DARABONBA_PTR_TO_JSON(Source, source_);
           DARABONBA_PTR_TO_JSON(SpInstanceId, spInstanceId_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_ANY_TO_JSON(Tags, tags_);
@@ -98,6 +99,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(InternetDomain, internetDomain_);
           DARABONBA_PTR_FROM_JSON(IntranetDomain, intranetDomain_);
           DARABONBA_PTR_FROM_JSON(ProductType, productType_);
+          DARABONBA_PTR_FROM_JSON(Source, source_);
           DARABONBA_PTR_FROM_JSON(SpInstanceId, spInstanceId_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_ANY_FROM_JSON(Tags, tags_);
@@ -154,15 +156,17 @@ namespace Models
 
 
         protected:
+          // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
+          // The availability zone.
           shared_ptr<string> zoneId_ {};
         };
 
         virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->createTime_ == nullptr
         && this->endTime_ == nullptr && this->engineType_ == nullptr && this->engineVersion_ == nullptr && this->internetDomain_ == nullptr && this->intranetDomain_ == nullptr
-        && this->productType_ == nullptr && this->spInstanceId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr
-        && this->versionLifecycle_ == nullptr && this->vpcId_ == nullptr; };
+        && this->productType_ == nullptr && this->source_ == nullptr && this->spInstanceId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->vSwitches_ == nullptr && this->versionLifecycle_ == nullptr && this->vpcId_ == nullptr; };
         // chargeType Field Functions 
         bool hasChargeType() const { return this->chargeType_ != nullptr;};
         void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -247,6 +251,13 @@ namespace Models
         inline Records& setProductType(int32_t productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
+        // source Field Functions 
+        bool hasSource() const { return this->source_ != nullptr;};
+        void deleteSource() { this->source_ = nullptr;};
+        inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+        inline Records& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
         // spInstanceId Field Functions 
         bool hasSpInstanceId() const { return this->spInstanceId_ != nullptr;};
         void deleteSpInstanceId() { this->spInstanceId_ = nullptr;};
@@ -294,24 +305,53 @@ namespace Models
 
 
       protected:
+        // The billing method. Valid values:
+        // - PREPAY: Subscription.
+        // - POSTPAY: Pay-as-you-go.
         shared_ptr<string> chargeType_ {};
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
+        // The cluster name.
         shared_ptr<string> clusterName_ {};
+        // The instance specification.
         shared_ptr<string> clusterSpec_ {};
         shared_ptr<int32_t> clusterType_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The expiration time.
         shared_ptr<string> endTime_ {};
+        // The engine type.
         shared_ptr<string> engineType_ {};
+        // The engine version.
         shared_ptr<string> engineVersion_ {};
+        // The public domain name.
+        // > Currently not supported.
         shared_ptr<string> internetDomain_ {};
+        // The internal domain name.
         shared_ptr<string> intranetDomain_ {};
+        // The product version.
+        // - 1: Developer Edition.
+        // - 2: Professional Edition.
+        // - 3: Enterprise Edition.
         shared_ptr<int32_t> productType_ {};
+        shared_ptr<string> source_ {};
+        // The order asset instance ID.
         shared_ptr<string> spInstanceId_ {};
+        // The cluster status.
+        // 
+        // - 1: Creating.
+        // - 2: Running.
+        // - 3: Restarting.
+        // - 4: Destroying.
+        // - 5: Creation failed.
+        // - 6: Stopped.
+        // - 99: Deleted.
         shared_ptr<int32_t> status_ {};
         Darabonba::Json tags_ {};
+        // The availability zone and vSwitch information.
         shared_ptr<vector<Records::VSwitches>> vSwitches_ {};
         shared_ptr<string> versionLifecycle_ {};
-        // VPC ID
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -348,10 +388,12 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // -
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -395,12 +437,18 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
     shared_ptr<ListClustersResponseBody::Data> data_ {};
+    // The error message.
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
+    // The ID of this request, which is a unique identifier generated by Alibaba Cloud for this request. It can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

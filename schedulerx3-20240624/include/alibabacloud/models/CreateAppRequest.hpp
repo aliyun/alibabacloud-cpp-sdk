@@ -103,15 +103,28 @@ namespace Models
 
 
   protected:
+    // The access token.
     shared_ptr<string> accessToken_ {};
+    // The app name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The app type.
     shared_ptr<int32_t> appType_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Indicates whether to enable logging.
     shared_ptr<bool> enableLog_ {};
+    // The label routing strategy.
     shared_ptr<int32_t> labelRouteStrategy_ {};
+    // The maximum concurrency.
+    // 
+    // > This parameter specifies the maximum number of task instances that can run concurrently for the app. Task instances that exceed this limit are not discarded. They are queued for execution.
     shared_ptr<int32_t> maxConcurrency_ {};
+    // The title of the app.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

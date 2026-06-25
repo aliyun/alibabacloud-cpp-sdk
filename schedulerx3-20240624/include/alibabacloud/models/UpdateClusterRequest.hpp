@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
     shared_ptr<string> ipWhitelist_ {};
   };

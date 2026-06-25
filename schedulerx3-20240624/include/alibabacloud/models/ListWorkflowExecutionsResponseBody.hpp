@@ -178,15 +178,51 @@ namespace Models
 
 
       protected:
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The data time of the workflow execution.
         shared_ptr<string> dataTime_ {};
+        // The end time of the workflow execution.
         shared_ptr<string> endTime_ {};
+        // The executor ID.
         shared_ptr<string> executor_ {};
+        // The schedule time of the workflow execution.
         shared_ptr<string> scheduleTime_ {};
+        // The start time of the workflow execution.
         shared_ptr<string> startTime_ {};
+        // The status of the workflow execution. Valid values:
+        // 
+        // - 0: UNKNOWN
+        // 
+        // - 1: WAITING
+        // 
+        // - 2: READY
+        // 
+        // - 3: RUNNING
+        // 
+        // - 4: SUCCESS
+        // 
+        // - 5: FAILED
+        // 
+        // - 6: PAUSED
+        // 
+        // - 7: SUBMITTED
+        // 
+        // - 8: REJECTED
+        // 
+        // - 9: ACCEPTED
+        // 
+        // - 10: PARTIAL_FAILED
+        // 
+        // - 11: SKIPPED
+        // 
+        // - 12: REMOVED
         shared_ptr<int32_t> status_ {};
+        // The workflow execution ID.
         shared_ptr<string> workflowExecutionId_ {};
+        // The workflow ID.
         shared_ptr<string> workflowId_ {};
+        // The workflow name.
         shared_ptr<string> workflowName_ {};
       };
 
@@ -223,10 +259,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
       // -
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of matching workflow executions.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -285,15 +324,25 @@ namespace Models
 
 
   protected:
+    // The response code. A value of `200` indicates a successful request.
     shared_ptr<int32_t> code_ {};
     // -
     shared_ptr<ListWorkflowExecutionsResponseBody::Data> data_ {};
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message. If the request fails, this parameter provides details about the error.
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
+    // The token to retrieve the next page of results. If this parameter is not returned, all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The unique request ID. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

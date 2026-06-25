@@ -17,7 +17,21 @@ namespace SchedulerX320240624
 {
 
 AlibabaCloud::SchedulerX320240624::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"eu-central-1" , "schedulerx3.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "schedulerx3.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "schedulerx3.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "schedulerx3.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "schedulerx3.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "schedulerx3.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "schedulerx3.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "schedulerx3.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "schedulerx3.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "schedulerx3.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-1" , "schedulerx3.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "schedulerx3.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("schedulerx3", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +50,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates an application.
+ * @summary Creates an app.
  *
  * @param request CreateAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -95,7 +109,7 @@ CreateAppResponse Client::createAppWithOptions(const CreateAppRequest &request, 
 }
 
 /**
- * @summary Creates an application.
+ * @summary Creates an app.
  *
  * @param request CreateAppRequest
  * @return CreateAppResponse
@@ -106,7 +120,9 @@ CreateAppResponse Client::createApp(const CreateAppRequest &request) {
 }
 
 /**
- * @summary 创建日历
+ * @summary Creates a custom calendar.
+ *
+ * @description Creates a custom calendar for SchedulerX.
  *
  * @param request CreateCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -153,7 +169,9 @@ CreateCalendarResponse Client::createCalendarWithOptions(const CreateCalendarReq
 }
 
 /**
- * @summary 创建日历
+ * @summary Creates a custom calendar.
+ *
+ * @description Creates a custom calendar for SchedulerX.
  *
  * @param request CreateCalendarRequest
  * @return CreateCalendarResponse
@@ -212,6 +230,10 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
     body["PricingCycle"] = request.getPricingCycle();
   }
 
+  if (!!request.hasSource()) {
+    body["Source"] = request.getSource();
+  }
+
   if (!!request.hasVSwitchesShrink()) {
     body["VSwitches"] = request.getVSwitchesShrink();
   }
@@ -250,7 +272,7 @@ CreateClusterResponse Client::createCluster(const CreateClusterRequest &request)
 }
 
 /**
- * @summary 创建数据源
+ * @summary Create a data source
  *
  * @param request CreateDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -301,7 +323,7 @@ CreateDatasourceResponse Client::createDatasourceWithOptions(const CreateDatasou
 }
 
 /**
- * @summary 创建数据源
+ * @summary Create a data source
  *
  * @param request CreateDatasourceRequest
  * @return CreateDatasourceResponse
@@ -313,6 +335,8 @@ CreateDatasourceResponse Client::createDatasource(const CreateDatasourceRequest 
 
 /**
  * @summary 添加执行器组
+ *
+ * @description 手动导入执行器
  *
  * @param request CreateExecutorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -393,6 +417,8 @@ CreateExecutorGroupResponse Client::createExecutorGroupWithOptions(const CreateE
 /**
  * @summary 添加执行器组
  *
+ * @description 手动导入执行器
+ *
  * @param request CreateExecutorGroupRequest
  * @return CreateExecutorGroupResponse
  */
@@ -402,7 +428,9 @@ CreateExecutorGroupResponse Client::createExecutorGroup(const CreateExecutorGrou
 }
 
 /**
- * @summary 添加执行器
+ * @summary Imports one or more executors.
+ *
+ * @description Imports one or more executors.
  *
  * @param request CreateExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -445,7 +473,9 @@ CreateExecutorsResponse Client::createExecutorsWithOptions(const CreateExecutors
 }
 
 /**
- * @summary 添加执行器
+ * @summary Imports one or more executors.
+ *
+ * @description Imports one or more executors.
  *
  * @param request CreateExecutorsRequest
  * @return CreateExecutorsResponse
@@ -456,7 +486,7 @@ CreateExecutorsResponse Client::createExecutors(const CreateExecutorsRequest &re
 }
 
 /**
- * @summary Creates a job.
+ * @summary Creates a node.
  *
  * @param tmpReq CreateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -609,7 +639,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 }
 
 /**
- * @summary Creates a job.
+ * @summary Creates a node.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -620,7 +650,7 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates a workflow.
  *
  * @param request CreateWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -691,7 +721,7 @@ CreateWorkflowResponse Client::createWorkflowWithOptions(const CreateWorkflowReq
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates a workflow.
  *
  * @param request CreateWorkflowRequest
  * @return CreateWorkflowResponse
@@ -702,7 +732,7 @@ CreateWorkflowResponse Client::createWorkflow(const CreateWorkflowRequest &reque
 }
 
 /**
- * @summary Deletes an application group.
+ * @summary Deletes an App Group.
  *
  * @param request DeleteAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -737,7 +767,7 @@ DeleteAppResponse Client::deleteAppWithOptions(const DeleteAppRequest &request, 
 }
 
 /**
- * @summary Deletes an application group.
+ * @summary Deletes an App Group.
  *
  * @param request DeleteAppRequest
  * @return DeleteAppResponse
@@ -748,7 +778,7 @@ DeleteAppResponse Client::deleteApp(const DeleteAppRequest &request) {
 }
 
 /**
- * @summary 删除日历
+ * @summary Deletes the specified calendar.
  *
  * @param request DeleteCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -787,7 +817,7 @@ DeleteCalendarResponse Client::deleteCalendarWithOptions(const DeleteCalendarReq
 }
 
 /**
- * @summary 删除日历
+ * @summary Deletes the specified calendar.
  *
  * @param request DeleteCalendarRequest
  * @return DeleteCalendarResponse
@@ -840,7 +870,7 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
- * @summary 删除数据源
+ * @summary Delete data source
  *
  * @param request DeleteDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -875,7 +905,7 @@ DeleteDatasourceResponse Client::deleteDatasourceWithOptions(const DeleteDatasou
 }
 
 /**
- * @summary 删除数据源
+ * @summary Delete data source
  *
  * @param request DeleteDatasourceRequest
  * @return DeleteDatasourceResponse
@@ -936,7 +966,7 @@ DeleteExecutorGroupResponse Client::deleteExecutorGroup(const DeleteExecutorGrou
 }
 
 /**
- * @summary Deletes multiple jobs at a time.
+ * @summary Deletes multiple jobs in a batch.
  *
  * @param tmpReq DeleteJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -981,7 +1011,7 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
 }
 
 /**
- * @summary Deletes multiple jobs at a time.
+ * @summary Deletes multiple jobs in a batch.
  *
  * @param request DeleteJobsRequest
  * @return DeleteJobsResponse
@@ -992,7 +1022,7 @@ DeleteJobsResponse Client::deleteJobs(const DeleteJobsRequest &request) {
 }
 
 /**
- * @summary 删除工作流
+ * @summary Deletes a Workflow.
  *
  * @param request DeleteWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1035,7 +1065,7 @@ DeleteWorkflowResponse Client::deleteWorkflowWithOptions(const DeleteWorkflowReq
 }
 
 /**
- * @summary 删除工作流
+ * @summary Deletes a Workflow.
  *
  * @param request DeleteWorkflowRequest
  * @return DeleteWorkflowResponse
@@ -1046,7 +1076,7 @@ DeleteWorkflowResponse Client::deleteWorkflow(const DeleteWorkflowRequest &reque
 }
 
 /**
- * @summary 批量删除工作流
+ * @summary Deletes one or more workflows.
  *
  * @param tmpReq DeleteWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1095,7 +1125,7 @@ DeleteWorkflowsResponse Client::deleteWorkflowsWithOptions(const DeleteWorkflows
 }
 
 /**
- * @summary 批量删除工作流
+ * @summary Deletes one or more workflows.
  *
  * @param request DeleteWorkflowsRequest
  * @return DeleteWorkflowsResponse
@@ -1106,7 +1136,7 @@ DeleteWorkflowsResponse Client::deleteWorkflows(const DeleteWorkflowsRequest &re
 }
 
 /**
- * @summary Exports the information about jobs at a time.
+ * @summary Exports job information in bulk.
  *
  * @param tmpReq ExportJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1155,7 +1185,7 @@ ExportJobsResponse Client::exportJobsWithOptions(const ExportJobsRequest &tmpReq
 }
 
 /**
- * @summary Exports the information about jobs at a time.
+ * @summary Exports job information in bulk.
  *
  * @param request ExportJobsRequest
  * @return ExportJobsResponse
@@ -1166,7 +1196,7 @@ ExportJobsResponse Client::exportJobs(const ExportJobsRequest &request) {
 }
 
 /**
- * @summary 批量导出工作流信息
+ * @summary Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
  *
  * @param tmpReq ExportWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1211,7 +1241,7 @@ ExportWorkflowsResponse Client::exportWorkflowsWithOptions(const ExportWorkflows
 }
 
 /**
- * @summary 批量导出工作流信息
+ * @summary Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
  *
  * @param request ExportWorkflowsRequest
  * @return ExportWorkflowsResponse
@@ -1222,7 +1252,7 @@ ExportWorkflowsResponse Client::exportWorkflows(const ExportWorkflowsRequest &re
 }
 
 /**
- * @summary 获取指定应用
+ * @summary Retrieves the details of a specified application.
  *
  * @param request GetAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1257,7 +1287,7 @@ GetAppResponse Client::getAppWithOptions(const GetAppRequest &request, const Dar
 }
 
 /**
- * @summary 获取指定应用
+ * @summary Retrieves the details of a specified application.
  *
  * @param request GetAppRequest
  * @return GetAppResponse
@@ -1268,7 +1298,7 @@ GetAppResponse Client::getApp(const GetAppRequest &request) {
 }
 
 /**
- * @summary 获取日历信息
+ * @summary Retrieves the details of a specified calendar.
  *
  * @param request GetCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1307,7 +1337,7 @@ GetCalendarResponse Client::getCalendarWithOptions(const GetCalendarRequest &req
 }
 
 /**
- * @summary 获取日历信息
+ * @summary Retrieves the details of a specified calendar.
  *
  * @param request GetCalendarRequest
  * @return GetCalendarResponse
@@ -1318,7 +1348,7 @@ GetCalendarResponse Client::getCalendar(const GetCalendarRequest &request) {
 }
 
 /**
- * @summary Queries the details of a cluster.
+ * @summary Obtains the details of a cluster.
  *
  * @param request GetClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1345,7 +1375,7 @@ GetClusterResponse Client::getClusterWithOptions(const GetClusterRequest &reques
 }
 
 /**
- * @summary Queries the details of a cluster.
+ * @summary Obtains the details of a cluster.
  *
  * @param request GetClusterRequest
  * @return GetClusterResponse
@@ -1356,7 +1386,7 @@ GetClusterResponse Client::getCluster(const GetClusterRequest &request) {
 }
 
 /**
- * @summary Queries a specified machine.
+ * @summary Retrieves the designation information for a job.
  *
  * @param request GetDesigateInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1383,7 +1413,7 @@ GetDesigateInfoResponse Client::getDesigateInfoWithOptions(const GetDesigateInfo
 }
 
 /**
- * @summary Queries a specified machine.
+ * @summary Retrieves the designation information for a job.
  *
  * @param request GetDesigateInfoRequest
  * @return GetDesigateInfoResponse
@@ -1394,7 +1424,12 @@ GetDesigateInfoResponse Client::getDesigateInfo(const GetDesigateInfoRequest &re
 }
 
 /**
- * @summary 查询执行器配置信息
+ * @summary Retrieves the configuration for a specified Executor.
+ *
+ * @description # Add the enhancement plugin
+ * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+ * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+ * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetExecutorConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1429,7 +1464,12 @@ GetExecutorConfigResponse Client::getExecutorConfigWithOptions(const GetExecutor
 }
 
 /**
- * @summary 查询执行器配置信息
+ * @summary Retrieves the configuration for a specified Executor.
+ *
+ * @description # Add the enhancement plugin
+ * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+ * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+ * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetExecutorConfigRequest
  * @return GetExecutorConfigResponse
@@ -1440,7 +1480,7 @@ GetExecutorConfigResponse Client::getExecutorConfig(const GetExecutorConfigReque
 }
 
 /**
- * @summary 获取任务执行的详细信息
+ * @summary Returns the details of a Task Execution.
  *
  * @param request GetJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1483,7 +1523,7 @@ GetJobExecutionResponse Client::getJobExecutionWithOptions(const GetJobExecution
 }
 
 /**
- * @summary 获取任务执行的详细信息
+ * @summary Returns the details of a Task Execution.
  *
  * @param request GetJobExecutionRequest
  * @return GetJobExecutionResponse
@@ -1494,7 +1534,12 @@ GetJobExecutionResponse Client::getJobExecution(const GetJobExecutionRequest &re
 }
 
 /**
- * @summary Obtains the execution details of a job.
+ * @summary Gets the details of a sharding task execution.
+ *
+ * @description # Add the enhancement plugin
+ * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+ * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1521,7 +1566,12 @@ GetJobExecutionProgressResponse Client::getJobExecutionProgressWithOptions(const
 }
 
 /**
- * @summary Obtains the execution details of a job.
+ * @summary Gets the details of a sharding task execution.
+ *
+ * @description # Add the enhancement plugin
+ * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+ * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionProgressRequest
  * @return GetJobExecutionProgressResponse
@@ -1532,7 +1582,12 @@ GetJobExecutionProgressResponse Client::getJobExecutionProgress(const GetJobExec
 }
 
 /**
- * @summary 查询任务的线程堆栈
+ * @summary Retrieves the thread dump for a specific job execution.
+ *
+ * @description # Add the enhancement plugin
+ * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+ * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionThreadDumpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1559,7 +1614,12 @@ GetJobExecutionThreadDumpResponse Client::getJobExecutionThreadDumpWithOptions(c
 }
 
 /**
- * @summary 查询任务的线程堆栈
+ * @summary Retrieves the thread dump for a specific job execution.
+ *
+ * @description # Add the enhancement plugin
+ * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+ * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionThreadDumpRequest
  * @return GetJobExecutionThreadDumpResponse
@@ -1570,7 +1630,7 @@ GetJobExecutionThreadDumpResponse Client::getJobExecutionThreadDump(const GetJob
 }
 
 /**
- * @summary Queries logs.
+ * @summary Retrieves log entries.
  *
  * @param request GetLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1597,7 +1657,7 @@ GetLogResponse Client::getLogWithOptions(const GetLogRequest &request, const Dar
 }
 
 /**
- * @summary Queries logs.
+ * @summary Retrieves log entries.
  *
  * @param request GetLogRequest
  * @return GetLogResponse
@@ -1608,7 +1668,7 @@ GetLogResponse Client::getLog(const GetLogRequest &request) {
 }
 
 /**
- * @summary 查询事件
+ * @summary Query Events.
  *
  * @param request GetLogEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1635,7 +1695,7 @@ GetLogEventResponse Client::getLogEventWithOptions(const GetLogEventRequest &req
 }
 
 /**
- * @summary 查询事件
+ * @summary Query Events.
  *
  * @param request GetLogEventRequest
  * @return GetLogEventResponse
@@ -1647,6 +1707,11 @@ GetLogEventResponse Client::getLogEvent(const GetLogEventRequest &request) {
 
 /**
  * @summary 获取分页日志
+ *
+ * @description # 引入增强插件
+ * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+ * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+ * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetPageLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1719,6 +1784,11 @@ GetPageLogResponse Client::getPageLogWithOptions(const GetPageLogRequest &reques
 /**
  * @summary 获取分页日志
  *
+ * @description # 引入增强插件
+ * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+ * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+ * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ *
  * @param request GetPageLogRequest
  * @return GetPageLogResponse
  */
@@ -1728,7 +1798,7 @@ GetPageLogResponse Client::getPageLog(const GetPageLogRequest &request) {
 }
 
 /**
- * @summary 获取工作流
+ * @summary Retrieves the basic information for a specified workflow.
  *
  * @param request GetWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1767,7 +1837,7 @@ GetWorkflowResponse Client::getWorkflowWithOptions(const GetWorkflowRequest &req
 }
 
 /**
- * @summary 获取工作流
+ * @summary Retrieves the basic information for a specified workflow.
  *
  * @param request GetWorkflowRequest
  * @return GetWorkflowResponse
@@ -1778,7 +1848,7 @@ GetWorkflowResponse Client::getWorkflow(const GetWorkflowRequest &request) {
 }
 
 /**
- * @summary 获取工作流的DAG信息
+ * @summary Gets the Directed Acyclic Graph (DAG) of a workflow.
  *
  * @param request GetWorkflowDAGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1817,7 +1887,7 @@ GetWorkflowDAGResponse Client::getWorkflowDAGWithOptions(const GetWorkflowDAGReq
 }
 
 /**
- * @summary 获取工作流的DAG信息
+ * @summary Gets the Directed Acyclic Graph (DAG) of a workflow.
  *
  * @param request GetWorkflowDAGRequest
  * @return GetWorkflowDAGResponse
@@ -1828,7 +1898,7 @@ GetWorkflowDAGResponse Client::getWorkflowDAG(const GetWorkflowDAGRequest &reque
 }
 
 /**
- * @summary 获取工作流的DAG信息
+ * @summary Gets the DAG for a previous workflow version.
  *
  * @param request GetWorkflowDAGPreviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1871,7 +1941,7 @@ GetWorkflowDAGPreviewResponse Client::getWorkflowDAGPreviewWithOptions(const Get
 }
 
 /**
- * @summary 获取工作流的DAG信息
+ * @summary Gets the DAG for a previous workflow version.
  *
  * @param request GetWorkflowDAGPreviewRequest
  * @return GetWorkflowDAGPreviewResponse
@@ -1882,7 +1952,7 @@ GetWorkflowDAGPreviewResponse Client::getWorkflowDAGPreview(const GetWorkflowDAG
 }
 
 /**
- * @summary 获取工作流实例DAG信息
+ * @summary Retrieve the DAG information for a workflow instance.
  *
  * @param request GetWorkflowExecutionDAGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1921,7 +1991,7 @@ GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAGWithOptions(const
 }
 
 /**
- * @summary 获取工作流实例DAG信息
+ * @summary Retrieve the DAG information for a workflow instance.
  *
  * @param request GetWorkflowExecutionDAGRequest
  * @return GetWorkflowExecutionDAGResponse
@@ -1986,7 +2056,7 @@ ImportCalendarResponse Client::importCalendar(const ImportCalendarRequest &reque
 }
 
 /**
- * @summary Imports jobs at a time.
+ * @summary Imports jobs in bulk.
  *
  * @param request ImportJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2029,7 +2099,7 @@ ImportJobsResponse Client::importJobsWithOptions(const ImportJobsRequest &reques
 }
 
 /**
- * @summary Imports jobs at a time.
+ * @summary Imports jobs in bulk.
  *
  * @param request ImportJobsRequest
  * @return ImportJobsResponse
@@ -2040,7 +2110,7 @@ ImportJobsResponse Client::importJobs(const ImportJobsRequest &request) {
 }
 
 /**
- * @summary 批量导入工作流
+ * @summary Imports one or more workflows.
  *
  * @param request ImportWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2083,7 +2153,7 @@ ImportWorkflowsResponse Client::importWorkflowsWithOptions(const ImportWorkflows
 }
 
 /**
- * @summary 批量导入工作流
+ * @summary Imports one or more workflows.
  *
  * @param request ImportWorkflowsRequest
  * @return ImportWorkflowsResponse
@@ -2094,7 +2164,7 @@ ImportWorkflowsResponse Client::importWorkflows(const ImportWorkflowsRequest &re
 }
 
 /**
- * @summary Obtains a list of alert events.
+ * @summary Retrieves alert events.
  *
  * @param request ListAlarmEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2121,7 +2191,7 @@ ListAlarmEventResponse Client::listAlarmEventWithOptions(const ListAlarmEventReq
 }
 
 /**
- * @summary Obtains a list of alert events.
+ * @summary Retrieves alert events.
  *
  * @param request ListAlarmEventRequest
  * @return ListAlarmEventResponse
@@ -2132,7 +2202,7 @@ ListAlarmEventResponse Client::listAlarmEvent(const ListAlarmEventRequest &reque
 }
 
 /**
- * @summary Obtains a list of application names.
+ * @summary Returns a list of application names.
  *
  * @param request ListAppNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2159,7 +2229,7 @@ ListAppNamesResponse Client::listAppNamesWithOptions(const ListAppNamesRequest &
 }
 
 /**
- * @summary Obtains a list of application names.
+ * @summary Returns a list of application names.
  *
  * @param request ListAppNamesRequest
  * @return ListAppNamesResponse
@@ -2170,7 +2240,7 @@ ListAppNamesResponse Client::listAppNames(const ListAppNamesRequest &request) {
 }
 
 /**
- * @summary Queries a list of applications.
+ * @summary Get the list of applications.
  *
  * @param request ListAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2197,7 +2267,7 @@ ListAppsResponse Client::listAppsWithOptions(const ListAppsRequest &request, con
 }
 
 /**
- * @summary Queries a list of applications.
+ * @summary Get the list of applications.
  *
  * @param request ListAppsRequest
  * @return ListAppsResponse
@@ -2208,7 +2278,7 @@ ListAppsResponse Client::listApps(const ListAppsRequest &request) {
 }
 
 /**
- * @summary Obtains a list of calendar names.
+ * @summary Lists all Calendar names.
  *
  * @param request ListCalendarNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2235,7 +2305,7 @@ ListCalendarNamesResponse Client::listCalendarNamesWithOptions(const ListCalenda
 }
 
 /**
- * @summary Obtains a list of calendar names.
+ * @summary Lists all Calendar names.
  *
  * @param request ListCalendarNamesRequest
  * @return ListCalendarNamesResponse
@@ -2246,7 +2316,7 @@ ListCalendarNamesResponse Client::listCalendarNames(const ListCalendarNamesReque
 }
 
 /**
- * @summary 查询日历
+ * @summary Retrieves a list of calendars.
  *
  * @param request ListCalendarsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2297,7 +2367,7 @@ ListCalendarsResponse Client::listCalendarsWithOptions(const ListCalendarsReques
 }
 
 /**
- * @summary 查询日历
+ * @summary Retrieves a list of calendars.
  *
  * @param request ListCalendarsRequest
  * @return ListCalendarsResponse
@@ -2308,7 +2378,7 @@ ListCalendarsResponse Client::listCalendars(const ListCalendarsRequest &request)
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Query the list of instances.
  *
  * @param request ListClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2335,7 +2405,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Query the list of instances.
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -2346,7 +2416,7 @@ ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
 }
 
 /**
- * @summary 获取数据源列表
+ * @summary Retrieve the data source list
  *
  * @param request ListDatasourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2401,7 +2471,7 @@ ListDatasourcesResponse Client::listDatasourcesWithOptions(const ListDatasources
 }
 
 /**
- * @summary 获取数据源列表
+ * @summary Retrieve the data source list
  *
  * @param request ListDatasourcesRequest
  * @return ListDatasourcesResponse
@@ -2413,6 +2483,11 @@ ListDatasourcesResponse Client::listDatasources(const ListDatasourcesRequest &re
 
 /**
  * @summary 获取执行器组列表
+ *
+ * @description # 引入增强插件
+ * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+ * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+ * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request ListExecutorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2469,6 +2544,11 @@ ListExecutorGroupResponse Client::listExecutorGroupWithOptions(const ListExecuto
 /**
  * @summary 获取执行器组列表
  *
+ * @description # 引入增强插件
+ * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+ * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+ * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ *
  * @param request ListExecutorGroupRequest
  * @return ListExecutorGroupResponse
  */
@@ -2478,7 +2558,7 @@ ListExecutorGroupResponse Client::listExecutorGroup(const ListExecutorGroupReque
 }
 
 /**
- * @summary Queries a list of executors.
+ * @summary Lists executors.
  *
  * @param request ListExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2505,7 +2585,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
 }
 
 /**
- * @summary Queries a list of executors.
+ * @summary Lists executors.
  *
  * @param request ListExecutorsRequest
  * @return ListExecutorsResponse
@@ -2516,7 +2596,7 @@ ListExecutorsResponse Client::listExecutors(const ListExecutorsRequest &request)
 }
 
 /**
- * @summary Obtains a list of job instances.
+ * @summary Returns a list of task instances.
  *
  * @param request ListJobExecutionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2587,7 +2667,7 @@ ListJobExecutionsResponse Client::listJobExecutionsWithOptions(const ListJobExec
 }
 
 /**
- * @summary Obtains a list of job instances.
+ * @summary Returns a list of task instances.
  *
  * @param request ListJobExecutionsRequest
  * @return ListJobExecutionsResponse
@@ -2598,7 +2678,7 @@ ListJobExecutionsResponse Client::listJobExecutions(const ListJobExecutionsReque
 }
 
 /**
- * @summary 获取任务脚本历史列表
+ * @summary Lists the script history for a job.
  *
  * @param request ListJobScriptHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2645,7 +2725,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistoryWithOptions(const ListJ
 }
 
 /**
- * @summary 获取任务脚本历史列表
+ * @summary Lists the script history for a job.
  *
  * @param request ListJobScriptHistoryRequest
  * @return ListJobScriptHistoryResponse
@@ -2656,7 +2736,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistory(const ListJobScriptHis
 }
 
 /**
- * @summary Queries a list of jobs.
+ * @summary Returns a task list.
  *
  * @param request ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2723,7 +2803,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary Queries a list of jobs.
+ * @summary Returns a task list.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -2734,7 +2814,12 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
- * @summary 获取k8s资源列表
+ * @summary Lists k8s resources.
+ *
+ * @description # Add the enhancement plugin
+ * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+ * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request ListK8sResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2781,7 +2866,12 @@ ListK8sResourceResponse Client::listK8sResourceWithOptions(const ListK8sResource
 }
 
 /**
- * @summary 获取k8s资源列表
+ * @summary Lists k8s resources.
+ *
+ * @description # Add the enhancement plugin
+ * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+ * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request ListK8sResourceRequest
  * @return ListK8sResourceResponse
@@ -2792,7 +2882,7 @@ ListK8sResourceResponse Client::listK8sResource(const ListK8sResourceRequest &re
 }
 
 /**
- * @summary Obtains a list of tags of an executor.
+ * @summary Retrieves a list of labels for an Executor.
  *
  * @param request ListLablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2819,7 +2909,7 @@ ListLablesResponse Client::listLablesWithOptions(const ListLablesRequest &reques
 }
 
 /**
- * @summary Obtains a list of tags of an executor.
+ * @summary Retrieves a list of labels for an Executor.
  *
  * @param request ListLablesRequest
  * @return ListLablesResponse
@@ -2830,7 +2920,7 @@ ListLablesResponse Client::listLables(const ListLablesRequest &request) {
 }
 
 /**
- * @summary Obtains a list of zones.
+ * @summary Obtain the zone list.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRegionZoneResponse
@@ -2852,7 +2942,7 @@ ListRegionZoneResponse Client::listRegionZoneWithOptions(const Darabonba::Runtim
 }
 
 /**
- * @summary Obtains a list of zones.
+ * @summary Obtain the zone list.
  *
  * @return ListRegionZoneResponse
  */
@@ -2862,7 +2952,7 @@ ListRegionZoneResponse Client::listRegionZone() {
 }
 
 /**
- * @summary Obtains a list of all regions.
+ * @summary Obtain the List of all Regions.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRegionsResponse
@@ -2884,7 +2974,7 @@ ListRegionsResponse Client::listRegionsWithOptions(const Darabonba::RuntimeOptio
 }
 
 /**
- * @summary Obtains a list of all regions.
+ * @summary Obtain the List of all Regions.
  *
  * @return ListRegionsResponse
  */
@@ -2894,7 +2984,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary Queries scheduling events.
+ * @summary Lists scheduled events.
  *
  * @param request ListScheduleEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2921,7 +3011,7 @@ ListScheduleEventResponse Client::listScheduleEventWithOptions(const ListSchedul
 }
 
 /**
- * @summary Queries scheduling events.
+ * @summary Lists scheduled events.
  *
  * @param request ListScheduleEventRequest
  * @return ListScheduleEventResponse
@@ -2932,7 +3022,7 @@ ListScheduleEventResponse Client::listScheduleEvent(const ListScheduleEventReque
 }
 
 /**
- * @summary Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+ * @summary Retrieves the next five scheduled times based on the specified time type and time expression.
  *
  * @param request ListScheduleTimesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2959,7 +3049,7 @@ ListScheduleTimesResponse Client::listScheduleTimesWithOptions(const ListSchedul
 }
 
 /**
- * @summary Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+ * @summary Retrieves the next five scheduled times based on the specified time type and time expression.
  *
  * @param request ListScheduleTimesRequest
  * @return ListScheduleTimesResponse
@@ -2970,7 +3060,7 @@ ListScheduleTimesResponse Client::listScheduleTimes(const ListScheduleTimesReque
 }
 
 /**
- * @summary 获取流程实例列表
+ * @summary Retrieves a list of workflow instances.
  *
  * @param request ListWorkflowExecutionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3045,7 +3135,7 @@ ListWorkflowExecutionsResponse Client::listWorkflowExecutionsWithOptions(const L
 }
 
 /**
- * @summary 获取流程实例列表
+ * @summary Retrieves a list of workflow instances.
  *
  * @param request ListWorkflowExecutionsRequest
  * @return ListWorkflowExecutionsResponse
@@ -3056,7 +3146,7 @@ ListWorkflowExecutionsResponse Client::listWorkflowExecutions(const ListWorkflow
 }
 
 /**
- * @summary 获取当前工作流版本列表
+ * @summary Lists the versions for a specified workflow.
  *
  * @param request ListWorkflowVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3103,7 +3193,7 @@ ListWorkflowVersionsResponse Client::listWorkflowVersionsWithOptions(const ListW
 }
 
 /**
- * @summary 获取当前工作流版本列表
+ * @summary Lists the versions for a specified workflow.
  *
  * @param request ListWorkflowVersionsRequest
  * @return ListWorkflowVersionsResponse
@@ -3114,7 +3204,7 @@ ListWorkflowVersionsResponse Client::listWorkflowVersions(const ListWorkflowVers
 }
 
 /**
- * @summary 获取工作流列表
+ * @summary Lists your workflows.
  *
  * @param request ListWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3181,7 +3271,7 @@ ListWorkflowsResponse Client::listWorkflowsWithOptions(const ListWorkflowsReques
 }
 
 /**
- * @summary 获取工作流列表
+ * @summary Lists your workflows.
  *
  * @param request ListWorkflowsRequest
  * @return ListWorkflowsResponse
@@ -3192,7 +3282,7 @@ ListWorkflowsResponse Client::listWorkflows(const ListWorkflowsRequest &request)
 }
 
 /**
- * @summary 补数工作流
+ * @summary Backfills historical data for a specified workflow.
  *
  * @param request OperateBackfillWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3239,7 +3329,7 @@ OperateBackfillWorkflowResponse Client::operateBackfillWorkflowWithOptions(const
 }
 
 /**
- * @summary 补数工作流
+ * @summary Backfills historical data for a specified workflow.
  *
  * @param request OperateBackfillWorkflowRequest
  * @return OperateBackfillWorkflowResponse
@@ -3250,7 +3340,7 @@ OperateBackfillWorkflowResponse Client::operateBackfillWorkflow(const OperateBac
 }
 
 /**
- * @summary 连接数据源
+ * @summary Connect to a data source
  *
  * @param request OperateConnectDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3293,7 +3383,7 @@ OperateConnectDatasourceResponse Client::operateConnectDatasourceWithOptions(con
 }
 
 /**
- * @summary 连接数据源
+ * @summary Connect to a data source
  *
  * @param request OperateConnectDatasourceRequest
  * @return OperateConnectDatasourceResponse
@@ -3304,7 +3394,7 @@ OperateConnectDatasourceResponse Client::operateConnectDatasource(const OperateC
 }
 
 /**
- * @summary Designates executors.
+ * @summary Designates one or more executors for a job.
  *
  * @param tmpReq OperateDesignateExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3361,7 +3451,7 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutorsWithOptions(c
 }
 
 /**
- * @summary Designates executors.
+ * @summary Designates one or more executors for a job.
  *
  * @param request OperateDesignateExecutorsRequest
  * @return OperateDesignateExecutorsResponse
@@ -3372,7 +3462,7 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutors(const Operat
 }
 
 /**
- * @summary Disables multiple jobs at a time.
+ * @summary Disables multiple jobs.
  *
  * @param tmpReq OperateDisableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3417,7 +3507,7 @@ OperateDisableJobsResponse Client::operateDisableJobsWithOptions(const OperateDi
 }
 
 /**
- * @summary Disables multiple jobs at a time.
+ * @summary Disables multiple jobs.
  *
  * @param request OperateDisableJobsRequest
  * @return OperateDisableJobsResponse
@@ -3428,7 +3518,9 @@ OperateDisableJobsResponse Client::operateDisableJobs(const OperateDisableJobsRe
 }
 
 /**
- * @summary 批量禁用工作流
+ * @summary Disables one or more workflows.
+ *
+ * @description Disables one or more specified workflows.
  *
  * @param tmpReq OperateDisableWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3473,7 +3565,9 @@ OperateDisableWorkflowsResponse Client::operateDisableWorkflowsWithOptions(const
 }
 
 /**
- * @summary 批量禁用工作流
+ * @summary Disables one or more workflows.
+ *
+ * @description Disables one or more specified workflows.
  *
  * @param request OperateDisableWorkflowsRequest
  * @return OperateDisableWorkflowsResponse
@@ -3484,7 +3578,7 @@ OperateDisableWorkflowsResponse Client::operateDisableWorkflows(const OperateDis
 }
 
 /**
- * @summary Enables multiple jobs at a time.
+ * @summary Enables multiple jobs in a batch.
  *
  * @param tmpReq OperateEnableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3529,7 +3623,7 @@ OperateEnableJobsResponse Client::operateEnableJobsWithOptions(const OperateEnab
 }
 
 /**
- * @summary Enables multiple jobs at a time.
+ * @summary Enables multiple jobs in a batch.
  *
  * @param request OperateEnableJobsRequest
  * @return OperateEnableJobsResponse
@@ -3540,7 +3634,7 @@ OperateEnableJobsResponse Client::operateEnableJobs(const OperateEnableJobsReque
 }
 
 /**
- * @summary 批量启用工作流
+ * @summary Enables one or more workflows.
  *
  * @param tmpReq OperateEnableWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3585,7 +3679,7 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflowsWithOptions(const O
 }
 
 /**
- * @summary 批量启用工作流
+ * @summary Enables one or more workflows.
  *
  * @param request OperateEnableWorkflowsRequest
  * @return OperateEnableWorkflowsResponse
@@ -3596,7 +3690,7 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflows(const OperateEnabl
 }
 
 /**
- * @summary Runs a job once.
+ * @summary Executes a job on demand.
  *
  * @param request OperateExecuteJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3647,7 +3741,7 @@ OperateExecuteJobResponse Client::operateExecuteJobWithOptions(const OperateExec
 }
 
 /**
- * @summary Runs a job once.
+ * @summary Executes a job on demand.
  *
  * @param request OperateExecuteJobRequest
  * @return OperateExecuteJobResponse
@@ -3658,7 +3752,9 @@ OperateExecuteJobResponse Client::operateExecuteJob(const OperateExecuteJobReque
 }
 
 /**
- * @summary 运行一次工作流
+ * @summary Executes a workflow.
+ *
+ * @description This operation starts a new workflow instance.
  *
  * @param request OperateExecuteWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3697,7 +3793,9 @@ OperateExecuteWorkflowResponse Client::operateExecuteWorkflowWithOptions(const O
 }
 
 /**
- * @summary 运行一次工作流
+ * @summary Executes a workflow.
+ *
+ * @description This operation starts a new workflow instance.
  *
  * @param request OperateExecuteWorkflowRequest
  * @return OperateExecuteWorkflowResponse
@@ -3708,7 +3806,7 @@ OperateExecuteWorkflowResponse Client::operateExecuteWorkflow(const OperateExecu
 }
 
 /**
- * @summary Hold住任务实例
+ * @summary Holds a pending job execution.
  *
  * @param request OperateHoldJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3747,7 +3845,7 @@ OperateHoldJobExecutionResponse Client::operateHoldJobExecutionWithOptions(const
 }
 
 /**
- * @summary Hold住任务实例
+ * @summary Holds a pending job execution.
  *
  * @param request OperateHoldJobExecutionRequest
  * @return OperateHoldJobExecutionResponse
@@ -3758,7 +3856,7 @@ OperateHoldJobExecutionResponse Client::operateHoldJobExecution(const OperateHol
 }
 
 /**
- * @summary 将工作流中未开始的节点置为Held状态
+ * @summary Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
  *
  * @param request OperateHoldWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3797,7 +3895,7 @@ OperateHoldWorkflowExecutionResponse Client::operateHoldWorkflowExecutionWithOpt
 }
 
 /**
- * @summary 将工作流中未开始的节点置为Held状态
+ * @summary Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
  *
  * @param request OperateHoldWorkflowExecutionRequest
  * @return OperateHoldWorkflowExecutionResponse
@@ -3808,7 +3906,7 @@ OperateHoldWorkflowExecutionResponse Client::operateHoldWorkflowExecution(const 
 }
 
 /**
- * @summary 标记任务实例为成功状态
+ * @summary Marks a job execution as successful.
  *
  * @param request OperateMarkSuccessJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3847,7 +3945,7 @@ OperateMarkSuccessJobExecutionResponse Client::operateMarkSuccessJobExecutionWit
 }
 
 /**
- * @summary 标记任务实例为成功状态
+ * @summary Marks a job execution as successful.
  *
  * @param request OperateMarkSuccessJobExecutionRequest
  * @return OperateMarkSuccessJobExecutionResponse
@@ -3858,7 +3956,7 @@ OperateMarkSuccessJobExecutionResponse Client::operateMarkSuccessJobExecution(co
 }
 
 /**
- * @summary 将工作流实例标记为成功
+ * @summary Marks a workflow execution as successful.
  *
  * @param request OperateMarkSuccessWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3897,7 +3995,7 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
 }
 
 /**
- * @summary 将工作流实例标记为成功
+ * @summary Marks a workflow execution as successful.
  *
  * @param request OperateMarkSuccessWorkflowExecutionRequest
  * @return OperateMarkSuccessWorkflowExecutionResponse
@@ -3908,7 +4006,7 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
 }
 
 /**
- * @summary Reprocesses the historical data of a job.
+ * @summary Reruns historical data for a job within a specified time range.
  *
  * @param request OperateRerunJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3959,7 +4057,7 @@ OperateRerunJobResponse Client::operateRerunJobWithOptions(const OperateRerunJob
 }
 
 /**
- * @summary Reprocesses the historical data of a job.
+ * @summary Reruns historical data for a job within a specified time range.
  *
  * @param request OperateRerunJobRequest
  * @return OperateRerunJobResponse
@@ -3970,7 +4068,7 @@ OperateRerunJobResponse Client::operateRerunJob(const OperateRerunJobRequest &re
 }
 
 /**
- * @summary Reruns failed job instances.
+ * @summary Retries a failed Job Instance.
  *
  * @param tmpReq OperateRetryJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4023,7 +4121,7 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecutionWithOptions(con
 }
 
 /**
- * @summary Reruns failed job instances.
+ * @summary Retries a failed Job Instance.
  *
  * @param request OperateRetryJobExecutionRequest
  * @return OperateRetryJobExecutionResponse
@@ -4034,7 +4132,7 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecution(const OperateR
 }
 
 /**
- * @summary 重跑工作流实例
+ * @summary Retries a workflow execution.
  *
  * @param request OperateRetryWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4077,7 +4175,7 @@ OperateRetryWorkflowExecutionResponse Client::operateRetryWorkflowExecutionWithO
 }
 
 /**
- * @summary 重跑工作流实例
+ * @summary Retries a workflow execution.
  *
  * @param request OperateRetryWorkflowExecutionRequest
  * @return OperateRetryWorkflowExecutionResponse
@@ -4088,7 +4186,7 @@ OperateRetryWorkflowExecutionResponse Client::operateRetryWorkflowExecution(cons
 }
 
 /**
- * @summary 跳过任务实例
+ * @summary Skips a job execution.
  *
  * @param request OperateSkipJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4127,7 +4225,7 @@ OperateSkipJobExecutionResponse Client::operateSkipJobExecutionWithOptions(const
 }
 
 /**
- * @summary 跳过任务实例
+ * @summary Skips a job execution.
  *
  * @param request OperateSkipJobExecutionRequest
  * @return OperateSkipJobExecutionResponse
@@ -4138,7 +4236,7 @@ OperateSkipJobExecutionResponse Client::operateSkipJobExecution(const OperateSki
 }
 
 /**
- * @summary Stops running instances.
+ * @summary Stops a running Job Execution.
  *
  * @param tmpReq OperateStopJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4187,7 +4285,7 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
 }
 
 /**
- * @summary Stops running instances.
+ * @summary Stops a running Job Execution.
  *
  * @param request OperateStopJobExecutionRequest
  * @return OperateStopJobExecutionResponse
@@ -4198,7 +4296,7 @@ OperateStopJobExecutionResponse Client::operateStopJobExecution(const OperateSto
 }
 
 /**
- * @summary 停止正在运行的工作流实例
+ * @summary Stops a running workflow execution.
  *
  * @param request OperateStopWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4237,7 +4335,7 @@ OperateStopWorkflowExecutionResponse Client::operateStopWorkflowExecutionWithOpt
 }
 
 /**
- * @summary 停止正在运行的工作流实例
+ * @summary Stops a running workflow execution.
  *
  * @param request OperateStopWorkflowExecutionRequest
  * @return OperateStopWorkflowExecutionResponse
@@ -4248,7 +4346,7 @@ OperateStopWorkflowExecutionResponse Client::operateStopWorkflowExecution(const 
 }
 
 /**
- * @summary 将held状态的任务恢复
+ * @summary Resumes a Job Execution that is in the Hold state.
  *
  * @param request OperateUnholdJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4287,7 +4385,7 @@ OperateUnholdJobExecutionResponse Client::operateUnholdJobExecutionWithOptions(c
 }
 
 /**
- * @summary 将held状态的任务恢复
+ * @summary Resumes a Job Execution that is in the Hold state.
  *
  * @param request OperateUnholdJobExecutionRequest
  * @return OperateUnholdJobExecutionResponse
@@ -4298,7 +4396,7 @@ OperateUnholdJobExecutionResponse Client::operateUnholdJobExecution(const Operat
 }
 
 /**
- * @summary 将工作流中held状态的节点恢复
+ * @summary Resumes a workflow execution that is on hold.
  *
  * @param request OperateUnholdWorkflowExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4337,7 +4435,7 @@ OperateUnholdWorkflowExecutionResponse Client::operateUnholdWorkflowExecutionWit
 }
 
 /**
- * @summary 将工作流中held状态的节点恢复
+ * @summary Resumes a workflow execution that is on hold.
  *
  * @param request OperateUnholdWorkflowExecutionRequest
  * @return OperateUnholdWorkflowExecutionResponse
@@ -4348,7 +4446,7 @@ OperateUnholdWorkflowExecutionResponse Client::operateUnholdWorkflowExecution(co
 }
 
 /**
- * @summary 将skipped状态的任务恢复
+ * @summary Resumes a skipped job execution.
  *
  * @param request OperateUnskipJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4387,7 +4485,7 @@ OperateUnskipJobExecutionResponse Client::operateUnskipJobExecutionWithOptions(c
 }
 
 /**
- * @summary 将skipped状态的任务恢复
+ * @summary Resumes a skipped job execution.
  *
  * @param request OperateUnskipJobExecutionRequest
  * @return OperateUnskipJobExecutionResponse
@@ -4398,7 +4496,7 @@ OperateUnskipJobExecutionResponse Client::operateUnskipJobExecution(const Operat
 }
 
 /**
- * @summary 同步任务
+ * @summary Synchronizes jobs.
  *
  * @param tmpReq SyncJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4451,7 +4549,7 @@ SyncJobsResponse Client::syncJobsWithOptions(const SyncJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary 同步任务
+ * @summary Synchronizes jobs.
  *
  * @param request SyncJobsRequest
  * @return SyncJobsResponse
@@ -4532,7 +4630,7 @@ UpdateAppResponse Client::updateApp(const UpdateAppRequest &request) {
 }
 
 /**
- * @summary 更新日历
+ * @summary Updates a calendar.
  *
  * @param request UpdateCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4583,7 +4681,7 @@ UpdateCalendarResponse Client::updateCalendarWithOptions(const UpdateCalendarReq
 }
 
 /**
- * @summary 更新日历
+ * @summary Updates a calendar.
  *
  * @param request UpdateCalendarRequest
  * @return UpdateCalendarResponse
@@ -4644,7 +4742,7 @@ UpdateClusterResponse Client::updateCluster(const UpdateClusterRequest &request)
 }
 
 /**
- * @summary 更新数据源
+ * @summary Update data source
  *
  * @param request UpdateDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4695,7 +4793,7 @@ UpdateDatasourceResponse Client::updateDatasourceWithOptions(const UpdateDatasou
 }
 
 /**
- * @summary 更新数据源
+ * @summary Update data source
  *
  * @param request UpdateDatasourceRequest
  * @return UpdateDatasourceResponse
@@ -4707,6 +4805,11 @@ UpdateDatasourceResponse Client::updateDatasource(const UpdateDatasourceRequest 
 
 /**
  * @summary 更新执行器组
+ *
+ * @description # 引入增强插件
+ * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+ * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+ * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request UpdateExecutorGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4787,6 +4890,11 @@ UpdateExecutorGroupResponse Client::updateExecutorGroupWithOptions(const UpdateE
 /**
  * @summary 更新执行器组
  *
+ * @description # 引入增强插件
+ * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+ * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+ * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ *
  * @param request UpdateExecutorGroupRequest
  * @return UpdateExecutorGroupResponse
  */
@@ -4796,7 +4904,12 @@ UpdateExecutorGroupResponse Client::updateExecutorGroup(const UpdateExecutorGrou
 }
 
 /**
- * @summary 更新执行器
+ * @summary Updates the configuration of one or more Executors.
+ *
+ * @description # Add the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+ * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
  *
  * @param request UpdateExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4839,7 +4952,12 @@ UpdateExecutorsResponse Client::updateExecutorsWithOptions(const UpdateExecutors
 }
 
 /**
- * @summary 更新执行器
+ * @summary Updates the configuration of one or more Executors.
+ *
+ * @description # Add the enhancement plugin
+ * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+ * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+ * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
  *
  * @param request UpdateExecutorsRequest
  * @return UpdateExecutorsResponse
@@ -4850,7 +4968,7 @@ UpdateExecutorsResponse Client::updateExecutors(const UpdateExecutorsRequest &re
 }
 
 /**
- * @summary Updates the job information.
+ * @summary Update task details.
  *
  * @param tmpReq UpdateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4991,7 +5109,7 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
 }
 
 /**
- * @summary Updates the job information.
+ * @summary Update task details.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse
@@ -5002,7 +5120,7 @@ UpdateJobResponse Client::updateJob(const UpdateJobRequest &request) {
 }
 
 /**
- * @summary 更新任务实例
+ * @summary Update task instance
  *
  * @param request UpdateJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5045,7 +5163,7 @@ UpdateJobExecutionResponse Client::updateJobExecutionWithOptions(const UpdateJob
 }
 
 /**
- * @summary 更新任务实例
+ * @summary Update task instance
  *
  * @param request UpdateJobExecutionRequest
  * @return UpdateJobExecutionResponse
@@ -5056,7 +5174,7 @@ UpdateJobExecutionResponse Client::updateJobExecution(const UpdateJobExecutionRe
 }
 
 /**
- * @summary 更新任务脚本内容
+ * @summary Updates a job script.
  *
  * @param request UpdateJobScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5103,7 +5221,7 @@ UpdateJobScriptResponse Client::updateJobScriptWithOptions(const UpdateJobScript
 }
 
 /**
- * @summary 更新任务脚本内容
+ * @summary Updates a job script.
  *
  * @param request UpdateJobScriptRequest
  * @return UpdateJobScriptResponse
@@ -5114,7 +5232,7 @@ UpdateJobScriptResponse Client::updateJobScript(const UpdateJobScriptRequest &re
 }
 
 /**
- * @summary 更新工作流
+ * @summary Updates an existing workflow.
  *
  * @param request UpdateWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5185,7 +5303,7 @@ UpdateWorkflowResponse Client::updateWorkflowWithOptions(const UpdateWorkflowReq
 }
 
 /**
- * @summary 更新工作流
+ * @summary Updates an existing workflow.
  *
  * @param request UpdateWorkflowRequest
  * @return UpdateWorkflowResponse
@@ -5196,7 +5314,7 @@ UpdateWorkflowResponse Client::updateWorkflow(const UpdateWorkflowRequest &reque
 }
 
 /**
- * @summary 更新工作流DAG
+ * @summary Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
  *
  * @param tmpReq UpdateWorkflowDAGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5249,7 +5367,7 @@ UpdateWorkflowDAGResponse Client::updateWorkflowDAGWithOptions(const UpdateWorkf
 }
 
 /**
- * @summary 更新工作流DAG
+ * @summary Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
  *
  * @param request UpdateWorkflowDAGRequest
  * @return UpdateWorkflowDAGResponse
@@ -5260,7 +5378,7 @@ UpdateWorkflowDAGResponse Client::updateWorkflowDAG(const UpdateWorkflowDAGReque
 }
 
 /**
- * @summary 切换工作流DAG版本
+ * @summary Updates the Directed Acyclic Graph (DAG) version for a Workflow.
  *
  * @param request UpdateWorkflowDAGVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5303,7 +5421,7 @@ UpdateWorkflowDAGVersionResponse Client::updateWorkflowDAGVersionWithOptions(con
 }
 
 /**
- * @summary 切换工作流DAG版本
+ * @summary Updates the Directed Acyclic Graph (DAG) version for a Workflow.
  *
  * @param request UpdateWorkflowDAGVersionRequest
  * @return UpdateWorkflowDAGVersionResponse

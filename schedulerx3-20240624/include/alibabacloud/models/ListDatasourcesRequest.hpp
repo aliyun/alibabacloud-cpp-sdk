@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // Cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Maximum data volume to read in this request. Default value is 10.
     shared_ptr<int32_t> maxResults_ {};
+    // Job Name.
     shared_ptr<string> name_ {};
+    // Indicates the current read position returned by the call. An empty value means all data has been read. This parameter is not required for the first query.
     shared_ptr<string> nextToken_ {};
+    // Page number.
     shared_ptr<int32_t> pageNum_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Grafana dashboard type, including: dash-db: Dashboard; dash-folder: Folder (which can contain dashboards).
     shared_ptr<int32_t> type_ {};
   };
 

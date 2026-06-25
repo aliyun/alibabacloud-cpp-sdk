@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // The timestamp when the script version was created.
         shared_ptr<string> createTime_ {};
+        // The creator of the script version.
         shared_ptr<string> creator_ {};
+        // The content of the script.
         shared_ptr<string> scriptContent_ {};
+        // The script version description.
         shared_ptr<string> versionDescription_ {};
       };
 
@@ -151,9 +155,11 @@ namespace Models
 
 
     protected:
+      // The token to retrieve the next page of results. If this parameter is empty, no more data is available.
       shared_ptr<string> nextToken_ {};
-      // -
+      // - A list of script history records.
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total count of entries.
       shared_ptr<string> total_ {};
     };
 
@@ -204,13 +210,23 @@ namespace Models
 
 
   protected:
+    // The response code. A value of `200` indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // -
+    // - The response data.
     shared_ptr<ListJobScriptHistoryResponseBody::Data> data_ {};
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
+    // A unique ID for the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

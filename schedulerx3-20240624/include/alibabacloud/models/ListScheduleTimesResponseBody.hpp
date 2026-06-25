@@ -78,10 +78,19 @@ namespace Models
 
 
   protected:
+    // The response code. `200` indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
+    // A list of the scheduled times.
     shared_ptr<vector<string>> data_ {};
+    // The response message. The value is `success` if the request succeeds, or an error message if it fails.
     shared_ptr<string> message_ {};
+    // The unique ID of the request. Use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

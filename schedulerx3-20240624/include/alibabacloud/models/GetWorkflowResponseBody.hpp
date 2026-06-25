@@ -176,18 +176,51 @@ namespace Models
 
 
     protected:
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The custom calendar.
       shared_ptr<string> calendar_ {};
+      // The user who created the workflow.
       shared_ptr<string> creator_ {};
+      // The workflow description.
       shared_ptr<string> description_ {};
+      // The maximum concurrency.
       shared_ptr<int32_t> maxConcurrency_ {};
+      // The workflow name.
       shared_ptr<string> name_ {};
+      // The workflow status.
+      // 
+      // - 0: disabled
+      // 
+      // - 1: enabled
       shared_ptr<int32_t> status_ {};
+      // The time expression. The value of this parameter depends on the schedule type.
+      // 
+      // - **None**: No expression is required.
+      // 
+      // - **cron**: A standard cron expression.
+      // 
+      // - **API**: No expression is required.
       shared_ptr<string> timeExpression_ {};
+      // The schedule type.
+      // 
+      // - -1: None
+      // 
+      // - 1: cron
+      // 
+      // - 100: API
       shared_ptr<int32_t> timeType_ {};
+      // The time zone.
+      // 
+      // > If this parameter is omitted, the time zone of the server in the current region is used.
       shared_ptr<string> timezone_ {};
+      // The user who last updated the workflow.
       shared_ptr<string> updater_ {};
+      // The workflow ID.
       shared_ptr<int64_t> workflowId_ {};
+      // The extended attributes.
+      // 
+      // > This parameter is not supported.
       shared_ptr<string> xattrs_ {};
     };
 
@@ -231,11 +264,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
     // -
     shared_ptr<GetWorkflowResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The ID of the request. This ID is unique to each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

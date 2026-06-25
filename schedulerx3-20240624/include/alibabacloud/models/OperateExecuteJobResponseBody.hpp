@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The job execution ID.
       shared_ptr<string> jobExecutionId_ {};
     };
 
@@ -108,11 +109,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // The returned data.
     shared_ptr<OperateExecuteJobResponseBody::Data> data_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
+    // The unique ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

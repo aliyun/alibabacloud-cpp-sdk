@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The directed acyclic graph (DAG) of the workflow.
+    // 
     // This parameter is required.
     shared_ptr<string> dagShrink_ {};
+    // The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
     shared_ptr<string> dagVersion_ {};
+    // The workflow ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};
   };

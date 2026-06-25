@@ -84,16 +84,28 @@ namespace Models
 
 
   protected:
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The unique identifier of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The specific time of day for which to rerun the data. The format is `HH:mm:ss`.
+    // 
     // This parameter is required.
     shared_ptr<string> dataTime_ {};
+    // The end of the time range to rerun, specified as a Unix timestamp in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // The unique identifier of the job.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
+    // The start of the time range to rerun, specified as a Unix timestamp in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
   };

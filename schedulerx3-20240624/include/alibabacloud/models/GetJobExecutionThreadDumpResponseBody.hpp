@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The thread dump.
       shared_ptr<string> dump_ {};
     };
 
@@ -108,11 +109,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // - The returned data object.
     shared_ptr<GetJobExecutionThreadDumpResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A unique identifier for the request. Use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

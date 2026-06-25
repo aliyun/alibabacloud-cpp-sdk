@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The title.
     shared_ptr<string> title_ {};
   };
 

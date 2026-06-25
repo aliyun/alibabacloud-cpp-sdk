@@ -413,41 +413,127 @@ namespace Models
 
 
       protected:
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The retry interval, in seconds.
         shared_ptr<int32_t> attemptInterval_ {};
+        // The calendar.
         shared_ptr<string> calendar_ {};
+        // The child job ID.
         shared_ptr<string> childJobId_ {};
+        // The cleanup mode.
         shared_ptr<string> cleanMode_ {};
+        // The ID of the user who created the job.
         shared_ptr<string> creator_ {};
+        // The current execution status. Valid values:
+        // 
+        // - `0`: Not Started
+        // 
+        // - `1`: Running
+        // 
+        // - `2`: Queued
+        // 
+        // - `3`: Waiting
         shared_ptr<int32_t> currentExecuteStatus_ {};
+        // The data offset.
         shared_ptr<int32_t> dataOffset_ {};
+        // The dependency check strategy.
         shared_ptr<int32_t> dependentStrategy_ {};
+        // The job description.
         shared_ptr<string> description_ {};
+        // The executor blocking strategy. Valid values:
+        // 
+        // - `1`: Serial Execution
+        // 
+        // - `2`: Discard Later
+        // 
+        // - `3`: Cover Earlier
         shared_ptr<string> executorBlockStrategy_ {};
+        // The name of the job handler.
         shared_ptr<string> jobHandler_ {};
+        // The job ID.
         shared_ptr<int64_t> jobId_ {};
+        // The job type.
         shared_ptr<string> jobType_ {};
+        // The time when the last execution ended.
         shared_ptr<string> lastExecuteEndTime_ {};
+        // The status of the last execution. Valid values:
+        // 
+        // - `4`: Success
+        // 
+        // - `5`: Failure
         shared_ptr<int32_t> lastExecuteStatus_ {};
+        // The maximum number of retries for a failed job.
         shared_ptr<int32_t> maxAttempt_ {};
+        // The maximum concurrency.
         shared_ptr<int32_t> maxConcurrency_ {};
+        // The job name.
         shared_ptr<string> name_ {};
+        // The node type.
         shared_ptr<int32_t> nodeType_ {};
+        // The notification configuration.
         shared_ptr<string> noticeConfig_ {};
+        // The notification contacts.
         shared_ptr<string> noticeContacts_ {};
+        // The job parameters.
         shared_ptr<string> parameters_ {};
+        // The job priority.
         shared_ptr<int32_t> priority_ {};
+        // The routing strategy. Valid values:
+        // 
+        // - `1`: Round-robin
+        // 
+        // - `2`: Random
+        // 
+        // - `3`: First
+        // 
+        // - `4`: Last
+        // 
+        // - `5`: Least Frequently Used
+        // 
+        // - `6`: Least Recently Used
+        // 
+        // - `7`: Consistent Hashing
+        // 
+        // - `8`: Sharded Broadcast
         shared_ptr<int32_t> routeStrategy_ {};
+        // The script content.
         shared_ptr<string> script_ {};
+        // The type of the start time.
         shared_ptr<int32_t> startTimeType_ {};
+        // The job status. Valid values:
+        // 
+        // - `0`: Disabled
+        // 
+        // - `1`: Enabled
         shared_ptr<int32_t> status_ {};
+        // The time expression.
         shared_ptr<string> timeExpression_ {};
+        // The time type. Valid values:
+        // 
+        // - `-1`: none
+        // 
+        // - `1`: cron
+        // 
+        // - `3`: fix_rate
+        // 
+        // - `5`: one_time
+        // 
+        // - `100`: api
         shared_ptr<int32_t> timeType_ {};
+        // The time zone.
         shared_ptr<string> timeZone_ {};
+        // The time zone.
         shared_ptr<string> timezone_ {};
+        // The ID of the user who last updated the job.
         shared_ptr<string> updater_ {};
+        // The job weight.
         shared_ptr<int32_t> weight_ {};
+        // The workflow ID.
         shared_ptr<int64_t> workflowId_ {};
+        // The extended attributes.
+        // 
+        // > This parameter is not currently supported.
         shared_ptr<string> xattrs_ {};
       };
 
@@ -484,10 +570,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // -
+      // - A list of jobs.
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of jobs returned.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -531,11 +620,19 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. A value of `200` indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // -
+    // - The returned data.
     shared_ptr<ListJobsResponseBody::Data> data_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
+    // A unique ID that Alibaba Cloud generates for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -121,16 +121,27 @@ namespace Models
 
 
   protected:
+    // The name of the application.
     shared_ptr<string> appName_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The description of the job.
     shared_ptr<string> description_ {};
+    // The name of the job handler.
     shared_ptr<string> jobHandler_ {};
+    // The ID of the job.
     shared_ptr<int64_t> jobId_ {};
+    // The name of the job.
     shared_ptr<string> jobName_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The status of the job.
     shared_ptr<string> status_ {};
+    // The ID of the workflow.
     shared_ptr<int64_t> workflowId_ {};
   };
 

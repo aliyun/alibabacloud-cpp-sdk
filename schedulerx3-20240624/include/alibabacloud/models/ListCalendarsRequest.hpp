@@ -84,12 +84,23 @@ namespace Models
 
 
   protected:
+    // The name of the calendar.
     shared_ptr<string> calendarName_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to return calendar details. The default value is `false`.
+    // 
+    // - `false`: Does not return the detailed list of days for each month. Only basic information is returned.
+    // 
+    // - `true`: Returns the detailed list of days for each month.
     shared_ptr<bool> fetchCalendarDetail_ {};
+    // The maximum number of entries returned per page. The default value is 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. Set this parameter to the `NextToken` value from the previous response. Omit this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    // The year.
     shared_ptr<int32_t> year_ {};
   };
 

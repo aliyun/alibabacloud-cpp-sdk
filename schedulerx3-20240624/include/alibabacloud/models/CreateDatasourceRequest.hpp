@@ -84,15 +84,28 @@ namespace Models
 
 
   protected:
+    // Cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Connection parameters of the data source, in JSON format
+    // 
     // This parameter is required.
     shared_ptr<string> connectionParams_ {};
+    // Datasource Name
     shared_ptr<string> description_ {};
+    // Datasource Name
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Database password
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // Data Source Type  
+    // - 0: MySQL  
+    // - 1: PostgreSQL
+    // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};
   };

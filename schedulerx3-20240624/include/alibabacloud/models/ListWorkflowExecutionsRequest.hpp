@@ -140,18 +140,51 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The end of the time range for filtering executions. The time must be in `YYYY-MM-DD HH:mm:ss` format.
     shared_ptr<string> endTime_ {};
+    // The maximum number of results to return. Defaults to 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. For the first request, do not specify this parameter. If the response does not include a `NextToken`, no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The start of the time range for filtering executions. The time must be in `YYYY-MM-DD HH:mm:ss` format.
     shared_ptr<string> startTime_ {};
+    // The workflow execution status. Use this parameter to filter executions by status. Valid values:
+    // 
+    // - 0: unknown
+    // 
+    // - 1: waiting
+    // 
+    // - 2: queued
+    // 
+    // - 3: running
+    // 
+    // - 4: success
+    // 
+    // - 5: failed
+    // 
+    // - 6: killed
+    // 
+    // - 7: held
+    // 
+    // - 8: mark_success
+    // 
+    // - 9: skipped
     shared_ptr<int32_t> status_ {};
+    // The workflow execution ID.
     shared_ptr<int64_t> workflowExecutionId_ {};
+    // The workflow ID.
     shared_ptr<int64_t> workflowId_ {};
+    // The workflow name.
     shared_ptr<string> workflowName_ {};
   };
 

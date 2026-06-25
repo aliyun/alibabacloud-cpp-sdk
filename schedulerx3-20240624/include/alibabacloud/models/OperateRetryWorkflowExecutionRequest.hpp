@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Set to `true` to rerun only failed nodes.
     shared_ptr<bool> onlyFailed_ {};
+    // The workflow execution ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> workflowExecutionId_ {};
   };

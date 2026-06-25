@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(EngineType, engineType_);
       DARABONBA_PTR_TO_JSON(PricingCycle, pricingCycle_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitches, vSwitches_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
       DARABONBA_PTR_FROM_JSON(PricingCycle, pricingCycle_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitches, vSwitches_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -86,7 +88,9 @@ namespace Models
 
 
     protected:
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
+      // The zone ID of the vSwitch.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -128,13 +132,15 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->duration_ == nullptr && this->engineType_ == nullptr
-        && this->pricingCycle_ == nullptr && this->tag_ == nullptr && this->vSwitches_ == nullptr && this->vpcId_ == nullptr; };
+        && this->pricingCycle_ == nullptr && this->source_ == nullptr && this->tag_ == nullptr && this->vSwitches_ == nullptr && this->vpcId_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -184,6 +190,13 @@ namespace Models
     inline CreateClusterRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline CreateClusterRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -210,17 +223,34 @@ namespace Models
 
 
   protected:
+    // The billing type.
     shared_ptr<string> chargeType_ {};
+    // The name of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
+    // The cluster specification. Valid values:
+    // - scx.dev.x1
+    // - scx.small.x1
+    // - scx.small.x2
+    // - scx.medium.x1
+    // - scx.medium.x2.
     shared_ptr<string> clusterSpec_ {};
+    // The cluster type.
     shared_ptr<int32_t> clusterType_ {};
+    // The duration.
     shared_ptr<int32_t> duration_ {};
+    // The engine type. Valid values: xxljob.
     shared_ptr<string> engineType_ {};
+    // The pricing cycle.
     shared_ptr<string> pricingCycle_ {};
+    // The source.
+    shared_ptr<string> source_ {};
+    // The list of tags. A maximum of 20 tags are supported.
     shared_ptr<vector<CreateClusterRequest::Tag>> tag_ {};
+    // The information about the vSwitches.
     shared_ptr<vector<CreateClusterRequest::VSwitches>> vSwitches_ {};
-    // VPC id
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -66,12 +66,17 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The type of jobs to export. The default value is 1.
     shared_ptr<int32_t> exportJobType_ {};
-    // -
+    // A list of job IDs.
     shared_ptr<string> jobIdsShrink_ {};
   };
 

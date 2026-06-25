@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The name of the Application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The ID of the Cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The ID of the Job Execution.
+    // 
     // This parameter is required.
     shared_ptr<string> jobExecutionId_ {};
+    // A list of Task IDs.
     shared_ptr<string> taskListShrink_ {};
   };
 

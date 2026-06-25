@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
+    // The returned message. Contains error details if the request fails.
     shared_ptr<string> message_ {};
+    // A unique ID generated for this request. If you encounter an issue, provide this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request succeeded.
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

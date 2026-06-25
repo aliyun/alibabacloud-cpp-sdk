@@ -78,6 +78,7 @@ namespace Models
 
 
     protected:
+      // Local name.
       shared_ptr<string> localName_ {};
       // zone id
       shared_ptr<string> zoneId_ {};
@@ -130,12 +131,19 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<int32_t> code_ {};
     // -
     shared_ptr<vector<ListRegionZoneResponseBody::Data>> data_ {};
+    // Error code.
     shared_ptr<string> errorCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request UUID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the invocation succeeded.
+    // - **true**: The invocation succeeded.
+    // - **false**: Failed to invoke.
     shared_ptr<bool> success_ {};
   };
 

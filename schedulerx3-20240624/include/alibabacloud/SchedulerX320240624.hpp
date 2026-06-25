@@ -21,7 +21,7 @@ namespace SchedulerX320240624
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates an application.
+       * @summary Creates an app.
        *
        * @param request CreateAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace SchedulerX320240624
       Models::CreateAppResponse createAppWithOptions(const Models::CreateAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application.
+       * @summary Creates an app.
        *
        * @param request CreateAppRequest
        * @return CreateAppResponse
@@ -38,7 +38,9 @@ namespace SchedulerX320240624
       Models::CreateAppResponse createApp(const Models::CreateAppRequest &request);
 
       /**
-       * @summary 创建日历
+       * @summary Creates a custom calendar.
+       *
+       * @description Creates a custom calendar for SchedulerX.
        *
        * @param request CreateCalendarRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +49,9 @@ namespace SchedulerX320240624
       Models::CreateCalendarResponse createCalendarWithOptions(const Models::CreateCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建日历
+       * @summary Creates a custom calendar.
+       *
+       * @description Creates a custom calendar for SchedulerX.
        *
        * @param request CreateCalendarRequest
        * @return CreateCalendarResponse
@@ -72,7 +76,7 @@ namespace SchedulerX320240624
       Models::CreateClusterResponse createCluster(const Models::CreateClusterRequest &request);
 
       /**
-       * @summary 创建数据源
+       * @summary Create a data source
        *
        * @param request CreateDatasourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +85,7 @@ namespace SchedulerX320240624
       Models::CreateDatasourceResponse createDatasourceWithOptions(const Models::CreateDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据源
+       * @summary Create a data source
        *
        * @param request CreateDatasourceRequest
        * @return CreateDatasourceResponse
@@ -90,6 +94,8 @@ namespace SchedulerX320240624
 
       /**
        * @summary 添加执行器组
+       *
+       * @description 手动导入执行器
        *
        * @param request CreateExecutorGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -100,13 +106,17 @@ namespace SchedulerX320240624
       /**
        * @summary 添加执行器组
        *
+       * @description 手动导入执行器
+       *
        * @param request CreateExecutorGroupRequest
        * @return CreateExecutorGroupResponse
        */
       Models::CreateExecutorGroupResponse createExecutorGroup(const Models::CreateExecutorGroupRequest &request);
 
       /**
-       * @summary 添加执行器
+       * @summary Imports one or more executors.
+       *
+       * @description Imports one or more executors.
        *
        * @param request CreateExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +125,9 @@ namespace SchedulerX320240624
       Models::CreateExecutorsResponse createExecutorsWithOptions(const Models::CreateExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加执行器
+       * @summary Imports one or more executors.
+       *
+       * @description Imports one or more executors.
        *
        * @param request CreateExecutorsRequest
        * @return CreateExecutorsResponse
@@ -123,7 +135,7 @@ namespace SchedulerX320240624
       Models::CreateExecutorsResponse createExecutors(const Models::CreateExecutorsRequest &request);
 
       /**
-       * @summary Creates a job.
+       * @summary Creates a node.
        *
        * @param tmpReq CreateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +144,7 @@ namespace SchedulerX320240624
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job.
+       * @summary Creates a node.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -140,7 +152,7 @@ namespace SchedulerX320240624
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
-       * @summary 创建应用
+       * @summary Creates a workflow.
        *
        * @param request CreateWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +161,7 @@ namespace SchedulerX320240624
       Models::CreateWorkflowResponse createWorkflowWithOptions(const Models::CreateWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用
+       * @summary Creates a workflow.
        *
        * @param request CreateWorkflowRequest
        * @return CreateWorkflowResponse
@@ -157,7 +169,7 @@ namespace SchedulerX320240624
       Models::CreateWorkflowResponse createWorkflow(const Models::CreateWorkflowRequest &request);
 
       /**
-       * @summary Deletes an application group.
+       * @summary Deletes an App Group.
        *
        * @param request DeleteAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +178,7 @@ namespace SchedulerX320240624
       Models::DeleteAppResponse deleteAppWithOptions(const Models::DeleteAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application group.
+       * @summary Deletes an App Group.
        *
        * @param request DeleteAppRequest
        * @return DeleteAppResponse
@@ -174,7 +186,7 @@ namespace SchedulerX320240624
       Models::DeleteAppResponse deleteApp(const Models::DeleteAppRequest &request);
 
       /**
-       * @summary 删除日历
+       * @summary Deletes the specified calendar.
        *
        * @param request DeleteCalendarRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +195,7 @@ namespace SchedulerX320240624
       Models::DeleteCalendarResponse deleteCalendarWithOptions(const Models::DeleteCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除日历
+       * @summary Deletes the specified calendar.
        *
        * @param request DeleteCalendarRequest
        * @return DeleteCalendarResponse
@@ -208,7 +220,7 @@ namespace SchedulerX320240624
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
 
       /**
-       * @summary 删除数据源
+       * @summary Delete data source
        *
        * @param request DeleteDatasourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +229,7 @@ namespace SchedulerX320240624
       Models::DeleteDatasourceResponse deleteDatasourceWithOptions(const Models::DeleteDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据源
+       * @summary Delete data source
        *
        * @param request DeleteDatasourceRequest
        * @return DeleteDatasourceResponse
@@ -242,7 +254,7 @@ namespace SchedulerX320240624
       Models::DeleteExecutorGroupResponse deleteExecutorGroup(const Models::DeleteExecutorGroupRequest &request);
 
       /**
-       * @summary Deletes multiple jobs at a time.
+       * @summary Deletes multiple jobs in a batch.
        *
        * @param tmpReq DeleteJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +263,7 @@ namespace SchedulerX320240624
       Models::DeleteJobsResponse deleteJobsWithOptions(const Models::DeleteJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes multiple jobs at a time.
+       * @summary Deletes multiple jobs in a batch.
        *
        * @param request DeleteJobsRequest
        * @return DeleteJobsResponse
@@ -259,7 +271,7 @@ namespace SchedulerX320240624
       Models::DeleteJobsResponse deleteJobs(const Models::DeleteJobsRequest &request);
 
       /**
-       * @summary 删除工作流
+       * @summary Deletes a Workflow.
        *
        * @param request DeleteWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +280,7 @@ namespace SchedulerX320240624
       Models::DeleteWorkflowResponse deleteWorkflowWithOptions(const Models::DeleteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作流
+       * @summary Deletes a Workflow.
        *
        * @param request DeleteWorkflowRequest
        * @return DeleteWorkflowResponse
@@ -276,7 +288,7 @@ namespace SchedulerX320240624
       Models::DeleteWorkflowResponse deleteWorkflow(const Models::DeleteWorkflowRequest &request);
 
       /**
-       * @summary 批量删除工作流
+       * @summary Deletes one or more workflows.
        *
        * @param tmpReq DeleteWorkflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +297,7 @@ namespace SchedulerX320240624
       Models::DeleteWorkflowsResponse deleteWorkflowsWithOptions(const Models::DeleteWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除工作流
+       * @summary Deletes one or more workflows.
        *
        * @param request DeleteWorkflowsRequest
        * @return DeleteWorkflowsResponse
@@ -293,7 +305,7 @@ namespace SchedulerX320240624
       Models::DeleteWorkflowsResponse deleteWorkflows(const Models::DeleteWorkflowsRequest &request);
 
       /**
-       * @summary Exports the information about jobs at a time.
+       * @summary Exports job information in bulk.
        *
        * @param tmpReq ExportJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +314,7 @@ namespace SchedulerX320240624
       Models::ExportJobsResponse exportJobsWithOptions(const Models::ExportJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports the information about jobs at a time.
+       * @summary Exports job information in bulk.
        *
        * @param request ExportJobsRequest
        * @return ExportJobsResponse
@@ -310,7 +322,7 @@ namespace SchedulerX320240624
       Models::ExportJobsResponse exportJobs(const Models::ExportJobsRequest &request);
 
       /**
-       * @summary 批量导出工作流信息
+       * @summary Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
        *
        * @param tmpReq ExportWorkflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +331,7 @@ namespace SchedulerX320240624
       Models::ExportWorkflowsResponse exportWorkflowsWithOptions(const Models::ExportWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量导出工作流信息
+       * @summary Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
        *
        * @param request ExportWorkflowsRequest
        * @return ExportWorkflowsResponse
@@ -327,7 +339,7 @@ namespace SchedulerX320240624
       Models::ExportWorkflowsResponse exportWorkflows(const Models::ExportWorkflowsRequest &request);
 
       /**
-       * @summary 获取指定应用
+       * @summary Retrieves the details of a specified application.
        *
        * @param request GetAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +348,7 @@ namespace SchedulerX320240624
       Models::GetAppResponse getAppWithOptions(const Models::GetAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定应用
+       * @summary Retrieves the details of a specified application.
        *
        * @param request GetAppRequest
        * @return GetAppResponse
@@ -344,7 +356,7 @@ namespace SchedulerX320240624
       Models::GetAppResponse getApp(const Models::GetAppRequest &request);
 
       /**
-       * @summary 获取日历信息
+       * @summary Retrieves the details of a specified calendar.
        *
        * @param request GetCalendarRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +365,7 @@ namespace SchedulerX320240624
       Models::GetCalendarResponse getCalendarWithOptions(const Models::GetCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取日历信息
+       * @summary Retrieves the details of a specified calendar.
        *
        * @param request GetCalendarRequest
        * @return GetCalendarResponse
@@ -361,7 +373,7 @@ namespace SchedulerX320240624
       Models::GetCalendarResponse getCalendar(const Models::GetCalendarRequest &request);
 
       /**
-       * @summary Queries the details of a cluster.
+       * @summary Obtains the details of a cluster.
        *
        * @param request GetClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +382,7 @@ namespace SchedulerX320240624
       Models::GetClusterResponse getClusterWithOptions(const Models::GetClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a cluster.
+       * @summary Obtains the details of a cluster.
        *
        * @param request GetClusterRequest
        * @return GetClusterResponse
@@ -378,7 +390,7 @@ namespace SchedulerX320240624
       Models::GetClusterResponse getCluster(const Models::GetClusterRequest &request);
 
       /**
-       * @summary Queries a specified machine.
+       * @summary Retrieves the designation information for a job.
        *
        * @param request GetDesigateInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +399,7 @@ namespace SchedulerX320240624
       Models::GetDesigateInfoResponse getDesigateInfoWithOptions(const Models::GetDesigateInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a specified machine.
+       * @summary Retrieves the designation information for a job.
        *
        * @param request GetDesigateInfoRequest
        * @return GetDesigateInfoResponse
@@ -395,7 +407,12 @@ namespace SchedulerX320240624
       Models::GetDesigateInfoResponse getDesigateInfo(const Models::GetDesigateInfoRequest &request);
 
       /**
-       * @summary 查询执行器配置信息
+       * @summary Retrieves the configuration for a specified Executor.
+       *
+       * @description # Add the enhancement plugin
+       * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+       * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+       * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request GetExecutorConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +421,12 @@ namespace SchedulerX320240624
       Models::GetExecutorConfigResponse getExecutorConfigWithOptions(const Models::GetExecutorConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询执行器配置信息
+       * @summary Retrieves the configuration for a specified Executor.
+       *
+       * @description # Add the enhancement plugin
+       * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+       * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+       * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request GetExecutorConfigRequest
        * @return GetExecutorConfigResponse
@@ -412,7 +434,7 @@ namespace SchedulerX320240624
       Models::GetExecutorConfigResponse getExecutorConfig(const Models::GetExecutorConfigRequest &request);
 
       /**
-       * @summary 获取任务执行的详细信息
+       * @summary Returns the details of a Task Execution.
        *
        * @param request GetJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +443,7 @@ namespace SchedulerX320240624
       Models::GetJobExecutionResponse getJobExecutionWithOptions(const Models::GetJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务执行的详细信息
+       * @summary Returns the details of a Task Execution.
        *
        * @param request GetJobExecutionRequest
        * @return GetJobExecutionResponse
@@ -429,7 +451,12 @@ namespace SchedulerX320240624
       Models::GetJobExecutionResponse getJobExecution(const Models::GetJobExecutionRequest &request);
 
       /**
-       * @summary Obtains the execution details of a job.
+       * @summary Gets the details of a sharding task execution.
+       *
+       * @description # Add the enhancement plugin
+       * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+       * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request GetJobExecutionProgressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +465,12 @@ namespace SchedulerX320240624
       Models::GetJobExecutionProgressResponse getJobExecutionProgressWithOptions(const Models::GetJobExecutionProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the execution details of a job.
+       * @summary Gets the details of a sharding task execution.
+       *
+       * @description # Add the enhancement plugin
+       * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+       * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request GetJobExecutionProgressRequest
        * @return GetJobExecutionProgressResponse
@@ -446,7 +478,12 @@ namespace SchedulerX320240624
       Models::GetJobExecutionProgressResponse getJobExecutionProgress(const Models::GetJobExecutionProgressRequest &request);
 
       /**
-       * @summary 查询任务的线程堆栈
+       * @summary Retrieves the thread dump for a specific job execution.
+       *
+       * @description # Add the enhancement plugin
+       * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+       * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request GetJobExecutionThreadDumpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +492,12 @@ namespace SchedulerX320240624
       Models::GetJobExecutionThreadDumpResponse getJobExecutionThreadDumpWithOptions(const Models::GetJobExecutionThreadDumpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询任务的线程堆栈
+       * @summary Retrieves the thread dump for a specific job execution.
+       *
+       * @description # Add the enhancement plugin
+       * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+       * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request GetJobExecutionThreadDumpRequest
        * @return GetJobExecutionThreadDumpResponse
@@ -463,7 +505,7 @@ namespace SchedulerX320240624
       Models::GetJobExecutionThreadDumpResponse getJobExecutionThreadDump(const Models::GetJobExecutionThreadDumpRequest &request);
 
       /**
-       * @summary Queries logs.
+       * @summary Retrieves log entries.
        *
        * @param request GetLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +514,7 @@ namespace SchedulerX320240624
       Models::GetLogResponse getLogWithOptions(const Models::GetLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries logs.
+       * @summary Retrieves log entries.
        *
        * @param request GetLogRequest
        * @return GetLogResponse
@@ -480,7 +522,7 @@ namespace SchedulerX320240624
       Models::GetLogResponse getLog(const Models::GetLogRequest &request);
 
       /**
-       * @summary 查询事件
+       * @summary Query Events.
        *
        * @param request GetLogEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +531,7 @@ namespace SchedulerX320240624
       Models::GetLogEventResponse getLogEventWithOptions(const Models::GetLogEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询事件
+       * @summary Query Events.
        *
        * @param request GetLogEventRequest
        * @return GetLogEventResponse
@@ -498,6 +540,11 @@ namespace SchedulerX320240624
 
       /**
        * @summary 获取分页日志
+       *
+       * @description # 引入增强插件
+       * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+       * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+       * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request GetPageLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -508,13 +555,18 @@ namespace SchedulerX320240624
       /**
        * @summary 获取分页日志
        *
+       * @description # 引入增强插件
+       * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+       * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+       * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+       *
        * @param request GetPageLogRequest
        * @return GetPageLogResponse
        */
       Models::GetPageLogResponse getPageLog(const Models::GetPageLogRequest &request);
 
       /**
-       * @summary 获取工作流
+       * @summary Retrieves the basic information for a specified workflow.
        *
        * @param request GetWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +575,7 @@ namespace SchedulerX320240624
       Models::GetWorkflowResponse getWorkflowWithOptions(const Models::GetWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流
+       * @summary Retrieves the basic information for a specified workflow.
        *
        * @param request GetWorkflowRequest
        * @return GetWorkflowResponse
@@ -531,7 +583,7 @@ namespace SchedulerX320240624
       Models::GetWorkflowResponse getWorkflow(const Models::GetWorkflowRequest &request);
 
       /**
-       * @summary 获取工作流的DAG信息
+       * @summary Gets the Directed Acyclic Graph (DAG) of a workflow.
        *
        * @param request GetWorkflowDAGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +592,7 @@ namespace SchedulerX320240624
       Models::GetWorkflowDAGResponse getWorkflowDAGWithOptions(const Models::GetWorkflowDAGRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流的DAG信息
+       * @summary Gets the Directed Acyclic Graph (DAG) of a workflow.
        *
        * @param request GetWorkflowDAGRequest
        * @return GetWorkflowDAGResponse
@@ -548,7 +600,7 @@ namespace SchedulerX320240624
       Models::GetWorkflowDAGResponse getWorkflowDAG(const Models::GetWorkflowDAGRequest &request);
 
       /**
-       * @summary 获取工作流的DAG信息
+       * @summary Gets the DAG for a previous workflow version.
        *
        * @param request GetWorkflowDAGPreviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +609,7 @@ namespace SchedulerX320240624
       Models::GetWorkflowDAGPreviewResponse getWorkflowDAGPreviewWithOptions(const Models::GetWorkflowDAGPreviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流的DAG信息
+       * @summary Gets the DAG for a previous workflow version.
        *
        * @param request GetWorkflowDAGPreviewRequest
        * @return GetWorkflowDAGPreviewResponse
@@ -565,7 +617,7 @@ namespace SchedulerX320240624
       Models::GetWorkflowDAGPreviewResponse getWorkflowDAGPreview(const Models::GetWorkflowDAGPreviewRequest &request);
 
       /**
-       * @summary 获取工作流实例DAG信息
+       * @summary Retrieve the DAG information for a workflow instance.
        *
        * @param request GetWorkflowExecutionDAGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +626,7 @@ namespace SchedulerX320240624
       Models::GetWorkflowExecutionDAGResponse getWorkflowExecutionDAGWithOptions(const Models::GetWorkflowExecutionDAGRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流实例DAG信息
+       * @summary Retrieve the DAG information for a workflow instance.
        *
        * @param request GetWorkflowExecutionDAGRequest
        * @return GetWorkflowExecutionDAGResponse
@@ -599,7 +651,7 @@ namespace SchedulerX320240624
       Models::ImportCalendarResponse importCalendar(const Models::ImportCalendarRequest &request);
 
       /**
-       * @summary Imports jobs at a time.
+       * @summary Imports jobs in bulk.
        *
        * @param request ImportJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +660,7 @@ namespace SchedulerX320240624
       Models::ImportJobsResponse importJobsWithOptions(const Models::ImportJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports jobs at a time.
+       * @summary Imports jobs in bulk.
        *
        * @param request ImportJobsRequest
        * @return ImportJobsResponse
@@ -616,7 +668,7 @@ namespace SchedulerX320240624
       Models::ImportJobsResponse importJobs(const Models::ImportJobsRequest &request);
 
       /**
-       * @summary 批量导入工作流
+       * @summary Imports one or more workflows.
        *
        * @param request ImportWorkflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +677,7 @@ namespace SchedulerX320240624
       Models::ImportWorkflowsResponse importWorkflowsWithOptions(const Models::ImportWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量导入工作流
+       * @summary Imports one or more workflows.
        *
        * @param request ImportWorkflowsRequest
        * @return ImportWorkflowsResponse
@@ -633,7 +685,7 @@ namespace SchedulerX320240624
       Models::ImportWorkflowsResponse importWorkflows(const Models::ImportWorkflowsRequest &request);
 
       /**
-       * @summary Obtains a list of alert events.
+       * @summary Retrieves alert events.
        *
        * @param request ListAlarmEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +694,7 @@ namespace SchedulerX320240624
       Models::ListAlarmEventResponse listAlarmEventWithOptions(const Models::ListAlarmEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of alert events.
+       * @summary Retrieves alert events.
        *
        * @param request ListAlarmEventRequest
        * @return ListAlarmEventResponse
@@ -650,7 +702,7 @@ namespace SchedulerX320240624
       Models::ListAlarmEventResponse listAlarmEvent(const Models::ListAlarmEventRequest &request);
 
       /**
-       * @summary Obtains a list of application names.
+       * @summary Returns a list of application names.
        *
        * @param request ListAppNamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +711,7 @@ namespace SchedulerX320240624
       Models::ListAppNamesResponse listAppNamesWithOptions(const Models::ListAppNamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of application names.
+       * @summary Returns a list of application names.
        *
        * @param request ListAppNamesRequest
        * @return ListAppNamesResponse
@@ -667,7 +719,7 @@ namespace SchedulerX320240624
       Models::ListAppNamesResponse listAppNames(const Models::ListAppNamesRequest &request);
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Get the list of applications.
        *
        * @param request ListAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +728,7 @@ namespace SchedulerX320240624
       Models::ListAppsResponse listAppsWithOptions(const Models::ListAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Get the list of applications.
        *
        * @param request ListAppsRequest
        * @return ListAppsResponse
@@ -684,7 +736,7 @@ namespace SchedulerX320240624
       Models::ListAppsResponse listApps(const Models::ListAppsRequest &request);
 
       /**
-       * @summary Obtains a list of calendar names.
+       * @summary Lists all Calendar names.
        *
        * @param request ListCalendarNamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +745,7 @@ namespace SchedulerX320240624
       Models::ListCalendarNamesResponse listCalendarNamesWithOptions(const Models::ListCalendarNamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of calendar names.
+       * @summary Lists all Calendar names.
        *
        * @param request ListCalendarNamesRequest
        * @return ListCalendarNamesResponse
@@ -701,7 +753,7 @@ namespace SchedulerX320240624
       Models::ListCalendarNamesResponse listCalendarNames(const Models::ListCalendarNamesRequest &request);
 
       /**
-       * @summary 查询日历
+       * @summary Retrieves a list of calendars.
        *
        * @param request ListCalendarsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,7 +762,7 @@ namespace SchedulerX320240624
       Models::ListCalendarsResponse listCalendarsWithOptions(const Models::ListCalendarsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询日历
+       * @summary Retrieves a list of calendars.
        *
        * @param request ListCalendarsRequest
        * @return ListCalendarsResponse
@@ -718,7 +770,7 @@ namespace SchedulerX320240624
       Models::ListCalendarsResponse listCalendars(const Models::ListCalendarsRequest &request);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Query the list of instances.
        *
        * @param request ListClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +779,7 @@ namespace SchedulerX320240624
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Query the list of instances.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -735,7 +787,7 @@ namespace SchedulerX320240624
       Models::ListClustersResponse listClusters(const Models::ListClustersRequest &request);
 
       /**
-       * @summary 获取数据源列表
+       * @summary Retrieve the data source list
        *
        * @param request ListDatasourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +796,7 @@ namespace SchedulerX320240624
       Models::ListDatasourcesResponse listDatasourcesWithOptions(const Models::ListDatasourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据源列表
+       * @summary Retrieve the data source list
        *
        * @param request ListDatasourcesRequest
        * @return ListDatasourcesResponse
@@ -753,6 +805,11 @@ namespace SchedulerX320240624
 
       /**
        * @summary 获取执行器组列表
+       *
+       * @description # 引入增强插件
+       * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+       * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+       * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request ListExecutorGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -763,13 +820,18 @@ namespace SchedulerX320240624
       /**
        * @summary 获取执行器组列表
        *
+       * @description # 引入增强插件
+       * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+       * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+       * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+       *
        * @param request ListExecutorGroupRequest
        * @return ListExecutorGroupResponse
        */
       Models::ListExecutorGroupResponse listExecutorGroup(const Models::ListExecutorGroupRequest &request);
 
       /**
-       * @summary Queries a list of executors.
+       * @summary Lists executors.
        *
        * @param request ListExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +840,7 @@ namespace SchedulerX320240624
       Models::ListExecutorsResponse listExecutorsWithOptions(const Models::ListExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of executors.
+       * @summary Lists executors.
        *
        * @param request ListExecutorsRequest
        * @return ListExecutorsResponse
@@ -786,7 +848,7 @@ namespace SchedulerX320240624
       Models::ListExecutorsResponse listExecutors(const Models::ListExecutorsRequest &request);
 
       /**
-       * @summary Obtains a list of job instances.
+       * @summary Returns a list of task instances.
        *
        * @param request ListJobExecutionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +857,7 @@ namespace SchedulerX320240624
       Models::ListJobExecutionsResponse listJobExecutionsWithOptions(const Models::ListJobExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of job instances.
+       * @summary Returns a list of task instances.
        *
        * @param request ListJobExecutionsRequest
        * @return ListJobExecutionsResponse
@@ -803,7 +865,7 @@ namespace SchedulerX320240624
       Models::ListJobExecutionsResponse listJobExecutions(const Models::ListJobExecutionsRequest &request);
 
       /**
-       * @summary 获取任务脚本历史列表
+       * @summary Lists the script history for a job.
        *
        * @param request ListJobScriptHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +874,7 @@ namespace SchedulerX320240624
       Models::ListJobScriptHistoryResponse listJobScriptHistoryWithOptions(const Models::ListJobScriptHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务脚本历史列表
+       * @summary Lists the script history for a job.
        *
        * @param request ListJobScriptHistoryRequest
        * @return ListJobScriptHistoryResponse
@@ -820,7 +882,7 @@ namespace SchedulerX320240624
       Models::ListJobScriptHistoryResponse listJobScriptHistory(const Models::ListJobScriptHistoryRequest &request);
 
       /**
-       * @summary Queries a list of jobs.
+       * @summary Returns a task list.
        *
        * @param request ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +891,7 @@ namespace SchedulerX320240624
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of jobs.
+       * @summary Returns a task list.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -837,7 +899,12 @@ namespace SchedulerX320240624
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
-       * @summary 获取k8s资源列表
+       * @summary Lists k8s resources.
+       *
+       * @description # Add the enhancement plugin
+       * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+       * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request ListK8sResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +913,12 @@ namespace SchedulerX320240624
       Models::ListK8sResourceResponse listK8sResourceWithOptions(const Models::ListK8sResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取k8s资源列表
+       * @summary Lists k8s resources.
+       *
+       * @description # Add the enhancement plugin
+       * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+       * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request ListK8sResourceRequest
        * @return ListK8sResourceResponse
@@ -854,7 +926,7 @@ namespace SchedulerX320240624
       Models::ListK8sResourceResponse listK8sResource(const Models::ListK8sResourceRequest &request);
 
       /**
-       * @summary Obtains a list of tags of an executor.
+       * @summary Retrieves a list of labels for an Executor.
        *
        * @param request ListLablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +935,7 @@ namespace SchedulerX320240624
       Models::ListLablesResponse listLablesWithOptions(const Models::ListLablesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of tags of an executor.
+       * @summary Retrieves a list of labels for an Executor.
        *
        * @param request ListLablesRequest
        * @return ListLablesResponse
@@ -871,7 +943,7 @@ namespace SchedulerX320240624
       Models::ListLablesResponse listLables(const Models::ListLablesRequest &request);
 
       /**
-       * @summary Obtains a list of zones.
+       * @summary Obtain the zone list.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRegionZoneResponse
@@ -879,14 +951,14 @@ namespace SchedulerX320240624
       Models::ListRegionZoneResponse listRegionZoneWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of zones.
+       * @summary Obtain the zone list.
        *
        * @return ListRegionZoneResponse
        */
       Models::ListRegionZoneResponse listRegionZone();
 
       /**
-       * @summary Obtains a list of all regions.
+       * @summary Obtain the List of all Regions.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRegionsResponse
@@ -894,14 +966,14 @@ namespace SchedulerX320240624
       Models::ListRegionsResponse listRegionsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of all regions.
+       * @summary Obtain the List of all Regions.
        *
        * @return ListRegionsResponse
        */
       Models::ListRegionsResponse listRegions();
 
       /**
-       * @summary Queries scheduling events.
+       * @summary Lists scheduled events.
        *
        * @param request ListScheduleEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -910,7 +982,7 @@ namespace SchedulerX320240624
       Models::ListScheduleEventResponse listScheduleEventWithOptions(const Models::ListScheduleEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries scheduling events.
+       * @summary Lists scheduled events.
        *
        * @param request ListScheduleEventRequest
        * @return ListScheduleEventResponse
@@ -918,7 +990,7 @@ namespace SchedulerX320240624
       Models::ListScheduleEventResponse listScheduleEvent(const Models::ListScheduleEventRequest &request);
 
       /**
-       * @summary Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+       * @summary Retrieves the next five scheduled times based on the specified time type and time expression.
        *
        * @param request ListScheduleTimesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -927,7 +999,7 @@ namespace SchedulerX320240624
       Models::ListScheduleTimesResponse listScheduleTimesWithOptions(const Models::ListScheduleTimesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+       * @summary Retrieves the next five scheduled times based on the specified time type and time expression.
        *
        * @param request ListScheduleTimesRequest
        * @return ListScheduleTimesResponse
@@ -935,7 +1007,7 @@ namespace SchedulerX320240624
       Models::ListScheduleTimesResponse listScheduleTimes(const Models::ListScheduleTimesRequest &request);
 
       /**
-       * @summary 获取流程实例列表
+       * @summary Retrieves a list of workflow instances.
        *
        * @param request ListWorkflowExecutionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -944,7 +1016,7 @@ namespace SchedulerX320240624
       Models::ListWorkflowExecutionsResponse listWorkflowExecutionsWithOptions(const Models::ListWorkflowExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取流程实例列表
+       * @summary Retrieves a list of workflow instances.
        *
        * @param request ListWorkflowExecutionsRequest
        * @return ListWorkflowExecutionsResponse
@@ -952,7 +1024,7 @@ namespace SchedulerX320240624
       Models::ListWorkflowExecutionsResponse listWorkflowExecutions(const Models::ListWorkflowExecutionsRequest &request);
 
       /**
-       * @summary 获取当前工作流版本列表
+       * @summary Lists the versions for a specified workflow.
        *
        * @param request ListWorkflowVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -961,7 +1033,7 @@ namespace SchedulerX320240624
       Models::ListWorkflowVersionsResponse listWorkflowVersionsWithOptions(const Models::ListWorkflowVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前工作流版本列表
+       * @summary Lists the versions for a specified workflow.
        *
        * @param request ListWorkflowVersionsRequest
        * @return ListWorkflowVersionsResponse
@@ -969,7 +1041,7 @@ namespace SchedulerX320240624
       Models::ListWorkflowVersionsResponse listWorkflowVersions(const Models::ListWorkflowVersionsRequest &request);
 
       /**
-       * @summary 获取工作流列表
+       * @summary Lists your workflows.
        *
        * @param request ListWorkflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -978,7 +1050,7 @@ namespace SchedulerX320240624
       Models::ListWorkflowsResponse listWorkflowsWithOptions(const Models::ListWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流列表
+       * @summary Lists your workflows.
        *
        * @param request ListWorkflowsRequest
        * @return ListWorkflowsResponse
@@ -986,7 +1058,7 @@ namespace SchedulerX320240624
       Models::ListWorkflowsResponse listWorkflows(const Models::ListWorkflowsRequest &request);
 
       /**
-       * @summary 补数工作流
+       * @summary Backfills historical data for a specified workflow.
        *
        * @param request OperateBackfillWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -995,7 +1067,7 @@ namespace SchedulerX320240624
       Models::OperateBackfillWorkflowResponse operateBackfillWorkflowWithOptions(const Models::OperateBackfillWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 补数工作流
+       * @summary Backfills historical data for a specified workflow.
        *
        * @param request OperateBackfillWorkflowRequest
        * @return OperateBackfillWorkflowResponse
@@ -1003,7 +1075,7 @@ namespace SchedulerX320240624
       Models::OperateBackfillWorkflowResponse operateBackfillWorkflow(const Models::OperateBackfillWorkflowRequest &request);
 
       /**
-       * @summary 连接数据源
+       * @summary Connect to a data source
        *
        * @param request OperateConnectDatasourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1012,7 +1084,7 @@ namespace SchedulerX320240624
       Models::OperateConnectDatasourceResponse operateConnectDatasourceWithOptions(const Models::OperateConnectDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 连接数据源
+       * @summary Connect to a data source
        *
        * @param request OperateConnectDatasourceRequest
        * @return OperateConnectDatasourceResponse
@@ -1020,7 +1092,7 @@ namespace SchedulerX320240624
       Models::OperateConnectDatasourceResponse operateConnectDatasource(const Models::OperateConnectDatasourceRequest &request);
 
       /**
-       * @summary Designates executors.
+       * @summary Designates one or more executors for a job.
        *
        * @param tmpReq OperateDesignateExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1029,7 +1101,7 @@ namespace SchedulerX320240624
       Models::OperateDesignateExecutorsResponse operateDesignateExecutorsWithOptions(const Models::OperateDesignateExecutorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Designates executors.
+       * @summary Designates one or more executors for a job.
        *
        * @param request OperateDesignateExecutorsRequest
        * @return OperateDesignateExecutorsResponse
@@ -1037,7 +1109,7 @@ namespace SchedulerX320240624
       Models::OperateDesignateExecutorsResponse operateDesignateExecutors(const Models::OperateDesignateExecutorsRequest &request);
 
       /**
-       * @summary Disables multiple jobs at a time.
+       * @summary Disables multiple jobs.
        *
        * @param tmpReq OperateDisableJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1046,7 +1118,7 @@ namespace SchedulerX320240624
       Models::OperateDisableJobsResponse operateDisableJobsWithOptions(const Models::OperateDisableJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables multiple jobs at a time.
+       * @summary Disables multiple jobs.
        *
        * @param request OperateDisableJobsRequest
        * @return OperateDisableJobsResponse
@@ -1054,7 +1126,9 @@ namespace SchedulerX320240624
       Models::OperateDisableJobsResponse operateDisableJobs(const Models::OperateDisableJobsRequest &request);
 
       /**
-       * @summary 批量禁用工作流
+       * @summary Disables one or more workflows.
+       *
+       * @description Disables one or more specified workflows.
        *
        * @param tmpReq OperateDisableWorkflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1063,7 +1137,9 @@ namespace SchedulerX320240624
       Models::OperateDisableWorkflowsResponse operateDisableWorkflowsWithOptions(const Models::OperateDisableWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量禁用工作流
+       * @summary Disables one or more workflows.
+       *
+       * @description Disables one or more specified workflows.
        *
        * @param request OperateDisableWorkflowsRequest
        * @return OperateDisableWorkflowsResponse
@@ -1071,7 +1147,7 @@ namespace SchedulerX320240624
       Models::OperateDisableWorkflowsResponse operateDisableWorkflows(const Models::OperateDisableWorkflowsRequest &request);
 
       /**
-       * @summary Enables multiple jobs at a time.
+       * @summary Enables multiple jobs in a batch.
        *
        * @param tmpReq OperateEnableJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1080,7 +1156,7 @@ namespace SchedulerX320240624
       Models::OperateEnableJobsResponse operateEnableJobsWithOptions(const Models::OperateEnableJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables multiple jobs at a time.
+       * @summary Enables multiple jobs in a batch.
        *
        * @param request OperateEnableJobsRequest
        * @return OperateEnableJobsResponse
@@ -1088,7 +1164,7 @@ namespace SchedulerX320240624
       Models::OperateEnableJobsResponse operateEnableJobs(const Models::OperateEnableJobsRequest &request);
 
       /**
-       * @summary 批量启用工作流
+       * @summary Enables one or more workflows.
        *
        * @param tmpReq OperateEnableWorkflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1097,7 +1173,7 @@ namespace SchedulerX320240624
       Models::OperateEnableWorkflowsResponse operateEnableWorkflowsWithOptions(const Models::OperateEnableWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量启用工作流
+       * @summary Enables one or more workflows.
        *
        * @param request OperateEnableWorkflowsRequest
        * @return OperateEnableWorkflowsResponse
@@ -1105,7 +1181,7 @@ namespace SchedulerX320240624
       Models::OperateEnableWorkflowsResponse operateEnableWorkflows(const Models::OperateEnableWorkflowsRequest &request);
 
       /**
-       * @summary Runs a job once.
+       * @summary Executes a job on demand.
        *
        * @param request OperateExecuteJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1114,7 +1190,7 @@ namespace SchedulerX320240624
       Models::OperateExecuteJobResponse operateExecuteJobWithOptions(const Models::OperateExecuteJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a job once.
+       * @summary Executes a job on demand.
        *
        * @param request OperateExecuteJobRequest
        * @return OperateExecuteJobResponse
@@ -1122,7 +1198,9 @@ namespace SchedulerX320240624
       Models::OperateExecuteJobResponse operateExecuteJob(const Models::OperateExecuteJobRequest &request);
 
       /**
-       * @summary 运行一次工作流
+       * @summary Executes a workflow.
+       *
+       * @description This operation starts a new workflow instance.
        *
        * @param request OperateExecuteWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1131,7 +1209,9 @@ namespace SchedulerX320240624
       Models::OperateExecuteWorkflowResponse operateExecuteWorkflowWithOptions(const Models::OperateExecuteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运行一次工作流
+       * @summary Executes a workflow.
+       *
+       * @description This operation starts a new workflow instance.
        *
        * @param request OperateExecuteWorkflowRequest
        * @return OperateExecuteWorkflowResponse
@@ -1139,7 +1219,7 @@ namespace SchedulerX320240624
       Models::OperateExecuteWorkflowResponse operateExecuteWorkflow(const Models::OperateExecuteWorkflowRequest &request);
 
       /**
-       * @summary Hold住任务实例
+       * @summary Holds a pending job execution.
        *
        * @param request OperateHoldJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1148,7 +1228,7 @@ namespace SchedulerX320240624
       Models::OperateHoldJobExecutionResponse operateHoldJobExecutionWithOptions(const Models::OperateHoldJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Hold住任务实例
+       * @summary Holds a pending job execution.
        *
        * @param request OperateHoldJobExecutionRequest
        * @return OperateHoldJobExecutionResponse
@@ -1156,7 +1236,7 @@ namespace SchedulerX320240624
       Models::OperateHoldJobExecutionResponse operateHoldJobExecution(const Models::OperateHoldJobExecutionRequest &request);
 
       /**
-       * @summary 将工作流中未开始的节点置为Held状态
+       * @summary Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
        *
        * @param request OperateHoldWorkflowExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1165,7 +1245,7 @@ namespace SchedulerX320240624
       Models::OperateHoldWorkflowExecutionResponse operateHoldWorkflowExecutionWithOptions(const Models::OperateHoldWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将工作流中未开始的节点置为Held状态
+       * @summary Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
        *
        * @param request OperateHoldWorkflowExecutionRequest
        * @return OperateHoldWorkflowExecutionResponse
@@ -1173,7 +1253,7 @@ namespace SchedulerX320240624
       Models::OperateHoldWorkflowExecutionResponse operateHoldWorkflowExecution(const Models::OperateHoldWorkflowExecutionRequest &request);
 
       /**
-       * @summary 标记任务实例为成功状态
+       * @summary Marks a job execution as successful.
        *
        * @param request OperateMarkSuccessJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1182,7 +1262,7 @@ namespace SchedulerX320240624
       Models::OperateMarkSuccessJobExecutionResponse operateMarkSuccessJobExecutionWithOptions(const Models::OperateMarkSuccessJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 标记任务实例为成功状态
+       * @summary Marks a job execution as successful.
        *
        * @param request OperateMarkSuccessJobExecutionRequest
        * @return OperateMarkSuccessJobExecutionResponse
@@ -1190,7 +1270,7 @@ namespace SchedulerX320240624
       Models::OperateMarkSuccessJobExecutionResponse operateMarkSuccessJobExecution(const Models::OperateMarkSuccessJobExecutionRequest &request);
 
       /**
-       * @summary 将工作流实例标记为成功
+       * @summary Marks a workflow execution as successful.
        *
        * @param request OperateMarkSuccessWorkflowExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1199,7 +1279,7 @@ namespace SchedulerX320240624
       Models::OperateMarkSuccessWorkflowExecutionResponse operateMarkSuccessWorkflowExecutionWithOptions(const Models::OperateMarkSuccessWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将工作流实例标记为成功
+       * @summary Marks a workflow execution as successful.
        *
        * @param request OperateMarkSuccessWorkflowExecutionRequest
        * @return OperateMarkSuccessWorkflowExecutionResponse
@@ -1207,7 +1287,7 @@ namespace SchedulerX320240624
       Models::OperateMarkSuccessWorkflowExecutionResponse operateMarkSuccessWorkflowExecution(const Models::OperateMarkSuccessWorkflowExecutionRequest &request);
 
       /**
-       * @summary Reprocesses the historical data of a job.
+       * @summary Reruns historical data for a job within a specified time range.
        *
        * @param request OperateRerunJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1216,7 +1296,7 @@ namespace SchedulerX320240624
       Models::OperateRerunJobResponse operateRerunJobWithOptions(const Models::OperateRerunJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reprocesses the historical data of a job.
+       * @summary Reruns historical data for a job within a specified time range.
        *
        * @param request OperateRerunJobRequest
        * @return OperateRerunJobResponse
@@ -1224,7 +1304,7 @@ namespace SchedulerX320240624
       Models::OperateRerunJobResponse operateRerunJob(const Models::OperateRerunJobRequest &request);
 
       /**
-       * @summary Reruns failed job instances.
+       * @summary Retries a failed Job Instance.
        *
        * @param tmpReq OperateRetryJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1233,7 +1313,7 @@ namespace SchedulerX320240624
       Models::OperateRetryJobExecutionResponse operateRetryJobExecutionWithOptions(const Models::OperateRetryJobExecutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reruns failed job instances.
+       * @summary Retries a failed Job Instance.
        *
        * @param request OperateRetryJobExecutionRequest
        * @return OperateRetryJobExecutionResponse
@@ -1241,7 +1321,7 @@ namespace SchedulerX320240624
       Models::OperateRetryJobExecutionResponse operateRetryJobExecution(const Models::OperateRetryJobExecutionRequest &request);
 
       /**
-       * @summary 重跑工作流实例
+       * @summary Retries a workflow execution.
        *
        * @param request OperateRetryWorkflowExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1250,7 +1330,7 @@ namespace SchedulerX320240624
       Models::OperateRetryWorkflowExecutionResponse operateRetryWorkflowExecutionWithOptions(const Models::OperateRetryWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重跑工作流实例
+       * @summary Retries a workflow execution.
        *
        * @param request OperateRetryWorkflowExecutionRequest
        * @return OperateRetryWorkflowExecutionResponse
@@ -1258,7 +1338,7 @@ namespace SchedulerX320240624
       Models::OperateRetryWorkflowExecutionResponse operateRetryWorkflowExecution(const Models::OperateRetryWorkflowExecutionRequest &request);
 
       /**
-       * @summary 跳过任务实例
+       * @summary Skips a job execution.
        *
        * @param request OperateSkipJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1267,7 +1347,7 @@ namespace SchedulerX320240624
       Models::OperateSkipJobExecutionResponse operateSkipJobExecutionWithOptions(const Models::OperateSkipJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 跳过任务实例
+       * @summary Skips a job execution.
        *
        * @param request OperateSkipJobExecutionRequest
        * @return OperateSkipJobExecutionResponse
@@ -1275,7 +1355,7 @@ namespace SchedulerX320240624
       Models::OperateSkipJobExecutionResponse operateSkipJobExecution(const Models::OperateSkipJobExecutionRequest &request);
 
       /**
-       * @summary Stops running instances.
+       * @summary Stops a running Job Execution.
        *
        * @param tmpReq OperateStopJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1284,7 +1364,7 @@ namespace SchedulerX320240624
       Models::OperateStopJobExecutionResponse operateStopJobExecutionWithOptions(const Models::OperateStopJobExecutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops running instances.
+       * @summary Stops a running Job Execution.
        *
        * @param request OperateStopJobExecutionRequest
        * @return OperateStopJobExecutionResponse
@@ -1292,7 +1372,7 @@ namespace SchedulerX320240624
       Models::OperateStopJobExecutionResponse operateStopJobExecution(const Models::OperateStopJobExecutionRequest &request);
 
       /**
-       * @summary 停止正在运行的工作流实例
+       * @summary Stops a running workflow execution.
        *
        * @param request OperateStopWorkflowExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1301,7 +1381,7 @@ namespace SchedulerX320240624
       Models::OperateStopWorkflowExecutionResponse operateStopWorkflowExecutionWithOptions(const Models::OperateStopWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止正在运行的工作流实例
+       * @summary Stops a running workflow execution.
        *
        * @param request OperateStopWorkflowExecutionRequest
        * @return OperateStopWorkflowExecutionResponse
@@ -1309,7 +1389,7 @@ namespace SchedulerX320240624
       Models::OperateStopWorkflowExecutionResponse operateStopWorkflowExecution(const Models::OperateStopWorkflowExecutionRequest &request);
 
       /**
-       * @summary 将held状态的任务恢复
+       * @summary Resumes a Job Execution that is in the Hold state.
        *
        * @param request OperateUnholdJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1318,7 +1398,7 @@ namespace SchedulerX320240624
       Models::OperateUnholdJobExecutionResponse operateUnholdJobExecutionWithOptions(const Models::OperateUnholdJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将held状态的任务恢复
+       * @summary Resumes a Job Execution that is in the Hold state.
        *
        * @param request OperateUnholdJobExecutionRequest
        * @return OperateUnholdJobExecutionResponse
@@ -1326,7 +1406,7 @@ namespace SchedulerX320240624
       Models::OperateUnholdJobExecutionResponse operateUnholdJobExecution(const Models::OperateUnholdJobExecutionRequest &request);
 
       /**
-       * @summary 将工作流中held状态的节点恢复
+       * @summary Resumes a workflow execution that is on hold.
        *
        * @param request OperateUnholdWorkflowExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1335,7 +1415,7 @@ namespace SchedulerX320240624
       Models::OperateUnholdWorkflowExecutionResponse operateUnholdWorkflowExecutionWithOptions(const Models::OperateUnholdWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将工作流中held状态的节点恢复
+       * @summary Resumes a workflow execution that is on hold.
        *
        * @param request OperateUnholdWorkflowExecutionRequest
        * @return OperateUnholdWorkflowExecutionResponse
@@ -1343,7 +1423,7 @@ namespace SchedulerX320240624
       Models::OperateUnholdWorkflowExecutionResponse operateUnholdWorkflowExecution(const Models::OperateUnholdWorkflowExecutionRequest &request);
 
       /**
-       * @summary 将skipped状态的任务恢复
+       * @summary Resumes a skipped job execution.
        *
        * @param request OperateUnskipJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1352,7 +1432,7 @@ namespace SchedulerX320240624
       Models::OperateUnskipJobExecutionResponse operateUnskipJobExecutionWithOptions(const Models::OperateUnskipJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将skipped状态的任务恢复
+       * @summary Resumes a skipped job execution.
        *
        * @param request OperateUnskipJobExecutionRequest
        * @return OperateUnskipJobExecutionResponse
@@ -1360,7 +1440,7 @@ namespace SchedulerX320240624
       Models::OperateUnskipJobExecutionResponse operateUnskipJobExecution(const Models::OperateUnskipJobExecutionRequest &request);
 
       /**
-       * @summary 同步任务
+       * @summary Synchronizes jobs.
        *
        * @param tmpReq SyncJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1369,7 +1449,7 @@ namespace SchedulerX320240624
       Models::SyncJobsResponse syncJobsWithOptions(const Models::SyncJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步任务
+       * @summary Synchronizes jobs.
        *
        * @param request SyncJobsRequest
        * @return SyncJobsResponse
@@ -1394,7 +1474,7 @@ namespace SchedulerX320240624
       Models::UpdateAppResponse updateApp(const Models::UpdateAppRequest &request);
 
       /**
-       * @summary 更新日历
+       * @summary Updates a calendar.
        *
        * @param request UpdateCalendarRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1403,7 +1483,7 @@ namespace SchedulerX320240624
       Models::UpdateCalendarResponse updateCalendarWithOptions(const Models::UpdateCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新日历
+       * @summary Updates a calendar.
        *
        * @param request UpdateCalendarRequest
        * @return UpdateCalendarResponse
@@ -1428,7 +1508,7 @@ namespace SchedulerX320240624
       Models::UpdateClusterResponse updateCluster(const Models::UpdateClusterRequest &request);
 
       /**
-       * @summary 更新数据源
+       * @summary Update data source
        *
        * @param request UpdateDatasourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1437,7 +1517,7 @@ namespace SchedulerX320240624
       Models::UpdateDatasourceResponse updateDatasourceWithOptions(const Models::UpdateDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据源
+       * @summary Update data source
        *
        * @param request UpdateDatasourceRequest
        * @return UpdateDatasourceResponse
@@ -1446,6 +1526,11 @@ namespace SchedulerX320240624
 
       /**
        * @summary 更新执行器组
+       *
+       * @description # 引入增强插件
+       * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+       * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+       * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
        *
        * @param request UpdateExecutorGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1456,13 +1541,23 @@ namespace SchedulerX320240624
       /**
        * @summary 更新执行器组
        *
+       * @description # 引入增强插件
+       * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+       * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+       * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+       *
        * @param request UpdateExecutorGroupRequest
        * @return UpdateExecutorGroupResponse
        */
       Models::UpdateExecutorGroupResponse updateExecutorGroup(const Models::UpdateExecutorGroupRequest &request);
 
       /**
-       * @summary 更新执行器
+       * @summary Updates the configuration of one or more Executors.
+       *
+       * @description # Add the enhancement plugin
+       * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+       * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
        *
        * @param request UpdateExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1471,7 +1566,12 @@ namespace SchedulerX320240624
       Models::UpdateExecutorsResponse updateExecutorsWithOptions(const Models::UpdateExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新执行器
+       * @summary Updates the configuration of one or more Executors.
+       *
+       * @description # Add the enhancement plugin
+       * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+       * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+       * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
        *
        * @param request UpdateExecutorsRequest
        * @return UpdateExecutorsResponse
@@ -1479,7 +1579,7 @@ namespace SchedulerX320240624
       Models::UpdateExecutorsResponse updateExecutors(const Models::UpdateExecutorsRequest &request);
 
       /**
-       * @summary Updates the job information.
+       * @summary Update task details.
        *
        * @param tmpReq UpdateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1488,7 +1588,7 @@ namespace SchedulerX320240624
       Models::UpdateJobResponse updateJobWithOptions(const Models::UpdateJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the job information.
+       * @summary Update task details.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse
@@ -1496,7 +1596,7 @@ namespace SchedulerX320240624
       Models::UpdateJobResponse updateJob(const Models::UpdateJobRequest &request);
 
       /**
-       * @summary 更新任务实例
+       * @summary Update task instance
        *
        * @param request UpdateJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1505,7 +1605,7 @@ namespace SchedulerX320240624
       Models::UpdateJobExecutionResponse updateJobExecutionWithOptions(const Models::UpdateJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新任务实例
+       * @summary Update task instance
        *
        * @param request UpdateJobExecutionRequest
        * @return UpdateJobExecutionResponse
@@ -1513,7 +1613,7 @@ namespace SchedulerX320240624
       Models::UpdateJobExecutionResponse updateJobExecution(const Models::UpdateJobExecutionRequest &request);
 
       /**
-       * @summary 更新任务脚本内容
+       * @summary Updates a job script.
        *
        * @param request UpdateJobScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1522,7 +1622,7 @@ namespace SchedulerX320240624
       Models::UpdateJobScriptResponse updateJobScriptWithOptions(const Models::UpdateJobScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新任务脚本内容
+       * @summary Updates a job script.
        *
        * @param request UpdateJobScriptRequest
        * @return UpdateJobScriptResponse
@@ -1530,7 +1630,7 @@ namespace SchedulerX320240624
       Models::UpdateJobScriptResponse updateJobScript(const Models::UpdateJobScriptRequest &request);
 
       /**
-       * @summary 更新工作流
+       * @summary Updates an existing workflow.
        *
        * @param request UpdateWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1539,7 +1639,7 @@ namespace SchedulerX320240624
       Models::UpdateWorkflowResponse updateWorkflowWithOptions(const Models::UpdateWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新工作流
+       * @summary Updates an existing workflow.
        *
        * @param request UpdateWorkflowRequest
        * @return UpdateWorkflowResponse
@@ -1547,7 +1647,7 @@ namespace SchedulerX320240624
       Models::UpdateWorkflowResponse updateWorkflow(const Models::UpdateWorkflowRequest &request);
 
       /**
-       * @summary 更新工作流DAG
+       * @summary Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
        *
        * @param tmpReq UpdateWorkflowDAGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1556,7 +1656,7 @@ namespace SchedulerX320240624
       Models::UpdateWorkflowDAGResponse updateWorkflowDAGWithOptions(const Models::UpdateWorkflowDAGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新工作流DAG
+       * @summary Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
        *
        * @param request UpdateWorkflowDAGRequest
        * @return UpdateWorkflowDAGResponse
@@ -1564,7 +1664,7 @@ namespace SchedulerX320240624
       Models::UpdateWorkflowDAGResponse updateWorkflowDAG(const Models::UpdateWorkflowDAGRequest &request);
 
       /**
-       * @summary 切换工作流DAG版本
+       * @summary Updates the Directed Acyclic Graph (DAG) version for a Workflow.
        *
        * @param request UpdateWorkflowDAGVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1573,7 +1673,7 @@ namespace SchedulerX320240624
       Models::UpdateWorkflowDAGVersionResponse updateWorkflowDAGVersionWithOptions(const Models::UpdateWorkflowDAGVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 切换工作流DAG版本
+       * @summary Updates the Directed Acyclic Graph (DAG) version for a Workflow.
        *
        * @param request UpdateWorkflowDAGVersionRequest
        * @return UpdateWorkflowDAGVersionResponse

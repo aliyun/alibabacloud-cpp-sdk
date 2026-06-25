@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MaxJobNum, maxJobNum_);
         DARABONBA_PTR_TO_JSON(MaxWorkflowNum, maxWorkflowNum_);
         DARABONBA_PTR_TO_JSON(ProductType, productType_);
+        DARABONBA_PTR_TO_JSON(Source, source_);
         DARABONBA_PTR_TO_JSON(Spm, spm_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_ANY_TO_JSON(Tags, tags_);
@@ -86,6 +87,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MaxJobNum, maxJobNum_);
         DARABONBA_PTR_FROM_JSON(MaxWorkflowNum, maxWorkflowNum_);
         DARABONBA_PTR_FROM_JSON(ProductType, productType_);
+        DARABONBA_PTR_FROM_JSON(Source, source_);
         DARABONBA_PTR_FROM_JSON(Spm, spm_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_ANY_FROM_JSON(Tags, tags_);
@@ -145,7 +147,9 @@ namespace Models
 
 
       protected:
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -153,8 +157,9 @@ namespace Models
         && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->createTime_ == nullptr
         && this->endTime_ == nullptr && this->engineType_ == nullptr && this->engineVersion_ == nullptr && this->internetDomain_ == nullptr && this->intranetDomain_ == nullptr
         && this->ipWhitelist_ == nullptr && this->jobNum_ == nullptr && this->kubeConfig_ == nullptr && this->maxJobNum_ == nullptr && this->maxWorkflowNum_ == nullptr
-        && this->productType_ == nullptr && this->spm_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr
-        && this->versionLifecycle_ == nullptr && this->vpcId_ == nullptr && this->workerNum_ == nullptr && this->workflowNum_ == nullptr && this->zones_ == nullptr; };
+        && this->productType_ == nullptr && this->source_ == nullptr && this->spm_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->vSwitches_ == nullptr && this->versionLifecycle_ == nullptr && this->vpcId_ == nullptr && this->workerNum_ == nullptr && this->workflowNum_ == nullptr
+        && this->zones_ == nullptr; };
       // chargeType Field Functions 
       bool hasChargeType() const { return this->chargeType_ != nullptr;};
       void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -274,6 +279,13 @@ namespace Models
       inline Data& setProductType(int32_t productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline Data& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
       // spm Field Functions 
       bool hasSpm() const { return this->spm_ != nullptr;};
       void deleteSpm() { this->spm_ = nullptr;};
@@ -344,32 +356,76 @@ namespace Models
 
 
     protected:
+      // The billing method. Valid values:
+      // - PREPAY: subscription.
+      // - POSTPAY: pay-as-you-go.
       shared_ptr<string> chargeType_ {};
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
+      // The cluster specification. Valid values:
+      // - scx.dev.x1.
+      // - scx.small.x1.
+      // - scx.small.x2.
+      // - scx.medium.x1.
+      // - scx.medium.x2.
       shared_ptr<string> clusterSpec_ {};
       shared_ptr<int32_t> clusterType_ {};
+      // The time when the cluster was created.
       shared_ptr<string> createTime_ {};
+      // The expiration time.
       shared_ptr<string> endTime_ {};
+      // The engine type. Valid value: xxljob.
       shared_ptr<string> engineType_ {};
+      // The engine version.
       shared_ptr<string> engineVersion_ {};
+      // The public endpoint.
+      // > Currently not supported.
       shared_ptr<string> internetDomain_ {};
+      // The internal endpoint.
       shared_ptr<string> intranetDomain_ {};
       shared_ptr<string> ipWhitelist_ {};
+      // The maximum number of jobs for the current specification.
       shared_ptr<int32_t> jobNum_ {};
+      // The configuration of the Kubernetes server.
       shared_ptr<string> kubeConfig_ {};
+      // The maximum number of jobs for the current specification.
       shared_ptr<int32_t> maxJobNum_ {};
+      // The maximum number of workflows supported.
       shared_ptr<int32_t> maxWorkflowNum_ {};
+      // The product edition.
+      // 
+      // - 1: Developer Edition.
+      // 
+      // - 2: Professional Edition.
+      // 
+      // - 3: Enterprise Edition.
       shared_ptr<int32_t> productType_ {};
+      shared_ptr<string> source_ {};
+      // The peak number of scheduling operations per minute.
       shared_ptr<int32_t> spm_ {};
+      // The cluster status.
+      // 
+      // - 1: Being created.
+      // - 2: Running.
+      // - 3: Restarting.
+      // - 4: Being released.
+      // - 5: Creation failed.
+      // - 6: Stopped.
+      // - 99: Deleted.
       shared_ptr<int32_t> status_ {};
       Darabonba::Json tags_ {};
+      // The vSwitch information of zones.
       shared_ptr<vector<Data::VSwitches>> vSwitches_ {};
       shared_ptr<string> versionLifecycle_ {};
-      // VPC ID
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The number of workers.
       shared_ptr<int32_t> workerNum_ {};
+      // The current number of workflows.
       shared_ptr<int32_t> workflowNum_ {};
+      // The list of zones.
       shared_ptr<vector<string>> zones_ {};
     };
 
@@ -413,11 +469,16 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
     shared_ptr<GetClusterResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID. The value is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

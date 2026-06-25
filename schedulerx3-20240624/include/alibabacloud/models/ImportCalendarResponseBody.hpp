@@ -78,11 +78,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // The data returned by the call.
     shared_ptr<vector<string>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID generated for the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

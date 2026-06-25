@@ -60,11 +60,15 @@ namespace Models
 
 
   protected:
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // -
+    // The IDs of the jobs to enable.
     shared_ptr<vector<int64_t>> jobIds_ {};
   };
 

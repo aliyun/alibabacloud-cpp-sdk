@@ -130,17 +130,53 @@ namespace Models
 
 
   protected:
+    // The channel for sending alarm notifications. Valid values:
+    // 
+    // - `sms`: SMS
+    // 
+    // - `mail`: Email
+    // 
+    // - `phone`: Phone call
+    // 
+    // - `webhook`: Webhook
     shared_ptr<string> alarmChannel_ {};
+    // The delivery status of the alarm notification. Valid values:
+    // 
+    // - `true`: The notification delivery succeeded.
+    // 
+    // - `false`: The notification delivery failed.
     shared_ptr<string> alarmStatus_ {};
+    // The type of the alarm. Valid values:
+    // 
+    // - **`schedulerx3_no_designate_machine_alarm`**: The Designated Machine is unavailable.
+    // 
+    // - **`schedulerx3_all_busy_alarm`**: All available machines are busy.
+    // 
+    // - **`schedulerx3_no_machine_alarm`**: No machines are available to run the job.
+    // 
+    // - **`schedulerx3_timeout_alarm`**: The job timed out.
+    // 
+    // - **`schedulerx3_fail_alarm`**: The job failed to run.
+    // 
+    // - **`schedulerx3_job_success_notice`**: The job ran successfully.
     shared_ptr<string> alarmType_ {};
+    // The name of the application.
     shared_ptr<string> appName_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The end of the time range for querying events. This value is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The name of the job.
     shared_ptr<string> jobName_ {};
+    // The page number.
     shared_ptr<string> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // Set to true to return results in descending order.
     shared_ptr<bool> reverse_ {};
+    // The start of the time range for querying events. This value is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

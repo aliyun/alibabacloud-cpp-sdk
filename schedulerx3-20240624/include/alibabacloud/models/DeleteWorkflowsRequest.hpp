@@ -69,11 +69,18 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // If set to `true`, all jobs within the specified workflows are also deleted.
     shared_ptr<bool> deleteJobs_ {};
+    // A list of workflow IDs to delete.
+    // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> workflowIds_ {};
   };

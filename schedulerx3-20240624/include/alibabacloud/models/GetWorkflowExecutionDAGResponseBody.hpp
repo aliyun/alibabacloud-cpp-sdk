@@ -146,9 +146,13 @@ namespace Models
 
 
         protected:
+          // The height of the node. This parameter is optional.
           shared_ptr<float> height_ {};
+          // The width of the node. This parameter is optional.
           shared_ptr<float> width_ {};
+          // The x-coordinate of the node.
           shared_ptr<float> x_ {};
+          // The y-coordinate of the node.
           shared_ptr<float> y_ {};
         };
 
@@ -207,13 +211,39 @@ namespace Models
 
 
       protected:
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The coordinates of the node.
         shared_ptr<Nodes::Coordinate> coordinate_ {};
-        // ID。
+        // The unique ID for the job execution (node).
         shared_ptr<string> id_ {};
+        // The job ID.
         shared_ptr<int64_t> jobId_ {};
+        // The job type.
         shared_ptr<string> jobType_ {};
+        // The job name.
         shared_ptr<string> name_ {};
+        // The execution status of the job. Valid values:
+        // 
+        // - 0: Unknown
+        // 
+        // - 1: Waiting
+        // 
+        // - 2: Queued
+        // 
+        // - 3: Running
+        // 
+        // - 4: Succeeded
+        // 
+        // - 5: Failed
+        // 
+        // - 6: Killed
+        // 
+        // - 7: Held
+        // 
+        // - 8: Marked as successful
+        // 
+        // - 9: Skipped
         shared_ptr<int32_t> status_ {};
       };
 
@@ -255,7 +285,9 @@ namespace Models
 
 
       protected:
+        // The ID of the source node.
         shared_ptr<string> source_ {};
+        // The ID of the target node.
         shared_ptr<string> target_ {};
       };
 
@@ -280,7 +312,9 @@ namespace Models
 
 
     protected:
+      // A list of edges in the workflow DAG.
       shared_ptr<vector<Data::Edges>> edges_ {};
+      // A list of nodes in the workflow DAG.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -324,11 +358,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The data returned for the request.
     shared_ptr<GetWorkflowExecutionDAGResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // 
+    // - `true`: The call succeeded.
+    // 
+    // - `false`: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The name of the App Group.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
   };

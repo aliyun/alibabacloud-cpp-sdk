@@ -110,8 +110,11 @@ namespace Models
 
 
       protected:
+        // The name of the calendar.
         shared_ptr<string> calendarName_ {};
+        // A JSON string that represents an array of months and their corresponding days.
         shared_ptr<string> months_ {};
+        // The year.
         shared_ptr<int32_t> year_ {};
       };
 
@@ -148,9 +151,13 @@ namespace Models
 
 
     protected:
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxResults_ {};
+      // The token for the next page of results. If this parameter is not returned, all results have been retrieved.
       shared_ptr<string> nextToken_ {};
+      // A list of calendars.
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -194,12 +201,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // - The returned data.
     shared_ptr<ListCalendarsResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

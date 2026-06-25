@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The custom parameters for the job instance.
     shared_ptr<string> instanceParameters_ {};
+    // The job ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
+    // The label used to select a specific worker.
     shared_ptr<string> label_ {};
+    // The address (`workerAddr`) of a specific worker.
     shared_ptr<string> worker_ {};
   };
 

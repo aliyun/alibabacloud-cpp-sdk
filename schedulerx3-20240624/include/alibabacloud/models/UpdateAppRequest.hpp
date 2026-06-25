@@ -103,14 +103,29 @@ namespace Models
 
 
   protected:
+    // The access token.
     shared_ptr<string> accessToken_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to enable logging.
+    // 
+    // - `true`: Enables logging.
+    // 
+    // - `false`: Disables logging.
     shared_ptr<bool> enableLog_ {};
     shared_ptr<int32_t> labelRouteStrategy_ {};
+    // The task execution queue size.
+    // 
+    // > Sets the maximum number of concurrent task instances in the application group. Additional task instances are queued for execution and not discarded.
     shared_ptr<int32_t> maxConcurrency_ {};
+    // The title.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
     shared_ptr<int32_t> workerId_ {};

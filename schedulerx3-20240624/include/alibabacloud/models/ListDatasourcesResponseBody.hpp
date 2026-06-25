@@ -141,11 +141,19 @@ namespace Models
 
 
       protected:
+        // Data source connection parameters.
         shared_ptr<string> connectionParams_ {};
+        // DataSource ID.
         shared_ptr<int64_t> datasourceId_ {};
+        // Job description.
         shared_ptr<string> description_ {};
+        // Job name.
         shared_ptr<string> name_ {};
+        // Specific pronunciation rule Type. Options:
+        // 
+        // - replacement: A rule that directly replaces Word with Pronunciation.
         shared_ptr<int32_t> type_ {};
+        // Updater.
         shared_ptr<string> updater_ {};
       };
 
@@ -196,12 +204,17 @@ namespace Models
 
 
     protected:
+      // Maximum Data Volume to read in this request. Default Value is 10.
       shared_ptr<int32_t> maxResults_ {};
+      // When the data matching the query conditions has not been fully read, the server returns a nextToken. You can use this nextToken to continue reading subsequent data. This parameter is not required for the first query.
       shared_ptr<string> nextToken_ {};
+      // Page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
       // -
       shared_ptr<vector<Data::Records>> records_ {};
+      // Total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -245,11 +258,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<int32_t> code_ {};
+    // Returned data.
     shared_ptr<ListDatasourcesResponseBody::Data> data_ {};
+    // Error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the invocation succeeded.
+    // - **true**: The invocation succeeded.
+    // - **false**: Failed to invoke.
     shared_ptr<bool> success_ {};
   };
 

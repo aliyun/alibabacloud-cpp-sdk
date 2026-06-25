@@ -303,29 +303,119 @@ namespace Models
 
 
       protected:
+        // The name of the application.
         shared_ptr<string> appName_ {};
+        // The attempt number for this execution. `1` indicates the initial run.
         shared_ptr<int32_t> attempt_ {};
+        // The data timestamp for the job execution.
         shared_ptr<string> dataTime_ {};
+        // The duration of the job execution.
         shared_ptr<int64_t> duration_ {};
+        // The time when the job execution ended.
         shared_ptr<string> endTime_ {};
+        // The ID of the executor.
         shared_ptr<string> executor_ {};
+        // The job execution ID.
         shared_ptr<string> jobExecutionId_ {};
+        // The job ID.
         shared_ptr<int64_t> jobId_ {};
+        // The name of the job.
         shared_ptr<string> jobName_ {};
+        // The type of the job.
         shared_ptr<string> jobType_ {};
+        // The parameters of the job.
         shared_ptr<string> parameters_ {};
+        // The execution result.
         shared_ptr<string> result_ {};
+        // The strategy for routing the job to a worker. Valid values:
+        // 
+        // - 1: Round-robin
+        // 
+        // - 2: Random
+        // 
+        // - 3: First
+        // 
+        // - 4: Last
+        // 
+        // - 5: Least Frequently Used
+        // 
+        // - 6: Least Recently Used
+        // 
+        // - 7: Consistent Hashing
+        // 
+        // - 8: Sharded Broadcasting
         shared_ptr<int32_t> routeStrategy_ {};
+        // The time when the job was scheduled.
         shared_ptr<string> scheduleTime_ {};
+        // The IP address of the scheduler node.
         shared_ptr<string> serverIp_ {};
+        // The job execution status. Valid values:
+        // 
+        // - 0: UNKNOWN
+        // 
+        // - 1: WAITING
+        // 
+        // - 2: READY
+        // 
+        // - 3: RUNNING
+        // 
+        // - 4: SUCCESS
+        // 
+        // - 5: FAILED
+        // 
+        // - 6: PAUSED
+        // 
+        // - 7: SUBMITTED
+        // 
+        // - 8: REJECTED
+        // 
+        // - 9: ACCEPTED
+        // 
+        // - 10: PARTIAL_FAILED
+        // 
+        // - 11: SKIPPED
+        // 
+        // - 12: REMOVED
         shared_ptr<int32_t> status_ {};
+        // The scheduling type. Valid values:
+        // 
+        // - -1: none<br>
+        // 
+        // - 1: cron<br>
+        // 
+        // - 3: fix_rate<br>
+        // 
+        // - 5: one_time<br>
+        // 
+        // - 100: api
         shared_ptr<int32_t> timeType_ {};
+        // The total number of tokens consumed by the job execution.
         shared_ptr<int32_t> totalTokens_ {};
+        // The method that triggered the job. Valid values:
+        // 
+        // - 0: unknown
+        // 
+        // - 1: schedule
+        // 
+        // - 2: rerun
+        // 
+        // - 3: api
+        // 
+        // - 4: user_retry
+        // 
+        // - 5: system_retry
+        // 
+        // - 6: manual
         shared_ptr<int32_t> triggerType_ {};
+        // The address of the worker that executed the job instance.
         shared_ptr<string> workAddr_ {};
+        // The ID of the parent workflow instance, if applicable.
         shared_ptr<string> workflowExecutionId_ {};
+        // The ID of the parent workflow, if applicable.
         shared_ptr<int64_t> workflowId_ {};
+        // The name of the parent workflow, if applicable.
         shared_ptr<string> workflowName_ {};
+        // The extended attributes.
         shared_ptr<string> XAttrs_ {};
       };
 
@@ -362,10 +452,13 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // -
+      // A list of job instances.
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of entries found.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -409,12 +502,21 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // The query result.
     shared_ptr<ListJobExecutionsResponseBody::Data> data_ {};
+    // The error message returned if the request fails.
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
+    // The unique identifier for the request. Alibaba Cloud generates this ID to help troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

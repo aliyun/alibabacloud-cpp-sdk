@@ -84,15 +84,27 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The name of the calendar to use for scheduling, such as a business day calendar.
     shared_ptr<string> calendar_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The time expression, such as a cron expression.
+    // 
     // This parameter is required.
     shared_ptr<string> timeExpression_ {};
+    // The time type. The only supported type is cron.
+    // 
+    // - 1: cron
+    // 
     // This parameter is required.
     shared_ptr<int32_t> timeType_ {};
+    // The time zone used to evaluate the time expression.
     shared_ptr<string> timeZone_ {};
   };
 

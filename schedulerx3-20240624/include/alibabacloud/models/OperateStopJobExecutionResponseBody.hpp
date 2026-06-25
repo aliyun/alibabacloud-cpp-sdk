@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The Response Code.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. A value of **true** indicates success, and a value of **false** indicates failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique identifier for the request. Alibaba Cloud generates this ID to help you troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful. Valid values:
+    // 
+    // - `true`: The request succeeded.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

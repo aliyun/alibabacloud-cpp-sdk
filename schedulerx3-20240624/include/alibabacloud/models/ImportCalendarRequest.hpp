@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The days of each month, in JSON format.
+    // 
     // This parameter is required.
     shared_ptr<string> months_ {};
+    // The name of the calendar.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The year.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> year_ {};
   };

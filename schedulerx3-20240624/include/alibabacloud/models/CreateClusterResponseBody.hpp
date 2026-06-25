@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -128,12 +130,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
     shared_ptr<CreateClusterResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID. Alibaba Cloud generates a unique ID for each request.
+    // You can use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // The status of the request. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -130,18 +130,48 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The name of a custom calendar to exclude specific dates from the schedule.
     shared_ptr<string> calendar_ {};
+    // A unique token that you provide to ensure the request is idempotent. The token can be up to 64 ASCII characters long.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The workflow description.
     shared_ptr<string> description_ {};
+    // The maximum concurrency for the workflow.
+    // 
+    // > The maximum number of concurrent instances that can run for the same workflow. A value of `1` prevents overlapping runs. If the number of running instances reaches this limit, subsequent scheduled runs are skipped.
     shared_ptr<int32_t> maxConcurrency_ {};
+    // The workflow name.
     shared_ptr<string> name_ {};
+    // The cron expression for the schedule. This parameter is required only when `TimeType` is set to `1` (cron).
+    // 
+    // - If `TimeType` is `-1` (none), this parameter is not required.
+    // 
+    // - If `TimeType` is `1` (cron), specify a standard cron expression.
+    // 
+    // - If `TimeType` is `100` (api), this parameter is not required.
     shared_ptr<string> timeExpression_ {};
+    // The scheduling type. Valid values:
+    // 
+    // - `-1` (none): The workflow is not scheduled and must be triggered on demand.
+    // 
+    // - `1` (cron): The workflow runs based on the cron expression in the `TimeExpression` parameter.
+    // 
+    // - `100` (api): The workflow is triggered by an API call.
     shared_ptr<int32_t> timeType_ {};
+    // The time zone for the schedule.
+    // 
+    // > Defaults to the time zone of the SchedulerX server.
     shared_ptr<string> timezone_ {};
+    // The workflow ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};
   };

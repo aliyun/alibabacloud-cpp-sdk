@@ -118,7 +118,10 @@ namespace Models
 
 
     protected:
+      // The contact type.
+      // \\> Default value: 1.
       shared_ptr<int32_t> contactType_ {};
+      // The contact name.
       shared_ptr<string> name_ {};
     };
 
@@ -233,15 +236,30 @@ namespace Models
 
 
     protected:
+      // The threshold, in seconds, for a job to be considered as finishing early.
       shared_ptr<int32_t> endEarly_ {};
+      // Indicates whether to enable an alarm when a job finishes earlier than expected. Set to `true` to enable the alarm, or `false` to disable it.
       shared_ptr<bool> endEarlyEnable_ {};
+      // Indicates whether to enable the failure alarm. Set to `true` to enable the alarm, or `false` to disable it.
       shared_ptr<bool> failEnable_ {};
+      // The number of consecutive failures required to trigger a failure alarm.
       shared_ptr<int32_t> failLimitTimes_ {};
+      // Indicates whether to enable an alarm if no workers are available. Set to `true` to enable the alarm, or `false` to disable it.
       shared_ptr<bool> missWorkerEnable_ {};
+      // The notification channel. Valid values:
+      // \\- `sms`: sms
+      // \\- `phone`: voice call
+      // \\- `mail`: email
+      // \\- `webhook`: webhook
+      // \\> You can specify multiple channels, separated by commas.
       shared_ptr<string> sendChannel_ {};
+      // Indicates whether to enable success notifications. Set to `true` to enable notifications, or `false` to disable them.
       shared_ptr<bool> successNotice_ {};
+      // The job execution timeout in seconds.
       shared_ptr<int64_t> timeout_ {};
+      // Indicates whether to enable the timeout alarm. Set to `true` to enable the alarm, or `false` to disable it.
       shared_ptr<bool> timeoutEnable_ {};
+      // Indicates whether to terminate a timed-out job. Set to `true` to terminate the job, or `false` to let it continue.
       shared_ptr<bool> timeoutKillEnable_ {};
     };
 
@@ -438,33 +456,122 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The interval in seconds between retry attempts.
     shared_ptr<int32_t> attemptInterval_ {};
+    // The custom calendar.
     shared_ptr<string> calendar_ {};
+    // The client blocking strategy.
+    // 
+    // - 1: Serial execution
+    // 
+    // - 2: Ignore later schedules
+    // 
+    // - 3: Overwrite earlier schedules
     shared_ptr<string> childJobId_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
     shared_ptr<int32_t> dependentStrategy_ {};
+    // The job description.
     shared_ptr<string> description_ {};
+    // Notification contact configuration
     shared_ptr<int32_t> executorBlockStrategy_ {};
+    // The job handler name.
     shared_ptr<string> jobHandler_ {};
+    // The job ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
+    // The maximum number of retries for a failed job.
     shared_ptr<int32_t> maxAttempt_ {};
+    // The maximum number of concurrent job instances.
+    // 
+    // > This parameter defines the maximum number of instances for a single job that can run concurrently. A value of `1` prevents duplicate execution. If this limit is exceeded, the scheduler skips the current job.
     shared_ptr<int32_t> maxConcurrency_ {};
+    // The job name.
     shared_ptr<string> name_ {};
+    // Time zone
+    // 
+    // > The default is the time zone of the SchedulerX server.
     shared_ptr<UpdateJobRequest::NoticeConfig> noticeConfig_ {};
+    // Notification configuration
     shared_ptr<vector<UpdateJobRequest::NoticeContacts>> noticeContacts_ {};
+    // The job parameters.
     shared_ptr<string> parameters_ {};
+    // The job execution priority. Valid values:
+    // 
+    // - `1`: Low
+    // 
+    // - `5`: Medium
+    // 
+    // - `10`: High
+    // 
+    // - `15`: Very High
     shared_ptr<int32_t> priority_ {};
+    // The routing strategy. Valid values:
+    // 
+    // - `1`: round-robin
+    // 
+    // - `2`: random
+    // 
+    // - `3`: first
+    // 
+    // - `4`: last
+    // 
+    // - `5`: least frequently used
+    // 
+    // - `6`: least recently used
+    // 
+    // - `7`: consistent hashing
+    // 
+    // - `8`: sharded broadcast
     shared_ptr<int32_t> routeStrategy_ {};
+    // The script content for non-BEAN jobs.
     shared_ptr<string> script_ {};
+    // The type of the start time.
     shared_ptr<int64_t> startTime_ {};
+    // The task execution priority. The following values are supported:
+    // 
+    // - 1: Low
+    // 
+    // - 5: Medium
+    // 
+    // - 10: High
+    // 
+    // - 15: Very High
     shared_ptr<string> startTimeType_ {};
+    // The time expression. The expression format depends on the `TimeType`.
+    // 
+    // - `none`: Leave this parameter empty.
+    // 
+    // - `cron`: Specify a standard cron expression. Online validation is supported.
+    // 
+    // - `api`: Leave this parameter empty.
+    // 
+    // - `fixed_rate`: An integer that represents a fixed interval in seconds. For example, `30` triggers the job every 30 seconds.
+    // 
+    // - `one_time`: A single execution time, specified in the `yyyy-MM-dd HH:mm:ss` format or as a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
     shared_ptr<string> timeExpression_ {};
+    // The time type. Valid values:
+    // 
+    // - `-1`: none
+    // 
+    // - `1`: cron
+    // 
+    // - `3`: fixed_rate
+    // 
+    // - `5`: one_time
+    // 
+    // - `100`: api
     shared_ptr<int32_t> timeType_ {};
+    // The start time of the schedule.
     shared_ptr<string> timezone_ {};
+    // The ID of the child job. Separate multiple IDs with a comma.
     shared_ptr<int32_t> weight_ {};
     shared_ptr<string> XAttrs_ {};
   };

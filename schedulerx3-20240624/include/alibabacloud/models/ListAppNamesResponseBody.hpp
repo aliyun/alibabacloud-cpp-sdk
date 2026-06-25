@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The ID of the application group.
       shared_ptr<string> appGroupId_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The app type.
       shared_ptr<int32_t> appType_ {};
+      // The unique identifier.
       shared_ptr<int64_t> id_ {};
+      // The application title.
       shared_ptr<string> title_ {};
+      // The registry type for manually registered workers.
       shared_ptr<string> workerRegistry_ {};
     };
 
@@ -160,11 +166,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
     // .
     shared_ptr<vector<ListAppNamesResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique request ID. Use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request succeeded.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

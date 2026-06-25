@@ -75,14 +75,24 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The end date of the backfill, in YYYY-MM-DD format.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The start date of the backfill, in YYYY-MM-DD format.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
+    // The workflow ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};
   };

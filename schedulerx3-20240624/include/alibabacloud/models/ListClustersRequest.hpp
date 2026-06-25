@@ -129,10 +129,14 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
     shared_ptr<int32_t> clusterType_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page for paginated queries.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<vector<ListClustersRequest::Tag>> tag_ {};
   };

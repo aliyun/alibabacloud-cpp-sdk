@@ -146,9 +146,13 @@ namespace Models
 
 
         protected:
+          // Optional. The height of the Node.
           shared_ptr<float> height_ {};
+          // Optional. The width of the Node.
           shared_ptr<float> width_ {};
+          // The x-coordinate of the Node.
           shared_ptr<float> x_ {};
+          // The y-coordinate of the Node.
           shared_ptr<float> y_ {};
         };
 
@@ -207,12 +211,23 @@ namespace Models
 
 
       protected:
+        // The Application Name.
         shared_ptr<string> appName_ {};
+        // The coordinates of the Node.
         shared_ptr<Nodes::Coordinate> coordinate_ {};
+        // The Dependency Strategy.
         shared_ptr<int32_t> dependentStrategy_ {};
+        // The Job ID.
         shared_ptr<int64_t> id_ {};
+        // The Job type.
         shared_ptr<string> jobType_ {};
+        // The Job name.
         shared_ptr<string> name_ {};
+        // The Job Status.
+        // 
+        // - 0: Disabled
+        // 
+        // - 1: Enabled
         shared_ptr<int32_t> status_ {};
       };
 
@@ -254,7 +269,9 @@ namespace Models
 
 
       protected:
+        // The Job ID of the source Node.
         shared_ptr<int64_t> source_ {};
+        // The Job ID of the target Node.
         shared_ptr<int64_t> target_ {};
       };
 
@@ -279,7 +296,9 @@ namespace Models
 
 
     protected:
+      // A list of Edges in the Workflow DAG.
       shared_ptr<vector<Data::Edges>> edges_ {};
+      // A list of Nodes in the Workflow DAG.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -323,11 +342,15 @@ namespace Models
 
 
   protected:
+    // The Response Code.
     shared_ptr<int32_t> code_ {};
+    // The returned data.
     shared_ptr<GetWorkflowDAGResponseBody::Data> data_ {};
+    // The Error Message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

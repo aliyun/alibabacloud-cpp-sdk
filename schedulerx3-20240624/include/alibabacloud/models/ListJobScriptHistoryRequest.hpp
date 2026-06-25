@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The name of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The ID of the job.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
+    // The maximum number of entries to return per page. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
   };
 

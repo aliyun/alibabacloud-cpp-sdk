@@ -66,10 +66,19 @@ namespace Models
 
 
   protected:
+    // Determines whether to automatically create the Application if it does not exist.
     shared_ptr<bool> autoCreateApp_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The jobs to import, formatted as a JSON string.
     shared_ptr<string> content_ {};
+    // Determines whether to overwrite jobs if they already exist. The default is **true**.
+    // 
+    // - **true**: Overwrites existing jobs.
+    // 
+    // - **false**: Does not overwrite existing jobs.
     shared_ptr<bool> overwrite_ {};
   };
 

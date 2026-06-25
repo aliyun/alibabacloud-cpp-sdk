@@ -138,9 +138,13 @@ namespace Models
 
 
         protected:
+          // Optional. The height of the node.
           shared_ptr<float> height_ {};
+          // Optional. The width of the node.
           shared_ptr<float> width_ {};
+          // The x-coordinate.
           shared_ptr<float> x_ {};
+          // The y-coordinate.
           shared_ptr<float> y_ {};
         };
 
@@ -170,8 +174,11 @@ namespace Models
 
 
       protected:
+        // The logical expression of the node.
         shared_ptr<string> content_ {};
+        // The coordinates of the node.
         shared_ptr<Nodes::Coordinate> coordinate_ {};
+        // The job ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -213,7 +220,9 @@ namespace Models
 
 
       protected:
+        // The job ID of the source node.
         shared_ptr<int64_t> source_ {};
+        // The job ID of the target node.
         shared_ptr<int64_t> target_ {};
       };
 
@@ -238,7 +247,9 @@ namespace Models
 
 
     protected:
+      // A list of edges in the workflow.
       shared_ptr<vector<Dag::Edges>> edges_ {};
+      // A list of nodes in the workflow.
       shared_ptr<vector<Dag::Nodes>> nodes_ {};
     };
 
@@ -282,13 +293,22 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The directed acyclic graph (DAG) of the workflow.
+    // 
     // This parameter is required.
     shared_ptr<UpdateWorkflowDAGRequest::Dag> dag_ {};
+    // The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
     shared_ptr<string> dagVersion_ {};
+    // The workflow ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};
   };

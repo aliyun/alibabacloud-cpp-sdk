@@ -59,8 +59,6 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // ID。
-    // 
     // This parameter is required.
     shared_ptr<int32_t> id_ {};
     shared_ptr<string> name_ {};

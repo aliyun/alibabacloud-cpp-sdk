@@ -84,14 +84,28 @@ namespace Models
 
 
   protected:
+    // The calendar name.
+    // 
     // This parameter is required.
     shared_ptr<string> calendarName_ {};
+    // A client-generated token that ensures request idempotence. This token must be unique for each request and be no more than 64 ASCII characters long.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to perform an incremental update. Default value: `false`.
+    // 
+    // - `false`: Replaces all existing calendar data with the data in this request, deleting configurations for any unspecified months.
+    // 
+    // - `true`: Updates only the data for the specified months, preserving existing configurations for all other months.
     shared_ptr<bool> incremental_ {};
+    // A JSON string that defines the days for one or more months.
+    // 
     // This parameter is required.
     shared_ptr<string> months_ {};
+    // The year.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> year_ {};
   };

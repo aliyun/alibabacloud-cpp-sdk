@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically create the application if it does not exist.
     shared_ptr<bool> autoCreateApp_ {};
-    // A short description of struct
+    // The ID of the target cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The definitions of the workflows to import. The content must be a valid JSON string.
     shared_ptr<string> content_ {};
+    // Specifies whether to overwrite an existing workflow that has the same name. Default value: `true`.
+    // 
+    // - `true`: The existing workflow is overwritten.
+    // 
+    // - `false`: The existing workflow is not overwritten.
     shared_ptr<bool> overwrite_ {};
   };
 

@@ -75,7 +75,38 @@ namespace Models
 
 
     protected:
+      // The default global configuration for Data Integration tasks. This configuration specifies the default handling policies for different types of DDL messages. Example:
+      // `{"RENAMECOLUMN":"WARNING","DROPTABLE":"WARNING","CREATETABLE":"WARNING","MODIFYCOLUMN":"WARNING","TRUNCATETABLE":"WARNING","DROPCOLUMN":"WARNING","ADDCOLUMN":"WARNING","RENAMETABLE":"WARNING"}`
+      // 
+      // The DDL message types are as follows:
+      // 
+      // - RENAMECOLUMN: `RENAME COLUMN`
+      // 
+      // - DROPTABLE: `DROP TABLE`
+      // 
+      // - CREATETABLE: `CREATE TABLE`
+      // 
+      // - MODIFYCOLUMN: `MODIFY COLUMN`
+      // 
+      // - TRUNCATETABLE: `TRUNCATE TABLE`
+      // 
+      // - DROPCOLUMN: `DROP COLUMN`
+      // 
+      // - ADDCOLUMN: `ADD COLUMN`
+      // 
+      // - RENAMETABLE: `RENAME TABLE`
+      // 
+      // When DataWorks receives a DDL message, it applies one of the following handling policies:
+      // 
+      // - WARNING: Discards the message and logs a warning in the Real-time Synchronization Task log.
+      // 
+      // - IGNORE: Discards the message without sending it to the Destination Data Source.
+      // 
+      // - CRITICAL: Causes the Real-time Synchronization Task to fail.
+      // 
+      // - NORMAL: Forwards the message to the Destination Data Source. Because handling of DDL messages can vary by Destination Data Source, DataWorks only forwards the message.
       shared_ptr<string> config_ {};
+      // The type of the Executor.
       shared_ptr<string> executorType_ {};
     };
 
@@ -119,11 +150,15 @@ namespace Models
 
 
   protected:
+    // The status code returned for the request.
     shared_ptr<int32_t> code_ {};
+    // The configuration data for the Executor.
     shared_ptr<GetExecutorConfigResponseBody::Data> data_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

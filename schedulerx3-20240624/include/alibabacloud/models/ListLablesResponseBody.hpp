@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether the label is designated.
       shared_ptr<bool> isDesignated_ {};
+      // The label.
       shared_ptr<string> label_ {};
+      // Indicates whether the Executor is online.
       shared_ptr<bool> online_ {};
+      // The number of machines with this label.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -140,11 +144,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // -
+    // The returned list of labels.
     shared_ptr<vector<ListLablesResponseBody::Data>> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A unique identifier for the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 
