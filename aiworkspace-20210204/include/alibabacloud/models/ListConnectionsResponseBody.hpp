@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The connection list.
+    // List of connections.
     shared_ptr<vector<Connection>> connections_ {};
-    // The maximum number of entries per page.
+    // Maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that indicates the start position from which to retrieve data on the next page.
+    // Token for retrieving the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Request ID. Used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The total number of connections that meet the filter conditions.
+    // Total number of connections that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

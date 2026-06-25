@@ -112,19 +112,26 @@ namespace Models
 
 
   protected:
-    // The dataset version name.
+    // The name of the dataset version.
     shared_ptr<string> datasetVersion_ {};
-    // The action to be performed on the job.
+    // The job action.
     shared_ptr<string> jobAction_ {};
+    // The order in which to sort the results. This parameter is used with `SortBy`. Default: DESC.
+    // 
+    // - ASC: ascending order.
+    // 
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages are 1-indexed. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The field by which to sort the results. By default, the results are sorted by `CreateTime` in descending order.
     shared_ptr<string> sortBy_ {};
+    // The job status.
     shared_ptr<string> status_ {};
     shared_ptr<bool> withLogs_ {};
-    // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The ID of the workspace. To obtain this ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

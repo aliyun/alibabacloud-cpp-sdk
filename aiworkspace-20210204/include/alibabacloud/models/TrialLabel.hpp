@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Create time
+    // The time the label was created, in UTC and following the ISO 8601 standard.
     shared_ptr<string> gmtCreateTime_ {};
-    // Modified time
+    // The time the label was last modified, in UTC and following the ISO 8601 standard.
     shared_ptr<string> gmtModifiedTime_ {};
-    // Key of Trial Label
+    // The key of the label.
     shared_ptr<string> key_ {};
-    // trl-v0fw9a0sd8f9af
+    // The ID of the associated trial.
     shared_ptr<string> trialId_ {};
-    // Value of Trial Label
+    // The value of the label.
     shared_ptr<string> value_ {};
   };
 

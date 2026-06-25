@@ -186,83 +186,80 @@ namespace Models
 
 
   protected:
-    // The file comment.
+    // The comment on the file.
     shared_ptr<string> comment_ {};
-    // The MIME type of the file. It contains a Type and a SubType.
-    // 
-    // Valid value:
-    // 
-    // *   image/png: PNG
-    // *   image/jpeg: JPEG
-    // *   image/tiff: TIFF
-    // *   image/bmp: BMP
-    // *   image/gif: GIF
-    // *   image/x-icon: ICON
-    // *   image/svg + xml: SVG
-    // *   image/heic: HEIC
-    // *   image/webp: WEBP
+    // The MIME type of the file. It includes a type and a subtype.
     shared_ptr<string> contentType_ {};
-    // The file size. Unit: byte.
+    // The file size in bytes.
     shared_ptr<int64_t> dataSize_ {};
-    // The metadata ID of the dataset file.
+    // The ID of the dataset file metadata.
     shared_ptr<string> datasetFileMetaId_ {};
-    // The time when the file was created. Format: ISO8601.
+    // The time when the file was created. The time is in the ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileCreateTime_ {};
-    // The directory of the file that is stored in OSS, NAS, or Cloud Parallel File Storage (CPFS).
+    // The path of the folder where the OSS, NAS, or CPFS file is located.
     shared_ptr<string> fileDir_ {};
-    // The fingerprint value of the file. Used to check the uniqueness of the file. This value changes after the file content is modified. OSS files use ETags, and NAS files use MD5.
+    // The fingerprint of the file. This value ensures the uniqueness of the file content. The value changes if the file content is modified. For OSS files, the ETag is used. For NAS files, the MD5 hash is used.
     shared_ptr<string> fileFingerPrint_ {};
     // The file name.
     shared_ptr<string> fileName_ {};
-    // The file type. The same as MIME type.
-    // 
-    // Valid value:
-    // 
-    // *   image
-    // *   application
-    // *   audio
-    // *   video
-    // *   text
+    // The file type. This is the same as the Multipurpose Internet Mail Extensions (MIME) type.
     shared_ptr<string> fileType_ {};
-    // The time when the file was last modified. Format: ISO8601.
+    // The time when the file was last modified. The time is in the ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileUpdateTime_ {};
-    // The specific metadata of the file. You cannot retrieve the metadata. In JSON String format.
+    // The specific metadata of the file. This metadata cannot be used for retrieval. The format is a JSON string.
     shared_ptr<string> metaAttributes_ {};
-    // The ID of the semantic index-based job.
+    // The ID of the job that builds the semantic index.
     shared_ptr<string> semanticIndexJobId_ {};
-    // The time when the semantic index-based job is created.
+    // The time when the semantic index was built.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> semanticIndexUpdateTime_ {};
     shared_ptr<string> status_ {};
-    // The time when the tag is last modified. The time follows the ISO 8601 standard.
+    // The time when the tag was last modified. The time is in the ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> tagUpdateTime_ {};
-    // The tags for the metadata. The tags are divided into the following groups:
+    // A collection of tags for the metadata. It includes the following groups:
     // 
-    // *   Algorithm tag group:
+    // - Algorithm tag group:
     // 
-    //     *   ai: a list of tags that are aggregated by all algorithm tagging tasks for a single piece of metadata.
+    //   - ai: A list of tag names aggregated from all algorithmic tagging tasks for a single metadata record.
     // 
-    // *   User-defined tag groups:
+    // - User-defined tag group:
     // 
-    //     *   user: a list of user-defined tags that are added to a single piece of metadata.
-    //     *   user-delete-ai-tags: a list of tags that you want to delete from an algorithm tag group.
+    //   - user: A list of tag names that a user adds to a single metadata record.
+    // 
+    //   - user-delete-ai-tags: A list of tag names from the algorithm tag group that the user wants to delete from a single metadata record.
     shared_ptr<string> tags_ {};
-    // The unique URI of the file. Used to record the unique path of the file. File paths in OSS and NAS are supported.
+    // The unique URI of the file. This URI records the unique path of the file. Paths for files in OSS and NAS are supported.
     // 
-    // **OSS**
+    // <details>
     // 
-    // oss://${bucket}/${path}
+    // <summary>
     // 
-    // **NAS**
+    // OSS
     // 
-    // nas://${fileSystemId}/${path}
+    // </summary>
+    // 
+    // oss\\://${bucket}/${path}
+    // 
+    // </details>
+    // 
+    // <details>
+    // 
+    // <summary>
+    // 
+    // NAS
+    // 
+    // </summary>
+    // 
+    // nas\\://${fileSystemId}/${path}
+    // 
+    // </details>
     shared_ptr<string> uri_ {};
   };
 

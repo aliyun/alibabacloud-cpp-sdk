@@ -94,6 +94,7 @@ namespace Models
 
 
     protected:
+      // Additional configuration information.
       shared_ptr<string> extra_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -105,14 +106,22 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Models& obj) { 
         DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_TO_JSON(MaxModelLength, maxModelLength_);
         DARABONBA_PTR_TO_JSON(Model, model_);
         DARABONBA_PTR_TO_JSON(ModelType, modelType_);
+        DARABONBA_PTR_TO_JSON(SupportReasoning, supportReasoning_);
+        DARABONBA_PTR_TO_JSON(SupportResponseSchema, supportResponseSchema_);
+        DARABONBA_PTR_TO_JSON(SupportVision, supportVision_);
         DARABONBA_PTR_TO_JSON(ToolCall, toolCall_);
       };
       friend void from_json(const Darabonba::Json& j, Models& obj) { 
         DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_FROM_JSON(MaxModelLength, maxModelLength_);
         DARABONBA_PTR_FROM_JSON(Model, model_);
         DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
+        DARABONBA_PTR_FROM_JSON(SupportReasoning, supportReasoning_);
+        DARABONBA_PTR_FROM_JSON(SupportResponseSchema, supportResponseSchema_);
+        DARABONBA_PTR_FROM_JSON(SupportVision, supportVision_);
         DARABONBA_PTR_FROM_JSON(ToolCall, toolCall_);
       };
       Models() = default ;
@@ -127,12 +136,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->displayName_ == nullptr
-        && this->model_ == nullptr && this->modelType_ == nullptr && this->toolCall_ == nullptr; };
+        && this->maxModelLength_ == nullptr && this->model_ == nullptr && this->modelType_ == nullptr && this->supportReasoning_ == nullptr && this->supportResponseSchema_ == nullptr
+        && this->supportVision_ == nullptr && this->toolCall_ == nullptr; };
       // displayName Field Functions 
       bool hasDisplayName() const { return this->displayName_ != nullptr;};
       void deleteDisplayName() { this->displayName_ = nullptr;};
       inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
       inline Models& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+      // maxModelLength Field Functions 
+      bool hasMaxModelLength() const { return this->maxModelLength_ != nullptr;};
+      void deleteMaxModelLength() { this->maxModelLength_ = nullptr;};
+      inline int64_t getMaxModelLength() const { DARABONBA_PTR_GET_DEFAULT(maxModelLength_, 0L) };
+      inline Models& setMaxModelLength(int64_t maxModelLength) { DARABONBA_PTR_SET_VALUE(maxModelLength_, maxModelLength) };
 
 
       // model Field Functions 
@@ -149,6 +166,27 @@ namespace Models
       inline Models& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
 
 
+      // supportReasoning Field Functions 
+      bool hasSupportReasoning() const { return this->supportReasoning_ != nullptr;};
+      void deleteSupportReasoning() { this->supportReasoning_ = nullptr;};
+      inline bool getSupportReasoning() const { DARABONBA_PTR_GET_DEFAULT(supportReasoning_, false) };
+      inline Models& setSupportReasoning(bool supportReasoning) { DARABONBA_PTR_SET_VALUE(supportReasoning_, supportReasoning) };
+
+
+      // supportResponseSchema Field Functions 
+      bool hasSupportResponseSchema() const { return this->supportResponseSchema_ != nullptr;};
+      void deleteSupportResponseSchema() { this->supportResponseSchema_ = nullptr;};
+      inline bool getSupportResponseSchema() const { DARABONBA_PTR_GET_DEFAULT(supportResponseSchema_, false) };
+      inline Models& setSupportResponseSchema(bool supportResponseSchema) { DARABONBA_PTR_SET_VALUE(supportResponseSchema_, supportResponseSchema) };
+
+
+      // supportVision Field Functions 
+      bool hasSupportVision() const { return this->supportVision_ != nullptr;};
+      void deleteSupportVision() { this->supportVision_ = nullptr;};
+      inline bool getSupportVision() const { DARABONBA_PTR_GET_DEFAULT(supportVision_, false) };
+      inline Models& setSupportVision(bool supportVision) { DARABONBA_PTR_SET_VALUE(supportVision_, supportVision) };
+
+
       // toolCall Field Functions 
       bool hasToolCall() const { return this->toolCall_ != nullptr;};
       void deleteToolCall() { this->toolCall_ = nullptr;};
@@ -159,18 +197,19 @@ namespace Models
     protected:
       // The display name of the model.
       shared_ptr<string> displayName_ {};
-      // The model identifier.
+      // The context length.
+      shared_ptr<int64_t> maxModelLength_ {};
+      // The model identifier. This value corresponds to the `model` parameter in an OpenAI API request.
       shared_ptr<string> model_ {};
-      // The model type. Valid values:
-      // 
-      // *   LLM
-      // *   Embedding
-      // *   ReRank
+      // The model type.
       shared_ptr<string> modelType_ {};
-      // Specifies whether a tool can be called by using ToolCall. Valid values:
-      // 
-      // *   true
-      // *   false
+      // Specifies whether the model supports deep reasoning and can output the reasoning process as `reasoning_content`.
+      shared_ptr<bool> supportReasoning_ {};
+      // Specifies whether the model supports structured output in the OpenAI API\\"s JSON Schema format.
+      shared_ptr<bool> supportResponseSchema_ {};
+      // Specifies whether the model supports visual understanding.
+      shared_ptr<bool> supportVision_ {};
+      // Specifies whether the model supports tool calling.
       shared_ptr<bool> toolCall_ {};
     };
 
@@ -249,40 +288,27 @@ namespace Models
 
 
   protected:
-    // The accessibility of the workspace. Valid values:
-    // 
-    // *   PRIVATE: The workspace is accessible only to you and the administrator of the workspace. This is the default value.
-    // *   PUBLIC: The workspace is accessible to all users in the workspace.
+    // The visibility of the workspace. The default value is `PRIVATE`.
     shared_ptr<string> accessibility_ {};
-    // The connection configurations, in key-value pairs. The key varies based on the connection type. For more information, see the supplementary notes below the request parameters.
+    // Configuration properties for the connection, provided as key-value pairs. The required keys depend on the connection type. For details, see the supplementary parameter information.
     // 
     // This parameter is required.
     shared_ptr<map<string, string>> configs_ {};
-    // The connection name.
+    // The name of the connection.
     // 
     // This parameter is required.
     shared_ptr<string> connectionName_ {};
-    // The connection type. Valid values:
-    // 
-    // *   DashScopeConnection: Alibaba Cloud Model Studio connection
-    // *   OpenLLMConnection: open source model connection
-    // *   MilvusConnection: Milvus connection
-    // *   OpenSearchConnection: OpenSearch connection
-    // *   LindormConnection: Lindorm connection
-    // *   ElasticsearchConnection: Elasticsearch connection
-    // *   HologresConnection: Hologres connection
-    // *   RDSConnection: RDS connection
-    // *   CustomConnection: custom connection
+    // The type of the connection.
     shared_ptr<string> connectionType_ {};
-    // The connection description.
+    // The description of the connection.
     shared_ptr<string> description_ {};
-    // The models, which apply to model service connections.
+    // A list of models. This parameter applies to model service connections.
     shared_ptr<vector<CreateConnectionRequest::Models>> models_ {};
-    // The instance resource information of the connection, which applies to database connections.
+    // Resource metadata for the connection. This parameter is typically used for database connection types.
     shared_ptr<CreateConnectionRequest::ResourceMeta> resourceMeta_ {};
-    // The configuration to be encrypted. Examples: the database logon account and password and the key of the model service.
+    // Sensitive connection properties that require encryption, such as database credentials or an API key for a model service.
     shared_ptr<map<string, string>> secrets_ {};
-    // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The ID of the workspace. To get this ID, call the [`ListWorkspaces`](https://help.aliyun.com/document_detail/449124.html) operation.
     shared_ptr<string> workspaceId_ {};
   };
 

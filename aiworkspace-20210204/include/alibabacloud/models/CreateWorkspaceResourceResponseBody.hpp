@@ -94,7 +94,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // A list of resources.
     shared_ptr<vector<CreateWorkspaceResourceResponseBody::Resources>> resources_ {};
     // The total number of resources.
     shared_ptr<int64_t> totalCount_ {};

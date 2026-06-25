@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The version of the model.
+    // The model version.
     shared_ptr<string> versionName_ {};
   };
 

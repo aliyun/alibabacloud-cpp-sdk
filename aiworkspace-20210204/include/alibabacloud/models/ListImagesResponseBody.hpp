@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of the label.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of the label.
         shared_ptr<string> value_ {};
       };
 
@@ -228,34 +228,35 @@ namespace Models
 
 
     protected:
-      // The accessibility of the image. Valid values:
+      // The visibility of the image. Valid values:
       // 
-      // *   PUBLIC: All members can access the image.
-      // *   PRIVATE: Only the creator can access the image.
+      // - PUBLIC: All members in the current workspace can perform operations on the image.
+      // 
+      // - PRIVATE: Only the creator can perform operations on the image.
       shared_ptr<string> accessibility_ {};
       // The image description.
       shared_ptr<string> description_ {};
-      // The time when the image is created, in UTC. The time follows the ISO 8601 standard.
+      // The time when the image was created. The time is in UTC and the format is ISO 8601.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the image is modified, in UTC. The time follows the ISO 8601 standard.
+      // The time when the image was last modified. The time is in UTC and the format is ISO 8601.
       shared_ptr<string> gmtModifiedTime_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The image address, which includes the version number.
+      // The image URL, which includes the version number.
       shared_ptr<string> imageUri_ {};
-      // The image tags.
+      // The list of image labels.
       shared_ptr<vector<Images::Labels>> labels_ {};
       // The image name.
       shared_ptr<string> name_ {};
-      // The ID of the Alibaba Cloud account.
+      // The UID of the Alibaba Cloud account that created the image.
       shared_ptr<string> parentUserId_ {};
-      // The image size. Unit: GB.
+      // The image size in bytes.
       shared_ptr<int64_t> size_ {};
-      // 镜像来源 ID
+      // The ID of the image source.
       shared_ptr<string> sourceId_ {};
-      // 镜像来源类型
+      // The type of the image source.
       shared_ptr<string> sourceType_ {};
-      // The user ID.
+      // The UID of the Alibaba Cloud account that created the image.
       shared_ptr<string> userId_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -287,7 +288,7 @@ namespace Models
 
 
   protected:
-    // The images.
+    // The list of images.
     shared_ptr<vector<ListImagesResponseBody::Images>> images_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

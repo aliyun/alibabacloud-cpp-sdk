@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The label key to be deleted. To delete multiple label keys, separate them with commas (,).
+    // The tag keys to delete. Separate multiple tag keys with commas (,).
     shared_ptr<string> labelKeys_ {};
   };
 

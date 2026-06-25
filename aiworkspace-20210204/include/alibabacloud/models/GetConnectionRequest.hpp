@@ -38,10 +38,11 @@ namespace Models
 
 
   protected:
-    // The encryption settings. Valid values:
+    // The encryption setting. Valid values:
     // 
-    // *   PlainText
-    // *   Secret
+    // - PlainText: The value is in plaintext.
+    // 
+    // - Secret: The value is in ciphertext.
     shared_ptr<string> encryptOption_ {};
   };
 

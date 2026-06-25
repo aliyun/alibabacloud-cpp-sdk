@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // 代表资源一级ID的资源属性字段
+    // The image build ID.
     shared_ptr<string> imageBuildId_ {};
+    // The build task ID.
     shared_ptr<string> imageBuildJobId_ {};
   };
 

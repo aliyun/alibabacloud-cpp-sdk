@@ -94,24 +94,31 @@ namespace Models
 
 
   protected:
-    // The configuration content. Configuration format for MultimodalIntelligentTag:
+    // The configuration content. The format depends on the ConfigType value.
+    // If ConfigType is MultimodalIntelligentTag, the format is as follows:
     // 
-    // { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
+    // {
+    // "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx"
+    // }
     // 
-    // MultimodalSemanticIndex
+    // If ConfigType is MultimodalSemanticIndex, the format is as follows:
     // 
-    // { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
+    // {
+    // "defaultModelId": "xxx",
+    // "defaultModelVersion":"1.0.0"
+    // }
     shared_ptr<string> config_ {};
-    // The configuration type. Valid values:
+    // The configuration type.
     // 
-    // *   MultimodalIntelligentTag
-    // *   MultimodalSemanticIndex
+    // - MultimodalIntelligentTag
+    // 
+    // - MultimodalSemanticIndex
     shared_ptr<string> configType_ {};
-    // The time when the configuration is created.
+    // The time when the configuration was created.
     shared_ptr<string> createTime_ {};
     // The dataset ID.
     shared_ptr<string> datasetId_ {};
-    // The time when the configuration is modified.
+    // The time when the configuration was last modified.
     shared_ptr<string> modifyTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -119,7 +119,7 @@ namespace Models
 
 
   protected:
-    // The returned members.
+    // The list of members.
     shared_ptr<vector<CreateMemberResponseBody::Members>> members_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

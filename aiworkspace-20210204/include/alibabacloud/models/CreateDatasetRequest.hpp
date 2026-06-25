@@ -269,140 +269,204 @@ namespace Models
 
 
   protected:
-    // The workspace accessibility. Valid values:
+    // The visibility of the dataset in the workspace. Valid values:
     // 
-    // *   PRIVATE: The workspace is accessible only to you and the administrator of the workspace. This is the default value.
-    // *   PUBLIC: The workspace is accessible to all users.
+    // - PRIVATE (default): The dataset is visible only to its owner and administrators in the workspace.
+    // 
+    // - PUBLIC: The dataset is visible to all users in the workspace.
+    // 
+    // - ROLE_PUBLIC: The dataset is visible to users with specific workspace roles. The list of roles is specified in the `AccessibleRoleIdList` parameter. The dataset owner and administrators always retain visibility.
     shared_ptr<string> accessibility_ {};
+    // This parameter takes effect only when `Accessibility` is set to `ROLE_PUBLIC`. This parameter specifies a list of workspace role IDs that can view this dataset. Role IDs that start with `PAI.` are built-in roles, and role IDs that start with `role-` are custom roles.
     shared_ptr<vector<string>> accessibleRoleIdList_ {};
-    // The number of dataset files.
+    // The number of files in the dataset.
     shared_ptr<int64_t> dataCount_ {};
-    // The size of the dataset file. Unit: bytes.
+    // The size of the dataset files, in bytes.
     shared_ptr<int64_t> dataSize_ {};
-    // The data source type. Valid values:
+    // The type of the data source. Valid values:
     // 
-    // *   OSS: Object Storage Service (OSS).
-    // *   NAS: File Storage NAS (NAS).
+    // - OSS: Object Storage Service (OSS).
+    // 
+    // - NAS: general-purpose Apsara File Storage NAS.
+    // 
+    // - EXTREMENAS: Extreme NAS.
+    // 
+    // - CPFS: general-purpose Cloud Parallel File Storage (CPFS).
+    // 
+    // - BMCPFS: AI Computing Edition of CPFS.
+    // 
+    // - MAXCOMPUTE: MaxCompute.
+    // 
+    // - URL: a public HTTP or HTTPS URL.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
-    // The type of the dataset. Default value: COMMON. Valid values:
+    // The data type of the dataset. The default value is `COMMON`. Valid values:
     // 
-    // *   COMMON: common
-    // *   PIC: picture
-    // *   TEXT: text
-    // *   Video: video
-    // *   AUDIO: audio
+    // - COMMON: common
+    // 
+    // - PIC: image
+    // 
+    // - TEXT: text
+    // 
+    // - VIDEO: video
+    // 
+    // - AUDIO: audio
     shared_ptr<string> dataType_ {};
-    // The description of the dataset. Descriptions are used to differentiate datasets.
+    // A custom description to distinguish the dataset from other datasets.
     shared_ptr<string> description_ {};
+    // The edition of the dataset. The default value is BASIC. Valid values:
+    // 
+    // - BASIC: Basic. Does not support dataset file metadata management.
+    // 
+    // - ADVANCED: Advanced. Supported only for OSS datasets. Each version supports metadata management for up to 1 million files.
+    // 
+    // - LOGICAL: Logical. Supported only for OSS datasets. Each version supports metadata management for up to 3 million files.
     shared_ptr<string> edition_ {};
-    // The dataset configurations to be imported to a storage, such as OSS, NAS, or Cloud Parallel File Storage (CPFS).
+    // The storage import configuration of the dataset. `OSS`, `NAS`, and `CPFS` are supported.
     // 
-    // **OSS**
+    // <details>
+    // 
+    // <summary>
+    // 
+    // OSS
+    // 
+    // </summary>
     // 
     // {\\
     // "region": "${region}",// The region ID.\\
-    // "bucket": "${bucket}",//The bucket name.\\
+    // "bucket": "${bucket}",// The bucket name.\\
     // "path": "${path}" // The file path.\\
-    // }\\
+    // }
     // 
+    // </details>
     // 
-    // **NAS**
+    // <details>
     // 
-    // {\\
-    // "region": "${region}",// The region ID.\\
-    // "fileSystemId": "${file_system_id}", // The file system ID.\\
-    // "path": "${path}", // The file system path.\\
-    // "mountTarget": "${mount_target}" // The mount point of the file system.\\
-    // }\\
+    // <summary>
     // 
+    // NAS
     // 
-    // **CPFS**
-    // 
-    // {\\
-    // "region": "${region}",// The region ID.\\
-    // "fileSystemId": "${file_system_id}", // The file system ID.\\
-    // "protocolServiceId":"${protocol_service_id}", // The file system protocol service.\\
-    // "exportId": "${export_id}", // The file system export directory.\\
-    // "path": "${path}", // The file system path.\\
-    // }\\
-    // 
-    // 
-    // **CPFS for Lingjun**
+    // </summary>
     // 
     // {\\
     // "region": "${region}",// The region ID.\\
     // "fileSystemId": "${file_system_id}", // The file system ID.\\
     // "path": "${path}", // The file system path.\\
-    // "mountTarget": "${mount_target}" // The mount point of the file system, CPFS for Lingjun only.\\
-    // "isVpcMount": boolean, // Whether the mount point is a virtual private cloud (VPC) mount point, CPFS for Lingjun only.\\
-    // }\\
+    // "mountTarget": "${mount_target}" // The mount target of the file system.\\
+    // }
+    // 
+    // </details>
+    // 
+    // <details>
+    // 
+    // <summary>
+    // 
+    // CPFS
+    // 
+    // </summary>
+    // 
+    // {\\
+    // "region": "${region}",// The region ID.\\
+    // "fileSystemId": "${file_system_id}", // The file system ID.\\
+    // "protocolServiceId":"${protocol_service_id}", // The protocol service of the file system.\\
+    // "exportId": "${export_id}", // The exported directory of the file system.\\
+    // "path": "${path}", // The file system path.\\
+    // }
+    // 
+    // </details>
+    // 
+    // <details>
+    // 
+    // <summary>
+    // 
+    // CPFS (AI Computing Edition)
+    // 
+    // </summary>
+    // 
+    // {\\
+    // "region": "${region}",// The region ID.\\
+    // "fileSystemId": "${file_system_id}", // The file system ID.\\
+    // "path": "${path}", // The file system path.\\
+    // "mountTarget": "${mount_target}", // The mount target of the file system. This parameter is specific to the AI Computing Edition.\\
+    // "isVpcMount": boolean, // Specifies whether the mount target is in a VPC. This parameter is specific to the AI Computing Edition.\\
+    // }
+    // 
+    // </details>
     shared_ptr<string> importInfo_ {};
-    // The tags.
+    // A list of labels.
     shared_ptr<vector<Label>> labels_ {};
-    // The list of role names in the workspace that have read and write permissions on the mounted database. The names start with PAI are basic role names and the names start with role- are custom role names. If the list contains asterisks (\\*), all roles have read and write permissions.
+    // A list of workspace role IDs that are granted read and write permissions when the dataset is mounted. Role IDs that start with `PAI.` are built-in roles, and role IDs that start with `role-` are custom roles. If the list contains an asterisk (\\*), all roles are granted read and write permissions.
     // 
-    // *   If you set the value to ["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"], the account of the specified role is granted the read and write permissions.
-    // *   If you set the value to ["\\*"], all accounts are granted the read and write permissions.
-    // *   If you set the value to [], only the creator of the dataset has the read and write permissions.
+    // - Accounts with specified roles: `["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"]`
+    // 
+    // - All accounts: `["*"]`
+    // 
+    // - Dataset creator only: `[]`
     shared_ptr<vector<string>> mountAccessReadWriteRoleIdList_ {};
-    // The dataset name. The name must meet the following requirements:
+    // The name of the dataset. The name must meet the following requirements:
     // 
-    // *   The name must start with a letter, digit, or Chinese character.
-    // *   The name can contain underscores (_) and hyphens (-).
-    // *   The name must be 1 to 127 characters in length.
+    // - Starts with a lowercase letter, an uppercase letter, a number, or a Chinese character.
+    // 
+    // - Can contain underscores (_) and hyphens (-).
+    // 
+    // - Must be 1 to 127 characters long.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The extended field, which is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can configure the mountPath field to specify the default mount path of the dataset.
+    // The extended fields, which are a JSON string.
+    // When a Data Lake Compute (DLC) job uses the dataset, you can configure the `mountPath` field to specify the default mount path of the dataset.
     shared_ptr<string> options_ {};
     // The property of the dataset. Valid values:
     // 
-    // *   FILE
-    // *   DIRECTORY
+    // - FILE: A file.
+    // 
+    // - DIRECTORY: A directory.
     // 
     // This parameter is required.
     shared_ptr<string> property_ {};
-    // The dataset provider. The value cannot be set to pai.
+    // The provider of the dataset. You cannot set this parameter to `pai`.
     shared_ptr<string> provider_ {};
-    // The source type of the dataset. Valid values:
+    // The type of the data source provider. Valid values:
     // 
-    // *   Ecs (default)
-    // *   Lingjun
+    // - Ecs (default)
+    // 
+    // - Lingjun
     shared_ptr<string> providerType_ {};
-    // The ID of the source dataset for the labeled dataset.
+    // The ID of the source dataset for a labeled dataset.
     shared_ptr<string> sourceDatasetId_ {};
-    // The version of the source dataset for the labeled dataset.
+    // The version of the source dataset for a labeled dataset.
     shared_ptr<string> sourceDatasetVersion_ {};
-    // The data source ID.
+    // The ID of the data source.
     // 
-    // *   If SourceType is set to USER, the value of SourceId is a custom string.
-    // *   If SourceType is set to ITAG, the value of SourceId is the ID of the labeling job of iTAG.
-    // *   If SourceType is set to PAI_PUBLIC_DATASET, SourceId is empty by default.
+    // - If `SourceType` is `USER`, you can specify a custom value for `SourceId`.
+    // 
+    // - If `SourceType` is `ITAG`, this parameter specifies the iTAG task ID from which the dataset was generated.
+    // 
+    // - If `SourceType` is `PAI_PUBLIC_DATASET`, the dataset is from a public PAI dataset, and this parameter is empty by default.
     shared_ptr<string> sourceId_ {};
-    // The type of the data source. Default value: USER.
-    // 
-    // Valid values:
-    // 
-    // *   PAI_PUBLIC_DATASET: a public dataset of PAI.
-    // *   ITAG: a dataset generated from a labeling job of iTAG.
-    // *   USER: a dataset registered by a user.
+    // The source of the data. The default value is USER.
     shared_ptr<string> sourceType_ {};
-    // The URI of the data source.
+    // The URI of the data. The URI format varies based on the `DataSourceType` value.
     // 
-    // *   Value format if DataSourceType is set to OSS: `oss://bucket.endpoint/object`.
-    // *   Value formats if DataSourceType is set to NAS: General-purpose NAS: `nas://<nasfisid>.region/subpath/to/dir/`. CPFS 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`. CPFS 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`. You can distinguish CPFS 1.0 and CPFS 2.0 file systems based on the format of the file system ID: The ID for CPFS 1.0 is in the cpfs-<8-bit ASCII characters> format. The ID for CPFS 2.0 is in the cpfs-<16-bit ASCII characters> format.
+    // - For an `OSS` data source: `oss://bucket.endpoint/object`
+    // 
+    // - For a `NAS` data source:
+    //   For general-purpose `NAS`: `nas://<nasfisid>.region/subpath/to/dir/`.
+    //   For `CPFS` 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`.
+    //   For `CPFS` 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`.
+    //   `CPFS` 1.0 and `CPFS` 2.0 are distinguished by the format of the file system ID (fsid). The fsid for `CPFS` 1.0 is in the `cpfs-<8-character ASCII string>` format. The fsid for `CPFS` 2.0 is in the `cpfs-<16-character ASCII string>` format.
     // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
-    // The ID of the Alibaba Cloud account to which the dataset belongs. The workspace owner and administrator have permissions to create datasets for specified members in the workspace.
+    // The Alibaba Cloud account ID of the dataset owner. Workspace owners and administrators can create datasets for specified members of a workspace.
     shared_ptr<string> userId_ {};
-    // The description of the dataset of the initial version.
+    // The description of the initial version of the dataset.
     shared_ptr<string> versionDescription_ {};
-    // The list of tags to be added to the dataset of the initial version.
+    // A list of labels for the initial version.
     shared_ptr<vector<Label>> versionLabels_ {};
-    // The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID. If you do not specify this parameter, the default workspace is used. If the default workspace does not exist, an error is reported.
+    // The ID of the workspace to which the dataset belongs. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // If this parameter is not specified, the default workspace is used. If the default workspace does not exist, an error is returned.
     shared_ptr<string> workspaceId_ {};
   };
 

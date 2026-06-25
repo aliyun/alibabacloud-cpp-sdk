@@ -171,35 +171,35 @@ namespace Models
 
 
   protected:
-    // DataCount
+    // The total number of data items in the version.
     shared_ptr<int64_t> dataCount_ {};
-    // DataSize
+    // The total size of the data in the version, in bytes.
     shared_ptr<int64_t> dataSize_ {};
-    // DataSourceType
+    // The data source type. For example, the value `OSS` indicates Object Storage Service.
     shared_ptr<string> dataSourceType_ {};
-    // Description
+    // A custom description for the dataset version.
     shared_ptr<string> description_ {};
-    // create time
+    // The creation time of the dataset version, in UTC.
     shared_ptr<string> gmtCreateTime_ {};
-    // modify time
+    // The time the dataset version was last modified, in UTC.
     shared_ptr<string> gmtModifiedTime_ {};
-    // ImportInfo
+    // Information about the import source, in JSON format.
     shared_ptr<string> importInfo_ {};
-    // Labels
+    // A list of labels applied to the dataset version.
     shared_ptr<vector<Label>> labels_ {};
-    // MountAccess
+    // The access permission for the mounted dataset. For example, `RO` means read-only.
     shared_ptr<string> mountAccess_ {};
-    // Options
+    // Additional configurations for the dataset version, in JSON format.
     shared_ptr<string> options_ {};
-    // property
+    // The data format of the dataset.
     shared_ptr<string> property_ {};
-    // SourceId
+    // The ID of the source from which the version was created.
     shared_ptr<string> sourceId_ {};
-    // SourceType
+    // The method used to create the dataset version.
     shared_ptr<string> sourceType_ {};
-    // Uri
+    // The URI of the data source.
     shared_ptr<string> uri_ {};
-    // version name
+    // The name of the dataset version.
     shared_ptr<string> versionName_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The dataset version name.
+    // The name of the dataset version.
     shared_ptr<string> datasetVersion_ {};
-    // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The workspace ID. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -107,16 +107,17 @@ namespace Models
 
 
   protected:
-    // The metadata records of the dataset files.
+    // The detailed metadata of the dataset files.
     shared_ptr<vector<DatasetFileMeta>> datasetFileMetas_ {};
     // The dataset ID.
     shared_ptr<string> datasetId_ {};
-    // The dataset version.
+    // The version name of the dataset.
     shared_ptr<string> datasetVersion_ {};
+    // The maximum number of results returned per page when you use the \\`NextToken\\` parameter.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. If the number of results exceeds the maximum number of entries allowed per page, a pagination token is returned. This token can be used as an input parameter to obtain the next page of results. If all results are obtained, no token is returned.
+    // The pagination token. If the number of results that match the query exceeds the page size, this token is returned. To retrieve the next page of data, use the returned token in your next request. Repeat this process until no token is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

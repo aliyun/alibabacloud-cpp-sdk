@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the target resource group. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the new resource group. For more information about how to obtain a resource group ID, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> newResourceGroupId_ {};
-    // The resource ID, which is the workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The resource ID. This ID is the same as the workspace ID. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> resourceId_ {};
-    // The resource group type, which must be set to workspace.
+    // The type of the resource. You must set this parameter to workspace.
     shared_ptr<string> resourceType_ {};
   };
 

@@ -68,13 +68,13 @@ namespace Models
 
 
   protected:
-    // Attributes
+    // A collection of key-value pairs providing additional details about the relationship.
     Darabonba::Json attributes_ {};
-    // DataChannel
+    // The channel or system through which the relationship is established.
     shared_ptr<string> dataChannel_ {};
-    // RelationshipGuid
+    // The globally unique identifier (GUID) for the relationship.
     shared_ptr<string> relationshipGuid_ {};
-    // RelationshipType
+    // Specifies the type of relationship.
     shared_ptr<string> relationshipType_ {};
   };
 

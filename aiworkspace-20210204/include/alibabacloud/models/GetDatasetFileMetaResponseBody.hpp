@@ -78,11 +78,11 @@ namespace Models
 
 
   protected:
-    // The queried metadata records of dataset files.
+    // The details of the dataset file metadata.
     shared_ptr<DatasetFileMetaContentGet> datasetFileMeta_ {};
     // The dataset ID.
     shared_ptr<string> datasetId_ {};
-    // The dataset version.
+    // The name of the dataset version.
     shared_ptr<string> datasetVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

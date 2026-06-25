@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the label.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -168,53 +168,80 @@ namespace Models
 
 
   protected:
-    // The accessibility of the image. Valid values:
+    // The visibility of the image. Valid values:
     // 
-    // *   PUBLIC: The image is accessible to all members in the workspace.
-    // *   PRIVATE: The image is accessible only to the image creator.
+    // - PUBLIC: All members of the workspace can perform operations on the image.
+    // 
+    // - PRIVATE: Only the creator can perform operations on the image.
     shared_ptr<string> accessibility_ {};
-    // The image description.
+    // The description of the image.
     shared_ptr<string> description_ {};
-    // The image ID. If you do not specify this parameter, the system automatically generates an image ID. The image ID must start with image- followed by 18 characters in letters or digits.
+    // The ID of the image. If you leave this parameter empty, the system automatically generates an ID.
+    // The format is \\`image-\\` followed by 18 uppercase letters, lowercase letters, or digits.
     shared_ptr<string> imageId_ {};
-    // The URL of the image, which can be repeated. You can call [ListImage](https://help.aliyun.com/document_detail/449118.html) to view the image URL.
+    // The URI of the image. The URI can be reused. For more information, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
     // 
     // This parameter is required.
     shared_ptr<string> imageUri_ {};
-    // The image tag, which is an array. Each element in the array contains a key-value pair. Alibaba Cloud images have the system.official=true tag. You can add the following keys to an image:
+    // The labels of the image. This is an array where each item contains a key and a value.
+    // Official images have the following label: system.official=true
+    // The following keys are supported:
     // 
-    // *   system.chipType
-    // *   system.dsw.cudaVersion
-    // *   system.dsw.fromImageId
-    // *   system.dsw.fromInstanceId
-    // *   system.dsw.id
-    // *   system.dsw.os
-    // *   system.dsw.osVersion
-    // *   system.dsw.resourceType
-    // *   system.dsw.rootImageId
-    // *   system.dsw.stage
-    // *   system.dsw.tag
-    // *   system.dsw.type
-    // *   system.framework
-    // *   system.origin
-    // *   system.pythonVersion
-    // *   system.source
-    // *   system.supported.dlc
-    // *   system.supported.dsw
+    // - system.chipType
+    // 
+    // - system.dsw\\.cudaVersion
+    // 
+    // - system.dsw\\.fromImageId
+    // 
+    // - system.dsw\\.fromInstanceId
+    // 
+    // - system.dsw\\.id
+    // 
+    // - system.dsw\\.os
+    // 
+    // - system.dsw\\.osVersion
+    // 
+    // - system.dsw\\.resourceType
+    // 
+    // - system.dsw\\.rootImageId
+    // 
+    // - system.dsw\\.stage
+    // 
+    // - system.dsw\\.tag
+    // 
+    // - system.dsw\\.type
+    // 
+    // - system.framework
+    // 
+    // - system.origin
+    // 
+    // - system.pythonVersion
+    // 
+    // - system.source
+    // 
+    // - system.supported.dlc
+    // 
+    // - system.supported.dsw
     shared_ptr<vector<AddImageRequest::Labels>> labels_ {};
-    // The image name. The name must meet the following requirements:
+    // The image name. The naming convention is as follows:
     // 
-    // *   The name must be 1 to 50 characters in length.
-    // *   The name can contain lowercase letters, digits, and hyphens (-). The name must start with a lowercase letter.
-    // *   The name must be unique in a workspace.
+    // - The name must be 1 to 50 characters long.
+    // 
+    // - The name can contain lowercase letters, digits, and hyphens (-). It must start with a letter.
+    // 
+    // - The name must be unique within the workspace.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The size of the image. Unit: GB.
+    // The size of the image, in GB.
     shared_ptr<int64_t> size_ {};
+    // The source ID of the image. If the source type is Build, this ID corresponds to the image build ID.
     shared_ptr<string> sourceId_ {};
+    // The source type of the image. Valid values:
+    // Import
+    // Build
     shared_ptr<string> sourceType_ {};
-    // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The ID of the workspace to which the image belongs. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

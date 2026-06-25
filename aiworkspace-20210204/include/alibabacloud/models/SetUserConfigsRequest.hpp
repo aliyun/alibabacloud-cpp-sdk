@@ -86,15 +86,15 @@ namespace Models
 
 
     protected:
-      // The category. Only DataPrivacyConfig is supported.
+      // The classification. Only DataPrivacyConfig is supported.
       // 
       // This parameter is required.
       shared_ptr<string> categoryName_ {};
-      // The key of the configuration item.
+      // The configuration key.
       // 
       // This parameter is required.
       shared_ptr<string> configKey_ {};
-      // The value of the configuration item.
+      // The configuration value.
       // 
       // This parameter is required.
       shared_ptr<string> configValue_ {};
@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The configurations list.
+    // The list of configurations.
     shared_ptr<vector<SetUserConfigsRequest::Configs>> configs_ {};
   };
 

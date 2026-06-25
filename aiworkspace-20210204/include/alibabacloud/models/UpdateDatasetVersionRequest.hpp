@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The number of files in the dataset.
     shared_ptr<int64_t> dataCount_ {};
+    // The size of the dataset files, in bytes.
     shared_ptr<int64_t> dataSize_ {};
+    // A custom description of the dataset to distinguish it from other datasets.
     shared_ptr<string> description_ {};
+    // An extension field in the JSON String format.
+    // When DLC uses the dataset, you can configure the mountPath field to specify the default mount path.
     shared_ptr<string> options_ {};
   };
 

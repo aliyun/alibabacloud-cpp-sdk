@@ -241,27 +241,29 @@ namespace Models
 
 
   protected:
-    // The visibility of the workspace.
+    // The visibility of the workspace. Valid values:
     // 
-    // *   PRIVATE: The workspace is visible only to you and the administrator of the workspace.
-    // *   PUBLIC: The workspace is visible to all users.
+    // - PRIVATE: The model is visible only to you and administrators in the workspace.
+    // 
+    // - PUBLIC: The model is visible to everyone in the workspace.
     shared_ptr<string> accessibility_ {};
-    // The domain. This parameter specifies the domain for which the model is developed. Valid values: nlp and cv. nlp indicates natural language processing and cv indicates computer vision.
+    // The domain. This indicates the domain of the problem that the model is designed to solve, such as natural language processing (NLP) and computer vision (CV).
     shared_ptr<string> domain_ {};
     // Other information about the model.
     Darabonba::Json extraInfo_ {};
-    // The time when the model is created, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time when the model was created. The time is in the ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the latest version was updated.
     shared_ptr<string> gmtLatestVersionModifiedTime_ {};
-    // The time when the model is last modified, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time when the model was last updated. The time is in the ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The model tags.
+    // The list of labels for the model.
     shared_ptr<vector<Label>> labels_ {};
     // The latest version of the model.
     shared_ptr<ModelVersion> latestVersion_ {};
     // The model description.
     shared_ptr<string> modelDescription_ {};
-    // The documentation of the model.
+    // The model document.
     shared_ptr<string> modelDoc_ {};
     // The model ID.
     shared_ptr<string> modelId_ {};
@@ -269,18 +271,19 @@ namespace Models
     shared_ptr<string> modelName_ {};
     // The model type.
     shared_ptr<string> modelType_ {};
-    // The sequence number of the model.
+    // The ordinal number.
     shared_ptr<int64_t> orderNumber_ {};
-    // The source of the model. The community or organization to which the model belongs, such as ModelScope or HuggingFace.
+    // The source of the model. This indicates the community or organization to which the source model belongs, such as ModelScope and HuggingFace.
     shared_ptr<string> origin_ {};
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> ownerId_ {};
+    // The number of parameters, in millions.
     shared_ptr<int64_t> parameterSize_ {};
     // The provider.
     shared_ptr<string> provider_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task of the model. This parameter describes specific issues that the model solves, such as text-classification.
+    // The task. This indicates the specific problem that the model is designed to solve, such as text classification.
     shared_ptr<string> task_ {};
     // The user ID.
     shared_ptr<string> userId_ {};

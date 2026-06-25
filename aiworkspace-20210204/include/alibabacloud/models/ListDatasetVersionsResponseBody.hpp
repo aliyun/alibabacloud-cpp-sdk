@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The dataset versions.
+    // The list of dataset versions.
     shared_ptr<vector<DatasetVersion>> datasetVersions_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The number of dataset versions that meet the filter conditions.
+    // The number of resources that match the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

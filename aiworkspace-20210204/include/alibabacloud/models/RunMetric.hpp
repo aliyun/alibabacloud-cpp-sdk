@@ -70,9 +70,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The step number that generated the metric.
+    // The step when the metric was recorded.
     shared_ptr<int64_t> step_ {};
-    // The timestamp when the metric was generated.
+    // The timestamp when the metric was recorded.
     shared_ptr<int64_t> timestamp_ {};
     // The metric value.
     // 

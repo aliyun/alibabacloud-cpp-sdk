@@ -129,19 +129,27 @@ namespace Models
 
 
     protected:
+      // Account name of the member.
       shared_ptr<string> accountName_ {};
+      // Account type. Valid values:
+      // 
+      // - 1: Alibaba Cloud account
+      // 
+      // - 5: RAM user
+      // 
+      // - 6: RAM role
       shared_ptr<string> accountType_ {};
-      // The display name of the member.
+      // Display name of the member.
       shared_ptr<string> displayName_ {};
-      // The time when the user is created, in UTC. The time follows the ISO 8601 standard.
+      // Time when the member was added, in UTC. Format: ISO 8601.
       shared_ptr<string> gmtCreateTime_ {};
-      // The member ID.
+      // Member ID.
       shared_ptr<string> memberId_ {};
-      // The username.
+      // Username of the member.
       shared_ptr<string> memberName_ {};
-      // The list of roles.
+      // Roles assigned to the member.
       shared_ptr<vector<string>> roles_ {};
-      // The user ID.
+      // Alibaba Cloud account ID of the member.
       shared_ptr<string> userId_ {};
     };
 
@@ -171,11 +179,11 @@ namespace Models
 
 
   protected:
-    // The members.
+    // The list of workspace members.
     shared_ptr<vector<ListMembersResponseBody::Members>> members_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of members that meet the filter conditions.
+    // Total number of members that match the filter criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

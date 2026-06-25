@@ -186,61 +186,81 @@ namespace Models
 
 
   protected:
-    // The MIME Type of the file.
+    // The MIME type of the file. It includes a type and a subtype.
     shared_ptr<string> contentType_ {};
-    // The file size. Unit: bytes.
+    // The size of the file in bytes.
     shared_ptr<int64_t> dataSize_ {};
-    // The metadata ID of the dataset file.
+    // The ID of the dataset file metadata.
     shared_ptr<string> datasetFileMetaId_ {};
     // The download URL of the file.
     shared_ptr<string> downloadUrl_ {};
-    // The time when the file was created. A UTC timestamp in the ISO 8601 format.
+    // The time when the file was created. The time is in UTC and in ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileCreateTime_ {};
-    // The file fingerprint, used to determine the uniqueness of the file content. This value changes after the file content is modified. OSS files use ETags, and NAS files use MD5 values.
+    // The file fingerprint. This value ensures the uniqueness of the file content and changes if the content is modified. The ETag is used for OSS files, and the MD5 value is used for NAS files.
     shared_ptr<string> fileFingerPrint_ {};
-    // The file name.
+    // The name of the file.
     shared_ptr<string> fileName_ {};
-    // The file type.
+    // The type of the file. This corresponds to the main type of a Multipurpose Internet Mail Extensions (MIME) type.
     shared_ptr<string> fileType_ {};
-    // The last modified time of the file. A UTC timestamp in the ISO 8601 format.
+    // The time when the file was last modified. The time is in Coordinated Universal Time (UTC) and in ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileUpdateTime_ {};
-    // The specific metadata of the file. For example, the width and height of an image file, or the bitrate and resolution of a video file. This parameter cannot be used for retrieval. In JSON String format.
+    // Specific metadata for the file, such as the width and height of an image or the bitrate and resolution of a video. Currently, this metadata cannot be used for retrieval. The format is a JSON string.
     shared_ptr<string> metaAttributes_ {};
     // The similarity score.
     shared_ptr<float> score_ {};
-    // The ID of the last semantic indexing job.
+    // The ID of the job that last built the semantic index.
     shared_ptr<string> semanticIndexJobId_ {};
-    // The last update time of the semantic index. A UTC timestamp in the ISO 8601 format.
+    // The time when the semantic index was last updated. The time is in UTC and in ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> semanticIndexUpdateTime_ {};
+    // The current status of the metadata:
+    // \\- ACTIVE: Active.
+    // \\- DELETED: Deleted.
     shared_ptr<string> status_ {};
-    // The tags of the metadata, in JSON string format. Including:
+    // A collection of tags for the metadata, in JSON string format. The collection includes the following groups:
     // 
-    // *   Algorithm tag group:
+    // - Algorithm tag group:
     // 
-    //     *   ai: tags from all algorithm tagging tasks on this metadata.
+    //   - ai: A list of tag names aggregated from all algorithm-based tagging tasks for a single metadata record.
     // 
-    // *   User-defined tag group:
+    // - User-defined tag group:
     // 
-    //     *   user: tags added by the user to this metadata.
-    //     *   user-delete-ai-tags: tags from the algorithm tag group that the user needs to delete.
+    //   - user: A list of tag names that a user adds to a single metadata record.
+    // 
+    //   - user-delete-ai-tags: A list of tag names from the algorithm tag group that the user deletes from a single metadata record.
     shared_ptr<string> tags_ {};
     // The URL of the thumbnail.
     shared_ptr<string> thumbnailUrl_ {};
-    // The URI of the file. Used to record the unique path of the file. File paths in Object Storage Service (OSS) and File Storage NAS (NAS) are supported.
+    // The unique URI of the file. It records the unique path of the file. Paths for files in OSS and NAS are supported.
     // 
-    // **OSS**
+    // <details>
     // 
-    // oss://${bucket}/${path}
+    // <summary>
     // 
-    // **NAS**
+    // OSS
     // 
-    // nas://${fileSystemId}/${path}
+    // </summary>
+    // 
+    // oss\\://${bucket}/${path}
+    // 
+    // </details>
+    // 
+    // <details>
+    // 
+    // <summary>
+    // 
+    // NAS
+    // 
+    // </summary>
+    // 
+    // nas\\://${fileSystemId}/${path}
+    // 
+    // </details>
     shared_ptr<string> uri_ {};
   };
 

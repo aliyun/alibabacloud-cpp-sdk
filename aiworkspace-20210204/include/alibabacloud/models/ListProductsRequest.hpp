@@ -57,7 +57,9 @@ namespace Models
 
 
   protected:
+    // The product codes, separated by commas.
     shared_ptr<string> productCodes_ {};
+    // The service codes, separated by commas.
     shared_ptr<string> serviceCodes_ {};
     shared_ptr<bool> verbose_ {};
   };

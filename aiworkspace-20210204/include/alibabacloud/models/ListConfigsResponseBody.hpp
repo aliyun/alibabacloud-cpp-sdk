@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of the label.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of the label.
         shared_ptr<string> value_ {};
       };
 
@@ -145,19 +145,23 @@ namespace Models
 
 
     protected:
-      // The key of the configuration item. Supported keys:
+      // The key of the configuration item. The following keys are supported:
       // 
-      // *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-      // *   isAutoRecycle: Automatic recycle configuration. This key can be used only when CategoryName is set to DLCAutoRecycle.
-      // *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-      // *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
-      // *   predefinedTags: The predefined tags of the workspace. All created resources must have tags
+      // - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
+      // 
+      // - isAutoRecycle: The automatic recycling configuration. This key is valid only when CategoryName is set to DLCAutoRecycle.
+      // 
+      // - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+      // 
+      // - quotaMaximumDuration: The configuration for the maximum runtime of a DLC task in a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
+      // 
+      // - predefinedTags: The predefined labels for the workspace. Resources that you create must have these labels.
       shared_ptr<string> configKey_ {};
       // The value of the configuration item.
       shared_ptr<string> configValue_ {};
       shared_ptr<string> gmtCreateTime_ {};
       shared_ptr<string> gmtModifiedTime_ {};
-      // The tags of the configuration item.
+      // The list of labels for the configuration item.
       shared_ptr<vector<Configs::Labels>> labels_ {};
     };
 
@@ -187,11 +191,11 @@ namespace Models
 
 
   protected:
-    // The configuration items.
+    // The list of configuration items.
     shared_ptr<vector<ListConfigsResponseBody::Configs>> configs_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of items returned.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Feature names, separated by commas.
     shared_ptr<string> names_ {};
   };
 

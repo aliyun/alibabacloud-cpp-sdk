@@ -140,55 +140,71 @@ namespace Models
 
 
   protected:
-    // The name of the resource group. You can call [ListResources](https://help.aliyun.com/document_detail/449143.html) to obtain the name of the resource group.
+    // The name of the resource group. To get the resource group name, see [ListResources](https://help.aliyun.com/document_detail/449143.html).
     shared_ptr<string> groupName_ {};
-    // Tag-based filter conditions. Multiple conditions are separated by commas (,). Only resources that meet all the specified tag-based filter conditions are returned.
+    // A comma-separated list of labels. This operation returns only the resources that have all the specified labels.
     // 
-    // This parameter is available only for resources whose ProductType is ACS.
+    // This parameter is available only for resources whose `ResourceTypes` is set to `ACS`.
     shared_ptr<string> labels_ {};
-    // The operation to perform. Valid values:
+    // The option to query resources. Valid values:
     // 
-    // *   ListResourceByWorkspace: obtains the resources in the workspace. This is the default value.
-    // *   ListResource: obtains the resources of the user.
+    // - `ListResourceByWorkspace` (Default): lists the resources in a workspace.
+    // 
+    // - `ListResource`: lists the resources of the current user.
     shared_ptr<string> option_ {};
-    // The page number. The pages start from page 1. Default value: 1.
+    // The page number. The value must be greater than or equal to 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // **This field is no longer used and will be removed. Use the ResourceType field instead.
+    // **Deprecated.** This parameter is deprecated. Use the `ResourceType` parameter instead.
     shared_ptr<string> productTypes_ {};
-    // The quota IDs, which are separated by commas (,). Only resources that contain all the specified quotas are returned.
+    // A comma-separated list of quota IDs. This operation returns only the resources that are associated with all the specified quota IDs.
     // 
-    // >  This parameter is available only for resources whose ResourceTypes is ACS.
+    // > This parameter is available only for resources whose `ResourceTypes` is set to `ACS`.
     shared_ptr<string> quotaIds_ {};
-    // The resource name. The value must meet the following requirements:
+    // The resource name. The name must meet the following requirements:
     // 
-    // *   The name must be 3 to 28 characters in length.
-    // *   The name is unique in the region.
+    // - The name must be 3 to 28 characters in length.
+    // 
+    // - The name must be unique within a region.
     shared_ptr<string> resourceName_ {};
     // The resource types. Valid values:
     // 
-    // *   MaxCompute
-    // *   ECS
-    // *   Lingjun
-    // *   ACS
-    // *   FLINK
+    // - `MaxCompute`: MaxCompute resources.
+    // 
+    // - `ECS`: ECS resources.
+    // 
+    // - `Lingjun`: Lingjun computing resources.
+    // 
+    // - `ACS`: ACS computing resources.
+    // 
+    // - `Flink`: Flink resources.
+    // 
+    // - `SelfManagedAckPro`: self-managed AckPro cluster resources.
+    // 
+    // - `SelfManagedAckLingjun`: self-managed AckLingjun cluster resources.
+    // 
+    // - `SelfManagedASI`: self-managed ASI cluster resources from a third-party cloud.
     shared_ptr<string> resourceTypes_ {};
-    // Specifies whether to show detailed information, which includes the Quotas field. Valid values:
+    // Specifies whether to return detailed information. The detailed information includes the `Quotas` field. Valid values:
     // 
-    // *   true (default)
-    // *   false
+    // - `true` (Default): returns detailed information.
+    // 
+    // - `false`: does not return detailed information.
     shared_ptr<bool> verbose_ {};
-    // The fields to return. Multiple fields are separated by commas (,). Valid values:
+    // A comma-separated list of fields that you want to return. Valid values:
     // 
-    // *   Quota
-    // *   Label
-    // *   IsDefault
+    // - `Quota`
+    // 
+    // - `Label`
+    // 
+    // - `IsDefault`
     shared_ptr<string> verboseFields_ {};
-    // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The ID of the workspace. To get the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     // 
-    // *   This parameter is required when the Option parameter is set to ListResourceByWorkspace.
-    // *   You do not need to configure this parameter when the Option parameter is set to ListResource.
+    // - This parameter is required if `Option` is set to `ListResourceByWorkspace`.
+    // 
+    // - This parameter is not required if `Option` is set to `ListResource`.
     shared_ptr<string> workspaceId_ {};
   };
 

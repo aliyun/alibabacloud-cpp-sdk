@@ -57,22 +57,29 @@ namespace Models
 
 
   protected:
-    // The configuration content. Formats:
+    // The configuration content.
+    // The format is as follows:
     // 
-    // *   MultimodalIntelligentTag
+    // - MultimodalIntelligentTag
     // 
-    // { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
+    // {
+    // "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx"
+    // }
     // 
-    // *   MultimodalSemanticIndex
+    // - MultimodalSemanticIndex
     // 
-    // { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
+    // {
+    // "defaultModelId": "xxx",
+    // "defaultModelVersion":"1.0.0"
+    // }
     shared_ptr<string> config_ {};
     // The configuration type.
     // 
-    // *   MultimodalIntelligentTag
-    // *   MultimodalSemanticIndex
+    // - MultimodalIntelligentTag
+    // 
+    // - MultimodalSemanticIndex
     shared_ptr<string> configType_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

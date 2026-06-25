@@ -102,6 +102,7 @@ namespace Models
 
 
     protected:
+      // Extra configuration information.
       shared_ptr<string> extra_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -165,20 +166,23 @@ namespace Models
 
 
     protected:
-      // The display name of the model.
+      // The model\\"s display name.
       shared_ptr<string> displayName_ {};
       // The model identifier.
       shared_ptr<string> model_ {};
       // The model type. Valid values:
       // 
-      // *   LLM
-      // *   Embedding
-      // *   ReRank
-      shared_ptr<string> modelType_ {};
-      // Indicates whether tool calling was supported. Valid values:
+      // - LLM (large language model)
       // 
-      // *   true
-      // *   false
+      // - Embedding (Embedding model)
+      // 
+      // - ReRank (ReRank model)
+      shared_ptr<string> modelType_ {};
+      // Indicates whether tool calling is supported. Valid values:
+      // 
+      // - true: Supported
+      // 
+      // - false: Not supported
       shared_ptr<bool> toolCall_ {};
     };
 
@@ -286,42 +290,51 @@ namespace Models
 
 
   protected:
-    // The workspace accessibility. Valid values:
+    // The workspace visibility. Valid values:
     // 
-    // *   PRIVATE (default): accessible only to you and the administrator of the workspace.
-    // *   PUBLIC: accessible to all members in the workspace.
+    // - PRIVATE (default): The connection is visible only to you and administrators in the workspace.
+    // 
+    // - PUBLIC: The connection is visible to all users in the workspace.
     shared_ptr<string> accessibility_ {};
-    // The connection configuration.
+    // The connection configurations.
     shared_ptr<map<string, string>> configs_ {};
     // The connection ID.
     shared_ptr<string> connectionId_ {};
-    // The connection name.
+    // The name of the connection.
     shared_ptr<string> connectionName_ {};
     // The connection type. Valid values:
     // 
-    // *   DashScopeConnection
-    // *   OpenLLMConnection
-    // *   MilvusConnection
-    // *   OpenSearchConnection
-    // *   LindormConnection
-    // *   ElasticsearchConnection
-    // *   HologresConnection
-    // *   RDSConnection
-    // *   CustomConnection
+    // - DashScopeConnection: A service connection to Alibaba Cloud Model Studio.
+    // 
+    // - OpenLLMConnection: An open source model connection.
+    // 
+    // - MilvusConnection: A Milvus connection.
+    // 
+    // - OpenSearchConnection: An OpenSearch connection.
+    // 
+    // - LindormConnection: A Lindorm connection.
+    // 
+    // - ElasticsearchConnection: An Elasticsearch connection.
+    // 
+    // - HologresConnection: A Hologres connection.
+    // 
+    // - RDSConnection: An RDS connection.
+    // 
+    // - CustomConnection: A custom connection.
     shared_ptr<string> connectionType_ {};
-    // The connection creator.
+    // The creator of the connection.
     shared_ptr<string> creator_ {};
     // The connection description.
     shared_ptr<string> description_ {};
-    // The time when the connection was modified, in UTC. The time follows the ISO 8601 standard.
+    // The time when the connection was created. The time is in UTC and follows the ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the connection was modified, in UTC. The time follows the ISO 8601 standard.
+    // The time when the connection was last modified. The time is in UTC and follows the ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The models.
+    // The model list.
     shared_ptr<vector<Connection::Models>> models_ {};
-    // The connection resource. This parameter is used for the connection configuration of the database type.
+    // The resource information for the connection. This usually applies to database connection configurations.
     shared_ptr<Connection::ResourceMeta> resourceMeta_ {};
-    // The key-value configuration to be encrypted, such as the database logon password and the key for model connection.
+    // The key-value configurations to encrypt, such as database logon passwords and model connection keys.
     shared_ptr<map<string, string>> secrets_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

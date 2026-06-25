@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AdminNames, adminNames_);
         DARABONBA_PTR_TO_JSON(Creator, creator_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
         DARABONBA_PTR_TO_JSON(EnvTypes, envTypes_);
         DARABONBA_ANY_TO_JSON(ExtraInfos, extraInfos_);
         DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AdminNames, adminNames_);
         DARABONBA_PTR_FROM_JSON(Creator, creator_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
         DARABONBA_PTR_FROM_JSON(EnvTypes, envTypes_);
         DARABONBA_ANY_FROM_JSON(ExtraInfos, extraInfos_);
         DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
@@ -78,9 +80,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->adminNames_ == nullptr
-        && this->creator_ == nullptr && this->description_ == nullptr && this->envTypes_ == nullptr && this->extraInfos_ == nullptr && this->gmtCreateTime_ == nullptr
-        && this->gmtModifiedTime_ == nullptr && this->isDefault_ == nullptr && this->status_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr
-        && this->resourceGroupId_ == nullptr; };
+        && this->creator_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->envTypes_ == nullptr && this->extraInfos_ == nullptr
+        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->isDefault_ == nullptr && this->status_ == nullptr && this->workspaceId_ == nullptr
+        && this->workspaceName_ == nullptr && this->resourceGroupId_ == nullptr; };
       // adminNames Field Functions 
       bool hasAdminNames() const { return this->adminNames_ != nullptr;};
       void deleteAdminNames() { this->adminNames_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Workspaces& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // displayName Field Functions 
+      bool hasDisplayName() const { return this->displayName_ != nullptr;};
+      void deleteDisplayName() { this->displayName_ = nullptr;};
+      inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+      inline Workspaces& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
       // envTypes Field Functions 
@@ -172,27 +181,28 @@ namespace Models
 
 
     protected:
-      // The names of the administrator accounts.
+      // The list of administrator account names.
       shared_ptr<vector<string>> adminNames_ {};
       // The user ID of the creator.
       shared_ptr<string> creator_ {};
-      // The description of the workspace.
+      // The workspace description.
       shared_ptr<string> description_ {};
-      // The environment types of the workspace.
+      shared_ptr<string> displayName_ {};
+      // The list of environments in the workspace.
       shared_ptr<vector<string>> envTypes_ {};
-      // the additional information. Only contains TenantId.
+      // The extended information. Currently, this includes TenantId, which represents the tenant ID.
       Darabonba::Json extraInfos_ {};
-      // The time when the workspace was created. The time (UTC+0) follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ss.SSSZ format.
+      // The time when the workspace was created. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the workspace was modified. The time (UTC+0) follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ss.SSSZ format.
+      // The time when the workspace was last modified. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mmZ.
       shared_ptr<string> gmtModifiedTime_ {};
       // Indicates whether the workspace is the default workspace.
       shared_ptr<bool> isDefault_ {};
-      // The status of the workspace.
+      // The workspace status.
       shared_ptr<string> status_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The name of the workspace.
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
@@ -235,17 +245,17 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The type and quantity of resources that can be activated in a workspace. This list is returned when the Option is set to GetResourceLimits. Valid values:
-    // 
-    // *   MaxCompute_share: pay-as-you-go MaxCompute
-    // *   MaxCompute_isolate: subscription MaxCompute
-    // *   DLC_share: pay-as-you-go DLC
-    // *   PAI_Isolate: subscription PAI
-    // *   PAI_share: pay-as-you-go PAI
-    // *   DataWorks_isolate: subscription DataWorks
-    // *   DataWorks_share: pay-as-you-go DataWorks
+    // The resource types and quantity limits that a user can activate within a workspace. This list is returned when Option is set to GetResourceLimits.
+    // Currently supported resource types include:
+    // * MaxCompute_share: MaxCompute pay-as-you-go.
+    // * MaxCompute_isolate: MaxCompute subscription.
+    // * DLC_share: DLC pay-as-you-go.
+    // * PAI_isolate: PAI subscription.
+    // * PAI_share: PAI pay-as-you-go.
+    // * DataWorks_isolate: DataWorks subscription.
+    // * DataWorks_share: DataWorks pay-as-you-go.
     Darabonba::Json resourceLimits_ {};
-    // The number of workspaces that meet the query conditions.
+    // The total number of workspaces that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
     // The list of workspace details. This list is returned when Option is set to GetWorkspaces.
     shared_ptr<vector<ListWorkspacesResponseBody::Workspaces>> workspaces_ {};

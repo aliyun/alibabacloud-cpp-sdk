@@ -152,7 +152,7 @@ namespace Models
         protected:
           // The specification name.
           shared_ptr<string> name_ {};
-          // The specification description.
+          // The specification value.
           shared_ptr<string> value_ {};
         };
 
@@ -218,39 +218,49 @@ namespace Models
 
 
       protected:
-        // The resource group type. Valid values:
+        // The card type. Valid values:
         // 
-        // *   CPU
-        // *   GPU
+        // - `CPU`
+        // 
+        // - `GPU`
         shared_ptr<string> cardType_ {};
-        // The alias of the quota.
+        // The display name of the quota.
         shared_ptr<string> displayName_ {};
         // The quota ID.
         shared_ptr<string> id_ {};
         // The billing method. Valid values:
         // 
-        // *   isolate: subscription
-        // *   share: pay-as-you-go
+        // - `isolate`: subscription
+        // 
+        // - `share`: pay-as-you-go
         shared_ptr<string> mode_ {};
         // The quota name.
         shared_ptr<string> name_ {};
         // The product code. Valid values:
         // 
-        // *   PAI_isolate: CPU subscription resource groups of PAI
-        // *   PAI_share: GPU pay-as-you-go resource groups of PAI
-        // *   MaxCompute_share: pay-as-you-go resource groups of MaxCompute
-        // *   MaxCompute_isolate: subscription resource groups of MaxCompute
-        // *   DataWorks_isolate: subscription resource groups of DataWorks
-        // *   DataWorks_share: pay-as-you-go resource groups of DataWorks
-        // *   DLC_share: pay-as-you-go resource groups of Deep Learning Containers (DLC)
+        // - `PAI_isolate`: PAI subscription resource group (PAI CPU)
+        // 
+        // - `PAI_share`: PAI pay-as-you-go resource group (PAI GPU)
+        // 
+        // - `MaxCompute_share`: MaxCompute pay-as-you-go resource group
+        // 
+        // - `MaxCompute_isolate`: MaxCompute subscription resource group
+        // 
+        // - `DataWorks_isolate`: DataWorks subscription resource group
+        // 
+        // - `DataWorks_share`: DataWorks pay-as-you-go resource group
+        // 
+        // - `DLC_share`: DLC pay-as-you-go resource group
         shared_ptr<string> productCode_ {};
         // The quota type. Valid values:
         // 
-        // *   PAI
-        // *   MaxCompute
-        // *   DLC
+        // - `PAI`
+        // 
+        // - `MaxCompute`
+        // 
+        // - `DLC`
         shared_ptr<string> quotaType_ {};
-        // The quota specifications.
+        // The list of specifications.
         shared_ptr<vector<Quotas::Specs>> specs_ {};
       };
 
@@ -292,9 +302,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of the label.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of the label.
         shared_ptr<string> value_ {};
       };
 
@@ -326,7 +336,7 @@ namespace Models
 
 
       protected:
-        // This parameter is invalid and deprecated.
+        // **Deprecated.** This parameter is no longer used.
         shared_ptr<string> ownerId_ {};
       };
 
@@ -379,9 +389,9 @@ namespace Models
       protected:
         // The encryption algorithm.
         shared_ptr<string> algorithm_ {};
-        // Indicates whether the resources are encrypted.
+        // Indicates whether encryption is enabled.
         shared_ptr<bool> enabled_ {};
-        // The primary key for the encryption.
+        // The encryption key.
         shared_ptr<string> key_ {};
       };
 
@@ -498,43 +508,57 @@ namespace Models
 
 
     protected:
-      // The encryption information, which is valid only for MaxCompute resources.
+      // The encryption details. This parameter is valid only for MaxCompute resources.
       shared_ptr<Resources::Encryption> encryption_ {};
       // The environment type. Valid values:
       // 
-      // *   dev: development environment
-      // *   prod: production environment
+      // - `dev`: development environment
+      // 
+      // - `prod`: production environment
       shared_ptr<string> envType_ {};
-      // This parameter is invalid and deprecated.
+      // **Deprecated.** This parameter is no longer used.
       shared_ptr<Resources::Executor> executor_ {};
-      // The time when the resource group is created, in UTC. The time follows the ISO 8601 standard.
+      // The time when the resource was created. The time is displayed in UTC and is formatted in ISO 8601.
       shared_ptr<string> gmtCreateTime_ {};
-      // The name of the resource group, which is unique within the Alibaba Cloud account.
+      // The name of the resource group. The name must be unique within an Alibaba Cloud account.
       shared_ptr<string> groupName_ {};
       // The resource ID.
       shared_ptr<string> id_ {};
-      // Indicates whether the resource is the default resource. Each type of resources has a default resource. Valid values:
+      // Indicates whether the resource is the default resource of its type. Each resource type has only one default resource. Valid values:
       // 
-      // *   true
-      // *   false
+      // - `true`: The resource is the default resource.
+      // 
+      // - `false`: The resource is not the default resource.
       shared_ptr<bool> isDefault_ {};
-      // The tags.
+      // The list of labels.
       shared_ptr<vector<Resources::Labels>> labels_ {};
       // The resource name.
       shared_ptr<string> name_ {};
-      // **This field is no longer used and will be removed. Use the ResourceType field.
+      // **Deprecated.** This parameter is deprecated and will be removed in a future release. Use the `ResourceType` parameter instead.
       shared_ptr<string> productType_ {};
-      // The quotas.
+      // The list of quotas.
       shared_ptr<vector<Resources::Quotas>> quotas_ {};
-      // The resource type. Valid values:
+      // The type of the resource. Valid values:
       // 
-      // *   MaxCompute
-      // *   DLC
-      // *   FLINK
+      // - `MaxCompute`: MaxCompute resources
+      // 
+      // - `ECS`: ECS resources
+      // 
+      // - `Lingjun`: Lingjun intelligent computing resources
+      // 
+      // - `ACS`: ACS computing resources
+      // 
+      // - `Flink`: Flink resources
+      // 
+      // - `SelfManagedAckPro`: self-managed cluster resources for AckPro
+      // 
+      // - `SelfManagedAckLingjun`: self-managed cluster resources for AckLingjun
+      // 
+      // - `SelfManagedASI`: self-managed cluster resources for ASI (third-party cloud)
       shared_ptr<string> resourceType_ {};
-      // The resource specification.
+      // The resource specifications.
       Darabonba::Json spec_ {};
-      // The workspace ID.
+      // The ID of the workspace to which the resource belongs.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -566,9 +590,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // The list of resources.
     shared_ptr<vector<ListResourcesResponseBody::Resources>> resources_ {};
-    // The number of resources that meet the filter conditions.
+    // The total number of entries that match the filter criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

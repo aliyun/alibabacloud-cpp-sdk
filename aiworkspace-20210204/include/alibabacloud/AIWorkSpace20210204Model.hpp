@@ -109,6 +109,9 @@
 #include <alibabacloud/models/CreateWorkspaceResourceRequest.hpp>
 #include <alibabacloud/models/CreateWorkspaceResourceResponseBody.hpp>
 #include <alibabacloud/models/CreateWorkspaceResourceResponse.hpp>
+#include <alibabacloud/models/CreateWorkspaceRoleRequest.hpp>
+#include <alibabacloud/models/CreateWorkspaceRoleResponseBody.hpp>
+#include <alibabacloud/models/CreateWorkspaceRoleResponse.hpp>
 #include <alibabacloud/models/DeleteCodeSourceRequest.hpp>
 #include <alibabacloud/models/DeleteCodeSourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteCodeSourceResponse.hpp>
@@ -175,6 +178,9 @@
 #include <alibabacloud/models/DeleteWorkspaceResourceRequest.hpp>
 #include <alibabacloud/models/DeleteWorkspaceResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteWorkspaceResourceResponse.hpp>
+#include <alibabacloud/models/DeleteWorkspaceRolesRequest.hpp>
+#include <alibabacloud/models/DeleteWorkspaceRolesResponseBody.hpp>
+#include <alibabacloud/models/DeleteWorkspaceRolesResponse.hpp>
 #include <alibabacloud/models/GetCodeSourceRequest.hpp>
 #include <alibabacloud/models/GetCodeSourceResponseBody.hpp>
 #include <alibabacloud/models/GetCodeSourceResponse.hpp>
@@ -210,6 +216,9 @@
 #include <alibabacloud/models/GetImageRequest.hpp>
 #include <alibabacloud/models/GetImageResponseBody.hpp>
 #include <alibabacloud/models/GetImageResponse.hpp>
+#include <alibabacloud/models/GetInstanceJobRequest.hpp>
+#include <alibabacloud/models/GetInstanceJobResponseBody.hpp>
+#include <alibabacloud/models/GetInstanceJobResponse.hpp>
 #include <alibabacloud/models/GetMemberRequest.hpp>
 #include <alibabacloud/models/GetMemberResponseBody.hpp>
 #include <alibabacloud/models/GetMemberResponse.hpp>
@@ -228,6 +237,9 @@
 #include <alibabacloud/models/GetWorkspaceRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceRoleRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceRoleResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceRoleResponse.hpp>
 #include <alibabacloud/models/ListCodeSourcesRequest.hpp>
 #include <alibabacloud/models/ListCodeSourcesResponseBody.hpp>
 #include <alibabacloud/models/ListCodeSourcesResponse.hpp>
@@ -298,6 +310,9 @@
 #include <alibabacloud/models/ListUserConfigsRequest.hpp>
 #include <alibabacloud/models/ListUserConfigsResponseBody.hpp>
 #include <alibabacloud/models/ListUserConfigsResponse.hpp>
+#include <alibabacloud/models/ListWorkspaceRolesRequest.hpp>
+#include <alibabacloud/models/ListWorkspaceRolesResponseBody.hpp>
+#include <alibabacloud/models/ListWorkspaceRolesResponse.hpp>
 #include <alibabacloud/models/ListWorkspaceUsersRequest.hpp>
 #include <alibabacloud/models/ListWorkspaceUsersResponseBody.hpp>
 #include <alibabacloud/models/ListWorkspaceUsersResponse.hpp>
@@ -382,6 +397,9 @@
 #include <alibabacloud/models/UpdateWorkspaceResourceRequest.hpp>
 #include <alibabacloud/models/UpdateWorkspaceResourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateWorkspaceResourceResponse.hpp>
+#include <alibabacloud/models/UpdateWorkspaceRoleRequest.hpp>
+#include <alibabacloud/models/UpdateWorkspaceRoleResponseBody.hpp>
+#include <alibabacloud/models/UpdateWorkspaceRoleResponse.hpp>
 #include <alibabacloud/models/ValidateConnectionRequest.hpp>
 #include <alibabacloud/models/ValidateConnectionResponseBody.hpp>
 #include <alibabacloud/models/ValidateConnectionResponse.hpp>

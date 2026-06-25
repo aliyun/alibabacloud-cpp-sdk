@@ -130,30 +130,32 @@ namespace Models
 
 
   protected:
-    // The visibility of the code build. Valid values:
+    // The visibility of the code configuration. Valid values:
     // 
-    // *   PUBLIC: The code build is visible to all members in the workspace.
-    // *   PRIVATE: The code build is visible only to you and the administrator of the workspace.
+    // - PUBLIC: The configuration is visible to everyone in the workspace.
+    // 
+    // - PRIVATE: The configuration is visible only to you and workspace administrators.
     shared_ptr<string> accessibility_ {};
     shared_ptr<int32_t> cloneType_ {};
     // The code branch.
     shared_ptr<string> codeBranch_ {};
+    // The commit ID of the code. \\`CodeCommit\\` takes precedence over \\`CodeBranch\\`. If you specify \\`CodeCommit\\`, \\`CodeBranch\\` is ignored.
     shared_ptr<string> codeCommit_ {};
     // The URL of the code repository.
     shared_ptr<string> codeRepo_ {};
-    // The token used to access the code repository.
+    // The access token for the code repository.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username of the code repository.
+    // The username for the code repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The description of the code build, which helps you distinguish between code builds.
+    // The description of the code configuration, which helps distinguish it from other configurations.
     shared_ptr<string> description_ {};
-    // The name of the code build.
+    // The name of the code configuration.
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
-    // The local mount path of the code. By default, the code is mounted to the /root/code/ path.
+    // The local mount path for the code. The default is `/root/code/`.
     shared_ptr<string> mountPath_ {};
-    // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The workspace ID. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

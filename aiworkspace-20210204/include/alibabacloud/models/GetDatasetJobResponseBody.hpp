@@ -145,47 +145,27 @@ namespace Models
   protected:
     // The total number of completed files.
     shared_ptr<int64_t> completedFileCount_ {};
-    // The time when the job is started.
+    // The time when the task was started.
     shared_ptr<string> createTime_ {};
-    // The job description.
+    // The task description.
     shared_ptr<string> description_ {};
     // The total number of failed files.
     shared_ptr<int64_t> failedFileCount_ {};
-    // The time when the job ends.
+    // The time when the task was finished.
     shared_ptr<string> finishTime_ {};
-    // The action that is performed on the job.
-    // 
-    // Valid values:
-    // 
-    // *   SemanticIndex: semantic indexing
-    // *   IntelligentTag: smart labeling
-    // *   FileMetaExport: metadata export
+    // The task operation.
     shared_ptr<string> jobAction_ {};
-    // The job mode.
-    // 
-    // Valid value:
-    // 
-    // *   Full: full data mode.
+    // The task pattern.
     shared_ptr<string> jobMode_ {};
-    // The job details.
+    // The task details.
     shared_ptr<string> jobSpec_ {};
-    // The job logs.
+    // The list of task logs.
     shared_ptr<vector<string>> logs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The job state.
-    // 
-    // Valid values:
-    // 
-    // *   Succeeded
-    // *   Failed
-    // *   Running
-    // *   Pending
-    // *   PartialFailed
-    // *   Deleting
-    // *   ManuallyStop
+    // The task status.
     shared_ptr<string> status_ {};
-    // The total number of job files.
+    // The total number of files for the task.
     shared_ptr<int64_t> totalFileCount_ {};
   };
 

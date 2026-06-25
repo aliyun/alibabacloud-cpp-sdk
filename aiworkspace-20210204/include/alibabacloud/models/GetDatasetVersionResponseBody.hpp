@@ -190,7 +190,7 @@ namespace Models
 
 
   protected:
-    // The number of data records.
+    // The number of data entries.
     shared_ptr<int64_t> dataCount_ {};
     // The size of the dataset.
     shared_ptr<int64_t> dataSize_ {};
@@ -198,50 +198,91 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
-    // The request ID.
+    // The ID of the dataset.
     shared_ptr<string> datasetId_ {};
-    // The version description.
+    // The description of the version.
     shared_ptr<string> description_ {};
-    // The creation time.
+    // The time when the dataset version was created.
     shared_ptr<string> gmtCreateTime_ {};
-    // The last modification time.
+    // The time when the dataset version was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The dataset configurations to be imported to a storage, such as Object Storage Service (OSS), File Storage NAS (NAS), or Cloud Parallel File Storage (CPFS).
+    // The storage import configuration of the dataset. Supported storage services include OSS, NAS, and CPFS.
     // 
-    // **OSS**
+    // <details>
     // 
-    // { "region": "${region}",// The region ID. $bucket = $options["bucket"]; // The bucket name. "path": "${path}" // The file path. }
+    // <summary>
     // 
-    // **NAS**
+    // OSS
     // 
-    // **CPFS**
+    // </summary>
     // 
-    // **CPFS for Lingjun**
+    // {
+    // "region": "${region}",// Region ID
+    // "bucket": "${bucket}",// Bucket name
+    // "path": "${path}" // File path
+    // }
+    // 
+    // </details>
+    // 
+    // <details>
+    // 
+    // <summary>
+    // 
+    // NAS
+    // 
+    // </summary>
+    // 
+    // </details>
+    // 
+    // <details>
+    // 
+    // <summary>
+    // 
+    // CPFS
+    // 
+    // </summary>
+    // 
+    // Block content
+    // 
+    // </details>
+    // 
+    // <details>
+    // 
+    // <summary>
+    // 
+    // AI Computing CPFS
+    // 
+    // </summary>
+    // 
+    // Block content
+    // 
+    // </details>
     shared_ptr<string> importInfo_ {};
-    // The resource tags.
+    // The tags of the resource.
     shared_ptr<vector<Label>> labels_ {};
-    // The access permission on the dataset when the dataset is mounted. Valid values:
+    // The access permissions when the dataset is mounted.
     // 
-    // *   RO: read-only permissions
-    // *   RW: read and write permissions
+    // - RO: Read-only mount
+    // 
+    // - RW: Read-write mount
     shared_ptr<string> mountAccess_ {};
-    // The extended fields.
+    // Additional options.
     shared_ptr<string> options_ {};
     // The property of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> property_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the source dataset.
+    // The ID of the dataset source.
     shared_ptr<string> sourceId_ {};
-    // The type of the data source.
+    // The source type.
     shared_ptr<string> sourceType_ {};
-    // The sample URI of the dataset.
+    // The URI of the dataset version.
     // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
-    // The version name of the dataset.
+    // The name of the dataset version.
     shared_ptr<string> versionName_ {};
   };
 

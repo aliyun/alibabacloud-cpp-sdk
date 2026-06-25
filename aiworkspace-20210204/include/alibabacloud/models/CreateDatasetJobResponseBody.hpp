@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the dataset job.
+    // The dataset task ID.
     shared_ptr<string> datasetJobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

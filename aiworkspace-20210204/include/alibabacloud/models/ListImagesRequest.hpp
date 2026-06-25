@@ -132,52 +132,74 @@ namespace Models
   protected:
     // The visibility of the image. This parameter is valid only for custom images.
     // 
-    // *   PUBLIC: The image is visible to all users.
-    // *   PRIVATE: The image is visible only to you and the administrator of the workspace.
+    // - PUBLIC: The image is public.
+    // 
+    // - PRIVATE: The image is private.
     shared_ptr<string> accessibility_ {};
     shared_ptr<string> imageUri_ {};
-    // The tag filter conditions. Multiple conditions are separated by commas (,). The format of a single condition filter is `key=value`. The following keys are supported:
+    // The filter conditions for labels. Separate multiple conditions with commas (,).
+    // The format for a single filter condition is `Key=Value`.
+    // The supported values for Key are:
     // 
-    // *   system.chipType
-    // *   system.dsw.cudaVersion
-    // *   system.dsw.fromImageId
-    // *   system.dsw.fromInstanceId
-    // *   system.dsw.id
-    // *   system.dsw.os
-    // *   system.dsw.osVersion
-    // *   system.dsw.resourceType
-    // *   system.dsw.rootImageId
-    // *   system.dsw.stage
-    // *   system.dsw.tag
-    // *   system.dsw.type
-    // *   system.framework
-    // *   system.origin
-    // *   system.pythonVersion
-    // *   system.source
-    // *   system.supported.dlc
-    // *   system.supported.dsw
+    // - system.chipType
+    // 
+    // - system.dsw\\.cudaVersion
+    // 
+    // - system.dsw\\.fromImageId
+    // 
+    // - system.dsw\\.fromInstanceId
+    // 
+    // - system.dsw\\.id
+    // 
+    // - system.dsw\\.os
+    // 
+    // - system.dsw\\.osVersion
+    // 
+    // - system.dsw\\.resourceType
+    // 
+    // - system.dsw\\.rootImageId
+    // 
+    // - system.dsw\\.stage
+    // 
+    // - system.dsw\\.tag
+    // 
+    // - system.dsw\\.type
+    // 
+    // - system.framework
+    // 
+    // - system.origin
+    // 
+    // - system.pythonVersion
+    // 
+    // - system.source
+    // 
+    // - system.supported.dlc
+    // 
+    // - system.supported.dsw
     shared_ptr<string> labels_ {};
-    // The image name. Fuzzy match is supported.
+    // The name of the image. Fuzzy search is supported.
     shared_ptr<string> name_ {};
-    // The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy. Default value: ASC. Valid values:
+    // The order in which to sort the results of a paged query. This parameter is used with SortBy. The default value is ASC.
     // 
-    // *   ASC: ascending order
-    // *   DESC: descending order.
+    // - ASC: ascending order.
+    // 
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the image list. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20.
+    // The number of entries to return on each page for a paged query. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The image name and description that are used for fuzzy search.
+    // Performs a fuzzy search by image name and description.
     shared_ptr<string> query_ {};
-    // The field used for sorting. The GmtCreateTime field is used.
+    // The field to use for sorting in a paged query. Currently, only the GmtCreateTime field is used for sorting.
     shared_ptr<string> sortBy_ {};
-    // Specifies whether to display non-essential information, which contains tags. Valid values:
+    // Specifies whether to display non-essential information. Non-essential information currently includes Labels. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Includes non-essential information.
+    // 
+    // - false: Does not include non-essential information.
     shared_ptr<bool> verbose_ {};
-    // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The workspace ID. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -115,17 +115,17 @@ namespace Models
     shared_ptr<int32_t> cloneType_ {};
     // The name of the code branch.
     shared_ptr<string> codeBranch_ {};
-    // The code commit ID.
+    // The commit ID.
     shared_ptr<string> codeCommit_ {};
-    // The address of the code repository.
+    // The URL of the code repository.
     shared_ptr<string> codeRepo_ {};
-    // The access token corresponding to the username.
+    // The access token for the username.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username used to access the code repository.
+    // The username for the code repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The description of the code build.
+    // The description of the code source.
     shared_ptr<string> description_ {};
-    // The name of the code build.
+    // The name of the code source.
     shared_ptr<string> displayName_ {};
     // The default mount path.
     shared_ptr<string> mountPath_ {};

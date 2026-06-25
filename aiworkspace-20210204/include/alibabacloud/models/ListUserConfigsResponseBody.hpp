@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The category. Currently, only DataPrivacyConfig is supported.
+      // The category. Only DataPrivacyConfig is supported.
       shared_ptr<string> categoryName_ {};
-      // The key of the configuration item.
+      // The configuration key.
       shared_ptr<string> configKey_ {};
-      // The value of the configuration item.
+      // The configuration value.
       shared_ptr<string> configValue_ {};
-      // The scope. Currently, subUser and owner are supported.
+      // The scope. Supported values are subUser and owner.
       shared_ptr<string> scope_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The configurations list.
+    // The list of configurations.
     shared_ptr<vector<ListUserConfigsResponseBody::Configs>> configs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of items returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The tag key. You can call [GetDataset](https://help.aliyun.com/document_detail/457218.html) to obtain the tag key. Multiple tag keys are separated by commas (,).
+    // The keys of the labels. For more information about how to query the keys of labels, see [GetDataset](https://help.aliyun.com/document_detail/457218.html). Separate multiple keys with commas (,).
     shared_ptr<string> labelKeys_ {};
   };
 

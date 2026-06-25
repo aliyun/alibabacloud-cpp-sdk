@@ -252,50 +252,68 @@ namespace Models
   protected:
     // The approval status. Valid values:
     // 
-    // *   Pending
-    // *   Approved
-    // *   Rejected
+    // - Pending: The model is pending approval.
+    // 
+    // - Approved: The model is approved for publishing.
+    // 
+    // - Rejected: The model is rejected for publishing.
     shared_ptr<string> approvalStatus_ {};
     // The compression configuration.
     Darabonba::Json compressionSpec_ {};
+    // The distillation configuration.
     Darabonba::Json distillationSpec_ {};
     // The evaluation configuration.
     Darabonba::Json evaluationSpec_ {};
-    // The additional information.
+    // Other information.
     Darabonba::Json extraInfo_ {};
     // The model format. Valid values:
     // 
-    // *   OfflineModel
-    // *   SavedModel
-    // *   Keras H5
-    // *   Frozen Pb
-    // *   Caffe Prototxt
-    // *   TorchScript
-    // *   XGBoost
-    // *   PMML
-    // *   AlinkModel
-    // *   ONNX
+    // - OfflineModel
+    // 
+    // - SavedModel
+    // 
+    // - Keras H5
+    // 
+    // - Frozen Pb
+    // 
+    // - Caffe Prototxt
+    // 
+    // - TorchScript
+    // 
+    // - XGBoost
+    // 
+    // - PMML
+    // 
+    // - AlinkModel
+    // 
+    // - ONNX
     shared_ptr<string> formatType_ {};
     // The model framework. Valid values:
     // 
-    // *   Pytorch -XGBoost
-    // *   Keras
-    // *   Caffe
-    // *   Alink
-    // *   Xflow
-    // *   TensorFlow
+    // - Pytorch
+    //   -XGBoost
+    // 
+    // - Keras
+    // 
+    // - Caffe
+    // 
+    // - Alink
+    // 
+    // - Xflow
+    // 
+    // - TensorFlow
     shared_ptr<string> frameworkType_ {};
-    // The time when the model was created, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time when the model was created. The time is in the ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time when the model was last updated. The time is in the ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // Describes how to apply to downstream inference services. For example, describes the processor and container of Elastic Algorithm Service (EAS).
+    // Describes how to apply the model to a downstream inference service. For example, this can describe the processor and container for Elastic Algorithm Service (EAS).
     Darabonba::Json inferenceSpec_ {};
-    // The labels.
+    // The list of labels for the model version.
     shared_ptr<vector<Label>> labels_ {};
     // The metrics.
     Darabonba::Json metrics_ {};
-    // The extended field. The value of this parameter is a JSON string.
+    // The extended field. This field is a JSON string.
     shared_ptr<string> options_ {};
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> ownerId_ {};
@@ -303,36 +321,43 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The source ID.
     // 
-    // *   If the source type is Custom, this field is not limited.
-    // *   If the source type is PAIFlow or TrainingService, the format is:
+    // - If the source type is Custom, this field has no limits.
     // 
-    // <!---->
+    // - If the source is PAIFlow or TrainingService, the format is:
     // 
-    //     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+    // ```
+    // region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+    // ```
     // 
-    // Take note of the following parameters:
+    // The parameters are:
     // 
-    // *   region is the region ID.
-    // *   workspaceId is the ID of the workspace.
-    // *   kind is the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
-    // *   id is a unique identifier.
+    // - region: The ID of the Alibaba Cloud region.
+    // 
+    // - workspaceId: The workspace ID.
+    // 
+    // - kind: The type. Valid values: PipelineRun (PAI pipeline) and ServiceJob (training service).
+    // 
+    // - id: The unique identifier.
     shared_ptr<string> sourceId_ {};
     // The source type of the model. Valid values:
     // 
-    // *   Custom
-    // *   PAIFlow
-    // *   TrainingService
-    shared_ptr<string> sourceType_ {};
-    // The training configurations used for fine-tuning and incremental training.
-    Darabonba::Json trainingSpec_ {};
-    // The URI of the model version, which is the location where the model is stored. Valid values:
+    // - Custom: The model is a custom model.
     // 
-    // *   The HTTP(S) address of the model. Example: `https://myweb.com/mymodel.tar.gz`.
-    // *   The Object Storage Service (OSS) path of the model, in the format of `oss://<bucket>.<endpoint>/object`. For endpoint, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html). Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
+    // - PAIFlow: The model is from a PAI pipeline.
+    // 
+    // - TrainingService: The model is from a PAI training service.
+    shared_ptr<string> sourceType_ {};
+    // The training configuration. This is the configuration for fine-tuning and incremental training.
+    Darabonba::Json trainingSpec_ {};
+    // The URI of the model version. This is the storage location of the model. Valid values:
+    // 
+    // - The HTTP or HTTPS URL of the model. Example: `https://myweb.com/mymodel.tar.gz`.
+    // 
+    // - If the model is stored in Object Storage Service (OSS), the format is `oss://<bucket>.<endpoint>/object`. For more information about how to configure the endpoint, see [Endpoints](https://help.aliyun.com/document_detail/31837.html). Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
     shared_ptr<string> uri_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
-    // The version description.
+    // The description of the model version.
     shared_ptr<string> versionDescription_ {};
     // The model version.
     shared_ptr<string> versionName_ {};

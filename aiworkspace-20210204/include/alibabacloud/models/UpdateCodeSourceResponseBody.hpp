@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the code build.
+    // The ID of the code source.
     shared_ptr<string> codeSourceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

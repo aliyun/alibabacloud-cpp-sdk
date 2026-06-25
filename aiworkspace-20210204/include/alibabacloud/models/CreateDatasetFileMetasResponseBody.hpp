@@ -72,18 +72,13 @@ namespace Models
 
 
   protected:
-    // The metadata that failed to be created.
+    // A list of file metadata records that failed to be created.
     shared_ptr<vector<DatasetFileMetaResponse>> failedDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the metadata records of all dataset files were created. The value true indicates that the metadata records of all dataset files are created. If the value is false, view the failure details specified by FailedDetails.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // The status of the batch metadata creation. A value of \\`true\\` indicates that all records were created successfully. If the value is \\`false\\`, check \\`FailedDetails\\`.
     shared_ptr<bool> status_ {};
-    // The metadata that is created.
+    // A list of file metadata records that were successfully created.
     shared_ptr<vector<DatasetFileMetaResponse>> succeedDetails_ {};
   };
 

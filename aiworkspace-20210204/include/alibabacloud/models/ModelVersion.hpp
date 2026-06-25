@@ -108,7 +108,9 @@ namespace Models
 
 
     protected:
+      // 标签的key
       shared_ptr<string> key_ {};
+      // 标签的value
       shared_ptr<string> value_ {};
     };
 
@@ -289,6 +291,7 @@ namespace Models
     shared_ptr<string> approvalStatus_ {};
     // The compression configuration.
     Darabonba::Json compressionSpec_ {};
+    // 蒸馏配置。
     Darabonba::Json distillationSpec_ {};
     // The evaluation configuration.
     Darabonba::Json evaluationSpec_ {};

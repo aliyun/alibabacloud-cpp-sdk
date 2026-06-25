@@ -89,11 +89,28 @@ namespace Models
 
 
   protected:
+    // The configuration of the connection, specified as key-value pairs. The configuration keys vary by connection type. For more information, see the supplementary information about the request parameters of the CreateConnection operation.
     shared_ptr<map<string, string>> configs_ {};
+    // The connection ID. For more information about how to obtain the connection ID, see [ListConnections](url).
     shared_ptr<string> connectionId_ {};
+    // The connection type. Only connection types that support public network access are available. Valid values:
+    // 
+    // - DashScopeConnection: a service connection for Alibaba Cloud Model Studio.
+    // 
+    // - DeepSeekConnection: a service connection for DeepSeek.
+    // 
+    // - FunctionAIMCPConnection: a connection for Function AI MCP.
+    // 
+    // - CustomMCPConnection: a custom MCP connection.
     shared_ptr<string> connectionType_ {};
+    // The key-value pairs to encrypt, such as a database logon password or a model connection key.
     shared_ptr<map<string, string>> secrets_ {};
+    // The validation type. Set the value to:
+    // 
+    // - Connectivity: a connectivity test
     shared_ptr<string> validateType_ {};
+    // The workspace ID. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

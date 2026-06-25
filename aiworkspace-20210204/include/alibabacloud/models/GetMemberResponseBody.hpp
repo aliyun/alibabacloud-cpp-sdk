@@ -109,7 +109,7 @@ namespace Models
     shared_ptr<string> accountType_ {};
     // The display name of the member.
     shared_ptr<string> displayName_ {};
-    // The time when the workspace is created, in UTC. The time follows the ISO 8601 standard.
+    // The time when the member was created. The time is in Coordinated Universal Time (UTC) and the format is ISO 8601.
     shared_ptr<string> gmtCreateTime_ {};
     // The member ID.
     shared_ptr<string> memberId_ {};

@@ -78,10 +78,19 @@ namespace Models
 
 
   protected:
+    // The error code returned if the request fails.
     shared_ptr<string> code_ {};
+    // The details of the validation result.
     shared_ptr<map<string, string>> details_ {};
+    // A description of the validation result.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The validation status.
+    // 
+    // - success: The validation is successful.
+    // 
+    // - failed: The validation failed.
     shared_ptr<string> status_ {};
   };
 

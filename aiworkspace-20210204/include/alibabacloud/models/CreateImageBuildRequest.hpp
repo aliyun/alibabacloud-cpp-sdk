@@ -117,15 +117,21 @@ namespace Models
 
 
     protected:
-      // 默认路由网卡出口
+      // The default route.
+      // 
+      // - eth1: Indicates that the user\\"s elastic network interface (ENI) is used to access the external network through a private gateway. For more information, see [Configure a Distribution Switch (DSW) instance to access the Internet through a private NAT gateway](https://help.aliyun.com/zh/pai/user-guide/configure-a-dsw-instance-to-access-the-internet-through-a-private-nat-gateway?spm=a2c4g.11186623.0.0.3b3965f6SZWm85).
       shared_ptr<string> defaultRoute_ {};
-      // 扩展网段
+      // The extended CIDR blocks.
+      // 
+      // - If you do not specify a vSwitch ID, you can leave this parameter empty. The system automatically obtains all CIDR blocks of the VPC.
+      // 
+      // - If you specify a vSwitch ID, you must specify this parameter. For best results, include all CIDR blocks of the VPC.
       shared_ptr<vector<string>> extendedCidrs_ {};
-      // 安全组 ID
+      // The security group ID. This parameter is required when you configure a VPC.
       shared_ptr<string> securityGroupId_ {};
-      // 交换机 ID
+      // The vSwitch ID. This parameter is optional.
       shared_ptr<string> switchId_ {};
-      // 专有网络 ID
+      // The VPC ID. If the build task needs to access your ACR Enterprise Edition instance, specify a VPC that is in the access control list of the instance.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -167,7 +173,10 @@ namespace Models
 
 
     protected:
+      // The ID of the image repository instance. This parameter is required when you use ACR as the image repository.
       shared_ptr<string> instanceId_ {};
+      // The type of the target image repository. Only ACR Enterprise Edition is supported.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -235,7 +244,9 @@ namespace Models
 
 
       protected:
+        // The number of CPU cores.
         shared_ptr<string> CPU_ {};
+        // The memory size.
         shared_ptr<string> memory_ {};
       };
 
@@ -272,10 +283,13 @@ namespace Models
 
 
     protected:
-      // 后付费资源规格
+      // The instance type of the pay-as-you-go resource. This parameter is required when you use the public resource group.
       shared_ptr<string> ecsSpec_ {};
+      // The resource configuration. Specify this parameter when you use subscription resources. Leave it empty when you use the public resource group.
       shared_ptr<Resource::ResourceConfig> resourceConfig_ {};
+      // The resource quota ID. This parameter applies only to subscription resources. Do not set this parameter for pay-as-you-go resources.
       shared_ptr<string> resourceId_ {};
+      // The type of the subscription resource. Currently, only Lingjun resources are supported. Specify this parameter when you use subscription resources.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -342,7 +356,9 @@ namespace Models
 
 
       protected:
+        // The key of the image label.
         shared_ptr<string> key_ {};
+        // The value of the image label.
         shared_ptr<string> value_ {};
       };
 
@@ -379,10 +395,22 @@ namespace Models
 
 
     protected:
+      // The description of the image.
       shared_ptr<string> description_ {};
+      // The image labels.
       shared_ptr<vector<Image::Labels>> labels_ {};
+      // The name of the image. The name must meet the following requirements:
+      // 
+      // - The name must be 1 to 50 characters in length.
+      // 
+      // - The name can contain lowercase letters, digits, and hyphens (-). It must start with a letter.
+      // 
+      // - The name must be unique within the same workspace.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The image URL.
+      // 
       // This parameter is required.
       shared_ptr<string> uri_ {};
     };
@@ -436,12 +464,19 @@ namespace Models
 
 
     protected:
+      // The build type. The following types are supported:
+      // 
+      // - **PackageInstallation**: Installs software packages based on a specified image.
+      // 
+      // - **CustomDockerfile**: Builds an image based on a custom Dockerfile.
+      // 
       // This parameter is required.
       shared_ptr<string> buildType_ {};
-      // Dockerfile文件内容
+      // The content of the Dockerfile to be built.
       // 
       // This parameter is required.
       shared_ptr<string> dockerfile_ {};
+      // The authentication information for the private image repository. You can specify the authentication information for an ACR image repository that does not belong to you. The format is \\`{"user_registry_domain":{"Auth":"base64 encoded auth"}}\\`.
       Darabonba::Json registryAuths_ {};
     };
 
@@ -536,29 +571,39 @@ namespace Models
 
 
   protected:
+    // An idempotence token.
     shared_ptr<string> clientToken_ {};
-    // 镜像构建的可见性，可能值： - PUBLIC：当前工作空间所有成员都可以操作。 - PRIVATE：只有创建者可以操作。
+    // The visibility of the image.
+    // 
+    // - **PUBLIC**: The image is public.
+    // 
+    // - **PRIVATE**: The image is private.
     shared_ptr<string> accessibility_ {};
-    // 构建配置，指定待构建的 Dockerfile 文件内容。
+    // **The build configuration. Specify the content of the Dockerfile to be built.**
     // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::BuildConfig> buildConfig_ {};
+    // The metadata of the image.
+    // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::Image> image_ {};
+    // The name of the image build task.
     shared_ptr<string> imageBuildJobName_ {};
-    // 是否覆盖更新 ACR 镜像仓库中已存在的镜像 tag。
+    // Specifies whether to overwrite an existing image version in the image repository.
     shared_ptr<bool> overwriteImageTag_ {};
-    // 代表region的资源属性字段
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // 构建任务运行资源
+    // The resources used to run the task.
     // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::Resource> resource_ {};
+    // **The configuration of the target image repository.**
+    // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::TargetRegistry> targetRegistry_ {};
-    // 用户专有网络信息。使用企业版 ACR 实例时，此参数必填，指定在用户 ACR 实例的访问控制里已添加的专有网络。
+    // The information about the user\\"s virtual private cloud (VPC). This parameter is required when you use the public resource group.
     shared_ptr<CreateImageBuildRequest::UserVpc> userVpc_ {};
-    // 镜像构建所属的工作空间ID。
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

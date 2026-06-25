@@ -97,7 +97,8 @@ namespace Models
 
 
       protected:
-        // The quota ID. You can call [ListQuotas](https://help.aliyun.com/document_detail/449144.html) to obtain the quota ID.
+        // The ID of the resource quota. To obtain the resource quota ID, see [ListQuotas](https://help.aliyun.com/document_detail/449144.html). This parameter is required only for subscription MaxCompute resources.
+        // For ECS, Lingjun, and ACS resources, you do not need to specify this parameter. Their quota information is configured in the `Spec` parameter.
         shared_ptr<string> id_ {};
       };
 
@@ -139,9 +140,9 @@ namespace Models
 
 
       protected:
-        // The label key.
+        // The key of the tag.
         shared_ptr<string> key_ {};
-        // The label value.
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -227,42 +228,69 @@ namespace Models
     protected:
       // The environment type. Valid values:
       // 
-      // *   dev: development environment
-      // *   prod: production environment
+      // - `dev`: development environment
+      // 
+      // - `prod`: production environment
       // 
       // This parameter is required.
       shared_ptr<string> envType_ {};
-      // The name of the resource group, which is unique within your Alibaba Cloud account. This parameter is required for MaxCompute, Elastic Compute Service (ECS), Lingjun, Alibaba Cloud Container Compute Service (ACS), and Realtime Compute for Apache Flink resources.
+      // The name of the resource group. The name must be unique within an Alibaba Cloud account. This parameter is required for MaxCompute, ECS, Lingjun, ACS, and Flink resources.
       shared_ptr<string> groupName_ {};
-      // Specifies whether the resource is the default resource. Each type of resources has a default resource. Valid values:
+      // Indicates whether this is the default resource for its type. Each resource type can have only one default resource.
       // 
-      // *   false (default)
-      // *   true
+      // - `false` (default): The resource is not the default resource.
+      // 
+      // - `true`: The resource is the default resource.
       shared_ptr<bool> isDefault_ {};
-      // The labels added to the resource.
+      // An array of resource tags.
       shared_ptr<vector<Resources::Labels>> labels_ {};
       // The resource name. The name must meet the following requirements:
       // 
-      // *   The name must be 3 to 28 characters in length, and can contain only letters, digits, and underscores (_). The name must start with a letter.
-      // *   The name must be unique in the region.
+      // - Must be 3 to 28 characters long, start with a letter, and can contain only letters, digits, and underscores (_).
+      // 
+      // - Must be unique within the same region.
+      // 
+      // - If `Option` is set to `Attach` and `ResourceType` is set to `MaxCompute`, this parameter specifies the project name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // **This parameter is no longer used and will be removed. Use the ResourceType parameter instead.
+      // **[Deprecated]** This parameter is deprecated and will be removed in a future version. Use the `ResourceType` parameter instead.
       shared_ptr<string> productType_ {};
-      // The quotas. Only MaxCompute quotas are available.
+      // The resource quotas. Currently, only MaxCompute resources have resource quotas.
       shared_ptr<vector<Resources::Quotas>> quotas_ {};
-      // The resource types. Valid values:
+      // The resource type. Valid values:
       // 
-      // *   MaxCompute
-      // *   ECS
-      // *   Lingjun
-      // *   ACS
-      // *   FLINK
+      // - `MaxCompute`: MaxCompute resources
+      // 
+      // - `ECS`: general-purpose computing resources
+      // 
+      // - `Lingjun`: Lingjun intelligent computing resources
+      // 
+      // - `ACS`: ACS computing resources
+      // 
+      // - `Flink`: Flink resources
+      // 
+      // - `SelfManagedAckPro`: unified managed cluster resource (AckPro)
+      // 
+      // - `SelfManagedAckLingjun`: unified managed cluster resource (AckLingjun)
+      // 
+      // - `SelfManagedASI`: unified managed cluster resource for third-party clouds (ASI)
       shared_ptr<string> resourceType_ {};
-      // The resource specifications in the JSON format.
+      // The resource specification in JSON format. For ECS and Lingjun resources, the format is as follows:
+      // {<br>
+      // "clusterType": "The type of the cluster",
+      // "resourceId": "The ID of the quota",
+      // "resourceName": "The name of the quota"
+      // }
+      // The `clusterType` parameter can have the following values:<br>
+      // 
+      // - `share`: shared resource group
+      // 
+      // - `private`: dedicated resource group
+      // 
+      // - `FullyManaged`: fully managed ACS resource
       Darabonba::Json spec_ {};
-      // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+      // The ID of the workspace to which the resource belongs. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
       // 
       // This parameter is required.
       shared_ptr<string> workspaceId_ {};
@@ -287,14 +315,15 @@ namespace Models
 
 
   protected:
-    // The operation to perform. Valid values:
+    // The creation behavior. Valid values:
     // 
-    // *   CreateAndAttach: creates resources and associates the resources with a workspace.
-    // *   Attach: associates resources with a workspace.
+    // - `CreateAndAttach`: Creates a resource and attaches it to the workspace.
     // 
-    // >  MaxCompute supports only the Attach operation.
+    // - `Attach`: Attaches an existing resource to the workspace. This option requires you to specify the `Name`, `ResourceType`, `GroupName`, and `EnvType` parameters.
+    // 
+    // > MaxCompute resources only support the `Attach` option.
     shared_ptr<string> option_ {};
-    // The resources.
+    // The list of resources.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateWorkspaceResourceRequest::Resources>> resources_ {};

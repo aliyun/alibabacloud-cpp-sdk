@@ -104,6 +104,7 @@ namespace Models
 
 
     protected:
+      // Additional configuration information.
       shared_ptr<string> extra_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -173,14 +174,17 @@ namespace Models
       shared_ptr<string> model_ {};
       // The model type. Valid values:
       // 
-      // *   LLM
-      // *   Embedding
-      // *   ReRank
-      shared_ptr<string> modelType_ {};
-      // Indicates whether a tool can be called by using ToolCall. Valid values:
+      // - LLM: A large language model (LLM).
       // 
-      // *   true
-      // *   false
+      // - Embedding: An embedding model.
+      // 
+      // - ReRank: A reranking model.
+      shared_ptr<string> modelType_ {};
+      // Indicates whether tool calling is supported. Valid values:
+      // 
+      // - true: Tool calling is supported.
+      // 
+      // - false: Tool calling is not supported.
       shared_ptr<bool> toolCall_ {};
     };
 
@@ -295,44 +299,53 @@ namespace Models
 
 
   protected:
-    // The resource accessibility. Valid values:
+    // The visibility of the resource. Valid values:
     // 
-    // *   PUBLIC: All members in the workspace can access the workspace.
-    // *   PRIVATE: Only the creator can access the workspace.
+    // - PUBLIC: All members in the current workspace can access the resource.
+    // 
+    // - PRIVATE: Only the creator can access the resource.
     shared_ptr<string> accessibility_ {};
-    // The connection configuration.
+    // The configuration information of the connection.
     shared_ptr<map<string, string>> configs_ {};
     // The connection ID.
     shared_ptr<string> connectionId_ {};
-    // The connection name.
+    // The name of the connection.
     shared_ptr<string> connectionName_ {};
     // The type of the connection. Valid values:
     // 
-    // *   DashScopeConnection: Alibaba Cloud Model Studio connection.
-    // *   OpenLLMConnection: Open source model connection.
-    // *   MilvusConnection: Milvus connection.
-    // *   OpenSearchConnection: OpenSearch connection.
-    // *   LindormConnection: Lindorm connection.
-    // *   ElasticsearchConnection: Elasticsearch connection.
-    // *   HologresConnection: Hologres connection.
-    // *   RDSConnection: RDS connection.
-    // *   CustomConnection: Custom connection.
+    // - DashScopeConnection: A connection to a Model Studio service.
+    // 
+    // - OpenLLMConnection: A connection to an open-source model.
+    // 
+    // - MilvusConnection: A connection to Milvus.
+    // 
+    // - OpenSearchConnection: A connection to OpenSearch.
+    // 
+    // - LindormConnection: A connection to Lindorm.
+    // 
+    // - ElasticsearchConnection: A connection to Elasticsearch.
+    // 
+    // - HologresConnection: A connection to Hologres.
+    // 
+    // - RDSConnection: A connection to RDS.
+    // 
+    // - CustomConnection: A custom connection.
     shared_ptr<string> connectionType_ {};
     // The creator of the connection.
     shared_ptr<string> creator_ {};
-    // The connection description.
+    // The description of the connection.
     shared_ptr<string> description_ {};
-    // The time when the connection is created, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time when the connection was created. The time is in the ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the connection is modified, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time when the connection was last modified. The time is in the ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The models, which apply to model service connections.
+    // The list of models. This parameter is applicable to connections of the model service type.
     shared_ptr<vector<GetConnectionResponseBody::Models>> models_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The instance resource information of the connection, which applies to database connections.
+    // The instance resource information of the connection. This parameter is typically used for database connections.
     shared_ptr<GetConnectionResponseBody::ResourceMeta> resourceMeta_ {};
-    // The encrypted configuration, in key-value pairs. Examples: the database logon password and the key of the model connection.
+    // The key-value pairs that need to be encrypted. Examples include the logon password for a database and the key for a model connection.
     shared_ptr<map<string, string>> secrets_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

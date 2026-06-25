@@ -59,7 +59,28 @@ AlibabaCloud::AIWorkSpace20210204::Client::Client(Config &config): OpenApiClient
     {"eu-west-1" , "aiworkspace.aliyuncs.com"},
     {"eu-west-1-oxs" , "aiworkspace.aliyuncs.com"},
     {"me-east-1" , "aiworkspace.aliyuncs.com"},
-    {"rus-west-1-pop" , "aiworkspace.aliyuncs.com"}
+    {"rus-west-1-pop" , "aiworkspace.aliyuncs.com"},
+    {"us-west-1" , "aiworkspace.us-west-1.aliyuncs.com"},
+    {"us-southeast-1" , "aiworkspace.us-southeast-1.aliyuncs.com"},
+    {"us-east-1" , "aiworkspace.us-east-1.aliyuncs.com"},
+    {"na-south-1" , "aiworkspace.na-south-1.aliyuncs.com"},
+    {"eu-central-1" , "aiworkspace.eu-central-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "aiworkspace.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "aiworkspace.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "aiworkspace.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "aiworkspace.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "aiworkspace.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "aiworkspace.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou" , "aiworkspace.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "aiworkspace.cn-guangzhou.aliyuncs.com	"},
+    {"cn-beijing" , "aiworkspace.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-8" , "aiworkspace.ap-southeast-8.aliyuncs.com"},
+    {"ap-southeast-7" , "aiworkspace.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-3" , "aiworkspace.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "aiworkspace.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "aiworkspace.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2" , "aiworkspace.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "aiworkspace.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aiworkspace", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -79,9 +100,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Receives and processes system event messages sent by DataWorks.
+ * @summary PAI accepts and processes system event messages from DataWorks.
  *
- * @description This operation can be called only by the internal system and cannot be called by external users.
+ * @description This API is for internal system calls only.
  *
  * @param request AcceptDataworksEventRequest
  * @param headers map
@@ -118,9 +139,9 @@ AcceptDataworksEventResponse Client::acceptDataworksEventWithOptions(const Accep
 }
 
 /**
- * @summary Receives and processes system event messages sent by DataWorks.
+ * @summary PAI accepts and processes system event messages from DataWorks.
  *
- * @description This operation can be called only by the internal system and cannot be called by external users.
+ * @description This API is for internal system calls only.
  *
  * @param request AcceptDataworksEventRequest
  * @return AcceptDataworksEventResponse
@@ -213,7 +234,7 @@ AddImageResponse Client::addImage(const AddImageRequest &request) {
 }
 
 /**
- * @summary Adds tags to an image.
+ * @summary Adds labels to a specified image.
  *
  * @param request AddImageLabelsRequest
  * @param headers map
@@ -246,7 +267,7 @@ AddImageLabelsResponse Client::addImageLabelsWithOptions(const string &ImageId, 
 }
 
 /**
- * @summary Adds tags to an image.
+ * @summary Adds labels to a specified image.
  *
  * @param request AddImageLabelsRequest
  * @return AddImageLabelsResponse
@@ -258,7 +279,7 @@ AddImageLabelsResponse Client::addImageLabels(const string &ImageId, const AddIm
 }
 
 /**
- * @summary Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
+ * @summary Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
  *
  * @param request AddMemberRoleRequest
  * @param headers map
@@ -285,7 +306,7 @@ AddMemberRoleResponse Client::addMemberRoleWithOptions(const string &WorkspaceId
 }
 
 /**
- * @summary Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
+ * @summary Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
  *
  * @param request AddMemberRoleRequest
  * @return AddMemberRoleResponse
@@ -297,7 +318,7 @@ AddMemberRoleResponse Client::addMemberRole(const string &WorkspaceId, const str
 }
 
 /**
- * @summary Changes the resource group to which a resource belongs based on the ID.
+ * @summary Changes the resource group of a specified resource.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -338,7 +359,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Changes the resource group to which a resource belongs based on the ID.
+ * @summary Changes the resource group of a specified resource.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -350,7 +371,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
+ * @summary Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
  *
  * @param request CreateCodeSourceRequest
  * @param headers map
@@ -423,7 +444,7 @@ CreateCodeSourceResponse Client::createCodeSourceWithOptions(const CreateCodeSou
 }
 
 /**
- * @summary Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
+ * @summary Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
  *
  * @param request CreateCodeSourceRequest
  * @return CreateCodeSourceResponse
@@ -435,7 +456,7 @@ CreateCodeSourceResponse Client::createCodeSource(const CreateCodeSourceRequest 
 }
 
 /**
- * @summary Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
+ * @summary Creates a connection to link PAI cloud services with your models, databases, and other services. This is useful for scenarios such as LangStudio and multimodal dataset retrieval.
  *
  * @param request CreateConnectionRequest
  * @param headers map
@@ -500,7 +521,7 @@ CreateConnectionResponse Client::createConnectionWithOptions(const CreateConnect
 }
 
 /**
- * @summary Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
+ * @summary Creates a connection to link PAI cloud services with your models, databases, and other services. This is useful for scenarios such as LangStudio and multimodal dataset retrieval.
  *
  * @param request CreateConnectionRequest
  * @return CreateConnectionResponse
@@ -653,7 +674,7 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
- * @summary Creates the metadata records of multiple files in a dataset at a time.
+ * @summary Creates file metadata records for a dataset in a batch.
  *
  * @param request CreateDatasetFileMetasRequest
  * @param headers map
@@ -694,7 +715,7 @@ CreateDatasetFileMetasResponse Client::createDatasetFileMetasWithOptions(const s
 }
 
 /**
- * @summary Creates the metadata records of multiple files in a dataset at a time.
+ * @summary Creates file metadata records for a dataset in a batch.
  *
  * @param request CreateDatasetFileMetasRequest
  * @return CreateDatasetFileMetasResponse
@@ -771,7 +792,7 @@ CreateDatasetJobResponse Client::createDatasetJob(const string &DatasetId, const
 }
 
 /**
- * @summary Creates a job configuration for a dataset.
+ * @summary Creates a dataset Job configuration.
  *
  * @param request CreateDatasetJobConfigRequest
  * @param headers map
@@ -816,7 +837,7 @@ CreateDatasetJobConfigResponse Client::createDatasetJobConfigWithOptions(const s
 }
 
 /**
- * @summary Creates a job configuration for a dataset.
+ * @summary Creates a dataset Job configuration.
  *
  * @param request CreateDatasetJobConfigRequest
  * @return CreateDatasetJobConfigResponse
@@ -828,11 +849,11 @@ CreateDatasetJobConfigResponse Client::createDatasetJobConfig(const string &Data
 }
 
 /**
- * @summary Creates tags for a dataset.
+ * @summary Adds labels to a dataset.
  *
- * @description Before you call this operation, take note of the following items:
- * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
- * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
+ * @description When you call this operation, note the following:
+ * - The key and value of a label must be a non-empty string with a maximum length of 128 characters.
+ * - A label key cannot start with aliyun, acs, http\\://, or https\\://.
  *
  * @param request CreateDatasetLabelsRequest
  * @param headers map
@@ -865,11 +886,11 @@ CreateDatasetLabelsResponse Client::createDatasetLabelsWithOptions(const string 
 }
 
 /**
- * @summary Creates tags for a dataset.
+ * @summary Adds labels to a dataset.
  *
- * @description Before you call this operation, take note of the following items:
- * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
- * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
+ * @description When you call this operation, note the following:
+ * - The key and value of a label must be a non-empty string with a maximum length of 128 characters.
+ * - A label key cannot start with aliyun, acs, http\\://, or https\\://.
  *
  * @param request CreateDatasetLabelsRequest
  * @return CreateDatasetLabelsResponse
@@ -966,7 +987,7 @@ CreateDatasetVersionResponse Client::createDatasetVersion(const string &DatasetI
 }
 
 /**
- * @summary Creates tags for a dataset version.
+ * @summary Creates labels for a dataset version.
  *
  * @param request CreateDatasetVersionLabelsRequest
  * @param headers map
@@ -999,7 +1020,7 @@ CreateDatasetVersionLabelsResponse Client::createDatasetVersionLabelsWithOptions
 }
 
 /**
- * @summary Creates tags for a dataset version.
+ * @summary Creates labels for a dataset version.
  *
  * @param request CreateDatasetVersionLabelsRequest
  * @return CreateDatasetVersionLabelsResponse
@@ -1072,7 +1093,9 @@ CreateExperimentResponse Client::createExperiment(const CreateExperimentRequest 
 }
 
 /**
- * @summary 创建镜像构建任务
+ * @summary Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+ *
+ * @description ## Description
  *
  * @param request CreateImageBuildRequest
  * @param headers map
@@ -1147,7 +1170,9 @@ CreateImageBuildResponse Client::createImageBuildWithOptions(const CreateImageBu
 }
 
 /**
- * @summary 创建镜像构建任务
+ * @summary Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+ *
+ * @description ## Description
  *
  * @param request CreateImageBuildRequest
  * @return CreateImageBuildResponse
@@ -1159,7 +1184,7 @@ CreateImageBuildResponse Client::createImageBuild(const CreateImageBuildRequest 
 }
 
 /**
- * @summary Adds a user to a workspace as a member. You can add multiple users as members.
+ * @summary Adds one or more users to a workspace.
  *
  * @param request CreateMemberRequest
  * @param headers map
@@ -1192,7 +1217,7 @@ CreateMemberResponse Client::createMemberWithOptions(const string &WorkspaceId, 
 }
 
 /**
- * @summary Adds a user to a workspace as a member. You can add multiple users as members.
+ * @summary Adds one or more users to a workspace.
  *
  * @param request CreateMemberRequest
  * @return CreateMemberResponse
@@ -1204,7 +1229,7 @@ CreateMemberResponse Client::createMember(const string &WorkspaceId, const Creat
 }
 
 /**
- * @summary Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
+ * @summary Creates a model, which is a collection of model versions. You must specify information such as the model name and description.
  *
  * @param request CreateModelRequest
  * @param headers map
@@ -1289,7 +1314,7 @@ CreateModelResponse Client::createModelWithOptions(const CreateModelRequest &req
 }
 
 /**
- * @summary Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
+ * @summary Creates a model, which is a collection of model versions. You must specify information such as the model name and description.
  *
  * @param request CreateModelRequest
  * @return CreateModelResponse
@@ -1301,7 +1326,7 @@ CreateModelResponse Client::createModel(const CreateModelRequest &request) {
 }
 
 /**
- * @summary Creates a tag for a model.
+ * @summary Creates labels for a model.
  *
  * @param request CreateModelLabelsRequest
  * @param headers map
@@ -1334,7 +1359,7 @@ CreateModelLabelsResponse Client::createModelLabelsWithOptions(const string &Mod
 }
 
 /**
- * @summary Creates a tag for a model.
+ * @summary Creates labels for a model.
  *
  * @param request CreateModelLabelsRequest
  * @return CreateModelLabelsResponse
@@ -1346,7 +1371,7 @@ CreateModelLabelsResponse Client::createModelLabels(const string &ModelId, const
 }
 
 /**
- * @summary Creates a new version for the specified model.
+ * @summary Adds a new version to a specified model.
  *
  * @param request CreateModelVersionRequest
  * @param headers map
@@ -1443,7 +1468,7 @@ CreateModelVersionResponse Client::createModelVersionWithOptions(const string &M
 }
 
 /**
- * @summary Creates a new version for the specified model.
+ * @summary Adds a new version to a specified model.
  *
  * @param request CreateModelVersionRequest
  * @return CreateModelVersionResponse
@@ -1455,7 +1480,7 @@ CreateModelVersionResponse Client::createModelVersion(const string &ModelId, con
 }
 
 /**
- * @summary Creates a tag for a model version.
+ * @summary Creates labels for a model version.
  *
  * @param request CreateModelVersionLabelsRequest
  * @param headers map
@@ -1488,7 +1513,7 @@ CreateModelVersionLabelsResponse Client::createModelVersionLabelsWithOptions(con
 }
 
 /**
- * @summary Creates a tag for a model version.
+ * @summary Creates labels for a model version.
  *
  * @param request CreateModelVersionLabelsRequest
  * @return CreateModelVersionLabelsResponse
@@ -1500,7 +1525,7 @@ CreateModelVersionLabelsResponse Client::createModelVersionLabels(const string &
 }
 
 /**
- * @summary Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
+ * @summary Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
  *
  * @param request CreateProductOrdersRequest
  * @param headers map
@@ -1537,7 +1562,7 @@ CreateProductOrdersResponse Client::createProductOrdersWithOptions(const CreateP
 }
 
 /**
- * @summary Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
+ * @summary Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
  *
  * @param request CreateProductOrdersRequest
  * @return CreateProductOrdersResponse
@@ -1549,7 +1574,7 @@ CreateProductOrdersResponse Client::createProductOrders(const CreateProductOrder
 }
 
 /**
- * @summary Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
+ * @summary Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
  *
  * @param request CreateRunRequest
  * @param headers map
@@ -1602,7 +1627,7 @@ CreateRunResponse Client::createRunWithOptions(const CreateRunRequest &request, 
 }
 
 /**
- * @summary Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
+ * @summary Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
  *
  * @param request CreateRunRequest
  * @return CreateRunResponse
@@ -1675,7 +1700,7 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
- * @summary Associates resources with a workspace.
+ * @summary Add a resource reference to a workspace.
  *
  * @param request CreateWorkspaceResourceRequest
  * @param headers map
@@ -1712,7 +1737,7 @@ CreateWorkspaceResourceResponse Client::createWorkspaceResourceWithOptions(const
 }
 
 /**
- * @summary Associates resources with a workspace.
+ * @summary Add a resource reference to a workspace.
  *
  * @param request CreateWorkspaceResourceRequest
  * @return CreateWorkspaceResourceResponse
@@ -1724,7 +1749,60 @@ CreateWorkspaceResourceResponse Client::createWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary Deletes a code source based on the provided ID.
+ * @summary Creates a workspace role.
+ *
+ * @param request CreateWorkspaceRoleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkspaceRoleResponse
+ */
+CreateWorkspaceRoleResponse Client::createWorkspaceRoleWithOptions(const string &WorkspaceId, const CreateWorkspaceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModulePermissions()) {
+    body["ModulePermissions"] = request.getModulePermissions();
+  }
+
+  if (!!request.hasRoleName()) {
+    body["RoleName"] = request.getRoleName();
+  }
+
+  if (!!request.hasRoleType()) {
+    body["RoleType"] = request.getRoleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkspaceRole"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/roles")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkspaceRoleResponse>();
+}
+
+/**
+ * @summary Creates a workspace role.
+ *
+ * @param request CreateWorkspaceRoleRequest
+ * @return CreateWorkspaceRoleResponse
+ */
+CreateWorkspaceRoleResponse Client::createWorkspaceRole(const string &WorkspaceId, const CreateWorkspaceRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWorkspaceRoleWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a code source configuration by its ID.
  *
  * @param request DeleteCodeSourceRequest
  * @param headers map
@@ -1751,7 +1829,7 @@ DeleteCodeSourceResponse Client::deleteCodeSourceWithOptions(const string &CodeS
 }
 
 /**
- * @summary Deletes a code source based on the provided ID.
+ * @summary Deletes a code source configuration by its ID.
  *
  * @param request DeleteCodeSourceRequest
  * @return DeleteCodeSourceResponse
@@ -1763,7 +1841,7 @@ DeleteCodeSourceResponse Client::deleteCodeSource(const string &CodeSourceId, co
 }
 
 /**
- * @summary Deletes workspace configurations.
+ * @summary Deletes a workspace configuration.
  *
  * @param request DeleteConfigRequest
  * @param headers map
@@ -1800,7 +1878,7 @@ DeleteConfigResponse Client::deleteConfigWithOptions(const string &WorkspaceId, 
 }
 
 /**
- * @summary Deletes workspace configurations.
+ * @summary Deletes a workspace configuration.
  *
  * @param request DeleteConfigRequest
  * @return DeleteConfigResponse
@@ -1890,7 +1968,7 @@ DeleteDatasetResponse Client::deleteDataset(const string &DatasetId, const Delet
 }
 
 /**
- * @summary Deletes the metadata records of multiple files in a dataset at a time.
+ * @summary Deletes file metadata records from a dataset in batches.
  *
  * @param request DeleteDatasetFileMetasRequest
  * @param headers map
@@ -1931,7 +2009,7 @@ DeleteDatasetFileMetasResponse Client::deleteDatasetFileMetasWithOptions(const s
 }
 
 /**
- * @summary Deletes the metadata records of multiple files in a dataset at a time.
+ * @summary Deletes file metadata records from a dataset in batches.
  *
  * @param request DeleteDatasetFileMetasRequest
  * @return DeleteDatasetFileMetasResponse
@@ -1943,7 +2021,7 @@ DeleteDatasetFileMetasResponse Client::deleteDatasetFileMetas(const string &Data
 }
 
 /**
- * @summary Deletes a dataset job.
+ * @summary Deletes a dataset Job.
  *
  * @param request DeleteDatasetJobRequest
  * @param headers map
@@ -1970,7 +2048,7 @@ DeleteDatasetJobResponse Client::deleteDatasetJobWithOptions(const string &Datas
 }
 
 /**
- * @summary Deletes a dataset job.
+ * @summary Deletes a dataset Job.
  *
  * @param request DeleteDatasetJobRequest
  * @return DeleteDatasetJobResponse
@@ -1982,7 +2060,7 @@ DeleteDatasetJobResponse Client::deleteDatasetJob(const string &DatasetId, const
 }
 
 /**
- * @summary Deletes a job configuration for a dataset.
+ * @summary Deletes a dataset job configuration.
  *
  * @param request DeleteDatasetJobConfigRequest
  * @param headers map
@@ -2015,7 +2093,7 @@ DeleteDatasetJobConfigResponse Client::deleteDatasetJobConfigWithOptions(const s
 }
 
 /**
- * @summary Deletes a job configuration for a dataset.
+ * @summary Deletes a dataset job configuration.
  *
  * @param request DeleteDatasetJobConfigRequest
  * @return DeleteDatasetJobConfigResponse
@@ -2027,7 +2105,7 @@ DeleteDatasetJobConfigResponse Client::deleteDatasetJobConfig(const string &Data
 }
 
 /**
- * @summary Deletes a dataset tag.
+ * @summary Deletes labels from a dataset.
  *
  * @param request DeleteDatasetLabelsRequest
  * @param headers map
@@ -2060,7 +2138,7 @@ DeleteDatasetLabelsResponse Client::deleteDatasetLabelsWithOptions(const string 
 }
 
 /**
- * @summary Deletes a dataset tag.
+ * @summary Deletes labels from a dataset.
  *
  * @param request DeleteDatasetLabelsRequest
  * @return DeleteDatasetLabelsResponse
@@ -2072,7 +2150,7 @@ DeleteDatasetLabelsResponse Client::deleteDatasetLabels(const string &DatasetId,
 }
 
 /**
- * @summary Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
+ * @summary Deletes a specified version of a dataset. This operation cannot be used to delete version v1. Version v1 is deleted with the dataset when you call the DeleteDataset operation.
  *
  * @param request DeleteDatasetVersionRequest
  * @param headers map
@@ -2099,7 +2177,7 @@ DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const strin
 }
 
 /**
- * @summary Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
+ * @summary Deletes a specified version of a dataset. This operation cannot be used to delete version v1. Version v1 is deleted with the dataset when you call the DeleteDataset operation.
  *
  * @param request DeleteDatasetVersionRequest
  * @return DeleteDatasetVersionResponse
@@ -2111,7 +2189,7 @@ DeleteDatasetVersionResponse Client::deleteDatasetVersion(const string &DatasetI
 }
 
 /**
- * @summary Deletes tags for a dataset version.
+ * @summary Deletes labels from a dataset version.
  *
  * @param request DeleteDatasetVersionLabelsRequest
  * @param headers map
@@ -2144,7 +2222,7 @@ DeleteDatasetVersionLabelsResponse Client::deleteDatasetVersionLabelsWithOptions
 }
 
 /**
- * @summary Deletes tags for a dataset version.
+ * @summary Deletes labels from a dataset version.
  *
  * @param request DeleteDatasetVersionLabelsRequest
  * @return DeleteDatasetVersionLabelsResponse
@@ -2195,7 +2273,7 @@ DeleteExperimentResponse Client::deleteExperiment(const string &ExperimentId, co
 }
 
 /**
- * @summary Deletes an experiment tag.
+ * @summary Deletes a label from an experiment.
  *
  * @param request DeleteExperimentLabelRequest
  * @param headers map
@@ -2222,7 +2300,7 @@ DeleteExperimentLabelResponse Client::deleteExperimentLabelWithOptions(const str
 }
 
 /**
- * @summary Deletes an experiment tag.
+ * @summary Deletes a label from an experiment.
  *
  * @param request DeleteExperimentLabelRequest
  * @return DeleteExperimentLabelResponse
@@ -2234,7 +2312,7 @@ DeleteExperimentLabelResponse Client::deleteExperimentLabel(const string &Experi
 }
 
 /**
- * @summary Deletes a member from a workspace.
+ * @summary Deletes members from a workspace.
  *
  * @param request DeleteMembersRequest
  * @param headers map
@@ -2267,7 +2345,7 @@ DeleteMembersResponse Client::deleteMembersWithOptions(const string &WorkspaceId
 }
 
 /**
- * @summary Deletes a member from a workspace.
+ * @summary Deletes members from a workspace.
  *
  * @param request DeleteMembersRequest
  * @return DeleteMembersResponse
@@ -2318,7 +2396,7 @@ DeleteModelResponse Client::deleteModel(const string &ModelId, const DeleteModel
 }
 
 /**
- * @summary Deletes the labels of a model.
+ * @summary Deletes model labels.
  *
  * @param request DeleteModelLabelsRequest
  * @param headers map
@@ -2351,7 +2429,7 @@ DeleteModelLabelsResponse Client::deleteModelLabelsWithOptions(const string &Mod
 }
 
 /**
- * @summary Deletes the labels of a model.
+ * @summary Deletes model labels.
  *
  * @param request DeleteModelLabelsRequest
  * @return DeleteModelLabelsResponse
@@ -2402,7 +2480,7 @@ DeleteModelVersionResponse Client::deleteModelVersion(const string &ModelId, con
 }
 
 /**
- * @summary Delete a model version tag.
+ * @summary Deletes labels from a model version.
  *
  * @param request DeleteModelVersionLabelsRequest
  * @param headers map
@@ -2435,7 +2513,7 @@ DeleteModelVersionLabelsResponse Client::deleteModelVersionLabelsWithOptions(con
 }
 
 /**
- * @summary Delete a model version tag.
+ * @summary Deletes labels from a model version.
  *
  * @param request DeleteModelVersionLabelsRequest
  * @return DeleteModelVersionLabelsResponse
@@ -2486,7 +2564,7 @@ DeleteRunResponse Client::deleteRun(const string &RunId, const DeleteRunRequest 
 }
 
 /**
- * @summary Deletes a tag that is added to a run.
+ * @summary Deletes a label from a run.
  *
  * @param request DeleteRunLabelRequest
  * @param headers map
@@ -2513,7 +2591,7 @@ DeleteRunLabelResponse Client::deleteRunLabelWithOptions(const string &RunId, co
 }
 
 /**
- * @summary Deletes a tag that is added to a run.
+ * @summary Deletes a label from a run.
  *
  * @param request DeleteRunLabelRequest
  * @return DeleteRunLabelResponse
@@ -2525,7 +2603,7 @@ DeleteRunLabelResponse Client::deleteRunLabel(const string &RunId, const string 
 }
 
 /**
- * @summary Deletes user configurations.
+ * @summary Deletes a user configuration.
  *
  * @param request DeleteUserConfigRequest
  * @param headers map
@@ -2562,7 +2640,7 @@ DeleteUserConfigResponse Client::deleteUserConfigWithOptions(const string &Categ
 }
 
 /**
- * @summary Deletes user configurations.
+ * @summary Deletes a user configuration.
  *
  * @param request DeleteUserConfigRequest
  * @return DeleteUserConfigResponse
@@ -2574,7 +2652,7 @@ DeleteUserConfigResponse Client::deleteUserConfig(const string &CategoryName, co
 }
 
 /**
- * @summary Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
+ * @summary Deletes a workspace. This operation does not release associated resources. You must release them manually.
  *
  * @param request DeleteWorkspaceRequest
  * @param headers map
@@ -2601,7 +2679,7 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &Workspa
 }
 
 /**
- * @summary Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
+ * @summary Deletes a workspace. This operation does not release associated resources. You must release them manually.
  *
  * @param request DeleteWorkspaceRequest
  * @return DeleteWorkspaceResponse
@@ -2613,7 +2691,7 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &WorkspaceId, const
 }
 
 /**
- * @summary Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
+ * @summary Detaches a resource from a workspace. This operation does not delete the underlying resource.
  *
  * @param request DeleteWorkspaceResourceRequest
  * @param headers map
@@ -2666,7 +2744,7 @@ DeleteWorkspaceResourceResponse Client::deleteWorkspaceResourceWithOptions(const
 }
 
 /**
- * @summary Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
+ * @summary Detaches a resource from a workspace. This operation does not delete the underlying resource.
  *
  * @param request DeleteWorkspaceResourceRequest
  * @return DeleteWorkspaceResourceResponse
@@ -2678,7 +2756,52 @@ DeleteWorkspaceResourceResponse Client::deleteWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary Obtains the details of a code source.
+ * @summary Deletes one or more roles from a workspace.
+ *
+ * @param request DeleteWorkspaceRolesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkspaceRolesResponse
+ */
+DeleteWorkspaceRolesResponse Client::deleteWorkspaceRolesWithOptions(const string &WorkspaceId, const DeleteWorkspaceRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRoleIds()) {
+    body["RoleIds"] = request.getRoleIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteWorkspaceRoles"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/roles/action/delete")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkspaceRolesResponse>();
+}
+
+/**
+ * @summary Deletes one or more roles from a workspace.
+ *
+ * @param request DeleteWorkspaceRolesRequest
+ * @return DeleteWorkspaceRolesResponse
+ */
+DeleteWorkspaceRolesResponse Client::deleteWorkspaceRoles(const string &WorkspaceId, const DeleteWorkspaceRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWorkspaceRolesWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Gets the details of a specified code source configuration.
  *
  * @param request GetCodeSourceRequest
  * @param headers map
@@ -2705,7 +2828,7 @@ GetCodeSourceResponse Client::getCodeSourceWithOptions(const string &CodeSourceI
 }
 
 /**
- * @summary Obtains the details of a code source.
+ * @summary Gets the details of a specified code source configuration.
  *
  * @param request GetCodeSourceRequest
  * @return GetCodeSourceResponse
@@ -2717,7 +2840,7 @@ GetCodeSourceResponse Client::getCodeSource(const string &CodeSourceId, const Ge
 }
 
 /**
- * @summary Obtains a workspace configuration item.
+ * @summary Retrieves the configurations of a workspace.
  *
  * @param request GetConfigRequest
  * @param headers map
@@ -2758,7 +2881,7 @@ GetConfigResponse Client::getConfigWithOptions(const string &WorkspaceId, const 
 }
 
 /**
- * @summary Obtains a workspace configuration item.
+ * @summary Retrieves the configurations of a workspace.
  *
  * @param request GetConfigRequest
  * @return GetConfigResponse
@@ -2770,7 +2893,7 @@ GetConfigResponse Client::getConfig(const string &WorkspaceId, const GetConfigRe
 }
 
 /**
- * @summary Obtains the connection details.
+ * @summary Retrieves the details of a connection.
  *
  * @param request GetConnectionRequest
  * @param headers map
@@ -2803,7 +2926,7 @@ GetConnectionResponse Client::getConnectionWithOptions(const string &ConnectionI
 }
 
 /**
- * @summary Obtains the connection details.
+ * @summary Retrieves the details of a connection.
  *
  * @param request GetConnectionRequest
  * @return GetConnectionResponse
@@ -2815,7 +2938,7 @@ GetConnectionResponse Client::getConnection(const string &ConnectionId, const Ge
 }
 
 /**
- * @summary Obtains a dataset.
+ * @summary Retrieves a dataset.
  *
  * @param request GetDatasetRequest
  * @param headers map
@@ -2842,7 +2965,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const string &DatasetId, const 
 }
 
 /**
- * @summary Obtains a dataset.
+ * @summary Retrieves a dataset.
  *
  * @param request GetDatasetRequest
  * @return GetDatasetResponse
@@ -2854,7 +2977,7 @@ GetDatasetResponse Client::getDataset(const string &DatasetId, const GetDatasetR
 }
 
 /**
- * @summary Queries the metadata records of specific files in a dataset.
+ * @summary Retrieves the metadata record of a specified file in a dataset.
  *
  * @param request GetDatasetFileMetaRequest
  * @param headers map
@@ -2891,7 +3014,7 @@ GetDatasetFileMetaResponse Client::getDatasetFileMetaWithOptions(const string &D
 }
 
 /**
- * @summary Queries the metadata records of specific files in a dataset.
+ * @summary Retrieves the metadata record of a specified file in a dataset.
  *
  * @param request GetDatasetFileMetaRequest
  * @return GetDatasetFileMetaResponse
@@ -2903,7 +3026,7 @@ GetDatasetFileMetaResponse Client::getDatasetFileMeta(const string &DatasetId, c
 }
 
 /**
- * @summary Obtains metadata statistics of a dataset.
+ * @summary Retrieves statistics for metadata in a dataset.
  *
  * @param request GetDatasetFileMetasStatisticsRequest
  * @param headers map
@@ -2948,7 +3071,7 @@ GetDatasetFileMetasStatisticsResponse Client::getDatasetFileMetasStatisticsWithO
 }
 
 /**
- * @summary Obtains metadata statistics of a dataset.
+ * @summary Retrieves statistics for metadata in a dataset.
  *
  * @param request GetDatasetFileMetasStatisticsRequest
  * @return GetDatasetFileMetasStatisticsResponse
@@ -2960,7 +3083,7 @@ GetDatasetFileMetasStatisticsResponse Client::getDatasetFileMetasStatistics(cons
 }
 
 /**
- * @summary Obtains a dataset job.
+ * @summary Retrieves a dataset job.
  *
  * @param request GetDatasetJobRequest
  * @param headers map
@@ -2997,7 +3120,7 @@ GetDatasetJobResponse Client::getDatasetJobWithOptions(const string &DatasetId, 
 }
 
 /**
- * @summary Obtains a dataset job.
+ * @summary Retrieves a dataset job.
  *
  * @param request GetDatasetJobRequest
  * @return GetDatasetJobResponse
@@ -3009,7 +3132,7 @@ GetDatasetJobResponse Client::getDatasetJob(const string &DatasetId, const strin
 }
 
 /**
- * @summary Obtains a job configuration for a dataset.
+ * @summary Retrieves the configuration of a dataset job.
  *
  * @param request GetDatasetJobConfigRequest
  * @param headers map
@@ -3042,7 +3165,7 @@ GetDatasetJobConfigResponse Client::getDatasetJobConfigWithOptions(const string 
 }
 
 /**
- * @summary Obtains a job configuration for a dataset.
+ * @summary Retrieves the configuration of a dataset job.
  *
  * @param request GetDatasetJobConfigRequest
  * @return GetDatasetJobConfigResponse
@@ -3054,7 +3177,7 @@ GetDatasetJobConfigResponse Client::getDatasetJobConfig(const string &DatasetId,
 }
 
 /**
- * @summary Obtains the information about a specified version of a dataset.
+ * @summary Retrieves information about a specific dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @param headers map
@@ -3081,7 +3204,7 @@ GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const string &Dat
 }
 
 /**
- * @summary Obtains the information about a specified version of a dataset.
+ * @summary Retrieves information about a specific dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @return GetDatasetVersionResponse
@@ -3093,7 +3216,7 @@ GetDatasetVersionResponse Client::getDatasetVersion(const string &DatasetId, con
 }
 
 /**
- * @summary Queries information about the default workspace.
+ * @summary Retrieves the details of the default workspace.
  *
  * @param request GetDefaultWorkspaceRequest
  * @param headers map
@@ -3126,7 +3249,7 @@ GetDefaultWorkspaceResponse Client::getDefaultWorkspaceWithOptions(const GetDefa
 }
 
 /**
- * @summary Queries information about the default workspace.
+ * @summary Retrieves the details of the default workspace.
  *
  * @param request GetDefaultWorkspaceRequest
  * @return GetDefaultWorkspaceResponse
@@ -3138,7 +3261,7 @@ GetDefaultWorkspaceResponse Client::getDefaultWorkspace(const GetDefaultWorkspac
 }
 
 /**
- * @summary Obtains an experiment.
+ * @summary Retrieves an experiment.
  *
  * @param request GetExperimentRequest
  * @param headers map
@@ -3171,7 +3294,7 @@ GetExperimentResponse Client::getExperimentWithOptions(const string &ExperimentI
 }
 
 /**
- * @summary Obtains an experiment.
+ * @summary Retrieves an experiment.
  *
  * @param request GetExperimentRequest
  * @return GetExperimentResponse
@@ -3183,7 +3306,7 @@ GetExperimentResponse Client::getExperiment(const string &ExperimentId, const Ge
 }
 
 /**
- * @summary Obtains the information about an image.
+ * @summary Retrieves the details of an image.
  *
  * @param request GetImageRequest
  * @param headers map
@@ -3216,7 +3339,7 @@ GetImageResponse Client::getImageWithOptions(const string &ImageId, const GetIma
 }
 
 /**
- * @summary Obtains the information about an image.
+ * @summary Retrieves the details of an image.
  *
  * @param request GetImageRequest
  * @return GetImageResponse
@@ -3228,7 +3351,46 @@ GetImageResponse Client::getImage(const string &ImageId, const GetImageRequest &
 }
 
 /**
- * @summary Obtains a member in a workspace.
+ * @summary Gets the details of a job.
+ *
+ * @param request GetInstanceJobRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceJobResponse
+ */
+GetInstanceJobResponse Client::getInstanceJobWithOptions(const string &InstanceJobId, const GetInstanceJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceJob"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instancejobs/" , Darabonba::Encode::Encoder::percentEncode(InstanceJobId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceJobResponse>();
+}
+
+/**
+ * @summary Gets the details of a job.
+ *
+ * @param request GetInstanceJobRequest
+ * @return GetInstanceJobResponse
+ */
+GetInstanceJobResponse Client::getInstanceJob(const string &InstanceJobId, const GetInstanceJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getInstanceJobWithOptions(InstanceJobId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a member of a workspace.
  *
  * @param request GetMemberRequest
  * @param headers map
@@ -3265,7 +3427,7 @@ GetMemberResponse Client::getMemberWithOptions(const string &WorkspaceId, const 
 }
 
 /**
- * @summary Obtains a member in a workspace.
+ * @summary Retrieves a member of a workspace.
  *
  * @param request GetMemberRequest
  * @return GetMemberResponse
@@ -3277,7 +3439,7 @@ GetMemberResponse Client::getMember(const string &WorkspaceId, const GetMemberRe
 }
 
 /**
- * @summary Obtains the details of a specified model.
+ * @summary Gets the details of a specified model.
  *
  * @param request GetModelRequest
  * @param headers map
@@ -3304,7 +3466,7 @@ GetModelResponse Client::getModelWithOptions(const string &ModelId, const GetMod
 }
 
 /**
- * @summary Obtains the details of a specified model.
+ * @summary Gets the details of a specified model.
  *
  * @param request GetModelRequest
  * @return GetModelResponse
@@ -3316,7 +3478,7 @@ GetModelResponse Client::getModel(const string &ModelId, const GetModelRequest &
 }
 
 /**
- * @summary Queries a model version.
+ * @summary Retrieves a model version.
  *
  * @param request GetModelVersionRequest
  * @param headers map
@@ -3343,7 +3505,7 @@ GetModelVersionResponse Client::getModelVersionWithOptions(const string &ModelId
 }
 
 /**
- * @summary Queries a model version.
+ * @summary Retrieves a model version.
  *
  * @param request GetModelVersionRequest
  * @return GetModelVersionResponse
@@ -3355,7 +3517,7 @@ GetModelVersionResponse Client::getModelVersion(const string &ModelId, const str
 }
 
 /**
- * @summary Obtains permissions on a workspace.
+ * @summary Retrieves the permissions of a workspace.
  *
  * @param tmpReq GetPermissionRequest
  * @param headers map
@@ -3422,7 +3584,7 @@ GetPermissionResponse Client::getPermissionWithOptions(const string &WorkspaceId
 }
 
 /**
- * @summary Obtains permissions on a workspace.
+ * @summary Retrieves the permissions of a workspace.
  *
  * @param request GetPermissionRequest
  * @return GetPermissionResponse
@@ -3434,7 +3596,7 @@ GetPermissionResponse Client::getPermission(const string &WorkspaceId, const str
 }
 
 /**
- * @summary Queries the run information.
+ * @summary Retrieves run details.
  *
  * @param request GetRunRequest
  * @param headers map
@@ -3467,7 +3629,7 @@ GetRunResponse Client::getRunWithOptions(const string &RunId, const GetRunReques
 }
 
 /**
- * @summary Queries the run information.
+ * @summary Retrieves run details.
  *
  * @param request GetRunRequest
  * @return GetRunResponse
@@ -3479,7 +3641,7 @@ GetRunResponse Client::getRun(const string &RunId, const GetRunRequest &request)
 }
 
 /**
- * @summary Queries the details about a workspace.
+ * @summary Retrieves the details of a workspace.
  *
  * @param request GetWorkspaceRequest
  * @param headers map
@@ -3512,7 +3674,7 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &WorkspaceId, 
 }
 
 /**
- * @summary Queries the details about a workspace.
+ * @summary Retrieves the details of a workspace.
  *
  * @param request GetWorkspaceRequest
  * @return GetWorkspaceResponse
@@ -3524,7 +3686,46 @@ GetWorkspaceResponse Client::getWorkspace(const string &WorkspaceId, const GetWo
 }
 
 /**
- * @summary Lists code sources. Pagination, sorting, and filtering by condition are supported.
+ * @summary Gets information about a specific role within a workspace.
+ *
+ * @param request GetWorkspaceRoleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceRoleResponse
+ */
+GetWorkspaceRoleResponse Client::getWorkspaceRoleWithOptions(const string &WorkspaceId, const string &RoleId, const GetWorkspaceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspaceRole"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(RoleId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceRoleResponse>();
+}
+
+/**
+ * @summary Gets information about a specific role within a workspace.
+ *
+ * @param request GetWorkspaceRoleRequest
+ * @return GetWorkspaceRoleResponse
+ */
+GetWorkspaceRoleResponse Client::getWorkspaceRole(const string &WorkspaceId, const string &RoleId, const GetWorkspaceRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkspaceRoleWithOptions(WorkspaceId, RoleId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of code source configurations with support for paging, sorting, and filtering.
  *
  * @param request ListCodeSourcesRequest
  * @param headers map
@@ -3577,7 +3778,7 @@ ListCodeSourcesResponse Client::listCodeSourcesWithOptions(const ListCodeSources
 }
 
 /**
- * @summary Lists code sources. Pagination, sorting, and filtering by condition are supported.
+ * @summary Queries a list of code source configurations with support for paging, sorting, and filtering.
  *
  * @param request ListCodeSourcesRequest
  * @return ListCodeSourcesResponse
@@ -3589,7 +3790,7 @@ ListCodeSourcesResponse Client::listCodeSources(const ListCodeSourcesRequest &re
 }
 
 /**
- * @summary Obtains a list of workspace configurations.
+ * @summary Lists the configurations for a workspace.
  *
  * @param request ListConfigsRequest
  * @param headers map
@@ -3634,7 +3835,7 @@ ListConfigsResponse Client::listConfigsWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary Obtains a list of workspace configurations.
+ * @summary Lists the configurations for a workspace.
  *
  * @param request ListConfigsRequest
  * @return ListConfigsResponse
@@ -3646,7 +3847,7 @@ ListConfigsResponse Client::listConfigs(const string &WorkspaceId, const ListCon
 }
 
 /**
- * @summary Lists connections.
+ * @summary Queries a list of connections.
  *
  * @param tmpReq ListConnectionsRequest
  * @param headers map
@@ -3745,7 +3946,7 @@ ListConnectionsResponse Client::listConnectionsWithOptions(const ListConnections
 }
 
 /**
- * @summary Lists connections.
+ * @summary Queries a list of connections.
  *
  * @param request ListConnectionsRequest
  * @return ListConnectionsResponse
@@ -3757,7 +3958,7 @@ ListConnectionsResponse Client::listConnections(const ListConnectionsRequest &re
 }
 
 /**
- * @summary Queries a list of dataset files.
+ * @summary Queries the files in a dataset.
  *
  * @param tmpReq ListDatasetFileMetasRequest
  * @param headers map
@@ -3924,7 +4125,7 @@ ListDatasetFileMetasResponse Client::listDatasetFileMetasWithOptions(const strin
 }
 
 /**
- * @summary Queries a list of dataset files.
+ * @summary Queries the files in a dataset.
  *
  * @param request ListDatasetFileMetasRequest
  * @return ListDatasetFileMetasResponse
@@ -3936,7 +4137,7 @@ ListDatasetFileMetasResponse Client::listDatasetFileMetas(const string &DatasetI
 }
 
 /**
- * @summary Queries the dataset job configurations at a time.
+ * @summary Lists dataset job configurations in batches.
  *
  * @param request ListDatasetJobConfigsRequest
  * @param headers map
@@ -3985,7 +4186,7 @@ ListDatasetJobConfigsResponse Client::listDatasetJobConfigsWithOptions(const str
 }
 
 /**
- * @summary Queries the dataset job configurations at a time.
+ * @summary Lists dataset job configurations in batches.
  *
  * @param request ListDatasetJobConfigsRequest
  * @return ListDatasetJobConfigsResponse
@@ -3997,7 +4198,7 @@ ListDatasetJobConfigsResponse Client::listDatasetJobConfigs(const string &Datase
 }
 
 /**
- * @summary Lists jobs in a dataset.
+ * @summary Lists dataset jobs.
  *
  * @param request ListDatasetJobsRequest
  * @param headers map
@@ -4062,7 +4263,7 @@ ListDatasetJobsResponse Client::listDatasetJobsWithOptions(const string &Dataset
 }
 
 /**
- * @summary Lists jobs in a dataset.
+ * @summary Lists dataset jobs.
  *
  * @param request ListDatasetJobsRequest
  * @return ListDatasetJobsResponse
@@ -4074,7 +4275,7 @@ ListDatasetJobsResponse Client::listDatasetJobs(const string &DatasetId, const L
 }
 
 /**
- * @summary Lists dataset versions.
+ * @summary Retrieves a list of dataset versions.
  *
  * @param request ListDatasetVersionsRequest
  * @param headers map
@@ -4139,7 +4340,7 @@ ListDatasetVersionsResponse Client::listDatasetVersionsWithOptions(const string 
 }
 
 /**
- * @summary Lists dataset versions.
+ * @summary Retrieves a list of dataset versions.
  *
  * @param request ListDatasetVersionsRequest
  * @return ListDatasetVersionsResponse
@@ -4264,7 +4465,7 @@ ListDatasetsResponse Client::listDatasets(const ListDatasetsRequest &request) {
 }
 
 /**
- * @summary Lists experiments.
+ * @summary Retrieves a list of experiments.
  *
  * @param tmpReq ListExperimentRequest
  * @param headers map
@@ -4347,7 +4548,7 @@ ListExperimentResponse Client::listExperimentWithOptions(const ListExperimentReq
 }
 
 /**
- * @summary Lists experiments.
+ * @summary Retrieves a list of experiments.
  *
  * @param request ListExperimentRequest
  * @return ListExperimentResponse
@@ -4359,7 +4560,7 @@ ListExperimentResponse Client::listExperiment(const ListExperimentRequest &reque
 }
 
 /**
- * @summary Queries a list of features.
+ * @summary Retrieves a list of features.
  *
  * @param request ListFeaturesRequest
  * @param headers map
@@ -4392,7 +4593,7 @@ ListFeaturesResponse Client::listFeaturesWithOptions(const ListFeaturesRequest &
 }
 
 /**
- * @summary Queries a list of features.
+ * @summary Retrieves a list of features.
  *
  * @param request ListFeaturesRequest
  * @return ListFeaturesResponse
@@ -4404,7 +4605,7 @@ ListFeaturesResponse Client::listFeatures(const ListFeaturesRequest &request) {
 }
 
 /**
- * @summary Lists all tags of an image.
+ * @summary Queries a list of image labels.
  *
  * @param request ListImageLabelsRequest
  * @param headers map
@@ -4453,7 +4654,7 @@ ListImageLabelsResponse Client::listImageLabelsWithOptions(const ListImageLabels
 }
 
 /**
- * @summary Lists all tags of an image.
+ * @summary Queries a list of image labels.
  *
  * @param request ListImageLabelsRequest
  * @return ListImageLabelsResponse
@@ -4550,7 +4751,7 @@ ListImagesResponse Client::listImages(const ListImagesRequest &request) {
 }
 
 /**
- * @summary Obtains the members in a workspace.
+ * @summary Lists members in a workspace.
  *
  * @param request ListMembersRequest
  * @param headers map
@@ -4599,7 +4800,7 @@ ListMembersResponse Client::listMembersWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary Obtains the members in a workspace.
+ * @summary Lists members in a workspace.
  *
  * @param request ListMembersRequest
  * @return ListMembersResponse
@@ -4611,7 +4812,7 @@ ListMembersResponse Client::listMembers(const string &WorkspaceId, const ListMem
 }
 
 /**
- * @summary Queries a list of model versions.
+ * @summary Retrieves a list of model versions.
  *
  * @param request ListModelVersionsRequest
  * @param headers map
@@ -4684,7 +4885,7 @@ ListModelVersionsResponse Client::listModelVersionsWithOptions(const string &Mod
 }
 
 /**
- * @summary Queries a list of model versions.
+ * @summary Retrieves a list of model versions.
  *
  * @param request ListModelVersionsRequest
  * @return ListModelVersionsResponse
@@ -4696,7 +4897,7 @@ ListModelVersionsResponse Client::listModelVersions(const string &ModelId, const
 }
 
 /**
- * @summary Queries a list of models.
+ * @summary Retrieves a list of models.
  *
  * @param tmpReq ListModelsRequest
  * @param headers map
@@ -4799,7 +5000,7 @@ ListModelsResponse Client::listModelsWithOptions(const ListModelsRequest &tmpReq
 }
 
 /**
- * @summary Queries a list of models.
+ * @summary Retrieves a list of models.
  *
  * @param request ListModelsRequest
  * @return ListModelsResponse
@@ -4811,7 +5012,7 @@ ListModelsResponse Client::listModels(const ListModelsRequest &request) {
 }
 
 /**
- * @summary Lists the permissions that a user has in a workspace.
+ * @summary Retrieves a list of user permissions in a workspace.
  *
  * @param request ListPermissionsRequest
  * @param headers map
@@ -4838,7 +5039,7 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const string &Workspa
 }
 
 /**
- * @summary Lists the permissions that a user has in a workspace.
+ * @summary Retrieves a list of user permissions in a workspace.
  *
  * @param request ListPermissionsRequest
  * @return ListPermissionsResponse
@@ -4850,7 +5051,7 @@ ListPermissionsResponse Client::listPermissions(const string &WorkspaceId, const
 }
 
 /**
- * @summary 列举产品
+ * @summary Lists products.
  *
  * @param request ListProductsRequest
  * @param headers map
@@ -4891,7 +5092,7 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
 }
 
 /**
- * @summary 列举产品
+ * @summary Lists products.
  *
  * @param request ListProductsRequest
  * @return ListProductsResponse
@@ -4903,7 +5104,7 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 }
 
 /**
- * @summary Obtains the list of quotas.
+ * @summary Retrieves a list of resource quotas.
  *
  * @param request ListQuotasRequest
  * @param headers map
@@ -4936,7 +5137,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
 }
 
 /**
- * @summary Obtains the list of quotas.
+ * @summary Retrieves a list of resource quotas.
  *
  * @param request ListQuotasRequest
  * @return ListQuotasResponse
@@ -4948,7 +5149,7 @@ ListQuotasResponse Client::listQuotas(const ListQuotasRequest &request) {
 }
 
 /**
- * @summary Queries the resources that are associated with a workspace.
+ * @summary Lists resources associated with a workspace.
  *
  * @param request ListResourcesRequest
  * @param headers map
@@ -5025,7 +5226,7 @@ ListResourcesResponse Client::listResourcesWithOptions(const ListResourcesReques
 }
 
 /**
- * @summary Queries the resources that are associated with a workspace.
+ * @summary Lists resources associated with a workspace.
  *
  * @param request ListResourcesRequest
  * @return ListResourcesResponse
@@ -5037,7 +5238,7 @@ ListResourcesResponse Client::listResources(const ListResourcesRequest &request)
 }
 
 /**
- * @summary Lists the metrics for a run.
+ * @summary Retrieves a list of metric records for a run.
  *
  * @param request ListRunMetricsRequest
  * @param headers map
@@ -5078,7 +5279,7 @@ ListRunMetricsResponse Client::listRunMetricsWithOptions(const string &RunId, co
 }
 
 /**
- * @summary Lists the metrics for a run.
+ * @summary Retrieves a list of metric records for a run.
  *
  * @param request ListRunMetricsRequest
  * @return ListRunMetricsResponse
@@ -5090,7 +5291,7 @@ ListRunMetricsResponse Client::listRunMetrics(const string &RunId, const ListRun
 }
 
 /**
- * @summary Queries a list of runs.
+ * @summary Retrieves a list of runs.
  *
  * @param request ListRunsRequest
  * @param headers map
@@ -5179,7 +5380,7 @@ ListRunsResponse Client::listRunsWithOptions(const ListRunsRequest &request, con
 }
 
 /**
- * @summary Queries a list of runs.
+ * @summary Retrieves a list of runs.
  *
  * @param request ListRunsRequest
  * @return ListRunsResponse
@@ -5191,7 +5392,7 @@ ListRunsResponse Client::listRuns(const ListRunsRequest &request) {
 }
 
 /**
- * @summary Queries user information.
+ * @summary Retrieves user configurations.
  *
  * @param request ListUserConfigsRequest
  * @param headers map
@@ -5228,7 +5429,7 @@ ListUserConfigsResponse Client::listUserConfigsWithOptions(const ListUserConfigs
 }
 
 /**
- * @summary Queries user information.
+ * @summary Retrieves user configurations.
  *
  * @param request ListUserConfigsRequest
  * @return ListUserConfigsResponse
@@ -5240,7 +5441,84 @@ ListUserConfigsResponse Client::listUserConfigs(const ListUserConfigsRequest &re
 }
 
 /**
- * @summary Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
+ * @summary Lists the roles in a specified workspace.
+ *
+ * @param request ListWorkspaceRolesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspaceRolesResponse
+ */
+ListWorkspaceRolesResponse Client::listWorkspaceRolesWithOptions(const string &WorkspaceId, const ListWorkspaceRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRoleIds()) {
+    query["RoleIds"] = request.getRoleIds();
+  }
+
+  if (!!request.hasRoleName()) {
+    query["RoleName"] = request.getRoleName();
+  }
+
+  if (!!request.hasRoleType()) {
+    query["RoleType"] = request.getRoleType();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasVerboseFields()) {
+    query["VerboseFields"] = request.getVerboseFields();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaceRoles"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/roles")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspaceRolesResponse>();
+}
+
+/**
+ * @summary Lists the roles in a specified workspace.
+ *
+ * @param request ListWorkspaceRolesRequest
+ * @return ListWorkspaceRolesResponse
+ */
+ListWorkspaceRolesResponse Client::listWorkspaceRoles(const string &WorkspaceId, const ListWorkspaceRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkspaceRolesWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Lists users that can be added as members to a workspace.
  *
  * @param request ListWorkspaceUsersRequest
  * @param headers map
@@ -5277,7 +5555,7 @@ ListWorkspaceUsersResponse Client::listWorkspaceUsersWithOptions(const string &W
 }
 
 /**
- * @summary Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
+ * @summary Lists users that can be added as members to a workspace.
  *
  * @param request ListWorkspaceUsersRequest
  * @return ListWorkspaceUsersResponse
@@ -5289,9 +5567,9 @@ ListWorkspaceUsersResponse Client::listWorkspaceUsers(const string &WorkspaceId,
 }
 
 /**
- * @summary Lists all workspaces in a region.
+ * @summary Retrieves the list of workspaces in a specified region.
  *
- * @description You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
+ * @description You can specify different query options by using the option parameter to retrieve different workspace-related information.
  *
  * @param request ListWorkspacesRequest
  * @param headers map
@@ -5372,9 +5650,9 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary Lists all workspaces in a region.
+ * @summary Retrieves the list of workspaces in a specified region.
  *
- * @description You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
+ * @description You can specify different query options by using the option parameter to retrieve different workspace-related information.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -5386,7 +5664,7 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
- * @summary Logs multiple metrics for a run at a time.
+ * @summary Records the metrics of a run in a batch.
  *
  * @param request LogRunMetricsRequest
  * @param headers map
@@ -5419,7 +5697,7 @@ LogRunMetricsResponse Client::logRunMetricsWithOptions(const string &RunId, cons
 }
 
 /**
- * @summary Logs multiple metrics for a run at a time.
+ * @summary Records the metrics of a run in a batch.
  *
  * @param request LogRunMetricsRequest
  * @return LogRunMetricsResponse
@@ -5431,7 +5709,7 @@ LogRunMetricsResponse Client::logRunMetrics(const string &RunId, const LogRunMet
 }
 
 /**
- * @summary Publishes a private code source to a workspace to make the code source publicly accessible.
+ * @summary Publishes a private code source, making it public in a workspace.
  *
  * @param request PublishCodeSourceRequest
  * @param headers map
@@ -5458,7 +5736,7 @@ PublishCodeSourceResponse Client::publishCodeSourceWithOptions(const string &Cod
 }
 
 /**
- * @summary Publishes a private code source to a workspace to make the code source publicly accessible.
+ * @summary Publishes a private code source, making it public in a workspace.
  *
  * @param request PublishCodeSourceRequest
  * @return PublishCodeSourceResponse
@@ -5509,7 +5787,7 @@ PublishDatasetResponse Client::publishDataset(const string &DatasetId, const Pub
 }
 
 /**
- * @summary Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
+ * @summary Publishes an image and changes its visibility from PRIVATE to PUBLIC.
  *
  * @param request PublishImageRequest
  * @param headers map
@@ -5536,7 +5814,7 @@ PublishImageResponse Client::publishImageWithOptions(const string &ImageId, cons
 }
 
 /**
- * @summary Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
+ * @summary Publishes an image and changes its visibility from PRIVATE to PUBLIC.
  *
  * @param request PublishImageRequest
  * @return PublishImageResponse
@@ -5548,7 +5826,7 @@ PublishImageResponse Client::publishImage(const string &ImageId, const PublishIm
 }
 
 /**
- * @summary Removes an image.
+ * @summary Deletes an image.
  *
  * @param request RemoveImageRequest
  * @param headers map
@@ -5575,7 +5853,7 @@ RemoveImageResponse Client::removeImageWithOptions(const string &ImageId, const 
 }
 
 /**
- * @summary Removes an image.
+ * @summary Deletes an image.
  *
  * @param request RemoveImageRequest
  * @return RemoveImageResponse
@@ -5587,7 +5865,7 @@ RemoveImageResponse Client::removeImage(const string &ImageId, const RemoveImage
 }
 
 /**
- * @summary Removes an image tag.
+ * @summary Removes a label from an image.
  *
  * @param request RemoveImageLabelsRequest
  * @param headers map
@@ -5614,7 +5892,7 @@ RemoveImageLabelsResponse Client::removeImageLabelsWithOptions(const string &Ima
 }
 
 /**
- * @summary Removes an image tag.
+ * @summary Removes a label from an image.
  *
  * @param request RemoveImageLabelsRequest
  * @return RemoveImageLabelsResponse
@@ -5626,7 +5904,7 @@ RemoveImageLabelsResponse Client::removeImageLabels(const string &ImageId, const
 }
 
 /**
- * @summary Removes a member role.
+ * @summary Removes a role from a member.
  *
  * @param request RemoveMemberRoleRequest
  * @param headers map
@@ -5653,7 +5931,7 @@ RemoveMemberRoleResponse Client::removeMemberRoleWithOptions(const string &Works
 }
 
 /**
- * @summary Removes a member role.
+ * @summary Removes a role from a member.
  *
  * @param request RemoveMemberRoleRequest
  * @return RemoveMemberRoleResponse
@@ -5665,7 +5943,7 @@ RemoveMemberRoleResponse Client::removeMemberRole(const string &WorkspaceId, con
 }
 
 /**
- * @summary Updates a experiment tag.
+ * @summary Updates the labels of an experiment.
  *
  * @param request SetExperimentLabelsRequest
  * @param headers map
@@ -5698,7 +5976,7 @@ SetExperimentLabelsResponse Client::setExperimentLabelsWithOptions(const string 
 }
 
 /**
- * @summary Updates a experiment tag.
+ * @summary Updates the labels of an experiment.
  *
  * @param request SetExperimentLabelsRequest
  * @return SetExperimentLabelsResponse
@@ -5710,7 +5988,7 @@ SetExperimentLabelsResponse Client::setExperimentLabels(const string &Experiment
 }
 
 /**
- * @summary Updates the user configurations.
+ * @summary Updates user configurations.
  *
  * @param request SetUserConfigsRequest
  * @param headers map
@@ -5743,7 +6021,7 @@ SetUserConfigsResponse Client::setUserConfigsWithOptions(const SetUserConfigsReq
 }
 
 /**
- * @summary Updates the user configurations.
+ * @summary Updates user configurations.
  *
  * @param request SetUserConfigsRequest
  * @return SetUserConfigsResponse
@@ -5755,7 +6033,7 @@ SetUserConfigsResponse Client::setUserConfigs(const SetUserConfigsRequest &reque
 }
 
 /**
- * @summary Stops a dataset job.
+ * @summary Stops a dataset Job.
  *
  * @param request StopDatasetJobRequest
  * @param headers map
@@ -5792,7 +6070,7 @@ StopDatasetJobResponse Client::stopDatasetJobWithOptions(const string &DatasetId
 }
 
 /**
- * @summary Stops a dataset job.
+ * @summary Stops a dataset Job.
  *
  * @param request StopDatasetJobRequest
  * @return StopDatasetJobResponse
@@ -5804,7 +6082,7 @@ StopDatasetJobResponse Client::stopDatasetJob(const string &DatasetId, const str
 }
 
 /**
- * @summary Updates a code build.
+ * @summary Updates a code source.
  *
  * @param request UpdateCodeSourceRequest
  * @param headers map
@@ -5869,7 +6147,7 @@ UpdateCodeSourceResponse Client::updateCodeSourceWithOptions(const string &CodeS
 }
 
 /**
- * @summary Updates a code build.
+ * @summary Updates a code source.
  *
  * @param request UpdateCodeSourceRequest
  * @return UpdateCodeSourceResponse
@@ -5881,7 +6159,7 @@ UpdateCodeSourceResponse Client::updateCodeSource(const string &CodeSourceId, co
 }
 
 /**
- * @summary Updates or adds a workspace configuration item.
+ * @summary Updates or creates workspace configurations.
  *
  * @param request UpdateConfigRequest
  * @param headers map
@@ -5926,7 +6204,7 @@ UpdateConfigResponse Client::updateConfigWithOptions(const string &WorkspaceId, 
 }
 
 /**
- * @summary Updates or adds a workspace configuration item.
+ * @summary Updates or creates workspace configurations.
  *
  * @param request UpdateConfigRequest
  * @return UpdateConfigResponse
@@ -5938,7 +6216,7 @@ UpdateConfigResponse Client::updateConfig(const string &WorkspaceId, const Updat
 }
 
 /**
- * @summary Updates or adds workspace configurations in batches.
+ * @summary Updates or creates workspace configurations in batches.
  *
  * @param request UpdateConfigsRequest
  * @param headers map
@@ -5971,7 +6249,7 @@ UpdateConfigsResponse Client::updateConfigsWithOptions(const string &WorkspaceId
 }
 
 /**
- * @summary Updates or adds workspace configurations in batches.
+ * @summary Updates or creates workspace configurations in batches.
  *
  * @param request UpdateConfigsRequest
  * @return UpdateConfigsResponse
@@ -5983,7 +6261,7 @@ UpdateConfigsResponse Client::updateConfigs(const string &WorkspaceId, const Upd
 }
 
 /**
- * @summary Updates a connection.
+ * @summary Updates a connection configuration.
  *
  * @param request UpdateConnectionRequest
  * @param headers map
@@ -6028,7 +6306,7 @@ UpdateConnectionResponse Client::updateConnectionWithOptions(const string &Conne
 }
 
 /**
- * @summary Updates a connection.
+ * @summary Updates a connection configuration.
  *
  * @param request UpdateConnectionRequest
  * @return UpdateConnectionResponse
@@ -6040,7 +6318,7 @@ UpdateConnectionResponse Client::updateConnection(const string &ConnectionId, co
 }
 
 /**
- * @summary Updates the name, description, and other information about a dataset.
+ * @summary Updates the properties of a dataset, such as its name and description.
  *
  * @param request UpdateDatasetRequest
  * @param headers map
@@ -6101,7 +6379,7 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const string &DatasetId, 
 }
 
 /**
- * @summary Updates the name, description, and other information about a dataset.
+ * @summary Updates the properties of a dataset, such as its name and description.
  *
  * @param request UpdateDatasetRequest
  * @return UpdateDatasetResponse
@@ -6113,7 +6391,7 @@ UpdateDatasetResponse Client::updateDataset(const string &DatasetId, const Updat
 }
 
 /**
- * @summary Updates the metadata records of multiple files in a dataset at a time.
+ * @summary Updates multiple file metadata records in a dataset.
  *
  * @param request UpdateDatasetFileMetasRequest
  * @param headers map
@@ -6158,7 +6436,7 @@ UpdateDatasetFileMetasResponse Client::updateDatasetFileMetasWithOptions(const s
 }
 
 /**
- * @summary Updates the metadata records of multiple files in a dataset at a time.
+ * @summary Updates multiple file metadata records in a dataset.
  *
  * @param request UpdateDatasetFileMetasRequest
  * @return UpdateDatasetFileMetasResponse
@@ -6223,7 +6501,7 @@ UpdateDatasetJobResponse Client::updateDatasetJob(const string &DatasetId, const
 }
 
 /**
- * @summary Updates a job configuration for a dataset.
+ * @summary Updates a dataset job configuration.
  *
  * @param request UpdateDatasetJobConfigRequest
  * @param headers map
@@ -6264,7 +6542,7 @@ UpdateDatasetJobConfigResponse Client::updateDatasetJobConfigWithOptions(const s
 }
 
 /**
- * @summary Updates a job configuration for a dataset.
+ * @summary Updates a dataset job configuration.
  *
  * @param request UpdateDatasetJobConfigRequest
  * @return UpdateDatasetJobConfigResponse
@@ -6276,7 +6554,7 @@ UpdateDatasetJobConfigResponse Client::updateDatasetJobConfig(const string &Data
 }
 
 /**
- * @summary Updates the information about a specified version of a dataset.
+ * @summary Updates the information for a specific version of a dataset.
  *
  * @param request UpdateDatasetVersionRequest
  * @param headers map
@@ -6321,7 +6599,7 @@ UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const strin
 }
 
 /**
- * @summary Updates the information about a specified version of a dataset.
+ * @summary Updates the information for a specific version of a dataset.
  *
  * @param request UpdateDatasetVersionRequest
  * @return UpdateDatasetVersionResponse
@@ -6333,7 +6611,7 @@ UpdateDatasetVersionResponse Client::updateDatasetVersion(const string &DatasetI
 }
 
 /**
- * @summary Specifies a workspace as the default workspace.
+ * @summary Sets a workspace as the default.
  *
  * @param request UpdateDefaultWorkspaceRequest
  * @param headers map
@@ -6366,7 +6644,7 @@ UpdateDefaultWorkspaceResponse Client::updateDefaultWorkspaceWithOptions(const U
 }
 
 /**
- * @summary Specifies a workspace as the default workspace.
+ * @summary Sets a workspace as the default.
  *
  * @param request UpdateDefaultWorkspaceRequest
  * @return UpdateDefaultWorkspaceResponse
@@ -6427,7 +6705,7 @@ UpdateExperimentResponse Client::updateExperiment(const string &ExperimentId, co
 }
 
 /**
- * @summary Updates the basic configuration information about a model.
+ * @summary Updates the basic configuration of a model.
  *
  * @param request UpdateModelRequest
  * @param headers map
@@ -6500,7 +6778,7 @@ UpdateModelResponse Client::updateModelWithOptions(const string &ModelId, const 
 }
 
 /**
- * @summary Updates the basic configuration information about a model.
+ * @summary Updates the basic configuration of a model.
  *
  * @param request UpdateModelRequest
  * @return UpdateModelResponse
@@ -6601,7 +6879,7 @@ UpdateModelVersionResponse Client::updateModelVersion(const string &ModelId, con
 }
 
 /**
- * @summary Updates the run information.
+ * @summary Updates the details of a run.
  *
  * @param request UpdateRunRequest
  * @param headers map
@@ -6642,7 +6920,7 @@ UpdateRunResponse Client::updateRunWithOptions(const string &RunId, const Update
 }
 
 /**
- * @summary Updates the run information.
+ * @summary Updates the details of a run.
  *
  * @param request UpdateRunRequest
  * @return UpdateRunResponse
@@ -6703,7 +6981,7 @@ UpdateWorkspaceResponse Client::updateWorkspace(const string &WorkspaceId, const
 }
 
 /**
- * @summary Updates the resources of a workspace.
+ * @summary Updates resources in a workspace.
  *
  * @param request UpdateWorkspaceResourceRequest
  * @param headers map
@@ -6760,7 +7038,7 @@ UpdateWorkspaceResourceResponse Client::updateWorkspaceResourceWithOptions(const
 }
 
 /**
- * @summary Updates the resources of a workspace.
+ * @summary Updates resources in a workspace.
  *
  * @param request UpdateWorkspaceResourceRequest
  * @return UpdateWorkspaceResourceResponse
@@ -6772,7 +7050,56 @@ UpdateWorkspaceResourceResponse Client::updateWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary 验证连接
+ * @summary Updates a role in a workspace.
+ *
+ * @param request UpdateWorkspaceRoleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkspaceRoleResponse
+ */
+UpdateWorkspaceRoleResponse Client::updateWorkspaceRoleWithOptions(const string &WorkspaceId, const string &RoleId, const UpdateWorkspaceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModulePermissions()) {
+    body["ModulePermissions"] = request.getModulePermissions();
+  }
+
+  if (!!request.hasRoleName()) {
+    body["RoleName"] = request.getRoleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkspaceRole"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(RoleId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkspaceRoleResponse>();
+}
+
+/**
+ * @summary Updates a role in a workspace.
+ *
+ * @param request UpdateWorkspaceRoleRequest
+ * @return UpdateWorkspaceRoleResponse
+ */
+UpdateWorkspaceRoleResponse Client::updateWorkspaceRole(const string &WorkspaceId, const string &RoleId, const UpdateWorkspaceRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkspaceRoleWithOptions(WorkspaceId, RoleId, request, headers, runtime);
+}
+
+/**
+ * @summary Validates a connection.
  *
  * @param request ValidateConnectionRequest
  * @param headers map
@@ -6825,7 +7152,7 @@ ValidateConnectionResponse Client::validateConnectionWithOptions(const ValidateC
 }
 
 /**
- * @summary 验证连接
+ * @summary Validates a connection.
  *
  * @param request ValidateConnectionRequest
  * @return ValidateConnectionResponse

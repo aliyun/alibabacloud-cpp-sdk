@@ -80,9 +80,9 @@ namespace Models
   protected:
     // The ID of the product purchase request.
     shared_ptr<string> buyProductRequestId_ {};
-    // The returned message.
+    // The message returned for the purchase.
     shared_ptr<string> message_ {};
-    // The purchase order ID.
+    // The ID of the purchase order.
     shared_ptr<string> orderId_ {};
     shared_ptr<vector<string>> productIds_ {};
     // The request ID.

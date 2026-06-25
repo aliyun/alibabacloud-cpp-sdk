@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The metrics.
+    // The list of metrics.
     shared_ptr<vector<RunMetric>> metrics_ {};
-    // The pagination token that is used to retrieve the next page. You do not need to specify this parameter for the first request. You must specify the pagination token in the result of the previous query. If the pagination token is 0, no next page exists. You can obtain the pagination token that is used to retrieve the next page in the value of the **NextPageToken** field.
+    // The token to retrieve the next page of results. A value of 0 indicates that all results have been returned. Use the value of this parameter for the \\`PageToken\\` parameter in your next request to retrieve the next page.
     shared_ptr<int64_t> nextPageToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

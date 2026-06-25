@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The configuration item keys. Currently, only customizePAIAssumedRole.
+    // The configuration key. Only customizePAIAssumedRole is supported.
     shared_ptr<string> configKey_ {};
     // The scope. Valid values: subUser and owner.
     shared_ptr<string> scope_ {};

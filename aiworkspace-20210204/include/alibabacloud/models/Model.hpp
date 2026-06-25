@@ -254,6 +254,7 @@ namespace Models
     Darabonba::Json extraInfo_ {};
     // The time when the model was created, in UTC. The time follows the ISO 8601 standard.
     shared_ptr<string> gmtCreateTime_ {};
+    // 最后版本更新时间。
     shared_ptr<string> gmtLatestVersionModifiedTime_ {};
     // The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
     shared_ptr<string> gmtModifiedTime_ {};
@@ -277,9 +278,11 @@ namespace Models
     shared_ptr<string> origin_ {};
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> ownerId_ {};
+    // 参数量，单位M。
     shared_ptr<int64_t> parameterSize_ {};
     // The model provider.
     shared_ptr<string> provider_ {};
+    // 标签列表
     shared_ptr<vector<Label>> tags_ {};
     // The task. The specific issue that the model resolves, such as text-classification.
     shared_ptr<string> task_ {};

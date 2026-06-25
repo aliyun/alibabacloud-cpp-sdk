@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of model versions.
     shared_ptr<int64_t> totalCount_ {};
-    // The model versions.
+    // The list of model versions.
     shared_ptr<vector<ModelVersion>> versions_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The category. Currently, only DataPrivacyConfig is supported.
+    // The category. Only DataPrivacyConfig is supported.
     shared_ptr<string> categoryNames_ {};
-    // The configuration item keys. Currently, only customizePAIAssumedRole is supported.
+    // A collection of configuration keys. Only customizePAIAssumedRole is supported.
     shared_ptr<string> configKeys_ {};
   };
 

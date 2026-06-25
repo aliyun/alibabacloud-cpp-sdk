@@ -61,7 +61,7 @@ namespace Models
 
 
   protected:
-    // The dataset job configurations.
+    // A list of dataset job configurations.
     shared_ptr<vector<DatasetJobConfig>> datasetJobConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

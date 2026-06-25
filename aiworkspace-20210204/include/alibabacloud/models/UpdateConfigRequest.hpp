@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the label.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -113,26 +113,35 @@ namespace Models
 
 
   protected:
-    // The category of the configuration item. Valid values:
+    // The classification of the configuration item. The following classifications are supported:
     // 
-    // *   CommonResourceConfig
-    // *   DLCAutoRecycle
-    // *   DLCPriorityConfig
-    // *   DSWPriorityConfig
-    // *   QuotaMaximumDuration
-    // *   CommonTagConfig
+    // - CommonResourceConfig: The common resource configuration.
+    // 
+    // - DLCAutoRecycle: The DLC auto-recycle configuration.
+    // 
+    // - DLCPriorityConfig: The DLC priority settings.
+    // 
+    // - DSWPriorityConfig: The DSW priority settings.
+    // 
+    // - QuotaMaximumDuration: The maximum runtime of a DLC task for a quota.
+    // 
+    // - CommonTagConfig: The tag settings.
     shared_ptr<string> categoryName_ {};
-    // The key of the configuration item. Valid values:
+    // The key of the configuration item. The following keys are supported:
     // 
-    // *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-    // *   isAutoRecycle: Automatic recycle configuration. This key can be used only when CategoryName is set to DLCAutoRecycle.
-    // *   priorityConfig: Priority configuration. This key can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-    // *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
-    // *   predefinedTags: Preset tags of the workspace. Created resources must include tags.
+    // - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
+    // 
+    // - isAutoRecycle: The auto-recycle configuration. This key is valid only when CategoryName is set to DLCAutoRecycle.
+    // 
+    // - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+    // 
+    // - quotaMaximumDuration: The maximum runtime of a DLC task for a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
+    // 
+    // - predefinedTags: The predefined tags for the workspace. Created resources must have these tags.
     shared_ptr<string> configKey_ {};
     // The value of the configuration item.
     shared_ptr<string> configValue_ {};
-    // The tags of the configuration item.
+    // The list of labels for the configuration item.
     shared_ptr<vector<UpdateConfigRequest::Labels>> labels_ {};
   };
 

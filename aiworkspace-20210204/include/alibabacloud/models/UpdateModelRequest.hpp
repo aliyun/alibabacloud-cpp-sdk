@@ -134,27 +134,29 @@ namespace Models
   protected:
     // The visibility of the model in the workspace. Valid values:
     // 
-    // *   PRIVATE: The model is visible only to you and the administrator of the workspace.
-    // *   PUBLIC: The model is visible to all users in the workspace.
+    // - PRIVATE: The model is visible only to you and administrators in the workspace.
+    // 
+    // - PUBLIC: The model is visible to everyone in the workspace.
     shared_ptr<string> accessibility_ {};
-    // The domain. This parameter describes the domain in which the model is applied. Valid values: nlp (natural language processing) and cv (computer vision).
+    // The domain of the model. This parameter specifies the field where the model is applied. Examples: nlp (natural language processing) and cv (computer vision).
     shared_ptr<string> domain_ {};
     // Other information about the model.
     Darabonba::Json extraInfo_ {};
     // The model description.
     shared_ptr<string> modelDescription_ {};
-    // The documentation of the model.
+    // The model document.
     shared_ptr<string> modelDoc_ {};
-    // The model name, which must be 1 to 127 characters in length.
+    // The name of the model. The name must be 1 to 127 characters in length.
     shared_ptr<string> modelName_ {};
-    // The model type. Valid values: Checkpoint and LoRA.
+    // The model type, such as Checkpoint or LoRA.
     shared_ptr<string> modelType_ {};
-    // The sequence number of the model. This parameter can be used for custom sorting.
+    // The ordinal number of the model. You can use this parameter for custom sorting.
     shared_ptr<int64_t> orderNumber_ {};
-    // The source of the model. This parameter describes the community or organization to which the source model belongs. Valid values: ModelScope and HuggingFace.
+    // The source of the model. This parameter describes the community or organization to which the source model belongs, such as ModelScope and HuggingFace.
     shared_ptr<string> origin_ {};
+    // The number of parameters, in millions.
     shared_ptr<int64_t> parameterSize_ {};
-    // The task. This parameter specifies the specific issue that the model resolves. Example: text-classification.
+    // The task of the model. This parameter describes the specific problem that the model solves. For example, text-classification.
     shared_ptr<string> task_ {};
   };
 

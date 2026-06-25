@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether the service is activated.
       shared_ptr<bool> isOpen_ {};
+      // The activation URL.
       shared_ptr<string> openUrl_ {};
+      // The service code.
       shared_ptr<string> serviceCode_ {};
     };
 
@@ -151,10 +154,14 @@ namespace Models
 
 
     protected:
+      // Indicates whether the user has permission to purchase the product.
       shared_ptr<bool> hasPermissionToPurchase_ {};
+      // Indicates whether the product is purchased.
       shared_ptr<bool> isPurchased_ {};
+      // The product code.
       shared_ptr<string> productCode_ {};
       shared_ptr<string> productId_ {};
+      // The purchase URL.
       shared_ptr<string> purchaseUrl_ {};
     };
 
@@ -186,8 +193,11 @@ namespace Models
 
 
   protected:
+    // The list of products.
     shared_ptr<vector<ListProductsResponseBody::Products>> products_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of services.
     shared_ptr<vector<ListProductsResponseBody::Services>> services_ {};
   };
 

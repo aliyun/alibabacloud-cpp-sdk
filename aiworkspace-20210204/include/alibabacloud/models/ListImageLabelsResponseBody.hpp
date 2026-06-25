@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the label.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // The image tags.
+    // The list of image labels.
     shared_ptr<vector<ListImageLabelsResponseBody::Labels>> labels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the images that meet the filter conditions.
+    // The total number of image labels that meet the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

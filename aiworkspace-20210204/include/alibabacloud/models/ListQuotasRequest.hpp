@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The quota name. Fuzzy search is supported.
+    // The name of the resource quota. Fuzzy search is supported.
     shared_ptr<string> name_ {};
   };
 

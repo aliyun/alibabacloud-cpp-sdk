@@ -176,39 +176,40 @@ namespace Models
 
 
   protected:
-    // The visibility of the code source. Valid values:
+    // The visibility of the code configuration. Valid values:
     // 
-    // *   PRIVATE: Visible only to you and the administrator of the workspace.
-    // *   PUBLIC: Visible to all members in the workspace.
+    // - PRIVATE: The configuration is visible only to you and the administrator in the workspace.
+    // 
+    // - PUBLIC: The configuration is visible to everyone in the workspace.
     shared_ptr<string> accessibility_ {};
     shared_ptr<int32_t> cloneType_ {};
-    // The code repository branch.
+    // The branch of the code repository.
     shared_ptr<string> codeBranch_ {};
-    // The code commit ID.
+    // The commit ID of the code.
     shared_ptr<string> codeCommit_ {};
-    // The address of the code repository.
+    // The URL of the code repository.
     shared_ptr<string> codeRepo_ {};
     // The token used to access the code repository.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username of the code repository.
+    // The username for the code repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The ID of the code source.
+    // The ID of the code source configuration.
     shared_ptr<string> codeSourceId_ {};
-    // The description of the code source.
+    // The detailed description of the code configuration.
     shared_ptr<string> description_ {};
-    // The name of the code source.
+    // The name of the code source configuration.
     shared_ptr<string> displayName_ {};
-    // The time when the code source was created, in the ISO8601 format.
+    // The time when the code configuration was created. The time is in the ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the code source was modified, in the ISO8601 format.
+    // The time when the code configuration was last modified. The time is in the ISO 8601 format.
     shared_ptr<string> gmtModifyTime_ {};
-    // The local mount path of the code.
+    // The local mount path for the code.
     shared_ptr<string> mountPath_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the creator.
+    // The ID of the user who created the code source configuration.
     shared_ptr<string> userId_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

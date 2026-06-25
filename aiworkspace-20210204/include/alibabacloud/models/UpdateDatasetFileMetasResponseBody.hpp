@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The metadata records that fail to be updated for the dataset files.
+    // A list of file metadata that failed to be updated.
     shared_ptr<vector<DatasetFileMetaResponse>> failedDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the metadata records of all dataset files were updated. Valid values: true and false. If the value is false, view the failure details specified by FailedDetails.
+    // The status of the batch metadata update. A value of \\`true\\` indicates that all updates succeeded. If the value is \\`false\\`, check the \\`FailedDetails\\` parameter.
     shared_ptr<bool> status_ {};
   };
 

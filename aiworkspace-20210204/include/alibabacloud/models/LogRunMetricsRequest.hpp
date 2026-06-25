@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // The metrics.
+    // The list of metrics.
     shared_ptr<vector<RunMetric>> metrics_ {};
   };
 

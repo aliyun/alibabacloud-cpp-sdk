@@ -124,15 +124,49 @@ namespace Models
 
 
   protected:
+    // The allowed permissions for the shared dataset. When a user accesses the shared dataset, their permissions are limited to this list. The default value is \\`["RO"]\\`.
+    // 
+    // - RO: Read-only permission. The recipient can only read the dataset.
+    // 
+    // - RW: Read and write permission. The recipient can read and modify the dataset.
     shared_ptr<vector<string>> allowedMountAccessLevels_ {};
+    // The expiration time. The time is in ISO 8601 format.
+    // 
+    // > If you do not specify this parameter, the sharing relationship never expires.
     shared_ptr<string> expiresAt_ {};
+    // Additional configurations for the sharing relationship. This parameter is a JSON string.
+    // 
+    // - AllowExportModel: Specifies whether to allow the export of trained models.
+    // 
+    // - AllowAccessDLCWebTerminal: Specifies whether to allow users to log on to the container in a DLC task.
+    // 
+    // - AllowAccessDLCFullLog: Specifies whether to allow access to the full task logs.
     shared_ptr<string> extra_ {};
+    // Specifies whether to enable security protection for the shared dataset.
     shared_ptr<bool> isSecureMode_ {};
+    // The time when the dataset was shared. The time is in ISO 8601 format.
     shared_ptr<string> sharedAt_ {};
+    // The ID of the tenant that owns the source dataset. The user who shares the dataset must be a workspace administrator or the root account.
     shared_ptr<string> sourceTenantId_ {};
+    // The ID of the workspace that contains the source dataset.
     shared_ptr<string> sourceWorkspaceId_ {};
+    // The status of the sharing relationship.
+    // 
+    // - ACTIVE: The sharing relationship is active. Complete dataset information is displayed only in this state.
+    // 
+    // - EXPIRED: The sharing relationship has expired.
+    // 
+    // - REVOKED: The sharing relationship was revoked by the sharer.
+    // 
+    // - INVALID: The sharing relationship is invalid. This can happen if the source dataset is deleted.
     shared_ptr<string> status_ {};
+    // The ID of the target tenant. This must be a root account ID.
+    // 
+    // > This parameter is required when you set a sharing relationship.
     shared_ptr<string> tenantId_ {};
+    // The ID of the target workspace. This ID must be different from the source workspace ID.
+    // 
+    // > This parameter is required when you set a sharing relationship.
     shared_ptr<string> workspaceId_ {};
   };
 

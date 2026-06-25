@@ -177,33 +177,33 @@ namespace Models
 
 
   protected:
-    // The visibility.
+    // The visibility of the run.
     shared_ptr<string> accessibility_ {};
-    // The ID of the experiment that corresponds to the run.
+    // The ID of the experiment associated with the run.
     shared_ptr<string> experimentId_ {};
-    // The creation time.
+    // The time when the run was created.
     shared_ptr<string> gmtCreateTime_ {};
-    // The last modified time.
+    // The time when the run was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The labels added to the run.
+    // The list of labels for the run.
     shared_ptr<vector<RunLabel>> labels_ {};
-    // The metrics of the run.
+    // The list of metrics for the run.
     shared_ptr<vector<RunMetric>> metrics_ {};
-    // Parameter
+    // Name
     shared_ptr<string> name_ {};
-    // The ID of the owner account.
+    // The ID of the owner\\"s root account.
     shared_ptr<string> ownerId_ {};
-    // The hyperparameters of the run.
+    // The list of hyperparameters for the run.
     shared_ptr<vector<RunParam>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The run ID.
+    // The unique ID of the run.
     shared_ptr<string> runId_ {};
     // The ID of the source PAI workload.
     shared_ptr<string> sourceId_ {};
     // The type of the source PAI workload.
     shared_ptr<string> sourceType_ {};
-    // The owner ID.
+    // The ID of the owner.
     shared_ptr<string> userId_ {};
     // The ID of the workspace to which the run belongs.
     shared_ptr<string> workspaceId_ {};

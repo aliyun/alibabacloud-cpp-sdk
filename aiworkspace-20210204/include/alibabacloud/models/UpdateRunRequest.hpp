@@ -64,15 +64,17 @@ namespace Models
 
 
   protected:
-    // The labels.
+    // A list of labels.
     shared_ptr<vector<Label>> labels_ {};
-    // The run name. The name must meet the following requirements:
+    // The name of the run. The naming conventions are as follows:
     // 
-    // *   The name must start with a letter.
-    // *   The name can contain letters, digits, underscores (_), and hyphens (-).
-    // *   The name must be 1 to 63 characters in length.
+    // - Must start with a lowercase or uppercase letter.
+    // 
+    // - Can contain lowercase letters, uppercase letters, digits, underscores (_), and hyphens (-).
+    // 
+    // - The length must be 1 to 63 characters.
     shared_ptr<string> name_ {};
-    // The parameters.
+    // A list of parameters.
     shared_ptr<vector<RunParam>> params_ {};
   };
 

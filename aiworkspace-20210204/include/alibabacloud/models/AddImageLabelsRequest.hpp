@@ -68,28 +68,45 @@ namespace Models
 
 
     protected:
-      // The tag key. The following keys can be added:
+      // The key of the label. The following keys are supported:
       // 
-      // *   system.chipType
-      // *   system.dsw.cudaVersion
-      // *   system.dsw.fromImageId
-      // *   system.dsw.fromInstanceId
-      // *   system.dsw.id
-      // *   system.dsw.os
-      // *   system.dsw.osVersion
-      // *   system.dsw.resourceType
-      // *   system.dsw.rootImageId
-      // *   system.dsw.stage
-      // *   system.dsw.tag
-      // *   system.dsw.type
-      // *   system.framework
-      // *   system.origin
-      // *   system.pythonVersion
-      // *   system.source
-      // *   system.supported.dlc
-      // *   system.supported.dsw
+      // - system.chipType
+      // 
+      // - system.dsw\\.cudaVersion
+      // 
+      // - system.dsw\\.fromImageId
+      // 
+      // - system.dsw\\.fromInstanceId
+      // 
+      // - system.dsw\\.id
+      // 
+      // - system.dsw\\.os
+      // 
+      // - system.dsw\\.osVersion
+      // 
+      // - system.dsw\\.resourceType
+      // 
+      // - system.dsw\\.rootImageId
+      // 
+      // - system.dsw\\.stage
+      // 
+      // - system.dsw\\.tag
+      // 
+      // - system.dsw\\.type
+      // 
+      // - system.framework
+      // 
+      // - system.origin
+      // 
+      // - system.pythonVersion
+      // 
+      // - system.source
+      // 
+      // - system.supported.dlc
+      // 
+      // - system.supported.dsw
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -104,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The list of image tags.
+    // A list of image labels.
     // 
     // This parameter is required.
     shared_ptr<vector<AddImageLabelsRequest::Labels>> labels_ {};

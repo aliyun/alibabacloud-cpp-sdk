@@ -61,9 +61,9 @@ namespace Models
 
 
   protected:
-    // The details of the returned aggregation list, including the number of each aggregate item. The list is by default sorted in descending order based on the count number.
+    // The details of the returned aggregation list. You can get the count for each aggregated item. The list is sorted by Count in descending order by default.
     shared_ptr<vector<DatasetFileMetasStat>> datasetFileMetasStats_ {};
-    // The returned number. Example: the number of metadata records or the number of user-defined tags.
+    // The number of statistical results returned. For example, the number of metadata entries or the number of user tags.
     shared_ptr<int32_t> totalCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

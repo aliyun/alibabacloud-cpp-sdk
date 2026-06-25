@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // The tags.
+    // The list of labels.
     // 
     // This parameter is required.
     shared_ptr<vector<Label>> labels_ {};

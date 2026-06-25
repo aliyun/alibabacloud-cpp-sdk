@@ -77,13 +77,15 @@ namespace Models
   protected:
     // The configuration type.
     // 
-    // *   MultimodalIntelligentTag
-    // *   MultimodalSemanticIndex
+    // - MultimodalIntelligentTag
+    // 
+    // - MultimodalSemanticIndex
     shared_ptr<string> configType_ {};
+    // The name of the dataset version.
     shared_ptr<string> datasetVersion_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries per page. The default value is 10.
     shared_ptr<string> pageSize_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

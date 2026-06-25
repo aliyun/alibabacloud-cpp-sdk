@@ -94,9 +94,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the label.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -205,36 +205,38 @@ namespace Models
 
 
   protected:
-    // The accessibility of the image. Valid values:
+    // The visibility of the image. Valid values:
     // 
-    // *   PUBLIC: All members can access the workspace.
-    // *   PRIVATE: Only the creator can access the workspace.
+    // - PUBLIC: All members in the current workspace can perform operations on the image.
+    // 
+    // - PRIVATE: Only the creator can perform operations on the image.
     shared_ptr<string> accessibility_ {};
-    // The image description.
+    // The description of the image.
     shared_ptr<string> description_ {};
-    // The time when the image is created, in UTC. The time follows the ISO 8601 standard.
+    // The time when the image was created. The time is in UTC and the format is ISO 8601.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the image is modified, in UTC. The time follows the ISO 8601 standard.
+    // The time when the image was last modified. The time is in UTC and the format is ISO 8601.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The image address, which contains the version number.
+    // The URL of the image, including the version number.
     shared_ptr<string> imageUri_ {};
-    // The image tags, which are of the array data type. Each element in the array contains a key-value pair. The key of official tags is system.official and the tag value is true.
+    // A list of image labels. This is an array. Each item in the array contains a Key and a Value field.
+    // Official images have the following label: the key is system.official and the value is true.
     shared_ptr<vector<GetImageResponseBody::Labels>> labels_ {};
-    // The image name.
+    // The name of the image.
     shared_ptr<string> name_ {};
     // The Alibaba Cloud account of the creator.
     shared_ptr<string> parentUserId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The size of the image. Unit: GB.
+    // The size of the image in bytes.
     shared_ptr<int64_t> size_ {};
-    // 镜像来源 ID
+    // The ID of the image source.
     shared_ptr<string> sourceId_ {};
-    // 镜像来源类型
+    // The type of the image source.
     shared_ptr<string> sourceType_ {};
-    // The user ID of the image.
+    // The UID of the user who created the image.
     shared_ptr<string> userId_ {};
-    // The workspace ID.
+    // The ID of the workspace to which the image belongs.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -176,39 +176,41 @@ namespace Models
 
 
   protected:
-    // The collection where the model is located. You can specify multiple collections and separate them with commas (,).
+    // The collections to which the model belongs. You can specify multiple collections. Separate them with commas (,).
     shared_ptr<string> collections_ {};
+    // The conditions.
     shared_ptr<string> conditionsShrink_ {};
-    // The domain. Only models in the domain are returned. Valid values: nlp (Natural Language Processing) and cv (Computer Vision).
+    // The domain. This parameter is used to filter the model list by domain. Examples: nlp (natural language processing) and cv (computer vision).
     shared_ptr<string> domain_ {};
-    // The label. Models whose label key or label value contains a specific label are filtered.
+    // The label string. This parameter is used to filter the list. Models are returned if their label keys or values contain the specified string.
     shared_ptr<string> label_ {};
-    // The model name used to filter the returned models.
+    // The model name. This parameter is used to filter the model list.
     shared_ptr<string> modelName_ {};
     // The model type.
     shared_ptr<string> modelType_ {};
-    // The order in which the entries are sorted by the specific field on the returned page. Default value: ASC.
+    // The order in which to sort the results of a paged query. The default value is ASC.
     // 
-    // *   ASC
-    // *   DESC
+    // - ASC: ascending order.
+    // 
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The model source used to filter the models that belong to a community or organization, such as ModelScope and Hugging Face.
+    // The model source. This parameter is used to filter the model list by community or organization. Examples: ModelScope and HuggingFace.
     shared_ptr<string> origin_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the model list. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of models to display on each page in a paged query. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The provider. If you configure this parameter, only the models exposed by the provider are returned. If you leave this parameter empty, only models owned by the user are returned.
+    // The provider. If you specify a provider, only the public models from that provider are returned. If you leave this parameter empty, your own models are returned.
     shared_ptr<string> provider_ {};
-    // The query condition. For example, if you set the value to nlp, all models that match ModelName, Domain, Task, LabelKey, and LabelValue are returned.
+    // The query condition. This parameter performs a fuzzy match on ModelName, Domain, Task, LabelKey, and LabelValue. For example, if you enter nlp, models that match in any of these fields are returned.
     shared_ptr<string> query_ {};
-    // The field used to sort the results. The GmtCreateTime field is used for sorting.
+    // The field to use for sorting in a paged query. Currently, only the GmtCreateTime field is supported.
     shared_ptr<string> sortBy_ {};
-    // The tags of the model.
+    // The list of tags.
     shared_ptr<string> tagShrink_ {};
-    // The task used to filter the models that belong to the task type. Example: text-classification.
+    // The task. This parameter is used to filter the model list by task type. Example: text-classification.
     shared_ptr<string> task_ {};
-    // The workspace ID. Only models in this workspace are queried. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The workspace ID. The returned list contains only the models in the specified workspace. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

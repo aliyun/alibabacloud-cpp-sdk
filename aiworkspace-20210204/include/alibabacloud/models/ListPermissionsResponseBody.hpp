@@ -93,16 +93,21 @@ namespace Models
 
 
       protected:
-        // The accessibility of the permission rule. Valid values:
+        // The access type. Valid values:
         // 
-        // *   PUBLIC: All members in the workspace can access the permission rule.
-        // *   PRIVATE: Only the creator can access the permission rule.
-        // *   ANY: All users can access the permission rule.
+        // - PUBLIC: All members in the current workspace can perform the operation.
+        // 
+        // - PRIVATE: Only the creator can perform the operation.
+        // 
+        // - ANY: Both the creator and non-creators can perform the operation.
         shared_ptr<string> accessibility_ {};
-        // The type of access. If you set Accessibility to PUBLIC, all users can access the workspace. This parameter is invalid. If you set Accessibility to PRIVATE, the permissions are determined based on the value of EntityAccessType. The value of EntityAccessType can be:
+        // The entity access type.
+        // This parameter is invalid if Accessibility is set to PUBLIC. In this case, all users can perform the operation.
+        // If Accessibility is set to PRIVATE, the permission is determined by the value of EntityAccessType. Valid values:
         // 
-        // *   CREATOR: Only the creator can access the workspace.
-        // *   ANY: All users can access the workspace.
+        // - CREATOR: Only the creator can perform the operation.
+        // 
+        // - ANY: Both the creator and non-creators can perform the operation.
         shared_ptr<string> entityAccessType_ {};
       };
 
@@ -125,9 +130,10 @@ namespace Models
 
 
     protected:
-      // The permission name, which is unique in a region. For more information about permissions, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html). The example value PaiDLC:GetTensorboard indicates the permission to view details about a TensorBoard job on the Deep Learning Containers (DLC) page.
+      // The name of the permission point. The name is unique within the same region. For more information about permission points, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html).
+      // For example, the value PaiDLC:GetTensorboard grants the permission to view Tensorboard details for the DLC feature.
       shared_ptr<string> permissionCode_ {};
-      // The permission rules.
+      // The list of permission rules.
       shared_ptr<vector<Permissions::PermissionRules>> permissionRules_ {};
     };
 
@@ -157,11 +163,11 @@ namespace Models
 
 
   protected:
-    // The permissions.
+    // The list of permissions.
     shared_ptr<vector<ListPermissionsResponseBody::Permissions>> permissions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of permissions that meet the filter conditions.
+    // The number of entries that meet the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

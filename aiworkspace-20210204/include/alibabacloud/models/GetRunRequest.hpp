@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to obtain the Metrics, Params, and Labels information. Default value: false.
+    // Specifies whether to get information about metrics, parameters, and labels. This parameter is optional. The default value is false.
     shared_ptr<bool> verbose_ {};
   };
 

@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The metadata records that fail to be deleted for the dataset files.
+    // A list of file metadata records that failed to be deleted.
     shared_ptr<vector<DatasetFileMetaResponse>> failedDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the metadata records of all dataset files were deleted. The value true indicates that the metadata records of all dataset files are deleted. If the value is false, view the failure details specified by FailedDetails.
+    // The status of the batch deletion. A value of \\`true\\` indicates that all metadata records were deleted. If the value is \\`false\\`, check the \\`FailedDetails\\` parameter for more information.
     shared_ptr<bool> status_ {};
   };
 

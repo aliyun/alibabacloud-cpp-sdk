@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // DestEntityQualifiedName
+    // The fully qualified name of the target entity in the relationship.
     shared_ptr<string> destEntityQualifiedName_ {};
-    // RelationshipGuid
+    // The system-assigned unique identifier (GUID) for the relationship.
     shared_ptr<string> relationshipGuid_ {};
-    // SrcEntityQualifiedName
+    // The fully qualified name of the source entity in the relationship.
     shared_ptr<string> srcEntityQualifiedName_ {};
   };
 

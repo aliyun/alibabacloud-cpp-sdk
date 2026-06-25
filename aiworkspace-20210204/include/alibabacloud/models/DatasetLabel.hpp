@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Key
+    // The label key, which must be 1 to 128 characters long.
     shared_ptr<string> key_ {};
-    // Value
+    // The label value, which can be 0 to 128 characters long.
     shared_ptr<string> value_ {};
   };
 

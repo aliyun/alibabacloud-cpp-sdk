@@ -106,9 +106,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of users who meet the filter conditions.
+    // The number of users that meet the filter condition.
     shared_ptr<int64_t> totalCount_ {};
-    // The users.
+    // The list of users.
     shared_ptr<vector<ListWorkspaceUsersResponseBody::Users>> users_ {};
   };
 

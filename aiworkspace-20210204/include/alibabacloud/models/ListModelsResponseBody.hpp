@@ -61,7 +61,7 @@ namespace Models
 
 
   protected:
-    // The models.
+    // The list of models.
     shared_ptr<vector<Model>> models_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

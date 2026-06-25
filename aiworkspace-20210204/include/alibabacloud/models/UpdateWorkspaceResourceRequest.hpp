@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -147,25 +147,35 @@ namespace Models
   protected:
     // The group name.
     shared_ptr<string> groupName_ {};
-    // Specifies whether the resource is the default resource. This parameter can only be set to true and cannot be set to false.
+    // Specifies whether to set the resource as the default resource for the workspace. Currently, only `true` is a valid value.
     shared_ptr<bool> isDefault_ {};
-    // The resource tags. If you specify multiple tags, only resources that meet all the specified tag-based filter conditions are returned.
+    // An array of tags. The update affects only resources that have all of the specified tags.
     shared_ptr<vector<UpdateWorkspaceResourceRequest::Labels>> labels_ {};
-    // **This field is no longer used and will be removed. Use the ResourceType field.
+    // **This parameter is deprecated. Use `ResourceType` instead.**
     shared_ptr<string> productType_ {};
-    // The resource IDs.
+    // An array of resource IDs.
     // 
-    // You cannot leave both GroupName and ResourceIds empty. If you specify both the parameters, the value of GroupName of each resource ID in the dataset must be the same.
+    // You cannot leave both `GroupName` and `ResourceIds` empty. If you specify both parameters, the group name must be the same for all specified resource IDs.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The resource type. Valid values:
+    // The resource type. Valid values are:
     // 
-    // *   MaxCompute
-    // *   ECS
-    // *   Lingjun
-    // *   ACS
-    // *   FLINK
+    // - MaxCompute: MaxCompute resources.
+    // 
+    // - ECS: General-purpose computing resources.
+    // 
+    // - Lingjun: Lingjun intelligent computing resources.
+    // 
+    // - ACS: ACS computing resources.
+    // 
+    // - Flink: Flink resources.
+    // 
+    // - SelfManagedAckPro: Resources for self-managed ACK Pro clusters.
+    // 
+    // - SelfManagedAckLingjun: Resources for self-managed ACK Lingjun clusters.
+    // 
+    // - SelfManagedASI: Resources for self-managed clusters on third-party clouds.
     shared_ptr<string> resourceType_ {};
-    // The specification of the resource.
+    // The specifications of the resource.
     Darabonba::Json spec_ {};
   };
 

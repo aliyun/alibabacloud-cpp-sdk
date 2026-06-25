@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The datasets.
+    // The list of datasets.
     shared_ptr<vector<Dataset>> datasets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count of datasets.
     shared_ptr<int64_t> totalCount_ {};
   };
 

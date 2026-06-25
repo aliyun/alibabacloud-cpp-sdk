@@ -114,7 +114,7 @@ namespace Models
       protected:
         // The specification name.
         shared_ptr<string> name_ {};
-        // The specification type. The parameter can be left empty.
+        // The type. This parameter can be empty.
         shared_ptr<string> type_ {};
         // The specification value.
         shared_ptr<string> value_ {};
@@ -175,27 +175,29 @@ namespace Models
 
 
     protected:
-      // The alias of the quota.
+      // The alias of the resource quota.
       shared_ptr<string> displayName_ {};
       // The quota ID.
       shared_ptr<string> id_ {};
       // The billing method. Valid values:
       // 
-      // *   isolate: subscription
-      // *   share: pay-as-you-go
+      // - isolate: subscription.
+      // 
+      // - share: pay-as-you-go.
       shared_ptr<string> mode_ {};
       // The quota name.
       shared_ptr<string> name_ {};
-      // The product code. Valid values:
+      // The product name. Valid values:
       // 
-      // *   PAI_isolate: CPU subscription resource groups of PAI
-      // *   PAI_share: GPU pay-as-you-go resource groups of PAI
+      // - PAI_isolate: a subscription PAI resource group (PAI CPU).
+      // 
+      // - PAI_share: a pay-as-you-go PAI resource group (PAI GPU).
       shared_ptr<string> productCode_ {};
-      // The quota type. Valid value:
+      // The type of the resource quota. Valid value:
       // 
-      // PAI: indicates GPU resource groups of MaxCompute.
+      // PAI: a GPU resource group cluster of MaxCompute.
       shared_ptr<string> quotaType_ {};
-      // The quota specifications.
+      // The list of specification descriptions.
       shared_ptr<vector<Quotas::Specs>> specs_ {};
     };
 
@@ -225,11 +227,11 @@ namespace Models
 
 
   protected:
-    // The returned quotas.
+    // The list of resource quotas.
     shared_ptr<vector<ListQuotasResponseBody::Quotas>> quotas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of quotas that meet the filter conditions.
+    // The number of resource quotas that meet the filter condition.
     shared_ptr<int64_t> totalCount_ {};
   };
 

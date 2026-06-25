@@ -168,35 +168,37 @@ namespace Models
   protected:
     // The visibility of the model in the workspace. Valid values:
     // 
-    // *   PRIVATE (default): Visible only to you and the administrator of the workspace.
-    // *   PUBLIC: Vvisible to all users in the workspace.
+    // - PRIVATE (default): The model is visible only to you and administrators in the workspace.
+    // 
+    // - PUBLIC: The model is visible to everyone in the workspace.
     shared_ptr<string> accessibility_ {};
-    // The domain of the model. Describes the domain in which the model is for. Example: nlp (natural language processing), cv (computer vision), and others.
+    // The domain. This describes the field that the model is designed for, such as nlp (Natural Language Processing) or cv (computer vision).
     shared_ptr<string> domain_ {};
     // Other information about the model.
     Darabonba::Json extraInfo_ {};
-    // The tags. This parameter will be deprecated and replaced by Tag.
+    // A list of labels. This parameter is deprecated and is replaced by the Tag parameter.
     shared_ptr<vector<Label>> labels_ {};
-    // The model description, used to distinguish different models.
+    // The description of the model. Use this to distinguish different models.
     shared_ptr<string> modelDescription_ {};
-    // The documentation of the model.
+    // The model documentation.
     shared_ptr<string> modelDoc_ {};
     // The name of the model. The name must be 1 to 127 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
-    // The model type. Example: Checkpoint or LoRA.
+    // The model type, such as Checkpoint or LoRA.
     shared_ptr<string> modelType_ {};
-    // The sequence number of the model. Can be used for custom sorting.
+    // The ordinal number of the model. You can use this for custom sorting.
     shared_ptr<int64_t> orderNumber_ {};
-    // The source of the model. The community or organization to which the source model belongs, such as ModelScope or HuggingFace.
+    // The source of the model. This specifies the community or organization that the source model belongs to, such as ModelScope and HuggingFace.
     shared_ptr<string> origin_ {};
+    // The number of parameters, in millions.
     shared_ptr<int64_t> parameterSize_ {};
-    // The tags.
+    // A list of tags.
     shared_ptr<vector<Label>> tag_ {};
-    // The task of the model. Describes the specific problem that the model solves. Example: text-classification.
+    // The task. This describes the specific problem that the model solves, such as text-classification (text classification).
     shared_ptr<string> task_ {};
-    // The workspace ID. Call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The ID of the workspace. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

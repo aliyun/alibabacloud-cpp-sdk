@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the code source that is successfully published.
+    // The ID of the code source that was published.
     shared_ptr<string> codeSourceId_ {};
-    // The request ID. You can use the ID to locate logs and troubleshoot issues.
+    // The ID of the request. This is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

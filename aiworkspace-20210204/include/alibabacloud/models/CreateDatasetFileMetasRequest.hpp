@@ -61,15 +61,15 @@ namespace Models
 
 
   protected:
-    // The metadata of the file.
+    // A list of file metadata content.
     // 
     // This parameter is required.
     shared_ptr<vector<DatasetFileMetaContentCreate>> datasetFileMetas_ {};
-    // The dataset version name.
+    // The name of the dataset version.
     // 
     // This parameter is required.
     shared_ptr<string> datasetVersion_ {};
-    // The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // The ID of the workspace where the dataset is located. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
