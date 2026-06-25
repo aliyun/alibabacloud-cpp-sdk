@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The category ID.
         shared_ptr<int32_t> id_ {};
+        // The category name.
         shared_ptr<string> name_ {};
       };
 
@@ -116,6 +118,7 @@ namespace Models
 
 
     protected:
+      // All categories supported by the system.
       shared_ptr<vector<PicInfo::AllCategories>> allCategories_ {};
     };
 
@@ -166,8 +169,11 @@ namespace Models
 
 
     protected:
+      // The number of results returned.
       shared_ptr<int32_t> docsFound_ {};
+      // The number of matched results in the instance.
       shared_ptr<int32_t> docsReturn_ {};
+      // The time consumed by the search, in milliseconds.
       shared_ptr<int32_t> searchTime_ {};
     };
 
@@ -310,18 +316,32 @@ namespace Models
 
 
     protected:
+      // The image category.
       shared_ptr<int32_t> categoryId_ {};
+      // The custom content defined by the user.
       shared_ptr<string> customContent_ {};
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr_ {};
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr2_ {};
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr3_ {};
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr4_ {};
+      // The image name.
       shared_ptr<string> picName_ {};
+      // The product ID.
       shared_ptr<string> productId_ {};
+      // The image similarity score. Valid values: 0 to 1.
+      // > You must upgrade the SDK to V3.1.1 to use this feature.
       shared_ptr<float> score_ {};
+      // The string type attribute.
       shared_ptr<string> strAttr_ {};
+      // The string type attribute.
       shared_ptr<string> strAttr2_ {};
+      // The string type attribute.
       shared_ptr<string> strAttr3_ {};
+      // The string type attribute.
       shared_ptr<string> strAttr4_ {};
     };
 
@@ -409,12 +429,21 @@ namespace Models
 
 
     protected:
+      // The action for the authentication request.
       shared_ptr<string> authAction_ {};
+      // The authentication principal information.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The Alibaba Cloud account ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
+      // The encrypted complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // Valid values:
+      // - ImplicitDeny: no policy is matched.
+      // - ExplicitDeny: an explicit Deny policy is matched.
       shared_ptr<string> noPermissionType_ {};
+      // The type of the policy that caused the access denial.
       shared_ptr<string> policyType_ {};
     };
 
@@ -486,13 +515,23 @@ namespace Models
 
 
   protected:
+    // The authentication details.
     shared_ptr<SearchImageByTextResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The description information of all returned products.
     shared_ptr<vector<SearchImageByTextResponseBody::Auctions>> auctions_ {};
+    // The error code. Valid values:
+    // - 0: successful.
+    // - Non-zero value: failed.
     shared_ptr<int32_t> code_ {};
+    // The overview of the search results.
     shared_ptr<SearchImageByTextResponseBody::Head> head_ {};
+    // The error message.
     shared_ptr<string> msg_ {};
+    // The category information.
     shared_ptr<SearchImageByTextResponseBody::PicInfo> picInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

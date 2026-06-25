@@ -123,12 +123,21 @@ namespace Models
 
 
     protected:
+      // The action for the authentication request.
       shared_ptr<string> authAction_ {};
+      // The authentication principal information.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The Alibaba Cloud account ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
+      // The encrypted diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // Valid values:
+      // - ImplicitDeny: no policy is matched.
+      // - ExplicitDeny: an explicit Deny policy is matched.
       shared_ptr<string> noPermissionType_ {};
+      // The type of the policy that caused the access denial.
       shared_ptr<string> policyType_ {};
     };
 
@@ -179,11 +188,19 @@ namespace Models
 
 
   protected:
+    // The authentication response details.
     shared_ptr<CompareSimilarByImageResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The error code. Valid values:
+    // - 0: success.
+    // - Non-zero: failure.
     shared_ptr<int32_t> code_ {};
+    // The error message.
     shared_ptr<string> msg_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The image similarity score. Valid values: 0 to 1.
     shared_ptr<double> score_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

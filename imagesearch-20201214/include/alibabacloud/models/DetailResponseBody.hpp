@@ -126,21 +126,22 @@ namespace Models
 
 
     protected:
-      // The capacity of the plan. Unit: × 10,000 images.
+      // The maximum image capacity of the plan. Unit: 10,000.
       shared_ptr<int32_t> capacity_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> name_ {};
-      // The number of queries per second supported by the plan.
+      // The QPS of the plan.
       shared_ptr<int32_t> qps_ {};
-      // The information about the region.
+      // The region information.
       shared_ptr<string> region_ {};
       // The Image Search model.
       // 
-      // 0: commodity search. 1: generic image search.
+      // <props="intl">Valid values: 0: product image search. 1: generic image search.
+      // <props="china">Valid values: 0: product image search. 1: generic image search. 2: fabric search. 3 and 7: trademark search. 4: copyright search. 5: furniture search. 6: hardware search..
       shared_ptr<int32_t> serviceType_ {};
       // The number of images.
       shared_ptr<int64_t> totalCount_ {};
-      // The time when the instance was created. Unit: milliseconds.
+      // The creation time of the instance. Unit: milliseconds.
       shared_ptr<string> utcCreate_ {};
       // The time when the instance expires. Unit: milliseconds.
       shared_ptr<string> utcExpireTime_ {};
@@ -172,11 +173,11 @@ namespace Models
 
 
   protected:
-    // The details about the instance.
+    // The instance information.
     shared_ptr<DetailResponseBody::Instance> instance_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

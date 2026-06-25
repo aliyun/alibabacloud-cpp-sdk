@@ -91,6 +91,7 @@ namespace Models
 
 
       protected:
+        // The subject identification result. The subject region of the image, in the format of x1,x2,y1,y2, where x1,y1 is the upper-left point and x2,y2 is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
         shared_ptr<string> region_ {};
       };
 
@@ -132,7 +133,9 @@ namespace Models
 
 
       protected:
+        // The category ID.
         shared_ptr<int32_t> id_ {};
+        // The category name.
         shared_ptr<string> name_ {};
       };
 
@@ -171,11 +174,14 @@ namespace Models
 
 
     protected:
+      // The information about all categories supported by the system.
       shared_ptr<vector<PicInfo::AllCategories>> allCategories_ {};
-      // The result of category prediction. If a category is specified in the request, the specified category prevails.
+      // The category prediction result. If the user specifies a category in the request, the specified category is used.
       shared_ptr<int32_t> categoryId_ {};
+      // The collection of subject identification results.
+      // > Upgrade to V3.1.1 or later to use this feature.
       shared_ptr<vector<PicInfo::MultiRegion>> multiRegion_ {};
-      // The result of subject identification. The subject area of the image is in the format of `x1,x2,y1,y2`. `x1 and y1` represent the position in the upper-left corner, in pixels. `x2 and y2` represent the position in the lower-right corner, in pixels. If a subject area is specified in the request, the specified subject area prevails.
+      // The subject identification result. The subject region of the image, in the format of `x1,x2,y1,y2`, where `x1,y1` is the upper-left point and `x2,y2` is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
       shared_ptr<string> region_ {};
     };
 
@@ -219,20 +225,19 @@ namespace Models
 
 
   protected:
-    // The code returned.
+    // The error code.
     // 
-    // *   A value of 0 indicates that the request was successful.
-    // *   Values other than 0 indicate that the request failed.
+    // - 0: success.
+    // - Non-zero: failure.
     shared_ptr<int32_t> code_ {};
-    // The error message returned if the request failed.
-    // 
-    // > No value is returned if the request was successful, and an error message is returned if the request failed.
+    // The error message.
+    // > No data is returned for successful requests. Error messages are returned for failed requests.
     shared_ptr<string> message_ {};
-    // The results of category prediction and subject identification.
+    // The category prediction and subject identification results.
     shared_ptr<AddImageResponseBody::PicInfo> picInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

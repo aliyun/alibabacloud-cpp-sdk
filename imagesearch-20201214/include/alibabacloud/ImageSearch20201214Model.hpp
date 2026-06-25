@@ -31,6 +31,9 @@
 #include <alibabacloud/models/IncreaseListRequest.hpp>
 #include <alibabacloud/models/IncreaseListResponseBody.hpp>
 #include <alibabacloud/models/IncreaseListResponse.hpp>
+#include <alibabacloud/models/SearchImageByFilterRequest.hpp>
+#include <alibabacloud/models/SearchImageByFilterResponseBody.hpp>
+#include <alibabacloud/models/SearchImageByFilterResponse.hpp>
 #include <alibabacloud/models/SearchImageByNameRequest.hpp>
 #include <alibabacloud/models/SearchImageByNameResponseBody.hpp>
 #include <alibabacloud/models/SearchImageByNameResponse.hpp>

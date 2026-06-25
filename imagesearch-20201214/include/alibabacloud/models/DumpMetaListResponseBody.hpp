@@ -141,26 +141,25 @@ namespace Models
 
 
       protected:
-        // The error code returned.
+        // The error code. Valid values:
         // 
-        // *   A value of 0 indicates that the operation is successful.
-        // *   Values other than 0 indicate errors.
+        // - 0: Succeeded.
+        // - Non-zero: Failed.
         shared_ptr<string> code_ {};
-        // The ID of the task.
+        // The task ID.
         shared_ptr<int64_t> id_ {};
-        // The address where you can download the metadata. The address is valid for 2 hours.
+        // The URL for downloading the result. The URL is valid for two hours.
         shared_ptr<string> metaUrl_ {};
-        // The error message returned.
+        // The error message.
         shared_ptr<string> msg_ {};
-        // The status of the export task.
-        // 
-        // *   PROCESSING: in progress
-        // *   FAIL: failed
-        // *   SUCCESS: successful
+        // The task status. Valid values:
+        // - PROCESSING: The task is being processed.
+        // - FAIL: The task failed.
+        // - SUCCESS: The task is completed.
         shared_ptr<string> status_ {};
         // The time when the task was created. Unit: milliseconds.
         shared_ptr<string> utcCreate_ {};
-        // The time when the task was updated. Unit: milliseconds.
+        // The time when the task was last updated. Unit: milliseconds.
         shared_ptr<int64_t> utcModified_ {};
       };
 
@@ -197,11 +196,11 @@ namespace Models
 
 
     protected:
-      // A list of tasks that are used to export metadata.
+      // The collection of metadata export tasks.
       shared_ptr<vector<Data::DumpMetaList>> dumpMetaList_ {};
-      // The number of the page to return.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries to return on each page.
+      // The number of entries returned.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of tasks.
       shared_ptr<int64_t> totalCount_ {};
@@ -226,9 +225,9 @@ namespace Models
 
 
   protected:
-    // The information about the task that is used to export metadata.
+    // The metadata export information.
     shared_ptr<DumpMetaListResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

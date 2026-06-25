@@ -71,13 +71,12 @@ namespace Models
 
 
     protected:
-      // The status of the export task.
-      // 
-      // *   PROCESSING: in progress
-      // *   FAIL: failed
-      // *   SUCCESS: successful
+      // The status of the metadata export task. Valid values:
+      // - PROCESSING: The task is being processed.
+      // - FAIL: The task failed.
+      // - SUCCESS: The task is completed.
       shared_ptr<string> dumpMetaStatus_ {};
-      // The ID of the export task.
+      // The task ID.
       shared_ptr<string> id_ {};
     };
 
@@ -107,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The information about the export task.
+    // The returned result of the task execution.
     shared_ptr<DumpMetaResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

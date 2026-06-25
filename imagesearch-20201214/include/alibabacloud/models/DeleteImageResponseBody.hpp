@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // The name (PicName) of the deleted image.
+      // The deleted PicName.
       shared_ptr<vector<string>> picNames_ {};
     };
 
@@ -112,18 +112,17 @@ namespace Models
 
 
   protected:
-    // The error code returned.
-    // 
-    // *   A value of 0 indicates that the operation is successful.
-    // *   Values other than 0 indicate errors.
+    // The error code. Valid values:
+    // - 0: success.
+    // - Non-zero value: failure.
     shared_ptr<int32_t> code_ {};
-    // The information about the deleted images.
+    // The deletion result.
     shared_ptr<DeleteImageResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

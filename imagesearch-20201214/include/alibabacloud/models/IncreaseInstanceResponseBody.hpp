@@ -71,13 +71,12 @@ namespace Models
 
 
     protected:
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> id_ {};
-      // The status of the task.
-      // 
-      // *   PROCESSING: in progress
-      // *   FAIL: failed
-      // *   SUCCESS: successful
+      // The status of the batch task. Valid values:
+      // - PROCESSING: The task is being processed.
+      // - FAIL: The task failed.
+      // - SUCCESS: The task is complete.
       shared_ptr<string> incrementStatus_ {};
     };
 
@@ -107,11 +106,11 @@ namespace Models
 
 
   protected:
-    // The information about the task.
+    // The returned result of the task.
     shared_ptr<IncreaseInstanceResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

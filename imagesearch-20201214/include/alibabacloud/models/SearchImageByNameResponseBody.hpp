@@ -95,9 +95,8 @@ namespace Models
 
 
       protected:
-        // The result of subject recognition.
-        // 
-        // The subject area of the image, in the format of x1,x2,y1,y2. Specifically, x1 and y1 specify the upper-left pixel, and x2 and y2 specify the lower-right pixel. If a subject area is specified in the request, the specified subject area prevails.
+        // The subject identification result.
+        // The subject region of the image, in the format of x1,x2,y1,y2, where x1,y1 is the upper-left point and x2,y2 is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
         shared_ptr<string> region_ {};
       };
 
@@ -139,9 +138,9 @@ namespace Models
 
 
       protected:
-        // The ID of the category.
+        // The category ID.
         shared_ptr<int32_t> id_ {};
-        // The name of the category.
+        // The category name.
         shared_ptr<string> name_ {};
       };
 
@@ -180,17 +179,15 @@ namespace Models
 
 
     protected:
-      // The categories that are supported by the system.
+      // The information about all categories supported by the system.
       shared_ptr<vector<PicInfo::AllCategories>> allCategories_ {};
-      // The category selected by the system.
-      // 
-      // If a category is specified in the request, the specified category prevails.
+      // The category prediction result.
+      // If the user specifies a category in the request, the specified category is used.
       shared_ptr<int32_t> categoryId_ {};
-      // The recognized subjects.
+      // The subject identification collection.
       shared_ptr<vector<PicInfo::MultiRegion>> multiRegion_ {};
-      // The result of subject recognition.
-      // 
-      // The subject area of the image, in the format of x1,x2,y1,y2. Specifically, x1 and y1 specify the upper-left pixel, and x2 and y2 specify the lower-right pixel. If a subject area is specified in the request, the specified subject area prevails.
+      // The subject identification result.
+      // The subject region of the image, in the format of x1,x2,y1,y2, where x1,y1 is the upper-left point and x2,y2 is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
       shared_ptr<string> region_ {};
     };
 
@@ -241,11 +238,11 @@ namespace Models
 
 
     protected:
-      // The number of images returned.
+      // The number of results returned.
       shared_ptr<int32_t> docsFound_ {};
-      // The number of images that match the search conditions on the Image Search instance.
+      // The number of matched results in the instance.
       shared_ptr<int32_t> docsReturn_ {};
-      // The time it takes to complete the search process. Unit: milliseconds.
+      // The search duration, in milliseconds.
       shared_ptr<int32_t> searchTime_ {};
     };
 
@@ -397,34 +394,38 @@ namespace Models
 
 
     protected:
-      // The category of the image.
+      // The image category.
       shared_ptr<int32_t> categoryId_ {};
-      // The user-defined content.
+      // The custom content defined by the user.
       shared_ptr<string> customContent_ {};
-      // The attribute, which is an integer.
+      // The integer attribute.
       shared_ptr<int32_t> intAttr_ {};
+      // The integer attribute.
       shared_ptr<int32_t> intAttr2_ {};
+      // The integer attribute. This field can be used for filtering during queries and is returned in query results.
       shared_ptr<int32_t> intAttr3_ {};
+      // The integer attribute. This field can be used for filtering during queries and is returned in query results.
       shared_ptr<int32_t> intAttr4_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> picName_ {};
-      // The ID of the product.
+      // The product ID.
       shared_ptr<string> productId_ {};
-      // The similarity score of the returned image. Valid values: 0 to 1.
-      // 
-      // >  To use this feature, you must upgrade the SDK to version 3.1.1.
+      // The image similarity score. Valid values: 0 to 1.
+      // > You must upgrade to V3.1.1 or later to use this field.
       shared_ptr<float> score_ {};
-      // The score information about the image.
-      // 
-      // > *   This parameter is not supported. We recommend that you use the Score parameter.
-      // >*   The SortExprValues parameter indicates a 2-tuple in which values are separated by a semicolon (;). The first value indicates the correlation score of the returned image. A greater value indicates a higher correlation with the sample image. Different algorithms are used.
-      // >*   If the value of CategoryId is within the value range from 0 to 2, the value range of SortExprValues is from 0 to 7.33136443711219e+24.
-      // >*   If the value of CategoryId is not within the value range from 0 to 2, the value range of SortExprValues is from 0 to 5.37633353624177e+24. If the returned image is identical with the sample image, the highest correlation score is generated.
+      // The system scoring information.
+      // > - This field is deprecated. Use Score instead.
+      // - SortExprValues is a semicolon-separated pair. The first value indicates the relevance score of the image. A higher value indicates higher relevance to the query image. The scoring varies depending on the algorithm model.
+      // - When the category is 0 to 2, the value range of SortExprValues is 0 to 7.33136443711219e+24.
+      // - For other category values, the value range of SortExprValues is 0 to 5.37633353624177e+24. This score reaches its maximum when two images are identical.
       shared_ptr<string> sortExprValues_ {};
-      // The attribute, which is a string.
+      // The string attribute.
       shared_ptr<string> strAttr_ {};
+      // The string attribute.
       shared_ptr<string> strAttr2_ {};
+      // The string attribute. The maximum length is 128 characters. This field can be used for filtering during queries and is returned in query results.
       shared_ptr<string> strAttr3_ {};
+      // The string attribute. The maximum length is 128 characters. This field can be used for filtering during queries and is returned in query results.
       shared_ptr<string> strAttr4_ {};
     };
 
@@ -487,22 +488,21 @@ namespace Models
 
 
   protected:
-    // The product descriptions returned.
+    // The descriptions of all returned products.
     shared_ptr<vector<SearchImageByNameResponseBody::Auctions>> auctions_ {};
-    // The error code returned.
-    // 
-    // *   A value of 0 indicates that the operation is successful.
-    // *   Values other than 0 indicate errors.
+    // The error code. Valid values:
+    // - 0: success.
+    // - Non-zero: failure.
     shared_ptr<int32_t> code_ {};
-    // The summary of the search result.
+    // The overview of the search results.
     shared_ptr<SearchImageByNameResponseBody::Head> head_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> msg_ {};
-    // The information such as the system-selected category and result of subject recognition.
+    // The information such as category prediction and subject identification results.
     shared_ptr<SearchImageByNameResponseBody::PicInfo> picInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

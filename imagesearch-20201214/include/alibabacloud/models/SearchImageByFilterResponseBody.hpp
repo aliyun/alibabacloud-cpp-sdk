@@ -1,7 +1,8 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CHECKIMAGEEXISTSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CHECKIMAGEEXISTSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_SEARCHIMAGEBYFILTERRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_SEARCHIMAGEBYFILTERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -10,31 +11,29 @@ namespace ImageSearch20201214
 {
 namespace Models
 {
-  class CheckImageExistsResponseBody : public Darabonba::Model {
+  class SearchImageByFilterResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CheckImageExistsResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const SearchImageByFilterResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Auctions, auctions_);
       DARABONBA_PTR_TO_JSON(Code, code_);
-      DARABONBA_PTR_TO_JSON(Exists, exists_);
       DARABONBA_PTR_TO_JSON(Msg, msg_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, CheckImageExistsResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, SearchImageByFilterResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Auctions, auctions_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
-      DARABONBA_PTR_FROM_JSON(Exists, exists_);
       DARABONBA_PTR_FROM_JSON(Msg, msg_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    CheckImageExistsResponseBody() = default ;
-    CheckImageExistsResponseBody(const CheckImageExistsResponseBody &) = default ;
-    CheckImageExistsResponseBody(CheckImageExistsResponseBody &&) = default ;
-    CheckImageExistsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CheckImageExistsResponseBody() = default ;
-    CheckImageExistsResponseBody& operator=(const CheckImageExistsResponseBody &) = default ;
-    CheckImageExistsResponseBody& operator=(CheckImageExistsResponseBody &&) = default ;
+    SearchImageByFilterResponseBody() = default ;
+    SearchImageByFilterResponseBody(const SearchImageByFilterResponseBody &) = default ;
+    SearchImageByFilterResponseBody(SearchImageByFilterResponseBody &&) = default ;
+    SearchImageByFilterResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SearchImageByFilterResponseBody() = default ;
+    SearchImageByFilterResponseBody& operator=(const SearchImageByFilterResponseBody &) = default ;
+    SearchImageByFilterResponseBody& operator=(SearchImageByFilterResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -169,92 +168,83 @@ namespace Models
 
 
     protected:
-      // Image category.
+      // The image category.
       shared_ptr<int32_t> categoryId_ {};
-      // User-defined content.
+      // The user-defined content.
       shared_ptr<string> customContent_ {};
-      // Integer-type property.
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr_ {};
-      // Integer-type property.
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr2_ {};
-      // Integer-type property.
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr3_ {};
-      // Integer-type property.
+      // The integer type attribute.
       shared_ptr<int32_t> intAttr4_ {};
-      // Image name.
+      // The image name.
       shared_ptr<string> picName_ {};
-      // Product ID.
+      // The product ID.
       shared_ptr<string> productId_ {};
-      // String-type property.
+      // The string type attribute.
       shared_ptr<string> strAttr_ {};
-      // String-type property.
+      // The string type attribute.
       shared_ptr<string> strAttr2_ {};
-      // String-type property.
+      // The string type attribute.
       shared_ptr<string> strAttr3_ {};
-      // String-type property.
+      // The string type attribute.
       shared_ptr<string> strAttr4_ {};
     };
 
     virtual bool empty() const override { return this->auctions_ == nullptr
-        && this->code_ == nullptr && this->exists_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+        && this->code_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // auctions Field Functions 
     bool hasAuctions() const { return this->auctions_ != nullptr;};
     void deleteAuctions() { this->auctions_ = nullptr;};
-    inline const CheckImageExistsResponseBody::Auctions & getAuctions() const { DARABONBA_PTR_GET_CONST(auctions_, CheckImageExistsResponseBody::Auctions) };
-    inline CheckImageExistsResponseBody::Auctions getAuctions() { DARABONBA_PTR_GET(auctions_, CheckImageExistsResponseBody::Auctions) };
-    inline CheckImageExistsResponseBody& setAuctions(const CheckImageExistsResponseBody::Auctions & auctions) { DARABONBA_PTR_SET_VALUE(auctions_, auctions) };
-    inline CheckImageExistsResponseBody& setAuctions(CheckImageExistsResponseBody::Auctions && auctions) { DARABONBA_PTR_SET_RVALUE(auctions_, auctions) };
+    inline const vector<SearchImageByFilterResponseBody::Auctions> & getAuctions() const { DARABONBA_PTR_GET_CONST(auctions_, vector<SearchImageByFilterResponseBody::Auctions>) };
+    inline vector<SearchImageByFilterResponseBody::Auctions> getAuctions() { DARABONBA_PTR_GET(auctions_, vector<SearchImageByFilterResponseBody::Auctions>) };
+    inline SearchImageByFilterResponseBody& setAuctions(const vector<SearchImageByFilterResponseBody::Auctions> & auctions) { DARABONBA_PTR_SET_VALUE(auctions_, auctions) };
+    inline SearchImageByFilterResponseBody& setAuctions(vector<SearchImageByFilterResponseBody::Auctions> && auctions) { DARABONBA_PTR_SET_RVALUE(auctions_, auctions) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
-    inline CheckImageExistsResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
-
-
-    // exists Field Functions 
-    bool hasExists() const { return this->exists_ != nullptr;};
-    void deleteExists() { this->exists_ = nullptr;};
-    inline bool getExists() const { DARABONBA_PTR_GET_DEFAULT(exists_, false) };
-    inline CheckImageExistsResponseBody& setExists(bool exists) { DARABONBA_PTR_SET_VALUE(exists_, exists) };
+    inline SearchImageByFilterResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
     inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
-    inline CheckImageExistsResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
+    inline SearchImageByFilterResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CheckImageExistsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline SearchImageByFilterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline CheckImageExistsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline SearchImageByFilterResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // Description information of all returned products.
-    shared_ptr<CheckImageExistsResponseBody::Auctions> auctions_ {};
-    // Error code.  
-    // - 0: Succeeded.  
-    // - Non-zero: Failed.
+    // The product description information returned.
+    shared_ptr<vector<SearchImageByFilterResponseBody::Auctions>> auctions_ {};
+    // The error code.
+    // - 0: success.
+    // - Non-zero: failure.
     shared_ptr<int32_t> code_ {};
-    // Indicates whether the image exists.
-    shared_ptr<bool> exists_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> msg_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

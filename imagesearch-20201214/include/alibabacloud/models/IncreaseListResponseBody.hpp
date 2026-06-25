@@ -247,9 +247,9 @@ namespace Models
 
     protected:
       shared_ptr<Data::Increments> increments_ {};
-      // The number of the page to return.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries to return on each page.
+      // The number of entries returned.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of tasks.
       shared_ptr<int64_t> totalCount_ {};
@@ -274,9 +274,9 @@ namespace Models
 
 
   protected:
-    // The information about the batch task.
+    // The batch task information.
     shared_ptr<IncreaseListResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
