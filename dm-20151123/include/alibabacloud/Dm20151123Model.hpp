@@ -107,6 +107,9 @@
 #include <alibabacloud/models/DeleteTagRequest.hpp>
 #include <alibabacloud/models/DeleteTagResponseBody.hpp>
 #include <alibabacloud/models/DeleteTagResponse.hpp>
+#include <alibabacloud/models/DeleteTemplateRequest.hpp>
+#include <alibabacloud/models/DeleteTemplateResponseBody.hpp>
+#include <alibabacloud/models/DeleteTemplateResponse.hpp>
 #include <alibabacloud/models/DeleteValidateFileRequest.hpp>
 #include <alibabacloud/models/DeleteValidateFileResponseBody.hpp>
 #include <alibabacloud/models/DeleteValidateFileResponse.hpp>
@@ -172,6 +175,9 @@
 #include <alibabacloud/models/ModifyTagRequest.hpp>
 #include <alibabacloud/models/ModifyTagResponseBody.hpp>
 #include <alibabacloud/models/ModifyTagResponse.hpp>
+#include <alibabacloud/models/ModifyTemplateRequest.hpp>
+#include <alibabacloud/models/ModifyTemplateResponseBody.hpp>
+#include <alibabacloud/models/ModifyTemplateResponse.hpp>
 #include <alibabacloud/models/OpenSendifyTrialServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenSendifyTrialServiceResponse.hpp>
 #include <alibabacloud/models/QueryDomainByParamRequest.hpp>

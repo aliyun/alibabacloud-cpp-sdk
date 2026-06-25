@@ -132,33 +132,29 @@ namespace Models
   protected:
     // The time when the template was created.
     shared_ptr<string> createTime_ {};
-    // This parameter is deprecated. It is retained for historical compatibility.
+    // Deprecated. Retained for backward compatibility.
     shared_ptr<string> remark_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // This parameter is deprecated. It is retained for historical compatibility.
+    // Deprecated. Retained for backward compatibility.
     shared_ptr<string> smsContent_ {};
-    // This parameter is deprecated. It is retained for historical compatibility.
+    // Deprecated. Retained for backward compatibility.
     shared_ptr<string> smsType_ {};
     // The template name.
     shared_ptr<string> templateName_ {};
-    // This parameter is deprecated. It is retained for historical compatibility.
+    // Deprecated. Retained for backward compatibility.
     shared_ptr<string> templateNickName_ {};
-    // The status of the template. Valid values:
-    // 
-    // - 0: The template is a draft.
-    // 
-    // - 1: The template is pending approval.
-    // 
-    // - 2: The template is approved.
-    // 
-    // - 3: The template is rejected.
+    // The template status. Valid values:
+    // - 0: draft.
+    // - 1: pending review.
+    // - 2: approved.
+    // - 3: rejected.
     shared_ptr<string> templateStatus_ {};
-    // The template subject, which is used to create the email subject.
+    // The template subject, which is used to compose the email subject.
     shared_ptr<string> templateSubject_ {};
     // The template content.
     shared_ptr<string> templateText_ {};
-    // This parameter is deprecated. It is retained for historical compatibility.
+    // Deprecated. Retained for backward compatibility.
     shared_ptr<string> templateType_ {};
   };
 

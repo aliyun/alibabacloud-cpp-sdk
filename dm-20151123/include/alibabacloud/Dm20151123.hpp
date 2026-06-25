@@ -628,6 +628,23 @@ namespace Dm20151123
       Models::DeleteTagResponse deleteTag(const Models::DeleteTagRequest &request);
 
       /**
+       * @summary Queries template information.
+       *
+       * @param request DeleteTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplateWithOptions(const Models::DeleteTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries template information.
+       *
+       * @param request DeleteTemplateRequest
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplate(const Models::DeleteTemplateRequest &request);
+
+      /**
        * @summary Deletes the verification file after the verification process is complete.
        *
        * @param request DeleteValidateFileRequest
@@ -679,9 +696,9 @@ namespace Dm20151123
       Models::DescDomainResponse descDomain(const Models::DescDomainRequest &request);
 
       /**
-       * @summary Retrieves the information about an email template.
+       * @summary Queries template information.
        *
-       * @description Retrieves information about a specific email template, including its name, creation time, and content.
+       * @description Queries template information.
        *
        * @param request DescTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,9 +707,9 @@ namespace Dm20151123
       Models::DescTemplateResponse descTemplateWithOptions(const Models::DescTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the information about an email template.
+       * @summary Queries template information.
        *
-       * @description Retrieves information about a specific email template, including its name, creation time, and content.
+       * @description Queries template information.
        *
        * @param request DescTemplateRequest
        * @return DescTemplateResponse
@@ -1019,6 +1036,23 @@ namespace Dm20151123
       Models::ModifyTagResponse modifyTag(const Models::ModifyTagRequest &request);
 
       /**
+       * @summary Modifies an email template.
+       *
+       * @param request ModifyTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyTemplateResponse
+       */
+      Models::ModifyTemplateResponse modifyTemplateWithOptions(const Models::ModifyTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies an email template.
+       *
+       * @param request ModifyTemplateRequest
+       * @return ModifyTemplateResponse
+       */
+      Models::ModifyTemplateResponse modifyTemplate(const Models::ModifyTemplateRequest &request);
+
+      /**
        * @summary 免费试用Sendify
        *
        * @param runtime runtime options for this request RuntimeOptions
@@ -1157,9 +1191,9 @@ namespace Dm20151123
       Models::QueryTaskByParamResponse queryTaskByParam(const Models::QueryTaskByParamRequest &request);
 
       /**
-       * @summary Performs a paged query to retrieve a list of templates.
+       * @summary Queries template list information by paging.
        *
-       * @description Performs a paged query to retrieve a list of templates.
+       * @description Queries template list information by paging.
        *
        * @param request QueryTemplateByParamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1168,9 +1202,9 @@ namespace Dm20151123
       Models::QueryTemplateByParamResponse queryTemplateByParamWithOptions(const Models::QueryTemplateByParamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query to retrieve a list of templates.
+       * @summary Queries template list information by paging.
        *
-       * @description Performs a paged query to retrieve a list of templates.
+       * @description Queries template list information by paging.
        *
        * @param request QueryTemplateByParamRequest
        * @return QueryTemplateByParamResponse

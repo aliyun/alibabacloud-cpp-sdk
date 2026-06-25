@@ -2074,6 +2074,64 @@ DeleteTagResponse Client::deleteTag(const DeleteTagRequest &request) {
 }
 
 /**
+ * @summary Queries template information.
+ *
+ * @param request DeleteTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplateWithOptions(const DeleteTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFromType()) {
+    query["FromType"] = request.getFromType();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTemplate"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTemplateResponse>();
+}
+
+/**
+ * @summary Queries template information.
+ *
+ * @param request DeleteTemplateRequest
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplate(const DeleteTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the verification file after the verification process is complete.
  *
  * @param request DeleteValidateFileRequest
@@ -2224,9 +2282,9 @@ DescDomainResponse Client::descDomain(const DescDomainRequest &request) {
 }
 
 /**
- * @summary Retrieves the information about an email template.
+ * @summary Queries template information.
  *
- * @description Retrieves information about a specific email template, including its name, creation time, and content.
+ * @description Queries template information.
  *
  * @param request DescTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2273,9 +2331,9 @@ DescTemplateResponse Client::descTemplateWithOptions(const DescTemplateRequest &
 }
 
 /**
- * @summary Retrieves the information about an email template.
+ * @summary Queries template information.
  *
- * @description Retrieves information about a specific email template, including its name, creation time, and content.
+ * @description Queries template information.
  *
  * @param request DescTemplateRequest
  * @return DescTemplateResponse
@@ -3348,6 +3406,92 @@ ModifyTagResponse Client::modifyTag(const ModifyTagRequest &request) {
 }
 
 /**
+ * @summary Modifies an email template.
+ *
+ * @param request ModifyTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyTemplateResponse
+ */
+ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFromType()) {
+    query["FromType"] = request.getFromType();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSmsContent()) {
+    query["SmsContent"] = request.getSmsContent();
+  }
+
+  if (!!request.hasSmsType()) {
+    query["SmsType"] = request.getSmsType();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  if (!!request.hasTemplateNickName()) {
+    query["TemplateNickName"] = request.getTemplateNickName();
+  }
+
+  if (!!request.hasTemplateSubject()) {
+    query["TemplateSubject"] = request.getTemplateSubject();
+  }
+
+  if (!!request.hasTemplateText()) {
+    query["TemplateText"] = request.getTemplateText();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyTemplate"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyTemplateResponse>();
+}
+
+/**
+ * @summary Modifies an email template.
+ *
+ * @param request ModifyTemplateRequest
+ * @return ModifyTemplateResponse
+ */
+ModifyTemplateResponse Client::modifyTemplate(const ModifyTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary 免费试用Sendify
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -3846,9 +3990,9 @@ QueryTaskByParamResponse Client::queryTaskByParam(const QueryTaskByParamRequest 
 }
 
 /**
- * @summary Performs a paged query to retrieve a list of templates.
+ * @summary Queries template list information by paging.
  *
- * @description Performs a paged query to retrieve a list of templates.
+ * @description Queries template list information by paging.
  *
  * @param request QueryTemplateByParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3907,9 +4051,9 @@ QueryTemplateByParamResponse Client::queryTemplateByParamWithOptions(const Query
 }
 
 /**
- * @summary Performs a paged query to retrieve a list of templates.
+ * @summary Queries template list information by paging.
  *
- * @description Performs a paged query to retrieve a list of templates.
+ * @description Queries template list information by paging.
  *
  * @param request QueryTemplateByParamRequest
  * @return QueryTemplateByParamResponse
