@@ -267,6 +267,9 @@
 #include <alibabacloud/models/ListConsumerAuthorizationRulesRequest.hpp>
 #include <alibabacloud/models/ListConsumerAuthorizationRulesResponseBody.hpp>
 #include <alibabacloud/models/ListConsumerAuthorizationRulesResponse.hpp>
+#include <alibabacloud/models/ListConsumerQuotaRulesRequest.hpp>
+#include <alibabacloud/models/ListConsumerQuotaRulesResponseBody.hpp>
+#include <alibabacloud/models/ListConsumerQuotaRulesResponse.hpp>
 #include <alibabacloud/models/ListConsumersRequest.hpp>
 #include <alibabacloud/models/ListConsumersResponseBody.hpp>
 #include <alibabacloud/models/ListConsumersResponse.hpp>

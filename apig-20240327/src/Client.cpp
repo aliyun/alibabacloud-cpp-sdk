@@ -2447,7 +2447,7 @@ ExportHttpApiResponse Client::exportHttpApi(const string &httpApiId, const Expor
 }
 
 /**
- * @summary Obtains the information of a consumer.
+ * @summary Retrieves an API consumer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2472,7 +2472,7 @@ GetConsumerResponse Client::getConsumerWithOptions(const string &consumerId, con
 }
 
 /**
- * @summary Obtains the information of a consumer.
+ * @summary Retrieves an API consumer.
  *
  * @return GetConsumerResponse
  */
@@ -2954,9 +2954,9 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 }
 
 /**
- * @summary Get the MCP server.
+ * @summary Get MCP Server.
  *
- * @description This API supports creating multiple services.
+ * @description The API supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2981,9 +2981,9 @@ GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, 
 }
 
 /**
- * @summary Get the MCP server.
+ * @summary Get MCP Server.
  *
- * @description This API supports creating multiple services.
+ * @description The API supports creating multiple services.
  *
  * @return GetMcpServerResponse
  */
@@ -3540,6 +3540,63 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRules(co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listConsumerAuthorizationRulesWithOptions(consumerId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询消费者配额限流规则列表
+ *
+ * @param request ListConsumerQuotaRulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConsumerQuotaRulesResponse
+ */
+ListConsumerQuotaRulesResponse Client::listConsumerQuotaRulesWithOptions(const string &consumerId, const ListConsumerQuotaRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConsumerQuotaRules"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumers/" , Darabonba::Encode::Encoder::percentEncode(consumerId) , "/quota-rules")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConsumerQuotaRulesResponse>();
+}
+
+/**
+ * @summary 查询消费者配额限流规则列表
+ *
+ * @param request ListConsumerQuotaRulesRequest
+ * @return ListConsumerQuotaRulesResponse
+ */
+ListConsumerQuotaRulesResponse Client::listConsumerQuotaRules(const string &consumerId, const ListConsumerQuotaRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConsumerQuotaRulesWithOptions(consumerId, request, headers, runtime);
 }
 
 /**

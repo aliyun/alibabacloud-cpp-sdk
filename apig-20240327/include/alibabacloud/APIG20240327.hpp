@@ -819,7 +819,7 @@ namespace APIG20240327
       Models::ExportHttpApiResponse exportHttpApi(const string &httpApiId, const Models::ExportHttpApiRequest &request);
 
       /**
-       * @summary Obtains the information of a consumer.
+       * @summary Retrieves an API consumer.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -828,7 +828,7 @@ namespace APIG20240327
       Models::GetConsumerResponse getConsumerWithOptions(const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information of a consumer.
+       * @summary Retrieves an API consumer.
        *
        * @return GetConsumerResponse
        */
@@ -1017,9 +1017,9 @@ namespace APIG20240327
       Models::GetHttpApiRouteResponse getHttpApiRoute(const string &httpApiId, const string &routeId);
 
       /**
-       * @summary Get the MCP server.
+       * @summary Get MCP Server.
        *
-       * @description This API supports creating multiple services.
+       * @description The API supports creating multiple services.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1028,9 +1028,9 @@ namespace APIG20240327
       Models::GetMcpServerResponse getMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the MCP server.
+       * @summary Get MCP Server.
        *
-       * @description This API supports creating multiple services.
+       * @description The API supports creating multiple services.
        *
        * @return GetMcpServerResponse
        */
@@ -1245,6 +1245,24 @@ namespace APIG20240327
        * @return ListConsumerAuthorizationRulesResponse
        */
       Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRules(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request);
+
+      /**
+       * @summary 查询消费者配额限流规则列表
+       *
+       * @param request ListConsumerQuotaRulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListConsumerQuotaRulesResponse
+       */
+      Models::ListConsumerQuotaRulesResponse listConsumerQuotaRulesWithOptions(const string &consumerId, const Models::ListConsumerQuotaRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询消费者配额限流规则列表
+       *
+       * @param request ListConsumerQuotaRulesRequest
+       * @return ListConsumerQuotaRulesResponse
+       */
+      Models::ListConsumerQuotaRulesResponse listConsumerQuotaRules(const string &consumerId, const Models::ListConsumerQuotaRulesRequest &request);
 
       /**
        * @summary Queries a list of consumers.

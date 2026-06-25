@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_JWTIDENTITYCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_JWTIDENTITYCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,16 +14,20 @@ namespace Models
   class JwtIdentityConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const JwtIdentityConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(claimsToHeadersConfigs, claimsToHeadersConfigs_);
       DARABONBA_PTR_TO_JSON(jwks, jwks_);
       DARABONBA_PTR_TO_JSON(jwtPayloadConfig, jwtPayloadConfig_);
       DARABONBA_PTR_TO_JSON(jwtTokenConfig, jwtTokenConfig_);
+      DARABONBA_PTR_TO_JSON(remoteJwks, remoteJwks_);
       DARABONBA_PTR_TO_JSON(secretType, secretType_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, JwtIdentityConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(claimsToHeadersConfigs, claimsToHeadersConfigs_);
       DARABONBA_PTR_FROM_JSON(jwks, jwks_);
       DARABONBA_PTR_FROM_JSON(jwtPayloadConfig, jwtPayloadConfig_);
       DARABONBA_PTR_FROM_JSON(jwtTokenConfig, jwtTokenConfig_);
+      DARABONBA_PTR_FROM_JSON(remoteJwks, remoteJwks_);
       DARABONBA_PTR_FROM_JSON(secretType, secretType_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
@@ -93,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The key used for the JWT.
+      // The JWT key configuration.
       shared_ptr<string> key_ {};
-      // Indicates whether acceptance is granted.
+      // Specifies whether to pass through.
       shared_ptr<bool> pass_ {};
-      // The location where the JWT is stored.
+      // The storage location of the JWT.
       shared_ptr<string> position_ {};
-      // The token prefix configuration.
+      // The prefix configuration.
       shared_ptr<string> prefix_ {};
     };
 
@@ -141,14 +146,79 @@ namespace Models
 
 
     protected:
-      // The key in the JWT payload.
+      // The JWT payload key configuration.
       shared_ptr<string> payloadKeyName_ {};
-      // The value for the JWT payload key.
+      // The JWT payload value configuration.
       shared_ptr<string> payloadKeyValue_ {};
     };
 
-    virtual bool empty() const override { return this->jwks_ == nullptr
-        && this->jwtPayloadConfig_ == nullptr && this->jwtTokenConfig_ == nullptr && this->secretType_ == nullptr && this->type_ == nullptr; };
+    class ClaimsToHeadersConfigs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ClaimsToHeadersConfigs& obj) { 
+        DARABONBA_PTR_TO_JSON(claim, claim_);
+        DARABONBA_PTR_TO_JSON(header, header_);
+        DARABONBA_PTR_TO_JSON(override, override_);
+      };
+      friend void from_json(const Darabonba::Json& j, ClaimsToHeadersConfigs& obj) { 
+        DARABONBA_PTR_FROM_JSON(claim, claim_);
+        DARABONBA_PTR_FROM_JSON(header, header_);
+        DARABONBA_PTR_FROM_JSON(override, override_);
+      };
+      ClaimsToHeadersConfigs() = default ;
+      ClaimsToHeadersConfigs(const ClaimsToHeadersConfigs &) = default ;
+      ClaimsToHeadersConfigs(ClaimsToHeadersConfigs &&) = default ;
+      ClaimsToHeadersConfigs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ClaimsToHeadersConfigs() = default ;
+      ClaimsToHeadersConfigs& operator=(const ClaimsToHeadersConfigs &) = default ;
+      ClaimsToHeadersConfigs& operator=(ClaimsToHeadersConfigs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->claim_ == nullptr
+        && this->header_ == nullptr && this->override_ == nullptr; };
+      // claim Field Functions 
+      bool hasClaim() const { return this->claim_ != nullptr;};
+      void deleteClaim() { this->claim_ = nullptr;};
+      inline string getClaim() const { DARABONBA_PTR_GET_DEFAULT(claim_, "") };
+      inline ClaimsToHeadersConfigs& setClaim(string claim) { DARABONBA_PTR_SET_VALUE(claim_, claim) };
+
+
+      // header Field Functions 
+      bool hasHeader() const { return this->header_ != nullptr;};
+      void deleteHeader() { this->header_ = nullptr;};
+      inline string getHeader() const { DARABONBA_PTR_GET_DEFAULT(header_, "") };
+      inline ClaimsToHeadersConfigs& setHeader(string header) { DARABONBA_PTR_SET_VALUE(header_, header) };
+
+
+      // override Field Functions 
+      bool hasOverride() const { return this->override_ != nullptr;};
+      void deleteOverride() { this->override_ = nullptr;};
+      inline bool getOverride() const { DARABONBA_PTR_GET_DEFAULT(override_, false) };
+      inline ClaimsToHeadersConfigs& setOverride(bool override) { DARABONBA_PTR_SET_VALUE(override_, override) };
+
+
+    protected:
+      // The claim.
+      shared_ptr<string> claim_ {};
+      // The header.
+      shared_ptr<string> header_ {};
+      // The override.
+      shared_ptr<bool> override_ {};
+    };
+
+    virtual bool empty() const override { return this->claimsToHeadersConfigs_ == nullptr
+        && this->jwks_ == nullptr && this->jwtPayloadConfig_ == nullptr && this->jwtTokenConfig_ == nullptr && this->remoteJwks_ == nullptr && this->secretType_ == nullptr
+        && this->type_ == nullptr; };
+    // claimsToHeadersConfigs Field Functions 
+    bool hasClaimsToHeadersConfigs() const { return this->claimsToHeadersConfigs_ != nullptr;};
+    void deleteClaimsToHeadersConfigs() { this->claimsToHeadersConfigs_ = nullptr;};
+    inline const vector<JwtIdentityConfig::ClaimsToHeadersConfigs> & getClaimsToHeadersConfigs() const { DARABONBA_PTR_GET_CONST(claimsToHeadersConfigs_, vector<JwtIdentityConfig::ClaimsToHeadersConfigs>) };
+    inline vector<JwtIdentityConfig::ClaimsToHeadersConfigs> getClaimsToHeadersConfigs() { DARABONBA_PTR_GET(claimsToHeadersConfigs_, vector<JwtIdentityConfig::ClaimsToHeadersConfigs>) };
+    inline JwtIdentityConfig& setClaimsToHeadersConfigs(const vector<JwtIdentityConfig::ClaimsToHeadersConfigs> & claimsToHeadersConfigs) { DARABONBA_PTR_SET_VALUE(claimsToHeadersConfigs_, claimsToHeadersConfigs) };
+    inline JwtIdentityConfig& setClaimsToHeadersConfigs(vector<JwtIdentityConfig::ClaimsToHeadersConfigs> && claimsToHeadersConfigs) { DARABONBA_PTR_SET_RVALUE(claimsToHeadersConfigs_, claimsToHeadersConfigs) };
+
+
     // jwks Field Functions 
     bool hasJwks() const { return this->jwks_ != nullptr;};
     void deleteJwks() { this->jwks_ = nullptr;};
@@ -174,6 +244,13 @@ namespace Models
     inline JwtIdentityConfig& setJwtTokenConfig(JwtIdentityConfig::JwtTokenConfig && jwtTokenConfig) { DARABONBA_PTR_SET_RVALUE(jwtTokenConfig_, jwtTokenConfig) };
 
 
+    // remoteJwks Field Functions 
+    bool hasRemoteJwks() const { return this->remoteJwks_ != nullptr;};
+    void deleteRemoteJwks() { this->remoteJwks_ = nullptr;};
+    inline string getRemoteJwks() const { DARABONBA_PTR_GET_DEFAULT(remoteJwks_, "") };
+    inline JwtIdentityConfig& setRemoteJwks(string remoteJwks) { DARABONBA_PTR_SET_VALUE(remoteJwks_, remoteJwks) };
+
+
     // secretType Field Functions 
     bool hasSecretType() const { return this->secretType_ != nullptr;};
     void deleteSecretType() { this->secretType_ = nullptr;};
@@ -189,20 +266,19 @@ namespace Models
 
 
   protected:
+    // The claims-to-headers configurations.
+    shared_ptr<vector<JwtIdentityConfig::ClaimsToHeadersConfigs>> claimsToHeadersConfigs_ {};
     // The JWKS configuration.
     shared_ptr<string> jwks_ {};
     // The JWT payload configuration.
     shared_ptr<JwtIdentityConfig::JwtPayloadConfig> jwtPayloadConfig_ {};
     // The JWT token configuration.
     shared_ptr<JwtIdentityConfig::JwtTokenConfig> jwtTokenConfig_ {};
-    // The type of the secret used.
-    // 
-    // Valid values:
-    // 
-    // *   Asymmetry: asymmetric encryption.
-    // *   Symmetry: symmetric encryption.
+    // The remote JWKS.
+    shared_ptr<string> remoteJwks_ {};
+    // The secret type.
     shared_ptr<string> secretType_ {};
-    // The authentication configuration type.
+    // The type of authentication configuration.
     shared_ptr<string> type_ {};
   };
 
