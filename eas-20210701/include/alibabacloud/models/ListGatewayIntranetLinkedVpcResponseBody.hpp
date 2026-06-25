@@ -118,43 +118,23 @@ namespace Models
 
 
     protected:
+      // The ID of the Alibaba Cloud account that owns the VPC.
       shared_ptr<string> accountId_ {};
+      // Indicates whether authoritative DNS resolution is enabled. Default value: false.
       shared_ptr<bool> authoritativeDnsEnabled_ {};
       // The IP address.
       shared_ptr<string> ip_ {};
-      // The security group ID.
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The state of the private gateway.
+      // The status. Valid values:
       // 
-      // Valid values:
+      // - Creating: The endpoint is being created.
       // 
-      // *   Creating
-      // 
-      //     <!-- -->
-      // 
-      //     :
-      // 
-      //     <!-- -->
-      // 
-      //     The private gateway is being created.
-      // 
-      //     <!-- -->
-      // 
-      // *   Running
-      // 
-      //     <!-- -->
-      // 
-      //     :
-      // 
-      //     <!-- -->
-      // 
-      //     The private gateway is running.
-      // 
-      //     <!-- -->
+      // - Running: The endpoint is running.
       shared_ptr<string> status_ {};
-      // The vSwitch ID.
+      // The ID of the virtual switch.
       shared_ptr<string> vSwitchId_ {};
-      // The virtual private cloud (VPC) ID.
+      // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
     };
 
@@ -184,9 +164,9 @@ namespace Models
 
 
   protected:
-    // The private gateway ID.
+    // The ID of the private gateway.
     shared_ptr<string> gatewayId_ {};
-    // The internal endpoints.
+    // The list of internal access endpoints.
     shared_ptr<vector<ListGatewayIntranetLinkedVpcResponseBody::IntranetLinkedVpcList>> intranetLinkedVpcList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // This parameter is not used.
     shared_ptr<string> streamlogUrl_ {};
+    // This parameter is not used.
     shared_ptr<string> token_ {};
+    // This parameter is not used.
     shared_ptr<string> url_ {};
+    // URL for logging on to the container using Workbench.
     shared_ptr<string> workbenchUrl_ {};
   };
 

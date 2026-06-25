@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // Valid values:
+      // The valid values for the number of CPU cores.
       shared_ptr<int32_t> CPU_ {};
-      // The optional values for memory when CPU is set to a specific value as above.
+      // The valid memory values for the specified number of CPU cores.
       shared_ptr<vector<int32_t>> memory_ {};
     };
 
@@ -200,39 +200,27 @@ namespace Models
 
 
     protected:
-      // The number of CPU cores in the instance type.
+      // The number of CPU cores of the instance type.
       shared_ptr<int32_t> CPU_ {};
-      // The GPU type in the instance type. If the instance type is not a GPU-based instance type, this parameter does not exist.
+      // The GPU model of the instance type. This field is not returned for non-GPU instance types.
       shared_ptr<string> GPU_ {};
       // The number of GPUs in the instance type.
       shared_ptr<int32_t> GPUAmount_ {};
-      // The GPU memory in the instance type. Unit: GB.
+      // The GPU memory size of the instance type, in GB.
       shared_ptr<float> GPUMemory_ {};
-      // The name of the instance type.
+      // The instance type name.
       shared_ptr<string> instanceType_ {};
-      // Indicates whether the instance type is available.
+      // Indicates whether the instance type is currently available.
       shared_ptr<bool> isAvailable_ {};
-      // The memory size in the instance type. Unit: GB.
+      // The memory size of the instance type, in GB.
       shared_ptr<float> memory_ {};
-      // The minimum discount that can be accepted when the preemptible instance type does not include a usage duration. 0.1 indicates one fold. If this parameter is not returned, the bidding feature is not supported.
+      // The minimum discount currently offered for a spot instance in no-protection mode. A value of 0.1 indicates a 90% discount. If this field is not returned, the instance type does not support spot instances.
       shared_ptr<float> nonProtectSpotDiscount_ {};
-      // The minimum discount that can be accepted when the preemptible instance type has the 1-hour protection duration. 0.1 indicates one fold. If this parameter is not returned, the bidding feature is not supported.
+      // The current lowest discount for a spot instance with a 1-hour protection period. A value of 0.1 indicates a 90% discount. If this field is not returned, the instance type does not support spot instances.
       shared_ptr<float> spotDiscount_ {};
       // The inventory status of the instance type.
-      // 
-      // Valid values:
-      // 
-      // *   WithStock
-      // *   ClosedWithStock
-      // *   NoStock
       shared_ptr<string> stockStatus_ {};
       // The source of the instance type.
-      // 
-      // Valid values:
-      // 
-      // *   ECS
-      // *   BareMetal
-      // *   Lingjun
       shared_ptr<string> vendor_ {};
     };
 
@@ -264,11 +252,11 @@ namespace Models
 
 
   protected:
-    // The instance types when the resources are specified.
+    // A list of available instance types for deployment.
     shared_ptr<vector<DescribeMachineSpecResponseBody::InstanceMetas>> instanceMetas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The values that can be supported when the number of CPUs and memory size are specified for deployment.
+    // The supported combinations of CPU and memory values for deployment.
     shared_ptr<vector<DescribeMachineSpecResponseBody::Types>> types_ {};
   };
 

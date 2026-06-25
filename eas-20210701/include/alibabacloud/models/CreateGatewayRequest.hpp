@@ -112,43 +112,38 @@ namespace Models
 
 
   protected:
-    // The resource group ID. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+    // The name of the resource group. For more information, see the ResourceName field that is returned by the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation when ResourceType is SelfManaged.
     shared_ptr<string> resourceName_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   false (default)
-    // *   true
+    // - false (default): Auto-renewal is disabled.
+    // 
+    // - true: Auto-renewal is enabled.
     shared_ptr<bool> autoRenewal_ {};
     // The billing method. Valid values:
     // 
-    // *   PrePaid: subscription.
-    // *   PostPaid: pay-as-you-go.
+    // - PrePaid: subscription.
+    // 
+    // - PostPaid: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // Specifies whether to enable Internet access. Default value: false.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to enable public network access. The default value is false.
     shared_ptr<bool> enableInternet_ {};
-    // Specifies whether to enable private access. Default value: true.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to enable internal network access. The default value is true.
     shared_ptr<bool> enableIntranet_ {};
     shared_ptr<string> gatewayType_ {};
-    // The instance type used by the private gateway. Valid values:
+    // The instance type of the private gateway. Valid values:
     // 
-    // *   2c4g
-    // *   4c8g
-    // *   8c16g
-    // *   16c32g
+    // - 2c4g
+    // 
+    // - 4c8g
+    // 
+    // - 8c16g
+    // 
+    // - 16c32g
     shared_ptr<string> instanceType_ {};
     // The alias of the private gateway.
     shared_ptr<string> name_ {};
-    // The number of nodes in the private gateway.
+    // The number of nodes for the private gateway.
     shared_ptr<int32_t> replicas_ {};
   };
 

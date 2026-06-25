@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 新的配置值
+    // The new dynamic parameter value. This parameter is required.
     shared_ptr<string> value_ {};
   };
 

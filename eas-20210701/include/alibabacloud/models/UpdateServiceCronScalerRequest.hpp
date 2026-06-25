@@ -88,16 +88,17 @@ namespace Models
 
 
     protected:
-      // The name of the CronHPA job.
+      // The name of the scheduled auto scaling task.
       shared_ptr<string> name_ {};
-      // The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
+      // The cron expression that specifies when to run the scaling task. For more information about cron expressions, see the **Cron expressions** section in this topic.
       // 
       // This parameter is required.
       shared_ptr<string> schedule_ {};
-      // The number of instances that you want to configure for the CronHPA job.
+      // The target number of instances for the scaling task.
       // 
       // This parameter is required.
       shared_ptr<int32_t> targetSize_ {};
+      // The time zone for the cron expression.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -122,9 +123,9 @@ namespace Models
 
 
   protected:
-    // The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
+    // The cron expressions for the dates to exclude from the schedule.
     shared_ptr<vector<string>> excludeDates_ {};
-    // The description of the CronHPA job.
+    // The scheduled scaling tasks.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateServiceCronScalerRequest::ScaleJobs>> scaleJobs_ {};

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // **The page number.** Default: 1.
     shared_ptr<int32_t> page_ {};
+    // **The number of entries per page.** Default: 100. Maximum: 200.
     shared_ptr<int32_t> pageSize_ {};
   };
 

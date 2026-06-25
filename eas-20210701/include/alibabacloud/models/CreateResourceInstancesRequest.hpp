@@ -108,31 +108,33 @@ namespace Models
   protected:
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   false (default)
-    // *   true
-    shared_ptr<bool> autoRenewal_ {};
-    // The billing method of the instance. Valid values:
+    // - false (default): Auto-renewal is disabled.
     // 
-    // *   PrePaid: subscription.
-    // *   PostPaid: pay-as-you-go.
+    // - true: Auto-renewal is enabled.
+    shared_ptr<bool> autoRenewal_ {};
+    // The billing method. Valid values:
+    // 
+    // - PrePaid: subscription.
+    // 
+    // - PostPaid: pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // The number of instances that you want to create. Valid values: 1 to 100.
+    // The number of new instances to create. The value must be between 1 and 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ecsInstanceCount_ {};
-    // The type of the Elastic Compute Service (ECS) instance.
+    // The instance type. This corresponds to an ECS instance type.
     // 
     // This parameter is required.
     shared_ptr<string> ecsInstanceType_ {};
-    // The custom service tag.
+    // The user-defined tags.
     shared_ptr<map<string, string>> labels_ {};
-    // The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
+    // The size of the system disk, in GiB. The value must be between 200 and 2,000. If you do not configure this parameter, the default value is 200 GiB.
     shared_ptr<int32_t> systemDiskSize_ {};
-    // The user-defined information. This parameter is not in use.
+    // The custom user data. This parameter is not currently used.
     shared_ptr<string> userData_ {};
-    // The zone to which the instance belongs.
+    // The zone where the instance belongs.
     shared_ptr<string> zone_ {};
   };
 

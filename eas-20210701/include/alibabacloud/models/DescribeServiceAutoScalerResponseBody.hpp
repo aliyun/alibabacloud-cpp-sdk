@@ -91,15 +91,17 @@ namespace Models
     protected:
       // The metric name. Valid values:
       // 
-      // *   QPS: the queries per second (QPS) for an individual instance.
-      // *   CPU: the CPU utilization.
+      // - QPS: the queries per second (QPS) for an individual instance.
+      // 
+      // - CPU: the CPU utilization.
       shared_ptr<string> metricName_ {};
       // The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
       shared_ptr<string> service_ {};
       // The threshold of the metric that triggers auto scaling.
       // 
-      // *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
-      // *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
+      // - If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
+      // 
+      // - If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
       shared_ptr<float> threshold_ {};
     };
 
@@ -152,8 +154,9 @@ namespace Models
     protected:
       // The metric name. Valid values:
       // 
-      // *   QPS
-      // *   CPU
+      // - QPS
+      // 
+      // - CPU
       shared_ptr<string> metricName_ {};
       // The service for which the metric is specified.
       shared_ptr<string> service_ {};

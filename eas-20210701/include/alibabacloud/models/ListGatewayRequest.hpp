@@ -143,22 +143,29 @@ namespace Models
 
 
   protected:
+    // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The private gateway ID. To obtain the private gateway ID, see the private_gateway_id parameter in the response parameters of the ListResources operation.
+    // The ID of the private gateway. You can obtain the ID from the private_gateway_id field in the response of the ListResources operation.
     shared_ptr<string> gatewayId_ {};
-    // The private gateway alias.
+    // The alias of the private gateway.
     shared_ptr<string> gatewayName_ {};
+    // The type of the gateway.
     shared_ptr<string> gatewayType_ {};
+    // Specifies whether to enable access over the public network.
     shared_ptr<bool> internetEnabled_ {};
+    // Filter by tag.
     shared_ptr<map<string, string>> label_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
-    // The page number. Default value: 1.
+    // The page number of the gateway list to return. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of gateways to return on each page. The default value is 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+    // The ID of the resource group. You can obtain the ID from the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
     shared_ptr<string> resourceName_ {};
+    // The field to sort by.
     shared_ptr<string> sort_ {};
+    // The status of the gateway.
     shared_ptr<string> status_ {};
   };
 

@@ -114,11 +114,37 @@ namespace Models
 
 
     protected:
+      // The ID of the backend service. The value of this parameter varies based on the value of EndpointType:
+      // 
+      // - If EndpointType is DefaultGateway, this parameter is set to default.
+      // 
+      // - If EndpointType is PrivateGateway, this parameter is the ID of the dedicated gateway.
+      // 
+      // - If EndpointType is Nlb, this parameter is the ID of the NLB instance.
+      // 
+      // - If EndpointType is Nacos, this parameter is the ID of the Nacos instance.
       shared_ptr<string> backendId_ {};
+      // The connection type of the service endpoint. Valid values:
+      // 
+      // - DefaultGateway: The service is connected using a shared gateway.
+      // 
+      // - PrivateGateway: The service is connected using a dedicated gateway.
+      // 
+      // - Nlb: The service is attached to a Network Load Balancer (NLB) instance.
+      // 
+      // - Nacos: The service is attached to a Nacos instance.
       shared_ptr<string> endpointType_ {};
+      // The list of internet-facing endpoints.
       shared_ptr<vector<string>> internetEndpoints_ {};
+      // The list of internal endpoints.
       shared_ptr<vector<string>> intranetEndpoints_ {};
+      // The type of the endpoint. Valid values:
+      // 
+      // - Group: The endpoint of an audience group.
+      // 
+      // - Service: The endpoint of a service.
       shared_ptr<string> pathType_ {};
+      // The port number. This parameter is returned only when the service is attached to an NLB or Nacos instance.
       shared_ptr<int32_t> port_ {};
     };
 
@@ -157,9 +183,9 @@ namespace Models
   protected:
     // The service token.
     shared_ptr<string> accessToken_ {};
-    // The service endpoints.
+    // The list of service endpoints.
     shared_ptr<vector<DescribeServiceEndpointsResponseBody::Endpoints>> endpoints_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

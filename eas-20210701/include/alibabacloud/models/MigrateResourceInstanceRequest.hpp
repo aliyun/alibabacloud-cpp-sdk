@@ -64,10 +64,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> destResourceId_ {};
-    // The instance ID.
+    // The IDs of the instances.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // Specifies whether to migrate the instances to a general computing resource group. If set to true, specify the ID of the general computing resource group.
     shared_ptr<bool> migrateToHybrid_ {};
   };
 

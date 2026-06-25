@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 配置值
+    // The dynamic parameter value.
     shared_ptr<string> value_ {};
   };
 

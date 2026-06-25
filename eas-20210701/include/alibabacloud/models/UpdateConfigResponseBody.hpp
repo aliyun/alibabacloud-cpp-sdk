@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 创建时间
+    // The time the configuration was created.
     shared_ptr<string> createdAt_ {};
-    // 配置键名
+    // The dynamic parameter name.
     shared_ptr<string> key_ {};
-    // 更新时间
+    // The time the configuration was last updated.
     shared_ptr<string> updatedAt_ {};
-    // 配置值
+    // The dynamic parameter value.
     shared_ptr<string> value_ {};
   };
 

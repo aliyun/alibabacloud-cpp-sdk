@@ -240,8 +240,9 @@ namespace Models
 
 
   protected:
+    // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The time when the private gateway was created. The time is displayed in UTC.
+    // The time when the private gateway was created. The time is in Coordinated Universal Time (UTC).
     shared_ptr<string> createTime_ {};
     // The ID of the self-managed cluster.
     shared_ptr<string> externalClusterId_ {};
@@ -249,54 +250,29 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The alias of the private gateway.
     shared_ptr<string> gatewayName_ {};
-    // The instance type used by the private gateway.
-    // 
-    // Valid values:
-    // 
-    // *   8c16g
-    // *   4c8g
-    // *   2c4g
-    // *   16c32g
+    // The instance type of the private gateway.
     shared_ptr<string> instanceType_ {};
     // The public endpoint.
     shared_ptr<string> internetDomain_ {};
-    // Indicates whether Internet access is enabled.
+    // Indicates whether public network access is enabled.
     shared_ptr<bool> internetEnabled_ {};
-    // Indicates whether Internet access is enabled.
-    // 
-    // Valid values:
-    // 
-    // *   Creating: Internet access is being enabled.
-    // *   Failed: Internet access failed to be enabled or deleted.
-    // *   Running: Internet access is running.
-    // *   Deleted: Internet access is deleted.
-    // *   Deleting: Internet access is being deleted.
+    // The status of public network access.
     shared_ptr<string> internetStatus_ {};
-    // The internal endpoint.
+    // The private endpoint.
     shared_ptr<string> intranetDomain_ {};
     shared_ptr<bool> intranetEnabled_ {};
-    // Indicates whether it is the default private gateway.
+    // Indicates whether the gateway is the default private gateway.
     shared_ptr<bool> isDefault_ {};
     shared_ptr<vector<DescribeGatewayResponseBody::Labels>> labels_ {};
-    // The number of nodes in the private gateway.
+    // The number of private gateway nodes.
     shared_ptr<int32_t> replicas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the HTTP to HTTPS redirection is enabled.
+    // Indicates whether HTTP to HTTPS redirection is enabled.
     shared_ptr<bool> SSLRedirectionEnabled_ {};
     // The status of the private gateway.
-    // 
-    // Valid values:
-    // 
-    // *   Creating
-    // *   Stopped
-    // *   Failed
-    // *   Running
-    // *   Deleted
-    // *   Deleting
-    // *   Waiting
     shared_ptr<string> status_ {};
-    // The time when the private gateway was updated. The time is displayed in UTC.
+    // The time when the private gateway was last updated. The time is in UTC.
     shared_ptr<string> updateTime_ {};
   };
 

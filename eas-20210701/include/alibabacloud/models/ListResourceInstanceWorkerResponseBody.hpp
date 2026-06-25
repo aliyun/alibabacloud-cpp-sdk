@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The returned page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The workers.
+    // The list of workers.
     shared_ptr<vector<ResourceInstanceWorker>> pods_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of workers.
     shared_ptr<int32_t> totalCount_ {};
   };
 

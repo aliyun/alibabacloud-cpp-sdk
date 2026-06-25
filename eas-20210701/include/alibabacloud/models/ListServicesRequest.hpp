@@ -282,246 +282,91 @@ namespace Models
 
   protected:
     shared_ptr<string> accessibility_ {};
+    // Specifies whether to enable Auto Scaling for the service.
     shared_ptr<bool> autoscalerEnabled_ {};
+    // The UID of the account that created the service.
     shared_ptr<string> callerUid_ {};
+    // Specifies whether to enable scheduled auto scaling for the service.
     shared_ptr<bool> cronscalerEnabled_ {};
-    // The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
+    // The keyword for a fuzzy search. This parameter supports fuzzy searches by service name only.
     shared_ptr<string> filter_ {};
     // The private gateway ID.
     shared_ptr<string> gateway_ {};
-    // The name of the service group. For more information about how to query the name of a service group, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+    // The name of the service group. To learn how to obtain this name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
     shared_ptr<string> groupName_ {};
+    // Specifies whether to include services that do not belong to any workspace. The default value is true.
     shared_ptr<bool> includeNoWorkspace_ {};
-    // The tag that is used to filter services.
+    // Filters services by label.
     shared_ptr<map<string, string>> label_ {};
-    // The sorting order. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   desc (default): The query results are sorted in descending order.
-    // *   asc: The query results are sorted in ascending order.
+    // - `desc` (default): descending.
+    // 
+    // - `asc`: ascending.
     shared_ptr<string> order_ {};
-    // The page number. Default value: 1.
+    // The page number of the results to return. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of services to return per page. The default value is 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the primary service that corresponds to the Band member service.
+    // The UID of the primary service. This parameter applies to member services in a service group.
     shared_ptr<string> parentServiceUid_ {};
     // The quota ID.
     shared_ptr<string> quotaId_ {};
+    // The custom name of the resource group.
     shared_ptr<string> resourceAliasName_ {};
+    // Specifies whether to enable a burstable resource pool for the service.
     shared_ptr<bool> resourceBurstable_ {};
+    // The ID of the resource group. To learn how to query for this ID, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
     shared_ptr<string> resourceId_ {};
-    // The name or ID of the resource group to which the service belongs.
+    // The name or ID of the service\\"s resource group.
     shared_ptr<string> resourceName_ {};
+    // The type of resource the service uses. Valid values:
+    // 
+    // - PublicResource
+    // 
+    // - DedicatedResource
+    // 
+    // - Lingjun
+    // 
+    // - SelfManagedLingjun
     shared_ptr<string> resourceType_ {};
-    // The server role.
-    // 
-    // Valid values:
-    // 
-    // *   DataLoader
-    // *   FrontEnd
-    // *   DataSet
-    // *   SDProxy
-    // *   LLMSscheduler
-    // *   ScalableJob
-    // *   LLMGateway
-    // *   Job
-    // *   Queue
+    // The service role.
     shared_ptr<string> role_ {};
     // The service name.
     shared_ptr<string> serviceName_ {};
-    // The service state.
-    // 
-    // Valid values:
-    // 
-    // *   Creating
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Stopped
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Failed
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Complete
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Cloning
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Stopping
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Updating
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Waiting
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   HotUpdate
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Committing
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Starting
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DeleteFailed
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Running
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Developing
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Scaling
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Deleted
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Pending
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Deleting
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The status of the service.
     shared_ptr<string> serviceStatus_ {};
     // The service type. Valid values:
     // 
-    // *   Async
-    // *   Standard
-    // *   Offline Task
-    // *   Proxima
+    // - Async
     // 
-    // Valid values:
+    // - Standard
     // 
-    // *   Async
+    // - Queue
     // 
-    //     <!-- -->
+    // - LLM
     // 
-    //     <!-- -->
+    // - RAG
     // 
-    //     <!-- -->
+    // - Serverless
     // 
-    // *   Standard
+    // - LLMGatewayService
     // 
-    //     <!-- -->
+    // - OfflineTask
     // 
-    //     <!-- -->
+    // - SDCluster
     // 
-    //     <!-- -->
+    // - ScalableJob
     // 
-    // *   OfflineTask
+    // - ScalableJobService
     // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Proxima
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // - AssistantJob
     shared_ptr<string> serviceType_ {};
-    // The user ID (UID) of the service.
+    // The service UID.
     shared_ptr<string> serviceUid_ {};
-    // The sort field. By default, the query results are sorted by the timestamp type in descending order.
+    // The sort field. By default, results are sorted by timestamp in descending order.
     shared_ptr<string> sort_ {};
+    // Specifies whether the service accepts group traffic. This parameter applies only to services within a service group.
     shared_ptr<string> trafficState_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

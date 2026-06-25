@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The sorting order. Valid values:
+    // 
+    // - Desc: Descending order.
+    // 
+    // - Asc: Ascending order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number for the list of virtual resource groups. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of virtual resource groups to display on each page. The default value is 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The field that is used to sort the results. By default, the results are sorted by timestamp in descending order.
     shared_ptr<string> sort_ {};
     // The ID of the virtual resource group.
     shared_ptr<string> virtualResourceId_ {};

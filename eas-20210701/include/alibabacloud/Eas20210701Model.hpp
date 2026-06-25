@@ -46,6 +46,9 @@
 #include <alibabacloud/models/CreateGatewayIntranetLinkedVpcPeerShrinkRequest.hpp>
 #include <alibabacloud/models/CreateGatewayIntranetLinkedVpcPeerResponseBody.hpp>
 #include <alibabacloud/models/CreateGatewayIntranetLinkedVpcPeerResponse.hpp>
+#include <alibabacloud/models/CreateGroupRequest.hpp>
+#include <alibabacloud/models/CreateGroupResponseBody.hpp>
+#include <alibabacloud/models/CreateGroupResponse.hpp>
 #include <alibabacloud/models/CreateResourceRequest.hpp>
 #include <alibabacloud/models/CreateResourceResponseBody.hpp>
 #include <alibabacloud/models/CreateResourceResponse.hpp>
@@ -104,6 +107,9 @@
 #include <alibabacloud/models/DeleteGatewayLabelShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteGatewayLabelResponseBody.hpp>
 #include <alibabacloud/models/DeleteGatewayLabelResponse.hpp>
+#include <alibabacloud/models/DeleteGroupRequest.hpp>
+#include <alibabacloud/models/DeleteGroupResponseBody.hpp>
+#include <alibabacloud/models/DeleteGroupResponse.hpp>
 #include <alibabacloud/models/DeleteResourceRequest.hpp>
 #include <alibabacloud/models/DeleteResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteResourceResponse.hpp>
@@ -245,6 +251,7 @@
 #include <alibabacloud/models/ListGatewayIntranetSupportedZoneResponseBody.hpp>
 #include <alibabacloud/models/ListGatewayIntranetSupportedZoneResponse.hpp>
 #include <alibabacloud/models/ListGroupsRequest.hpp>
+#include <alibabacloud/models/ListGroupsShrinkRequest.hpp>
 #include <alibabacloud/models/ListGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListGroupsResponse.hpp>
 #include <alibabacloud/models/ListResourceInstanceWorkerRequest.hpp>

@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The returned page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource groups.
+    // A list of resource groups.
     shared_ptr<vector<Resource>> resources_ {};
-    // The total number of entries returned.
+    // The total number of resource groups.
     shared_ptr<int32_t> totalCount_ {};
   };
 

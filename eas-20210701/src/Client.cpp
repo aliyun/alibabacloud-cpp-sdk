@@ -34,7 +34,20 @@ AlibabaCloud::Eas20210701::Client::Client(Config &config): OpenApiClient(config)
     {"ap-south-1" , "pai-eas.ap-south-1.aliyuncs.com"},
     {"cn-shanghai-finance-1" , "pai-eas.cn-shanghai-finance-1.aliyuncs.com"},
     {"cn-north-2-gov-1" , "pai-eas.cn-north-2-gov-1.aliyuncs.com"},
-    {"cn-chengdu" , "pai-eas.cn-chengdu.aliyuncs.com"}
+    {"cn-chengdu" , "pai-eas.cn-chengdu.aliyuncs.com"},
+    {"us-southeast-1" , "pai-eas.us-southeast-1.aliyuncs.com"},
+    {"na-south-1" , "pai-eas.na-south-1.aliyuncs.com"},
+    {"me-east-1" , "pai-eas.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "pai-eas.me-central-1.aliyuncs.com"},
+    {"cn-zhongwei" , "pai-eas.cn-zhongwei.aliyuncs.com"},
+    {"cn-wulanchabu" , "pai-eas.cn-wulanchabu.aliyuncs.com"},
+    {"cn-heyuan" , "pai-eas.cn-heyuan.aliyuncs.com"},
+    {"cn-guangzhou" , "pai-eas.cn-guangzhou.aliyuncs.com"},
+    {"ap-southeast-8" , "pai-eas.ap-southeast-8.aliyuncs.com"},
+    {"ap-southeast-7" , "pai-eas.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-3" , "pai-eas.ap-southeast-3.aliyuncs.com"},
+    {"ap-northeast-2" , "pai-eas.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "pai-eas.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -366,7 +379,13 @@ CreateBenchmarkTaskResponse Client::createBenchmarkTask(const CreateBenchmarkTas
 }
 
 /**
- * @summary 创建单个配置
+ * @summary Creates a single dynamic parameter in a specified service.
+ *
+ * @description ## Description
+ * - This API creates a new dynamic parameter by sending a POST request to a specified path.
+ * - The dynamic parameter name (`ConfigKey`) can contain letters, digits, periods (.), underscores (_), hyphens (-), and forward slashes (/). The maximum length is 100 characters.
+ * - The request body must include the dynamic parameter value (`Value`).
+ * - If successful, the API returns the new dynamic parameter\\"s name (`Key`), value (`Value`), creation time, and update time.
  *
  * @param request CreateConfigRequest
  * @param headers map
@@ -399,7 +418,13 @@ CreateConfigResponse Client::createConfigWithOptions(const string &ClusterId, co
 }
 
 /**
- * @summary 创建单个配置
+ * @summary Creates a single dynamic parameter in a specified service.
+ *
+ * @description ## Description
+ * - This API creates a new dynamic parameter by sending a POST request to a specified path.
+ * - The dynamic parameter name (`ConfigKey`) can contain letters, digits, periods (.), underscores (_), hyphens (-), and forward slashes (/). The maximum length is 100 characters.
+ * - The request body must include the dynamic parameter value (`Value`).
+ * - If successful, the API returns the new dynamic parameter\\"s name (`Key`), value (`Value`), creation time, and update time.
  *
  * @param request CreateConfigRequest
  * @return CreateConfigResponse
@@ -411,7 +436,9 @@ CreateConfigResponse Client::createConfig(const string &ClusterId, const string 
 }
 
 /**
- * @summary 创建故障注入任务
+ * @summary Creates a fault injection task.
+ *
+ * @description **Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request CreateFaultInjectionRequest
  * @param headers map
@@ -448,7 +475,9 @@ CreateFaultInjectionResponse Client::createFaultInjectionWithOptions(const strin
 }
 
 /**
- * @summary 创建故障注入任务
+ * @summary Creates a fault injection task.
+ *
+ * @description **Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request CreateFaultInjectionRequest
  * @return CreateFaultInjectionResponse
@@ -539,7 +568,9 @@ CreateGatewayResponse Client::createGateway(const CreateGatewayRequest &request)
 }
 
 /**
- * @summary Creates an internal endpoint of a private gateway.
+ * @summary Creates an internal endpoint for a private gateway.
+ *
+ * @description **Make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you use this operation.**
  *
  * @param request CreateGatewayIntranetLinkedVpcRequest
  * @param headers map
@@ -584,7 +615,9 @@ CreateGatewayIntranetLinkedVpcResponse Client::createGatewayIntranetLinkedVpcWit
 }
 
 /**
- * @summary Creates an internal endpoint of a private gateway.
+ * @summary Creates an internal endpoint for a private gateway.
+ *
+ * @description **Make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you use this operation.**
  *
  * @param request CreateGatewayIntranetLinkedVpcRequest
  * @return CreateGatewayIntranetLinkedVpcResponse
@@ -651,9 +684,70 @@ CreateGatewayIntranetLinkedVpcPeerResponse Client::createGatewayIntranetLinkedVp
 }
 
 /**
- * @summary Creates a resource group.
+ * @summary Creates a service group.
  *
- * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+ * @description **Before you use this operation, make sure that you fully understand the billing of Elastic Algorithm Service (EAS) and its [pricing](https://help.aliyun.com/document_detail/144261.html).**.
+ *
+ * @param request CreateGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupResponse
+ */
+CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLabels()) {
+    body["Labels"] = request.getLabels();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["Network"] = request.getNetwork();
+  }
+
+  if (!!request.hasWorkSpaceId()) {
+    body["WorkSpaceId"] = request.getWorkSpaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroup"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/groups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupResponse>();
+}
+
+/**
+ * @summary Creates a service group.
+ *
+ * @description **Before you use this operation, make sure that you fully understand the billing of Elastic Algorithm Service (EAS) and its [pricing](https://help.aliyun.com/document_detail/144261.html).**.
+ *
+ * @param request CreateGroupRequest
+ * @return CreateGroupResponse
+ */
+CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Create a new resource group.
+ *
+ * @description **Before calling this API, make sure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request CreateResourceRequest
  * @param headers map
@@ -726,9 +820,9 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
 }
 
 /**
- * @summary Creates a resource group.
+ * @summary Create a new resource group.
  *
- * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+ * @description **Before calling this API, make sure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request CreateResourceRequest
  * @return CreateResourceResponse
@@ -740,7 +834,9 @@ CreateResourceResponse Client::createResource(const CreateResourceRequest &reque
 }
 
 /**
- * @summary Creates instances in a dedicated resource group.
+ * @summary Creates machine instances in a dedicated resource group.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/document_detail/144261.html)**&#x20;of Elastic Algorithm Service (EAS).**
  *
  * @param request CreateResourceInstancesRequest
  * @param headers map
@@ -801,7 +897,9 @@ CreateResourceInstancesResponse Client::createResourceInstancesWithOptions(const
 }
 
 /**
- * @summary Creates instances in a dedicated resource group.
+ * @summary Creates machine instances in a dedicated resource group.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/document_detail/144261.html)**&#x20;of Elastic Algorithm Service (EAS).**
  *
  * @param request CreateResourceInstancesRequest
  * @return CreateResourceInstancesResponse
@@ -983,7 +1081,7 @@ CreateServiceAutoScalerResponse Client::createServiceAutoScaler(const string &Cl
 }
 
 /**
- * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+ * @summary Creates a scheduled auto scaling rule for a service.
  *
  * @param request CreateServiceCronScalerRequest
  * @param headers map
@@ -1020,7 +1118,7 @@ CreateServiceCronScalerResponse Client::createServiceCronScalerWithOptions(const
 }
 
 /**
- * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+ * @summary Creates a scheduled auto scaling rule for a service.
  *
  * @param request CreateServiceCronScalerRequest
  * @return CreateServiceCronScalerResponse
@@ -1032,7 +1130,7 @@ CreateServiceCronScalerResponse Client::createServiceCronScaler(const string &Cl
 }
 
 /**
- * @summary 创建连接服务的token
+ * @summary Call this operation to obtain a token and a WebSocket URL for logging on to a container.
  *
  * @param request CreateServiceInstanceTokenRequest
  * @param headers map
@@ -1069,7 +1167,7 @@ CreateServiceInstanceTokenResponse Client::createServiceInstanceTokenWithOptions
 }
 
 /**
- * @summary 创建连接服务的token
+ * @summary Call this operation to obtain a token and a WebSocket URL for logging on to a container.
  *
  * @param request CreateServiceInstanceTokenRequest
  * @return CreateServiceInstanceTokenResponse
@@ -1130,15 +1228,15 @@ CreateServiceMirrorResponse Client::createServiceMirror(const string &ClusterId,
 }
 
 /**
- * @summary 创建服务更新计划
+ * @summary Creates a service rollout.
  *
- * @description ## 请求说明
- * - **策略互斥**：`Partition`（分区发布）和`Batch`（批量发布）两种策略只能选择其中一种，不能同时使用。
- * - **请求速率限制**：每秒最多100次请求。
- * - **授权信息**：需要具备`eas:CreateServiceRollout`权限才能调用此接口。
- * - **资源ARN**：`acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`。
- * - **暂停发布**：通过设置`Paused`参数为`true`可以暂停发布流程，之后可通过`UpdateServiceRollout`接口恢复或取消发布。
- * - **监控与回滚**：在发布过程中建议持续监控服务指标，以便及时发现并处理问题；如需回滚，可以通过调整`Partition`值或删除发布策略来实现。
+ * @description ## Usage notes
+ * - **Mutually exclusive strategies**: You can use either the `Partition` or the `Batch` strategy, but not both.
+ * - **Request rate limit**: Up to 100 requests per second.
+ * - **Authorization**: This operation requires the `eas:CreateServiceRollout` permission.
+ * - **ARN**: `acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`.
+ * - **Pause a rollout**: To pause the service rollout, set the `Paused` parameter to `true`. You can then resume or cancel the rollout by calling the `UpdateServiceRollout` operation.
+ * - **Monitoring and rollback**: Monitor service metrics during the service rollout to promptly identify and resolve issues. To perform a rollback, you can adjust the `Partition` value or delete the rollout strategy.
  *
  * @param request CreateServiceRolloutRequest
  * @param headers map
@@ -1179,15 +1277,15 @@ CreateServiceRolloutResponse Client::createServiceRolloutWithOptions(const strin
 }
 
 /**
- * @summary 创建服务更新计划
+ * @summary Creates a service rollout.
  *
- * @description ## 请求说明
- * - **策略互斥**：`Partition`（分区发布）和`Batch`（批量发布）两种策略只能选择其中一种，不能同时使用。
- * - **请求速率限制**：每秒最多100次请求。
- * - **授权信息**：需要具备`eas:CreateServiceRollout`权限才能调用此接口。
- * - **资源ARN**：`acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`。
- * - **暂停发布**：通过设置`Paused`参数为`true`可以暂停发布流程，之后可通过`UpdateServiceRollout`接口恢复或取消发布。
- * - **监控与回滚**：在发布过程中建议持续监控服务指标，以便及时发现并处理问题；如需回滚，可以通过调整`Partition`值或删除发布策略来实现。
+ * @description ## Usage notes
+ * - **Mutually exclusive strategies**: You can use either the `Partition` or the `Batch` strategy, but not both.
+ * - **Request rate limit**: Up to 100 requests per second.
+ * - **Authorization**: This operation requires the `eas:CreateServiceRollout` permission.
+ * - **ARN**: `acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`.
+ * - **Pause a rollout**: To pause the service rollout, set the `Paused` parameter to `true`. You can then resume or cancel the rollout by calling the `UpdateServiceRollout` operation.
+ * - **Monitoring and rollback**: Monitor service metrics during the service rollout to promptly identify and resolve issues. To perform a rollback, you can adjust the `Partition` value or delete the rollout strategy.
  *
  * @param request CreateServiceRolloutRequest
  * @return CreateServiceRolloutResponse
@@ -1346,7 +1444,10 @@ DeleteBenchmarkTaskResponse Client::deleteBenchmarkTask(const string &ClusterId,
 }
 
 /**
- * @summary 删除单个配置项
+ * @summary Deletes a single dynamic parameter for a specified service.
+ *
+ * @description ## Request
+ * This API deletes a specific configuration by its region ID, configuration type, service name, and configuration key. Ensure all parameter values are accurate to avoid accidentally deleting critical configurations.
  *
  * @param request DeleteConfigRequest
  * @param headers map
@@ -1373,7 +1474,10 @@ DeleteConfigResponse Client::deleteConfigWithOptions(const string &ClusterId, co
 }
 
 /**
- * @summary 删除单个配置项
+ * @summary Deletes a single dynamic parameter for a specified service.
+ *
+ * @description ## Request
+ * This API deletes a specific configuration by its region ID, configuration type, service name, and configuration key. Ensure all parameter values are accurate to avoid accidentally deleting critical configurations.
  *
  * @param request DeleteConfigRequest
  * @return DeleteConfigResponse
@@ -1385,7 +1489,9 @@ DeleteConfigResponse Client::deleteConfig(const string &ClusterId, const string 
 }
 
 /**
- * @summary 删除故障注入任务
+ * @summary Deletes a fault injection task.
+ *
+ * @description **Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteFaultInjectionRequest
  * @param headers map
@@ -1412,7 +1518,9 @@ DeleteFaultInjectionResponse Client::deleteFaultInjectionWithOptions(const strin
 }
 
 /**
- * @summary 删除故障注入任务
+ * @summary Deletes a fault injection task.
+ *
+ * @description **Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteFaultInjectionRequest
  * @return DeleteFaultInjectionResponse
@@ -1567,7 +1675,9 @@ DeleteGatewayIntranetLinkedVpcPeerResponse Client::deleteGatewayIntranetLinkedVp
 }
 
 /**
- * @summary 删除网关标签
+ * @summary Deletes gateway labels.
+ *
+ * @description **Before you call this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) for Elastic Algorithm Service (EAS).**
  *
  * @param tmpReq DeleteGatewayLabelRequest
  * @param headers map
@@ -1606,7 +1716,9 @@ DeleteGatewayLabelResponse Client::deleteGatewayLabelWithOptions(const string &C
 }
 
 /**
- * @summary 删除网关标签
+ * @summary Deletes gateway labels.
+ *
+ * @description **Before you call this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) for Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteGatewayLabelRequest
  * @return DeleteGatewayLabelResponse
@@ -1615,6 +1727,51 @@ DeleteGatewayLabelResponse Client::deleteGatewayLabel(const string &ClusterId, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteGatewayLabelWithOptions(ClusterId, GatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a service group.
+ *
+ * @param request DeleteGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGroupResponse
+ */
+DeleteGroupResponse Client::deleteGroupWithOptions(const string &ClusterId, const string &GroupName, const DeleteGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCascadeDelete()) {
+    query["CascadeDelete"] = request.getCascadeDelete();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGroup"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/groups/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(GroupName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGroupResponse>();
+}
+
+/**
+ * @summary Deletes a service group.
+ *
+ * @param request DeleteGroupRequest
+ * @return DeleteGroupResponse
+ */
+DeleteGroupResponse Client::deleteGroup(const string &ClusterId, const string &GroupName, const DeleteGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteGroupWithOptions(ClusterId, GroupName, request, headers, runtime);
 }
 
 /**
@@ -1696,7 +1853,7 @@ DeleteResourceDLinkResponse Client::deleteResourceDLink(const string &ClusterId,
 }
 
 /**
- * @summary Deletes the tags of an instance in a resource group.
+ * @summary Deletes instance tags from a resource group.
  *
  * @param tmpReq DeleteResourceInstanceLabelRequest
  * @param headers map
@@ -1755,7 +1912,7 @@ DeleteResourceInstanceLabelResponse Client::deleteResourceInstanceLabelWithOptio
 }
 
 /**
- * @summary Deletes the tags of an instance in a resource group.
+ * @summary Deletes instance tags from a resource group.
  *
  * @param request DeleteResourceInstanceLabelRequest
  * @return DeleteResourceInstanceLabelResponse
@@ -1972,7 +2129,9 @@ DeleteServiceCronScalerResponse Client::deleteServiceCronScaler(const string &Cl
 }
 
 /**
- * @summary Restarts the instances of a service.
+ * @summary Restarts specified instances of a service.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/document_detail/144261.html)**&#x20;of Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteServiceInstancesRequest
  * @param headers map
@@ -2017,7 +2176,9 @@ DeleteServiceInstancesResponse Client::deleteServiceInstancesWithOptions(const s
 }
 
 /**
- * @summary Restarts the instances of a service.
+ * @summary Restarts specified instances of a service.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/document_detail/144261.html)**&#x20;of Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteServiceInstancesRequest
  * @return DeleteServiceInstancesResponse
@@ -2029,7 +2190,7 @@ DeleteServiceInstancesResponse Client::deleteServiceInstances(const string &Clus
 }
 
 /**
- * @summary Deletes existing service tags.
+ * @summary Deletes a service label.
  *
  * @param tmpReq DeleteServiceLabelRequest
  * @param headers map
@@ -2076,7 +2237,7 @@ DeleteServiceLabelResponse Client::deleteServiceLabelWithOptions(const string &C
 }
 
 /**
- * @summary Deletes existing service tags.
+ * @summary Deletes a service label.
  *
  * @param request DeleteServiceLabelRequest
  * @return DeleteServiceLabelResponse
@@ -2127,7 +2288,7 @@ DeleteServiceMirrorResponse Client::deleteServiceMirror(const string &ClusterId,
 }
 
 /**
- * @summary 删除服务更新计划
+ * @summary Deletes a service rollout.
  *
  * @description ## 请求说明
  * - **不可恢复**：删除操作不可撤销，请谨慎操作。
@@ -2163,7 +2324,7 @@ DeleteServiceRolloutResponse Client::deleteServiceRolloutWithOptions(const strin
 }
 
 /**
- * @summary 删除服务更新计划
+ * @summary Deletes a service rollout.
  *
  * @description ## 请求说明
  * - **不可恢复**：删除操作不可撤销，请谨慎操作。
@@ -2424,7 +2585,7 @@ DescribeGroupEndpointsResponse Client::describeGroupEndpoints(const string &Clus
 }
 
 /**
- * @summary Queries a list of instance types for an available instance in a shared resource group.
+ * @summary Returns a list of available machine specifications.
  *
  * @param tmpReq DescribeMachineSpecRequest
  * @param headers map
@@ -2471,7 +2632,7 @@ DescribeMachineSpecResponse Client::describeMachineSpecWithOptions(const Describ
 }
 
 /**
- * @summary Queries a list of instance types for an available instance in a shared resource group.
+ * @summary Returns a list of available machine specifications.
  *
  * @param request DescribeMachineSpecRequest
  * @return DescribeMachineSpecResponse
@@ -2519,7 +2680,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Queries the information about a resource group.
+ * @summary Retrieves the details of a resource group.
  *
  * @param request DescribeResourceRequest
  * @param headers map
@@ -2546,7 +2707,7 @@ DescribeResourceResponse Client::describeResourceWithOptions(const string &Clust
 }
 
 /**
- * @summary Queries the information about a resource group.
+ * @summary Retrieves the details of a resource group.
  *
  * @param request DescribeResourceRequest
  * @return DescribeResourceResponse
@@ -2792,7 +2953,7 @@ DescribeServiceDiagnosisResponse Client::describeServiceDiagnosis(const string &
 }
 
 /**
- * @summary Obtains a list of service endpoints.
+ * @summary Retrieves a list of service endpoints.
  *
  * @param request DescribeServiceEndpointsRequest
  * @param headers map
@@ -2819,7 +2980,7 @@ DescribeServiceEndpointsResponse Client::describeServiceEndpointsWithOptions(con
 }
 
 /**
- * @summary Obtains a list of service endpoints.
+ * @summary Retrieves a list of service endpoints.
  *
  * @param request DescribeServiceEndpointsRequest
  * @return DescribeServiceEndpointsResponse
@@ -2831,7 +2992,7 @@ DescribeServiceEndpointsResponse Client::describeServiceEndpoints(const string &
 }
 
 /**
- * @summary Queries information about recent service deployment events.
+ * @summary Queries recent deployment events for a specified service.
  *
  * @param request DescribeServiceEventRequest
  * @param headers map
@@ -2884,7 +3045,7 @@ DescribeServiceEventResponse Client::describeServiceEventWithOptions(const strin
 }
 
 /**
- * @summary Queries information about recent service deployment events.
+ * @summary Queries recent deployment events for a specified service.
  *
  * @param request DescribeServiceEventRequest
  * @return DescribeServiceEventResponse
@@ -3051,7 +3212,7 @@ DescribeServiceMirrorResponse Client::describeServiceMirror(const string &Cluste
 }
 
 /**
- * @summary 查看服务更新计划
+ * @summary Retrieves the details of a service rollout.
  *
  * @description ## 请求说明
  * - 该接口用于查询特定服务的发布策略（Rollout）配置和当前执行状态。
@@ -3086,7 +3247,7 @@ DescribeServiceRolloutResponse Client::describeServiceRolloutWithOptions(const s
 }
 
 /**
- * @summary 查看服务更新计划
+ * @summary Retrieves the details of a service rollout.
  *
  * @description ## 请求说明
  * - 该接口用于查询特定服务的发布策略（Rollout）配置和当前执行状态。
@@ -3208,7 +3369,7 @@ DescribeSpotDiscountHistoryResponse Client::describeSpotDiscountHistory(const De
 }
 
 /**
- * @summary Views the details of a virtual resource group.
+ * @summary Queries the details of a virtual resource group.
  *
  * @param request DescribeVirtualResourceRequest
  * @param headers map
@@ -3235,7 +3396,7 @@ DescribeVirtualResourceResponse Client::describeVirtualResourceWithOptions(const
 }
 
 /**
- * @summary Views the details of a virtual resource group.
+ * @summary Queries the details of a virtual resource group.
  *
  * @param request DescribeVirtualResourceRequest
  * @return DescribeVirtualResourceResponse
@@ -3388,7 +3549,7 @@ ListAclPolicyResponse Client::listAclPolicy(const string &ClusterId, const strin
 }
 
 /**
- * @summary Queries a list of stress testing tasks that are created by the current user.
+ * @summary Lists all deployed stress testing tasks.
  *
  * @param request ListBenchmarkTaskRequest
  * @param headers map
@@ -3453,7 +3614,7 @@ ListBenchmarkTaskResponse Client::listBenchmarkTaskWithOptions(const ListBenchma
 }
 
 /**
- * @summary Queries a list of stress testing tasks that are created by the current user.
+ * @summary Lists all deployed stress testing tasks.
  *
  * @param request ListBenchmarkTaskRequest
  * @return ListBenchmarkTaskResponse
@@ -3465,7 +3626,14 @@ ListBenchmarkTaskResponse Client::listBenchmarkTask(const ListBenchmarkTaskReque
 }
 
 /**
- * @summary 查询服务的所有配置项（支持分页）
+ * @summary Retrieves a list of dynamic parameters for a specified service.
+ *
+ * @description ## Description
+ * - `ClusterId` specifies the service\\"s region.
+ * - `ConfigType` specifies the configuration type. Only `service` is supported.
+ * - `Name` specifies the service name.
+ * - Use the `Page` and `PageSize` parameters to paginate the results.
+ * - The response contains the details of the dynamic parameters and pagination information.
  *
  * @param request ListConfigsRequest
  * @param headers map
@@ -3502,7 +3670,14 @@ ListConfigsResponse Client::listConfigsWithOptions(const string &ClusterId, cons
 }
 
 /**
- * @summary 查询服务的所有配置项（支持分页）
+ * @summary Retrieves a list of dynamic parameters for a specified service.
+ *
+ * @description ## Description
+ * - `ClusterId` specifies the service\\"s region.
+ * - `ConfigType` specifies the configuration type. Only `service` is supported.
+ * - `Name` specifies the service name.
+ * - Use the `Page` and `PageSize` parameters to paginate the results.
+ * - The response contains the details of the dynamic parameters and pagination information.
  *
  * @param request ListConfigsRequest
  * @return ListConfigsResponse
@@ -3514,7 +3689,7 @@ ListConfigsResponse Client::listConfigs(const string &ClusterId, const string &C
 }
 
 /**
- * @summary Queries a list of private gateways.
+ * @summary Lists private gateways.
  *
  * @param tmpReq ListGatewayRequest
  * @param headers map
@@ -3597,7 +3772,7 @@ ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &tmp
 }
 
 /**
- * @summary Queries a list of private gateways.
+ * @summary Lists private gateways.
  *
  * @param request ListGatewayRequest
  * @return ListGatewayResponse
@@ -3609,7 +3784,7 @@ ListGatewayResponse Client::listGateway(const ListGatewayRequest &request) {
 }
 
 /**
- * @summary Queries a list of custom domain names of a private gateway.
+ * @summary Lists the custom domain names for a private gateway.
  *
  * @param request ListGatewayDomainsRequest
  * @param headers map
@@ -3636,7 +3811,7 @@ ListGatewayDomainsResponse Client::listGatewayDomainsWithOptions(const string &C
 }
 
 /**
- * @summary Queries a list of custom domain names of a private gateway.
+ * @summary Lists the custom domain names for a private gateway.
  *
  * @param request ListGatewayDomainsRequest
  * @return ListGatewayDomainsResponse
@@ -3648,7 +3823,9 @@ ListGatewayDomainsResponse Client::listGatewayDomains(const string &ClusterId, c
 }
 
 /**
- * @summary Queries a list of the internal endpoints of a private gateway.
+ * @summary Lists the internal access endpoints of a private gateway.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request ListGatewayIntranetLinkedVpcRequest
  * @param headers map
@@ -3675,7 +3852,9 @@ ListGatewayIntranetLinkedVpcResponse Client::listGatewayIntranetLinkedVpcWithOpt
 }
 
 /**
- * @summary Queries a list of the internal endpoints of a private gateway.
+ * @summary Lists the internal access endpoints of a private gateway.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request ListGatewayIntranetLinkedVpcRequest
  * @return ListGatewayIntranetLinkedVpcResponse
@@ -3687,7 +3866,7 @@ ListGatewayIntranetLinkedVpcResponse Client::listGatewayIntranetLinkedVpc(const 
 }
 
 /**
- * @summary Obtains a list of all VPC peering connections on internal endpoint of a gateway.
+ * @summary Lists the VPC peering connections for a gateway\\"s private network endpoint.
  *
  * @param request ListGatewayIntranetLinkedVpcPeerRequest
  * @param headers map
@@ -3720,7 +3899,7 @@ ListGatewayIntranetLinkedVpcPeerResponse Client::listGatewayIntranetLinkedVpcPee
 }
 
 /**
- * @summary Obtains a list of all VPC peering connections on internal endpoint of a gateway.
+ * @summary Lists the VPC peering connections for a gateway\\"s private network endpoint.
  *
  * @param request ListGatewayIntranetLinkedVpcPeerRequest
  * @return ListGatewayIntranetLinkedVpcPeerResponse
@@ -3771,18 +3950,28 @@ ListGatewayIntranetSupportedZoneResponse Client::listGatewayIntranetSupportedZon
 }
 
 /**
- * @summary Queries created service groups.
+ * @summary Lists created service groups.
  *
- * @param request ListGroupsRequest
+ * @param tmpReq ListGroupsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGroupsResponse
  */
-ListGroupsResponse Client::listGroupsWithOptions(const ListGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListGroupsResponse Client::listGroupsWithOptions(const ListGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListGroupsShrinkRequest request = ListGroupsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLabels()) {
+    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "Labels", "json"));
+  }
+
   json query = {};
   if (!!request.hasFilter()) {
     query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasLabelsShrink()) {
+    query["Labels"] = request.getLabelsShrink();
   }
 
   if (!!request.hasOrder()) {
@@ -3828,7 +4017,7 @@ ListGroupsResponse Client::listGroupsWithOptions(const ListGroupsRequest &reques
 }
 
 /**
- * @summary Queries created service groups.
+ * @summary Lists created service groups.
  *
  * @param request ListGroupsRequest
  * @return ListGroupsResponse
@@ -3840,7 +4029,7 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary Queries a list of workers in a resource group.
+ * @summary Lists the service workers of a resource instance.
  *
  * @param request ListResourceInstanceWorkerRequest
  * @param headers map
@@ -3901,7 +4090,7 @@ ListResourceInstanceWorkerResponse Client::listResourceInstanceWorkerWithOptions
 }
 
 /**
- * @summary Queries a list of workers in a resource group.
+ * @summary Lists the service workers of a resource instance.
  *
  * @param request ListResourceInstanceWorkerRequest
  * @return ListResourceInstanceWorkerResponse
@@ -3913,7 +4102,7 @@ ListResourceInstanceWorkerResponse Client::listResourceInstanceWorker(const stri
 }
 
 /**
- * @summary Queries a list of instances in a dedicated resource group.
+ * @summary Lists the instances in a specified dedicated resource group.
  *
  * @param tmpReq ListResourceInstancesRequest
  * @param headers map
@@ -3996,7 +4185,7 @@ ListResourceInstancesResponse Client::listResourceInstancesWithOptions(const str
 }
 
 /**
- * @summary Queries a list of instances in a dedicated resource group.
+ * @summary Lists the instances in a specified dedicated resource group.
  *
  * @param request ListResourceInstancesRequest
  * @return ListResourceInstancesResponse
@@ -4061,7 +4250,7 @@ ListResourceServicesResponse Client::listResourceServices(const string &ClusterI
 }
 
 /**
- * @summary Queries a list of dedicated resource groups for the current user.
+ * @summary Lists the resource groups for the current user.
  *
  * @param request ListResourcesRequest
  * @param headers map
@@ -4126,7 +4315,7 @@ ListResourcesResponse Client::listResourcesWithOptions(const ListResourcesReques
 }
 
 /**
- * @summary Queries a list of dedicated resource groups for the current user.
+ * @summary Lists the resource groups for the current user.
  *
  * @param request ListResourcesRequest
  * @return ListResourcesResponse
@@ -4177,7 +4366,9 @@ ListServiceContainersResponse Client::listServiceContainers(const string &Cluste
 }
 
 /**
- * @summary 获取故障注入信息
+ * @summary Retrieves fault injection information.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request ListServiceInstanceFaultInjectionInfoRequest
  * @param headers map
@@ -4204,7 +4395,9 @@ ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultIn
 }
 
 /**
- * @summary 获取故障注入信息
+ * @summary Retrieves fault injection information.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request ListServiceInstanceFaultInjectionInfoRequest
  * @return ListServiceInstanceFaultInjectionInfoResponse
@@ -4216,7 +4409,9 @@ ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultIn
 }
 
 /**
- * @summary Queries instances of a service.
+ * @summary Lists the instances of a specified service.
+ *
+ * @description **Ensure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
  *
  * @param request ListServiceInstancesRequest
  * @param headers map
@@ -4317,7 +4512,9 @@ ListServiceInstancesResponse Client::listServiceInstancesWithOptions(const strin
 }
 
 /**
- * @summary Queries instances of a service.
+ * @summary Lists the instances of a specified service.
+ *
+ * @description **Ensure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
  *
  * @param request ListServiceInstancesRequest
  * @return ListServiceInstancesResponse
@@ -4569,7 +4766,7 @@ ListTenantAddonsResponse Client::listTenantAddons() {
 }
 
 /**
- * @summary Queries a list of virtual resource groups for the current user.
+ * @summary Queries the virtual resource groups for the current user.
  *
  * @param request ListVirtualResourceRequest
  * @param headers map
@@ -4622,7 +4819,7 @@ ListVirtualResourceResponse Client::listVirtualResourceWithOptions(const ListVir
 }
 
 /**
- * @summary Queries a list of virtual resource groups for the current user.
+ * @summary Queries the virtual resource groups for the current user.
  *
  * @param request ListVirtualResourceRequest
  * @return ListVirtualResourceResponse
@@ -4634,7 +4831,7 @@ ListVirtualResourceResponse Client::listVirtualResource(const ListVirtualResourc
 }
 
 /**
- * @summary Migrates resource group instances.
+ * @summary Migrates instances to a specified resource group.
  *
  * @param request MigrateResourceInstanceRequest
  * @param headers map
@@ -4675,7 +4872,7 @@ MigrateResourceInstanceResponse Client::migrateResourceInstanceWithOptions(const
 }
 
 /**
- * @summary Migrates resource group instances.
+ * @summary Migrates instances to a specified resource group.
  *
  * @param request MigrateResourceInstanceRequest
  * @return MigrateResourceInstanceResponse
@@ -4814,7 +5011,7 @@ RestartServiceResponse Client::restartService(const string &ClusterId, const str
 }
 
 /**
- * @summary 伸缩服务
+ * @summary Scales a service.
  *
  * @param request ScaleServiceRequest
  * @param headers map
@@ -4851,7 +5048,7 @@ ScaleServiceResponse Client::scaleServiceWithOptions(const string &ClusterId, co
 }
 
 /**
- * @summary 伸缩服务
+ * @summary Scales a service.
  *
  * @param request ScaleServiceRequest
  * @return ScaleServiceResponse
@@ -5130,7 +5327,10 @@ UpdateBenchmarkTaskResponse Client::updateBenchmarkTask(const string &ClusterId,
 }
 
 /**
- * @summary 更新单个配置项
+ * @summary Updates a dynamic parameter for a specific cluster and service.
+ *
+ * @description ## Request
+ * Use this API to update a dynamic parameter by providing its `ClusterId`, `ConfigType`, `Name`, and `ConfigKey`. The request body must contain the new parameter value in the `Value` field. Ensure you provide the correct path parameters to avoid errors.
  *
  * @param request UpdateConfigRequest
  * @param headers map
@@ -5163,7 +5363,10 @@ UpdateConfigResponse Client::updateConfigWithOptions(const string &ClusterId, co
 }
 
 /**
- * @summary 更新单个配置项
+ * @summary Updates a dynamic parameter for a specific cluster and service.
+ *
+ * @description ## Request
+ * Use this API to update a dynamic parameter by providing its `ClusterId`, `ConfigType`, `Name`, and `ConfigKey`. The request body must contain the new parameter value in the `Value` field. Ensure you provide the correct path parameters to avoid errors.
  *
  * @param request UpdateConfigRequest
  * @return UpdateConfigResponse
@@ -5175,7 +5378,7 @@ UpdateConfigResponse Client::updateConfig(const string &ClusterId, const string 
 }
 
 /**
- * @summary Update a private gateway.
+ * @summary Updates a private gateway.
  *
  * @param request UpdateGatewayRequest
  * @param headers map
@@ -5240,7 +5443,7 @@ UpdateGatewayResponse Client::updateGatewayWithOptions(const string &GatewayId, 
 }
 
 /**
- * @summary Update a private gateway.
+ * @summary Updates a private gateway.
  *
  * @param request UpdateGatewayRequest
  * @return UpdateGatewayResponse
@@ -5252,7 +5455,9 @@ UpdateGatewayResponse Client::updateGateway(const string &GatewayId, const strin
 }
 
 /**
- * @summary 修改网关标签
+ * @summary Adds a gateway label or updates an existing one.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request UpdateGatewayLabelRequest
  * @param headers map
@@ -5285,7 +5490,9 @@ UpdateGatewayLabelResponse Client::updateGatewayLabelWithOptions(const string &C
 }
 
 /**
- * @summary 修改网关标签
+ * @summary Adds a gateway label or updates an existing one.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request UpdateGatewayLabelRequest
  * @return UpdateGatewayLabelResponse
@@ -5297,7 +5504,7 @@ UpdateGatewayLabelResponse Client::updateGatewayLabel(const string &ClusterId, c
 }
 
 /**
- * @summary Updates the specific fields of a service group.
+ * @summary Updates specific fields of a service group.
  *
  * @param request UpdateGroupRequest
  * @param headers map
@@ -5307,6 +5514,14 @@ UpdateGatewayLabelResponse Client::updateGatewayLabel(const string &ClusterId, c
 UpdateGroupResponse Client::updateGroupWithOptions(const string &ClusterId, const string &GroupName, const UpdateGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasLabels()) {
+    body["Labels"] = request.getLabels();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["Network"] = request.getNetwork();
+  }
+
   if (!!request.hasTrafficMode()) {
     body["TrafficMode"] = request.getTrafficMode();
   }
@@ -5330,7 +5545,7 @@ UpdateGroupResponse Client::updateGroupWithOptions(const string &ClusterId, cons
 }
 
 /**
- * @summary Updates the specific fields of a service group.
+ * @summary Updates specific fields of a service group.
  *
  * @param request UpdateGroupRequest
  * @return UpdateGroupResponse
@@ -5448,7 +5663,7 @@ UpdateResourceDLinkResponse Client::updateResourceDLink(const string &ClusterId,
 }
 
 /**
- * @summary Updates the service scheduling status of an instance in a dedicated resource group.
+ * @summary Updates the scheduling status of an instance in a dedicated resource group.
  *
  * @param request UpdateResourceInstanceRequest
  * @param headers map
@@ -5489,7 +5704,7 @@ UpdateResourceInstanceResponse Client::updateResourceInstanceWithOptions(const s
 }
 
 /**
- * @summary Updates the service scheduling status of an instance in a dedicated resource group.
+ * @summary Updates the scheduling status of an instance in a dedicated resource group.
  *
  * @param request UpdateResourceInstanceRequest
  * @return UpdateResourceInstanceResponse
@@ -5669,7 +5884,7 @@ UpdateServiceAutoScalerResponse Client::updateServiceAutoScaler(const string &Cl
 }
 
 /**
- * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+ * @summary Updates the scheduled auto scaling configuration for a service.
  *
  * @param request UpdateServiceCronScalerRequest
  * @param headers map
@@ -5706,7 +5921,7 @@ UpdateServiceCronScalerResponse Client::updateServiceCronScalerWithOptions(const
 }
 
 /**
- * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+ * @summary Updates the scheduled auto scaling configuration for a service.
  *
  * @param request UpdateServiceCronScalerRequest
  * @return UpdateServiceCronScalerResponse
@@ -5718,7 +5933,9 @@ UpdateServiceCronScalerResponse Client::updateServiceCronScaler(const string &Cl
 }
 
 /**
- * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
+ * @summary Updates the properties of a service instance. This operation applies only to fencing service instances.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request UpdateServiceInstanceRequest
  * @param headers map
@@ -5765,7 +5982,9 @@ UpdateServiceInstanceResponse Client::updateServiceInstanceWithOptions(const str
 }
 
 /**
- * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
+ * @summary Updates the properties of a service instance. This operation applies only to fencing service instances.
+ *
+ * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request UpdateServiceInstanceRequest
  * @return UpdateServiceInstanceResponse
@@ -5871,14 +6090,14 @@ UpdateServiceMirrorResponse Client::updateServiceMirror(const string &ClusterId,
 }
 
 /**
- * @summary 更新服务发布计划
+ * @summary Updates a service rollout.
  *
- * @description ## 请求说明
- * - **至少提供一个参数**：必须在请求中指定`Partition`、`Batch`或`Paused`中的至少一个参数。
- * - **互斥策略**：不能同时提供`Partition`和`Batch`配置。
- * - **实时生效**：更新将立即生效，影响正在进行的服务发布过程。
- * - **回退操作**：通过增加`Partition`值可以实现版本回退，但不会自动触发，需要手动更新服务镜像。
- * - **暂停不影响参数**：暂停发布不会改变已设置的`Partition`或`Batch`参数，仅暂停执行当前策略。
+ * @description ## Usage notes
+ * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters.
+ * - **Mutually exclusive strategies**: You cannot specify both the `Partition` and `Batch` parameters in the same request.
+ * - **Immediate effect**: Updates take effect immediately and affect ongoing service rollouts.
+ * - **Rollback**: You can perform a rollback by increasing the `Partition` value. However, this is not an automatic process, and you must manually update the service image.
+ * - **Pause does not affect parameters**: Pausing a rollout does not change the configured `Partition` or `Batch` parameters. It only suspends the current rollout strategy.
  *
  * @param request UpdateServiceRolloutRequest
  * @param headers map
@@ -5919,14 +6138,14 @@ UpdateServiceRolloutResponse Client::updateServiceRolloutWithOptions(const strin
 }
 
 /**
- * @summary 更新服务发布计划
+ * @summary Updates a service rollout.
  *
- * @description ## 请求说明
- * - **至少提供一个参数**：必须在请求中指定`Partition`、`Batch`或`Paused`中的至少一个参数。
- * - **互斥策略**：不能同时提供`Partition`和`Batch`配置。
- * - **实时生效**：更新将立即生效，影响正在进行的服务发布过程。
- * - **回退操作**：通过增加`Partition`值可以实现版本回退，但不会自动触发，需要手动更新服务镜像。
- * - **暂停不影响参数**：暂停发布不会改变已设置的`Partition`或`Batch`参数，仅暂停执行当前策略。
+ * @description ## Usage notes
+ * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters.
+ * - **Mutually exclusive strategies**: You cannot specify both the `Partition` and `Batch` parameters in the same request.
+ * - **Immediate effect**: Updates take effect immediately and affect ongoing service rollouts.
+ * - **Rollback**: You can perform a rollback by increasing the `Partition` value. However, this is not an automatic process, and you must manually update the service image.
+ * - **Pause does not affect parameters**: Pausing a rollout does not change the configured `Partition` or `Batch` parameters. It only suspends the current rollout strategy.
  *
  * @param request UpdateServiceRolloutRequest
  * @return UpdateServiceRolloutResponse

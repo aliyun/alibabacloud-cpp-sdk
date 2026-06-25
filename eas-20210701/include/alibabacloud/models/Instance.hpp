@@ -317,71 +317,67 @@ namespace Models
 
 
   protected:
+    // The creation time of the instance.
     shared_ptr<string> createTime_ {};
     // The current hourly price of the spot instance.
     shared_ptr<float> currentAmount_ {};
+    // Indicates whether the instance is removed from active service rotation.
     shared_ptr<bool> detached_ {};
-    // The IP address of the instance in the user-created VPC.
+    // The IP address of the instance in your VPC.
     shared_ptr<string> externalIP_ {};
-    // The port number of the instance in the user-created VPC.
+    // The port number of the instance in your VPC.
     shared_ptr<int32_t> externalInstancePort_ {};
-    // The IP address of the host where the instance resides.
+    // The IP address of the instance\\"s host.
     shared_ptr<string> hostIP_ {};
-    // The name of the host where the instance resides.
+    // The name of the instance\\"s host.
     shared_ptr<string> hostName_ {};
     // The internal IP address of the instance.
     shared_ptr<string> innerIP_ {};
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> instanceName_ {};
     // The network port of the instance.
     shared_ptr<int32_t> instancePort_ {};
-    // The instance specification.
+    // The instance type.
     shared_ptr<string> instanceType_ {};
+    // Indicates whether the instance is running the latest version.
     shared_ptr<bool> isLatest_ {};
+    // Indicates whether the instance is a replica.
     shared_ptr<bool> isReplica_ {};
     // Indicates whether the instance is a spot instance.
     shared_ptr<bool> isSpot_ {};
-    // Indicates whether the instance is isolated.
+    // Indicates whether the instance accepts traffic.
     shared_ptr<bool> isolated_ {};
-    // The last state of the instance.
+    // The status of the instance when it last exited.
     shared_ptr<vector<Darabonba::Json>> lastState_ {};
     // The namespace of the instance.
     shared_ptr<string> namespace_ {};
-    // The original hourly price of the spot instance before a discount is used.
+    // The original price of the spot instance before discounts.
     shared_ptr<float> originalAmount_ {};
-    // The number of processes that have started for the instance.
+    // The number of processes that have started in the instance.
     shared_ptr<int32_t> readyProcesses_ {};
-    // The reason for which the instance is in the current state.
+    // The identifier for the current status of the instance.
     shared_ptr<string> reason_ {};
+    // The name of the replica.
     shared_ptr<string> replicaName_ {};
-    // The type of the resource group to which the instance belongs. Valid values: PublicResource and PrivateResource.
+    // The type of the resource group to which the instance belongs. Valid values include PublicResource and PrivateResource.
     shared_ptr<string> resourceType_ {};
-    // The number of times for which the instance is restarted.
+    // The number of times the instance has been restarted.
     shared_ptr<int32_t> restartCount_ {};
-    // The service role of the instance. Valid values: Queue, DataLoader, and Standard.
+    // The server role of the instance. Valid values include Queue, DataLoader, and Standard.
     shared_ptr<string> role_ {};
-    // The time when the instance was started. This parameter is deprecated. StartTime is used instead.
+    // The start time of the instance. (Deprecated. Use StartTime instead.)
     shared_ptr<string> startAt_ {};
-    // The time when the instance was started.
+    // The start time of the instance.
     shared_ptr<string> startTime_ {};
-    // The current state of the instance.
-    // 
-    // Valid values:
-    // 
-    // *   Terminating
-    // *   Succeeded
-    // *   Unknown
-    // *   Failed
-    // *   Running
-    // *   Pending
+    // The status of the instance.
     shared_ptr<string> status_ {};
-    // The IP address of the host in the VPC.
+    // The IP address of the host in the dedicated network.
     shared_ptr<string> tenantHostIP_ {};
-    // The IP address of the instance in the VPC.
+    // The IP address of the instance in the dedicated network.
     shared_ptr<string> tenantInstanceIP_ {};
-    // The total number of processes that the instance contains.
+    // The total number of processes for the instance.
     shared_ptr<int32_t> totalProcesses_ {};
-    // The zone to which the instance belongs.
+    // The zone where the instance is located.
     shared_ptr<string> zone_ {};
   };
 

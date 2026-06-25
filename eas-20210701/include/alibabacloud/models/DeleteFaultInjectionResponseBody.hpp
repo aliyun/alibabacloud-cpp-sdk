@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // A message that indicates the result of the operation.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

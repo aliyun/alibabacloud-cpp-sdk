@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // Type of URL to return. Valid values:
+    // 
+    // - **WorkBench**: Log on to the container using Workbench.
     shared_ptr<string> actionType_ {};
+    // Name of the service worker. Call the ListServiceContainers operation to get the worker name.
     shared_ptr<string> workerName_ {};
   };
 

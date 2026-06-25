@@ -122,15 +122,15 @@ namespace Models
     protected:
       // The instance type of the public resource group.
       shared_ptr<string> instanceType_ {};
-      // The priority of resource scheduling. A greater number specifies a higher priority.
+      // The scheduling priority of the resource. A larger value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
-      // The instance type of the public resource group.
+      // The ID of the Lingjun resource quota.
       shared_ptr<string> quotaId_ {};
-      // The region where the resource resides.
+      // The region where the resource is located.
       shared_ptr<string> region_ {};
       // The ID of the dedicated resource group.
       shared_ptr<string> resourceId_ {};
-      // The maximum price of preemptible instances in a public resource group.
+      // The maximum price for a spot instance in the public resource group.
       shared_ptr<float> spotPriceLimit_ {};
     };
 
@@ -207,10 +207,11 @@ namespace Models
   protected:
     // The time when the virtual resource group was created.
     shared_ptr<string> createTime_ {};
-    // Indicates whether the retention period of preemptible instances was disabled.
+    // Indicates whether the protection period for spot instances is disabled.
     shared_ptr<bool> disableSpotProtectionPeriod_ {};
+    // The collection of features for the virtual resource group. This identifies the attributes that the resource group supports.
     shared_ptr<vector<string>> features_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of resources in the virtual resource group.
     shared_ptr<vector<DescribeVirtualResourceResponseBody::Resources>> resources_ {};

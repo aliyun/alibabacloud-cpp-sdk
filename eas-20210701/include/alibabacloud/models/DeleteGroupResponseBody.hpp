@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATESERVICECRONSCALERRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREATESERVICECRONSCALERRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETEGROUPRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DELETEGROUPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Eas20210701
 {
 namespace Models
 {
-  class CreateServiceCronScalerResponseBody : public Darabonba::Model {
+  class DeleteGroupResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateServiceCronScalerResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteGroupResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateServiceCronScalerResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteGroupResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    CreateServiceCronScalerResponseBody() = default ;
-    CreateServiceCronScalerResponseBody(const CreateServiceCronScalerResponseBody &) = default ;
-    CreateServiceCronScalerResponseBody(CreateServiceCronScalerResponseBody &&) = default ;
-    CreateServiceCronScalerResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateServiceCronScalerResponseBody() = default ;
-    CreateServiceCronScalerResponseBody& operator=(const CreateServiceCronScalerResponseBody &) = default ;
-    CreateServiceCronScalerResponseBody& operator=(CreateServiceCronScalerResponseBody &&) = default ;
+    DeleteGroupResponseBody() = default ;
+    DeleteGroupResponseBody(const DeleteGroupResponseBody &) = default ;
+    DeleteGroupResponseBody(DeleteGroupResponseBody &&) = default ;
+    DeleteGroupResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteGroupResponseBody() = default ;
+    DeleteGroupResponseBody& operator=(const DeleteGroupResponseBody &) = default ;
+    DeleteGroupResponseBody& operator=(DeleteGroupResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,14 +37,14 @@ namespace Models
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline CreateServiceCronScalerResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline DeleteGroupResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CreateServiceCronScalerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DeleteGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:

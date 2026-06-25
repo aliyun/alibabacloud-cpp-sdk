@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 删除的配置数量
+    // The number of configurations deleted.
     shared_ptr<int32_t> deleted_ {};
-    // 操作结果消息
+    // A message indicating the operation result.
     shared_ptr<string> message_ {};
   };
 

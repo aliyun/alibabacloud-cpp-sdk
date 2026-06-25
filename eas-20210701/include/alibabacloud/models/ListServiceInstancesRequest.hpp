@@ -195,150 +195,41 @@ namespace Models
 
 
   protected:
-    // The keyword used to query instances. Instances can be queried based on instance name, instance IP address, IP address of the server where the instance resides, and instance type.
+    // A keyword for the search. You can search by instance name, instance IP address, host IP address, or instance type.
     shared_ptr<string> filter_ {};
-    // The IP address of the server where the instance resides.
+    // The IP address of the host where the service instance is deployed.
     shared_ptr<string> hostIP_ {};
-    // The IP address of the instance.
+    // The IP address of the service instance.
     shared_ptr<string> instanceIP_ {};
-    // The instance name.
+    // The name of the service instance.
     shared_ptr<string> instanceName_ {};
-    // The instance state.
+    // The status of the service instance.
     shared_ptr<string> instanceStatus_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
-    // Specifies whether the instance is a preemptible instance.
+    // Specifies whether the instance is a spot instance.
     shared_ptr<bool> isSpot_ {};
+    // Specifies whether to query the list of instance replicas.
     shared_ptr<bool> listReplica_ {};
+    // The type of the sub-service. This parameter is valid only for aggregation services.
     shared_ptr<string> memberType_ {};
-    // The sorting order.
-    // 
-    // Valid values:
-    // 
-    // *   asc
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     The instances are sorted in ascending order.
-    // 
-    // *   desc
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     The instances are sorted in descending order.
+    // The sort order.
     shared_ptr<string> order_ {};
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of entries to return on each page. The default value is 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The quota ID.
     shared_ptr<string> quotaId_ {};
+    // The name of the instance replica.
     shared_ptr<string> replicaName_ {};
+    // The resource group to which the instance belongs.
     shared_ptr<string> resource_ {};
-    // The type of the resource group to which the instance belongs.
-    // 
-    // Valid values:
-    // 
-    // *   PublicResource
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DedicatedResource
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The type of the resource group to which the service instance belongs.
     shared_ptr<string> resourceType_ {};
-    // The service role.
-    // 
-    // Valid values:
-    // 
-    // *   DataSet
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     dataset service
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   SDProxy
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     Stable-Diffusion proxy service
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   Standard
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     standard service
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   Queue
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     queue service
-    // 
-    //     <!-- -->
-    // 
-    //     .
+    // The role of the service.
     shared_ptr<string> role_ {};
-    // The field that you use to sort the query results.
-    // 
-    // *   Set the value to StartTime.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     The value specifies that the query results are sorted based on the time when the instances were created
-    // 
-    //     <!-- -->
-    // 
-    //     .
+    // The field to use for sorting.
     shared_ptr<string> sort_ {};
   };
 

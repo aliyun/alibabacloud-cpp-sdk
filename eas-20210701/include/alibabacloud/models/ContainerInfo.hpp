@@ -130,53 +130,33 @@ namespace Models
 
 
   protected:
-    // The reason why the container is in the current state.
+    // The reason for the current status.
     shared_ptr<string> currentReaon_ {};
-    // The current state of the container. Valid values:
-    // 
-    // *   Waiting
-    // *   Running
-    // *   Terminated
+    // The current status. Valid values:
+    // - Waiting: waiting
+    // - Running: running
+    // - Terminated: terminated.
     shared_ptr<string> currentStatus_ {};
-    // The time when the container entered the current state.
+    // The time when the current status occurred.
     shared_ptr<string> currentTimestamp_ {};
     // The image.
     shared_ptr<string> image_ {};
-    // The reason why the container is in the last state.
+    // The reason for the previous status.
     shared_ptr<string> lastReason_ {};
-    // The last state of the container. Valid values:
-    // 
-    // *   Waiting
-    // *   Running
-    // *   Terminated
+    // The previous status. Valid values:
+    // - Waiting: waiting
+    // - Running: running
+    // - Terminated: terminated.
     shared_ptr<string> lastStatus_ {};
-    // The time when the container entered the last state.
+    // The time when the previous status occurred.
     shared_ptr<string> lastTimestamp_ {};
     // The container name.
     shared_ptr<string> name_ {};
-    // The port number.
+    // The port.
     shared_ptr<int32_t> port_ {};
-    // Indicates whether the container passed the health check.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Indicates whether the health check is passed.
     shared_ptr<bool> ready_ {};
-    // The number of times the container restarted.
+    // The number of restarts.
     shared_ptr<int32_t> restartCount_ {};
   };
 

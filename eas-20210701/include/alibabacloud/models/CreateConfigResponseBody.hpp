@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createdAt_ {};
+    // The dynamic parameter name.
     shared_ptr<string> key_ {};
+    // The update time.
     shared_ptr<string> updatedAt_ {};
+    // The dynamic parameter value.
     shared_ptr<string> value_ {};
   };
 

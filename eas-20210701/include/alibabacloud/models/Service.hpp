@@ -172,9 +172,9 @@ namespace Models
 
 
     protected:
-      // The label key.
+      // The key of the service label.
       shared_ptr<string> labelKey_ {};
-      // The label value.
+      // The value of the service label.
       shared_ptr<string> labelValue_ {};
     };
 
@@ -225,8 +225,11 @@ namespace Models
 
 
     protected:
+      // The number of instances that use dedicated or self-managed resource groups.
       shared_ptr<int32_t> dedicated_ {};
+      // The number of instances that use public resource groups.
       shared_ptr<int32_t> public_ {};
+      // The number of instances that use a Lingjun quota.
       shared_ptr<int32_t> quota_ {};
     };
 
@@ -618,60 +621,65 @@ namespace Models
 
 
   protected:
-    // The token that is used to access the service.
+    // The access token for the service.
     shared_ptr<string> accessToken_ {};
-    // The application service configuration.
+    // The application configuration for the service.
     shared_ptr<string> appConfig_ {};
-    // The name of the application service specification.
+    // The application specification name for the service.
     shared_ptr<string> appSpecName_ {};
-    // The application service type.
+    // The application type of the service.
     shared_ptr<string> appType_ {};
-    // The application service version.
+    // The application version of the service.
     shared_ptr<string> appVersion_ {};
+    // Indicates whether auto scaling is enabled for the service.
     shared_ptr<bool> autoscalerEnabled_ {};
-    // The user ID (UID) of the Alibaba Cloud account that is used to create the service.
+    // The UID of the account that created the service.
     shared_ptr<string> callerUid_ {};
-    // The number of CPU cores that you applied for each instance.
+    // The number of CPU cores requested for each instance.
     shared_ptr<int32_t> cpu_ {};
-    // The time when the service was created. The time is displayed in the UTC RFC3339 format.
+    // The time when the service was created, in RFC 3339 format (UTC).
     shared_ptr<string> createTime_ {};
+    // Indicates whether scheduled scaling is enabled for the service.
     shared_ptr<bool> cronscalerEnabled_ {};
-    // The version of the model that is running.
+    // The current version of the running model.
     shared_ptr<int32_t> currentVersion_ {};
-    // The additional information about the service.
+    // Additional information about the service.
     shared_ptr<string> extraData_ {};
+    // The percentage of GPU computing power requested for each instance when GPU sharing is enabled.
     shared_ptr<int32_t> GPUCorePercentage_ {};
+    // The amount of GPU memory requested for each instance when GPU sharing is enabled.
     shared_ptr<int32_t> GPUMemory_ {};
-    // The ID of the dedicated gateway for the service. This parameter is available only for services that are associated with dedicated gateways.
+    // The ID of the dedicated gateway for the service. This field is returned only for services that are bound to a dedicated gateway.
     shared_ptr<string> gateway_ {};
-    // The number of GPUs that you applied for each instance.
+    // The number of GPUs requested for each instance.
     shared_ptr<int32_t> gpu_ {};
-    // The data image of the service.
+    // The image used by the service.
     shared_ptr<string> image_ {};
+    // A breakdown of the instance count by resource type.
     shared_ptr<Service::InstanceCountInResource> instanceCountInResource_ {};
-    // The public endpoint of the service. This parameter is returned only in the DescribeService API operation.
+    // The internet endpoint of the service. This field is returned only by the `DescribeService` operation.
     shared_ptr<string> internetEndpoint_ {};
-    // The internal endpoint of the service. This parameter is returned only in the DescribeService API operation.
+    // The intranet endpoint of the service. This field is returned only by the `DescribeService` operation.
     shared_ptr<string> intranetEndpoint_ {};
-    // The labels.
+    // The labels of the service.
     shared_ptr<vector<Service::Labels>> labels_ {};
     // The latest version of the service.
     shared_ptr<int32_t> latestVersion_ {};
-    // The memory size that you applied for each instance. Unit: MB.
+    // The amount of memory requested for each instance, in MB.
     shared_ptr<int32_t> memory_ {};
-    // The service summary.
+    // A message that provides information about the service status.
     shared_ptr<string> message_ {};
-    // The namespace in which the service resides.
+    // The namespace where the service is located.
     shared_ptr<string> namespace_ {};
-    // The UID of the Alibaba Cloud account that is used to create the service.
+    // The UID of the primary account used to create the service.
     shared_ptr<string> parentUid_ {};
-    // The number of instances for the pending service.
+    // The number of pending instances for the service.
     shared_ptr<int32_t> pendingInstance_ {};
-    // The quota ID for the service. This parameter is available only for services deployed by using Lingjun resource quotas.
+    // The quota ID of the service. This field is returned only for services that are deployed on a Lingjun resource quota.
     shared_ptr<string> quotaId_ {};
-    // The reason for which the service is in the current state.
+    // The reason for the service status.
     shared_ptr<string> reason_ {};
-    // The region in which the service resides.
+    // The region where the service is deployed.
     shared_ptr<string> region_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -679,68 +687,41 @@ namespace Models
     shared_ptr<string> resource_ {};
     // The alias of the resource group to which the service belongs.
     shared_ptr<string> resourceAlias_ {};
+    // Indicates whether a burstable resource pool is enabled for the service.
     shared_ptr<bool> resourceBurstable_ {};
-    // The service role.
+    // The role of the service.
     shared_ptr<string> role_ {};
-    // The additional attributes of the service role. This parameter is returned only in the DescribeService API operation.
+    // Additional attributes of the service role. This field is returned only by the `DescribeService` operation.
     shared_ptr<string> roleAttrs_ {};
-    // The number of instances for the running service.
+    // The number of running instances of the service.
     shared_ptr<int32_t> runningInstance_ {};
-    // The security lock of the service.
-    // 
-    // Valid values:
-    // 
-    // *   all: forbids all operations.
-    // *   dangerous: forbids the operation of deleting or stopping the service.
-    // *   none: forbids no operations.
+    // The safety lock status of the service.
     shared_ptr<string> safetyLock_ {};
-    // The public endpoint that is used in the asynchronization request of the service. This parameter is returned only in the DescribeService API operation.
+    // The internet endpoint for synchronous requests to an asynchronous service. This field is returned only by the `DescribeService` operation.
     shared_ptr<string> secondaryInternetEndpoint_ {};
-    // The internal endpoint that is used in the asynchronization request of the service. This parameter is returned only in the DescribeService API operation.
+    // The intranet endpoint for synchronous requests to an asynchronous service. This field is returned only by the `DescribeService` operation.
     shared_ptr<string> secondaryIntranetEndpoint_ {};
-    // The service configurations.
+    // The configuration of the service.
     shared_ptr<string> serviceConfig_ {};
     // The group to which the service belongs.
     shared_ptr<string> serviceGroup_ {};
     // The unique ID of the service.
     shared_ptr<string> serviceId_ {};
-    // The service name.
+    // The name of the service.
     shared_ptr<string> serviceName_ {};
-    // The service ID. ServiceUid has the same meaning as ServiceId, and the values of the two parameters are the same.
+    // The service ID. This value is the same as `ServiceId`.
     shared_ptr<string> serviceUid_ {};
-    // The source from which the service deployment request is initiated.
+    // The deployment source of the service.
     shared_ptr<string> source_ {};
-    // The service status.
-    // 
-    // Valid values:
-    // 
-    // *   Creating
-    // *   Deploying
-    // *   Stopped
-    // *   Failed
-    // *   Updating
-    // *   Stopping
-    // *   Waiting
-    // *   HotUpdate
-    // *   Starting
-    // *   DeleteFailed
-    // *   Running
-    // *   Scaling
-    // *   Pending
-    // *   Deleting
+    // The status of the service.
     shared_ptr<string> status_ {};
     // The total number of instances for the service.
     shared_ptr<int32_t> totalInstance_ {};
-    // The traffic state.
-    // 
-    // Valid values:
-    // 
-    // *   standalone: independent traffic.
-    // *   grouping: grouped traffic.
+    // The traffic state of the service.
     shared_ptr<string> trafficState_ {};
-    // The time when the service was updated. The time is displayed in the UTC RFC3339 format.
+    // The time when the service was last updated, in RFC 3339 format (UTC).
     shared_ptr<string> updateTime_ {};
-    // The weight of the service in canary release.
+    // The traffic weight for the canary release of the service.
     shared_ptr<int32_t> weight_ {};
     shared_ptr<string> workloadType_ {};
     // The ID of the workspace to which the service belongs.

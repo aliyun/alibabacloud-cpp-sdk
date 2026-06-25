@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // A message that indicates the result of the request. Possible values include:
+    // 
+    // - "Rollout updated successfully"
+    // 
+    // - "Rollout paused successfully"
+    // 
+    // - "Rollout resumed successfully"
     shared_ptr<string> message_ {};
+    // A unique identifier for the request. You can use this request ID for troubleshooting and tracking.
     shared_ptr<string> requestId_ {};
   };
 

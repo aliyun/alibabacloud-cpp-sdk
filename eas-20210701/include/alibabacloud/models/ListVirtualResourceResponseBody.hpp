@@ -155,15 +155,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned list of virtual resource groups.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of virtual resource groups returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of virtual resource groups.
     shared_ptr<int32_t> totalCount_ {};
-    // The virtual resource groups.
+    // The list of virtual resource groups.
     shared_ptr<vector<ListVirtualResourceResponseBody::VirtualResources>> virtualResources_ {};
   };
 

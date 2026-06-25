@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The keys of the labels that you want to delete.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> labelKeys_ {};
   };

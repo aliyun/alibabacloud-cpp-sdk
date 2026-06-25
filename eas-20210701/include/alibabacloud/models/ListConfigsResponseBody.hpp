@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // 创建时间
+      // The time when the dynamic parameter was created, in UTC and ISO 8601 format.
       shared_ptr<string> createdAt_ {};
-      // 配置项键名
+      // The name of the dynamic parameter.
       shared_ptr<string> key_ {};
-      // 更新时间
+      // The time when the dynamic parameter was last updated, in UTC and ISO 8601 format.
       shared_ptr<string> updatedAt_ {};
-      // 配置值
+      // The value of the dynamic parameter.
       shared_ptr<string> value_ {};
     };
 
@@ -163,19 +163,19 @@ namespace Models
 
 
   protected:
-    // 配置项列表
+    // The list of dynamic parameters.
     shared_ptr<vector<ListConfigsResponseBody::Configs>> configs_ {};
-    // 是否有更多数据
+    // Indicates if more entries are available. `true` if more entries exist; otherwise, `false`.
     shared_ptr<bool> hasMore_ {};
-    // 服务名称
+    // The service name.
     shared_ptr<string> name_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The number of entries on the current page.
     shared_ptr<int64_t> pageSize_ {};
-    // 总数量
+    // The total number of entries found.
     shared_ptr<int64_t> total_ {};
-    // 配置类型
+    // The configuration type.
     shared_ptr<string> type_ {};
   };
 

@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The custom gateway labels.
+    // 
     // This parameter is required.
     shared_ptr<map<string, string>> labels_ {};
   };

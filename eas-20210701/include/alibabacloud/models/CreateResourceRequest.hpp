@@ -132,24 +132,13 @@ namespace Models
 
 
       protected:
-        // The effect.
-        // 
-        // Valid values:
-        // 
-        // *   PreferNoSchedule
-        // *   NoSchedule
-        // *   NoExecute
+        // The effect of the toleration.
         shared_ptr<string> effect_ {};
-        // The key name.
+        // The key of the toleration.
         shared_ptr<string> key_ {};
-        // The relationship between key names and key values.
-        // 
-        // Valid values:
-        // 
-        // *   Equal
-        // *   Exists
+        // The toleration operator, which defines the relationship between the key and value.
         shared_ptr<string> operator_ {};
-        // The key value.
+        // The toleration value.
         shared_ptr<string> value_ {};
       };
 
@@ -190,11 +179,11 @@ namespace Models
     protected:
       // The ID of the self-managed cluster.
       shared_ptr<string> externalClusterId_ {};
-      // The tag key-value pairs of the node.
+      // The node labels to match, specified as key-value pairs.
       shared_ptr<map<string, string>> nodeMatchLabels_ {};
-      // The tolerations for the node taint.
+      // A list of tolerations for node taints.
       shared_ptr<vector<SelfManagedResourceOptions::NodeTolerations>> nodeTolerations_ {};
-      // The name of the RAM user to which the permissions on Elastic Algorithm Service (EAS) of Platform for AI (PAI) are granted.
+      // The name of the RAM role that grants PAI-EAS the required permissions.
       shared_ptr<string> roleName_ {};
     };
 
@@ -285,40 +274,44 @@ namespace Models
   protected:
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   false (default)
-    // *   true
+    // - `false` (default): Auto-renewal is disabled.
+    // 
+    // - `true`: Auto-renewal is enabled.
     shared_ptr<bool> autoRenewal_ {};
     // The billing method. Valid values:
     // 
-    // *   PrePaid: the subscription billing method.
-    // *   PostPaid: the pay-as-you-go billing method.
+    // - `PrePaid`: subscription.
     // 
-    // >  This parameter is required when the ResourceType parameter is set to Dedicated.
+    // - `PostPaid`: pay-as-you-go.
+    // 
+    // > This parameter is required when `ResourceType` is set to `Dedicated`.
     shared_ptr<string> chargeType_ {};
-    // The number of ECS instances.
+    // The number of instances.
     // 
-    // >  This parameter is required when the ResourceType parameter is set to Dedicated.
+    // > This parameter is required when `ResourceType` is set to `Dedicated`.
     shared_ptr<int32_t> ecsInstanceCount_ {};
-    // The type of the Elastic Compute Service (ECS) instance.
+    // The ECS instance type.
     // 
-    // >  This parameter is required when the ResourceType parameter is set to Dedicated.
+    // > This parameter is required when `ResourceType` is set to `Dedicated`.
     shared_ptr<string> ecsInstanceType_ {};
-    // The labels.
+    // The user-defined labels.
     shared_ptr<map<string, string>> labels_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceName_ {};
     // The type of the resource group. Valid values:
     // 
-    // *   Dedicated: the dedicated resource group.
-    // *   SelfManaged: the self-managed resource group.
+    // - `Dedicated`: a dedicated resource group.
     // 
-    // >  If you use a self-managed resource group, you must configure a whitelist.
+    // - `SelfManaged`: a self-managed resource group.
+    // 
+    // > You must be whitelisted to use self-managed resource groups.
     shared_ptr<string> resourceType_ {};
-    // The configurations of the self-managed resource group.
+    // The configuration options for the self-managed resource group.
     shared_ptr<CreateResourceRequest::SelfManagedResourceOptions> selfManagedResourceOptions_ {};
-    // The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
+    // The size of the system disk, in GiB. The value must be between 200 and 2,000. If unspecified, the default is 200 GiB.
     shared_ptr<int32_t> systemDiskSize_ {};
     shared_ptr<string> usageMode_ {};
-    // The ID of the zone in which the instance resides.
+    // The zone in which to create the instance.
     shared_ptr<string> zone_ {};
   };
 

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATEGROUPREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_UPDATEGROUPREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATEGROUPREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEGROUPREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
 using namespace std;
@@ -11,25 +11,27 @@ namespace Eas20210701
 {
 namespace Models
 {
-  class UpdateGroupRequest : public Darabonba::Model {
+  class CreateGroupRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateGroupRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Labels, labels_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Network, network_);
-      DARABONBA_PTR_TO_JSON(TrafficMode, trafficMode_);
+      DARABONBA_PTR_TO_JSON(WorkSpaceId, workSpaceId_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateGroupRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Network, network_);
-      DARABONBA_PTR_FROM_JSON(TrafficMode, trafficMode_);
+      DARABONBA_PTR_FROM_JSON(WorkSpaceId, workSpaceId_);
     };
-    UpdateGroupRequest() = default ;
-    UpdateGroupRequest(const UpdateGroupRequest &) = default ;
-    UpdateGroupRequest(UpdateGroupRequest &&) = default ;
-    UpdateGroupRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateGroupRequest() = default ;
-    UpdateGroupRequest& operator=(const UpdateGroupRequest &) = default ;
-    UpdateGroupRequest& operator=(UpdateGroupRequest &&) = default ;
+    CreateGroupRequest() = default ;
+    CreateGroupRequest(const CreateGroupRequest &) = default ;
+    CreateGroupRequest(CreateGroupRequest &&) = default ;
+    CreateGroupRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateGroupRequest() = default ;
+    CreateGroupRequest& operator=(const CreateGroupRequest &) = default ;
+    CreateGroupRequest& operator=(CreateGroupRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -101,41 +103,48 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->labels_ == nullptr
-        && this->network_ == nullptr && this->trafficMode_ == nullptr; };
+        && this->name_ == nullptr && this->network_ == nullptr && this->workSpaceId_ == nullptr; };
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
     inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
     inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
-    inline UpdateGroupRequest& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
-    inline UpdateGroupRequest& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+    inline CreateGroupRequest& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+    inline CreateGroupRequest& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline CreateGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // network Field Functions 
     bool hasNetwork() const { return this->network_ != nullptr;};
     void deleteNetwork() { this->network_ = nullptr;};
-    inline const UpdateGroupRequest::Network & getNetwork() const { DARABONBA_PTR_GET_CONST(network_, UpdateGroupRequest::Network) };
-    inline UpdateGroupRequest::Network getNetwork() { DARABONBA_PTR_GET(network_, UpdateGroupRequest::Network) };
-    inline UpdateGroupRequest& setNetwork(const UpdateGroupRequest::Network & network) { DARABONBA_PTR_SET_VALUE(network_, network) };
-    inline UpdateGroupRequest& setNetwork(UpdateGroupRequest::Network && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
+    inline const CreateGroupRequest::Network & getNetwork() const { DARABONBA_PTR_GET_CONST(network_, CreateGroupRequest::Network) };
+    inline CreateGroupRequest::Network getNetwork() { DARABONBA_PTR_GET(network_, CreateGroupRequest::Network) };
+    inline CreateGroupRequest& setNetwork(const CreateGroupRequest::Network & network) { DARABONBA_PTR_SET_VALUE(network_, network) };
+    inline CreateGroupRequest& setNetwork(CreateGroupRequest::Network && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
 
 
-    // trafficMode Field Functions 
-    bool hasTrafficMode() const { return this->trafficMode_ != nullptr;};
-    void deleteTrafficMode() { this->trafficMode_ = nullptr;};
-    inline string getTrafficMode() const { DARABONBA_PTR_GET_DEFAULT(trafficMode_, "") };
-    inline UpdateGroupRequest& setTrafficMode(string trafficMode) { DARABONBA_PTR_SET_VALUE(trafficMode_, trafficMode) };
+    // workSpaceId Field Functions 
+    bool hasWorkSpaceId() const { return this->workSpaceId_ != nullptr;};
+    void deleteWorkSpaceId() { this->workSpaceId_ = nullptr;};
+    inline string getWorkSpaceId() const { DARABONBA_PTR_GET_DEFAULT(workSpaceId_, "") };
+    inline CreateGroupRequest& setWorkSpaceId(string workSpaceId) { DARABONBA_PTR_SET_VALUE(workSpaceId_, workSpaceId) };
 
 
   protected:
     // The user-defined labels.
     shared_ptr<map<string, string>> labels_ {};
-    // The VPC configuration.
-    shared_ptr<UpdateGroupRequest::Network> network_ {};
-    // The traffic mode. Valid values:
-    // - auto: automatically assigns weights based on the proportion of instances.
-    // - customized: distributes traffic based on custom fixed weights.
-    shared_ptr<string> trafficMode_ {};
+    // The name of the group.
+    shared_ptr<string> name_ {};
+    // The virtual private cloud (VPC) configuration.
+    shared_ptr<CreateGroupRequest::Network> network_ {};
+    // The workspace ID.
+    shared_ptr<string> workSpaceId_ {};
   };
 
   } // namespace Models

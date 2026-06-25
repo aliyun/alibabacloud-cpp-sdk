@@ -103,16 +103,25 @@ namespace Models
 
 
   protected:
+    // The sort order.
+    // 
+    // - Asc: ascending order.
+    // 
+    // - Desc: descending order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of entries to return on each page. The default value is 100.
     shared_ptr<int32_t> pageSize_ {};
+    // Indicates whether the health check passed.
     shared_ptr<bool> ready_ {};
+    // The service name.
     shared_ptr<string> serviceName_ {};
+    // The field to sort by.
     shared_ptr<string> sort_ {};
+    // The status of the worker instance.
     shared_ptr<string> status_ {};
-    // The worker name.
+    // The name of the worker instance.
     shared_ptr<string> workerName_ {};
   };
 

@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether the delete operation takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+    // Specifies whether the operation takes effect on all instances in the resource group. If this parameter is set to true, the InstanceIds parameter does not take effect.
     shared_ptr<bool> allInstances_ {};
-    // The instance IDs.
+    // The machine instance IDs.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The keys of the tags that you want to delete.
+    // The tags to delete. (Deprecated. Use LabelKeys instead.).
     shared_ptr<string> keysShrink_ {};
+    // The tags to delete.
     shared_ptr<string> labelKeysShrink_ {};
   };
 

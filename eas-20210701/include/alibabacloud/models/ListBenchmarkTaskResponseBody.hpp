@@ -140,97 +140,23 @@ namespace Models
 
 
     protected:
-      // The number of instances that are available for stress testing.
+      // The number of available stress testing instances.
       shared_ptr<int64_t> availableAgent_ {};
       // The time when the stress testing task was created.
       shared_ptr<string> createTime_ {};
-      // The returned message.
+      // A summary of the task.
       shared_ptr<string> message_ {};
-      // The region ID of the stress testing task.
+      // The region where the stress testing task is located.
       shared_ptr<string> region_ {};
-      // The name of the service on which you want to perform a stress testing.
+      // The name of the service to be stress tested.
       shared_ptr<string> serviceName_ {};
-      // The state of the stress testing task.
-      // 
-      // Valid values:
-      // 
-      // *   Creating
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Starting
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   DeleteFailed
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Running
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Stopping
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Error
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Updating
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Deleting
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   CreateFailed
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The status of the stress testing task.
       shared_ptr<string> status_ {};
       // The ID of the stress testing task.
       shared_ptr<string> taskId_ {};
       // The name of the stress testing task.
       shared_ptr<string> taskName_ {};
-      // The time when the stress testing task was updated.
+      // The time when the stress testing task was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -274,15 +200,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned list of tasks.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of tasks to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The stress testing tasks.
+    // The list of tasks.
     shared_ptr<vector<ListBenchmarkTaskResponseBody::Tasks>> tasks_ {};
-    // The total number of entries returned.
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

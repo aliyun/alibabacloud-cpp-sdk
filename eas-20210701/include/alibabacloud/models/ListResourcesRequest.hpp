@@ -112,41 +112,31 @@ namespace Models
 
 
   protected:
-    // The sorting order. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   Desc
-    // *   Asc
+    // - `Desc`: descending order
+    // 
+    // - `Asc`: ascending order
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the ID of the resource group.
+    // The resource group ID. The [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation returns this ID.
     shared_ptr<string> resourceId_ {};
-    // The name of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the name of the resource group.
+    // The resource group name. The [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation returns this name.
     shared_ptr<string> resourceName_ {};
     // The resource group status.
     shared_ptr<string> resourceStatus_ {};
-    // The type of the resource group. Valid values:
+    // The resource group type. Valid values:
     // 
-    // *   Dedicated: the dedicated resource group.
-    // *   SelfManaged: the self-managed resource group.
+    // - `Dedicated`: dedicated resource group
+    // 
+    // - `SelfManaged`: self-managed resource group
     shared_ptr<string> resourceType_ {};
-    // The condition by which the results are sorted. By default, the query results are sorted by the timestamp type in descending order.
-    // 
-    // Valid values:
-    // 
-    // *   PrePaidInstanceCount
-    // *   CpuCount
-    // *   Memory
-    // *   CreateTime
-    // *   PostPaidInstanceCount
-    // *   MemoryUsed
-    // *   GpuCount
-    // *   GpuUsed
-    // *   CpuUsed
-    // *   ServiceCount
+    // The sort field. Timestamp fields are sorted in descending order by default.
     shared_ptr<string> sort_ {};
+    // The usage mode of the resource group. The default value is `inference`.
     shared_ptr<string> usageMode_ {};
   };
 

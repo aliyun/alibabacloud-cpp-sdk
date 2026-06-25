@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The number of instances to update to the new version.
       shared_ptr<string> partition_ {};
     };
 
@@ -102,7 +103,9 @@ namespace Models
 
 
     protected:
+      // The number of instances to update in each batch.
       shared_ptr<string> batchSize_ {};
+      // The wait interval after each batch completes.
       shared_ptr<string> interval_ {};
     };
 
@@ -134,8 +137,11 @@ namespace Models
 
 
   protected:
+    // The configuration for the Batch strategy.
     shared_ptr<CreateServiceRolloutRequest::Batch> batch_ {};
+    // The configuration for the Partition strategy.
     shared_ptr<CreateServiceRolloutRequest::Partition> partition_ {};
+    // Specifies whether to pause the rollout.
     shared_ptr<bool> paused_ {};
   };
 

@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. By default, the current point in time is the end of the time range to query.
+    // The end time of the query range, in UTC. The default value is the current time.
     shared_ptr<string> endTime_ {};
     // The event type. Valid values:
     // 
-    // *   Normal
-    // *   Warning
+    // - Normal: a normal event.
+    // 
+    // - Warning: a warning event.
     shared_ptr<string> eventType_ {};
-    // The instance name. For more information about how to obtain the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+    // The name of the service instance. To obtain this name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
     shared_ptr<string> instanceName_ {};
-    // The page number. Default value: 1.
+    // The page number to return. Default value: 1.
     shared_ptr<string> pageNum_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of events to return per page. Default value: 100.
     shared_ptr<string> pageSize_ {};
-    // The beginning of the time range to query. The time must be in UTC. The default value is seven days ago.
+    // The start time of the query range, in UTC. The default value is 7 days ago.
     shared_ptr<string> startTime_ {};
   };
 

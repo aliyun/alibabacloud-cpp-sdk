@@ -140,205 +140,33 @@ namespace Models
 
 
   protected:
-    // The billing method of the instance. Valid values:
+    // Filters instances by billing method. Valid values:
     // 
-    // *   PrePaid: subscription.
-    // *   PostPaid: pay-as-you-go.
+    // - PrePaid: subscription.
+    // 
+    // - PostPaid: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The keyword used to query instances. Instances can be queried by instance ID or instance IP address.
+    // A keyword for the search. You can search by instance ID or IP address.
     shared_ptr<string> filter_ {};
     // The IP address of the instance.
     shared_ptr<string> instanceIP_ {};
-    // The instance ID. For more information about how to query the instance ID, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+    // Filter by instance ID. For more information, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
     shared_ptr<string> instanceId_ {};
-    // The instance name.
+    // Filter by instance name.
     shared_ptr<string> instanceName_ {};
-    // The instance state.
-    // 
-    // Valid values:
-    // 
-    // *   Ready-SchedulingDisabled
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     The instance is available but unschedulable
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   Ready
-    // 
-    //     <!-- -->
-    // 
-    //     : The instance
-    // 
-    //     <!-- -->
-    // 
-    //     is running
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   NotReady
-    // 
-    //     <!-- -->
-    // 
-    //     : The instance is unready.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Stopped
-    // 
-    //     <!-- -->
-    // 
-    //     : The instance has stopped.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   NotReady-SchedulingDisabled
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     The instance is unavailable and unschedulable
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   Attaching
-    // 
-    //     <!-- -->
-    // 
-    //     : The instance
-    // 
-    //     <!-- -->
-    // 
-    //     is starting
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   Deleting
-    // 
-    //     <!-- -->
-    // 
-    //     : The instance is being deleted.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   CreateFailed: The instance failed to be created.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The status of the instance.
     shared_ptr<string> instanceStatus_ {};
-    // The tag.
+    // Filter by label.
     shared_ptr<string> labelShrink_ {};
-    // The sorting order.
-    // 
-    // Valid values:
-    // 
-    // *   asc: The instances are sorted in ascending order.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   desc
-    // 
-    //     <!-- -->
-    // 
-    //     : The instances are sorted in descending order.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The sort order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of instances to return on each page. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The field that you use to sort the query results.
-    // 
-    // Valid values:
-    // 
-    // *   CreateTime
-    // 
-    //     <!-- -->
-    // 
-    //     : The instances are sorted based on the time when the instances were created.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   MemoryUsed
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     The instances are sorted based on the memory usage of the instances
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   GpuUsed
-    // 
-    //     <!-- -->
-    // 
-    //     : The instances are sorted based on the
-    // 
-    //     <!-- -->
-    // 
-    //     GPU usage of the instances.
-    // 
-    //     <!-- -->
-    // 
-    // *   ExpireTime: The instances are sorted based on the time when the instances expired.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   CpuUsed
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     The instances are sorted based on the CPU utilization of the instances.
-    // 
-    //     <!-- -->
+    // The sort field.
     shared_ptr<string> sort_ {};
+    // The zone of the instance.
     shared_ptr<string> zone_ {};
   };
 

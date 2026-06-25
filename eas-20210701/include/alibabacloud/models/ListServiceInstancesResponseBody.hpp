@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The instances.
+    // The list of service instances.
     shared_ptr<vector<Instance>> instances_ {};
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

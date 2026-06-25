@@ -140,79 +140,29 @@ namespace Models
 
 
   protected:
-    // The maximum number of CPU cores.
+    // The CPU core limit.
     shared_ptr<int32_t> cpuLimit_ {};
-    // The number of CPU cores that you applied for.
+    // The number of CPU cores requested.
     shared_ptr<int32_t> cpuRequest_ {};
-    // The maximum number of GPUs.
+    // The GPU limit.
     shared_ptr<int32_t> gpuLimit_ {};
-    // The number of GPUs that you applied for.
+    // The number of GPUs requested.
     shared_ptr<int32_t> gpuRequest_ {};
-    // The maximum memory size.
+    // The memory limit.
     shared_ptr<int64_t> memoryLimit_ {};
-    // The memory size that you applied for.
+    // The requested memory.
     shared_ptr<int32_t> memoryRquest_ {};
     // The name of the service instance.
     shared_ptr<string> name_ {};
-    // Indicates whether the instance worker is ready.
+    // Indicates whether the instance is ready.
     shared_ptr<bool> ready_ {};
-    // The number of times the instance worker restarted.
+    // The number of times the instance has been restarted.
     shared_ptr<int64_t> restartCount_ {};
-    // The service name.
+    // The name of the service.
     shared_ptr<string> serviceName_ {};
-    // The time when the instance worker started.
+    // The start time of the instance, in UTC (ISO 8601 format).
     shared_ptr<string> startTime_ {};
-    // The instance state.
-    // 
-    // Valid values:
-    // 
-    // *   Terminating
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Succeeded
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Unknown
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Failed
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Running
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Pending
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The status of the instance.
     shared_ptr<string> status_ {};
   };
 

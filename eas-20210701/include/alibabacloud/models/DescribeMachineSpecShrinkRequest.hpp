@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The billing method. The default value is \\`PostPaid\\`.
     shared_ptr<string> chargeType_ {};
     // This parameter is deprecated.
     shared_ptr<string> instanceTypesShrink_ {};
+    // The resource type. The default value is \\`Public\\`.
     shared_ptr<string> resourceType_ {};
   };
 

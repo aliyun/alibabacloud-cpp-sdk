@@ -136,22 +136,23 @@ namespace Models
 
 
     protected:
+      // The expiration date of the certificate.
       shared_ptr<string> certificateEndDate_ {};
-      // The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+      // The ID of the SSL certificate attached to the domain name. To obtain the certificate ID, upload or purchase a certificate in the [Digital Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
       shared_ptr<string> certificateId_ {};
+      // The name of the SSL certificate.
       shared_ptr<string> certificateName_ {};
+      // The issuance date of the certificate.
       shared_ptr<string> certificateStartDate_ {};
+      // The status of the domain name.
       shared_ptr<string> certificateStatus_ {};
+      // The time when the domain name was created.
       shared_ptr<string> createTime_ {};
       // The custom domain name.
       shared_ptr<string> domain_ {};
-      // The domain name type.
-      // 
-      // Valid value:
-      // 
-      // *   intranet: internal network.
-      // *   internet: public network.
+      // The type of the domain name.
       shared_ptr<string> type_ {};
+      // The time when the domain name was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -181,11 +182,11 @@ namespace Models
 
 
   protected:
-    // The custom domain names.
+    // The list of custom domain names.
     shared_ptr<vector<ListGatewayDomainsResponseBody::CustomDomains>> customDomains_ {};
-    // The message that is returned.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

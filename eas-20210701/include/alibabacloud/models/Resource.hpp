@@ -264,53 +264,59 @@ namespace Models
 
 
   protected:
-    // The information about the clusters.
+    // The ID of the cluster where the resource group is located.
     shared_ptr<string> clusterId_ {};
-    // The total number of CPU cores.
+    // The total number of CPU cores in the resource group.
     shared_ptr<int32_t> cpuCount_ {};
+    // The number of used CPU cores in the resource group.
     shared_ptr<int32_t> cpuUsed_ {};
-    // The time when the instance was created.
+    // The time the resource group was created, in ISO 8601 format.
     shared_ptr<string> createTime_ {};
-    // The additional information.
+    // Additional information.
     Darabonba::Json extraData_ {};
+    // The features supported by the resource group.
     shared_ptr<vector<string>> features_ {};
-    // The total number of GPUs.
+    // The total number of GPUs in the resource group.
     shared_ptr<int32_t> gpuCount_ {};
+    // The number of used GPUs in the resource group.
     shared_ptr<float> gpuUsed_ {};
-    // The total number of instances. It is equal to the number of subscription instances plus the number of pay-as-you-go instances.
+    // The total number of instances (prepaid and postpaid) in the resource group.
     shared_ptr<int32_t> instanceCount_ {};
+    // The maximum number of allocatable CPU cores per node.
     shared_ptr<int32_t> instanceMaxAllocatableCPU_ {};
+    // The maximum number of allocatable GPUs per node.
     shared_ptr<float> instanceMaxAllocatableGPU_ {};
+    // The maximum allocatable memory per node in the resource group.
     shared_ptr<int32_t> instanceMaxAllocatableMemory_ {};
+    // The total memory of the resource group, in MB.
     shared_ptr<int32_t> memory_ {};
+    // The amount of used memory in the resource group, in MB.
     shared_ptr<int32_t> memoryUsed_ {};
-    // The latest message about the resource group.
+    // The latest status message for the resource group.
     shared_ptr<string> message_ {};
-    // The number of pay-as-you-go instances.
+    // The number of postpaid instances.
     shared_ptr<int32_t> postPaidInstanceCount_ {};
-    // The number of subscription instances.
+    // The number of prepaid instances.
     shared_ptr<int32_t> prePaidInstanceCount_ {};
-    // The resource group ID.
+    // The unique identifier of the resource group.
     shared_ptr<string> resourceId_ {};
     // The name of the resource group.
     shared_ptr<string> resourceName_ {};
     // The type of the resource group. Valid values:
     // 
-    // *   Dedicated: the dedicated resource group.
-    // *   SelfManaged: the self-managed resource group.
+    // - `Dedicated`: A dedicated resource group.
+    // 
+    // - `SelfManaged`: A self-managed resource group.
     shared_ptr<string> resourceType_ {};
+    // The number of services deployed in the resource group.
     shared_ptr<int32_t> serviceCount_ {};
     // The status of the resource group.
     shared_ptr<string> status_ {};
-    // The time when the instance was last updated.
+    // The time the resource group was last updated, in ISO 8601 format.
     shared_ptr<string> updateTime_ {};
+    // The usage mode of the resource group.
     shared_ptr<string> usageMode_ {};
-    // The vendor of the resource group instances.
-    // 
-    // Valid values:
-    // 
-    // *   ECS
-    // *   BareMetal
+    // The provider of the compute instances in the resource group, such as ECS.
     shared_ptr<string> vendor_ {};
   };
 

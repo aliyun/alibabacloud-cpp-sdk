@@ -271,31 +271,35 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster to which the resource group belongs.
+    // The ID of the cluster that contains the resource group.
     shared_ptr<string> clusterId_ {};
     // The total number of CPU cores.
     shared_ptr<int32_t> cpuCount_ {};
-    // The number of vCPUs that is used.
+    // The number of CPU cores in use.
     shared_ptr<int32_t> cpuUsed_ {};
-    // The time when the resource group was created.
+    // The time the resource group was created.
     shared_ptr<string> createTime_ {};
-    // The additional information, such as the connection status of a virtual private cloud (VPC) and the log status of Log Service.
+    // Additional information, such as the VPC connection status and the SLS log status.
     shared_ptr<string> extraData_ {};
+    // The features that the resource group supports.
     shared_ptr<vector<string>> features_ {};
     // The total number of GPUs.
     shared_ptr<int32_t> gpuCount_ {};
-    // The number of GPUs that is used.
+    // The number of GPUs in use.
     shared_ptr<float> gpuUsed_ {};
     // The total number of instances in the resource group.
     shared_ptr<int32_t> instanceCount_ {};
+    // The maximum number of CPU cores that can be allocated to a single instance in the resource group.
     shared_ptr<int32_t> instanceMaxAllocatableCPU_ {};
+    // The maximum number of GPUs that can be allocated to a single instance in the resource group.
     shared_ptr<float> instanceMaxAllocatableGPU_ {};
+    // The maximum amount of memory that can be allocated to a single instance in the resource group, in MB.
     shared_ptr<int32_t> instanceMaxAllocatableMemory_ {};
-    // The total memory size. Unit: MB.
+    // The total memory size, in MB.
     shared_ptr<int32_t> memory_ {};
-    // The size of memory that is used. Unit: MB.
+    // The amount of memory in use, in MB.
     shared_ptr<int32_t> memoryUsed_ {};
-    // The returned message.
+    // A message that provides details about the status of the resource group.
     shared_ptr<string> message_ {};
     // The ID of the resource group owner.
     shared_ptr<string> ownerUid_ {};
@@ -305,20 +309,23 @@ namespace Models
     shared_ptr<int32_t> prePaidInstanceCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the Elastic Algorithm Service (EAS) resource.
+    // The ID of the resource group.
     shared_ptr<string> resourceId_ {};
-    // The name of the EAS resource.
+    // The name of the resource group.
     shared_ptr<string> resourceName_ {};
     // The type of the resource group. Valid values:
     // 
-    // *   Dedicated: the dedicated resource group.
-    // *   SelfManaged: the self-managed resource group.
+    // - `Dedicated`: a dedicated resource group.
+    // 
+    // - `SelfManaged`: a self-managed resource group.
     shared_ptr<string> resourceType_ {};
+    // The number of services deployed in the resource group.
     shared_ptr<string> serviceCount_ {};
-    // The state of the resource group.
+    // The status of the resource group.
     shared_ptr<string> status_ {};
-    // The time when the resource group was last updated.
+    // The time the resource group was last updated.
     shared_ptr<string> updateTime_ {};
+    // The usage mode of the resource group.
     shared_ptr<string> usageMode_ {};
   };
 

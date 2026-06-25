@@ -103,17 +103,23 @@ namespace Models
 
 
     protected:
-      // The returned message. The message is formatted and returned in the JSON format.
+      // The event message, which is a JSON-formatted string.
       shared_ptr<string> message_ {};
-      // The cause of the event. The information about the change in the service status is returned.
+      // The reason for the event, which indicates a change in the service status.
       shared_ptr<string> reason_ {};
+      // The resource type. Valid values:
+      // 
+      // - Service: a service.
+      // 
+      // - Pod: a service instance.
       shared_ptr<string> resource_ {};
-      // The time when the event occurred. The time must be in UTC.
+      // The time when the event occurred, in UTC.
       shared_ptr<string> time_ {};
       // The event type. Valid values:
       // 
-      // *   Normal
-      // *   Warning
+      // - Normal: a normal event.
+      // 
+      // - Warning: a warning event.
       shared_ptr<string> type_ {};
     };
 
@@ -157,15 +163,15 @@ namespace Models
 
 
   protected:
-    // The events.
+    // The list of events.
     shared_ptr<vector<DescribeServiceEventResponseBody::Events>> events_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNum_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count of events.
     shared_ptr<int64_t> totalCount_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int64_t> totalPageNum_ {};
   };
 

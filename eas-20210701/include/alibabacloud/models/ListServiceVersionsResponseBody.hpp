@@ -116,9 +116,11 @@ namespace Models
       shared_ptr<string> buildTime_ {};
       // Indicates whether the image is available. Valid values:
       // 
-      // *   true: The image is available.
-      // *   false: The image is unavailable.
-      // *   unknown: The availability of the image is unknown.
+      // - true: The image is available.
+      // 
+      // - false: The image is unavailable.
+      // 
+      // - unknown: The availability of the image is unknown.
       shared_ptr<string> imageAvailable_ {};
       // The image ID.
       shared_ptr<int32_t> imageId_ {};
@@ -128,9 +130,11 @@ namespace Models
       shared_ptr<string> serviceConfig_ {};
       // Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
       // 
-      // *   true: EAS is activated.
-      // *   false: EAS is not activated.
-      // *   unknown: The activation of EAS is unknown.
+      // - true: EAS is activated.
+      // 
+      // - false: EAS is not activated.
+      // 
+      // - unknown: The activation of EAS is unknown.
       shared_ptr<string> serviceRunnable_ {};
     };
 

@@ -53,8 +53,9 @@ namespace Models
 
 
   protected:
-    // The service tags that you want to delete.
+    // The keys of the service labels that you want to delete. This parameter is deprecated. Use the LabelKeys parameter instead.
     shared_ptr<vector<string>> keys_ {};
+    // The keys of the service labels that you want to delete.
     shared_ptr<vector<string>> labelKeys_ {};
   };
 

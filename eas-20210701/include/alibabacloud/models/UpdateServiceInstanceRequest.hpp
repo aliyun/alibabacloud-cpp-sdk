@@ -66,13 +66,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether the instance is a replica.
     shared_ptr<bool> isReplica_ {};
-    shared_ptr<bool> detach_ {};
-    shared_ptr<bool> hibernate_ {};
-    // Specifies whether to isolate the service instance. Valid values:
+    // Specifies whether to fence the service instance. After an instance is fenced, it is no longer managed by the VPC controller and a new instance is created. The fenced instance is reserved for troubleshooting or debugging. Note: You cannot unfence an instance. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Fences the instance.
+    shared_ptr<bool> detach_ {};
+    // > This parameter is for an invitational preview. It is not generally available.
+    shared_ptr<bool> hibernate_ {};
+    // Specifies whether to isolate the instance. Valid values:
+    // 
+    // - true: The instance is isolated and does not receive traffic.
+    // 
+    // - false: The instance is not isolated and receives traffic.
     shared_ptr<bool> isolate_ {};
   };
 
