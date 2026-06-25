@@ -71,11 +71,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to remove all tags from the resources. This parameter applies only when TagKey.N is not specified. The default value is false.
     shared_ptr<bool> all_ {};
+    // The IDs of the resources. You can specify 1 to 50 resource IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // The type of the resource.
+    // 
+    // Valid value: ALIYUN::ACP::INSTANCE, which represents a cloud phone.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The keys of the tags to remove. You can specify 1 to 20 tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

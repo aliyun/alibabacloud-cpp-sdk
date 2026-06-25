@@ -51,7 +51,17 @@ namespace Models
 
 
   protected:
+    // <props="china">
+    // 
+    // If you use the Cloud Phone Matrix Edition and the instance stream pattern is collaborative mode, you can specify `EndUserId` to disconnect a specific user and invalidate the corresponding ticket.
+    // 
+    // 
+    // 
+    // <props="intl">
+    // 
+    // This parameter is not publicly available.
     shared_ptr<string> endUserId_ {};
+    // A list of instance IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> instanceIds_ {};
   };
 

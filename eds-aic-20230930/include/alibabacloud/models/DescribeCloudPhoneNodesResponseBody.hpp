@@ -189,7 +189,9 @@ namespace Models
 
 
       protected:
+        // The ID of the independent phone storage.
         shared_ptr<string> phoneDataId_ {};
+        // The size of the independent phone storage. Unit: GiB.
         shared_ptr<int32_t> phoneDataVolume_ {};
       };
 
@@ -258,10 +260,15 @@ namespace Models
 
 
       protected:
+        // The ID of the bandwidth plan instance.
         shared_ptr<string> bandwidthPackageId_ {};
+        // The bandwidth type.
         shared_ptr<string> bandwidthPackageType_ {};
+        // The network ID.
         shared_ptr<string> networkId_ {};
+        // The network type of the instance.
         shared_ptr<string> networkType_ {};
+        // The ID of the vSwitch in the virtual private cloud (VPC).
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -303,7 +310,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -512,9 +521,13 @@ namespace Models
 
 
     protected:
+      // The ID of the bandwidth plan.
       shared_ptr<string> bandwidthPackageId_ {};
+      // The status of the bandwidth plan: 0 indicates initializing, 1 indicates normal, and 2 indicates deleted.
       shared_ptr<string> bandwidthPackageStatus_ {};
+      // The bandwidth type.
       shared_ptr<string> bandwidthPackageType_ {};
+      // An array of tag information.
       shared_ptr<vector<NodeModel::BizTags>> bizTags_ {};
       // The billing method.
       shared_ptr<string> chargeType_ {};
@@ -522,35 +535,39 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The expiration time of the subscription matrix.
+      // The expiration time of the subscription-based matrix.
       shared_ptr<string> gmtExpired_ {};
       // The last modification time.
       shared_ptr<string> gmtModified_ {};
+      // The instance type.
       shared_ptr<string> instanceType_ {};
       // The memory size. Unit: GB.
       shared_ptr<int32_t> memory_ {};
       // The network ID.
       shared_ptr<string> networkId_ {};
+      // The network information.
       shared_ptr<vector<NodeModel::NetworkInfos>> networkInfos_ {};
+      // The network type of the instance.
       shared_ptr<string> networkType_ {};
-      // The matrix ID.
+      // The Cloud Phone matrix ID.
       shared_ptr<string> nodeId_ {};
-      // The matrix name.
+      // The name of the Cloud Phone matrix.
       shared_ptr<string> nodeName_ {};
-      // The number of cloud phone instances per matrix.
+      // The number of instances in the Cloud Phone matrix.
       shared_ptr<int32_t> phoneCount_ {};
+      // The information about the independent phone storage.
       shared_ptr<NodeModel::PhoneDataInfo> phoneDataInfo_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The height of the resolution. Unit: pixel.
+      // The height of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionHeight_ {};
-      // The width of the resolution. Unit: pixel.
+      // The width of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionWidth_ {};
-      // The matrix specification.
+      // The instance type of the Cloud Phone matrix.
       shared_ptr<string> serverType_ {};
-      // The size of the shared storage. Unit: GiB.
+      // The size of the shared phone storage. Unit: GiB.
       shared_ptr<int32_t> shareDataVolume_ {};
-      // The matrix status.
+      // The status of the Cloud Phone matrix.
       shared_ptr<string> status_ {};
       shared_ptr<int32_t> swapSize_ {};
       shared_ptr<vector<NodeModel::Tags>> tags_ {};
@@ -598,18 +615,19 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page.
+    // The maximum number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The token used to start the next query. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   ****
+    // - If **NextToken** is empty, there are no more results.
+    // 
+    // - If **NextToken** has a value, it indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The matrixes.
+    // The details of the Cloud Phone matrices.
     shared_ptr<vector<DescribeCloudPhoneNodesResponseBody::NodeModel>> nodeModel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of cloud phone instances.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

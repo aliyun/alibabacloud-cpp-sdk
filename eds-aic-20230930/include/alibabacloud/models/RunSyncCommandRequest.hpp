@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The content of the command to execute.
     shared_ptr<string> commandContent_ {};
+    // The encoding of the command content. If you provide a value that is not a valid option, the system uses the default value, `PlainText`.
     shared_ptr<string> contentEncoding_ {};
+    // An array of Cloud Phone instance IDs. You can specify up to 50 instances in a single request.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The timeout for command execution, in milliseconds. Valid range: 500 to 3000. Default: 1000.
     shared_ptr<int64_t> waitTime_ {};
   };
 

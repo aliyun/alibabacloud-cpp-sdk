@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
         DARABONBA_PTR_TO_JSON(BandwidthPackageType, bandwidthPackageType_);
         DARABONBA_PTR_TO_JSON(BindQosRules, bindQosRules_);
+        DARABONBA_PTR_TO_JSON(Channel, channel_);
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
         DARABONBA_PTR_TO_JSON(Disks, disks_);
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
         DARABONBA_PTR_TO_JSON(NumberOfInstances, numberOfInstances_);
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+        DARABONBA_PTR_TO_JSON(PackageId, packageId_);
         DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RenderingType, renderingType_);
@@ -86,6 +88,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
         DARABONBA_PTR_FROM_JSON(BandwidthPackageType, bandwidthPackageType_);
         DARABONBA_PTR_FROM_JSON(BindQosRules, bindQosRules_);
+        DARABONBA_PTR_FROM_JSON(Channel, channel_);
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(Disks, disks_);
@@ -107,6 +110,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
         DARABONBA_PTR_FROM_JSON(NumberOfInstances, numberOfInstances_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+        DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RenderingType, renderingType_);
@@ -167,7 +171,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -209,9 +215,9 @@ namespace Models
 
 
       protected:
-        // The size of the disk. Unit: GB.
+        // The disk size, in GB.
         shared_ptr<int32_t> diskSize_ {};
-        // The type of the disk.
+        // The disk type.
         shared_ptr<string> diskType_ {};
       };
 
@@ -274,7 +280,9 @@ namespace Models
 
 
         protected:
+          // The instance ID.
           shared_ptr<string> instanceId_ {};
+          // The ID of the public network bandwidth throttling rule. This rule applies only to premium bandwidth.
           shared_ptr<string> qosRuleId_ {};
         };
 
@@ -297,19 +305,21 @@ namespace Models
 
 
       protected:
+        // The public network bandwidth throttling rules bound to the instance.
         shared_ptr<vector<BindQosRules::InstanceQosRule>> instanceQosRule_ {};
+        // The total number of public network bandwidth throttling rules for the instance group.
         shared_ptr<int32_t> totalCount_ {};
       };
 
       virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
         && this->architectureType_ == nullptr && this->availableInstanceAmount_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageStatus_ == nullptr && this->bandwidthPackageType_ == nullptr
-        && this->bindQosRules_ == nullptr && this->chargeType_ == nullptr && this->cpu_ == nullptr && this->disks_ == nullptr && this->enableIpv6_ == nullptr
-        && this->errorCode_ == nullptr && this->gmtCreate_ == nullptr && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr && this->imageId_ == nullptr
-        && this->imageVersion_ == nullptr && this->installedAppList_ == nullptr && this->instanceGroupId_ == nullptr && this->instanceGroupName_ == nullptr && this->instanceGroupSpec_ == nullptr
-        && this->instanceGroupSpecDescribe_ == nullptr && this->instanceGroupStatus_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->memory_ == nullptr && this->networkType_ == nullptr
-        && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->policyGroupId_ == nullptr && this->regionId_ == nullptr && this->renderingType_ == nullptr
-        && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->saleMode_ == nullptr && this->systemVersion_ == nullptr && this->tags_ == nullptr
-        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->bindQosRules_ == nullptr && this->channel_ == nullptr && this->chargeType_ == nullptr && this->cpu_ == nullptr && this->disks_ == nullptr
+        && this->enableIpv6_ == nullptr && this->errorCode_ == nullptr && this->gmtCreate_ == nullptr && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr
+        && this->imageId_ == nullptr && this->imageVersion_ == nullptr && this->installedAppList_ == nullptr && this->instanceGroupId_ == nullptr && this->instanceGroupName_ == nullptr
+        && this->instanceGroupSpec_ == nullptr && this->instanceGroupSpecDescribe_ == nullptr && this->instanceGroupStatus_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->memory_ == nullptr
+        && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->packageId_ == nullptr && this->policyGroupId_ == nullptr
+        && this->regionId_ == nullptr && this->renderingType_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->saleMode_ == nullptr
+        && this->systemVersion_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
       // appInstanceGroupId Field Functions 
       bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
       void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -359,6 +369,13 @@ namespace Models
       inline InstanceGroupModel::BindQosRules getBindQosRules() { DARABONBA_PTR_GET(bindQosRules_, InstanceGroupModel::BindQosRules) };
       inline InstanceGroupModel& setBindQosRules(const InstanceGroupModel::BindQosRules & bindQosRules) { DARABONBA_PTR_SET_VALUE(bindQosRules_, bindQosRules) };
       inline InstanceGroupModel& setBindQosRules(InstanceGroupModel::BindQosRules && bindQosRules) { DARABONBA_PTR_SET_RVALUE(bindQosRules_, bindQosRules) };
+
+
+      // channel Field Functions 
+      bool hasChannel() const { return this->channel_ != nullptr;};
+      void deleteChannel() { this->channel_ = nullptr;};
+      inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+      inline InstanceGroupModel& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
       // chargeType Field Functions 
@@ -510,6 +527,13 @@ namespace Models
       inline InstanceGroupModel& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
+      // packageId Field Functions 
+      bool hasPackageId() const { return this->packageId_ != nullptr;};
+      void deletePackageId() { this->packageId_ = nullptr;};
+      inline string getPackageId() const { DARABONBA_PTR_GET_DEFAULT(packageId_, "") };
+      inline InstanceGroupModel& setPackageId(string packageId) { DARABONBA_PTR_SET_VALUE(packageId_, packageId) };
+
+
       // policyGroupId Field Functions 
       bool hasPolicyGroupId() const { return this->policyGroupId_ != nullptr;};
       void deletePolicyGroupId() { this->policyGroupId_ = nullptr;};
@@ -583,67 +607,80 @@ namespace Models
 
 
     protected:
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The type of the architecture.
+      // The architecture type.
       shared_ptr<string> architectureType_ {};
-      // The number of available instances.
+      // The number of active instances.
       // 
-      // >  Available instances are those not in the Deleting or Deleted state.
+      // > An instance is considered active if its instance status is not "Deleting" or "Deleted".
       shared_ptr<int32_t> availableInstanceAmount_ {};
+      // The ID of the bandwidth package.
       shared_ptr<string> bandwidthPackageId_ {};
+      // The status of the bandwidth package.
+      // Valid values:
+      // - Creating: being created.
+      // - Releasing: being released.
+      // - InUse: in use.
+      // - Failed: failed.
+      // - Expired: expired.
+      // - Available: unbound and being billed.
       shared_ptr<string> bandwidthPackageStatus_ {};
+      // The type of the bandwidth package.
       shared_ptr<string> bandwidthPackageType_ {};
+      // The public network bandwidth throttling rules for the instance group.
       shared_ptr<InstanceGroupModel::BindQosRules> bindQosRules_ {};
+      shared_ptr<string> channel_ {};
       // The billing method.
       shared_ptr<string> chargeType_ {};
-      // The number of vCPUs.
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The disks.
+      // The disk information.
       shared_ptr<vector<InstanceGroupModel::Disks>> disks_ {};
+      // > This parameter is not publicly available.
       shared_ptr<bool> enableIpv6_ {};
-      // The cause of the creation failure.
+      // The reason for the creation failure.
       shared_ptr<string> errorCode_ {};
-      // The time when the instance group was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the subscription instance group expires.
+      // The expiration time of the subscription instance group.
       shared_ptr<string> gmtExpired_ {};
-      // The time when the instance group was updated.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageId_ {};
+      // The image version.
       shared_ptr<string> imageVersion_ {};
       // The list of installed applications.
       shared_ptr<string> installedAppList_ {};
-      // The ID of the instance group.
+      // The instance group ID.
       shared_ptr<string> instanceGroupId_ {};
-      // The name of the instance group.
+      // The instance group name.
       shared_ptr<string> instanceGroupName_ {};
-      // The specifications of the instance group.
+      // The instance group specifications.
       shared_ptr<string> instanceGroupSpec_ {};
       // The description of the instance group specifications.
       shared_ptr<string> instanceGroupSpecDescribe_ {};
-      // The status of the instance group.
+      // The instance group status.
       shared_ptr<string> instanceGroupStatus_ {};
+      // > This parameter is not publicly available.
       shared_ptr<int32_t> ipv6Bandwidth_ {};
       // The memory size.
       shared_ptr<int32_t> memory_ {};
+      // The network type of the instance.
+      // 
+      // > This field is returned only for instance groups with a standard network.
       shared_ptr<string> networkType_ {};
       // The number of instances in the instance group.
       shared_ptr<string> numberOfInstances_ {};
-      // The ID of the network.
+      // The network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The ID of the policy.
+      shared_ptr<string> packageId_ {};
+      // The policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The rendering mode of the instance group.
-      // 
-      // Valid values:
-      // 
-      // *   GPURemote: GPU remote rendering.
-      // *   CPU: CPU rendering.
-      // *   GPUocal: GPU local rendering.
+      // The rendering type of the instance group.
       shared_ptr<string> renderingType_ {};
       // The height of the resolution.
       shared_ptr<int32_t> resolutionHeight_ {};
@@ -651,11 +688,13 @@ namespace Models
       shared_ptr<int32_t> resolutionWidth_ {};
       // The sales mode.
       shared_ptr<string> saleMode_ {};
-      // The version of the operating system.
+      // The system version.
       shared_ptr<string> systemVersion_ {};
+      // The tag information.
       shared_ptr<vector<InstanceGroupModel::Tags>> tags_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID in the VPC.
       shared_ptr<string> vSwitchId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -692,13 +731,13 @@ namespace Models
 
 
   protected:
-    // The instance group.
+    // The details of the instance group.
     shared_ptr<vector<DescribeAndroidInstanceGroupsResponseBody::InstanceGroupModel>> instanceGroupModel_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that indicates the position where the current call returns. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

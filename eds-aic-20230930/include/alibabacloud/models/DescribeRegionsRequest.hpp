@@ -50,15 +50,17 @@ namespace Models
   protected:
     // The display language of the console. Valid values:
     // 
-    // *   cn: Simplified Chinese
-    // *   en: English
+    // - cn: Simplified Chinese
+    // 
+    // - en: English
     shared_ptr<string> acceptLanguage_ {};
     // The sales mode.
     // 
     // Valid values:
     // 
-    // *   Instance: the instance group mode. [Default]
-    // *   Node: the matrix mode. [Whitelist required]
+    // - Instance: the instance group mode. [Default]
+    // 
+    // - Node: the matrix mode. [Whitelist required]
     shared_ptr<string> saleMode_ {};
   };
 

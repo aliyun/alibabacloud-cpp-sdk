@@ -119,6 +119,7 @@ namespace Models
     shared_ptr<vector<string>> appIdList_ {};
     // The name of the application.
     shared_ptr<string> appName_ {};
+    // > This parameter is for internal use now.
     shared_ptr<string> appType_ {};
     // Region id.
     shared_ptr<string> bizRegionId_ {};
@@ -126,12 +127,17 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   INSTALLFAILED: The application failed to be installed.
-    // *   UNINSTALLING: The application is being uninstalled.
-    // *   INSTALLING: The application is being installed.
-    // *   UNINSTALLED: The application is uninstalled.
-    // *   INSTALLED: The application is installed.
-    // *   UNINSTALLFAILED: The application failed to be uninstalled.
+    // - INSTALLFAILED: The application failed to be installed.
+    // 
+    // - UNINSTALLING: The application is being uninstalled.
+    // 
+    // - INSTALLING: The application is being installed.
+    // 
+    // - UNINSTALLED: The application is uninstalled.
+    // 
+    // - INSTALLED: The application is installed.
+    // 
+    // - UNINSTALLFAILED: The application failed to be uninstalled.
     shared_ptr<string> installationStatus_ {};
     // The value of MD5.
     shared_ptr<string> MD5_ {};
@@ -140,12 +146,6 @@ namespace Models
     // The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
     shared_ptr<string> nextToken_ {};
     // The status of the application.
-    // 
-    // Valid values:
-    // 
-    // *   FAILED: The application failed to be created.
-    // *   NORMAL: The application is available.
-    // *   CREATING: The application is being created.
     shared_ptr<string> status_ {};
   };
 

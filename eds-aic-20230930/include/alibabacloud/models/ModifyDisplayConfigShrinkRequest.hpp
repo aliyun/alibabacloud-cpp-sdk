@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
+    // The display settings.
     shared_ptr<string> displayConfigShrink_ {};
   };
 

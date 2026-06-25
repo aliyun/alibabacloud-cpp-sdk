@@ -161,37 +161,32 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> androidInstanceId_ {};
-    // The name of the instance. Fuzzy match is supported.
+    // The instance name. Fuzzy match is supported.
     shared_ptr<string> androidInstanceName_ {};
-    // Specifies whether the whole instance is backed up.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to perform a full device backup.
     shared_ptr<bool> backupAll_ {};
-    // The ID of the backup file.
+    // The backup file ID.
     shared_ptr<string> backupFileId_ {};
-    // The name of the backup file. Fuzzy match is supported.
+    // The backup file name. Fuzzy match is supported.
     shared_ptr<string> backupFileName_ {};
-    // The description of the backup file. Fuzzy match is supported.
+    // The description. Fuzzy match is supported.
     shared_ptr<string> description_ {};
-    // The end of the period for querying generated backup files.
+    // Queries backup files created before the specified time.
     shared_ptr<string> endTime_ {};
     // The owner of the backup file.
     shared_ptr<string> endUserId_ {};
-    // The ID of the instance group.
+    // The instance group ID.
     shared_ptr<string> instanceGroupId_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to start reading from the beginning.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> saleMode_ {};
-    // The beginning of the period for querying generated backup files.
+    // Queries backup files created after the specified time.
     shared_ptr<string> startTime_ {};
-    // The status of the backup files.
+    // The list of backup file statuses.
     shared_ptr<vector<string>> statusList_ {};
   };
 

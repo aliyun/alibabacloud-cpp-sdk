@@ -141,10 +141,11 @@ namespace Models
       // The ID of the cloud phone instance.
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> persistentAppInstanceId_ {};
+      // The port used for establishing a connection.
       shared_ptr<int32_t> port_ {};
       // The ID of the task.
       shared_ptr<string> taskId_ {};
-      // The state of the task.
+      // The state of the task. If FINISHED is returned, it indicates that a value can be retrieved from the Ticket field. If the returned value is not FINISHED, you still need to use this operation to query the Ticket generation result by using TaskId.
       shared_ptr<string> taskStatus_ {};
       // The ticket used to connect to the cloud phone instance.
       shared_ptr<string> ticket_ {};

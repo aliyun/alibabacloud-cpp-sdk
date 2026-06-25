@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The user ID of the coordination participant.
     shared_ptr<string> coordinatorUserId_ {};
+    // The ID of the instance that is in a coordination session.
     shared_ptr<string> instanceId_ {};
+    // The user ID of the coordination initiator.
     shared_ptr<string> ownerUserId_ {};
   };
 

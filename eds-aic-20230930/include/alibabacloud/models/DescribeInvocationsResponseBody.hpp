@@ -108,25 +108,17 @@ namespace Models
 
 
     protected:
-      // The end time of the command execution.
+      // The time when the command finished running.
       shared_ptr<string> finishTime_ {};
-      // The ID of the cloud phone instance on which the command is executed.
+      // The ID of the instance where the command was run.
       shared_ptr<string> instanceId_ {};
-      // The ID of the execution.
+      // The ID of the command execution.
       shared_ptr<string> invocationId_ {};
-      // The execution state of the command.
-      // 
-      // Valid values:
-      // 
-      // *   Failed: The execution of the command failed.
-      // *   Timeout: The execution of the command timed out.
-      // *   Running: The command is being executed.
-      // *   Success: The execution of the command is successful.
-      // *   Pending: The command is waiting to be executed.
+      // The status of the command execution.
       shared_ptr<string> invocationStatus_ {};
       // The output of the command execution.
       shared_ptr<string> output_ {};
-      // The start time of the command execution.
+      // The time when the command started to run.
       shared_ptr<string> startTime_ {};
     };
 
@@ -156,11 +148,11 @@ namespace Models
 
 
   protected:
-    // The objects that are returned.
+    // The list of returned results.
     shared_ptr<vector<DescribeInvocationsResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

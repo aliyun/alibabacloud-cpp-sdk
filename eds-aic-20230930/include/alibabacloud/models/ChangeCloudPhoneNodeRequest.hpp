@@ -130,16 +130,24 @@ namespace Models
 
 
   protected:
+    // Indicates if automatic payment is enabled. Default: false.
     shared_ptr<bool> autoPay_ {};
     shared_ptr<string> displayConfig_ {};
+    // The downstream bandwidth limit, in Mbps.
     shared_ptr<int32_t> downBandwidthLimit_ {};
+    // The instance type.
     shared_ptr<string> instanceType_ {};
+    // The ID of the cloud phone matrix.
     shared_ptr<string> nodeId_ {};
+    // The number of cloud phone instances. Call the [](t2729804.xdita#)operation to query the minimum and maximum number of allowed instances.
     shared_ptr<int32_t> phoneCount_ {};
+    // The capacity of the internal storage, in GiB. Valid values: 10 to 4000. If you do not specify this parameter, the current capacity is retained.
     shared_ptr<int32_t> phoneDataVolume_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
     shared_ptr<int32_t> shareDataVolume_ {};
     shared_ptr<int32_t> swapSize_ {};
+    // The upstream bandwidth limit, in Mbps.
     shared_ptr<int32_t> upBandwidthLimit_ {};
   };
 

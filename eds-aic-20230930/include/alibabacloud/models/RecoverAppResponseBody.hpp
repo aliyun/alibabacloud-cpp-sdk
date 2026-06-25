@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> androidInstanceId_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -111,9 +113,13 @@ namespace Models
 
 
   protected:
+    // The number of recovered instances.
     shared_ptr<int64_t> count_ {};
+    // The returned result objects.
     shared_ptr<vector<RecoverAppResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

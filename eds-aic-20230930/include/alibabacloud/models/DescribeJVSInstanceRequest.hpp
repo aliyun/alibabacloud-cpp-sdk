@@ -60,10 +60,11 @@ namespace Models
 
 
   protected:
+    // A list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // 分页大小，最大值100，默认值10
+    // The number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 分页游标，首次查询无需传入
+    // The pagination token from a previous request to retrieve the next page of results. Omit this parameter for the first request.
     shared_ptr<string> nextToken_ {};
   };
 

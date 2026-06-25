@@ -61,6 +61,7 @@ namespace Models
     shared_ptr<string> newNodeName_ {};
     // The ID of the cloud phone matrix.
     shared_ptr<string> nodeId_ {};
+    // Specifies the streaming mode for instances in the cloud phone matrix. If this parameter is left empty, the exclusive mode is used.
     shared_ptr<int32_t> streamMode_ {};
   };
 

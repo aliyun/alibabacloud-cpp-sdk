@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The amount of Credit.
         shared_ptr<int64_t> credit_ {};
+        // The calculation period for used Credit.
         shared_ptr<string> limitPeriod_ {};
       };
 
@@ -151,7 +153,9 @@ namespace Models
 
 
       protected:
+        // The Credit limit.
         shared_ptr<int64_t> creditLimit_ {};
+        // The limit period.
         shared_ptr<string> limitPeriod_ {};
       };
 
@@ -219,13 +223,21 @@ namespace Models
 
 
     protected:
+      // The time the instance was created.
       shared_ptr<string> createTime_ {};
+      // The Credit limit configuration. If you apply multiple configurations, the latest one overwrites the others.
       shared_ptr<vector<Data::CreditConfig>> creditConfig_ {};
+      // The expiration time.
       shared_ptr<string> expireTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // This parameter is not supported.
       shared_ptr<string> jvsPackageId_ {};
+      // The time the instance was last modified.
       shared_ptr<string> modifyTime_ {};
+      // The instance status.
       shared_ptr<string> status_ {};
+      // The amount of used Credit.
       shared_ptr<vector<Data::UsedCredit>> usedCredit_ {};
     };
 
@@ -269,13 +281,15 @@ namespace Models
 
 
   protected:
+    // A list of JVS instances.
     shared_ptr<vector<DescribeJVSInstanceResponseBody::Data>> data_ {};
-    // 当前页实际返回条数
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
-    // 下一页游标，末页不返回
+    // The token to retrieve the next page of results. If this field is empty, there are no more results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 符合条件的总记录数
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

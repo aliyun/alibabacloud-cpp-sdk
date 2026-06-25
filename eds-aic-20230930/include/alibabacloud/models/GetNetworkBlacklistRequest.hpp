@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The query type. Valid values: IP and Domain. If you do not specify this parameter, information for both types is returned.
     shared_ptr<string> type_ {};
   };
 

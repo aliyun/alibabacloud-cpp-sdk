@@ -65,12 +65,6 @@ namespace Models
     // The IDs of the cloud phone instances.
     shared_ptr<vector<string>> instanceIdList_ {};
     // The type of the operation.
-    // 
-    // Valid values:
-    // 
-    // *   stop: closes the app.
-    // *   restart: reopens the app.
-    // *   start: open the app.
     shared_ptr<string> operateType_ {};
   };
 

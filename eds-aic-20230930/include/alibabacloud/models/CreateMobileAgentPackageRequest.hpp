@@ -158,19 +158,46 @@ namespace Models
 
 
   protected:
+    // The number of packages.
     shared_ptr<string> amount_ {};
+    // Specifies whether to enable auto-payment. Valid values:
+    // 
+    // - **true**: Enables auto-payment. You must ensure that your account balance is sufficient.
+    // 
+    // - **false** (default): An unpaid order is generated. Your account is not charged.
+    // 
+    // > If your account balance is insufficient, you can set this parameter to `false` to generate an unpaid order. Then, you can log in to the Wuying Cloud Phone management console to pay for the order.
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal for the instance. Valid values:
+    // 
+    // - **true**: Enables auto-renewal.
+    // 
+    // - **false** (default): Disables auto-renewal.
     shared_ptr<bool> autoRenew_ {};
+    // The region where the instance is located. Currently, only `cn-hangzhou` is supported.
     shared_ptr<string> bizRegionId_ {};
+    // The credit amount.
     shared_ptr<string> creditAmount_ {};
+    // The credit limit configuration.
     shared_ptr<string> creditConfig_ {};
     shared_ptr<string> imageId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The package specification.
     shared_ptr<string> mobileAgentPackageSpec_ {};
     shared_ptr<int64_t> packageSpecId_ {};
+    // The callback URL to which the user is redirected after a successful payment.
     shared_ptr<string> paidCallbackUrl_ {};
+    // The subscription period. The unit of the period is specified by the `PeriodUnit` parameter.
     shared_ptr<int32_t> period_ {};
+    // The unit of the subscription period.
+    // Valid values:
+    // 
+    // - **Month**
+    // 
+    // - **Year**
     shared_ptr<string> periodUnit_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
   };
 

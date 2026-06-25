@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETESYSTEMPROPERTYTEMPLATESRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DELETESYSTEMPROPERTYTEMPLATESRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETEMOBILEAGENTPACKAGERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DELETEMOBILEAGENTPACKAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,25 +10,25 @@ namespace EdsAic20230930
 {
 namespace Models
 {
-  class DeleteSystemPropertyTemplatesResponseBody : public Darabonba::Model {
+  class DeleteMobileAgentPackageResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteSystemPropertyTemplatesResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteMobileAgentPackageResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteSystemPropertyTemplatesResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteMobileAgentPackageResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    DeleteSystemPropertyTemplatesResponseBody() = default ;
-    DeleteSystemPropertyTemplatesResponseBody(const DeleteSystemPropertyTemplatesResponseBody &) = default ;
-    DeleteSystemPropertyTemplatesResponseBody(DeleteSystemPropertyTemplatesResponseBody &&) = default ;
-    DeleteSystemPropertyTemplatesResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteSystemPropertyTemplatesResponseBody() = default ;
-    DeleteSystemPropertyTemplatesResponseBody& operator=(const DeleteSystemPropertyTemplatesResponseBody &) = default ;
-    DeleteSystemPropertyTemplatesResponseBody& operator=(DeleteSystemPropertyTemplatesResponseBody &&) = default ;
+    DeleteMobileAgentPackageResponseBody() = default ;
+    DeleteMobileAgentPackageResponseBody(const DeleteMobileAgentPackageResponseBody &) = default ;
+    DeleteMobileAgentPackageResponseBody(DeleteMobileAgentPackageResponseBody &&) = default ;
+    DeleteMobileAgentPackageResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteMobileAgentPackageResponseBody() = default ;
+    DeleteMobileAgentPackageResponseBody& operator=(const DeleteMobileAgentPackageResponseBody &) = default ;
+    DeleteMobileAgentPackageResponseBody& operator=(DeleteMobileAgentPackageResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,29 +39,27 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline DeleteSystemPropertyTemplatesResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline DeleteMobileAgentPackageResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline DeleteSystemPropertyTemplatesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline DeleteMobileAgentPackageResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DeleteSystemPropertyTemplatesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DeleteMobileAgentPackageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The error code.
-    // 
-    // > This parameter is returned only when the API call fails.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

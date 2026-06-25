@@ -70,8 +70,11 @@ namespace Models
 
   protected:
     shared_ptr<bool> ignoreParamValidation_ {};
+    // The ID of the image. Call [](t2730769.xdita#)to query the list of images for cloud phones.
     shared_ptr<string> imageId_ {};
+    // The list of instances.
     shared_ptr<vector<string>> instanceIdList_ {};
+    // Specifies whether to reset the instance. If you reset the instance, all user data on the instance is cleared.
     shared_ptr<bool> reset_ {};
   };
 

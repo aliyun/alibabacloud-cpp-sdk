@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The credit package ID.
     shared_ptr<string> creditPackageId_ {};
+    // The time when the credit package takes effect.
     shared_ptr<string> effectiveTime_ {};
+    // The time when the credit package expires.
     shared_ptr<string> expiredTime_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

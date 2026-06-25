@@ -69,10 +69,12 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud phone instances.
+    // A list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
     shared_ptr<bool> ignoreParamValidation_ {};
+    // The sale mode. This parameter is deprecated.
     shared_ptr<string> saleMode_ {};
+    // <props="china">Specifies whether to retain the property settings when you reset the instances. By default, the property settings are not retained. This parameter applies only to cloud phone matrix instances. Run the wya dump config command to view the details of the retained properties.<props="intl">This parameter is not supported on the international site (alibabacloud.com).
     shared_ptr<int32_t> settingResetType_ {};
   };
 

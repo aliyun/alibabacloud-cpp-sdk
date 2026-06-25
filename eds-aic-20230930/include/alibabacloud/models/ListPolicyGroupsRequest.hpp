@@ -86,6 +86,7 @@ namespace Models
     shared_ptr<vector<string>> policyGroupIds_ {};
     // The name of the policy.
     shared_ptr<string> policyGroupName_ {};
+    // The policy type.
     shared_ptr<string> policyType_ {};
   };
 

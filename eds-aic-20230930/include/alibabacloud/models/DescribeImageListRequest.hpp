@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -166,36 +168,25 @@ namespace Models
 
 
   protected:
+    // An array of tag objects.
     shared_ptr<vector<DescribeImageListRequest::ImageBizTags>> imageBizTags_ {};
-    // The ID of the image.
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // The name of the image.
+    // The image name.
     shared_ptr<string> imageName_ {};
-    // Image package type.
+    // > This parameter is not yet available.
     shared_ptr<string> imagePackageType_ {};
-    // The type of the image.
-    // 
-    // Valid values:
-    // 
-    // *   User: custom images.
-    // *   System: system images.
+    // The image type.
     // 
     // This parameter is required.
     shared_ptr<string> imageType_ {};
+    // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The maximum number of entries to return on each page for a paged query. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
+    // The token that specifies the position from which to start the query. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The state of the image.
-    // 
-    // Valid values:
-    // 
-    // *   AVAILABLE: The image is available.
-    // *   DELETE: The image is deleted.
-    // *   INIT: The image is being initialized.
-    // *   CREATE_FAILED: The image failed to be created.
-    // *   CREATING: The image is being created.
+    // The status of the image.
     shared_ptr<string> status_ {};
     shared_ptr<string> systemType_ {};
   };

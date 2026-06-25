@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BindUserId, bindUserId_);
         DARABONBA_PTR_TO_JSON(BizImageType, bizImageType_);
         DARABONBA_PTR_TO_JSON(BizTags, bizTags_);
+        DARABONBA_PTR_TO_JSON(Channel, channel_);
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
         DARABONBA_PTR_TO_JSON(Disks, disks_);
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NetworkInterfaceIpv6Address, networkInterfaceIpv6Address_);
         DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+        DARABONBA_PTR_TO_JSON(PackageId, packageId_);
         DARABONBA_PTR_TO_JSON(PersistentAppInstanceId, persistentAppInstanceId_);
         DARABONBA_PTR_TO_JSON(PhoneDataInfo, phoneDataInfo_);
         DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
@@ -106,6 +108,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BindUserId, bindUserId_);
         DARABONBA_PTR_FROM_JSON(BizImageType, bizImageType_);
         DARABONBA_PTR_FROM_JSON(BizTags, bizTags_);
+        DARABONBA_PTR_FROM_JSON(Channel, channel_);
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(Disks, disks_);
@@ -125,6 +128,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NetworkInterfaceIpv6Address, networkInterfaceIpv6Address_);
         DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+        DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
         DARABONBA_PTR_FROM_JSON(PersistentAppInstanceId, persistentAppInstanceId_);
         DARABONBA_PTR_FROM_JSON(PhoneDataInfo, phoneDataInfo_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
@@ -193,9 +197,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -237,7 +241,9 @@ namespace Models
 
 
       protected:
+        // The independent device storage ID.
         shared_ptr<string> phoneDataId_ {};
+        // The capacity of the independent device storage. Unit: GiB.
         shared_ptr<int32_t> phoneDataVolume_ {};
       };
 
@@ -306,10 +312,15 @@ namespace Models
 
 
       protected:
+        // DPI。
         shared_ptr<int32_t> dpi_ {};
+        // The frame rate.
         shared_ptr<int32_t> fps_ {};
+        // Indicates whether the resolution is locked.
         shared_ptr<string> lockResolution_ {};
+        // The height of the resolution. Unit: pixels.
         shared_ptr<int32_t> resolutionHeight_ {};
+        // The width of the resolution. Unit: pixels.
         shared_ptr<int32_t> resolutionWidth_ {};
       };
 
@@ -353,7 +364,7 @@ namespace Models
       protected:
         // The disk size. Unit: GB.
         shared_ptr<int32_t> diskSize_ {};
-        // The type of the disk.
+        // The disk type.
         shared_ptr<string> diskType_ {};
       };
 
@@ -395,7 +406,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -437,21 +450,24 @@ namespace Models
 
 
       protected:
+        // The application management policy ID.
         shared_ptr<string> appManagePolicyId_ {};
+        // The name of the application management policy.
         shared_ptr<string> appManagePolicyName_ {};
       };
 
       virtual bool empty() const override { return this->androidInstanceGroupId_ == nullptr
         && this->androidInstanceGroupName_ == nullptr && this->androidInstanceId_ == nullptr && this->androidInstanceName_ == nullptr && this->androidInstanceStatus_ == nullptr && this->appInstanceGroupId_ == nullptr
         && this->appInstanceId_ == nullptr && this->appManagePolicy_ == nullptr && this->authorizedUserId_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr
-        && this->bindUserId_ == nullptr && this->bizImageType_ == nullptr && this->bizTags_ == nullptr && this->chargeType_ == nullptr && this->cpu_ == nullptr
-        && this->disks_ == nullptr && this->displayConfig_ == nullptr && this->downBandwidthLimit_ == nullptr && this->errorCode_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr && this->imageId_ == nullptr && this->imageVersion_ == nullptr && this->instanceType_ == nullptr
-        && this->internetStatus_ == nullptr && this->keyPairId_ == nullptr && this->memory_ == nullptr && this->networkInterfaceIp_ == nullptr && this->networkInterfaceIpv6Address_ == nullptr
-        && this->networkType_ == nullptr && this->officeSiteId_ == nullptr && this->persistentAppInstanceId_ == nullptr && this->phoneDataInfo_ == nullptr && this->policyGroupId_ == nullptr
-        && this->publicIpAddress_ == nullptr && this->publicIpv6Address_ == nullptr && this->qosRuleId_ == nullptr && this->rate_ == nullptr && this->regionId_ == nullptr
-        && this->renderingType_ == nullptr && this->serverStatus_ == nullptr && this->serverType_ == nullptr && this->sessionStatus_ == nullptr && this->streamMode_ == nullptr
-        && this->systemVersion_ == nullptr && this->tags_ == nullptr && this->upBandwidthLimit_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->bindUserId_ == nullptr && this->bizImageType_ == nullptr && this->bizTags_ == nullptr && this->channel_ == nullptr && this->chargeType_ == nullptr
+        && this->cpu_ == nullptr && this->disks_ == nullptr && this->displayConfig_ == nullptr && this->downBandwidthLimit_ == nullptr && this->errorCode_ == nullptr
+        && this->gmtCreate_ == nullptr && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr && this->imageId_ == nullptr && this->imageVersion_ == nullptr
+        && this->instanceType_ == nullptr && this->internetStatus_ == nullptr && this->keyPairId_ == nullptr && this->memory_ == nullptr && this->networkInterfaceIp_ == nullptr
+        && this->networkInterfaceIpv6Address_ == nullptr && this->networkType_ == nullptr && this->officeSiteId_ == nullptr && this->packageId_ == nullptr && this->persistentAppInstanceId_ == nullptr
+        && this->phoneDataInfo_ == nullptr && this->policyGroupId_ == nullptr && this->publicIpAddress_ == nullptr && this->publicIpv6Address_ == nullptr && this->qosRuleId_ == nullptr
+        && this->rate_ == nullptr && this->regionId_ == nullptr && this->renderingType_ == nullptr && this->serverStatus_ == nullptr && this->serverType_ == nullptr
+        && this->sessionStatus_ == nullptr && this->streamMode_ == nullptr && this->systemVersion_ == nullptr && this->tags_ == nullptr && this->upBandwidthLimit_ == nullptr
+        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
       // androidInstanceGroupId Field Functions 
       bool hasAndroidInstanceGroupId() const { return this->androidInstanceGroupId_ != nullptr;};
       void deleteAndroidInstanceGroupId() { this->androidInstanceGroupId_ = nullptr;};
@@ -552,6 +568,13 @@ namespace Models
       inline vector<InstanceModel::BizTags> getBizTags() { DARABONBA_PTR_GET(bizTags_, vector<InstanceModel::BizTags>) };
       inline InstanceModel& setBizTags(const vector<InstanceModel::BizTags> & bizTags) { DARABONBA_PTR_SET_VALUE(bizTags_, bizTags) };
       inline InstanceModel& setBizTags(vector<InstanceModel::BizTags> && bizTags) { DARABONBA_PTR_SET_RVALUE(bizTags_, bizTags) };
+
+
+      // channel Field Functions 
+      bool hasChannel() const { return this->channel_ != nullptr;};
+      void deleteChannel() { this->channel_ = nullptr;};
+      inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+      inline InstanceModel& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
       // chargeType Field Functions 
@@ -691,6 +714,13 @@ namespace Models
       inline InstanceModel& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
+      // packageId Field Functions 
+      bool hasPackageId() const { return this->packageId_ != nullptr;};
+      void deletePackageId() { this->packageId_ = nullptr;};
+      inline string getPackageId() const { DARABONBA_PTR_GET_DEFAULT(packageId_, "") };
+      inline InstanceModel& setPackageId(string packageId) { DARABONBA_PTR_SET_VALUE(packageId_, packageId) };
+
+
       // persistentAppInstanceId Field Functions 
       bool hasPersistentAppInstanceId() const { return this->persistentAppInstanceId_ != nullptr;};
       void deletePersistentAppInstanceId() { this->persistentAppInstanceId_ = nullptr;};
@@ -822,93 +852,111 @@ namespace Models
 
 
     protected:
-      // The ID of the instance group.
+      // The ID of the instance group to which the instance belongs.
       shared_ptr<string> androidInstanceGroupId_ {};
-      // The name of the instance group.
+      // The instance group name.
       shared_ptr<string> androidInstanceGroupName_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> androidInstanceId_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> androidInstanceName_ {};
-      // The state of the instance.
+      // The instance status.
       shared_ptr<string> androidInstanceStatus_ {};
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The ID of the physical instance.
+      // The physical instance ID.
       shared_ptr<string> appInstanceId_ {};
+      // The application management policy information. This corresponds to the blacklists and whitelists management of application management policies in the console.
       shared_ptr<InstanceModel::AppManagePolicy> appManagePolicy_ {};
-      // The ID of the user to whom the instance is assigned.
+      // The assigned user.
       shared_ptr<string> authorizedUserId_ {};
+      // The bandwidth package ID.
       shared_ptr<string> bandwidthPackageId_ {};
+      // The bandwidth type.
       shared_ptr<string> bandwidthPackageType_ {};
-      // The ID of the bound user.
+      // The bound user.
       shared_ptr<string> bindUserId_ {};
       shared_ptr<string> bizImageType_ {};
+      // The tag array.
       shared_ptr<vector<InstanceModel::BizTags>> bizTags_ {};
-      // The billing method of the instance.
+      shared_ptr<string> channel_ {};
+      // The billing type of the instance.
       shared_ptr<string> chargeType_ {};
-      // The number of vCPUs.
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The disks.
+      // The disk information.
       shared_ptr<vector<InstanceModel::Disks>> disks_ {};
+      // The display settings.
       shared_ptr<InstanceModel::DisplayConfig> displayConfig_ {};
+      // The downstream bandwidth throttling. Unit: Mbit/s.
       shared_ptr<int32_t> downBandwidthLimit_ {};
-      // The cause of the instance data backup failure or restoration failure.
+      // The error reason for instance data backup failure or recovery failure.
       shared_ptr<string> errorCode_ {};
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the subscription instance group expires.
+      // The expiration time of the subscription instance group.
       shared_ptr<string> gmtExpired_ {};
-      // The time when the instance was modified.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // The version of the image.
+      // The image version.
       shared_ptr<string> imageVersion_ {};
-      // The type of the instance.
+      // The instance type.
       shared_ptr<string> instanceType_ {};
       shared_ptr<string> internetStatus_ {};
-      // The ID of the key pair.
+      // The key pair ID.
       shared_ptr<string> keyPairId_ {};
       // The memory size.
       shared_ptr<int32_t> memory_ {};
-      // The IP address of the ENI.
+      // The IP address of the network interface.
       shared_ptr<string> networkInterfaceIp_ {};
-      // >  This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<string> networkInterfaceIpv6Address_ {};
+      // The network type of the instance.
       shared_ptr<string> networkType_ {};
-      // The office network ID.
+      // The network ID. This corresponds to the network selected during creation in the console (basic shared network or advanced shared network).
       shared_ptr<string> officeSiteId_ {};
-      // The ID of the persistent session.
+      shared_ptr<string> packageId_ {};
+      // The persistent session ID.
       shared_ptr<string> persistentAppInstanceId_ {};
+      // <props="china">The independent device storage information of the cloud phone matrix edition instance.
+      // <props="intl">This parameter is not publicly available..
       shared_ptr<InstanceModel::PhoneDataInfo> phoneDataInfo_ {};
-      // The ID of the policy.
+      // The policy group ID.
       shared_ptr<string> policyGroupId_ {};
       // The public IP address.
       shared_ptr<string> publicIpAddress_ {};
-      // >  This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<string> publicIpv6Address_ {};
+      // The public network rate limiting rule ID (applies only to premium bandwidth).
       shared_ptr<string> qosRuleId_ {};
-      // The progress of instance data backup or restoration.
+      // The progress of instance data backup or recovery.
       shared_ptr<int32_t> rate_ {};
-      // The region ID of the instance.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The rendering type.
       shared_ptr<string> renderingType_ {};
+      // <props="china">The matrix status.
+      // <props="intl">This parameter is not publicly available..
       shared_ptr<string> serverStatus_ {};
+      // <props="china">The cloud phone matrix specification.
+      // <props="intl">This parameter is not publicly available..
       shared_ptr<string> serverType_ {};
-      // The session status.
-      // 
-      // Valid values:
-      // 
-      // *   disConnect: The session is disconnected.
-      // *   connect: The session is connected.
+      // The session connection status.
       shared_ptr<string> sessionStatus_ {};
+      // <props="china">The streaming mode of instances in the cloud phone matrix.
+      // <props="intl">This parameter is not publicly available..
       shared_ptr<int32_t> streamMode_ {};
+      // The Android system version.
       shared_ptr<string> systemVersion_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<InstanceModel::Tags>> tags_ {};
+      // The upstream bandwidth throttling. Unit: Mbit/s.
       shared_ptr<int32_t> upBandwidthLimit_ {};
+      // The vSwitch ID in the VPC.
       shared_ptr<string> vSwitchId_ {};
+      // The zone ID to which the instance belongs.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -945,13 +993,13 @@ namespace Models
 
 
   protected:
-    // The cloud phone instances.
+    // The instance information.
     shared_ptr<vector<DescribeAndroidInstancesResponseBody::InstanceModel>> instanceModel_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that indicates the position to which the current call has read. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

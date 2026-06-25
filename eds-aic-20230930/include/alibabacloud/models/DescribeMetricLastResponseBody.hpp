@@ -147,10 +147,15 @@ namespace Models
 
 
         protected:
+          // The CPU utilization. Unit: %.
           shared_ptr<double> cpuUsage_ {};
+          // The memory usage. Unit: %.
           shared_ptr<double> memoryUsage_ {};
+          // The process name.
           shared_ptr<string> name_ {};
+          // The list of process IDs.
           shared_ptr<vector<int32_t>> processIds_ {};
+          // The timestamp of the statistics. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
         };
 
@@ -219,10 +224,21 @@ namespace Models
 
 
         protected:
+          // The average value. Unit: %.
+          // 
+          // > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
           shared_ptr<double> average_ {};
+          // The GPU ID.
           shared_ptr<string> gpuId_ {};
+          // The maximum value. Unit: %.
+          // 
+          // > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
           shared_ptr<double> maximum_ {};
+          // The minimum value. Unit: %.
+          // 
+          // > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
           shared_ptr<double> minimum_ {};
+          // The timestamp of the statistics. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
         };
 
@@ -254,8 +270,13 @@ namespace Models
 
 
       protected:
+        // The monitoring data points.
         shared_ptr<vector<MetricModelList::DataPoints>> dataPoints_ {};
+        // The name of the metric.
         shared_ptr<string> metricName_ {};
+        // The process monitoring metrics.
+        // 
+        // > This parameter is returned when the metric is \\`process_cpu\\` or \\`process_memory\\`.
         shared_ptr<vector<MetricModelList::ProcessLastInfos>> processLastInfos_ {};
       };
 
@@ -278,7 +299,10 @@ namespace Models
 
 
     protected:
+      // For instance-level monitoring, the Cloud Phone instance ID is returned.
+      // <props="china">For matrix-level monitoring, the matrix ID is returned.
       shared_ptr<string> androidInstanceId_ {};
+      // The monitoring data for metrics.
       shared_ptr<vector<MetricTotalModel::MetricModelList>> metricModelList_ {};
     };
 
@@ -315,9 +339,13 @@ namespace Models
 
 
   protected:
+    // The number of records.
     shared_ptr<int32_t> count_ {};
+    // The instance monitoring data.
     shared_ptr<vector<DescribeMetricLastResponseBody::MetricTotalModel>> metricTotalModel_ {};
+    // The token for the next query. If not all results are returned in a single query, the returned NextToken is not empty. You can use the returned NextToken in the next query to query the next page.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

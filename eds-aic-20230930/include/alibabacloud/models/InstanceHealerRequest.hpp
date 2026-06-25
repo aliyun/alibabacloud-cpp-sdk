@@ -60,9 +60,13 @@ namespace Models
 
 
   protected:
+    // The list of instances.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIdList_ {};
+    // The policy type. The only supported value is Clean.
     shared_ptr<string> strategy_ {};
+    // The timeout period in seconds. If you do not specify this parameter, the default value is 30.
     shared_ptr<int64_t> timeout_ {};
   };
 

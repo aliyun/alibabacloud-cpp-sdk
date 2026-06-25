@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // A list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
+    // The ID of the property template.
     shared_ptr<string> templateId_ {};
+    // A list of property template IDs. If you provide multiple template IDs, the system randomly matches the specified instances with the provided templates.
     shared_ptr<vector<string>> templateIds_ {};
   };
 

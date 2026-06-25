@@ -110,11 +110,25 @@ namespace Models
 
 
     protected:
+      // The task\\"s cancellation time, in ISO 8601 format.
       shared_ptr<string> cancelAt_ {};
+      // The task status after the cancellation request. Possible values include:
+      // 
+      // `CANCELLING` or `CANCELED`: The task is being or has been canceled.
+      // 
+      // `COMPLETED`: The task was already complete and could not be canceled.
       shared_ptr<string> currentStatus_ {};
+      // The failure reason.
       shared_ptr<string> failedReason_ {};
+      // The mobile node ID.
       shared_ptr<string> instanceId_ {};
+      // The task status before cancellation. Valid values include:
+      // 
+      // PENDING: The task is being created.
+      // 
+      // RUNNING: The task is running.
       shared_ptr<string> previousStatus_ {};
+      // The globally unique task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -151,9 +165,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of task objects.
     shared_ptr<vector<CancelAgentTaskResponseBody::Tasks>> tasks_ {};
   };
 

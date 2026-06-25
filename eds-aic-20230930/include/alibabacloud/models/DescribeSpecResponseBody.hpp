@@ -147,23 +147,25 @@ namespace Models
 
 
     protected:
-      // Number of CPU cores.
+      // The number of CPU cores.
       shared_ptr<int32_t> core_ {};
-      // The maximum number of cloud phone instances.
+      // The maximum number of instances.
       shared_ptr<string> maxPhoneCount_ {};
-      // Memory size.
+      // The memory size in GB.
       shared_ptr<int32_t> memory_ {};
-      // The minimum number of cloud phone instances.
+      // The minimum number of instances.
       shared_ptr<string> minPhoneCount_ {};
+      // The number of instances.
       shared_ptr<string> phoneCount_ {};
+      // The resolution of the cloud phone instance.
       shared_ptr<string> resolution_ {};
-      // Specification ID.
+      // The specification ID.
       shared_ptr<string> specId_ {};
-      // Specification status.
+      // The specification status.
       shared_ptr<string> specStatus_ {};
-      // Specification type.
+      // The specification type.
       shared_ptr<string> specType_ {};
-      // System disk size, in GB.
+      // The size of the system disk, in GB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -200,13 +202,13 @@ namespace Models
 
 
   protected:
-    // Indicates the current read position returned by this call. An empty value means that all data has been read.
+    // The token to use for the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The specifications.
+    // The specification information.
     shared_ptr<vector<DescribeSpecResponseBody::SpecInfoModel>> specInfoModel_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

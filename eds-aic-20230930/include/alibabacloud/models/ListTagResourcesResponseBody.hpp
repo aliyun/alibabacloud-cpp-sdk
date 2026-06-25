@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The resource ID. This is the ID of the cloud phone instance.
       shared_ptr<string> resourceId_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The tag key.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // The token that marks the position from which to start the next query. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A collection of resources and their tag information.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

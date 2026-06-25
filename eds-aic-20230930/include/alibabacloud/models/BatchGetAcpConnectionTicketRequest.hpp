@@ -135,6 +135,7 @@ namespace Models
 
 
   protected:
+    // The connection mode.
     shared_ptr<string> connectionMode_ {};
     // The ID of the user to whom the cloud phone instance is assigned.
     shared_ptr<string> endUserId_ {};
@@ -142,7 +143,7 @@ namespace Models
     shared_ptr<string> instanceGroupId_ {};
     // The IDs of the cloud phone instances. You can specify 1 to 100 IDs of cloud phone instances.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The instance connection tasks.
+    // The instance connection task, which is used to query whether the ticket retrieval task is completed.
     shared_ptr<vector<BatchGetAcpConnectionTicketRequest::InstanceTasks>> instanceTasks_ {};
     shared_ptr<vector<string>> ports_ {};
   };

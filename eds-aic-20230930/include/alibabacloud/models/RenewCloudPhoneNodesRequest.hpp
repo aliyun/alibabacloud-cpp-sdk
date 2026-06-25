@@ -97,29 +97,22 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic payment. The default value is false.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable the auto-renewal feature.
-    // 
-    // Valid values:
-    // 
-    // *   true: enables the auto-renewal feature. In this case, the system automatically renews the instance upon expiration.
-    // *   false (default): disables the auto-renewal feature. In this case, you need to manually renew the instance upon expiration.
+    // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The cloud phone matrix IDs.
+    // A list of cloud phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};
     shared_ptr<string> paidCallBackUrl_ {};
-    // The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
+    // The renewal duration. The `PeriodUnit` parameter specifies the unit.
     // 
-    // *   When `PeriodUnit` is set to **year**: 1.
-    // *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
+    // - If `PeriodUnit` is **Year**, the value must be 1.
+    // 
+    // - If `PeriodUnit` is **Month**, the valid values are 1, 2, 3, and 6.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration.
-    // 
-    // Valid values:
-    // 
-    // *   Month (default)
-    // *   Year
+    // The unit of the renewal duration.
     shared_ptr<string> periodUnit_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
   };
 

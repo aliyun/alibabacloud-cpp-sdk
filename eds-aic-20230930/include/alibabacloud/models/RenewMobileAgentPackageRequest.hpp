@@ -97,12 +97,30 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic payment. Valid values:
+    // 
+    // - **true**: Enables automatic payment. Make sure that your account balance is sufficient.
+    // 
+    // - **false** (default): Generates an unpaid order.
+    // 
+    // > If your account balance is insufficient, set this parameter to `false` to generate an unpaid order. You can then pay for the order in the Wuying Mobile Cloud Phone management console.
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal. The default value is `false`.
     shared_ptr<bool> autoRenew_ {};
+    // A list of mobile agent package IDs.
     shared_ptr<vector<string>> mobileAgentPackageIds_ {};
+    // The URL to which a user is redirected after a successful payment.
     shared_ptr<string> paidCallbackUrl_ {};
+    // The renewal period. The `PeriodUnit` parameter specifies the time unit.
     shared_ptr<int32_t> period_ {};
+    // The unit of the renewal period.
+    // Valid values:
+    // 
+    // - **Month**: month.
+    // 
+    // - **Year**: year.
     shared_ptr<string> periodUnit_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
   };
 

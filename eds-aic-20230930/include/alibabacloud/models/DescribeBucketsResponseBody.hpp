@@ -144,7 +144,9 @@ namespace Models
 
 
         protected:
+          // The name of the bucket owner.
           shared_ptr<string> displayName_ {};
+          // The unique identifier of the bucket owner.
           shared_ptr<string> id_ {};
         };
 
@@ -217,14 +219,43 @@ namespace Models
 
 
       protected:
+        // The name of the bucket.
         shared_ptr<string> bucketName_ {};
+        // The Entity Tag (ETag) is created when an object is generated. It is used to identify the content of an object.
+        // 
+        // - For an object created by a PutObject request, the ETag value is the MD5 hash of the object content.
+        // 
+        // - For an object created by other methods, the ETag value is a unique value generated based on specific calculation rules. It is not the MD5 hash of the object content.
+        // 
+        // - The ETag value can be used to check if the object content has changed. Do not use the ETag value as the MD5 hash to verify the data integrity of the object.
         shared_ptr<string> ETag_ {};
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The time when the object was last modified.
         shared_ptr<string> lastModified_ {};
+        // The information about the bucket owner.
         shared_ptr<OssObjectList::Owner> owner_ {};
+        // The information about database recovery if the database type is MSSQL. The value is a JSON string that contains the following parameters:
+        // 
+        // - **name**: The name of the database.
+        // 
+        // - **files**: The path of the database file.
         shared_ptr<string> restoreInfo_ {};
+        // The size of the file. Unit: KB.
         shared_ptr<int64_t> size_ {};
+        // The storage class of the bucket. Valid values:
+        // 
+        // - Standard (default): Standard
+        // 
+        // - IA: Infrequent Access
+        // 
+        // - Archive: Archive Storage
+        // 
+        // - ColdArchive: Cold Archive
+        // 
+        // - DeepColdArchive: Deep Cold Archive
         shared_ptr<string> storageClass_ {};
+        // The type of the trigger method.
         shared_ptr<string> type_ {};
       };
 
@@ -283,12 +314,19 @@ namespace Models
 
 
     protected:
+      // The name of the bucket.
       shared_ptr<string> bucketName_ {};
+      // The public endpoint that is used to access the bucket.
       shared_ptr<string> extranetEndpoint_ {};
+      // The time when the bucket was created.
       shared_ptr<string> gmtCreated_ {};
+      // The internal endpoint that is used by a same-region ECS instance to access the bucket.
       shared_ptr<string> intranetEndpoint_ {};
+      // The storage path, such as a path in Hadoop Distributed File System (HDFS) or OSS.
       shared_ptr<string> location_ {};
+      // The information about the objects in the bucket.
       shared_ptr<vector<Data::OssObjectList>> ossObjectList_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -339,11 +377,19 @@ namespace Models
 
 
   protected:
+    // The error code.
+    // 
+    // > This parameter is returned only when the call fails.
     shared_ptr<string> code_ {};
+    // The returned result object.
     shared_ptr<vector<DescribeBucketsResponseBody::Data>> data_ {};
+    // The return status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result of the request.
     shared_ptr<bool> success_ {};
   };
 

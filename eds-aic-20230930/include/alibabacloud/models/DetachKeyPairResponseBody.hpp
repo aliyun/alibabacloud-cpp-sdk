@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The IDs of the cloud phone instances from which the ADB key pair is successfully detached.
+      // A list of IDs of the instances from which the key pair was successfully detached.
       shared_ptr<vector<string>> detachedInstanceIds_ {};
-      // The number of the cloud phone instances from which the ADB key pair failed to be detached.
+      // The number of instances from which the key pair failed to detach.
       shared_ptr<int32_t> failCount_ {};
       // The ID of the ADB key pair.
       shared_ptr<string> keyPairId_ {};
-      // The total number of the cloud phone instances.
+      // The total number of instances for which the detach operation was attempted.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -119,9 +119,9 @@ namespace Models
 
 
   protected:
-    // The object that is returned.
+    // The result object.
     shared_ptr<DetachKeyPairResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

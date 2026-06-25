@@ -55,11 +55,6 @@ namespace Models
     shared_ptr<vector<string>> instanceIds_ {};
     // The status of the ADB authentication feature.
     // 
-    // Valid values:
-    // 
-    // *   0: The ADB authentication feature is disabled.
-    // *   1: The ADB authentication feature is enabled.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
   };

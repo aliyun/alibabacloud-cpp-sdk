@@ -131,13 +131,21 @@ namespace Models
 
 
     protected:
+      // The public IP address.
       shared_ptr<string> externalIp_ {};
+      // The public network port number.
       shared_ptr<string> externalPort_ {};
+      // The time when the connection was created.
       shared_ptr<string> gmtCreated_ {};
+      // The time when the connection was last modified.
       shared_ptr<string> gmtModified_ {};
+      // The ID of the cloud phone instance.
       shared_ptr<string> instanceId_ {};
+      // The private IP address.
       shared_ptr<string> internalIp_ {};
+      // The private network port number.
       shared_ptr<string> internalPort_ {};
+      // The network protocol type.
       shared_ptr<string> ipProtocol_ {};
     };
 
@@ -181,10 +189,15 @@ namespace Models
 
 
   protected:
+    // The ADB connection information for the instances.
     shared_ptr<vector<ListInstanceAdbAttributesResponseBody::Data>> data_ {};
+    // The maximum number of records returned in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next query. If a query does not return all results, NextToken is not empty. Use the returned NextToken value to query the next page.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

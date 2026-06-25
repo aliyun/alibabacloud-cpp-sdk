@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The IDs of instances created during the scale-out.
     shared_ptr<string> instanceIds_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

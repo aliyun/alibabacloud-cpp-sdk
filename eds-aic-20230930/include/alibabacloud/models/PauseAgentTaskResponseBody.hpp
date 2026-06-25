@@ -110,11 +110,33 @@ namespace Models
 
 
     protected:
+      // The current status of the task. The following are possible values:
+      // 
+      // PENDING: The task is being created.
+      // 
+      // RUNNING: The task is running.
+      // 
+      // COMPLETED: The task is completed.
+      // 
+      // FAILED: The task failed.
+      // 
+      // TIMEOUT: The task timed out.
+      // 
+      // PAUSING: The task is being paused.
+      // 
+      // PAUSED: The task is paused.
       shared_ptr<string> currentStatus_ {};
+      // The reason the task failed to pause.
       shared_ptr<string> failedReason_ {};
+      // The ID of the Mobile node.
       shared_ptr<string> instanceId_ {};
+      // The time when the pause request was initiated, in ISO 8601 format.
       shared_ptr<string> pausingAt_ {};
+      // The status of the task before the pause request. The only valid value is:
+      // 
+      // RUNNING: The task is running.
       shared_ptr<string> previousStatus_ {};
+      // The unique ID of the task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -151,9 +173,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of tasks.
     shared_ptr<vector<PauseAgentTaskResponseBody::Tasks>> tasks_ {};
   };
 

@@ -115,30 +115,22 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<string> chargeType_ {};
-    // The matrix specification.
-    // 
-    // Valid values:
-    // 
-    // *   cpm.gn6.gx1
+    // The cloud phone matrix specification.
     shared_ptr<string> matrixSpec_ {};
-    // The maximum number of items to return per page in a paginated query. The value range is 1 to 100, with a default value of 100.
+    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // Indicates the starting position for reading. If left empty, it starts from the beginning.
+    // The position from which to start the query. Leave this parameter empty to query from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The purchase mode of cloud mobile phones.
-    // 
-    // Valid values:
-    // 
-    // *   Instance (default): the instance group mode.
-    // *   Node: the matrix mode [whitelisted].
+    // The purchase mode of the cloud phone.
     shared_ptr<string> saleMode_ {};
-    // List of specification IDs.
+    // A list of specification IDs.
     shared_ptr<vector<string>> specIds_ {};
-    // Specification status.
+    // The specification status.
     shared_ptr<string> specStatus_ {};
-    // Specification type.
+    // The specification type.
     shared_ptr<string> specType_ {};
   };
 

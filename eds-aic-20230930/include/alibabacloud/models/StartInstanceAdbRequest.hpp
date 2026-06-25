@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A list of 1 to 100 cloud phone instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
   };

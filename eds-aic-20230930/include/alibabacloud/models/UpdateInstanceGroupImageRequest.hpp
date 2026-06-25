@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The ID of the image.
+    // The image ID.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The IDs of the instance groups.
+    // A list of instance group IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceGroupIds_ {};

@@ -53,6 +53,7 @@ namespace Models
   protected:
     // List of instances.
     shared_ptr<vector<string>> androidInstanceIds_ {};
+    // The billing mode. This parameter is deprecated.
     shared_ptr<string> saleMode_ {};
   };
 

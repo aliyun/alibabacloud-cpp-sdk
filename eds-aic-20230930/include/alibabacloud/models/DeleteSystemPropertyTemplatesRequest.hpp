@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The IDs of the property templates.
     shared_ptr<vector<string>> templateIds_ {};
   };
 

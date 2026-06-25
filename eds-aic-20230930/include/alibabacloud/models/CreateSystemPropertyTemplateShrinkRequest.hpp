@@ -66,9 +66,21 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically generate preset system properties.
     shared_ptr<bool> enableAuto_ {};
+    // The URL of the property template file. The API parses the file synchronously. An error is returned if the file format is invalid.
+    // 
+    // > The file must be in the following format: `{ "properties":{"key1":"value1"}}`.
     shared_ptr<string> filePath_ {};
+    // The information about the system property template.
     shared_ptr<string> systemPropertyInfoShrink_ {};
+    // The name of the template. The name must meet the following requirements:
+    // 
+    // - Be 2 to 32 characters in length.
+    // 
+    // - Start with an uppercase or lowercase letter or a Chinese character. It cannot start with `http://` or `https://`.
+    // 
+    // - Contain letters, digits, colons (:), underscores (_), and hyphens (-). Periods (.) are not supported.
     shared_ptr<string> templateName_ {};
   };
 

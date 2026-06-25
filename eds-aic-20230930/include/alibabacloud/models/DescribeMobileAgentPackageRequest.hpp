@@ -89,11 +89,17 @@ namespace Models
 
 
   protected:
+    // An array of node instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
+    // An array of package IDs.
     shared_ptr<vector<string>> packageIds_ {};
+    // The package specification.
     shared_ptr<string> packageSpec_ {};
+    // The package status.
     shared_ptr<string> packageStatus_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

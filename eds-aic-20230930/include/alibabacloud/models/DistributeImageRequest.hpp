@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The regions to which you want to distribute an image.
+    // The list of destination regions.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> distributeRegionList_ {};
-    // The ID of the image that you want to distribute.
+    // The ID of the image.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};

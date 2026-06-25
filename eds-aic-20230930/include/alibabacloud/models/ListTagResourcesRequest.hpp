@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The tag key. You can specify 1 to 20 tag keys.
       shared_ptr<string> key_ {};
+      // The tag value. You can specify 1 to 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -131,13 +133,22 @@ namespace Models
 
 
   protected:
+    // The number of entries to return on each page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that marks the position from which to start the query. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // <props="china">Set the value of this parameter to `cn-shanghai`.<props="intl">Set the value of this parameter to `ap-southeast-1`.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // A list of resource IDs. This is a list of cloud phone instance IDs. You can specify 1 to 50 IDs.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // A list of tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

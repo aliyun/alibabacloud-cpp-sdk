@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The result of the task execution.
       shared_ptr<string> result_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The diagnosis result object.
     shared_ptr<InstanceHealerResponseBody::InstanceHealerModel> instanceHealerModel_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

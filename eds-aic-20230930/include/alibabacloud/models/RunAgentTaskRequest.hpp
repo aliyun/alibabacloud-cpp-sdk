@@ -78,11 +78,18 @@ namespace Models
 
 
   protected:
+    // The region ID of the mobile node.
     shared_ptr<string> bizRegionId_ {};
+    // An array of mobile node IDs. Specify a maximum of 100 IDs per request.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The maximum number of steps the task can execute. This limit prevents infinite loops. Valid values: 30–1000. Default: 1000.
     shared_ptr<int32_t> maxSteps_ {};
+    // The task timeout in seconds. Valid values: 300–3600. Default: 3600.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // The user prompt in natural language. The Agent completes the task based on this prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> userPrompt_ {};
   };

@@ -188,38 +188,10 @@ namespace Models
     // The IDs of the tasks.
     shared_ptr<vector<string>> taskIds_ {};
     // The state of the task.
-    // 
-    // Valid values:
-    // 
-    // *   PartFinished: The task is partially successful.
-    // *   Finished: The task is completed.
-    // *   Failed: The task failed.
-    // *   Skipped: The task is skipped.
-    // *   Processing: The task is running.
-    // *   Waiting: The task is in queue.
     shared_ptr<string> taskStatus_ {};
     // The status of the tasks.
     shared_ptr<vector<string>> taskStatuses_ {};
     // The type of the task.
-    // 
-    // Valid values:
-    // 
-    // *   BackupFile: backs up files.
-    // *   StopInstance: stops cloud phone instances.
-    // *   RebootInstance: restarts cloud phone instances.
-    // *   StartApp: starts apps.
-    // *   SendFile: uploads files.
-    // *   RunCommand: sends remote command.
-    // *   RestartApp: restarts apps.
-    // *   ResetInstance: resets cloud phone instances.
-    // *   RecoverFile: recovers files.
-    // *   UninstallApp: uninstalls apps.
-    // *   StopApp: stops apps.
-    // *   Screenshot: takes screenshots.
-    // *   InstallApp: installs apps.
-    // *   FetchFile: downloads files.
-    // *   UpdateGroupImage: replaces images.
-    // *   StartInstance: starts instances.
     shared_ptr<string> taskType_ {};
     // The types of the tasks.
     shared_ptr<vector<string>> taskTypes_ {};

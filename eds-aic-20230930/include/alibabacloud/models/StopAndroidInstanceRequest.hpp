@@ -60,10 +60,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud phone instances.
+    // A list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // Specifies whether to enforce a stop operation. If a cloud phone instance fails to stop due to system or network issues, a forced stop can be triggered, though it may result in data loss.
+    // Specifies whether to forcibly shut down the instance. If an instance cannot shut down because of a system or network exception, you can force it to shut down. This may cause data loss.
     shared_ptr<bool> forceStop_ {};
+    // The sale pattern. This parameter is deprecated.
     shared_ptr<string> saleMode_ {};
   };
 

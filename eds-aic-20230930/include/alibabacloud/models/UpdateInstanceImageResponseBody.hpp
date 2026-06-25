@@ -146,7 +146,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
     shared_ptr<UpdateInstanceImageResponseBody::Tasks> tasks_ {};
   };

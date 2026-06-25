@@ -238,14 +238,36 @@ namespace Models
 
 
     protected:
+      // The name of the bandwidth package.
       shared_ptr<string> bandwidthPackageName_ {};
+      // The private CIDR block.
       shared_ptr<string> cidrBlock_ {};
+      // The billing method for the bandwidth package. Valid values:
+      // 
+      // <props="china">
+      // 
+      // - **PayByBandwidth** (default): pay-by-bandwidth.
+      // 
+      // - **PayBy95**: pay-by-95th-percentile. Note: This billing method is not supported for IPv6 public bandwidth by default. To enable it, contact your account manager.
+      // 
+      // 
+      // 
+      // \\-
+      // 
+      // <props="intl">
+      // 
+      // **PayByBandwidth** (default): pay-by-bandwidth.
       shared_ptr<string> internetChargeType_ {};
+      // The number of Cloud Phone instances that share one elastic IP address (EIP).
       shared_ptr<int32_t> ipRatio_ {};
+      // The line type.
       shared_ptr<string> isp_ {};
+      // The maximum bandwidth of the bandwidth package, in Mbit/s. This value limits the aggregate bandwidth of all instances that use the package.
       shared_ptr<int32_t> limitedBandwidth_ {};
       shared_ptr<string> paidCallbackUrl_ {};
+      // The billing method.
       shared_ptr<string> payType_ {};
+      // The visibility scope.
       shared_ptr<string> visibleType_ {};
     };
 
@@ -296,8 +318,11 @@ namespace Models
 
 
     protected:
+      // The dots per inch (DPI). Valid values: 72 to 600.
       shared_ptr<int32_t> dpi_ {};
+      // > This parameter is not yet publicly available.
       shared_ptr<int32_t> fps_ {};
+      // Specifies whether to lock the resolution.
       shared_ptr<string> lockResolution_ {};
     };
 
@@ -540,21 +565,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the auto-payment feature.
-    // 
-    // Valid values:
-    // 
-    // *   False (default): You must manually complete the payment in the Alibaba Cloud Expenses and Costs console.
-    // *   true: enables the auto-payment feature.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable the auto-renewal feature.
-    // 
-    // Valid values:
-    // 
-    // *   true: enables the auto-renewal feature. In this case, the system automatically renews instances upon expiration.
-    // *   false (default): disables the auto-renewal feature. In this case, you need to manually renew instances upon expiration.
+    // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
+    // The ID of the Shared Bandwidth instance.
     shared_ptr<string> bandwidthPackageId_ {};
+    // The bandwidth type.
     shared_ptr<string> bandwidthPackageType_ {};
     // The region ID.
     // 
@@ -562,64 +579,63 @@ namespace Models
     shared_ptr<string> bizRegionId_ {};
     // The billing method. Only the subscription billing method is supported.
     shared_ptr<string> chargeType_ {};
-    // The number of cloud phone matrixes you want to purchase.
+    // The number of Cloud Phone matrices to purchase.
     shared_ptr<string> count_ {};
+    // The display settings.
     shared_ptr<CreateCloudPhoneNodeRequest::DisplayConfig> displayConfig_ {};
+    // The downstream bandwidth limit, in Mbit/s.
     shared_ptr<int32_t> downBandwidthLimit_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // The instance specification.
+    // The instance type.
     // 
-    // Valid values:
-    // 
-    // *   ac.max: By default, this specification allows up to 25 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
-    // *   ac.plus: By default, this specification allows up to 40 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
+    // > To purchase more instance types, [contact pre-sales support](https://smartservice.console.aliyun.com/service/pre-sales-chat?spm=5176.6d6ecb63.0.0.729adda2VqVQx7).
     shared_ptr<string> instanceType_ {};
     shared_ptr<bool> isSingleImgDisk_ {};
     // The office network ID.
     shared_ptr<string> networkId_ {};
+    // The network settings for the instance.
     shared_ptr<CreateCloudPhoneNodeRequest::NetworkInfo> networkInfo_ {};
+    // The network type of the instance.
     shared_ptr<string> networkType_ {};
-    // The name of the cloud phone matrix.
+    // The name of the Cloud Phone matrix.
     shared_ptr<string> nodeName_ {};
     shared_ptr<string> paidCallBackUrl_ {};
-    // The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
+    // The subscription duration. The unit is specified by the `PeriodUnit` parameter.
     // 
-    // *   When `PeriodUnit` is set to **year**: 1.
-    // *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
+    // - If `PeriodUnit` is set to **Year**, this parameter can only be set to 1.
+    // 
+    // - If `PeriodUnit` is set to **Month**, valid values are 1, 2, 3, and 6.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration.
-    // 
-    // Valid values:
-    // 
-    // *   Month (default)
-    // *   Year
     shared_ptr<string> periodUnit_ {};
-    // The number of instances per cloud phone matrix.
+    // The number of Cloud Phone instances to create in a single Cloud Phone matrix.
     shared_ptr<int32_t> phoneCount_ {};
+    // The size of the independent internal storage, in GiB.
     shared_ptr<int32_t> phoneDataVolume_ {};
     shared_ptr<string> promotionId_ {};
-    // The resolution height. Unit: pixel.
+    // The vertical resolution, in pixels.
     shared_ptr<int32_t> resolutionHeight_ {};
-    // The resolution width. Unit: pixel.
+    // The horizontal resolution, in pixels.
     shared_ptr<int32_t> resolutionWidth_ {};
-    // The shared storage size Unit: GiB.
+    // The size of the shared internal storage, in GiB.
+    // 
+    // > The size must exceed 10 GiB per instance in the matrix.
     shared_ptr<int32_t> serverShareDataVolume_ {};
-    // The matrix specification.
-    // 
-    // Valid values:
-    // 
-    // *   cpm.gn6.gx1
+    // The server type.
     // 
     // This parameter is required.
     shared_ptr<string> serverType_ {};
+    // The streaming mode for instances in the Cloud Phone matrix. Defaults to preemption mode.
     shared_ptr<int32_t> streamMode_ {};
     shared_ptr<int32_t> swapSize_ {};
     // The resource tags.
     shared_ptr<vector<CreateCloudPhoneNodeRequest::Tag>> tag_ {};
+    // The upstream bandwidth limit, in Mbit/s.
     shared_ptr<int32_t> upBandwidthLimit_ {};
+    // The template for instance creation. Set this parameter to `Random` to use a random template, or specify a template ID to use a specific template.
     shared_ptr<string> useTemplate_ {};
-    // The vSwitch ID.
+    // The VSwitch ID.
     shared_ptr<string> vSwitchId_ {};
   };
 

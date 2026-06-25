@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the credit package.
     shared_ptr<string> creditPackageId_ {};
+    // The status of the credit package.
     shared_ptr<string> creditPackageStatus_ {};
   };
 

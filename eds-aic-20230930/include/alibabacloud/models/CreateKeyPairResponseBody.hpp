@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<string> keyPairId_ {};
       // The name of the key pair.
       shared_ptr<string> keyPairName_ {};
-      // The private key of the key pair. The PEM-encoded private key that is in PKCS#8 format and adheres to the ADB connection specification.
+      // The private key of the key pair. The private key is PEM-encoded in PKCS#8 format and is compatible with ADB.
       shared_ptr<string> privateKeyBody_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The objects that are returned.
+    // The returned data.
     shared_ptr<CreateKeyPairResponseBody::Data> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

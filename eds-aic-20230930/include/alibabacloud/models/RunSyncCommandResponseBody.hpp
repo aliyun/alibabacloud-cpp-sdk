@@ -108,11 +108,17 @@ namespace Models
 
 
     protected:
+      // The time when command execution finished.
       shared_ptr<string> finishTime_ {};
+      // The ID of the instance on which the command was executed.
       shared_ptr<string> instanceId_ {};
+      // The invocation ID.
       shared_ptr<string> invocationId_ {};
+      // The command execution status.
       shared_ptr<string> invocationStatus_ {};
+      // The command output.
       shared_ptr<string> output_ {};
+      // The time when command execution began.
       shared_ptr<string> startTime_ {};
     };
 
@@ -142,8 +148,11 @@ namespace Models
 
 
   protected:
+    // An array of objects, where each object contains the execution result for a single instance.
     shared_ptr<vector<RunSyncCommandResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

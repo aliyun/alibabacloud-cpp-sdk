@@ -64,11 +64,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the apps that you want to install.
+    // The application IDs.
     shared_ptr<vector<string>> appIdList_ {};
-    // The IDs of the instance groups.
+    // The instance group IDs.
     shared_ptr<vector<string>> instanceGroupIdList_ {};
-    // The IDs of the cloud phone instances.
+    // The instance IDs.
     shared_ptr<vector<string>> instanceIdList_ {};
   };
 

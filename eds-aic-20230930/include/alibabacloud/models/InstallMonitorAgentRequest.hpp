@@ -51,7 +51,13 @@ namespace Models
 
 
   protected:
+    // A list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
+    // The monitoring type.
+    // 
+    // - Instance mode: Instance
+    // 
+    // - Node mode: Node
     shared_ptr<string> saleMode_ {};
   };
 

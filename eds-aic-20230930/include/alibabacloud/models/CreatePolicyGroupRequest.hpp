@@ -126,11 +126,17 @@ namespace Models
 
 
     protected:
+      // The font color of the watermark. Valid values: 0 to 16777215.
       shared_ptr<int32_t> watermarkColor_ {};
+      // The custom text for the watermark. The text can be up to 10 characters long and cannot contain emojis.
       shared_ptr<string> watermarkCustomText_ {};
+      // The font size of the watermark. Valid values: 10 to 20.
       shared_ptr<int32_t> watermarkFontSize_ {};
+      // Specifies whether to enable the screen watermark.
       shared_ptr<string> watermarkSwitch_ {};
+      // The opacity of the watermark. A larger value indicates lower transparency. Valid values: 10 to 100.
       shared_ptr<int32_t> watermarkTransparencyValue_ {};
+      // The screen watermark content.
       shared_ptr<vector<string>> watermarkTypes_ {};
     };
 
@@ -205,14 +211,9 @@ namespace Models
 
 
       protected:
-        // The type of the rule.
-        // 
-        // Valid values:
-        // 
-        // *   prc: an application package name.
-        // *   domain: a domain name.
+        // The rule type.
         shared_ptr<string> ruleType_ {};
-        // The name of the application package or domain name.
+        // The application package name or domain name.
         shared_ptr<string> target_ {};
       };
 
@@ -278,35 +279,21 @@ namespace Models
 
 
     protected:
-      // Specifies whether to manually configure a custom proxy.
-      // 
-      // Valid values:
-      // 
-      // *   off
-      // *   on
+      // Specifies whether to manually configure a transparent proxy.
       shared_ptr<string> customProxy_ {};
-      // The IPv4 address of the custom proxy.
+      // The IP address of the transparent proxy. The IP address must be in IPv4 format.
       shared_ptr<string> hostAddr_ {};
-      // Specifies whether to enable the network redirection feature.
-      // 
-      // Valid values:
-      // 
-      // *   off
-      // *   on
+      // Specifies whether to enable network redirection.
       shared_ptr<string> netRedirect_ {};
-      // The port of the custom proxy. Valid values: 1 to 65535.
+      // The port of the transparent proxy. Valid values: 1 to 65535.
       shared_ptr<string> port_ {};
-      // The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
+      // The proxy password. The password must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
       shared_ptr<string> proxyPassword_ {};
-      // The type of the proxy protocol.
-      // 
-      // Valid values:
-      // 
-      // *   socks5.
+      // The proxy protocol type.
       shared_ptr<string> proxyType_ {};
-      // The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
+      // The proxy username. The username must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
       shared_ptr<string> proxyUserName_ {};
-      // The proxy rules. You can create up to 100 proxy rules.
+      // The list of proxy rules. You can specify up to 100 rules.
       shared_ptr<vector<NetRedirectPolicy::Rules>> rules_ {};
     };
 
@@ -395,54 +382,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the webcam redirection feature.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
+    // Specifies whether to enable local camera redirection.
     shared_ptr<string> cameraRedirect_ {};
-    // The read/write permissions on the clipboard.
-    // 
-    // Valid values:
-    // 
-    // *   read: read-only.
-    // *   readwrite: read and write.
-    // *   off: read/write disabled.
+    // The clipboard permission.
     shared_ptr<string> clipboard_ {};
-    // The file transfer policy of the Alibaba Cloud Workspace web client.
-    // 
-    // Valid values:
-    // 
-    // *   all: File upload and download are supported.
-    // *   download: Only file download is supported.
-    // *   upload: Only file upload is supported.
-    // *   off: File upload or download is forbidden.
+    // The file transfer policy for the web client.
     shared_ptr<string> html5FileTransfer_ {};
-    // The read/write permissions on the on-premises drive.
-    // 
-    // Valid values:
-    // 
-    // *   read: read-only.
-    // *   readwrite: ready and write.
-    // *   off: read/write disabled.
+    // The local disk mapping permission.
     shared_ptr<string> localDrive_ {};
     // Specifies whether to lock the resolution.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
     shared_ptr<string> lockResolution_ {};
-    // The network redirection policy.
+    // Network redirection.
     shared_ptr<CreatePolicyGroupRequest::NetRedirectPolicy> netRedirectPolicy_ {};
-    // The name of the policy.
+    // The policy name.
     shared_ptr<string> policyGroupName_ {};
+    // The policy type.
     shared_ptr<string> policyType_ {};
-    // The height of the resolution. Unit: pixels.
+    // The resolution height, in pixels.
     shared_ptr<int32_t> resolutionHeight_ {};
-    // The width of the resolution. Unit: pixels.
+    // The resolution width, in pixels.
     shared_ptr<int32_t> resolutionWidth_ {};
+    // Screen watermark.
     shared_ptr<CreatePolicyGroupRequest::Watermark> watermark_ {};
   };
 

@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The internal storage capacity, in GiB.
         shared_ptr<int32_t> phoneDataVolume_ {};
       };
 
@@ -125,8 +127,11 @@ namespace Models
 
 
     protected:
+      // Information about the cloud phone instances.
       shared_ptr<vector<NodeInfos::InstanceInfos>> instanceInfos_ {};
+      // The ID of the cloud phone matrix.
       shared_ptr<string> nodeId_ {};
+      // The size of the shared storage, in GiB. If the matrix uses independent internal storage, this defaults to a fixed 64 GiB for global files, such as images. If the matrix was configured with shared storage at purchase, this indicates the size of that storage.
       shared_ptr<int32_t> shareDataVolume_ {};
     };
 
@@ -156,8 +161,11 @@ namespace Models
 
 
   protected:
+    // Information about the modified cloud phone matrix.
     shared_ptr<vector<ChangeCloudPhoneNodeResponseBody::NodeInfos>> nodeInfos_ {};
+    // The ID of the order for this change.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

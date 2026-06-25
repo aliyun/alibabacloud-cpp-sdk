@@ -124,7 +124,9 @@ namespace Models
 
 
         protected:
+          // The property name.
           shared_ptr<string> propertyName_ {};
+          // The property value.
           shared_ptr<string> propertyValue_ {};
         };
 
@@ -147,7 +149,9 @@ namespace Models
 
 
       protected:
+        // The custom property information.
         shared_ptr<vector<SystemPropertyInfo::CustomPropertyInfos>> customPropertyInfos_ {};
+        // > This parameter is not yet available for use.
         shared_ptr<string> roProductDevice_ {};
       };
 
@@ -198,11 +202,17 @@ namespace Models
 
 
     protected:
+      // Indicates whether preset system properties can be automatically generated.
       shared_ptr<bool> enableAuto_ {};
+      // The URL path of the property template file.
       shared_ptr<string> filePath_ {};
+      // The template status.
       shared_ptr<string> status_ {};
+      // The system property template information.
       shared_ptr<SystemPropertyTemplateModel::SystemPropertyInfo> systemPropertyInfo_ {};
+      // The property template ID.
       shared_ptr<string> templateId_ {};
+      // The template name.
       shared_ptr<string> templateName_ {};
     };
 
@@ -239,10 +249,13 @@ namespace Models
 
 
   protected:
+    // The token used to start the next query. An empty value indicates that all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of property template objects.
     shared_ptr<vector<DescribeSystemPropertyTemplatesResponseBody::SystemPropertyTemplateModel>> systemPropertyTemplateModel_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

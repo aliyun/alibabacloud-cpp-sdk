@@ -64,11 +64,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the apps.
+    // A list of application IDs.
     shared_ptr<vector<string>> appIdList_ {};
-    // The ID of the instance groups. If you specify this parameter, you cannot specify InstanceIdList.
+    // A list of instance group IDs. You must specify either this parameter or `InstanceIdList`. If you specify both, only `InstanceGroupIdList` takes precedence.
     shared_ptr<vector<string>> instanceGroupIdList_ {};
-    // The IDs of the cloud phone instances. If you specify this parameter, you cannot specify InstanceGroupIdList.
+    // A list of instance IDs. You must specify either this parameter or `InstanceGroupIdList`. If you specify both, only `InstanceGroupIdList` takes precedence.
     shared_ptr<vector<string>> instanceIdList_ {};
   };
 

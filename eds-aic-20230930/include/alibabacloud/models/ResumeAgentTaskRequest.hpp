@@ -51,7 +51,10 @@ namespace Models
 
 
   protected:
+    // An additional prompt to guide the task. This parameter applies only when a task is in the `PAUSED` state, for example, while waiting for user input.
     shared_ptr<string> additionalPrompt_ {};
+    // A list of task IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> taskIds_ {};
   };

@@ -121,9 +121,9 @@ namespace Models
 
 
   protected:
-    // The ID of the command execution. You can use the command execution ID to query the output of a command.
+    // The command execution ID. Use this ID to query the execution result.
     shared_ptr<string> invokeId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<RunCommandResponseBody::RunCommandInfos>> runCommandInfos_ {};
     shared_ptr<string> taskId_ {};

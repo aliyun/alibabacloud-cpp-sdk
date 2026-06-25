@@ -87,24 +87,14 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the auto-payment feature.
-    // 
-    // Valid values:
-    // 
-    // *   true: enables the auto-payment feature. Ensure your account has sufficient balance to use this feature.
-    // *   false: disables the auto-payment feature. You need to manually complete the payment process.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // The IDs of the instance groups.
+    // The instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
     shared_ptr<string> paidCallBackUrl_ {};
-    // The duration of the renewal, measured in units defined by PeriodUnit.
+    // The renewal duration.
     shared_ptr<int32_t> period_ {};
-    // The unit of the renewal duration. Default value: Month.
-    // 
-    // Valid values:
-    // 
-    // *   Month
-    // *   Year
+    // The unit of the renewal duration specified by `Period`. Default value: Month.
     shared_ptr<string> periodUnit_ {};
     shared_ptr<string> promotionId_ {};
   };

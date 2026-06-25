@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The ID of the cloud phone instance.
       shared_ptr<string> androidInstanceId_ {};
+      // The ID of the backup file.
       shared_ptr<string> backupFileId_ {};
+      // The name of the backup file.
       shared_ptr<string> backupFileName_ {};
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The number of instances that are backed up.
     shared_ptr<int64_t> count_ {};
+    // The response elements.
     shared_ptr<vector<BackupAppResponseBody::Data>> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the batch task.
     shared_ptr<string> taskId_ {};
   };
 

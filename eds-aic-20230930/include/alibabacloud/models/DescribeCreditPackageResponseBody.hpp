@@ -124,12 +124,19 @@ namespace Models
 
 
     protected:
+      // The number of available credits in the credit package.
       shared_ptr<string> availableCredits_ {};
+      // The ID of the credit package.
       shared_ptr<string> creditPackageId_ {};
+      // The status of the credit package.
       shared_ptr<string> creditPackageStatus_ {};
+      // The time when the credit package becomes effective.
       shared_ptr<string> effectiveTime_ {};
+      // The number of exhausted credits in the credit package.
       shared_ptr<string> exhaustedCredits_ {};
+      // The time when the credit package expires.
       shared_ptr<string> expiredTime_ {};
+      // The total number of credits in the credit package.
       shared_ptr<string> totalCredits_ {};
     };
 
@@ -180,11 +187,17 @@ namespace Models
 
 
   protected:
+    // An array of credit package details.
     shared_ptr<vector<DescribeCreditPackageResponseBody::CreditsPackageInfos>> creditsPackageInfos_ {};
+    // Indicates whether this is your first purchase.
     shared_ptr<bool> isFirstPurchase_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of available credits.
     shared_ptr<string> totalAvailableCredits_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of exhausted credits.
     shared_ptr<string> totalExhaustedCredit_ {};
   };
 

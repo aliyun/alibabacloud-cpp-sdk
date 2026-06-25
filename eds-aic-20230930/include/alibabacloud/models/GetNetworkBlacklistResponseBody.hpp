@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The list of blacklisted domain names.
       shared_ptr<vector<string>> domainBlacklist_ {};
+      // The list of blacklisted IP addresses.
       shared_ptr<vector<string>> ipBlacklist_ {};
     };
 
@@ -97,7 +99,9 @@ namespace Models
 
 
   protected:
+    // The network blacklist.
     shared_ptr<GetNetworkBlacklistResponseBody::NetworkBlacklistModel> networkBlacklistModel_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

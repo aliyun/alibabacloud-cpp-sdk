@@ -90,7 +90,11 @@ namespace Models
 
 
     protected:
+      // The tag key. You can specify 1 to 20 tag keys.
+      // >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://..
       shared_ptr<string> key_ {};
+      // The tag value.
+      // >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`..
       shared_ptr<string> value_ {};
     };
 
@@ -187,48 +191,29 @@ namespace Models
 
 
   protected:
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> bizRegionId_ {};
-    // The billing method.
-    // 
-    // Valid values:
-    // 
-    // *   PrePaid: subscription
-    // *   PostPaid: pay-as-you-go
+    // The billing type.
+    // [_single.params.ChargeType.enum. PrePaid]Subscription.
     shared_ptr<string> chargeType_ {};
-    // The IDs of the instance groups.
+    // The list of instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
-    // The name of the instance group. Instance groups support fuzzy search by name.
+    // The instance group name. Fuzzy match is supported.
     shared_ptr<string> instanceGroupName_ {};
     shared_ptr<string> instanceVersion_ {};
     // The ID of the key pair.
     shared_ptr<string> keyPairId_ {};
-    // The maximum number of entries per page. Value range: 0 to 100. Default value: 100.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that indicates the position from which the current read operation starts. Leave this parameter empty to read from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The ID of the policy.
+    // The policy ID.
     shared_ptr<string> policyGroupId_ {};
-    // The purchase mode of cloud phone instances.
-    // 
-    // Valid values:
-    // 
-    // *   Instance (default): the instance group mode.
-    // *   Node: the matrix mode [whitelisted].
+    // The purchase mode of the cloud phone.
     shared_ptr<string> saleMode_ {};
-    // The status of the instance group.
-    // 
-    // Valid values:
-    // 
-    // *   UPDATING_FAILED: The image update for the instance group failed.
-    // *   FAILED: The instance group failed to be created.
-    // *   RUNNING: The instance group is available.
-    // *   EXPIRED: The instance group expired.
-    // *   DELETING: The instance group is being deleted.
-    // *   DELETED: The instance group is deleted.
-    // *   UPDATING: The instance group is undergoing an image update.
-    // *   CREATING: The instance group is being created.
+    // The instance group status.
     shared_ptr<string> status_ {};
+    // The tags of the instance group. You can bind up to 20 tags to each instance.
     shared_ptr<vector<DescribeAndroidInstanceGroupsRequest::Tags>> tags_ {};
   };
 

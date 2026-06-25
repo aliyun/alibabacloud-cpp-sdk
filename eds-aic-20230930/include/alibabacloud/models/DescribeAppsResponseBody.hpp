@@ -203,6 +203,7 @@ namespace Models
       shared_ptr<int32_t> appId_ {};
       // The name of the application.
       shared_ptr<string> appName_ {};
+      // The application type.
       shared_ptr<string> appType_ {};
       // Region id.
       shared_ptr<string> bizRegionId_ {};
@@ -218,12 +219,17 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   INSTALLFAILED: The application failed to be installed.
-      // *   UNINSTALLING: The application is being uninstalled.
-      // *   INSTALLING: The application is being installed.
-      // *   UNINSTALLED: The application is uninstalled.
-      // *   INSTALLED: The application is installed.
-      // *   UNINSTALLFAILED: The application failed to be uninstalled.
+      // - INSTALLFAILED: The application failed to be installed.
+      // 
+      // - UNINSTALLING: The application is being uninstalled.
+      // 
+      // - INSTALLING: The application is being installed.
+      // 
+      // - UNINSTALLED: The application is uninstalled.
+      // 
+      // - INSTALLED: The application is installed.
+      // 
+      // - UNINSTALLFAILED: The application failed to be uninstalled.
       shared_ptr<string> installationStatus_ {};
       // The list of instance groups where the application is installed.
       shared_ptr<vector<string>> instanceGroupList_ {};
@@ -235,9 +241,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   FAILED: The application failed to be created.
-      // *   NORMAL: The application is available.
-      // *   CREATING: The application is being created.
+      // - FAILED: The application failed to be created.
+      // 
+      // - NORMAL: The application is available.
+      // 
+      // - CREATING: The application is being created.
       shared_ptr<string> status_ {};
     };
 

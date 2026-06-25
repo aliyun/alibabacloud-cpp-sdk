@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically generate preset system properties.
     shared_ptr<bool> enableAuto_ {};
+    // The URL of the property template file. The system synchronously parses the file. If the file format is invalid, a parsing error is returned.
+    // 
+    // > File template format: `{ "properties":{"key1":"value1", "key2":"value2"}}`.
     shared_ptr<string> filePath_ {};
+    // The information about the system property template.
     shared_ptr<string> systemPropertyInfoShrink_ {};
+    // The ID of the property template.
     shared_ptr<string> templateId_ {};
+    // The name of the template.
     shared_ptr<string> templateName_ {};
   };
 

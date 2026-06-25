@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The description of the image.
     shared_ptr<string> imageDescription_ {};
+    // The URL of the image. This must be an Alibaba Cloud OSS address.
     shared_ptr<string> imageFileURL_ {};
+    // The name of the image.
     shared_ptr<string> imageName_ {};
   };
 

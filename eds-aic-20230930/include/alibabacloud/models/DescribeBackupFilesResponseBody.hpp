@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BackupFileId, backupFileId_);
         DARABONBA_PTR_TO_JSON(BackupFileName, backupFileName_);
         DARABONBA_PTR_TO_JSON(BackupFilePath, backupFilePath_);
+        DARABONBA_PTR_TO_JSON(Channel, channel_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
         DARABONBA_PTR_TO_JSON(FileSize, fileSize_);
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BackupFileId, backupFileId_);
         DARABONBA_PTR_FROM_JSON(BackupFileName, backupFileName_);
         DARABONBA_PTR_FROM_JSON(BackupFilePath, backupFilePath_);
+        DARABONBA_PTR_FROM_JSON(Channel, channel_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
         DARABONBA_PTR_FROM_JSON(FileSize, fileSize_);
@@ -97,9 +99,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->androidInstanceId_ == nullptr
         && this->androidInstanceName_ == nullptr && this->backupAll_ == nullptr && this->backupFileId_ == nullptr && this->backupFileName_ == nullptr && this->backupFilePath_ == nullptr
-        && this->description_ == nullptr && this->endUserId_ == nullptr && this->fileSize_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
-        && this->instanceGroupId_ == nullptr && this->regionId_ == nullptr && this->sourceAppInfoList_ == nullptr && this->sourceFilePathList_ == nullptr && this->status_ == nullptr
-        && this->systemVersion_ == nullptr && this->taskId_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
+        && this->channel_ == nullptr && this->description_ == nullptr && this->endUserId_ == nullptr && this->fileSize_ == nullptr && this->gmtCreated_ == nullptr
+        && this->gmtModified_ == nullptr && this->instanceGroupId_ == nullptr && this->regionId_ == nullptr && this->sourceAppInfoList_ == nullptr && this->sourceFilePathList_ == nullptr
+        && this->status_ == nullptr && this->systemVersion_ == nullptr && this->taskId_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr; };
       // androidInstanceId Field Functions 
       bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
       void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};
@@ -140,6 +142,13 @@ namespace Models
       void deleteBackupFilePath() { this->backupFilePath_ = nullptr;};
       inline string getBackupFilePath() const { DARABONBA_PTR_GET_DEFAULT(backupFilePath_, "") };
       inline Data& setBackupFilePath(string backupFilePath) { DARABONBA_PTR_SET_VALUE(backupFilePath_, backupFilePath) };
+
+
+      // channel Field Functions 
+      bool hasChannel() const { return this->channel_ != nullptr;};
+      void deleteChannel() { this->channel_ = nullptr;};
+      inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+      inline Data& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
       // description Field Functions 
@@ -245,53 +254,45 @@ namespace Models
 
 
     protected:
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> androidInstanceId_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> androidInstanceName_ {};
-      // Indicates whether the whole instance is backed up.
+      // Specifies whether to perform a full device backup.
       shared_ptr<bool> backupAll_ {};
-      // The ID of the backup file.
+      // The backup file ID.
       shared_ptr<string> backupFileId_ {};
-      // The name of the backup file.
+      // The backup file name.
       shared_ptr<string> backupFileName_ {};
-      // The directory in which the backup file is stored.
+      // The directory where the backup file is stored.
       shared_ptr<string> backupFilePath_ {};
+      shared_ptr<string> channel_ {};
       // The description of the backup file.
       shared_ptr<string> description_ {};
       // The owner of the backup file.
       shared_ptr<string> endUserId_ {};
-      // The total size of the source files.
+      // The total size of the source backup files.
       shared_ptr<int64_t> fileSize_ {};
-      // The time when the backup file was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the backup file was last updated.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the instance group.
+      // The instance ID.
       shared_ptr<string> instanceGroupId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The names of the application packages that are backed up.
+      // The list of backed-up application package names.
       shared_ptr<vector<string>> sourceAppInfoList_ {};
-      // The directories of the source files.
+      // The list of source backup file directories.
       shared_ptr<vector<string>> sourceFilePathList_ {};
-      // The status of the backup file.
-      // 
-      // Valid values:
-      // 
-      // *   AVAILABLE
-      // *   RECOVERING
+      // The backup file status.
       shared_ptr<string> status_ {};
       shared_ptr<string> systemVersion_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The endpoint of the OSS bucket that stores the backup file.
+      // The domain name of the upload endpoint.
       shared_ptr<string> uploadEndpoint_ {};
-      // The type of the backup.
-      // 
-      // Valid values:
-      // 
-      // *   OSS: backup files are stored in OSS buckets. .
+      // The backup type.
       shared_ptr<string> uploadType_ {};
     };
 
@@ -335,15 +336,15 @@ namespace Models
 
 
   protected:
-    // The backup files that are returned.
+    // The list of returned result objects.
     shared_ptr<vector<DescribeBackupFilesResponseBody::Data>> data_ {};
-    // The total number of entries returned.
+    // The maximum number of entries returned in this call.
     shared_ptr<string> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request. If the request fails, provide this ID to technical support to assist in diagnosing the issue.
+    // The request ID. If you encounter an issue, provide this request ID for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

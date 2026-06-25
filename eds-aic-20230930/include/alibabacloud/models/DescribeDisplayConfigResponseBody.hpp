@@ -106,11 +106,17 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> androidInstanceId_ {};
+      // The dots per inch (DPI). The value ranges from 72 to 600.
       shared_ptr<int32_t> dpi_ {};
+      // > This parameter is not publicly available.
       shared_ptr<int32_t> fps_ {};
+      // Indicates whether the resolution is locked.
       shared_ptr<string> lockResolution_ {};
+      // The height of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionHeight_ {};
+      // The width of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionWidth_ {};
     };
 
@@ -133,7 +139,9 @@ namespace Models
 
 
   protected:
+    // A list of display settings.
     shared_ptr<vector<DescribeDisplayConfigResponseBody::DisplayConfigModel>> displayConfigModel_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

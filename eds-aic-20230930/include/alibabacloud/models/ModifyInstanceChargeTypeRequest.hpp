@@ -97,27 +97,29 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the auto-payment feature. Default value: false.
+    // Specifies whether to enable auto-payment. The default value is `false`.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable the auto-renewal feature. Default value: false.
+    // Specifies whether to enable auto-renewal. The default value is `false`.
     shared_ptr<bool> autoRenew_ {};
-    // The billing method. Valid values:
+    // The new billing method for the instance groups.
     // 
-    // >  Currently, this operation only allows you to change the billing method from **pay-as-you-go to subscription**.
+    // > You can only change the billing method from pay-as-you-go to subscription.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // The IDs of the instance groups.
+    // The instance group IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceGroupIds_ {};
-    // The subscription duration. The unit is specified by PeriodUnit. Valid values: 1 Month, 2 Months, 3 Months, 6 Months, and 1 Year.
+    // The subscription duration. The PeriodUnit parameter specifies the unit. Valid subscription durations are 1, 2, 3, and 6 months, and 1 year.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration. Valid values:
+    // The unit for the subscription duration. Valid values:
     // 
-    // *   **Month**
-    // *   **Year**
+    // - **Month**
+    // 
+    // - **Year**
     shared_ptr<string> periodUnit_ {};
+    // The promotion or coupon ID.
     shared_ptr<string> promotionId_ {};
   };
 

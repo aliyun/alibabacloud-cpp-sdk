@@ -131,13 +131,31 @@ namespace Models
 
 
     protected:
+      // The task\\"s current status. Valid values:
+      // 
+      // `PENDING`: The task is being created.
+      // 
+      // `RUNNING`: The task is running.
+      // 
+      // `COMPLETED`: The task has completed.
+      // 
+      // `FAILED`: The task failed.
+      // 
+      // `TIMEOUT`: The task timed out.
       shared_ptr<string> currentStatus_ {};
+      // The mobile node ID.
       shared_ptr<string> instanceId_ {};
+      // The task\\"s creation time, in ISO 8601 format.
       shared_ptr<string> runningAt_ {};
+      // The number of steps executed.
       shared_ptr<string> steps_ {};
+      // The task duration. This field is returned only when `CurrentStatus` is `FAILED` or `COMPLETED`.
       shared_ptr<string> taskDuration_ {};
+      // The globally unique task ID.
       shared_ptr<string> taskId_ {};
+      // The task result. This field is returned only when `CurrentStatus` is `COMPLETED` or `FAILED`.
       shared_ptr<string> taskResult_ {};
+      // The user prompt that the Agent uses to perform the task.
       shared_ptr<string> userPrompt_ {};
     };
 
@@ -181,10 +199,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The task count.
     shared_ptr<int32_t> count_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of tasks.
     shared_ptr<vector<DescribeAgentTaskResponseBody::Tasks>> tasks_ {};
   };
 

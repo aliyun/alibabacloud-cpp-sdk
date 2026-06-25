@@ -75,18 +75,14 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the auto-payment feature.
-    // 
-    // Valid values:
-    // 
-    // *   true: enables the auto-payment feature. Make sure that your Alibaba Cloud account has sufficient balance.
-    // *   false: disables the auto-payment feature. You need to manually complete the payment process.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // The number of instances that you want to increase.
+    // The number of instances to add to the instance group.
     shared_ptr<int32_t> increaseNumberOfInstance_ {};
     // The ID of the instance group.
     shared_ptr<string> instanceGroupId_ {};
     shared_ptr<string> paidCallBackUrl_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
   };
 

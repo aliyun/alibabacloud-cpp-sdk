@@ -74,7 +74,7 @@ namespace Models
     protected:
       // The ID of the cloud phone instance.
       shared_ptr<string> androidInstanceId_ {};
-      // The ID of the task.
+      // The ID of the task created for this specific instance.
       shared_ptr<string> taskId_ {};
     };
 
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // The objects that are returned.
+    // An array of results, with one entry for each instance specified in the request.
     shared_ptr<vector<FetchFileResponseBody::Data>> data_ {};
-    // The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
+    // The request ID. Provide this ID when contacting support for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The ID of the batch task.
+    // The batch task ID.
     shared_ptr<string> taskId_ {};
   };
 

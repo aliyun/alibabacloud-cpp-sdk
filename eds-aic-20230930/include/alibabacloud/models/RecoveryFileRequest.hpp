@@ -97,17 +97,13 @@ namespace Models
     shared_ptr<string> backupFileId_ {};
     // The OSS path to which the backup file is uploaded.
     // 
-    // >  When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss://${bucketName}/${key}.
+    // > When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss\\://${bucketName}/${key}.
     shared_ptr<string> backupFilePath_ {};
     // The endpoint of the OSS bucket that stores the backup file.
     // 
     // > : When calling the DescribeBuckets operation to query buckets, retrieve the IntranetEndpoint value if the cloud phone and the OSS bucket are in the same region. If they are in different regions, retrieve the ExtranetEndpoint value instead.
     shared_ptr<string> uploadEndpoint_ {};
     // The type of the backup.
-    // 
-    // Valid values:
-    // 
-    // *   OSS: backup files are stored in OSS buckets.
     shared_ptr<string> uploadType_ {};
   };
 

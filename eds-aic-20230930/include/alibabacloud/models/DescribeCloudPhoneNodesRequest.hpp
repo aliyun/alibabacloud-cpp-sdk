@@ -179,36 +179,24 @@ namespace Models
 
 
   protected:
+    // The ID of the bandwidth plan instance.
     shared_ptr<string> bandwidthPackageId_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
     // The billing method. Only the subscription billing method is supported.
     shared_ptr<string> chargeType_ {};
-    // The maximum number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The maximum number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
     shared_ptr<string> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If a query doesn\\"t return all results, the response includes a NextToken value for pagination. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token for the next query. If a query does not return all results, NextToken is not empty. Use the returned NextToken in your next query to continue.
     shared_ptr<string> nextToken_ {};
-    // The matrix IDs.
+    // A list of Cloud Phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};
-    // The matrix name.
+    // The name of the Cloud Phone matrix.
     shared_ptr<string> nodeName_ {};
     shared_ptr<vector<string>> nodeNameList_ {};
-    // The matrix specification.
-    // 
-    // Valid values:
-    // 
-    // *   cpm.gn6.gx1
+    // The instance type of the Cloud Phone matrix.
     shared_ptr<string> serverType_ {};
-    // The matrix status.
-    // 
-    // Valid values:
-    // 
-    // *   FAILED: The matrix failed to be created.
-    // *   RUNNING: The matrix is available.
-    // *   DELETING: The matrix is being deleted.
-    // *   NODE_READY: The matrix is ready, and cloud phone instances are being created.
-    // *   DELETED: The matrix is deleted.
-    // *   CREATING: The matrix is being created.
+    // The status of the Cloud Phone matrix.
     shared_ptr<string> status_ {};
     shared_ptr<vector<DescribeCloudPhoneNodesRequest::Tags>> tags_ {};
   };

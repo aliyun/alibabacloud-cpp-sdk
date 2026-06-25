@@ -112,9 +112,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -296,71 +296,52 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances.
+    // The list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // The name of the instance.
+    // The instance name.
     shared_ptr<string> androidInstanceName_ {};
+    // The application management policy ID.
     shared_ptr<string> appManagePolicyId_ {};
+    // The user ID assigned to the instance, which is the China Wuying convenience account ID.
     shared_ptr<string> authorizedUserId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the regions where Cloud Phone is supported.
+    // <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition/Matrix Edition).
+    // 
+    // <props="intl">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones..
     shared_ptr<string> bizRegionId_ {};
-    // The billing method.
-    // 
-    // Valid values:
-    // 
-    // *   PostPaid: pay-as-you-go.
-    // *   PrePaid: subscription.
+    // The billing type.
     shared_ptr<string> chargeType_ {};
-    // The ID of the instance group.
+    // The instance group ID.
     shared_ptr<string> instanceGroupId_ {};
-    // The IDs of the instance groups.
+    // The list of instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
-    // The name of the instance group.
+    // The instance group name.
     shared_ptr<string> instanceGroupName_ {};
     shared_ptr<string> instanceVersion_ {};
     // The ID of the bound key pair.
     shared_ptr<string> keyPairId_ {};
-    // The maximum number of entries per page. Valid values: 1 to 100. Default value: 100.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
+    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to start reading from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The ID of the node.
+    // <props="china">The matrix ID.
+    // <props="intl">This parameter is not publicly available..
     shared_ptr<string> nodeId_ {};
-    // The name of the node.
+    // <props="china">The name of the matrix.
+    // <props="intl">This parameter is not publicly available..
     shared_ptr<string> nodeName_ {};
+    // The cloud phone network ID.
     shared_ptr<vector<string>> officeSiteIds_ {};
+    // The private IP address of the instance.
     shared_ptr<string> privateIpAddress_ {};
+    // The public network rate limiting rule group ID. The rate limiting rule for instances in the basic shared network.
     shared_ptr<vector<string>> qosRuleIds_ {};
     // The sales mode.
-    // 
-    // Valid values:
-    // 
-    // *   Instance: the standard mode.
-    // *   Node: the node mode.
     shared_ptr<string> saleMode_ {};
     shared_ptr<string> sortKey_ {};
     shared_ptr<string> sortType_ {};
-    // The state of the instance.
-    // 
-    // Valid values:
-    // 
-    // *   BACKUPING: The instance is being backed up.
-    // *   STARTING: The instance is being started.
-    // *   RUNNING: The instance group is available.
-    // *   DELETING: The instance is being deleted.
-    // *   BACKUP_FAILED: The backup operation failed.
-    // *   DELETED: The instance is deleted.
-    // *   FAILED: The instance failed to be created.
-    // *   STOPPED: The instance is stopped.
-    // *   RECOVERING: The instance has an ongoing file recovery task.
-    // *   UNAVAILABLE: The instance has an exception.
-    // *   REBOOTING: The instance is being restarted.
-    // *   RESETTING: The instance is being reset.
-    // *   STOPPING: The instance is being stopped.
-    // *   RECOVER_FAILED: The file recovery task failed.
-    // *   CREATING: The instance is being created.
+    // The instance status.
     shared_ptr<string> status_ {};
-    // The tags of the resources.
+    // The tags of the resource.
     shared_ptr<vector<DescribeAndroidInstancesRequest::Tag>> tag_ {};
   };
 

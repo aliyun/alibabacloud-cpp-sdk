@@ -79,10 +79,11 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud phone instance.
+      // The instance ID.
       shared_ptr<string> androidInstanceId_ {};
+      // The screenshot ID. The generated screenshot is named "ScreenshotId_AndroidInstanceId.png."
       shared_ptr<string> screenshotId_ {};
-      // The ID of the task. You can use the task ID with the DescribeTasks operation to get the download link for the screenshot.
+      // The task ID. You can use this ID to call the DescribeTasks operation and query the screenshot task. When the task is complete, you can get the download link for the screenshot.
       shared_ptr<string> taskId_ {};
     };
 
@@ -105,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
+    // The unique ID of the request. If you encounter an issue, provide this request ID for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The tasks.
+    // The list of tasks.
     shared_ptr<vector<CreateScreenshotResponseBody::Tasks>> tasks_ {};
   };
 

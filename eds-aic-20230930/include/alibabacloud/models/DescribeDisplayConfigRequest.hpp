@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // A list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
   };
 

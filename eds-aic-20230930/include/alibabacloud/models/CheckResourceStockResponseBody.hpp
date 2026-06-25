@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // Region ID.
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
-      // Inventory status of the instance group.
+      // The inventory status of the instance group.
       shared_ptr<string> stockStatus_ {};
-      // Zone ID.
+      // The ID of the zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details of resource inventory.
+    // The resource inventory details.
     shared_ptr<vector<CheckResourceStockResponseBody::ResourceStockModels>> resourceStockModels_ {};
   };
 

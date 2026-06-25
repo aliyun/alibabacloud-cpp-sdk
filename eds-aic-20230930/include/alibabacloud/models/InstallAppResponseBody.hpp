@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The child task ID.
       shared_ptr<string> childTaskId_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -112,10 +115,11 @@ namespace Models
 
 
   protected:
+    // The child task objects.
     shared_ptr<vector<InstallAppResponseBody::ChildTaskInfo>> childTaskInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

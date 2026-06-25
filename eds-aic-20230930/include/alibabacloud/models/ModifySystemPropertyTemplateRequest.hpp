@@ -125,7 +125,9 @@ namespace Models
 
 
       protected:
+        // The key of the custom property.
         shared_ptr<string> propertyName_ {};
+        // The value of the custom property.
         shared_ptr<string> propertyValue_ {};
       };
 
@@ -248,21 +250,37 @@ namespace Models
 
 
     protected:
+      // The information about custom properties.
       shared_ptr<vector<SystemPropertyInfo::CustomPropertyInfos>> customPropertyInfos_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBootloader_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildDisplayId_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildFingerprint_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildHost_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildId_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildProduct_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildTags_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildType_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roBuildUser_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roProductBoard_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roProductBrand_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roProductDevice_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roProductManufacturer_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> roProductModel_ {};
+      // > This parameter is not publicly available.
       shared_ptr<string> rwRoSerialNo_ {};
     };
 
@@ -306,10 +324,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically generate preset system properties.
     shared_ptr<bool> enableAuto_ {};
+    // The URL of the property template file. The system synchronously parses the file. If the file format is invalid, a parsing error is returned.
+    // 
+    // > File template format: `{ "properties":{"key1":"value1", "key2":"value2"}}`.
     shared_ptr<string> filePath_ {};
+    // The information about the system property template.
     shared_ptr<ModifySystemPropertyTemplateRequest::SystemPropertyInfo> systemPropertyInfo_ {};
+    // The ID of the property template.
     shared_ptr<string> templateId_ {};
+    // The name of the template.
     shared_ptr<string> templateName_ {};
   };
 

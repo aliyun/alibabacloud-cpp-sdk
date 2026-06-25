@@ -137,11 +137,11 @@ namespace Models
   protected:
     // The number of instances that are backed up.
     shared_ptr<int64_t> count_ {};
-    // The object that is returned.
+    // The result object.
     shared_ptr<vector<BackupFileResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the batch task.
+    // The batch task ID.
     shared_ptr<string> taskId_ {};
   };
 

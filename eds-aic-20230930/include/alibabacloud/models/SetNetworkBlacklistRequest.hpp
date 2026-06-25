@@ -53,7 +53,13 @@ namespace Models
 
 
   protected:
+    // Domain name blacklist.
+    // 
+    // > Supports a maximum of 200 domain names.
     shared_ptr<vector<string>> domainBlacklist_ {};
+    // IP address blacklist.
+    // 
+    // > Supports a maximum of 200 IP addresses or IP address segments.
     shared_ptr<vector<string>> ipBlacklist_ {};
   };
 

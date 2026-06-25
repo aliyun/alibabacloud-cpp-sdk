@@ -78,12 +78,20 @@ namespace Models
 
 
   protected:
+    // A list of instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> androidInstanceIdList_ {};
+    // The ID of the backup file.
     shared_ptr<string> backupFileId_ {};
+    // The OSS URL where the backup file is uploaded.
+    // 
     // This parameter is required.
     shared_ptr<string> backupFilePath_ {};
+    // The region where the backup is located.
     shared_ptr<string> uploadEndpoint_ {};
+    // The upload type.
+    // 
     // This parameter is required.
     shared_ptr<string> uploadType_ {};
   };

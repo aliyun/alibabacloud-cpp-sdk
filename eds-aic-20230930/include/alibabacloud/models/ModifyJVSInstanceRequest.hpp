@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The credit limit.
       shared_ptr<int64_t> creditLimit_ {};
+      // The credit limit period.
       shared_ptr<string> limitPeriod_ {};
     };
 
@@ -113,9 +115,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to apply the configuration to all instances.
     shared_ptr<bool> applyToAll_ {};
+    // The credit limit configuration. New configurations overwrite existing ones.
     shared_ptr<vector<ModifyJVSInstanceRequest::CreditConfig>> creditConfig_ {};
+    // A list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The new instance name.
     shared_ptr<string> instanceName_ {};
   };
 

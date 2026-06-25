@@ -130,55 +130,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the webcam redirection feature.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
+    // Specifies whether to enable local camera redirection.
     shared_ptr<string> cameraRedirect_ {};
-    // The read/write permissions on the clipboard.
-    // 
-    // Valid values:
-    // 
-    // *   read: read-only.
-    // *   readwrite: ready and write.
-    // *   off: read/write disabled.
+    // The clipboard permission.
     shared_ptr<string> clipboard_ {};
-    // The file transfer policy of the Alibaba Cloud Workspace web client.
-    // 
-    // Valid values:
-    // 
-    // *   all: File upload and download are supported.
-    // *   download: Only file download is supported.
-    // *   upload: Only file upload is supported.
-    // *   off: File upload or download is forbidden.
+    // The file transfer policy for the Wuying web client.
     shared_ptr<string> html5FileTransfer_ {};
-    // The read/write permissions on the on-premises drive.
-    // 
-    // Valid values:
-    // 
-    // *   read: read-only.
-    // *   readwrite: ready and write.
-    // *   off: read/write disabled.
+    // The local disk mapping permission.
     shared_ptr<string> localDrive_ {};
     // Specifies whether to lock the resolution.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
     shared_ptr<string> lockResolution_ {};
-    // The network redirection policy.
+    // Network redirection.
     shared_ptr<string> netRedirectPolicyShrink_ {};
-    // The ID of the policy.
+    // The policy ID.
     shared_ptr<string> policyGroupId_ {};
-    // The name of the policy.
+    // The policy name.
     shared_ptr<string> policyGroupName_ {};
     // The height of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionHeight_ {};
     // The width of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionWidth_ {};
+    // The screen watermark.
     shared_ptr<string> watermarkShrink_ {};
   };
 

@@ -78,21 +78,17 @@ namespace Models
 
 
   protected:
+    // The channel type for running the command.
     shared_ptr<string> agentType_ {};
     // The content of the command.
     shared_ptr<string> commandContent_ {};
-    // The encoding method of the command content (`CommandContent`). The value is not case-sensitive.
+    // The encoding method for the command content (`CommandContent`). This value is not case-sensitive.
     // 
-    // >  If you set the value to an invalid encoding method, the system will process the command content as `PlainText`.
-    // 
-    // Valid values:
-    // 
-    // *   Base64: encodes the command content in Base64.
-    // *   PlainText (default): does not encode the command content. The command content is input as plain text.
+    // > An invalid value defaults to `PlainText`.
     shared_ptr<string> contentEncoding_ {};
-    // The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
+    // A list of instance IDs. You can specify up to 50 instances per request.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The timeout period of the command execution. If the command execution exceeds the timeout period, it will be considered timed out. If you leave this parameter empty, it defaults to 60.
+    // The execution timeout in seconds. The command times out if it does not complete within this period. Defaults to 60 seconds.
     shared_ptr<int64_t> timeout_ {};
   };
 

@@ -84,6 +84,9 @@
 #include <alibabacloud/models/DeleteKeyPairsRequest.hpp>
 #include <alibabacloud/models/DeleteKeyPairsResponseBody.hpp>
 #include <alibabacloud/models/DeleteKeyPairsResponse.hpp>
+#include <alibabacloud/models/DeleteMobileAgentPackageRequest.hpp>
+#include <alibabacloud/models/DeleteMobileAgentPackageResponseBody.hpp>
+#include <alibabacloud/models/DeleteMobileAgentPackageResponse.hpp>
 #include <alibabacloud/models/DeletePolicyGroupRequest.hpp>
 #include <alibabacloud/models/DeletePolicyGroupResponseBody.hpp>
 #include <alibabacloud/models/DeletePolicyGroupResponse.hpp>

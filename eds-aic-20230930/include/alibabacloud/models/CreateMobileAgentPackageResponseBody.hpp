@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // A list of package IDs.
     shared_ptr<vector<string>> mobileAgentPackageIds_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

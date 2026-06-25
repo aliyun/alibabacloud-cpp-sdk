@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The list of Android instance IDs. You can specify 1 to 100 IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
   };

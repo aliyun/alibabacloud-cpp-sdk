@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The public IP address.
     shared_ptr<string> externalIp_ {};
+    // The list of cloud phone instance IDs. You can specify from 1 to 100 IDs.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The private IP address.
     shared_ptr<string> internalIp_ {};
+    // The ADB port number.
     shared_ptr<string> internalPort_ {};
+    // The network protocol type.
     shared_ptr<string> ipProtocol_ {};
+    // The maximum number of records to return on each page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that indicates the position from which the query starts. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
   };
 

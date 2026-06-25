@@ -125,7 +125,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -254,52 +256,35 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account.
       shared_ptr<int64_t> aliUid_ {};
-      // The description of the image.
+      // The description.
       shared_ptr<string> description_ {};
       // The time when the image was created.
       shared_ptr<string> gmtCreate_ {};
       // The time when the image was last modified.
       shared_ptr<string> gmtModified_ {};
+      // An array of tag objects.
       shared_ptr<vector<Data::ImageBizTags>> imageBizTags_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> imageName_ {};
-      // The region where the image is distributed. The key is the region and the value is the distribution information.
+      // The image distribution information by region. The key is the region and the value is the distribution information.
       shared_ptr<map<string, DataImageRegionDistributeMapValue>> imageRegionDistributeMap_ {};
-      // The list of regions.
+      // The list of available regions.
       shared_ptr<vector<string>> imageRegionList_ {};
-      // The type of the image.
-      // 
-      // Valid values:
-      // 
-      // *   User: custom images.
-      // *   System: system images.
+      // The image type.
       shared_ptr<string> imageType_ {};
+      // The image version.
       shared_ptr<string> imageVersion_ {};
-      // The language of the image.
+      // The language.
       shared_ptr<string> language_ {};
       // The time when the image was published.
       shared_ptr<string> releaseTime_ {};
       // The rendering type.
-      // 
-      // Valid values:
-      // 
-      // *   GPURemote
-      // *   CPU
-      // *   GPULocal
       shared_ptr<string> renderingType_ {};
-      // The state of the image.
-      // 
-      // Valid values:
-      // 
-      // *   AVAILABLE: The image is available.
-      // *   DELETE: The image is deleted.
-      // *   INIT: The image is being initialized.
-      // *   CREATE_FAILED: The image failed to be created.
-      // *   CREATING: The image is being created.
+      // The image status.
       shared_ptr<string> status_ {};
-      // The OS type of the image.
+      // The operating system type.
       shared_ptr<string> systemType_ {};
     };
 
@@ -336,13 +321,13 @@ namespace Models
 
 
   protected:
-    // The images.
+    // The returned data.
     shared_ptr<vector<DescribeImageListResponseBody::Data>> data_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that is used to start the next query. An empty value indicates that all data has been returned.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

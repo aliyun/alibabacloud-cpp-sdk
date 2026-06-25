@@ -59,6 +59,9 @@ namespace Models
 
 
     protected:
+      // The instance properties.
+      // 
+      // > Format: `{ "propties":{"key1":"value1"}}`.
       shared_ptr<string> content_ {};
     };
 
@@ -81,8 +84,9 @@ namespace Models
 
 
   protected:
+    // The instance properties.
     shared_ptr<GetInstancePropertiesResponseBody::PropertyTemplateModel> propertyTemplateModel_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

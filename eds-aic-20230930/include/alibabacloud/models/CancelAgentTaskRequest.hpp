@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A list of task IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> taskIds_ {};
   };

@@ -133,13 +133,20 @@ namespace Models
 
 
     protected:
+      // The expiration time.
       shared_ptr<string> expiredAt_ {};
+      // The list of node instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
+      // The total package credit.
       shared_ptr<string> packageCredit_ {};
+      // The package ID.
       shared_ptr<string> packageId_ {};
+      // The package specification.
       shared_ptr<string> packageSpec_ {};
       shared_ptr<string> packageSpecName_ {};
+      // The package status.
       shared_ptr<string> packageStatus_ {};
+      // The amount of credit used.
       shared_ptr<string> usedCredit_ {};
     };
 
@@ -183,10 +190,15 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of packages.
     shared_ptr<vector<DescribeMobileAgentPackageResponseBody::PackageList>> packageList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

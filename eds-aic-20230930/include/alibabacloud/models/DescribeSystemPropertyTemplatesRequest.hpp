@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return for a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The starting position for reading. If this parameter is empty, reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The property template ID.
     shared_ptr<vector<string>> templateIds_ {};
+    // The template name.
     shared_ptr<string> templateName_ {};
   };
 
