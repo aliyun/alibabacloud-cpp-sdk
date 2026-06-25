@@ -65,6 +65,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Compress, compress_);
           DARABONBA_PTR_TO_JSON(Connections, connections_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(DnsServers, dnsServers_);
           DARABONBA_PTR_TO_JSON(EnableMultiFactorAuth, enableMultiFactorAuth_);
           DARABONBA_PTR_TO_JSON(IDaaSApplicationId, IDaaSApplicationId_);
           DARABONBA_PTR_TO_JSON(IDaaSInstanceId, IDaaSInstanceId_);
@@ -87,6 +88,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Compress, compress_);
           DARABONBA_PTR_FROM_JSON(Connections, connections_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(DnsServers, dnsServers_);
           DARABONBA_PTR_FROM_JSON(EnableMultiFactorAuth, enableMultiFactorAuth_);
           DARABONBA_PTR_FROM_JSON(IDaaSApplicationId, IDaaSApplicationId_);
           DARABONBA_PTR_FROM_JSON(IDaaSInstanceId, IDaaSInstanceId_);
@@ -115,10 +117,10 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cipher_ == nullptr
-        && this->clientIpPool_ == nullptr && this->compress_ == nullptr && this->connections_ == nullptr && this->createTime_ == nullptr && this->enableMultiFactorAuth_ == nullptr
-        && this->IDaaSApplicationId_ == nullptr && this->IDaaSInstanceId_ == nullptr && this->IDaaSInstanceVersion_ == nullptr && this->IDaaSRegionId_ == nullptr && this->internetIp_ == nullptr
-        && this->localSubnet_ == nullptr && this->maxConnections_ == nullptr && this->name_ == nullptr && this->port_ == nullptr && this->proto_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->sslVpnServerId_ == nullptr && this->vpnGatewayId_ == nullptr; };
+        && this->clientIpPool_ == nullptr && this->compress_ == nullptr && this->connections_ == nullptr && this->createTime_ == nullptr && this->dnsServers_ == nullptr
+        && this->enableMultiFactorAuth_ == nullptr && this->IDaaSApplicationId_ == nullptr && this->IDaaSInstanceId_ == nullptr && this->IDaaSInstanceVersion_ == nullptr && this->IDaaSRegionId_ == nullptr
+        && this->internetIp_ == nullptr && this->localSubnet_ == nullptr && this->maxConnections_ == nullptr && this->name_ == nullptr && this->port_ == nullptr
+        && this->proto_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->sslVpnServerId_ == nullptr && this->vpnGatewayId_ == nullptr; };
         // cipher Field Functions 
         bool hasCipher() const { return this->cipher_ != nullptr;};
         void deleteCipher() { this->cipher_ = nullptr;};
@@ -152,6 +154,13 @@ namespace Models
         void deleteCreateTime() { this->createTime_ = nullptr;};
         inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
         inline SslVpnServer& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+        // dnsServers Field Functions 
+        bool hasDnsServers() const { return this->dnsServers_ != nullptr;};
+        void deleteDnsServers() { this->dnsServers_ = nullptr;};
+        inline string getDnsServers() const { DARABONBA_PTR_GET_DEFAULT(dnsServers_, "") };
+        inline SslVpnServer& setDnsServers(string dnsServers) { DARABONBA_PTR_SET_VALUE(dnsServers_, dnsServers) };
 
 
         // enableMultiFactorAuth Field Functions 
@@ -265,6 +274,7 @@ namespace Models
         shared_ptr<bool> compress_ {};
         shared_ptr<int32_t> connections_ {};
         shared_ptr<int64_t> createTime_ {};
+        shared_ptr<string> dnsServers_ {};
         shared_ptr<bool> enableMultiFactorAuth_ {};
         shared_ptr<string> IDaaSApplicationId_ {};
         shared_ptr<string> IDaaSInstanceId_ {};
@@ -336,14 +346,14 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSslVpnServersResponseBody::SslVpnServers> sslVpnServers_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

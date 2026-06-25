@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The SSL server name.
+    // The name of the SSL server.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

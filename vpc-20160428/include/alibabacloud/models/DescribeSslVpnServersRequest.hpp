@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The SSL server name.
+    // The name of the SSL server.
     // 
     // The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
@@ -138,17 +138,17 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the SSL server.
+    // The region ID of the SSL server. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID of the SSL server.
+    // The ID of the resource group to which the SSL server belongs.
     // 
-    // The SSL server and its associated VPN gateway belong to the same resource group. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the ID of the resource group to which the VPN gateway belongs.
+    // The SSL server belongs to the same resource group as the associated VPN gateway instance. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the resource group ID of the VPN gateway instance.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
