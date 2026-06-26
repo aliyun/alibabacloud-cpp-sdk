@@ -490,13 +490,13 @@ CancelUpsertCollectionDataJobResponse Client::cancelUpsertCollectionDataJob(cons
 }
 
 /**
- * @summary Combines a knowledge base with a large language model for intelligent Q&A.
+ * @summary Provides intelligent Q&A services by combining knowledge bases with large models.
  *
- * @description This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
- * - **DBInstanceId**: Required. Specifies the ID of the database instance.
- * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
- * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
- * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
+ * @description This API allows users to interact with a large model through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to database instance ID, knowledge retrieval parameters, model inference parameters, etc. Additionally, it provides a default system prompt template and allows users to customize system prompts.
+ * - **DBInstanceId**: Required. Specifies the database instance ID.
+ * - **KnowledgeParams**: Optional. Contains parameters related to knowledge retrieval, such as retrieval content, merge strategies, etc.
+ * - **ModelParams**: Required. Contains parameters related to model inference, such as message list, model name, etc.
+ * - **PromptTemplate**: Optional. Used to customize the system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -561,13 +561,13 @@ ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBaseWithOptions(const Cha
 }
 
 /**
- * @summary Combines a knowledge base with a large language model for intelligent Q&A.
+ * @summary Provides intelligent Q&A services by combining knowledge bases with large models.
  *
- * @description This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
- * - **DBInstanceId**: Required. Specifies the ID of the database instance.
- * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
- * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
- * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
+ * @description This API allows users to interact with a large model through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to database instance ID, knowledge retrieval parameters, model inference parameters, etc. Additionally, it provides a default system prompt template and allows users to customize system prompts.
+ * - **DBInstanceId**: Required. Specifies the database instance ID.
+ * - **KnowledgeParams**: Optional. Contains parameters related to knowledge retrieval, such as retrieval content, merge strategies, etc.
+ * - **ModelParams**: Required. Contains parameters related to model inference, such as message list, model name, etc.
+ * - **PromptTemplate**: Optional. Used to customize the system prompt template.
  *
  * @param request ChatWithKnowledgeBaseRequest
  * @return ChatWithKnowledgeBaseResponse
@@ -578,13 +578,13 @@ ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBase(const ChatWithKnowle
 }
 
 /**
- * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+ * @summary Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
  *
- * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
- * - DBInstanceId: Required. The ID of the database instance.
- * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
- * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
- * - PromptTemplate: Optional. A custom system prompt template.
+ * @description This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+ * - DBInstanceId: Required. Specifies the database instance ID.
+ * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+ * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+ * - PromptTemplate: Optional. Specifies a custom system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -663,13 +663,13 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+ * @summary Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
  *
- * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
- * - DBInstanceId: Required. The ID of the database instance.
- * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
- * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
- * - PromptTemplate: Optional. A custom system prompt template.
+ * @description This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+ * - DBInstanceId: Required. Specifies the database instance ID.
+ * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+ * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+ * - PromptTemplate: Optional. Specifies a custom system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -734,13 +734,13 @@ ChatWithKnowledgeBaseStreamResponse Client::chatWithKnowledgeBaseStreamWithOptio
 }
 
 /**
- * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+ * @summary Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
  *
- * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
- * - DBInstanceId: Required. The ID of the database instance.
- * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
- * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
- * - PromptTemplate: Optional. A custom system prompt template.
+ * @description This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+ * - DBInstanceId: Required. Specifies the database instance ID.
+ * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+ * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+ * - PromptTemplate: Optional. Specifies a custom system prompt template.
  *
  * @param request ChatWithKnowledgeBaseStreamRequest
  * @return ChatWithKnowledgeBaseStreamResponse
@@ -15125,6 +15125,56 @@ PauseInstanceResponse Client::pauseInstance(const PauseInstanceRequest &request)
 }
 
 /**
+ * @summary 暂停SaaS服务
+ *
+ * @description 删除模型服务。
+ *
+ * @param request PauseSaasServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PauseSaasServiceResponse
+ */
+PauseSaasServiceResponse Client::pauseSaasServiceWithOptions(const PauseSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PauseSaasService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PauseSaasServiceResponse>();
+}
+
+/**
+ * @summary 暂停SaaS服务
+ *
+ * @description 删除模型服务。
+ *
+ * @param request PauseSaasServiceRequest
+ * @return PauseSaasServiceResponse
+ */
+PauseSaasServiceResponse Client::pauseSaasService(const PauseSaasServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pauseSaasServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Pauses a Supabase instance.
  *
  * @description This operation pauses a Supabase instance.
@@ -15317,7 +15367,7 @@ QueryCollectionDataResponse Client::queryCollectionData(const QueryCollectionDat
 }
 
 /**
- * @summary Query a document collection with natural language to retrieve vectors and metadata.
+ * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
  *
  * @param tmpReq QueryContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15468,7 +15518,7 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
 }
 
 /**
- * @summary Query a document collection with natural language to retrieve vectors and metadata.
+ * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
  *
  * @param request QueryContentRequest
  * @return QueryContentResponse
@@ -15565,7 +15615,7 @@ QueryContentResponse Client::queryContentAdvance(const QueryContentAdvanceReques
 }
 
 /**
- * @summary Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
+ * @summary Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
  *
  * @param tmpReq QueryKnowledgeBasesContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15646,7 +15696,7 @@ QueryKnowledgeBasesContentResponse Client::queryKnowledgeBasesContentWithOptions
 }
 
 /**
- * @summary Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
+ * @summary Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
  *
  * @param request QueryKnowledgeBasesContentRequest
  * @return QueryKnowledgeBasesContentResponse
@@ -16264,6 +16314,56 @@ ResumeInstanceResponse Client::resumeInstanceWithOptions(const ResumeInstanceReq
 ResumeInstanceResponse Client::resumeInstance(const ResumeInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resumeInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 恢复SaaS服务
+ *
+ * @description 删除模型服务。
+ *
+ * @param request ResumeSaasServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeSaasServiceResponse
+ */
+ResumeSaasServiceResponse Client::resumeSaasServiceWithOptions(const ResumeSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeSaasService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeSaasServiceResponse>();
+}
+
+/**
+ * @summary 恢复SaaS服务
+ *
+ * @description 删除模型服务。
+ *
+ * @param request ResumeSaasServiceRequest
+ * @return ResumeSaasServiceResponse
+ */
+ResumeSaasServiceResponse Client::resumeSaasService(const ResumeSaasServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resumeSaasServiceWithOptions(request, runtime);
 }
 
 /**

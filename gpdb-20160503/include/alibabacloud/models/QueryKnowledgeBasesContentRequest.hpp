@@ -121,10 +121,12 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const RerankModel& obj) { 
             DARABONBA_PTR_TO_JSON(Instruct, instruct_);
             DARABONBA_PTR_TO_JSON(Name, name_);
+            DARABONBA_PTR_TO_JSON(RerankMetadataFields, rerankMetadataFields_);
           };
           friend void from_json(const Darabonba::Json& j, RerankModel& obj) { 
             DARABONBA_PTR_FROM_JSON(Instruct, instruct_);
             DARABONBA_PTR_FROM_JSON(Name, name_);
+            DARABONBA_PTR_FROM_JSON(RerankMetadataFields, rerankMetadataFields_);
           };
           RerankModel() = default ;
           RerankModel(const RerankModel &) = default ;
@@ -138,7 +140,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->instruct_ == nullptr
-        && this->name_ == nullptr; };
+        && this->name_ == nullptr && this->rerankMetadataFields_ == nullptr; };
           // instruct Field Functions 
           bool hasInstruct() const { return this->instruct_ != nullptr;};
           void deleteInstruct() { this->instruct_ = nullptr;};
@@ -153,11 +155,19 @@ namespace Models
           inline RerankModel& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+          // rerankMetadataFields Field Functions 
+          bool hasRerankMetadataFields() const { return this->rerankMetadataFields_ != nullptr;};
+          void deleteRerankMetadataFields() { this->rerankMetadataFields_ = nullptr;};
+          inline string getRerankMetadataFields() const { DARABONBA_PTR_GET_DEFAULT(rerankMetadataFields_, "") };
+          inline RerankModel& setRerankMetadataFields(string rerankMetadataFields) { DARABONBA_PTR_SET_VALUE(rerankMetadataFields_, rerankMetadataFields) };
+
+
         protected:
-          // This parameter can be set only when `RerankModel.Name` is `qwen3-rerank`. Use this parameter to provide a custom instruction that guides the model\\"s ranking strategy.
+          // This parameter can be set when RerankModel.Name is set to qwen3-rerank. Specifies a custom ranking task type description that guides the model to adopt different ranking strategies.
           shared_ptr<string> instruct_ {};
-          // The name of the rerank model. Valid values: `qwen3-rerank` and `gte-rerank-v2`.
+          // The name of the reranking model. Valid values: qwen3-rerank, gte-rerank-v2.
           shared_ptr<string> name_ {};
+          shared_ptr<string> rerankMetadataFields_ {};
         };
 
         class GraphSearchArgs : public Darabonba::Model {
@@ -188,7 +198,7 @@ namespace Models
 
 
         protected:
-          // The number of top entities and relationship edges to return. The default value is 60.
+          // The number of top entities and relationship edges to return. Default value: 60.
           shared_ptr<int64_t> graphTopK_ {};
         };
 
@@ -296,28 +306,26 @@ namespace Models
 
 
       protected:
-        // A filter expression for the data to retrieve, formatted as a SQL `WHERE` clause. This is a Boolean expression that evaluates to `true` or `false`. The expression can include simple comparison operators (such as `=`, `<>`, `!=`, `>`, `<`, `>=`, and `<=`), logical operators (`AND`, `OR`, `NOT`), and keywords such as `IN`, `BETWEEN`, and `LIKE`.
+        // The filter conditions for the data to query, in SQL WHERE clause format. This is an expression that returns a Boolean value (true or false). The conditions can be simple comparison operators such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), and less than or equal to (<=). They can also be more complex expressions combined with logical operators (AND, OR, NOT), as well as conditions that use keywords such as IN, BETWEEN, and LIKE.
         // 
-        // > - For syntax details, see [PostgreSQL WHERE](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/).
+        // > 
+        // > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
         shared_ptr<string> filter_ {};
-        // Specifies whether to enable knowledge graph enhancement. The default value is `false`.
+        // Specifies whether to enable knowledge graph enhancement. Default value: false.
         shared_ptr<bool> graphEnhance_ {};
-        // Parameters for the graph search.
+        // The number of top entities and relationship edges to return. Default value: 60.
         shared_ptr<QueryParams::GraphSearchArgs> graphSearchArgs_ {};
-        // The hybrid search algorithm. If this parameter is not specified, the system directly compares and sorts the scores from dense vector and full-text searches.
+        // The multi-channel recall algorithm. Default value: empty (the scores from dense vectors and full-text retrieval are directly compared and sorted).
         // 
         // Valid values:
         // 
-        // - `RRF`: Reciprocal rank fusion. Uses a parameter `k` to control the fusion effect. For more information, see the `HybridSearchArgs` parameter.
-        // 
-        // - `Weight`: Weighted ranking. Uses parameters to control the score weights from different retrieval paths, such as dense vector and full-text searches, before sorting. For more information, see the `HybridSearchArgs` parameter.
-        // 
-        // - `Cascaded`: Performs a full-text search first, and then performs a vector search on the results.
+        // - RRF: reciprocal rank fusion. A parameter k controls the fusion effect. For more information, see the HybridSearchArgs configuration.
+        // - Weight: weighted ranking. Parameters control the score weights of vector retrieval and full-text retrieval before sorting. For more information, see the HybridSearchArgs configuration.
+        // - Cascaded: full-text retrieval is performed first, followed by vector retrieval on the full-text results.
         shared_ptr<string> hybridSearch_ {};
-        // The parameters for the hybrid search algorithm. `RRF` and `Weight` are supported. `HybridPathsSetting` specifies the retrieval paths: dense vectors (`dense`), sparse vectors (`sparse`), and full-text search (`fulltext`). If this parameter is not specified, the default paths are `dense` and `fulltext`.
+        // The algorithm parameters for multi-channel recall. RRF and Weight are supported. HybridPathsSetting specifies the recall paths: dense vectors (dense), sparse vectors (sparse), and full-text retrieval (fulltext). If this value is empty, dense vectors (dense) and full-text retrieval (fulltext) are used by default.
         // 
-        // - `RRF`: Specifies the constant `k` in the scoring formula `1/(k+rank_i)`. `k` must be a positive integer greater than 1. Format:
-        // 
+        // - RRF: specifies the k constant in the scoring algorithm `1/(k+rank_i)`. The value must be a positive integer greater than 1. Format:
         // ```
         // {
         //   "HybridPathsSetting": {
@@ -329,12 +337,9 @@ namespace Models
         // }
         // ```
         // 
-        // - `Weight`:
-        // 
-        //   - Two-path retrieval (the default if you do not specify `HybridPathsSetting`):
-        // 
-        //     - Scoring formula: `alpha * dense_score + (1-alpha) * fulltext_score`. The `alpha` parameter represents the score weight of dense vectors relative to full-text search. The value must be in the range of [0, 1]. A value of 0 indicates full-text search only, and a value of 1 indicates dense vector search only.
-        // 
+        // - Weight: 
+        //    - Dual-path recall (without specifying HybridPathsSetting, only specifying alpha):
+        //       - Formula: alpha * dense_score + (1-alpha) * fulltext_score. The alpha parameter specifies the score weight between dense vectors and full-text retrieval. Valid values: 0 to 1, where 0 indicates full-text retrieval only and 1 indicates dense vectors only:
         // ```
         // { 
         //    "Weight": {
@@ -342,11 +347,8 @@ namespace Models
         //    }
         // }
         // ```
-        // 
-        // - Three-path retrieval:
-        // 
-        //   - Scoring formula: `normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score`. The `dense`, `sparse`, and `fulltext` parameters represent the weights for dense vectors, sparse vectors, and full-text search, respectively. The value of each weight must be greater than or equal to 0. The system automatically normalizes the weights to a range of [0, 1] (for example, `normalized_x = x / (dense + sparse + fulltext)`).
-        // 
+        //   - Three-path recall pattern:
+        //      - Formula: normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score. dense, sparse, and fulltext represent the weights for dense vectors, sparse vectors, and full-text retrieval respectively. Valid values: greater than or equal to 0. The system automatically performs normalization on the weights to 0 to 1 (normalized_x = x / (dense + sparse + fulltext)).
         // ```
         // {
         //   "HybridPathsSetting": {
@@ -360,39 +362,34 @@ namespace Models
         // }
         // ```
         Darabonba::Json hybridSearchArgs_ {};
-        // The distance metric used for building the vector index. Valid values:
-        // 
-        // - `l2`: Euclidean distance.
-        // 
-        // - `ip`: Inner product distance.
-        // 
-        // - `cosine`: Cosine similarity.
+        // The method used to build the vector index. Valid values:
+        // - l2: Euclidean distance.
+        // - ip: inner product distance.
+        // - cosine: cosine similarity.
         shared_ptr<string> metrics_ {};
-        // The offset for paged queries.
+        // The offset for paging query.
         shared_ptr<int32_t> offset_ {};
-        // Specifies the field by which to sort the results. By default, this parameter is empty.
+        // The field used for sorting. Default value: empty.
         // 
-        // The field must be a metadata field or a default field in the table, such as `id`. The following formats are supported:
+        // The field must belong to metadata or a default field in the table, such as id. Supported formats:
         // 
-        // A single field, such as `chunk_id`. Multiple fields separated by commas, such as `block_id, chunk_id`. Descending order, such as `block_id DESC, chunk_id DESC`.
+        // A single field, such as chunk_id.
+        // Multiple fields separated by commas, such as block_id, chunk_id.
+        // Descending order is supported, such as block_id DESC, chunk_id DESC.
         shared_ptr<string> orderBy_ {};
-        // The recall window. If specified, adds context from surrounding document chunks to the search results. The format is a two-element array `[A, B]`, where `-10 <= A <= 0` and `0 <= B <= 10`.
-        // 
-        // > - This parameter is recommended for finely chunked documents where retrieval might otherwise lose context.
-        // >
-        // > - The system applies reranking before applying the recall window.
+        // The recall window. If this value is not empty, the context of the retrieval results is included. The format is a two-element array: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+        // > - Use this parameter when document chunks are too small and retrieval may lose context information.
+        // > - Reranking takes priority over windowing. Reranking is performed first, followed by windowing.
         shared_ptr<vector<int64_t>> recallWindow_ {};
-        // The reranking factor. If specified, the system reranks the results from this source collection before they are merged. Valid values: 1 < RerankFactor <= 5.
-        // 
-        // > - Sparse document chunking reduces reranking efficiency.
-        // >
-        // > - We recommend that the number of items to rerank (TopK × Factor, rounded up) does not exceed 50.
+        // The reranking factor. If this parameter is not empty, the vector retrieval results are reranked. Valid values: 1 < RerankFactor <= 5.
+        // > - Reranking is slow when document chunks are sparse.
+        // > - The recommended reranking count (TopK × Factor, rounded up) should not exceed 50.
         shared_ptr<double> rerankFactor_ {};
-        // Parameters for the rerank model applied to the results from this specific source collection before the final merge.
+        // The reranking model parameters.
         shared_ptr<QueryParams::RerankModel> rerankModel_ {};
-        // The number of top results to return from this source collection.
+        // The number of top results to return.
         shared_ptr<int64_t> topK_ {};
-        // Specifies whether to use full-text search, which enables two-path retrieval. The default value is `false`, which indicates that only vector retrieval is performed.
+        // Specifies whether to use full-text retrieval (dual-path recall). Default value: false, which indicates that only vector retrieval is used.
         shared_ptr<bool> useFullTextRetrieval_ {};
       };
 
@@ -429,23 +426,23 @@ namespace Models
 
 
     protected:
-      // The document collection name.
+      // The name of the document collection.
       // 
-      // > To create a document collection, call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. To view existing document collections, call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation.
+      // > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view existing document collections.
       // 
       // This parameter is required.
       shared_ptr<string> collection_ {};
       // The namespace.
       // 
-      // > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view existing namespaces.
+      // > You can create a namespace by calling the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation and view the list by calling the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation.
       shared_ptr<string> namespace_ {};
-      // The password for the namespace.
+      // The password of the namespace.
       // 
-      // > You specify this value when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+      // > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
       // 
       // This parameter is required.
       shared_ptr<string> namespacePassword_ {};
-      // The query parameters for the source collection.
+      // The filter conditions for the data to query, in SQL WHERE clause format.
       shared_ptr<SourceCollection::QueryParams> queryParams_ {};
     };
 
@@ -487,9 +484,9 @@ namespace Models
 
 
     protected:
-      // This parameter can be set only when `RerankModel.Name` is `qwen3-rerank`. Use this parameter to provide a custom instruction that guides the model\\"s ranking strategy.
+      // This parameter can be set when RerankModel.Name is set to qwen3-rerank. Specifies a custom ranking task type description that guides the model to adopt different ranking strategies.
       shared_ptr<string> instruct_ {};
-      // The name of the rerank model. Valid values: `qwen3-rerank` and `gte-rerank-v2`.
+      // The name of the reranking model. Valid values: qwen3-rerank, gte-rerank-v2.
       shared_ptr<string> name_ {};
     };
 
@@ -544,7 +541,7 @@ namespace Models
 
 
       protected:
-        // An array of weights for each source collection.
+        // The weight array for each SourceCollection.
         shared_ptr<vector<double>> weights_ {};
       };
 
@@ -576,7 +573,7 @@ namespace Models
 
 
       protected:
-        // The constant `k` in the scoring formula `1/(k+rank_i)`. It must be a positive integer greater than 1.
+        // The k constant in the scoring algorithm `1/(k+rank_i)`. The value must be a positive integer greater than 1.
         shared_ptr<int64_t> k_ {};
       };
 
@@ -601,9 +598,9 @@ namespace Models
 
 
     protected:
-      // The parameters that you can configure when `MergeMethod` is set to `RRF`.
+      // The configurable parameters when MergeMethod is set to RRF.
       shared_ptr<MergeMethodArgs::Rrf> rrf_ {};
-      // The parameters that you can configure when `MergeMethod` is set to `Weight`.
+      // The configurable parameters when MergeMethod is set to Weight.
       shared_ptr<MergeMethodArgs::Weight> weight_ {};
     };
 
@@ -687,42 +684,38 @@ namespace Models
 
 
   protected:
-    // The text content to search for.
+    // The text content used for retrieval.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in a specific region, including their instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The method for merging results from multiple knowledge bases. The default value is `RRF`. Valid values:
-    // 
+    // The method used to merge results from multiple knowledge bases. Default value: RRF. Valid values:
     // - RRF
-    // 
-    // - Weight
+    // - Weight.
     shared_ptr<string> mergeMethod_ {};
-    // The arguments for the specified `MergeMethod`.
+    // The parameters for the merge method of each SourceCollection.
     shared_ptr<QueryKnowledgeBasesContentRequest::MergeMethodArgs> mergeMethodArgs_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The reranking factor. If specified, the system reranks the final merged results. Valid values: 1 < RerankFactor <= 5.
-    // 
-    // > - Sparse document chunking reduces reranking efficiency.
-    // >
-    // > - We recommend that the number of items to rerank (TopK × Factor, rounded up) does not exceed 50.
+    // The reranking factor. If this parameter is not empty, the vector retrieval results are reranked. Valid values: 1 < RerankFactor <= 5.
+    // > - Reranking is slow when document chunks are sparse.
+    // > - The recommended reranking count (TopK × Factor, rounded up) should not exceed 50.
     shared_ptr<double> rerankFactor_ {};
-    // Parameters for the rerank model applied to the final merged results.
+    // The reranking model parameters for performing an additional reranking on the overall results after multi-channel merging.
     shared_ptr<QueryKnowledgeBasesContentRequest::RerankModel> rerankModel_ {};
-    // The source collections to search.
+    // The information about the multiple collections to retrieve.
     // 
     // This parameter is required.
     shared_ptr<vector<QueryKnowledgeBasesContentRequest::SourceCollection>> sourceCollection_ {};
-    // The number of top results to return after the results from all recall paths are merged.
+    // The number of top results to return after multi-channel recall merging.
     shared_ptr<int64_t> topK_ {};
   };
 

@@ -147,11 +147,11 @@ namespace Models
 
 
         protected:
-          // A description of the function tool.
+          // The description of the function tool.
           shared_ptr<string> description_ {};
           // The name of the function tool.
           shared_ptr<string> name_ {};
-          // The parameters of the function, described as a JSON Schema object.
+          // The JSON Schema of the function parameters.
           Darabonba::Json parameters_ {};
         };
 
@@ -208,17 +208,15 @@ namespace Models
 
 
       protected:
-        // The content of the message.
+        // The message content.
         // 
         // This parameter is required.
         shared_ptr<string> content_ {};
-        // The role of the message author. Valid values:
+        // The message role. Valid values:
         // 
-        // - `system`
-        // 
-        // - `user`
-        // 
-        // - `assistant`
+        // - system
+        // - user
+        // - assistant.
         // 
         // This parameter is required.
         shared_ptr<string> role_ {};
@@ -306,27 +304,27 @@ namespace Models
     protected:
       // The maximum number of tokens to generate.
       shared_ptr<int64_t> maxTokens_ {};
-      // A list of messages in the conversation.
+      // The message list.
       // 
       // This parameter is required.
       shared_ptr<vector<ModelParams::Messages>> messages_ {};
-      // The name of the Large Language Model to use. For a list of available models, refer to the [Model Studio documentation](https://help.aliyun.com/zh/model-studio/compatibility-of-openai-with-dashscope?spm=openapi-amp.newDocPublishment.0.0.257c281fH8TtM8\\&scm=20140722.H_2833609._.OR_help-T_cn~zh-V_1#eadfc13038jd5).
+      // The name of the large language model to use. For valid values, see [Model Studio documentation](https://www.alibabacloud.com/help/en/model-studio/compatibility-of-openai-with-dashscope#eadfc13038jd5).
       // 
       // This parameter is required.
       shared_ptr<string> model_ {};
       // The number of candidate responses to generate.
       shared_ptr<int64_t> n_ {};
-      // The presence penalty. A value between -2.0 and 2.0.
+      // The presence penalty coefficient. Valid values: -2.0 to 2.0.
       shared_ptr<double> presencePenalty_ {};
-      // The random seed for sampling.
+      // The random seed.
       shared_ptr<int64_t> seed_ {};
-      // A list of stop sequences.
+      // The list of stop words.
       shared_ptr<vector<string>> stop_ {};
-      // The sampling temperature. A value between 0 and 2.
+      // The sampling temperature. Valid values: 0 to 2.
       shared_ptr<double> temperature_ {};
-      // A list of tools the model can call.
+      // The tool list.
       shared_ptr<vector<ModelParams::Tools>> tools_ {};
-      // The nucleus sampling probability threshold. A value between 0 and 1.
+      // The nucleus sampling probability threshold. Valid values: 0 to 1.
       shared_ptr<double> topP_ {};
     };
 
@@ -428,10 +426,12 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const RerankModel& obj) { 
               DARABONBA_PTR_TO_JSON(Instruct, instruct_);
               DARABONBA_PTR_TO_JSON(Name, name_);
+              DARABONBA_PTR_TO_JSON(RerankMetadataFields, rerankMetadataFields_);
             };
             friend void from_json(const Darabonba::Json& j, RerankModel& obj) { 
               DARABONBA_PTR_FROM_JSON(Instruct, instruct_);
               DARABONBA_PTR_FROM_JSON(Name, name_);
+              DARABONBA_PTR_FROM_JSON(RerankMetadataFields, rerankMetadataFields_);
             };
             RerankModel() = default ;
             RerankModel(const RerankModel &) = default ;
@@ -445,7 +445,7 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->instruct_ == nullptr
-        && this->name_ == nullptr; };
+        && this->name_ == nullptr && this->rerankMetadataFields_ == nullptr; };
             // instruct Field Functions 
             bool hasInstruct() const { return this->instruct_ != nullptr;};
             void deleteInstruct() { this->instruct_ = nullptr;};
@@ -460,11 +460,19 @@ namespace Models
             inline RerankModel& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+            // rerankMetadataFields Field Functions 
+            bool hasRerankMetadataFields() const { return this->rerankMetadataFields_ != nullptr;};
+            void deleteRerankMetadataFields() { this->rerankMetadataFields_ = nullptr;};
+            inline string getRerankMetadataFields() const { DARABONBA_PTR_GET_DEFAULT(rerankMetadataFields_, "") };
+            inline RerankModel& setRerankMetadataFields(string rerankMetadataFields) { DARABONBA_PTR_SET_VALUE(rerankMetadataFields_, rerankMetadataFields) };
+
+
           protected:
-            // An instruction for the rerank model.
+            // This parameter can be set when RerankModel.Name is set to qwen3-rerank. Specifies a custom ranking task type description to guide the model to adopt different ranking strategies.
             shared_ptr<string> instruct_ {};
-            // The name of the rerank model.
+            // The reranking model name. Valid values: qwen3-rerank, gte-rerank-v2.
             shared_ptr<string> name_ {};
+            shared_ptr<string> rerankMetadataFields_ {};
           };
 
           class GraphSearchArgs : public Darabonba::Model {
@@ -495,7 +503,7 @@ namespace Models
 
 
           protected:
-            // The number of top entities and relationship edges to return. Default value: `60`.
+            // The number of top entities and relationship edges to return. Default value: 60.
             shared_ptr<int64_t> graphTopK_ {};
           };
 
@@ -588,26 +596,23 @@ namespace Models
 
 
         protected:
-          // A filter expression to apply to the search, similar to a SQL `WHERE` clause.
+          // The filter condition for the data to update, in SQL WHERE clause format.
           shared_ptr<string> filter_ {};
-          // Specifies whether to enable knowledge graph enhancement. Default value: `false`.
+          // Specifies whether to enable knowledge graph enhancement. Default value: false.
           shared_ptr<bool> graphEnhance_ {};
-          // The parameters for knowledge graph search.
+          // The knowledge graph retrieval parameters.
           shared_ptr<QueryParams::GraphSearchArgs> graphSearchArgs_ {};
-          // Specifies the hybrid search algorithm. If omitted, the system performs a basic score comparison of vector search and full-text retrieval results.
+          // The multi-channel recall algorithm. Default value: empty (AISearch and full-text index scores are directly compared and sorted).
           // 
           // Valid values:
           // 
-          // - `RRF`: Reciprocal rank fusion. Configure the `k` parameter in `HybridSearchArgs`.
-          // 
-          // - `Weight`: Weighted score fusion. Use the `alpha` parameter in `HybridSearchArgs` to control the balance between vector and full-text search scores.
-          // 
-          // - `Cascaded`: First performs full-text retrieval, then runs a vector search on the results.
+          // - RRF: Reciprocal rank fusion. A parameter k controls the fusion effect. For more information, see HybridSearchArgs.
+          // - Weight: Weighted reranking. A parameter alpha controls the score weight between AISearch and full-text index results, then performs reranking. For more information, see HybridSearchArgs.
+          // - Cascaded: Full-text index retrieve is performed first, followed by AISearch retrieve on the full-text index results.
           shared_ptr<string> hybridSearch_ {};
-          // The arguments for the specified hybrid search algorithm. Supports `RRF` and `Weight`.
+          // The algorithm parameters for multi-channel recall. RRF and Weight are supported:
           // 
-          // - `RRF`: Specifies the constant `k` in the score calculation formula `1/(k+rank_i)`. `k` must be an integer greater than 1. Format:
-          // 
+          // - RRF: The k constant in the score calculation formula `1/(k+rank_i)`. The value must be a positive integer greater than 1. Format:
           // ```
           // { 
           //    "RRF": {
@@ -616,41 +621,33 @@ namespace Models
           // }
           // ```
           // 
-          // - `Weight`: Calculates the final score using the formula `alpha * vector_score + (1 - alpha) * text_score`. The `alpha` parameter balances the scores, ranging from 0 (full-text only) to 1 (vector only). Format:
-          // 
+          // - Weight: The calculation formula is `alpha * vector_score + (1-alpha) * text_score`. The parameter alpha specifies the score weight between vector and full-text retrieval. Valid values: 0 to 1, where 0 indicates full-text only and 1 indicates vector only:
           // ```
           // { 
           //    "Weight": {
           //     "alpha": 0.5
           //    }
           // }
-          // ```
+          // ```.
           Darabonba::Json hybridSearchArgs_ {};
-          // The distance metric for vector search. Valid values:
-          // 
-          // - `l2`: Euclidean distance.
-          // 
-          // - `ip`: Inner product.
-          // 
-          // - `cosine`: Cosine similarity.
+          // The method used to build the vector index. Valid values:
+          // - l2: Euclidean distance.
+          // - ip: inner product distance.
+          // - cosine: cosine similarity.
           shared_ptr<string> metrics_ {};
-          // The recall window. Specifies a window of context to include around retrieved chunks. The value must be a two-element array `[A, B]`, where -10 <= A <= 0 and 0 <= B <= 10.
-          // 
-          // > - This parameter is useful when document chunks are small and a search might miss important surrounding context.
-          // >
-          // > - The window is applied after reranking.
+          // The recall window. If this value is not empty, additional context is returned for retrieval results. The format is a two-element array: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+          // > - Use this parameter when documents are segmented too finely and retrieval may lose contextual information.
+          // > - Reranking takes priority over windowing. Reranking is performed first, followed by windowing.
           shared_ptr<vector<int64_t>> recallWindow_ {};
-          // The rerank factor. If specified, the system reranks the results from the vector search. The value must be greater than 1 and less than or equal to 5.
-          // 
-          // > - Reranking may be inefficient if document chunks are sparse.
-          // >
-          // > - The number of items to rerank, calculated as `ceil(TopK * RerankFactor)`, should not exceed 50.
+          // The reranking factor. If this value is not empty, the AISearch retrieve results are reranked. Valid values: 1 < RerankFactor <= 5.
+          // > - Reranking is slow when document chunks are sparse.
+          // > - The recommended number of reranked items (TopK × Factor, rounded up) should not exceed 50.
           shared_ptr<double> rerankFactor_ {};
-          // The rerank model to use.
+          // The reranking model parameters.
           shared_ptr<QueryParams::RerankModel> rerankModel_ {};
-          // The number of top results to return from this collection.
+          // The number of top results to return.
           shared_ptr<int64_t> topK_ {};
-          // Specifies whether to use full-text retrieval for hybrid search. If `false` (the default), only vector search is performed.
+          // Specifies whether to use full-text index (multi-channel recall). Default value: false. Only AISearch retrieve is used.
           shared_ptr<bool> useFullTextRetrieval_ {};
         };
 
@@ -687,21 +684,21 @@ namespace Models
 
 
       protected:
-        // The name of the collection to search.
+        // The name of the collection to recall.
         // 
         // This parameter is required.
         shared_ptr<string> collection_ {};
-        // The namespace that contains the collection.
+        // The namespace.
         // 
-        // > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view available namespaces.
+        // > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query the list.
         shared_ptr<string> namespace_ {};
-        // The password for the specified namespace.
+        // The password of the namespace.
         // 
-        // > This value is specified in the `CreateNamespace` operation.
+        // > This value is specified in the CreateNamespace operation.
         // 
         // This parameter is required.
         shared_ptr<string> namespacePassword_ {};
-        // Parameters for the knowledge base query.
+        // The parameters related to retrieval from this knowledge base.
         shared_ptr<SourceCollection::QueryParams> queryParams_ {};
       };
 
@@ -743,9 +740,9 @@ namespace Models
 
 
       protected:
-        // An instruction for the rerank model.
+        // This parameter can be set when RerankModel.Name is set to qwen3-rerank. Specifies a custom ranking task type description to guide the model to adopt different ranking strategies.
         shared_ptr<string> instruct_ {};
-        // The name of the rerank model.
+        // The reranking model name. Valid values: qwen3-rerank, gte-rerank-v2.
         shared_ptr<string> name_ {};
       };
 
@@ -800,7 +797,7 @@ namespace Models
 
 
         protected:
-          // An array of weights for each `SourceCollection`.
+          // The weight array for each SourceCollection.
           shared_ptr<vector<double>> weights_ {};
         };
 
@@ -832,7 +829,7 @@ namespace Models
 
 
         protected:
-          // The constant `k` used in the reciprocal rank fusion (RRF) formula `1/(k + rank_i)`. The value must be an integer greater than 1.
+          // The k constant in the score calculation formula `1/(k+rank_i)`. The value must be a positive integer greater than 1.
           shared_ptr<int64_t> k_ {};
         };
 
@@ -857,9 +854,9 @@ namespace Models
 
 
       protected:
-        // Parameters for the `RRF` merge method.
+        // The configurable parameters when MergeMethod is set to RRF.
         shared_ptr<MergeMethodArgs::Rrf> rrf_ {};
-        // Parameters for the `Weight` merge method.
+        // The configurable parameters when MergeMethod is set to Weight.
         shared_ptr<MergeMethodArgs::Weight> weight_ {};
       };
 
@@ -914,27 +911,23 @@ namespace Models
 
 
     protected:
-      // Specifies the method for merging results from multiple knowledge bases. Default: `RRF`. Valid values:
-      // 
-      // - `RRF`
-      // 
-      // - `Weight`
+      // The method for merging results from multiple knowledge bases. Default value: RRF. Valid values:
+      // - RRF
+      // - Weight.
       shared_ptr<string> mergeMethod_ {};
-      // The arguments for the result merging method.
+      // The parameters for merging results from multiple knowledge bases.
       shared_ptr<KnowledgeParams::MergeMethodArgs> mergeMethodArgs_ {};
-      // Specifies the factor for reranking vector search results. The value must be greater than 1 and less than or equal to 5.
-      // 
-      // > - Reranking may be inefficient if document chunks are sparse.
-      // >
-      // > - The number of items to rerank, calculated as `ceil(TopK * RerankFactor)`, should not exceed 50.
+      // The reranking factor. If this value is not empty, the AISearch retrieve results are reranked. Valid values: 1 < RerankFactor <= 5.
+      // > - Reranking is slow when document chunks are sparse.
+      // > - The recommended number of reranked items (TopK × Factor, rounded up) should not exceed 50.
       shared_ptr<double> rerankFactor_ {};
-      // The rerank model to use.
+      // The reranking model parameters for performing an additional reranking on the merged results from multiple retrieval paths.
       shared_ptr<KnowledgeParams::RerankModel> rerankModel_ {};
-      // An array of knowledge bases to search.
+      // The knowledge base.
       // 
       // This parameter is required.
       shared_ptr<vector<KnowledgeParams::SourceCollection>> sourceCollection_ {};
-      // The total number of top results to return after merging results from all collections.
+      // The number of top results to return after merging recall results from multiple vector collections.
       shared_ptr<int64_t> topK_ {};
     };
 
@@ -997,22 +990,22 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specified region.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to include the retrieved knowledge base results in the response. Default value: `false`.
+    // Specifies whether to return recall results. Default value: false.
     shared_ptr<bool> includeKnowledgeBaseResults_ {};
-    // Parameters for knowledge retrieval. If omitted, the API performs a chat-only operation.
+    // The knowledge retrieval parameter object. If this parameter is not specified, only chat is performed.
     shared_ptr<ChatWithKnowledgeBaseStreamRequest::KnowledgeParams> knowledgeParams_ {};
-    // An object that contains parameters for the Large Language Model (LLM) call.
+    // The large language model (LLM) invocation parameter object.
     // 
     // This parameter is required.
     shared_ptr<ChatWithKnowledgeBaseStreamRequest::ModelParams> modelParams_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // A template for the system prompt. It must include placeholders such as `{{text_chunks}}`, `{{user_system_prompt}}`, `{{graph_entities}}`, and `{{graph_relations}}`. If omitted, no custom prompt template is applied.
+    // The system prompt template. The template must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If not specified, this part does not take effect.
     shared_ptr<string> promptParams_ {};
-    // The instance\\"s region ID.
+    // The ID of the region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -96,22 +96,22 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specified region.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to include the retrieved knowledge base results in the response. Default value: `false`.
+    // Specifies whether to return recall results. Default value: false.
     shared_ptr<bool> includeKnowledgeBaseResults_ {};
-    // Parameters for knowledge retrieval. If omitted, the API performs a chat-only operation.
+    // The knowledge retrieval parameter object. If this parameter is not specified, only chat is performed.
     shared_ptr<string> knowledgeParamsShrink_ {};
-    // An object that contains parameters for the Large Language Model (LLM) call.
+    // The large language model (LLM) invocation parameter object.
     // 
     // This parameter is required.
     shared_ptr<string> modelParamsShrink_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // A template for the system prompt. It must include placeholders such as `{{text_chunks}}`, `{{user_system_prompt}}`, `{{graph_entities}}`, and `{{graph_relations}}`. If omitted, no custom prompt template is applied.
+    // The system prompt template. The template must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If not specified, this part does not take effect.
     shared_ptr<string> promptParams_ {};
-    // The instance\\"s region ID.
+    // The ID of the region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

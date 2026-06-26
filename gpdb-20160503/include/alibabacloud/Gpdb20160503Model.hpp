@@ -724,6 +724,9 @@
 #include <alibabacloud/models/PauseInstanceRequest.hpp>
 #include <alibabacloud/models/PauseInstanceResponseBody.hpp>
 #include <alibabacloud/models/PauseInstanceResponse.hpp>
+#include <alibabacloud/models/PauseSaasServiceRequest.hpp>
+#include <alibabacloud/models/PauseSaasServiceResponseBody.hpp>
+#include <alibabacloud/models/PauseSaasServiceResponse.hpp>
 #include <alibabacloud/models/PauseSupabaseProjectRequest.hpp>
 #include <alibabacloud/models/PauseSupabaseProjectResponseBody.hpp>
 #include <alibabacloud/models/PauseSupabaseProjectResponse.hpp>
@@ -774,6 +777,9 @@
 #include <alibabacloud/models/ResumeInstanceRequest.hpp>
 #include <alibabacloud/models/ResumeInstanceResponseBody.hpp>
 #include <alibabacloud/models/ResumeInstanceResponse.hpp>
+#include <alibabacloud/models/ResumeSaasServiceRequest.hpp>
+#include <alibabacloud/models/ResumeSaasServiceResponseBody.hpp>
+#include <alibabacloud/models/ResumeSaasServiceResponse.hpp>
 #include <alibabacloud/models/ResumeSupabaseProjectRequest.hpp>
 #include <alibabacloud/models/ResumeSupabaseProjectResponseBody.hpp>
 #include <alibabacloud/models/ResumeSupabaseProjectResponse.hpp>

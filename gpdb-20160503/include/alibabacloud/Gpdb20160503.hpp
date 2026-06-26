@@ -154,13 +154,13 @@ namespace Gpdb20160503
       Models::CancelUpsertCollectionDataJobResponse cancelUpsertCollectionDataJob(const Models::CancelUpsertCollectionDataJobRequest &request);
 
       /**
-       * @summary Combines a knowledge base with a large language model for intelligent Q&A.
+       * @summary Provides intelligent Q&A services by combining knowledge bases with large models.
        *
-       * @description This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
-       * - **DBInstanceId**: Required. Specifies the ID of the database instance.
-       * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
-       * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
-       * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
+       * @description This API allows users to interact with a large model through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to database instance ID, knowledge retrieval parameters, model inference parameters, etc. Additionally, it provides a default system prompt template and allows users to customize system prompts.
+       * - **DBInstanceId**: Required. Specifies the database instance ID.
+       * - **KnowledgeParams**: Optional. Contains parameters related to knowledge retrieval, such as retrieval content, merge strategies, etc.
+       * - **ModelParams**: Required. Contains parameters related to model inference, such as message list, model name, etc.
+       * - **PromptTemplate**: Optional. Used to customize the system prompt template.
        *
        * @param tmpReq ChatWithKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -169,13 +169,13 @@ namespace Gpdb20160503
       Models::ChatWithKnowledgeBaseResponse chatWithKnowledgeBaseWithOptions(const Models::ChatWithKnowledgeBaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Combines a knowledge base with a large language model for intelligent Q&A.
+       * @summary Provides intelligent Q&A services by combining knowledge bases with large models.
        *
-       * @description This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
-       * - **DBInstanceId**: Required. Specifies the ID of the database instance.
-       * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
-       * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
-       * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
+       * @description This API allows users to interact with a large model through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to database instance ID, knowledge retrieval parameters, model inference parameters, etc. Additionally, it provides a default system prompt template and allows users to customize system prompts.
+       * - **DBInstanceId**: Required. Specifies the database instance ID.
+       * - **KnowledgeParams**: Optional. Contains parameters related to knowledge retrieval, such as retrieval content, merge strategies, etc.
+       * - **ModelParams**: Required. Contains parameters related to model inference, such as message list, model name, etc.
+       * - **PromptTemplate**: Optional. Used to customize the system prompt template.
        *
        * @param request ChatWithKnowledgeBaseRequest
        * @return ChatWithKnowledgeBaseResponse
@@ -183,13 +183,13 @@ namespace Gpdb20160503
       Models::ChatWithKnowledgeBaseResponse chatWithKnowledgeBase(const Models::ChatWithKnowledgeBaseRequest &request);
 
       /**
-       * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+       * @summary Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
        *
-       * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
-       * - DBInstanceId: Required. The ID of the database instance.
-       * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
-       * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
-       * - PromptTemplate: Optional. A custom system prompt template.
+       * @description This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+       * - DBInstanceId: Required. Specifies the database instance ID.
+       * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+       * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+       * - PromptTemplate: Optional. Specifies a custom system prompt template.
        *
        * @param tmpReq ChatWithKnowledgeBaseStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -198,13 +198,13 @@ namespace Gpdb20160503
       FutureGenerator<Models::ChatWithKnowledgeBaseStreamResponse> chatWithKnowledgeBaseStreamWithSSE(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+       * @summary Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
        *
-       * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
-       * - DBInstanceId: Required. The ID of the database instance.
-       * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
-       * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
-       * - PromptTemplate: Optional. A custom system prompt template.
+       * @description This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+       * - DBInstanceId: Required. Specifies the database instance ID.
+       * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+       * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+       * - PromptTemplate: Optional. Specifies a custom system prompt template.
        *
        * @param tmpReq ChatWithKnowledgeBaseStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -213,13 +213,13 @@ namespace Gpdb20160503
       Models::ChatWithKnowledgeBaseStreamResponse chatWithKnowledgeBaseStreamWithOptions(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+       * @summary Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
        *
-       * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
-       * - DBInstanceId: Required. The ID of the database instance.
-       * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
-       * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
-       * - PromptTemplate: Optional. A custom system prompt template.
+       * @description This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+       * - DBInstanceId: Required. Specifies the database instance ID.
+       * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+       * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+       * - PromptTemplate: Optional. Specifies a custom system prompt template.
        *
        * @param request ChatWithKnowledgeBaseStreamRequest
        * @return ChatWithKnowledgeBaseStreamResponse
@@ -4636,6 +4636,27 @@ namespace Gpdb20160503
       Models::PauseInstanceResponse pauseInstance(const Models::PauseInstanceRequest &request);
 
       /**
+       * @summary 暂停SaaS服务
+       *
+       * @description 删除模型服务。
+       *
+       * @param request PauseSaasServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PauseSaasServiceResponse
+       */
+      Models::PauseSaasServiceResponse pauseSaasServiceWithOptions(const Models::PauseSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停SaaS服务
+       *
+       * @description 删除模型服务。
+       *
+       * @param request PauseSaasServiceRequest
+       * @return PauseSaasServiceResponse
+       */
+      Models::PauseSaasServiceResponse pauseSaasService(const Models::PauseSaasServiceRequest &request);
+
+      /**
        * @summary Pauses a Supabase instance.
        *
        * @description This operation pauses a Supabase instance.
@@ -4674,7 +4695,7 @@ namespace Gpdb20160503
       Models::QueryCollectionDataResponse queryCollectionData(const Models::QueryCollectionDataRequest &request);
 
       /**
-       * @summary Query a document collection with natural language to retrieve vectors and metadata.
+       * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
        *
        * @param tmpReq QueryContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4683,7 +4704,7 @@ namespace Gpdb20160503
       Models::QueryContentResponse queryContentWithOptions(const Models::QueryContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query a document collection with natural language to retrieve vectors and metadata.
+       * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
        *
        * @param request QueryContentRequest
        * @return QueryContentResponse
@@ -4693,7 +4714,7 @@ namespace Gpdb20160503
       Models::QueryContentResponse queryContentAdvance(const Models::QueryContentAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
+       * @summary Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
        *
        * @param tmpReq QueryKnowledgeBasesContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4702,7 +4723,7 @@ namespace Gpdb20160503
       Models::QueryKnowledgeBasesContentResponse queryKnowledgeBasesContentWithOptions(const Models::QueryKnowledgeBasesContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
+       * @summary Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
        *
        * @param request QueryKnowledgeBasesContentRequest
        * @return QueryKnowledgeBasesContentResponse
@@ -4927,6 +4948,27 @@ namespace Gpdb20160503
        * @return ResumeInstanceResponse
        */
       Models::ResumeInstanceResponse resumeInstance(const Models::ResumeInstanceRequest &request);
+
+      /**
+       * @summary 恢复SaaS服务
+       *
+       * @description 删除模型服务。
+       *
+       * @param request ResumeSaasServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeSaasServiceResponse
+       */
+      Models::ResumeSaasServiceResponse resumeSaasServiceWithOptions(const Models::ResumeSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 恢复SaaS服务
+       *
+       * @description 删除模型服务。
+       *
+       * @param request ResumeSaasServiceRequest
+       * @return ResumeSaasServiceResponse
+       */
+      Models::ResumeSaasServiceResponse resumeSaasService(const Models::ResumeSaasServiceRequest &request);
 
       /**
        * @summary Resumes a Supabase instance.

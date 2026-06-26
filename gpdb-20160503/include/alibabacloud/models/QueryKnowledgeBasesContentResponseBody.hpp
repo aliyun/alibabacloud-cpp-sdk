@@ -83,13 +83,13 @@ namespace Models
 
 
     protected:
-      // The number of entries used for vectorization.
+      // The number of entries used during vectorization.
       // 
-      // > An entry is a unit of processing for vectorization. For example, vectorizing a piece of text counts as one entry, and vectorizing an image counts as two entries.
+      // > An entry refers to the number of items processed during vectorization of text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
       shared_ptr<string> embeddingEntries_ {};
-      // The number of tokens used for vectorization.
+      // The number of tokens used during vectorization.
       // 
-      // > A token is the smallest unit of processed text, such as a word, phrase, punctuation mark, or character.
+      // > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
       shared_ptr<string> embeddingTokens_ {};
     };
 
@@ -519,27 +519,22 @@ namespace Models
 
 
   protected:
-    // The number of tokens used for vectorization.
+    // The number of tokens used during vectorization.
     // 
-    // > A token is the smallest unit of processed text, such as a word, phrase, punctuation mark, or character.
+    // > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
     shared_ptr<string> embeddingTokens_ {};
-    // The extracted entities.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Entities> entities_ {};
-    // The matched data.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Matches> matches_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The extracted relationships.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Relations> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the request. Valid values:
-    // 
-    // - **success**: The request succeeded.
-    // 
-    // - **fail**: The request failed.
+    // The API execution status. Valid values:
+    // - **success**: The execution is successful.
+    // - **fail**: The execution failed.
     shared_ptr<string> status_ {};
-    // The resource usage for the query.
+    // The resource usage of this query.
     shared_ptr<QueryKnowledgeBasesContentResponseBody::Usage> usage_ {};
   };
 
