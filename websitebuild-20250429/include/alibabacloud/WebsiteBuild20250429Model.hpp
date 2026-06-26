@@ -16,6 +16,7 @@
 #include <alibabacloud/models/AppMaterialFile.hpp>
 #include <alibabacloud/models/AppMaterialTask.hpp>
 #include <alibabacloud/models/AppService.hpp>
+#include <alibabacloud/models/PromotionActivity.hpp>
 #include <alibabacloud/models/ModuleResultsValue.hpp>
 #include <alibabacloud/models/ModuleVersionsValueComponentsValuePropertiesValue.hpp>
 #include <alibabacloud/models/ModuleVersionsValueComponentsValue.hpp>
@@ -232,6 +233,9 @@
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerRequest.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponse.hpp>
+#include <alibabacloud/models/GrantPromotionOfferForPartnerRequest.hpp>
+#include <alibabacloud/models/GrantPromotionOfferForPartnerResponseBody.hpp>
+#include <alibabacloud/models/GrantPromotionOfferForPartnerResponse.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewRequest.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponseBody.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponse.hpp>
@@ -286,6 +290,12 @@
 #include <alibabacloud/models/ListIsvPaymentPluginConfigsRequest.hpp>
 #include <alibabacloud/models/ListIsvPaymentPluginConfigsResponseBody.hpp>
 #include <alibabacloud/models/ListIsvPaymentPluginConfigsResponse.hpp>
+#include <alibabacloud/models/ListPromotionActivitiesForPartnerRequest.hpp>
+#include <alibabacloud/models/ListPromotionActivitiesForPartnerResponseBody.hpp>
+#include <alibabacloud/models/ListPromotionActivitiesForPartnerResponse.hpp>
+#include <alibabacloud/models/ListPromotionOfferRecordsForPartnerRequest.hpp>
+#include <alibabacloud/models/ListPromotionOfferRecordsForPartnerResponseBody.hpp>
+#include <alibabacloud/models/ListPromotionOfferRecordsForPartnerResponse.hpp>
 #include <alibabacloud/models/ModifyAppInstanceSpecRequest.hpp>
 #include <alibabacloud/models/ModifyAppInstanceSpecResponseBody.hpp>
 #include <alibabacloud/models/ModifyAppInstanceSpecResponse.hpp>

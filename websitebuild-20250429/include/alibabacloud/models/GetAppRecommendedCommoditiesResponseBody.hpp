@@ -73,22 +73,30 @@ namespace Models
       class Commodities : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Commodities& obj) { 
+          DARABONBA_PTR_TO_JSON(ActionType, actionType_);
           DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(Extend, extend_);
           DARABONBA_PTR_TO_JSON(OrderType, orderType_);
           DARABONBA_PTR_TO_JSON(Priority, priority_);
           DARABONBA_PTR_TO_JSON(PromotionCommodityId, promotionCommodityId_);
+          DARABONBA_PTR_TO_JSON(RecommendType, recommendType_);
           DARABONBA_PTR_TO_JSON(RedirectUrl, redirectUrl_);
           DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(Title, title_);
         };
         friend void from_json(const Darabonba::Json& j, Commodities& obj) { 
+          DARABONBA_PTR_FROM_JSON(ActionType, actionType_);
           DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(Extend, extend_);
           DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
           DARABONBA_PTR_FROM_JSON(Priority, priority_);
           DARABONBA_PTR_FROM_JSON(PromotionCommodityId, promotionCommodityId_);
+          DARABONBA_PTR_FROM_JSON(RecommendType, recommendType_);
           DARABONBA_PTR_FROM_JSON(RedirectUrl, redirectUrl_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(Title, title_);
         };
         Commodities() = default ;
         Commodities(const Commodities &) = default ;
@@ -101,14 +109,28 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->commodityCode_ == nullptr
-        && this->extend_ == nullptr && this->orderType_ == nullptr && this->priority_ == nullptr && this->promotionCommodityId_ == nullptr && this->redirectUrl_ == nullptr
-        && this->status_ == nullptr; };
+        virtual bool empty() const override { return this->actionType_ == nullptr
+        && this->commodityCode_ == nullptr && this->description_ == nullptr && this->extend_ == nullptr && this->orderType_ == nullptr && this->priority_ == nullptr
+        && this->promotionCommodityId_ == nullptr && this->recommendType_ == nullptr && this->redirectUrl_ == nullptr && this->status_ == nullptr && this->title_ == nullptr; };
+        // actionType Field Functions 
+        bool hasActionType() const { return this->actionType_ != nullptr;};
+        void deleteActionType() { this->actionType_ = nullptr;};
+        inline string getActionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
+        inline Commodities& setActionType(string actionType) { DARABONBA_PTR_SET_VALUE(actionType_, actionType) };
+
+
         // commodityCode Field Functions 
         bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
         void deleteCommodityCode() { this->commodityCode_ = nullptr;};
         inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
         inline Commodities& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline Commodities& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
         // extend Field Functions 
@@ -141,6 +163,13 @@ namespace Models
         inline Commodities& setPromotionCommodityId(string promotionCommodityId) { DARABONBA_PTR_SET_VALUE(promotionCommodityId_, promotionCommodityId) };
 
 
+        // recommendType Field Functions 
+        bool hasRecommendType() const { return this->recommendType_ != nullptr;};
+        void deleteRecommendType() { this->recommendType_ = nullptr;};
+        inline string getRecommendType() const { DARABONBA_PTR_GET_DEFAULT(recommendType_, "") };
+        inline Commodities& setRecommendType(string recommendType) { DARABONBA_PTR_SET_VALUE(recommendType_, recommendType) };
+
+
         // redirectUrl Field Functions 
         bool hasRedirectUrl() const { return this->redirectUrl_ != nullptr;};
         void deleteRedirectUrl() { this->redirectUrl_ = nullptr;};
@@ -155,9 +184,18 @@ namespace Models
         inline Commodities& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+        // title Field Functions 
+        bool hasTitle() const { return this->title_ != nullptr;};
+        void deleteTitle() { this->title_ = nullptr;};
+        inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+        inline Commodities& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
       protected:
+        shared_ptr<string> actionType_ {};
         // The commodity code. This code applies to both resource plans and promotional commodities.
         shared_ptr<string> commodityCode_ {};
+        shared_ptr<string> description_ {};
         // The extension field, such as unsupportedReason.
         shared_ptr<map<string, string>> extend_ {};
         // The order type. Valid values:
@@ -168,10 +206,12 @@ namespace Models
         shared_ptr<int32_t> priority_ {};
         // The promotional commodity ID. This parameter is returned only for new purchases.
         shared_ptr<string> promotionCommodityId_ {};
+        shared_ptr<string> recommendType_ {};
         // The redirect URL. This parameter is returned when a redirect is required, such as during an upgrade.
         shared_ptr<string> redirectUrl_ {};
         // The commodity status.
         shared_ptr<string> status_ {};
+        shared_ptr<string> title_ {};
       };
 
       virtual bool empty() const override { return this->commodities_ == nullptr; };
