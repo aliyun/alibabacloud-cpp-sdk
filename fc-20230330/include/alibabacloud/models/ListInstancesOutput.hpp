@@ -52,7 +52,7 @@ namespace Models
 
 
   protected:
-    // public
+    // List of instance information.
     shared_ptr<vector<InstanceInfo>> instances_ {};
     shared_ptr<string> requestId_ {};
   };

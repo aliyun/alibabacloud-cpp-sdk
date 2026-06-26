@@ -115,13 +115,20 @@ namespace Models
 
 
   protected:
+    // A value of false (the default) allows an expired session ID to be reused for a new session, which the system then binds to a new instance. If set to true, an expired session ID cannot be reused.
     shared_ptr<bool> disableSessionIdReuse_ {};
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
+    // Allows instances in the session to access specified NAS resources.
     shared_ptr<NASConfig> nasConfig_ {};
+    // Allows instances in the session to access specified OSS resources.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    // Allows instances in the session to access specified PolarFS resources.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
+    // A customizable session ID. If you do not specify a value, the server generates one. This parameter applies only to the HEADER_FIELD affinity mode. The value must be 0 to 64 characters long. The first character must be a character in **a-zA-Z0-9_**. Subsequent characters can be any character in **a-zA-Z0-9_-**.
     shared_ptr<string> sessionId_ {};
+    // The session idle timeout in seconds.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
+    // The session lifetime in seconds.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 

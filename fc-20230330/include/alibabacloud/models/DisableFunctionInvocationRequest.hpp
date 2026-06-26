@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to immediately terminate all ongoing requests.
+    // Specifies whether to immediately stop all ongoing requests.
     shared_ptr<bool> abortOngoingRequest_ {};
-    // The reason for disabling the function\\"s invocation.
+    // The reason for disabling the function invocation.
     shared_ptr<string> reason_ {};
   };
 

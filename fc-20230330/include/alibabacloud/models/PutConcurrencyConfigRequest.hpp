@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The concurrency configurations.
+    // The concurrency configuration of the function.
     // 
     // This parameter is required.
     shared_ptr<PutConcurrencyInput> body_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of aliases returned.
+    // The number of aliases to return.
     shared_ptr<int32_t> limit_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that marks the start of the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The alias prefix.
+    // The prefix of the alias name.
     shared_ptr<string> prefix_ {};
   };
 

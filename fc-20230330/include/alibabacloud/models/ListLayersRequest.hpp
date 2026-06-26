@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The number of layers that are returned
+    // The number of layers to return.
     shared_ptr<int32_t> limit_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that marks the start of the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Specifies whether the layer is official. Valid values: true and false.
+    // Specifies whether the layer is an official layer. Valid values: true and false.
     shared_ptr<string> official_ {};
-    // The name prefix of the layer.
+    // The prefix of the layer name.
     shared_ptr<string> prefix_ {};
     // Specifies whether the layer is public. Valid values: true and false.
     shared_ptr<string> public_ {};

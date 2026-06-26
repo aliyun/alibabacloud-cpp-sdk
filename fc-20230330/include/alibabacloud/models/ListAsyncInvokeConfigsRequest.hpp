@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The function name. If you do not configure this parameter, the asynchronous invocation configurations of all functions are displayed.
+    // The name of the function. If you do not specify this parameter, the asynchronous invocation configurations of all functions are returned.
     shared_ptr<string> functionName_ {};
-    // The maximum number of entries to be returned.
+    // The maximum number of results to return.
     shared_ptr<int32_t> limit_ {};
-    // The paging information. This parameter specifies the start point of the query.
+    // The token that is used for paging.
     shared_ptr<string> nextToken_ {};
   };
 

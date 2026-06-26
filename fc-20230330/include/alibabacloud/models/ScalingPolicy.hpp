@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The time when the policy expires.
     shared_ptr<string> endTime_ {};
+    // The maximum number of instances.
     shared_ptr<int64_t> maxInstances_ {};
+    // The target value for the metric.
     shared_ptr<float> metricTarget_ {};
+    // The type of metric to track. ProvisionedConcurrencyUtilization is the concurrency utilization of provisioned instances. CPUUtilization is the CPU utilization. GPUMemUtilization is the GPU memory utilization.
     shared_ptr<string> metricType_ {};
+    // The minimum number of instances.
     shared_ptr<int64_t> minInstances_ {};
+    // The name of the policy.
     shared_ptr<string> name_ {};
+    // The time when the policy takes effect.
     shared_ptr<string> startTime_ {};
+    // The time zone. If this parameter is empty, the times for startTime, endTime, and scheduleExpression must be in Coordinated Universal Time (UTC).
     shared_ptr<string> timeZone_ {};
   };
 

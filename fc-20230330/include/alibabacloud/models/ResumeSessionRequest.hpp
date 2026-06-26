@@ -49,6 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> fileSystemOnly_ {};
+    // Alias or version of the function associated with the session ID
     shared_ptr<string> qualifier_ {};
   };
 

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The alias information to be updated.
+    // The alias information to update.
     // 
     // This parameter is required.
     shared_ptr<UpdateAliasInput> body_ {};

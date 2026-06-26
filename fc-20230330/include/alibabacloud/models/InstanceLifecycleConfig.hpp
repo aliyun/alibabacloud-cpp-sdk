@@ -53,9 +53,9 @@ namespace Models
 
 
   protected:
-    // The configurations of the Initializer hook.
+    // Initializer method configuration
     shared_ptr<LifecycleHook> initializer_ {};
-    // The configurations of the PreStop hook.
+    // PreStop method configuration
     shared_ptr<LifecycleHook> preStop_ {};
   };
 

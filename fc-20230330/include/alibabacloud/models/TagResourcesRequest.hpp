@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The configuration of the resource tag.
+    // The resource tag configuration.
     // 
     // This parameter is required.
     shared_ptr<TagResourcesInput> body_ {};

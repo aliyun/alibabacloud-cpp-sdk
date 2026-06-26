@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the function. If this parameter is not specified, the provisioned configurations of all functions are listed.
+    // The name of the function. If you do not specify this parameter, the provisioned configurations for all functions are returned.
     shared_ptr<string> functionName_ {};
-    // Number of provisioned configurations to return.
+    // The number of provisioned configurations to return.
     shared_ptr<int32_t> limit_ {};
-    // A pagination token.
+    // The token to start the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The configurations of asynchronous function invocations.
+    // The asynchronous invocation configuration of the function.
     // 
     // This parameter is required.
     shared_ptr<PutAsyncInvokeConfigInput> body_ {};
-    // The version or alias of the function.
+    // The function version or alias.
     shared_ptr<string> qualifier_ {};
   };
 

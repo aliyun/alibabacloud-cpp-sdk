@@ -77,17 +77,17 @@ namespace Models
   protected:
     // The number of resources to return.
     shared_ptr<int32_t> limit_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The resource IDs.
+    // The list of resource IDs.
     shared_ptr<string> resourceIdShrink_ {};
-    // The type of the resource.
+    // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The list of tags.
     // 
-    // You can query up to 20 tags at a time.
+    // You can specify up to 20 tags.
     shared_ptr<string> tagShrink_ {};
   };
 

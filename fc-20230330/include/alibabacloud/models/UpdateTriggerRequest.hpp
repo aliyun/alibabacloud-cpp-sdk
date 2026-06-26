@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The trigger configurations.
+    // The trigger configuration.
     // 
     // This parameter is required.
     shared_ptr<UpdateTriggerInput> body_ {};

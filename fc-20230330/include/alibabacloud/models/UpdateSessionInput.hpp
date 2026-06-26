@@ -106,12 +106,19 @@ namespace Models
 
 
   protected:
+    // Defaults to `false`. If set to `false`, you can reuse a `SessionID` to start a new session on a new instance after the original session expires. If set to `true`, you cannot reuse a `SessionID` after its session expires.
     shared_ptr<bool> disableSessionIdReuse_ {};
+    // The JuiceFS configuration.
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
+    // The NAS configuration.
     shared_ptr<NASConfig> nasConfig_ {};
+    // The OSS mount configuration.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    // The PolarFS configuration.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
+    // The session idle timeout, in seconds.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
+    // The session duration, in seconds.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 2023-03-10T10:10:10Z
+    // The version or alias of the function.
     shared_ptr<string> qualifier_ {};
   };
 

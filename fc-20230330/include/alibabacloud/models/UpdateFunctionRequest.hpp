@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The function information
+    // The function\\"s configuration.
     // 
     // This parameter is required.
     shared_ptr<UpdateFunctionInput> body_ {};

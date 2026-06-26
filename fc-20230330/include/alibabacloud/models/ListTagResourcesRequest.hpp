@@ -78,11 +78,11 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // The tag value can be up to 128 characters in length and can be an empty string.
+      // The tag value can be up to 128 characters in length. It can be an empty string.
       shared_ptr<string> value_ {};
     };
 
@@ -130,17 +130,17 @@ namespace Models
   protected:
     // The number of resources to return.
     shared_ptr<int32_t> limit_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The resource IDs.
+    // The list of resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource.
+    // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The list of tags.
     // 
-    // You can query up to 20 tags at a time.
+    // You can specify up to 20 tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

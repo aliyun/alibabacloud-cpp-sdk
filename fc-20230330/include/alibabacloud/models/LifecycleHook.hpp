@@ -60,6 +60,7 @@ namespace Models
 
 
   protected:
+    // 函数生命周期初始化阶段回调指令，生命周期回调方法的执行入口 handler 和 command 不允许同时配置，只能有一个生效，同时配置会产生错误提示
     shared_ptr<vector<string>> command_ {};
     // The handler of the hook. The definition is similar to that of a request handler.
     shared_ptr<string> handler_ {};

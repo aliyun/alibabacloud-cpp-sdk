@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // 锁定时间
+    // The timestamp when the lock was applied.
     shared_ptr<string> lockedAt_ {};
-    // 锁定方名称
+    // The name of the entity that applied the lock.
     shared_ptr<string> lockedBy_ {};
-    // 锁定的资源类型列表
+    // The list of locked resource types. Valid values include `function`, `trigger`, `version`, and `alias`.
     shared_ptr<vector<string>> lockedResources_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the function.
+    // The function name.
     shared_ptr<string> functionName_ {};
-    // The number of scaling settings to return.
+    // The number of auto scaling configurations to return.
     shared_ptr<int32_t> limit_ {};
-    // The token for the next page.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
   };
 

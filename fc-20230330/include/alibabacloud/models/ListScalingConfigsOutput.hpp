@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Paging token for the next request.
     shared_ptr<string> nextToken_ {};
+    // Function scaling configuration information
     shared_ptr<vector<ScalingConfigStatus>> scalingConfigs_ {};
   };
 

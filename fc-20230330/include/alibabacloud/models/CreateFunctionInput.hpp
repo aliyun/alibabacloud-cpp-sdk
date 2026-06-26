@@ -12,6 +12,7 @@
 #include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/LogConfig.hpp>
+#include <alibabacloud/models/MicroSandboxConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/PolarFsConfig.hpp>
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(layers, layers_);
       DARABONBA_PTR_TO_JSON(logConfig, logConfig_);
       DARABONBA_PTR_TO_JSON(memorySize, memorySize_);
+      DARABONBA_PTR_TO_JSON(microSandboxConfig, microSandboxConfig_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_TO_JSON(polarFsConfig, polarFsConfig_);
@@ -89,6 +91,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(layers, layers_);
       DARABONBA_PTR_FROM_JSON(logConfig, logConfig_);
       DARABONBA_PTR_FROM_JSON(memorySize, memorySize_);
+      DARABONBA_PTR_FROM_JSON(microSandboxConfig, microSandboxConfig_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_FROM_JSON(polarFsConfig, polarFsConfig_);
@@ -118,9 +121,9 @@ namespace Models
         && this->disableInjectCredentials_ == nullptr && this->disableOndemand_ == nullptr && this->diskSize_ == nullptr && this->enableLongLiving_ == nullptr && this->environmentVariables_ == nullptr
         && this->functionName_ == nullptr && this->gpuConfig_ == nullptr && this->handler_ == nullptr && this->idleTimeout_ == nullptr && this->instanceConcurrency_ == nullptr
         && this->instanceIsolationMode_ == nullptr && this->instanceLifecycleConfig_ == nullptr && this->internetAccess_ == nullptr && this->juiceFsConfig_ == nullptr && this->layers_ == nullptr
-        && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->role_ == nullptr && this->runtime_ == nullptr && this->sessionAffinity_ == nullptr && this->sessionAffinityConfig_ == nullptr
-        && this->tags_ == nullptr && this->timeout_ == nullptr && this->tracingConfig_ == nullptr && this->vpcConfig_ == nullptr; };
+        && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->microSandboxConfig_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr
+        && this->polarFsConfig_ == nullptr && this->resourceGroupId_ == nullptr && this->role_ == nullptr && this->runtime_ == nullptr && this->sessionAffinity_ == nullptr
+        && this->sessionAffinityConfig_ == nullptr && this->tags_ == nullptr && this->timeout_ == nullptr && this->tracingConfig_ == nullptr && this->vpcConfig_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -302,6 +305,15 @@ namespace Models
     inline CreateFunctionInput& setMemorySize(int32_t memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
+    // microSandboxConfig Field Functions 
+    bool hasMicroSandboxConfig() const { return this->microSandboxConfig_ != nullptr;};
+    void deleteMicroSandboxConfig() { this->microSandboxConfig_ = nullptr;};
+    inline const MicroSandboxConfig & getMicroSandboxConfig() const { DARABONBA_PTR_GET_CONST(microSandboxConfig_, MicroSandboxConfig) };
+    inline MicroSandboxConfig getMicroSandboxConfig() { DARABONBA_PTR_GET(microSandboxConfig_, MicroSandboxConfig) };
+    inline CreateFunctionInput& setMicroSandboxConfig(const MicroSandboxConfig & microSandboxConfig) { DARABONBA_PTR_SET_VALUE(microSandboxConfig_, microSandboxConfig) };
+    inline CreateFunctionInput& setMicroSandboxConfig(MicroSandboxConfig && microSandboxConfig) { DARABONBA_PTR_SET_RVALUE(microSandboxConfig_, microSandboxConfig) };
+
+
     // nasConfig Field Functions 
     bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
     void deleteNasConfig() { this->nasConfig_ = nullptr;};
@@ -399,71 +411,84 @@ namespace Models
 
 
   protected:
-    // The code package of the function. Configure either code or customContainerConfig.
+    // The ZIP package of the function code. Specify either code or customContainerConfig.
     shared_ptr<InputCodeLocation> code_ {};
-    // The CPU power allocated to the function. Unit: vCPUs. The value must be a multiple of 0.05. The minimum value is 0.05 and the maximum value is 16. The ratio of cpu to memorySize (in GB) must be from 1:1 to 1:4.
+    // The CPU specification of the function, in vCPUs. The value must be a multiple of 0.05 vCPU. Minimum value: 0.05. Maximum value: 16. The ratio of cpu to memorySize (in GB) must be between 1:1 and 1:4.
     shared_ptr<float> cpu_ {};
-    // The configurations of the Custom Container runtime. After you configure a Custom Container runtime for your function, Function Compute can execute the function in a custom container image. Configure either code or customContainerConfig.
+    // The configuration for the custom container runtime. After this parameter is configured, the function can use a custom container image for execution. Specify either code or customContainerConfig.
     shared_ptr<CustomContainerConfig> customContainerConfig_ {};
-    // The custom DNS settings of the function.
+    // The custom DNS configuration.
     shared_ptr<CustomDNS> customDNS_ {};
-    // The configurations of the custom runtime.
+    // The custom runtime configuration.
     shared_ptr<CustomRuntimeConfig> customRuntimeConfig_ {};
     // The description of the function.
     shared_ptr<string> description_ {};
+    // Specifies whether to disable STS token injection. Valid values:
+    // - None: STS tokens are injected in all methods.
+    // - Env: STS tokens are not injected through environment variables.
+    // - Request: STS tokens are not injected in requests, including context and headers.
+    // - All: STS tokens are not injected in any method.
     shared_ptr<string> disableInjectCredentials_ {};
+    // Specifies whether to disable the creation of on-demand instances. If this feature is enabled, on-demand instances are not created and only provisioned instances can be used.
     shared_ptr<bool> disableOndemand_ {};
-    // The disk size of the function. Unit: MB. Valid values: 512 and 10240.
+    // The disk specification of the function, in MB. Valid values: 512 and 10240.
     shared_ptr<int32_t> diskSize_ {};
+    // Specifies whether to allow provisioned instances of GPU functions to be long-running. When this feature is enabled, function instances are not injected with STS tokens.
     shared_ptr<bool> enableLongLiving_ {};
-    // The environment variables of the function. You can access the specified environment variables in the runtime.
+    // The environment variables of the function. You can access the configured environment variables in the runtime environment.
     shared_ptr<map<string, string>> environmentVariables_ {};
-    // The name of the function. The name must be 1 to 64 characters in length, and can contain only letters, digits, underscores (_), and hyphens (-). It cannot begin with a digit or a hyphen (-).
+    // The name of the function. The name can contain only letters, digits, underscores (_), and hyphens (-). The name cannot start with a digit or hyphen (-). The name must be 1 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> functionName_ {};
-    // The GPU configurations of the function.
+    // The GPU configuration of the function.
     shared_ptr<GPUConfig> gpuConfig_ {};
-    // The handler of the function. The format of the handler is related to the runtime you use.
+    // The function entry point. The specific format depends on the runtime.
     // 
     // This parameter is required.
     shared_ptr<string> handler_ {};
+    // The deferred release time of the instance.
     shared_ptr<int32_t> idleTimeout_ {};
-    // The maximum number of requests that a function instance can process at a time.
+    // The maximum concurrency of an instance.
     shared_ptr<int32_t> instanceConcurrency_ {};
+    // The instance isolation mode.
     shared_ptr<string> instanceIsolationMode_ {};
-    // The configurations of instance lifecycle hooks.
+    // The instance lifecycle hook configuration.
     shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig_ {};
-    // Specifies whether to allow the function to access the Internet. Default value: true.
+    // Specifies whether the function can access the Internet. Default value: true.
     shared_ptr<bool> internetAccess_ {};
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
-    // The layers. Multiple layers are merged based on the order of array subscripts. If two layers have the same file name, the content of the layer with the smaller subscript will overwrite the content of the layer with the larger subscript.
+    // The list of layers. Multiple layers are merged in descending order of array index. Files in a layer with a smaller index overwrite files with the same name in a layer with a larger index.
     shared_ptr<vector<string>> layers_ {};
-    // The logging configurations. Logs generated by the function are written to the specified Logstore.
+    // The log configuration. Logs generated by the function are written to the configured Logstore.
     shared_ptr<LogConfig> logConfig_ {};
-    // The memory capacity for the function. Unit: MB. The value must be a multiple of 64. The minimum capacity is 128 MB and the maximum capacity is 32 GB. The ratio of cpu to memorySize (in GB) must be from 1:1 to 1:4.
+    // The memory specification of the function, in MB. The value must be a multiple of 64 MB. Minimum value: 128. Maximum value: 32768 (32 GB). The ratio of cpu to memorySize (in GB) must be between 1:1 and 1:4.
     shared_ptr<int32_t> memorySize_ {};
-    // The File Storage NAS (NAS) configurations. The configurations allow the function to access the specified NAS file system.
+    shared_ptr<MicroSandboxConfig> microSandboxConfig_ {};
+    // The NAS configuration. After this parameter is configured, the function can access the specified NAS resources.
     shared_ptr<NASConfig> nasConfig_ {};
-    // The OSS mounting configurations.
+    // The OSS mount configuration.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    // The PolarFs configuration. After this parameter is configured, the function can access the specified PolarFs resources.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
     shared_ptr<string> resourceGroupId_ {};
-    // The Resource Access Management (RAM) role that is assigned to the function. Function Compute assumes the role to obtain a Security Token Service (STS) token, which serves as a temporary key for your function to access other Alibaba Cloud services, such as Object Storage Service (OSS) and Tablestore.
+    // The RAM role that the user grants to Function Compute. After this parameter is set, Function Compute assumes this role to generate temporary access credentials. You can use the temporary access credentials of this role in the function to access specified Alibaba Cloud services, such as OSS and OTS.
     shared_ptr<string> role_ {};
-    // The runtime of the function. Valid values: nodejs8, nodejs10, nodejs12, nodejs14, nodejs16, nodejs18, nodejs20, go1, python3, python3.9, python3.10, java8, java11, php7.2, dotnetcore3.1, custom, custom.debian10, and custom-container.
+    // The runtime environment of the function. Supported runtimes: nodejs12, nodejs14, nodejs16, nodejs18, nodejs20, go1, python3, python3.9, python3.10, python3.12, java8, java11, php7.2, dotnetcore3.1, custom, custom.debian10, custom.debian11, custom.debian12, and custom-container.
     // 
     // This parameter is required.
     shared_ptr<string> runtime_ {};
+    // The affinity policy for Function Compute invocation requests. To implement request affinity for the MCP SSE protocol, set this parameter to MCP_SSE. To use cookie-based affinity, set this parameter to GENERATED_COOKIE. To use header-based affinity, set this parameter to HEADER_FIELD. If this parameter is not set or is set to NONE, no affinity is applied and requests are routed based on the default scheduling policy of Function Compute.
     shared_ptr<string> sessionAffinity_ {};
+    // The affinity configuration that corresponds to the sessionAffinity type. For MCP_SSE affinity, specify MCPSSESessionAffinityConfig. For cookie-based affinity, specify CookieSessionAffinityConfig. For header field affinity, specify HeaderFieldSessionAffinityConfig.
     shared_ptr<string> sessionAffinityConfig_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<Tag>> tags_ {};
-    // The timeout period for function execution. Unit: seconds. Default value: 3. Valid values: 1 to 86400. The execution of the function is terminated when the timeout period expires.
+    // The timeout period for function execution, in seconds. Minimum value: 1. Maximum value: 86400. Default value: 3. The function is terminated if it exceeds this time limit.
     shared_ptr<int32_t> timeout_ {};
-    // The configurations of Managed Service for OpenTelemetry. After Function Compute is integrated with Managed Service for OpenTelemetry, you can record the invocation duration of a request, view the cold start duration of a function, and track the execution duration of the function.
+    // The Tracing Analysis configuration. After Function Compute is integrated with Tracing Analysis, you can record the time consumed by requests in Function Compute, view the cold start time of functions, and record the time consumed within functions.
     shared_ptr<TracingConfig> tracingConfig_ {};
-    // The Virtual Private Cloud (VPC) configurations. The configurations allow the function to access the specified VPC resources.
+    // The VPC configuration. After this parameter is configured, the function can access the specified VPC resources.
     shared_ptr<VPCConfig> vpcConfig_ {};
   };
 

@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The resource descriptor.
+    // Resource descriptor.
     // 
     // This parameter is required.
     shared_ptr<string> resourceArn_ {};
-    // The tag dictionary.
+    // Tag dictionary.
     // 
     // This parameter is required.
     shared_ptr<map<string, string>> tags_ {};

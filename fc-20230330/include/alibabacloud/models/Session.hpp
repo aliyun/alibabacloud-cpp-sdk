@@ -183,27 +183,31 @@ namespace Models
     shared_ptr<string> containerId_ {};
     // The time when the session was created.
     shared_ptr<string> createdTime_ {};
+    // Specifies whether an expired session ID can be reused. If `true`, an expired session ID cannot be reused. If `false` (the default), sending a request with an expired session ID creates a new session bound to a new instance.
     shared_ptr<bool> disableSessionIdReuse_ {};
-    // The name of the function to which the session belongs.
+    // The name of the function associated with the session.
     shared_ptr<string> functionName_ {};
+    // The JuiceFS mount configuration, enabling the associated function instance to access specified JuiceFS resources.
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     // The time when the session was last updated.
     shared_ptr<string> lastModifiedTime_ {};
-    // The File Storage NAS (NAS) configuration. Once configured, the instance associated with the session can access designated NAS resources.
+    // The NAS configuration, enabling the associated function instance to access specified NAS resources.
     shared_ptr<NASConfig> nasConfig_ {};
+    // The OSS mount configuration, enabling the associated function instance to access specified OSS resources.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    // The PolarFS mount configuration, enabling the associated function instance to access specified PolarFS resources.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
-    // The qualifier specified when creating a session. If not provided, the default value is LATEST.
+    // The qualifier, which specifies a function version or alias. Defaults to `LATEST` if unspecified.
     shared_ptr<string> qualifier_ {};
-    // The session affinity type.
+    // The type of session affinity.
     shared_ptr<string> sessionAffinityType_ {};
-    // The unique identifier of the function session.
+    // The unique identifier for the function session.
     shared_ptr<string> sessionId_ {};
-    // The timeout period for idle sessions.
+    // The maximum duration, in seconds, that the session can be idle before it expires.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
-    // The session status, which can be either Active (session is valid) or Expired (session has expired).
+    // The status of the session. `Active` indicates the session is valid, and `Expired` indicates it is no longer valid.
     shared_ptr<string> sessionStatus_ {};
-    // The maximum session lifecycle.
+    // The maximum lifespan of the session, in seconds.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 

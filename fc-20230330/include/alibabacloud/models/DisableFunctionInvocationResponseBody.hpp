@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request is successful.
+    // Indicates whether the function invocation was successfully disabled.
     shared_ptr<bool> success_ {};
   };
 

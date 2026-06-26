@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The version or alias of the function.
+    // The function version or alias.
     shared_ptr<string> qualifier_ {};
   };
 

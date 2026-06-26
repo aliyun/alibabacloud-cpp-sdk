@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The sorting mode of function versions. Valid values: BACKWARD and FORWARD.
+    // The order in which to sort the versions. Valid values: BACKWARD and FORWARD.
     shared_ptr<string> direction_ {};
-    // The number of function versions that are returned.
+    // The number of versions to return.
     shared_ptr<int32_t> limit_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that marks the start of the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

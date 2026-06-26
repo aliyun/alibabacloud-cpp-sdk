@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The function scalability configuration.
+    // Elastic scaling configuration for the function
     shared_ptr<PutScalingConfigInput> body_ {};
-    // The function alias.
+    // Function alias
     shared_ptr<string> qualifier_ {};
   };
 

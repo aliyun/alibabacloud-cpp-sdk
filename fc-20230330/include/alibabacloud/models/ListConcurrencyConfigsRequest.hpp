@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The function name. If you leave this parameter empty, the concurrency configurations of all functions are returned.
+    // The function name. If you do not specify this parameter, the concurrency configurations of all functions are listed.
     shared_ptr<string> functionName_ {};
-    // The maximum number of entries returned.
+    // The maximum number of results to return.
     shared_ptr<int32_t> limit_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token for paging.
     shared_ptr<string> nextToken_ {};
   };
 

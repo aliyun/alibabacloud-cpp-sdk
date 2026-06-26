@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of custom domain names returned.
+    // The number of custom domain names to return.
     shared_ptr<int32_t> limit_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that is used to start paging.
     shared_ptr<string> nextToken_ {};
-    // The domain name prefix.
+    // The prefix of the domain name.
     shared_ptr<string> prefix_ {};
   };
 

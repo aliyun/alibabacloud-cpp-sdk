@@ -44,6 +44,7 @@
 #include <alibabacloud/models/JuiceFsMountConfig.hpp>
 #include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <alibabacloud/models/LogConfig.hpp>
+#include <alibabacloud/models/MicroSandboxConfig.hpp>
 #include <alibabacloud/models/NASMountConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/OSSMountPoint.hpp>
@@ -56,6 +57,10 @@
 #include <alibabacloud/models/CreateFunctionInput.hpp>
 #include <alibabacloud/models/CreateLayerVersionInput.hpp>
 #include <alibabacloud/models/CreateSessionInput.hpp>
+#include <alibabacloud/models/ElasticInterval.hpp>
+#include <alibabacloud/models/TimedPoolConfig.hpp>
+#include <alibabacloud/models/CreateTimedResidentResourcePoolApplicationInput.hpp>
+#include <alibabacloud/models/CreateTimedResidentResourcePoolApplicationOutput.hpp>
 #include <alibabacloud/models/CreateTriggerInput.hpp>
 #include <alibabacloud/models/CreateVpcBindingInput.hpp>
 #include <alibabacloud/models/CustomDomain.hpp>
@@ -123,6 +128,8 @@
 #include <alibabacloud/models/ListTagResourcesOutput.hpp>
 #include <alibabacloud/models/Resource.hpp>
 #include <alibabacloud/models/ListTaggedResourcesOutput.hpp>
+#include <alibabacloud/models/TimedResidentResourcePoolApplication.hpp>
+#include <alibabacloud/models/ListTimedResidentResourcePoolApplicationsOutput.hpp>
 #include <alibabacloud/models/Trigger.hpp>
 #include <alibabacloud/models/ListTriggersOutput.hpp>
 #include <alibabacloud/models/Version.hpp>

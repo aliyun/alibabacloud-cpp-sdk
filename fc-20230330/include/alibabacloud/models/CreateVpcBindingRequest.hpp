@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The VPC binding configurations.
+    // The VPC binding configuration.
     // 
     // This parameter is required.
     shared_ptr<CreateVpcBindingInput> body_ {};

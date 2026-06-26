@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The request details for updating the resource group.
+    // The request body to change the resource group.
     shared_ptr<ChangeResourceGroupInput> body_ {};
   };
 

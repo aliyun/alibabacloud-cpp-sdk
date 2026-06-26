@@ -176,31 +176,32 @@ namespace Models
 
 
   protected:
-    // The ID of your Alibaba Cloud account.
+    // The ID of the Alibaba Cloud account (primary account).
     shared_ptr<string> accountId_ {};
-    // The version of the Function Compute API.
+    // The API version of Function Compute.
     shared_ptr<string> apiVersion_ {};
-    // The configuration of permission authentication.
+    // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The configuration of the HTTPS certificate.
+    // The HTTPS certificate configuration.
     shared_ptr<CertConfig> certConfig_ {};
+    // The cross-origin resource sharing (CORS) configuration.
     shared_ptr<CORSConfig> corsConfig_ {};
-    // The time when the custom domain name was created.
+    // The time when the custom domain was created.
     shared_ptr<string> createdTime_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
     shared_ptr<bool> isE2B_ {};
-    // The time when the custom domain name was last updated.
+    // The time when the custom domain was last modified.
     shared_ptr<string> lastModifiedTime_ {};
-    // The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
+    // The protocols that are supported by the domain name. Valid values: HTTP (HTTP only), HTTPS (HTTPS only), and HTTP,HTTPS (both HTTP and HTTPS).
     shared_ptr<string> protocol_ {};
-    // The route table that maps paths to functions when the function is invoked by using the custom domain name.
+    // The route table that maps paths to functions.
     shared_ptr<RouteConfig> routeConfig_ {};
-    // The number of added subdomains.
+    // The number of subdomains.
     shared_ptr<string> subdomainCount_ {};
-    // The Transport Layer Security (TLS) configuration.
+    // The TLS configuration.
     shared_ptr<TLSConfig> tlsConfig_ {};
-    // The Web Application Firewall (WAF) configuration.
+    // The Web Application Firewall (WAF) aconfiguration.
     shared_ptr<WAFConfig> wafConfig_ {};
   };
 

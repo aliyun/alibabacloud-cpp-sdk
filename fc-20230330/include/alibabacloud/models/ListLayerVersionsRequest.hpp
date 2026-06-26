@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The number of versions to be returned.
+    // The number of versions to return.
     shared_ptr<int32_t> limit_ {};
-    // The initial version of the layer.
+    // The version from which to start the query.
     shared_ptr<string> startVersion_ {};
   };
 

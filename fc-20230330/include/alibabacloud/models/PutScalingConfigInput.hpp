@@ -101,12 +101,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the mix mode.
     shared_ptr<bool> enableMixMode_ {};
+    // Specifies whether to enable on-demand scaling.
     shared_ptr<bool> enableOnDemandScaling_ {};
+    // The horizontal scaling policies.
     shared_ptr<vector<ScalingPolicy>> horizontalScalingPolicies_ {};
+    // The minimum number of instances.
     shared_ptr<int64_t> minInstances_ {};
+    // The request dispatch policy.
     shared_ptr<string> requestDispatchPolicy_ {};
+    // The ID of the resident resource pool.
     shared_ptr<string> residentPoolId_ {};
+    // The scheduled elastic policies.
     shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ {};
   };
 

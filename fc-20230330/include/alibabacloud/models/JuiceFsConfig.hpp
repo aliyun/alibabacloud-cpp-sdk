@@ -55,7 +55,9 @@ namespace Models
 
 
   protected:
+    // A map of environment variables (key-value pairs) to set for the JuiceFS client.
     shared_ptr<map<string, string>> envs_ {};
+    // An array of JuiceFsMountConfig objects, each specifying the configuration for a mount point.
     shared_ptr<vector<JuiceFsMountConfig>> mountPoints_ {};
   };
 

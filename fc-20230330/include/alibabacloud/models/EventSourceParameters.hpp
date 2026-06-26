@@ -102,17 +102,17 @@ namespace Models
 
 
   protected:
-    // The custom configurations when the event source is Data Transmission Service (DTS).
+    // Custom parameter settings when the event source is Data Transmission Service DTS.
     shared_ptr<SourceDTSParameters> sourceDTSParameters_ {};
-    // The custom configurations when the event source is ApsaraMQ for Kafka.
+    // Custom parameter settings when the event source is Kafka.
     shared_ptr<SourceKafkaParameters> sourceKafkaParameters_ {};
-    // The custom configurations when the event source is Simple Message Queue (formerly MNS).
+    // Custom parameter settings when the event source is Simple Message Queue (formerly MNS).
     shared_ptr<SourceMNSParameters> sourceMNSParameters_ {};
-    // The custom configurations when the event source is ApsaraMQ for MQTT.
+    // Custom parameter settings when the event source is ApsaraMQ for MQTT.
     shared_ptr<SourceMQTTParameters> sourceMQTTParameters_ {};
-    // The custom configurations when the event source is ApsaraMQ for RabbitMQ.
+    // Custom parameter settings when the event source is Message Queue for RabbitMQ.
     shared_ptr<SourceRabbitMQParameters> sourceRabbitMQParameters_ {};
-    // The custom configurations when the event source is ApsaraMQ for RocketMQ.
+    // Custom parameter settings when the event source is Message Queue for RocketMQ.
     shared_ptr<SourceRocketMQParameters> sourceRocketMQParameters_ {};
   };
 

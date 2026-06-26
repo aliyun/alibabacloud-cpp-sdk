@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The information about layer configurations.
+    // The configuration of the layer.
     // 
     // This parameter is required.
     shared_ptr<CreateLayerVersionInput> body_ {};

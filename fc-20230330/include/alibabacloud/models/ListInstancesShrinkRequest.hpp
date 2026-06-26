@@ -103,15 +103,21 @@ namespace Models
 
 
   protected:
+    // The end time of the query range, specified as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTimeMs_ {};
+    // A list of instance IDs to return.
     shared_ptr<string> instanceIdsShrink_ {};
+    // An array of instance statuses. The operation returns only instances whose status is in this array.
     shared_ptr<string> instanceStatusShrink_ {};
+    // The maximum number of instances to return.
     shared_ptr<string> limit_ {};
     // The function version or alias.
     shared_ptr<string> qualifier_ {};
+    // The token that specifies where to start the query. It is returned in a truncated response and can be used to retrieve the next page of results.
     shared_ptr<string> startKey_ {};
+    // The start time of the query range, specified as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTimeMs_ {};
-    // Specifies whether to list all instances. Valid values: true and false.
+    // Specifies whether to list all active instances.
     shared_ptr<bool> withAllActive_ {};
   };
 

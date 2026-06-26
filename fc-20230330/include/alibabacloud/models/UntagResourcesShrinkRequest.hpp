@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to delete all tags.
+    // Specifies whether to remove all tags.
     shared_ptr<bool> all_ {};
-    // The resource identifiers.
+    // A list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<string> resourceIdShrink_ {};
@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag to remove. You can specify a maximum of 50 tags.
+    // The keys of the tags to remove. You can specify up to 50 tag keys.
     shared_ptr<string> tagKeyShrink_ {};
   };
 

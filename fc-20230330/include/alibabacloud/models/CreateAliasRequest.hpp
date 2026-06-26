@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The request parameters for creating an alias.
+    // The request parameters to create an alias.
     // 
     // This parameter is required.
     shared_ptr<CreateAliasInput> body_ {};

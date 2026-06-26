@@ -21,9 +21,9 @@ namespace FC20230330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Updates the resource group of a Function Compute resource.
+       * @summary Changes the resource group of a Function Compute resource.
        *
-       * @description To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
+       * @description To change the resource group of a Function Compute resource, you must have the ChangeResourceGroup permission for both the current and target resource groups.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -33,9 +33,9 @@ namespace FC20230330
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the resource group of a Function Compute resource.
+       * @summary Changes the resource group of a Function Compute resource.
        *
-       * @description To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
+       * @description To change the resource group of a Function Compute resource, you must have the ChangeResourceGroup permission for both the current and target resource groups.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -63,7 +63,7 @@ namespace FC20230330
       /**
        * @summary Creates a custom domain name.
        *
-       * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+       * @description You can attach a custom domain name to an application or function in Function Compute to access it through a fixed domain name in a production environment, or to resolve the forced download behavior when you access an HTTP trigger.
        *
        * @param request CreateCustomDomainRequest
        * @param headers map
@@ -75,7 +75,7 @@ namespace FC20230330
       /**
        * @summary Creates a custom domain name.
        *
-       * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+       * @description You can attach a custom domain name to an application or function in Function Compute to access it through a fixed domain name in a production environment, or to resolve the forced download behavior when you access an HTTP trigger.
        *
        * @param request CreateCustomDomainRequest
        * @return CreateCustomDomainResponse
@@ -83,9 +83,9 @@ namespace FC20230330
       Models::CreateCustomDomainResponse createCustomDomain(const Models::CreateCustomDomainRequest &request);
 
       /**
-       * @summary Creates a function.
+       * @summary Creates a function by calling the CreateFunction operation.
        *
-       * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+       * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
        *
        * @param request CreateFunctionRequest
        * @param headers map
@@ -95,9 +95,9 @@ namespace FC20230330
       Models::CreateFunctionResponse createFunctionWithOptions(const Models::CreateFunctionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a function.
+       * @summary Creates a function by calling the CreateFunction operation.
        *
-       * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+       * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
        *
        * @param request CreateFunctionRequest
        * @return CreateFunctionResponse
@@ -105,7 +105,7 @@ namespace FC20230330
       Models::CreateFunctionResponse createFunction(const Models::CreateFunctionRequest &request);
 
       /**
-       * @summary Releases a layer version.
+       * @summary This operation publishes a layer version.
        *
        * @param request CreateLayerVersionRequest
        * @param headers map
@@ -115,7 +115,7 @@ namespace FC20230330
       Models::CreateLayerVersionResponse createLayerVersionWithOptions(const string &layerName, const Models::CreateLayerVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a layer version.
+       * @summary This operation publishes a layer version.
        *
        * @param request CreateLayerVersionRequest
        * @return CreateLayerVersionResponse
@@ -123,7 +123,7 @@ namespace FC20230330
       Models::CreateLayerVersionResponse createLayerVersion(const string &layerName, const Models::CreateLayerVersionRequest &request);
 
       /**
-       * @summary The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
+       * @summary Creates an explicit session resource by automatically generating a unique session ID, pre-allocating a function instance, and attaching the session. This operation supports custom Time to Live (TTL) and idle timeout values, applies to HEADER_FIELD or GENERATED_COOKIE affinity types, and is used for session prefetching and configuration initialization. After the session is created, include the session ID in InvokeFunction requests for request routing.
        *
        * @param request CreateSessionRequest
        * @param headers map
@@ -133,7 +133,7 @@ namespace FC20230330
       Models::CreateSessionResponse createSessionWithOptions(const string &functionName, const Models::CreateSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
+       * @summary Creates an explicit session resource by automatically generating a unique session ID, pre-allocating a function instance, and attaching the session. This operation supports custom Time to Live (TTL) and idle timeout values, applies to HEADER_FIELD or GENERATED_COOKIE affinity types, and is used for session prefetching and configuration initialization. After the session is created, include the session ID in InvokeFunction requests for request routing.
        *
        * @param request CreateSessionRequest
        * @return CreateSessionResponse
@@ -345,7 +345,7 @@ namespace FC20230330
       Models::DeleteSessionResponse deleteSession(const string &functionName, const string &sessionId, const Models::DeleteSessionRequest &request);
 
       /**
-       * @summary Deletes a trigger.
+       * @summary Deletes the specified trigger.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -354,14 +354,14 @@ namespace FC20230330
       Models::DeleteTriggerResponse deleteTriggerWithOptions(const string &functionName, const string &triggerName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a trigger.
+       * @summary Deletes the specified trigger.
        *
        * @return DeleteTriggerResponse
        */
       Models::DeleteTriggerResponse deleteTrigger(const string &functionName, const string &triggerName);
 
       /**
-       * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+       * @summary Deletes an access control policy from a specified VPC firewall policy group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +370,7 @@ namespace FC20230330
       Models::DeleteVpcBindingResponse deleteVpcBindingWithOptions(const string &functionName, const string &vpcId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+       * @summary Deletes an access control policy from a specified VPC firewall policy group.
        *
        * @return DeleteVpcBindingResponse
        */
@@ -395,9 +395,9 @@ namespace FC20230330
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+       * @summary Disables function invocations. You can also stop all ongoing requests. When a function is disabled, new instances cannot be created and provisioned instances are destroyed. This OpenAPI is in beta.
        *
-       * @description Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
+       * @description Use caution when calling this API for functions in a production environment because disabling function invocations can disrupt your services.
        *
        * @param request DisableFunctionInvocationRequest
        * @param headers map
@@ -407,9 +407,9 @@ namespace FC20230330
       Models::DisableFunctionInvocationResponse disableFunctionInvocationWithOptions(const string &functionName, const Models::DisableFunctionInvocationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+       * @summary Disables function invocations. You can also stop all ongoing requests. When a function is disabled, new instances cannot be created and provisioned instances are destroyed. This OpenAPI is in beta.
        *
-       * @description Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
+       * @description Use caution when calling this API for functions in a production environment because disabling function invocations can disrupt your services.
        *
        * @param request DisableFunctionInvocationRequest
        * @return DisableFunctionInvocationResponse
@@ -433,7 +433,7 @@ namespace FC20230330
       Models::EnableFunctionInvocationResponse enableFunctionInvocation(const string &functionName);
 
       /**
-       * @summary Queries information about an alias.
+       * @summary Retrieves information about an alias.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,14 +442,14 @@ namespace FC20230330
       Models::GetAliasResponse getAliasWithOptions(const string &functionName, const string &aliasName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about an alias.
+       * @summary Retrieves information about an alias.
        *
        * @return GetAliasResponse
        */
       Models::GetAliasResponse getAlias(const string &functionName, const string &aliasName);
 
       /**
-       * @summary Gets asynchronous invocation configurations of a function.
+       * @summary Retrieves the asynchronous invocation configuration of a specified function.
        *
        * @param request GetAsyncInvokeConfigRequest
        * @param headers map
@@ -459,7 +459,7 @@ namespace FC20230330
       Models::GetAsyncInvokeConfigResponse getAsyncInvokeConfigWithOptions(const string &functionName, const Models::GetAsyncInvokeConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets asynchronous invocation configurations of a function.
+       * @summary Retrieves the asynchronous invocation configuration of a specified function.
        *
        * @param request GetAsyncInvokeConfigRequest
        * @return GetAsyncInvokeConfigResponse
@@ -467,7 +467,7 @@ namespace FC20230330
       Models::GetAsyncInvokeConfigResponse getAsyncInvokeConfig(const string &functionName, const Models::GetAsyncInvokeConfigRequest &request);
 
       /**
-       * @summary Queries the information about an asynchronous task.
+       * @summary Retrieves the details of a specified asynchronous task.
        *
        * @param request GetAsyncTaskRequest
        * @param headers map
@@ -477,7 +477,7 @@ namespace FC20230330
       Models::GetAsyncTaskResponse getAsyncTaskWithOptions(const string &functionName, const string &taskId, const Models::GetAsyncTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an asynchronous task.
+       * @summary Retrieves the details of a specified asynchronous task.
        *
        * @param request GetAsyncTaskRequest
        * @return GetAsyncTaskResponse
@@ -485,7 +485,7 @@ namespace FC20230330
       Models::GetAsyncTaskResponse getAsyncTask(const string &functionName, const string &taskId, const Models::GetAsyncTaskRequest &request);
 
       /**
-       * @summary Obtains a concurrency configuration.
+       * @summary Retrieves the concurrency configuration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -494,14 +494,14 @@ namespace FC20230330
       Models::GetConcurrencyConfigResponse getConcurrencyConfigWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a concurrency configuration.
+       * @summary Retrieves the concurrency configuration.
        *
        * @return GetConcurrencyConfigResponse
        */
       Models::GetConcurrencyConfigResponse getConcurrencyConfig(const string &functionName);
 
       /**
-       * @summary Queries information about a custom domain name.
+       * @summary Retrieves the configuration of a custom domain name.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,14 +510,14 @@ namespace FC20230330
       Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a custom domain name.
+       * @summary Retrieves the configuration of a custom domain name.
        *
        * @return GetCustomDomainResponse
        */
       Models::GetCustomDomainResponse getCustomDomain(const string &domainName);
 
       /**
-       * @summary http://pre.hhht/#vpc
+       * @summary Retrieves information about a function.
        *
        * @param request GetFunctionRequest
        * @param headers map
@@ -527,7 +527,7 @@ namespace FC20230330
       Models::GetFunctionResponse getFunctionWithOptions(const string &functionName, const Models::GetFunctionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary http://pre.hhht/#vpc
+       * @summary Retrieves information about a function.
        *
        * @param request GetFunctionRequest
        * @return GetFunctionResponse
@@ -535,7 +535,7 @@ namespace FC20230330
       Models::GetFunctionResponse getFunction(const string &functionName, const Models::GetFunctionRequest &request);
 
       /**
-       * @summary Queries a code package of a function.
+       * @summary Retrieves the details of a function code package.
        *
        * @param request GetFunctionCodeRequest
        * @param headers map
@@ -545,7 +545,7 @@ namespace FC20230330
       Models::GetFunctionCodeResponse getFunctionCodeWithOptions(const string &functionName, const Models::GetFunctionCodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a code package of a function.
+       * @summary Retrieves the details of a function code package.
        *
        * @param request GetFunctionCodeRequest
        * @return GetFunctionCodeResponse
@@ -553,7 +553,7 @@ namespace FC20230330
       Models::GetFunctionCodeResponse getFunctionCode(const string &functionName, const Models::GetFunctionCodeRequest &request);
 
       /**
-       * @summary Queries versions of a layer.
+       * @summary Retrieves information about a layer version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -562,14 +562,14 @@ namespace FC20230330
       Models::GetLayerVersionResponse getLayerVersionWithOptions(const string &layerName, const string &version, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries versions of a layer.
+       * @summary Retrieves information about a layer version.
        *
        * @return GetLayerVersionResponse
        */
       Models::GetLayerVersionResponse getLayerVersion(const string &layerName, const string &version);
 
       /**
-       * @summary Obtain version information of a layer by using ARNs.
+       * @summary Retrieves the version information of a layer by its Alibaba Cloud Resource Name (ARN).
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -578,14 +578,14 @@ namespace FC20230330
       Models::GetLayerVersionByArnResponse getLayerVersionByArnWithOptions(const string &arn, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain version information of a layer by using ARNs.
+       * @summary Retrieves the version information of a layer by its Alibaba Cloud Resource Name (ARN).
        *
        * @return GetLayerVersionByArnResponse
        */
       Models::GetLayerVersionByArnResponse getLayerVersionByArn(const string &arn);
 
       /**
-       * @summary Queries provisioned configurations.
+       * @summary Retrieves the provisioned configuration.
        *
        * @param request GetProvisionConfigRequest
        * @param headers map
@@ -595,7 +595,7 @@ namespace FC20230330
       Models::GetProvisionConfigResponse getProvisionConfigWithOptions(const string &functionName, const Models::GetProvisionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries provisioned configurations.
+       * @summary Retrieves the provisioned configuration.
        *
        * @param request GetProvisionConfigRequest
        * @return GetProvisionConfigResponse
@@ -603,7 +603,7 @@ namespace FC20230330
       Models::GetProvisionConfigResponse getProvisionConfig(const string &functionName, const Models::GetProvisionConfigRequest &request);
 
       /**
-       * @summary Gets the scaling settings of a function.
+       * @summary Retrieves the scaling configuration for a function.
        *
        * @param request GetScalingConfigRequest
        * @param headers map
@@ -613,7 +613,7 @@ namespace FC20230330
       Models::GetScalingConfigResponse getScalingConfigWithOptions(const string &functionName, const Models::GetScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the scaling settings of a function.
+       * @summary Retrieves the scaling configuration for a function.
        *
        * @param request GetScalingConfigRequest
        * @return GetScalingConfigResponse
@@ -639,7 +639,7 @@ namespace FC20230330
       Models::GetSessionResponse getSession(const string &functionName, const string &sessionId, const Models::GetSessionRequest &request);
 
       /**
-       * @summary Queries information about a trigger.
+       * @summary Retrieves the details of a specified trigger.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -648,7 +648,7 @@ namespace FC20230330
       Models::GetTriggerResponse getTriggerWithOptions(const string &functionName, const string &triggerName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a trigger.
+       * @summary Retrieves the details of a specified trigger.
        *
        * @return GetTriggerResponse
        */
@@ -673,7 +673,7 @@ namespace FC20230330
       Models::InvokeFunctionResponse invokeFunction(const string &functionName, const Models::InvokeFunctionRequest &request);
 
       /**
-       * @summary Queries aliases.
+       * @summary Lists aliases.
        *
        * @param request ListAliasesRequest
        * @param headers map
@@ -683,7 +683,7 @@ namespace FC20230330
       Models::ListAliasesResponse listAliasesWithOptions(const string &functionName, const Models::ListAliasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries aliases.
+       * @summary Lists aliases.
        *
        * @param request ListAliasesRequest
        * @return ListAliasesResponse
@@ -691,7 +691,7 @@ namespace FC20230330
       Models::ListAliasesResponse listAliases(const string &functionName, const Models::ListAliasesRequest &request);
 
       /**
-       * @summary Queries all asynchronous configurations of a function.
+       * @summary Lists the asynchronous invocation configurations for one or more functions.
        *
        * @param request ListAsyncInvokeConfigsRequest
        * @param headers map
@@ -701,7 +701,7 @@ namespace FC20230330
       Models::ListAsyncInvokeConfigsResponse listAsyncInvokeConfigsWithOptions(const Models::ListAsyncInvokeConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all asynchronous configurations of a function.
+       * @summary Lists the asynchronous invocation configurations for one or more functions.
        *
        * @param request ListAsyncInvokeConfigsRequest
        * @return ListAsyncInvokeConfigsResponse
@@ -709,7 +709,7 @@ namespace FC20230330
       Models::ListAsyncInvokeConfigsResponse listAsyncInvokeConfigs(const Models::ListAsyncInvokeConfigsRequest &request);
 
       /**
-       * @summary Lists asynchronous tasks.
+       * @summary Lists the details of asynchronous tasks.
        *
        * @param request ListAsyncTasksRequest
        * @param headers map
@@ -719,7 +719,7 @@ namespace FC20230330
       Models::ListAsyncTasksResponse listAsyncTasksWithOptions(const string &functionName, const Models::ListAsyncTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists asynchronous tasks.
+       * @summary Lists the details of asynchronous tasks.
        *
        * @param request ListAsyncTasksRequest
        * @return ListAsyncTasksResponse
@@ -727,7 +727,7 @@ namespace FC20230330
       Models::ListAsyncTasksResponse listAsyncTasks(const string &functionName, const Models::ListAsyncTasksRequest &request);
 
       /**
-       * @summary Queries a list of concurrency configurations.
+       * @summary Lists the concurrency configurations.
        *
        * @param request ListConcurrencyConfigsRequest
        * @param headers map
@@ -737,7 +737,7 @@ namespace FC20230330
       Models::ListConcurrencyConfigsResponse listConcurrencyConfigsWithOptions(const Models::ListConcurrencyConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of concurrency configurations.
+       * @summary Lists the concurrency configurations.
        *
        * @param request ListConcurrencyConfigsRequest
        * @return ListConcurrencyConfigsResponse
@@ -745,7 +745,7 @@ namespace FC20230330
       Models::ListConcurrencyConfigsResponse listConcurrencyConfigs(const Models::ListConcurrencyConfigsRequest &request);
 
       /**
-       * @summary Queries custom domain names.
+       * @summary Retrieves a list of custom domain names.
        *
        * @param request ListCustomDomainsRequest
        * @param headers map
@@ -755,7 +755,7 @@ namespace FC20230330
       Models::ListCustomDomainsResponse listCustomDomainsWithOptions(const Models::ListCustomDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries custom domain names.
+       * @summary Retrieves a list of custom domain names.
        *
        * @param request ListCustomDomainsRequest
        * @return ListCustomDomainsResponse
@@ -763,7 +763,7 @@ namespace FC20230330
       Models::ListCustomDomainsResponse listCustomDomains(const Models::ListCustomDomainsRequest &request);
 
       /**
-       * @summary Queries versions of a function.
+       * @summary Lists the versions of a specified function.
        *
        * @param request ListFunctionVersionsRequest
        * @param headers map
@@ -773,7 +773,7 @@ namespace FC20230330
       Models::ListFunctionVersionsResponse listFunctionVersionsWithOptions(const string &functionName, const Models::ListFunctionVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries versions of a function.
+       * @summary Lists the versions of a specified function.
        *
        * @param request ListFunctionVersionsRequest
        * @return ListFunctionVersionsResponse
@@ -781,9 +781,9 @@ namespace FC20230330
       Models::ListFunctionVersionsResponse listFunctionVersions(const string &functionName, const Models::ListFunctionVersionsRequest &request);
 
       /**
-       * @summary Queries a list of functions.
+       * @summary Retrieves a list of functions.
        *
-       * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+       * @description ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
        *
        * @param tmpReq ListFunctionsRequest
        * @param headers map
@@ -793,9 +793,9 @@ namespace FC20230330
       Models::ListFunctionsResponse listFunctionsWithOptions(const Models::ListFunctionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of functions.
+       * @summary Retrieves a list of functions.
        *
-       * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+       * @description ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
        *
        * @param request ListFunctionsRequest
        * @return ListFunctionsResponse
@@ -803,7 +803,7 @@ namespace FC20230330
       Models::ListFunctionsResponse listFunctions(const Models::ListFunctionsRequest &request);
 
       /**
-       * @summary Queries a list of function instances.
+       * @summary Lists function instances.
        *
        * @param tmpReq ListInstancesRequest
        * @param headers map
@@ -813,7 +813,7 @@ namespace FC20230330
       Models::ListInstancesResponse listInstancesWithOptions(const string &functionName, const Models::ListInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of function instances.
+       * @summary Lists function instances.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -821,7 +821,7 @@ namespace FC20230330
       Models::ListInstancesResponse listInstances(const string &functionName, const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Gets a list of layer versions.
+       * @summary Retrieves a list of layer versions.
        *
        * @param request ListLayerVersionsRequest
        * @param headers map
@@ -831,7 +831,7 @@ namespace FC20230330
       Models::ListLayerVersionsResponse listLayerVersionsWithOptions(const string &layerName, const Models::ListLayerVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets a list of layer versions.
+       * @summary Retrieves a list of layer versions.
        *
        * @param request ListLayerVersionsRequest
        * @return ListLayerVersionsResponse
@@ -839,7 +839,7 @@ namespace FC20230330
       Models::ListLayerVersionsResponse listLayerVersions(const string &layerName, const Models::ListLayerVersionsRequest &request);
 
       /**
-       * @summary Gets a list of layers.
+       * @summary Lists layers.
        *
        * @param request ListLayersRequest
        * @param headers map
@@ -849,7 +849,7 @@ namespace FC20230330
       Models::ListLayersResponse listLayersWithOptions(const Models::ListLayersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets a list of layers.
+       * @summary Lists layers.
        *
        * @param request ListLayersRequest
        * @return ListLayersResponse
@@ -857,7 +857,7 @@ namespace FC20230330
       Models::ListLayersResponse listLayers(const Models::ListLayersRequest &request);
 
       /**
-       * @summary Queries a list of provisioned configurations.
+       * @summary Retrieves a list of provisioned configurations.
        *
        * @param request ListProvisionConfigsRequest
        * @param headers map
@@ -867,7 +867,7 @@ namespace FC20230330
       Models::ListProvisionConfigsResponse listProvisionConfigsWithOptions(const Models::ListProvisionConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of provisioned configurations.
+       * @summary Retrieves a list of provisioned configurations.
        *
        * @param request ListProvisionConfigsRequest
        * @return ListProvisionConfigsResponse
@@ -875,7 +875,7 @@ namespace FC20230330
       Models::ListProvisionConfigsResponse listProvisionConfigs(const Models::ListProvisionConfigsRequest &request);
 
       /**
-       * @summary Lists the scaling settings of a function.
+       * @summary Lists the auto scaling configurations for a function.
        *
        * @param request ListScalingConfigsRequest
        * @param headers map
@@ -885,7 +885,7 @@ namespace FC20230330
       Models::ListScalingConfigsResponse listScalingConfigsWithOptions(const Models::ListScalingConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the scaling settings of a function.
+       * @summary Lists the auto scaling configurations for a function.
        *
        * @param request ListScalingConfigsRequest
        * @return ListScalingConfigsResponse
@@ -929,7 +929,7 @@ namespace FC20230330
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Queries the triggers of a function.
+       * @summary Lists the triggers for a specified function.
        *
        * @param request ListTriggersRequest
        * @param headers map
@@ -939,7 +939,7 @@ namespace FC20230330
       Models::ListTriggersResponse listTriggersWithOptions(const string &functionName, const Models::ListTriggersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the triggers of a function.
+       * @summary Lists the triggers for a specified function.
        *
        * @param request ListTriggersRequest
        * @return ListTriggersResponse
@@ -947,7 +947,7 @@ namespace FC20230330
       Models::ListTriggersResponse listTriggers(const string &functionName, const Models::ListTriggersRequest &request);
 
       /**
-       * @summary Queries a list of existing VPC connections.
+       * @summary Queries existing VPC attachments.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -956,14 +956,16 @@ namespace FC20230330
       Models::ListVpcBindingsResponse listVpcBindingsWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of existing VPC connections.
+       * @summary Queries existing VPC attachments.
        *
        * @return ListVpcBindingsResponse
        */
       Models::ListVpcBindingsResponse listVpcBindings(const string &functionName);
 
       /**
-       * @summary 暂停/保存会话
+       * @summary Pauses and saves a session.
+       *
+       * @description Pauses an active session. This operation saves the state of the associated execution environment and then releases the compute resources. After you call this operation, the session state changes to Paused. A paused session does not accept function invocation requests. The operation retains the session configuration, such as the SessionTTL and SessionID. Use this operation to interrupt long-running tasks or save snapshots of a development environment. This helps optimize costs and manage state. This operation applies to custom image functions that use HEADER_FIELD or GENERATED_COOKIE affinity types and session isolation.
        *
        * @param request PauseSessionRequest
        * @param headers map
@@ -973,7 +975,9 @@ namespace FC20230330
       Models::PauseSessionResponse pauseSessionWithOptions(const string &functionName, const string &sessionId, const Models::PauseSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 暂停/保存会话
+       * @summary Pauses and saves a session.
+       *
+       * @description Pauses an active session. This operation saves the state of the associated execution environment and then releases the compute resources. After you call this operation, the session state changes to Paused. A paused session does not accept function invocation requests. The operation retains the session configuration, such as the SessionTTL and SessionID. Use this operation to interrupt long-running tasks or save snapshots of a development environment. This helps optimize costs and manage state. This operation applies to custom image functions that use HEADER_FIELD or GENERATED_COOKIE affinity types and session isolation.
        *
        * @param request PauseSessionRequest
        * @return PauseSessionResponse
@@ -999,7 +1003,7 @@ namespace FC20230330
       Models::PublishFunctionVersionResponse publishFunctionVersion(const string &functionName, const Models::PublishFunctionVersionRequest &request);
 
       /**
-       * @summary Creates or modifies an asynchronous invocation configuration for a function.
+       * @summary Creates or updates the asynchronous invocation configuration for a function.
        *
        * @param request PutAsyncInvokeConfigRequest
        * @param headers map
@@ -1009,7 +1013,7 @@ namespace FC20230330
       Models::PutAsyncInvokeConfigResponse putAsyncInvokeConfigWithOptions(const string &functionName, const Models::PutAsyncInvokeConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an asynchronous invocation configuration for a function.
+       * @summary Creates or updates the asynchronous invocation configuration for a function.
        *
        * @param request PutAsyncInvokeConfigRequest
        * @return PutAsyncInvokeConfigResponse
@@ -1017,7 +1021,7 @@ namespace FC20230330
       Models::PutAsyncInvokeConfigResponse putAsyncInvokeConfig(const string &functionName, const Models::PutAsyncInvokeConfigRequest &request);
 
       /**
-       * @summary Configures concurrency of a function.
+       * @summary Sets the concurrency for a function.
        *
        * @param request PutConcurrencyConfigRequest
        * @param headers map
@@ -1027,7 +1031,7 @@ namespace FC20230330
       Models::PutConcurrencyConfigResponse putConcurrencyConfigWithOptions(const string &functionName, const Models::PutConcurrencyConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures concurrency of a function.
+       * @summary Sets the concurrency for a function.
        *
        * @param request PutConcurrencyConfigRequest
        * @return PutConcurrencyConfigResponse
@@ -1035,7 +1039,7 @@ namespace FC20230330
       Models::PutConcurrencyConfigResponse putConcurrencyConfig(const string &functionName, const Models::PutConcurrencyConfigRequest &request);
 
       /**
-       * @summary Modifies permissions of a layer.
+       * @summary Modifies the permissions of a layer.
        *
        * @param request PutLayerACLRequest
        * @param headers map
@@ -1045,7 +1049,7 @@ namespace FC20230330
       Models::PutLayerACLResponse putLayerACLWithOptions(const string &layerName, const Models::PutLayerACLRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies permissions of a layer.
+       * @summary Modifies the permissions of a layer.
        *
        * @param request PutLayerACLRequest
        * @return PutLayerACLResponse
@@ -1053,7 +1057,7 @@ namespace FC20230330
       Models::PutLayerACLResponse putLayerACL(const string &layerName, const Models::PutLayerACLRequest &request);
 
       /**
-       * @summary Creates provisioned configurations.
+       * @summary Creates a provisioned configuration.
        *
        * @param request PutProvisionConfigRequest
        * @param headers map
@@ -1063,7 +1067,7 @@ namespace FC20230330
       Models::PutProvisionConfigResponse putProvisionConfigWithOptions(const string &functionName, const Models::PutProvisionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates provisioned configurations.
+       * @summary Creates a provisioned configuration.
        *
        * @param request PutProvisionConfigRequest
        * @return PutProvisionConfigResponse
@@ -1071,7 +1075,7 @@ namespace FC20230330
       Models::PutProvisionConfigResponse putProvisionConfig(const string &functionName, const Models::PutProvisionConfigRequest &request);
 
       /**
-       * @summary Scaling settings
+       * @summary Set the elastic scaling configuration for a function.
        *
        * @param request PutScalingConfigRequest
        * @param headers map
@@ -1081,7 +1085,7 @@ namespace FC20230330
       Models::PutScalingConfigResponse putScalingConfigWithOptions(const string &functionName, const Models::PutScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scaling settings
+       * @summary Set the elastic scaling configuration for a function.
        *
        * @param request PutScalingConfigRequest
        * @return PutScalingConfigResponse
@@ -1089,7 +1093,9 @@ namespace FC20230330
       Models::PutScalingConfigResponse putScalingConfig(const string &functionName, const Models::PutScalingConfigRequest &request);
 
       /**
-       * @summary 恢复会话
+       * @summary Resume a session
+       *
+       * @description Resumes a session that is in the Paused state. The system quickly resumes the session in a new execution environment using its previously persisted state. After a successful resume, the session status changes to Active, and the session begins accepting function invocation requests and routing them to the resumed instance. Use this operation with custom image functions that use HEADER_FIELD or GENERATED_COOKIE session affinity and session isolation.
        *
        * @param request ResumeSessionRequest
        * @param headers map
@@ -1099,7 +1105,9 @@ namespace FC20230330
       Models::ResumeSessionResponse resumeSessionWithOptions(const string &functionName, const string &sessionId, const Models::ResumeSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复会话
+       * @summary Resume a session
+       *
+       * @description Resumes a session that is in the Paused state. The system quickly resumes the session in a new execution environment using its previously persisted state. After a successful resume, the session status changes to Active, and the session begins accepting function invocation requests and routing them to the resumed instance. Use this operation with custom image functions that use HEADER_FIELD or GENERATED_COOKIE session affinity and session isolation.
        *
        * @param request ResumeSessionRequest
        * @return ResumeSessionResponse
@@ -1125,9 +1133,7 @@ namespace FC20230330
       Models::StopAsyncTaskResponse stopAsyncTask(const string &functionName, const string &taskId, const Models::StopAsyncTaskRequest &request);
 
       /**
-       * @summary Adds tags to a resource.
-       *
-       * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+       * @summary Adds tags to specified resources.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -1137,9 +1143,7 @@ namespace FC20230330
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to a resource.
-       *
-       * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+       * @summary Adds tags to specified resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -1147,7 +1151,7 @@ namespace FC20230330
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Removes tags from a resource.
+       * @summary Removes tags from resources.
        *
        * @param tmpReq UntagResourcesRequest
        * @param headers map
@@ -1157,7 +1161,7 @@ namespace FC20230330
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from a resource.
+       * @summary Removes tags from resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -1183,7 +1187,7 @@ namespace FC20230330
       Models::UpdateAliasResponse updateAlias(const string &functionName, const string &aliasName, const Models::UpdateAliasRequest &request);
 
       /**
-       * @summary Update a custom domain name.
+       * @summary Updates a custom domain name.
        *
        * @param request UpdateCustomDomainRequest
        * @param headers map
@@ -1193,7 +1197,7 @@ namespace FC20230330
       Models::UpdateCustomDomainResponse updateCustomDomainWithOptions(const string &domainName, const Models::UpdateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a custom domain name.
+       * @summary Updates a custom domain name.
        *
        * @param request UpdateCustomDomainRequest
        * @return UpdateCustomDomainResponse
@@ -1201,7 +1205,7 @@ namespace FC20230330
       Models::UpdateCustomDomainResponse updateCustomDomain(const string &domainName, const Models::UpdateCustomDomainRequest &request);
 
       /**
-       * @summary Updates the information about a function.
+       * @summary Updates a function\\"s configuration.
        *
        * @param request UpdateFunctionRequest
        * @param headers map
@@ -1211,7 +1215,7 @@ namespace FC20230330
       Models::UpdateFunctionResponse updateFunctionWithOptions(const string &functionName, const Models::UpdateFunctionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a function.
+       * @summary Updates a function\\"s configuration.
        *
        * @param request UpdateFunctionRequest
        * @return UpdateFunctionResponse
@@ -1237,7 +1241,7 @@ namespace FC20230330
       Models::UpdateSessionResponse updateSession(const string &functionName, const string &sessionId, const Models::UpdateSessionRequest &request);
 
       /**
-       * @summary Modifies a trigger.
+       * @summary Updates the information of a trigger.
        *
        * @param request UpdateTriggerRequest
        * @param headers map
@@ -1247,7 +1251,7 @@ namespace FC20230330
       Models::UpdateTriggerResponse updateTriggerWithOptions(const string &functionName, const string &triggerName, const Models::UpdateTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a trigger.
+       * @summary Updates the information of a trigger.
        *
        * @param request UpdateTriggerRequest
        * @return UpdateTriggerResponse

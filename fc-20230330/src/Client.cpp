@@ -20,7 +20,35 @@ namespace FC20230330
 {
 
 AlibabaCloud::FC20230330::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "fcv3.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "fcv3.us-east-1.aliyuncs.com"},
+    {"me-central-1" , "me-central-1.fc.aliyuncs.com"},
+    {"eu-west-1" , "fcv3.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "fcv3.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "fcv3.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "fcv3.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "fcv3.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "cn-shanghai-finance-1.fc.aliyuncs.com"},
+    {"cn-shanghai" , "fcv3.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "fcv3.cn-qingdao.aliyuncs.com"},
+    {"cn-huhehaote" , "fcv3.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "fcv3.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "cn-heyuan-acdr-1.fc.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "cn-hangzhou-finance.fc.aliyuncs.com"},
+    {"cn-hangzhou" , "fcv3.cn-hangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "fcv3.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "fcv3.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "fcv3.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-5" , "fcv3.ap-southeast-5.aliyuncs.com	"},
+    {"ap-southeast-3" , "fcv3.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "fcv3.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "fcv3.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "fcv3.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2" , "fcv3.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "fcv3.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("fc", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -39,9 +67,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Updates the resource group of a Function Compute resource.
+ * @summary Changes the resource group of a Function Compute resource.
  *
- * @description To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
+ * @description To change the resource group of a Function Compute resource, you must have the ChangeResourceGroup permission for both the current and target resource groups.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -69,9 +97,9 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Updates the resource group of a Function Compute resource.
+ * @summary Changes the resource group of a Function Compute resource.
  *
- * @description To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
+ * @description To change the resource group of a Function Compute resource, you must have the ChangeResourceGroup permission for both the current and target resource groups.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -125,7 +153,7 @@ CreateAliasResponse Client::createAlias(const string &functionName, const Create
 /**
  * @summary Creates a custom domain name.
  *
- * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+ * @description You can attach a custom domain name to an application or function in Function Compute to access it through a fixed domain name in a production environment, or to resolve the forced download behavior when you access an HTTP trigger.
  *
  * @param request CreateCustomDomainRequest
  * @param headers map
@@ -155,7 +183,7 @@ CreateCustomDomainResponse Client::createCustomDomainWithOptions(const CreateCus
 /**
  * @summary Creates a custom domain name.
  *
- * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+ * @description You can attach a custom domain name to an application or function in Function Compute to access it through a fixed domain name in a production environment, or to resolve the forced download behavior when you access an HTTP trigger.
  *
  * @param request CreateCustomDomainRequest
  * @return CreateCustomDomainResponse
@@ -167,9 +195,9 @@ CreateCustomDomainResponse Client::createCustomDomain(const CreateCustomDomainRe
 }
 
 /**
- * @summary Creates a function.
+ * @summary Creates a function by calling the CreateFunction operation.
  *
- * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+ * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
  *
  * @param request CreateFunctionRequest
  * @param headers map
@@ -197,9 +225,9 @@ CreateFunctionResponse Client::createFunctionWithOptions(const CreateFunctionReq
 }
 
 /**
- * @summary Creates a function.
+ * @summary Creates a function by calling the CreateFunction operation.
  *
- * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+ * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
  *
  * @param request CreateFunctionRequest
  * @return CreateFunctionResponse
@@ -211,7 +239,7 @@ CreateFunctionResponse Client::createFunction(const CreateFunctionRequest &reque
 }
 
 /**
- * @summary Releases a layer version.
+ * @summary This operation publishes a layer version.
  *
  * @param request CreateLayerVersionRequest
  * @param headers map
@@ -239,7 +267,7 @@ CreateLayerVersionResponse Client::createLayerVersionWithOptions(const string &l
 }
 
 /**
- * @summary Releases a layer version.
+ * @summary This operation publishes a layer version.
  *
  * @param request CreateLayerVersionRequest
  * @return CreateLayerVersionResponse
@@ -251,7 +279,7 @@ CreateLayerVersionResponse Client::createLayerVersion(const string &layerName, c
 }
 
 /**
- * @summary The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
+ * @summary Creates an explicit session resource by automatically generating a unique session ID, pre-allocating a function instance, and attaching the session. This operation supports custom Time to Live (TTL) and idle timeout values, applies to HEADER_FIELD or GENERATED_COOKIE affinity types, and is used for session prefetching and configuration initialization. After the session is created, include the session ID in InvokeFunction requests for request routing.
  *
  * @param request CreateSessionRequest
  * @param headers map
@@ -285,7 +313,7 @@ CreateSessionResponse Client::createSessionWithOptions(const string &functionNam
 }
 
 /**
- * @summary The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
+ * @summary Creates an explicit session resource by automatically generating a unique session ID, pre-allocating a function instance, and attaching the session. This operation supports custom Time to Live (TTL) and idle timeout values, applies to HEADER_FIELD or GENERATED_COOKIE affinity types, and is used for session prefetching and configuration initialization. After the session is created, include the session ID in InvokeFunction requests for request routing.
  *
  * @param request CreateSessionRequest
  * @return CreateSessionResponse
@@ -773,7 +801,7 @@ DeleteSessionResponse Client::deleteSession(const string &functionName, const st
 }
 
 /**
- * @summary Deletes a trigger.
+ * @summary Deletes the specified trigger.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -798,7 +826,7 @@ DeleteTriggerResponse Client::deleteTriggerWithOptions(const string &functionNam
 }
 
 /**
- * @summary Deletes a trigger.
+ * @summary Deletes the specified trigger.
  *
  * @return DeleteTriggerResponse
  */
@@ -809,7 +837,7 @@ DeleteTriggerResponse Client::deleteTrigger(const string &functionName, const st
 }
 
 /**
- * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+ * @summary Deletes an access control policy from a specified VPC firewall policy group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -834,7 +862,7 @@ DeleteVpcBindingResponse Client::deleteVpcBindingWithOptions(const string &funct
 }
 
 /**
- * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+ * @summary Deletes an access control policy from a specified VPC firewall policy group.
  *
  * @return DeleteVpcBindingResponse
  */
@@ -890,9 +918,9 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+ * @summary Disables function invocations. You can also stop all ongoing requests. When a function is disabled, new instances cannot be created and provisioned instances are destroyed. This OpenAPI is in beta.
  *
- * @description Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
+ * @description Use caution when calling this API for functions in a production environment because disabling function invocations can disrupt your services.
  *
  * @param request DisableFunctionInvocationRequest
  * @param headers map
@@ -929,9 +957,9 @@ DisableFunctionInvocationResponse Client::disableFunctionInvocationWithOptions(c
 }
 
 /**
- * @summary The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+ * @summary Disables function invocations. You can also stop all ongoing requests. When a function is disabled, new instances cannot be created and provisioned instances are destroyed. This OpenAPI is in beta.
  *
- * @description Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
+ * @description Use caution when calling this API for functions in a production environment because disabling function invocations can disrupt your services.
  *
  * @param request DisableFunctionInvocationRequest
  * @return DisableFunctionInvocationResponse
@@ -979,7 +1007,7 @@ EnableFunctionInvocationResponse Client::enableFunctionInvocation(const string &
 }
 
 /**
- * @summary Queries information about an alias.
+ * @summary Retrieves information about an alias.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1004,7 +1032,7 @@ GetAliasResponse Client::getAliasWithOptions(const string &functionName, const s
 }
 
 /**
- * @summary Queries information about an alias.
+ * @summary Retrieves information about an alias.
  *
  * @return GetAliasResponse
  */
@@ -1015,7 +1043,7 @@ GetAliasResponse Client::getAlias(const string &functionName, const string &alia
 }
 
 /**
- * @summary Gets asynchronous invocation configurations of a function.
+ * @summary Retrieves the asynchronous invocation configuration of a specified function.
  *
  * @param request GetAsyncInvokeConfigRequest
  * @param headers map
@@ -1048,7 +1076,7 @@ GetAsyncInvokeConfigResponse Client::getAsyncInvokeConfigWithOptions(const strin
 }
 
 /**
- * @summary Gets asynchronous invocation configurations of a function.
+ * @summary Retrieves the asynchronous invocation configuration of a specified function.
  *
  * @param request GetAsyncInvokeConfigRequest
  * @return GetAsyncInvokeConfigResponse
@@ -1060,7 +1088,7 @@ GetAsyncInvokeConfigResponse Client::getAsyncInvokeConfig(const string &function
 }
 
 /**
- * @summary Queries the information about an asynchronous task.
+ * @summary Retrieves the details of a specified asynchronous task.
  *
  * @param request GetAsyncTaskRequest
  * @param headers map
@@ -1093,7 +1121,7 @@ GetAsyncTaskResponse Client::getAsyncTaskWithOptions(const string &functionName,
 }
 
 /**
- * @summary Queries the information about an asynchronous task.
+ * @summary Retrieves the details of a specified asynchronous task.
  *
  * @param request GetAsyncTaskRequest
  * @return GetAsyncTaskResponse
@@ -1105,7 +1133,7 @@ GetAsyncTaskResponse Client::getAsyncTask(const string &functionName, const stri
 }
 
 /**
- * @summary Obtains a concurrency configuration.
+ * @summary Retrieves the concurrency configuration.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1130,7 +1158,7 @@ GetConcurrencyConfigResponse Client::getConcurrencyConfigWithOptions(const strin
 }
 
 /**
- * @summary Obtains a concurrency configuration.
+ * @summary Retrieves the concurrency configuration.
  *
  * @return GetConcurrencyConfigResponse
  */
@@ -1141,7 +1169,7 @@ GetConcurrencyConfigResponse Client::getConcurrencyConfig(const string &function
 }
 
 /**
- * @summary Queries information about a custom domain name.
+ * @summary Retrieves the configuration of a custom domain name.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1166,7 +1194,7 @@ GetCustomDomainResponse Client::getCustomDomainWithOptions(const string &domainN
 }
 
 /**
- * @summary Queries information about a custom domain name.
+ * @summary Retrieves the configuration of a custom domain name.
  *
  * @return GetCustomDomainResponse
  */
@@ -1177,7 +1205,7 @@ GetCustomDomainResponse Client::getCustomDomain(const string &domainName) {
 }
 
 /**
- * @summary http://pre.hhht/#vpc
+ * @summary Retrieves information about a function.
  *
  * @param request GetFunctionRequest
  * @param headers map
@@ -1210,7 +1238,7 @@ GetFunctionResponse Client::getFunctionWithOptions(const string &functionName, c
 }
 
 /**
- * @summary http://pre.hhht/#vpc
+ * @summary Retrieves information about a function.
  *
  * @param request GetFunctionRequest
  * @return GetFunctionResponse
@@ -1222,7 +1250,7 @@ GetFunctionResponse Client::getFunction(const string &functionName, const GetFun
 }
 
 /**
- * @summary Queries a code package of a function.
+ * @summary Retrieves the details of a function code package.
  *
  * @param request GetFunctionCodeRequest
  * @param headers map
@@ -1255,7 +1283,7 @@ GetFunctionCodeResponse Client::getFunctionCodeWithOptions(const string &functio
 }
 
 /**
- * @summary Queries a code package of a function.
+ * @summary Retrieves the details of a function code package.
  *
  * @param request GetFunctionCodeRequest
  * @return GetFunctionCodeResponse
@@ -1267,7 +1295,7 @@ GetFunctionCodeResponse Client::getFunctionCode(const string &functionName, cons
 }
 
 /**
- * @summary Queries versions of a layer.
+ * @summary Retrieves information about a layer version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1320,7 @@ GetLayerVersionResponse Client::getLayerVersionWithOptions(const string &layerNa
 }
 
 /**
- * @summary Queries versions of a layer.
+ * @summary Retrieves information about a layer version.
  *
  * @return GetLayerVersionResponse
  */
@@ -1303,7 +1331,7 @@ GetLayerVersionResponse Client::getLayerVersion(const string &layerName, const s
 }
 
 /**
- * @summary Obtain version information of a layer by using ARNs.
+ * @summary Retrieves the version information of a layer by its Alibaba Cloud Resource Name (ARN).
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1328,7 +1356,7 @@ GetLayerVersionByArnResponse Client::getLayerVersionByArnWithOptions(const strin
 }
 
 /**
- * @summary Obtain version information of a layer by using ARNs.
+ * @summary Retrieves the version information of a layer by its Alibaba Cloud Resource Name (ARN).
  *
  * @return GetLayerVersionByArnResponse
  */
@@ -1339,7 +1367,7 @@ GetLayerVersionByArnResponse Client::getLayerVersionByArn(const string &arn) {
 }
 
 /**
- * @summary Queries provisioned configurations.
+ * @summary Retrieves the provisioned configuration.
  *
  * @param request GetProvisionConfigRequest
  * @param headers map
@@ -1372,7 +1400,7 @@ GetProvisionConfigResponse Client::getProvisionConfigWithOptions(const string &f
 }
 
 /**
- * @summary Queries provisioned configurations.
+ * @summary Retrieves the provisioned configuration.
  *
  * @param request GetProvisionConfigRequest
  * @return GetProvisionConfigResponse
@@ -1384,7 +1412,7 @@ GetProvisionConfigResponse Client::getProvisionConfig(const string &functionName
 }
 
 /**
- * @summary Gets the scaling settings of a function.
+ * @summary Retrieves the scaling configuration for a function.
  *
  * @param request GetScalingConfigRequest
  * @param headers map
@@ -1417,7 +1445,7 @@ GetScalingConfigResponse Client::getScalingConfigWithOptions(const string &funct
 }
 
 /**
- * @summary Gets the scaling settings of a function.
+ * @summary Retrieves the scaling configuration for a function.
  *
  * @param request GetScalingConfigRequest
  * @return GetScalingConfigResponse
@@ -1474,7 +1502,7 @@ GetSessionResponse Client::getSession(const string &functionName, const string &
 }
 
 /**
- * @summary Queries information about a trigger.
+ * @summary Retrieves the details of a specified trigger.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1499,7 +1527,7 @@ GetTriggerResponse Client::getTriggerWithOptions(const string &functionName, con
 }
 
 /**
- * @summary Queries information about a trigger.
+ * @summary Retrieves the details of a specified trigger.
  *
  * @return GetTriggerResponse
  */
@@ -1591,7 +1619,7 @@ InvokeFunctionResponse Client::invokeFunction(const string &functionName, const 
 }
 
 /**
- * @summary Queries aliases.
+ * @summary Lists aliases.
  *
  * @param request ListAliasesRequest
  * @param headers map
@@ -1632,7 +1660,7 @@ ListAliasesResponse Client::listAliasesWithOptions(const string &functionName, c
 }
 
 /**
- * @summary Queries aliases.
+ * @summary Lists aliases.
  *
  * @param request ListAliasesRequest
  * @return ListAliasesResponse
@@ -1644,7 +1672,7 @@ ListAliasesResponse Client::listAliases(const string &functionName, const ListAl
 }
 
 /**
- * @summary Queries all asynchronous configurations of a function.
+ * @summary Lists the asynchronous invocation configurations for one or more functions.
  *
  * @param request ListAsyncInvokeConfigsRequest
  * @param headers map
@@ -1685,7 +1713,7 @@ ListAsyncInvokeConfigsResponse Client::listAsyncInvokeConfigsWithOptions(const L
 }
 
 /**
- * @summary Queries all asynchronous configurations of a function.
+ * @summary Lists the asynchronous invocation configurations for one or more functions.
  *
  * @param request ListAsyncInvokeConfigsRequest
  * @return ListAsyncInvokeConfigsResponse
@@ -1697,7 +1725,7 @@ ListAsyncInvokeConfigsResponse Client::listAsyncInvokeConfigs(const ListAsyncInv
 }
 
 /**
- * @summary Lists asynchronous tasks.
+ * @summary Lists the details of asynchronous tasks.
  *
  * @param request ListAsyncTasksRequest
  * @param headers map
@@ -1762,7 +1790,7 @@ ListAsyncTasksResponse Client::listAsyncTasksWithOptions(const string &functionN
 }
 
 /**
- * @summary Lists asynchronous tasks.
+ * @summary Lists the details of asynchronous tasks.
  *
  * @param request ListAsyncTasksRequest
  * @return ListAsyncTasksResponse
@@ -1774,7 +1802,7 @@ ListAsyncTasksResponse Client::listAsyncTasks(const string &functionName, const 
 }
 
 /**
- * @summary Queries a list of concurrency configurations.
+ * @summary Lists the concurrency configurations.
  *
  * @param request ListConcurrencyConfigsRequest
  * @param headers map
@@ -1815,7 +1843,7 @@ ListConcurrencyConfigsResponse Client::listConcurrencyConfigsWithOptions(const L
 }
 
 /**
- * @summary Queries a list of concurrency configurations.
+ * @summary Lists the concurrency configurations.
  *
  * @param request ListConcurrencyConfigsRequest
  * @return ListConcurrencyConfigsResponse
@@ -1827,7 +1855,7 @@ ListConcurrencyConfigsResponse Client::listConcurrencyConfigs(const ListConcurre
 }
 
 /**
- * @summary Queries custom domain names.
+ * @summary Retrieves a list of custom domain names.
  *
  * @param request ListCustomDomainsRequest
  * @param headers map
@@ -1868,7 +1896,7 @@ ListCustomDomainsResponse Client::listCustomDomainsWithOptions(const ListCustomD
 }
 
 /**
- * @summary Queries custom domain names.
+ * @summary Retrieves a list of custom domain names.
  *
  * @param request ListCustomDomainsRequest
  * @return ListCustomDomainsResponse
@@ -1880,7 +1908,7 @@ ListCustomDomainsResponse Client::listCustomDomains(const ListCustomDomainsReque
 }
 
 /**
- * @summary Queries versions of a function.
+ * @summary Lists the versions of a specified function.
  *
  * @param request ListFunctionVersionsRequest
  * @param headers map
@@ -1921,7 +1949,7 @@ ListFunctionVersionsResponse Client::listFunctionVersionsWithOptions(const strin
 }
 
 /**
- * @summary Queries versions of a function.
+ * @summary Lists the versions of a specified function.
  *
  * @param request ListFunctionVersionsRequest
  * @return ListFunctionVersionsResponse
@@ -1933,9 +1961,9 @@ ListFunctionVersionsResponse Client::listFunctionVersions(const string &function
 }
 
 /**
- * @summary Queries a list of functions.
+ * @summary Retrieves a list of functions.
  *
- * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+ * @description ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
  *
  * @param tmpReq ListFunctionsRequest
  * @param headers map
@@ -2010,9 +2038,9 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const ListFunctionsReques
 }
 
 /**
- * @summary Queries a list of functions.
+ * @summary Retrieves a list of functions.
  *
- * @description ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+ * @description ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
  *
  * @param request ListFunctionsRequest
  * @return ListFunctionsResponse
@@ -2024,7 +2052,7 @@ ListFunctionsResponse Client::listFunctions(const ListFunctionsRequest &request)
 }
 
 /**
- * @summary Queries a list of function instances.
+ * @summary Lists function instances.
  *
  * @param tmpReq ListInstancesRequest
  * @param headers map
@@ -2095,7 +2123,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const string &functionNam
 }
 
 /**
- * @summary Queries a list of function instances.
+ * @summary Lists function instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -2107,7 +2135,7 @@ ListInstancesResponse Client::listInstances(const string &functionName, const Li
 }
 
 /**
- * @summary Gets a list of layer versions.
+ * @summary Retrieves a list of layer versions.
  *
  * @param request ListLayerVersionsRequest
  * @param headers map
@@ -2144,7 +2172,7 @@ ListLayerVersionsResponse Client::listLayerVersionsWithOptions(const string &lay
 }
 
 /**
- * @summary Gets a list of layer versions.
+ * @summary Retrieves a list of layer versions.
  *
  * @param request ListLayerVersionsRequest
  * @return ListLayerVersionsResponse
@@ -2156,7 +2184,7 @@ ListLayerVersionsResponse Client::listLayerVersions(const string &layerName, con
 }
 
 /**
- * @summary Gets a list of layers.
+ * @summary Lists layers.
  *
  * @param request ListLayersRequest
  * @param headers map
@@ -2205,7 +2233,7 @@ ListLayersResponse Client::listLayersWithOptions(const ListLayersRequest &reques
 }
 
 /**
- * @summary Gets a list of layers.
+ * @summary Lists layers.
  *
  * @param request ListLayersRequest
  * @return ListLayersResponse
@@ -2217,7 +2245,7 @@ ListLayersResponse Client::listLayers(const ListLayersRequest &request) {
 }
 
 /**
- * @summary Queries a list of provisioned configurations.
+ * @summary Retrieves a list of provisioned configurations.
  *
  * @param request ListProvisionConfigsRequest
  * @param headers map
@@ -2258,7 +2286,7 @@ ListProvisionConfigsResponse Client::listProvisionConfigsWithOptions(const ListP
 }
 
 /**
- * @summary Queries a list of provisioned configurations.
+ * @summary Retrieves a list of provisioned configurations.
  *
  * @param request ListProvisionConfigsRequest
  * @return ListProvisionConfigsResponse
@@ -2270,7 +2298,7 @@ ListProvisionConfigsResponse Client::listProvisionConfigs(const ListProvisionCon
 }
 
 /**
- * @summary Lists the scaling settings of a function.
+ * @summary Lists the auto scaling configurations for a function.
  *
  * @param request ListScalingConfigsRequest
  * @param headers map
@@ -2311,7 +2339,7 @@ ListScalingConfigsResponse Client::listScalingConfigsWithOptions(const ListScali
 }
 
 /**
- * @summary Lists the scaling settings of a function.
+ * @summary Lists the auto scaling configurations for a function.
  *
  * @param request ListScalingConfigsRequest
  * @return ListScalingConfigsResponse
@@ -2455,7 +2483,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Queries the triggers of a function.
+ * @summary Lists the triggers for a specified function.
  *
  * @param request ListTriggersRequest
  * @param headers map
@@ -2496,7 +2524,7 @@ ListTriggersResponse Client::listTriggersWithOptions(const string &functionName,
 }
 
 /**
- * @summary Queries the triggers of a function.
+ * @summary Lists the triggers for a specified function.
  *
  * @param request ListTriggersRequest
  * @return ListTriggersResponse
@@ -2508,7 +2536,7 @@ ListTriggersResponse Client::listTriggers(const string &functionName, const List
 }
 
 /**
- * @summary Queries a list of existing VPC connections.
+ * @summary Queries existing VPC attachments.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2533,7 +2561,7 @@ ListVpcBindingsResponse Client::listVpcBindingsWithOptions(const string &functio
 }
 
 /**
- * @summary Queries a list of existing VPC connections.
+ * @summary Queries existing VPC attachments.
  *
  * @return ListVpcBindingsResponse
  */
@@ -2544,7 +2572,9 @@ ListVpcBindingsResponse Client::listVpcBindings(const string &functionName) {
 }
 
 /**
- * @summary 暂停/保存会话
+ * @summary Pauses and saves a session.
+ *
+ * @description Pauses an active session. This operation saves the state of the associated execution environment and then releases the compute resources. After you call this operation, the session state changes to Paused. A paused session does not accept function invocation requests. The operation retains the session configuration, such as the SessionTTL and SessionID. Use this operation to interrupt long-running tasks or save snapshots of a development environment. This helps optimize costs and manage state. This operation applies to custom image functions that use HEADER_FIELD or GENERATED_COOKIE affinity types and session isolation.
  *
  * @param request PauseSessionRequest
  * @param headers map
@@ -2577,7 +2607,9 @@ PauseSessionResponse Client::pauseSessionWithOptions(const string &functionName,
 }
 
 /**
- * @summary 暂停/保存会话
+ * @summary Pauses and saves a session.
+ *
+ * @description Pauses an active session. This operation saves the state of the associated execution environment and then releases the compute resources. After you call this operation, the session state changes to Paused. A paused session does not accept function invocation requests. The operation retains the session configuration, such as the SessionTTL and SessionID. Use this operation to interrupt long-running tasks or save snapshots of a development environment. This helps optimize costs and manage state. This operation applies to custom image functions that use HEADER_FIELD or GENERATED_COOKIE affinity types and session isolation.
  *
  * @param request PauseSessionRequest
  * @return PauseSessionResponse
@@ -2629,7 +2661,7 @@ PublishFunctionVersionResponse Client::publishFunctionVersion(const string &func
 }
 
 /**
- * @summary Creates or modifies an asynchronous invocation configuration for a function.
+ * @summary Creates or updates the asynchronous invocation configuration for a function.
  *
  * @param request PutAsyncInvokeConfigRequest
  * @param headers map
@@ -2663,7 +2695,7 @@ PutAsyncInvokeConfigResponse Client::putAsyncInvokeConfigWithOptions(const strin
 }
 
 /**
- * @summary Creates or modifies an asynchronous invocation configuration for a function.
+ * @summary Creates or updates the asynchronous invocation configuration for a function.
  *
  * @param request PutAsyncInvokeConfigRequest
  * @return PutAsyncInvokeConfigResponse
@@ -2675,7 +2707,7 @@ PutAsyncInvokeConfigResponse Client::putAsyncInvokeConfig(const string &function
 }
 
 /**
- * @summary Configures concurrency of a function.
+ * @summary Sets the concurrency for a function.
  *
  * @param request PutConcurrencyConfigRequest
  * @param headers map
@@ -2703,7 +2735,7 @@ PutConcurrencyConfigResponse Client::putConcurrencyConfigWithOptions(const strin
 }
 
 /**
- * @summary Configures concurrency of a function.
+ * @summary Sets the concurrency for a function.
  *
  * @param request PutConcurrencyConfigRequest
  * @return PutConcurrencyConfigResponse
@@ -2715,7 +2747,7 @@ PutConcurrencyConfigResponse Client::putConcurrencyConfig(const string &function
 }
 
 /**
- * @summary Modifies permissions of a layer.
+ * @summary Modifies the permissions of a layer.
  *
  * @param request PutLayerACLRequest
  * @param headers map
@@ -2752,7 +2784,7 @@ PutLayerACLResponse Client::putLayerACLWithOptions(const string &layerName, cons
 }
 
 /**
- * @summary Modifies permissions of a layer.
+ * @summary Modifies the permissions of a layer.
  *
  * @param request PutLayerACLRequest
  * @return PutLayerACLResponse
@@ -2764,7 +2796,7 @@ PutLayerACLResponse Client::putLayerACL(const string &layerName, const PutLayerA
 }
 
 /**
- * @summary Creates provisioned configurations.
+ * @summary Creates a provisioned configuration.
  *
  * @param request PutProvisionConfigRequest
  * @param headers map
@@ -2798,7 +2830,7 @@ PutProvisionConfigResponse Client::putProvisionConfigWithOptions(const string &f
 }
 
 /**
- * @summary Creates provisioned configurations.
+ * @summary Creates a provisioned configuration.
  *
  * @param request PutProvisionConfigRequest
  * @return PutProvisionConfigResponse
@@ -2810,7 +2842,7 @@ PutProvisionConfigResponse Client::putProvisionConfig(const string &functionName
 }
 
 /**
- * @summary Scaling settings
+ * @summary Set the elastic scaling configuration for a function.
  *
  * @param request PutScalingConfigRequest
  * @param headers map
@@ -2844,7 +2876,7 @@ PutScalingConfigResponse Client::putScalingConfigWithOptions(const string &funct
 }
 
 /**
- * @summary Scaling settings
+ * @summary Set the elastic scaling configuration for a function.
  *
  * @param request PutScalingConfigRequest
  * @return PutScalingConfigResponse
@@ -2856,7 +2888,9 @@ PutScalingConfigResponse Client::putScalingConfig(const string &functionName, co
 }
 
 /**
- * @summary 恢复会话
+ * @summary Resume a session
+ *
+ * @description Resumes a session that is in the Paused state. The system quickly resumes the session in a new execution environment using its previously persisted state. After a successful resume, the session status changes to Active, and the session begins accepting function invocation requests and routing them to the resumed instance. Use this operation with custom image functions that use HEADER_FIELD or GENERATED_COOKIE session affinity and session isolation.
  *
  * @param request ResumeSessionRequest
  * @param headers map
@@ -2893,7 +2927,9 @@ ResumeSessionResponse Client::resumeSessionWithOptions(const string &functionNam
 }
 
 /**
- * @summary 恢复会话
+ * @summary Resume a session
+ *
+ * @description Resumes a session that is in the Paused state. The system quickly resumes the session in a new execution environment using its previously persisted state. After a successful resume, the session status changes to Active, and the session begins accepting function invocation requests and routing them to the resumed instance. Use this operation with custom image functions that use HEADER_FIELD or GENERATED_COOKIE session affinity and session isolation.
  *
  * @param request ResumeSessionRequest
  * @return ResumeSessionResponse
@@ -2950,9 +2986,7 @@ StopAsyncTaskResponse Client::stopAsyncTask(const string &functionName, const st
 }
 
 /**
- * @summary Adds tags to a resource.
- *
- * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+ * @summary Adds tags to specified resources.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -2980,9 +3014,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to a resource.
- *
- * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+ * @summary Adds tags to specified resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -2994,7 +3026,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Removes tags from a resource.
+ * @summary Removes tags from resources.
  *
  * @param tmpReq UntagResourcesRequest
  * @param headers map
@@ -3049,7 +3081,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from a resource.
+ * @summary Removes tags from resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -3101,7 +3133,7 @@ UpdateAliasResponse Client::updateAlias(const string &functionName, const string
 }
 
 /**
- * @summary Update a custom domain name.
+ * @summary Updates a custom domain name.
  *
  * @param request UpdateCustomDomainRequest
  * @param headers map
@@ -3129,7 +3161,7 @@ UpdateCustomDomainResponse Client::updateCustomDomainWithOptions(const string &d
 }
 
 /**
- * @summary Update a custom domain name.
+ * @summary Updates a custom domain name.
  *
  * @param request UpdateCustomDomainRequest
  * @return UpdateCustomDomainResponse
@@ -3141,7 +3173,7 @@ UpdateCustomDomainResponse Client::updateCustomDomain(const string &domainName, 
 }
 
 /**
- * @summary Updates the information about a function.
+ * @summary Updates a function\\"s configuration.
  *
  * @param request UpdateFunctionRequest
  * @param headers map
@@ -3169,7 +3201,7 @@ UpdateFunctionResponse Client::updateFunctionWithOptions(const string &functionN
 }
 
 /**
- * @summary Updates the information about a function.
+ * @summary Updates a function\\"s configuration.
  *
  * @param request UpdateFunctionRequest
  * @return UpdateFunctionResponse
@@ -3227,7 +3259,7 @@ UpdateSessionResponse Client::updateSession(const string &functionName, const st
 }
 
 /**
- * @summary Modifies a trigger.
+ * @summary Updates the information of a trigger.
  *
  * @param request UpdateTriggerRequest
  * @param headers map
@@ -3255,7 +3287,7 @@ UpdateTriggerResponse Client::updateTriggerWithOptions(const string &functionNam
 }
 
 /**
- * @summary Modifies a trigger.
+ * @summary Updates the information of a trigger.
  *
  * @param request UpdateTriggerRequest
  * @return UpdateTriggerResponse

@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The provisioned configuration information.
+    // The provisioned configuration.
     // 
     // This parameter is required.
     shared_ptr<PutProvisionConfigInput> body_ {};

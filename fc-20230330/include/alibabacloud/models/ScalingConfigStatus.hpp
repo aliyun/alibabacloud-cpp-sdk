@@ -137,16 +137,27 @@ namespace Models
 
 
   protected:
+    // The error message that is returned when an instance fails to be created.
     shared_ptr<string> currentError_ {};
+    // The current number of instances.
     shared_ptr<int64_t> currentInstances_ {};
+    // Specifies whether mix mode is enabled.
     shared_ptr<bool> enableMixMode_ {};
+    // Specifies whether on-demand scaling is enabled.
     shared_ptr<bool> enableOnDemandScaling_ {};
+    // The resource identifier of the function.
     shared_ptr<string> functionArn_ {};
+    // The horizontal scaling policies.
     shared_ptr<vector<ScalingPolicy>> horizontalScalingPolicies_ {};
+    // The minimum number of instances.
     shared_ptr<int64_t> minInstances_ {};
+    // The request dispatch policy.
     shared_ptr<string> requestDispatchPolicy_ {};
+    // The ID of the resident resource pool.
     shared_ptr<string> residentPoolId_ {};
+    // The scheduled scaling policies.
     shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ {};
+    // The target number of instances.
     shared_ptr<int64_t> targetInstances_ {};
   };
 

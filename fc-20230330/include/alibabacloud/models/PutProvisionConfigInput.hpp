@@ -91,14 +91,20 @@ namespace Models
 
 
   protected:
+    // 是否始终分配CPU，默认为true。
     shared_ptr<bool> alwaysAllocateCPU_ {};
+    // 是否始终分配GPU，默认为true。
     shared_ptr<bool> alwaysAllocateGPU_ {};
     // The number of target provisioned instances. Valid values: [0,10000].
     shared_ptr<int64_t> defaultTarget_ {};
     // public
     shared_ptr<vector<ScheduledAction>> scheduledActions_ {};
+    // >Notice: 建议不再使用该参数，请使用 defaultTarget 参数。 </notice>
+    // 预留的目标资源个数。取值范围为[0,10000]。
+    // 
     // This parameter is required.
     shared_ptr<int64_t> target_ {};
+    // 指标追踪伸缩策略配置。
     shared_ptr<vector<TargetTrackingPolicy>> targetTrackingPolicies_ {};
   };
 
