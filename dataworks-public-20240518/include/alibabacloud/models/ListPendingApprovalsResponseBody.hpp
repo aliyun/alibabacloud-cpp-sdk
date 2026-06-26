@@ -180,11 +180,11 @@ namespace Models
 
 
           protected:
-            // The name of the `ResourceSchema` used to parse the resource.
+            // ResourceSchema.name that the resource parsing depends on.
             shared_ptr<string> defSchema_ {};
-            // The version of the `ResourceSchema` used to parse the resource.
+            // ResourceSchema.version that the resource parsing depends on.
             shared_ptr<string> defVersion_ {};
-            // The resource metadata. The content is constrained by the DefSchema.
+            // Resource metadata. The data content is constrained by ResourceSchema.
             Darabonba::Json metaData_ {};
           };
 
@@ -226,39 +226,26 @@ namespace Models
 
 
           protected:
-            // The principal ID.
+            // Principal ID.
             // 
-            // Note: The meaning of this ID varies based on the `principalType`.
-            // 
-            // - If the `principalType` is `RamUser`, this is the DataWorks user ID.
-            // 
-            // - If the `principalType` is `RamRole`, this is the DataWorks user ID, prefixed with "ROLE_".
-            // 
-            // - If the `principalType` is `DataWorksTenantMember`, this is the DataWorks user ID.
-            // 
-            // - If the `principalType` is `DataWorksTenantRole`, this is the DataWorks tenant role code.
-            // 
-            // - If the `principalType` is `DataWorksProjectRole`, this is the DataWorks workspace role code.
-            // 
-            // - If the `principalType` is `DataWorksProjectMember`, this is the DataWorks user ID.
-            // 
-            // - If the `principalType` is `DlfRole`, this is the DLF role name.
+            // Note: The semantics of the ID vary depending on the principalType:
+            // - RamUser: DataWorks UserId
+            // - RamRole: DataWorks UserId prefixed with "ROLE_"
+            // - DataworksTenantMember: DataWorks UserId
+            // - DataworksTenantRole: DataWorks tenant roleCode
+            // - DataworksProjectRole: DataWorks workspace roleCode
+            // - DataworksProjectMember: DataWorks UserId
+            // - DlfRole: DlfNext role name
             shared_ptr<string> principalId_ {};
-            // The principal type. Valid values:
+            // Principal type. Enumeration:
             // 
-            // - `RamRole`: A RAM role.
-            // 
-            // - `RamUser`: A RAM user.
-            // 
-            // - `DataWorksTenantMember`: A DataWorks tenant member.
-            // 
-            // - `DataWorksTenantRole`: A DataWorks tenant role.
-            // 
-            // - `DataWorksProjectMember`: A DataWorks workspace member.
-            // 
-            // - `DataWorksProjectRole`: A DataWorks workspace role.
-            // 
-            // - `DlfRole`: A DLF role.
+            // - RamRole
+            // - RamUser
+            // - DataworksTenantMember
+            // - DataworksTenantRole
+            // - DataworksProjectMember
+            // - DataworksProjectRole
+            // - DlfRole
             shared_ptr<string> principalType_ {};
           };
 
@@ -373,47 +360,41 @@ namespace Models
 
 
         protected:
-          // The permissions requested for the resource.
+          // Resource operation permissions requested in the application.
           shared_ptr<vector<string>> accessTypes_ {};
-          // The authorization method.
+          // Authorization method.
           shared_ptr<string> authMethod_ {};
-          // The creation time of the entry.
+          // Creation time.
           shared_ptr<int64_t> createTime_ {};
-          // The resource type.
+          // Resource type.
           shared_ptr<string> defSchema_ {};
-          // The permission expiration time, in milliseconds since the Unix epoch.
+          // Permission expiration date, millisecond timestamp.
           shared_ptr<int64_t> expirationTime_ {};
-          // The final permissions granted after approval.
+          // Resource operation permissions finally approved.
           shared_ptr<vector<string>> finalAccessTypes_ {};
-          // Information about the grantee.
+          // Authorization principal description.
           shared_ptr<Contents::Grantee> grantee_ {};
-          // The unique identifier of the requested item.
+          // Unique identifier of the request content.
           shared_ptr<string> id_ {};
-          // **The process instance ID.**
+          // **Process instance ID.**
           shared_ptr<string> processInstanceId_ {};
-          // The resource declaration.
+          // Resource declaration.
           shared_ptr<Contents::Resource> resource_ {};
-          // The type of the resource, such as a table or function.
+          // Minimum permission resource type.
           shared_ptr<string> resourceName_ {};
-          // The approval status. Valid values:
+          // Approval status. Enumeration:
           // 
-          // - `WaitApproval`: Pending approval
-          // 
-          // - `Confirmed`: Pending authorization
-          // 
-          // - `RejectApproval`: Rejected
-          // 
-          // - `AuthorizeSucceed`: Authorization successful
-          // 
-          // - `AuthorizeFailed`: Authorization failed
-          // 
-          // - `Deleted`: Deleted
-          // 
-          // - `Canceled`: Canceled
+          // - WaitApproval: Pending approval
+          // - Confirmed: Pending authorization
+          // - RejectApproval: Approval rejected
+          // - AuthorizeSucceed: Authorization succeeded
+          // - AuthorizeFailed: Authorization failed
+          // - Deleted: Deleted
+          // - Canceled: Canceled
           shared_ptr<string> status_ {};
-          // The tenant ID.
+          // Tenant ID.
           shared_ptr<string> tenantId_ {};
-          // The time the entry was last updated.
+          // Update time.
           shared_ptr<int64_t> updateTime_ {};
         };
 
@@ -464,31 +445,25 @@ namespace Models
 
 
       protected:
-        // The submission time of the request.
+        // Time when the request was submitted.
         shared_ptr<int64_t> applicationTime_ {};
-        // The content of the request.
+        // Request content.
         shared_ptr<vector<DataItem::Contents>> contents_ {};
-        // The resource type.
+        // Resource type.
         shared_ptr<string> defSchema_ {};
-        // The process instance ID.
+        // Process instance ID.
         shared_ptr<string> processInstanceId_ {};
-        // The reason for the request.
+        // Reason for the request.
         shared_ptr<string> reason_ {};
-        // The approval status. Valid values:
+        // Approval status. Enumeration:
         // 
-        // - `WaitApproval`: Pending approval
-        // 
-        // - `Confirmed`: Pending authorization
-        // 
-        // - `RejectApproval`: Rejected
-        // 
-        // - `AuthorizeSucceed`: Authorization successful
-        // 
-        // - `AuthorizeFailed`: Authorization failed
-        // 
-        // - `Deleted`: Deleted
-        // 
-        // - `Canceled`: Canceled
+        // - WaitApproval: Pending approval
+        // - Confirmed: Pending authorization
+        // - RejectApproval: Approval rejected
+        // - AuthorizeSucceed: Authorization succeeded
+        // - AuthorizeFailed: Authorization failed
+        // - Deleted: Deleted
+        // - Canceled: Canceled
         shared_ptr<string> status_ {};
       };
 
@@ -525,13 +500,13 @@ namespace Models
 
 
     protected:
-      // The list of pending approvals.
+      // Data list in the paginated results.
       shared_ptr<vector<Data::DataItem>> data_ {};
-      // Indicates whether more data is available.
+      // Whether more data is available.
       shared_ptr<bool> hasMore_ {};
-      // A token to retrieve the next page of results.
+      // Cursor.
       shared_ptr<string> nextToken_ {};
-      // The page size. Default: 10. Maximum: 200.
+      // Page size (default: 10, maximum: 200).
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -554,9 +529,9 @@ namespace Models
 
 
   protected:
-    // The paginated results.
+    // Paginated results.
     shared_ptr<ListPendingApprovalsResponseBody::Data> data_ {};
-    // The request ID.
+    // API request ID, generated as UUID.
     shared_ptr<string> requestId_ {};
   };
 

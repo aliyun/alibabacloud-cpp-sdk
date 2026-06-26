@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RerunTaskInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Comment, comment_);
       DARABONBA_PTR_TO_JSON(Ids, idsShrink_);
+      DARABONBA_PTR_TO_JSON(UseLatestConfig, useLatestConfig_);
     };
     friend void from_json(const Darabonba::Json& j, RerunTaskInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
       DARABONBA_PTR_FROM_JSON(Ids, idsShrink_);
+      DARABONBA_PTR_FROM_JSON(UseLatestConfig, useLatestConfig_);
     };
     RerunTaskInstancesShrinkRequest() = default ;
     RerunTaskInstancesShrinkRequest(const RerunTaskInstancesShrinkRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && this->idsShrink_ == nullptr; };
+        && this->idsShrink_ == nullptr && this->useLatestConfig_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline RerunTaskInstancesShrinkRequest& setIdsShrink(string idsShrink) { DARABONBA_PTR_SET_VALUE(idsShrink_, idsShrink) };
 
 
+    // useLatestConfig Field Functions 
+    bool hasUseLatestConfig() const { return this->useLatestConfig_ != nullptr;};
+    void deleteUseLatestConfig() { this->useLatestConfig_ = nullptr;};
+    inline bool getUseLatestConfig() const { DARABONBA_PTR_GET_DEFAULT(useLatestConfig_, false) };
+    inline RerunTaskInstancesShrinkRequest& setUseLatestConfig(bool useLatestConfig) { DARABONBA_PTR_SET_VALUE(useLatestConfig_, useLatestConfig) };
+
+
   protected:
-    // Remarks.
+    // The remarks.
     shared_ptr<string> comment_ {};
-    // The ID list of the task instance.
+    // The list of node instance IDs.
     shared_ptr<string> idsShrink_ {};
+    shared_ptr<bool> useLatestConfig_ {};
   };
 
   } // namespace Models

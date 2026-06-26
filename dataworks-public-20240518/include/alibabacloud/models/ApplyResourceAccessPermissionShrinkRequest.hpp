@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // A list of permission requests.
+    // The list of resource permission application contents.
     // 
     // This parameter is required.
     shared_ptr<string> applyContentsShrink_ {};
-    // The idempotency parameter, which prevents duplicate operations from repeated calls.
+    // The idempotency parameter. Used to prevent duplicate operations caused by multiple calls.
     shared_ptr<string> clientToken_ {};
-    // The reason for the request.
+    // The reason for the application.
     // 
     // This parameter is required.
     shared_ptr<string> reason_ {};

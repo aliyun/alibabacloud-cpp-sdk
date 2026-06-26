@@ -112,11 +112,21 @@ namespace Models
       protected:
         // The resource type.
         // 
+        // **Note**: The resource types supported for application are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+        // 
+        // Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+        // 
         // This parameter is required.
         shared_ptr<string> defSchema_ {};
-        // The version of `ResourceSchema` that is required to parse the resource.
+        // The resource parsing version, which is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+        // 
+        // [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<string> defVersion_ {};
-        // The resource metadata. The content is constrained by `ResourceSchema`.
+        // The resource metadata declaration.
+        // 
+        // **Note**: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include full-path metadata declarations from level 0 to validLeaf.
+        // 
+        // Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         Darabonba::Json metaData_ {};
       };
 
@@ -158,22 +168,19 @@ namespace Models
 
 
       protected:
-        // The ID of the principal. The value of this parameter depends on the `PrincipalType`:
+        // The grantee ID. The ID has different semantics depending on the grantee type:
         // 
-        // - `RamUser`: The Dataworks user ID.
+        // - RamUser: Dataworks UserId
+        // - RamRole: Dataworks UserId prefixed with "ROLE_"
         // 
-        // - `RamRole`: The Dataworks user ID, prefixed with `ROLE_`.
-        // 
-        // - `DlfRole`: The DlfNext role name.
+        // - DlfRole: DlfNext role name
         // 
         // This parameter is required.
         shared_ptr<string> principalId_ {};
-        // The principal type. Valid values:
+        // The grantee type. Valid values:
         // 
         // - RamRole
-        // 
         // - RamUser
-        // 
         // - DlfRole
         // 
         // This parameter is required.
@@ -224,23 +231,31 @@ namespace Models
 
 
     protected:
-      // The requested permissions.
+      // The list of permissions to apply for.
       // 
-      // Note: The supported permission types vary by resource level and are constrained by the `ResourceSchema` of the corresponding resource type.
+      // **Note**: Different resource levels support different permission types. They are uniformly constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+      // 
+      // Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       // 
       // This parameter is required.
       shared_ptr<vector<string>> accessTypes_ {};
-      // The authorization method.
+      // The authorization method. Currently, only SEVERLESS_STARROCKS supports specifying the authorization method: ranger or starrocksManager.
       // 
-      // Note: This parameter is supported only for `SEVERLESS_STARROCKS` resources. Valid values are `ranger` and `starrocksManager`.
+      // **Note**: Different resources support different authorization methods, which are uniformly constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authMethods.
+      // 
+      // Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       shared_ptr<string> authMethod_ {};
-      // The permission expiration time, as a Unix timestamp in milliseconds.
+      // The permission expiration time, in milliseconds timestamp.
       shared_ptr<int64_t> expirationTime_ {};
-      // The principal to which permissions are granted.
+      // The grantee description.
+      // 
+      // **Note**: The supported grantee types are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+      // 
+      // Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       // 
       // This parameter is required.
       shared_ptr<ApplyContents::Grantee> grantee_ {};
-      // The resource for which permissions are requested.
+      // The resource description.
       shared_ptr<ApplyContents::Resource> resource_ {};
     };
 
@@ -270,13 +285,13 @@ namespace Models
 
 
   protected:
-    // A list of permission requests.
+    // The list of resource permission application contents.
     // 
     // This parameter is required.
     shared_ptr<vector<ApplyResourceAccessPermissionRequest::ApplyContents>> applyContents_ {};
-    // The idempotency parameter, which prevents duplicate operations from repeated calls.
+    // The idempotency parameter. Used to prevent duplicate operations caused by multiple calls.
     shared_ptr<string> clientToken_ {};
-    // The reason for the request.
+    // The reason for the application.
     // 
     // This parameter is required.
     shared_ptr<string> reason_ {};

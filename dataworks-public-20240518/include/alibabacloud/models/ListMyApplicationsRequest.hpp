@@ -93,11 +93,21 @@ namespace Models
 
 
     protected:
-      // The name of the resource schema (`ResourceSchema.name`) required for resource parsing.
+      // The resource type.
+      // 
+      // Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+      // 
+      // See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       shared_ptr<string> defSchema_ {};
-      // The version of the resource schema (`ResourceSchema.version`) required for resource parsing.
+      // The resource parsing version, which is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+      // 
+      // [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       shared_ptr<string> defVersion_ {};
-      // The resource metadata. The content is constrained by the `ResourceSchema`.
+      // The resource metadata.
+      // 
+      // Note: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declarations from level 0 to the validLeaf level.
+      // 
+      // See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       Darabonba::Json metaData_ {};
     };
 
@@ -167,43 +177,47 @@ namespace Models
 
 
   protected:
-    // The resource type.
+    // Filters by resource type.
+    // 
+    // Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+    // 
+    // See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     // 
     // This parameter is required.
     shared_ptr<string> defSchema_ {};
-    // The end time of the application, specified as a Unix timestamp in milliseconds.
+    // The end time of the application period (millisecond timestamp).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // A token that you can use in a subsequent request to retrieve the next page of results.
+    // The pagination cursor.
     shared_ptr<string> nextToken_ {};
-    // The number of entries to return on each page. Default value: 10. Maximum value: 200.
+    // The number of entries per page. Default value: 10. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
-    // The search criteria for the resource.
+    // Filters by resource with exact or wildcard matching. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+    // 
+    // See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     shared_ptr<ListMyApplicationsRequest::Resource> resource_ {};
-    // The name of the leaf node that specifies the resource type. You can specify multiple resource types. Note that different leaf node names can map to the same business logic.
+    // Filters by minimum permission resource type.
+    // 
+    // Note: The minimum permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+    // 
+    // See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceType_ {};
-    // The start time of the application, specified as a Unix timestamp in milliseconds.
+    // The start time of the application period (millisecond timestamp).
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The approval statuses for filtering. Valid values:
+    // Filters by approval status. Valid values:
     // 
-    // - `WaitApproval`: Pending approval
-    // 
-    // - `Confirmed`: Pending authorization
-    // 
-    // - `RejectApproval`: Approval rejected
-    // 
-    // - `AuthorizeSucceed`: Authorization succeeded
-    // 
-    // - `AuthorizeFailed`: Authorization failed
-    // 
-    // - `Deleted`: The application was deleted.
-    // 
-    // - `Canceled`: The application was canceled.
+    // - WaitApproval: pending approval.
+    // - Confirmed: pending authorization.
+    // - RejectApproval: approval rejected.
+    // - AuthorizeSucceed: authorization succeeded.
+    // - AuthorizeFailed: authorization failed.
+    // - Deleted: deleted.
+    // - Canceled: withdrawn.
     shared_ptr<vector<string>> statuses_ {};
   };
 

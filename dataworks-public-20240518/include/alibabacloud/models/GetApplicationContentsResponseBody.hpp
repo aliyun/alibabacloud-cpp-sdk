@@ -153,11 +153,21 @@ namespace Models
 
 
         protected:
-          // The name of the `ResourceSchema` that defines how to parse this resource.
+          // The resource type.
+          // 
+          // Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+          // 
+          // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
           shared_ptr<string> defSchema_ {};
-          // The version of the `ResourceSchema` that defines how to parse this resource.
+          // The resource parsing version, which is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+          // 
+          // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
           shared_ptr<string> defVersion_ {};
-          // The resource metadata. The structure of the metadata is defined by the `ResourceSchema`.
+          // The resource metadata declaration.
+          // 
+          // Note: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
+          // 
+          // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
           shared_ptr<string> metaData_ {};
         };
 
@@ -199,21 +209,19 @@ namespace Models
 
 
         protected:
-          // The ID of the principal. The format of the ID varies based on the `PrincipalType` value:
+          // The grantee principal ID. The ID has different meanings depending on the principal type:
           // 
-          // - If `PrincipalType` is `RamUser`, this parameter specifies the ID of a DataWorks user.
+          // - RamUser: DataWorks UserId.
           // 
-          // - If `PrincipalType` is `RamRole`, this parameter specifies the ID of a role in DataWorks. The ID must be prefixed with `ROLE_`.
+          // - RamRole: DataWorks UserId prefixed with "ROLE_".
           // 
-          // - If `PrincipalType` is `DlfRole`, this parameter specifies the name of a DlfNext role.
+          // - DlfRole: DlfNext role name.
           shared_ptr<string> principalId_ {};
-          // The principal type. Valid values:
+          // The grantee principal type. Valid values:
           // 
-          // - `RamUser`
-          // 
-          // - `RamRole`
-          // 
-          // - `DlfRole`
+          // - RamUser
+          // - RamRole
+          // - DlfRole
           shared_ptr<string> principalType_ {};
         };
 
@@ -328,47 +336,63 @@ namespace Models
 
 
       protected:
-        // A list of the permissions requested for the resource.
+        // The list of requested permissions.
+        // 
+        // Note: Different levels of resources support different permission application types, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+        // 
+        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<vector<string>> accessTypes_ {};
-        // The authorization method.
+        // The authorization method. Currently, only SEVERLESS_STARROCKS supports specifying the authorization method: ranger or starrocksManager.
+        // 
+        // Note: Different resources support different authorization methods, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authMethods.
+        // 
+        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<string> authMethod_ {};
-        // The time when the content item was created. This value is a millisecond-precision timestamp.
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
         // The resource type.
+        // 
+        // Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+        // 
+        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<string> defSchema_ {};
-        // The time when the permissions expire. This value is a millisecond-precision timestamp.
+        // The permission expiration date, as a millisecond timestamp.
         shared_ptr<int64_t> expirationTime_ {};
-        // A list of the permissions granted in the final approval.
+        // The list of resource operation permissions that are finally approved.
         shared_ptr<vector<string>> finalAccessTypes_ {};
-        // The grantee.
+        // The grantee description.
+        // 
+        // Note: The grantee principal types supported by the system are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+        // 
+        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<Contents::Grantee> grantee_ {};
-        // The unique ID of the application content item.
+        // The unique identifier of the application content.
         shared_ptr<string> id_ {};
-        // The ID of the approval process instance for the application.
+        // The approval process instance ID of the submitted application.
         shared_ptr<string> processInstanceId_ {};
-        // The resource declaration.
+        // The resource declaration. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+        // 
+        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<Contents::Resource> resource_ {};
-        // The specific type of the resource, such as a table.
+        // The minimum-permission resource type.
+        // 
+        // Note: The minimum-permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+        // 
+        // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
         shared_ptr<string> resourceName_ {};
         // The approval status. Valid values:
         // 
-        // - `WaitApproval`: The item is pending approval.
-        // 
-        // - `Confirmed`: The item is pending authorization.
-        // 
-        // - `RejectApproval`: The item was rejected.
-        // 
-        // - `AuthorizeSucceed`: Authorization was successful.
-        // 
-        // - `AuthorizeFailed`: Authorization failed.
-        // 
-        // - `Deleted`: The item was deleted during the approval process.
-        // 
-        // - `Canceled`: The item was canceled.
+        // - WaitApproval: Pending approval.
+        // - Confirmed: Pending authorization.
+        // - RejectApproval: Approval rejected.
+        // - AuthorizeSucceed: Authorization succeeded.
+        // - AuthorizeFailed: Authorization failed.
+        // - Deleted: Deleted.
+        // - Canceled: Canceled.
         shared_ptr<string> status_ {};
         // The tenant ID.
         shared_ptr<string> tenantId_ {};
-        // The time when the content item was last updated. This value is a millisecond-precision timestamp.
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -419,31 +443,29 @@ namespace Models
 
 
     protected:
-      // The time when the application was submitted. This value is a millisecond-precision timestamp.
+      // The time when the application was submitted, as a millisecond timestamp.
       shared_ptr<int64_t> applicationTime_ {};
-      // A list of the application contents.
+      // The list of application contents.
       shared_ptr<vector<Data::Contents>> contents_ {};
       // The resource type.
+      // 
+      // Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+      // 
+      // See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       shared_ptr<string> defSchema_ {};
       // The process instance ID.
       shared_ptr<string> processInstanceId_ {};
-      // The reason for the application.
+      // The application reason.
       shared_ptr<string> reason_ {};
       // The approval status. Valid values:
       // 
-      // - `WaitApproval`: The application is pending approval.
-      // 
-      // - `Confirmed`: The application is pending authorization.
-      // 
-      // - `RejectApproval`: The application was rejected.
-      // 
-      // - `AuthorizeSucceed`: Authorization was successful.
-      // 
-      // - `AuthorizeFailed`: Authorization failed.
-      // 
-      // - `Deleted`: The application was deleted.
-      // 
-      // - `Canceled`: The application was canceled.
+      // - WaitApproval: Pending approval.
+      // - Confirmed: Pending authorization.
+      // - RejectApproval: Approval rejected.
+      // - AuthorizeSucceed: Authorization succeeded.
+      // - AuthorizeFailed: Authorization failed.
+      // - Deleted: Deleted.
+      // - Canceled: Canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -466,9 +488,9 @@ namespace Models
 
 
   protected:
-    // The process instance and its associated application contents.
+    // The process instance and associated application content.
     shared_ptr<GetApplicationContentsResponseBody::Data> data_ {};
-    // The request ID. Use this ID to locate logs and troubleshoot issues.
+    // The request ID, which is used for locating logs and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -97,11 +97,21 @@ namespace Models
 
 
     protected:
-      // The `name` of the `ResourceSchema` used to parse the resource.
+      // Resource type.
+      // 
+      // Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+      // 
+      // Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       shared_ptr<string> defSchema_ {};
-      // The `version` of the `ResourceSchema` used to parse the resource.
+      // The resource parsing version is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+      // 
+      // [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       shared_ptr<string> defVersion_ {};
-      // The resource metadata. The `ResourceSchema` defines its content.
+      // Resource metadata.
+      // 
+      // Note: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to validLeaf layer.
+      // 
+      // Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
       Darabonba::Json metaData_ {};
     };
 
@@ -143,36 +153,24 @@ namespace Models
 
 
     protected:
-      // The ID of the principal. The format varies based on the value of `PrincipalType`.
+      // Authorization principal ID:
       // 
-      // - If `PrincipalType` is `RamUser`, this parameter is the Dataworks user ID.
-      // 
-      // - If `PrincipalType` is `RamRole`, this parameter is a Dataworks user ID that starts with `ROLE_`.
-      // 
-      // - If `PrincipalType` is `DataworksTenantMember`, this parameter is the Dataworks user ID.
-      // 
-      // - If `PrincipalType` is `DataworksTenantRole`, this parameter is the Dataworks tenant `roleCode`.
-      // 
-      // - If `PrincipalType` is `DataworksProjectRole`, this parameter is the Dataworks workspace `roleCode`.
-      // 
-      // - If `PrincipalType` is `DataworksProjectMember`, this parameter is the Dataworks user ID.
-      // 
-      // - If `PrincipalType` is `DlfRole`, this parameter is the DlfNext role name.
+      // - `RamUser`: Dataworks UserId
+      // - `RamRole`: Dataworks UserId prefixed with "ROLE_"
+      // - `DataworksTenantMember`: Dataworks UserId
+      // - `DataworksTenantRole`: Dataworks tenant roleCode
+      // - `DataworksProjectRole`: Dataworks workspace roleCode
+      // - `DataworksProjectMember`: Dataworks UserId
+      // - `DlfRole`: DlfNext role name
       shared_ptr<string> principalId_ {};
-      // The type of the principal. Valid values:
+      // Authorization principal type:
       // 
       // - `RamRole`
-      // 
       // - `RamUser`
-      // 
       // - `DataworksTenantMember`
-      // 
       // - `DataworksTenantRole`
-      // 
       // - `DataworksProjectMember`
-      // 
       // - `DataworksProjectRole`
-      // 
       // - `DlfRole`
       shared_ptr<string> principalType_ {};
     };
@@ -261,43 +259,55 @@ namespace Models
 
 
   protected:
-    // The permissions.
+    // Filter by requested permissions.
+    // 
+    // Note: Different resource levels support different application permission types, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+    // 
+    // Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     shared_ptr<vector<string>> accessTypes_ {};
-    // The resource type.
+    // Filter by resource type.
+    // 
+    // Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+    // 
+    // Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     // 
     // This parameter is required.
     shared_ptr<string> defSchema_ {};
-    // The end of the application time range, specified as a millisecond timestamp.
+    // Application time end (millisecond timestamp)
     shared_ptr<int64_t> endTime_ {};
-    // Filters approvals by the specified principal.
+    // Filter by authorization principal.
+    // 
+    // Note: The authorization principal types supported by the system are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+    // 
+    // Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     shared_ptr<ListMyRelatedApprovalsRequest::Grantee> grantee_ {};
-    // The pagination token that acts as a cursor to retrieve the next page of results.
+    // Pagination cursor
     shared_ptr<string> nextToken_ {};
-    // The number of entries to return on each page. Default value: 10. Maximum value: 200.
+    // Page size (default 10, maximum 200)
     shared_ptr<int32_t> pageSize_ {};
-    // The resource declaration.
+    // Filter by resource with exact/generalized matching. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+    // 
+    // Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     shared_ptr<ListMyRelatedApprovalsRequest::Resource> resource_ {};
-    // The resource type, specified as a leaf node name. Multiple values are supported because a single business semantic can be mapped to multiple leaf node names.
+    // Filter by minimum permission resource type.
+    // 
+    // Note: The minimum permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+    // 
+    // Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceType_ {};
-    // The start of the application time range, specified as a millisecond timestamp.
+    // Application time start (millisecond timestamp)
     shared_ptr<int64_t> startTime_ {};
-    // Filters the results by approval status. Valid values:
+    // Filter by approval status. Enum values:
     // 
-    // - `WaitApproval`: Pending approval
-    // 
-    // - `Confirmed`: Pending authorization
-    // 
-    // - `RejectApproval`: Approval rejected
-    // 
-    // - `AuthorizeSucceed`: Authorization succeeded
-    // 
-    // - `AuthorizeFailed`: Authorization failed
-    // 
-    // - `Deleted`: Deleted
-    // 
-    // - `Canceled`: Withdrawn
+    // - WaitApproval: Pending approval
+    // - Confirmed: Pending authorization
+    // - RejectApproval: Approval rejected
+    // - AuthorizeSucceed: Authorization succeeded
+    // - AuthorizeFailed: Authorization failed
+    // - Deleted: Deleted
+    // - Canceled: Withdrawn
     shared_ptr<vector<string>> statuses_ {};
   };
 
