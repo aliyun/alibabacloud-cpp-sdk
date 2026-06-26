@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The maximum number of concurrent conversations for the instance.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> concurrency_ {};
+    // The description of the instance.
     shared_ptr<string> description_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> name_ {};

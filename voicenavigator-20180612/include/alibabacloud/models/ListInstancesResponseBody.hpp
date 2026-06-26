@@ -181,18 +181,35 @@ namespace Models
 
 
     protected:
+      // A list of applicable operations.
       shared_ptr<vector<string>> applicableOperations_ {};
+      // The maximum number of concurrent calls.
       shared_ptr<int64_t> concurrency_ {};
+      // The time when the instance was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> createTime_ {};
+      // The description of the instance.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The time when the instance was last modified. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> modifyTime_ {};
+      // The user who last modified the instance.
       shared_ptr<string> modifyUserName_ {};
+      // The name of the instance.
       shared_ptr<string> name_ {};
+      // The parameters of the NLU service in the JSON format.
       shared_ptr<string> nluServiceParamsJson_ {};
+      // The list of inbound numbers.
       shared_ptr<vector<string>> numbers_ {};
+      // The status of the instance.
       shared_ptr<string> status_ {};
+      // The instance ID from the source system.
+      // 
+      // > If UnionSource is CCC, this parameter indicates the instance ID of the Cloud Communication Center instance.
       shared_ptr<string> unionInstanceId_ {};
+      // The source of the instance.
+      // 
+      // - `CCC`: Cloud Communication Center
       shared_ptr<string> unionSource_ {};
     };
 
@@ -236,10 +253,15 @@ namespace Models
 
 
   protected:
+    // The list of instances.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

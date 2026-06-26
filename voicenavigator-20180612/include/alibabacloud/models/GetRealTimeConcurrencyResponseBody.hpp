@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum concurrency.
     shared_ptr<int64_t> maxConcurrency_ {};
+    // The real-time concurrency.
     shared_ptr<int64_t> realTimeConcurrency_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The timestamp of the request.
     shared_ptr<int64_t> timestamp_ {};
   };
 

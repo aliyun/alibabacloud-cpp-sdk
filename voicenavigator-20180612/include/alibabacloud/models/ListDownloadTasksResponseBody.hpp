@@ -148,9 +148,13 @@ namespace Models
 
 
         protected:
+          // The file ID.
           shared_ptr<string> fileId_ {};
+          // The progress of the file download.
           shared_ptr<int32_t> progress_ {};
+          // The status of the file.
           shared_ptr<string> status_ {};
+          // The title of the file.
           shared_ptr<string> title_ {};
         };
 
@@ -194,10 +198,15 @@ namespace Models
 
 
       protected:
+        // A list of download task files.
         shared_ptr<vector<List::DownloadTaskFiles>> downloadTaskFiles_ {};
+        // The expiration time.
         shared_ptr<int64_t> expireTime_ {};
+        // The status of the task.
         shared_ptr<string> status_ {};
+        // The task ID.
         shared_ptr<string> taskId_ {};
+        // The title of the task.
         shared_ptr<string> title_ {};
       };
 
@@ -234,9 +243,13 @@ namespace Models
 
 
     protected:
+      // A list of download tasks.
       shared_ptr<vector<DownloadTasks::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned on each page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -287,11 +300,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The download task data.
     shared_ptr<ListDownloadTasksResponseBody::DownloadTasks> downloadTasks_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

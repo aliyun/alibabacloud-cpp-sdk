@@ -152,16 +152,28 @@ namespace Models
 
 
   protected:
+    // The capability type of the instance.<br>
+    // DEFAULT: Full capabilities.<br>
+    // VOICE_ONLY: Voice-only capabilities, which do not include conversation intervention.<br><br>
     shared_ptr<string> abilityType_ {};
+    // Applicable operations.
     shared_ptr<vector<string>> applicableOperations_ {};
+    // The concurrency of the instance.
     shared_ptr<int64_t> concurrency_ {};
+    // The description of the instance.
     shared_ptr<string> description_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The last modification time of the instance.
     shared_ptr<int64_t> modifyTime_ {};
+    // The user who last modified the instance.
     shared_ptr<string> modifyUserName_ {};
+    // The instance name.
     shared_ptr<string> name_ {};
     shared_ptr<string> nluServiceParamsJson_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the instance.
     shared_ptr<string> status_ {};
     shared_ptr<string> unionInstanceId_ {};
     shared_ptr<string> unionSource_ {};

@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // The file name.
     shared_ptr<string> fileName_ {};
+    // The file download URL.
     shared_ptr<string> filePath_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> voiceSliceRecordingListJson_ {};
   };

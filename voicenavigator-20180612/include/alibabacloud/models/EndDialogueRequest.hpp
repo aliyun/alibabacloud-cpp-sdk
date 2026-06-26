@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The ID of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
+    // The hang-up parameters, in a JSON string.
     shared_ptr<string> hangUpParams_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the instance owner.
     shared_ptr<int64_t> instanceOwnerId_ {};
   };
 

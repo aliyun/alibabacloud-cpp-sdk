@@ -116,12 +116,19 @@ namespace Models
 
 
     protected:
+      // The action performed during the turn.
       shared_ptr<string> action_ {};
+      // The action parameters.
       shared_ptr<string> actionParams_ {};
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The sequence ID of the conversational turn.
       shared_ptr<string> sequenceId_ {};
+      // The speaker. Valid values: `customer` and `chatbot`.
       shared_ptr<string> speaker_ {};
+      // The speaker\\"s utterance.
       shared_ptr<string> utterance_ {};
     };
 
@@ -144,7 +151,9 @@ namespace Models
 
 
   protected:
+    // The list of conversation details.
     shared_ptr<vector<ListConversationDetailsResponseBody::ConversationDetails>> conversationDetails_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,13 +84,22 @@ namespace Models
 
 
   protected:
+    // The start of the time range to query. This value is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
+    // The end of the time range to query. This value is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeRightRange_ {};
+    // The calling number.
     shared_ptr<string> callingNumber_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

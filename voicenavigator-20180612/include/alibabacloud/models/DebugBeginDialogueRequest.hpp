@@ -84,12 +84,20 @@ namespace Models
 
 
   protected:
+    // The called number.
     shared_ptr<string> calledNumber_ {};
+    // The calling number.
+    // 
     // This parameter is required.
     shared_ptr<string> callingNumber_ {};
+    // The unique ID of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
+    // The initial context of the conversation.
     shared_ptr<string> initialContext_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<bool> shouldUseSandBox_ {};

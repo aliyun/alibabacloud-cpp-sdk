@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The conversation ID.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<bool> needVoiceSliceRecording_ {};

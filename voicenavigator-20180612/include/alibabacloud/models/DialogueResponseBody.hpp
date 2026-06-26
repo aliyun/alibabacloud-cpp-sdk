@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The action to be performed.
     shared_ptr<string> action_ {};
+    // The action parameters.
     shared_ptr<string> actionParams_ {};
+    // Indicates whether the IVR greeting can be interrupted.
     shared_ptr<bool> interruptible_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The text to be broadcasted.
     shared_ptr<string> textResponse_ {};
   };
 

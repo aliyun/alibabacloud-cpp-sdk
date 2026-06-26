@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> downloadTaskId_ {};
+    // The file ID. Call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain it.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
   };

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The next action that Voice Navigator performs.
     shared_ptr<string> action_ {};
+    // The parameters for the next action.
     shared_ptr<string> actionParams_ {};
+    // Indicates whether the voice response can be interrupted.
     shared_ptr<bool> interruptible_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The text that Voice Navigator plays to the user.
     shared_ptr<string> textResponse_ {};
   };
 

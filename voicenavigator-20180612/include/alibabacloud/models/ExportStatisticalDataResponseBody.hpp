@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the asynchronous export task.
     shared_ptr<string> exportTaskId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

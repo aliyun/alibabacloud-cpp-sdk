@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The number of affected rows.
       shared_ptr<int32_t> affectedRows_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The result of the modification.
     shared_ptr<ModifyAsrConfigResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

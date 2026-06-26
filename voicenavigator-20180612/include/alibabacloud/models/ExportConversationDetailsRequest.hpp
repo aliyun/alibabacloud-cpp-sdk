@@ -115,15 +115,24 @@ namespace Models
 
 
   protected:
+    // The beginning of the time range to query. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
+    // The end of the time range to query. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeRightRange_ {};
+    // The calling number.
     shared_ptr<string> callingNumber_ {};
     shared_ptr<int32_t> debugConversation_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // An array of optional parameters.
     shared_ptr<vector<string>> options_ {};
+    // The result of the conversation.
     shared_ptr<int32_t> result_ {};
+    // The minimum number of conversation turns.
     shared_ptr<int32_t> roundsLeftRange_ {};
+    // The maximum number of conversation turns.
     shared_ptr<int32_t> roundsRightRange_ {};
   };
 

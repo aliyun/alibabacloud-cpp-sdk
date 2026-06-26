@@ -141,14 +141,22 @@ namespace Models
 
 
     protected:
+      // The application key.
       shared_ptr<string> appKey_ {};
+      // The acoustic model ID.
       shared_ptr<string> asrAcousticModelId_ {};
+      // The ASR class vocabulary ID.
       shared_ptr<string> asrClassVocabularyId_ {};
+      // The customization ID.
       shared_ptr<string> asrCustomizationId_ {};
       shared_ptr<string> asrOverrides_ {};
+      // The vocabulary ID. You can view the ID on the [ASR Vocabulary Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
       shared_ptr<string> asrVocabularyId_ {};
+      // The speech engine.
       shared_ptr<string> engine_ {};
+      // Parameters for the iFLYTEK engine.
       shared_ptr<string> engineXufei_ {};
+      // The NLS service type.
       shared_ptr<string> nlsServiceType_ {};
     };
 
@@ -199,11 +207,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetAsrConfigResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

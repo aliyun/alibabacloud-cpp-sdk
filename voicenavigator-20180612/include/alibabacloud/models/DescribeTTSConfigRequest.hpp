@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the instance owner.
     shared_ptr<int64_t> instanceOwnerId_ {};
   };
 

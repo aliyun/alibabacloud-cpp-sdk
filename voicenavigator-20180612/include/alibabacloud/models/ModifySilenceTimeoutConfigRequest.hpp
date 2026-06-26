@@ -112,20 +112,36 @@ namespace Models
 
 
   protected:
+    // Action After Prompt
+    // 
     // This parameter is required.
     shared_ptr<string> finalAction_ {};
+    // Parameters for the post-prompt action, specified in a JSON string.
     shared_ptr<string> finalActionParams_ {};
+    // The prompt that plays after the silence timeout threshold is reached.
+    // 
     // This parameter is required.
     shared_ptr<string> finalPrompt_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent trigger for the silence timeout.
     shared_ptr<string> intentTrigger_ {};
+    // The prompt that plays when the system detects no user input during the specified timeout period.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The type of source that triggers the action.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
+    // The maximum number of times the system plays the silence timeout prompt before it performs the post-prompt action.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> threshold_ {};
+    // The duration of the silence timeout, in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> timeout_ {};
   };

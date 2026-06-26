@@ -100,10 +100,15 @@ namespace Models
 
 
     protected:
+      // The action to take when the number of unrecognized inputs reaches the threshold. Valid values: `TransferToAgent`, `TransferToIVR`, `RedirectToPage`, or `HangUp`.
       shared_ptr<string> finalAction_ {};
+      // Parameters for the final action, such as a redirection target.
       shared_ptr<string> finalActionParams_ {};
+      // The prompt that is played when the unrecognized input threshold is reached.
       shared_ptr<string> finalPrompt_ {};
+      // The prompt that is played when user input is not recognized.
       shared_ptr<string> prompt_ {};
+      // The maximum number of times the user\\"s input is not recognized.
       shared_ptr<int32_t> threshold_ {};
     };
 
@@ -200,14 +205,21 @@ namespace Models
 
 
     protected:
+      // The action to perform after the final silence prompt is played. Valid values: `TransferToAgent`, `TransferToIVR`, `RedirectToPage`, or `HangUp`.
       shared_ptr<string> finalAction_ {};
+      // Parameters for the final action, such as a redirection target.
       shared_ptr<string> finalActionParams_ {};
+      // The prompt that is played when the silence timeout threshold is reached.
       shared_ptr<string> finalPrompt_ {};
       // ""
       shared_ptr<string> intentTrigger_ {};
+      // The prompt that is played when a silence timeout occurs.
       shared_ptr<string> prompt_ {};
+      // The source of the configuration.
       shared_ptr<string> sourceType_ {};
+      // The maximum number of silence timeouts.
       shared_ptr<int32_t> threshold_ {};
+      // The duration of the silence timeout.
       shared_ptr<int64_t> timeout_ {};
     };
 
@@ -258,8 +270,11 @@ namespace Models
 
 
     protected:
+      // The greeting message.
       shared_ptr<string> greetingWords_ {};
+      // The intent trigger.
       shared_ptr<string> intentTrigger_ {};
+      // The source of the configuration.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -300,9 +315,13 @@ namespace Models
 
 
   protected:
+    // The greeting configuration.
     shared_ptr<DescribeNavigationConfigResponseBody::GreetingConfig> greetingConfig_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The silence timeout configuration.
     shared_ptr<DescribeNavigationConfigResponseBody::SilenceTimeoutConfig> silenceTimeoutConfig_ {};
+    // The configuration for handling unrecognized input.
     shared_ptr<DescribeNavigationConfigResponseBody::UnrecognizingConfig> unrecognizingConfig_ {};
   };
 

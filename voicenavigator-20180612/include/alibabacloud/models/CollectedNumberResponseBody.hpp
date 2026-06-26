@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Specifies the next action to perform.
     shared_ptr<string> action_ {};
+    // The parameters for the action.
     shared_ptr<string> actionParams_ {};
+    // Indicates whether the IVR playback can be interrupted.
     shared_ptr<bool> interruptible_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The text to play back to the user.
     shared_ptr<string> textResponse_ {};
   };
 

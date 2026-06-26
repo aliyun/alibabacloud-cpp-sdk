@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

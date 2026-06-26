@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The preview URL.
     shared_ptr<string> auditionUrl_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

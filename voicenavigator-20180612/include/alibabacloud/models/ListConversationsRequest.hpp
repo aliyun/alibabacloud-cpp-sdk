@@ -140,20 +140,34 @@ namespace Models
 
 
   protected:
+    // The start of the time range to query. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
+    // The end of the time range to query. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeRightRange_ {};
+    // The calling number.
     shared_ptr<string> callingNumber_ {};
     shared_ptr<int32_t> debugConversation_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether the conversation is in a sandbox environment. Valid values: `true` and `false`.
     shared_ptr<string> isSandBox_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The search query for filtering conversations.
     shared_ptr<string> query_ {};
+    // The result of the conversation.
     shared_ptr<int64_t> result_ {};
+    // The minimum number of rounds in the conversation.
     shared_ptr<int32_t> roundsLeftRange_ {};
+    // The maximum number of rounds in the conversation.
     shared_ptr<int32_t> roundsRightRange_ {};
   };
 

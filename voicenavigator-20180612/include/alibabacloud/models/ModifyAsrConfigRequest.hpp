@@ -121,15 +121,23 @@ namespace Models
 
 
   protected:
+    // The AppKey for the engine.
     shared_ptr<string> appKey_ {};
+    // The ID of the ASR acoustic model.
     shared_ptr<string> asrAcousticModelId_ {};
+    // The ID of the ASR class-based vocabulary.
     shared_ptr<string> asrClassVocabularyId_ {};
+    // The ID of the dataset.
     shared_ptr<string> asrCustomizationId_ {};
     shared_ptr<string> asrOverrides_ {};
+    // The ID of the hotword. You can find this ID on the [ASR Hotword Management](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi) page.
     shared_ptr<string> asrVocabularyId_ {};
+    // The policy level. Valid values: `0` (system), `1` (tenant), and `2` (instance).
     shared_ptr<int32_t> configLevel_ {};
     shared_ptr<string> engine_ {};
+    // The entity ID for the specified `ConfigLevel`.
     shared_ptr<string> entryId_ {};
+    // The service type of Intelligent Speech Interaction.
     shared_ptr<string> nlsServiceType_ {};
   };
 

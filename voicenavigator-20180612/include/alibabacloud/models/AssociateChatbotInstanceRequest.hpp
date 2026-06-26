@@ -84,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The chatbot ID.
     shared_ptr<string> chatbotInstanceId_ {};
+    // The name of the chatbot.
     shared_ptr<string> chatbotName_ {};
+    // The navigation instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> nluServiceParamsJson_ {};

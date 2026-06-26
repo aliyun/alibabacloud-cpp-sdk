@@ -84,11 +84,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> nluServiceParamsJson_ {};
     shared_ptr<string> nluServiceType_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> unionSource_ {};
   };

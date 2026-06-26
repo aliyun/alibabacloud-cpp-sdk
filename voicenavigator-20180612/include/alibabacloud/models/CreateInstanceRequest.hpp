@@ -84,13 +84,27 @@ namespace Models
 
 
   protected:
+    // The maximum concurrency of the instance.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> concurrency_ {};
+    // The description of the instance.
     shared_ptr<string> description_ {};
+    // The name of the Voice Navigator instance, which identifies the digital employee scenario.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Configuration parameters for the large language model service, in JSON format.
+    // 
+    // - Use this parameter to specify a Function Compute service.
     shared_ptr<string> nluServiceParamsJson_ {};
+    // The ID of the source instance.
+    // 
+    // > If you set UnionSource to CCC, set this parameter to the ID of the Cloud Contact Center instance.
     shared_ptr<string> unionInstanceId_ {};
+    // The source service.
+    // 
+    // - CCC: Cloud Contact Center
     shared_ptr<string> unionSource_ {};
   };
 

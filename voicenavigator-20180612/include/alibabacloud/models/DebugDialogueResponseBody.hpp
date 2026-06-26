@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The next action returned by the dialogue engine.
     shared_ptr<string> action_ {};
+    // Parameters for the returned action, as a JSON string.
     shared_ptr<string> actionParams_ {};
+    // Indicates whether the Interactive Voice Response (IVR) playback can be interrupted.
     shared_ptr<bool> interruptible_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The textual response from the dialogue engine.
     shared_ptr<string> textResponse_ {};
   };
 

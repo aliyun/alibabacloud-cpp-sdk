@@ -112,19 +112,34 @@ namespace Models
 
 
   protected:
+    // The ID of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
+    // The duration of the recording, in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> duration_ {};
+    // The name of the recording file.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // The storage path of the recording file, such as a path in Object Storage Service (OSS).
+    // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the account that owns the instance.
     shared_ptr<int64_t> instanceOwnerId_ {};
+    // The Unix timestamp, in milliseconds, when the recording started.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // The type of the recording file. Example: Source.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
     shared_ptr<string> voiceSliceRecordingList_ {};

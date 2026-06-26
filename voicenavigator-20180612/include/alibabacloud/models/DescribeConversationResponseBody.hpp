@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The time when the conversation started. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> beginTime_ {};
+    // The calling number.
     shared_ptr<string> callingNumber_ {};
+    // The ID of the conversation.
     shared_ptr<string> conversationId_ {};
+    // The number of effective answers.
     shared_ptr<int32_t> effectiveAnswerCount_ {};
+    // The time when the conversation ended. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the skill group.
     shared_ptr<string> skillGroupId_ {};
+    // Indicates whether an agent transfer occurred.
     shared_ptr<bool> transferredToAgent_ {};
+    // The number of user utterances.
     shared_ptr<int32_t> userUtteranceCount_ {};
   };
 

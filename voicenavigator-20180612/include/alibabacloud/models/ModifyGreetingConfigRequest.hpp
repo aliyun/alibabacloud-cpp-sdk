@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The greeting words.
+    // 
     // This parameter is required.
     shared_ptr<string> greetingWords_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent trigger.
     shared_ptr<string> intentTrigger_ {};
+    // The type.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
   };

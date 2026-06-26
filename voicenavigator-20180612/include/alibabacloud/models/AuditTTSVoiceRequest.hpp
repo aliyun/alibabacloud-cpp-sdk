@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccessKey, accessKey_);
       DARABONBA_PTR_TO_JSON(AppKey, appKey_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
+      DARABONBA_PTR_TO_JSON(ExtParams, extParams_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PitchRate, pitchRate_);
       DARABONBA_PTR_TO_JSON(SecretKey, secretKey_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccessKey, accessKey_);
       DARABONBA_PTR_FROM_JSON(AppKey, appKey_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
+      DARABONBA_PTR_FROM_JSON(ExtParams, extParams_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PitchRate, pitchRate_);
       DARABONBA_PTR_FROM_JSON(SecretKey, secretKey_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessKey_ == nullptr
-        && this->appKey_ == nullptr && this->engine_ == nullptr && this->instanceId_ == nullptr && this->pitchRate_ == nullptr && this->secretKey_ == nullptr
-        && this->speechRate_ == nullptr && this->text_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
+        && this->appKey_ == nullptr && this->engine_ == nullptr && this->extParams_ == nullptr && this->instanceId_ == nullptr && this->pitchRate_ == nullptr
+        && this->secretKey_ == nullptr && this->speechRate_ == nullptr && this->text_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
     // accessKey Field Functions 
     bool hasAccessKey() const { return this->accessKey_ != nullptr;};
     void deleteAccessKey() { this->accessKey_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteEngine() { this->engine_ = nullptr;};
     inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline AuditTTSVoiceRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
+
+
+    // extParams Field Functions 
+    bool hasExtParams() const { return this->extParams_ != nullptr;};
+    void deleteExtParams() { this->extParams_ = nullptr;};
+    inline string getExtParams() const { DARABONBA_PTR_GET_DEFAULT(extParams_, "") };
+    inline AuditTTSVoiceRequest& setExtParams(string extParams) { DARABONBA_PTR_SET_VALUE(extParams_, extParams) };
 
 
     // instanceId Field Functions 
@@ -124,16 +133,27 @@ namespace Models
     shared_ptr<string> accessKey_ {};
     shared_ptr<string> appKey_ {};
     shared_ptr<string> engine_ {};
+    shared_ptr<string> extParams_ {};
+    // The instance ID of the navigation instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> pitchRate_ {};
     shared_ptr<string> secretKey_ {};
+    // The speech rate.
+    // 
     // This parameter is required.
     shared_ptr<string> speechRate_ {};
+    // The text to preview.
+    // 
     // This parameter is required.
     shared_ptr<string> text_ {};
+    // The voice.
+    // 
     // This parameter is required.
     shared_ptr<string> voice_ {};
+    // The volume.
+    // 
     // This parameter is required.
     shared_ptr<string> volume_ {};
   };

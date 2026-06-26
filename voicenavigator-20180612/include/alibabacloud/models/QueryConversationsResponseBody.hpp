@@ -131,13 +131,21 @@ namespace Models
 
 
     protected:
+      // The start time. This value is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> beginTime_ {};
+      // The calling number.
       shared_ptr<string> callingNumber_ {};
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
+      // The effective answer count.
       shared_ptr<int32_t> effectiveAnswerCount_ {};
+      // The end time. This value is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
+      // The ID of the skill group.
       shared_ptr<string> skillGroupId_ {};
+      // Whether the conversation was transferred to an agent.
       shared_ptr<bool> transferredToAgent_ {};
+      // The user utterance count.
       shared_ptr<int32_t> userUtteranceCount_ {};
     };
 
@@ -181,10 +189,15 @@ namespace Models
 
 
   protected:
+    // The conversation list.
     shared_ptr<vector<QueryConversationsResponseBody::Conversations>> conversations_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count of conversation records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The configuration level. Valid values: `0` (system), `1` (tenant), and `2` (instance).
     shared_ptr<int32_t> configLevel_ {};
+    // The ID of the entry at the level specified by `ConfigLevel`.
     shared_ptr<string> entryId_ {};
   };
 

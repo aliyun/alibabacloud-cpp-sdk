@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppKey, appKey_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineXunfei, engineXunfei_);
+      DARABONBA_PTR_TO_JSON(ExtParams, extParams_);
       DARABONBA_PTR_TO_JSON(NlsServiceType, nlsServiceType_);
       DARABONBA_PTR_TO_JSON(PitchRate, pitchRate_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppKey, appKey_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineXunfei, engineXunfei_);
+      DARABONBA_PTR_FROM_JSON(ExtParams, extParams_);
       DARABONBA_PTR_FROM_JSON(NlsServiceType, nlsServiceType_);
       DARABONBA_PTR_FROM_JSON(PitchRate, pitchRate_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliCustomizedVoice_ == nullptr
-        && this->appKey_ == nullptr && this->engine_ == nullptr && this->engineXunfei_ == nullptr && this->nlsServiceType_ == nullptr && this->pitchRate_ == nullptr
-        && this->requestId_ == nullptr && this->speechRate_ == nullptr && this->ttsOverrides_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
+        && this->appKey_ == nullptr && this->engine_ == nullptr && this->engineXunfei_ == nullptr && this->extParams_ == nullptr && this->nlsServiceType_ == nullptr
+        && this->pitchRate_ == nullptr && this->requestId_ == nullptr && this->speechRate_ == nullptr && this->ttsOverrides_ == nullptr && this->voice_ == nullptr
+        && this->volume_ == nullptr; };
     // aliCustomizedVoice Field Functions 
     bool hasAliCustomizedVoice() const { return this->aliCustomizedVoice_ != nullptr;};
     void deleteAliCustomizedVoice() { this->aliCustomizedVoice_ = nullptr;};
@@ -78,6 +81,13 @@ namespace Models
     void deleteEngineXunfei() { this->engineXunfei_ = nullptr;};
     inline string getEngineXunfei() const { DARABONBA_PTR_GET_DEFAULT(engineXunfei_, "") };
     inline DescribeTTSConfigResponseBody& setEngineXunfei(string engineXunfei) { DARABONBA_PTR_SET_VALUE(engineXunfei_, engineXunfei) };
+
+
+    // extParams Field Functions 
+    bool hasExtParams() const { return this->extParams_ != nullptr;};
+    void deleteExtParams() { this->extParams_ = nullptr;};
+    inline string getExtParams() const { DARABONBA_PTR_GET_DEFAULT(extParams_, "") };
+    inline DescribeTTSConfigResponseBody& setExtParams(string extParams) { DARABONBA_PTR_SET_VALUE(extParams_, extParams) };
 
 
     // nlsServiceType Field Functions 
@@ -130,16 +140,28 @@ namespace Models
 
 
   protected:
+    // The custom voice ID.
     shared_ptr<string> aliCustomizedVoice_ {};
+    // The AppKey of the third-party voice configuration.
     shared_ptr<string> appKey_ {};
+    // The TTS engine.
     shared_ptr<string> engine_ {};
+    // The iFLYTEK engine parameters.
     shared_ptr<string> engineXunfei_ {};
+    shared_ptr<string> extParams_ {};
+    // The TTS service invoke type.
     shared_ptr<string> nlsServiceType_ {};
+    // The pitch rate.
     shared_ptr<int32_t> pitchRate_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The speech rate.
     shared_ptr<int32_t> speechRate_ {};
+    // The TTS error correction dictionary.
     shared_ptr<string> ttsOverrides_ {};
+    // The voice.
     shared_ptr<string> voice_ {};
+    // The volume.
     shared_ptr<int32_t> volume_ {};
   };
 

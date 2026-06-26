@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The action to perform.
     shared_ptr<string> action_ {};
+    // The action parameters.
     shared_ptr<string> actionParams_ {};
+    // Specifies whether the Interactive Voice Response (IVR) broadcast can be interrupted.
     shared_ptr<bool> interruptible_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The broadcast content.
     shared_ptr<string> textResponse_ {};
   };
 

@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The start of the query time range. The value must be a Unix timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
+    // The end of the query time range. The value must be a Unix timestamp in milliseconds.
     shared_ptr<int64_t> beginTimeRightRange_ {};
+    // The export type.
+    // 
     // This parameter is required.
     shared_ptr<string> exportType_ {};
+    // The ID of the Voice Navigator instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The time unit.
+    // 
     // This parameter is required.
     shared_ptr<string> timeUnit_ {};
   };

@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The called number.
     shared_ptr<string> calledNumber_ {};
+    // The calling number.
+    // 
     // This parameter is required.
     shared_ptr<string> callingNumber_ {};
+    // The conversation ID.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
+    // The conversation context.
     shared_ptr<string> initialContext_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The instance owner ID.
     shared_ptr<int64_t> instanceOwnerId_ {};
   };
 

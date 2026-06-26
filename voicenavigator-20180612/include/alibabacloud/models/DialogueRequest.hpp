@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The conversation context.
     shared_ptr<string> additionalContext_ {};
+    // The called number.
     shared_ptr<string> calledNumber_ {};
+    // The calling number.
     shared_ptr<string> callingNumber_ {};
+    // The ID of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> emotion_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the Alibaba Cloud account that owns the instance.
     shared_ptr<int64_t> instanceOwnerId_ {};
+    // The user\\"s input.
+    // 
     // This parameter is required.
     shared_ptr<string> utterance_ {};
   };
