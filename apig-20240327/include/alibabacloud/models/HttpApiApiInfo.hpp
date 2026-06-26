@@ -28,7 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(deployCntMap, deployCntMap_);
       DARABONBA_PTR_TO_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_TO_JSON(description, description_);
-      DARABONBA_PTR_TO_JSON(enabelAuth, enabelAuth_);
+      DARABONBA_PTR_TO_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_TO_JSON(environments, environments_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(httpApiId, httpApiId_);
@@ -48,7 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(deployCntMap, deployCntMap_);
       DARABONBA_PTR_FROM_JSON(deployConfigs, deployConfigs_);
       DARABONBA_PTR_FROM_JSON(description, description_);
-      DARABONBA_PTR_FROM_JSON(enabelAuth, enabelAuth_);
+      DARABONBA_PTR_FROM_JSON(enableAuth, enableAuth_);
       DARABONBA_PTR_FROM_JSON(environments, environments_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(httpApiId, httpApiId_);
@@ -618,7 +618,7 @@ namespace Models
 
     virtual bool empty() const override { return this->agentProtocols_ == nullptr
         && this->aiProtocols_ == nullptr && this->authConfig_ == nullptr && this->basePath_ == nullptr && this->deployCntMap_ == nullptr && this->deployConfigs_ == nullptr
-        && this->description_ == nullptr && this->enabelAuth_ == nullptr && this->environments_ == nullptr && this->gatewayId_ == nullptr && this->httpApiId_ == nullptr
+        && this->description_ == nullptr && this->enableAuth_ == nullptr && this->environments_ == nullptr && this->gatewayId_ == nullptr && this->httpApiId_ == nullptr
         && this->ingressInfo_ == nullptr && this->modelCategory_ == nullptr && this->name_ == nullptr && this->protocols_ == nullptr && this->resourceGroupId_ == nullptr
         && this->type_ == nullptr && this->versionInfo_ == nullptr; };
     // agentProtocols Field Functions 
@@ -680,11 +680,11 @@ namespace Models
     inline HttpApiApiInfo& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
-    // enabelAuth Field Functions 
-    bool hasEnabelAuth() const { return this->enabelAuth_ != nullptr;};
-    void deleteEnabelAuth() { this->enabelAuth_ = nullptr;};
-    inline bool getEnabelAuth() const { DARABONBA_PTR_GET_DEFAULT(enabelAuth_, false) };
-    inline HttpApiApiInfo& setEnabelAuth(bool enabelAuth) { DARABONBA_PTR_SET_VALUE(enabelAuth_, enabelAuth) };
+    // enableAuth Field Functions 
+    bool hasEnableAuth() const { return this->enableAuth_ != nullptr;};
+    void deleteEnableAuth() { this->enableAuth_ = nullptr;};
+    inline bool getEnableAuth() const { DARABONBA_PTR_GET_DEFAULT(enableAuth_, false) };
+    inline HttpApiApiInfo& setEnableAuth(bool enableAuth) { DARABONBA_PTR_SET_VALUE(enableAuth_, enableAuth) };
 
 
     // environments Field Functions 
@@ -780,8 +780,7 @@ namespace Models
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The API description.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable authentication.
-    shared_ptr<bool> enabelAuth_ {};
+    shared_ptr<bool> enableAuth_ {};
     // The API environment information.
     shared_ptr<vector<HttpApiApiInfo::Environments>> environments_ {};
     // The instance ID.

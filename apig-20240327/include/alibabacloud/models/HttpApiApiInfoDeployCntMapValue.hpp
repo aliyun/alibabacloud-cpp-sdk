@@ -14,11 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const HttpApiApiInfoDeployCntMapValue& obj) { 
       DARABONBA_PTR_TO_JSON(deployedCnt, deployedCnt_);
-      DARABONBA_PTR_TO_JSON(Cnt, cnt_);
+      DARABONBA_PTR_TO_JSON(cnt, cnt_);
     };
     friend void from_json(const Darabonba::Json& j, HttpApiApiInfoDeployCntMapValue& obj) { 
       DARABONBA_PTR_FROM_JSON(deployedCnt, deployedCnt_);
-      DARABONBA_PTR_FROM_JSON(Cnt, cnt_);
+      DARABONBA_PTR_FROM_JSON(cnt, cnt_);
     };
     HttpApiApiInfoDeployCntMapValue() = default ;
     HttpApiApiInfoDeployCntMapValue(const HttpApiApiInfoDeployCntMapValue &) = default ;
@@ -50,7 +50,6 @@ namespace Models
   protected:
     // deployedCnt
     shared_ptr<int64_t> deployedCnt_ {};
-    // Cnt
     shared_ptr<int64_t> cnt_ {};
   };
 

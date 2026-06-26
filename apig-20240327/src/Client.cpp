@@ -173,7 +173,7 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRule(const string &gatewayId,
 }
 
 /**
- * @summary Adds a security group that authorizes an instance to access services.
+ * @summary Authorizes a security group to allow gateway access to services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @param headers map
@@ -214,7 +214,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRuleWithOptio
 }
 
 /**
- * @summary Adds a security group that authorizes an instance to access services.
+ * @summary Authorizes a security group to allow gateway access to services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @return AddGatewaySecurityGroupRuleResponse
@@ -226,7 +226,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRule(const st
 }
 
 /**
- * @summary Removes consumer authentication rules.
+ * @summary Revokes API consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @param headers map
@@ -259,7 +259,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary Removes consumer authentication rules.
+ * @summary Revokes API consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @return BatchDeleteConsumerAuthorizationRuleResponse
@@ -823,7 +823,7 @@ CreateGatewayResponse Client::createGateway(const CreateGatewayRequest &request)
 }
 
 /**
- * @summary $.parameters[0].schema.properties.ingressConfig.example
+ * @summary Creates an HTTP API.
  *
  * @param request CreateHttpApiRequest
  * @param headers map
@@ -928,7 +928,7 @@ CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiReques
 }
 
 /**
- * @summary $.parameters[0].schema.properties.ingressConfig.example
+ * @summary Creates an HTTP API.
  *
  * @param request CreateHttpApiRequest
  * @return CreateHttpApiResponse
@@ -3299,7 +3299,7 @@ GetSourceResponse Client::getSource(const string &sourceId) {
 }
 
 /**
- * @summary Queries the tracing configurations of a Cloud-native API Gateway instance.
+ * @summary Retrieves the Tracing Analysis configuration.
  *
  * @param request GetTraceConfigRequest
  * @param headers map
@@ -3332,7 +3332,7 @@ GetTraceConfigResponse Client::getTraceConfigWithOptions(const string &gatewayId
 }
 
 /**
- * @summary Queries the tracing configurations of a Cloud-native API Gateway instance.
+ * @summary Retrieves the Tracing Analysis configuration.
  *
  * @param request GetTraceConfigRequest
  * @return GetTraceConfigResponse

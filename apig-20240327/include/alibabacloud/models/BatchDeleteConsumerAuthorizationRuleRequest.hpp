@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The rule IDs.
+    // The list of API consumer authorization rule IDs.
     shared_ptr<string> consumerAuthorizationRuleIds_ {};
   };
 

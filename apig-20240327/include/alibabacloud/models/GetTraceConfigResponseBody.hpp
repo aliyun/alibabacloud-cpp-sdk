@@ -102,20 +102,21 @@ namespace Models
 
 
     protected:
-      // Indicates whether tracing analysis is enabled. Valid values: true and false
+      // Indicates whether Tracing Analysis is enabled. Valid values:
+      // - true: Enabled.
+      // - false: shutdown.
       shared_ptr<bool> enable_ {};
-      // The sampling rate.
+      // The sampling ratio.
       shared_ptr<int32_t> sampleRatio_ {};
-      // The service ID. This parameter exists when the traceType value is SKYWALKING.
+      // The service ID. This parameter is returned only when the Tracing Analysis type is SKYWALKING.
       shared_ptr<string> serviceId_ {};
-      // The service port. This parameter exists when the traceType value is SKYWALKING.
+      // The service port. This parameter is returned only when the Tracing Analysis type is SKYWALKING.
       shared_ptr<string> servicePort_ {};
-      // The type of tracing analysis. Valid values:
-      // 
-      // *   XTRACE
-      // *   SKYWALKING
-      // *   OPENTELEMETRY
-      // *   OTSKYWALKING
+      // The Tracing Analysis type. Valid values:
+      // - XTRACE
+      // - SKYWALKING
+      // - OPENTELEMETRY
+      // - OTSKYWALKING.
       shared_ptr<string> traceType_ {};
     };
 
@@ -161,13 +162,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<GetTraceConfigResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true false
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

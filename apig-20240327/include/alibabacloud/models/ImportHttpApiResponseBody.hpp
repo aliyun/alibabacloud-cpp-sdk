@@ -196,8 +196,8 @@ namespace Models
 
         protected:
           // The action to be performed after the dry run. Valid values:
-          // - Create: create.
-          // - Update: update.
+          // - Create: Create.
+          // - Update: Update.
           shared_ptr<string> action_ {};
           // The operation method.
           shared_ptr<string> method_ {};
@@ -246,8 +246,8 @@ namespace Models
 
         protected:
           // The action to be performed after the dry run. Valid values:
-          // - Create: create.
-          // - Update: update.
+          // - Create: Create.
+          // - Update: Update.
           shared_ptr<string> action_ {};
           // The data structure name.
           shared_ptr<string> name_ {};

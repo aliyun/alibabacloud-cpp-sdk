@@ -38,7 +38,10 @@ namespace Models
 
 
   protected:
-    // The language in which you want results to be returned. Valid values: zh: Chinese. en: English.
+    // The language type. Valid values:
+    // 
+    // zh: Chinese
+    // en: English.
     shared_ptr<string> acceptLanguage_ {};
   };
 

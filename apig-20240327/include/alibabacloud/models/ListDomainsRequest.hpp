@@ -97,7 +97,9 @@ namespace Models
     shared_ptr<string> domainScope_ {};
     // The gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The gateway type used for filtering. Valid values: **AI** and **API**.
+    // The gateway type used for filtering. Valid values:
+    // - **AI**
+    // - **API**.
     shared_ptr<string> gatewayType_ {};
     // The domain name. Fuzzy match is supported.
     shared_ptr<string> nameLike_ {};

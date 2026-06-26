@@ -59,7 +59,7 @@ namespace APIG20240327
       Models::AddGatewayQuotaRuleResponse addGatewayQuotaRule(const string &gatewayId, const Models::AddGatewayQuotaRuleRequest &request);
 
       /**
-       * @summary Adds a security group that authorizes an instance to access services.
+       * @summary Authorizes a security group to allow gateway access to services.
        *
        * @param request AddGatewaySecurityGroupRuleRequest
        * @param headers map
@@ -69,7 +69,7 @@ namespace APIG20240327
       Models::AddGatewaySecurityGroupRuleResponse addGatewaySecurityGroupRuleWithOptions(const string &gatewayId, const Models::AddGatewaySecurityGroupRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a security group that authorizes an instance to access services.
+       * @summary Authorizes a security group to allow gateway access to services.
        *
        * @param request AddGatewaySecurityGroupRuleRequest
        * @return AddGatewaySecurityGroupRuleResponse
@@ -77,7 +77,7 @@ namespace APIG20240327
       Models::AddGatewaySecurityGroupRuleResponse addGatewaySecurityGroupRule(const string &gatewayId, const Models::AddGatewaySecurityGroupRuleRequest &request);
 
       /**
-       * @summary Removes consumer authentication rules.
+       * @summary Revokes API consumer authorization rules in batches.
        *
        * @param request BatchDeleteConsumerAuthorizationRuleRequest
        * @param headers map
@@ -87,7 +87,7 @@ namespace APIG20240327
       Models::BatchDeleteConsumerAuthorizationRuleResponse batchDeleteConsumerAuthorizationRuleWithOptions(const Models::BatchDeleteConsumerAuthorizationRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes consumer authentication rules.
+       * @summary Revokes API consumer authorization rules in batches.
        *
        * @param request BatchDeleteConsumerAuthorizationRuleRequest
        * @return BatchDeleteConsumerAuthorizationRuleResponse
@@ -243,7 +243,7 @@ namespace APIG20240327
       Models::CreateGatewayResponse createGateway(const Models::CreateGatewayRequest &request);
 
       /**
-       * @summary $.parameters[0].schema.properties.ingressConfig.example
+       * @summary Creates an HTTP API.
        *
        * @param request CreateHttpApiRequest
        * @param headers map
@@ -253,7 +253,7 @@ namespace APIG20240327
       Models::CreateHttpApiResponse createHttpApiWithOptions(const Models::CreateHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary $.parameters[0].schema.properties.ingressConfig.example
+       * @summary Creates an HTTP API.
        *
        * @param request CreateHttpApiRequest
        * @return CreateHttpApiResponse
@@ -1175,7 +1175,7 @@ namespace APIG20240327
       Models::GetSourceResponse getSource(const string &sourceId);
 
       /**
-       * @summary Queries the tracing configurations of a Cloud-native API Gateway instance.
+       * @summary Retrieves the Tracing Analysis configuration.
        *
        * @param request GetTraceConfigRequest
        * @param headers map
@@ -1185,7 +1185,7 @@ namespace APIG20240327
       Models::GetTraceConfigResponse getTraceConfigWithOptions(const string &gatewayId, const Models::GetTraceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tracing configurations of a Cloud-native API Gateway instance.
+       * @summary Retrieves the Tracing Analysis configuration.
        *
        * @param request GetTraceConfigRequest
        * @return GetTraceConfigResponse

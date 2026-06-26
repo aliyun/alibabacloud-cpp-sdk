@@ -143,17 +143,17 @@ namespace Models
 
 
     protected:
-      // Cluster ID.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // $.parameters[0].schema.properties.deployConfigs.enumValueTitles
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // $.parameters[0].schema.properties.enableAuth.example
+      // The Ingress class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // $.parameters[0].schema.properties.authConfig.description
+      // Specifies whether to update the address in the Ingress status.
       shared_ptr<bool> overrideIngressIp_ {};
-      // $.parameters[0].schema.properties.enableAuth.description
+      // The source ID.
       shared_ptr<string> sourceId_ {};
-      // $.parameters[0].schema.properties.enableAuth.enumValueTitles
+      // The namespace to listen on.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -310,45 +310,52 @@ namespace Models
 
 
   protected:
-    // Agent protocols
+    // The list of protocols supported by the agent.
     shared_ptr<vector<string>> agentProtocols_ {};
-    // $.parameters[0].schema.properties.authConfig.enumValueTitles
+    // The AI API protocols. The following protocols are supported:
+    // - OpenAI/v1.
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The request parameters for API creation.
+    // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // $.parameters[0].schema.properties.deployConfigs.items.example
+    // The base path of the API. The value must start with a forward slash (/).
     shared_ptr<string> basePath_ {};
-    // ID of the gateway to which the API belongs.
+    // The ID of the gateway to which the API belongs.
     shared_ptr<string> belongGatewayId_ {};
-    // $.parameters[0].schema.example
+    // The API deployment configurations. Currently, only AI APIs support deployment configurations, and only a single deployment configuration can be specified.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // $.parameters[0].schema.properties.aiProtocols.items.description
+    // The API description.
     shared_ptr<string> description_ {};
-    // Whether to preview without execution.
+    // Specifies whether to perform a dry run without executing the operation.
     shared_ptr<bool> dryRun_ {};
-    // Create an API of HTTP type
+    // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
-    // First byte timeout
+    // The timeout period for waiting for the first byte from the backend.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // $.parameters[0].schema.properties.deployConfigs.example
+    // The HTTP Ingress API configuration.
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // Model category
+    // The model category.
     shared_ptr<string> modelCategory_ {};
-    // $.parameters[0].schema.example
+    // The API name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // $.parameters[0].schema.properties.aiProtocols.description
+    // The list of API access protocols.
     shared_ptr<vector<string>> protocols_ {};
-    // Whether to remove base path when forwarding
+    // Specifies whether to remove the base path when forwarding requests.
     shared_ptr<bool> removeBasePathOnForward_ {};
-    // $.parameters[0].schema.properties.authConfig.example
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The conflict merge strategy for import.
+    // The conflict merge strategy for the import.
     shared_ptr<string> strategy_ {};
-    // $.parameters[0].schema.properties.deployConfigs.description
+    // The type of the HTTP API. Valid values:
+    // - Http
+    // - Rest
+    // - WebSocket
+    // - HttpIngress
+    // - LLM
+    // - Agent.
     shared_ptr<string> type_ {};
-    // $.parameters[0].schema.properties.deployConfigs.items.enumValueTitles
+    // The API versioning configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
   };
 

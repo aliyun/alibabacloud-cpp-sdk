@@ -75,7 +75,7 @@ namespace Models
     protected:
       // HTTP API ID。
       shared_ptr<string> httpApiId_ {};
-      // The API base path, which must start with a forward slash (/).
+      // The API name.
       shared_ptr<string> name_ {};
     };
 
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // API for testing
+    // The status code.
     shared_ptr<string> code_ {};
-    // A protocol.
+    // The API information.
     shared_ptr<CreateHttpApiResponseBody::Data> data_ {};
-    // The protocol list for API access.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The API description.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

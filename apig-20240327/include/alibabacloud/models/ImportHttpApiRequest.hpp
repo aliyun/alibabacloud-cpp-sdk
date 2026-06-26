@@ -226,7 +226,7 @@ namespace Models
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The description of the imported API. If this parameter is not specified, the description is extracted from the API definition. Maximum length: 255 bytes.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run. If this parameter is enabled, only validation is performed without the actual import.
+    // Specifies whether to perform a dry run. If enabled, only validation is performed without the actual import.
     shared_ptr<bool> dryRun_ {};
     // The gateway ID.
     shared_ptr<string> gatewayId_ {};
@@ -238,7 +238,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The Base64-encoded API definition. OAS 2.0 and OAS 3.0 specifications are supported in YAML or JSON format. This parameter takes priority over the specFileUrl parameter. If the file size exceeds 10 MB, use the specFileUrl parameter instead.
     shared_ptr<string> specContentBase64_ {};
-    // The download URL of the API definition file. The URL must be accessible over the public network or be an internal network OSS download URL in the same region. The URL must have download permissions. For OSS files that are not publicly readable, refer to References [Download objects using presigned URLs](https://help.aliyun.com/document_detail/39607.html) and provide a URL with download permissions. Only API definition files stored in OSS are supported.
+    // The download URL of the API definition file. The URL must be accessible over the public network or be an internal network OSS download URL in the same region. The URL must have download permissions. For OSS files that are not publicly readable, see References [Download objects using presigned URLs](https://help.aliyun.com/document_detail/39607.html) and provide a URL with download permissions. Only API definition files stored in OSS are supported.
     shared_ptr<string> specFileUrl_ {};
     // The OSS configuration.
     shared_ptr<ImportHttpApiRequest::SpecOssConfig> specOssConfig_ {};
