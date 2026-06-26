@@ -5696,7 +5696,7 @@ ResumeAgentTaskResponse Client::resumeAgentTask(const ResumeAgentTaskRequest &re
 }
 
 /**
- * @summary Triggers an Agent on a mobile node to run an AI-powered automation task.
+ * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
  *
  * @param request RunAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5715,6 +5715,14 @@ RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &
 
   if (!!request.hasMaxSteps()) {
     query["MaxSteps"] = request.getMaxSteps();
+  }
+
+  if (!!request.hasScheduleId()) {
+    query["ScheduleId"] = request.getScheduleId();
+  }
+
+  if (!!request.hasTaskConfigId()) {
+    query["TaskConfigId"] = request.getTaskConfigId();
   }
 
   if (!!request.hasTimeoutSeconds()) {
@@ -5743,7 +5751,7 @@ RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &
 }
 
 /**
- * @summary Triggers an Agent on a mobile node to run an AI-powered automation task.
+ * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
  *
  * @param request RunAgentTaskRequest
  * @return RunAgentTaskResponse

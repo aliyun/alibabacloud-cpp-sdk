@@ -105,23 +105,19 @@ namespace Models
     protected:
       // The current status of the task. Valid values:
       // 
-      // `PENDING`: The task is being created.
-      // 
-      // `RUNNING`: The task is running.
-      // 
-      // `COMPLETED`: The task completed successfully.
-      // 
-      // `FAILED`: The task failed.
-      // 
-      // `TIMEOUT`: The task timed out.
+      // - PENDING: The task is being created.
+      // - RUNNING: The task is running.
+      // - COMPLETED: The task is completed.
+      // - FAILED: The task failed.
+      // - TIMEOUT: The task execution timed out.
       shared_ptr<string> currentStatus_ {};
-      // The mobile node ID.
+      // The Mobile node ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the task started running, in ISO 8601 format.
+      // The time when the task was created, in ISO 8601 format.
       shared_ptr<string> runningAt_ {};
-      // The globally unique task ID.
+      // The task ID, which is globally unique.
       shared_ptr<string> taskId_ {};
-      // The user prompt that the Agent used to perform the task.
+      // The user instruction in natural language. The Agent performs operations based on this instruction.
       shared_ptr<string> userPrompt_ {};
     };
 
@@ -165,15 +161,15 @@ namespace Models
 
 
   protected:
-    // The response status code. A value of `200` indicates that the request was successful.
+    // The status code of the operation.
     shared_ptr<string> code_ {};
     // The number of tasks.
     shared_ptr<int32_t> count_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The unique request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of tasks.
+    // The list of tasks.
     shared_ptr<vector<RunAgentTaskResponseBody::Tasks>> tasks_ {};
   };
 

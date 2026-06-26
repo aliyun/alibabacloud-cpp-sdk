@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(MaxSteps, maxSteps_);
+      DARABONBA_PTR_TO_JSON(ScheduleId, scheduleId_);
+      DARABONBA_PTR_TO_JSON(TaskConfigId, taskConfigId_);
       DARABONBA_PTR_TO_JSON(TimeoutSeconds, timeoutSeconds_);
       DARABONBA_PTR_TO_JSON(UserPrompt, userPrompt_);
     };
@@ -24,6 +26,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(MaxSteps, maxSteps_);
+      DARABONBA_PTR_FROM_JSON(ScheduleId, scheduleId_);
+      DARABONBA_PTR_FROM_JSON(TaskConfigId, taskConfigId_);
       DARABONBA_PTR_FROM_JSON(TimeoutSeconds, timeoutSeconds_);
       DARABONBA_PTR_FROM_JSON(UserPrompt, userPrompt_);
     };
@@ -39,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && this->instanceIds_ == nullptr && this->maxSteps_ == nullptr && this->timeoutSeconds_ == nullptr && this->userPrompt_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->maxSteps_ == nullptr && this->scheduleId_ == nullptr && this->taskConfigId_ == nullptr && this->timeoutSeconds_ == nullptr
+        && this->userPrompt_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -63,6 +68,20 @@ namespace Models
     inline RunAgentTaskRequest& setMaxSteps(int32_t maxSteps) { DARABONBA_PTR_SET_VALUE(maxSteps_, maxSteps) };
 
 
+    // scheduleId Field Functions 
+    bool hasScheduleId() const { return this->scheduleId_ != nullptr;};
+    void deleteScheduleId() { this->scheduleId_ = nullptr;};
+    inline string getScheduleId() const { DARABONBA_PTR_GET_DEFAULT(scheduleId_, "") };
+    inline RunAgentTaskRequest& setScheduleId(string scheduleId) { DARABONBA_PTR_SET_VALUE(scheduleId_, scheduleId) };
+
+
+    // taskConfigId Field Functions 
+    bool hasTaskConfigId() const { return this->taskConfigId_ != nullptr;};
+    void deleteTaskConfigId() { this->taskConfigId_ = nullptr;};
+    inline string getTaskConfigId() const { DARABONBA_PTR_GET_DEFAULT(taskConfigId_, "") };
+    inline RunAgentTaskRequest& setTaskConfigId(string taskConfigId) { DARABONBA_PTR_SET_VALUE(taskConfigId_, taskConfigId) };
+
+
     // timeoutSeconds Field Functions 
     bool hasTimeoutSeconds() const { return this->timeoutSeconds_ != nullptr;};
     void deleteTimeoutSeconds() { this->timeoutSeconds_ = nullptr;};
@@ -78,19 +97,19 @@ namespace Models
 
 
   protected:
-    // The region ID of the mobile node.
+    // The region ID of the Mobile node.
     shared_ptr<string> bizRegionId_ {};
-    // An array of mobile node IDs. Specify a maximum of 100 IDs per request.
+    // The list of Mobile node IDs. A maximum of 100 nodes are supported per request.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The maximum number of steps the task can execute. This limit prevents infinite loops. Valid values: 30–1000. Default: 1000.
+    // The maximum number of execution steps for the task to prevent infinite loops. Valid values: 30 to 1000. Default value: 1000.
     shared_ptr<int32_t> maxSteps_ {};
-    // The task timeout in seconds. Valid values: 300–3600. Default: 3600.
+    shared_ptr<string> scheduleId_ {};
+    shared_ptr<string> taskConfigId_ {};
+    // The task timeout period in seconds. Valid values: 300 to 3600. Default value: 3600.
     shared_ptr<int32_t> timeoutSeconds_ {};
-    // The user prompt in natural language. The Agent completes the task based on this prompt.
-    // 
-    // This parameter is required.
+    // The user instruction in natural language. The Agent performs operations based on this instruction.
     shared_ptr<string> userPrompt_ {};
   };
 

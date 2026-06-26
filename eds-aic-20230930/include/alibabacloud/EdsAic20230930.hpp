@@ -1782,7 +1782,7 @@ namespace EdsAic20230930
       Models::ResumeAgentTaskResponse resumeAgentTask(const Models::ResumeAgentTaskRequest &request);
 
       /**
-       * @summary Triggers an Agent on a mobile node to run an AI-powered automation task.
+       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
        *
        * @param request RunAgentTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1791,7 +1791,7 @@ namespace EdsAic20230930
       Models::RunAgentTaskResponse runAgentTaskWithOptions(const Models::RunAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers an Agent on a mobile node to run an AI-powered automation task.
+       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
        *
        * @param request RunAgentTaskRequest
        * @return RunAgentTaskResponse
