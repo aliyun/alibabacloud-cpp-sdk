@@ -638,6 +638,68 @@ CreateTokenVaultResponse Client::createTokenVault(const CreateTokenVaultRequest 
 }
 
 /**
+ * @summary 创建用户池用户
+ *
+ * @param request CreateUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserResponse
+ */
+CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEmail()) {
+    body["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUserName()) {
+    body["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateUser"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUserResponse>();
+}
+
+/**
+ * @summary 创建用户池用户
+ *
+ * @param request CreateUserRequest
+ * @return CreateUserResponse
+ */
+CreateUserResponse Client::createUser(const CreateUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createUserWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建UserPool
  *
  * @param request CreateUserPoolRequest
@@ -1660,6 +1722,48 @@ GetIdentityProviderResponse Client::getIdentityProvider(const GetIdentityProvide
 }
 
 /**
+ * @summary 获取用户池登录相关配置
+ *
+ * @param request GetLoginPreferenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLoginPreferenceResponse
+ */
+GetLoginPreferenceResponse Client::getLoginPreferenceWithOptions(const GetLoginPreferenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetLoginPreference"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLoginPreferenceResponse>();
+}
+
+/**
+ * @summary 获取用户池登录相关配置
+ *
+ * @param request GetLoginPreferenceRequest
+ * @return GetLoginPreferenceResponse
+ */
+GetLoginPreferenceResponse Client::getLoginPreference(const GetLoginPreferenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLoginPreferenceWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询 OAuth2 凭证提供商
  *
  * @param request GetOAuth2CredentialProviderRequest
@@ -1924,6 +2028,52 @@ GetSAMLServiceProviderInfoResponse Client::getSAMLServiceProviderInfo(const GetS
 }
 
 /**
+ * @summary 获取指定的身份提供商
+ *
+ * @param request GetSpecificIdentityProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSpecificIdentityProviderResponse
+ */
+GetSpecificIdentityProviderResponse Client::getSpecificIdentityProviderWithOptions(const GetSpecificIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIdentityProviderType()) {
+    body["IdentityProviderType"] = request.getIdentityProviderType();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetSpecificIdentityProvider"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSpecificIdentityProviderResponse>();
+}
+
+/**
+ * @summary 获取指定的身份提供商
+ *
+ * @param request GetSpecificIdentityProviderRequest
+ * @return GetSpecificIdentityProviderResponse
+ */
+GetSpecificIdentityProviderResponse Client::getSpecificIdentityProvider(const GetSpecificIdentityProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSpecificIdentityProviderWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取指定凭证库的详细配置。
  *
  * @param request GetTokenVaultRequest
@@ -2097,6 +2247,52 @@ GetUserPoolClientResponse Client::getUserPoolClientWithOptions(const GetUserPool
 GetUserPoolClientResponse Client::getUserPoolClient(const GetUserPoolClientRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserPoolClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取UserPool
+ *
+ * @param request GetUserPoolSyncJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserPoolSyncJobResponse
+ */
+GetUserPoolSyncJobResponse Client::getUserPoolSyncJobWithOptions(const GetUserPoolSyncJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSynchronizationJobId()) {
+    body["SynchronizationJobId"] = request.getSynchronizationJobId();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetUserPoolSyncJob"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserPoolSyncJobResponse>();
+}
+
+/**
+ * @summary 获取UserPool
+ *
+ * @param request GetUserPoolSyncJobRequest
+ * @return GetUserPoolSyncJobResponse
+ */
+GetUserPoolSyncJobResponse Client::getUserPoolSyncJob(const GetUserPoolSyncJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserPoolSyncJobWithOptions(request, runtime);
 }
 
 /**
@@ -2736,6 +2932,56 @@ ListUserPoolClientsResponse Client::listUserPoolClients(const ListUserPoolClient
 /**
  * @summary 列出IdentityProvider
  *
+ * @param request ListUserPoolSyncJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserPoolSyncJobsResponse
+ */
+ListUserPoolSyncJobsResponse Client::listUserPoolSyncJobsWithOptions(const ListUserPoolSyncJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListUserPoolSyncJobs"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserPoolSyncJobsResponse>();
+}
+
+/**
+ * @summary 列出IdentityProvider
+ *
+ * @param request ListUserPoolSyncJobsRequest
+ * @return ListUserPoolSyncJobsResponse
+ */
+ListUserPoolSyncJobsResponse Client::listUserPoolSyncJobs(const ListUserPoolSyncJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUserPoolSyncJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列出IdentityProvider
+ *
  * @param request ListUserPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListUserPoolsResponse
@@ -2876,6 +3122,56 @@ ListWorkloadIdentitiesResponse Client::listWorkloadIdentities(const ListWorkload
 }
 
 /**
+ * @summary 创建UserPool
+ *
+ * @param request RunUserPoolSyncJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunUserPoolSyncJobResponse
+ */
+RunUserPoolSyncJobResponse Client::runUserPoolSyncJobWithOptions(const RunUserPoolSyncJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIdentityProviderType()) {
+    body["IdentityProviderType"] = request.getIdentityProviderType();
+  }
+
+  if (!!request.hasMaxSyncUsers()) {
+    body["MaxSyncUsers"] = request.getMaxSyncUsers();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunUserPoolSyncJob"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunUserPoolSyncJobResponse>();
+}
+
+/**
+ * @summary 创建UserPool
+ *
+ * @param request RunUserPoolSyncJobRequest
+ * @return RunUserPoolSyncJobResponse
+ */
+RunUserPoolSyncJobResponse Client::runUserPoolSyncJob(const RunUserPoolSyncJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runUserPoolSyncJobWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建WorkloadIdentity
  *
  * @param tmpReq SetSAMLIdentityProviderRequest
@@ -2949,6 +3245,114 @@ SetSAMLIdentityProviderResponse Client::setSAMLIdentityProviderWithOptions(const
 SetSAMLIdentityProviderResponse Client::setSAMLIdentityProvider(const SetSAMLIdentityProviderRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setSAMLIdentityProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通用IdP配置
+ *
+ * @param request SetSpecificIdentityProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetSpecificIdentityProviderResponse
+ */
+SetSpecificIdentityProviderResponse Client::setSpecificIdentityProviderWithOptions(const SetSpecificIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIDPMetadata()) {
+    body["IDPMetadata"] = request.getIDPMetadata();
+  }
+
+  if (!!request.hasIdentityProviderType()) {
+    body["IdentityProviderType"] = request.getIdentityProviderType();
+  }
+
+  if (!!request.hasSSOStatus()) {
+    body["SSOStatus"] = request.getSSOStatus();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SetSpecificIdentityProvider"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetSpecificIdentityProviderResponse>();
+}
+
+/**
+ * @summary 通用IdP配置
+ *
+ * @param request SetSpecificIdentityProviderRequest
+ * @return SetSpecificIdentityProviderResponse
+ */
+SetSpecificIdentityProviderResponse Client::setSpecificIdentityProvider(const SetSpecificIdentityProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setSpecificIdentityProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改用户登录密码
+ *
+ * @param request SetUserPasswordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetUserPasswordResponse
+ */
+SetUserPasswordResponse Client::setUserPasswordWithOptions(const SetUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGenerateRandomPassword()) {
+    body["GenerateRandomPassword"] = request.getGenerateRandomPassword();
+  }
+
+  if (!!request.hasPassword()) {
+    body["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasUserName()) {
+    body["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SetUserPassword"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetUserPasswordResponse>();
+}
+
+/**
+ * @summary 修改用户登录密码
+ *
+ * @param request SetUserPasswordRequest
+ * @return SetUserPasswordResponse
+ */
+SetUserPasswordResponse Client::setUserPassword(const SetUserPasswordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setUserPasswordWithOptions(request, runtime);
 }
 
 /**
@@ -3113,6 +3517,60 @@ UpdateIdentityProviderResponse Client::updateIdentityProviderWithOptions(const U
 UpdateIdentityProviderResponse Client::updateIdentityProvider(const UpdateIdentityProviderRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateIdentityProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新用户池登录配置
+ *
+ * @param tmpReq UpdateLoginPreferenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLoginPreferenceResponse
+ */
+UpdateLoginPreferenceResponse Client::updateLoginPreferenceWithOptions(const UpdateLoginPreferenceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateLoginPreferenceShrinkRequest request = UpdateLoginPreferenceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLoginPreference()) {
+    request.setLoginPreferenceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLoginPreference(), "LoginPreference", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasLoginPreferenceShrink()) {
+    query["LoginPreference"] = request.getLoginPreferenceShrink();
+  }
+
+  json body = {};
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateLoginPreference"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLoginPreferenceResponse>();
+}
+
+/**
+ * @summary 更新用户池登录配置
+ *
+ * @param request UpdateLoginPreferenceRequest
+ * @return UpdateLoginPreferenceResponse
+ */
+UpdateLoginPreferenceResponse Client::updateLoginPreference(const UpdateLoginPreferenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateLoginPreferenceWithOptions(request, runtime);
 }
 
 /**
@@ -3387,6 +3845,68 @@ UpdateTokenVaultResponse Client::updateTokenVaultWithOptions(const UpdateTokenVa
 UpdateTokenVaultResponse Client::updateTokenVault(const UpdateTokenVaultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateTokenVaultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新用户池用户
+ *
+ * @param request UpdateUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateUserResponse
+ */
+UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEmail()) {
+    body["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUserName()) {
+    body["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateUser"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateUserResponse>();
+}
+
+/**
+ * @summary 更新用户池用户
+ *
+ * @param request UpdateUserRequest
+ * @return UpdateUserResponse
+ */
+UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateUserWithOptions(request, runtime);
 }
 
 /**

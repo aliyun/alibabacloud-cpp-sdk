@@ -88,7 +88,6 @@ namespace Models
 
   protected:
     shared_ptr<string> callbackURL_ {};
-    // AliyunOAuth2
     shared_ptr<string> credentialProviderVendor_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> OAuth2CredentialProviderName_ {};

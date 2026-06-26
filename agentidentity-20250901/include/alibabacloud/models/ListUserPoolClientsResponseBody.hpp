@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ClientId, clientId_);
         DARABONBA_PTR_TO_JSON(ClientName, clientName_);
         DARABONBA_PTR_TO_JSON(ClientScopes, clientScopes_);
+        DARABONBA_PTR_TO_JSON(ClientType, clientType_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(EnforcePKCE, enforcePKCE_);
         DARABONBA_PTR_TO_JSON(RedirectURIs, redirectURIs_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
         DARABONBA_PTR_FROM_JSON(ClientName, clientName_);
         DARABONBA_PTR_FROM_JSON(ClientScopes, clientScopes_);
+        DARABONBA_PTR_FROM_JSON(ClientType, clientType_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(EnforcePKCE, enforcePKCE_);
         DARABONBA_PTR_FROM_JSON(RedirectURIs, redirectURIs_);
@@ -120,8 +122,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->accessTokenValidity_ == nullptr
-        && this->clientId_ == nullptr && this->clientName_ == nullptr && this->clientScopes_ == nullptr && this->createTime_ == nullptr && this->enforcePKCE_ == nullptr
-        && this->redirectURIs_ == nullptr && this->refreshTokenValidity_ == nullptr && this->secretRequired_ == nullptr && this->updateTime_ == nullptr && this->userPoolName_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientName_ == nullptr && this->clientScopes_ == nullptr && this->clientType_ == nullptr && this->createTime_ == nullptr
+        && this->enforcePKCE_ == nullptr && this->redirectURIs_ == nullptr && this->refreshTokenValidity_ == nullptr && this->secretRequired_ == nullptr && this->updateTime_ == nullptr
+        && this->userPoolName_ == nullptr; };
       // accessTokenValidity Field Functions 
       bool hasAccessTokenValidity() const { return this->accessTokenValidity_ != nullptr;};
       void deleteAccessTokenValidity() { this->accessTokenValidity_ = nullptr;};
@@ -150,6 +153,13 @@ namespace Models
       inline vector<Clients::ClientScopes> getClientScopes() { DARABONBA_PTR_GET(clientScopes_, vector<Clients::ClientScopes>) };
       inline Clients& setClientScopes(const vector<Clients::ClientScopes> & clientScopes) { DARABONBA_PTR_SET_VALUE(clientScopes_, clientScopes) };
       inline Clients& setClientScopes(vector<Clients::ClientScopes> && clientScopes) { DARABONBA_PTR_SET_RVALUE(clientScopes_, clientScopes) };
+
+
+      // clientType Field Functions 
+      bool hasClientType() const { return this->clientType_ != nullptr;};
+      void deleteClientType() { this->clientType_ = nullptr;};
+      inline string getClientType() const { DARABONBA_PTR_GET_DEFAULT(clientType_, "") };
+      inline Clients& setClientType(string clientType) { DARABONBA_PTR_SET_VALUE(clientType_, clientType) };
 
 
       // createTime Field Functions 
@@ -208,6 +218,7 @@ namespace Models
       shared_ptr<string> clientId_ {};
       shared_ptr<string> clientName_ {};
       shared_ptr<vector<Clients::ClientScopes>> clientScopes_ {};
+      shared_ptr<string> clientType_ {};
       shared_ptr<string> createTime_ {};
       shared_ptr<bool> enforcePKCE_ {};
       shared_ptr<vector<string>> redirectURIs_ {};

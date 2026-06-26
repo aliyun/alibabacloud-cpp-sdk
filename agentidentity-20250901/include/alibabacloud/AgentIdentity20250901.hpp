@@ -208,6 +208,23 @@ namespace AgentIdentity20250901
       Models::CreateTokenVaultResponse createTokenVault(const Models::CreateTokenVaultRequest &request);
 
       /**
+       * @summary 创建用户池用户
+       *
+       * @param request CreateUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserResponse
+       */
+      Models::CreateUserResponse createUserWithOptions(const Models::CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建用户池用户
+       *
+       * @param request CreateUserRequest
+       * @return CreateUserResponse
+       */
+      Models::CreateUserResponse createUser(const Models::CreateUserRequest &request);
+
+      /**
        * @summary 创建UserPool
        *
        * @param request CreateUserPoolRequest
@@ -565,6 +582,23 @@ namespace AgentIdentity20250901
       Models::GetIdentityProviderResponse getIdentityProvider(const Models::GetIdentityProviderRequest &request);
 
       /**
+       * @summary 获取用户池登录相关配置
+       *
+       * @param request GetLoginPreferenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLoginPreferenceResponse
+       */
+      Models::GetLoginPreferenceResponse getLoginPreferenceWithOptions(const Models::GetLoginPreferenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户池登录相关配置
+       *
+       * @param request GetLoginPreferenceRequest
+       * @return GetLoginPreferenceResponse
+       */
+      Models::GetLoginPreferenceResponse getLoginPreference(const Models::GetLoginPreferenceRequest &request);
+
+      /**
        * @summary 查询 OAuth2 凭证提供商
        *
        * @param request GetOAuth2CredentialProviderRequest
@@ -667,6 +701,23 @@ namespace AgentIdentity20250901
       Models::GetSAMLServiceProviderInfoResponse getSAMLServiceProviderInfo(const Models::GetSAMLServiceProviderInfoRequest &request);
 
       /**
+       * @summary 获取指定的身份提供商
+       *
+       * @param request GetSpecificIdentityProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSpecificIdentityProviderResponse
+       */
+      Models::GetSpecificIdentityProviderResponse getSpecificIdentityProviderWithOptions(const Models::GetSpecificIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定的身份提供商
+       *
+       * @param request GetSpecificIdentityProviderRequest
+       * @return GetSpecificIdentityProviderResponse
+       */
+      Models::GetSpecificIdentityProviderResponse getSpecificIdentityProvider(const Models::GetSpecificIdentityProviderRequest &request);
+
+      /**
        * @summary 获取指定凭证库的详细配置。
        *
        * @param request GetTokenVaultRequest
@@ -733,6 +784,23 @@ namespace AgentIdentity20250901
        * @return GetUserPoolClientResponse
        */
       Models::GetUserPoolClientResponse getUserPoolClient(const Models::GetUserPoolClientRequest &request);
+
+      /**
+       * @summary 获取UserPool
+       *
+       * @param request GetUserPoolSyncJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserPoolSyncJobResponse
+       */
+      Models::GetUserPoolSyncJobResponse getUserPoolSyncJobWithOptions(const Models::GetUserPoolSyncJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取UserPool
+       *
+       * @param request GetUserPoolSyncJobRequest
+       * @return GetUserPoolSyncJobResponse
+       */
+      Models::GetUserPoolSyncJobResponse getUserPoolSyncJob(const Models::GetUserPoolSyncJobRequest &request);
 
       /**
        * @summary 创建应用
@@ -958,6 +1026,23 @@ namespace AgentIdentity20250901
       /**
        * @summary 列出IdentityProvider
        *
+       * @param request ListUserPoolSyncJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserPoolSyncJobsResponse
+       */
+      Models::ListUserPoolSyncJobsResponse listUserPoolSyncJobsWithOptions(const Models::ListUserPoolSyncJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出IdentityProvider
+       *
+       * @param request ListUserPoolSyncJobsRequest
+       * @return ListUserPoolSyncJobsResponse
+       */
+      Models::ListUserPoolSyncJobsResponse listUserPoolSyncJobs(const Models::ListUserPoolSyncJobsRequest &request);
+
+      /**
+       * @summary 列出IdentityProvider
+       *
        * @param request ListUserPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListUserPoolsResponse
@@ -1007,6 +1092,23 @@ namespace AgentIdentity20250901
       Models::ListWorkloadIdentitiesResponse listWorkloadIdentities(const Models::ListWorkloadIdentitiesRequest &request);
 
       /**
+       * @summary 创建UserPool
+       *
+       * @param request RunUserPoolSyncJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunUserPoolSyncJobResponse
+       */
+      Models::RunUserPoolSyncJobResponse runUserPoolSyncJobWithOptions(const Models::RunUserPoolSyncJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建UserPool
+       *
+       * @param request RunUserPoolSyncJobRequest
+       * @return RunUserPoolSyncJobResponse
+       */
+      Models::RunUserPoolSyncJobResponse runUserPoolSyncJob(const Models::RunUserPoolSyncJobRequest &request);
+
+      /**
        * @summary 创建WorkloadIdentity
        *
        * @param tmpReq SetSAMLIdentityProviderRequest
@@ -1022,6 +1124,40 @@ namespace AgentIdentity20250901
        * @return SetSAMLIdentityProviderResponse
        */
       Models::SetSAMLIdentityProviderResponse setSAMLIdentityProvider(const Models::SetSAMLIdentityProviderRequest &request);
+
+      /**
+       * @summary 通用IdP配置
+       *
+       * @param request SetSpecificIdentityProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetSpecificIdentityProviderResponse
+       */
+      Models::SetSpecificIdentityProviderResponse setSpecificIdentityProviderWithOptions(const Models::SetSpecificIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用IdP配置
+       *
+       * @param request SetSpecificIdentityProviderRequest
+       * @return SetSpecificIdentityProviderResponse
+       */
+      Models::SetSpecificIdentityProviderResponse setSpecificIdentityProvider(const Models::SetSpecificIdentityProviderRequest &request);
+
+      /**
+       * @summary 修改用户登录密码
+       *
+       * @param request SetUserPasswordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetUserPasswordResponse
+       */
+      Models::SetUserPasswordResponse setUserPasswordWithOptions(const Models::SetUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改用户登录密码
+       *
+       * @param request SetUserPasswordRequest
+       * @return SetUserPasswordResponse
+       */
+      Models::SetUserPasswordResponse setUserPassword(const Models::SetUserPasswordRequest &request);
 
       /**
        * @summary 更新一个 API 密钥凭证提供商
@@ -1073,6 +1209,23 @@ namespace AgentIdentity20250901
        * @return UpdateIdentityProviderResponse
        */
       Models::UpdateIdentityProviderResponse updateIdentityProvider(const Models::UpdateIdentityProviderRequest &request);
+
+      /**
+       * @summary 更新用户池登录配置
+       *
+       * @param tmpReq UpdateLoginPreferenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateLoginPreferenceResponse
+       */
+      Models::UpdateLoginPreferenceResponse updateLoginPreferenceWithOptions(const Models::UpdateLoginPreferenceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新用户池登录配置
+       *
+       * @param request UpdateLoginPreferenceRequest
+       * @return UpdateLoginPreferenceResponse
+       */
+      Models::UpdateLoginPreferenceResponse updateLoginPreference(const Models::UpdateLoginPreferenceRequest &request);
 
       /**
        * @summary 修改 OAuth2 凭证提供商
@@ -1158,6 +1311,23 @@ namespace AgentIdentity20250901
        * @return UpdateTokenVaultResponse
        */
       Models::UpdateTokenVaultResponse updateTokenVault(const Models::UpdateTokenVaultRequest &request);
+
+      /**
+       * @summary 更新用户池用户
+       *
+       * @param request UpdateUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateUserResponse
+       */
+      Models::UpdateUserResponse updateUserWithOptions(const Models::UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新用户池用户
+       *
+       * @param request UpdateUserRequest
+       * @return UpdateUserResponse
+       */
+      Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
 
       /**
        * @summary 更新IdentityProvider

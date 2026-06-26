@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const UserPools& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
         DARABONBA_PTR_TO_JSON(UserPoolId, userPoolId_);
         DARABONBA_PTR_TO_JSON(UserPoolName, userPoolName_);
@@ -50,6 +51,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, UserPools& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
         DARABONBA_PTR_FROM_JSON(UserPoolId, userPoolId_);
         DARABONBA_PTR_FROM_JSON(UserPoolName, userPoolName_);
@@ -66,7 +68,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->description_ == nullptr && this->updateTime_ == nullptr && this->userPoolId_ == nullptr && this->userPoolName_ == nullptr; };
+        && this->description_ == nullptr && this->sourcePlatform_ == nullptr && this->updateTime_ == nullptr && this->userPoolId_ == nullptr && this->userPoolName_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline UserPools& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // sourcePlatform Field Functions 
+      bool hasSourcePlatform() const { return this->sourcePlatform_ != nullptr;};
+      void deleteSourcePlatform() { this->sourcePlatform_ = nullptr;};
+      inline string getSourcePlatform() const { DARABONBA_PTR_GET_DEFAULT(sourcePlatform_, "") };
+      inline UserPools& setSourcePlatform(string sourcePlatform) { DARABONBA_PTR_SET_VALUE(sourcePlatform_, sourcePlatform) };
 
 
       // updateTime Field Functions 
@@ -105,6 +114,7 @@ namespace Models
     protected:
       shared_ptr<string> createTime_ {};
       shared_ptr<string> description_ {};
+      shared_ptr<string> sourcePlatform_ {};
       shared_ptr<string> updateTime_ {};
       shared_ptr<string> userPoolId_ {};
       shared_ptr<string> userPoolName_ {};
