@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The column description.
     shared_ptr<string> description_ {};
+    // The column ID.
     shared_ptr<int32_t> id_ {};
+    // The column name.
     shared_ptr<string> name_ {};
+    // The column type.
     shared_ptr<FullDataType> type_ {};
   };
 

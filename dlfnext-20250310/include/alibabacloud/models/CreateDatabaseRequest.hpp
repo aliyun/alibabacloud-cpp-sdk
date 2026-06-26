@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The name of the database.
     shared_ptr<string> name_ {};
+    // The configuration options.
     shared_ptr<map<string, string>> options_ {};
   };
 

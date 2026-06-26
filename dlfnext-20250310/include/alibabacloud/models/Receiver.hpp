@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The time when the receiver was created.
     shared_ptr<int64_t> createdAt_ {};
+    // The creator.
     shared_ptr<string> createdBy_ {};
+    // The name of the receiver.
     shared_ptr<string> receiverName_ {};
+    // The receiver\\"s account ID.
     shared_ptr<int64_t> receiverTenantId_ {};
+    // The time when the receiver was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the receiver.
     shared_ptr<string> updatedBy_ {};
   };
 

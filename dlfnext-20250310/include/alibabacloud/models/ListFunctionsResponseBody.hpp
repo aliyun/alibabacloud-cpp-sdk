@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The function definitions.
     shared_ptr<vector<string>> functions_ {};
+    // A pagination token. Use this token to retrieve the next page of results. If this parameter is null, all results have been returned.
     shared_ptr<string> nextPageToken_ {};
   };
 

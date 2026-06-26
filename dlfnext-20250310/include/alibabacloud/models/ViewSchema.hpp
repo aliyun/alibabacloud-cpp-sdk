@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // The comment.
     shared_ptr<string> comment_ {};
+    // Queries for different engines.
     shared_ptr<map<string, string>> dialects_ {};
+    // The list of field definitions for the view.
     shared_ptr<vector<DataField>> fields_ {};
+    // The configuration parameters for the view.
     shared_ptr<map<string, string>> options_ {};
+    // The default query for the view.
     shared_ptr<string> query_ {};
   };
 

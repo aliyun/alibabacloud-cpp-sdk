@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<int64_t> createdAt_ {};
+    // The creator.
     shared_ptr<string> createdBy_ {};
+    // The UUID of the view.
     shared_ptr<string> id_ {};
+    // The name of the view.
     shared_ptr<string> name_ {};
+    // The owner of the view.
     shared_ptr<string> owner_ {};
+    // The view schema.
     shared_ptr<ViewSchema> schema_ {};
+    // The time of the last update.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the view.
     shared_ptr<string> updatedBy_ {};
   };
 

@@ -143,18 +143,29 @@ namespace Models
 
 
   protected:
+    // The time when the catalog was created.
     shared_ptr<int64_t> createdAt_ {};
+    // The user who created the catalog.
     shared_ptr<string> createdBy_ {};
+    // The ID of the catalog.
     shared_ptr<string> id_ {};
+    // Whether the data catalog is shared.
     shared_ptr<bool> isShared_ {};
+    // The name of the catalog.
     shared_ptr<string> name_ {};
+    // The extension options.
     shared_ptr<map<string, string>> options_ {};
-    // Owner。
+    // The catalog owner.
     shared_ptr<string> owner_ {};
+    // Share ID.
     shared_ptr<string> shareId_ {};
+    // The status of the catalog.
     shared_ptr<string> status_ {};
+    // Type.
     shared_ptr<string> type_ {};
+    // The time when the catalog was last modified.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last modified the catalog.
     shared_ptr<string> updatedBy_ {};
   };
 

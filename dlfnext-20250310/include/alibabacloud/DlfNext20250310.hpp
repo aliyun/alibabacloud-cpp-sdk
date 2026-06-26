@@ -21,7 +21,7 @@ namespace DlfNext20250310
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 更新数据目录
+       * @summary Updates a catalog.
        *
        * @param request AlterCatalogRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace DlfNext20250310
       Models::AlterCatalogResponse alterCatalogWithOptions(const string &catalog, const Models::AlterCatalogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据目录
+       * @summary Updates a catalog.
        *
        * @param request AlterCatalogRequest
        * @return AlterCatalogResponse
@@ -39,7 +39,7 @@ namespace DlfNext20250310
       Models::AlterCatalogResponse alterCatalog(const string &catalog, const Models::AlterCatalogRequest &request);
 
       /**
-       * @summary 更新数据库
+       * @summary Updates a database.
        *
        * @param request AlterDatabaseRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace DlfNext20250310
       Models::AlterDatabaseResponse alterDatabaseWithOptions(const string &catalogId, const string &database, const Models::AlterDatabaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据库
+       * @summary Updates a database.
        *
        * @param request AlterDatabaseRequest
        * @return AlterDatabaseResponse
@@ -57,7 +57,7 @@ namespace DlfNext20250310
       Models::AlterDatabaseResponse alterDatabase(const string &catalogId, const string &database, const Models::AlterDatabaseRequest &request);
 
       /**
-       * @summary 更新接收者
+       * @summary Updates a sink.
        *
        * @param request AlterReceiverRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace DlfNext20250310
       Models::AlterReceiverResponse alterReceiverWithOptions(const string &receiver, const Models::AlterReceiverRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新接收者
+       * @summary Updates a sink.
        *
        * @param request AlterReceiverRequest
        * @return AlterReceiverResponse
@@ -75,7 +75,7 @@ namespace DlfNext20250310
       Models::AlterReceiverResponse alterReceiver(const string &receiver, const Models::AlterReceiverRequest &request);
 
       /**
-       * @summary 更新共享
+       * @summary Updates a share.
        *
        * @param request AlterShareRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace DlfNext20250310
       Models::AlterShareResponse alterShareWithOptions(const string &share, const Models::AlterShareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新共享
+       * @summary Updates a share.
        *
        * @param request AlterShareRequest
        * @return AlterShareResponse
@@ -93,7 +93,7 @@ namespace DlfNext20250310
       Models::AlterShareResponse alterShare(const string &share, const Models::AlterShareRequest &request);
 
       /**
-       * @summary 更新共享中的接收者
+       * @summary Updates the receivers of a share.
        *
        * @param request AlterShareReceiversRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace DlfNext20250310
       Models::AlterShareReceiversResponse alterShareReceiversWithOptions(const string &share, const Models::AlterShareReceiversRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新共享中的接收者
+       * @summary Updates the receivers of a share.
        *
        * @param request AlterShareReceiversRequest
        * @return AlterShareReceiversResponse
@@ -111,7 +111,7 @@ namespace DlfNext20250310
       Models::AlterShareReceiversResponse alterShareReceivers(const string &share, const Models::AlterShareReceiversRequest &request);
 
       /**
-       * @summary 更改共享资源
+       * @summary Modifies shared resources.
        *
        * @param request AlterShareResourcesRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace DlfNext20250310
       Models::AlterShareResourcesResponse alterShareResourcesWithOptions(const string &share, const Models::AlterShareResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更改共享资源
+       * @summary Modifies shared resources.
        *
        * @param request AlterShareResourcesRequest
        * @return AlterShareResourcesResponse
@@ -129,7 +129,7 @@ namespace DlfNext20250310
       Models::AlterShareResourcesResponse alterShareResources(const string &share, const Models::AlterShareResourcesRequest &request);
 
       /**
-       * @summary 更改Table
+       * @summary Updates a table.
        *
        * @param request AlterTableRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace DlfNext20250310
       Models::AlterTableResponse alterTableWithOptions(const string &catalogId, const string &database, const string &table, const Models::AlterTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更改Table
+       * @summary Updates a table.
        *
        * @param request AlterTableRequest
        * @return AlterTableResponse
@@ -147,7 +147,25 @@ namespace DlfNext20250310
       Models::AlterTableResponse alterTable(const string &catalogId, const string &database, const string &table, const Models::AlterTableRequest &request);
 
       /**
-       * @summary 批量授权
+       * @summary Changes the table schema.
+       *
+       * @param request AlterTableSchemaRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AlterTableSchemaResponse
+       */
+      Models::AlterTableSchemaResponse alterTableSchemaWithOptions(const string &catalogId, const string &database, const string &table, const Models::AlterTableSchemaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the table schema.
+       *
+       * @param request AlterTableSchemaRequest
+       * @return AlterTableSchemaResponse
+       */
+      Models::AlterTableSchemaResponse alterTableSchema(const string &catalogId, const string &database, const string &table, const Models::AlterTableSchemaRequest &request);
+
+      /**
+       * @summary Grants permissions to one or more DLF users or roles.
        *
        * @param request BatchGrantPermissionsRequest
        * @param headers map
@@ -157,7 +175,7 @@ namespace DlfNext20250310
       Models::BatchGrantPermissionsResponse batchGrantPermissionsWithOptions(const string &catalogId, const Models::BatchGrantPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量授权
+       * @summary Grants permissions to one or more DLF users or roles.
        *
        * @param request BatchGrantPermissionsRequest
        * @return BatchGrantPermissionsResponse
@@ -165,7 +183,7 @@ namespace DlfNext20250310
       Models::BatchGrantPermissionsResponse batchGrantPermissions(const string &catalogId, const Models::BatchGrantPermissionsRequest &request);
 
       /**
-       * @summary 批量取消授权
+       * @summary Revokes permissions in a batch.
        *
        * @param request BatchRevokePermissionsRequest
        * @param headers map
@@ -175,7 +193,7 @@ namespace DlfNext20250310
       Models::BatchRevokePermissionsResponse batchRevokePermissionsWithOptions(const string &catalogId, const Models::BatchRevokePermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量取消授权
+       * @summary Revokes permissions in a batch.
        *
        * @param request BatchRevokePermissionsRequest
        * @return BatchRevokePermissionsResponse
@@ -183,7 +201,7 @@ namespace DlfNext20250310
       Models::BatchRevokePermissionsResponse batchRevokePermissions(const string &catalogId, const Models::BatchRevokePermissionsRequest &request);
 
       /**
-       * @summary 创建数据目录
+       * @summary Creates a catalog.
        *
        * @param request CreateCatalogRequest
        * @param headers map
@@ -193,7 +211,7 @@ namespace DlfNext20250310
       Models::CreateCatalogResponse createCatalogWithOptions(const Models::CreateCatalogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据目录
+       * @summary Creates a catalog.
        *
        * @param request CreateCatalogRequest
        * @return CreateCatalogResponse
@@ -201,7 +219,7 @@ namespace DlfNext20250310
       Models::CreateCatalogResponse createCatalog(const Models::CreateCatalogRequest &request);
 
       /**
-       * @summary 创建数据库
+       * @summary Creates a database.
        *
        * @param request CreateDatabaseRequest
        * @param headers map
@@ -211,7 +229,7 @@ namespace DlfNext20250310
       Models::CreateDatabaseResponse createDatabaseWithOptions(const string &catalogId, const Models::CreateDatabaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据库
+       * @summary Creates a database.
        *
        * @param request CreateDatabaseRequest
        * @return CreateDatabaseResponse
@@ -219,7 +237,7 @@ namespace DlfNext20250310
       Models::CreateDatabaseResponse createDatabase(const string &catalogId, const Models::CreateDatabaseRequest &request);
 
       /**
-       * @summary 创建接收者
+       * @summary Creates a receiver.
        *
        * @param request CreateReceiverRequest
        * @param headers map
@@ -229,7 +247,7 @@ namespace DlfNext20250310
       Models::CreateReceiverResponse createReceiverWithOptions(const Models::CreateReceiverRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建接收者
+       * @summary Creates a receiver.
        *
        * @param request CreateReceiverRequest
        * @return CreateReceiverResponse
@@ -237,7 +255,7 @@ namespace DlfNext20250310
       Models::CreateReceiverResponse createReceiver(const Models::CreateReceiverRequest &request);
 
       /**
-       * @summary 创建角色
+       * @summary Creates a DLF role.
        *
        * @param request CreateRoleRequest
        * @param headers map
@@ -247,7 +265,7 @@ namespace DlfNext20250310
       Models::CreateRoleResponse createRoleWithOptions(const Models::CreateRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建角色
+       * @summary Creates a DLF role.
        *
        * @param request CreateRoleRequest
        * @return CreateRoleResponse
@@ -255,7 +273,7 @@ namespace DlfNext20250310
       Models::CreateRoleResponse createRole(const Models::CreateRoleRequest &request);
 
       /**
-       * @summary 创建共享
+       * @summary Creates a share.
        *
        * @param request CreateShareRequest
        * @param headers map
@@ -265,7 +283,7 @@ namespace DlfNext20250310
       Models::CreateShareResponse createShareWithOptions(const Models::CreateShareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建共享
+       * @summary Creates a share.
        *
        * @param request CreateShareRequest
        * @return CreateShareResponse
@@ -273,7 +291,7 @@ namespace DlfNext20250310
       Models::CreateShareResponse createShare(const Models::CreateShareRequest &request);
 
       /**
-       * @summary 创建表
+       * @summary Creates a table.
        *
        * @param request CreateTableRequest
        * @param headers map
@@ -283,7 +301,7 @@ namespace DlfNext20250310
       Models::CreateTableResponse createTableWithOptions(const string &catalogId, const string &database, const Models::CreateTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建表
+       * @summary Creates a table.
        *
        * @param request CreateTableRequest
        * @return CreateTableResponse
@@ -291,7 +309,7 @@ namespace DlfNext20250310
       Models::CreateTableResponse createTable(const string &catalogId, const string &database, const Models::CreateTableRequest &request);
 
       /**
-       * @summary 删除角色
+       * @summary Deletes a DLF role.
        *
        * @param request DeleteRoleRequest
        * @param headers map
@@ -301,7 +319,7 @@ namespace DlfNext20250310
       Models::DeleteRoleResponse deleteRoleWithOptions(const Models::DeleteRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除角色
+       * @summary Deletes a DLF role.
        *
        * @param request DeleteRoleRequest
        * @return DeleteRoleResponse
@@ -309,7 +327,7 @@ namespace DlfNext20250310
       Models::DeleteRoleResponse deleteRole(const Models::DeleteRoleRequest &request);
 
       /**
-       * @summary 查询 DLF 开通地域
+       * @summary Retrieves the regions where DLF is activated.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,14 +336,14 @@ namespace DlfNext20250310
       Models::DescribeRegionsResponse describeRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 DLF 开通地域
+       * @summary Retrieves the regions where DLF is activated.
        *
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary 删除数据湖Catalog
+       * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -334,14 +352,14 @@ namespace DlfNext20250310
       Models::DropCatalogResponse dropCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据湖Catalog
+       * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
        *
        * @return DropCatalogResponse
        */
       Models::DropCatalogResponse dropCatalog(const string &catalog);
 
       /**
-       * @summary 删除数据库
+       * @summary Drops a database.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -350,14 +368,14 @@ namespace DlfNext20250310
       Models::DropDatabaseResponse dropDatabaseWithOptions(const string &catalogId, const string &database, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据库
+       * @summary Drops a database.
        *
        * @return DropDatabaseResponse
        */
       Models::DropDatabaseResponse dropDatabase(const string &catalogId, const string &database);
 
       /**
-       * @summary 删除接收者
+       * @summary Removes a receiver.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -366,14 +384,14 @@ namespace DlfNext20250310
       Models::DropReceiverResponse dropReceiverWithOptions(const string &receiver, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除接收者
+       * @summary Removes a receiver.
        *
        * @return DropReceiverResponse
        */
       Models::DropReceiverResponse dropReceiver(const string &receiver);
 
       /**
-       * @summary 删除共享
+       * @summary Deletes a share.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -382,14 +400,14 @@ namespace DlfNext20250310
       Models::DropShareResponse dropShareWithOptions(const string &share, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除共享
+       * @summary Deletes a share.
        *
        * @return DropShareResponse
        */
       Models::DropShareResponse dropShare(const string &share);
 
       /**
-       * @summary 删除表
+       * @summary Drops a table.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -398,14 +416,14 @@ namespace DlfNext20250310
       Models::DropTableResponse dropTableWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除表
+       * @summary Drops a table.
        *
        * @return DropTableResponse
        */
       Models::DropTableResponse dropTable(const string &catalogId, const string &database, const string &table);
 
       /**
-       * @summary 查看数据湖Catalog
+       * @summary Retrieves the details of a catalog.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -414,14 +432,14 @@ namespace DlfNext20250310
       Models::GetCatalogResponse getCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看数据湖Catalog
+       * @summary Retrieves the details of a catalog.
        *
        * @return GetCatalogResponse
        */
       Models::GetCatalogResponse getCatalog(const string &catalog);
 
       /**
-       * @summary 查看数据湖Catalog
+       * @summary Retrieves the details of a catalog.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -430,14 +448,14 @@ namespace DlfNext20250310
       Models::GetCatalogByIdResponse getCatalogByIdWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看数据湖Catalog
+       * @summary Retrieves the details of a catalog.
        *
        * @return GetCatalogByIdResponse
        */
       Models::GetCatalogByIdResponse getCatalogById(const string &id);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the storage overview of a data catalog.
        *
        * @param request GetCatalogSummaryRequest
        * @param headers map
@@ -447,7 +465,7 @@ namespace DlfNext20250310
       Models::GetCatalogSummaryResponse getCatalogSummaryWithOptions(const string &catalogId, const Models::GetCatalogSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the storage overview of a data catalog.
        *
        * @param request GetCatalogSummaryRequest
        * @return GetCatalogSummaryResponse
@@ -455,7 +473,7 @@ namespace DlfNext20250310
       Models::GetCatalogSummaryResponse getCatalogSummary(const string &catalogId, const Models::GetCatalogSummaryRequest &request);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the storage overview trend for a catalog.
        *
        * @param request GetCatalogSummaryTrendRequest
        * @param headers map
@@ -465,7 +483,7 @@ namespace DlfNext20250310
       Models::GetCatalogSummaryTrendResponse getCatalogSummaryTrendWithOptions(const string &catalogId, const Models::GetCatalogSummaryTrendRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the storage overview trend for a catalog.
        *
        * @param request GetCatalogSummaryTrendRequest
        * @return GetCatalogSummaryTrendResponse
@@ -473,7 +491,7 @@ namespace DlfNext20250310
       Models::GetCatalogSummaryTrendResponse getCatalogSummaryTrend(const string &catalogId, const Models::GetCatalogSummaryTrendRequest &request);
 
       /**
-       * @summary 获取数据湖Catalog的临时访问凭证
+       * @summary Obtains a temporary access credential (token) for a catalog.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -482,14 +500,14 @@ namespace DlfNext20250310
       Models::GetCatalogTokenResponse getCatalogTokenWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖Catalog的临时访问凭证
+       * @summary Obtains a temporary access credential (token) for a catalog.
        *
        * @return GetCatalogTokenResponse
        */
       Models::GetCatalogTokenResponse getCatalogToken(const string &catalog);
 
       /**
-       * @summary 查看数据库
+       * @summary Retrieves the details of a database.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -498,14 +516,14 @@ namespace DlfNext20250310
       Models::GetDatabaseResponse getDatabaseWithOptions(const string &catalogId, const string &database, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看数据库
+       * @summary Retrieves the details of a database.
        *
        * @return GetDatabaseResponse
        */
       Models::GetDatabaseResponse getDatabase(const string &catalogId, const string &database);
 
       /**
-       * @summary 查看表
+       * @summary You can view an inventory overview.
        *
        * @param request GetDatabaseSummaryRequest
        * @param headers map
@@ -515,7 +533,7 @@ namespace DlfNext20250310
       Models::GetDatabaseSummaryResponse getDatabaseSummaryWithOptions(const string &catalogId, const string &database, const Models::GetDatabaseSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表
+       * @summary You can view an inventory overview.
        *
        * @param request GetDatabaseSummaryRequest
        * @return GetDatabaseSummaryResponse
@@ -523,7 +541,7 @@ namespace DlfNext20250310
       Models::GetDatabaseSummaryResponse getDatabaseSummary(const string &catalogId, const string &database, const Models::GetDatabaseSummaryRequest &request);
 
       /**
-       * @summary 查看iceberg数据库
+       * @summary Retrieves information about an Iceberg namespace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -532,14 +550,14 @@ namespace DlfNext20250310
       Models::GetIcebergNamespaceResponse getIcebergNamespaceWithOptions(const string &catalogId, const string &_namespace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看iceberg数据库
+       * @summary Retrieves information about an Iceberg namespace.
        *
        * @return GetIcebergNamespaceResponse
        */
       Models::GetIcebergNamespaceResponse getIcebergNamespace(const string &catalogId, const string &_namespace);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the details of a table.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -548,14 +566,14 @@ namespace DlfNext20250310
       Models::GetIcebergTableResponse getIcebergTableWithOptions(const string &catalogId, const string &_namespace, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the details of a table.
        *
        * @return GetIcebergTableResponse
        */
       Models::GetIcebergTableResponse getIcebergTable(const string &catalogId, const string &_namespace, const string &table);
 
       /**
-       * @summary 获取接收者
+       * @summary Retrieves a receiver.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -564,14 +582,14 @@ namespace DlfNext20250310
       Models::GetReceiverResponse getReceiverWithOptions(const string &receiver, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取接收者
+       * @summary Retrieves a receiver.
        *
        * @return GetReceiverResponse
        */
       Models::GetReceiverResponse getReceiver(const string &receiver);
 
       /**
-       * @summary 查询 DLF 当前地域开通状态
+       * @summary Queries the DLF activation status of in a region.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -580,14 +598,14 @@ namespace DlfNext20250310
       Models::GetRegionStatusResponse getRegionStatusWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 DLF 当前地域开通状态
+       * @summary Queries the DLF activation status of in a region.
        *
        * @return GetRegionStatusResponse
        */
       Models::GetRegionStatusResponse getRegionStatus();
 
       /**
-       * @summary 获取角色
+       * @summary Retrieves a role.
        *
        * @param request GetRoleRequest
        * @param headers map
@@ -597,7 +615,7 @@ namespace DlfNext20250310
       Models::GetRoleResponse getRoleWithOptions(const Models::GetRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取角色
+       * @summary Retrieves a role.
        *
        * @param request GetRoleRequest
        * @return GetRoleResponse
@@ -605,7 +623,7 @@ namespace DlfNext20250310
       Models::GetRoleResponse getRole(const Models::GetRoleRequest &request);
 
       /**
-       * @summary 获取共享
+       * @summary Retrieves the details of a share.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -614,14 +632,14 @@ namespace DlfNext20250310
       Models::GetShareResponse getShareWithOptions(const string &share, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取共享
+       * @summary Retrieves the details of a share.
        *
        * @return GetShareResponse
        */
       Models::GetShareResponse getShare(const string &share);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the details of a table in a data lake.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -630,14 +648,14 @@ namespace DlfNext20250310
       Models::GetTableResponse getTableWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the details of a table in a data lake.
        *
        * @return GetTableResponse
        */
       Models::GetTableResponse getTable(const string &catalogId, const string &database, const string &table);
 
       /**
-       * @summary 查看表Compaction详情
+       * @summary Retrieves the compaction details of a table.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -646,14 +664,14 @@ namespace DlfNext20250310
       Models::GetTableCompactionResponse getTableCompactionWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表Compaction详情
+       * @summary Retrieves the compaction details of a table.
        *
        * @return GetTableCompactionResponse
        */
       Models::GetTableCompactionResponse getTableCompaction(const string &catalogId, const string &database, const string &table);
 
       /**
-       * @summary 查看表快照
+       * @summary Queries a table snapshot.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -662,14 +680,14 @@ namespace DlfNext20250310
       Models::GetTableSnapshotResponse getTableSnapshotWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表快照
+       * @summary Queries a table snapshot.
        *
        * @return GetTableSnapshotResponse
        */
       Models::GetTableSnapshotResponse getTableSnapshot(const string &catalogId, const string &database, const string &table);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the storage summary for a table.
        *
        * @param request GetTableSummaryRequest
        * @param headers map
@@ -679,7 +697,7 @@ namespace DlfNext20250310
       Models::GetTableSummaryResponse getTableSummaryWithOptions(const string &catalogId, const string &database, const string &table, const Models::GetTableSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves the storage summary for a table.
        *
        * @param request GetTableSummaryRequest
        * @return GetTableSummaryResponse
@@ -687,7 +705,7 @@ namespace DlfNext20250310
       Models::GetTableSummaryResponse getTableSummary(const string &catalogId, const string &database, const string &table, const Models::GetTableSummaryRequest &request);
 
       /**
-       * @summary 获取数据湖表的临时访问凭证
+       * @summary Obtains a temporary access credential for a data lake table.
        *
        * @param request GetTableTokenRequest
        * @param headers map
@@ -697,7 +715,7 @@ namespace DlfNext20250310
       Models::GetTableTokenResponse getTableTokenWithOptions(const string &catalogId, const string &database, const string &table, const Models::GetTableTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表的临时访问凭证
+       * @summary Obtains a temporary access credential for a data lake table.
        *
        * @param request GetTableTokenRequest
        * @return GetTableTokenResponse
@@ -705,7 +723,7 @@ namespace DlfNext20250310
       Models::GetTableTokenResponse getTableToken(const string &catalogId, const string &database, const string &table, const Models::GetTableTokenRequest &request);
 
       /**
-       * @summary 获取用户
+       * @summary Retrieves a user.
        *
        * @param request GetUserRequest
        * @param headers map
@@ -715,7 +733,7 @@ namespace DlfNext20250310
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户
+       * @summary Retrieves a user.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -723,7 +741,7 @@ namespace DlfNext20250310
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
-       * @summary 获取可信 VPC 配置
+       * @summary Obtain the VPC configuration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -732,14 +750,14 @@ namespace DlfNext20250310
       Models::GetVpcConfigResponse getVpcConfigWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取可信 VPC 配置
+       * @summary Obtain the VPC configuration.
        *
        * @return GetVpcConfigResponse
        */
       Models::GetVpcConfigResponse getVpcConfig();
 
       /**
-       * @summary 批量授予角色权限给用户
+       * @summary Grants a role to one or more users.
        *
        * @param request GrantRoleToUsersRequest
        * @param headers map
@@ -749,7 +767,7 @@ namespace DlfNext20250310
       Models::GrantRoleToUsersResponse grantRoleToUsersWithOptions(const Models::GrantRoleToUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量授予角色权限给用户
+       * @summary Grants a role to one or more users.
        *
        * @param request GrantRoleToUsersRequest
        * @return GrantRoleToUsersResponse
@@ -757,7 +775,7 @@ namespace DlfNext20250310
       Models::GrantRoleToUsersResponse grantRoleToUsers(const Models::GrantRoleToUsersRequest &request);
 
       /**
-       * @summary 查看数据目录列表
+       * @summary Lists catalogs.
        *
        * @param request ListCatalogsRequest
        * @param headers map
@@ -767,7 +785,7 @@ namespace DlfNext20250310
       Models::ListCatalogsResponse listCatalogsWithOptions(const Models::ListCatalogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看数据目录列表
+       * @summary Lists catalogs.
        *
        * @param request ListCatalogsRequest
        * @return ListCatalogsResponse
@@ -775,7 +793,7 @@ namespace DlfNext20250310
       Models::ListCatalogsResponse listCatalogs(const Models::ListCatalogsRequest &request);
 
       /**
-       * @summary 查看数据库列表
+       * @summary Retrieves database details.
        *
        * @param request ListDatabaseDetailsRequest
        * @param headers map
@@ -785,7 +803,7 @@ namespace DlfNext20250310
       Models::ListDatabaseDetailsResponse listDatabaseDetailsWithOptions(const string &catalogId, const Models::ListDatabaseDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看数据库列表
+       * @summary Retrieves database details.
        *
        * @param request ListDatabaseDetailsRequest
        * @return ListDatabaseDetailsResponse
@@ -793,7 +811,7 @@ namespace DlfNext20250310
       Models::ListDatabaseDetailsResponse listDatabaseDetails(const string &catalogId, const Models::ListDatabaseDetailsRequest &request);
 
       /**
-       * @summary 查看数据库列表
+       * @summary Retrieves databases.
        *
        * @param request ListDatabasesRequest
        * @param headers map
@@ -803,7 +821,7 @@ namespace DlfNext20250310
       Models::ListDatabasesResponse listDatabasesWithOptions(const string &catalogId, const Models::ListDatabasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看数据库列表
+       * @summary Retrieves databases.
        *
        * @param request ListDatabasesRequest
        * @return ListDatabasesResponse
@@ -811,7 +829,7 @@ namespace DlfNext20250310
       Models::ListDatabasesResponse listDatabases(const string &catalogId, const Models::ListDatabasesRequest &request);
 
       /**
-       * @summary 查看函数列表
+       * @summary Lists functions.
        *
        * @param request ListFunctionsRequest
        * @param headers map
@@ -821,7 +839,7 @@ namespace DlfNext20250310
       Models::ListFunctionsResponse listFunctionsWithOptions(const string &catalogId, const string &database, const Models::ListFunctionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看函数列表
+       * @summary Lists functions.
        *
        * @param request ListFunctionsRequest
        * @return ListFunctionsResponse
@@ -829,7 +847,7 @@ namespace DlfNext20250310
       Models::ListFunctionsResponse listFunctions(const string &catalogId, const string &database, const Models::ListFunctionsRequest &request);
 
       /**
-       * @summary 查看iceberg数据库列表
+       * @summary Lists Iceberg namespaces.
        *
        * @param request ListIcebergNamespaceDetailsRequest
        * @param headers map
@@ -839,7 +857,7 @@ namespace DlfNext20250310
       Models::ListIcebergNamespaceDetailsResponse listIcebergNamespaceDetailsWithOptions(const string &catalogId, const Models::ListIcebergNamespaceDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看iceberg数据库列表
+       * @summary Lists Iceberg namespaces.
        *
        * @param request ListIcebergNamespaceDetailsRequest
        * @return ListIcebergNamespaceDetailsResponse
@@ -847,7 +865,7 @@ namespace DlfNext20250310
       Models::ListIcebergNamespaceDetailsResponse listIcebergNamespaceDetails(const string &catalogId, const Models::ListIcebergNamespaceDetailsRequest &request);
 
       /**
-       * @summary 查看iceberg表快照列表
+       * @summary Lists the snapshots of an Iceberg table.
        *
        * @param request ListIcebergSnapshotsRequest
        * @param headers map
@@ -857,7 +875,7 @@ namespace DlfNext20250310
       Models::ListIcebergSnapshotsResponse listIcebergSnapshotsWithOptions(const string &catalogId, const string &_namespace, const string &table, const Models::ListIcebergSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看iceberg表快照列表
+       * @summary Lists the snapshots of an Iceberg table.
        *
        * @param request ListIcebergSnapshotsRequest
        * @return ListIcebergSnapshotsResponse
@@ -865,7 +883,7 @@ namespace DlfNext20250310
       Models::ListIcebergSnapshotsResponse listIcebergSnapshots(const string &catalogId, const string &_namespace, const string &table, const Models::ListIcebergSnapshotsRequest &request);
 
       /**
-       * @summary 查看iceberg表详情列表
+       * @summary Lists the details of Iceberg tables.
        *
        * @param request ListIcebergTableDetailsRequest
        * @param headers map
@@ -875,7 +893,7 @@ namespace DlfNext20250310
       Models::ListIcebergTableDetailsResponse listIcebergTableDetailsWithOptions(const string &catalogId, const string &_namespace, const Models::ListIcebergTableDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看iceberg表详情列表
+       * @summary Lists the details of Iceberg tables.
        *
        * @param request ListIcebergTableDetailsRequest
        * @return ListIcebergTableDetailsResponse
@@ -883,7 +901,7 @@ namespace DlfNext20250310
       Models::ListIcebergTableDetailsResponse listIcebergTableDetails(const string &catalogId, const string &_namespace, const Models::ListIcebergTableDetailsRequest &request);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves storage overview for partitions.
        *
        * @param request ListPartitionSummariesRequest
        * @param headers map
@@ -893,7 +911,7 @@ namespace DlfNext20250310
       Models::ListPartitionSummariesResponse listPartitionSummariesWithOptions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionSummariesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表
+       * @summary Retrieves storage overview for partitions.
        *
        * @param request ListPartitionSummariesRequest
        * @return ListPartitionSummariesResponse
@@ -901,7 +919,7 @@ namespace DlfNext20250310
       Models::ListPartitionSummariesResponse listPartitionSummaries(const string &catalogId, const string &database, const string &table, const Models::ListPartitionSummariesRequest &request);
 
       /**
-       * @summary listPartitions
+       * @summary Lists partitions.
        *
        * @param request ListPartitionsRequest
        * @param headers map
@@ -911,7 +929,7 @@ namespace DlfNext20250310
       Models::ListPartitionsResponse listPartitionsWithOptions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary listPartitions
+       * @summary Lists partitions.
        *
        * @param request ListPartitionsRequest
        * @return ListPartitionsResponse
@@ -919,7 +937,25 @@ namespace DlfNext20250310
       Models::ListPartitionsResponse listPartitions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionsRequest &request);
 
       /**
-       * @summary 获取指定资源或指定Principal的权限信息
+       * @summary Retrieves a list of partitions by their names.
+       *
+       * @param request ListPartitionsByNamesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPartitionsByNamesResponse
+       */
+      Models::ListPartitionsByNamesResponse listPartitionsByNamesWithOptions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionsByNamesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of partitions by their names.
+       *
+       * @param request ListPartitionsByNamesRequest
+       * @return ListPartitionsByNamesResponse
+       */
+      Models::ListPartitionsByNamesResponse listPartitionsByNames(const string &catalogId, const string &database, const string &table, const Models::ListPartitionsByNamesRequest &request);
+
+      /**
+       * @summary Retrieves the permissions for a resource or principal.
        *
        * @param request ListPermissionsRequest
        * @param headers map
@@ -929,7 +965,7 @@ namespace DlfNext20250310
       Models::ListPermissionsResponse listPermissionsWithOptions(const string &catalogId, const Models::ListPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定资源或指定Principal的权限信息
+       * @summary Retrieves the permissions for a resource or principal.
        *
        * @param request ListPermissionsRequest
        * @return ListPermissionsResponse
@@ -937,7 +973,7 @@ namespace DlfNext20250310
       Models::ListPermissionsResponse listPermissions(const string &catalogId, const Models::ListPermissionsRequest &request);
 
       /**
-       * @summary 获取提供的共享列表
+       * @summary Retrieves shares.
        *
        * @param request ListProvidedSharesRequest
        * @param headers map
@@ -947,7 +983,7 @@ namespace DlfNext20250310
       Models::ListProvidedSharesResponse listProvidedSharesWithOptions(const Models::ListProvidedSharesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取提供的共享列表
+       * @summary Retrieves shares.
        *
        * @param request ListProvidedSharesRequest
        * @return ListProvidedSharesResponse
@@ -955,7 +991,7 @@ namespace DlfNext20250310
       Models::ListProvidedSharesResponse listProvidedShares(const Models::ListProvidedSharesRequest &request);
 
       /**
-       * @summary 获取接收的共享列表
+       * @summary Retrieves received shares.
        *
        * @param request ListReceivedSharesRequest
        * @param headers map
@@ -965,7 +1001,7 @@ namespace DlfNext20250310
       Models::ListReceivedSharesResponse listReceivedSharesWithOptions(const Models::ListReceivedSharesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取接收的共享列表
+       * @summary Retrieves received shares.
        *
        * @param request ListReceivedSharesRequest
        * @return ListReceivedSharesResponse
@@ -973,7 +1009,7 @@ namespace DlfNext20250310
       Models::ListReceivedSharesResponse listReceivedShares(const Models::ListReceivedSharesRequest &request);
 
       /**
-       * @summary 获取接收者列表
+       * @summary Queries a list of receivers.
        *
        * @param request ListReceiversRequest
        * @param headers map
@@ -983,7 +1019,7 @@ namespace DlfNext20250310
       Models::ListReceiversResponse listReceiversWithOptions(const Models::ListReceiversRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取接收者列表
+       * @summary Queries a list of receivers.
        *
        * @param request ListReceiversRequest
        * @return ListReceiversResponse
@@ -991,7 +1027,7 @@ namespace DlfNext20250310
       Models::ListReceiversResponse listReceivers(const Models::ListReceiversRequest &request);
 
       /**
-       * @summary 获取角色用户列表
+       * @summary Retrieves the users for a role.
        *
        * @param request ListRoleUsersRequest
        * @param headers map
@@ -1001,7 +1037,7 @@ namespace DlfNext20250310
       Models::ListRoleUsersResponse listRoleUsersWithOptions(const Models::ListRoleUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取角色用户列表
+       * @summary Retrieves the users for a role.
        *
        * @param request ListRoleUsersRequest
        * @return ListRoleUsersResponse
@@ -1009,7 +1045,7 @@ namespace DlfNext20250310
       Models::ListRoleUsersResponse listRoleUsers(const Models::ListRoleUsersRequest &request);
 
       /**
-       * @summary 获取角色列表
+       * @summary Retrieves roles.
        *
        * @param request ListRolesRequest
        * @param headers map
@@ -1019,7 +1055,7 @@ namespace DlfNext20250310
       Models::ListRolesResponse listRolesWithOptions(const Models::ListRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取角色列表
+       * @summary Retrieves roles.
        *
        * @param request ListRolesRequest
        * @return ListRolesResponse
@@ -1027,7 +1063,7 @@ namespace DlfNext20250310
       Models::ListRolesResponse listRoles(const Models::ListRolesRequest &request);
 
       /**
-       * @summary 获取共享中的接收者列表
+       * @summary Gets the receivers of a share.
        *
        * @param request ListShareReceiversRequest
        * @param headers map
@@ -1037,7 +1073,7 @@ namespace DlfNext20250310
       Models::ListShareReceiversResponse listShareReceiversWithOptions(const string &share, const Models::ListShareReceiversRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取共享中的接收者列表
+       * @summary Gets the receivers of a share.
        *
        * @param request ListShareReceiversRequest
        * @return ListShareReceiversResponse
@@ -1045,7 +1081,7 @@ namespace DlfNext20250310
       Models::ListShareReceiversResponse listShareReceivers(const string &share, const Models::ListShareReceiversRequest &request);
 
       /**
-       * @summary 获取共享资源列表
+       * @summary Retrieves shared resources.
        *
        * @param request ListShareResourcesRequest
        * @param headers map
@@ -1055,7 +1091,7 @@ namespace DlfNext20250310
       Models::ListShareResourcesResponse listShareResourcesWithOptions(const string &share, const Models::ListShareResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取共享资源列表
+       * @summary Retrieves shared resources.
        *
        * @param request ListShareResourcesRequest
        * @return ListShareResourcesResponse
@@ -1063,7 +1099,7 @@ namespace DlfNext20250310
       Models::ListShareResourcesResponse listShareResources(const string &share, const Models::ListShareResourcesRequest &request);
 
       /**
-       * @summary 查看表快照列表
+       * @summary Returns a list of table snapshots.
        *
        * @param request ListSnapshotsRequest
        * @param headers map
@@ -1073,7 +1109,7 @@ namespace DlfNext20250310
       Models::ListSnapshotsResponse listSnapshotsWithOptions(const string &catalogId, const string &database, const string &table, const Models::ListSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表快照列表
+       * @summary Returns a list of table snapshots.
        *
        * @param request ListSnapshotsRequest
        * @return ListSnapshotsResponse
@@ -1081,7 +1117,7 @@ namespace DlfNext20250310
       Models::ListSnapshotsResponse listSnapshots(const string &catalogId, const string &database, const string &table, const Models::ListSnapshotsRequest &request);
 
       /**
-       * @summary 查看表详情列表
+       * @summary Lists the details of one or more tables.
        *
        * @param request ListTableDetailsRequest
        * @param headers map
@@ -1091,7 +1127,7 @@ namespace DlfNext20250310
       Models::ListTableDetailsResponse listTableDetailsWithOptions(const string &catalogId, const string &database, const Models::ListTableDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表详情列表
+       * @summary Lists the details of one or more tables.
        *
        * @param request ListTableDetailsRequest
        * @return ListTableDetailsResponse
@@ -1099,7 +1135,7 @@ namespace DlfNext20250310
       Models::ListTableDetailsResponse listTableDetails(const string &catalogId, const string &database, const Models::ListTableDetailsRequest &request);
 
       /**
-       * @summary 查看表详情列表
+       * @summary Retrieves a list of tables.
        *
        * @param request ListTablesRequest
        * @param headers map
@@ -1109,7 +1145,7 @@ namespace DlfNext20250310
       Models::ListTablesResponse listTablesWithOptions(const string &catalogId, const string &database, const Models::ListTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看表详情列表
+       * @summary Retrieves a list of tables.
        *
        * @param request ListTablesRequest
        * @return ListTablesResponse
@@ -1117,7 +1153,7 @@ namespace DlfNext20250310
       Models::ListTablesResponse listTables(const string &catalogId, const string &database, const Models::ListTablesRequest &request);
 
       /**
-       * @summary 获取用户角色列表
+       * @summary Retrieves the roles assigned to a user.
        *
        * @param request ListUserRolesRequest
        * @param headers map
@@ -1127,7 +1163,7 @@ namespace DlfNext20250310
       Models::ListUserRolesResponse listUserRolesWithOptions(const Models::ListUserRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户角色列表
+       * @summary Retrieves the roles assigned to a user.
        *
        * @param request ListUserRolesRequest
        * @return ListUserRolesResponse
@@ -1135,7 +1171,7 @@ namespace DlfNext20250310
       Models::ListUserRolesResponse listUserRoles(const Models::ListUserRolesRequest &request);
 
       /**
-       * @summary 获取用户列表
+       * @summary Retrieves a list of users.
        *
        * @param request ListUsersRequest
        * @param headers map
@@ -1145,7 +1181,7 @@ namespace DlfNext20250310
       Models::ListUsersResponse listUsersWithOptions(const Models::ListUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户列表
+       * @summary Retrieves a list of users.
        *
        * @param request ListUsersRequest
        * @return ListUsersResponse
@@ -1153,7 +1189,7 @@ namespace DlfNext20250310
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
-       * @summary 查看视图详情列表
+       * @summary Lists the details of one or more views.
        *
        * @param request ListViewDetailsRequest
        * @param headers map
@@ -1163,7 +1199,7 @@ namespace DlfNext20250310
       Models::ListViewDetailsResponse listViewDetailsWithOptions(const string &catalogId, const string &database, const Models::ListViewDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看视图详情列表
+       * @summary Lists the details of one or more views.
        *
        * @param request ListViewDetailsRequest
        * @return ListViewDetailsResponse
@@ -1171,7 +1207,7 @@ namespace DlfNext20250310
       Models::ListViewDetailsResponse listViewDetails(const string &catalogId, const string &database, const Models::ListViewDetailsRequest &request);
 
       /**
-       * @summary 查看视图详情列表
+       * @summary Returns the names of views.
        *
        * @param request ListViewsRequest
        * @param headers map
@@ -1181,7 +1217,7 @@ namespace DlfNext20250310
       Models::ListViewsResponse listViewsWithOptions(const string &catalogId, const string &database, const Models::ListViewsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看视图详情列表
+       * @summary Returns the names of views.
        *
        * @param request ListViewsRequest
        * @return ListViewsResponse
@@ -1189,7 +1225,7 @@ namespace DlfNext20250310
       Models::ListViewsResponse listViews(const string &catalogId, const string &database, const Models::ListViewsRequest &request);
 
       /**
-       * @summary 刷新用户同步
+       * @summary Syncs users.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1198,14 +1234,14 @@ namespace DlfNext20250310
       Models::RefreshUserSyncResponse refreshUserSyncWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 刷新用户同步
+       * @summary Syncs users.
        *
        * @return RefreshUserSyncResponse
        */
       Models::RefreshUserSyncResponse refreshUserSync();
 
       /**
-       * @summary 批量取消授予角色权限给用户
+       * @summary Revokes a role from one or more users.
        *
        * @param request RevokeRoleFromUsersRequest
        * @param headers map
@@ -1215,7 +1251,7 @@ namespace DlfNext20250310
       Models::RevokeRoleFromUsersResponse revokeRoleFromUsersWithOptions(const Models::RevokeRoleFromUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量取消授予角色权限给用户
+       * @summary Revokes a role from one or more users.
        *
        * @param request RevokeRoleFromUsersRequest
        * @return RevokeRoleFromUsersResponse
@@ -1223,7 +1259,7 @@ namespace DlfNext20250310
       Models::RevokeRoleFromUsersResponse revokeRoleFromUsers(const Models::RevokeRoleFromUsersRequest &request);
 
       /**
-       * @summary 回滚表
+       * @summary Rolls back a table.
        *
        * @param request RollbackTableRequest
        * @param headers map
@@ -1233,7 +1269,7 @@ namespace DlfNext20250310
       Models::RollbackTableResponse rollbackTableWithOptions(const string &catalogId, const string &database, const string &table, const Models::RollbackTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 回滚表
+       * @summary Rolls back a table.
        *
        * @param request RollbackTableRequest
        * @return RollbackTableResponse
@@ -1241,7 +1277,7 @@ namespace DlfNext20250310
       Models::RollbackTableResponse rollbackTable(const string &catalogId, const string &database, const string &table, const Models::RollbackTableRequest &request);
 
       /**
-       * @summary 订阅当前地域的 DLF
+       * @summary Subscribes to DLF in the current region.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1250,14 +1286,14 @@ namespace DlfNext20250310
       Models::SubscribeResponse subscribeWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 订阅当前地域的 DLF
+       * @summary Subscribes to DLF in the current region.
        *
        * @return SubscribeResponse
        */
       Models::SubscribeResponse subscribe();
 
       /**
-       * @summary 更新角色
+       * @summary Updates a DLF role.
        *
        * @param request UpdateRoleRequest
        * @param headers map
@@ -1267,7 +1303,7 @@ namespace DlfNext20250310
       Models::UpdateRoleResponse updateRoleWithOptions(const Models::UpdateRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新角色
+       * @summary Updates a DLF role.
        *
        * @param request UpdateRoleRequest
        * @return UpdateRoleResponse
@@ -1275,7 +1311,7 @@ namespace DlfNext20250310
       Models::UpdateRoleResponse updateRole(const Models::UpdateRoleRequest &request);
 
       /**
-       * @summary 更新角色用户
+       * @summary Updates the users for a role.
        *
        * @param request UpdateRoleUsersRequest
        * @param headers map
@@ -1285,7 +1321,7 @@ namespace DlfNext20250310
       Models::UpdateRoleUsersResponse updateRoleUsersWithOptions(const Models::UpdateRoleUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新角色用户
+       * @summary Updates the users for a role.
        *
        * @param request UpdateRoleUsersRequest
        * @return UpdateRoleUsersResponse

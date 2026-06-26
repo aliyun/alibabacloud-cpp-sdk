@@ -124,16 +124,23 @@ namespace Models
 
 
   protected:
+    // Number of added rows.
     shared_ptr<int64_t> addedRows_ {};
-    // id
+    // The snapshot ID.
     shared_ptr<int64_t> id_ {};
     shared_ptr<string> idString_ {};
+    // The operation.
     shared_ptr<string> operation_ {};
+    // Parent ID.
     shared_ptr<int64_t> parentId_ {};
     shared_ptr<string> parentIdString_ {};
+    // The schema ID.
     shared_ptr<int64_t> schemaId_ {};
+    // The sequence number.
     shared_ptr<int64_t> sequenceNumber_ {};
+    // The summary.
     shared_ptr<map<string, string>> summary_ {};
+    // The timestamp.
     shared_ptr<int64_t> timestampMillis_ {};
   };
 

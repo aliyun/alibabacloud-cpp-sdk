@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The resource descriptor of the user.
     shared_ptr<string> userPrincipal_ {};
   };
 

@@ -47,6 +47,7 @@
 #include <alibabacloud/models/ShareOptions.hpp>
 #include <alibabacloud/models/ShareResource.hpp>
 #include <alibabacloud/models/Snapshot.hpp>
+#include <alibabacloud/models/StatementResult.hpp>
 #include <alibabacloud/models/Table.hpp>
 #include <alibabacloud/models/TableCompaction.hpp>
 #include <alibabacloud/models/TableCompactionHistory.hpp>
@@ -72,6 +73,8 @@
 #include <alibabacloud/models/AlterShareResourcesResponse.hpp>
 #include <alibabacloud/models/AlterTableRequest.hpp>
 #include <alibabacloud/models/AlterTableResponse.hpp>
+#include <alibabacloud/models/AlterTableSchemaRequest.hpp>
+#include <alibabacloud/models/AlterTableSchemaResponse.hpp>
 #include <alibabacloud/models/BatchGrantPermissionsRequest.hpp>
 #include <alibabacloud/models/BatchGrantPermissionsResponseBody.hpp>
 #include <alibabacloud/models/BatchGrantPermissionsResponse.hpp>
@@ -158,6 +161,9 @@
 #include <alibabacloud/models/ListPartitionsRequest.hpp>
 #include <alibabacloud/models/ListPartitionsResponseBody.hpp>
 #include <alibabacloud/models/ListPartitionsResponse.hpp>
+#include <alibabacloud/models/ListPartitionsByNamesRequest.hpp>
+#include <alibabacloud/models/ListPartitionsByNamesResponseBody.hpp>
+#include <alibabacloud/models/ListPartitionsByNamesResponse.hpp>
 #include <alibabacloud/models/ListPermissionsRequest.hpp>
 #include <alibabacloud/models/ListPermissionsResponseBody.hpp>
 #include <alibabacloud/models/ListPermissionsResponse.hpp>

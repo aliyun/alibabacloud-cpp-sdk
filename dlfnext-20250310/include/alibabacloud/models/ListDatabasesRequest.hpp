@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The database name pattern for fuzzy matching.
     shared_ptr<string> databaseNamePattern_ {};
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. If the response does not provide a token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
   };
 

@@ -160,19 +160,33 @@ namespace Models
 
 
   protected:
+    // The time when the partition was created.
     shared_ptr<int64_t> createdAt_ {};
+    // The creator of the partition.
     shared_ptr<string> createdBy_ {};
+    // Indicates whether the process is complete.
     shared_ptr<bool> done_ {};
+    // The number of files.
     shared_ptr<int64_t> fileCount_ {};
+    // The file size.
     shared_ptr<int64_t> fileSizeInBytes_ {};
+    // The time when the latest file was created.
     shared_ptr<int64_t> lastFileCreationTime_ {};
+    // The number of records.
     shared_ptr<int64_t> recordCount_ {};
+    // The key-value pairs of the partition values.
     Darabonba::Json spec_ {};
+    // The status of the storage class conversion.
     shared_ptr<string> storageAction_ {};
+    // The storage class conversion time.
     shared_ptr<int64_t> storageActionTimestamp_ {};
+    // The storage class.
     shared_ptr<string> storageClass_ {};
+    // The total number of buckets.
     shared_ptr<int32_t> totalBuckets_ {};
+    // The time when the partition was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the partition.
     shared_ptr<string> updatedBy_ {};
   };
 

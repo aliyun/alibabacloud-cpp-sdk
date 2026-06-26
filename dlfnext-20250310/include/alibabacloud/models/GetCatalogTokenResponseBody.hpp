@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The token expiration time.
     shared_ptr<int64_t> expiresAtMillis_ {};
+    // The token for the catalog.
     shared_ptr<map<string, string>> token_ {};
   };
 

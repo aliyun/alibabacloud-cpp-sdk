@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results. If this parameter is not returned in the response, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
+    // The type of the user.
     shared_ptr<string> type_ {};
+    // The user name.
     shared_ptr<string> userName_ {};
   };
 

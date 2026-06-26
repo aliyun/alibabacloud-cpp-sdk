@@ -61,8 +61,13 @@ namespace Models
 
 
   protected:
+    // - A business error message is returned if \\`success\\` is \\`false\\`.
+    // 
+    // - This parameter is empty if \\`success\\` is \\`true\\`.
     shared_ptr<string> errorMessage_ {};
+    // The permissions failed to be revoked.
     shared_ptr<vector<FailurePermission>> failurePermissions_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
   };
 

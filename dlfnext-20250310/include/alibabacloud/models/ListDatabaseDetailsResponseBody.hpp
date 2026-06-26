@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The databases.
     shared_ptr<vector<Database>> databaseDetails_ {};
+    // The token to retrieve the next page of results. A null value indicates that all results have been retrieved.
     shared_ptr<string> nextPageToken_ {};
   };
 

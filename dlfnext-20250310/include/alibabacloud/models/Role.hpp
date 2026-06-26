@@ -125,15 +125,25 @@ namespace Models
 
 
   protected:
+    // The time when the role was created. This is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> createdAt_ {};
+    // The name of the user who created the role.
     shared_ptr<string> createdBy_ {};
+    // The role description.
     shared_ptr<string> description_ {};
+    // The display name of the role.
     shared_ptr<string> displayName_ {};
+    // Indicates whether the role is a system role.
     shared_ptr<string> isPredefined_ {};
+    // The name of the role.
     shared_ptr<string> roleName_ {};
+    // The resource descriptor of the role.
     shared_ptr<string> rolePrincipal_ {};
+    // The time when the role was last updated. This is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};
+    // The name of the user who last updated the role.
     shared_ptr<string> updatedBy_ {};
+    // The users for the role.
     shared_ptr<vector<User>> users_ {};
   };
 

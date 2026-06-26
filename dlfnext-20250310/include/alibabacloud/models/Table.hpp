@@ -182,21 +182,35 @@ namespace Models
 
 
   protected:
+    // The time when the table was created.
     shared_ptr<int64_t> createdAt_ {};
+    // The user who created the table.
     shared_ptr<string> createdBy_ {};
     shared_ptr<IcebergTableMetadata> icebergTableMetadata_ {};
+    // The UUID of the table.
     shared_ptr<string> id_ {};
+    // Indicates whether the table is an external table.
     shared_ptr<bool> isExternal_ {};
+    // The name of the table.
     shared_ptr<string> name_ {};
+    // The owner of the table.
     shared_ptr<string> owner_ {};
+    // The table URI.
     shared_ptr<string> path_ {};
+    // The table schema.
     shared_ptr<Schema> schema_ {};
+    // The ID of the schema.
     shared_ptr<int64_t> schemaId_ {};
+    // The storage action.
     shared_ptr<string> storageAction_ {};
+    // The timestamp of the storage action.
     shared_ptr<int64_t> storageActionTimestamp_ {};
+    // The storage class of the table.
     shared_ptr<string> storageClass_ {};
     shared_ptr<string> type_ {};
+    // The time when the table was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the table.
     shared_ptr<string> updatedBy_ {};
   };
 

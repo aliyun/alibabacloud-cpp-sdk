@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // The unchanged items.
     shared_ptr<vector<string>> missing_ {};
+    // The deleted items.
     shared_ptr<vector<string>> removed_ {};
+    // The updated items.
     shared_ptr<vector<string>> updated_ {};
   };
 

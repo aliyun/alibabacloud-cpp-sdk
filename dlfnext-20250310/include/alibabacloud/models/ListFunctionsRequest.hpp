@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // A pattern to filter function names.
     shared_ptr<string> functionNamePattern_ {};
+    // The maximum number of records to return in the response.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. Use this token to retrieve the next page of results. Pass an empty string ("") if this parameter is not returned in the response.
     shared_ptr<string> pageToken_ {};
   };
 

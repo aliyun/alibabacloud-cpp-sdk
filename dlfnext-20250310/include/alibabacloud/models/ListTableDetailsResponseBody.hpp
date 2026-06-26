@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The token to retrieve the next page of results. A null value indicates that all results have been returned.
     shared_ptr<string> nextPageToken_ {};
+    // A list of tables.
     shared_ptr<vector<Table>> tableDetails_ {};
   };
 

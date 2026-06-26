@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // The comment for the field.
     shared_ptr<string> doc_ {};
-    // id
+    // The field ID.
     shared_ptr<int64_t> id_ {};
+    // The field name.
     shared_ptr<string> name_ {};
+    // Indicates whether the field is optional.
     shared_ptr<bool> optional_ {};
+    // The field type.
     shared_ptr<string> type_ {};
   };
 

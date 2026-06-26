@@ -124,15 +124,25 @@ namespace Models
 
 
   protected:
+    // The database creation time.
     shared_ptr<int64_t> createdAt_ {};
+    // The database creator.
     shared_ptr<string> createdBy_ {};
+    // The database UUID.
     shared_ptr<string> id_ {};
+    // The database URI.
     shared_ptr<string> location_ {};
+    // The database name.
     shared_ptr<string> name_ {};
+    // The extension options.
     shared_ptr<map<string, string>> options_ {};
+    // The owner.
     shared_ptr<string> owner_ {};
+    // The number of tables in the database.
     shared_ptr<int64_t> tableCount_ {};
+    // The time when the database was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the database.
     shared_ptr<string> updatedBy_ {};
   };
 

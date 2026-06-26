@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The role description.
     shared_ptr<string> description_ {};
+    // The role display name.
     shared_ptr<string> displayName_ {};
+    // The role name.
     shared_ptr<string> roleName_ {};
   };
 

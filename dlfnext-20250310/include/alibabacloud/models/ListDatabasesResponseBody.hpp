@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The databases.
     shared_ptr<vector<string>> databases_ {};
+    // The token for the next page of results. A null value indicates that this is the last page.
     shared_ptr<string> nextPageToken_ {};
   };
 

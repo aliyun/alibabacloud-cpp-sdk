@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The permissions to revoke.
     shared_ptr<vector<Permission>> permissions_ {};
   };
 

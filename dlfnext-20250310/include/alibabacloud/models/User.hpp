@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createdAt_ {};
+    // The name of the creator.
     shared_ptr<string> createdBy_ {};
+    // The display name of the user.
     shared_ptr<string> displayName_ {};
+    // The type of the user.
     shared_ptr<string> type_ {};
+    // The time of the last update. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};
+    // The name of the updater.
     shared_ptr<string> updatedBy_ {};
+    // The ID of the user.
     shared_ptr<string> userId_ {};
+    // The username.
     shared_ptr<string> userName_ {};
+    // The resource descriptor of the user.
     shared_ptr<string> userPrincipal_ {};
   };
 

@@ -173,14 +173,19 @@ namespace Models
 
 
   protected:
+    // The access type.
     shared_ptr<string> access_ {};
     shared_ptr<Permission::Columns> columns_ {};
+    // The name of the database.
     shared_ptr<string> database_ {};
     shared_ptr<string> expireTime_ {};
     shared_ptr<string> function_ {};
+    // The user resource descriptor.
     shared_ptr<string> principal_ {};
+    // The resource type of the permission.
     shared_ptr<string> resourceType_ {};
     shared_ptr<RowFilter> rowFilter_ {};
+    // The name of the data table.
     shared_ptr<string> table_ {};
     shared_ptr<string> view_ {};
   };

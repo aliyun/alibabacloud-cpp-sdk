@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The number of files after compaction.
     shared_ptr<int64_t> afterFilesCount_ {};
+    // The total size of files after compaction.
     shared_ptr<int64_t> afterFilesSize_ {};
+    // The number of files before compaction.
     shared_ptr<int64_t> beforeFilesCount_ {};
+    // The creation time of the last file before compaction.
     shared_ptr<int64_t> beforeFilesLastCreationTime_ {};
+    // The total size of files before compaction.
     shared_ptr<int64_t> beforeFilesSize_ {};
+    // The catalog ID.
     shared_ptr<string> catalogId_ {};
+    // The compaction commit time.
     shared_ptr<int64_t> commitTime_ {};
+    // The snapshot ID.
     shared_ptr<int64_t> snapshotId_ {};
+    // The table ID.
     shared_ptr<string> tableId_ {};
+    // The time when the record was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who updated the record.
     shared_ptr<string> updatedBy_ {};
   };
 

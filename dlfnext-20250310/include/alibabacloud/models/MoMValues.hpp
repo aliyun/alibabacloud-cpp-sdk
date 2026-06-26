@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // total
+    // The current value.
     shared_ptr<int64_t> currentValue_ {};
-    // daily addition
+    // The value of the previous day.
     shared_ptr<int64_t> lastDayValue_ {};
-    // monthly addition
+    // The value of the previous month.
     shared_ptr<int64_t> lastMonthValue_ {};
   };
 

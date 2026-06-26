@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The number of entries to return on each page.
+    // Default value: 1000.
+    // Maximum value: 1000.
     shared_ptr<int32_t> maxResults_ {};
+    // The namespace name pattern. Supports right-hand fuzzy matching with the percent sign (%).
     shared_ptr<string> namespaceNamePattern_ {};
+    // The token for the next page of results. If the response does not include this token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
   };
 
