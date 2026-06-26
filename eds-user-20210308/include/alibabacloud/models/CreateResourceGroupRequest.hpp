@@ -13,6 +13,7 @@ namespace Models
   class CreateResourceGroupRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateResourceGroupRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(EnableAliyunResourceGroup, enableAliyunResourceGroup_);
       DARABONBA_PTR_TO_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateResourceGroupRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(EnableAliyunResourceGroup, enableAliyunResourceGroup_);
       DARABONBA_PTR_FROM_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->businessChannel_ == nullptr
-        && this->enableAliyunResourceGroup_ == nullptr && this->isResourceGroupWithOfficeSite_ == nullptr && this->platform_ == nullptr && this->resourceClassification_ == nullptr && this->resourceGroupName_ == nullptr; };
+    virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->businessChannel_ == nullptr && this->enableAliyunResourceGroup_ == nullptr && this->isResourceGroupWithOfficeSite_ == nullptr && this->platform_ == nullptr && this->resourceClassification_ == nullptr
+        && this->resourceGroupName_ == nullptr; };
+    // agentType Field Functions 
+    bool hasAgentType() const { return this->agentType_ != nullptr;};
+    void deleteAgentType() { this->agentType_ = nullptr;};
+    inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline CreateResourceGroupRequest& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -84,12 +94,13 @@ namespace Models
 
 
   protected:
-    // The business channel.
+    shared_ptr<string> agentType_ {};
+    // The channel.
     shared_ptr<string> businessChannel_ {};
     shared_ptr<bool> enableAliyunResourceGroup_ {};
-    // > This parameter is for internal use only.
+    // > This parameter is not publicly available.
     shared_ptr<int64_t> isResourceGroupWithOfficeSite_ {};
-    // Set this parameter to `AliyunConsole` for Wuying Workspace Enterprise Edition.
+    // For WUYING Workspace Enterprise Edition, set this parameter to `AliyunConsole`. Other platforms are not supported.
     shared_ptr<string> platform_ {};
     shared_ptr<string> resourceClassification_ {};
     // The name of the resource group.

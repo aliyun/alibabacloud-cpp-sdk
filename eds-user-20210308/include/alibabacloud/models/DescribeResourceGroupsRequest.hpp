@@ -14,6 +14,7 @@ namespace Models
   class DescribeResourceGroupsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeResourceGroupsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(AliyunResourceGroupIds, aliyunResourceGroupIds_);
       DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(NeedContainResourceGroupWithOfficeSite, needContainResourceGroupWithOfficeSite_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeResourceGroupsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(AliyunResourceGroupIds, aliyunResourceGroupIds_);
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(NeedContainResourceGroupWithOfficeSite, needContainResourceGroupWithOfficeSite_);
@@ -46,9 +48,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->aliyunResourceGroupIds_ == nullptr
-        && this->businessChannel_ == nullptr && this->needContainResourceGroupWithOfficeSite_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->platform_ == nullptr
-        && this->resourceClassification_ == nullptr && this->resourceGroupIds_ == nullptr && this->resourceGroupName_ == nullptr; };
+    virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->aliyunResourceGroupIds_ == nullptr && this->businessChannel_ == nullptr && this->needContainResourceGroupWithOfficeSite_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->platform_ == nullptr && this->resourceClassification_ == nullptr && this->resourceGroupIds_ == nullptr && this->resourceGroupName_ == nullptr; };
+    // agentType Field Functions 
+    bool hasAgentType() const { return this->agentType_ != nullptr;};
+    void deleteAgentType() { this->agentType_ = nullptr;};
+    inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline DescribeResourceGroupsRequest& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
     // aliyunResourceGroupIds Field Functions 
     bool hasAliyunResourceGroupIds() const { return this->aliyunResourceGroupIds_ != nullptr;};
     void deleteAliyunResourceGroupIds() { this->aliyunResourceGroupIds_ = nullptr;};
@@ -117,22 +126,22 @@ namespace Models
 
 
   protected:
-    // A list of Aliyun resource group IDs.
+    shared_ptr<string> agentType_ {};
+    // The cloud platform resource group ID.
     shared_ptr<vector<string>> aliyunResourceGroupIds_ {};
-    // The business channel.
+    // The channel tag.
     shared_ptr<string> businessChannel_ {};
     // > This parameter is not publicly available.
     shared_ptr<int64_t> needContainResourceGroupWithOfficeSite_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // > The cloud platform.
-    // >
-    // > - For Elastic Desktop Service (EDS) Enterprise Edition, this parameter must be set to AliyunConsole.
+    // > Fixed value: AliyunConsole.
+    // > - For Elastic Desktop Service Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
     shared_ptr<string> platform_ {};
     shared_ptr<string> resourceClassification_ {};
-    // A list of resource group IDs.
+    // The list of resource group IDs.
     shared_ptr<vector<string>> resourceGroupIds_ {};
     // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};

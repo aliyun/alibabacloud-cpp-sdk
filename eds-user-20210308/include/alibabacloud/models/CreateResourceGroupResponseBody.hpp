@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the newly created resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

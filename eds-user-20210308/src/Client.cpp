@@ -417,6 +417,10 @@ CreatePropertyResponse Client::createProperty(const CreatePropertyRequest &reque
 CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
   if (!!request.hasBusinessChannel()) {
     query["BusinessChannel"] = request.getBusinessChannel();
   }
@@ -988,7 +992,7 @@ DescribeOrgsResponse Client::describeOrgs(const DescribeOrgsRequest &request) {
 }
 
 /**
- * @summary View resource groups.
+ * @summary Queries resource groups.
  *
  * @param request DescribeResourceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -997,6 +1001,10 @@ DescribeOrgsResponse Client::describeOrgs(const DescribeOrgsRequest &request) {
 DescribeResourceGroupsResponse Client::describeResourceGroupsWithOptions(const DescribeResourceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
   if (!!request.hasAliyunResourceGroupIds()) {
     query["AliyunResourceGroupIds"] = request.getAliyunResourceGroupIds();
   }
@@ -1051,7 +1059,7 @@ DescribeResourceGroupsResponse Client::describeResourceGroupsWithOptions(const D
 }
 
 /**
- * @summary View resource groups.
+ * @summary Queries resource groups.
  *
  * @param request DescribeResourceGroupsRequest
  * @return DescribeResourceGroupsResponse

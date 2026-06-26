@@ -37,6 +37,7 @@ namespace Models
     class ResourceGroup : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ResourceGroup& obj) { 
+        DARABONBA_PTR_TO_JSON(AgentType, agentType_);
         DARABONBA_PTR_TO_JSON(AliyunResourceGroupId, aliyunResourceGroupId_);
         DARABONBA_PTR_TO_JSON(AppRules, appRules_);
         DARABONBA_PTR_TO_JSON(AuthCount, authCount_);
@@ -48,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Timers, timers_);
       };
       friend void from_json(const Darabonba::Json& j, ResourceGroup& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
         DARABONBA_PTR_FROM_JSON(AliyunResourceGroupId, aliyunResourceGroupId_);
         DARABONBA_PTR_FROM_JSON(AppRules, appRules_);
         DARABONBA_PTR_FROM_JSON(AuthCount, authCount_);
@@ -182,7 +184,7 @@ namespace Models
       protected:
         // The policy ID.
         shared_ptr<string> id_ {};
-        // Specifies whether this is the default policy.
+        // Indicates whether the policy is the default policy.
         shared_ptr<bool> isDefault_ {};
         // The policy name.
         shared_ptr<string> name_ {};
@@ -240,9 +242,16 @@ namespace Models
         shared_ptr<int32_t> type_ {};
       };
 
-      virtual bool empty() const override { return this->aliyunResourceGroupId_ == nullptr
-        && this->appRules_ == nullptr && this->authCount_ == nullptr && this->createTime_ == nullptr && this->policies_ == nullptr && this->resourceCount_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->timers_ == nullptr; };
+      virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->aliyunResourceGroupId_ == nullptr && this->appRules_ == nullptr && this->authCount_ == nullptr && this->createTime_ == nullptr && this->policies_ == nullptr
+        && this->resourceCount_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->timers_ == nullptr; };
+      // agentType Field Functions 
+      bool hasAgentType() const { return this->agentType_ != nullptr;};
+      void deleteAgentType() { this->agentType_ = nullptr;};
+      inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+      inline ResourceGroup& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
       // aliyunResourceGroupId Field Functions 
       bool hasAliyunResourceGroupId() const { return this->aliyunResourceGroupId_ != nullptr;};
       void deleteAliyunResourceGroupId() { this->aliyunResourceGroupId_ = nullptr;};
@@ -313,28 +322,26 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> agentType_ {};
       // The Alibaba Cloud resource group ID.
       shared_ptr<string> aliyunResourceGroupId_ {};
       shared_ptr<vector<ResourceGroup::AppRules>> appRules_ {};
       // The number of administrators authorized for the resource group.
       shared_ptr<string> authCount_ {};
-      // The time the resource group was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // > The policies associated with the resource group.
-      // >
-      // > - These policies apply to the cloud computers in the resource group. If multiple policies are associated, they are applied in order of priority.
-      // >
-      // > - Policies associated with the resource group take precedence over policies assigned to individual cloud computers.
+      // > - Associated policies take effect on cloud desktops in the resource group. If multiple policies are associated, they take effect based on policy priority.
+      // > - If a cloud desktop in the resource group already has other policies specified, the policies associated with the resource group take precedence.
       shared_ptr<vector<ResourceGroup::Policies>> policies_ {};
-      // The number of resources in the resource group.
+      // The resource count in the resource group.
       shared_ptr<string> resourceCount_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The name of the resource group.
       shared_ptr<string> resourceGroupName_ {};
-      // > The scheduled tasks associated with the resource group.
-      // >
-      // > - These scheduled tasks apply to cloud computers in the resource group and take precedence over any tasks associated with individual cloud computers.
+      // > The associated scheduled tasks.
+      // > - Associated scheduled tasks take effect on cloud desktops in the resource group. If a cloud desktop in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take precedence.
       shared_ptr<vector<ResourceGroup::Timers>> timers_ {};
     };
 
@@ -366,7 +373,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of resource groups.
+    // The list of resource groups.
     shared_ptr<vector<DescribeResourceGroupsResponseBody::ResourceGroup>> resourceGroup_ {};
     // The total number of resource groups.
     shared_ptr<string> totalCount_ {};

@@ -317,7 +317,7 @@ namespace EdsUser20210308
       Models::DescribeOrgsResponse describeOrgs(const Models::DescribeOrgsRequest &request);
 
       /**
-       * @summary View resource groups.
+       * @summary Queries resource groups.
        *
        * @param request DescribeResourceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -326,7 +326,7 @@ namespace EdsUser20210308
       Models::DescribeResourceGroupsResponse describeResourceGroupsWithOptions(const Models::DescribeResourceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View resource groups.
+       * @summary Queries resource groups.
        *
        * @param request DescribeResourceGroupsRequest
        * @return DescribeResourceGroupsResponse
