@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Expired, expired_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
+      DARABONBA_PTR_TO_JSON(MetaInstanceName, metaInstanceName_);
       DARABONBA_PTR_TO_JSON(MetaUrl, metaUrl_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_TO_JSON(MountInfo, mountInfo_);
@@ -68,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
+      DARABONBA_PTR_FROM_JSON(MetaInstanceName, metaInstanceName_);
       DARABONBA_PTR_FROM_JSON(MetaUrl, metaUrl_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_FROM_JSON(MountInfo, mountInfo_);
@@ -147,7 +149,7 @@ namespace Models
 
 
     protected:
-      // The cluster management address.
+      // The cluster management endpoint.
       shared_ptr<string> polarDbProxy_ {};
       // The file system name.
       shared_ptr<string> polarFsCluster_ {};
@@ -193,9 +195,9 @@ namespace Models
 
 
     protected:
-      // The endpoint of the custom storage bucket.
+      // The custom storage bucket.
       shared_ptr<string> bucket_ {};
-      // The path in the custom storage bucket.
+      // The custom storage path.
       shared_ptr<string> path_ {};
     };
 
@@ -203,10 +205,11 @@ namespace Models
         && this->acceleratedStorageSpace_ == nullptr && this->acceleratingEnable_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthBaseLine_ == nullptr && this->bucketId_ == nullptr
         && this->category_ == nullptr && this->clientDownloadPath_ == nullptr && this->createTime_ == nullptr && this->customBucketPath_ == nullptr && this->customBucketPathList_ == nullptr
         && this->DBType_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->fileSystemId_ == nullptr && this->lockMode_ == nullptr
-        && this->metaUrl_ == nullptr && this->minorVersion_ == nullptr && this->mountInfo_ == nullptr && this->payType_ == nullptr && this->polarFsInstanceDescription_ == nullptr
-        && this->polarFsInstanceId_ == nullptr && this->polarFsStatus_ == nullptr && this->polarFsType_ == nullptr && this->polarFsVersion_ == nullptr && this->regionId_ == nullptr
-        && this->relativeDbClusterId_ == nullptr && this->relativePfsClusterId_ == nullptr && this->requestId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr
-        && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->metaInstanceName_ == nullptr && this->metaUrl_ == nullptr && this->minorVersion_ == nullptr && this->mountInfo_ == nullptr && this->payType_ == nullptr
+        && this->polarFsInstanceDescription_ == nullptr && this->polarFsInstanceId_ == nullptr && this->polarFsStatus_ == nullptr && this->polarFsType_ == nullptr && this->polarFsVersion_ == nullptr
+        && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->relativePfsClusterId_ == nullptr && this->requestId_ == nullptr && this->securityGroupId_ == nullptr
+        && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // accelerateType Field Functions 
     bool hasAccelerateType() const { return this->accelerateType_ != nullptr;};
     void deleteAccelerateType() { this->accelerateType_ = nullptr;};
@@ -319,6 +322,13 @@ namespace Models
     void deleteLockMode() { this->lockMode_ = nullptr;};
     inline string getLockMode() const { DARABONBA_PTR_GET_DEFAULT(lockMode_, "") };
     inline DescribePolarFsAttributeResponseBody& setLockMode(string lockMode) { DARABONBA_PTR_SET_VALUE(lockMode_, lockMode) };
+
+
+    // metaInstanceName Field Functions 
+    bool hasMetaInstanceName() const { return this->metaInstanceName_ != nullptr;};
+    void deleteMetaInstanceName() { this->metaInstanceName_ = nullptr;};
+    inline string getMetaInstanceName() const { DARABONBA_PTR_GET_DEFAULT(metaInstanceName_, "") };
+    inline DescribePolarFsAttributeResponseBody& setMetaInstanceName(string metaInstanceName) { DARABONBA_PTR_SET_VALUE(metaInstanceName_, metaInstanceName) };
 
 
     // metaUrl Field Functions 
@@ -466,61 +476,55 @@ namespace Models
   protected:
     // The acceleration type.
     shared_ptr<string> accelerateType_ {};
-    // The capacity of the acceleration cache in GB.
+    // The acceleration storage space, in GB.
     shared_ptr<double> acceleratedStorageSpace_ {};
     // Indicates whether the acceleration cache is enabled. Valid values:
-    // 
-    // - **ON**: Enabled
-    // 
-    // - **OFF**: Disabled
+    // - **ON**: enabled.
+    // - **OFF**: disabled.
     shared_ptr<string> acceleratingEnable_ {};
-    // The bandwidth in MB/s.
+    // The bandwidth, in MB/s.
     shared_ptr<double> bandwidth_ {};
-    // The baseline bandwidth in MB/s per TiB.
+    // The bandwidth baseline, in MB/s/TiB.
     shared_ptr<double> bandwidthBaseLine_ {};
-    // The bucket ID.
+    // The storage bucket ID.
     shared_ptr<string> bucketId_ {};
-    // The edition of the PolarFS instance. Valid values:
+    // The PolarLakebase edition. Valid values:
     // 
-    // - **high_performance**: High-performance Edition
+    // - **high_performance**: High-performance Edition.
     // 
-    // - **basic**: Basic Edition
+    // - **basic**: Basic Edition.
     // 
-    // - **cold**: Cold Storage Edition
+    // - **cold**: Cold Storage Edition.
     shared_ptr<string> category_ {};
-    // The download path for the client.
+    // The client download URL.
     shared_ptr<string> clientDownloadPath_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
     // The custom bucket path.
     shared_ptr<string> customBucketPath_ {};
-    // A list of custom storage paths.
+    // The list of custom storage paths.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList>> customBucketPathList_ {};
-    // The database engine type. Valid values:
-    // 
-    // - **MySQL**
-    // 
-    // - **PostgreSQL**
+    // The database ecosystem type. Valid values: 
+    // * **MySQL**
+    // * **PostgreSQL**.
     shared_ptr<string> DBType_ {};
     // The expiration time of the cluster.
     // 
-    // > This parameter is returned only for **Prepaid** (subscription) clusters. It is empty for **Postpaid** (pay-as-you-go) clusters.
+    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired.
-    // 
-    // > This parameter is returned only for **Prepaid** (subscription) clusters.
+    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
     shared_ptr<string> expired_ {};
     // The file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // The lock mode. Valid values:
+    // The lock mode. Valid values: 
     // 
-    // - **Unlock**: The cluster is not locked.
-    // 
-    // - **ManualLock**: The cluster is manually locked.
-    // 
-    // - **LockByExpiration**: The cluster is automatically locked after it expires.
+    // - **Unlock**: not locked.
+    // - **ManualLock**: manually locked. 
+    // - **LockByExpiration**: automatically locked due to cluster expiration.
     shared_ptr<string> lockMode_ {};
-    // The encrypted metadata address for the FUSE mount.
+    shared_ptr<string> metaInstanceName_ {};
+    // The metadata URL for Fuse mounting (encrypted).
     shared_ptr<string> metaUrl_ {};
     // The minor version of the instance.
     shared_ptr<string> minorVersion_ {};
@@ -529,52 +533,46 @@ namespace Models
     // The billing method. Valid values:
     // 
     // - **Postpaid**: pay-as-you-go.
-    // 
     // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
-    // The description of the PolarFS instance.
+    // The description of the PolarLakebase instance.
     shared_ptr<string> polarFsInstanceDescription_ {};
-    // The ID of the PolarFS instance.
+    // The PolarLakebase instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
-    // The status of the PolarFS instance.
+    // The PolarLakebase instance status.
     shared_ptr<string> polarFsStatus_ {};
-    // The version of PolarFS. Valid values:
-    // 
-    // - **PolarFS 2.0**
-    // 
-    // - **PolarFS 1.0**
+    // The instance version. Valid values:
+    // - **PolarFS 2.0**: 2.0
+    // - **PolarFS 1.0**: 1.0.
     shared_ptr<string> polarFsType_ {};
-    // The version of the PolarFS instance.
+    // The version.
     shared_ptr<string> polarFsVersion_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
-    // The ID of the associated PolarFS instance.
+    // The instance ID of the associated PolarLakebase instance.
     shared_ptr<string> relativePfsClusterId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the managed security group.
+    // The managed security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The storage capacity in GB.
+    // The storage space, in GB.
     shared_ptr<double> storageSpace_ {};
-    // The storage class for the High-performance Edition. Valid values:
+    // Valid values for the High-performance Edition storage type:
+    // * **ESSDPL1**
+    // * **ESSDPL0**
     // 
-    // - **ESSDPL1**
-    // 
-    // - **ESSDPL0**
-    // 
-    // The storage class for the Basic Edition. Valid values:
-    // 
-    // - **city_redundancy**: zone-redundant storage
+    // Valid values for the Basic Edition storage type:
+    // * **city_redundancy**: zone-redundant storage.
     shared_ptr<string> storageType_ {};
-    // The amount of used storage in bytes.
+    // The used storage space, in bytes.
     shared_ptr<double> storageUsed_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
-    // The VSwitch ID.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the zone where the vSwitch is located.
+    // The zone ID of the vSwitch.
     shared_ptr<string> zoneId_ {};
   };
 

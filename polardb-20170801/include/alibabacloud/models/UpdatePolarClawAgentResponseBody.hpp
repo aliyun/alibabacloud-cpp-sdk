@@ -129,15 +129,15 @@ namespace Models
 
 
       protected:
-        // The path or content of the avatar.
+        // Avatar path or content
         shared_ptr<string> avatar_ {};
-        // The avatar URL.
+        // Avatar URL
         shared_ptr<string> avatarUrl_ {};
-        // The identity\\"s Emoji identifier. This can be a Unicode code point, such as U+1F99E, or the Emoji character itself.
+        // Emoji identifier (Unicode format such as U+1F99E, or direct emoji character)
         shared_ptr<string> emoji_ {};
-        // The name of the identity.
+        // Identity name
         shared_ptr<string> name_ {};
-        // The theme of the identity.
+        // Theme
         shared_ptr<string> theme_ {};
       };
 
@@ -174,13 +174,13 @@ namespace Models
 
 
     protected:
-      // The agent ID.
+      // Agent ID
       shared_ptr<string> id_ {};
-      // The identity information of the agent.
+      // Identity information
       shared_ptr<Agent::Identity> identity_ {};
-      // The display name of the agent.
+      // Agent display name
       shared_ptr<string> name_ {};
-      // The workspace path.
+      // Workspace directory path
       shared_ptr<string> workspace_ {};
     };
 
@@ -231,17 +231,17 @@ namespace Models
 
 
   protected:
-    // The details of the updated agent.
+    // Updated Agent details
     shared_ptr<UpdatePolarClawAgentResponseBody::Agent> agent_ {};
-    // The agent ID.
+    // Agent ID
     shared_ptr<string> agentId_ {};
-    // The application ID.
+    // Application ID
     shared_ptr<string> applicationId_ {};
-    // The response status code.
+    // Response status code
     shared_ptr<int32_t> code_ {};
-    // The response message.
+    // Response message
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

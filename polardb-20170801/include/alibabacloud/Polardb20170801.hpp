@@ -767,6 +767,23 @@ namespace Polardb20170801
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
+       * @summary Creates API keys in batches.
+       *
+       * @param request CreateBatchConsumerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBatchConsumerResponse
+       */
+      Models::CreateBatchConsumerResponse createBatchConsumerWithOptions(const Models::CreateBatchConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates API keys in batches.
+       *
+       * @param request CreateBatchConsumerRequest
+       * @return CreateBatchConsumerResponse
+       */
+      Models::CreateBatchConsumerResponse createBatchConsumer(const Models::CreateBatchConsumerRequest &request);
+
+      /**
        * @summary Creates a batch task.
        *
        * @param tmpReq CreateBatchTaskRequest
@@ -2191,7 +2208,7 @@ namespace Polardb20170801
       Models::DeleteSQLRateLimitingRulesResponse deleteSQLRateLimitingRules(const Models::DeleteSQLRateLimitingRulesRequest &request);
 
       /**
-       * @summary Gets the details of a custom instance.
+       * @summary Queries the details of a custom instance.
        *
        * @param request DescribeAIDBClusterAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2200,7 +2217,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterAttributeResponse describeAIDBClusterAttributeWithOptions(const Models::DescribeAIDBClusterAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a custom instance.
+       * @summary Queries the details of a custom instance.
        *
        * @param request DescribeAIDBClusterAttributeRequest
        * @return DescribeAIDBClusterAttributeResponse
@@ -2456,6 +2473,23 @@ namespace Polardb20170801
        * @return DescribeActiveOperationTasksResponse
        */
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasks(const Models::DescribeActiveOperationTasksRequest &request);
+
+      /**
+       * @summary 查询该apikey的详细信息
+       *
+       * @param request DescribeApikeyAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApikeyAttributeResponse
+       */
+      Models::DescribeApikeyAttributeResponse describeApikeyAttributeWithOptions(const Models::DescribeApikeyAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询该apikey的详细信息
+       *
+       * @param request DescribeApikeyAttributeRequest
+       * @return DescribeApikeyAttributeResponse
+       */
+      Models::DescribeApikeyAttributeResponse describeApikeyAttribute(const Models::DescribeApikeyAttributeRequest &request);
 
       /**
        * @summary Retrieves the details of a specific application in a PolarDB instance.
@@ -3687,6 +3721,23 @@ namespace Polardb20170801
       Models::DescribeFirewallRulesResponse describeFirewallRules(const Models::DescribeFirewallRulesRequest &request);
 
       /**
+       * @summary Queries all API keys under the current UID.
+       *
+       * @param request DescribeGatewayApikeyListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGatewayApikeyListResponse
+       */
+      Models::DescribeGatewayApikeyListResponse describeGatewayApikeyListWithOptions(const Models::DescribeGatewayApikeyListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries all API keys under the current UID.
+       *
+       * @param request DescribeGatewayApikeyListRequest
+       * @return DescribeGatewayApikeyListResponse
+       */
+      Models::DescribeGatewayApikeyListResponse describeGatewayApikeyList(const Models::DescribeGatewayApikeyListRequest &request);
+
+      /**
        * @summary Viewing gateway instance details
        *
        * @param request DescribeGatewayAttributeRequest
@@ -4196,7 +4247,7 @@ namespace Polardb20170801
       Models::DescribePolarAgentUserSessionsResponse describePolarAgentUserSessions(const Models::DescribePolarAgentUserSessionsRequest &request);
 
       /**
-       * @summary Queries the details of agents installed in a specified application.
+       * @summary Queries all installed plug-ins and their status information under a specified application.
        *
        * @param tmpReq DescribePolarClawAgentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4205,7 +4256,7 @@ namespace Polardb20170801
       Models::DescribePolarClawAgentsResponse describePolarClawAgentsWithOptions(const Models::DescribePolarClawAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of agents installed in a specified application.
+       * @summary Queries all installed plug-ins and their status information under a specified application.
        *
        * @param request DescribePolarClawAgentsRequest
        * @return DescribePolarClawAgentsResponse
@@ -4314,7 +4365,7 @@ namespace Polardb20170801
       Models::DescribePolarClawTaskResponse describePolarClawTask(const Models::DescribePolarClawTaskRequest &request);
 
       /**
-       * @summary Gets the details of a PolarFS instance.
+       * @summary Retrieves the details of a PolarLakebase instance.
        *
        * @param request DescribePolarFsAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4323,7 +4374,7 @@ namespace Polardb20170801
       Models::DescribePolarFsAttributeResponse describePolarFsAttributeWithOptions(const Models::DescribePolarFsAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a PolarFS instance.
+       * @summary Retrieves the details of a PolarLakebase instance.
        *
        * @param request DescribePolarFsAttributeRequest
        * @return DescribePolarFsAttributeResponse
@@ -4331,13 +4382,13 @@ namespace Polardb20170801
       Models::DescribePolarFsAttributeResponse describePolarFsAttribute(const Models::DescribePolarFsAttributeRequest &request);
 
       /**
-       * @summary Lists the files and subdirectories at a specified path.
+       * @summary Lists the files and subdirectories under a specified path.
        *
-       * @description ## Usage notes
-       * - The **Path** parameter must be an absolute path.
-       * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
-       * - The **Depth** parameter limits the recursive depth. The default value is `1`.
-       * - The **Filter** parameter supports filtering with wildcards or regular expressions.
+       * @description ## 请求说明
+       * - **Path** 参数必须提供一个绝对路径。
+       * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+       * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+       * - **Filter** 参数支持通配符或正则表达式过滤结果。
        *
        * @param request DescribePolarFsObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4346,13 +4397,13 @@ namespace Polardb20170801
       Models::DescribePolarFsObjectsResponse describePolarFsObjectsWithOptions(const Models::DescribePolarFsObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the files and subdirectories at a specified path.
+       * @summary Lists the files and subdirectories under a specified path.
        *
-       * @description ## Usage notes
-       * - The **Path** parameter must be an absolute path.
-       * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
-       * - The **Depth** parameter limits the recursive depth. The default value is `1`.
-       * - The **Filter** parameter supports filtering with wildcards or regular expressions.
+       * @description ## 请求说明
+       * - **Path** 参数必须提供一个绝对路径。
+       * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+       * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+       * - **Filter** 参数支持通配符或正则表达式过滤结果。
        *
        * @param request DescribePolarFsObjectsRequest
        * @return DescribePolarFsObjectsResponse

@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // A list of agent IDs to query.
+    // The list of agent IDs to describe.
     shared_ptr<vector<string>> agentList_ {};
     // The application ID.
     // 

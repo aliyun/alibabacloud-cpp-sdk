@@ -144,21 +144,21 @@ namespace Models
 
 
     protected:
-      // The size of the item in bytes.
+      // The capacity.
       shared_ptr<string> capacity_ {};
-      // The time when the item was created, as a UNIX timestamp in seconds.
+      // The creation time.
       shared_ptr<int64_t> creationTime_ {};
-      // The time the item was last modified, as a UNIX timestamp in seconds.
+      // The last modified time.
       shared_ptr<int64_t> lastModified_ {};
-      // The target path of the symbolic link.
+      // The real path of the symbolic link.
       shared_ptr<string> linkTarget_ {};
-      // The file system permissions in octal format.
+      // The file system permissions.
       shared_ptr<string> mode_ {};
-      // The number of hard links to the item.
+      // The number of links.
       shared_ptr<int32_t> nlink_ {};
-      // The owner of the file or directory.
+      // Owner
       shared_ptr<string> owner_ {};
-      // The absolute path of the file or subdirectory.
+      // The absolute path of the directory.
       shared_ptr<string> path_ {};
       // The file type.
       shared_ptr<string> type_ {};
@@ -219,19 +219,19 @@ namespace Models
 
 
   protected:
-    // The files and subdirectories in the specified path.
+    // The list of directory entries.
     shared_ptr<vector<DescribePolarFsObjectsResponseBody::Items>> items_ {};
-    // The number of records returned on the current page.
+    // The maximum number of records that can be displayed on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The number of records to return per page. Valid values: 30, 50, and 100. Default value: 30.
+    // The number of records per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<string> pageSize_ {};
-    // The path that was queried.
+    // The absolute path of the directory.
     shared_ptr<string> path_ {};
     // The PolarFs instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the query.
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

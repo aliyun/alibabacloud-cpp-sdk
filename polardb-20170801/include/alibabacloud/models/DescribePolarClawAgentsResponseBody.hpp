@@ -47,14 +47,24 @@ namespace Models
     class Agents : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Agents& obj) { 
+        DARABONBA_PTR_TO_JSON(Default, default_);
+        DARABONBA_PTR_TO_JSON(Files, files_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Identity, identity_);
+        DARABONBA_PTR_TO_JSON(Model, model_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Skills, skills_);
+        DARABONBA_PTR_TO_JSON(Workspace, workspace_);
       };
       friend void from_json(const Darabonba::Json& j, Agents& obj) { 
+        DARABONBA_PTR_FROM_JSON(Default, default_);
+        DARABONBA_PTR_FROM_JSON(Files, files_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Identity, identity_);
+        DARABONBA_PTR_FROM_JSON(Model, model_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Skills, skills_);
+        DARABONBA_PTR_FROM_JSON(Workspace, workspace_);
       };
       Agents() = default ;
       Agents(const Agents &) = default ;
@@ -67,6 +77,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Model : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Model& obj) { 
+          DARABONBA_PTR_TO_JSON(Fallbacks, fallbacks_);
+          DARABONBA_PTR_TO_JSON(Primary, primary_);
+        };
+        friend void from_json(const Darabonba::Json& j, Model& obj) { 
+          DARABONBA_PTR_FROM_JSON(Fallbacks, fallbacks_);
+          DARABONBA_PTR_FROM_JSON(Primary, primary_);
+        };
+        Model() = default ;
+        Model(const Model &) = default ;
+        Model(Model &&) = default ;
+        Model(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Model() = default ;
+        Model& operator=(const Model &) = default ;
+        Model& operator=(Model &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->fallbacks_ == nullptr
+        && this->primary_ == nullptr; };
+        // fallbacks Field Functions 
+        bool hasFallbacks() const { return this->fallbacks_ != nullptr;};
+        void deleteFallbacks() { this->fallbacks_ = nullptr;};
+        inline const vector<string> & getFallbacks() const { DARABONBA_PTR_GET_CONST(fallbacks_, vector<string>) };
+        inline vector<string> getFallbacks() { DARABONBA_PTR_GET(fallbacks_, vector<string>) };
+        inline Model& setFallbacks(const vector<string> & fallbacks) { DARABONBA_PTR_SET_VALUE(fallbacks_, fallbacks) };
+        inline Model& setFallbacks(vector<string> && fallbacks) { DARABONBA_PTR_SET_RVALUE(fallbacks_, fallbacks) };
+
+
+        // primary Field Functions 
+        bool hasPrimary() const { return this->primary_ != nullptr;};
+        void deletePrimary() { this->primary_ = nullptr;};
+        inline string getPrimary() const { DARABONBA_PTR_GET_DEFAULT(primary_, "") };
+        inline Model& setPrimary(string primary) { DARABONBA_PTR_SET_VALUE(primary_, primary) };
+
+
+      protected:
+        shared_ptr<vector<string>> fallbacks_ {};
+        shared_ptr<string> primary_ {};
+      };
+
       class Identity : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Identity& obj) { 
@@ -132,20 +186,109 @@ namespace Models
 
 
       protected:
-        // The path or content of the avatar.
+        // The avatar path or content.
         shared_ptr<string> avatar_ {};
         // The avatar URL.
         shared_ptr<string> avatarUrl_ {};
-        // The emoji for the identity. This can be a Unicode code point (e.g., `U+1F99E`) or an emoji character.
+        // The emoji identifier in Unicode encoding format such as U+1F99E, or a direct emoji character.
         shared_ptr<string> emoji_ {};
         // The identity name.
         shared_ptr<string> name_ {};
-        // The identity theme.
+        // The theme.
         shared_ptr<string> theme_ {};
       };
 
-      virtual bool empty() const override { return this->id_ == nullptr
-        && this->identity_ == nullptr && this->name_ == nullptr; };
+      class Files : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Files& obj) { 
+          DARABONBA_PTR_TO_JSON(Missing, missing_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(Path, path_);
+          DARABONBA_PTR_TO_JSON(Size, size_);
+          DARABONBA_PTR_TO_JSON(UpdatedAtMs, updatedAtMs_);
+        };
+        friend void from_json(const Darabonba::Json& j, Files& obj) { 
+          DARABONBA_PTR_FROM_JSON(Missing, missing_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(Path, path_);
+          DARABONBA_PTR_FROM_JSON(Size, size_);
+          DARABONBA_PTR_FROM_JSON(UpdatedAtMs, updatedAtMs_);
+        };
+        Files() = default ;
+        Files(const Files &) = default ;
+        Files(Files &&) = default ;
+        Files(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Files() = default ;
+        Files& operator=(const Files &) = default ;
+        Files& operator=(Files &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->missing_ == nullptr
+        && this->name_ == nullptr && this->path_ == nullptr && this->size_ == nullptr && this->updatedAtMs_ == nullptr; };
+        // missing Field Functions 
+        bool hasMissing() const { return this->missing_ != nullptr;};
+        void deleteMissing() { this->missing_ = nullptr;};
+        inline bool getMissing() const { DARABONBA_PTR_GET_DEFAULT(missing_, false) };
+        inline Files& setMissing(bool missing) { DARABONBA_PTR_SET_VALUE(missing_, missing) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Files& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // path Field Functions 
+        bool hasPath() const { return this->path_ != nullptr;};
+        void deletePath() { this->path_ = nullptr;};
+        inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+        inline Files& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+        // size Field Functions 
+        bool hasSize() const { return this->size_ != nullptr;};
+        void deleteSize() { this->size_ = nullptr;};
+        inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+        inline Files& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+        // updatedAtMs Field Functions 
+        bool hasUpdatedAtMs() const { return this->updatedAtMs_ != nullptr;};
+        void deleteUpdatedAtMs() { this->updatedAtMs_ = nullptr;};
+        inline int64_t getUpdatedAtMs() const { DARABONBA_PTR_GET_DEFAULT(updatedAtMs_, 0L) };
+        inline Files& setUpdatedAtMs(int64_t updatedAtMs) { DARABONBA_PTR_SET_VALUE(updatedAtMs_, updatedAtMs) };
+
+
+      protected:
+        shared_ptr<bool> missing_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> path_ {};
+        shared_ptr<int64_t> size_ {};
+        shared_ptr<int64_t> updatedAtMs_ {};
+      };
+
+      virtual bool empty() const override { return this->default_ == nullptr
+        && this->files_ == nullptr && this->id_ == nullptr && this->identity_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
+        && this->skills_ == nullptr && this->workspace_ == nullptr; };
+      // default Field Functions 
+      bool hasDefault() const { return this->default_ != nullptr;};
+      void deleteDefault() { this->default_ = nullptr;};
+      inline bool getDefault() const { DARABONBA_PTR_GET_DEFAULT(default_, false) };
+      inline Agents& setDefault(bool _default) { DARABONBA_PTR_SET_VALUE(default_, _default) };
+
+
+      // files Field Functions 
+      bool hasFiles() const { return this->files_ != nullptr;};
+      void deleteFiles() { this->files_ = nullptr;};
+      inline const vector<Agents::Files> & getFiles() const { DARABONBA_PTR_GET_CONST(files_, vector<Agents::Files>) };
+      inline vector<Agents::Files> getFiles() { DARABONBA_PTR_GET(files_, vector<Agents::Files>) };
+      inline Agents& setFiles(const vector<Agents::Files> & files) { DARABONBA_PTR_SET_VALUE(files_, files) };
+      inline Agents& setFiles(vector<Agents::Files> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
+
+
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
@@ -162,6 +305,15 @@ namespace Models
       inline Agents& setIdentity(Agents::Identity && identity) { DARABONBA_PTR_SET_RVALUE(identity_, identity) };
 
 
+      // model Field Functions 
+      bool hasModel() const { return this->model_ != nullptr;};
+      void deleteModel() { this->model_ = nullptr;};
+      inline const Agents::Model & getModel() const { DARABONBA_PTR_GET_CONST(model_, Agents::Model) };
+      inline Agents::Model getModel() { DARABONBA_PTR_GET(model_, Agents::Model) };
+      inline Agents& setModel(const Agents::Model & model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+      inline Agents& setModel(Agents::Model && model) { DARABONBA_PTR_SET_RVALUE(model_, model) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -169,13 +321,34 @@ namespace Models
       inline Agents& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // skills Field Functions 
+      bool hasSkills() const { return this->skills_ != nullptr;};
+      void deleteSkills() { this->skills_ = nullptr;};
+      inline const vector<string> & getSkills() const { DARABONBA_PTR_GET_CONST(skills_, vector<string>) };
+      inline vector<string> getSkills() { DARABONBA_PTR_GET(skills_, vector<string>) };
+      inline Agents& setSkills(const vector<string> & skills) { DARABONBA_PTR_SET_VALUE(skills_, skills) };
+      inline Agents& setSkills(vector<string> && skills) { DARABONBA_PTR_SET_RVALUE(skills_, skills) };
+
+
+      // workspace Field Functions 
+      bool hasWorkspace() const { return this->workspace_ != nullptr;};
+      void deleteWorkspace() { this->workspace_ = nullptr;};
+      inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+      inline Agents& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
     protected:
-      // The agent ID.
+      shared_ptr<bool> default_ {};
+      shared_ptr<vector<Agents::Files>> files_ {};
+      // Agent ID
       shared_ptr<string> id_ {};
-      // The agent\\"s identity.
+      // The identity information.
       shared_ptr<Agents::Identity> identity_ {};
-      // The agent display name.
+      shared_ptr<Agents::Model> model_ {};
+      // The display name of the agent.
       shared_ptr<string> name_ {};
+      shared_ptr<vector<string>> skills_ {};
+      shared_ptr<string> workspace_ {};
     };
 
     virtual bool empty() const override { return this->agents_ == nullptr
@@ -240,19 +413,19 @@ namespace Models
 
 
   protected:
-    // The list of agents.
+    // The agent list.
     shared_ptr<vector<DescribePolarClawAgentsResponseBody::Agents>> agents_ {};
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
     // The default agent ID.
     shared_ptr<string> defaultId_ {};
-    // The main agent key name.
+    // The primary agent key name.
     shared_ptr<string> mainKey_ {};
-    // The message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The routing scope.
     shared_ptr<string> scope_ {};

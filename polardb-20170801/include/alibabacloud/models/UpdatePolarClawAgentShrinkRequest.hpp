@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(Avatar, avatar_);
       DARABONBA_PTR_TO_JSON(Files, filesShrink_);
+      DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
+      DARABONBA_PTR_TO_JSON(KeepWorkspaceFiles, keepWorkspaceFiles_);
       DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Restart, restart_);
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(Avatar, avatar_);
       DARABONBA_PTR_FROM_JSON(Files, filesShrink_);
+      DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
+      DARABONBA_PTR_FROM_JSON(KeepWorkspaceFiles, keepWorkspaceFiles_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Restart, restart_);
@@ -44,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->applicationId_ == nullptr && this->avatar_ == nullptr && this->filesShrink_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->restart_ == nullptr && this->workspace_ == nullptr; };
+        && this->applicationId_ == nullptr && this->avatar_ == nullptr && this->filesShrink_ == nullptr && this->isDefault_ == nullptr && this->keepWorkspaceFiles_ == nullptr
+        && this->model_ == nullptr && this->name_ == nullptr && this->restart_ == nullptr && this->workspace_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -72,6 +76,20 @@ namespace Models
     void deleteFilesShrink() { this->filesShrink_ = nullptr;};
     inline string getFilesShrink() const { DARABONBA_PTR_GET_DEFAULT(filesShrink_, "") };
     inline UpdatePolarClawAgentShrinkRequest& setFilesShrink(string filesShrink) { DARABONBA_PTR_SET_VALUE(filesShrink_, filesShrink) };
+
+
+    // isDefault Field Functions 
+    bool hasIsDefault() const { return this->isDefault_ != nullptr;};
+    void deleteIsDefault() { this->isDefault_ = nullptr;};
+    inline bool getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
+    inline UpdatePolarClawAgentShrinkRequest& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
+
+
+    // keepWorkspaceFiles Field Functions 
+    bool hasKeepWorkspaceFiles() const { return this->keepWorkspaceFiles_ != nullptr;};
+    void deleteKeepWorkspaceFiles() { this->keepWorkspaceFiles_ = nullptr;};
+    inline bool getKeepWorkspaceFiles() const { DARABONBA_PTR_GET_DEFAULT(keepWorkspaceFiles_, false) };
+    inline UpdatePolarClawAgentShrinkRequest& setKeepWorkspaceFiles(bool keepWorkspaceFiles) { DARABONBA_PTR_SET_VALUE(keepWorkspaceFiles_, keepWorkspaceFiles) };
 
 
     // model Field Functions 
@@ -103,25 +121,27 @@ namespace Models
 
 
   protected:
-    // The ID of the agent to update.
+    // Agent ID to update
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The application ID.
+    // Application ID
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The new avatar for the agent.
+    // New avatar
     shared_ptr<string> avatar_ {};
-    // The file list to update.
+    // List of files to update
     shared_ptr<string> filesShrink_ {};
-    // The model to override the agent\\"s default setting.
+    shared_ptr<bool> isDefault_ {};
+    shared_ptr<bool> keepWorkspaceFiles_ {};
+    // Model override
     shared_ptr<string> model_ {};
-    // The new display name for the agent.
+    // New display name
     shared_ptr<string> name_ {};
-    // Specifies whether to restart the gateway after the update. The default value is true.
+    // Whether to restart the gateway after creation, default is true
     shared_ptr<bool> restart_ {};
-    // The new path for the agent\\"s workspace.
+    // New workspace directory path
     shared_ptr<string> workspace_ {};
   };
 

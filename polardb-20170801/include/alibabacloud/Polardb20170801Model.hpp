@@ -119,6 +119,9 @@
 #include <alibabacloud/models/CreateBackupRequest.hpp>
 #include <alibabacloud/models/CreateBackupResponseBody.hpp>
 #include <alibabacloud/models/CreateBackupResponse.hpp>
+#include <alibabacloud/models/CreateBatchConsumerRequest.hpp>
+#include <alibabacloud/models/CreateBatchConsumerResponseBody.hpp>
+#include <alibabacloud/models/CreateBatchConsumerResponse.hpp>
 #include <alibabacloud/models/CreateBatchTaskRequest.hpp>
 #include <alibabacloud/models/CreateBatchTaskShrinkRequest.hpp>
 #include <alibabacloud/models/CreateBatchTaskResponseBody.hpp>
@@ -390,6 +393,9 @@
 #include <alibabacloud/models/DescribeActiveOperationTasksRequest.hpp>
 #include <alibabacloud/models/DescribeActiveOperationTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeActiveOperationTasksResponse.hpp>
+#include <alibabacloud/models/DescribeApikeyAttributeRequest.hpp>
+#include <alibabacloud/models/DescribeApikeyAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribeApikeyAttributeResponse.hpp>
 #include <alibabacloud/models/DescribeApplicationAttributeRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationAttributeResponse.hpp>
@@ -593,6 +599,9 @@
 #include <alibabacloud/models/DescribeFirewallRulesRequest.hpp>
 #include <alibabacloud/models/DescribeFirewallRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeFirewallRulesResponse.hpp>
+#include <alibabacloud/models/DescribeGatewayApikeyListRequest.hpp>
+#include <alibabacloud/models/DescribeGatewayApikeyListResponseBody.hpp>
+#include <alibabacloud/models/DescribeGatewayApikeyListResponse.hpp>
 #include <alibabacloud/models/DescribeGatewayAttributeRequest.hpp>
 #include <alibabacloud/models/DescribeGatewayAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribeGatewayAttributeResponse.hpp>

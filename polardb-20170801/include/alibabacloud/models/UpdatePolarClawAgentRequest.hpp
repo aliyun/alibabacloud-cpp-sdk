@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(Avatar, avatar_);
       DARABONBA_PTR_TO_JSON(Files, files_);
+      DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
+      DARABONBA_PTR_TO_JSON(KeepWorkspaceFiles, keepWorkspaceFiles_);
       DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Restart, restart_);
@@ -28,6 +30,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(Avatar, avatar_);
       DARABONBA_PTR_FROM_JSON(Files, files_);
+      DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
+      DARABONBA_PTR_FROM_JSON(KeepWorkspaceFiles, keepWorkspaceFiles_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Restart, restart_);
@@ -82,15 +86,15 @@ namespace Models
 
 
     protected:
-      // The file content.
+      // File content
       shared_ptr<string> fileContent_ {};
-      // The file name. This must be one of the allowed file names: AGENTS.md, SOUL.md, TOOLS.md, IDENTITY.md, USER.md, HEARTBEAT.md, BOOTSTRAP.md, MEMORY.md, or MEMORY.alt.md.
+      // File name, must be one of the allowed file names (AGENTS.md, SOUL.md, TOOLS.md, IDENTITY.md, USER.md, HEARTBEAT.md, BOOTSTRAP.md, MEMORY.md, MEMORY.alt.md)
       shared_ptr<string> fileName_ {};
     };
 
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->applicationId_ == nullptr && this->avatar_ == nullptr && this->files_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->restart_ == nullptr && this->workspace_ == nullptr; };
+        && this->applicationId_ == nullptr && this->avatar_ == nullptr && this->files_ == nullptr && this->isDefault_ == nullptr && this->keepWorkspaceFiles_ == nullptr
+        && this->model_ == nullptr && this->name_ == nullptr && this->restart_ == nullptr && this->workspace_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -119,6 +123,20 @@ namespace Models
     inline vector<UpdatePolarClawAgentRequest::Files> getFiles() { DARABONBA_PTR_GET(files_, vector<UpdatePolarClawAgentRequest::Files>) };
     inline UpdatePolarClawAgentRequest& setFiles(const vector<UpdatePolarClawAgentRequest::Files> & files) { DARABONBA_PTR_SET_VALUE(files_, files) };
     inline UpdatePolarClawAgentRequest& setFiles(vector<UpdatePolarClawAgentRequest::Files> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
+
+
+    // isDefault Field Functions 
+    bool hasIsDefault() const { return this->isDefault_ != nullptr;};
+    void deleteIsDefault() { this->isDefault_ = nullptr;};
+    inline bool getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
+    inline UpdatePolarClawAgentRequest& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
+
+
+    // keepWorkspaceFiles Field Functions 
+    bool hasKeepWorkspaceFiles() const { return this->keepWorkspaceFiles_ != nullptr;};
+    void deleteKeepWorkspaceFiles() { this->keepWorkspaceFiles_ = nullptr;};
+    inline bool getKeepWorkspaceFiles() const { DARABONBA_PTR_GET_DEFAULT(keepWorkspaceFiles_, false) };
+    inline UpdatePolarClawAgentRequest& setKeepWorkspaceFiles(bool keepWorkspaceFiles) { DARABONBA_PTR_SET_VALUE(keepWorkspaceFiles_, keepWorkspaceFiles) };
 
 
     // model Field Functions 
@@ -150,25 +168,27 @@ namespace Models
 
 
   protected:
-    // The ID of the agent to update.
+    // Agent ID to update
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The application ID.
+    // Application ID
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The new avatar for the agent.
+    // New avatar
     shared_ptr<string> avatar_ {};
-    // The file list to update.
+    // List of files to update
     shared_ptr<vector<UpdatePolarClawAgentRequest::Files>> files_ {};
-    // The model to override the agent\\"s default setting.
+    shared_ptr<bool> isDefault_ {};
+    shared_ptr<bool> keepWorkspaceFiles_ {};
+    // Model override
     shared_ptr<string> model_ {};
-    // The new display name for the agent.
+    // New display name
     shared_ptr<string> name_ {};
-    // Specifies whether to restart the gateway after the update. The default value is true.
+    // Whether to restart the gateway after creation, default is true
     shared_ptr<bool> restart_ {};
-    // The new path for the agent\\"s workspace.
+    // New workspace directory path
     shared_ptr<string> workspace_ {};
   };
 
