@@ -66,13 +66,19 @@ namespace Models
 
 
   protected:
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The VPC name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceVpcName_ {};
+    // The virtual switch ID.
+    // 
     // This parameter is required.
     shared_ptr<string> virtualSwitchId_ {};
-    // VPC ID
+    // The VPC ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

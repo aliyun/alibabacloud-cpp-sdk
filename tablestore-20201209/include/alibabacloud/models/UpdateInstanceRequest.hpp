@@ -105,9 +105,11 @@ namespace Models
     shared_ptr<vector<string>> networkSourceACL_ {};
     // The new types of the network from which access is allowed. By default, all types of networks are allowed. Valid values:
     // 
-    // *   INTERNET: the Internet
-    // *   VPC: VPCs
-    // *   CLASSIC: the classic network
+    // - INTERNET: the Internet
+    // 
+    // - VPC: VPCs
+    // 
+    // - CLASSIC: the classic network
     shared_ptr<vector<string>> networkTypeACL_ {};
   };
 

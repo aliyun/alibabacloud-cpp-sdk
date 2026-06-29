@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The connection endpoint for the instance.
     shared_ptr<string> endpoint_ {};
+    // The ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

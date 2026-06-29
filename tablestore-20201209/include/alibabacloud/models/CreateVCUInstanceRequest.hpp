@@ -88,8 +88,12 @@ namespace Models
 
 
     protected:
+      // The key of the tag. The key can be up to 64 characters in length.
+      // 
       // This parameter is required.
       shared_ptr<string> key_ {};
+      // The value of the tag. The value can be up to 64 characters in length.
+      // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
@@ -177,22 +181,32 @@ namespace Models
 
 
   protected:
+    // The alias of the instance.
     shared_ptr<string> aliasName_ {};
+    // The auto-renewal cycle. This parameter is required if auto-renewal is enabled.
     shared_ptr<int64_t> autoRenewPeriodInMonth_ {};
-    // cluster type
+    // The cluster type.
     // 
     // This parameter is required.
     shared_ptr<string> clusterType_ {};
+    // Specifies whether to perform a dry run. If you perform a dry run, no instance is created.
     shared_ptr<bool> dryRun_ {};
+    // Specifies whether to enable auto-renewal.
     shared_ptr<bool> enableAutoRenew_ {};
+    // Specifies whether to enable instance elasticity. If you enable instance elasticity, the peak VCU usage can exceed the purchased VCU amount, but additional fees are incurred.
     shared_ptr<bool> enableElasticVCU_ {};
+    // The description of the instance.
     shared_ptr<string> instanceDescription_ {};
+    // The subscription duration. Unit: month.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> periodInMonth_ {};
-    // resource group id
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // tag
+    // The tags.
     shared_ptr<vector<CreateVCUInstanceRequest::Tags>> tags_ {};
+    // The instance type: the number of VCUs.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> VCU_ {};
   };

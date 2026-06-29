@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // The status code of the response.
     shared_ptr<string> code_ {};
+    // The name of the created instance.
     shared_ptr<string> instanceName_ {};
+    // The description of the response message.
     shared_ptr<string> message_ {};
-    // request id
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

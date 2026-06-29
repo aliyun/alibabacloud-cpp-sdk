@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The name of the VPC.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceVpcName_ {};
   };

@@ -72,7 +72,17 @@ namespace Models
 
 
     protected:
+      // The cluster type.
+      // 
+      // - HYBRID: Capacity.
+      // 
+      // - SSD: Performance.
       shared_ptr<string> clusterType_ {};
+      // Indicates whether the cluster supports deployment in multiple availability zones (AZs).
+      // 
+      // - true: The cluster supports multi-zone deployment and provides zone-redundant storage.
+      // 
+      // - false: The cluster does not support multi-zone deployment and provides locally redundant storage.
       shared_ptr<bool> isMultiAZ_ {};
     };
 
@@ -104,8 +114,11 @@ namespace Models
 
 
   protected:
+    // A list of the detailed information about the cluster types.
     shared_ptr<vector<ListClusterTypeResponseBody::ClusterTypeInfos>> clusterTypeInfos_ {};
+    // A list of cluster types.
     shared_ptr<vector<string>> clusterTypes_ {};
+    // The request ID. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of VPCs to return on each page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

@@ -105,10 +105,15 @@ namespace Models
 
 
     protected:
+      // The VPC endpoint.
       shared_ptr<string> domain_ {};
+      // The endpoint of the instance.
       shared_ptr<string> endpoint_ {};
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
+      // The name of the VPC.
       shared_ptr<string> instanceVpcName_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
     };
 
@@ -159,12 +164,17 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries returned per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of VPCs.
     shared_ptr<int64_t> totalCount_ {};
-    // VPC ID
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
+    // The details of the VPCs.
     shared_ptr<vector<ListVpcInfoByVpcResponseBody::VpcInfos>> vpcInfos_ {};
   };
 

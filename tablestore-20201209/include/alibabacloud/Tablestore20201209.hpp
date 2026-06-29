@@ -21,7 +21,7 @@ namespace Tablestore20201209
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 绑定vpc
+       * @summary Binds an instance to a VPC.
        *
        * @param request BindInstance2VpcRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Tablestore20201209
       Models::BindInstance2VpcResponse bindInstance2VpcWithOptions(const Models::BindInstance2VpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定vpc
+       * @summary Binds an instance to a VPC.
        *
        * @param request BindInstance2VpcRequest
        * @return BindInstance2VpcResponse
@@ -75,6 +75,34 @@ namespace Tablestore20201209
       Models::CheckInstancePolicyResponse checkInstancePolicy(const Models::CheckInstancePolicyRequest &request);
 
       /**
+       * @summary Creates an agent storage instance.
+       *
+       * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+       * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+       * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+       *
+       * @param request CreateAgentStorageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgentStorageResponse
+       */
+      Models::CreateAgentStorageResponse createAgentStorageWithOptions(const Models::CreateAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an agent storage instance.
+       *
+       * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+       * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+       * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+       *
+       * @param request CreateAgentStorageRequest
+       * @return CreateAgentStorageResponse
+       */
+      Models::CreateAgentStorageResponse createAgentStorage(const Models::CreateAgentStorageRequest &request);
+
+      /**
        * @summary Creates an instance.
        *
        * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
@@ -101,7 +129,11 @@ namespace Tablestore20201209
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 创建VCU实例
+       * @summary Creates a VCU instance.
+       *
+       * @description - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+       * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
        *
        * @param request CreateVCUInstanceRequest
        * @param headers map
@@ -111,12 +143,40 @@ namespace Tablestore20201209
       Models::CreateVCUInstanceResponse createVCUInstanceWithOptions(const Models::CreateVCUInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建VCU实例
+       * @summary Creates a VCU instance.
+       *
+       * @description - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+       * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
        *
        * @param request CreateVCUInstanceRequest
        * @return CreateVCUInstanceResponse
        */
       Models::CreateVCUInstanceResponse createVCUInstance(const Models::CreateVCUInstanceRequest &request);
+
+      /**
+       * @summary Deletes an agent store.
+       *
+       * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+       * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+       *
+       * @param request DeleteAgentStorageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgentStorageResponse
+       */
+      Models::DeleteAgentStorageResponse deleteAgentStorageWithOptions(const Models::DeleteAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an agent store.
+       *
+       * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+       * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+       *
+       * @param request DeleteAgentStorageRequest
+       * @return DeleteAgentStorageResponse
+       */
+      Models::DeleteAgentStorageResponse deleteAgentStorage(const Models::DeleteAgentStorageRequest &request);
 
       /**
        * @summary Deletes an instance.
@@ -169,7 +229,7 @@ namespace Tablestore20201209
       Models::DeleteInstancePolicyResponse deleteInstancePolicy(const Models::DeleteInstancePolicyRequest &request);
 
       /**
-       * @summary 删除VCU实例
+       * @summary Deletes a VCU instance.
        *
        * @param request DeleteVCUInstanceRequest
        * @param headers map
@@ -179,7 +239,7 @@ namespace Tablestore20201209
       Models::DeleteVCUInstanceResponse deleteVCUInstanceWithOptions(const Models::DeleteVCUInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除VCU实例
+       * @summary Deletes a VCU instance.
        *
        * @param request DeleteVCUInstanceRequest
        * @return DeleteVCUInstanceResponse
@@ -187,7 +247,7 @@ namespace Tablestore20201209
       Models::DeleteVCUInstanceResponse deleteVCUInstance(const Models::DeleteVCUInstanceRequest &request);
 
       /**
-       * @summary Queries supported regions.
+       * @summary Retrieves a list of available regions.
        *
        * @param request DescribeRegionsRequest
        * @param headers map
@@ -197,12 +257,30 @@ namespace Tablestore20201209
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries supported regions.
+       * @summary Retrieves a list of available regions.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
+       * @summary Retrieves agent storage.
+       *
+       * @param request GetAgentStorageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentStorageResponse
+       */
+      Models::GetAgentStorageResponse getAgentStorageWithOptions(const Models::GetAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves agent storage.
+       *
+       * @param request GetAgentStorageRequest
+       * @return GetAgentStorageResponse
+       */
+      Models::GetAgentStorageResponse getAgentStorage(const Models::GetAgentStorageRequest &request);
 
       /**
        * @summary Queries instance information.
@@ -223,7 +301,25 @@ namespace Tablestore20201209
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
 
       /**
-       * @summary 列举集群类型
+       * @summary Lists agent storages.
+       *
+       * @param tmpReq ListAgentStoragesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgentStoragesResponse
+       */
+      Models::ListAgentStoragesResponse listAgentStoragesWithOptions(const Models::ListAgentStoragesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists agent storages.
+       *
+       * @param request ListAgentStoragesRequest
+       * @return ListAgentStoragesResponse
+       */
+      Models::ListAgentStoragesResponse listAgentStorages(const Models::ListAgentStoragesRequest &request);
+
+      /**
+       * @summary Lists the supported cluster types in the current region.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -232,7 +328,7 @@ namespace Tablestore20201209
       Models::ListClusterTypeResponse listClusterTypeWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举集群类型
+       * @summary Lists the supported cluster types in the current region.
        *
        * @return ListClusterTypeResponse
        */
@@ -275,7 +371,7 @@ namespace Tablestore20201209
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 获取实例的vpcInfo列表
+       * @summary Retrieves a list of VPC information for an instance.
        *
        * @param request ListVpcInfoByInstanceRequest
        * @param headers map
@@ -285,7 +381,7 @@ namespace Tablestore20201209
       Models::ListVpcInfoByInstanceResponse listVpcInfoByInstanceWithOptions(const Models::ListVpcInfoByInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例的vpcInfo列表
+       * @summary Retrieves a list of VPC information for an instance.
        *
        * @param request ListVpcInfoByInstanceRequest
        * @return ListVpcInfoByInstanceResponse
@@ -293,7 +389,7 @@ namespace Tablestore20201209
       Models::ListVpcInfoByInstanceResponse listVpcInfoByInstance(const Models::ListVpcInfoByInstanceRequest &request);
 
       /**
-       * @summary 获取实例的vpcInfo列表
+       * @summary Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
        *
        * @param request ListVpcInfoByVpcRequest
        * @param headers map
@@ -303,7 +399,7 @@ namespace Tablestore20201209
       Models::ListVpcInfoByVpcResponse listVpcInfoByVpcWithOptions(const Models::ListVpcInfoByVpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例的vpcInfo列表
+       * @summary Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
        *
        * @param request ListVpcInfoByVpcRequest
        * @return ListVpcInfoByVpcResponse
@@ -329,7 +425,7 @@ namespace Tablestore20201209
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 解绑vpc
+       * @summary Detaches an instance from a VPC.
        *
        * @param request UnbindInstance2VpcRequest
        * @param headers map
@@ -339,7 +435,7 @@ namespace Tablestore20201209
       Models::UnbindInstance2VpcResponse unbindInstance2VpcWithOptions(const Models::UnbindInstance2VpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑vpc
+       * @summary Detaches an instance from a VPC.
        *
        * @param request UnbindInstance2VpcRequest
        * @return UnbindInstance2VpcResponse
@@ -369,6 +465,24 @@ namespace Tablestore20201209
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
+       * @summary Updates agent storage.
+       *
+       * @param request UpdateAgentStorageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAgentStorageResponse
+       */
+      Models::UpdateAgentStorageResponse updateAgentStorageWithOptions(const Models::UpdateAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates agent storage.
+       *
+       * @param request UpdateAgentStorageRequest
+       * @return UpdateAgentStorageResponse
+       */
+      Models::UpdateAgentStorageResponse updateAgentStorage(const Models::UpdateAgentStorageRequest &request);
+
+      /**
        * @summary Updates instance information.
        *
        * @param request UpdateInstanceRequest
@@ -389,9 +503,9 @@ namespace Tablestore20201209
       /**
        * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
        *
-       * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-       * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
-       * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+       * @description - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+       * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
        *
        * @param request UpdateInstanceElasticVCUUpperLimitRequest
        * @param headers map
@@ -403,9 +517,9 @@ namespace Tablestore20201209
       /**
        * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
        *
-       * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-       * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
-       * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+       * @description - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+       * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
        *
        * @param request UpdateInstanceElasticVCUUpperLimitRequest
        * @return UpdateInstanceElasticVCUUpperLimitResponse

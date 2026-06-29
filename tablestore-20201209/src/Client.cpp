@@ -17,7 +17,35 @@ namespace Tablestore20201209
 {
 
 AlibabaCloud::Tablestore20201209::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "tablestore.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "tablestore.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "tablestore.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "tablestore.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "tablestore.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "tablestore.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "tablestore.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "tablestore.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "tablestore.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "tablestore.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "tablestore.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "tablestore.cn-qingdao.aliyuncs.com"},
+    {"cn-huhehaote" , "tablestore.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "tablestore.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "tablestore.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "tablestore.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "tablestore.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "tablestore.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "tablestore.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "tablestore.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "tablestore.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "tablestore.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "tablestore.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "tablestore.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "tablestore.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-1" , "tablestore.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("tablestore", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +64,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 绑定vpc
+ * @summary Binds an instance to a VPC.
  *
  * @param request BindInstance2VpcRequest
  * @param headers map
@@ -81,7 +109,7 @@ BindInstance2VpcResponse Client::bindInstance2VpcWithOptions(const BindInstance2
 }
 
 /**
- * @summary 绑定vpc
+ * @summary Binds an instance to a VPC.
  *
  * @param request BindInstance2VpcRequest
  * @return BindInstance2VpcResponse
@@ -191,6 +219,89 @@ CheckInstancePolicyResponse Client::checkInstancePolicy(const CheckInstancePolic
 }
 
 /**
+ * @summary Creates an agent storage instance.
+ *
+ * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+ * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+ * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+ *
+ * @param request CreateAgentStorageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgentStorageResponse
+ */
+CreateAgentStorageResponse Client::createAgentStorageWithOptions(const CreateAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageDescription()) {
+    body["AgentStorageDescription"] = request.getAgentStorageDescription();
+  }
+
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["Network"] = request.getNetwork();
+  }
+
+  if (!!request.hasNetworkSourceACL()) {
+    body["NetworkSourceACL"] = request.getNetworkSourceACL();
+  }
+
+  if (!!request.hasNetworkTypeACL()) {
+    body["NetworkTypeACL"] = request.getNetworkTypeACL();
+  }
+
+  if (!!request.hasPolicy()) {
+    body["Policy"] = request.getPolicy();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    body["Tags"] = request.getTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAgentStorage"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/createagentstorage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgentStorageResponse>();
+}
+
+/**
+ * @summary Creates an agent storage instance.
+ *
+ * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+ * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+ * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+ *
+ * @param request CreateAgentStorageRequest
+ * @return CreateAgentStorageResponse
+ */
+CreateAgentStorageResponse Client::createAgentStorage(const CreateAgentStorageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAgentStorageWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates an instance.
  *
  * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
@@ -280,7 +391,11 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary 创建VCU实例
+ * @summary Creates a VCU instance.
+ *
+ * @description - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+ * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
  *
  * @param request CreateVCUInstanceRequest
  * @param headers map
@@ -353,7 +468,11 @@ CreateVCUInstanceResponse Client::createVCUInstanceWithOptions(const CreateVCUIn
 }
 
 /**
- * @summary 创建VCU实例
+ * @summary Creates a VCU instance.
+ *
+ * @description - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+ * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
  *
  * @param request CreateVCUInstanceRequest
  * @return CreateVCUInstanceResponse
@@ -362,6 +481,57 @@ CreateVCUInstanceResponse Client::createVCUInstance(const CreateVCUInstanceReque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createVCUInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an agent store.
+ *
+ * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+ * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+ *
+ * @param request DeleteAgentStorageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgentStorageResponse
+ */
+DeleteAgentStorageResponse Client::deleteAgentStorageWithOptions(const DeleteAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteAgentStorage"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/deleteagentstorage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgentStorageResponse>();
+}
+
+/**
+ * @summary Deletes an agent store.
+ *
+ * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+ * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+ *
+ * @param request DeleteAgentStorageRequest
+ * @return DeleteAgentStorageResponse
+ */
+DeleteAgentStorageResponse Client::deleteAgentStorage(const DeleteAgentStorageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAgentStorageWithOptions(request, headers, runtime);
 }
 
 /**
@@ -473,7 +643,7 @@ DeleteInstancePolicyResponse Client::deleteInstancePolicy(const DeleteInstancePo
 }
 
 /**
- * @summary 删除VCU实例
+ * @summary Deletes a VCU instance.
  *
  * @param request DeleteVCUInstanceRequest
  * @param headers map
@@ -506,7 +676,7 @@ DeleteVCUInstanceResponse Client::deleteVCUInstanceWithOptions(const DeleteVCUIn
 }
 
 /**
- * @summary 删除VCU实例
+ * @summary Deletes a VCU instance.
  *
  * @param request DeleteVCUInstanceRequest
  * @return DeleteVCUInstanceResponse
@@ -518,7 +688,7 @@ DeleteVCUInstanceResponse Client::deleteVCUInstance(const DeleteVCUInstanceReque
 }
 
 /**
- * @summary Queries supported regions.
+ * @summary Retrieves a list of available regions.
  *
  * @param request DescribeRegionsRequest
  * @param headers map
@@ -551,7 +721,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries supported regions.
+ * @summary Retrieves a list of available regions.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -560,6 +730,51 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeRegionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves agent storage.
+ *
+ * @param request GetAgentStorageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentStorageResponse
+ */
+GetAgentStorageResponse Client::getAgentStorageWithOptions(const GetAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentStorageName()) {
+    query["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgentStorage"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/getagentstorage")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentStorageResponse>();
+}
+
+/**
+ * @summary Retrieves agent storage.
+ *
+ * @param request GetAgentStorageRequest
+ * @return GetAgentStorageResponse
+ */
+GetAgentStorageResponse Client::getAgentStorage(const GetAgentStorageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAgentStorageWithOptions(request, headers, runtime);
 }
 
 /**
@@ -608,7 +823,86 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary 列举集群类型
+ * @summary Lists agent storages.
+ *
+ * @param tmpReq ListAgentStoragesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgentStoragesResponse
+ */
+ListAgentStoragesResponse Client::listAgentStoragesWithOptions(const ListAgentStoragesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAgentStoragesShrinkRequest request = ListAgentStoragesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAgentStorageNameList()) {
+    request.setAgentStorageNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAgentStorageNameList(), "AgentStorageNameList", "simple"));
+  }
+
+  if (!!tmpReq.hasTag()) {
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentStorageName()) {
+    query["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasAgentStorageNameListShrink()) {
+    query["AgentStorageNameList"] = request.getAgentStorageNameListShrink();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTagShrink()) {
+    query["Tag"] = request.getTagShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgentStorages"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/listagentstorages")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgentStoragesResponse>();
+}
+
+/**
+ * @summary Lists agent storages.
+ *
+ * @param request ListAgentStoragesRequest
+ * @return ListAgentStoragesResponse
+ */
+ListAgentStoragesResponse Client::listAgentStorages(const ListAgentStoragesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAgentStoragesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Lists the supported cluster types in the current region.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -633,7 +927,7 @@ ListClusterTypeResponse Client::listClusterTypeWithOptions(const map<string, str
 }
 
 /**
- * @summary 列举集群类型
+ * @summary Lists the supported cluster types in the current region.
  *
  * @return ListClusterTypeResponse
  */
@@ -794,7 +1088,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 获取实例的vpcInfo列表
+ * @summary Retrieves a list of VPC information for an instance.
  *
  * @param request ListVpcInfoByInstanceRequest
  * @param headers map
@@ -835,7 +1129,7 @@ ListVpcInfoByInstanceResponse Client::listVpcInfoByInstanceWithOptions(const Lis
 }
 
 /**
- * @summary 获取实例的vpcInfo列表
+ * @summary Retrieves a list of VPC information for an instance.
  *
  * @param request ListVpcInfoByInstanceRequest
  * @return ListVpcInfoByInstanceResponse
@@ -847,7 +1141,7 @@ ListVpcInfoByInstanceResponse Client::listVpcInfoByInstance(const ListVpcInfoByI
 }
 
 /**
- * @summary 获取实例的vpcInfo列表
+ * @summary Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
  *
  * @param request ListVpcInfoByVpcRequest
  * @param headers map
@@ -888,7 +1182,7 @@ ListVpcInfoByVpcResponse Client::listVpcInfoByVpcWithOptions(const ListVpcInfoBy
 }
 
 /**
- * @summary 获取实例的vpcInfo列表
+ * @summary Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
  *
  * @param request ListVpcInfoByVpcRequest
  * @return ListVpcInfoByVpcResponse
@@ -953,7 +1247,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 解绑vpc
+ * @summary Detaches an instance from a VPC.
  *
  * @param request UnbindInstance2VpcRequest
  * @param headers map
@@ -990,7 +1284,7 @@ UnbindInstance2VpcResponse Client::unbindInstance2VpcWithOptions(const UnbindIns
 }
 
 /**
- * @summary 解绑vpc
+ * @summary Detaches an instance from a VPC.
  *
  * @param request UnbindInstance2VpcRequest
  * @return UnbindInstance2VpcResponse
@@ -1063,6 +1357,71 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
+ * @summary Updates agent storage.
+ *
+ * @param request UpdateAgentStorageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAgentStorageResponse
+ */
+UpdateAgentStorageResponse Client::updateAgentStorageWithOptions(const UpdateAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageDescription()) {
+    body["AgentStorageDescription"] = request.getAgentStorageDescription();
+  }
+
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasAliasName()) {
+    body["AliasName"] = request.getAliasName();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["Network"] = request.getNetwork();
+  }
+
+  if (!!request.hasNetworkSourceACL()) {
+    body["NetworkSourceACL"] = request.getNetworkSourceACL();
+  }
+
+  if (!!request.hasNetworkTypeACL()) {
+    body["NetworkTypeACL"] = request.getNetworkTypeACL();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAgentStorage"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/updateagentstorage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAgentStorageResponse>();
+}
+
+/**
+ * @summary Updates agent storage.
+ *
+ * @param request UpdateAgentStorageRequest
+ * @return UpdateAgentStorageResponse
+ */
+UpdateAgentStorageResponse Client::updateAgentStorage(const UpdateAgentStorageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAgentStorageWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Updates instance information.
  *
  * @param request UpdateInstanceRequest
@@ -1130,9 +1489,9 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 /**
  * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
  *
- * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
- * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
- * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+ * @description - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+ * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
  *
  * @param request UpdateInstanceElasticVCUUpperLimitRequest
  * @param headers map
@@ -1171,9 +1530,9 @@ UpdateInstanceElasticVCUUpperLimitResponse Client::updateInstanceElasticVCUUpper
 /**
  * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
  *
- * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
- * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
- * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+ * @description - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+ * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
  *
  * @param request UpdateInstanceElasticVCUUpperLimitRequest
  * @return UpdateInstanceElasticVCUUpperLimitResponse
