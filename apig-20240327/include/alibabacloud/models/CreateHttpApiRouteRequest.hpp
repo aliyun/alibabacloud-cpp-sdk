@@ -96,11 +96,14 @@ namespace Models
 
 
     protected:
-      // The exposed URI path
+      // The exposed URI path.
       shared_ptr<string> exposedUriPath_ {};
-      // mcpStatisticsEnable
+      // Specifies whether to enable MCP observability. Default value: false.
       shared_ptr<bool> mcpStatisticsEnable_ {};
-      // The MCP protocol
+      // The service protocol. Valid values:
+      // - TCP.
+      // - HTTP.
+      // - DUBBO.
       shared_ptr<string> protocol_ {};
     };
 
@@ -190,18 +193,17 @@ namespace Models
 
 
       protected:
-        // The service port (omit for dynamic ports).
+        // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
         // The service protocol. Valid values:
-        // 
-        // *   HTTP
-        // *   HTTPS
+        // - HTTP.
+        // - HTTPS.
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
-        // The service version (valid only in tag-based scenarios).
+        // The service version. This parameter is valid only in the tag-based scenario.
         shared_ptr<string> version_ {};
-        // The traffic weight percentage.
+        // The percentage value of the traffic ratio.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -225,11 +227,10 @@ namespace Models
 
     protected:
       // The backend service scenario. Valid values:
-      // 
-      // *   SingleService
-      // *   MultiServiceByRatio
-      // *   Mock
-      // *   Redirect
+      // - SingleService: Single service.
+      // - MultiServiceByRatio: Multiple services with ratio-based canary release.
+      // - Mock: Mock service.
+      // - Redirect: Redirect service.
       shared_ptr<string> scene_ {};
       // The list of backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};
@@ -314,23 +315,23 @@ namespace Models
 
 
   protected:
-    // The backend service configurations for the route.
+    // The backend service configuration of the route.
     shared_ptr<CreateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
-    // deployConfigs
+    // The API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The route description.
     shared_ptr<string> description_ {};
-    // The list of domain IDs.
+    // The domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
     // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
-    // The MCP route configuration
+    // The MCP route configuration.
     shared_ptr<CreateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};
     // The route name.
     shared_ptr<string> name_ {};
-    // The route-level policy configurations
+    // The policy type.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
   };
 

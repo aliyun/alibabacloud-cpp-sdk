@@ -172,9 +172,9 @@ namespace Models
     shared_ptr<bool> forceHttps_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The HTTP/2 setting.
+    // The HTTP/2 settings.
     shared_ptr<string> http2Option_ {};
-    // Specifies whether to enable mutual TLS (mTLS) authentication.
+    // Specifies whether to enable mTLS mutual authentication.
     shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     // 
@@ -189,9 +189,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The cipher suite configuration.
     shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-    // The maximum TLS version. TLS 1.3 is the maximum supported version.
+    // The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
     shared_ptr<string> tlsMax_ {};
-    // The minimum TLS version. TLS 1.0 is the minimum supported version.
+    // The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
     shared_ptr<string> tlsMin_ {};
   };
 

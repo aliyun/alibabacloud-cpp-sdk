@@ -167,34 +167,35 @@ namespace Models
 
 
   protected:
+    // The backend service name. You can use this name to filter routes.
     shared_ptr<string> backendServiceName_ {};
-    // The consumer authorization rule ID. If specified, the response includes only routes that are authorized by the specified rule.
+    // Filters the API list by a specific consumer authorization rule ID. The response only includes authorized APIs.
     shared_ptr<string> consumerAuthorizationRuleId_ {};
     // The deployment status of the route.
     shared_ptr<string> deployStatuses_ {};
-    // The domain name ID used to filter routes.
+    // Filters route information by domain name ID.
     shared_ptr<string> domainId_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // Specifies whether the query is for a deployment scenario.
+    // Specifies whether the request is for a deployment scenario.
     shared_ptr<bool> forDeploy_ {};
     // The cloud-native API gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The route name.
     shared_ptr<string> name_ {};
-    // The route name for fuzzy match.
+    // Fuzzy match by route name.
     shared_ptr<string> nameLike_ {};
-    // The page number. Pages start from 1. Default value: 1.
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The page size. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The route path for fuzzy match.
+    // Fuzzy match by route path.
     shared_ptr<string> pathLike_ {};
-    // Specifies whether to include consumer authorization information in the response.
+    // Includes consumer authorization information in the response.
     shared_ptr<bool> withAuthPolicyInfo_ {};
-    // The consumer ID. If specified, the response includes the authorization rule list for the specified consumer in each route.
+    // Includes the authorization rule list of the specified consumer ID for each route in the response.
     shared_ptr<string> withConsumerInfoById_ {};
-    // The plug-in ID. If specified, the response includes the attachment information of the specified plug-in for each route.
+    // Includes the mount information of the specified plug-in ID for each route in the response.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
   };
 

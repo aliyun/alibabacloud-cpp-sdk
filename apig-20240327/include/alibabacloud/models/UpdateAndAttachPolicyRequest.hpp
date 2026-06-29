@@ -97,23 +97,23 @@ namespace Models
 
 
   protected:
-    // The association IDs.
+    // The list of mount point IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> attachResourceIds_ {};
-    // The supported associated resource type. Valid values:
+    // The type of mount point supported by the policy. Valid values:
     // 
-    // *   HttpApi: an HTTP API
-    // *   Operation: an operation in an HTTP API
-    // *   GatewayRoute: a route
-    // *   GatewayService: a service
-    // *   GatewayServicePort: a service port
-    // *   Domain: a domain name
-    // *   Gateway: an instance
+    // - HttpApi: HttpApi.
+    // - Operation: Operation of HttpApi.
+    // - GatewayRoute: gateway rule.
+    // - GatewayService: gateway service.
+    // - GatewayServicePort: gateway service port.
+    // - Domain: gateway domain name.
+    // - Gateway: gateway.
     // 
     // This parameter is required.
     shared_ptr<string> attachResourceType_ {};
-    // The policy configurations. The value is a JSON string.
+    // The configuration information. The value is a JSON string.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The instance ID.
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The policy name.
     shared_ptr<string> name_ {};

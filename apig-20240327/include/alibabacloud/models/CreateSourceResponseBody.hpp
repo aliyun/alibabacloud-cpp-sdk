@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Source ID
+      // The source ID.
       shared_ptr<string> sourceId_ {};
     };
 
@@ -104,9 +104,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<CreateSourceResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

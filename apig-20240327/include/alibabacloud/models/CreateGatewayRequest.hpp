@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // The ID of the virtual switch.
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the zone.
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -143,11 +143,11 @@ namespace Models
 
 
     protected:
-      // The response payload.
+      // The zone selection option.
       shared_ptr<string> selectOption_ {};
-      // Virtual switch ID.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // List of supported zones.
+      // The list of supported zones.
       shared_ptr<vector<ZoneConfig::Zones>> zones_ {};
     };
 
@@ -191,7 +191,7 @@ namespace Models
     protected:
       // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the label.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -223,7 +223,7 @@ namespace Models
 
 
     protected:
-      // -
+      // The network access type.
       shared_ptr<string> type_ {};
     };
 
@@ -274,7 +274,7 @@ namespace Models
 
 
       protected:
-        // Whether to enable.
+        // Specifies whether to enable SLS logging.
         shared_ptr<bool> enable_ {};
       };
 
@@ -289,7 +289,7 @@ namespace Models
 
 
     protected:
-      // SLS log configuration.
+      // The Simple Log Service (SLS) log configuration.
       shared_ptr<LogConfig::Sls> sls_ {};
     };
 
@@ -382,31 +382,35 @@ namespace Models
 
 
   protected:
-    // The logging configurations.
+    // The billing method.
     shared_ptr<string> chargeType_ {};
-    // Gateway instance edition:
+    // The gateway instance edition. Valid values:
     // 
-    // - Standard instance: Professional
+    // - Professional: Standard instance.
     // 
-    // - Serverless: Serverless (currently supports only AI gateway)
+    // - Serverless: Serverless instance.
+    // 
+    // - MultiTenantServerless: Multi-tenant Serverless instance.
+    // 
+    // - Unknown: Unknown.
     shared_ptr<string> gatewayEdition_ {};
-    // The ID of the resource group.
+    // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // Gateway log configuration.
+    // The gateway log configuration.
     shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};
-    // The ID of the vSwitch.
+    // The gateway name.
     shared_ptr<string> name_ {};
-    // The gateway edition.
+    // The network access configuration.
     shared_ptr<CreateGatewayRequest::NetworkAccessConfig> networkAccessConfig_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tag key.
+    // The node specifications.
     shared_ptr<string> spec_ {};
-    // The list of labels.
+    // The list of tags.
     shared_ptr<vector<CreateGatewayRequest::Tag>> tag_ {};
-    // The tag value.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The status message.
+    // The zone configuration.
     shared_ptr<CreateGatewayRequest::ZoneConfig> zoneConfig_ {};
   };
 

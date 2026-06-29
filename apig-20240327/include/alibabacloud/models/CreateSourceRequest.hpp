@@ -144,7 +144,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The list of port ranges.
         shared_ptr<vector<string>> portRanges_ {};
-        // The ID of a security group.
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
       };
 
@@ -167,9 +167,9 @@ namespace Models
 
 
     protected:
-      // The security group rules.
+      // The list of gateway security group authorization rule configurations.
       shared_ptr<vector<K8sSourceConfig::AuthorizeSecurityGroupRules>> authorizeSecurityGroupRules_ {};
-      // The ID of the ACK cluster.
+      // The Container Service cluster ID.
       shared_ptr<string> clusterId_ {};
     };
 
@@ -215,18 +215,17 @@ namespace Models
 
 
   protected:
-    // The gateway instance ID.
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The source configuration when the source type is K8S.
+    // The Container Service source configuration.
     shared_ptr<CreateSourceRequest::K8sSourceConfig> k8sSourceConfig_ {};
-    // The source configuration when the source type is MSE_NACOS.
+    // The MSE Nacos source configuration.
     shared_ptr<CreateSourceRequest::NacosSourceConfig> nacosSourceConfig_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The source type. Valid values:
-    // 
-    // *   MSE_NACOS: MSE Nacos
-    // *   K8S: Container Service for Kubernetes (ACK)
+    // - MSE_NACOS: MSE Nacos.
+    // - K8S: Container Service.
     shared_ptr<string> type_ {};
   };
 

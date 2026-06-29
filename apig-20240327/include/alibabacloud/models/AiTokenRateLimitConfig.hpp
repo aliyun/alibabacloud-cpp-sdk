@@ -87,15 +87,15 @@ namespace Models
 
 
   protected:
-    // Controls whether global rules are enabled. If set to `true`, the rules in `globalRules` are applied. Defaults to `false`.
+    // Specifies whether to enable global (API-level) throttling rules. Default value: false.
     shared_ptr<bool> enableGlobalRules_ {};
-    // A list of global rate limit rules. These rules are applied when no specific rule in `rules` is matched.
+    // The list of global throttling rules. Only the LimitByGlobal type is allowed.
     shared_ptr<vector<AiTokenRateLimitConfigRule>> globalRules_ {};
-    // Specifies the status of the plugin, such as `enabled` or `disabled`.
+    // The running status of the plugin.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
-    // Specifies the Redis configuration for distributed rate limiting.
+    // The Redis configuration.
     shared_ptr<AiPolicyRedisConfig> redisConfig_ {};
-    // A list of specific rate limit rules.
+    // The list of throttling rules.
     shared_ptr<vector<AiTokenRateLimitConfigRule>> rules_ {};
   };
 

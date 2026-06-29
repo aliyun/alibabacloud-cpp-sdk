@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The instance ID.
+      // The unique identifier of the gateway.
       shared_ptr<string> gatewayId_ {};
       // The dashboard name.
       shared_ptr<string> name_ {};
@@ -152,11 +152,11 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<GetDashboardResponseBody::Data> data_ {};
-    // The error code.
+    // The backend error code.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> message_ {};

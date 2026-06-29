@@ -113,7 +113,7 @@ namespace APIG20240327
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Creates and associates a policy.
+       * @summary Creates and attaches a policy.
        *
        * @param request CreateAndAttachPolicyRequest
        * @param headers map
@@ -123,7 +123,7 @@ namespace APIG20240327
       Models::CreateAndAttachPolicyResponse createAndAttachPolicyWithOptions(const Models::CreateAndAttachPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and associates a policy.
+       * @summary Creates and attaches a policy.
        *
        * @param request CreateAndAttachPolicyRequest
        * @return CreateAndAttachPolicyResponse
@@ -167,7 +167,7 @@ namespace APIG20240327
       Models::CreateConsumerAuthorizationRuleResponse createConsumerAuthorizationRule(const string &consumerId, const Models::CreateConsumerAuthorizationRuleRequest &request);
 
       /**
-       * @summary Create consumer authorization rules.
+       * @summary Creates consumer authorization rules.
        *
        * @param request CreateConsumerAuthorizationRulesRequest
        * @param headers map
@@ -177,7 +177,7 @@ namespace APIG20240327
       Models::CreateConsumerAuthorizationRulesResponse createConsumerAuthorizationRulesWithOptions(const Models::CreateConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create consumer authorization rules.
+       * @summary Creates consumer authorization rules.
        *
        * @param request CreateConsumerAuthorizationRulesRequest
        * @return CreateConsumerAuthorizationRulesResponse
@@ -225,7 +225,7 @@ namespace APIG20240327
       Models::CreateEnvironmentResponse createEnvironment(const Models::CreateEnvironmentRequest &request);
 
       /**
-       * @summary The zone information.
+       * @summary Creates a cloud-native gateway.
        *
        * @param request CreateGatewayRequest
        * @param headers map
@@ -235,7 +235,7 @@ namespace APIG20240327
       Models::CreateGatewayResponse createGatewayWithOptions(const Models::CreateGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The zone information.
+       * @summary Creates a cloud-native gateway.
        *
        * @param request CreateGatewayRequest
        * @return CreateGatewayResponse
@@ -297,7 +297,7 @@ namespace APIG20240327
       Models::CreateHttpApiRouteResponse createHttpApiRoute(const string &httpApiId, const Models::CreateHttpApiRouteRequest &request);
 
       /**
-       * @summary Creates an MCP server.
+       * @summary Creates a Model Context Protocol (MCP) server.
        *
        * @param request CreateMcpServerRequest
        * @param headers map
@@ -307,7 +307,7 @@ namespace APIG20240327
       Models::CreateMcpServerResponse createMcpServerWithOptions(const Models::CreateMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an MCP server.
+       * @summary Creates a Model Context Protocol (MCP) server.
        *
        * @param request CreateMcpServerRequest
        * @return CreateMcpServerResponse
@@ -315,7 +315,7 @@ namespace APIG20240327
       Models::CreateMcpServerResponse createMcpServer(const Models::CreateMcpServerRequest &request);
 
       /**
-       * @summary Attaches a plug-in.
+       * @summary Mounts a plug-in.
        *
        * @param request CreatePluginAttachmentRequest
        * @param headers map
@@ -325,7 +325,7 @@ namespace APIG20240327
       Models::CreatePluginAttachmentResponse createPluginAttachmentWithOptions(const Models::CreatePluginAttachmentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches a plug-in.
+       * @summary Mounts a plug-in.
        *
        * @param request CreatePluginAttachmentRequest
        * @return CreatePluginAttachmentResponse
@@ -389,7 +389,7 @@ namespace APIG20240327
       /**
        * @summary Creates a service.
        *
-       * @description You can call this operation to create multiple services at a time.
+       * @description This operation supports creating multiple services.
        *
        * @param request CreateServiceRequest
        * @param headers map
@@ -401,7 +401,7 @@ namespace APIG20240327
       /**
        * @summary Creates a service.
        *
-       * @description You can call this operation to create multiple services at a time.
+       * @description This operation supports creating multiple services.
        *
        * @param request CreateServiceRequest
        * @return CreateServiceResponse
@@ -427,7 +427,7 @@ namespace APIG20240327
       Models::CreateServiceVersionResponse createServiceVersion(const string &serviceId, const Models::CreateServiceVersionRequest &request);
 
       /**
-       * @summary Create a source.
+       * @summary Creates a source.
        *
        * @param request CreateSourceRequest
        * @param headers map
@@ -437,7 +437,7 @@ namespace APIG20240327
       Models::CreateSourceResponse createSourceWithOptions(const Models::CreateSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a source.
+       * @summary Creates a source.
        *
        * @param request CreateSourceRequest
        * @return CreateSourceResponse
@@ -445,7 +445,7 @@ namespace APIG20240327
       Models::CreateSourceResponse createSource(const Models::CreateSourceRequest &request);
 
       /**
-       * @summary Deletes a consumer.
+       * @summary Deletes an API consumer.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -454,14 +454,14 @@ namespace APIG20240327
       Models::DeleteConsumerResponse deleteConsumerWithOptions(const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a consumer.
+       * @summary Deletes an API consumer.
        *
        * @return DeleteConsumerResponse
        */
       Models::DeleteConsumerResponse deleteConsumer(const string &consumerId);
 
       /**
-       * @summary Deletes a consumer authorization rule.
+       * @summary Deletes an API consumer authorization rule.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -470,7 +470,7 @@ namespace APIG20240327
       Models::DeleteConsumerAuthorizationRuleResponse deleteConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a consumer authorization rule.
+       * @summary Deletes an API consumer authorization rule.
        *
        * @return DeleteConsumerAuthorizationRuleResponse
        */
@@ -513,7 +513,7 @@ namespace APIG20240327
       Models::DeleteEnvironmentResponse deleteEnvironment(const string &environmentId);
 
       /**
-       * @summary Deletes a Cloud-native API Gateway instance.
+       * @summary Deletes a gateway.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -522,7 +522,7 @@ namespace APIG20240327
       Models::DeleteGatewayResponse deleteGatewayWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Cloud-native API Gateway instance.
+       * @summary Deletes a gateway.
        *
        * @return DeleteGatewayResponse
        */
@@ -551,7 +551,7 @@ namespace APIG20240327
       Models::DeleteGatewayQuotaRuleResponse deleteGatewayQuotaRule(const string &gatewayId, const string &ruleId, const Models::DeleteGatewayQuotaRuleRequest &request);
 
       /**
-       * @summary Deletes a security group rule from a Cloud-native API Gateway instance.
+       * @summary Deletes a gateway security group rule.
        *
        * @param request DeleteGatewaySecurityGroupRuleRequest
        * @param headers map
@@ -561,7 +561,7 @@ namespace APIG20240327
       Models::DeleteGatewaySecurityGroupRuleResponse deleteGatewaySecurityGroupRuleWithOptions(const string &gatewayId, const string &securityGroupRuleId, const Models::DeleteGatewaySecurityGroupRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a security group rule from a Cloud-native API Gateway instance.
+       * @summary Deletes a gateway security group rule.
        *
        * @param request DeleteGatewaySecurityGroupRuleRequest
        * @return DeleteGatewaySecurityGroupRuleResponse
@@ -585,7 +585,7 @@ namespace APIG20240327
       Models::DeleteHttpApiResponse deleteHttpApi(const string &httpApiId);
 
       /**
-       * @summary Deletes an operation from an HTTP API.
+       * @summary Deletes a specified operation.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -594,7 +594,7 @@ namespace APIG20240327
       Models::DeleteHttpApiOperationResponse deleteHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an operation from an HTTP API.
+       * @summary Deletes a specified operation.
        *
        * @return DeleteHttpApiOperationResponse
        */
@@ -633,7 +633,7 @@ namespace APIG20240327
       Models::DeleteMcpServerResponse deleteMcpServer(const string &mcpServerId);
 
       /**
-       * @summary Deletes a plug-in attachment.
+       * @summary Deletes a plugin mount.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +642,7 @@ namespace APIG20240327
       Models::DeletePluginAttachmentResponse deletePluginAttachmentWithOptions(const string &pluginAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a plug-in attachment.
+       * @summary Deletes a plugin mount.
        *
        * @return DeletePluginAttachmentResponse
        */
@@ -733,7 +733,7 @@ namespace APIG20240327
       Models::DeleteServiceVersionResponse deleteServiceVersion(const string &serviceId, const string &name);
 
       /**
-       * @summary Delete a service source.
+       * @summary Deletes a service source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -742,14 +742,14 @@ namespace APIG20240327
       Models::DeleteSourceResponse deleteSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a service source.
+       * @summary Deletes a service source.
        *
        * @return DeleteSourceResponse
        */
       Models::DeleteSourceResponse deleteSource(const string &sourceId);
 
       /**
-       * @summary Deploy an HTTP API, including REST and HTTP API routes.
+       * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
        *
        * @param request DeployHttpApiRequest
        * @param headers map
@@ -759,7 +759,7 @@ namespace APIG20240327
       Models::DeployHttpApiResponse deployHttpApiWithOptions(const string &httpApiId, const Models::DeployHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploy an HTTP API, including REST and HTTP API routes.
+       * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
        *
        * @param request DeployHttpApiRequest
        * @return DeployHttpApiResponse
@@ -801,7 +801,7 @@ namespace APIG20240327
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Exports the specified HTTP API.
+       * @summary Exports a specified HTTP API.
        *
        * @param request ExportHttpApiRequest
        * @param headers map
@@ -811,7 +811,7 @@ namespace APIG20240327
       Models::ExportHttpApiResponse exportHttpApiWithOptions(const string &httpApiId, const Models::ExportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports the specified HTTP API.
+       * @summary Exports a specified HTTP API.
        *
        * @param request ExportHttpApiRequest
        * @return ExportHttpApiResponse
@@ -851,7 +851,7 @@ namespace APIG20240327
       Models::GetConsumerAuthorizationRuleResponse getConsumerAuthorizationRule(const string &consumerAuthorizationRuleId, const string &consumerId);
 
       /**
-       * @summary Obtains data from dashboards.
+       * @summary Retrieves the monitoring log dashboard.
        *
        * @param tmpReq GetDashboardRequest
        * @param headers map
@@ -861,7 +861,7 @@ namespace APIG20240327
       Models::GetDashboardResponse getDashboardWithOptions(const string &gatewayId, const Models::GetDashboardRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains data from dashboards.
+       * @summary Retrieves the monitoring log dashboard.
        *
        * @param request GetDashboardRequest
        * @return GetDashboardResponse
@@ -985,7 +985,7 @@ namespace APIG20240327
       Models::GetHttpApiResponse getHttpApi(const string &httpApiId);
 
       /**
-       * @summary Get Operation
+       * @summary Retrieves operation information.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -994,7 +994,7 @@ namespace APIG20240327
       Models::GetHttpApiOperationResponse getHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Operation
+       * @summary Retrieves operation information.
        *
        * @return GetHttpApiOperationResponse
        */
@@ -1053,7 +1053,7 @@ namespace APIG20240327
       Models::GetPluginAttachmentResponse getPluginAttachment(const string &pluginAttachmentId);
 
       /**
-       * @summary Queries a policy.
+       * @summary Retrieves a policy.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1062,7 +1062,7 @@ namespace APIG20240327
       Models::GetPolicyResponse getPolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a policy.
+       * @summary Retrieves a policy.
        *
        * @return GetPolicyResponse
        */
@@ -1143,7 +1143,7 @@ namespace APIG20240327
       Models::GetSecretValueResponse getSecretValue(const string &name);
 
       /**
-       * @summary Queries a service.
+       * @summary Gets service details.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1152,14 +1152,14 @@ namespace APIG20240327
       Models::GetServiceResponse getServiceWithOptions(const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a service.
+       * @summary Gets service details.
        *
        * @return GetServiceResponse
        */
       Models::GetServiceResponse getService(const string &serviceId);
 
       /**
-       * @summary Queries the details of a service source.
+       * @summary Retrieves the details of a service source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1168,7 +1168,7 @@ namespace APIG20240327
       Models::GetSourceResponse getSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a service source.
+       * @summary Retrieves the details of a service source.
        *
        * @return GetSourceResponse
        */
@@ -1553,7 +1553,7 @@ namespace APIG20240327
       Models::ListPoliciesResponse listPolicies(const Models::ListPoliciesRequest &request);
 
       /**
-       * @summary Queries policy templates.
+       * @summary Retrieves policy templates.
        *
        * @param request ListPolicyClassesRequest
        * @param headers map
@@ -1563,7 +1563,7 @@ namespace APIG20240327
       Models::ListPolicyClassesResponse listPolicyClassesWithOptions(const Models::ListPolicyClassesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries policy templates.
+       * @summary Retrieves policy templates.
        *
        * @param request ListPolicyClassesRequest
        * @return ListPolicyClassesResponse
@@ -1615,7 +1615,7 @@ namespace APIG20240327
       Models::ListSecretsResponse listSecrets(const Models::ListSecretsRequest &request);
 
       /**
-       * @summary Queries a list of services.
+       * @summary Retrieves a list of services.
        *
        * @param request ListServicesRequest
        * @param headers map
@@ -1625,7 +1625,7 @@ namespace APIG20240327
       Models::ListServicesResponse listServicesWithOptions(const Models::ListServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of services.
+       * @summary Retrieves a list of services.
        *
        * @param request ListServicesRequest
        * @return ListServicesResponse
@@ -1649,6 +1649,24 @@ namespace APIG20240327
        * @return ListSslCertsResponse
        */
       Models::ListSslCertsResponse listSslCerts(const Models::ListSslCertsRequest &request);
+
+      /**
+       * @summary 查标签接口
+       *
+       * @param tmpReq ListTagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查标签接口
+       *
+       * @param request ListTagResourcesRequest
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
        * @summary Retrieve the availability zones under a cloud-native API gateway region
@@ -1773,6 +1791,24 @@ namespace APIG20240327
       Models::SyncMCPServersResponse syncMCPServers(const Models::SyncMCPServersRequest &request);
 
       /**
+       * @summary 打标签接口
+       *
+       * @param request TagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 打标签接口
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
        * @summary Undeploys an MCP server.
        *
        * @param headers map
@@ -1823,7 +1859,25 @@ namespace APIG20240327
       Models::UninstallPluginResponse uninstallPlugin(const string &pluginId);
 
       /**
-       * @summary Updates and associates a policy.
+       * @summary 删标签接口
+       *
+       * @param tmpReq UntagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删标签接口
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary Updates and mounts a policy.
        *
        * @param request UpdateAndAttachPolicyRequest
        * @param headers map
@@ -1833,7 +1887,7 @@ namespace APIG20240327
       Models::UpdateAndAttachPolicyResponse updateAndAttachPolicyWithOptions(const string &policyId, const Models::UpdateAndAttachPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates and associates a policy.
+       * @summary Updates and mounts a policy.
        *
        * @param request UpdateAndAttachPolicyRequest
        * @return UpdateAndAttachPolicyResponse
@@ -1879,7 +1933,7 @@ namespace APIG20240327
       /**
        * @summary Updates a domain name.
        *
-       * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+       * @description Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
        *
        * @param request UpdateDomainRequest
        * @param headers map
@@ -1891,7 +1945,7 @@ namespace APIG20240327
       /**
        * @summary Updates a domain name.
        *
-       * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+       * @description Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
        *
        * @param request UpdateDomainRequest
        * @return UpdateDomainResponse
@@ -1939,6 +1993,8 @@ namespace APIG20240327
       Models::UpdateGatewayFeatureResponse updateGatewayFeature(const string &gatewayId, const string &name, const Models::UpdateGatewayFeatureRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateGatewayName is deprecated
+       *
        * @summary The response message returned.
        *
        * @param request UpdateGatewayNameRequest
@@ -1949,6 +2005,8 @@ namespace APIG20240327
       Models::UpdateGatewayNameResponse updateGatewayNameWithOptions(const string &gatewayId, const Models::UpdateGatewayNameRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateGatewayName is deprecated
+       *
        * @summary The response message returned.
        *
        * @param request UpdateGatewayNameRequest

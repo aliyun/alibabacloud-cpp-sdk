@@ -104,7 +104,7 @@ namespace Models
       protected:
         // The operation type.
         shared_ptr<string> action_ {};
-        // The unique ID of the operation.
+        // The unique identifier of the operation.
         shared_ptr<string> operationId_ {};
       };
 
@@ -209,21 +209,19 @@ namespace Models
 
 
         protected:
-          // The conditions that a request must meet to be routed to this service. This parameter is used for content-based routing.
+          // The match condition configuration related to API publishing.
           shared_ptr<HttpApiBackendMatchConditions> match_ {};
           // The service port. Do not specify this parameter for dynamic ports.
           shared_ptr<int32_t> port_ {};
-          // The service protocol.
-          // 
+          // The service protocol. Valid values:
           // - HTTP
-          // 
           // - HTTPS
           shared_ptr<string> protocol_ {};
           // The service ID.
           shared_ptr<string> serviceId_ {};
           // The service version.
           shared_ptr<string> version_ {};
-          // The weight, which must be an integer from 1 to 100. This parameter applies only to the canary release by ratio scenario.
+          // The weight. Valid values: 1 to 100. This parameter takes effect only in the ratio-based scenario.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -262,13 +260,13 @@ namespace Models
 
 
       protected:
-        // The API deployment scenario.
+        // The API publish scenario.
         shared_ptr<string> backendScene_ {};
-        // A list of custom domain IDs.
+        // The list of custom domain names.
         shared_ptr<vector<string>> customDomainIds_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The configurations for one or more backend services. A single-service scenario allows only one entry, while other scenarios, such as canary release by ratio and content-based routing, allow multiple entries.
+        // The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed.
         shared_ptr<vector<Environment::ServiceConfigs>> serviceConfigs_ {};
       };
 
@@ -323,17 +321,17 @@ namespace Models
 
 
     protected:
-      // The deployment description.
+      // The publish description.
       shared_ptr<string> description_ {};
-      // The deployment environment configuration.
+      // The publish environment configuration.
       shared_ptr<RestApiConfig::Environment> environment_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // A list of operation-level deployment controls.
+      // The operation-level deployment control list.
       shared_ptr<vector<RestApiConfig::OperationDeployments>> operationDeployments_ {};
-      // A list of operation IDs.
+      // The operation IDs.
       shared_ptr<vector<string>> operationIds_ {};
-      // The revision ID. If you specify this parameter, the deployment uses the settings from the specified revision.
+      // The historical version number. If this parameter is specified, the publish information is based on the historical version.
       shared_ptr<string> revisionId_ {};
     };
 
@@ -379,7 +377,7 @@ namespace Models
     protected:
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // A list of route IDs.
+      // The route IDs.
       shared_ptr<vector<string>> routeIds_ {};
     };
 
@@ -413,9 +411,9 @@ namespace Models
   protected:
     // The HTTP API deployment configuration.
     shared_ptr<DeployHttpApiRequest::HttpApiConfig> httpApiConfig_ {};
-    // The REST API deployment configuration. This parameter is required when you deploy an HTTP API as a REST API.
+    // The deployment configuration for the REST API. This parameter is required when the HTTP API to be published is a REST API.
     shared_ptr<DeployHttpApiRequest::RestApiConfig> restApiConfig_ {};
-    // The route ID. This parameter is required when you deploy a route for an HTTP API.
+    // The route ID. This parameter is required when you publish a route of an HTTP API.
     shared_ptr<string> routeId_ {};
   };
 

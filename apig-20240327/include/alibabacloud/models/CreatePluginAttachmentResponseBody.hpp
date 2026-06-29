@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The plug-in ID.
+      // The plug-in attachment ID.
       shared_ptr<string> pluginAttachmentId_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<CreatePluginAttachmentResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

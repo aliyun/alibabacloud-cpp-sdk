@@ -95,11 +95,11 @@ namespace Models
 
 
     protected:
-      // 路由列表。
+      // The route list.
       shared_ptr<vector<HttpRoute>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};

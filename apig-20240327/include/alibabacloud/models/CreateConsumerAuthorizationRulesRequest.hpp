@@ -115,13 +115,13 @@ namespace Models
 
 
       protected:
-        // Environment ID.
+        // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // Parent resource ID.
+        // The parent resource ID.
         shared_ptr<string> parentResourceId_ {};
-        // Resource ID.
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // Resource information.
+        // The resource information.
         shared_ptr<vector<string>> resources_ {};
       };
 
@@ -165,15 +165,15 @@ namespace Models
 
 
     protected:
-      // Consumer ID.
+      // The consumer ID.
       shared_ptr<string> consumerId_ {};
-      // Expiration mode. Currently only LongTerm is supported.
+      // The expiration mode. Currently, only LongTerm is supported.
       shared_ptr<string> expireMode_ {};
-      // Expiration time.
+      // The expiration time.
       shared_ptr<int64_t> expireTimestamp_ {};
-      // Resource identifier, provided to non-standard code sources as a unique identifier for space reuse
+      // The resource identifier, which serves as a unique identifier for non-standard code sources for space reuse.
       shared_ptr<AuthorizationRules::ResourceIdentifier> resourceIdentifier_ {};
-      // Resource type.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -188,7 +188,7 @@ namespace Models
 
 
   protected:
-    // Consumer authorization rules.
+    // The consumer authentication rules.
     shared_ptr<vector<CreateConsumerAuthorizationRulesRequest::AuthorizationRules>> authorizationRules_ {};
   };
 

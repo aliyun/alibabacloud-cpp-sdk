@@ -121,13 +121,13 @@ namespace Models
 
 
     protected:
-      // Domain ID.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
-      // Domain name.
+      // The domain name.
       shared_ptr<string> name_ {};
-      // Network type.
+      // The network type.
       shared_ptr<string> networkType_ {};
-      // Protocol.
+      // The protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -221,11 +221,11 @@ namespace Models
 
 
       protected:
-        // Routing mode.
+        // The routing mode.
         shared_ptr<string> mode_ {};
-        // Queue size.
+        // The queue size.
         shared_ptr<int32_t> queueSize_ {};
-        // Maximum traffic ratio for a single service.
+        // The maximum traffic ratio for a single service.
         shared_ptr<float> rateLimit_ {};
       };
 
@@ -329,31 +329,31 @@ namespace Models
 
 
     protected:
-      // Gateway service ID.
+      // The gateway service ID.
       shared_ptr<string> gatewayServiceId_ {};
-      // Intent code.
+      // The intent code.
       shared_ptr<string> intentCode_ {};
-      // Matching conditions.
+      // The matching condition.
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
-      // Model name.
+      // The model name.
       shared_ptr<string> modelName_ {};
-      // Model name matching rule.
+      // The model name matching rule.
       shared_ptr<string> modelNamePattern_ {};
-      // Multi-service routing strategy type.
+      // The multi-service routing strategy type.
       shared_ptr<string> multiServiceRouteStrategy_ {};
-      // Service display name.
+      // The service display name.
       shared_ptr<string> name_ {};
-      // Observability-based routing configuration.
+      // The observability metric routing configuration.
       shared_ptr<ServiceConfigs::ObservabilityRouteConfig> observabilityRouteConfig_ {};
-      // Service port number.
+      // The service port number.
       shared_ptr<int32_t> port_ {};
-      // Service protocol (HTTP/HTTPS).
+      // The service protocol (HTTP/HTTPS).
       shared_ptr<string> protocol_ {};
-      // Service ID.
+      // The service ID.
       shared_ptr<string> serviceId_ {};
-      // Service version tag.
+      // The service version label.
       shared_ptr<string> version_ {};
-      // Service weight.
+      // The service weight.
       shared_ptr<int64_t> weight_ {};
     };
 
@@ -404,8 +404,11 @@ namespace Models
 
 
     protected:
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
+      // The domain name.
       shared_ptr<string> name_ {};
+      // The protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -456,11 +459,11 @@ namespace Models
 
 
     protected:
-      // Domain ID.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
-      // Domain name.
+      // The domain name.
       shared_ptr<string> name_ {};
-      // Protocol.
+      // The protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -603,34 +606,37 @@ namespace Models
 
 
   protected:
-    // Whether to enable automatic deployment.
+    // Specifies whether to automatically deploy.
     shared_ptr<bool> autoDeploy_ {};
-    // Deployment scenario.
+    // The publishing scenario.
     shared_ptr<string> backendScene_ {};
+    // The list of built-in route names.
     shared_ptr<vector<string>> builtinRouteNames_ {};
-    // List of custom domain IDs.
+    // The list of custom domain name IDs.
     shared_ptr<vector<string>> customDomainIds_ {};
-    // List of custom domain details.
+    // The list of custom domain name details.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
+    // The list of environment domain name IDs. If this parameter is not specified, all environment domain names are associated. An empty array indicates that no environment domain names are associated.
     shared_ptr<vector<string>> envDomainIds_ {};
+    // The list of environment domain name details.
     shared_ptr<vector<HttpApiDeployConfig::EnvDomainInfos>> envDomainInfos_ {};
-    // Environment ID.
+    // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // Gateway instance ID.
+    // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
-    // Gateway information.
+    // The gateway information.
     shared_ptr<GatewayInfo> gatewayInfo_ {};
-    // Gateway type.
+    // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // Mock configuration.
+    // The mock configuration.
     shared_ptr<HttpApiMockContract> mock_ {};
-    // List of policy configurations.
+    // The list of policy configurations.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
-    // Backend service information.
+    // The backend service information.
     shared_ptr<Backend> routeBackend_ {};
-    // List of service configurations.
+    // The list of service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
-    // List of second-level domain details.
+    // The list of subdomain details.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
   };
 

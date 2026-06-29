@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The zero-based index of the Redis database to use. The default value is 0.
+    // The Redis database number.
     shared_ptr<int32_t> databaseNumber_ {};
-    // The hostname of the Redis instance.
+    // The Redis host address.
     shared_ptr<string> host_ {};
-    // The password for Redis authentication.
+    // The Redis password.
     shared_ptr<string> password_ {};
-    // The port number of the Redis instance.
+    // The Redis port.
     shared_ptr<int32_t> port_ {};
-    // The connection timeout in milliseconds.
+    // The timeout period, in milliseconds.
     shared_ptr<int32_t> timeout_ {};
-    // The username for Redis authentication.
+    // The Redis username.
     shared_ptr<string> username_ {};
   };
 

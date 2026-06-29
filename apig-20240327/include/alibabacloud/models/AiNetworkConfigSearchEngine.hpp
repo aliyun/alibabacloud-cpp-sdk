@@ -124,25 +124,25 @@ namespace Models
 
 
   protected:
-    // Required. The API key to authenticate requests to the search engine service.
+    // The API key of the search engine.
     shared_ptr<string> apiKey_ {};
-    // The search content mode, which determines how the service interprets the query and returns results.
+    // Quark-specific: the content mode.
     shared_ptr<string> contentMode_ {};
-    // The number of search results to return. If this parameter is omitted, the service uses a default value.
+    // The number of results returned per search.
     shared_ptr<int32_t> count_ {};
-    // The endpoint URL for the search engine service.
+    // The endpoint of the search engine.
     shared_ptr<string> endpoint_ {};
-    // The industry context for tailoring search results to a specific domain.
+    // Quark-specific: the industry filter.
     shared_ptr<string> industry_ {};
-    // Optional. A key-value map for service-specific parameters not covered by the standard configuration.
+    // The search engine-specific parameters in key-value pair format.
     shared_ptr<map<string, string>> optionArgs_ {};
-    // The starting offset for the search results, used for pagination. For example, a value of 10 skips the first 10 results. The default is 0.
+    // The offset of search results.
     shared_ptr<int32_t> start_ {};
-    // The time range for filtering results by their creation or modification date.
+    // Quark-specific: the time range filter.
     shared_ptr<string> timeRange_ {};
-    // The request timeout in milliseconds. If a request exceeds this time, the service terminates it.
+    // The API call timeout period, in milliseconds.
     shared_ptr<int32_t> timeoutMillisecond_ {};
-    // Specifies the search engine service to use.
+    // The search engine type.
     shared_ptr<string> type_ {};
   };
 

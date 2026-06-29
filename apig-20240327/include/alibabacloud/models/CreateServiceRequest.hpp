@@ -107,7 +107,7 @@ namespace Models
 
 
       protected:
-        // Skip AI chat completion verification
+        // Specifies whether to skip AI chat completion verification.
         shared_ptr<bool> skipVerifyAIChatCompletion_ {};
       };
 
@@ -202,32 +202,32 @@ namespace Models
 
 
     protected:
-      // The list of domain names or fixed IP addresses.
+      // The list of domain names or fixed addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // Agent service configuration
+      // The Agent service configuration. This parameter is required when sourceType is set to AGENT.
       shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
-      // The AI service configurations.
+      // The AI service configuration.
       shared_ptr<AiServiceConfig> aiServiceConfig_ {};
-      // The list of DNS service addresses.
+      // The list of DNS server addresses.
       shared_ptr<vector<string>> dnsServers_ {};
-      // Express type
+      // The service expression type that identifies the special type or mode of the service.
       shared_ptr<string> expressType_ {};
-      // The service group name. This parameter is required if sourceType is set to MSE_NACOS.
+      // The service group name. This parameter is required when sourceType is set to MSE_NACOS.
       shared_ptr<string> groupName_ {};
       // The service name.
       shared_ptr<string> name_ {};
-      // The service namespace. This parameter is required when sourceType is set to K8S or MSE_NACOS.
+      // The namespace of the service.
       // 
-      // *   If sourceType is set to K8S, this parameter specifies the namespace where the K8s service resides.
-      // *   If sourceType is set to MSE_NACOS, this parameter specifies a namespace in Nacos.
+      // - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
+      // - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.
       // 
-      // This parameter is required if sourceType is set to K8S or MSE_NACOS.
+      // This parameter is required when sourceType is set to K8S or MSE_NACOS.
       shared_ptr<string> namespace_ {};
-      // The function version/alias.
+      // The function version or alias.
       shared_ptr<string> qualifier_ {};
-      // Service source ID
+      // The service source ID. This parameter is required in multi-Nacos instance scenarios.
       shared_ptr<string> sourceId_ {};
-      // Validation options
+      // The validation options for service verification configuration.
       shared_ptr<ServiceConfigs::ValidationOptions> validationOptions_ {};
     };
 
@@ -271,31 +271,23 @@ namespace Models
 
 
   protected:
-    // The gateway instance ID.
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of service configurations.
+    // The list of service configurations. At least one service configuration is required.
     shared_ptr<vector<CreateServiceRequest::ServiceConfigs>> serviceConfigs_ {};
-    // The service source type. Valid values:
-    // 
-    // *   MSE_NACOS: MSE Nacos instance services
-    // *   K8S: Container Service for Kubernetes (ACK) cluster services
-    // *   VIP: fixed IP addresses
-    // *   DNS: Domain Name System (DNS) domains
-    // *   FC3: Function Compute services
-    // *   SAE_K8S_SERVICE: Serverless App Engine (SAE) Kubernetes services
-    // 
-    // Valid values:
-    // 
-    // *   SAE_K8S_SERVICE
-    // *   K8S
-    // *   FC3
-    // *   DNS
-    // *   VIP
-    // *   MSE_NACOS
+    // The service source. Valid values:
+    // - MSE_NACOS: a service in MSE Nacos.
+    // - K8S: a service in a Kubernetes cluster of Container Service.
+    // - VIP: a fixed address service.
+    // - DNS: a DNS domain name service.
+    // - FC3: a service in Function Compute.
+    // - SAE_K8S_SERVICE: an SAE Kubernetes service.
+    // - AI: an AI service.
+    // - AGENT: an Agent service.
     shared_ptr<string> sourceType_ {};
-    // clientToken
+    // The client token.
     shared_ptr<string> clientToken_ {};
   };
 

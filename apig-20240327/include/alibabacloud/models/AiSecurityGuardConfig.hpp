@@ -122,9 +122,9 @@ namespace Models
 
 
       protected:
-        // The location in the request to search for the `pattern`. For example: `header` or `query`.
+        // The matching method.
         shared_ptr<string> matchType_ {};
-        // The pattern for matching a consumer. This can be a regular expression.
+        // The consumer matching pattern value.
         shared_ptr<string> pattern_ {};
       };
 
@@ -154,11 +154,11 @@ namespace Models
 
 
     protected:
-      // Contains rules that override the default settings for specific consumers.
+      // The consumer-level matching rules.
       shared_ptr<RiskConfig::ConsumerRules> consumerRules_ {};
-      // The default risk level for this risk type. For example: `low`, `medium`, or `high`.
+      // The risk level.
       shared_ptr<string> level_ {};
-      // The type of risk to configure. For example: `profanity` or `spam`.
+      // The risk dimension type.
       shared_ptr<string> type_ {};
     };
 
@@ -218,13 +218,13 @@ namespace Models
 
 
     protected:
-      // The risk level to apply to the specified consumer and risk type. For example: `low`, `medium`, or `high`.
+      // The risk level.
       shared_ptr<string> level_ {};
-      // The match type for identifying the consumer. For example: `header` or `query`.
+      // The consumer matching method.
       shared_ptr<string> matchType_ {};
-      // The identifier of the consumer.
+      // The consumer name.
       shared_ptr<string> name_ {};
-      // The type of risk to configure. For example: `profanity` or `spam`.
+      // The risk dimension type.
       shared_ptr<string> type_ {};
     };
 
@@ -293,15 +293,15 @@ namespace Models
 
 
     protected:
-      // The match type for identifying the consumer. For example: `header` or `query`.
+      // The consumer matching method.
       shared_ptr<string> matchType_ {};
-      // The modality type for this rule. For example: `text` or `image`.
+      // The modality type.
       shared_ptr<string> modalityType_ {};
-      // The identifier of the consumer.
+      // The consumer name.
       shared_ptr<string> name_ {};
-      // The identifier of the response check service for text content for this consumer.
+      // The check service.
       shared_ptr<string> responseCheckService_ {};
-      // The identifier of the response check service for image content for this consumer.
+      // The image check service.
       shared_ptr<string> responseImageCheckService_ {};
     };
 
@@ -370,15 +370,15 @@ namespace Models
 
 
     protected:
-      // The match type for identifying the consumer. For example: `header` or `query`.
+      // The consumer matching method.
       shared_ptr<string> matchType_ {};
-      // The modality type for this rule. For example: `text` or `image`.
+      // The modality type.
       shared_ptr<string> modalityType_ {};
-      // The identifier of the consumer.
+      // The consumer name.
       shared_ptr<string> name_ {};
-      // The identifier of the request check service for text content for this consumer.
+      // The check service.
       shared_ptr<string> requestCheckService_ {};
-      // The identifier of the request check service for image content for this consumer.
+      // The image check service.
       shared_ptr<string> requestImageCheckService_ {};
     };
 
@@ -509,37 +509,37 @@ namespace Models
 
 
   protected:
-    // The buffer limit in bytes for streaming content checks. The service buffers content up to this limit before sending it for analysis.
+    // The response buffer size in KB. Default value: 1000. Valid values: 1 to 1500.
     shared_ptr<int32_t> bufferLimit_ {};
-    // Specifies whether to check the content of incoming requests.
+    // Specifies whether to check request content.
     shared_ptr<bool> checkRequest_ {};
-    // Specifies whether to check incoming requests for image content. Requires `checkRequest` to be `true`.
+    // Specifies whether to check request images.
     shared_ptr<bool> checkRequestImage_ {};
-    // Specifies whether to check the content of outgoing responses.
+    // Specifies whether to check response content.
     shared_ptr<bool> checkResponse_ {};
-    // Specifies whether to check outgoing responses for image content. Requires `checkResponse` to be `true`.
+    // Specifies whether to check response images.
     shared_ptr<bool> checkResponseImage_ {};
-    // Specifies consumer-specific configurations for the request check service.
+    // The consumer-level request detection service configuration.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerRequestCheckService>> consumerRequestCheckService_ {};
-    // Specifies consumer-specific configurations for the response check service.
+    // The consumer-level response detection service configuration.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerResponseCheckService>> consumerResponseCheckService_ {};
-    // Specifies customized risk thresholds for different consumers.
+    // The consumer-level risk level configuration.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerRiskLevel>> consumerRiskLevel_ {};
-    // Controls whether the AI Security Guard plugin is enabled or disabled.
+    // The plugin running status.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
-    // The identifier of the request check service for text content.
+    // The ServiceCode of the request text detection service (system-injected default value).
     shared_ptr<string> requestCheckService_ {};
-    // The identifier of the request check service for image content.
+    // The ServiceCode of the request image detection service (system-injected default value).
     shared_ptr<string> requestImageCheckService_ {};
-    // The identifier of the response check service for text content.
+    // The ServiceCode of the response text detection service (system-injected default value).
     shared_ptr<string> responseCheckService_ {};
-    // The identifier of the response check service for image content.
+    // The ServiceCode of the response image detection service (system-injected default value).
     shared_ptr<string> responseImageCheckService_ {};
-    // The risk alert level. The service triggers an alert when a detected risk meets or exceeds this level.
+    // The global risk alert level.
     shared_ptr<string> riskAlertLevel_ {};
-    // Specifies general risk configurations.
+    // The risk dimension configuration list (system-injected, normalized from ConsumerRiskLevel).
     shared_ptr<vector<AiSecurityGuardConfig::RiskConfig>> riskConfig_ {};
-    // The service address of the security check endpoint.
+    // The security guardrail service address (green-cip endpoint). Use the VPC internal address when the gateway and security guardrail are in the same region.
     shared_ptr<string> serviceAddress_ {};
   };
 

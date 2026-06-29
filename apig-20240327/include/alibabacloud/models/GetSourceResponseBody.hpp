@@ -121,11 +121,11 @@ namespace Models
 
 
       protected:
-        // Nacos instance access address.
+        // The access address of the Nacos instance.
         shared_ptr<string> address_ {};
-        // Cluster ID.
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
-        // Nacos instance ID.
+        // The Nacos instance ID.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -157,7 +157,7 @@ namespace Models
 
 
       protected:
-        // Container Service cluster ID.
+        // The container service cluster ID.
         shared_ptr<string> clusterId_ {};
       };
 
@@ -248,23 +248,23 @@ namespace Models
     protected:
       shared_ptr<string> associationReason_ {};
       shared_ptr<string> associationStatus_ {};
-      // Creation timestamp.
+      // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Gateway ID.
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // K8s source information.
+      // The Kubernetes source information.
       shared_ptr<Data::K8SSourceInfo> k8SSourceInfo_ {};
-      // MSE Nacos source information.
+      // The Microservices Engine (MSE) Nacos source information.
       shared_ptr<Data::NacosSourceInfo> nacosSourceInfo_ {};
-      // Name.
+      // The name.
       shared_ptr<string> name_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Source ID.
+      // The source ID.
       shared_ptr<string> sourceId_ {};
-      // Type.
+      // The type.
       shared_ptr<string> type_ {};
-      // Update timestamp.
+      // The update timestamp.
       shared_ptr<int64_t> updateTimestamp_ {};
     };
 
@@ -301,11 +301,11 @@ namespace Models
 
 
   protected:
-    // Response status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The response data.
     shared_ptr<GetSourceResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
     // ID of the request
     shared_ptr<string> requestId_ {};

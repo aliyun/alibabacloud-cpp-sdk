@@ -330,6 +330,10 @@
 #include <alibabacloud/models/ListSslCertsRequest.hpp>
 #include <alibabacloud/models/ListSslCertsResponseBody.hpp>
 #include <alibabacloud/models/ListSslCertsResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
 #include <alibabacloud/models/ListZonesResponseBody.hpp>
 #include <alibabacloud/models/ListZonesResponse.hpp>
 #include <alibabacloud/models/QueryConsumerAuthorizationRulesRequest.hpp>
@@ -345,6 +349,9 @@
 #include <alibabacloud/models/SyncMCPServersRequest.hpp>
 #include <alibabacloud/models/SyncMCPServersResponseBody.hpp>
 #include <alibabacloud/models/SyncMCPServersResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
 #include <alibabacloud/models/UnDeployMcpServerResponseBody.hpp>
 #include <alibabacloud/models/UnDeployMcpServerResponse.hpp>
 #include <alibabacloud/models/UndeployHttpApiRequest.hpp>
@@ -352,6 +359,10 @@
 #include <alibabacloud/models/UndeployHttpApiResponse.hpp>
 #include <alibabacloud/models/UninstallPluginResponseBody.hpp>
 #include <alibabacloud/models/UninstallPluginResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateAndAttachPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateAndAttachPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateAndAttachPolicyResponse.hpp>

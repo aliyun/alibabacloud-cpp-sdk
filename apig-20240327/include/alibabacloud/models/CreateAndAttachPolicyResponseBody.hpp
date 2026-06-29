@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The association information of the policy.
+      // Attachment information.
       shared_ptr<Attachment> attachment_ {};
-      // The policy ID.
+      // Policy ID.
       shared_ptr<string> policyId_ {};
     };
 
@@ -115,13 +115,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // Response code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // Response data.
     shared_ptr<CreateAndAttachPolicyResponseBody::Data> data_ {};
-    // The response message returned.
+    // Response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to trace the call link.
+    // Request ID, used for tracing the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

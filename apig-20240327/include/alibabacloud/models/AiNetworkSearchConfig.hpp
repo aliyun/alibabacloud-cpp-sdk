@@ -113,15 +113,15 @@ namespace Models
 
 
     protected:
-      // Whether to enable the search query rewrite feature.
+      // Specifies whether to enable search query rewriting.
       shared_ptr<bool> enable_ {};
-      // The maximum number of rewritten queries to generate.
+      // The maximum number of search queries after rewriting.
       shared_ptr<int32_t> maxCount_ {};
-      // The name of the model to use for query rewriting.
+      // The name of the model used for rewriting.
       shared_ptr<string> modelName_ {};
-      // The ID of the query rewriting service.
+      // The ID of the rewriting service.
       shared_ptr<string> serviceId_ {};
-      // Timeout for the query rewriting operation, in milliseconds.
+      // The timeout period for the rewriting request, in milliseconds.
       shared_ptr<int32_t> timeoutMillisecond_ {};
     };
 
@@ -200,23 +200,23 @@ namespace Models
 
 
   protected:
-    // Whether the network search feature is enabled by default.
+    // Specifies whether the plug-in feature is enabled by default.
     shared_ptr<bool> defaultEnable_ {};
-    // The default language for the search query.
+    // The default search language code.
     shared_ptr<string> defaultLang_ {};
-    // Whether to include references in the search results.
+    // Specifies whether to add reference sources in the answer.
     shared_ptr<bool> needReference_ {};
-    // The status of the AI plugin.
+    // The plug-in running status.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
-    // The format of the references.
+    // The format template for reference content. The template must contain at least one %s placeholder.
     shared_ptr<string> referenceFormat_ {};
-    // The location of the references in the response.
+    // The reference location.
     shared_ptr<string> referenceLocation_ {};
     // The search engine configuration.
     shared_ptr<AiNetworkConfigSearchEngine> searchEngineConfig_ {};
-    // A list of search engine configurations for the network search.
+    // The list of search engines (multi-engine configuration).
     shared_ptr<vector<AiNetworkConfigSearchEngine>> searchFrom_ {};
-    // Configuration for search query rewriting.
+    // The search term rewriting configuration.
     shared_ptr<AiNetworkSearchConfig::SearchRewrite> searchRewrite_ {};
   };
 

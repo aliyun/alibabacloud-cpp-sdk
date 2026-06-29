@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // 域名信息列表。
+      // The list of domain name information.
       shared_ptr<vector<DomainInfo>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

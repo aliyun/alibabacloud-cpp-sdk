@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Filters the list of operations based on a specific consumer authorization rule ID. Only authorized operations are returned in the response.
+      // The consumer authorization rule ID. When this ID is used to filter the API list, the response contains only the authorized APIs.
       shared_ptr<string> consumerAuthorizationRuleId_ {};
     };
 
@@ -100,11 +100,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<CreateConsumerAuthorizationRuleResponseBody::Data> data_ {};
-    // The status message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -156,25 +156,25 @@ namespace Models
 
 
     protected:
-      // As configurações de autenticação por par de AccessKey.
+      // The AK/SK identity authentication configurations.
       shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
-      // A configuração de autenticação de chave de API.
+      // The API key identity authentication configuration.
       shared_ptr<ApiKeyIdentityConfig> apiKeyIdentityConfig_ {};
-      // O ID do consumidor de API.
+      // The consumer ID.
       shared_ptr<string> consumerId_ {};
-      // O carimbo de data/hora de criação.
+      // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // O status de publicação da API no ambiente atual.
+      // The publish status of the API in the current environment.
       shared_ptr<string> deployStatus_ {};
-      // A descrição.
+      // The description.
       shared_ptr<string> description_ {};
-      // Indica se o consumidor de API está habilitado.
+      // Indicates whether the consumer is enabled.
       shared_ptr<bool> enable_ {};
-      // A configuração de autenticação JWT.
+      // The JWT identity authentication configuration.
       shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};
-      // O nome do consumidor de API.
+      // The consumer name.
       shared_ptr<string> name_ {};
-      // O carimbo de data/hora de atualização.
+      // The update timestamp.
       shared_ptr<int64_t> updateTimestamp_ {};
     };
 
@@ -211,13 +211,13 @@ namespace Models
 
 
   protected:
-    // O código de resposta.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Os dados de resposta.
+    // The response data.
     shared_ptr<GetConsumerResponseBody::Data> data_ {};
-    // A mensagem de resposta.
+    // The response message.
     shared_ptr<string> message_ {};
-    // O ID da solicitação.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

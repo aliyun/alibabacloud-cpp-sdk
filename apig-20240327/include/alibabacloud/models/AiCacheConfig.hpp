@@ -117,17 +117,17 @@ namespace Models
 
 
     protected:
-      // The API key to authenticate with the vector database service.
+      // The API key of the vector database.
       shared_ptr<string> apiKey_ {};
-      // The unique ID of the collection or index within the vector database for search and storage.
+      // The vector collection ID.
       shared_ptr<string> collectionId_ {};
-      // The endpoint URL of the vector database service.
+      // The service address of the vector database.
       shared_ptr<string> serviceHost_ {};
-      // The similarity threshold for a vector search to qualify as a cache hit. The value must be between 0.0 and 1.0. A higher value means a stricter similarity requirement.
+      // The similarity threshold.
       shared_ptr<float> threshold_ {};
-      // The request timeout in milliseconds. A request to the vector service fails if it exceeds this duration. Default: `10000`.
+      // The request timeout period, in milliseconds.
       shared_ptr<int32_t> timeout_ {};
-      // The type of vector database service. For example, specify `DashVector` for Alibaba Cloud\\"s vector search service.
+      // The vector database type.
       shared_ptr<string> type_ {};
     };
 
@@ -187,13 +187,13 @@ namespace Models
 
 
     protected:
-      // The model name to use for generating embeddings, such as `text-embedding-v1`.
+      // The embedding model name.
       shared_ptr<string> modelName_ {};
-      // The service ID of the deployed embedding model.
+      // The embedding service ID.
       shared_ptr<string> serviceId_ {};
-      // The request timeout in milliseconds. A request to the embedding service fails if it exceeds this duration. Default: `10000`.
+      // The request timeout period, in milliseconds.
       shared_ptr<int32_t> timeout_ {};
-      // The type of embedding service. For example, specify `Tongyi` for Alibaba Cloud\\"s Tongyi Qwen model series.
+      // The embedding service type.
       shared_ptr<string> type_ {};
     };
 
@@ -258,19 +258,19 @@ namespace Models
 
 
   protected:
-    // The cache key strategy, which determines how the system generates a unique key for each cacheable request. Valid values: `DEFAULT` and `CUSTOM`.
+    // The cache key generation strategy.
     shared_ptr<string> cacheKeyStrategy_ {};
-    // The cache mode, which defines the caching behavior. Valid values are `NORMAL` for standard key-value caching and `SEMANTIC` for vector-based similarity caching.
+    // The cache mode.
     shared_ptr<string> cacheMode_ {};
-    // The cache Time-to-Live (TTL) in seconds. This specifies the duration that a cached response remains valid. After the TTL expires, the cache removes the response.
+    // The cache expiration time, in seconds.
     shared_ptr<int32_t> cacheTTL_ {};
-    // The embedding configuration. Specifies the service that converts text queries into vector embeddings for semantic search.
+    // The embedding service configuration.
     shared_ptr<AiCacheConfig::EmbeddingConfig> embeddingConfig_ {};
-    // The plugin status. Set to `enable` to activate the plugin or `disable` to deactivate it.
+    // The plugin running status.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
-    // The Redis configuration, required if you use a Redis instance as the cache backend.
+    // The Redis configuration for exact cache count storage.
     shared_ptr<AiPolicyRedisConfig> redisConfig_ {};
-    // The vector configuration for semantic caching. This enables the cache to retrieve results based on semantic similarity instead of exact matches.
+    // The vector database configuration.
     shared_ptr<AiCacheConfig::VectorConfig> vectorConfig_ {};
   };
 

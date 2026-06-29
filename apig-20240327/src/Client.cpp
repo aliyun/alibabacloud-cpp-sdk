@@ -328,7 +328,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Creates and associates a policy.
+ * @summary Creates and attaches a policy.
  *
  * @param request CreateAndAttachPolicyRequest
  * @param headers map
@@ -389,7 +389,7 @@ CreateAndAttachPolicyResponse Client::createAndAttachPolicyWithOptions(const Cre
 }
 
 /**
- * @summary Creates and associates a policy.
+ * @summary Creates and attaches a policy.
  *
  * @param request CreateAndAttachPolicyRequest
  * @return CreateAndAttachPolicyResponse
@@ -531,7 +531,7 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRule(
 }
 
 /**
- * @summary Create consumer authorization rules.
+ * @summary Creates consumer authorization rules.
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @param headers map
@@ -564,7 +564,7 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
 }
 
 /**
- * @summary Create consumer authorization rules.
+ * @summary Creates consumer authorization rules.
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @return CreateConsumerAuthorizationRulesResponse
@@ -738,7 +738,7 @@ CreateEnvironmentResponse Client::createEnvironment(const CreateEnvironmentReque
 }
 
 /**
- * @summary The zone information.
+ * @summary Creates a cloud-native gateway.
  *
  * @param request CreateGatewayRequest
  * @param headers map
@@ -811,7 +811,7 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
 }
 
 /**
- * @summary The zone information.
+ * @summary Creates a cloud-native gateway.
  *
  * @param request CreateGatewayRequest
  * @return CreateGatewayResponse
@@ -1062,7 +1062,7 @@ CreateHttpApiRouteResponse Client::createHttpApiRoute(const string &httpApiId, c
 }
 
 /**
- * @summary Creates an MCP server.
+ * @summary Creates a Model Context Protocol (MCP) server.
  *
  * @param request CreateMcpServerRequest
  * @param headers map
@@ -1147,7 +1147,7 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
 }
 
 /**
- * @summary Creates an MCP server.
+ * @summary Creates a Model Context Protocol (MCP) server.
  *
  * @param request CreateMcpServerRequest
  * @return CreateMcpServerResponse
@@ -1159,7 +1159,7 @@ CreateMcpServerResponse Client::createMcpServer(const CreateMcpServerRequest &re
 }
 
 /**
- * @summary Attaches a plug-in.
+ * @summary Mounts a plug-in.
  *
  * @param request CreatePluginAttachmentRequest
  * @param headers map
@@ -1216,7 +1216,7 @@ CreatePluginAttachmentResponse Client::createPluginAttachmentWithOptions(const C
 }
 
 /**
- * @summary Attaches a plug-in.
+ * @summary Mounts a plug-in.
  *
  * @param request CreatePluginAttachmentRequest
  * @return CreatePluginAttachmentResponse
@@ -1413,7 +1413,7 @@ CreateSecretResponse Client::createSecret(const CreateSecretRequest &request) {
 /**
  * @summary Creates a service.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description This operation supports creating multiple services.
  *
  * @param request CreateServiceRequest
  * @param headers map
@@ -1466,7 +1466,7 @@ CreateServiceResponse Client::createServiceWithOptions(const CreateServiceReques
 /**
  * @summary Creates a service.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description This operation supports creating multiple services.
  *
  * @param request CreateServiceRequest
  * @return CreateServiceResponse
@@ -1527,7 +1527,7 @@ CreateServiceVersionResponse Client::createServiceVersion(const string &serviceI
 }
 
 /**
- * @summary Create a source.
+ * @summary Creates a source.
  *
  * @param request CreateSourceRequest
  * @param headers map
@@ -1576,7 +1576,7 @@ CreateSourceResponse Client::createSourceWithOptions(const CreateSourceRequest &
 }
 
 /**
- * @summary Create a source.
+ * @summary Creates a source.
  *
  * @param request CreateSourceRequest
  * @return CreateSourceResponse
@@ -1588,7 +1588,7 @@ CreateSourceResponse Client::createSource(const CreateSourceRequest &request) {
 }
 
 /**
- * @summary Deletes a consumer.
+ * @summary Deletes an API consumer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1613,7 +1613,7 @@ DeleteConsumerResponse Client::deleteConsumerWithOptions(const string &consumerI
 }
 
 /**
- * @summary Deletes a consumer.
+ * @summary Deletes an API consumer.
  *
  * @return DeleteConsumerResponse
  */
@@ -1624,7 +1624,7 @@ DeleteConsumerResponse Client::deleteConsumer(const string &consumerId) {
 }
 
 /**
- * @summary Deletes a consumer authorization rule.
+ * @summary Deletes an API consumer authorization rule.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1649,7 +1649,7 @@ DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRuleW
 }
 
 /**
- * @summary Deletes a consumer authorization rule.
+ * @summary Deletes an API consumer authorization rule.
  *
  * @return DeleteConsumerAuthorizationRuleResponse
  */
@@ -1736,7 +1736,7 @@ DeleteEnvironmentResponse Client::deleteEnvironment(const string &environmentId)
 }
 
 /**
- * @summary Deletes a Cloud-native API Gateway instance.
+ * @summary Deletes a gateway.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1761,7 +1761,7 @@ DeleteGatewayResponse Client::deleteGatewayWithOptions(const string &gatewayId, 
 }
 
 /**
- * @summary Deletes a Cloud-native API Gateway instance.
+ * @summary Deletes a gateway.
  *
  * @return DeleteGatewayResponse
  */
@@ -1815,7 +1815,7 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRule(const string &gate
 }
 
 /**
- * @summary Deletes a security group rule from a Cloud-native API Gateway instance.
+ * @summary Deletes a gateway security group rule.
  *
  * @param request DeleteGatewaySecurityGroupRuleRequest
  * @param headers map
@@ -1848,7 +1848,7 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRuleWit
 }
 
 /**
- * @summary Deletes a security group rule from a Cloud-native API Gateway instance.
+ * @summary Deletes a gateway security group rule.
  *
  * @param request DeleteGatewaySecurityGroupRuleRequest
  * @return DeleteGatewaySecurityGroupRuleResponse
@@ -1896,7 +1896,7 @@ DeleteHttpApiResponse Client::deleteHttpApi(const string &httpApiId) {
 }
 
 /**
- * @summary Deletes an operation from an HTTP API.
+ * @summary Deletes a specified operation.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1921,7 +1921,7 @@ DeleteHttpApiOperationResponse Client::deleteHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Deletes an operation from an HTTP API.
+ * @summary Deletes a specified operation.
  *
  * @return DeleteHttpApiOperationResponse
  */
@@ -2004,7 +2004,7 @@ DeleteMcpServerResponse Client::deleteMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Deletes a plug-in attachment.
+ * @summary Deletes a plugin mount.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2029,7 +2029,7 @@ DeletePluginAttachmentResponse Client::deletePluginAttachmentWithOptions(const s
 }
 
 /**
- * @summary Deletes a plug-in attachment.
+ * @summary Deletes a plugin mount.
  *
  * @return DeletePluginAttachmentResponse
  */
@@ -2224,7 +2224,7 @@ DeleteServiceVersionResponse Client::deleteServiceVersion(const string &serviceI
 }
 
 /**
- * @summary Delete a service source.
+ * @summary Deletes a service source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2249,7 +2249,7 @@ DeleteSourceResponse Client::deleteSourceWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary Delete a service source.
+ * @summary Deletes a service source.
  *
  * @return DeleteSourceResponse
  */
@@ -2260,7 +2260,7 @@ DeleteSourceResponse Client::deleteSource(const string &sourceId) {
 }
 
 /**
- * @summary Deploy an HTTP API, including REST and HTTP API routes.
+ * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
  *
  * @param request DeployHttpApiRequest
  * @param headers map
@@ -2301,7 +2301,7 @@ DeployHttpApiResponse Client::deployHttpApiWithOptions(const string &httpApiId, 
 }
 
 /**
- * @summary Deploy an HTTP API, including REST and HTTP API routes.
+ * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
  *
  * @param request DeployHttpApiRequest
  * @return DeployHttpApiResponse
@@ -2394,7 +2394,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Exports the specified HTTP API.
+ * @summary Exports a specified HTTP API.
  *
  * @param request ExportHttpApiRequest
  * @param headers map
@@ -2435,7 +2435,7 @@ ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, 
 }
 
 /**
- * @summary Exports the specified HTTP API.
+ * @summary Exports a specified HTTP API.
  *
  * @param request ExportHttpApiRequest
  * @return ExportHttpApiResponse
@@ -2519,7 +2519,7 @@ GetConsumerAuthorizationRuleResponse Client::getConsumerAuthorizationRule(const 
 }
 
 /**
- * @summary Obtains data from dashboards.
+ * @summary Retrieves the monitoring log dashboard.
  *
  * @param tmpReq GetDashboardRequest
  * @param headers map
@@ -2590,7 +2590,7 @@ GetDashboardResponse Client::getDashboardWithOptions(const string &gatewayId, co
 }
 
 /**
- * @summary Obtains data from dashboards.
+ * @summary Retrieves the monitoring log dashboard.
  *
  * @param request GetDashboardRequest
  * @return GetDashboardResponse
@@ -2882,7 +2882,7 @@ GetHttpApiResponse Client::getHttpApi(const string &httpApiId) {
 }
 
 /**
- * @summary Get Operation
+ * @summary Retrieves operation information.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2907,7 +2907,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperationWithOptions(const string 
 }
 
 /**
- * @summary Get Operation
+ * @summary Retrieves operation information.
  *
  * @return GetHttpApiOperationResponse
  */
@@ -3030,7 +3030,7 @@ GetPluginAttachmentResponse Client::getPluginAttachment(const string &pluginAtta
 }
 
 /**
- * @summary Queries a policy.
+ * @summary Retrieves a policy.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3055,7 +3055,7 @@ GetPolicyResponse Client::getPolicyWithOptions(const string &policyId, const map
 }
 
 /**
- * @summary Queries a policy.
+ * @summary Retrieves a policy.
  *
  * @return GetPolicyResponse
  */
@@ -3227,7 +3227,7 @@ GetSecretValueResponse Client::getSecretValue(const string &name) {
 }
 
 /**
- * @summary Queries a service.
+ * @summary Gets service details.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3252,7 +3252,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &serviceId, const 
 }
 
 /**
- * @summary Queries a service.
+ * @summary Gets service details.
  *
  * @return GetServiceResponse
  */
@@ -3263,7 +3263,7 @@ GetServiceResponse Client::getService(const string &serviceId) {
 }
 
 /**
- * @summary Queries the details of a service source.
+ * @summary Retrieves the details of a service source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3288,7 +3288,7 @@ GetSourceResponse Client::getSourceWithOptions(const string &sourceId, const map
 }
 
 /**
- * @summary Queries the details of a service source.
+ * @summary Retrieves the details of a service source.
  *
  * @return GetSourceResponse
  */
@@ -4736,7 +4736,7 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
- * @summary Queries policy templates.
+ * @summary Retrieves policy templates.
  *
  * @param request ListPolicyClassesRequest
  * @param headers map
@@ -4793,7 +4793,7 @@ ListPolicyClassesResponse Client::listPolicyClassesWithOptions(const ListPolicyC
 }
 
 /**
- * @summary Queries policy templates.
+ * @summary Retrieves policy templates.
  *
  * @param request ListPolicyClassesRequest
  * @return ListPolicyClassesResponse
@@ -4919,7 +4919,7 @@ ListSecretsResponse Client::listSecrets(const ListSecretsRequest &request) {
 }
 
 /**
- * @summary Queries a list of services.
+ * @summary Retrieves a list of services.
  *
  * @param request ListServicesRequest
  * @param headers map
@@ -4976,7 +4976,7 @@ ListServicesResponse Client::listServicesWithOptions(const ListServicesRequest &
 }
 
 /**
- * @summary Queries a list of services.
+ * @summary Retrieves a list of services.
  *
  * @param request ListServicesRequest
  * @return ListServicesResponse
@@ -5042,6 +5042,73 @@ ListSslCertsResponse Client::listSslCerts(const ListSslCertsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listSslCertsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查标签接口
+ *
+ * @param tmpReq ListTagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListTagResourcesShrinkRequest request = ListTagResourcesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceId()) {
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
+  }
+
+  if (!!tmpReq.hasTag()) {
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceIdShrink()) {
+    query["ResourceId"] = request.getResourceIdShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagShrink()) {
+    query["Tag"] = request.getTagShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagResources"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/tags")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
+}
+
+/**
+ * @summary 查标签接口
+ *
+ * @param request ListTagResourcesRequest
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTagResourcesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5392,6 +5459,59 @@ SyncMCPServersResponse Client::syncMCPServers(const SyncMCPServersRequest &reque
 }
 
 /**
+ * @summary 打标签接口
+ *
+ * @param request TagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasResourceId()) {
+    body["resourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    body["tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/tags")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary 打标签接口
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return tagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Undeploys an MCP server.
  *
  * @param headers map
@@ -5521,7 +5641,74 @@ UninstallPluginResponse Client::uninstallPlugin(const string &pluginId) {
 }
 
 /**
- * @summary Updates and associates a policy.
+ * @summary 删标签接口
+ *
+ * @param tmpReq UntagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UntagResourcesShrinkRequest request = UntagResourcesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceId()) {
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
+  }
+
+  if (!!tmpReq.hasTagKey()) {
+    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKey(), "TagKey", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.getAll();
+  }
+
+  if (!!request.hasResourceIdShrink()) {
+    query["ResourceId"] = request.getResourceIdShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKeyShrink()) {
+    query["TagKey"] = request.getTagKeyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/tags")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary 删标签接口
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return untagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Updates and mounts a policy.
  *
  * @param request UpdateAndAttachPolicyRequest
  * @param headers map
@@ -5578,7 +5765,7 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicyWithOptions(const str
 }
 
 /**
- * @summary Updates and associates a policy.
+ * @summary Updates and mounts a policy.
  *
  * @param request UpdateAndAttachPolicyRequest
  * @return UpdateAndAttachPolicyResponse
@@ -5706,7 +5893,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRule(
 /**
  * @summary Updates a domain name.
  *
- * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+ * @description Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
  *
  * @param request UpdateDomainRequest
  * @param headers map
@@ -5781,7 +5968,7 @@ UpdateDomainResponse Client::updateDomainWithOptions(const string &domainId, con
 /**
  * @summary Updates a domain name.
  *
- * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
+ * @description Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
  *
  * @param request UpdateDomainRequest
  * @return UpdateDomainResponse
@@ -5891,6 +6078,8 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeature(const string &gatewayI
 }
 
 /**
+ * @deprecated OpenAPI UpdateGatewayName is deprecated
+ *
  * @summary The response message returned.
  *
  * @param request UpdateGatewayNameRequest
@@ -5924,6 +6113,8 @@ UpdateGatewayNameResponse Client::updateGatewayNameWithOptions(const string &gat
 }
 
 /**
+ * @deprecated OpenAPI UpdateGatewayName is deprecated
+ *
  * @summary The response message returned.
  *
  * @param request UpdateGatewayNameRequest

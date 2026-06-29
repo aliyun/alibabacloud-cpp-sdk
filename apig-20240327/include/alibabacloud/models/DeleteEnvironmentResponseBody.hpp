@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID. You can use the ID to trace the request link.
+    // The request ID, which is used to trace the request chain.
     shared_ptr<string> requestId_ {};
   };
 

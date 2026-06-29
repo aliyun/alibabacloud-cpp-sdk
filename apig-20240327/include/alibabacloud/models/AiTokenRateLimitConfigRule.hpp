@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The action to take when a request exceeds the token rate limit.
+    // The throttling mode.
     shared_ptr<string> limitMode_ {};
-    // The scope of the rate limit, such as per user or per project.
+    // The throttling type.
     shared_ptr<string> limitType_ {};
-    // The maximum number of tokens allowed within the defined time period. For example, if the time unit is one minute, this value represents the tokens-per-minute (TPM) limit.
+    // The throttling value.
     shared_ptr<int32_t> limitValue_ {};
-    // The key that identifies the request source. Its value is extracted from the request context to apply the rule.
+    // The match key name.
     shared_ptr<string> matchKey_ {};
-    // The matching logic applied to the value of `matchKey`.
+    // The matching method.
     shared_ptr<string> matchType_ {};
-    // The value to match. The rate limit applies only when the value of `matchKey` in the request matches this value, according to the `matchType`.
+    // The match value.
     shared_ptr<string> matchValue_ {};
   };
 

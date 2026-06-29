@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The ID of the HTTP API.
+      // HTTP API ID。
       shared_ptr<string> httpApiId_ {};
     };
 
@@ -100,9 +100,9 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<DeployHttpApiResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
