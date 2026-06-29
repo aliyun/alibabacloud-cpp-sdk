@@ -756,6 +756,9 @@
 #include <alibabacloud/models/ResetAccountPasswordRequest.hpp>
 #include <alibabacloud/models/ResetAccountPasswordResponseBody.hpp>
 #include <alibabacloud/models/ResetAccountPasswordResponse.hpp>
+#include <alibabacloud/models/ResetBranchRequest.hpp>
+#include <alibabacloud/models/ResetBranchResponseBody.hpp>
+#include <alibabacloud/models/ResetBranchResponse.hpp>
 #include <alibabacloud/models/ResetIMVMonitorDataRequest.hpp>
 #include <alibabacloud/models/ResetIMVMonitorDataResponseBody.hpp>
 #include <alibabacloud/models/ResetIMVMonitorDataResponse.hpp>
@@ -768,6 +771,9 @@
 #include <alibabacloud/models/RestartSupabaseProjectRequest.hpp>
 #include <alibabacloud/models/RestartSupabaseProjectResponseBody.hpp>
 #include <alibabacloud/models/RestartSupabaseProjectResponse.hpp>
+#include <alibabacloud/models/RestoreBranchRequest.hpp>
+#include <alibabacloud/models/RestoreBranchResponseBody.hpp>
+#include <alibabacloud/models/RestoreBranchResponse.hpp>
 #include <alibabacloud/models/RestoreSnapshotRequest.hpp>
 #include <alibabacloud/models/RestoreSnapshotResponseBody.hpp>
 #include <alibabacloud/models/RestoreSnapshotResponse.hpp>
@@ -783,6 +789,9 @@
 #include <alibabacloud/models/ResumeSupabaseProjectRequest.hpp>
 #include <alibabacloud/models/ResumeSupabaseProjectResponseBody.hpp>
 #include <alibabacloud/models/ResumeSupabaseProjectResponse.hpp>
+#include <alibabacloud/models/SetAsDefaultBranchRequest.hpp>
+#include <alibabacloud/models/SetAsDefaultBranchResponseBody.hpp>
+#include <alibabacloud/models/SetAsDefaultBranchResponse.hpp>
 #include <alibabacloud/models/SetDBInstancePlanStatusRequest.hpp>
 #include <alibabacloud/models/SetDBInstancePlanStatusResponseBody.hpp>
 #include <alibabacloud/models/SetDBInstancePlanStatusResponse.hpp>
@@ -816,6 +825,9 @@
 #include <alibabacloud/models/UntagSupabaseProjectRequest.hpp>
 #include <alibabacloud/models/UntagSupabaseProjectResponseBody.hpp>
 #include <alibabacloud/models/UntagSupabaseProjectResponse.hpp>
+#include <alibabacloud/models/UpdateBranchRequest.hpp>
+#include <alibabacloud/models/UpdateBranchResponseBody.hpp>
+#include <alibabacloud/models/UpdateBranchResponse.hpp>
 #include <alibabacloud/models/UpdateCollectionDataMetadataRequest.hpp>
 #include <alibabacloud/models/UpdateCollectionDataMetadataShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCollectionDataMetadataResponseBody.hpp>

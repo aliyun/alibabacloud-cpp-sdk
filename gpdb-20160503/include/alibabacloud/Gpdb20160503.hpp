@@ -4799,6 +4799,27 @@ namespace Gpdb20160503
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
+       * @summary Resets a Supabase branch.
+       *
+       * @description Resets a child branch to the latest data of its parent branch. The main branch, branches without a parent branch, branches with child branches, and protected branches cannot be reset.
+       *
+       * @param request ResetBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetBranchResponse
+       */
+      Models::ResetBranchResponse resetBranchWithOptions(const Models::ResetBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resets a Supabase branch.
+       *
+       * @description Resets a child branch to the latest data of its parent branch. The main branch, branches without a parent branch, branches with child branches, and protected branches cannot be reset.
+       *
+       * @param request ResetBranchRequest
+       * @return ResetBranchResponse
+       */
+      Models::ResetBranchResponse resetBranch(const Models::ResetBranchRequest &request);
+
+      /**
        * @summary Resets the IMV statistics.
        *
        * @param request ResetIMVMonitorDataRequest
@@ -4881,6 +4902,27 @@ namespace Gpdb20160503
        * @return RestartSupabaseProjectResponse
        */
       Models::RestartSupabaseProjectResponse restartSupabaseProject(const Models::RestartSupabaseProjectRequest &request);
+
+      /**
+       * @summary Recovers a Supabase branch.
+       *
+       * @description Recovers a target branch to a specified point in time or LSN of the source branch. Before recovery, you can specify a backup branch name to preserve the original target branch.
+       *
+       * @param request RestoreBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestoreBranchResponse
+       */
+      Models::RestoreBranchResponse restoreBranchWithOptions(const Models::RestoreBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Recovers a Supabase branch.
+       *
+       * @description Recovers a target branch to a specified point in time or LSN of the source branch. Before recovery, you can specify a backup branch name to preserve the original target branch.
+       *
+       * @param request RestoreBranchRequest
+       * @return RestoreBranchResponse
+       */
+      Models::RestoreBranchResponse restoreBranch(const Models::RestoreBranchRequest &request);
 
       /**
        * @summary Restores a Supabase project from a snapshot.
@@ -4990,6 +5032,27 @@ namespace Gpdb20160503
        * @return ResumeSupabaseProjectResponse
        */
       Models::ResumeSupabaseProjectResponse resumeSupabaseProject(const Models::ResumeSupabaseProjectRequest &request);
+
+      /**
+       * @summary Sets the default branch for a Supabase project.
+       *
+       * @description Sets a specified branch as the default branch for a Supabase project.
+       *
+       * @param request SetAsDefaultBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAsDefaultBranchResponse
+       */
+      Models::SetAsDefaultBranchResponse setAsDefaultBranchWithOptions(const Models::SetAsDefaultBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the default branch for a Supabase project.
+       *
+       * @description Sets a specified branch as the default branch for a Supabase project.
+       *
+       * @param request SetAsDefaultBranchRequest
+       * @return SetAsDefaultBranchResponse
+       */
+      Models::SetAsDefaultBranchResponse setAsDefaultBranch(const Models::SetAsDefaultBranchRequest &request);
 
       /**
        * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
@@ -5192,6 +5255,27 @@ namespace Gpdb20160503
        * @return UntagSupabaseProjectResponse
        */
       Models::UntagSupabaseProjectResponse untagSupabaseProject(const Models::UntagSupabaseProjectRequest &request);
+
+      /**
+       * @summary Updates Supabase branch information.
+       *
+       * @description This operation modifies the branch name, description, tags, protection status, and automatic deletion time upon expiration.
+       *
+       * @param request UpdateBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBranchResponse
+       */
+      Models::UpdateBranchResponse updateBranchWithOptions(const Models::UpdateBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates Supabase branch information.
+       *
+       * @description This operation modifies the branch name, description, tags, protection status, and automatic deletion time upon expiration.
+       *
+       * @param request UpdateBranchRequest
+       * @return UpdateBranchResponse
+       */
+      Models::UpdateBranchResponse updateBranch(const Models::UpdateBranchRequest &request);
 
       /**
        * @summary Update Metadata of Collection Data
