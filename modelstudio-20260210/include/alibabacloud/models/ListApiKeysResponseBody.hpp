@@ -119,9 +119,9 @@ namespace Models
 
 
       protected:
-        // IP access whitelist.
+        // The IP address whitelist.
         shared_ptr<vector<string>> accessIps_ {};
-        // All: All permissions; Custom: Custom permissions.
+        // All: all permissions. Custom: custom permissions.
         shared_ptr<string> type_ {};
       };
 
@@ -187,24 +187,24 @@ namespace Models
 
 
     protected:
-      // API Key ID.
+      // API Key ID。
       shared_ptr<int64_t> apiKeyId_ {};
-      // Value of the API Key.
+      // The value of the API key.
       shared_ptr<string> apiKeyValue_ {};
-      // Permission settings.
+      // The permission settings.
       shared_ptr<ApiKeys::Auth> auth_ {};
-      // Creator.
+      // The creator.
       shared_ptr<string> createdBy_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Whether the API Key is disabled.
+      // Indicates whether the API key is disabled. Valid values:
       // 
       // - **0**: Active.
       // - **1**: Disabled.
       shared_ptr<int32_t> disabled_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Workspace ID.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -277,26 +277,26 @@ namespace Models
 
 
   protected:
-    // List of API Keys.
+    // The list of API keys.
     shared_ptr<vector<ListApiKeysResponseBody::ApiKeys>> apiKeys_ {};
-    // Response status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Used to return more results. This parameter is not required for the first query. The token required for subsequent queries can be obtained from the returned results.
+    // The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the API call is successful:
+    // Indicates whether the API call was successful. Valid values:
     // 
     // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

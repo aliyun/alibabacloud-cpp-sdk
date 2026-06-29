@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETSUBSCRIPTIONSEATDETAILSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_GETSUBSCRIPTIONSEATDETAILSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_LISTSUBSCRIPTIONSHAREDPACKAGESRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTSUBSCRIPTIONSHAREDPACKAGESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,27 +11,27 @@ namespace ModelStudio20260210
 {
 namespace Models
 {
-  class GetSubscriptionSeatDetailsResponseBody : public Darabonba::Model {
+  class ListSubscriptionSharedPackagesResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetSubscriptionSeatDetailsResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ListSubscriptionSharedPackagesResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, GetSubscriptionSeatDetailsResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ListSubscriptionSharedPackagesResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    GetSubscriptionSeatDetailsResponseBody() = default ;
-    GetSubscriptionSeatDetailsResponseBody(const GetSubscriptionSeatDetailsResponseBody &) = default ;
-    GetSubscriptionSeatDetailsResponseBody(GetSubscriptionSeatDetailsResponseBody &&) = default ;
-    GetSubscriptionSeatDetailsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetSubscriptionSeatDetailsResponseBody() = default ;
-    GetSubscriptionSeatDetailsResponseBody& operator=(const GetSubscriptionSeatDetailsResponseBody &) = default ;
-    GetSubscriptionSeatDetailsResponseBody& operator=(GetSubscriptionSeatDetailsResponseBody &&) = default ;
+    ListSubscriptionSharedPackagesResponseBody() = default ;
+    ListSubscriptionSharedPackagesResponseBody(const ListSubscriptionSharedPackagesResponseBody &) = default ;
+    ListSubscriptionSharedPackagesResponseBody(ListSubscriptionSharedPackagesResponseBody &&) = default ;
+    ListSubscriptionSharedPackagesResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListSubscriptionSharedPackagesResponseBody() = default ;
+    ListSubscriptionSharedPackagesResponseBody& operator=(const ListSubscriptionSharedPackagesResponseBody &) = default ;
+    ListSubscriptionSharedPackagesResponseBody& operator=(ListSubscriptionSharedPackagesResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -64,29 +64,13 @@ namespace Models
       class Items : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Items& obj) { 
-          DARABONBA_PTR_TO_JSON(AccountEmail, accountEmail_);
-          DARABONBA_PTR_TO_JSON(AccountId, accountId_);
-          DARABONBA_PTR_TO_JSON(AccountName, accountName_);
-          DARABONBA_PTR_TO_JSON(AssignedStatus, assignedStatus_);
-          DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(EquityList, equityList_);
           DARABONBA_PTR_TO_JSON(InstanceCode, instanceCode_);
-          DARABONBA_PTR_TO_JSON(SeatId, seatId_);
-          DARABONBA_PTR_TO_JSON(SpecType, specType_);
-          DARABONBA_PTR_TO_JSON(StartTime, startTime_);
           DARABONBA_PTR_TO_JSON(Status, status_);
         };
         friend void from_json(const Darabonba::Json& j, Items& obj) { 
-          DARABONBA_PTR_FROM_JSON(AccountEmail, accountEmail_);
-          DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
-          DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
-          DARABONBA_PTR_FROM_JSON(AssignedStatus, assignedStatus_);
-          DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(EquityList, equityList_);
           DARABONBA_PTR_FROM_JSON(InstanceCode, instanceCode_);
-          DARABONBA_PTR_FROM_JSON(SeatId, seatId_);
-          DARABONBA_PTR_FROM_JSON(SpecType, specType_);
-          DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
         };
         Items() = default ;
@@ -186,7 +170,7 @@ namespace Models
         protected:
           // The end time of the current cycle, in milliseconds.
           shared_ptr<int64_t> cycleEndTime_ {};
-          // The equity code (subscription code). This does not need to be consumed in CREDITS scenarios.
+          // The equity code (subscription code). This is not required for consumption in the credits scenario.
           shared_ptr<string> cycleInstanceId_ {};
           // The start time of the current cycle, in milliseconds.
           shared_ptr<int64_t> cycleStartTime_ {};
@@ -194,50 +178,14 @@ namespace Models
           shared_ptr<double> cycleSurplusValue_ {};
           // The total quota of the current cycle.
           shared_ptr<double> cycleTotalValue_ {};
-          // The time-series version of the current cycle.
+          // The sequential version of the current cycle.
           shared_ptr<int64_t> cycleVersion_ {};
           // The equity type, such as CREDITS, SPN, or resource plan.
           shared_ptr<string> equityType_ {};
         };
 
-        virtual bool empty() const override { return this->accountEmail_ == nullptr
-        && this->accountId_ == nullptr && this->accountName_ == nullptr && this->assignedStatus_ == nullptr && this->endTime_ == nullptr && this->equityList_ == nullptr
-        && this->instanceCode_ == nullptr && this->seatId_ == nullptr && this->specType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr; };
-        // accountEmail Field Functions 
-        bool hasAccountEmail() const { return this->accountEmail_ != nullptr;};
-        void deleteAccountEmail() { this->accountEmail_ = nullptr;};
-        inline string getAccountEmail() const { DARABONBA_PTR_GET_DEFAULT(accountEmail_, "") };
-        inline Items& setAccountEmail(string accountEmail) { DARABONBA_PTR_SET_VALUE(accountEmail_, accountEmail) };
-
-
-        // accountId Field Functions 
-        bool hasAccountId() const { return this->accountId_ != nullptr;};
-        void deleteAccountId() { this->accountId_ = nullptr;};
-        inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
-        inline Items& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
-
-
-        // accountName Field Functions 
-        bool hasAccountName() const { return this->accountName_ != nullptr;};
-        void deleteAccountName() { this->accountName_ = nullptr;};
-        inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
-        inline Items& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
-
-
-        // assignedStatus Field Functions 
-        bool hasAssignedStatus() const { return this->assignedStatus_ != nullptr;};
-        void deleteAssignedStatus() { this->assignedStatus_ = nullptr;};
-        inline string getAssignedStatus() const { DARABONBA_PTR_GET_DEFAULT(assignedStatus_, "") };
-        inline Items& setAssignedStatus(string assignedStatus) { DARABONBA_PTR_SET_VALUE(assignedStatus_, assignedStatus) };
-
-
-        // endTime Field Functions 
-        bool hasEndTime() const { return this->endTime_ != nullptr;};
-        void deleteEndTime() { this->endTime_ = nullptr;};
-        inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
-        inline Items& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
-
-
+        virtual bool empty() const override { return this->equityList_ == nullptr
+        && this->instanceCode_ == nullptr && this->status_ == nullptr; };
         // equityList Field Functions 
         bool hasEquityList() const { return this->equityList_ != nullptr;};
         void deleteEquityList() { this->equityList_ = nullptr;};
@@ -254,27 +202,6 @@ namespace Models
         inline Items& setInstanceCode(string instanceCode) { DARABONBA_PTR_SET_VALUE(instanceCode_, instanceCode) };
 
 
-        // seatId Field Functions 
-        bool hasSeatId() const { return this->seatId_ != nullptr;};
-        void deleteSeatId() { this->seatId_ = nullptr;};
-        inline string getSeatId() const { DARABONBA_PTR_GET_DEFAULT(seatId_, "") };
-        inline Items& setSeatId(string seatId) { DARABONBA_PTR_SET_VALUE(seatId_, seatId) };
-
-
-        // specType Field Functions 
-        bool hasSpecType() const { return this->specType_ != nullptr;};
-        void deleteSpecType() { this->specType_ = nullptr;};
-        inline string getSpecType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
-        inline Items& setSpecType(string specType) { DARABONBA_PTR_SET_VALUE(specType_, specType) };
-
-
-        // startTime Field Functions 
-        bool hasStartTime() const { return this->startTime_ != nullptr;};
-        void deleteStartTime() { this->startTime_ = nullptr;};
-        inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
-        inline Items& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
-
-
         // status Field Functions 
         bool hasStatus() const { return this->status_ != nullptr;};
         void deleteStatus() { this->status_ = nullptr;};
@@ -283,34 +210,12 @@ namespace Models
 
 
       protected:
-        // The mailbox of the member accounts.
-        shared_ptr<string> accountEmail_ {};
-        // The ID of the attached member accounts.
-        shared_ptr<string> accountId_ {};
-        // The name of the member accounts.
-        shared_ptr<string> accountName_ {};
-        // The assignment status. Valid values:
-        // 
-        // - ASSIGNED
-        // - UNASSIGNED
-        shared_ptr<string> assignedStatus_ {};
-        // The expiration time of the seat.
-        shared_ptr<int64_t> endTime_ {};
-        // The currently active equity instances. For TokenPlan products, this list contains only one active equity instance.
+        // The currently active equity instances.
         shared_ptr<vector<Items::EquityList>> equityList_ {};
         // The instance code of the seat.
         shared_ptr<string> instanceCode_ {};
-        // The seat ID.
-        shared_ptr<string> seatId_ {};
-        // The seat type. Valid values: 
-        // 
-        // - standard: standard seat.
-        // - pro: pro seat.
-        // - max: premium seat.
-        shared_ptr<string> specType_ {};
-        // The start time of the seat.
-        shared_ptr<int64_t> startTime_ {};
         // The seat status. Valid values:
+        // 
         // - CREATING: being created.
         // - NORMAL: active.
         // - LIMIT: restricted due to overdue payment.
@@ -353,9 +258,9 @@ namespace Models
 
 
     protected:
-      // The data items.
+      // The data entries.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The page number. The value is greater than 0 and does not exceed the maximum value of the Integer data type.
+      // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -369,43 +274,43 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline GetSubscriptionSeatDetailsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline ListSubscriptionSharedPackagesResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetSubscriptionSeatDetailsResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetSubscriptionSeatDetailsResponseBody::Data) };
-    inline GetSubscriptionSeatDetailsResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetSubscriptionSeatDetailsResponseBody::Data) };
-    inline GetSubscriptionSeatDetailsResponseBody& setData(const GetSubscriptionSeatDetailsResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetSubscriptionSeatDetailsResponseBody& setData(GetSubscriptionSeatDetailsResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ListSubscriptionSharedPackagesResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ListSubscriptionSharedPackagesResponseBody::Data) };
+    inline ListSubscriptionSharedPackagesResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListSubscriptionSharedPackagesResponseBody::Data) };
+    inline ListSubscriptionSharedPackagesResponseBody& setData(const ListSubscriptionSharedPackagesResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListSubscriptionSharedPackagesResponseBody& setData(ListSubscriptionSharedPackagesResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline GetSubscriptionSeatDetailsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline ListSubscriptionSharedPackagesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline GetSubscriptionSeatDetailsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline ListSubscriptionSharedPackagesResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
     // The business data.
-    shared_ptr<GetSubscriptionSeatDetailsResponseBody::Data> data_ {};
+    shared_ptr<ListSubscriptionSharedPackagesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // - true: Successful.
-    // - false: Failed.
+    // - true: The call is successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

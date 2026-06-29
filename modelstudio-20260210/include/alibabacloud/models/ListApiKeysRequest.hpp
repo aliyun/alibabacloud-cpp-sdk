@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(order, order_);
+      DARABONBA_PTR_TO_JSON(orderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListApiKeysRequest& obj) { 
@@ -24,6 +26,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(order, order_);
+      DARABONBA_PTR_FROM_JSON(orderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     ListApiKeysRequest() = default ;
@@ -38,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->description_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->orderBy_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -67,6 +72,20 @@ namespace Models
     inline ListApiKeysRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // order Field Functions 
+    bool hasOrder() const { return this->order_ != nullptr;};
+    void deleteOrder() { this->order_ = nullptr;};
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline ListApiKeysRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
+
+
+    // orderBy Field Functions 
+    bool hasOrderBy() const { return this->orderBy_ != nullptr;};
+    void deleteOrderBy() { this->orderBy_ = nullptr;};
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline ListApiKeysRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -75,15 +94,27 @@ namespace Models
 
 
   protected:
-    // Exact search by API Key ID.
+    // The API key ID for exact match.
     shared_ptr<int64_t> apiKeyId_ {};
-    // Fuzzy search by description keyword.
+    // The keyword for fuzzy match against the description.
     shared_ptr<string> description_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
-    // Used to return more results. This parameter is not required for the first query. The token required for subsequent queries can be obtained from the returned results.
+    // The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
     shared_ptr<string> nextToken_ {};
-    // Exact search by workspace ID.
+    // The sort order. Valid values:
+    // 
+    // - DESC (default)
+    // 
+    // - ASC.
+    shared_ptr<string> order_ {};
+    // The field by which to sort results. Valid values:
+    // 
+    // - apiKeyId (default)
+    // 
+    // - gmtCreate.
+    shared_ptr<string> orderBy_ {};
+    // The workspace ID for exact match.
     shared_ptr<string> workspaceId_ {};
   };
 

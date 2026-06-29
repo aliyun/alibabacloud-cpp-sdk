@@ -57,18 +57,6 @@ AddOrganizationMemberResponse Client::addOrganizationMemberWithOptions(const Add
     query["AccountName"] = request.getAccountName();
   }
 
-  if (!!request.hasCallerUacAccountId()) {
-    query["CallerUacAccountId"] = request.getCallerUacAccountId();
-  }
-
-  if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.getNamespaceId();
-  }
-
-  if (!!request.hasOrgId()) {
-    query["OrgId"] = request.getOrgId();
-  }
-
   if (!!request.hasOrgRoleCode()) {
     query["OrgRoleCode"] = request.getOrgRoleCode();
   }
@@ -108,7 +96,7 @@ AddOrganizationMemberResponse Client::addOrganizationMember(const AddOrganizatio
 }
 
 /**
- * @summary Assigns seats in bulk to the member level.
+ * @summary Assigns seats in batches to the member level.
  *
  * @param request BatchAssignSeatsRequest
  * @param headers map
@@ -122,28 +110,12 @@ BatchAssignSeatsResponse Client::batchAssignSeatsWithOptions(const BatchAssignSe
     query["AccountIds"] = request.getAccountIds();
   }
 
-  if (!!request.hasAccountIdsStr()) {
-    query["AccountIdsStr"] = request.getAccountIdsStr();
-  }
-
-  if (!!request.hasCallerUacAccountId()) {
-    query["CallerUacAccountId"] = request.getCallerUacAccountId();
-  }
-
   if (!!request.hasLocale()) {
     query["Locale"] = request.getLocale();
   }
 
-  if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.getNamespaceId();
-  }
-
   if (!!request.hasSeatType()) {
     query["SeatType"] = request.getSeatType();
-  }
-
-  if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -165,7 +137,7 @@ BatchAssignSeatsResponse Client::batchAssignSeatsWithOptions(const BatchAssignSe
 }
 
 /**
- * @summary Assigns seats in bulk to the member level.
+ * @summary Assigns seats in batches to the member level.
  *
  * @param request BatchAssignSeatsRequest
  * @return BatchAssignSeatsResponse
@@ -174,6 +146,61 @@ BatchAssignSeatsResponse Client::batchAssignSeats(const BatchAssignSeatsRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return batchAssignSeatsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Revokes member-level seats in batches.
+ *
+ * @param tmpReq BatchRevokeSeatsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchRevokeSeatsResponse
+ */
+BatchRevokeSeatsResponse Client::batchRevokeSeatsWithOptions(const BatchRevokeSeatsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchRevokeSeatsShrinkRequest request = BatchRevokeSeatsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasItems()) {
+    request.setItemsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItems(), "Items", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasItemsShrink()) {
+    query["Items"] = request.getItemsShrink();
+  }
+
+  if (!!request.hasLocale()) {
+    query["Locale"] = request.getLocale();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchRevokeSeats"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/subscription/seat-revocations")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchRevokeSeatsResponse>();
+}
+
+/**
+ * @summary Revokes member-level seats in batches.
+ *
+ * @param request BatchRevokeSeatsRequest
+ * @return BatchRevokeSeatsResponse
+ */
+BatchRevokeSeatsResponse Client::batchRevokeSeats(const BatchRevokeSeatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchRevokeSeatsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -232,6 +259,69 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
+ * @summary Creates a TokenPlan member invitation link.
+ *
+ * @description A user can have only one valid invitation link at a time.
+ * If the user already has a valid invitation link, this operation returns the existing link.
+ * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
+ * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+ * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+ *
+ * @param request CreateTokenPlanInviteLinkRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTokenPlanInviteLinkResponse
+ */
+CreateTokenPlanInviteLinkResponse Client::createTokenPlanInviteLinkWithOptions(const CreateTokenPlanInviteLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpireType()) {
+    query["ExpireType"] = request.getExpireType();
+  }
+
+  if (!!request.hasSsoSource()) {
+    query["SsoSource"] = request.getSsoSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTokenPlanInviteLink"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/invite/link/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTokenPlanInviteLinkResponse>();
+}
+
+/**
+ * @summary Creates a TokenPlan member invitation link.
+ *
+ * @description A user can have only one valid invitation link at a time.
+ * If the user already has a valid invitation link, this operation returns the existing link.
+ * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
+ * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+ * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+ *
+ * @param request CreateTokenPlanInviteLinkRequest
+ * @return CreateTokenPlanInviteLinkResponse
+ */
+CreateTokenPlanInviteLinkResponse Client::createTokenPlanInviteLink(const CreateTokenPlanInviteLinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTokenPlanInviteLinkWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a UAC API key.
  *
  * @param request CreateTokenPlanKeyRequest
@@ -246,20 +336,8 @@ CreateTokenPlanKeyResponse Client::createTokenPlanKeyWithOptions(const CreateTok
     query["AccountId"] = request.getAccountId();
   }
 
-  if (!!request.hasCallerUacAccountId()) {
-    query["CallerUacAccountId"] = request.getCallerUacAccountId();
-  }
-
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
-  }
-
-  if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.getNamespaceId();
-  }
-
-  if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -551,6 +629,88 @@ GetApiKeyResponse Client::getApiKey(const string &apiKeyId) {
 }
 
 /**
+ * @summary Retrieves information about a specified organization.
+ *
+ * @description Retrieves information about a specified organization by OrgId.
+ *
+ * @param request GetOrganizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOrganizationResponse
+ */
+GetOrganizationResponse Client::getOrganizationWithOptions(const GetOrganizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetOrganization"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/organization")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOrganizationResponse>();
+}
+
+/**
+ * @summary Retrieves information about a specified organization.
+ *
+ * @description Retrieves information about a specified organization by OrgId.
+ *
+ * @param request GetOrganizationRequest
+ * @return GetOrganizationResponse
+ */
+GetOrganizationResponse Client::getOrganization(const GetOrganizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getOrganizationWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+ *
+ * @param request GetOrganizationMemberSeatStatsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOrganizationMemberSeatStatsResponse
+ */
+GetOrganizationMemberSeatStatsResponse Client::getOrganizationMemberSeatStatsWithOptions(const GetOrganizationMemberSeatStatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetOrganizationMemberSeatStats"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/organization/member-seat-stats")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOrganizationMemberSeatStatsResponse>();
+}
+
+/**
+ * @summary Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+ *
+ * @param request GetOrganizationMemberSeatStatsRequest
+ * @return GetOrganizationMemberSeatStatsResponse
+ */
+GetOrganizationMemberSeatStatsResponse Client::getOrganizationMemberSeatStats(const GetOrganizationMemberSeatStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getOrganizationMemberSeatStatsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries seat details by paging.
  *
  * @param request GetSubscriptionSeatDetailsRequest
@@ -561,14 +721,6 @@ GetApiKeyResponse Client::getApiKey(const string &apiKeyId) {
 GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetailsWithOptions(const GetSubscriptionSeatDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasCallerUacAccountId()) {
-    query["CallerUacAccountId"] = request.getCallerUacAccountId();
-  }
-
-  if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.getNamespaceId();
-  }
-
   if (!!request.hasPageNo()) {
     query["PageNo"] = request.getPageNo();
   }
@@ -591,10 +743,6 @@ GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetailsWithOptions
 
   if (!!request.hasStatusList()) {
     query["StatusList"] = request.getStatusList();
-  }
-
-  if (!!request.hasStatusListStr()) {
-    query["StatusListStr"] = request.getStatusListStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -628,7 +776,175 @@ GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetails(const GetS
 }
 
 /**
- * @summary Obtain the list of authentication credential API Key information.
+ * @summary Queries the number of members and seats for member management.
+ *
+ * @param request GetSubscriptionStatsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSubscriptionStatsResponse
+ */
+GetSubscriptionStatsResponse Client::getSubscriptionStatsWithOptions(const GetSubscriptionStatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSubscriptionStats"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/subscription/stats")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSubscriptionStatsResponse>();
+}
+
+/**
+ * @summary Queries the number of members and seats for member management.
+ *
+ * @param request GetSubscriptionStatsRequest
+ * @return GetSubscriptionStatsResponse
+ */
+GetSubscriptionStatsResponse Client::getSubscriptionStats(const GetSubscriptionStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSubscriptionStatsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the TokenPlan account details and organization information.
+ *
+ * @description Retrieves the TokenPlan management platform account information when the user is logged in.
+ *
+ * @param request GetTokenPlanAccountDetailRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTokenPlanAccountDetailResponse
+ */
+GetTokenPlanAccountDetailResponse Client::getTokenPlanAccountDetailWithOptions(const GetTokenPlanAccountDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTokenPlanAccountDetail"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/account")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTokenPlanAccountDetailResponse>();
+}
+
+/**
+ * @summary Retrieves the TokenPlan account details and organization information.
+ *
+ * @description Retrieves the TokenPlan management platform account information when the user is logged in.
+ *
+ * @param request GetTokenPlanAccountDetailRequest
+ * @return GetTokenPlanAccountDetailResponse
+ */
+GetTokenPlanAccountDetailResponse Client::getTokenPlanAccountDetail(const GetTokenPlanAccountDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTokenPlanAccountDetailWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the TokenPlan member invitation link.
+ *
+ * @description This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+ * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+ *
+ * @param request GetTokenPlanInviteLinkRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTokenPlanInviteLinkResponse
+ */
+GetTokenPlanInviteLinkResponse Client::getTokenPlanInviteLinkWithOptions(const GetTokenPlanInviteLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTokenPlanInviteLink"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/invite/link/get")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTokenPlanInviteLinkResponse>();
+}
+
+/**
+ * @summary Retrieves the TokenPlan member invitation link.
+ *
+ * @description This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+ * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+ * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+ *
+ * @param request GetTokenPlanInviteLinkRequest
+ * @return GetTokenPlanInviteLinkResponse
+ */
+GetTokenPlanInviteLinkResponse Client::getTokenPlanInviteLink(const GetTokenPlanInviteLinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTokenPlanInviteLinkWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the TokenPlan member invitation configuration.
+ *
+ * @param request GetTokenPlanOrgInviteConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTokenPlanOrgInviteConfigResponse
+ */
+GetTokenPlanOrgInviteConfigResponse Client::getTokenPlanOrgInviteConfigWithOptions(const GetTokenPlanOrgInviteConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTokenPlanOrgInviteConfig"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/invite/config/get")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTokenPlanOrgInviteConfigResponse>();
+}
+
+/**
+ * @summary Retrieves the TokenPlan member invitation configuration.
+ *
+ * @param request GetTokenPlanOrgInviteConfigRequest
+ * @return GetTokenPlanOrgInviteConfigResponse
+ */
+GetTokenPlanOrgInviteConfigResponse Client::getTokenPlanOrgInviteConfig(const GetTokenPlanOrgInviteConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTokenPlanOrgInviteConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a list of API key authentication credentials.
  *
  * @param request ListApiKeysRequest
  * @param headers map
@@ -654,6 +970,14 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
     query["nextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasOrder()) {
+    query["order"] = request.getOrder();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["orderBy"] = request.getOrderBy();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["workspaceId"] = request.getWorkspaceId();
   }
@@ -677,7 +1001,7 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary Obtain the list of authentication credential API Key information.
+ * @summary Retrieves a list of API key authentication credentials.
  *
  * @param request ListApiKeysRequest
  * @return ListApiKeysResponse
@@ -686,6 +1010,120 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listApiKeysWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+ *
+ * @param request ListOrganizationMembersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOrganizationMembersResponse
+ */
+ListOrganizationMembersResponse Client::listOrganizationMembersWithOptions(const ListOrganizationMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHasSeat()) {
+    query["HasSeat"] = request.getHasSeat();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOrganizationMembers"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/organization/members")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOrganizationMembersResponse>();
+}
+
+/**
+ * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+ *
+ * @param request ListOrganizationMembersRequest
+ * @return ListOrganizationMembersResponse
+ */
+ListOrganizationMembersResponse Client::listOrganizationMembers(const ListOrganizationMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listOrganizationMembersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of shared packages by paging.
+ *
+ * @param request ListSubscriptionSharedPackagesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSubscriptionSharedPackagesResponse
+ */
+ListSubscriptionSharedPackagesResponse Client::listSubscriptionSharedPackagesWithOptions(const ListSubscriptionSharedPackagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatusList()) {
+    query["StatusList"] = request.getStatusList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSubscriptionSharedPackages"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/subscription/shared-packages")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSubscriptionSharedPackagesResponse>();
+}
+
+/**
+ * @summary Queries the details of shared packages by paging.
+ *
+ * @param request ListSubscriptionSharedPackagesRequest
+ * @return ListSubscriptionSharedPackagesResponse
+ */
+ListSubscriptionSharedPackagesResponse Client::listSubscriptionSharedPackages(const ListSubscriptionSharedPackagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSubscriptionSharedPackagesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -746,6 +1184,55 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
+ * @summary Removes organization members. Before removal, checks whether the member holds a seat. If the member holds a seat, the removal is rejected.
+ *
+ * @param request RemoveOrganizationMemberRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveOrganizationMemberResponse
+ */
+RemoveOrganizationMemberResponse Client::removeOrganizationMemberWithOptions(const RemoveOrganizationMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountIds()) {
+    query["AccountIds"] = request.getAccountIds();
+  }
+
+  if (!!request.hasLocale()) {
+    query["Locale"] = request.getLocale();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveOrganizationMember"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/organization/member-removals")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveOrganizationMemberResponse>();
+}
+
+/**
+ * @summary Removes organization members. Before removal, checks whether the member holds a seat. If the member holds a seat, the removal is rejected.
+ *
+ * @param request RemoveOrganizationMemberRequest
+ * @return RemoveOrganizationMemberResponse
+ */
+RemoveOrganizationMemberResponse Client::removeOrganizationMember(const RemoveOrganizationMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return removeOrganizationMemberWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Resets an API key.
  *
  * @description Only the API key value changes. The API key ID remains unchanged.
@@ -786,6 +1273,143 @@ ResetApiKeyResponse Client::resetApiKey(const string &apiKeyId, const ResetApiKe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return resetApiKeyWithOptions(apiKeyId, request, headers, runtime);
+}
+
+/**
+ * @summary Revokes a TokenPlan member invitation link.
+ *
+ * @param request RevokeTokenPlanInviteLinkRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeTokenPlanInviteLinkResponse
+ */
+RevokeTokenPlanInviteLinkResponse Client::revokeTokenPlanInviteLinkWithOptions(const RevokeTokenPlanInviteLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeTokenPlanInviteLink"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/invite/link/revoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeTokenPlanInviteLinkResponse>();
+}
+
+/**
+ * @summary Revokes a TokenPlan member invitation link.
+ *
+ * @param request RevokeTokenPlanInviteLinkRequest
+ * @return RevokeTokenPlanInviteLinkResponse
+ */
+RevokeTokenPlanInviteLinkResponse Client::revokeTokenPlanInviteLink(const RevokeTokenPlanInviteLinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return revokeTokenPlanInviteLinkWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Resets a UAC API key.
+ *
+ * @description Only the API Key value changes. The API Key ID remains unchanged.
+ *
+ * @param request RotateTokenPlanKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RotateTokenPlanKeyResponse
+ */
+RotateTokenPlanKeyResponse Client::rotateTokenPlanKeyWithOptions(const RotateTokenPlanKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["ApiKeyId"] = request.getApiKeyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RotateTokenPlanKey"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/api-key-rotations")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RotateTokenPlanKeyResponse>();
+}
+
+/**
+ * @summary Resets a UAC API key.
+ *
+ * @description Only the API Key value changes. The API Key ID remains unchanged.
+ *
+ * @param request RotateTokenPlanKeyRequest
+ * @return RotateTokenPlanKeyResponse
+ */
+RotateTokenPlanKeyResponse Client::rotateTokenPlanKey(const RotateTokenPlanKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return rotateTokenPlanKeyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Configures the member invitation settings for a TokenPlan.
+ *
+ * @param request SetTokenPlanOrgInviteConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetTokenPlanOrgInviteConfigResponse
+ */
+SetTokenPlanOrgInviteConfigResponse Client::setTokenPlanOrgInviteConfigWithOptions(const SetTokenPlanOrgInviteConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDefaultRoleId()) {
+    query["DefaultRoleId"] = request.getDefaultRoleId();
+  }
+
+  if (!!request.hasSeatAssignStrategy()) {
+    query["SeatAssignStrategy"] = request.getSeatAssignStrategy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetTokenPlanOrgInviteConfig"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/invite/config/set")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetTokenPlanOrgInviteConfigResponse>();
+}
+
+/**
+ * @summary Configures the member invitation settings for a TokenPlan.
+ *
+ * @param request SetTokenPlanOrgInviteConfigRequest
+ * @return SetTokenPlanOrgInviteConfigResponse
+ */
+SetTokenPlanOrgInviteConfigResponse Client::setTokenPlanOrgInviteConfig(const SetTokenPlanOrgInviteConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return setTokenPlanOrgInviteConfigWithOptions(request, headers, runtime);
 }
 
 /**
@@ -837,6 +1461,104 @@ UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyId, const UpdateAp
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateApiKeyWithOptions(apiKeyId, request, headers, runtime);
+}
+
+/**
+ * @summary Modifies organization information.
+ *
+ * @param request UpdateOrganizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOrganizationResponse
+ */
+UpdateOrganizationResponse Client::updateOrganizationWithOptions(const UpdateOrganizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateOrganization"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/organization")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOrganizationResponse>();
+}
+
+/**
+ * @summary Modifies organization information.
+ *
+ * @param request UpdateOrganizationRequest
+ * @return UpdateOrganizationResponse
+ */
+UpdateOrganizationResponse Client::updateOrganization(const UpdateOrganizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateOrganizationWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 修改组织成员角色
+ *
+ * @param request UpdateOrganizationMemberRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOrganizationMemberResponse
+ */
+UpdateOrganizationMemberResponse Client::updateOrganizationMemberWithOptions(const UpdateOrganizationMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountIds()) {
+    query["AccountIds"] = request.getAccountIds();
+  }
+
+  if (!!request.hasNewRoleCode()) {
+    query["NewRoleCode"] = request.getNewRoleCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateOrganizationMember"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/organization/members/update")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOrganizationMemberResponse>();
+}
+
+/**
+ * @summary 修改组织成员角色
+ *
+ * @param request UpdateOrganizationMemberRequest
+ * @return UpdateOrganizationMemberResponse
+ */
+UpdateOrganizationMemberResponse Client::updateOrganizationMember(const UpdateOrganizationMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateOrganizationMemberWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace ModelStudio20260210
