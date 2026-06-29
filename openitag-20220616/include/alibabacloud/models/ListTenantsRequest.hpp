@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTTENANTSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTTENANTSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace OpenITag20220616
+{
+namespace Models
+{
+  class ListTenantsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListTenantsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListTenantsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+    };
+    ListTenantsRequest() = default ;
+    ListTenantsRequest(const ListTenantsRequest &) = default ;
+    ListTenantsRequest(ListTenantsRequest &&) = default ;
+    ListTenantsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListTenantsRequest() = default ;
+    ListTenantsRequest& operator=(const ListTenantsRequest &) = default ;
+    ListTenantsRequest& operator=(ListTenantsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr; };
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline ListTenantsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline ListTenantsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+  protected:
+    // Page number of the tenant list. The starting value is 1. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // Number of tenants displayed per page in a paged query. Default value: 20.
+    shared_ptr<int32_t> pageSize_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace OpenITag20220616
+#endif
