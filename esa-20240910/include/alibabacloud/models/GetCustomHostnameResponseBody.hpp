@@ -303,15 +303,15 @@ namespace Models
       shared_ptr<int64_t> casId_ {};
       // The error code for the free certificate application.
       shared_ptr<int64_t> certApplyCode_ {};
-      // The error description for the free certificate application.
+      // The error message for the free certificate application.
       shared_ptr<string> certApplyMessage_ {};
-      // The certificate verification HTTP address.
+      // The HTTP address for certificate verification.
       shared_ptr<string> certHttpKey_ {};
-      // The certificate verification HTTP content.
+      // The HTTP content for certificate verification.
       shared_ptr<string> certHttpValue_ {};
       // The certificate ID.
       shared_ptr<string> certId_ {};
-      // The certificate expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The certificate expiration time, in ISO 8601 format with UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> certNotAfter_ {};
       // The certificate status. Valid values:
       // - **OK**: Normal.
@@ -320,9 +320,9 @@ namespace Models
       // - **Expiring**: About to expire.
       // - **Expired**: Expired.
       shared_ptr<string> certStatus_ {};
-      // The certificate verification TXT name.
+      // The TXT name for certificate verification.
       shared_ptr<string> certTxtKey_ {};
-      // The certificate verification TXT content.
+      // The TXT content for certificate verification.
       shared_ptr<string> certTxtValue_ {};
       // The certificate type. Valid values:
       // - **free**: Free certificate.
@@ -336,8 +336,9 @@ namespace Models
       // - **existing_record**: Conflicts with an existing site record.
       // - **existing_load_balancer**: Conflicts with an existing load balancing instance.
       // - **existing_origin_pool**: Conflicts with an existing origin IPAM pool.
+      // - **existing_site**: Conflicts with an existing site.
       shared_ptr<string> conflictWith_ {};
-      // The time when the SaaS domain name was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the SaaS domain name was created, in ISO 8601 format with UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The SaaS domain name.
       shared_ptr<string> hostname_ {};
@@ -348,7 +349,7 @@ namespace Models
       // - **internally_disabled**: Disabled by the system.
       // - **missing_icp**: The domain name does not have an ICP filing.
       // - **content_violation**: Content violation.
-      // - **proactively_disabled**: You proactively disabled the domain name or the usage cap that you configured was reached.
+      // - **proactively_disabled**: You proactively disabled the domain name or the usage cap you configured was reached.
       shared_ptr<string> offlineReason_ {};
       // The private key of the certificate.
       shared_ptr<string> privateKey_ {};
@@ -371,11 +372,11 @@ namespace Models
       // - **offline**: Offline.
       // - **configuring**: Being configured.
       shared_ptr<string> status_ {};
-      // The time when the SaaS domain name was last updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the SaaS domain name was last updated, in ISO 8601 format with UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> updateTime_ {};
-      // The domain verification TXT content.
+      // The TXT content for domain verification.
       shared_ptr<string> verifyCode_ {};
-      // The domain verification TXT name.
+      // The TXT name for domain verification.
       shared_ptr<string> verifyHost_ {};
     };
 

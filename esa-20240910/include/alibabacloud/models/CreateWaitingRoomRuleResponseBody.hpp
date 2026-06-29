@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The waiting room bypass rule ID.
+    // The ID of the waiting room bypass rule.
     shared_ptr<int64_t> waitingRoomRuleId_ {};
   };
 

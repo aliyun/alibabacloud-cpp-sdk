@@ -113,32 +113,38 @@ namespace Models
 
   protected:
     // The bypass mode. Valid values:
-    // - on: enabled.
+    // - on: enabled
     // - off: disabled.
     shared_ptr<string> bypass_ {};
     // The fallback-to-origin switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin server. Valid values:
-    // - on: enabled.
-    // - off: disabled.
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> fallback_ {};
     // The route switch. Valid values:
-    // - on: enabled.
+    // - on: enabled
     // - off: disabled.
+    // 
+    // This parameter is required.
     shared_ptr<string> routeEnable_ {};
     // The route name.
+    // 
+    // This parameter is required.
     shared_ptr<string> routeName_ {};
-    // The name of the edge function routine.
+    // The Edge Routine name.
     // 
     // This parameter is required.
     shared_ptr<string> routineName_ {};
     // The rule content.
+    // 
+    // This parameter is required.
     shared_ptr<string> rule_ {};
-    // The rule execution sequence.
+    // The rule execution order.
     shared_ptr<int32_t> sequence_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The edge routine timeout period. Valid values: 5 to 60. Unit: seconds.
+    // The Edge Routine timeout period. Valid values: 5 to 60.
     shared_ptr<string> timeout_ {};
   };
 

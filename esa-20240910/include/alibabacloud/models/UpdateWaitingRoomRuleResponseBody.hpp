@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Request ID, used for tracking the progress of request processing.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

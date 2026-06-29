@@ -94,25 +94,24 @@ namespace Models
 
 
   protected:
-    // The configuration ID.
+    // Configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The configuration type. Use this parameter to query global or rule configurations. Valid values:
+    // Configuration type. You can use this parameter to query global or rule configurations. Valid values:
     // 
-    // - global: Queries global configurations.
-    // 
-    // - rule: Queries rule configurations.
+    // - global: queries global configurations.
+    // - rule: queries rule configurations.
     shared_ptr<string> configType_ {};
-    // The page number. The default value is 1 if you do not specify this parameter.
+    // Page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The maximum value is 500. The default value is 500 if you do not specify this parameter.
+    // Number of entries per page. Maximum value: 500. Default value: 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The rule name.
+    // Rule name.
     shared_ptr<string> ruleName_ {};
-    // The site ID. For more information, see [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the site configuration. For sites with configuration version control enabled, specify the site version for which the configuration takes effect using this parameter. The default value is version 0.
+    // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

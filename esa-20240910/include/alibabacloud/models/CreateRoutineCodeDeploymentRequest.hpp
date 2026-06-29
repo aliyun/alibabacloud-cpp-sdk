@@ -74,11 +74,11 @@ namespace Models
 
 
     protected:
-      // The version of the code.
+      // The code version number.
       // 
       // This parameter is required.
       shared_ptr<string> codeVersion_ {};
-      // The phased release ratio of the code version. Valid values: 1 to 100.
+      // The canary release percentage for the code version. Valid values: 1 to 100.
       // 
       // This parameter is required.
       shared_ptr<int64_t> percentage_ {};
@@ -117,19 +117,24 @@ namespace Models
 
 
   protected:
-    // The configuration list of phased release version numbers. A maximum of two versions are supported, and the sum of the total proportions is equal to 100.
+    // The list of percentage-based canary release version configurations. A maximum of two versions are supported, and the total percentage must equal 100.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateRoutineCodeDeploymentRequest::CodeVersions>> codeVersions_ {};
-    // The name of the environment. Only supports test environment `staging` or production environment `production`.
+    // The environment name.  
+    // Valid values:
+    // - `staging`: staging environment 
+    // - `production`: production environment
     // 
     // This parameter is required.
     shared_ptr<string> env_ {};
-    // The function name.
+    // The name of the Edge Function Routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The deployment policy. Valid value: percentage.
+    // The deployment strategy.  
+    // Valid values:
+    // - `percentage`: percentage mode
     // 
     // This parameter is required.
     shared_ptr<string> strategy_ {};

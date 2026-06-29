@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The custom nameserver names. You can specify two to five custom nameserver names. Separate multiple names with commas (,).
+    // The list of custom NS names. You can specify 2 to 5 custom NS names, separated by commas (,).
     shared_ptr<string> vanityNSList_ {};
   };
 

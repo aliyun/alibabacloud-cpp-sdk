@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The record ID.
+    // The ID of the created record.
     shared_ptr<int64_t> recordId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

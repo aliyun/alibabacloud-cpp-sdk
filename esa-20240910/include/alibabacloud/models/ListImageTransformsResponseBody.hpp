@@ -151,39 +151,34 @@ namespace Models
 
 
     protected:
+      // The adaptive AVIF setting.
       shared_ptr<string> autoAvif_ {};
+      // The adaptive WebP setting.
       shared_ptr<string> autoWebp_ {};
-      // The ID of the configuration.
+      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // The type of the configuration. Valid values:
-      // 
-      // - `global`: A global configuration.
-      // 
-      // - `rule`: A rule-based configuration.
+      // The configuration type. Valid values:
+      // - global: global configuration.
+      // - rule: rule configuration.
       shared_ptr<string> configType_ {};
-      // Indicates whether the configuration is enabled. Valid values:
+      // The switch status. Valid values:
       // 
-      // - **on**: Enabled.
-      // 
-      // - **off**: Disabled.
+      // - **on**: enabled.
+      // - **off**: disabled.
       shared_ptr<string> enable_ {};
-      // The conditional expression that defines the rule used to match user requests. This parameter is not applicable to global configurations.
-      // 
-      // - A value of `true` matches all incoming requests.
-      // 
-      // - A custom expression, such as `(http.host eq "video.example.com")`, matches specific requests.
+      // The rule content, which uses conditional expressions to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+      // - Match all incoming requests: set the value to true.
+      // - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
       shared_ptr<string> rule_ {};
-      // Indicates whether the rule is enabled. This parameter is not applicable to global configurations. Valid values:
-      // 
-      // - **on**: Enabled.
-      // 
-      // - **off**: Disabled.
+      // The rule switch. This parameter is not required when you add a global configuration. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> ruleEnable_ {};
-      // The name of the rule. This parameter is not applicable to global configurations.
+      // The rule name. This parameter is not required when you add a global configuration.
       shared_ptr<string> ruleName_ {};
       // The execution order of the rule. A smaller value indicates a higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // The version of the site configuration. For a site with version management enabled, this parameter specifies the site version to which the configuration applies. The default is 0.
+      // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
       shared_ptr<int32_t> siteVersion_ {};
     };
 
@@ -234,15 +229,15 @@ namespace Models
 
 
   protected:
-    // A list of configurations.
+    // The list of configurations.
     shared_ptr<vector<ListImageTransformsResponseBody::Configs>> configs_ {};
-    // The current page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page, ranging from **1 to 500**. The default is **500**.
+    // The number of entries per page. Valid values: **1 to 500**. Default value: **500**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

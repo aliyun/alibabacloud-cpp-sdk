@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The application ID. Call the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) API to obtain this ID.
+    // The application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> applicationId_ {};
-    // The site ID. Call the [ListSites](~~ListSites~~) API to obtain this ID.
+    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

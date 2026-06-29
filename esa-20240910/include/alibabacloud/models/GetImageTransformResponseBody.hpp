@@ -130,41 +130,39 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable adaptive AVIF. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> autoAvif_ {};
+    // Specifies whether to enable adaptive WebP. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> autoWebp_ {};
-    // The config ID.
+    // The configuration ID.
     shared_ptr<int64_t> configId_ {};
     // The configuration type. Valid values:
-    // 
-    // - global: The global configuration.
-    // 
-    // - rule: A rule configuration.
+    // - global: global configuration.
+    // - rule: rule configuration.
     shared_ptr<string> configType_ {};
-    // Indicates whether image transformation is enabled. Valid values:
-    // 
+    // Specifies whether to enable image transformation. Valid values:
     // - on: Enabled.
-    // 
     // - off: Disabled.
     shared_ptr<string> enable_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The conditional expression of the rule, used to match user requests. This parameter is relevant only for a rule configuration.
-    // 
-    // - A value of true matches all incoming requests.
-    // 
-    // - A custom expression, such as (http.host eq "video.example.com"), matches specific requests.
+    // The rule content, which uses a conditional expression to match user requests. This parameter does not need to be set when you add a global configuration. Two scenarios are supported:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // The status of the rule. This parameter is relevant only for a rule configuration. Valid values:
-    // 
+    // The rule switch. This parameter does not need to be set when you add a global configuration. Valid values:
     // - on: Enabled.
-    // 
     // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. This parameter is relevant only for a rule configuration.
+    // The rule name. This parameter does not need to be set when you add a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The execution sequence of the rule. A smaller value indicates a higher execution priority.
+    // The rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The version number of the site configuration. For a site that has configuration versioning enabled, this value indicates the version to which the configuration applies. The default value is 0.
+    // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

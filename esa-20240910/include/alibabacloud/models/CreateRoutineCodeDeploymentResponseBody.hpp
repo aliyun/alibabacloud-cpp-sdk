@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The version of the code.
+      // The code version number.
       shared_ptr<string> codeVersion_ {};
-      // The phased release ratio.
+      // The canary release percentage for the code version.
       shared_ptr<int64_t> percentage_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
 
 
   protected:
-    // The configuration list of the phased release version number.
+    // The list of percentage-based canary release code version configurations.
     shared_ptr<vector<CreateRoutineCodeDeploymentResponseBody::CodeVersions>> codeVersions_ {};
     // The deployment record ID.
     shared_ptr<string> deploymentId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The phased release policy. The constant string is "percentage".
+    // The canary release strategy. Fixed value: percentage.
     shared_ptr<string> strategy_ {};
   };
 

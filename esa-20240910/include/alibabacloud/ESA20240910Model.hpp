@@ -436,6 +436,9 @@
 #include <alibabacloud/models/DescribeDDoSL7QpsListRequest.hpp>
 #include <alibabacloud/models/DescribeDDoSL7QpsListResponseBody.hpp>
 #include <alibabacloud/models/DescribeDDoSL7QpsListResponse.hpp>
+#include <alibabacloud/models/DescribeDDoSOverseasAttackCountRequest.hpp>
+#include <alibabacloud/models/DescribeDDoSOverseasAttackCountResponseBody.hpp>
+#include <alibabacloud/models/DescribeDDoSOverseasAttackCountResponse.hpp>
 #include <alibabacloud/models/DescribeDdosMaxBurstGbpsRequest.hpp>
 #include <alibabacloud/models/DescribeDdosMaxBurstGbpsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDdosMaxBurstGbpsResponse.hpp>
@@ -554,6 +557,9 @@
 #include <alibabacloud/models/GetCustomResponseCodeRuleRequest.hpp>
 #include <alibabacloud/models/GetCustomResponseCodeRuleResponseBody.hpp>
 #include <alibabacloud/models/GetCustomResponseCodeRuleResponse.hpp>
+#include <alibabacloud/models/GetDcvDelegationRequest.hpp>
+#include <alibabacloud/models/GetDcvDelegationResponseBody.hpp>
+#include <alibabacloud/models/GetDcvDelegationResponse.hpp>
 #include <alibabacloud/models/GetDevelopmentModeRequest.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponseBody.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponse.hpp>

@@ -242,49 +242,42 @@ namespace Models
 
 
         protected:
-          // The encryption algorithm used by the record. The value ranges from **0** to **255**. This parameter applies to CERT and SSHFP records.
+          // The encryption algorithm used by the record. Value range: **0 to 255**. This parameter applies to CERT and SSHFP records.
           shared_ptr<int32_t> algorithm_ {};
-          // The public key certificate for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
+          // The public key certificate information of the record. This parameter applies to CERT, SMIMEA, and TLSA records.
           shared_ptr<string> certificate_ {};
-          // The public key fingerprint for the record. This parameter applies to SSHFP records.
+          // The public key fingerprint of the record. This parameter applies to SSHFP records.
           shared_ptr<string> fingerprint_ {};
-          // The flag for the record, which indicates its priority and processing method. This parameter applies to CAA records.
+          // The flag of the record, which indicates its priority and processing method. This parameter applies to CAA records.
           shared_ptr<int32_t> flag_ {};
-          // The public key identifier for the record. The value ranges from **0** to **65535**. This parameter applies to CERT records.
+          // The public key identifier of the record. Value range: **0 to 65535**. This parameter applies to CERT records.
           shared_ptr<int32_t> keyTag_ {};
-          // The algorithm policy used by the record to match or validate certificates. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
+          // The algorithm policy used to match or verify certificates. Value range: **0 to 255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> matchingType_ {};
-          // The port for the record. The value ranges from **0** to **65535**. This parameter applies only to SRV records.
+          // The port of the record. Value range: **0 to 65535**. This parameter applies only to SRV records.
           shared_ptr<int32_t> port_ {};
-          // The priority of the record. The value ranges from **0** to **65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
+          // The priority of the record. Value range: **0 to 65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
           shared_ptr<int32_t> priority_ {};
-          // The type of certificate or public key used by the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
+          // The type of certificate or public key used by the record. Value range: **0 to 255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> selector_ {};
-          // The tag for a CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
+          // The tag of the CAA record, which indicates its specific type and purpose, such as issue, issuewild, or iodef.
           shared_ptr<string> tag_ {};
-          // The certificate type for CERT records or the public key type for SSHFP records.
+          // The certificate type (for CERT records) or public key type (for SSHFP records) of the record.
           shared_ptr<int32_t> type_ {};
-          // The usage identifier for the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
+          // The usage identifier of the record. Value range: **0 to 255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> usage_ {};
-          // The record value. This parameter applies to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning of this parameter varies based on the record type:
+          // The record value or partial content. This parameter is included in A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning varies by record type:
           // 
-          // - **A/AAAA**: The IP address. To specify multiple addresses, separate them with a comma (,). At least one IPv4 address is required.
-          // 
-          // - **CNAME**: The target domain name.
-          // 
-          // - **NS**: The name server for the domain.
-          // 
-          // - **MX**: The domain name of a valid target mail server.
-          // 
-          // - **TXT**: A valid text string.
-          // 
-          // - **CAA**: The domain name of a valid certificate authority.
-          // 
-          // - **SRV**: The domain name of a valid target host.
-          // 
-          // - **URI**: A valid URI string.
+          // - **A/AAAA**: the IP address. Separate multiple IP addresses with commas (,). At least one IPv4 address is required.
+          // - **CNAME**: the target domain name.
+          // - **NS**: the name server of the specified domain name.
+          // - **MX**: a valid target mail server domain name.
+          // - **TXT**: a valid text string.
+          // - **CAA**: a valid certification authority domain name.
+          // - **SRV**: a valid target host domain name.
+          // - **URI**: a valid URI string.
           shared_ptr<string> value_ {};
-          // The weight of the record. The value ranges from **0** to **65535**. This parameter applies to SRV and URI records.
+          // The weight of the record. Value range: **0 to 65535**. This parameter applies to SRV and URI records.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -371,45 +364,35 @@ namespace Models
 
 
       protected:
-        // The acceleration use case for the record. Valid values:
-        // 
-        // - **image_video**: Images and videos.
-        // 
-        // - **api**: APIs.
-        // 
-        // - **web**: Web pages.
+        // The business scenario for record acceleration. Valid values:
+        // - **image_video**: video and image.
+        // - **api**: API.
+        // - **web**: web page.
         shared_ptr<string> bizName_ {};
-        // The DNS information for the record.
+        // The DNS information of the record.
         shared_ptr<Success::Data> data_ {};
-        // The result description.
+        // The description of the creation result.
         shared_ptr<string> description_ {};
         shared_ptr<string> httpPorts_ {};
         shared_ptr<string> httpsPorts_ {};
-        // Specifies whether proxy acceleration is enabled for the record. This option is available only for CNAME, A, and AAAA records. Valid values:
-        // 
-        // - **true**: Proxy acceleration is enabled.
-        // 
-        // - **false**: Proxy acceleration is disabled.
+        // Specifies whether to enable proxied acceleration for the record. Only CNAME records and A/AAAA records support proxied acceleration. Valid values:
+        // - **true**: Proxied acceleration is enabled.
+        // - **false**: Proxied acceleration is disabled.
         shared_ptr<bool> proxied_ {};
         // The record ID.
         shared_ptr<int64_t> recordId_ {};
         // The record name.
         shared_ptr<string> recordName_ {};
-        // The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
+        // The DNS type of the record, such as **A/AAAA, CNAME, or TXT**.
         shared_ptr<string> recordType_ {};
-        // The type of origin for a CNAME record. This parameter is empty for other record types. Valid values:
-        // 
-        // - **OSS**: An OSS origin.
-        // 
-        // - **S3**: An S3 origin.
-        // 
-        // - **LB**: A load balancer origin.
-        // 
-        // - **OP**: An origin pool.
-        // 
-        // - **Domain**: A domain name origin.
+        // The origin type of the CNAME record. This field is empty for other record types. Valid values:
+        // - **OSS**: OSS origin.
+        // - **S3**: S3 origin.
+        // - **LB**: load balancing origin.
+        // - **OP**: IPAM pool origin.
+        // - **Domain**: common domain name origin.
         shared_ptr<string> sourceType_ {};
-        // The TTL of the record in seconds. A value of 1 sets the TTL to Automatic.
+        // The time-to-live (TTL) of the record, in seconds. A value of 1 indicates that the TTL is set to automatic.
         shared_ptr<int32_t> ttl_ {};
       };
 
@@ -600,49 +583,42 @@ namespace Models
 
 
         protected:
-          // The encryption algorithm used by the record. The value ranges from **0** to **255**. This parameter applies to CERT and SSHFP records.
+          // The encryption algorithm used by the record. Value range: **0 to 255**. This parameter applies to CERT and SSHFP records.
           shared_ptr<int32_t> algorithm_ {};
-          // The public key certificate for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
+          // The public key certificate information of the record. This parameter applies to CERT, SMIMEA, and TLSA records.
           shared_ptr<string> certificate_ {};
-          // The public key fingerprint for the record. This parameter applies to SSHFP records.
+          // The public key fingerprint of the record. This parameter applies to SSHFP records.
           shared_ptr<string> fingerprint_ {};
-          // The flag for the record, which indicates its priority and processing method. This parameter applies to CAA records.
+          // The flag of the record, which indicates its priority and processing method. This parameter applies to CAA records.
           shared_ptr<int32_t> flag_ {};
-          // The public key identifier for the record. The value ranges from **0** to **65535**. This parameter applies to CERT records.
+          // The public key identifier of the record. Value range: **0 to 65535**. This parameter applies to CERT records.
           shared_ptr<int32_t> keyTag_ {};
-          // The algorithm policy used by the record to match or validate certificates. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
+          // The algorithm policy used to match or verify certificates. Value range: **0 to 255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> matchingType_ {};
-          // The port for the record. The value ranges from 0 to 65535. This parameter applies only to SRV records.
+          // The port number of the record. This parameter applies only to SRV records.
           shared_ptr<int32_t> port_ {};
-          // The priority of the record. The value ranges from **0** to **65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
+          // The priority of the record. Value range: **0 to 65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
           shared_ptr<int32_t> priority_ {};
-          // The type of certificate or public key used by the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
+          // The type of certificate or public key used by the record. Value range: **0 to 255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> selector_ {};
-          // The tag for a CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
+          // The tag of the CAA record, which indicates its specific type and purpose, such as issue, issuewild, or iodef.
           shared_ptr<string> tag_ {};
-          // The certificate type for CERT records or the public key type for SSHFP records.
+          // The certificate type (for CERT records) or public key type (for SSHFP records) of the record.
           shared_ptr<int32_t> type_ {};
-          // The usage identifier for the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
+          // The usage identifier of the record. Value range: **0 to 255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> usage_ {};
-          // The record value. This parameter applies to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning of this parameter varies based on the record type:
+          // The record value or partial content. This parameter is included in A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning varies by record type:
           // 
-          // - **A/AAAA**: The IP address. To specify multiple addresses, separate them with a comma (,). At least one IPv4 address is required.
-          // 
-          // - **CNAME**: The target domain name.
-          // 
-          // - **NS**: The name server for the domain.
-          // 
-          // - **MX**: The domain name of a valid target mail server.
-          // 
-          // - **TXT**: A valid text string.
-          // 
-          // - **CAA**: The domain name of a valid certificate authority.
-          // 
-          // - **SRV**: The domain name of a valid target host.
-          // 
-          // - **URI**: A valid URI string.
+          // - **A/AAAA**: the IP address. Separate multiple IP addresses with commas (,). At least one IPv4 address is required.
+          // - **CNAME**: the target domain name.
+          // - **NS**: the name server of the specified domain name.
+          // - **MX**: a valid target mail server domain name.
+          // - **TXT**: a valid text string.
+          // - **CAA**: a valid certification authority domain name.
+          // - **SRV**: a valid target host domain name.
+          // - **URI**: a valid URI string.
           shared_ptr<string> value_ {};
-          // The weight of the record. The value ranges from 0 to 65535. This parameter applies to SRV and URI records.
+          // The weight of the record. This parameter applies to SRV and URI records.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -729,45 +705,36 @@ namespace Models
 
 
       protected:
-        // The acceleration use case for the record. Valid values:
-        // 
-        // - **image_video**: Images and videos.
-        // 
-        // - **api**: APIs.
-        // 
-        // - **web**: Web pages.
+        // The business scenario for record acceleration. Valid values:
+        // - **image_video**: video and image.
+        // - **api**: API.
+        // - **web**: web page.
         shared_ptr<string> bizName_ {};
-        // The DNS information for the record.
+        // The DNS information of the record, including record values and related properties for various record types.
         shared_ptr<Failed::Data> data_ {};
         // The result description.
         shared_ptr<string> description_ {};
         shared_ptr<string> httpPorts_ {};
         shared_ptr<string> httpsPorts_ {};
-        // Specifies whether proxy acceleration is enabled for the record. This option is available only for CNAME, A, and AAAA records. Valid values:
+        // Indicates whether proxied acceleration is enabled for the record. Only CNAME records and A/AAAA records support proxied acceleration. Valid values:
         // 
-        // - **true**: Proxy acceleration is enabled.
-        // 
-        // - **false**: Proxy acceleration is disabled.
+        // - **true**: Proxied acceleration is enabled.
+        // - **false**: Proxied acceleration is disabled.
         shared_ptr<bool> proxied_ {};
         // The record ID.
         shared_ptr<int64_t> recordId_ {};
         // The record name.
         shared_ptr<string> recordName_ {};
-        // The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
+        // The DNS type of the record, such as **A/AAAA, CNAME, or TXT**.
         shared_ptr<string> recordType_ {};
-        // The type of origin for a CNAME record. This parameter is empty for other record types. Valid values:
-        // 
-        // - **OSS**: An OSS origin.
-        // 
-        // - **S3**: An S3 origin.
-        // 
-        // - **LB**: A load balancer origin.
-        // 
-        // - **OP**: An origin pool.
-        // 
-        // - **Domain**: A domain name origin.
+        // The origin type of the CNAME record. This field is empty for other record types. Valid values:
+        // - **OSS**: OSS origin.
+        // - **S3**: S3 origin.
+        // - **LB**: load balancing origin.
+        // - **OP**: IPAM pool origin.
+        // - **Domain**: common domain name origin.
         shared_ptr<string> sourceType_ {};
-        // The TTL of the record in seconds. A value of 1 sets the TTL to Automatic.
+        // The time-to-live (TTL) of the record, in seconds. A value of 1 indicates that the TTL is set to automatic.
         shared_ptr<int32_t> ttl_ {};
       };
 
@@ -799,9 +766,9 @@ namespace Models
 
 
     protected:
-      // A list of records that failed to be created.
+      // The list of records that failed to be created.
       shared_ptr<vector<RecordResultList::Failed>> failed_ {};
-      // A list of successfully created records.
+      // The list of successfully created records.
       shared_ptr<vector<RecordResultList::Success>> success_ {};
       // The total number of records in the creation operation.
       shared_ptr<int32_t> totalCount_ {};
@@ -826,7 +793,7 @@ namespace Models
 
 
   protected:
-    // The results of the batch record creation, with details for both successful and failed records.
+    // The list of record creation results, including details of successfully and unsuccessfully created records.
     shared_ptr<BatchCreateRecordsResponseBody::RecordResultList> recordResultList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

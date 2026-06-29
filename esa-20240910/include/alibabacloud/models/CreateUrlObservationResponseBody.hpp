@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

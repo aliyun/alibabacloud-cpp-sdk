@@ -103,36 +103,29 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud Security certificate. This parameter is required when CertType is set to cas.
+    // The ID of the SSL Certificates Service certificate. This parameter is required when CertType is set to cas.
     shared_ptr<int64_t> casId_ {};
-    // The region of the Alibaba Cloud Security certificate. This parameter is required when CertType is set to cas.
-    // 
-    // - cn-hangzhou: The value for accounts on the Alibaba Cloud China Website (www\\.aliyun.com).
-    // 
-    // - ap-southeast-1: The value for accounts on the Alibaba Cloud International Website (www\\.alibabacloud.com).
+    // The region of the SSL Certificates Service certificate. This parameter is required when CertType is set to cas. Valid values:
+    // - Chinese mainland accounts: cn-hangzhou.
+    // - International accounts: ap-southeast-1.
     shared_ptr<string> casRegion_ {};
-    // The certificate type. This parameter is required when SslFlag is set to on.
-    // 
-    // - **free**: Free certificate.
-    // 
-    // - **upload**: Uploaded certificate.
-    // 
-    // - **cas**: Alibaba Cloud Security certificate.
+    // The certificate type. This parameter is required when SslFlag is set to on. Valid values:
+    // - **free**: free certificate.
+    // - **upload**: uploaded certificate.
+    // - **cas**: SSL Certificates Service certificate.
     shared_ptr<string> certType_ {};
-    // The content of the certificate. This parameter is required when CertType is set to upload.
+    // The certificate content. This parameter is required when CertType is set to upload.
     shared_ptr<string> certificate_ {};
     // The ID of the SaaS domain name. You can obtain the ID by calling the [ListCustomHostnames](https://help.aliyun.com/document_detail/3018667.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> hostnameId_ {};
-    // The private key of the certificate. This parameter is required when CertType is set to upload.
+    // The certificate private key. This parameter is required when CertType is set to upload.
     shared_ptr<string> privateKey_ {};
-    // The ID of the record to attach. You can obtain the ID by calling the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation.
+    // The ID of the record to bind. You can obtain the ID by calling the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation.
     shared_ptr<int64_t> recordId_ {};
-    // The SSL switch.
-    // 
+    // The SSL switch. Valid values:
     // - **on**: Enables SSL.
-    // 
     // - **off**: Disables SSL.
     shared_ptr<string> sslFlag_ {};
   };

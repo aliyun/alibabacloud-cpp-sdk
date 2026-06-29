@@ -245,50 +245,44 @@ namespace Models
 
 
       protected:
-        // The encryption algorithm of the record, from **0** to **255**.
+        // The encryption algorithm used by the record. Valid values: **0 to 255**.
         shared_ptr<int32_t> algorithm_ {};
-        // The record\\"s public key certificate.
+        // The public key certificate information of the record.
         shared_ptr<string> certificate_ {};
-        // The public key fingerprint of the record.
+        // The public key fingerprint value of the record.
         shared_ptr<string> fingerprint_ {};
-        // The flag of the record. For CAA records, this flag indicates the priority and processing method. The value must be from **0** to **255**.
+        // The flag of the record. The Flag of a CAA record indicates its priority and processing method. Valid values: **0 to 255**.
         shared_ptr<int32_t> flag_ {};
-        // The public key identifier of the record, from **0** to **65535**.
+        // The public key identifier of the record. Valid values: **0 to 65535**.
         shared_ptr<int32_t> keyTag_ {};
-        // The algorithm policy for matching or verifying the certificate, from **0** to **255**.
+        // The algorithm policy used by the record for matching or verifying certificates. Valid values: **0 to 255**.
         shared_ptr<int32_t> matchingType_ {};
-        // The port of the record, from **0** to **65535**.
+        // The port of the record. Valid values: **0 to 65535**.
         shared_ptr<int32_t> port_ {};
-        // The priority of the record, from **0** to **65535**. A lower value indicates a higher priority.
+        // The priority of the record. Valid values: **0 to 65535**. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The record\\"s certificate or public key type, from **0** to **255**.
+        // The type of certificate or public key used by the record. Valid values: **0 to 255**.
         shared_ptr<int32_t> selector_ {};
-        // The tag of the record. For CAA records, the tag indicates the specific type and purpose.
+        // The tag of the record. The Tag of a CAA record indicates its specific type and purpose.
         shared_ptr<string> tag_ {};
+        // The tags of the record.
         Darabonba::Json tags_ {};
-        // The certificate type for a CERT record, or the public key type for an SSHFP record.
+        // The certificate type of the record (in CERT records) or the public key type (in SSHFP records).
         shared_ptr<int32_t> type_ {};
-        // The usage identifier of the record, from **0** to **255**.
+        // The usage identifier of the record. Valid values: **0 to 255**.
         shared_ptr<int32_t> usage_ {};
-        // The record value. The meaning of this parameter varies by the record type:
+        // The record value or partial content. The meaning varies by record type:
         // 
-        // - **A/AAAA**: The target IP address. Separate multiple IP addresses with a comma (`,`). Requires at least one IPv4 address.
-        // 
-        // - **CNAME**: The target domain name.
-        // 
-        // - **NS**: The name server for the specified domain.
-        // 
-        // - **MX**: A valid target mail server domain name.
-        // 
-        // - **TXT**: A valid text string.
-        // 
-        // - **CAA**: A valid Certificate Authority domain name.
-        // 
-        // - **SRV**: A valid target host domain name.
-        // 
-        // - **URI**: A valid URI string.
+        // - **A/AAAA**: the IP address that the record points to. Separate multiple IP addresses with commas (,). At least one IPv4 address is required.
+        // - **CNAME**: the target domain name that the record points to.
+        // - **NS**: the name server for the specified domain name.
+        // - **MX**: the valid target mail server domain name.
+        // - **TXT**: a valid text string.
+        // - **CAA**: a valid certification authority domain name.
+        // - **SRV**: a valid target host domain name.
+        // - **URI**: a valid URI string.
         shared_ptr<string> value_ {};
-        // The weight of the record, from **0** to **65535**.
+        // The weight of the record. Valid values: **0 to 65535**.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -357,29 +351,23 @@ namespace Models
 
 
       protected:
-        // The AccessKey ID of the account that owns the origin.
+        // The AccessKey of the account to which the origin belongs.
         shared_ptr<string> accessKey_ {};
         // The origin authentication type. Valid values:
-        // 
-        // - **public**: Public read. Select this value when the origin is an OSS or S3 origin with public read access.
-        // 
-        // - **private**: Private read. Select this value when the origin is an S3 origin with private read access.
-        // 
-        // - **private_same_account**: Private read within the same account. Select this value when the origin is an OSS origin with private read access under the same Alibaba Cloud account.
-        // 
-        // - **private_cross_account**: Private read across accounts. Select this value when the origin is an OSS origin with private read access under a different Alibaba Cloud account.
+        // - **public**: public read. Select this value when the origin type is OSS or S3 and the origin has public read access.
+        // - **private**: private read. Select this value when the origin type is S3 and the origin has private read access.
+        // - **private_same_account**: private read within the same account. Select this value when the origin type is OSS, the origin is under the same Alibaba Cloud account, and the origin has private read access.
+        // - **private_cross_account**: private read across accounts. Select this value when the origin type is OSS, the origin is under a different Alibaba Cloud account, and the origin has private read access.
         shared_ptr<string> authType_ {};
-        // The origin\\"s region. For S3 origins, you can find region codes on the official S3 website.
+        // The region of the origin. Obtain the region from the official S3 website.
         shared_ptr<string> region_ {};
-        // The AccessKey secret of the account that owns the origin.
+        // The AccessKey of the account to which the origin belongs.
         shared_ptr<string> secretKey_ {};
-        // The version of the signature algorithm. Supported versions:
-        // 
+        // The signature algorithm version. Valid values:
         // - **v2**
-        // 
         // - **v4**
         // 
-        // If unspecified, the default is `v4`.
+        // Default value: v4.
         shared_ptr<string> version_ {};
       };
 
@@ -526,36 +514,32 @@ namespace Models
 
 
     protected:
-      // The origin authentication settings for the CNAME record.
+      // The back-to-origin authentication information of the CNAME record.
       shared_ptr<RecordModel::AuthConf> authConf_ {};
-      // The business scenario for record acceleration. Valid values:
+      // The business scenario when the record is accelerated. Valid values:
       // 
-      // - **image_video**: Images and videos.
-      // 
-      // - **api**: APIs.
-      // 
-      // - **web**: Web pages.
+      // - **image_video**: video and image.
+      // - **api**: API.
+      // - **web**: web page.
       shared_ptr<string> bizName_ {};
-      // The comment for the record.
+      // The comment of the record.
       shared_ptr<string> comment_ {};
-      // The time when the record was created. The time is in UTC and follows the ISO 8601 standard. Format: `yyyy-MM-ddTHH:mm:ssZ`.
+      // The creation time of the record. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
       shared_ptr<string> customPort_ {};
-      // DNS information for the record. The content varies based on the record type.
+      // The DNS information of the record. The content returned in this field varies by record type.
       shared_ptr<RecordModel::Data> data_ {};
-      // Specifies the policy for the `Host` header during origin-pull. This parameter applies only to CNAME records. Valid values:
+      // The back-to-origin HOST policy. This parameter takes effect when the record type is CNAME. It specifies the HOST header policy for back-to-origin requests. Valid values:
       // 
-      // - **follow_hostname**: Follows the host record.
-      // 
-      // - **follow_origin_domain**: Follows the origin domain.
+      // - **follow_hostname**: follows the host record.
+      // - **follow_origin_domain**: follows the origin domain name.
       shared_ptr<string> hostPolicy_ {};
       shared_ptr<string> httpPorts_ {};
       shared_ptr<string> httpsPorts_ {};
-      // Indicates whether the proxy is enabled for the record. This feature is supported only for A, AAAA, and CNAME records. Valid values:
+      // Indicates whether proxy acceleration is enabled for the record. Only CNAME and A/AAAA records support proxy acceleration. Valid values:
       // 
-      // - **true**: The proxy is enabled.
-      // 
-      // - **false**: The proxy is disabled.
+      // - **true**: Proxy acceleration is enabled.
+      // - **false**: Proxy acceleration is disabled.
       shared_ptr<bool> proxied_ {};
       // The CNAME of the record.
       shared_ptr<string> recordCname_ {};
@@ -563,29 +547,25 @@ namespace Models
       shared_ptr<int64_t> recordId_ {};
       // The record name.
       shared_ptr<string> recordName_ {};
-      // The origin type for CNAME records. Valid values:
+      // The origin type of the CNAME record. Valid values:
       // 
       // - **OSS**: OSS origin.
-      // 
       // - **S3**: S3 origin.
+      // - **LB**: load balancing origin.
+      // - **OP**: IPAM pool origin.
+      // - **Domain**: standard domain name origin.
       // 
-      // - **LB**: A load balancer.
-      // 
-      // - **OP**: An origin pool.
-      // 
-      // - **Domain**: A standard domain.
-      // 
-      // If unspecified, the default is `Domain`.
+      // If this parameter is not specified or is left empty, the default value is Domain, which indicates a standard domain name origin type.
       shared_ptr<string> recordSourceType_ {};
-      // The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
+      // The DNS type of the record, such as **A/AAAA, CNAME, or TXT**.
       shared_ptr<string> recordType_ {};
       // The site ID.
       shared_ptr<int64_t> siteId_ {};
       // The site name.
       shared_ptr<string> siteName_ {};
-      // The record\\"s Time to Live (TTL) in seconds. A value of 1 indicates an automatic TTL.
+      // The Time-to-Live (TTL) of the record, in seconds. A value of 1 indicates that the TTL is set to automatic.
       shared_ptr<int32_t> ttl_ {};
-      // The time when the record was last updated. The time is in UTC and follows the ISO 8601 standard. Format: `yyyy-MM-ddTHH:mm:ssZ`.
+      // The update time of the record. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -608,7 +588,7 @@ namespace Models
 
 
   protected:
-    // Details of the record.
+    // The information about the queried record.
     shared_ptr<GetRecordResponseBody::RecordModel> recordModel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

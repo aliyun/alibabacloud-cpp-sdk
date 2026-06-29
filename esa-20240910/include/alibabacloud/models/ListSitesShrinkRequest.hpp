@@ -142,57 +142,45 @@ namespace Models
   protected:
     // The access type. Valid values:
     // 
-    // - **NS**: NS access.
+    // - **NS**: NS-based access.
     // 
-    // - **CNAME**: CNAME access.
+    // - **CNAME**: CNAME-based access.
     shared_ptr<string> accessType_ {};
     // The acceleration region. Valid values:
-    // 
-    // - **domestic**: Chinese mainland only.
-    // 
-    // - **global**: Global.
-    // 
-    // - **overseas**: Global (excluding the Chinese mainland).
+    // - **domestic**: the Chinese mainland only.
+    // - **global**: global.
+    // - **overseas**: global (excluding the Chinese mainland).
     shared_ptr<string> coverage_ {};
-    // Specifies whether to return only sites that use the Enterprise Edition.
+    // Specifies whether to query only Enterprise Edition sites. Set this parameter to **true** to query only Enterprise Edition sites.
     shared_ptr<bool> onlyEnterprise_ {};
-    // The field to sort the results by. By default, results are sorted by creation time (gmtCreate). Supported values:
-    // 
-    // - `gmtCreate`: site creation time
-    // 
-    // - `visitTime`: site access time
+    // The sort field. By default, results are sorted by creation time. Valid values:
+    // - gmtCreate: site creation time.
+    // - visitTime: site access time.
     shared_ptr<string> orderBy_ {};
-    // The number of the page to return. The default value is **1**.
+    // The page number for paging. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The default value is **500**.
+    // The number of entries per page for paging. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The subscription plan type. Valid values:
-    // 
+    // The plan subscription type. Valid values:
     // - **basicplan**: Basic Edition.
-    // 
     // - **standardplan**: Standard Edition.
-    // 
-    // - **advancedplan**: Advanced Edition.
-    // 
+    // - **advancedplan**: Premium Edition.
     // - **enterpriseplan**: Enterprise Edition.
     shared_ptr<string> planSubscribeType_ {};
-    // The resource group ID, used to filter query results.
+    // The resource group ID. Used as a filter condition for the query.
     shared_ptr<string> resourceGroupId_ {};
-    // The site name, used to filter query results.
+    // The site name. Used as a filter condition for the query.
     shared_ptr<string> siteName_ {};
-    // The match mode for the `SiteName` parameter. The default value is `exact`. Valid values:
+    // The search matching mode for the site name. Default is exact match. Valid values:
     // 
     // - **prefix**: prefix match.
-    // 
     // - **suffix**: suffix match.
-    // 
     // - **exact**: exact match.
-    // 
     // - **fuzzy**: fuzzy match.
     shared_ptr<string> siteSearchType_ {};
-    // The site status, used to filter query results.
+    // The site status. Used as a filter condition for the query.
     shared_ptr<string> status_ {};
-    // A list of tags to use for filtering sites.
+    // The tag filter rules.
     shared_ptr<string> tagFilterShrink_ {};
   };
 

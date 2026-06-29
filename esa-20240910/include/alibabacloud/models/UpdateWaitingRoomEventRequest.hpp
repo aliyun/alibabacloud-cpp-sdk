@@ -213,93 +213,81 @@ namespace Models
 
 
   protected:
-    // The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+    // The custom waiting room page content. This parameter is required when the waiting room type is set to custom. The content must use Base64 encoding.
     shared_ptr<string> customPageHtml_ {};
     // The description of the waiting room.
     shared_ptr<string> description_ {};
     // Specifies whether to disable session renewal. Valid values:
     // 
-    // - on
-    // 
-    // - off
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> disableSessionRenewalEnable_ {};
-    // Specifies whether to enable the waiting room event. Valid values:
+    // The enabling status. Valid values:
     // 
-    // - `on`
+    //  - **on**: Enables the waiting room event.
     // 
-    // - `off`
+    //  - **off**: Disables the waiting room event.
     shared_ptr<string> enable_ {};
-    // The end time of the event. This value is a UNIX timestamp.
+    // The timestamp of the event end time.
     shared_ptr<string> endTime_ {};
     // Specifies whether to enable JSON response. Valid values:
     // 
-    // - on
-    // 
-    // - off
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> jsonResponseEnable_ {};
-    // The default language. Valid values:
+    // The default language setting. Valid values:
     // 
-    // - `enus`: English.
-    // 
-    // - `zhcn`: Simplified Chinese.
-    // 
-    // - `zhhk`: Traditional Chinese.
+    //  - **enus**: English.
+    // - **zhcn**: Simplified Chinese.
+    // - **zhhk**: Traditional Chinese.
     shared_ptr<string> language_ {};
     // The name of the waiting room event.
     shared_ptr<string> name_ {};
-    // The maximum number of new users per minute.
+    // The number of new users per minute.
     shared_ptr<string> newUsersPerMinute_ {};
-    // Specifies whether to enable pre-queuing.
+    // Specifies whether to enable pre-queuing. Valid values:
     // 
-    // - on
-    // 
-    // - off
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> preQueueEnable_ {};
-    // The start time for pre-queuing.
+    // The timestamp of the pre-queuing start time.
     shared_ptr<string> preQueueStartTime_ {};
     // The queuing method. Valid values:
     // 
-    // - random: Users gain access to the origin randomly, regardless of the arrival time.
-    // 
-    // - fifo: Users gain access to the origin in order of arrival.
-    // 
-    // - passthrough: Users pass through the waiting room and go straight to the origin.
-    // 
-    // - reject-all: All requests are blocked from accessing the origin.
+    // - **random**: random.
+    // - **fifo**: first-in, first-out.
+    // - **passthrough**: passthrough.
+    // - **reject-all**: reject all.
     shared_ptr<string> queuingMethod_ {};
-    // The HTTP status code to return while a user is in the queue. Valid values:
+    // The waiting room status code. Valid values:
     // 
-    // - 200
-    // 
-    // - 202
-    // 
-    // - 429
+    // - **200**
+    // - **202**
+    // - **429**
     shared_ptr<string> queuingStatusCode_ {};
-    // Specifies whether to enable random queuing.
+    // Specifies whether to enable random pre-queuing. Valid values:
     // 
-    // - on
-    // 
-    // - off
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> randomPreQueueEnable_ {};
-    // The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+    // The user session duration, in minutes.
     shared_ptr<string> sessionDuration_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The start time of the event. This value is a UNIX timestamp.
+    // The timestamp of the event start time.
     shared_ptr<string> startTime_ {};
-    // The maximum number of active users.
+    // The total number of active users.
     shared_ptr<string> totalActiveUsers_ {};
-    // The ID of the waiting room event, which can be obtained by calling the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation.
+    // The waiting room event ID, which can be obtained by calling the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> waitingRoomEventId_ {};
     // The type of the waiting room. Valid values:
     // 
-    // - default
-    // 
-    // - custom
+    // - **default**: default type.
+    // - **custom**: custom type.
     shared_ptr<string> waitingRoomType_ {};
   };
 

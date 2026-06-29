@@ -103,37 +103,37 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return only instances that have remaining site quota. Valid values:
+    // Specifies whether to check for remaining site quota. Valid values:
     // 
-    // - `true`: Returns only instances with remaining site quota.
+    // - true: Queries instances that have remaining site quota.
     // 
-    // - `false`: Returns all instances, regardless of site quota.
+    // - false: Does not filter by this condition.
     shared_ptr<string> checkRemainingSiteQuota_ {};
-    // The ID of the instance to query.
+    // The instance ID. Use this parameter to query a specific instance.
     shared_ptr<string> instanceId_ {};
-    // The page number. The value must be greater than or equal to 1.
+    // The page number for paging. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The maximum value is 500.
+    // The number of entries per page for paging. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The field to sort the results by. Valid value:
+    // The field by which to sort the results. Valid values:
     // 
-    // - `CreateTime`: Sorts by creation time.
+    // - CreateTime: sorts by creation time.
     shared_ptr<string> sortBy_ {};
     // The sort order. Valid values:
     // 
-    // - `asc`: ascending
+    //  * asc: ascending order
     // 
-    // - `desc`: descending
+    //  * desc: descending order.
     shared_ptr<string> sortOrder_ {};
     // The instance status. Valid values:
     // 
-    // - `online`: The instance is running.
+    //  * online: Normal.
     // 
-    // - `overdue`: The payment for the instance is overdue.
+    //  * overdue: Overdue payment.
     // 
-    // - `disable`: The instance is released.
+    //  * disable: Released.
     shared_ptr<string> status_ {};
-    // The type of add-on service to filter by, such as `bot` or `ddos`.
+    // Specifies whether the instance has purchased additional bot or DDoS protection.
     shared_ptr<string> unrelatedType_ {};
   };
 

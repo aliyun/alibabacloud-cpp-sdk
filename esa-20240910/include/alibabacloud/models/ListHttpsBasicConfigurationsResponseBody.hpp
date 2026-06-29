@@ -206,87 +206,65 @@ namespace Models
 
 
     protected:
-      // Custom ciphersuite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
+      // The custom cipher suite, which specifies the encryption algorithms selected when CiphersuiteGroup is set to custom.
       shared_ptr<string> ciphersuite_ {};
-      // Ciphersuite group, defaults to enabling all ciphersuites. Value range:
-      // 
-      // - all: all ciphersuites.
-      // 
-      // - strict: strong ciphersuites.
-      // 
-      // - custom: custom ciphersuites.
+      // The cipher suite group. All cipher suites are enabled by default. Valid values:
+      // - all: all cipher suites.
+      // - strict: strong cipher suites.
+      // - custom: custom cipher suites.
       shared_ptr<string> ciphersuiteGroup_ {};
-      // Configuration ID.
+      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // Configuration type, which can be used to query global or rule configurations. Value range:
+      // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
       // 
-      // - global: Query global configuration.
-      // 
-      // - rule: Query rule configuration.
+      // - global: queries global configurations.
+      // - rule: queries rule configurations.
       shared_ptr<string> configType_ {};
-      // Whether to enable HTTP2, default is on. Value range:
-      // 
+      // Specifies whether to enable HTTP/2. HTTP/2 is enabled by default. Valid values:
       // - on: enabled.
-      // 
       // - off: disabled.
       shared_ptr<string> http2_ {};
-      // Whether to enable HTTP3, default is on. Value range:
-      // 
+      // Specifies whether to enable HTTP/3. HTTP/3 is enabled by default. Valid values:
       // - on: enabled.
-      // 
       // - off: disabled.
       shared_ptr<string> http3_ {};
-      // Whether to enable HTTPS, default is enabled. Value range:
-      // 
-      // - on: Enable.
-      // 
-      // - off: Disable.
-      shared_ptr<string> https_ {};
-      // Whether to enable OCSP, default is off. Value range:
+      // Specifies whether to enable HTTPS. HTTPS is enabled by default. Valid values:
       // 
       // - on: enabled.
       // 
       // - off: disabled.
+      shared_ptr<string> https_ {};
+      // Specifies whether to enable OCSP stapling. OCSP stapling is disabled by default. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> ocspStapling_ {};
-      // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-      // 
-      // - Match all incoming requests: Set the value to true.
-      // 
-      // - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
+      // The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+      // - Match all incoming requests: set the value to true.
+      // - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
       shared_ptr<string> rule_ {};
-      // Rule switch. This parameter is not required when adding a global configuration. Value range:
-      // 
-      // - on: Enable.
-      // 
-      // - off: Disable.
+      // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> ruleEnable_ {};
-      // Rule name. This parameter is not required when adding a global configuration.
+      // The rule name. You do not need to set this parameter when adding a global configuration.
       shared_ptr<string> ruleName_ {};
-      // Rule execution order. The smaller the value, the higher the priority.
+      // The rule execution order. A smaller value indicates a higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // Whether to enable TLS1.0, default is disabled. Value range:
-      // 
-      // - on: Enable.
-      // 
-      // - off: Disable.
+      // Specifies whether to enable TLS 1.0. TLS 1.0 is disabled by default. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> tls10_ {};
-      // Whether to enable TLS1.1, default is disabled. Value range:
-      // 
-      // - on: Enable.
-      // 
-      // - off: Disable.
+      // Specifies whether to enable TLS 1.1. TLS 1.1 is disabled by default. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> tls11_ {};
-      // Whether to enable TLS1.2, default is disabled. Value range:
-      // 
-      // - on: Enable.
-      // 
-      // - off: Disable.
+      // Specifies whether to enable TLS 1.2. TLS 1.2 is disabled by default. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> tls12_ {};
-      // Whether to enable TLS1.3, default is disabled. Value range:
-      // 
-      // - on: Enable.
-      // 
-      // - off: Disable.
+      // Specifies whether to enable TLS 1.3. TLS 1.3 is disabled by default. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> tls13_ {};
     };
 
@@ -337,17 +315,17 @@ namespace Models
 
 
   protected:
-    // Response body configuration.
+    // The configurations returned.
     shared_ptr<vector<ListHttpsBasicConfigurationsResponseBody::Configs>> configs_ {};
-    // Current page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

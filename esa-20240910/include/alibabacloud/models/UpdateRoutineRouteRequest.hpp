@@ -121,40 +121,35 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable bypass mode. Valid values:
-    // 
-    // - on: Enabled
-    // 
-    // - off: Disabled
+    // The bypass mode. Valid values:
+    // - on: enabled
+    // - off: disabled.
     shared_ptr<string> bypass_ {};
     // The configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Specifies whether to enable fallback. If enabled, requests fall back to the origin server if the function encounters an exception, such as exceeding the CPU usage limit. Valid values:
-    // 
-    // - on: Enabled
-    // 
-    // - off: Disabled
+    // The fallback-to-origin switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request falls back to the origin server. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> fallback_ {};
-    // Specifies whether to enable the route. Valid values:
-    // 
-    // - on: Enabled
-    // 
-    // - off: Disabled
+    // The route switch. Valid values:
+    // - on: enabled
+    // - off: disabled.
     shared_ptr<string> routeEnable_ {};
     // The route name.
     shared_ptr<string> routeName_ {};
-    // The name of the Routine.
+    // The name of the Edge Routine.
     shared_ptr<string> routineName_ {};
-    // The content of the rule.
+    // The rule content.
     shared_ptr<string> rule_ {};
-    // The execution sequence of the rule.
+    // The execution order of the rule.
     shared_ptr<int32_t> sequence_ {};
-    // The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The Edge Routine timeout period. Valid values: 5 to 60.
     shared_ptr<string> timeout_ {};
   };
 

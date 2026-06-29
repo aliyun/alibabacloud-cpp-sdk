@@ -271,7 +271,7 @@ namespace Models
     protected:
       // The error code for the free certificate application.
       shared_ptr<int64_t> certApplyCode_ {};
-      // The error description for the free certificate application.
+      // The error message for the free certificate application.
       shared_ptr<string> certApplyMessage_ {};
       // The HTTP address for certificate verification.
       shared_ptr<string> certHttpKey_ {};
@@ -280,15 +280,15 @@ namespace Models
       // The certificate expiration time, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> certNotAfter_ {};
       // The certificate status. Valid values:
-      // - **OK**: Normal.
-      // - **Applying**: Being applied.
-      // - **ApplyFailed**: Application failed.
-      // - **Expiring**: About to expire.
-      // - **Expired**: Expired.
+      // - **OK**: normal.
+      // - **Applying**: being applied.
+      // - **ApplyFailed**: application failed.
+      // - **Expiring**: about to expire.
+      // - **Expired**: expired.
       shared_ptr<string> certStatus_ {};
-      // The TXT name for certificate verification.
+      // The TXT record name for certificate verification.
       shared_ptr<string> certTxtKey_ {};
-      // The TXT content for certificate verification.
+      // The TXT record content for certificate verification.
       shared_ptr<string> certTxtValue_ {};
       // The certificate type. Valid values:
       // - **free**: free certificate.
@@ -296,23 +296,24 @@ namespace Models
       // - **cas**: SSL Certificates Service certificate.
       shared_ptr<string> certType_ {};
       // The reason why the SaaS domain name is occupied. Valid values:
-      // - **existing_custom_hostname**: Conflicts with an existing SaaS domain name.
-      // - **existing_record**: Conflicts with an existing site record.
-      // - **existing_load_balancer**: Conflicts with an existing load balancing instance.
-      // - **existing_origin_pool**: Conflicts with an existing origin IPAM pool.
+      // - **existing_custom_hostname**: conflicts with an existing SaaS domain name.
+      // - **existing_site**: conflicts with an existing site.
+      // - **existing_record**: conflicts with an existing site record.
+      // - **existing_load_balancer**: conflicts with an existing load balancing instance.
+      // - **existing_origin_pool**: conflicts with an existing origin IPAM pool.
       shared_ptr<string> conflictWith_ {};
-      // The time when the SaaS domain name was created, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time of the SaaS domain name, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The SaaS domain name.
       shared_ptr<string> hostname_ {};
       // The ID of the SaaS domain name.
       shared_ptr<int64_t> hostnameId_ {};
       // The reason why the SaaS domain name was taken offline. Valid values:
-      // - **expiration_ arrears**: The subscription plan has expired or the account has an overdue payment.
-      // - **internally_disabled**: Disabled by the system.
-      // - **missing_icp**: The domain name does not have an ICP filing.
-      // - **content_violation**: Content violation.
-      // - **proactively_disabled**: You proactively disabled the domain name or the usage cap you configured was reached.
+      // - **expiration_arrears**: the subscription plan expired or the account has an overdue payment.
+      // - **internally_disabled**: disabled by the system.
+      // - **missing_icp**: the domain name does not have an ICP filing.
+      // - **content_violation**: content violation.
+      // - **proactively_disabled**: proactively disabled by you or disabled because the usage cap you configured was reached.
       shared_ptr<string> offlineReason_ {};
       // The record ID.
       shared_ptr<int64_t> recordId_ {};
@@ -333,11 +334,11 @@ namespace Models
       // - **offline**: offline.
       // - **configuring**: being configured.
       shared_ptr<string> status_ {};
-      // The time when the SaaS domain name was last updated, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The update time of the SaaS domain name, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> updateTime_ {};
-      // The TXT content for domain name verification.
+      // The TXT record content for domain name verification.
       shared_ptr<string> verifyCode_ {};
-      // The TXT name for domain name verification.
+      // The TXT record name for domain name verification.
       shared_ptr<string> verifyHost_ {};
     };
 
@@ -381,13 +382,13 @@ namespace Models
 
 
   protected:
-    // The list of SaaS domain names.
+    // The list of SaaS domain names returned.
     shared_ptr<vector<ListCustomHostnamesResponseBody::Hostnames>> hostnames_ {};
-    // The page number.
+    // The current page number. This value is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which is a unique identifier generated by Alibaba Cloud for this request.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request.
     shared_ptr<string> requestId_ {};
     // The total number of SaaS domain names.
     shared_ptr<int32_t> totalCount_ {};

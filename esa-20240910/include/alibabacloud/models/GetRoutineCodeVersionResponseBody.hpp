@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The description of the code version.
     shared_ptr<string> codeDescription_ {};
-    // The time when the version was created.
+    // The creation time. The time follows the RFC 3339 standard in the UTC time zone.
     shared_ptr<string> createTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

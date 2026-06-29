@@ -114,26 +114,26 @@ namespace Models
   protected:
     // The Alibaba Cloud account ID.
     shared_ptr<string> aliUid_ {};
-    // The end time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
+    // The end time of the scheduled preload plan, in ISO 8601 format (e.g., 2024-01-01T00:00:00+Z).
     shared_ptr<string> endTime_ {};
-    // The prefetch plan ID.
+    // The preload plan ID.
     shared_ptr<string> id_ {};
-    // The interval between each batch execution of the scheduled prefetch plan, in seconds.
+    // The execution interval between batches in the scheduled preload plan, in seconds.
     shared_ptr<int32_t> interval_ {};
-    // The prefetch job ID.
+    // The preload task ID.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of URLs prefetched per batch.
+    // The number of URLs per batch in the scheduled preload.
     shared_ptr<int32_t> sliceLen_ {};
-    // The start time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
+    // The start time of the scheduled preload plan, in ISO 8601 format (e.g., 2024-01-01T00:00:00+Z).
     shared_ptr<string> startTime_ {};
-    // The status of the scheduled prefetch plan. Valid values:
-    // - **waiting**: waiting to be executed.
-    // - **running**: being executed.
-    // - **finished**: execution completed.
-    // - **failed**: execution failed.
-    // - **stopped**: execution paused.
+    // The status of the scheduled preload plan. Valid values:
+    // - **waiting**: Waiting to be executed.
+    // - **running**: Being executed.
+    // - **finished**: Execution completed.
+    // - **failed**: Execution failed.
+    // - **stopped**: Execution paused.
     shared_ptr<string> status_ {};
   };
 

@@ -170,45 +170,45 @@ namespace Models
 
 
     protected:
-      // Configuration ID.
+      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // Configuration type, which can be used to query global or rule-based configurations. The value range is as follows:
+      // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
       // 
-      // - global: Query global configuration.
-      // - rule: Query rule-based configuration.
+      // - global: global configuration.
+      // - rule: rule configuration.
       shared_ptr<string> configType_ {};
-      // Whether to enable GRPC, default is off. The value range is:
+      // Specifies whether to enable gRPC. This feature is disabled by default. Valid values:
       // - on: enabled.
       // - off: disabled.
       shared_ptr<string> grpc_ {};
-      // Whether to enable HTTP2 origin, defaulting to off. The value range is as follows:
+      // Specifies whether to enable HTTP/2 back-to-origin. This feature is disabled by default. Valid values:
       // 
-      // - on: Enabled.
-      // - off: Disabled.
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> http2Origin_ {};
-      // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-      // - Match all incoming requests: Set the value to true
-      // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+      // The rule content, which uses conditional expressions to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+      // - Match all incoming requests: set the value to true.
+      // - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
       shared_ptr<string> rule_ {};
-      // Rule switch. This parameter is not required when adding a global configuration. The value range is as follows:
-      // - on: Enabled.
-      // - off: Disabled.
+      // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> ruleEnable_ {};
-      // Rule name. This parameter is not required when adding a global configuration.
+      // The rule name. You do not need to set this parameter when adding a global configuration.
       shared_ptr<string> ruleName_ {};
-      // Rule execution order. The smaller the value, the higher the priority.
+      // The rule execution order. A smaller value indicates a higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
+      // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
       shared_ptr<int32_t> siteVersion_ {};
-      // Whether to enable smart routing service, defaulting to off. The value range is as follows:
-      // - on: Enabled.
-      // - off: Disabled.
+      // Specifies whether to enable the smart routing service. This feature is disabled by default. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> smartRouting_ {};
-      // Maximum file size for upload, in MB. The value range is 100 to 500.
+      // The maximum upload file size, in MB. Valid values: 100 to 500.
       shared_ptr<string> uploadMaxFilesize_ {};
-      // Whether to enable Websocket, enabled by default. Value range: 
-      // - on: Enabled. 
-      // - off: Disabled.
+      // Specifies whether to enable WebSocket. This feature is enabled by default. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> websocket_ {};
     };
 
@@ -259,17 +259,17 @@ namespace Models
 
 
   protected:
-    // Response body configurations.
+    // The configurations returned in the response body.
     shared_ptr<vector<ListNetworkOptimizationsResponseBody::Configs>> configs_ {};
-    // The current page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The size of the page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The code version.
+    // The code version number.
     // 
     // This parameter is required.
     shared_ptr<string> codeVersion_ {};
-    // The routine name.
+    // The name of the Edge Routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

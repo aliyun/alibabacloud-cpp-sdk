@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. The default value is 1.
+    // The page number for a paging query. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The maximum value is 500. The default value is 500.
+    // The number of entries per page for a paging query. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the Edge Function routine.
+    // The name of the Edge Routine.
     // 
     // This parameter is required.
     shared_ptr<string> routineName_ {};

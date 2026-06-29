@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+    // The rule content. Use a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
     // - Match all incoming requests: Set the value to true.
     // - Match specified requests: Set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
     // 
-    // For the complete syntax of rule expressions, see <props="china">https://www.alibabacloud.com/help/en/edge-security-acceleration/esa/user-guide/work-with-rules-engine/<props="intl">https://www.alibabacloud.com/help/edge-security-acceleration/esa/user-guide/work-with-rules-engine/.
+    // For the complete syntax of rule expressions, refer to <props="china">https://www.alibabacloud.com/help/en/edge-security-acceleration/esa/user-guide/work-with-rules-engine/<props="intl">https://www.alibabacloud.com/help/edge-security-acceleration/esa/user-guide/work-with-rules-engine/
     // 
     // This parameter is required.
     shared_ptr<string> rule_ {};
@@ -93,7 +93,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

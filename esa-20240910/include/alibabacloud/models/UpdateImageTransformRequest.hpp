@@ -112,35 +112,32 @@ namespace Models
 
 
   protected:
+    // The adaptive AVIF setting.
     shared_ptr<string> autoAvif_ {};
+    // The adaptive WebP setting.
     shared_ptr<string> autoWebp_ {};
-    // The configuration ID. You can obtain this ID by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) operation.
+    // The configuration ID. You can call the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) operation to obtain the configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Specifies whether to enable image transform. Valid values:
+    // Specifies whether to enable image transformation. Valid values:
     // 
-    // - `on`: Enables image transform.
-    // 
-    // - `off`: Disables image transform.
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> enable_ {};
-    // The rule content, which is a conditional expression for matching user requests. This parameter is not required when you configure a global rule. The expression can be used in the following ways:
-    // 
-    // - To match all incoming requests, set the value to `true`.
-    // 
-    // - To match specific requests, set the value to a custom expression, for example, `(http.host eq "video.example.com")`.
+    // The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. This parameter is not required when you configure a global rule. Valid values:
-    // 
-    // - `on`: Enables the rule.
-    // 
-    // - `off`: Disables the rule.
+    // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. This parameter is not required when you configure a global rule.
+    // The rule name. You do not need to set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The execution priority of the rule. A smaller value indicates a higher priority.
+    // The execution order of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

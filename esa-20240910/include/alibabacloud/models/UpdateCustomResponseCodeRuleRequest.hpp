@@ -111,23 +111,19 @@ namespace Models
     shared_ptr<string> pageId_ {};
     // The response code.
     shared_ptr<string> returnCode_ {};
-    // The rule content. Use a conditional expression to match user requests. Do not set this parameter when adding a global configuration. There are two scenarios:
-    // 
-    // - Match all incoming requests: Set the value to \\`true\\`.
-    // 
-    // - Match specific requests: Set the value to a custom expression, such as: \\`(http.host eq "video.example.com")\\`.
+    // The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // The rule switch. Do not set this parameter when adding a global configuration. Valid values:
-    // 
-    // - on: Enable the rule.
-    // 
-    // - off: Disable the rule.
+    // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. Do not set this parameter when adding a global configuration.
+    // The rule name. You do not need to set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The rule execution order. A smaller value indicates higher priority.
+    // The rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The site ID. Get it by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

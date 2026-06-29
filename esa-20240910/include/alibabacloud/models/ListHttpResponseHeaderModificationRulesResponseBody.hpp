@@ -131,19 +131,14 @@ namespace Models
       protected:
         // The response header name.
         shared_ptr<string> name_ {};
-        // The modification operation. Valid values:
-        // 
-        // - `add`: Adds a header.
-        // 
-        // - `del`: Removes a header.
-        // 
-        // - `modify`: Modifies a header.
+        // The operation type. Valid values:
+        // - add: adds a response header.
+        // - del: deletes a response header.
+        // - modify: modifies a response header.
         shared_ptr<string> operation_ {};
         // The value type. Valid values:
-        // 
-        // - `static`: Static mode.
-        // 
-        // - `dynamic`: Dynamic mode.
+        // - static: static pattern.
+        // - dynamic: dynamic schema.
         shared_ptr<string> type_ {};
         // The response header value.
         shared_ptr<string> value_ {};
@@ -213,31 +208,25 @@ namespace Models
     protected:
       // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // The type of configuration. Valid values:
-      // 
-      // - `global`: A global configuration.
-      // 
-      // - `rule`: A rule configuration.
+      // The configuration type. Valid values:
+      // - global: global configuration.
+      // - rule: rule configuration.
       shared_ptr<string> configType_ {};
-      // The response header modifications. You can add, remove, or modify headers.
+      // The response header modifications. Three operations are supported: add, delete, and modify.
       shared_ptr<vector<Configs::ResponseHeaderModification>> responseHeaderModification_ {};
-      // The conditional expression that matches user requests. This parameter is not required for a global configuration.
-      // 
-      // - To match all incoming requests, set the value to `true`.
-      // 
-      // - To match specific requests, set a custom expression. Example: `(http.host eq "video.example.com")`
+      // The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when you add a global configuration. Two scenarios are supported:
+      // - Match all incoming requests: set the value to true.
+      // - Match specific requests: set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
       shared_ptr<string> rule_ {};
-      // Whether the rule is enabled. This parameter is not required for a global configuration. Valid values:
-      // 
-      // - `on`: Enabled.
-      // 
-      // - `off`: Disabled.
+      // The rule switch. You do not need to set this parameter when you add a global configuration. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> ruleEnable_ {};
-      // The name of the rule. This parameter is not required for a global configuration.
+      // The rule name. You do not need to set this parameter when you add a global configuration.
       shared_ptr<string> ruleName_ {};
-      // The execution priority of the rule. Rules with smaller values have higher priority.
+      // The execution order of the rule. A smaller value indicates a higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // The version number of the site configuration. For sites with version management enabled, this specifies the version to which the configuration applies. The default is 0.
+      // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
       shared_ptr<int32_t> siteVersion_ {};
     };
 
@@ -288,11 +277,11 @@ namespace Models
 
 
   protected:
-    // A list of HTTP response header modification rules.
+    // The list of HTTP response header modifications.
     shared_ptr<vector<ListHttpResponseHeaderModificationRulesResponseBody::Configs>> configs_ {};
-    // The page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

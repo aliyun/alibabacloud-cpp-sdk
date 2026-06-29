@@ -103,31 +103,40 @@ namespace Models
 
 
   protected:
-    // The transport layer application ID. You can obtain this ID by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) operation.
+    // The Layer 4 application ID. You can call the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) operation to obtain the application ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> applicationId_ {};
-    // Specifies whether to enable cross-border optimization for network access from the Chinese mainland. This feature is disabled by default. Valid values:
+    // Specifies whether to enable network access optimization for the Chinese mainland. This feature is disabled by default. Valid values:
     // 
-    // - on: Enables the feature.
-    // 
-    // - off: Disables the feature.
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> crossBorderOptimization_ {};
-    // Specifies whether to enable IP access rules. If enabled, the IP access rules in WAF apply to the transport layer application. Valid values:
+    // The IP access rule switch. When enabled, WAF IP access rules take effect for the Layer 4 application. Valid values:
     // 
-    // - on: Enables the feature.
-    // 
-    // - off: Disables the feature.
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> ipAccessRule_ {};
-    // Specifies whether to enable IPv6. Valid values: `on` and `off`.
+    // The IPv6 switch. Valid values:
+    // 
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> ipv6_ {};
+    // Specifies whether to enable keep-alive protection. This feature is disabled by default. Valid values:
+    // 
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> keepAliveProtection_ {};
-    // A list of forwarding rules. For each rule, all parameters are required except for `Comment`.
+    // The list of forwarding rules. For each rule, all parameters except the comment are required.
     shared_ptr<string> rulesShrink_ {};
-    // The site ID. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Specifies whether to enable static IP. This feature is disabled by default. Valid values:
+    // 
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> staticIp_ {};
   };
 

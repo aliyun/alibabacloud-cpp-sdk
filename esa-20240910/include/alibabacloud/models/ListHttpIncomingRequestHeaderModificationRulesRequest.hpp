@@ -94,24 +94,24 @@ namespace Models
 
 
   protected:
-    // The configuration ID. You can call the ListHttpIncomingRequestHeaderModificationRules operation to query the ID.
+    // The configuration ID. You can call the ListHttpIncomingRequestHeaderModificationRules operation to obtain the configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The configuration type to query. Valid values:
+    // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
     // 
-    // *   global: global configurations.
-    // *   rule: rule configurations.
+    // - global: queries global configurations.
+    // - rule: queries rule configurations.
     shared_ptr<string> configType_ {};
-    // The page number. Default value: 1.
+    // The page number for a paged query. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 500. Default value: 500.
+    // The number of entries per page for a paged query. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
     // The rule name.
     shared_ptr<string> ruleName_ {};
-    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+    // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

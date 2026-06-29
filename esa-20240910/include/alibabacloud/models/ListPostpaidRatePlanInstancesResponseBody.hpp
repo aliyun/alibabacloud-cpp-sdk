@@ -128,19 +128,16 @@ namespace Models
 
 
       protected:
-        // The ID of the site.
+        // The site ID.
         shared_ptr<int64_t> siteId_ {};
-        // The name of the site.
+        // The site name.
         shared_ptr<string> siteName_ {};
-        // The status of the site. Valid values:
+        // The site status. Valid values:
         // 
-        // - `pending`: The site is awaiting configuration.
-        // 
-        // - `active`: The site is active.
-        // 
-        // - `offline`: The site is offline.
-        // 
-        // - `moved`: The site has been replaced.
+        // - pending: The site is pending configuration.
+        // - active: The site is activated.
+        // - offline: The site is offline.
+        // - moved: The site has been replaced.
         shared_ptr<string> siteStatus_ {};
       };
 
@@ -235,43 +232,38 @@ namespace Models
 
 
     protected:
-      // The billing method. Valid value:
-      // 
-      // - `dps_month95`: Monthly 95th percentile.
+      // The billable methods. Valid values:
+      // - dps_month95: monthly 95th percentile billing.
       shared_ptr<string> billingMethod_ {};
-      // The billing mode. Valid value:
+      // The billing mode. Valid values:
       // 
-      // - `POSTPAY`: pay-as-you-go.
+      //  * POSTPAY: pay-as-you-go.
       shared_ptr<string> billingMode_ {};
-      // The coverage area of the instance. Only sites within this area can be bound to the instance. If multiple areas are supported, they are separated by a comma (`,`). Valid values:
+      // The acceleration regions to which the instance can bindable sites. Multiple values are separated by commas (,). Valid values:
       // 
-      // - `domestic`: Chinese mainland.
-      // 
-      // - `overseas`: Regions outside the Chinese mainland.
-      // 
-      // - `global`: Global (including the Chinese mainland).
+      // - domestic: the Chinese mainland.
+      // - overseas: global (excluding the Chinese mainland).
+      // - global: global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
-      // The time when the instance was created.
+      // The time when the instance was created. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The time of a scheduled configuration change.
+      // The scheduled specification change time. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> expectedUpdateTime_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The plan name in English.
       shared_ptr<string> planName_ {};
       // The plan name in Chinese.
       shared_ptr<string> planNameCn_ {};
-      // The type of the plan. Valid values:
-      // 
-      // - `normal`: Normal plan.
-      // 
-      // - `enterprise`: Enterprise plan.
+      // The plan type of the instance. Valid values:
+      // - normal: Fixed plan.
+      // - enterprise: Enterprise plan.
       shared_ptr<string> planType_ {};
-      // The maximum number of sites that can be bound to the instance.
+      // The site quota.
       shared_ptr<string> siteQuota_ {};
-      // A list of sites bound to the instance.
+      // The list of sites.
       shared_ptr<vector<InstanceInfo::Sites>> sites_ {};
-      // The status of the instance.
+      // The instance status.
       shared_ptr<string> status_ {};
     };
 
@@ -322,15 +314,15 @@ namespace Models
 
 
   protected:
-    // A list of instances.
+    // The list of instance information.
     shared_ptr<vector<ListPostpaidRatePlanInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
-    // The page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, used for troubleshooting.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

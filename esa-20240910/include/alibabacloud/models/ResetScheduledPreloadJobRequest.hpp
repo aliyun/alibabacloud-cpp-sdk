@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // The scheduled preload job ID.
-    // >Notice: The scheduled preload job ID. This parameter is required. You can obtain the ID from the response of CreateScheduledPreloadJob after creating a job, or query existing job IDs by calling GetScheduledPreloadJob or ListScheduledPreloadJobs.
+    // The ID of the scheduled prefetch task.
+    // >Notice: The ID of the scheduled prefetch task. This parameter is required. You can obtain the ID from the response of CreateScheduledPreloadJob after creating a task, or query the ID of an existing task by calling GetScheduledPreloadJob or ListScheduledPreloadJobs..
     shared_ptr<string> id_ {};
   };
 

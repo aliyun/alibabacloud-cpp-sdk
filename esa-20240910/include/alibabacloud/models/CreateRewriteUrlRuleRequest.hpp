@@ -121,43 +121,37 @@ namespace Models
 
 
   protected:
-    // The query string after the rewrite.
+    // The query string after rewriting.
     shared_ptr<string> queryString_ {};
-    // The query string rewrite mode. Valid values:
+    // The query string rewrite type. Valid values:
     // 
-    // - `static`: Static mode.
-    // 
-    // - `dynamic`: Dynamic mode.
+    // - static: static mode.
+    // - dynamic: dynamic mode.
     shared_ptr<string> rewriteQueryStringType_ {};
-    // The URI rewrite mode. Valid values:
+    // The URI rewrite type. Valid values:
     // 
-    // - `static`: Static mode.
-    // 
-    // - `dynamic`: Dynamic mode.
+    // - static: static mode.
+    // - dynamic: dynamic mode.
     shared_ptr<string> rewriteUriType_ {};
-    // The conditional expression used to match user requests. This parameter is not required when you add a global configuration. Two use cases are supported:
-    // 
-    // - To match all inbound requests, set the value to `true`.
-    // 
-    // - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+    // The rule content, which uses conditional expressions to match user requests. This parameter does not need to be set when adding global configurations. There are two usage scenarios:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // This parameter is not required when you add a global configuration. Valid values:
-    // 
-    // - `on`: Enables the rule.
-    // 
-    // - `off`: Disables the rule.
+    // The rule switch. This parameter does not need to be set when adding global configurations. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. This parameter is not required when you add a global configuration.
+    // The rule name. This parameter does not need to be set when adding global configurations.
     shared_ptr<string> ruleName_ {};
-    // The execution priority of the rule. A lower value indicates a higher priority.
+    // The rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The site ID. Obtain it by calling the [ListSites](~~ListSites~~) operation.
+    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // If configuration versioning is enabled for the site, this parameter specifies the target version. The default value is 0.
+    // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // The target URI after the rewrite.
+    // The destination URI after rewriting.
     shared_ptr<string> uri_ {};
   };
 

@@ -142,13 +142,13 @@ namespace Models
 
 
         protected:
-          // The code version ID.
+          // The code version number.
           shared_ptr<string> codeVersion_ {};
-          // The creation time of the code version.
+          // The time when the code version was created. The time follows the RFC 3339 standard in the UTC time zone.
           shared_ptr<string> createTime_ {};
           // The description of the code version.
           shared_ptr<string> description_ {};
-          // The percentage of traffic routed to this code version.
+          // The canary release percentage of the code version.
           shared_ptr<int64_t> percentage_ {};
         };
 
@@ -185,13 +185,13 @@ namespace Models
 
 
       protected:
-        // A list of deployed code versions.
+        // The list of deployed code version numbers.
         shared_ptr<vector<CodeDeploy::CodeVersions>> codeVersions_ {};
-        // The time the deployment was created.
+        // The time when the deployment was created. The time follows the RFC 3339 standard in the UTC time zone.
         shared_ptr<string> creationTime_ {};
-        // The deployment ID.
+        // The deployment record ID.
         shared_ptr<string> deployId_ {};
-        // The deployment strategy. The default value is `percentage`.
+        // The deployment strategy. Default value: percentage.
         shared_ptr<string> strategy_ {};
       };
 
@@ -214,7 +214,7 @@ namespace Models
 
 
     protected:
-      // Details of the canary release for a code version.
+      // The percentage-based canary release deployment information.
       shared_ptr<Envs::CodeDeploy> codeDeploy_ {};
       // The environment name.
       shared_ptr<string> env_ {};
@@ -267,15 +267,15 @@ namespace Models
 
 
   protected:
-    // The creation time of the edge function Routine.
+    // The time when the Edge Routine was created. The time follows the RFC 3339 standard in the UTC time zone.
     shared_ptr<string> createTime_ {};
-    // The default domain name for accessing the Routine.
+    // The default access record.
     shared_ptr<string> defaultRelatedRecord_ {};
-    // The description of the edge function Routine.
+    // The description of the Edge Routine.
     shared_ptr<string> description_ {};
-    // A list of environments.
+    // The list of environment context.
     shared_ptr<vector<GetRoutineResponseBody::Envs>> envs_ {};
-    // Indicates whether the Routine includes Assets.
+    // Indicates whether the Routine has the Assets tag.
     shared_ptr<bool> hasAssets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

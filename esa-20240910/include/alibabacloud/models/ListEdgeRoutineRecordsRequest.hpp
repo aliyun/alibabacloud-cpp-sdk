@@ -75,23 +75,19 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number for a paged query. The value must be greater than or equal to 1. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **500**.
+    // The number of records per page for a paged query. Valid values: 1 to 500. Default value: **500**.
     shared_ptr<int32_t> pageSize_ {};
-    // The match mode to filter the record names.
-    // 
+    // The matching mode used to filter by record name. Valid values:
     // - **fuzzy**: fuzzy match.
-    // 
-    // - **prefix**: match by prefix.
-    // 
-    // - **suffix**: match by suffix.
-    // 
-    // - **exact** (default): exact match .
+    // - **prefix**: prefix match.
+    // - **suffix**: suffix match.
+    // - **exact**: exact match (default).
     shared_ptr<string> recordMatchType_ {};
-    // The record name.
+    // Filters by the specified record name.
     shared_ptr<string> recordName_ {};
-    // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

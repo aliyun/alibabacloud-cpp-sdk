@@ -94,29 +94,25 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration. To obtain this ID, call the ListHttpIncomingRequestHeaderModificationRules API.
+    // Configuration ID. Can be obtained by calling the ListHttpIncomingRequestHeaderModificationRules API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // An array of objects that defines the request header modifications. Supported operations include `add`, `del`, and `modify`.
+    // Modify request headers. Three operation types are supported: add, delete, and modify.
     shared_ptr<string> requestHeaderModificationShrink_ {};
-    // The rule expression, a conditional expression that matches user requests. This parameter is not required for a global configuration. You can use this parameter in two ways:
-    // 
-    // - To match all incoming requests, set this value to `true`.
-    // 
-    // - To match specific requests, provide a custom expression, such as `(http.host eq "video.example.com")`.
+    // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // The status of the rule. This parameter is not required for a global configuration. Valid values:
-    // 
-    // - `on`: The rule is enabled.
-    // 
-    // - `off`: The rule is disabled.
+    // Rule switch. This parameter does not need to be set when adding a global configuration. Valid values:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // The name of the rule. This parameter is not required for a global configuration.
+    // Rule name. This parameter does not need to be set when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // Specifies the rule\\"s priority. Rules with a lower value are executed first.
+    // Rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The ID of the site. To obtain this ID, call the [ListSites](~~ListSites~~) API.
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

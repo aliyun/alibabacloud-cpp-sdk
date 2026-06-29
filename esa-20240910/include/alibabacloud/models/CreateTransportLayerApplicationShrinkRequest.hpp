@@ -103,23 +103,25 @@ namespace Models
 
 
   protected:
-    // Enables or disables network optimization for access from the Chinese mainland. This feature is disabled by default. Valid values:
-    // 
-    // - `on`: Enables the optimization.
-    // 
-    // - `off`: Disables the optimization.
+    // Specifies whether to enable network access optimization for the Chinese mainland. This feature is disabled by default. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> crossBorderOptimization_ {};
-    // Applies IP access rules from Web Application Firewall (WAF) to this Transport Layer Application. Valid values:
+    // The IP access rule switch. When enabled, IP access rules in WAF take effect for the Layer 4 application. Valid values:
     // 
-    // - `on`: Enables the feature.
-    // 
-    // - `off`: Disables the feature.
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> ipAccessRule_ {};
-    // Enables or disables IPv6 support.
+    // Specifies whether to enable IPv6. This feature is disabled by default. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> ipv6_ {};
-    // Enables or disables keep-alive protection.
+    // Specifies whether to enable keep-alive protection. This feature is disabled by default. Valid values:
+    // 
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> keepAliveProtection_ {};
-    // The domain name of the Transport Layer Application.
+    // The domain name of the Layer 4 application.
     // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
@@ -127,10 +129,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> rulesShrink_ {};
-    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID. The site must be activated.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Specifies whether to enable static IP. This feature is disabled by default. Valid values:
+    // 
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> staticIp_ {};
   };
 

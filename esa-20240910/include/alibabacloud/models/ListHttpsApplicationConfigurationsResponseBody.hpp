@@ -243,101 +243,80 @@ namespace Models
 
 
     protected:
-      // Whether to enable the Alt-Svc feature. Default: `off`. Valid values:
-      // 
-      // - `on`: The Alt-Svc feature is enabled.
-      // 
-      // - `off`: The Alt-Svc feature is disabled.
+      // Alt-Svc feature switch. Disabled by default. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> altSvc_ {};
-      // Whether the Alt-Svc header includes the `clear` parameter. Default: `off`. Valid values:
-      // 
-      // - `on`: The `clear` parameter is included.
-      // 
-      // - `off`: The `clear` parameter is not included.
+      // Whether the Alt-Svc header includes the clear parameter. Disabled by default. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> altSvcClear_ {};
-      // The Alt-Svc max-age in seconds. Default: `86400`.
+      // Alt-Svc validity period in seconds. Default value: 86400 seconds.
       shared_ptr<string> altSvcMa_ {};
-      // Whether the Alt-Svc header includes the `persist` parameter. Default: `off`. Valid values:
-      // 
-      // - `on`: The `persist` parameter is included.
-      // 
-      // - `off`: The `persist` parameter is not included.
+      // Whether the Alt-Svc header includes the persist parameter. Disabled by default. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> altSvcPersist_ {};
-      // The configuration ID.
+      // Configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // The type of the configuration. Valid values:
+      // Configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
       // 
-      // - `global`: A global configuration.
-      // 
-      // - `rule`: A rule-based configuration.
+      // - global: Query global configurations.
+      // - rule: Query rule configurations.
       shared_ptr<string> configType_ {};
-      // Whether to enable HSTS. Default: `off`. Valid values:
+      // Whether to enable HSTS. Disabled by default. Valid values:
       // 
-      // - `on`: HSTS is enabled.
-      // 
-      // - `off`: HSTS is disabled.
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hsts_ {};
-      // Whether the HSTS header includes the `includeSubDomains` directive. Default: `off`. Valid values:
+      // Whether to include subdomains in HSTS. Disabled by default. Valid values:
       // 
-      // - `on`: The `includeSubDomains` directive is included.
-      // 
-      // - `off`: The `includeSubDomains` directive is not included.
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hstsIncludeSubdomains_ {};
-      // The HSTS `max-age`, in seconds.
+      // HSTS expiration time in seconds.
       shared_ptr<string> hstsMaxAge_ {};
-      // Whether the HSTS header includes the `preload` directive. Default: `off`. Valid values:
+      // Whether to enable HSTS preload. Disabled by default. Valid values:
       // 
-      // - `on`: The `preload` directive is included.
-      // 
-      // - `off`: The `preload` directive is not included.
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hstsPreload_ {};
-      // Whether to enable HTTPS redirection. Default: `off`. Valid values:
+      // Whether to enable forced HTTPS. Disabled by default. Valid values:
       // 
-      // - `on`: HTTPS redirection is enabled.
+      // - on: Enabled.
       // 
-      // - `off`: HTTPS redirection is disabled.
+      // - off: Disabled.
       shared_ptr<string> httpsForce_ {};
-      // The status code for HTTPS redirection. Valid values:
-      // 
-      // - `301`
-      // 
-      // - `302`
-      // 
-      // - `307`
-      // 
-      // - `308`
+      // Forced HTTPS redirect status code. Valid values:
+      // - 301
+      // - 302
+      // - 307
+      // - 308
       shared_ptr<string> httpsForceCode_ {};
-      // Whether to reject TLS handshake requests that lack an SNI. Default: `off`. Valid values:
-      // 
-      // - `on`: Requests that lack an SNI are rejected.
-      // 
-      // - `off`: Requests that lack an SNI are not rejected.
+      // Whether to enable denial of TLS handshake requests without SNI. Disabled by default. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> httpsNoSniDeny_ {};
-      // Whether to enable SNI verification. Default: `off`. Valid values:
+      // Whether to enable SNI verification. Disabled by default. Valid values:
       // 
-      // - `on`: SNI verification is enabled.
-      // 
-      // - `off`: SNI verification is disabled.
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> httpsSniVerify_ {};
-      // The SNI allowlist. Separate multiple values with a space.
+      // Specifies the list of allowed SNI whitelist entries, separated by spaces.
       shared_ptr<string> httpsSniWhitelist_ {};
-      // The content of the rule, a conditional expression that matches user requests. This parameter is not required for a global configuration. The following use cases are supported:
-      // 
-      // - To match all incoming requests, set the value to `true`.
-      // 
-      // - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+      // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+      // - Match all incoming requests: Set the value to true.
+      // - Match specified requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
-      // Whether the rule is enabled. This parameter is not required for a global configuration. Valid values:
-      // 
-      // - `on`: The rule is enabled.
-      // 
-      // - `off`: The rule is disabled.
+      // Rule switch. This parameter does not need to be set when adding a global configuration. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> ruleEnable_ {};
-      // The name of the rule. This parameter is not required for a global configuration.
+      // Rule name. This parameter does not need to be set when adding a global configuration.
       shared_ptr<string> ruleName_ {};
-      // The execution priority of the rule. A smaller value indicates a higher priority.
+      // Rule execution order. A smaller value indicates a higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // The site configuration version. For sites with version management, this specifies the version to which the configuration applies. Default: `0`.
+      // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: version 0.
       shared_ptr<int32_t> siteVersion_ {};
     };
 
@@ -388,17 +367,17 @@ namespace Models
 
 
   protected:
-    // A list of HTTPS application configurations.
+    // Response body configurations.
     shared_ptr<vector<ListHttpsApplicationConfigurationsResponseBody::Configs>> configs_ {};
-    // The current page number.
+    // Current page number, same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // Total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // The total number of pages.
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

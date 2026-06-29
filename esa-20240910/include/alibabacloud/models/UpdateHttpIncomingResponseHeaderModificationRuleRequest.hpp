@@ -98,27 +98,23 @@ namespace Models
 
 
     protected:
-      // The name of the response header.
+      // The response header name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The operation to perform. Valid values:
+      // The operation type. Valid values:
       // 
-      // - `add`: Adds a response header.
-      // 
-      // - `del`: Deletes a response header.
-      // 
-      // - `modify`: Modifies an existing response header.
+      // - add: Add.
+      // - del: Delete.
+      // - modify: Modify.
       // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
-      // The type of the header value. This parameter is required when `Operation` is `add` or `modify`. Valid values:
-      // 
-      // - `static`: The value is a fixed string.
-      // 
-      // - `dynamic`: The value is a variable.
+      // The value type. Valid values:
+      // - static: Static pattern.
+      // - dynamic: Dynamic schema.
       shared_ptr<string> type_ {};
-      // The value of the response header. This parameter is required when `Operation` is `add` or `modify`.
+      // The response header value.
       shared_ptr<string> value_ {};
     };
 
@@ -177,29 +173,26 @@ namespace Models
 
 
   protected:
-    // The configuration ID. You can obtain this ID by calling the `ListHttpIncomingResponseHeaderModificationRules` operation.
+    // The configuration ID. You can call the ListHttpIncomingResponseHeaderModificationRules operation to obtain the configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // A list of objects specifying modifications to response headers. Supported operations include `add`, `del`, and `modify`.
+    // The response header modifications. Three operation types are supported: add, delete, and modify.
     shared_ptr<vector<UpdateHttpIncomingResponseHeaderModificationRuleRequest::ResponseHeaderModification>> responseHeaderModification_ {};
-    // The condition expression used to match incoming requests. This parameter is not required for a global configuration. You can use this parameter in two ways:
-    // 
-    // - To match all incoming requests, set the value to `true`.
-    // 
-    // - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+    // The rule content, which uses a conditional expression to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // The status of the rule. This parameter is not required for a global configuration. Valid values:
+    // The rule switch. This parameter is not required when adding a global configuration. Valid values:
     // 
-    // - `on`: Enables the rule.
-    // 
-    // - `off`: Disables the rule.
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The name of the rule. This parameter is not required for a global configuration.
+    // The rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The priority of the rule. Rules with a lower value are executed first.
+    // The rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The site ID. You can obtain this ID by calling the `ListSites` operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

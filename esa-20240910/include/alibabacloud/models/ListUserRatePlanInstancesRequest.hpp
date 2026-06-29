@@ -130,43 +130,50 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter for rate plan instances that have a remaining site quota. Valid values:
+    // Specifies whether to filter plan instances that have remaining site quota. Valid values:
     // 
-    // - **true**: Returns only rate plan instances that have a remaining site quota.
-    // 
-    // - **false**: Returns all rate plan instances for the user.
+    // - **true**: Filters plan instances that have remaining site quota.
+    // - **false**: Queries all plan instances under the user.
     shared_ptr<string> checkRemainingSiteQuota_ {};
-    // The ID of the rate plan instance to query.
+    // The plan instance ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<string> instanceId_ {};
-    // The page number. The default value is **1**. The value must be in the range of **1 to 100,000**.
+    // The page number to return in a paged query. Default value: **1**. Valid values: **1** to **100000**. Settings for paging take effect only when this parameter is specified.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in a paged query. Valid values: 1 to 500. This parameter is used for paging.
     shared_ptr<int32_t> pageSize_ {};
+    // The plan name in English.
     shared_ptr<string> planNameEn_ {};
+    // The plan type. Valid values:
+    // 
+    // - normal: fixed-version plan
+    // - enterprise: Enterprise Edition plan.
     shared_ptr<string> planType_ {};
+    // Queries plan instances whose remaining validity period is within the specified number of days. The value must be a positive integer. Unit: days.
     shared_ptr<int32_t> remainingExpireDays_ {};
-    // The sort field. By default, results are sorted by creation time. Valid values:
+    // The field by which to sort the results. By default, results are sorted by purchase time. Valid values:
     // 
-    // - **CreateTime**: Sorts by creation time.
-    // 
-    // - **ExpireTime**: Sorts by expiration time.
+    // - **CreateTime**: purchase time.
+    // - **ExpireTime**: expiration time.
     shared_ptr<string> sortBy_ {};
-    // The sort order. The default is descending. Valid values:
+    // The sort order. Default value: desc. Valid values:
     // 
-    // - **asc**: Sorts in ascending order.
-    // 
-    // - **desc**: Sorts in descending order.
+    // - **asc**: ascending order.
+    // - **desc**: descending order.
     shared_ptr<string> sortOrder_ {};
-    // The status of the rate plan instance. Valid values:
-    // 
-    // - **online**: The instance is in service.
-    // 
-    // - **offline**: The instance has expired and is unavailable.
-    // 
-    // - **disable**: The instance is released.
-    // 
-    // - **overdue**: The instance is overdue.
+    // The instance status. Valid values:
+    // - **online**: The plan instance is in normal service.
+    // - **offline**: The plan instance has expired but has not exceeded the grace period and is not active.
+    // - **disable**: The plan instance has been released.
+    // - **overdue**: The plan instance has an overdue payment.
     shared_ptr<string> status_ {};
+    // The plan subscription type. Valid values:
+    // 
+    // - entranceplan: Free Edition (Chinese mainland)
+    // - entranceplan_intl: Free Edition (International)
+    // - basicplan: Basic Edition
+    // - standardplan: Standard Edition
+    // - advancedplan: Premium Edition
+    // - enterpriseplan: Enterprise Edition.
     shared_ptr<string> subscribeType_ {};
   };
 

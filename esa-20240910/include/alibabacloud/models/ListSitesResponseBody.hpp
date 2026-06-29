@@ -216,67 +216,56 @@ namespace Models
 
 
     protected:
-      // The access type. Valid values:
+      // The site access type. Valid values:
       // 
-      // - **NS**: The site connects via NS.
-      // 
-      // - **CNAME**: The site connects via a CNAME record.
+      // - **NS**: NS-based access.
+      // - **CNAME**: CNAME-based access.
       shared_ptr<string> accessType_ {};
-      // The CNAME suffix for the site. This suffix is required for CNAME record configuration.
+      // The CNAME suffix of the site. For sites that use CNAME-based access, this is the CNAME suffix that needs to be configured for records.
       shared_ptr<string> cnameZone_ {};
-      // The acceleration region. Valid values:
+      // The acceleration region of the site. Valid values:
       // 
-      // - **domestic**: Chinese mainland only.
-      // 
-      // - **global**: Global.
-      // 
-      // - **overseas**: Global (excluding Chinese mainland).
+      // - **domestic**: the Chinese mainland only.
+      // - **global**: global.
+      // - **overseas**: global (excluding the Chinese mainland).
       shared_ptr<string> coverage_ {};
-      // The time (UTC) when the site was created, in `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The creation time of the site. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // The ID of the plan instance associated with the site.
+      // The instance ID of the plan attached to the site.
       shared_ptr<string> instanceId_ {};
-      // The list of name servers (NS) assigned to the site. Multiple name servers are separated by commas.
+      // The list of name servers assigned to the site. Multiple values are separated by commas (,).
       shared_ptr<string> nameServerList_ {};
-      // The reason the site was disabled. Valid values:
+      // The reason why the site is disabled. Valid values:
       // 
-      // - **expiration_ arrears**: The plan has expired or payment is overdue.
-      // 
-      // - **internally_disabled**: Disabled by the system.
-      // 
-      // - **missing_icp**: The domain name is missing an ICP filing.
-      // 
-      // - **content_violation**: The site content violates regulations.
-      // 
-      // - **proactively_disabled**: The user disabled the site, or a usage cap was reached.
+      // - **expiration_ arrears**: The subscription plan has expired or the account has an overdue payment.
+      // - **internally_disabled**: The site is disabled by the system.
+      // - **missing_icp**: The domain name does not have an ICP filing.
+      // - **content_violation**: Content violation.
+      // - **proactively_disabled**: You proactively disabled the site or the site is disabled because the usage cap you configured is reached.
       shared_ptr<string> offlineReason_ {};
-      // The name of the plan.
+      // The plan name.
       shared_ptr<string> planName_ {};
-      // The name of the plan specification.
+      // The specification name of the site plan.
       shared_ptr<string> planSpecName_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The ID of the site.
+      // The site ID.
       shared_ptr<int64_t> siteId_ {};
-      // The domain name.
+      // The site name.
       shared_ptr<string> siteName_ {};
-      // The status. Valid values:
-      // 
-      // - **pending**: The site is awaiting configuration.
-      // 
-      // - **active**: The site is active.
-      // 
-      // - **offline**: The site is offline.
-      // 
-      // - **moved**: The site has moved to another instance.
+      // The site status. Valid values:
+      // - **pending**: the site is pending configuration.
+      // - **active**: the site is activated.
+      // - **offline**: the site is offline.
+      // - **moved**: the site has been superseded.
       shared_ptr<string> status_ {};
-      // The tags associated with the site.
+      // The site tags.
       Darabonba::Json tags_ {};
-      // The time (UTC) when the site was last updated, in `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The update time of the site. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> updateTime_ {};
-      // The TXT verification code for site ownership. For sites that connect via CNAME, you must configure this code.
+      // The site ownership verification code. When a site uses CNAME-based access, this TXT verification code must be configured.
       shared_ptr<string> verifyCode_ {};
-      // The time (UTC) when the site was last accessed, in `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The access time of the site. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> visitTime_ {};
     };
 
@@ -320,15 +309,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned data.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of sites to return on each page.
+    // The number of sites displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of sites.
+    // The list of queried site information.
     shared_ptr<vector<ListSitesResponseBody::Sites>> sites_ {};
-    // The total count of sites.
+    // The total number of sites.
     shared_ptr<int32_t> totalCount_ {};
   };
 
