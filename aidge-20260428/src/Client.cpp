@@ -17,7 +17,10 @@ namespace Aidge20260428
 {
 
 AlibabaCloud::Aidge20260428::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "aidge.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aidge", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1218,23 +1221,40 @@ ImageRemoveResponse Client::imageRemove(const ImageRemoveRequest &request) {
 }
 
 /**
- * @summary Image Translation Pro is designed specifically for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. More than 100 language directions are supported, including bridged translations.
+ * @summary Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following 8 language pairs, with more to be supported in the future.
  *
  * @description ## Product Introduction
- * Image Translation Pro is designed specifically for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. More than 100 language directions are supported, including bridged translations.
- * ## Scenarios
- * E-commerce product images, marketing images, and images for various other scenarios.
- * ## Features
- * - **Product subject information protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
- * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
- * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
- * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection. Pass the corresponding intervention glossary ID when calling the API to meet translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need more.
+ * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following language pairs, with more to be supported in the future.
+ * Supported language pairs:
+ * | **No.** | **Source Language** |  | **Target Language** |  |
+ * | --- | --- | --- | --- | --- |
+ * |  | Language Code | Language Name | Language Code | Language Name |
+ * | 1 | en | English | ar | Arabic |
+ * | 2 | en | English | id | Indonesian |
+ * | 3 | en | English | th | Thai |
+ * | 4 | en | English | ko | Korean |
+ * | 5 | en | English | ja | Japanese |
+ * | 6 | en | English | vi | Vietnamese |
+ * | 7 | en | English | ru | Russian |
+ * | 8 | en | English | tl | Filipino |
+ * | 9 | en | English | es | Spanish |
+ * | 10 | en | English | fr | French |
+ * | 11 | en | English | de | German |
+ * | 12 | en | English | pl | Polish |.
+ * ## Common scenarios
+ * Main product images and detail images for cross-border e-commerce.
+ * ## Functions and features
+ * *   **Product body information protection**: Supports custom selection of whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
+ *     
+ * *   **Brand name protection**: Supports custom selection of whether to translate brand names on images. This helps protect brand name information from being translated.
+ *     
+ * *   **Translation intervention**: Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
  *
- * @param request ImageTranslationProRequest
+ * @param request ImageTranslationPlusRequest
  * @param runtime runtime options for this request RuntimeOptions
- * @return ImageTranslationProResponse
+ * @return ImageTranslationPlusResponse
  */
-ImageTranslationProResponse Client::imageTranslationProWithOptions(const ImageTranslationProRequest &request, const Darabonba::RuntimeOptions &runtime) {
+ImageTranslationPlusResponse Client::imageTranslationPlusWithOptions(const ImageTranslationPlusRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasGlossary()) {
@@ -1265,8 +1285,111 @@ ImageTranslationProResponse Client::imageTranslationProWithOptions(const ImageTr
     body["UseImageEditor"] = request.getUseImageEditor();
   }
 
-  if (!!request.hasCallType()) {
-    body["callType"] = request.getCallType();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ImageTranslationPlus"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImageTranslationPlusResponse>();
+}
+
+/**
+ * @summary Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following 8 language pairs, with more to be supported in the future.
+ *
+ * @description ## Product Introduction
+ * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following language pairs, with more to be supported in the future.
+ * Supported language pairs:
+ * | **No.** | **Source Language** |  | **Target Language** |  |
+ * | --- | --- | --- | --- | --- |
+ * |  | Language Code | Language Name | Language Code | Language Name |
+ * | 1 | en | English | ar | Arabic |
+ * | 2 | en | English | id | Indonesian |
+ * | 3 | en | English | th | Thai |
+ * | 4 | en | English | ko | Korean |
+ * | 5 | en | English | ja | Japanese |
+ * | 6 | en | English | vi | Vietnamese |
+ * | 7 | en | English | ru | Russian |
+ * | 8 | en | English | tl | Filipino |
+ * | 9 | en | English | es | Spanish |
+ * | 10 | en | English | fr | French |
+ * | 11 | en | English | de | German |
+ * | 12 | en | English | pl | Polish |.
+ * ## Common scenarios
+ * Main product images and detail images for cross-border e-commerce.
+ * ## Functions and features
+ * *   **Product body information protection**: Supports custom selection of whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
+ *     
+ * *   **Brand name protection**: Supports custom selection of whether to translate brand names on images. This helps protect brand name information from being translated.
+ *     
+ * *   **Translation intervention**: Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+ *
+ * @param request ImageTranslationPlusRequest
+ * @return ImageTranslationPlusResponse
+ */
+ImageTranslationPlusResponse Client::imageTranslationPlus(const ImageTranslationPlusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return imageTranslationPlusWithOptions(request, runtime);
+}
+
+/**
+ * @summary The Image Translation Pro version is specifically designed for e-commerce images, integrating multimodal large model technology to achieve more accurate understanding of images, significantly improving translation quality, and continuously expanding and optimizing multilingual translation capabilities. It supports over 100 language pairs (including bridged translations).
+ *
+ * @description ## Product Introduction
+ * The Image Translation Pro version is specifically designed for e-commerce images, integrating multimodal large model technology to achieve more accurate understanding of images, significantly improving translation quality, and continuously expanding and optimizing multilingual translation capabilities. It supports over 100 language pairs (including bridged translations).
+ * ## Applicable Scenarios
+ * E-commerce product images, marketing images, and images for various other scenarios
+ * ## Features
+ * - **Product Subject Information Protection**: Supports custom selection of whether to translate text on the product subject, helping you protect subject information from being translated, such as embedded product names.
+ * - **Post-translation Secondary Editing**: Supports custom selection of whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrating with an image editor. The editor SDK package is not yet publicly available; please follow platform notifications.
+ * - **Brand Name Protection**: Supports custom selection of whether to translate brand names on images, helping you protect brand name information from being translated.
+ * - **Translation Intervention Support**: Allows customization of translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). Commonly used for brand name protection scenarios. Simply pass the corresponding glossary ID when calling the API to achieve this, meeting your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. For additional needs, please contact the platform for assistance.
+ *
+ * @param request ImageTranslationProRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImageTranslationProResponse
+ */
+ImageTranslationProResponse Client::imageTranslationProWithOptions(const ImageTranslationProRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAsync()) {
+    body["Async"] = request.getAsync();
+  }
+
+  if (!!request.hasGlossary()) {
+    body["Glossary"] = request.getGlossary();
+  }
+
+  if (!!request.hasImageUrl()) {
+    body["ImageUrl"] = request.getImageUrl();
+  }
+
+  if (!!request.hasIncludingProductArea()) {
+    body["IncludingProductArea"] = request.getIncludingProductArea();
+  }
+
+  if (!!request.hasSourceLanguage()) {
+    body["SourceLanguage"] = request.getSourceLanguage();
+  }
+
+  if (!!request.hasTargetLanguage()) {
+    body["TargetLanguage"] = request.getTargetLanguage();
+  }
+
+  if (!!request.hasTranslatingBrandInTheProduct()) {
+    body["TranslatingBrandInTheProduct"] = request.getTranslatingBrandInTheProduct();
+  }
+
+  if (!!request.hasUseImageEditor()) {
+    body["UseImageEditor"] = request.getUseImageEditor();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1287,17 +1410,17 @@ ImageTranslationProResponse Client::imageTranslationProWithOptions(const ImageTr
 }
 
 /**
- * @summary Image Translation Pro is designed specifically for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. More than 100 language directions are supported, including bridged translations.
+ * @summary The Image Translation Pro version is specifically designed for e-commerce images, integrating multimodal large model technology to achieve more accurate understanding of images, significantly improving translation quality, and continuously expanding and optimizing multilingual translation capabilities. It supports over 100 language pairs (including bridged translations).
  *
  * @description ## Product Introduction
- * Image Translation Pro is designed specifically for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. More than 100 language directions are supported, including bridged translations.
- * ## Scenarios
- * E-commerce product images, marketing images, and images for various other scenarios.
+ * The Image Translation Pro version is specifically designed for e-commerce images, integrating multimodal large model technology to achieve more accurate understanding of images, significantly improving translation quality, and continuously expanding and optimizing multilingual translation capabilities. It supports over 100 language pairs (including bridged translations).
+ * ## Applicable Scenarios
+ * E-commerce product images, marketing images, and images for various other scenarios
  * ## Features
- * - **Product subject information protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
- * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
- * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
- * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection. Pass the corresponding intervention glossary ID when calling the API to meet translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need more.
+ * - **Product Subject Information Protection**: Supports custom selection of whether to translate text on the product subject, helping you protect subject information from being translated, such as embedded product names.
+ * - **Post-translation Secondary Editing**: Supports custom selection of whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrating with an image editor. The editor SDK package is not yet publicly available; please follow platform notifications.
+ * - **Brand Name Protection**: Supports custom selection of whether to translate brand names on images, helping you protect brand name information from being translated.
+ * - **Translation Intervention Support**: Allows customization of translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). Commonly used for brand name protection scenarios. Simply pass the corresponding glossary ID when calling the API to achieve this, meeting your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. For additional needs, please contact the platform for assistance.
  *
  * @param request ImageTranslationProRequest
  * @return ImageTranslationProResponse
@@ -1433,6 +1556,110 @@ LanguageDetectResponse Client::languageDetectWithOptions(const LanguageDetectReq
 LanguageDetectResponse Client::languageDetect(const LanguageDetectRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return languageDetectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 物料陈列检测
+ *
+ * @description ## **适用场景**
+ * -   **门店营销物料合规巡检**：自动判定门店内是否按总部下发的标准陈列指引摆放 / 张贴指定营销物料（功能台卡、海报、门型展架等），识别「未摆放、摆放错误、内容不符」等典型问题。
+ *     
+ * -   **新品 / 活动期素材落地核验**：新品发布或大促活动期间，对门店实拍图中的活动物料是否已按要求上架进行批量自动核验，替代人工抽检。
+ *     
+ * -   **双图比对与单图检测自适应**：同一接口同时支持「参考图 + 目标图」双图比对（模式 A）与「仅目标图」单图检测（模式 B），根据是否传入 `ImageRefer` 自动切换，调用方无需区分调用方式。
+ *     
+ * ## **功能介绍**
+ * -   **多模式智能路由**：内置物料类型解析能力，基于 `Rules` 自然语言文本自动识别目标物料类型，路由至对应的素材检测链路；调用方仅需传入图像 URL 与规则文本。目前已支持「功能台卡」「海报」「门型展架」「其他素材」4 套检测项路由，后续将持续增加细分营销物料类型的检测链路。
+ *     
+ * -   **MLLM 语义级理解 + 规则结构化协同**：采用多模态大模型完成物料识别、内容比对、文字 OCR 等语义级理解，配合规则清洗与结构化模型将自然语言规则拆解为可逐条判定的步骤（S1 / S2…），在保证准确率的同时兼顾规则灵活性与可追溯性。
+ *     
+ * -   **结构化审核结论输出**：输出统一为 `Result.OverallResult` + `Result.Steps[]` + `Result.Evidence` 的结构，整体结论由各步骤逻辑 AND 得出，每条步骤独立可见，便于直接驱动下游业务系统并支持 case 级人审追溯。
+ *     
+ * -   **支持的输入格式**：当前支持公网可访问的图像 URL；支持单图（模式 B）与双图（模式 A）两种调用形态，输出结构完全一致。
+ *     
+ * ## **调用方式**
+ * -   **同步调用**：单次请求即返回检测结果，无需轮询。响应为 `Code` / `Message` / `RequestId` / `Success` / `Data` 统一信封。
+ *     
+ * -   **鉴权与签名**：经 Aidge 网关调用，鉴权、签名与公共参数遵循平台统一接入方式。具体请求路径以正式发布的接口文档为准。
+ *     
+ * -   **超时设置**：建议将请求超时设置为不低于接口的最长响应时间（具体值以正式发布为准）。
+ *
+ * @param request MaterialInspectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MaterialInspectionResponse
+ */
+MaterialInspectionResponse Client::materialInspectionWithOptions(const MaterialInspectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiId()) {
+    query["ApiId"] = request.getApiId();
+  }
+
+  if (!!request.hasImageRefer()) {
+    query["ImageRefer"] = request.getImageRefer();
+  }
+
+  if (!!request.hasImageUrl()) {
+    query["ImageUrl"] = request.getImageUrl();
+  }
+
+  if (!!request.hasReqId()) {
+    query["ReqId"] = request.getReqId();
+  }
+
+  if (!!request.hasRules()) {
+    query["Rules"] = request.getRules();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MaterialInspection"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MaterialInspectionResponse>();
+}
+
+/**
+ * @summary 物料陈列检测
+ *
+ * @description ## **适用场景**
+ * -   **门店营销物料合规巡检**：自动判定门店内是否按总部下发的标准陈列指引摆放 / 张贴指定营销物料（功能台卡、海报、门型展架等），识别「未摆放、摆放错误、内容不符」等典型问题。
+ *     
+ * -   **新品 / 活动期素材落地核验**：新品发布或大促活动期间，对门店实拍图中的活动物料是否已按要求上架进行批量自动核验，替代人工抽检。
+ *     
+ * -   **双图比对与单图检测自适应**：同一接口同时支持「参考图 + 目标图」双图比对（模式 A）与「仅目标图」单图检测（模式 B），根据是否传入 `ImageRefer` 自动切换，调用方无需区分调用方式。
+ *     
+ * ## **功能介绍**
+ * -   **多模式智能路由**：内置物料类型解析能力，基于 `Rules` 自然语言文本自动识别目标物料类型，路由至对应的素材检测链路；调用方仅需传入图像 URL 与规则文本。目前已支持「功能台卡」「海报」「门型展架」「其他素材」4 套检测项路由，后续将持续增加细分营销物料类型的检测链路。
+ *     
+ * -   **MLLM 语义级理解 + 规则结构化协同**：采用多模态大模型完成物料识别、内容比对、文字 OCR 等语义级理解，配合规则清洗与结构化模型将自然语言规则拆解为可逐条判定的步骤（S1 / S2…），在保证准确率的同时兼顾规则灵活性与可追溯性。
+ *     
+ * -   **结构化审核结论输出**：输出统一为 `Result.OverallResult` + `Result.Steps[]` + `Result.Evidence` 的结构，整体结论由各步骤逻辑 AND 得出，每条步骤独立可见，便于直接驱动下游业务系统并支持 case 级人审追溯。
+ *     
+ * -   **支持的输入格式**：当前支持公网可访问的图像 URL；支持单图（模式 B）与双图（模式 A）两种调用形态，输出结构完全一致。
+ *     
+ * ## **调用方式**
+ * -   **同步调用**：单次请求即返回检测结果，无需轮询。响应为 `Code` / `Message` / `RequestId` / `Success` / `Data` 统一信封。
+ *     
+ * -   **鉴权与签名**：经 Aidge 网关调用，鉴权、签名与公共参数遵循平台统一接入方式。具体请求路径以正式发布的接口文档为准。
+ *     
+ * -   **超时设置**：建议将请求超时设置为不低于接口的最长响应时间（具体值以正式发布为准）。
+ *
+ * @param request MaterialInspectionRequest
+ * @return MaterialInspectionResponse
+ */
+MaterialInspectionResponse Client::materialInspection(const MaterialInspectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return materialInspectionWithOptions(request, runtime);
 }
 
 /**

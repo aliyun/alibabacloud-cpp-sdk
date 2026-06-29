@@ -33,6 +33,9 @@
 #include <alibabacloud/models/ImageRemoveShrinkRequest.hpp>
 #include <alibabacloud/models/ImageRemoveResponseBody.hpp>
 #include <alibabacloud/models/ImageRemoveResponse.hpp>
+#include <alibabacloud/models/ImageTranslationPlusRequest.hpp>
+#include <alibabacloud/models/ImageTranslationPlusResponseBody.hpp>
+#include <alibabacloud/models/ImageTranslationPlusResponse.hpp>
 #include <alibabacloud/models/ImageTranslationProRequest.hpp>
 #include <alibabacloud/models/ImageTranslationProResponseBody.hpp>
 #include <alibabacloud/models/ImageTranslationProResponse.hpp>
@@ -42,6 +45,9 @@
 #include <alibabacloud/models/LanguageDetectRequest.hpp>
 #include <alibabacloud/models/LanguageDetectResponseBody.hpp>
 #include <alibabacloud/models/LanguageDetectResponse.hpp>
+#include <alibabacloud/models/MaterialInspectionRequest.hpp>
+#include <alibabacloud/models/MaterialInspectionResponseBody.hpp>
+#include <alibabacloud/models/MaterialInspectionResponse.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckRequest.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponseBody.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponse.hpp>
