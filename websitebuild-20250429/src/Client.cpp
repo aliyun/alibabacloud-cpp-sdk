@@ -1258,6 +1258,72 @@ CreateAppTokenServiceResponse Client::createAppTokenService(const CreateAppToken
 }
 
 /**
+ * @summary Creates a resource plan.
+ *
+ * @param request CreateInspirationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInspirationResponse
+ */
+CreateInspirationResponse Client::createInspirationWithOptions(const CreateInspirationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAmountspec()) {
+    query["Amountspec"] = request.getAmountspec();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDuration()) {
+    query["Duration"] = request.getDuration();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.getPaymentType();
+  }
+
+  if (!!request.hasPricingCycle()) {
+    query["PricingCycle"] = request.getPricingCycle();
+  }
+
+  if (!!request.hasQuantity()) {
+    query["Quantity"] = request.getQuantity();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInspiration"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInspirationResponse>();
+}
+
+/**
+ * @summary Creates a resource plan.
+ *
+ * @param request CreateInspirationRequest
+ * @return CreateInspirationResponse
+ */
+CreateInspirationResponse Client::createInspiration(const CreateInspirationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInspirationWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a task to create a logo.
  *
  * @param request CreateLogoTaskRequest

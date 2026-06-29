@@ -392,6 +392,23 @@ namespace WebsiteBuild20250429
       Models::CreateAppTokenServiceResponse createAppTokenService(const Models::CreateAppTokenServiceRequest &request);
 
       /**
+       * @summary Creates a resource plan.
+       *
+       * @param request CreateInspirationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInspirationResponse
+       */
+      Models::CreateInspirationResponse createInspirationWithOptions(const Models::CreateInspirationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a resource plan.
+       *
+       * @param request CreateInspirationRequest
+       * @return CreateInspirationResponse
+       */
+      Models::CreateInspirationResponse createInspiration(const Models::CreateInspirationRequest &request);
+
+      /**
        * @summary Submits a task to create a logo.
        *
        * @param request CreateLogoTaskRequest

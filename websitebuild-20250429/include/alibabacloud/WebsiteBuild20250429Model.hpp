@@ -81,6 +81,9 @@
 #include <alibabacloud/models/CreateAppTokenServiceRequest.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceResponse.hpp>
+#include <alibabacloud/models/CreateInspirationRequest.hpp>
+#include <alibabacloud/models/CreateInspirationResponseBody.hpp>
+#include <alibabacloud/models/CreateInspirationResponse.hpp>
 #include <alibabacloud/models/CreateLogoTaskRequest.hpp>
 #include <alibabacloud/models/CreateLogoTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateLogoTaskResponse.hpp>
