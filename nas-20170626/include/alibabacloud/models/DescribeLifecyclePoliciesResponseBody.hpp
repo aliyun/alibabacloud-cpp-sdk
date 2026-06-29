@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // Attribute of the rule.
+        // The attribute of the transit rule.
         shared_ptr<string> attribute_ {};
-        // Threshold for the rule.
+        // The threshold of the transit rule.
         shared_ptr<string> threshold_ {};
       };
 
@@ -161,9 +161,9 @@ namespace Models
 
 
       protected:
-        // Attribute of the rule.
+        // The attribute of the retrieval rule.
         shared_ptr<string> attribute_ {};
-        // Threshold for the rule.
+        // The threshold of the retrieval rule.
         shared_ptr<string> threshold_ {};
       };
 
@@ -262,41 +262,39 @@ namespace Models
 
 
     protected:
-      // The time when the lifecycle policy was created.
+      // The time when the lifecycle management policy was created.
       // 
-      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The time follows the ISO 8601 standard in the format: `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> createTime_ {};
-      // Description
+      // The description of the policy.
       shared_ptr<string> description_ {};
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
       // The ID of the lifecycle policy.
       shared_ptr<string> lifecyclePolicyId_ {};
-      // The name of the lifecycle policy.
+      // The lifecycle management policy name.
       shared_ptr<string> lifecyclePolicyName_ {};
-      // The type of the lifecycle policy.
+      // The policy type.
       shared_ptr<string> lifecyclePolicyType_ {};
-      // The management rule that is associated with the lifecycle policy.
+      // The management rule associated with the lifecycle management policy.
       // 
       // Valid values:
-      // 
-      // *   DEFAULT_ATIME_14: Files that are not accessed in the last 14 days.
-      // *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days.
-      // *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days.
-      // *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days.
+      // - DEFAULT_ATIME_14: files not accessed in the last 14 days
+      // - DEFAULT_ATIME_30: files not accessed in the last 30 days
+      // - DEFAULT_ATIME_60: files not accessed in the last 60 days
+      // - DEFAULT_ATIME_90: files not accessed in the last 90 days.
       shared_ptr<string> lifecycleRuleName_ {};
-      // The absolute path of a directory with which the lifecycle policy is associated.
+      // The absolute path of the single directory configured in the lifecycle management policy.
       shared_ptr<string> path_ {};
-      // The absolute paths of directories with which the lifecycle policy is associated.
+      // The list of absolute paths of multiple directories configured in the lifecycle management policy.
       shared_ptr<vector<string>> paths_ {};
-      // File data retrieval rules.
+      // The data retrieval rules for files.
       shared_ptr<vector<LifecyclePolicies::RetrieveRules>> retrieveRules_ {};
-      // The storage class.
-      // 
-      // *   InfrequentAccess: the IA storage class.
-      // *   Archive: the Archive storage class.
+      // The storage class type. Valid values:
+      // - InfrequentAccess: IA storage class.
+      // - Archive: Archive storage class.
       shared_ptr<string> storageType_ {};
-      // Data transition rules.
+      // The data transit rules for files.
       shared_ptr<vector<LifecyclePolicies::TransitRules>> transitRules_ {};
     };
 
@@ -340,15 +338,15 @@ namespace Models
 
 
   protected:
-    // The queried lifecycle policies.
+    // The collection of lifecycle management policy information.
     shared_ptr<vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies>> lifecyclePolicies_ {};
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of lifecycle management policies on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of lifecycle policies.
+    // The total number of lifecycle management policies.
     shared_ptr<int32_t> totalCount_ {};
   };
 

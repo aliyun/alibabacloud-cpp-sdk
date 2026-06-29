@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the export directory for the protocol service.
+    // The ID of the protocol service export directory.
     shared_ptr<string> exportId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

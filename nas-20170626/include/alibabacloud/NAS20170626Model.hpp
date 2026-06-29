@@ -50,6 +50,9 @@
 #include <alibabacloud/models/CreateAccessRuleRequest.hpp>
 #include <alibabacloud/models/CreateAccessRuleResponseBody.hpp>
 #include <alibabacloud/models/CreateAccessRuleResponse.hpp>
+#include <alibabacloud/models/CreateAgenticSpaceRequest.hpp>
+#include <alibabacloud/models/CreateAgenticSpaceResponseBody.hpp>
+#include <alibabacloud/models/CreateAgenticSpaceResponse.hpp>
 #include <alibabacloud/models/CreateAutoSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/CreateAutoSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateAutoSnapshotPolicyResponse.hpp>
@@ -113,6 +116,9 @@
 #include <alibabacloud/models/DeleteAccessRuleRequest.hpp>
 #include <alibabacloud/models/DeleteAccessRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccessRuleResponse.hpp>
+#include <alibabacloud/models/DeleteAgenticSpaceRequest.hpp>
+#include <alibabacloud/models/DeleteAgenticSpaceResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgenticSpaceResponse.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyResponse.hpp>
@@ -158,6 +164,9 @@
 #include <alibabacloud/models/DescribeAccessRulesRequest.hpp>
 #include <alibabacloud/models/DescribeAccessRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeAccessRulesResponse.hpp>
+#include <alibabacloud/models/DescribeAgenticSpacesRequest.hpp>
+#include <alibabacloud/models/DescribeAgenticSpacesResponseBody.hpp>
+#include <alibabacloud/models/DescribeAgenticSpacesResponse.hpp>
 #include <alibabacloud/models/DescribeAutoSnapshotPoliciesRequest.hpp>
 #include <alibabacloud/models/DescribeAutoSnapshotPoliciesResponseBody.hpp>
 #include <alibabacloud/models/DescribeAutoSnapshotPoliciesResponse.hpp>
@@ -255,6 +264,9 @@
 #include <alibabacloud/models/EnableSmbAclRequest.hpp>
 #include <alibabacloud/models/EnableSmbAclResponseBody.hpp>
 #include <alibabacloud/models/EnableSmbAclResponse.hpp>
+#include <alibabacloud/models/GetAgenticSpaceRequest.hpp>
+#include <alibabacloud/models/GetAgenticSpaceResponseBody.hpp>
+#include <alibabacloud/models/GetAgenticSpaceResponse.hpp>
 #include <alibabacloud/models/GetDirectoryOrFilePropertiesRequest.hpp>
 #include <alibabacloud/models/GetDirectoryOrFilePropertiesResponseBody.hpp>
 #include <alibabacloud/models/GetDirectoryOrFilePropertiesResponse.hpp>
@@ -267,6 +279,9 @@
 #include <alibabacloud/models/GetRecycleBinAttributeRequest.hpp>
 #include <alibabacloud/models/GetRecycleBinAttributeResponseBody.hpp>
 #include <alibabacloud/models/GetRecycleBinAttributeResponse.hpp>
+#include <alibabacloud/models/ListAccessPointsRequest.hpp>
+#include <alibabacloud/models/ListAccessPointsResponseBody.hpp>
+#include <alibabacloud/models/ListAccessPointsResponse.hpp>
 #include <alibabacloud/models/ListDirectoriesAndFilesRequest.hpp>
 #include <alibabacloud/models/ListDirectoriesAndFilesResponseBody.hpp>
 #include <alibabacloud/models/ListDirectoriesAndFilesResponse.hpp>
@@ -294,6 +309,9 @@
 #include <alibabacloud/models/ModifyAccessRuleRequest.hpp>
 #include <alibabacloud/models/ModifyAccessRuleResponseBody.hpp>
 #include <alibabacloud/models/ModifyAccessRuleResponse.hpp>
+#include <alibabacloud/models/ModifyAgenticSpaceRequest.hpp>
+#include <alibabacloud/models/ModifyAgenticSpaceResponseBody.hpp>
+#include <alibabacloud/models/ModifyAgenticSpaceResponse.hpp>
 #include <alibabacloud/models/ModifyAutoSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyAutoSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyAutoSnapshotPolicyResponse.hpp>
@@ -339,6 +357,9 @@
 #include <alibabacloud/models/RetryLifecycleRetrieveJobRequest.hpp>
 #include <alibabacloud/models/RetryLifecycleRetrieveJobResponseBody.hpp>
 #include <alibabacloud/models/RetryLifecycleRetrieveJobResponse.hpp>
+#include <alibabacloud/models/SetAgenticSpaceQuotaRequest.hpp>
+#include <alibabacloud/models/SetAgenticSpaceQuotaResponseBody.hpp>
+#include <alibabacloud/models/SetAgenticSpaceQuotaResponse.hpp>
 #include <alibabacloud/models/SetDirQuotaRequest.hpp>
 #include <alibabacloud/models/SetDirQuotaResponseBody.hpp>
 #include <alibabacloud/models/SetDirQuotaResponse.hpp>

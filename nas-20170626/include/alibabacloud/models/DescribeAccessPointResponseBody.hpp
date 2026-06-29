@@ -39,11 +39,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccessGroup, accessGroup_);
         DARABONBA_PTR_TO_JSON(AccessPointId, accessPointId_);
         DARABONBA_PTR_TO_JSON(AccessPointName, accessPointName_);
+        DARABONBA_PTR_TO_JSON(AgenticSpaceId, agenticSpaceId_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(CreateTimeUtc, createTimeUtc_);
         DARABONBA_PTR_TO_JSON(DomainName, domainName_);
         DARABONBA_PTR_TO_JSON(EnabledRam, enabledRam_);
         DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
         DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
+        DARABONBA_PTR_TO_JSON(ModifyTimeUtc, modifyTimeUtc_);
         DARABONBA_PTR_TO_JSON(PosixUser, posixUser_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RootPath, rootPath_);
@@ -59,11 +62,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AccessGroup, accessGroup_);
         DARABONBA_PTR_FROM_JSON(AccessPointId, accessPointId_);
         DARABONBA_PTR_FROM_JSON(AccessPointName, accessPointName_);
+        DARABONBA_PTR_FROM_JSON(AgenticSpaceId, agenticSpaceId_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(CreateTimeUtc, createTimeUtc_);
         DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
         DARABONBA_PTR_FROM_JSON(EnabledRam, enabledRam_);
         DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
         DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
+        DARABONBA_PTR_FROM_JSON(ModifyTimeUtc, modifyTimeUtc_);
         DARABONBA_PTR_FROM_JSON(PosixUser, posixUser_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RootPath, rootPath_);
@@ -123,9 +129,9 @@ namespace Models
 
 
       protected:
-        // The key of a tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of a tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -176,11 +182,11 @@ namespace Models
 
 
       protected:
-        // The ID of the owner group.
+        // The file group ID.
         shared_ptr<int32_t> ownerGroupId_ {};
-        // The owner ID.
+        // The file owner ID.
         shared_ptr<int32_t> ownerUserId_ {};
-        // The POSIX permission.
+        // The POSIX permissions.
         shared_ptr<string> permission_ {};
       };
 
@@ -233,19 +239,19 @@ namespace Models
 
 
       protected:
-        // The ID of the POSIX user group.
+        // The POSIX user group ID.
         shared_ptr<int32_t> posixGroupId_ {};
-        // The IDs of the secondary user groups.
+        // The secondary user group ID.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
-        // The ID of the POSIX user.
+        // The POSIX user ID.
         shared_ptr<int32_t> posixUserId_ {};
       };
 
       virtual bool empty() const override { return this->ARN_ == nullptr
-        && this->accessGroup_ == nullptr && this->accessPointId_ == nullptr && this->accessPointName_ == nullptr && this->createTime_ == nullptr && this->domainName_ == nullptr
-        && this->enabledRam_ == nullptr && this->fileSystemId_ == nullptr && this->modifyTime_ == nullptr && this->posixUser_ == nullptr && this->regionId_ == nullptr
-        && this->rootPath_ == nullptr && this->rootPathPermission_ == nullptr && this->rootPathStatus_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->accessGroup_ == nullptr && this->accessPointId_ == nullptr && this->accessPointName_ == nullptr && this->agenticSpaceId_ == nullptr && this->createTime_ == nullptr
+        && this->createTimeUtc_ == nullptr && this->domainName_ == nullptr && this->enabledRam_ == nullptr && this->fileSystemId_ == nullptr && this->modifyTime_ == nullptr
+        && this->modifyTimeUtc_ == nullptr && this->posixUser_ == nullptr && this->regionId_ == nullptr && this->rootPath_ == nullptr && this->rootPathPermission_ == nullptr
+        && this->rootPathStatus_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
       // ARN Field Functions 
       bool hasARN() const { return this->ARN_ != nullptr;};
       void deleteARN() { this->ARN_ = nullptr;};
@@ -274,11 +280,25 @@ namespace Models
       inline AccessPoint& setAccessPointName(string accessPointName) { DARABONBA_PTR_SET_VALUE(accessPointName_, accessPointName) };
 
 
+      // agenticSpaceId Field Functions 
+      bool hasAgenticSpaceId() const { return this->agenticSpaceId_ != nullptr;};
+      void deleteAgenticSpaceId() { this->agenticSpaceId_ = nullptr;};
+      inline string getAgenticSpaceId() const { DARABONBA_PTR_GET_DEFAULT(agenticSpaceId_, "") };
+      inline AccessPoint& setAgenticSpaceId(string agenticSpaceId) { DARABONBA_PTR_SET_VALUE(agenticSpaceId_, agenticSpaceId) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
       inline AccessPoint& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // createTimeUtc Field Functions 
+      bool hasCreateTimeUtc() const { return this->createTimeUtc_ != nullptr;};
+      void deleteCreateTimeUtc() { this->createTimeUtc_ = nullptr;};
+      inline string getCreateTimeUtc() const { DARABONBA_PTR_GET_DEFAULT(createTimeUtc_, "") };
+      inline AccessPoint& setCreateTimeUtc(string createTimeUtc) { DARABONBA_PTR_SET_VALUE(createTimeUtc_, createTimeUtc) };
 
 
       // domainName Field Functions 
@@ -307,6 +327,13 @@ namespace Models
       void deleteModifyTime() { this->modifyTime_ = nullptr;};
       inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
       inline AccessPoint& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
+
+
+      // modifyTimeUtc Field Functions 
+      bool hasModifyTimeUtc() const { return this->modifyTimeUtc_ != nullptr;};
+      void deleteModifyTimeUtc() { this->modifyTimeUtc_ = nullptr;};
+      inline string getModifyTimeUtc() const { DARABONBA_PTR_GET_DEFAULT(modifyTimeUtc_, "") };
+      inline AccessPoint& setModifyTimeUtc(string modifyTimeUtc) { DARABONBA_PTR_SET_VALUE(modifyTimeUtc_, modifyTimeUtc) };
 
 
       // posixUser Field Functions 
@@ -379,56 +406,62 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the access point.
+      // The access point ARN.
       shared_ptr<string> ARN_ {};
-      // The name of the permission group.
+      // The permission group name.
       shared_ptr<string> accessGroup_ {};
-      // The ID of the access point.
+      // The access point ID.
       shared_ptr<string> accessPointId_ {};
-      // The name of the access point.
+      // The access point name.
       shared_ptr<string> accessPointName_ {};
+      // AgenticSpace Id。
+      shared_ptr<string> agenticSpaceId_ {};
       // The time when the access point was created.
       shared_ptr<string> createTime_ {};
-      // The domain name of the access point.
+      // The time when the AgenticSpace was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      shared_ptr<string> createTimeUtc_ {};
+      // The access point domain name.
       shared_ptr<string> domainName_ {};
       // Indicates whether the RAM policy is enabled.
       shared_ptr<bool> enabledRam_ {};
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The time when the access point was modified.
+      // The time when the access point was last modified.
       shared_ptr<string> modifyTime_ {};
+      // The time when the AgenticSpace was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      shared_ptr<string> modifyTimeUtc_ {};
       // The POSIX user.
       shared_ptr<AccessPoint::PosixUser> posixUser_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The root directory.
       shared_ptr<string> rootPath_ {};
-      // The permissions to create the root directory.
+      // The permissions for creating the root directory.
       shared_ptr<AccessPoint::RootPathPermission> rootPathPermission_ {};
-      // The status of the root directory.
+      // The current root directory status.
       // 
       // Valid values:
       // 
-      // *   0: The rootpath status is unknown.
-      // *   1: The rootpath does not exist and may be deleted.
-      // *   2: The rootpath is normal.
+      // - 0: The root path status is unknown.
+      // - 1: The root path does not exist. It may have been deleted by the user.
+      // - 2: The root path status is normal.
       shared_ptr<string> rootPathStatus_ {};
-      // The status of the access point.
+      // The current access point status.
       // 
       // Valid values:
       // 
-      // *   Active: The access point is available.
-      // *   Inactive: The access point is unavailable.
-      // *   Pending: The access point is being created.
-      // *   Deleting: The access point is being deleted.
+      // - Active: active
+      // - Inactive: inactive
+      // - Pending: being created
+      // - Deleting: being deleted
       shared_ptr<string> status_ {};
-      // The tags of the access point.
+      // The list of access point tags.
       shared_ptr<vector<AccessPoint::Tags>> tags_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The VPC ID.
       // 
-      // You must select the VPC of the Elastic Compute Service (ECS) instance on which you want to mount the file system.
+      // The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to which you want to mount the file system.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -451,7 +484,7 @@ namespace Models
 
 
   protected:
-    // The information about the access point.
+    // The access point information.
     shared_ptr<DescribeAccessPointResponseBody::AccessPoint> accessPoint_ {};
     // The request ID.
     // 

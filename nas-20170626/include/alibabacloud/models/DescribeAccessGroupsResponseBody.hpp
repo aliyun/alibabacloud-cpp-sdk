@@ -215,9 +215,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAccessGroupsResponseBody::AccessGroups> accessGroups_ {};
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of permission groups returned per page.
+    // The number of permission groups on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

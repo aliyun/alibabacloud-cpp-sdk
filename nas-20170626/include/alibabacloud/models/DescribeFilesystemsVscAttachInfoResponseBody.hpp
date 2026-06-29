@@ -163,17 +163,17 @@ namespace Models
 
 
   protected:
-    // The number of directories to return for each query.
+    // The number of entries returned per query.
     // 
     // Valid values: 10 to 1000.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // Query token, which is the NextToken value returned from the previous API call.
+    // The query token. Set the value to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of associated information.
+    // The total number of association entries.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<DescribeFilesystemsVscAttachInfoResponseBody::VscAttachInfo> vscAttachInfo_ {};
   };

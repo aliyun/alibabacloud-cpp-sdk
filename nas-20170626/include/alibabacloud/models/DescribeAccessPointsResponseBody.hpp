@@ -125,9 +125,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag that is added to the resource.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // Tag value
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -178,9 +178,9 @@ namespace Models
 
 
       protected:
-        // The ID of the owner group.
+        // The file group ID of the owner.
         shared_ptr<int64_t> ownerGroupId_ {};
-        // The owner ID.
+        // The user ID of the owner.
         shared_ptr<int64_t> ownerUserId_ {};
         // The POSIX permission.
         shared_ptr<string> permission_ {};
@@ -235,11 +235,11 @@ namespace Models
 
 
       protected:
-        // The ID of the POSIX user group.
+        // The POSIX group ID.
         shared_ptr<int32_t> posixGroupId_ {};
-        // The IDs of the secondary user groups.
+        // The secondary group ID.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
-        // The ID of the POSIX user.
+        // The POSIX user ID.
         shared_ptr<int32_t> posixUserId_ {};
       };
 
@@ -374,52 +374,52 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the access point.
+      // The access point ARN.
       shared_ptr<string> ARN_ {};
-      // The name of the permission group.
+      // The permission group name.
       shared_ptr<string> accessGroup_ {};
-      // The ID of the access point.
+      // The access point ID.
       shared_ptr<string> accessPointId_ {};
-      // The name of the access point.
+      // The access point name.
       shared_ptr<string> accessPointName_ {};
       // The time when the access point was created.
       shared_ptr<string> createTime_ {};
       // The domain name of the access point.
       shared_ptr<string> domainName_ {};
-      // Indicates whether the Resource Access Management (RAM) policy is enabled.
+      // Indicates whether the RAM policy is enabled.
       shared_ptr<bool> enabledRam_ {};
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The time when the access point was modified.
+      // The time when the access point was last modified.
       shared_ptr<string> modifyTime_ {};
-      // The Portable Operating System Interface for UNIX (POSIX) user.
+      // The POSIX user.
       shared_ptr<AccessPoints::PosixUser> posixUser_ {};
       // The root directory.
       shared_ptr<string> rootPath_ {};
-      // The permissions on the root directory.
+      // The root directory permissions.
       shared_ptr<AccessPoints::RootPathPermission> rootPathPermission_ {};
-      // The status of the root directory.
+      // The current root directory status.
       // 
       // Valid values:
       // 
-      // *   0: The rootpath status is unknown.
-      // *   1: The rootpath does not exist and may be deleted.
-      // *   2: The rootpath is normal.
+      // - 0: The root path status is unknown.
+      // - 1: The root path does not exist. It may have been deleted by the user.
+      // - 2: The root path status is normal.
       shared_ptr<string> rootPathStatus_ {};
-      // The status of the access point.
+      // The current access point status.
       // 
       // Valid values:
       // 
-      // *   Active: The access point is available.
-      // *   Inactive: The access point is unavailable.
-      // *   Pending: The access point is being created.
-      // *   Deleting: The access point is being deleted.
+      // - Active: available.
+      // - Inactive: unavailable.
+      // - Pending: being created.
+      // - Deleting: being deleted.
       // 
-      // >  You can mount a file system only if the access point is in the Active state.
+      // > You can mount a file system only when the status is Active.
       shared_ptr<string> status_ {};
-      // The tags of the access point.
+      // The list of access point tags.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};
-      // Switch ID.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
@@ -458,11 +458,11 @@ namespace Models
 
 
   protected:
-    // The information about the access point.
+    // The access point information.
     shared_ptr<vector<DescribeAccessPointsResponseBody::AccessPoints>> accessPoints_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The query token. Set the value to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};

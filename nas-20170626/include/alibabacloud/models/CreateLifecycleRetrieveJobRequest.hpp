@@ -60,18 +60,17 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The directories or files that you want to retrieve. You can specify a maximum of 10 paths.
+    // The list of directories or file paths to retrieve. You can specify up to 10 paths.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> paths_ {};
-    // The storage class.
-    // 
-    // *   InfrequentAccess (default): the Infrequent Access (IA) storage class.
-    // *   Archive: the Archive storage class.
+    // The storage class. Valid values:
+    // - InfrequentAccess (default): IA storage class.
+    // - Archive: Archive storage class.
     shared_ptr<string> storageType_ {};
   };
 

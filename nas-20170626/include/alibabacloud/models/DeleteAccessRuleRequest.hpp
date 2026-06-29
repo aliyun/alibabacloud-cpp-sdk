@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accessGroupName_ {};
-    // The rule ID.
+    // The ID of the permission rule.
     // 
     // This parameter is required.
     shared_ptr<string> accessRuleId_ {};
@@ -69,8 +69,8 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard (default): General-purpose NAS file system.
-    // *   extreme: Extreme NAS file system.
+    // - standard (default): General-purpose NAS.
+    // - extreme: Extreme NAS.
     shared_ptr<string> fileSystemType_ {};
   };
 

@@ -1189,9 +1189,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeFileSystemsResponseBody::FileSystems> fileSystems_ {};
-    // The page number.
+    // The page number of the file system list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of file systems returned per page.
+    // The number of file systems on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The snapshot ID.
+    // The snapshot ID. Set this parameter to the snapshot ID obtained after a snapshot is successfully created for an Advanced Extreme NAS file system.
     // 
     // This parameter is required.
     shared_ptr<string> snapshotId_ {};

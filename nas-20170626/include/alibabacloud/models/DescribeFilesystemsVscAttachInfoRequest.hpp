@@ -126,9 +126,9 @@ namespace Models
 
 
     protected:
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The ID of the virtual storage channel.
+      // The virtual storage channel ID.
       shared_ptr<string> vscId_ {};
     };
 
@@ -169,11 +169,12 @@ namespace Models
   protected:
     // The number of results for each query.
     // 
-    // Valid values: 10 to 100. Default value: 10.
+    // Valid values: 10 to 100.
+    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // Query token, which is the NextToken value returned from the previous API call.
+    // The query token. Set the value to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID information of the file system and virtual storage channel. Each batch can contain up to 10 IDs.
+    // The ID information of file systems and virtual storage channels. A maximum of 10 entries can be specified per batch.
     // 
     // This parameter is required.
     shared_ptr<vector<DescribeFilesystemsVscAttachInfoRequest::ResourceIds>> resourceIds_ {};

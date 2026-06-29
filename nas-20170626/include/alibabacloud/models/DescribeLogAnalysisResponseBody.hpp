@@ -227,15 +227,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLogAnalysisResponseBody::Analyses> analyses_ {};
-    // The HTTP status code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The page number.
+    // The page number of the log analysis entries.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log dump entries returned per page.
+    // The number of log analysis entries on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of log dump entries in the region.
+    // The total number of log analysis entries in the region.
     shared_ptr<int32_t> totalCount_ {};
   };
 

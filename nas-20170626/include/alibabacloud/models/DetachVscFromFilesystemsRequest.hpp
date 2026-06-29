@@ -124,9 +124,9 @@ namespace Models
 
 
     protected:
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The ID of the virtual storage channel.
+      // The virtual storage channel ID.
       shared_ptr<string> vscId_ {};
     };
 
@@ -158,13 +158,13 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
     // 
-    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The ID information of the file system and virtual storage channel. Each batch can contain up to 10 IDs.
+    // The ID information of file systems and virtual storage channels. A maximum of 10 entries can be specified per batch.
     // 
     // This parameter is required.
     shared_ptr<vector<DetachVscFromFilesystemsRequest::ResourceIds>> resourceIds_ {};

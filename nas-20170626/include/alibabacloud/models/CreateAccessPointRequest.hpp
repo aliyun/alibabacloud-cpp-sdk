@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAccessPointRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccessGroup, accessGroup_);
       DARABONBA_PTR_TO_JSON(AccessPointName, accessPointName_);
+      DARABONBA_PTR_TO_JSON(AgenticSpaceId, agenticSpaceId_);
       DARABONBA_PTR_TO_JSON(EnabledRam, enabledRam_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(OwnerGroupId, ownerGroupId_);
@@ -32,6 +33,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateAccessPointRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessGroup, accessGroup_);
       DARABONBA_PTR_FROM_JSON(AccessPointName, accessPointName_);
+      DARABONBA_PTR_FROM_JSON(AgenticSpaceId, agenticSpaceId_);
       DARABONBA_PTR_FROM_JSON(EnabledRam, enabledRam_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(OwnerGroupId, ownerGroupId_);
@@ -94,25 +96,27 @@ namespace Models
 
 
     protected:
-      // The key of a tag. Limits:
+      // The tag key.
+      // Limits:
       // 
-      // *   Cannot be null or an empty string.
-      // *   Can be up to 128 characters in length.
-      // *   Cannot start with aliyun or acs:.
-      // *   Cannot contain http:// or https://.
+      // - Cannot be empty or an empty string.
+      // - Can be up to 128 characters in length.
+      // - Cannot start with aliyun or acs:.
+      // - Cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The value of a tag. Limits:
+      // The tag value.
+      // Limits:
       // 
-      // *   Cannot be null or an empty string.
-      // *   Can be up to 128 characters in length.
-      // *   Cannot contain http:// or https://.
+      // - Cannot be empty or an empty string.
+      // - Can be up to 128 characters in length.
+      // - Cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->accessGroup_ == nullptr
-        && this->accessPointName_ == nullptr && this->enabledRam_ == nullptr && this->fileSystemId_ == nullptr && this->ownerGroupId_ == nullptr && this->ownerUserId_ == nullptr
-        && this->permission_ == nullptr && this->posixGroupId_ == nullptr && this->posixSecondaryGroupIds_ == nullptr && this->posixUserId_ == nullptr && this->rootDirectory_ == nullptr
-        && this->tag_ == nullptr && this->vpcId_ == nullptr && this->vswId_ == nullptr; };
+        && this->accessPointName_ == nullptr && this->agenticSpaceId_ == nullptr && this->enabledRam_ == nullptr && this->fileSystemId_ == nullptr && this->ownerGroupId_ == nullptr
+        && this->ownerUserId_ == nullptr && this->permission_ == nullptr && this->posixGroupId_ == nullptr && this->posixSecondaryGroupIds_ == nullptr && this->posixUserId_ == nullptr
+        && this->rootDirectory_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr && this->vswId_ == nullptr; };
     // accessGroup Field Functions 
     bool hasAccessGroup() const { return this->accessGroup_ != nullptr;};
     void deleteAccessGroup() { this->accessGroup_ = nullptr;};
@@ -125,6 +129,13 @@ namespace Models
     void deleteAccessPointName() { this->accessPointName_ = nullptr;};
     inline string getAccessPointName() const { DARABONBA_PTR_GET_DEFAULT(accessPointName_, "") };
     inline CreateAccessPointRequest& setAccessPointName(string accessPointName) { DARABONBA_PTR_SET_VALUE(accessPointName_, accessPointName) };
+
+
+    // agenticSpaceId Field Functions 
+    bool hasAgenticSpaceId() const { return this->agenticSpaceId_ != nullptr;};
+    void deleteAgenticSpaceId() { this->agenticSpaceId_ = nullptr;};
+    inline string getAgenticSpaceId() const { DARABONBA_PTR_GET_DEFAULT(agenticSpaceId_, "") };
+    inline CreateAccessPointRequest& setAgenticSpaceId(string agenticSpaceId) { DARABONBA_PTR_SET_VALUE(agenticSpaceId_, agenticSpaceId) };
 
 
     // enabledRam Field Functions 
@@ -216,48 +227,61 @@ namespace Models
   protected:
     // The name of the permission group.
     // 
-    // This parameter is required for a General-purpose File Storage NAS (NAS) file system.
+    // This parameter is required if the file system is a General-purpose NAS file system.
     // 
-    // The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
-    // 
-    // This parameter is required.
+    // Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
+    // >Not supported for Agentic file systems.
     shared_ptr<string> accessGroup_ {};
     // The name of the access point.
     shared_ptr<string> accessPointName_ {};
-    // Specifies whether to enable the RAM policy. Valid values:
+    // The AgenticSpace ID.
+    // >This parameter is required for Agentic file systems.
+    shared_ptr<string> agenticSpaceId_ {};
+    // Specifies whether to enable access point policy.
+    // Valid values:
     // 
-    // *   true: The RAM policy is enabled.
-    // *   false (default): The RAM policy is disabled.
+    // - true: enabled.
+    // - false (default): not enabled.
     // 
-    // >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted. For more information about how to configure permissions on access points, see [Configure a policy for the access point](https://help.aliyun.com/document_detail/2545998.html).
+    // > After you enable access point policy for the access point, all Resource Access Management (RAM) users are denied access to mount and access data through the access point by default. You must grant the corresponding access permissions through authorization and then mount and access the file system through the access point. After you disable access point policy, the access point allows anonymity mounting. For more information about how to configure access point permissions, see [Configure access point policies](https://help.aliyun.com/document_detail/2545998.html).
+    // 
+    // >For Agentic file systems, this parameter must be set to true.
     shared_ptr<bool> enabledRam_ {};
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The ID of the owner group.
+    // The owner group ID.
     // 
     // This parameter is required if the RootDirectory directory does not exist.
+    // >Not supported for Agentic file systems.
     shared_ptr<int32_t> ownerGroupId_ {};
-    // The owner ID.
+    // The owner user ID.
     // 
     // This parameter is required if the RootDirectory directory does not exist.
+    // >Not supported for Agentic file systems.
     shared_ptr<int32_t> ownerUserId_ {};
-    // The Portable Operating System Interface for UNIX (POSIX) permission. Default value: 0777.
+    // The POSIX permission. Default value: "0755". The value must be a four-digit octal number that starts with 0.
     // 
-    // This field takes effect only if you specify the OwnerUserId and OwnerGroupId parameters.
+    // This parameter takes effect only after you specify the OwnerUserId and OwnerGroupId parameters.
+    // >Not supported for Agentic file systems.
     shared_ptr<string> permission_ {};
-    // The ID of the POSIX user group.
+    // The POSIX group ID.
+    // >Not supported for Agentic file systems.
     shared_ptr<int32_t> posixGroupId_ {};
-    // The secondary user group. Separate multiple user group IDs with commas (,).
+    // The secondary group IDs. Separate multiple group IDs with commas (,).
+    // >Not supported for Agentic file systems.
     shared_ptr<string> posixSecondaryGroupIds_ {};
-    // The ID of the POSIX user.
+    // The POSIX user ID.
+    // >Not supported for Agentic file systems.
     shared_ptr<int32_t> posixUserId_ {};
-    // The root directory of the access point. The default value is /. If the directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
+    // The root directory of the access point.
+    // Default value: "/". If the access point directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
+    // >Supported only for Agentic file systems.
     shared_ptr<string> rootDirectory_ {};
-    // The tags of the access point.
+    // The list of access point tags.
     shared_ptr<vector<CreateAccessPointRequest::Tag>> tag_ {};
-    // The VPC ID.
+    // The virtual private cloud (VPC) ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
