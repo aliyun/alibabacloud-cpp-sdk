@@ -87,11 +87,17 @@ namespace Models
 
 
     protected:
-      // AppKey
+      // The application key.
+      // >Notice: Deprecated. Use AppKeyStr instead.</notice>.
       shared_ptr<int64_t> appKey_ {};
+      // The application key.
       shared_ptr<string> appKeyStr_ {};
+      // The page number, starting from 1.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page. Maximum value: 100.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
     };
@@ -115,8 +121,12 @@ namespace Models
 
 
   protected:
+    // The query request.
+    // 
     // This parameter is required.
     shared_ptr<ListAuthorizedDataServiceApiDetailsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -106,10 +106,16 @@ namespace Models
 
 
       protected:
+        // The column of the table.
+        // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
+        // The name of the mapping column.
+        // 
         // This parameter is required.
         shared_ptr<string> mappingColumnName_ {};
+        // The GUID of the table.
+        // 
         // This parameter is required.
         shared_ptr<string> resourceId_ {};
       };
@@ -192,6 +198,8 @@ namespace Models
 
 
           protected:
+            // The ID of the account bound to the rule.
+            // 
             // This parameter is required.
             shared_ptr<string> accountId_ {};
           };
@@ -215,8 +223,12 @@ namespace Models
 
 
         protected:
+          // The type of the account bound to the rule.
+          // 
           // This parameter is required.
           shared_ptr<string> accountType_ {};
+          // The accounts bound to the rule.
+          // 
           // This parameter is required.
           shared_ptr<vector<UserMappingList::Accounts>> accounts_ {};
         };
@@ -290,14 +302,24 @@ namespace Models
 
 
         protected:
+          // The name of the mapping column.
+          // 
           // This parameter is required.
           shared_ptr<string> mappingColumnName_ {};
+          // The operator of the expression.
+          // 
           // This parameter is required.
           shared_ptr<string> operator_ {};
+          // The sub-expressions.
+          // 
           // This parameter is required.
           shared_ptr<vector<Darabonba::Json>> subConditions_ {};
+          // The type of the expression.
+          // 
           // This parameter is required.
           shared_ptr<string> type_ {};
+          // The expression operation values.
+          // 
           // This parameter is required.
           shared_ptr<vector<string>> values_ {};
         };
@@ -351,15 +373,25 @@ namespace Models
 
 
       protected:
+        // The rule expressions.
+        // 
         // This parameter is required.
         shared_ptr<vector<Rules::Expressions>> expressions_ {};
+        // Specifies whether to delete the rule.
         shared_ptr<bool> isDelete_ {};
+        // The name of the rule.
+        // 
         // This parameter is required.
         shared_ptr<string> ruleName_ {};
+        // The scope type of the rule.
+        // 
         // This parameter is required.
         shared_ptr<string> scopeType_ {};
+        // The status of the rule.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> status_ {};
+        // The accounts bound to the rule.
         shared_ptr<vector<Rules::UserMappingList>> userMappingList_ {};
       };
 
@@ -410,9 +442,14 @@ namespace Models
 
 
       protected:
+        // The description of the mapping column.
         shared_ptr<string> columnDesc_ {};
+        // The name of the mapping column.
+        // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
+        // The type of the mapping column.
+        // 
         // This parameter is required.
         shared_ptr<string> columnType_ {};
       };
@@ -461,12 +498,19 @@ namespace Models
 
 
     protected:
+      // The mapping columns.
+      // 
       // This parameter is required.
       shared_ptr<vector<CreateRowPermissionCommand::MappingColumns>> mappingColumns_ {};
+      // The description of the row-level permission.
       shared_ptr<string> rowPermissionDesc_ {};
+      // The name of the row-level permission.
+      // 
       // This parameter is required.
       shared_ptr<string> rowPermissionName_ {};
+      // The rules.
       shared_ptr<vector<CreateRowPermissionCommand::Rules>> rules_ {};
+      // The related tables.
       shared_ptr<vector<CreateRowPermissionCommand::Tables>> tables_ {};
     };
 
@@ -489,8 +533,12 @@ namespace Models
 
 
   protected:
+    // Request command.
+    // 
     // This parameter is required.
     shared_ptr<CreateRowPermissionRequest::CreateRowPermissionCommand> createRowPermissionCommand_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

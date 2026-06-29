@@ -133,7 +133,9 @@ namespace Models
 
 
       protected:
+        // The project ID.
         shared_ptr<string> id_ {};
+        // The project name.
         shared_ptr<string> name_ {};
       };
 
@@ -175,7 +177,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -217,7 +221,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -259,7 +265,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The user ID.
         shared_ptr<string> name_ {};
       };
 
@@ -412,24 +420,64 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The node creator.
       shared_ptr<NodeInfo::Creator> creator_ {};
+      // The cron expression used to calculate the scheduling time.
       shared_ptr<string> cronExpression_ {};
+      // The data source ID.
       shared_ptr<int64_t> dataSourceId_ {};
+      // The data source schema. This parameter takes effect only for data source types that require a schema, such as Oracle. If set to "default", the value is null.
       shared_ptr<string> dataSourceSchema_ {};
+      // The node description.
       shared_ptr<string> description_ {};
+      // The node source. Valid values:
+      // - DATA_PROCESS: code development.
+      // - BLACK_BOX: modeling development.
+      // - PIPELINE: pipeline.
       shared_ptr<string> from_ {};
+      // The node ID.
       shared_ptr<string> id_ {};
+      // The time of the last modification.
       shared_ptr<int64_t> lastModifiedTime_ {};
+      // The user who last modified the node.
       shared_ptr<NodeInfo::Modifier> modifier_ {};
+      // The node name.
       shared_ptr<string> name_ {};
+      // The node subtype. Valid values:
+      // - MAX_COMPUTE_SQL
+      // - HIVE_SQL
+      // - SHELL
+      // - PYTHON
+      // - ONE_SERVICE_SQL
+      // - DATABASE_SQL and others.
       shared_ptr<string> operatorType_ {};
+      // The list of output names.
       shared_ptr<vector<string>> outputNameList_ {};
+      // The node owner.
       shared_ptr<NodeInfo::Owner> owner_ {};
+      // The scheduling priority. Valid values:
+      // 
+      // - HIGHEST
+      // - HIGH
+      // - MIDDLE
+      // - LOW
+      // - LOWEST.
       shared_ptr<string> priority_ {};
+      // The project to which the node belongs.
       shared_ptr<NodeInfo::ProjectInfo> projectInfo_ {};
+      // The scheduling cycle type. Valid values:
+      // - MINUTELY
+      // - HOURLY
+      // - DAILY
+      // - WEEKLY
+      // - MONTHLY
+      // - QUARTERLY.
       shared_ptr<string> scheduleType_ {};
+      // The scheduling status.
       shared_ptr<string> status_ {};
+      // The trigger configuration, which is used to implement field-level dependencies on logical tables.
       shared_ptr<string> triggerConfig_ {};
     };
 
@@ -480,11 +528,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The node details.
     shared_ptr<GetPhysicalNodeResponseBody::NodeInfo> nodeInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

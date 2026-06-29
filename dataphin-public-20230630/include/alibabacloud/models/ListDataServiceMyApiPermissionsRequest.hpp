@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // Search keyword.
       shared_ptr<string> keyword_ {};
+      // Page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // Number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -111,9 +114,14 @@ namespace Models
 
 
   protected:
+    // Search conditions.
     shared_ptr<ListDataServiceMyApiPermissionsRequest::ListQuery> listQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

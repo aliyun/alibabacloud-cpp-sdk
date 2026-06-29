@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The stream-batch integrated node information.
+    // 
     // This parameter is required.
     shared_ptr<string> streamBatchJobMappingCreateCommandShrink_ {};
   };

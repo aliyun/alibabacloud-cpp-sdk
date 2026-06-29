@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // The list of field IDs. This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, all fields in the table are used by default.
         shared_ptr<vector<string>> fieldIdList_ {};
+        // The node ID.
         shared_ptr<string> id_ {};
       };
 
@@ -152,8 +154,14 @@ namespace Models
 
 
       protected:
+        // Specifies whether to exclude the matched results. Default value: false.
         shared_ptr<bool> exclude_ {};
+        // The filter key. Valid values:
+        // - PROJECT: project
+        // - PHYSICAL_NODE_ID: physical node ID
+        // - LOGICAL_TABLE_NODE_ID: logical table ID.
         shared_ptr<string> key_ {};
+        // The list of filter values.
         shared_ptr<vector<string>> valueList_ {};
       };
 
@@ -192,10 +200,15 @@ namespace Models
 
 
     protected:
+      // The depth. Default value: 3.
       shared_ptr<int32_t> downStreamDepth_ {};
+      // The filters. You can include or exclude results based on projects or nodes. Default value: empty.
       shared_ptr<vector<ListQuery::FilterList>> filterList_ {};
+      // The list of nodes.
+      // 
       // This parameter is required.
       shared_ptr<vector<ListQuery::NodeIdList>> nodeIdList_ {};
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
     };
 
@@ -225,9 +238,16 @@ namespace Models
 
 
   protected:
+    // The environment identifier. Valid values:
+    // - DEV: development environment. 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The request for querying node downstream.
+    // 
     // This parameter is required.
     shared_ptr<ListNodeDownStreamRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

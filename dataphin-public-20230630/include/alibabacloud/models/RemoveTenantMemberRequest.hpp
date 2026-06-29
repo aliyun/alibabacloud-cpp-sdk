@@ -59,6 +59,8 @@ namespace Models
 
 
     protected:
+      // The source ID of the user.
+      // 
       // This parameter is required.
       shared_ptr<string> sourceId_ {};
     };
@@ -82,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<RemoveTenantMemberRequest::RemoveCommand> removeCommand_ {};
   };

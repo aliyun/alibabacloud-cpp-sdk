@@ -91,8 +91,12 @@ namespace Models
 
 
       protected:
+        // The configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The configuration value.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -116,8 +120,12 @@ namespace Models
 
 
     protected:
+      // The connection configuration items.
+      // 
       // This parameter is required.
       shared_ptr<vector<CheckCommand::ConfigItemList>> configItemList_ {};
+      // The data source type. For supported data source types, see the documentation for creating a data source.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -141,8 +149,12 @@ namespace Models
 
 
   protected:
+    // The object to check.
+    // 
     // This parameter is required.
     shared_ptr<CheckDataSourceConnectivityRequest::CheckCommand> checkCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

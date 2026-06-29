@@ -106,8 +106,14 @@ namespace Models
 
 
       protected:
+        // The authorization expiration time.
         shared_ptr<string> effectiveEnd_ {};
+        // The role of the user. Valid values:
+        // 
+        // - general: regular member.
+        // - owner: application owner.
         shared_ptr<string> role_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -122,6 +128,7 @@ namespace Models
 
 
     protected:
+      // The application member list.
       shared_ptr<vector<Data::MemberList>> memberList_ {};
     };
 
@@ -172,12 +179,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The member list of the data service application.
     shared_ptr<GetDataServiceAppMembersResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned from the backend.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

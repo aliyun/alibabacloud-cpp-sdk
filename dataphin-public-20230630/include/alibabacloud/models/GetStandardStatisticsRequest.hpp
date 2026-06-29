@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // The end time.
         shared_ptr<string> endTime_ {};
+        // Specifies whether to include the end time. Default value: false.
         shared_ptr<bool> includeEndTime_ {};
+        // The start time.
         shared_ptr<string> startTime_ {};
       };
 
@@ -135,9 +138,13 @@ namespace Models
 
 
     protected:
+      // The creation time period.
       shared_ptr<StatisticsQuery::CreateTimePeriod> createTimePeriod_ {};
+      // The folder to which the standards belong. The search includes all subfolders under this folder.
+      // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
+      // The stages to which the standards belong.
       shared_ptr<vector<string>> standardStageList_ {};
     };
 
@@ -160,8 +167,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The statistical query instruction.
+    // 
     // This parameter is required.
     shared_ptr<GetStandardStatisticsRequest::StatisticsQuery> statisticsQuery_ {};
   };

@@ -185,23 +185,52 @@ namespace Models
 
 
     protected:
+      // The end date of the alert.
+      // 
       // This parameter is required.
       shared_ptr<string> alertEndTime_ {};
+      // The list of alert object types.
       shared_ptr<vector<string>> alertObjectTypeList_ {};
+      // The list of alert reasons.
       shared_ptr<vector<string>> alertReasonList_ {};
+      // The start date of the alert.
+      // 
       // This parameter is required.
       shared_ptr<string> alertStartTime_ {};
+      // The list of business units.
       shared_ptr<vector<string>> bizNameList_ {};
+      // The keyword for the query.
       shared_ptr<string> keyword_ {};
+      // The list of monitored item IDs.
       shared_ptr<vector<string>> monitoredItemIdList_ {};
+      // The page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
+      // The list of projects.
       shared_ptr<vector<string>> projectNameList_ {};
+      // The source system. Valid values:
+      // 
+      // - ALL: all
+      // - DQE: data quality
+      // - OS: data service
+      // - STREAM: real-time computing
+      // - VDM_BATCH: offline computing
+      // - SOP: O&M platform
+      // - REAL_TIME_PIPELINE: real-time integration
+      // - KGB: baseline monitoring
+      // 
+      // and more.
+      // 
       // This parameter is required.
       shared_ptr<string> sourceSystem_ {};
+      // The list of alert statuses.
       shared_ptr<vector<string>> statusList_ {};
+      // The list of alert contact IDs.
       shared_ptr<vector<string>> userIdList_ {};
     };
 
@@ -224,8 +253,12 @@ namespace Models
 
 
   protected:
+    // The query request.
+    // 
     // This parameter is required.
     shared_ptr<ListAlertEventsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

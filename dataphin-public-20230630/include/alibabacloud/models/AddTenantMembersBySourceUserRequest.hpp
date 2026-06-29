@@ -125,11 +125,17 @@ namespace Models
 
 
       protected:
+        // The account name.
         shared_ptr<string> accountName_ {};
+        // The DingTalk number.
         shared_ptr<string> dingNumber_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The email address.
         shared_ptr<string> mail_ {};
+        // The phone number.
         shared_ptr<string> mobilePhone_ {};
+        // The original ID of the user.
         shared_ptr<string> sourceId_ {};
       };
 
@@ -144,6 +150,7 @@ namespace Models
 
 
     protected:
+      // The list of source users.
       shared_ptr<vector<AddCommand::SourceUserList>> sourceUserList_ {};
     };
 
@@ -166,7 +173,10 @@ namespace Models
 
 
   protected:
+    // The add request.
     shared_ptr<AddTenantMembersBySourceUserRequest::AddCommand> addCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

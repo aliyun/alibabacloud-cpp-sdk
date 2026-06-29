@@ -59,6 +59,8 @@ namespace Models
 
 
     protected:
+      // The standard ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
     };
@@ -82,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The delete command.
+    // 
     // This parameter is required.
     shared_ptr<DeleteStandardRequest::DeleteCommand> deleteCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

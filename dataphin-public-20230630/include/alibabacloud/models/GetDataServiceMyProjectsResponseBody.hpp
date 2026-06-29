@@ -87,8 +87,16 @@ namespace Models
 
 
     protected:
+      // The data service project ID.
       shared_ptr<int32_t> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // The role. Valid values:
+      // - 1: super administrator
+      // - 2: developer
+      // - 3: application member
+      // - 4: service project administrator
+      // - 5: O&M engineer.
       shared_ptr<int32_t> role_ {};
     };
 
@@ -139,12 +147,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // The list of data service projects.
     shared_ptr<vector<GetDataServiceMyProjectsResponseBody::ProjectList>> projectList_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

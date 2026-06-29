@@ -99,11 +99,17 @@ namespace Models
 
 
     protected:
+      // Application group ID.
       shared_ptr<int32_t> appGroupId_ {};
+      // Application ID.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> appId_ {};
+      // Application name.
       shared_ptr<string> appName_ {};
+      // List of owner IDs.
       shared_ptr<vector<string>> ownerIds_ {};
+      // Application scenarios.
       shared_ptr<string> scenarios_ {};
     };
 
@@ -126,8 +132,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The command to update the data service application.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDataServiceAppRequest::UpdateCommand> updateCommand_ {};
   };

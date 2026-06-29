@@ -244,7 +244,9 @@ namespace Models
 
 
         protected:
+          // The project ID.
           shared_ptr<string> projectId_ {};
+          // The project name.
           shared_ptr<string> projectName_ {};
         };
 
@@ -286,7 +288,9 @@ namespace Models
 
 
         protected:
+          // The username.
           shared_ptr<string> displayName_ {};
+          // The user ID.
           shared_ptr<string> userId_ {};
         };
 
@@ -354,13 +358,23 @@ namespace Models
 
 
       protected:
+        // The business unit to which the node belongs.
         shared_ptr<string> bizUnit_ {};
+        // The environment to which the node belongs.
         shared_ptr<string> env_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The node name.
         shared_ptr<string> nodeName_ {};
+        // The scheduling method. Valid values:
+        // - NORMAL: Timed scheduling.
+        // - MANUAL: Manual scheduling.
         shared_ptr<string> nodeScheduleType_ {};
+        // The list of O&M owners.
         shared_ptr<vector<SimpleNodeInfos::Owners>> owners_ {};
+        // The project to which the node belongs.
         shared_ptr<SimpleNodeInfos::Project> project_ {};
+        // The node type. Example valid values: DLINK (offline integration) and PYTHON37 (Python compute node).
         shared_ptr<string> subBizType_ {};
       };
 
@@ -402,7 +416,9 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> displayName_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -444,7 +460,9 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> displayName_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -486,7 +504,9 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> displayName_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -546,9 +566,13 @@ namespace Models
 
 
       protected:
+        // The directory ID.
         shared_ptr<int64_t> directoryId_ {};
+        // The directory name.
         shared_ptr<string> directoryName_ {};
+        // The topic ID.
         shared_ptr<int64_t> topicId_ {};
+        // The topic name.
         shared_ptr<string> topicName_ {};
       };
 
@@ -608,9 +632,16 @@ namespace Models
 
 
       protected:
+        // The attribute type. Valid values:
+        // - BUSINESS: Business attribute.
+        // - MANAGEMENT: Management attribute.
+        // - TECHNOLOGY: Technical attribute.
         shared_ptr<string> attrType_ {};
+        // The attribute code.
         shared_ptr<string> code_ {};
+        // The attribute name.
         shared_ptr<string> name_ {};
+        // The attribute value.
         shared_ptr<string> value_ {};
       };
 
@@ -700,8 +731,11 @@ namespace Models
 
 
         protected:
+          // The standard code.
           shared_ptr<string> code_ {};
+          // The standard ID.
           shared_ptr<int64_t> id_ {};
+          // The standard name.
           shared_ptr<string> name_ {};
         };
 
@@ -770,10 +804,15 @@ namespace Models
 
 
         protected:
+          // The business unit ID.
           shared_ptr<int64_t> bizUnitId_ {};
+          // The business unit name.
           shared_ptr<string> bizUnitName_ {};
+          // The dimension display name.
           shared_ptr<string> dimensionDisplayName_ {};
+          // The dimension ID.
           shared_ptr<int64_t> dimensionId_ {};
+          // The dimension name.
           shared_ptr<string> dimensionName_ {};
         };
 
@@ -862,16 +901,30 @@ namespace Models
 
 
       protected:
+        // The associated entity. Returned when the business type is DIMENSION.
         shared_ptr<Columns::AssociatedEntity> associatedEntity_ {};
+        // The business type. Valid values:
+        // - INDEX: Metric.
+        // - STAT_PERIOD: Statistical period.
+        // - DIMENSION: Dimension.
         shared_ptr<string> bizType_ {};
+        // The data classification.
         shared_ptr<string> classifyName_ {};
+        // The field data type.
         shared_ptr<string> dataType_ {};
+        // The field description.
         shared_ptr<string> description_ {};
+        // The field display name.
         shared_ptr<string> displayName_ {};
+        // The field GUID.
         shared_ptr<string> guid_ {};
+        // The data sensitivity level.
         shared_ptr<string> levelShortName_ {};
+        // The field name.
         shared_ptr<string> name_ {};
+        // The quality score.
         shared_ptr<double> qualityScore_ {};
+        // The associated standards.
         shared_ptr<vector<Columns::Standards>> standards_ {};
       };
 
@@ -1323,63 +1376,129 @@ namespace Models
 
 
     protected:
+      // The API call mode. Returned when the asset type is API. Valid values: 1 (synchronous call) and 2 (asynchronous call).
       shared_ptr<string> apiCallMode_ {};
+      // The API group name. Returned when the asset type is API.
       shared_ptr<string> apiGroupName_ {};
+      // The API ID. Returned when the asset type is API.
       shared_ptr<int64_t> apiId_ {};
+      // The API operation type. Returned when the asset type is API. Valid values: 1 (Get), 2 (List), 3 (Create), 4 (Update), and 5 (Delete).
       shared_ptr<string> apiRequestMethod_ {};
+      // The asset description.
       shared_ptr<string> assetDescription_ {};
+      // The URL of the asset catalog details page.
       shared_ptr<string> assetDetailUrl_ {};
+      // The asset display name. Returned when the asset type is TABLE, INDEX, or BIZ_INDEX.
       shared_ptr<string> assetDisplayName_ {};
+      // The asset source. For TABLE (physical table), the value is in the format of "Dataphin-Workspace Type-Project Chinese Name (Project English Name)". For TABLE (logical table), the value is in the format of "Dataphin-Workspace Type-Data Domain Chinese Name (Data Domain English Name)". For TABLE (data source table), the value is in the format of "Source System Name-Data Source Name-Database/Schema Name". For INDEX (standard modeling metric), the value is the asset source of the associated aggregate table. For INDEX (custom metric), the value is the asset source of the source table. For API, the value is the data service project name. For PAGE, the value is the application system name.
       shared_ptr<string> assetFrom_ {};
+      // The full name of the asset. Returned when the asset type is TABLE or INDEX.
       shared_ptr<string> assetFullName_ {};
+      // The asset name.
       shared_ptr<string> assetName_ {};
+      // The asset tags.
       shared_ptr<vector<string>> assetTags_ {};
+      // The asset type. Valid values: TABLE (table, including views and materialized views), INDEX (technical metric), BIZ_INDEX (business metric), API, and PAGE (dashboard).
       shared_ptr<string> assetType_ {};
+      // The BI workspace or directory to which the asset belongs. Returned when the asset type is PAGE (dashboard).
       shared_ptr<string> biCatalog_ {};
+      // The ID of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<int64_t> bizUnitId_ {};
+      // The name of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<string> bizUnitName_ {};
+      // The total number of charts. Returned when the asset type is PAGE (dashboard).
       shared_ptr<int64_t> chartCount_ {};
+      // The number of favorites.
       shared_ptr<int64_t> collectionCount_ {};
+      // The field list. Returned when the asset type is TABLE.
       shared_ptr<vector<Data::Columns>> columns_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The custom attributes. Returned when includeDetailedAttributes is set to true.
       shared_ptr<vector<Data::CustomAttributes>> customAttributes_ {};
+      // The ID of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<string> dataCellId_ {};
+      // The name of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<string> dataCellName_ {};
+      // The name of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
       shared_ptr<string> dataSourceName_ {};
+      // The ID of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
       shared_ptr<int64_t> datasourceId_ {};
+      // The directories to which the asset belongs, including topic ID, topic name, directory ID, and directory name.
       shared_ptr<vector<Data::Directories>> directories_ {};
+      // The first listing time.
       shared_ptr<string> firstOnShelveTime_ {};
+      // The user who first listed the asset.
       shared_ptr<Data::FirstOnShelveUser> firstOnShelveUser_ {};
+      // The statistical granularity name of the technical metric. Returned when the asset type is INDEX.
       shared_ptr<string> granularity_ {};
+      // The asset GUID, which serves as the unique identifier of the asset.
       shared_ptr<string> guid_ {};
+      // The usage instructions.
       shared_ptr<string> instruction_ {};
+      // Indicates whether the asset is deleted.
       shared_ptr<bool> isDeleted_ {};
+      // Indicates whether the table is a partitioned table. Returned when the asset type is TABLE. Valid values:
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> isPartitionTable_ {};
+      // The last DDL change time.
       shared_ptr<string> lastDdlTime_ {};
+      // The last DML update time.
       shared_ptr<string> lastDmlTime_ {};
+      // The last listing time.
       shared_ptr<string> lastOnShelveTime_ {};
+      // The user who last listed the asset.
       shared_ptr<Data::LastOnShelveUser> lastOnShelveUser_ {};
+      // The listing maintenance user groups.
       shared_ptr<vector<string>> maintainUserGroups_ {};
+      // The listing maintenance personnel.
       shared_ptr<vector<string>> maintainUserIds_ {};
+      // The highest sensitivity level. Returned when the asset type is TABLE.
       shared_ptr<string> maxSecurityLevel_ {};
+      // The modification time.
       shared_ptr<string> modifyTime_ {};
+      // The owner.
       shared_ptr<Data::Owner> owner_ {};
+      // The partition field. Returned when the asset type is TABLE.
       shared_ptr<string> partitionKey_ {};
+      // The primary key. Returned when the asset type is TABLE.
       shared_ptr<string> primaryKey_ {};
+      // The visibility scope type of the profiling report. Returned when the asset type is TABLE or INDEX. Valid values:
+      // - ALL_USERS_CAN_VIEW: Visible to all users.
+      // - PART_USERS_CAN_VIEW: Visible to some users.
+      // - ALL_USERS_CAN_NOT_VIEW: Not visible to any user.
       shared_ptr<string> profilingReportViewScopeType_ {};
+      // The user groups within the profiling report visibility scope.
       shared_ptr<vector<string>> profilingReportViewScopeUserGroups_ {};
+      // The users within the profiling report visibility scope.
       shared_ptr<vector<string>> profilingReportViewScopeUserIds_ {};
+      // The ID of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
       shared_ptr<int64_t> projectId_ {};
+      // The name of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
       shared_ptr<string> projectName_ {};
+      // The number of views.
       shared_ptr<int64_t> readCount_ {};
+      // The visibility scope type. Valid values:
+      // - ALL_USERS_CAN_VIEW: Visible to all users.
+      // - PART_USERS_CAN_VIEW: Visible to some users.
+      // - PART_USERS_CAN_NOT_VIEW: Not visible to some users.
       shared_ptr<string> shelveViewScopeType_ {};
+      // The user groups within the visibility scope.
       shared_ptr<vector<string>> shelveViewScopeUserGroups_ {};
+      // The users within the visibility scope.
       shared_ptr<vector<string>> shelveViewScopeUserIds_ {};
+      // The output nodes. Returned when the asset type is TABLE.
       shared_ptr<vector<Data::SimpleNodeInfos>> simpleNodeInfos_ {};
+      // The subtype. Valid values: DIM_NORMAL (common logical dimension table), DIM_ENUM (enumeration logical dimension table), DIM_VIRTUAL (virtual logical dimension table), SUM_BIZ_UNIT (aggregate table), FACT_EVENT (event fact logical table), FACT_SNAPSHOT (snapshot fact logical table), DATASOURCE_TABLE (data source table), PHYSICAL_TABLE (physical table), DATASOURCE_VIEW (data source view), PHYSICAL_VIEW (physical view), MATERIALIZED_VIEW (materialized view), BIZ_INDEX (business metric), INDEX (technical metric - standard modeling metric), and CUSTOM_INDEX (technical metric - custom metric).
       shared_ptr<string> subType_ {};
+      // The GUID of the aggregate table to which the asset belongs. Returned when the asset type is INDEX.
       shared_ptr<string> sumTableGuid_ {};
+      // The name of the aggregate table to which the asset belongs. Returned when the asset type is INDEX.
       shared_ptr<string> sumTableName_ {};
+      // The lifecycle. Returned when the asset type is TABLE.
       shared_ptr<string> tableLifeCycle_ {};
+      // The storage size in bytes. Returned when the asset type is TABLE.
       shared_ptr<int64_t> tableSizeInBytes_ {};
     };
 
@@ -1430,12 +1549,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The data catalog asset details.
     shared_ptr<GetCatalogAssetDetailsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend response exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

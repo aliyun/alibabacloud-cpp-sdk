@@ -126,15 +126,26 @@ namespace Models
 
 
     protected:
+      // The ID of the called API.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> apiId_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The end time. Format: yyyy-MM-dd HH:mm:ss.
+      // 
       // This parameter is required.
       shared_ptr<string> endTime_ {};
+      // The column used for sorting. Valid values: CALL_COUNT: the number of calls. ERROR_COUNT: the number of errors. ERROR_RATE: the error rate. Default value: CALL_COUNT.
       shared_ptr<string> orderColumn_ {};
+      // The sort order. Valid values: 1: ascending order. 2: descending order. Default value: 1.
       shared_ptr<int32_t> orderType_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The start time. Format: yyyy-MM-dd HH:mm:ss.
+      // 
       // This parameter is required.
       shared_ptr<string> startTime_ {};
     };
@@ -165,10 +176,16 @@ namespace Models
 
 
   protected:
+    // The query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListDataServiceApiImpactsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the data service project.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

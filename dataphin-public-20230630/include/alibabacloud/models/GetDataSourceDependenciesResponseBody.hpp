@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The ID of the dependency record.
       shared_ptr<string> id_ {};
+      // The name of the dependency record.
       shared_ptr<string> name_ {};
+      // The type of the dependency record.
       shared_ptr<string> type_ {};
+      // The type code of the dependency record.
       shared_ptr<string> typeCode_ {};
     };
 
@@ -149,12 +153,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The dependency records.
     shared_ptr<vector<GetDataSourceDependenciesResponseBody::DependencyList>> dependencyList_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

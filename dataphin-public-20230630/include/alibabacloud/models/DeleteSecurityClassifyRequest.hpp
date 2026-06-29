@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The categorization ID. If this parameter is not specified, the categorization is matched and deleted based on the categorization name and parent path.
       shared_ptr<int64_t> id_ {};
+      // The categorization name.
       shared_ptr<string> name_ {};
+      // The categorization path. Default value: /.
       shared_ptr<string> parentPath_ {};
     };
 
@@ -102,8 +105,12 @@ namespace Models
 
 
   protected:
+    // The delete instruction.
+    // 
     // This parameter is required.
     shared_ptr<DeleteSecurityClassifyRequest::DeleteCommand> deleteCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

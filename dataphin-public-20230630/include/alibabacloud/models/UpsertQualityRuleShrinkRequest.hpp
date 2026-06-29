@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The upsert command.
+    // 
     // This parameter is required.
     shared_ptr<string> upsertCommandShrink_ {};
   };

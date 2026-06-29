@@ -96,11 +96,21 @@ namespace Models
 
 
     protected:
+      // Specifies whether to return associated standards and associated lookup tables. Default value: false.
       shared_ptr<bool> needRelation_ {};
+      // Specifies whether to return a null value when the standard does not exist. If set to false, an exception is thrown. Default value: true.
       shared_ptr<bool> nullable_ {};
+      // The standard ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> standardId_ {};
+      // The stage to which the standard belongs. Valid values:
+      // - dev: development stage.
+      // - prod: production stage.
+      // 
+      // Default value: prod.
       shared_ptr<string> standardStage_ {};
+      // The version number. If left empty, the latest version is used.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -123,8 +133,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The query command.
+    // 
     // This parameter is required.
     shared_ptr<GetStandardRequest::StandardGetQuery> standardGetQuery_ {};
   };

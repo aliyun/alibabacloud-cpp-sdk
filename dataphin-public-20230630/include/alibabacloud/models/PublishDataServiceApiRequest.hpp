@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The API ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> apiId_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
+    // The API version number.
+    // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};
   };

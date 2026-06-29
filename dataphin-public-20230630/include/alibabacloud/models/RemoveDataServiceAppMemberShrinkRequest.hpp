@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Remove regular members from a data service application
+    // 
     // This parameter is required.
     shared_ptr<string> removeCommandShrink_ {};
   };

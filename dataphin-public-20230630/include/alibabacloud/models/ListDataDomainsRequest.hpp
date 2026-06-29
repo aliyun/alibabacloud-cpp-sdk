@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // The IDs of the business units to which the data domains belong.
       shared_ptr<vector<int64_t>> bizUnitIdList_ {};
+      // The search keyword. You can search by data domain name, code, or description.
       shared_ptr<string> keyword_ {};
+      // The IDs of the parent data domains.
       shared_ptr<vector<int64_t>> parentIdList_ {};
     };
 
@@ -107,8 +110,12 @@ namespace Models
 
 
   protected:
+    // The query request.
+    // 
     // This parameter is required.
     shared_ptr<ListDataDomainsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

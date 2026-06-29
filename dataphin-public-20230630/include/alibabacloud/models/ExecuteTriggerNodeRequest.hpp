@@ -84,14 +84,28 @@ namespace Models
 
 
   protected:
+    // The business date.
+    // 
     // This parameter is required.
     shared_ptr<string> bizDate_ {};
+    // The environment. Valid values:
+    // - DEV: development environment.
+    // - PROD: production environment.
+    // 
+    // Default value: PROD.
     shared_ptr<string> env_ {};
+    // If the node is an hourly or minutely node, multiple instances are generated per day. This parameter specifies the ordinal number of the instance.
     shared_ptr<int32_t> index_ {};
+    // The node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

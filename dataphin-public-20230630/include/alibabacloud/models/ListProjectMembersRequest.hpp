@@ -80,9 +80,13 @@ namespace Models
 
 
     protected:
+      // The project environment.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The page number.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -112,10 +116,16 @@ namespace Models
 
 
   protected:
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The request object.
+    // 
     // This parameter is required.
     shared_ptr<ListProjectMembersRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

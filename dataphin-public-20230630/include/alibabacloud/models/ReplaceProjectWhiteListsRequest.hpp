@@ -100,11 +100,14 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> description_ {};
         // ip
         // 
         // This parameter is required.
         shared_ptr<string> ip_ {};
+        // The port.
+        // 
         // This parameter is required.
         shared_ptr<string> port_ {};
       };
@@ -120,6 +123,8 @@ namespace Models
 
 
     protected:
+      // The project whitelist.
+      // 
       // This parameter is required.
       shared_ptr<vector<ReplaceCommand::WhiteLists>> whiteLists_ {};
     };
@@ -150,10 +155,16 @@ namespace Models
 
 
   protected:
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The edit command.
+    // 
     // This parameter is required.
     shared_ptr<ReplaceProjectWhiteListsRequest::ReplaceCommand> replaceCommand_ {};
   };

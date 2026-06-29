@@ -117,13 +117,22 @@ namespace Models
 
 
     protected:
+      // End time. Format: yyyy-MM-dd HH:mm:ss.
+      // 
       // This parameter is required.
       shared_ptr<string> endTime_ {};
+      // Search keyword.
       shared_ptr<string> keyword_ {};
+      // Sort column. Valid values: CALL_COUNT (call count), ERROR_COUNT (error count), ERROR_RATE (error rate), AVG_RESPONSE_TIME (average response time), and OFFLINE_RATE (offline percentage). Default value: CALL_COUNT.
       shared_ptr<string> orderColumn_ {};
+      // Sort order. Valid values: 1 (ascending) and 2 (descending). Default value: 1.
       shared_ptr<int32_t> orderType_ {};
+      // Page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // Number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // Start time. Format: yyyy-MM-dd HH:mm:ss.
+      // 
       // This parameter is required.
       shared_ptr<string> startTime_ {};
     };
@@ -154,10 +163,16 @@ namespace Models
 
 
   protected:
+    // Search conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListDataServiceApiCallStatisticsRequest::ListQuery> listQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

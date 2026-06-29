@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The business unit ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> bizUnitId_ {};
+    // The subject domain ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

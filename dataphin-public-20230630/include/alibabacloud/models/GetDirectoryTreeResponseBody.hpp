@@ -209,19 +209,33 @@ namespace Models
 
 
       protected:
+        // Directory type.
         shared_ptr<string> categoryType_ {};
+        // Creator ID.
         shared_ptr<string> creator_ {};
+        // Creator name.
         shared_ptr<string> creatorName_ {};
+        // Data cell ID.
         shared_ptr<int64_t> dataCellId_ {};
+        // Directory path. Valid only for file or resource nodes.
         shared_ptr<string> dirName_ {};
+        // Creation time. Empty for non-entity object nodes.
         shared_ptr<string> gmtCreate_ {};
+        // Modification time. Empty for non-entity object nodes.
         shared_ptr<string> gmtModified_ {};
+        // Directory ID.
         shared_ptr<int64_t> id_ {};
+        // Last modifier ID.
         shared_ptr<string> lastModifier_ {};
+        // Last modifier name.
         shared_ptr<string> lastModifierName_ {};
+        // Display name of the object.
         shared_ptr<string> name_ {};
+        // Project ID.
         shared_ptr<int64_t> projectId_ {};
+        // Directory string ID.
         shared_ptr<string> stringId_ {};
+        // Object type.
         shared_ptr<string> type_ {};
       };
 
@@ -373,19 +387,33 @@ namespace Models
 
 
       protected:
+        // Directory type.
         shared_ptr<string> categoryType_ {};
+        // Creator ID.
         shared_ptr<string> creator_ {};
+        // Creator name.
         shared_ptr<string> creatorName_ {};
+        // Data cell ID.
         shared_ptr<int64_t> dataCellId_ {};
+        // Directory path. Valid only for file or resource nodes.
         shared_ptr<string> dirName_ {};
+        // Creation time. Empty for non-entity object nodes.
         shared_ptr<string> gmtCreate_ {};
+        // Modification time. Empty for non-entity object nodes.
         shared_ptr<string> gmtModified_ {};
+        // Directory ID.
         shared_ptr<int64_t> id_ {};
+        // Last modifier ID.
         shared_ptr<string> lastModifier_ {};
+        // Last modifier name.
         shared_ptr<string> lastModifierName_ {};
+        // Display name of the object.
         shared_ptr<string> name_ {};
+        // Project ID.
         shared_ptr<int64_t> projectId_ {};
+        // Directory string ID.
         shared_ptr<string> stringId_ {};
+        // Object type.
         shared_ptr<string> type_ {};
       };
 
@@ -410,7 +438,9 @@ namespace Models
 
 
     protected:
+      // Child node.
       shared_ptr<Data::Children> children_ {};
+      // Parent node.
       shared_ptr<Data::Parent> parent_ {};
     };
 
@@ -461,11 +491,17 @@ namespace Models
 
 
   protected:
+    // Error code. OK indicates a successful request.
     shared_ptr<string> code_ {};
+    // Directory tree information. Returns the directory tree with all edge information, traversed level by level from the root node.
     shared_ptr<vector<GetDirectoryTreeResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -222,18 +222,31 @@ namespace Models
         shared_ptr<int64_t> apiId_ {};
         // appKey
         shared_ptr<int64_t> appKey_ {};
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The number of calls.
         shared_ptr<int64_t> callCount_ {};
+        // The number of client failures.
         shared_ptr<int64_t> clientFailCount_ {};
+        // The source IP address of the access request.
         shared_ptr<string> clientIp_ {};
+        // The number of abnormal API calls.
         shared_ptr<int64_t> errorApiCount_ {};
+        // The number of errors.
         shared_ptr<int64_t> errorCount_ {};
+        // The error rate.
         shared_ptr<string> errorRate_ {};
+        // The most recent call time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> lastCallTime_ {};
+        // The gateway statistics time. Format: yyyy_MMdd_HHmm.
         shared_ptr<string> minute_ {};
+        // The number of offline instances.
         shared_ptr<int64_t> offlineCount_ {};
+        // The total time consumed by successful calls.
         shared_ptr<string> successTimeCost_ {};
+        // The total number of calls.
         shared_ptr<int64_t> totalCount_ {};
+        // The total time consumed by the API, including failed calls.
         shared_ptr<string> totalTimeCost_ {};
       };
 
@@ -256,7 +269,9 @@ namespace Models
 
 
     protected:
+      // The list of API impact analysis results.
       shared_ptr<vector<PageResult::ImpactList>> impactList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -307,12 +322,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // The paged query result.
     shared_ptr<ListDataServiceApiImpactsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

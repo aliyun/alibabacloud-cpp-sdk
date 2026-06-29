@@ -69,8 +69,12 @@ namespace Models
 
 
     protected:
+      // The group ID.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> groupId_ {};
+      // The group name.
+      // 
       // This parameter is required.
       shared_ptr<string> groupName_ {};
     };
@@ -94,8 +98,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update command for the data service application group.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDataServiceAppGroupRequest::UpdateCommand> updateCommand_ {};
   };

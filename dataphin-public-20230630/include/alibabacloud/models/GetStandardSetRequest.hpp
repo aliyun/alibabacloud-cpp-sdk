@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The standard set ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Specifies whether to allow a null value to be returned when the standard set does not exist. If set to false, an exception is thrown. Default value: true.
     shared_ptr<bool> nullable_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

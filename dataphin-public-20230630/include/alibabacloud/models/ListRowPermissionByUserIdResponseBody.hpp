@@ -139,8 +139,11 @@ namespace Models
 
 
         protected:
+          // The table field.
           shared_ptr<string> columnName_ {};
+          // The mapping field name.
           shared_ptr<string> mappingColumnName_ {};
+          // The table GUID.
           shared_ptr<string> resourceId_ {};
         };
 
@@ -224,6 +227,7 @@ namespace Models
 
 
             protected:
+              // The ID of the account bound to the rule.
               shared_ptr<string> accountId_ {};
             };
 
@@ -246,7 +250,9 @@ namespace Models
 
 
           protected:
+            // The type of the account bound to the rule.
             shared_ptr<string> accountType_ {};
+            // The accounts bound to the rule.
             shared_ptr<vector<UserMappingList::Accounts>> accounts_ {};
           };
 
@@ -319,10 +325,15 @@ namespace Models
 
 
           protected:
+            // The mapping field name.
             shared_ptr<string> mappingColumnName_ {};
+            // The expression operator.
             shared_ptr<string> operator_ {};
+            // The sub-expressions.
             shared_ptr<vector<Darabonba::Json>> subConditions_ {};
+            // The expression type.
             shared_ptr<string> type_ {};
+            // The expression operation values.
             shared_ptr<vector<string>> values_ {};
           };
 
@@ -383,12 +394,19 @@ namespace Models
 
 
         protected:
+          // The rule expressions.
           shared_ptr<vector<Rules::Expressions>> expressions_ {};
+          // The rule ID.
           shared_ptr<int64_t> id_ {};
+          // Indicates whether the rule is deleted.
           shared_ptr<bool> isDelete_ {};
+          // The rule name.
           shared_ptr<string> ruleName_ {};
+          // The scope type of the rule.
           shared_ptr<string> scopeType_ {};
+          // The rule status.
           shared_ptr<int32_t> status_ {};
+          // The accounts bound to the rule.
           shared_ptr<vector<Rules::UserMappingList>> userMappingList_ {};
         };
 
@@ -449,12 +467,19 @@ namespace Models
 
 
       protected:
+        // The creator.
         shared_ptr<string> creator_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The update time.
         shared_ptr<string> gmtModified_ {};
+        // The modifier.
         shared_ptr<string> modifier_ {};
+        // The rules.
         shared_ptr<vector<Data::Rules>> rules_ {};
+        // The related tables.
         shared_ptr<vector<Data::Tables>> tables_ {};
+        // The tenant ID.
         shared_ptr<int64_t> tenantId_ {};
       };
 
@@ -477,7 +502,9 @@ namespace Models
 
 
     protected:
+      // The query result.
       shared_ptr<vector<PageResult::Data>> data_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -528,11 +555,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paged query result.
     shared_ptr<ListRowPermissionByUserIdResponseBody::PageResult> pageResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

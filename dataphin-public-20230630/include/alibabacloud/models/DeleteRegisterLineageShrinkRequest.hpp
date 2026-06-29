@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The command for deleting registered lineage.
+    // 
     // This parameter is required.
     shared_ptr<string> deleteRegisterLineageCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

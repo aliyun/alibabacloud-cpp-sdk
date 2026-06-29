@@ -75,12 +75,25 @@ namespace Models
 
 
   protected:
+    // The environment identifier. Valid values:
+    // 
+    // - dev
+    // - prod
+    // 
+    // Default value: dev.
     shared_ptr<string> env_ {};
+    // The node ID in the directory tree.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
+    // Specifies whether to include all upstream nodes, including invalid dependencies. Default value: false.
     shared_ptr<bool> includeAllUpStreams_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the project to which the node belongs.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

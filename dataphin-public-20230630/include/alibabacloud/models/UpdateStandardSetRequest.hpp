@@ -113,7 +113,10 @@ namespace Models
 
 
       protected:
+        // List of specified visible users. This parameter takes effect only when the visibility type is set to SPECIFIED.
         shared_ptr<vector<string>> specifiedUserList_ {};
+        // Visibility type. Valid values: PUBLIC (public access), PRIVATE (private access, visible only to standard set members and administrators), and SPECIFIED (visible to specified users).
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -174,12 +177,19 @@ namespace Models
 
 
       protected:
+        // Approval process type. Valid values: BY_DEFAULT (default approval type) and BY_TEMPLATE (template-based approval).
+        // 
         // This parameter is required.
         shared_ptr<string> approvalType_ {};
+        // Specifies whether to enable approval.
+        // 
         // This parameter is required.
         shared_ptr<bool> enableApproval_ {};
+        // Specifies whether to submit approvals in batch.
+        // 
         // This parameter is required.
         shared_ptr<bool> isSubmitInBatch_ {};
+        // Approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -211,6 +221,8 @@ namespace Models
 
 
       protected:
+        // Directory.
+        // 
         // This parameter is required.
         shared_ptr<string> directory_ {};
       };
@@ -271,12 +283,19 @@ namespace Models
 
 
       protected:
+        // Approval process type. Valid values: BY_DEFAULT (default approval type) and BY_TEMPLATE (template-based approval).
+        // 
         // This parameter is required.
         shared_ptr<string> approvalType_ {};
+        // Specifies whether to enable approval.
+        // 
         // This parameter is required.
         shared_ptr<bool> enableApproval_ {};
+        // Specifies whether to submit approvals in batch.
+        // 
         // This parameter is required.
         shared_ptr<bool> isSubmitInBatch_ {};
+        // Approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -383,20 +402,35 @@ namespace Models
 
 
     protected:
+      // Publishing approval configuration.
       shared_ptr<UpdateCommand::ApprovalConfig> approvalConfig_ {};
+      // Standard set code.
+      // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      // Default standard template ID.
       shared_ptr<int64_t> defaultStandardTemplateId_ {};
+      // Standard set description.
       shared_ptr<string> description_ {};
+      // Parent directory.
       shared_ptr<UpdateCommand::DirectoryReference> directoryReference_ {};
+      // Maintainers.
       shared_ptr<vector<string>> maintainerList_ {};
+      // Member group list.
       shared_ptr<vector<string>> memberGroupList_ {};
+      // Member list.
       shared_ptr<vector<string>> memberList_ {};
+      // Standard set name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // Unpublishing approval configuration.
       shared_ptr<UpdateCommand::OfflineApprovalConfig> offlineApprovalConfig_ {};
+      // Standard set ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> standardSetId_ {};
+      // Visibility configuration.
       shared_ptr<UpdateCommand::VisibilityConfig> visibilityConfig_ {};
     };
 
@@ -419,8 +453,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Update command.
+    // 
     // This parameter is required.
     shared_ptr<UpdateStandardSetRequest::UpdateCommand> updateCommand_ {};
   };

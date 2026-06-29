@@ -134,12 +134,20 @@ namespace Models
 
 
         protected:
+          // The list of lineage fields.
+          // 
           // This parameter is required.
           shared_ptr<vector<string>> columnList_ {};
+          // The environment. Valid values: prod, dev, and auto.
+          // 
           // This parameter is required.
           shared_ptr<string> env_ {};
+          // Specifies whether to select the full table.
+          // 
           // This parameter is required.
           shared_ptr<bool> fullTable_ {};
+          // The table name.
+          // 
           // This parameter is required.
           shared_ptr<string> name_ {};
         };
@@ -202,12 +210,20 @@ namespace Models
 
 
         protected:
+          // The list of lineage fields.
+          // 
           // This parameter is required.
           shared_ptr<vector<string>> columnList_ {};
+          // The environment. Valid values: prod, dev, and auto.
+          // 
           // This parameter is required.
           shared_ptr<string> env_ {};
+          // Specifies whether to select the full table.
+          // 
           // This parameter is required.
           shared_ptr<bool> fullTable_ {};
+          // The table name.
+          // 
           // This parameter is required.
           shared_ptr<string> name_ {};
         };
@@ -233,8 +249,12 @@ namespace Models
 
 
       protected:
+        // The collection of lineage input tables.
+        // 
         // This parameter is required.
         shared_ptr<vector<LineageGroupList::InputLineageList>> inputLineageList_ {};
+        // The collection of lineage output tables.
+        // 
         // This parameter is required.
         shared_ptr<vector<LineageGroupList::OutputLineageList>> outputLineageList_ {};
       };
@@ -265,10 +285,16 @@ namespace Models
 
 
     protected:
+      // The node ID in the logical definition subtree.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
+      // The list of lineage groups.
+      // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::LineageGroupList>> lineageGroupList_ {};
+      // The project to which the node belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -292,8 +318,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpdateBatchTaskUdfLineagesRequest::UpdateCommand> updateCommand_ {};
   };

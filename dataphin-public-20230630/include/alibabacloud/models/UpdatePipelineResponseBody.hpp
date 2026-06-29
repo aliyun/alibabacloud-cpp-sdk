@@ -104,10 +104,15 @@ namespace Models
 
 
     protected:
+      // The name and IP address of the server that executed the request.
       shared_ptr<string> hostMachine_ {};
+      // The scheduling node ID of the pipeline or workflow node.
       shared_ptr<string> nodeId_ {};
+      // The pipeline or workflow ID.
       shared_ptr<int64_t> pipelineId_ {};
+      // The submit ID generated upon successful submission of the pipeline or workflow, which is added to the pending publish list and can be published through the publish domain. This value is not returned for workflow nodes because they only support PROD.
       shared_ptr<int64_t> submitId_ {};
+      // The version number pending publish. This value is not returned for workflow nodes because they only support PROD.
       shared_ptr<string> version_ {};
     };
 
@@ -158,12 +163,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The update result of the pipeline or workflow node.
     shared_ptr<UpdatePipelineResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details returned by the backend.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

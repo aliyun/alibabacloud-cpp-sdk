@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The command to add members.
+    // 
     // This parameter is required.
     shared_ptr<string> addCommandShrink_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -178,10 +178,14 @@ namespace Models
 
 
         protected:
+          // Application ID.
           shared_ptr<int32_t> appId_ {};
-          // appKey
+          // Application key.
+          // >Notice: Deprecated. Use AppKeyStr instead.
           shared_ptr<int64_t> appKey_ {};
+          // Application key.
           shared_ptr<string> appKeyStr_ {};
+          // Application name.
           shared_ptr<string> appName_ {};
         };
 
@@ -348,27 +352,49 @@ namespace Models
 
 
       protected:
+        // API ID.
         shared_ptr<int64_t> apiId_ {};
+        // API name.
         shared_ptr<string> apiName_ {};
+        // Number of bound applications.
         shared_ptr<int32_t> appCount_ {};
+        // List of referenced application information.
         shared_ptr<vector<ApiList::AppInfoList>> appInfoList_ {};
+        // Application status. Valid values: 0 (not all applied), 1 (applied), 2 (no app, need to apply for an app first).
         shared_ptr<int32_t> applyStatus_ {};
+        // Number of calls.
         shared_ptr<int32_t> callCount_ {};
+        // Creation type. Valid values: 0 (custom mode), 1 (wizard mode), 2 (direct connection API).
         shared_ptr<int32_t> createType_ {};
+        // Custom update frequency content.
         shared_ptr<string> customUpdateRate_ {};
+        // Publish time. Time format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> deployTime_ {};
+        // API description.
         shared_ptr<string> description_ {};
+        // Call type. Valid values: 1 (synchronous), 2 (asynchronous).
         shared_ptr<int32_t> executeMode_ {};
+        // Group ID.
         shared_ptr<int32_t> groupId_ {};
+        // API group name.
         shared_ptr<string> groupName_ {};
+        // Service unit number.
         shared_ptr<int64_t> logicUnitNo_ {};
+        // Mode. Valid values: 0 (basic), 1 (dev_prod).
         shared_ptr<int32_t> mode_ {};
+        // Owner ID.
         shared_ptr<string> owner_ {};
+        // Owner name.
         shared_ptr<string> ownerUserName_ {};
+        // Data service project ID.
         shared_ptr<int32_t> projectId_ {};
+        // Service project name.
         shared_ptr<string> projectName_ {};
+        // Update frequency. Valid values: 0 (custom), 1 (daily), 2 (hourly), 3 (per minute).
         shared_ptr<int32_t> updateRate_ {};
+        // Modification time. Time format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> updateTime_ {};
+        // API version.
         shared_ptr<string> version_ {};
       };
 
@@ -391,7 +417,9 @@ namespace Models
 
 
     protected:
+      // Paginated API list.
       shared_ptr<vector<PageResult::ApiList>> apiList_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -442,12 +470,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend exception details.
     shared_ptr<string> message_ {};
+    // Paginated query result.
     shared_ptr<ListDataServicePublishedApisResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -99,12 +99,19 @@ namespace Models
 
 
     protected:
+      // The username keyword.
       shared_ptr<string> keyword_ {};
+      // The page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
+      // The user group ID.
       shared_ptr<string> userGroupId_ {};
+      // The user ID.
       shared_ptr<vector<string>> userIdList_ {};
     };
 
@@ -127,8 +134,12 @@ namespace Models
 
 
   protected:
+    // The paged query parameters.
+    // 
     // This parameter is required.
     shared_ptr<ListUserGroupMembersRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

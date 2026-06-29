@@ -227,21 +227,37 @@ namespace Models
 
 
       protected:
+        // The business unit ID.
         shared_ptr<int64_t> bizUnitId_ {};
+        // The compute source ID.
         shared_ptr<int64_t> dataSourceId_ {};
+        // The name of the compute source.
         shared_ptr<string> dataSourceName_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The display name of the project.
         shared_ptr<string> displayName_ {};
+        // The environment identifier.
         shared_ptr<string> env_ {};
+        // The time when the project was created, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the project was last modified, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> gmtModified_ {};
+        // The project ID.
         shared_ptr<int64_t> id_ {};
+        // The project mode.
         shared_ptr<string> mode_ {};
+        // The project name.
         shared_ptr<string> name_ {};
+        // The project owner.
         shared_ptr<string> owner_ {};
+        // The project owner.
         shared_ptr<string> ownerName_ {};
+        // The real-time compute source ID.
         shared_ptr<int64_t> realtimeDataSourceId_ {};
+        // The name of the real-time compute source.
         shared_ptr<string> realtimeDataSourceName_ {};
+        // The project type.
         shared_ptr<string> type_ {};
       };
 
@@ -264,7 +280,9 @@ namespace Models
 
 
     protected:
+      // The paginated list of projects.
       shared_ptr<vector<PageResult::ProjectList>> projectList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -315,12 +333,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // The paging query result.
     shared_ptr<ListProjectsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

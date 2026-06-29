@@ -99,6 +99,7 @@ namespace Models
 
 
       protected:
+        // The API permission field ID.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -130,6 +131,7 @@ namespace Models
 
 
       protected:
+        // The API permission field ID.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -213,18 +215,40 @@ namespace Models
 
 
     protected:
+      // The API ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> apiId_ {};
-      // AppId
+      // The application ID.
       shared_ptr<int32_t> appId_ {};
+      // Specifies whether to apply for permissions on operation-type APIs in the development environment.
       shared_ptr<bool> applyDev_ {};
+      // Specifies whether to apply for permissions on operation-type APIs in the production environment.
       shared_ptr<bool> applyProd_ {};
+      // The application type. Valid values:
+      // 
+      // - APP: application.
+      // - USER: individual account.
       shared_ptr<string> applyType_ {};
+      // The list of permission types.
+      // 
+      // - When the principal is an application, the following permission types are supported. To apply for delegation permissions, you must also apply for usage permissions.
+      // 
+      //   - USE: usage permission.
+      //   - DELEGATION: delegation permission.
+      // - When the principal is an individual, only USE (usage) permission is supported.
+      // - If this parameter is not specified, the default value is USE (usage) permission.
       shared_ptr<vector<string>> authTypes_ {};
+      // The list of permission fields for query-type APIs in the development environment. This parameter is required in dev-prod mode. DevFieldList and ProdFieldList cannot both be empty.
       shared_ptr<vector<ApplyCommand::DevFieldList>> devFieldList_ {};
+      // The expiration date in the format of yyyy-MM-dd.
+      // 
       // This parameter is required.
       shared_ptr<string> expireDate_ {};
+      // The list of permission fields for query-type APIs in the production environment. This parameter is required in basic mode.
       shared_ptr<vector<ApplyCommand::ProdFieldList>> prodFieldList_ {};
+      // The reason for the application.
+      // 
       // This parameter is required.
       shared_ptr<string> reason_ {};
     };
@@ -255,10 +279,16 @@ namespace Models
 
 
   protected:
+    // The apply command.
+    // 
     // This parameter is required.
     shared_ptr<ApplyDataServiceApiRequest::ApplyCommand> applyCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

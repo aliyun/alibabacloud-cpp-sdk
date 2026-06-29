@@ -142,8 +142,11 @@ namespace Models
 
 
       protected:
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The environment identifier. Valid values: PROD and DEV.
         shared_ptr<string> envName_ {};
+        // The English name.
         shared_ptr<string> name_ {};
       };
 
@@ -175,6 +178,7 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
       };
 
@@ -206,6 +210,7 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
       };
 
@@ -237,6 +242,7 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
       };
 
@@ -387,24 +393,45 @@ namespace Models
 
 
     protected:
+      // The architects of the data domain.
       shared_ptr<vector<BizUnitInfo::AccountList>> accountList_ {};
+      // The number of business objects.
       shared_ptr<int32_t> bizObjectCount_ {};
+      // The number of business activities.
       shared_ptr<int32_t> bizProcessCount_ {};
+      // The business owners.
       shared_ptr<vector<BizUnitInfo::BusinessLeaderList>> businessLeaderList_ {};
+      // The number of subject domains.
       shared_ptr<int32_t> dataDomainCount_ {};
+      // The data owners.
       shared_ptr<vector<BizUnitInfo::DataLeaderList>> dataLeaderList_ {};
+      // The description of the business object.
       shared_ptr<string> description_ {};
+      // The display name.
       shared_ptr<string> displayName_ {};
+      // The English names of the data domain for the two environments: production and development.
       shared_ptr<vector<BizUnitInfo::EnvList>> envList_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The update time.
       shared_ptr<string> gmtModified_ {};
+      // The icon of the data domain.
       shared_ptr<string> icon_ {};
+      // The data domain ID.
       shared_ptr<int64_t> id_ {};
+      // The ID of the user who last modified the data domain.
       shared_ptr<string> lastModifier_ {};
+      // The name of the user who last modified the data domain.
       shared_ptr<string> lastModifierName_ {};
+      // The production mode. Valid values:
+      // - BASIC: single-environment mode.
+      // - DEV_PROD: development/production dual-environment mode.
       shared_ptr<string> mode_ {};
+      // The name.
       shared_ptr<string> name_ {};
+      // The owner of the business object.
       shared_ptr<string> ownerName_ {};
+      // The owner of the business object.
       shared_ptr<string> ownerUserId_ {};
     };
 
@@ -455,11 +482,17 @@ namespace Models
 
 
   protected:
+    // The details of the data domain.
     shared_ptr<GetBizUnitInfoResponseBody::BizUnitInfo> bizUnitInfo_ {};
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

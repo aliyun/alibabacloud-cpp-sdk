@@ -89,8 +89,11 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The list of data classification IDs that are associated with the current classification level. This parameter is returned only when this error is triggered.
       shared_ptr<vector<int64_t>> relatedClassifyIdList_ {};
+      // Indicates whether the deletion was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -141,12 +144,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The deletion result.
     shared_ptr<DeleteSecurityLevelResponseBody::DeleteResult> deleteResult_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -78,9 +78,14 @@ namespace Models
 
 
     protected:
+      // The search keyword.
       shared_ptr<string> keyword_ {};
+      // The page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
     };
@@ -104,8 +109,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<ListRowPermissionRequest::PageRowPermissionQuery> pageRowPermissionQuery_ {};
   };

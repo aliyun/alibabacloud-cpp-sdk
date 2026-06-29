@@ -108,14 +108,29 @@ namespace Models
 
 
     protected:
+      // The application group ID.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> appGroupId_ {};
+      // The application key, which must be globally unique and is used when calling APIs.
+      // The key must be 8 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+      // This parameter can be customized only when using Alibaba Cloud API Gateway or the built-in gateway. This parameter is ignored when using a dedicated cloud gateway.
       shared_ptr<string> appKey_ {};
+      // The application name.
+      // 
       // This parameter is required.
       shared_ptr<string> appName_ {};
+      // The app secret.
+      // If this parameter is not specified, the system automatically generates a new AppSecret value.
+      // The secret must be 8 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+      // This parameter can be customized only when using Alibaba Cloud API Gateway or the built-in gateway. This parameter is ignored when using a dedicated cloud gateway.
       shared_ptr<string> appSecret_ {};
+      // The list of owner IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> ownerIds_ {};
+      // Common scenarios.
+      // 
       // This parameter is required.
       shared_ptr<string> scenarios_ {};
     };
@@ -139,8 +154,12 @@ namespace Models
 
 
   protected:
+    // The command to create a data service application.
+    // 
     // This parameter is required.
     shared_ptr<CreateDataServiceAppRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

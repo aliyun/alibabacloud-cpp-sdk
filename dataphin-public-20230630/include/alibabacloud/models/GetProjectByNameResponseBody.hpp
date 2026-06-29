@@ -142,9 +142,11 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> description_ {};
         // Ip
         shared_ptr<string> ip_ {};
+        // The port.
         shared_ptr<string> port_ {};
       };
 
@@ -289,24 +291,48 @@ namespace Models
 
 
     protected:
+      // The display name of the business unit to which the project belongs.
       shared_ptr<string> bizUnitDisplayName_ {};
+      // The ID of the business unit to which the project belongs.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The ID of the associated compute source.
       shared_ptr<int64_t> computeSourceId_ {};
+      // The name of the associated compute source.
       shared_ptr<string> computeSourceName_ {};
+      // The project description.
       shared_ptr<string> description_ {};
+      // The display name of the project.
       shared_ptr<string> displayName_ {};
+      // The environment identifier.
       shared_ptr<string> env_ {};
+      // The creation time, in the format of yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
+      // The update time, in the format of yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
+      // The project ID.
       shared_ptr<int64_t> id_ {};
+      // The project mode.
       shared_ptr<string> mode_ {};
+      // The project name.
       shared_ptr<string> name_ {};
+      // The namespace type. Valid values:
+      // - PUBLIC: public type
+      // - APPLICATION: application type
+      // - BASE: base type.
       shared_ptr<string> nameSpaceTag_ {};
+      // The project owner.
       shared_ptr<string> owner_ {};
+      // The project owner.
       shared_ptr<string> ownerName_ {};
+      // The ID of the associated real-time compute source.
       shared_ptr<int64_t> streamComputeSourceId_ {};
+      // The name of the associated real-time compute source.
       shared_ptr<string> streamComputeSourceName_ {};
+      // The project type. Valid values:
+      // - DISTILL: distillation project
+      // - GENERAL: general project.
       shared_ptr<string> type_ {};
+      // The whitelists.
       shared_ptr<vector<ProjectInfo::WhiteLists>> whiteLists_ {};
     };
 
@@ -357,12 +383,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // The project details.
     shared_ptr<GetProjectByNameResponseBody::ProjectInfo> projectInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

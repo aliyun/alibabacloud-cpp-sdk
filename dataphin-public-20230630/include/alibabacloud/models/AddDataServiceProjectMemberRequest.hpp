@@ -109,12 +109,24 @@ namespace Models
 
 
       protected:
+        // The username of the user.
+        // 
         // This parameter is required.
         shared_ptr<string> accountName_ {};
+        // The nickname of the user.
+        // 
         // This parameter is required.
         shared_ptr<string> displayName_ {};
+        // The role of the user. Valid values:
+        // - 2: development user
+        // - 3: application member
+        // - 4: service project administrator
+        // - 5: O&M user.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> role_ {};
+        // The user ID.
+        // 
         // This parameter is required.
         shared_ptr<string> userId_ {};
       };
@@ -130,6 +142,8 @@ namespace Models
 
 
     protected:
+      // The list of project members to add.
+      // 
       // This parameter is required.
       shared_ptr<vector<AddCommand::ProjectMemberList>> projectMemberList_ {};
     };
@@ -160,10 +174,16 @@ namespace Models
 
 
   protected:
+    // The command to add project members.
+    // 
     // This parameter is required.
     shared_ptr<AddDataServiceProjectMemberRequest::AddCommand> addCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

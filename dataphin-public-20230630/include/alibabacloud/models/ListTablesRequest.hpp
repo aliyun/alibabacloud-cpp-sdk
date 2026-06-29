@@ -87,10 +87,15 @@ namespace Models
 
 
     protected:
+      // The asset catalog, such as the project name or business unit name.
+      // 
       // This parameter is required.
       shared_ptr<string> catalog_ {};
+      // The keyword for searching. Table names are supported.
       shared_ptr<string> keyword_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -113,7 +118,10 @@ namespace Models
 
 
   protected:
+    // The paged query conditions.
     shared_ptr<ListTablesRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

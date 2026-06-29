@@ -91,8 +91,12 @@ namespace Models
 
 
       protected:
+        // The authorization expiration time.
+        // 
         // This parameter is required.
         shared_ptr<string> effectiveEnd_ {};
+        // The user ID.
+        // 
         // This parameter is required.
         shared_ptr<string> userId_ {};
       };
@@ -116,8 +120,12 @@ namespace Models
 
 
     protected:
+      // The application ID.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> appId_ {};
+      // The list of members.
+      // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::MemberList>> memberList_ {};
     };
@@ -141,8 +149,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The command to update regular members of a data service application.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDataServiceAppMemberRequest::UpdateCommand> updateCommand_ {};
   };

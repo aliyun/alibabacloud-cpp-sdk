@@ -177,10 +177,15 @@ namespace Models
 
 
         protected:
+          // Standard template code.
           shared_ptr<string> code_ {};
+          // Standard template ID.
           shared_ptr<int64_t> id_ {};
+          // Standard template name.
           shared_ptr<string> name_ {};
+          // Standard template source: CUSTOM for custom standard templates, SYSTEM for system built-in standard templates.
           shared_ptr<string> templateFrom_ {};
+          // Version number.
           shared_ptr<int32_t> version_ {};
         };
 
@@ -240,9 +245,13 @@ namespace Models
 
 
         protected:
+          // Standard set code.
           shared_ptr<string> code_ {};
+          // Directory of the standard set.
           shared_ptr<string> directory_ {};
+          // Standard set ID.
           shared_ptr<int64_t> id_ {};
+          // Standard set name.
           shared_ptr<string> name_ {};
         };
 
@@ -284,7 +293,9 @@ namespace Models
 
 
         protected:
+          // User ID.
           shared_ptr<string> id_ {};
+          // User name.
           shared_ptr<string> name_ {};
         };
 
@@ -326,7 +337,9 @@ namespace Models
 
 
         protected:
+          // User ID.
           shared_ptr<string> id_ {};
+          // User name.
           shared_ptr<string> name_ {};
         };
 
@@ -377,8 +390,11 @@ namespace Models
 
 
         protected:
+          // End time of the effective period.
           shared_ptr<string> endTime_ {};
+          // Start time of the effective period.
           shared_ptr<string> startTime_ {};
+          // Effective time type: FOREVER for permanent, TIME_PERIOD for a time period.
           shared_ptr<string> type_ {};
         };
 
@@ -420,7 +436,9 @@ namespace Models
 
 
         protected:
+          // User ID.
           shared_ptr<string> id_ {};
+          // User name.
           shared_ptr<string> name_ {};
         };
 
@@ -592,9 +610,13 @@ namespace Models
 
 
                 protected:
+                  // Whether to include the maximum value.
                   shared_ptr<bool> includeMaxValue_ {};
+                  // Whether to include the minimum value.
                   shared_ptr<bool> includeMinValue_ {};
+                  // Maximum value.
                   shared_ptr<string> maxValue_ {};
+                  // Minimum value.
                   shared_ptr<string> minValue_ {};
                 };
 
@@ -636,7 +658,9 @@ namespace Models
 
 
                 protected:
+                  // Referenced lookup table column.
                   shared_ptr<string> column_ {};
+                  // Lookup table ID.
                   shared_ptr<int64_t> lookupTableId_ {};
                 };
 
@@ -684,10 +708,15 @@ namespace Models
 
 
               protected:
+                // Value range, effective when value constraint is DATAPHIN_ATTRIBUTE: BIZ_UNIT for data business unit, PROJECT for project, USER for user, USER_GROUP for user group.
                 shared_ptr<string> dataphinAttributeType_ {};
+                // Value range, effective when value constraint is LOOKUP_TABLE.
                 shared_ptr<ValueRange::LookupTableReference> lookupTableReference_ {};
+                // Value range, effective when value constraint is MIN_MAX.
                 shared_ptr<ValueRange::MinMaxValueConfig> minMaxValueConfig_ {};
+                // Value constraint: NONE for no constraint, LIST for obtaining from a list, LOOKUP_TABLE for lookup table, MIN_MAX for values between minimum and maximum, DATAPHIN_ATTRIBUTE for Dataphin system attribute, BUILT_IN_DATA_TYPES for built-in data types, BUILT_IN_DATA_CLASSIFICATION for built-in data classification, BUILT_IN_DATA_LEVEL for built-in data security level.
                 shared_ptr<string> valueConstraint_ {};
+                // Value range, effective when value constraint is LIST.
                 shared_ptr<vector<string>> valueList_ {};
               };
 
@@ -731,10 +760,15 @@ namespace Models
 
 
             protected:
+              // Data type of the attribute value: STRING for string, BIGINT for numeric type, DOUBLE for floating-point type, DATE for date accurate to day, DATETIME for date accurate to milliseconds, BOOLEAN for boolean.
               shared_ptr<string> dataType_ {};
+              // Default value.
               shared_ptr<string> defaultValue_ {};
+              // Attribute value length. If empty or -1, the length is not limited. Typically, only string types limit the attribute value length.
               shared_ptr<int32_t> length_ {};
+              // Attribute value type: CUSTOMIZED for custom input, SINGLE_ENUM for single enumeration value, MULTIPLE_ENUMS for multiple enumeration values, RANGE for range value.
               shared_ptr<string> type_ {};
+              // Value range.
               shared_ptr<ValueConfig::ValueRange> valueRange_ {};
             };
 
@@ -818,7 +852,9 @@ namespace Models
 
 
                 protected:
+                  // Standard ID.
                   shared_ptr<int64_t> standardId_ {};
+                  // Version number.
                   shared_ptr<int32_t> version_ {};
                 };
 
@@ -841,7 +877,9 @@ namespace Models
 
 
               protected:
+                // Attribute source: SYSTEM for system attribute, CUSTOM for custom attribute, STANDARD for standard.
                 shared_ptr<string> attributeFrom_ {};
+                // Corresponding standard, effective when attribute source is STANDARD.
                 shared_ptr<AttributeFromInfo::StandardReference> standardReference_ {};
               };
 
@@ -864,7 +902,9 @@ namespace Models
 
 
             protected:
+              // Attribute source.
               shared_ptr<RefAttribute::AttributeFromInfo> attributeFromInfo_ {};
+              // Attribute ID.
               shared_ptr<int64_t> attributeId_ {};
             };
 
@@ -915,8 +955,11 @@ namespace Models
 
 
             protected:
+              // Column to check.
               shared_ptr<string> columnName_ {};
+              // Whether case-sensitive.
               shared_ptr<bool> isCaseSensitive_ {};
+              // Monitor type: METADATA for metadata monitoring, QUALITY for data quality monitoring.
               shared_ptr<string> type_ {};
             };
 
@@ -1000,15 +1043,25 @@ namespace Models
 
 
           protected:
+            // Attribute code.
             shared_ptr<string> code_ {};
+            // Description.
             shared_ptr<string> description_ {};
+            // Whether to enable monitor configuration.
             shared_ptr<bool> enableMonitorConfig_ {};
+            // Attribute ID.
             shared_ptr<int64_t> id_ {};
+            // Monitor configuration.
             shared_ptr<Attribute::MonitorConfig> monitorConfig_ {};
+            // Attribute name.
             shared_ptr<string> name_ {};
+            // Referenced attribute information.
             shared_ptr<Attribute::RefAttribute> refAttribute_ {};
+            // Whether it is required.
             shared_ptr<bool> required_ {};
+            // Attribute type: BIZ_ATTRIBUTE for business attribute, TECH_ATTRIBUTE for technical attribute, MANAGEMENT_ATTRIBUTE for management attribute, QUALITY_ATTRIBUTE for quality attribute, MASTER_DATA_ATTRIBUTE for master data attribute, LIFECYCLE_ATTRIBUTE for lifecycle attribute, SECURITY_ATTRIBUTE for security attribute.
             shared_ptr<string> type_ {};
+            // Value configuration.
             shared_ptr<Attribute::ValueConfig> valueConfig_ {};
           };
 
@@ -1031,7 +1084,9 @@ namespace Models
 
 
         protected:
+          // Attribute details.
           shared_ptr<AttributeWithValueList::Attribute> attribute_ {};
+          // Attribute value.
           shared_ptr<string> value_ {};
         };
 
@@ -1174,22 +1229,39 @@ namespace Models
 
 
       protected:
+        // Attribute value configuration list.
         shared_ptr<vector<StandardList::AttributeWithValueList>> attributeWithValueList_ {};
+        // Standard code.
         shared_ptr<string> code_ {};
+        // Creator.
         shared_ptr<StandardList::Creator> creator_ {};
+        // Description.
         shared_ptr<string> description_ {};
+        // Effective time configuration.
         shared_ptr<StandardList::EffectiveTimeConfig> effectiveTimeConfig_ {};
+        // Standard English name.
         shared_ptr<string> englishName_ {};
+        // Standard ID.
         shared_ptr<int64_t> id_ {};
+        // Last modifier.
         shared_ptr<StandardList::LastModifier> lastModifier_ {};
+        // Last modified time.
         shared_ptr<string> modifyTime_ {};
+        // Standard name.
         shared_ptr<string> name_ {};
+        // Owner.
         shared_ptr<StandardList::Owner> owner_ {};
+        // Stage of the standard.
         shared_ptr<string> stage_ {};
+        // Standard set that the current standard depends on.
         shared_ptr<StandardList::StandardSet> standardSet_ {};
+        // Standard template that the current standard depends on.
         shared_ptr<StandardList::StandardTemplate> standardTemplate_ {};
+        // Status of the standard.
         shared_ptr<string> status_ {};
+        // Standard type.
         shared_ptr<string> type_ {};
+        // Version number.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -1212,7 +1284,9 @@ namespace Models
 
 
     protected:
+      // Standard list.
       shared_ptr<vector<PageResult::StandardList>> standardList_ {};
+      // Total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -1263,12 +1337,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // HTTP response code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Details of the backend response error.
     shared_ptr<string> message_ {};
+    // Paginated query result.
     shared_ptr<ListStandardsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

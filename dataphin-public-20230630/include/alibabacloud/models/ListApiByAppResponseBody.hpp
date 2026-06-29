@@ -278,10 +278,15 @@ namespace Models
 
 
           protected:
+            // The datasource ID.
             shared_ptr<string> datasourceId_ {};
+            // The datasource name.
             shared_ptr<string> datasourceName_ {};
+            // The datasource type.
             shared_ptr<int64_t> datasourceType_ {};
+            // The datasource URL.
             shared_ptr<string> datasourceUrl_ {};
+            // The table name.
             shared_ptr<string> tableName_ {};
           };
 
@@ -404,20 +409,35 @@ namespace Models
 
 
         protected:
+          // The date format.
           shared_ptr<string> dateFormat_ {};
+          // The default value for registered APIs.
           shared_ptr<string> defaultValue_ {};
+          // The parameter description.
           shared_ptr<string> description_ {};
+          // The parameter description code.
           shared_ptr<string> descriptionCode_ {};
+          // The primary key ID.
           shared_ptr<int64_t> id_ {};
+          // The initial value.
           shared_ptr<string> initialValue_ {};
+          // The frontend binding field.
           shared_ptr<string> mappingColumn_ {};
+          // Indicates whether the request parameter is required.
           shared_ptr<int64_t> must_ {};
+          // The operator.
           shared_ptr<string> operator_ {};
+          // Indicates whether the parameter is editable.
           shared_ptr<int64_t> optional_ {};
+          // The original field name.
           shared_ptr<string> originalColumn_ {};
+          // The frontend parameter name.
           shared_ptr<string> paramName_ {};
+          // The parameter type.
           shared_ptr<string> paramType_ {};
+          // The request parameter location for registered APIs or the value path for response parameters.
           shared_ptr<string> parameterLocation_ {};
+          // The parameter example.
           shared_ptr<string> sample_ {};
           // -
           shared_ptr<vector<ResponseParamList::TableAndDsList>> tableAndDsList_ {};
@@ -537,10 +557,15 @@ namespace Models
 
 
           protected:
+            // The datasource ID.
             shared_ptr<string> datasourceId_ {};
+            // The datasource name.
             shared_ptr<string> datasourceName_ {};
+            // The datasource type.
             shared_ptr<int64_t> datasourceType_ {};
+            // The datasource URL.
             shared_ptr<string> datasourceUrl_ {};
+            // The table name.
             shared_ptr<string> tableName_ {};
           };
 
@@ -663,20 +688,35 @@ namespace Models
 
 
         protected:
+          // The date format.
           shared_ptr<string> dateFormat_ {};
+          // The default value for registered APIs.
           shared_ptr<string> defaultValue_ {};
+          // The parameter description.
           shared_ptr<string> description_ {};
+          // The parameter description code.
           shared_ptr<string> descriptionCode_ {};
+          // The primary key ID.
           shared_ptr<int64_t> id_ {};
+          // The initial value.
           shared_ptr<string> initialValue_ {};
+          // The frontend binding field.
           shared_ptr<string> mappingColumn_ {};
+          // Indicates whether the request parameter is required.
           shared_ptr<int64_t> must_ {};
+          // The operator.
           shared_ptr<string> operator_ {};
+          // Indicates whether the parameter is editable.
           shared_ptr<int64_t> optional_ {};
+          // The original field name.
           shared_ptr<string> originalColumn_ {};
+          // The frontend parameter name.
           shared_ptr<string> paramName_ {};
+          // The parameter type.
           shared_ptr<string> paramType_ {};
+          // The request parameter location for registered APIs or the value path for response parameters.
           shared_ptr<string> parameterLocation_ {};
+          // The parameter example.
           shared_ptr<string> sample_ {};
           // -
           shared_ptr<vector<RequestParamList::TableAndDsList>> tableAndDsList_ {};
@@ -812,17 +852,29 @@ namespace Models
 
 
         protected:
+          // The primary key of data_api.
           shared_ptr<int64_t> apiId_ {};
+          // The API datasource authentication mode.
           shared_ptr<string> authenticationMode_ {};
+          // The API datasource ID.
           shared_ptr<string> datasourceId_ {};
+          // The API datasource name.
           shared_ptr<string> datasourceName_ {};
+          // The failure example.
           shared_ptr<string> failExample_ {};
+          // The HTTP method of the registered API.
           shared_ptr<int64_t> httpMethod_ {};
+          // The model type.
           shared_ptr<int64_t> modelType_ {};
+          // The service path.
           shared_ptr<string> path_ {};
+          // The API datasource request protocol.
           shared_ptr<string> protocol_ {};
+          // The success example.
           shared_ptr<string> successExample_ {};
+          // The timeout period.
           shared_ptr<int64_t> timeout_ {};
+          // The API datasource URL.
           shared_ptr<string> url_ {};
         };
 
@@ -940,10 +992,15 @@ namespace Models
 
 
           protected:
+            // The datasource ID.
             shared_ptr<string> datasourceId_ {};
+            // The datasource name.
             shared_ptr<string> datasourceName_ {};
+            // The datasource type.
             shared_ptr<int64_t> datasourceType_ {};
+            // The datasource URL.
             shared_ptr<string> datasourceUrl_ {};
+            // The table name.
             shared_ptr<string> tableName_ {};
           };
 
@@ -1066,20 +1123,35 @@ namespace Models
 
 
         protected:
+          // The date format.
           shared_ptr<string> dateFormat_ {};
+          // The default value for registered APIs.
           shared_ptr<string> defaultValue_ {};
+          // The parameter description.
           shared_ptr<string> description_ {};
+          // The parameter description code.
           shared_ptr<string> descriptionCode_ {};
+          // The primary key ID.
           shared_ptr<int64_t> id_ {};
+          // The initial value.
           shared_ptr<string> initialValue_ {};
+          // The frontend binding field.
           shared_ptr<string> mappingColumn_ {};
+          // Indicates whether the request parameter is required.
           shared_ptr<int64_t> must_ {};
+          // The operator.
           shared_ptr<string> operator_ {};
+          // Indicates whether the parameter is editable.
           shared_ptr<int64_t> optional_ {};
+          // The original field name.
           shared_ptr<string> originalColumn_ {};
+          // The frontend parameter name.
           shared_ptr<string> paramName_ {};
+          // The parameter type.
           shared_ptr<string> paramType_ {};
+          // The request parameter location for registered APIs or the value path for response parameters.
           shared_ptr<string> parameterLocation_ {};
+          // The parameter example.
           shared_ptr<string> sample_ {};
           // -
           shared_ptr<vector<PublicParamList::TableAndDsList>> tableAndDsList_ {};
@@ -1407,51 +1479,96 @@ namespace Models
 
 
       protected:
+        // The API number.
         shared_ptr<int64_t> apiNo_ {};
+        // The API timeout.
         shared_ptr<int64_t> apiTimeout_ {};
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The list of permission types.
         shared_ptr<vector<string>> authTypes_ {};
+        // The business module name.
         shared_ptr<string> bizModuleEnName_ {};
+        // The API cache switch.
         shared_ptr<string> cacheSwitch_ {};
+        // The cache duration, in seconds.
         shared_ptr<string> cacheTime_ {};
+        // The creation type. Valid values:
+        // SQL_MODE(0, "Logical table API - SQL mode"),
+        // WIZARD_MODE(1, "Logical table API - wizard mode"),
+        // DIRECT_API_MODE(2, "Direct datasource - SQL mode"),
+        // REGISTER_API_MODE(3, "Registered API mode"),
+        // COMPOSITE_API_MODE(4, "Composite API mode").
         shared_ptr<int64_t> createType_ {};
+        // The data environment.
         shared_ptr<int64_t> dbEnv_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The datasource ID of the direct API.
         shared_ptr<int64_t> directDatasourceId_ {};
+        // The datasource name of the direct API.
         shared_ptr<string> directDatasourceName_ {};
+        // The API group ID.
         shared_ptr<int64_t> groupId_ {};
+        // The API group name.
         shared_ptr<string> groupName_ {};
+        // The API ID.
         shared_ptr<int64_t> id_ {};
+        // Indicates whether the table is a logical table.
         shared_ptr<bool> isLogicalTable_ {};
+        // Indicates whether the query is a paged query.
         shared_ptr<int64_t> isPagedQuery_ {};
+        // The maximum number of returned records.
         shared_ptr<int64_t> maxReturnNum_ {};
+        // The model type.
         shared_ptr<int64_t> modelType_ {};
+        // The API name.
         shared_ptr<string> name_ {};
+        // The service project ID.
         shared_ptr<int64_t> projId_ {};
+        // The service project name.
         shared_ptr<string> projName_ {};
+        // The protocol.
         shared_ptr<int64_t> protocol_ {};
+        // The protocol name.
         shared_ptr<string> protocolName_ {};
         // -
         shared_ptr<vector<Data::PublicParamList>> publicParamList_ {};
+        // The registered API information.
         shared_ptr<Data::RegisterApi> registerApi_ {};
+        // The request method.
         shared_ptr<int64_t> requestMethod_ {};
+        // The request method name.
         shared_ptr<string> requestMethodName_ {};
         // -
         shared_ptr<vector<Data::RequestParamList>> requestParamList_ {};
+        // The resource group name.
         shared_ptr<string> resourceGroupName_ {};
         // -
         shared_ptr<vector<Data::ResponseParamList>> responseParamList_ {};
+        // The sample call result.
         shared_ptr<string> resultSample_ {};
+        // The return type.
         shared_ptr<int64_t> returnType_ {};
+        // The return type name.
         shared_ptr<string> returnTypeName_ {};
+        // The resource group ID.
         shared_ptr<string> rsGrpId_ {};
+        // The script type.
         shared_ptr<string> scriptType_ {};
+        // The special SQL flag.
         shared_ptr<int64_t> specialSql_ {};
+        // The SQL statement.
         shared_ptr<string> sqlStatement_ {};
+        // The logical table name.
         shared_ptr<string> tableName_ {};
+        // The timeout duration, in seconds.
         shared_ptr<string> timeout_ {};
+        // The update frequency.
         shared_ptr<int64_t> updateRate_ {};
+        // The update frequency name.
         shared_ptr<string> updateRateName_ {};
+        // The API version.
         shared_ptr<string> version_ {};
       };
 
@@ -1474,7 +1591,9 @@ namespace Models
 
 
     protected:
+      // The API list.
       shared_ptr<vector<ListResult::Data>> data_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -1525,12 +1644,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The query result.
     shared_ptr<ListApiByAppResponseBody::ListResult> listResult_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

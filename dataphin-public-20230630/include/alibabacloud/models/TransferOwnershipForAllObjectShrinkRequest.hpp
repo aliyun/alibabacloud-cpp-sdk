@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The transfer information.
     shared_ptr<string> privilegeTransferRecordShrink_ {};
   };
 

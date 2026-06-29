@@ -57,10 +57,27 @@ namespace Models
 
 
   protected:
+    // Directory type.
+    // - Ad-hoc Query: tempCode
+    // - Code Task: codeManage
+    // - Offline Pipeline: offlinePipeline
+    // - Pipeline Custom Component: offlinePipelineCustomPlugin
+    // - Sync Task: dataX
+    // - Real-time Meta Table: streamMeta
+    // - Real-time Custom Source: streamCustomDataSource
+    // - Real-time Compute Template: streamTemplate
+    // - Resource Management: resourceManage
+    // - Offline Function: udfResource
+    // - Real-time Function: streamFunction
+    // 
     // This parameter is required.
     shared_ptr<string> category_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

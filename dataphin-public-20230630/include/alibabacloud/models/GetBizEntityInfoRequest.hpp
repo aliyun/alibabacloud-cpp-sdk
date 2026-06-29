@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The business entity ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The business entity type. For more information, refer to the create business entity operation.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

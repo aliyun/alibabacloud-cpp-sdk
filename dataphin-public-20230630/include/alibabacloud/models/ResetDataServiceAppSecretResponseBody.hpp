@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The new application key
       shared_ptr<string> appKey_ {};
+      // The new application secret
       shared_ptr<string> appSecret_ {};
     };
 
@@ -128,12 +130,17 @@ namespace Models
 
 
   protected:
+    // Backend response code
     shared_ptr<string> code_ {};
+    // Reset Data Service application key result
     shared_ptr<ResetDataServiceAppSecretResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend exception details
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

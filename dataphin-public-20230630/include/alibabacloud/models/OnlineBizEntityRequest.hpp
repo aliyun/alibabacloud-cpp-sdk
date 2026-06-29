@@ -87,12 +87,22 @@ namespace Models
 
 
     protected:
+      // The ID of the business unit to which the entity belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The remarks for the offline operation.
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // The ID of the business entity.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The business type. Valid values:
+      // - BIZ_OBJECT
+      // - BIZ_PROCESS.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -116,8 +126,12 @@ namespace Models
 
 
   protected:
+    // The online request.
+    // 
     // This parameter is required.
     shared_ptr<OnlineBizEntityRequest::OnlineCommand> onlineCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

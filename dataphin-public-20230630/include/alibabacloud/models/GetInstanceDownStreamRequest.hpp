@@ -75,8 +75,19 @@ namespace Models
 
 
     protected:
+      // Instance ID.
+      // 
       // This parameter is required.
       shared_ptr<string> instanceId_ {};
+      // Node type of the instance.
+      // - BBOX_LOGIC_TABLE_NODE
+      // - BBOX_LOGIC_FIELD_NODE
+      // - BBOX_LOGIC_FIELD_GROUP_NODE
+      // - BBOX_INNER_TEMP_NODE
+      // - DATA_PROCESS
+      // - STREAM_TASK_NODE
+      // - FLINK_BATCH
+      // 
       // This parameter is required.
       shared_ptr<string> nodeType_ {};
     };
@@ -121,13 +132,28 @@ namespace Models
 
 
   protected:
+    // Number of levels to expand downstream in the DAG query. Valid values: 1 to 6.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> downStreamDepth_ {};
+    // Environment identifier.
+    // - DEV: Development environment.
+    // - PROD (default): Production environment.
     shared_ptr<string> env_ {};
+    // The request body.
+    // 
     // This parameter is required.
     shared_ptr<GetInstanceDownStreamRequest::InstanceGet> instanceGet_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Run status of the instance.
+    // - INIT
+    // - WATING
+    // - RUNNING
+    // - SUCCESS
+    // - FAILED
     shared_ptr<string> runStatus_ {};
   };
 

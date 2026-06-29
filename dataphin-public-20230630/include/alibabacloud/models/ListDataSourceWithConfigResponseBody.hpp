@@ -163,7 +163,9 @@ namespace Models
 
 
           protected:
+            // Configuration item ID
             shared_ptr<string> key_ {};
+            // Configuration item value
             shared_ptr<string> value_ {};
           };
 
@@ -265,18 +267,31 @@ namespace Models
 
 
         protected:
+          // Connection configuration items
           shared_ptr<vector<ProdDataSourceInfo::ConfigItemList>> configItemList_ {};
+          // Creation time
           shared_ptr<int64_t> createTime_ {};
+          // Creator ID
           shared_ptr<string> creator_ {};
+          // Creator name
           shared_ptr<string> creatorName_ {};
+          // Description
           shared_ptr<string> description_ {};
+          // Environment of the data source
           shared_ptr<string> env_ {};
+          // Data source ID
           shared_ptr<int64_t> id_ {};
+          // Modification time
           shared_ptr<int64_t> modifyTime_ {};
+          // Data source name
           shared_ptr<string> name_ {};
+          // Owner ID
           shared_ptr<string> owner_ {};
+          // Owner name
           shared_ptr<string> ownerName_ {};
+          // Data source scope
           shared_ptr<string> scope_ {};
+          // Data source type
           shared_ptr<string> type_ {};
         };
 
@@ -361,7 +376,9 @@ namespace Models
 
 
           protected:
+            // Configuration item ID
             shared_ptr<string> key_ {};
+            // Configuration item value
             shared_ptr<string> value_ {};
           };
 
@@ -463,18 +480,31 @@ namespace Models
 
 
         protected:
+          // Connection configuration items
           shared_ptr<vector<DevDataSourceInfo::ConfigItemList>> configItemList_ {};
+          // Creation time
           shared_ptr<int64_t> createTime_ {};
+          // Creator ID
           shared_ptr<string> creator_ {};
+          // Creator name
           shared_ptr<string> creatorName_ {};
+          // Description
           shared_ptr<string> description_ {};
+          // Environment of the data source
           shared_ptr<string> env_ {};
+          // Data source ID
           shared_ptr<int64_t> id_ {};
+          // Modification time
           shared_ptr<int64_t> modifyTime_ {};
+          // Data source name
           shared_ptr<string> name_ {};
+          // Owner ID
           shared_ptr<string> owner_ {};
+          // Owner name
           shared_ptr<string> ownerName_ {};
+          // Data source scope
           shared_ptr<string> scope_ {};
+          // Data source type
           shared_ptr<string> type_ {};
         };
 
@@ -499,9 +529,9 @@ namespace Models
 
 
       protected:
-        // 开发环境数据源信息
+        // Development environment data source
         shared_ptr<DataSourceList::DevDataSourceInfo> devDataSourceInfo_ {};
-        // 生产环境数据源
+        // Production environment data source
         shared_ptr<DataSourceList::ProdDataSourceInfo> prodDataSourceInfo_ {};
       };
 
@@ -524,7 +554,9 @@ namespace Models
 
 
     protected:
+      // Paginated list
       shared_ptr<vector<PageResult::DataSourceList>> dataSourceList_ {};
+      // Total number of records
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -575,11 +607,17 @@ namespace Models
 
 
   protected:
+    // Error code. OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Query result.
     shared_ptr<ListDataSourceWithConfigResponseBody::PageResult> pageResult_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

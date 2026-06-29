@@ -130,8 +130,11 @@ namespace Models
 
 
       protected:
+        // The error message.
         shared_ptr<string> errMsg_ {};
+        // The name of the transfer module.
         shared_ptr<string> privilegeDisplayName_ {};
+        // The status of the transfer module.
         shared_ptr<string> status_ {};
       };
 
@@ -173,7 +176,9 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> displayName_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -215,7 +220,9 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> displayName_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -257,7 +264,9 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> displayName_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -299,7 +308,9 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> displayName_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -409,18 +420,33 @@ namespace Models
 
 
     protected:
+      // The creator.
       shared_ptr<Data::Creator> creator_ {};
+      // The approval flow ID.
       shared_ptr<int64_t> flowId_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
+      // The last modifier.
       shared_ptr<Data::LastModifier> lastModifier_ {};
+      // The new owner.
       shared_ptr<Data::NewOwner> newOwner_ {};
+      // The previous owner.
       shared_ptr<Data::OldOwner> oldOwner_ {};
+      // The transfer mode. Valid values:
+      // - ONE_STOP: one-click transfer.
+      // - FUNCTION_MODULE_BASED: transfer by function module.
       shared_ptr<string> privilegeTransferMode_ {};
+      // The transfer details of function modules.
       shared_ptr<vector<Data::PrivilegeTransferResultEntries>> privilegeTransferResultEntries_ {};
+      // The approval ID.
       shared_ptr<int64_t> proposalId_ {};
+      // The approval title.
       shared_ptr<string> title_ {};
+      // The transfer description.
       shared_ptr<string> transferComment_ {};
+      // The transfer status.
       shared_ptr<string> transferStatus_ {};
     };
 
@@ -471,11 +497,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<GetTransferInfoResponseBody::Data> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

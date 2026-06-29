@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // Rule task IDs, returned in the test run scenario
       shared_ptr<vector<int64_t>> ruleTaskIdList_ {};
+      // Monitoring object task IDs, returned in non-test run scenarios
       shared_ptr<vector<int64_t>> watchTaskIdList_ {};
     };
 
@@ -133,12 +135,17 @@ namespace Models
 
 
   protected:
+    // Backend response code
     shared_ptr<string> code_ {};
+    // HTTP response code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Details of the backend response exception
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Execution result
     shared_ptr<SubmitQualityRuleTasksResponseBody::SubmitResult> submitResult_ {};
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

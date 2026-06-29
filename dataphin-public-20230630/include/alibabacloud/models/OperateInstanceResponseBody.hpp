@@ -124,12 +124,19 @@ namespace Models
 
 
     protected:
+      // The display name of the instance.
       shared_ptr<string> displayName_ {};
+      // The error message returned when the operation fails.
       shared_ptr<string> errorMessage_ {};
+      // The instance ID.
       shared_ptr<string> id_ {};
+      // The instance name.
       shared_ptr<string> name_ {};
+      // The owner of the instance.
       shared_ptr<string> ownerId_ {};
+      // The owner of the instance.
       shared_ptr<string> ownerName_ {};
+      // The result of the operation, which indicates success or failure.
       shared_ptr<string> status_ {};
     };
 
@@ -180,11 +187,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The O&M results of the instances.
     shared_ptr<vector<OperateInstanceResponseBody::InstanceStatusList>> instanceStatusList_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

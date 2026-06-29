@@ -170,7 +170,9 @@ namespace Models
 
 
         protected:
+          // User ID
           shared_ptr<string> id_ {};
+          // Username
           shared_ptr<string> name_ {};
         };
 
@@ -212,7 +214,9 @@ namespace Models
 
 
         protected:
+          // User ID
           shared_ptr<string> id_ {};
+          // Username
           shared_ptr<string> name_ {};
         };
 
@@ -254,7 +258,9 @@ namespace Models
 
 
         protected:
+          // User ID
           shared_ptr<string> id_ {};
+          // Username
           shared_ptr<string> name_ {};
         };
 
@@ -409,24 +415,69 @@ namespace Models
 
 
       protected:
+        // Business unit name
         shared_ptr<string> bizUnitName_ {};
+        // Creation time
         shared_ptr<string> createTime_ {};
+        // Creator
         shared_ptr<NodeInfo::Creator> creator_ {};
+        // Description
         shared_ptr<string> description_ {};
+        // Indicates whether this is a dry run.
         shared_ptr<bool> dryRun_ {};
+        // Source system of the node
         shared_ptr<string> from_ {};
+        // Indicates whether the development environment exists.
         shared_ptr<bool> hasDev_ {};
+        // Indicates whether the production environment exists.
         shared_ptr<bool> hasProd_ {};
+        // Node ID
         shared_ptr<string> id_ {};
+        // Last modified time
         shared_ptr<string> lastModifiedTime_ {};
+        // Modifier
         shared_ptr<NodeInfo::Modifier> modifier_ {};
+        // Node name
         shared_ptr<string> name_ {};
+        // Owner list
         shared_ptr<vector<NodeInfo::OwnerList>> ownerList_ {};
+        // Priority
+        // - HIGHEST
+        // - HIGH
+        // - MIDDLE
+        // - LOW
+        // - LOWEST
         shared_ptr<vector<string>> priorityList_ {};
+        // Resource group list
         shared_ptr<vector<string>> resourceGroupList_ {};
+        // Indicates whether scheduling is paused.
         shared_ptr<bool> schedulePaused_ {};
+        // Scheduling period
+        // - YEARLY
+        // - MONTHLY
+        // - WEEKLY
+        // - DAILY
+        // - HOURLY
+        // - MINUTELY
         shared_ptr<vector<string>> schedulePeriodList_ {};
+        // Sub-business type
+        // - MAX_COMPUTE_SQL
+        // - HIVE_SQL
+        // - SHELL
+        // - PYTHON
+        // - ONE_SERVICE_SQL
+        // - DATABASE_SQL
         shared_ptr<string> subDetailType_ {};
+        // Node type
+        // - BBOX_LOGIC_TABLE_NODE: Logical table node
+        // - BBOX_LOGIC_FIELD_NODE: Logical field node
+        // - BBOX_LOGIC_FIELD_GROUP_NODE: Field group node
+        // - BBOX_INNER_TEMP_NODE: Logical table temp node
+        // - DATA_PROCESS: Code task
+        // - STREAM_TASK_NODE: Real-time task
+        // - PIPELINE_NODE: Pipeline node
+        // - FLINK_BATCH: Flink batch task
+        // - ODM_NODE: ODM node
         shared_ptr<string> type_ {};
       };
 
@@ -508,15 +559,25 @@ namespace Models
 
 
     protected:
+      // Business date
       shared_ptr<string> bizDate_ {};
+      // Scheduled time
       shared_ptr<string> dueTime_ {};
+      // Execution duration
       shared_ptr<string> duration_ {};
+      // End execution time
       shared_ptr<int64_t> endExecuteTime_ {};
+      // Extended information
       shared_ptr<string> extendInfo_ {};
+      // Instance ID
       shared_ptr<string> id_ {};
+      // Running instance index
       shared_ptr<int32_t> index_ {};
+      // Node details
       shared_ptr<Instance::NodeInfo> nodeInfo_ {};
+      // Start execution time
       shared_ptr<int64_t> startExecuteTime_ {};
+      // Status list
       shared_ptr<vector<string>> statusList_ {};
     };
 
@@ -567,11 +628,17 @@ namespace Models
 
 
   protected:
+    // Error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Instance details
     shared_ptr<GetPhysicalInstanceResponseBody::Instance> instance_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

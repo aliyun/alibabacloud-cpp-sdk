@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The transfer record ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> proposalId_ {};
   };

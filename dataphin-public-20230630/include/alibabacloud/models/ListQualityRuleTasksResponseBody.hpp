@@ -246,23 +246,41 @@ namespace Models
 
 
       protected:
+        // The business date.
         shared_ptr<string> bizDate_ {};
+        // The business date format.
         shared_ptr<string> bizDateFormat_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The creator.
         shared_ptr<string> creator_ {};
+        // The end time.
         shared_ptr<string> endTime_ {};
+        // The ID of the rule task.
         shared_ptr<int64_t> id_ {};
+        // The ID of the user who last modified the task.
         shared_ptr<string> modifier_ {};
+        // The modification time.
         shared_ptr<string> modifyTime_ {};
+        // The rule ID.
         shared_ptr<int64_t> ruleId_ {};
+        // The start time.
         shared_ptr<string> startTime_ {};
+        // The task status.
         shared_ptr<string> status_ {};
+        // The template ID.
         shared_ptr<int64_t> templateId_ {};
+        // The name of the validated object.
         shared_ptr<string> validateObjectName_ {};
+        // The object type of the validated object.
         shared_ptr<string> validateObjectType_ {};
+        // The validation partition.
         shared_ptr<string> validatePartition_ {};
+        // Indicates whether the validation passed.
         shared_ptr<bool> validateSuccess_ {};
+        // The ID of the associated quality watchtask.
         shared_ptr<int64_t> watchId_ {};
+        // The ID of the quality watchtask. This ID is empty for trial-run rule tasks.
         shared_ptr<int64_t> watchTaskId_ {};
       };
 
@@ -285,7 +303,9 @@ namespace Models
 
 
     protected:
+      // The list of quality rule tasks.
       shared_ptr<vector<PageResult::QualityRuleTaskList>> qualityRuleTaskList_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -336,12 +356,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details.
     shared_ptr<string> message_ {};
+    // The paged query result.
     shared_ptr<ListQualityRuleTasksResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

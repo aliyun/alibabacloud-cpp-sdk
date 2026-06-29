@@ -124,20 +124,43 @@ namespace Models
 
 
     protected:
+      // The commit remarks.
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // The compute engine type. Valid values:
+      // - MAX_COMPUTE
+      // - HADOOP
+      // - NONE.
+      // 
       // This parameter is required.
       shared_ptr<string> computeEngineType_ {};
+      // The description of the resource file.
+      // 
       // This parameter is required.
       shared_ptr<string> description_ {};
+      // The folder in which the resource file is stored.
+      // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
+      // The resource name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // The type of the resource file. Valid values:
+      // - FILE: common file.
+      // - JAR: JAR file.
+      // - PYTHON: Python file.
+      // - OTHERS: other type of file.
+      // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
+      // The storage address of the resource file.
+      // 
       // This parameter is required.
       shared_ptr<string> storageAddress_ {};
     };
@@ -161,8 +184,12 @@ namespace Models
 
 
   protected:
+    // The create command.
+    // 
     // This parameter is required.
     shared_ptr<CreateResourceRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

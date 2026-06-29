@@ -101,6 +101,7 @@ namespace Models
 
 
       protected:
+        // The API permission field ID.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -132,6 +133,7 @@ namespace Models
 
 
       protected:
+        // The API permission field ID.
         shared_ptr<int32_t> id_ {};
       };
 
@@ -222,20 +224,40 @@ namespace Models
 
 
     protected:
+      // The API ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> apiId_ {};
-      // AppID
+      // The application ID.
       shared_ptr<int32_t> appId_ {};
+      // Specifies whether to request development environment permissions for operation-type APIs.
       shared_ptr<bool> applyDev_ {};
+      // Specifies whether to request production environment permissions for operation-type APIs.
       shared_ptr<bool> applyProd_ {};
+      // The list of authorization permission types. Valid values:
+      // - When the grantee is an application, the following permission types are supported. To grant delegation permissions, you must also grant usage permissions.
+      //   - USE: usage permission.
+      //   - DELEGATION: delegation permission.
+      // - When the grantee is an individual, only USE (usage) permission is supported.
+      // - If this parameter is not specified, the default value is USE (usage) permission.
       shared_ptr<vector<string>> authTypes_ {};
+      // The list of development environment permission fields for query-type APIs. This parameter is required in dev-prod mode. DevFieldList and ProdFieldList cannot both be empty. This parameter is not required for operation-type APIs.
       shared_ptr<vector<GrantCommand::DevFieldList>> devFieldList_ {};
+      // The expiration date in the format of yyyy-MM-dd.
+      // 
       // This parameter is required.
       shared_ptr<string> expireDate_ {};
+      // The authorization object type. Valid values:
+      // - APP: application.
+      // - USER: user.
       shared_ptr<string> granteeType_ {};
+      // The list of production environment permission fields for query-type APIs. This parameter is required in basic mode. This parameter is not required for operation-type APIs.
       shared_ptr<vector<GrantCommand::ProdFieldList>> prodFieldList_ {};
+      // The reason for the authorization request.
+      // 
       // This parameter is required.
       shared_ptr<string> reason_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -265,10 +287,16 @@ namespace Models
 
 
   protected:
+    // The grant command.
+    // 
     // This parameter is required.
     shared_ptr<GrantDataServiceApiRequest::GrantCommand> grantCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

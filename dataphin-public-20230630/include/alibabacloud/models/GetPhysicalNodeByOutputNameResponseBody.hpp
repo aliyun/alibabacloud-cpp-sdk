@@ -124,7 +124,9 @@ namespace Models
 
 
       protected:
+        // Project ID
         shared_ptr<string> id_ {};
+        // Project name
         shared_ptr<string> name_ {};
       };
 
@@ -166,7 +168,9 @@ namespace Models
 
 
       protected:
+        // User ID
         shared_ptr<string> id_ {};
+        // Username
         shared_ptr<string> name_ {};
       };
 
@@ -208,7 +212,9 @@ namespace Models
 
 
       protected:
+        // User ID
         shared_ptr<string> id_ {};
+        // Username
         shared_ptr<string> name_ {};
       };
 
@@ -250,7 +256,9 @@ namespace Models
 
 
       protected:
+        // User ID
         shared_ptr<string> id_ {};
+        // Username
         shared_ptr<string> name_ {};
       };
 
@@ -372,20 +380,56 @@ namespace Models
 
 
     protected:
+      // Creation time
       shared_ptr<int64_t> createTime_ {};
+      // Node creator
       shared_ptr<NodeInfo::Creator> creator_ {};
+      // Description
       shared_ptr<string> description_ {};
+      // Node source
+      // - DATA_PROCESS: Code development
+      // - BLACK_BOX: Black box
+      // - ONE_ID: Extraction
+      // - PIPELINE: Pipeline
       shared_ptr<string> from_ {};
+      // Node ID
       shared_ptr<string> id_ {};
+      // Last modified time
       shared_ptr<int64_t> lastModifiedTime_ {};
+      // Node modifier
       shared_ptr<NodeInfo::Modifier> modifier_ {};
+      // Name
       shared_ptr<string> name_ {};
+      // Node subtype
+      // - MAX_COMPUTE_SQL
+      // - HIVE_SQL
+      // - SHELL
+      // - PYTHON
+      // - ONE_SERVICE_SQL
+      // - DATABASE_SQL, etc.
       shared_ptr<string> operatorType_ {};
+      // Node owner
       shared_ptr<NodeInfo::Owner> owner_ {};
+      // Priority
+      // - HIGHEST
+      // - HIGH
+      // - MIDDLE
+      // - LOW
+      // - LOWEST
       shared_ptr<string> priority_ {};
+      // Project to which the node belongs
       shared_ptr<NodeInfo::ProjectInfo> projectInfo_ {};
+      // Scheduling period type
+      // - MINUTELY
+      // - HOURLY
+      // - DAILY
+      // - WEEKLY
+      // - MONTHLY
+      // - YEARLY
       shared_ptr<string> scheduleType_ {};
+      // Node scheduling status
       shared_ptr<string> status_ {};
+      // Trigger configuration, used to implement field dependencies on logical tables
       shared_ptr<string> triggerConfig_ {};
     };
 
@@ -436,11 +480,17 @@ namespace Models
 
 
   protected:
+    // Error code. OK indicates a successful request.
     shared_ptr<string> code_ {};
+    // HTTP status code returned by the backend
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Node details
     shared_ptr<GetPhysicalNodeByOutputNameResponseBody::NodeInfo> nodeInfo_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

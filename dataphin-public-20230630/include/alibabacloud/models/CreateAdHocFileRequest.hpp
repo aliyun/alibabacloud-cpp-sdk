@@ -87,12 +87,20 @@ namespace Models
 
 
     protected:
+      // The file content.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The directory where the file is located.
+      // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
+      // The file name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -116,8 +124,12 @@ namespace Models
 
 
   protected:
+    // The request for creating an ad hoc query file.
+    // 
     // This parameter is required.
     shared_ptr<CreateAdHocFileRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

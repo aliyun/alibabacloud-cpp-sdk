@@ -87,11 +87,18 @@ namespace Models
 
 
     protected:
+      // Page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
+      // Number of records per page.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
+      // Search keyword.
       shared_ptr<string> searchText_ {};
+      // Tab name. Table: TABLE. Data source: DATASOURCE.
+      // 
       // This parameter is required.
       shared_ptr<string> tabType_ {};
     };
@@ -115,8 +122,12 @@ namespace Models
 
 
   protected:
+    // Paginated request.
+    // 
     // This parameter is required.
     shared_ptr<ListResourcePermissionsRequest::ListQuery> listQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

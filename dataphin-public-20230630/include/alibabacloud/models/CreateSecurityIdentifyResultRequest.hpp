@@ -133,18 +133,37 @@ namespace Models
 
 
     protected:
+      // The classification ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> classifyId_ {};
+      // The deduplication strategy. Valid values:
+      // - COVER_ALL: overwrites all online tags.
+      // - COVER_UNLOCKED: overwrites only unlocked online tags.
+      // 
       // This parameter is required.
       shared_ptr<string> conflictStrategy_ {};
+      // The datasource environment identifier. This parameter is required only for datasource tables.
       shared_ptr<string> datasourceEnv_ {};
+      // The datasource name. This parameter is required only for datasource tables.
       shared_ptr<string> datasourceName_ {};
+      // Specifies whether to enable the result. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
+      // Default value: true.
       shared_ptr<bool> enable_ {};
+      // The field name.
+      // 
       // This parameter is required.
       shared_ptr<string> fieldName_ {};
+      // Specifies whether the table is a datasource table. Default value: false (treated as a Dataphin table).
       shared_ptr<bool> isDatasourceTable_ {};
+      // The table catalog. For a datasource table, specify the database or schema name. For a Dataphin physical table, specify the project name in English. For a Dataphin logical table, specify the business unit name in English.
+      // 
       // This parameter is required.
       shared_ptr<string> tableCatalog_ {};
+      // The table name.
+      // 
       // This parameter is required.
       shared_ptr<string> tableName_ {};
     };
@@ -168,8 +187,12 @@ namespace Models
 
 
   protected:
+    // The create request.
+    // 
     // This parameter is required.
     shared_ptr<CreateSecurityIdentifyResultRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

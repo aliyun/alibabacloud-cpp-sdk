@@ -147,11 +147,17 @@ namespace Models
 
 
       protected:
+        // The ID of the condition node.
         shared_ptr<string> id_ {};
+        // The metric.
         shared_ptr<string> metric_ {};
+        // The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, OR.
         shared_ptr<string> operator_ {};
+        // The ID of the parent condition node.
         shared_ptr<string> parentId_ {};
+        // The condition type. Valid values: RELATION, EXPRESSION.
         shared_ptr<string> type_ {};
+        // The value.
         shared_ptr<string> value_ {};
       };
 
@@ -202,8 +208,11 @@ namespace Models
 
 
       protected:
+        // The component type.
         shared_ptr<string> componentType_ {};
+        // The property name.
         shared_ptr<string> name_ {};
+        // The property value.
         shared_ptr<string> value_ {};
       };
 
@@ -295,10 +304,15 @@ namespace Models
 
 
         protected:
+          // Specifies whether to include the maximum value.
           shared_ptr<bool> includeMaxValue_ {};
+          // Specifies whether to include the minimum value.
           shared_ptr<bool> includeMinValue_ {};
+          // The maximum value. Applicable to range interval attributes.
           shared_ptr<string> maxValue_ {};
+          // The minimum value. Applicable to range interval attributes.
           shared_ptr<string> minValue_ {};
+          // The attribute value list. Applicable to attributes with the custom input, single-select dropdown, or multi-select dropdown input method.
           shared_ptr<vector<string>> valueList_ {};
         };
 
@@ -427,10 +441,15 @@ namespace Models
 
 
             protected:
+              // Specifies whether to include the maximum value.
               shared_ptr<bool> includeMaxValue_ {};
+              // Specifies whether to include the minimum value.
               shared_ptr<bool> includeMinValue_ {};
+              // The maximum value. Applicable to range interval attributes.
               shared_ptr<string> maxValue_ {};
+              // The minimum value. Applicable to range interval attributes.
               shared_ptr<string> minValue_ {};
+              // The attribute value list. Applicable to attributes with the custom input, single-select dropdown, or multi-select dropdown input method.
               shared_ptr<vector<string>> valueList_ {};
             };
 
@@ -476,10 +495,15 @@ namespace Models
 
 
           protected:
+            // The attribute field type. Valid values: STRING (Text), BIGINT (Integer), DOUBLE (Floating-point), BOOLEAN (Boolean), DATE (Date), DATETIME (Datetime).
             shared_ptr<string> dataType_ {};
+            // The attribute default value.
             shared_ptr<ValueConfig::DefaultValue> defaultValue_ {};
+            // The attribute field length. Used to constrain the maximum length of text-type attribute values.
             shared_ptr<int32_t> length_ {};
+            // The attribute value input method. Valid values: CUSTOMIZED (Custom input), SINGLE_ENUM (Single-select dropdown), MULTIPLE_ENUMS (Multi-select dropdown), RANGE (Range interval).
             shared_ptr<string> type_ {};
+            // The attribute option values. Only applicable to attributes with the single-select dropdown or multi-select dropdown input method.
             shared_ptr<vector<string>> valueEnumList_ {};
           };
 
@@ -538,12 +562,19 @@ namespace Models
 
 
         protected:
+          // The description.
           shared_ptr<string> description_ {};
+          // Specifies whether to enable the attribute.
           shared_ptr<bool> enabled_ {};
+          // The attribute ID.
           shared_ptr<int64_t> id_ {};
+          // The attribute name.
           shared_ptr<string> name_ {};
+          // Specifies whether the attribute is required.
           shared_ptr<bool> required_ {};
+          // Specifies whether the attribute is searchable.
           shared_ptr<bool> searchable_ {};
+          // The attribute value configuration details.
           shared_ptr<AttributeInfo::ValueConfig> valueConfig_ {};
         };
 
@@ -568,7 +599,9 @@ namespace Models
 
 
       protected:
+        // The attribute details.
         shared_ptr<AttributeWithValueList::AttributeInfo> attributeInfo_ {};
+        // The attribute value.
         shared_ptr<AttributeWithValueList::AttributeValue> attributeValue_ {};
       };
 
@@ -669,22 +702,71 @@ namespace Models
 
 
     protected:
+      // The rule business attribute configuration.
       shared_ptr<vector<UpsertCommand::AttributeWithValueList>> attributeWithValueList_ {};
+      // The rule category. Valid values: CONSISTENT (Consistency), EFFECTIVE (Effectiveness), TIMELINESE (Timeliness), ACCURATE (Accuracy), UNIQUENESS (Uniqueness), COMPLETENESS (Completeness), STABILITY (Stability), CUSTOM (Custom).
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> catalogList_ {};
+      // The description of the quality rule.
       shared_ptr<string> description_ {};
+      // Specifies whether to enable error archiving.
       shared_ptr<bool> enableErrorArchive_ {};
+      // The rule configuration key-value pairs. The configuration varies based on the template type. Different template types return different form key-value pair configurations.
       shared_ptr<vector<UpsertCommand::FormPropertyList>> formPropertyList_ {};
+      // Rule ID. A non-empty value indicates a modification, and an empty value indicates a creation.
       shared_ptr<int64_t> id_ {};
+      // The name of the quality rule.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The rule strength. Valid values: STRONG, WEAK.
+      // 
       // This parameter is required.
       shared_ptr<string> strength_ {};
+      // The template ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> templateId_ {};
+      // The template type. Valid values:
+      //   - FIELD_NULL_VALUE_VALIDATE: Field null value validation
+      //   - FIELD_EMPTY_STRING_VALIDATE: Field empty string validation
+      //   - FIELD_UNIQUE_VALIDATE: Field uniqueness validation
+      //   - FIELD_GROUP_COUNT_VALIDATE: Field unique value count validation
+      //   - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: Field duplicate value count validation
+      //   - FUNCTION_TIME_COMPARE: Time function comparison
+      //   - SINGLE_TABLE_TIME_COMPARE: Single-table time field comparison
+      //   - DOUBLE_TABLE_TIME_COMPARE: Cross-table time field comparison
+      //   - FIELD_FORMAT_VALIDATE: Field format validation
+      //   - FIELD_LENGTH_VALIDATE: Field length validation
+      //   - FIELD_VALUE_RANGE_VALIDATE: Field value range validation
+      //   - CODE_TABLE_COMPARE: Code table reference comparison
+      //   - STANDARD_CODE_TABLE_COMPARE: Data standard code table reference comparison
+      //   - SINGLE_TABLE_FIELD_VALUE_COMPARE: Single-table field value consistency comparison
+      //   - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: Single-table field statistical value consistency comparison
+      //   - SINGLE_TABLE_FIELD_EXP_COMPARE: Single-table field business logic consistency comparison
+      //   - DOUBLE_TABLE_FIELD_VALUE_COMPARE: Cross-table field value consistency comparison
+      //   - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-table field statistical value consistency comparison
+      //   - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-source cross-table field statistical value consistency comparison
+      //   - DOUBLE_TABLE_FIELD_EXP_COMPARE: Cross-table field business logic consistency comparison
+      //   - TABLE_STABILITY_VALIDATE: Table stability validation
+      //   - TABLE_FLUCTUATION_VALIDATE: Table fluctuation validation
+      //   - FIELD_STABILITY_VALIDATE: Field stability validation
+      //   - FIELD_FLUCTUATION_VALIDATE: Field fluctuation validation
+      //   - CUSTOM_STATISTICAL_VALIDATE: Custom statistical metric validation
+      //   - CUSTOM_DATA_DETAILS_VALIDATE: Custom data details validation
+      //   - DATASOURCE_AVAILABLE_CHECK: Data source connectivity check
+      //   - TABLE_SCHEMA_CHECK: Table schema change monitoring
+      //   - REAL_TIME_OFFLINE_COMPARE: Real-time offline comparison
+      //   - REAL_TIME_STATISTICAL_VALIDATE: Real-time statistical value monitoring
+      //   - REAL_TIME_MULTI_CHAIN_COMPARE: Real-time multi-chain comparison, etc.
+      // 
       // This parameter is required.
       shared_ptr<string> templateType_ {};
+      // The validation conditions.
       shared_ptr<vector<UpsertCommand::ValidateConditionList>> validateConditionList_ {};
+      // The ID of the associated monitor.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
     };
@@ -708,8 +790,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The upsert command.
+    // 
     // This parameter is required.
     shared_ptr<UpsertQualityRuleRequest::UpsertCommand> upsertCommand_ {};
   };

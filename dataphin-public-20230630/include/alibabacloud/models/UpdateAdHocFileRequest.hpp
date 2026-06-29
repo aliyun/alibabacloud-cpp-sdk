@@ -78,10 +78,16 @@ namespace Models
 
 
     protected:
+      // The file content.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The file ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -105,8 +111,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update request.
+    // 
     // This parameter is required.
     shared_ptr<UpdateAdHocFileRequest::UpdateCommand> updateCommand_ {};
   };

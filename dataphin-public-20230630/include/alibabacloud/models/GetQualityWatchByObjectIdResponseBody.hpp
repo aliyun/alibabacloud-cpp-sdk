@@ -249,20 +249,43 @@ namespace Models
 
 
       protected:
+        // The business unit ID.
         shared_ptr<int64_t> bizUnitId_ {};
+        // The business unit name.
         shared_ptr<string> bizUnitName_ {};
+        // The table catalog.
         shared_ptr<string> catalog_ {};
+        // The datasource ID.
         shared_ptr<string> dataSourceId_ {};
+        // The datasource type.
         shared_ptr<string> dataSourceType_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The environment identifier. Valid values:
+        // - DEV
+        // - PROD.
         shared_ptr<string> env_ {};
+        // The table ID.
         shared_ptr<string> id_ {};
+        // Indicates whether the table is a partitioned table.
         shared_ptr<bool> isPartitionTable_ {};
+        // The table name.
         shared_ptr<string> name_ {};
+        // The user ID of the owner.
         shared_ptr<string> owner_ {};
+        // The name of the owner.
         shared_ptr<string> ownerName_ {};
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
+        // The type. Valid values:
+        // - LOGIC_DIM_TABLE: logical dimension table.
+        // - LOGIC_FACT_TABLE: logical fact table.
+        // - LOGIC_SUM_TABLE: logical aggregate table.
+        // - LOGIC_LABEL_TABLE: logical label table.
+        // - PHYSICAL_TABLE: physical table.
+        // - REALTIME_LOGICAL_TABLE: real-time meta table.
         shared_ptr<string> type_ {};
       };
 
@@ -451,23 +474,46 @@ namespace Models
 
 
       protected:
+        // The business unit ID.
         shared_ptr<int64_t> bizUnitId_ {};
+        // The business unit name.
         shared_ptr<string> bizUnitName_ {};
+        // The metric catalog.
         shared_ptr<string> catalog_ {};
+        // The name of the cell aggregate table.
         shared_ptr<string> cellSumLogicTableName_ {};
+        // The computation type of the metric. Valid values:
+        // - AUTO
+        // - CUSTOM
+        // - MOUNT
+        // - COMBINE.
         shared_ptr<string> computeType_ {};
+        // The data type of the metric.
         shared_ptr<string> dateType_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The display name of the metric.
         shared_ptr<string> displayName_ {};
+        // The display name of the statistical granularity.
         shared_ptr<string> granularityDisplayName_ {};
+        // The statistical granularity ID.
         shared_ptr<int64_t> granularityId_ {};
+        // The metric GUID.
         shared_ptr<string> guid_ {};
+        // The metric ID.
         shared_ptr<string> id_ {};
+        // The metric name.
         shared_ptr<string> name_ {};
+        // The user ID of the owner.
         shared_ptr<string> owner_ {};
+        // The name of the owner.
         shared_ptr<string> ownerName_ {};
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
+        // The metric type. Valid values:
+        // - INDEX.
         shared_ptr<string> type_ {};
       };
 
@@ -582,15 +628,29 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The creator.
         shared_ptr<string> creator_ {};
+        // The name of the creator.
         shared_ptr<string> creatorName_ {};
+        // The environment identifier. Valid values:
+        // - PROD
+        // - DEV.
         shared_ptr<string> env_ {};
+        // The datasource ID.
         shared_ptr<string> id_ {};
+        // The modification time.
         shared_ptr<string> modifyTime_ {};
+        // The datasource name.
         shared_ptr<string> name_ {};
+        // The user ID of the owner.
         shared_ptr<string> owner_ {};
+        // The name of the owner.
         shared_ptr<string> ownerName_ {};
+        // The datasource type. Valid values:
+        // - MAX_COMPUTE
+        // - HADOOP.
         shared_ptr<string> type_ {};
       };
 
@@ -732,23 +792,48 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The creator.
       shared_ptr<string> creator_ {};
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
+      // The datasource details.
       shared_ptr<QualityWatchInfo::DataSourceInfo> dataSourceInfo_ {};
+      // The number of enabled rules.
       shared_ptr<int64_t> enabledRuleCount_ {};
+      // The monitoring ID.
       shared_ptr<int64_t> id_ {};
+      // The metric details.
       shared_ptr<QualityWatchInfo::IndexInfo> indexInfo_ {};
+      // The ID of the most recent quality watchtask for the monitored object.
       shared_ptr<int64_t> latestWatchTaskId_ {};
+      // The status of the most recent quality watchtask for the monitored object.
       shared_ptr<string> latestWatchTaskStatus_ {};
+      // The user ID of the last modifier.
       shared_ptr<string> modifier_ {};
+      // The modification time.
       shared_ptr<string> modifyTime_ {};
+      // The monitoring name.
       shared_ptr<string> name_ {};
+      // The user ID of the quality owner.
       shared_ptr<string> qualityOwner_ {};
+      // The display name of the quality owner.
       shared_ptr<string> qualityOwnerName_ {};
+      // The number of rules.
       shared_ptr<int64_t> ruleCount_ {};
+      // The status. Valid values:
+      // - ENABLE
+      // - DISABLE.
       shared_ptr<string> status_ {};
+      // The monitored table object.
       shared_ptr<QualityWatchInfo::TableInfo> tableInfo_ {};
+      // The monitored object type. Valid values:
+      // - TABLE: Dataphin table.
+      // - DATASOURCE_TABLE: global table.
+      // - DATASOURCE: datasource.
+      // - INDEX: metric.
+      // - REALTIME_LOGICAL_TABLE: real-time meta table.
       shared_ptr<string> type_ {};
     };
 
@@ -799,12 +884,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details from the backend.
     shared_ptr<string> message_ {};
+    // The details of the monitored object.
     shared_ptr<GetQualityWatchByObjectIdResponseBody::QualityWatchInfo> qualityWatchInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

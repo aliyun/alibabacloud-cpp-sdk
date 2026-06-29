@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The paged request parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> listQueryShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -101,8 +101,12 @@ namespace Models
 
 
       protected:
+        // The parameter.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The parameter value.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -162,14 +166,24 @@ namespace Models
 
 
     protected:
+      // The node script.
+      // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      // The catalog for a database SQL task. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
+      // The data source ID for a database SQL task.
       shared_ptr<int64_t> dataSourceId_ {};
+      // The schema for a database SQL task. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
+      // The node type.
+      // 
       // This parameter is required.
       shared_ptr<string> operatorType_ {};
+      // The runtime parameters.
       shared_ptr<vector<ExecuteCommand::ParamList>> paramList_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -193,8 +207,12 @@ namespace Models
 
 
   protected:
+    // The execution command.
+    // 
     // This parameter is required.
     shared_ptr<ExecuteAdHocTaskRequest::ExecuteCommand> executeCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

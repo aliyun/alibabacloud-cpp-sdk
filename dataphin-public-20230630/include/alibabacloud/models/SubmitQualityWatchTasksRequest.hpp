@@ -81,8 +81,12 @@ namespace Models
 
 
     protected:
+      // The business date, in the yyyy-MM-dd format.
       shared_ptr<string> bizDate_ {};
+      // The partition expression. This is a custom expression.
       shared_ptr<string> partitionExpression_ {};
+      // The monitored object IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> watchIdList_ {};
     };
@@ -106,8 +110,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The submit command.
+    // 
     // This parameter is required.
     shared_ptr<SubmitQualityWatchTasksRequest::SubmitCommand> submitCommand_ {};
   };

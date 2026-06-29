@@ -162,7 +162,14 @@ namespace Models
 
 
         protected:
+          // The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
           shared_ptr<int32_t> periodOffset_ {};
+          // The dependency period type. Valid values:
+          // - CURRENT_PERIOD: current period.
+          // - LAST_PERIOD: previous period.
+          // - LAST_N_PERIOD: last N days.
+          // - LAST_24_HOUR: last 24 hours.
+          // 
           // This parameter is required.
           shared_ptr<string> periodType_ {};
         };
@@ -238,16 +245,33 @@ namespace Models
 
 
       protected:
+        // The dependency period.
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
+        // The dependency strategy. Valid values:
+        // - ALL: all.
+        // - FIRST: first.
+        // - LAST: last.
+        // - NEAR: nearest.
         shared_ptr<string> dependStrategy_ {};
+        // The fields of the dependent logical table.
         shared_ptr<vector<string>> fieldList_ {};
+        // The type of the upstream dependency node. Valid values:
+        // - PHYSICAL: physical node.
+        // - LOGICAL: logical table dependency.
         shared_ptr<string> nodeType_ {};
+        // The period offset. A value of 0 indicates a same-period dependency. A positive integer indicates a dependency on the previous N periods.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> periodDiff_ {};
+        // Specifies whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
+        // The ID of the upstream node.
         shared_ptr<string> sourceNodeId_ {};
+        // The output name of the upstream node.
+        // 
         // This parameter is required.
         shared_ptr<string> sourceNodeOutputName_ {};
+        // The name of the input table.
         shared_ptr<string> sourceTableName_ {};
       };
 
@@ -279,6 +303,8 @@ namespace Models
 
 
       protected:
+        // The version name of the Spark client.
+        // 
         // This parameter is required.
         shared_ptr<string> sparkClientVersion_ {};
       };
@@ -321,8 +347,12 @@ namespace Models
 
 
       protected:
+        // The parameter name.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The parameter value.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -392,14 +422,32 @@ namespace Models
 
 
       protected:
+        // The end time in the format of HH:mm.
+        // 
         // This parameter is required.
         shared_ptr<string> endTime_ {};
+        // The custom interval.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> interval_ {};
+        // The interval unit. Valid values:
+        // - MINUTE: minute
+        // - HOUR: hour.
+        // 
         // This parameter is required.
         shared_ptr<string> intervalUnit_ {};
+        // The scheduling period. Valid values:
+        // - YEARLY
+        // - MONTHLY
+        // - WEEKLY
+        // - DAILY
+        // - HOURLY
+        // - MINUTELY.
+        // 
         // This parameter is required.
         shared_ptr<string> schedulePeriod_ {};
+        // The start time in the format of HH:mm.
+        // 
         // This parameter is required.
         shared_ptr<string> startTime_ {};
       };
@@ -562,30 +610,71 @@ namespace Models
 
 
     protected:
+      // The node code.
+      // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      // The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
       shared_ptr<string> cronExpression_ {};
+      // The custom scheduling interval configuration.
       shared_ptr<UpdateCommand::CustomScheduleConfig> customScheduleConfig_ {};
+      // The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
+      // The data source ID for database SQL nodes.
       shared_ptr<string> dataSourceId_ {};
+      // The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
+      // The execution engine for the node, such as a Python node. Valid values:
+      // - PYTHON2_7
+      // - PYTHON3_7
+      // - PYTHON3_11.
       shared_ptr<string> engine_ {};
+      // The ID of the node in the folder tree.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
+      // The name of the offline node.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The description of the node.
       shared_ptr<string> nodeDescription_ {};
+      // The list of node output names.
       shared_ptr<vector<string>> nodeOutputNameList_ {};
+      // The node status. Valid values:
+      // - 1: Normal.
+      // - 2: Paused.
+      // - 3: Dry run.
       shared_ptr<int32_t> nodeStatus_ {};
+      // The list of custom parameters.
       shared_ptr<vector<UpdateCommand::ParamList>> paramList_ {};
+      // The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
+      // The ID of the project to which the node belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // The third-party Python packages that the node depends on.
       shared_ptr<vector<string>> pythonModuleList_ {};
+      // The scheduling period. Valid values:
+      // - YEARLY
+      // - MONTHLY
+      // - WEEKLY
+      // - DAILY
+      // - HOURLY
+      // - MINUTELY.
       shared_ptr<string> schedulePeriod_ {};
+      // The Spark client information.
       shared_ptr<UpdateCommand::SparkClientInfo> sparkClientInfo_ {};
+      // The node type. Valid values:
+      // - 1: Hive_SQL.
+      // - 5: MaxCompute_SQL.
+      // - 10: Shell.
+      // - 21: Python.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> taskType_ {};
+      // The upstream dependencies.
       shared_ptr<vector<UpdateCommand::UpStreamList>> upStreamList_ {};
     };
 
@@ -608,8 +697,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update request.
+    // 
     // This parameter is required.
     shared_ptr<UpdateBatchTaskRequest::UpdateCommand> updateCommand_ {};
   };

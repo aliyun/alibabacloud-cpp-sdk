@@ -209,19 +209,33 @@ namespace Models
 
 
       protected:
+        // Indicates whether the compute source is bound to a project.
         shared_ptr<bool> bindProject_ {};
+        // The ID of the bound project.
         shared_ptr<int64_t> bindProjectId_ {};
+        // The name of the bound project.
         shared_ptr<string> bindProjectName_ {};
+        // The ID of the creator.
         shared_ptr<string> creator_ {};
+        // The name of the creator.
         shared_ptr<string> creatorName_ {};
+        // The description of the compute source.
         shared_ptr<string> description_ {};
+        // The display name of the compute source.
         shared_ptr<string> displayName_ {};
+        // The time when the compute source was created, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the compute source was last modified, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> gmtModified_ {};
+        // The ID of the compute source.
         shared_ptr<int64_t> id_ {};
+        // The name of the compute source.
         shared_ptr<string> name_ {};
+        // The ID of the compute source owner.
         shared_ptr<string> owner_ {};
+        // The name of the compute source owner.
         shared_ptr<string> ownerName_ {};
+        // The type of the compute source.
         shared_ptr<string> type_ {};
       };
 
@@ -244,7 +258,9 @@ namespace Models
 
 
     protected:
+      // The paginated list of compute sources.
       shared_ptr<vector<PageResult::ComputeSourceList>> computeSourceList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -295,12 +311,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
+    // The paginated query result.
     shared_ptr<ListComputeSourcesResponseBody::PageResult> pageResult_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

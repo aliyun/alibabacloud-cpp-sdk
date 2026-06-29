@@ -152,7 +152,9 @@ namespace Models
 
 
         protected:
+          // The configuration item.
           shared_ptr<string> key_ {};
+          // The value of the configuration item.
           shared_ptr<string> value_ {};
         };
 
@@ -290,23 +292,41 @@ namespace Models
 
 
       protected:
+        // The primary key ID of the application.
         shared_ptr<int32_t> appId_ {};
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The ID of the permission account, which is the applicant ID.
         shared_ptr<string> applyUserId_ {};
+        // The permission account, which is the applicant.
         shared_ptr<string> applyUserName_ {};
+        // The expiration date in the format of yyyy-MM-dd.
         shared_ptr<string> expireDate_ {};
+        // The application ID.
         shared_ptr<int32_t> id_ {};
+        // Indicates whether the current user is a project administrator.
         shared_ptr<bool> isProjectManager_ {};
+        // The ID of the owner.
         shared_ptr<string> owner_ {};
+        // The name of the owner.
         shared_ptr<string> ownerUserName_ {};
+        // The permission account. Valid values: 0: individual account.
         shared_ptr<int32_t> privilegeAccount_ {};
+        // The permission type. Valid values: 0: usage permission. 1: development permission.
         shared_ptr<int32_t> privilegeType_ {};
+        // The project ID.
         shared_ptr<int32_t> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
+        // Indicates whether the user actually has owner permissions on this application. The user may lack permissions because of expiration or other reasons.
         shared_ptr<bool> realHasOwnerPrivilege_ {};
+        // Indicates whether the user actually has permissions.
         shared_ptr<bool> realHasPrivilege_ {};
+        // The descriptions used for troubleshooting.
         shared_ptr<vector<AuthorizedAppList::RemarkForDebugList>> remarkForDebugList_ {};
+        // Indicates whether the permissions can be returned or revoked.
         shared_ptr<bool> revocable_ {};
+        // The detailed status of the revoke button. Valid values: -1: super administrators cannot revoke. -2: owners cannot revoke. -3: project administrators without actual permissions are grayed out. -4: regular users without permissions cannot revoke. 1: project administrators with actual permissions can revoke. 2: regular users with permissions can revoke.
         shared_ptr<int32_t> revocableDetail_ {};
       };
 
@@ -329,7 +349,9 @@ namespace Models
 
 
     protected:
+      // The paginated list of authorized applications.
       shared_ptr<vector<PageResult::AuthorizedAppList>> authorizedAppList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -380,12 +402,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // The paging query result.
     shared_ptr<ListDataServiceAuthorizedAppsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

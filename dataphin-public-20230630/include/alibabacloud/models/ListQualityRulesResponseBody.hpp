@@ -168,7 +168,9 @@ namespace Models
 
 
         protected:
+          // The validation object name.
           shared_ptr<string> name_ {};
+          // The validation object type. Valid values: UNKNOWN, TABLE, COLUMN, DATASOURCE, DATASOURCE_TABLE, REALTIME, INDEX, CHAIN.
           shared_ptr<string> type_ {};
         };
 
@@ -265,13 +267,23 @@ namespace Models
 
 
         protected:
+          // The condition node ID.
           shared_ptr<string> id_ {};
+          // The metric.
           shared_ptr<string> metric_ {};
+          // The metric name.
           shared_ptr<string> metricName_ {};
+          // The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, OR.
           shared_ptr<string> operator_ {};
+          // The operator name.
           shared_ptr<string> operatorName_ {};
+          // The parent condition node ID.
           shared_ptr<string> parentId_ {};
+          // The condition type. Valid values:
+          // - RELATION: relation.
+          // - EXPRESSION: expression.
           shared_ptr<string> type_ {};
+          // The value.
           shared_ptr<string> value_ {};
         };
 
@@ -313,7 +325,9 @@ namespace Models
 
 
         protected:
+          // The schedule ID.
           shared_ptr<int64_t> scheduleId_ {};
+          // The schedule name.
           shared_ptr<string> scheduleName_ {};
         };
 
@@ -364,8 +378,11 @@ namespace Models
 
 
         protected:
+          // The control type.
           shared_ptr<string> componentType_ {};
+          // The property name.
           shared_ptr<string> name_ {};
+          // The property value.
           shared_ptr<string> value_ {};
         };
 
@@ -457,10 +474,15 @@ namespace Models
 
 
           protected:
+            // Indicates whether the maximum value is included.
             shared_ptr<bool> includeMaxValue_ {};
+            // Indicates whether the minimum value is included.
             shared_ptr<bool> includeMinValue_ {};
+            // The maximum value. This applies to range interval attributes.
             shared_ptr<string> maxValue_ {};
+            // The minimum value. This applies to range interval attributes.
             shared_ptr<string> minValue_ {};
+            // The list of attribute values. This applies to attributes with the input method set to custom input, single-select dropdown, or multi-select dropdown.
             shared_ptr<vector<string>> valueList_ {};
           };
 
@@ -589,10 +611,15 @@ namespace Models
 
 
               protected:
+                // Indicates whether the maximum value is included.
                 shared_ptr<bool> includeMaxValue_ {};
+                // Indicates whether the minimum value is included.
                 shared_ptr<bool> includeMinValue_ {};
+                // The maximum value. This applies to range interval attributes.
                 shared_ptr<string> maxValue_ {};
+                // The minimum value. This applies to range interval attributes.
                 shared_ptr<string> minValue_ {};
+                // The list of attribute values. This applies to attributes with the input method set to custom input, single-select dropdown, or multi-select dropdown.
                 shared_ptr<vector<string>> valueList_ {};
               };
 
@@ -638,10 +665,25 @@ namespace Models
 
 
             protected:
+              // The attribute field type. Valid values:
+              // - STRING: text.
+              // - BIGINT: integer.
+              // - DOUBLE: floating-point.
+              // - BOOLEAN: Boolean.
+              // - DATE: date.
+              // - DATETIME: datetime.
               shared_ptr<string> dataType_ {};
+              // The attribute default value.
               shared_ptr<ValueConfig::DefaultValue> defaultValue_ {};
+              // The attribute field length. This constrains the maximum length of text-type attribute values.
               shared_ptr<int32_t> length_ {};
+              // The attribute value input method. Valid values:
+              // - CUSTOMIZED: custom input.
+              // - SINGLE_ENUM: single-select dropdown.
+              // - MULTIPLE_ENUMS: multi-select dropdown.
+              // - RANGE: range interval.
               shared_ptr<string> type_ {};
+              // The attribute option values. This applies only to attributes with the input method set to single-select dropdown or multi-select dropdown.
               shared_ptr<vector<string>> valueEnumList_ {};
             };
 
@@ -700,12 +742,19 @@ namespace Models
 
 
           protected:
+            // The description.
             shared_ptr<string> description_ {};
+            // Indicates whether the attribute is enabled.
             shared_ptr<bool> enabled_ {};
+            // The attribute ID.
             shared_ptr<int64_t> id_ {};
+            // The attribute name.
             shared_ptr<string> name_ {};
+            // Indicates whether the attribute is required.
             shared_ptr<bool> required_ {};
+            // Indicates whether the attribute is searchable.
             shared_ptr<bool> searchable_ {};
+            // The attribute value configuration details.
             shared_ptr<AttributeInfo::ValueConfig> valueConfig_ {};
           };
 
@@ -730,7 +779,9 @@ namespace Models
 
 
         protected:
+          // The attribute details.
           shared_ptr<AttributeWithValueList::AttributeInfo> attributeInfo_ {};
+          // The property value.
           shared_ptr<AttributeWithValueList::AttributeValue> attributeValue_ {};
         };
 
@@ -935,31 +986,104 @@ namespace Models
 
 
       protected:
+        // The rule business attribute configurations.
         shared_ptr<vector<QualityRuleList::AttributeWithValueList>> attributeWithValueList_ {};
+        // The rule category. Valid values:
+        // - CONSISTENT: consistency.
+        // - EFFECTIVE: validity.
+        // - TIMELINESE: timeliness.
+        // - ACCURATE: accuracy.
+        // - UNIQUENESS: uniqueness.
+        // - COMPLETENESS: completeness.
+        // - STABILITY: stability.
+        // - CUSTOM: custom.
         shared_ptr<vector<string>> catalogList_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The creator.
         shared_ptr<string> creator_ {};
+        // The creator name.
         shared_ptr<string> creatorName_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // Indicates whether exception archiving is enabled.
         shared_ptr<bool> enableErrorArchive_ {};
+        // The rule configuration key-value pairs. These vary by templatetype: different templatetypes return different form key-value pair configurations.
         shared_ptr<vector<QualityRuleList::FormPropertyList>> formPropertyList_ {};
+        // The quality rule ID.
         shared_ptr<int64_t> id_ {};
+        // The ID of the user who last modified the rule.
         shared_ptr<string> modifier_ {};
+        // The name of the user who last modified the rule.
         shared_ptr<string> modifierName_ {};
+        // The modification time.
         shared_ptr<string> modifyTime_ {};
+        // The quality rule name.
         shared_ptr<string> name_ {};
+        // The list of schedules bound to the rule.
         shared_ptr<vector<QualityRuleList::ScheduleBindList>> scheduleBindList_ {};
+        // The quality rule status. Valid values:
+        // - ENABLE
+        // - DISABLE.
         shared_ptr<string> status_ {};
+        // The rule strength. Valid values:
+        // - STRONG
+        // - WEAK.
         shared_ptr<string> strength_ {};
+        // The template ID.
         shared_ptr<int64_t> templateId_ {};
+        // The template name.
         shared_ptr<string> templateName_ {};
+        // The templatetype group. Valid values:
+        // - SYSTEM: system preset.
+        // - CUSTOM: custom template.
+        // - TEMPLATE: union of SYSTEM and CUSTOM.
+        // - CUSTOM_SQL: custom SQL template.
         shared_ptr<string> templateScope_ {};
+        // The templatetype. Valid values:
+        //   - FIELD_NULL_VALUE_VALIDATE: field null value validation.
+        //   - FIELD_EMPTY_STRING_VALIDATE: field empty character string validation.
+        //   - FIELD_UNIQUE_VALIDATE: field uniqueness validation.
+        //   - FIELD_GROUP_COUNT_VALIDATE: field unique value count validation.
+        //   - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: field duplicate value count validation.
+        //   - FUNCTION_TIME_COMPARE: time function comparison.
+        //   - SINGLE_TABLE_TIME_COMPARE: non-partitioned table time field comparison.
+        //   - DOUBLE_TABLE_TIME_COMPARE: two-table time field comparison.
+        //   - FIELD_FORMAT_VALIDATE: field format validation.
+        //   - FIELD_LENGTH_VALIDATE: field length validation.
+        //   - FIELD_VALUE_RANGE_VALIDATE: field value range validation.
+        //   - CODE_TABLE_COMPARE: lookup table reference comparison.
+        //   - STANDARD_CODE_TABLE_COMPARE: data standard lookup table reference comparison.
+        //   - SINGLE_TABLE_FIELD_VALUE_COMPARE: non-partitioned table field value consistency comparison.
+        //   - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: non-partitioned table field statistical value consistency comparison.
+        //   - SINGLE_TABLE_FIELD_EXP_COMPARE: non-partitioned table field business logic consistency comparison.
+        //   - DOUBLE_TABLE_FIELD_VALUE_COMPARE: two-table field value consistency comparison.
+        //   - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: two-table field statistical value consistency comparison.
+        //   - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: cross-source two-table field statistical value consistency comparison.
+        //   - DOUBLE_TABLE_FIELD_EXP_COMPARE: two-table field business logic consistency comparison.
+        //   - TABLE_STABILITY_VALIDATE: table stability validation.
+        //   - TABLE_FLUCTUATION_VALIDATE: table fluctuation validation.
+        //   - FIELD_STABILITY_VALIDATE: field stability validation.
+        //   - FIELD_FLUCTUATION_VALIDATE: field fluctuation validation.
+        //   - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric validation.
+        //   - CUSTOM_DATA_DETAILS_VALIDATE: custom data details validation.
+        //   - DATASOURCE_AVAILABLE_CHECK: data source connectivity check.
+        //   - TABLE_SCHEMA_CHECK: table schema change detection.
+        //   - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison.
+        //   - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring.
+        //   - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison, and more.
         shared_ptr<string> templateType_ {};
+        // The ID of the most recent trial run task.
         shared_ptr<int64_t> testRunRuleTaskId_ {};
+        // The status of the most recent trial run task. Valid values: NOT_RUN, WAITING, RUNNING, SUCCESS, FAILED.
         shared_ptr<string> testRunRuleTaskStatus_ {};
+        // Indicates whether the trial run validation passed.
         shared_ptr<bool> testRunRuleValidateResult_ {};
+        // The list of validation conditions.
         shared_ptr<vector<QualityRuleList::ValidateConditionList>> validateConditionList_ {};
+        // The validation object.
         shared_ptr<QualityRuleList::ValidateObject> validateObject_ {};
+        // The ID of the monitoring to which the rule belongs.
         shared_ptr<int64_t> watchId_ {};
       };
 
@@ -982,7 +1106,9 @@ namespace Models
 
 
     protected:
+      // The list of quality rules returned by page.
       shared_ptr<vector<PageResult::QualityRuleList>> qualityRuleList_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -1033,12 +1159,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // The paged query result.
     shared_ptr<ListQualityRulesResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

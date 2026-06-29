@@ -421,42 +421,79 @@ namespace Models
 
 
       protected:
+        // Business date.
         shared_ptr<string> bizDate_ {};
+        // Business unit display name.
         shared_ptr<string> bizUnitDisplayName_ {};
+        // Business unit ID.
         shared_ptr<int64_t> bizUnitId_ {};
+        // Business unit name.
         shared_ptr<string> bizUnitName_ {};
+        // Classification abbreviation.
         shared_ptr<string> classifyAbbreviation_ {};
+        // Classification ID.
         shared_ptr<int64_t> classifyId_ {};
+        // Classification name.
         shared_ptr<string> classifyName_ {};
+        // Creation time.
         shared_ptr<string> createTime_ {};
+        // Creator.
         shared_ptr<string> creator_ {};
+        // Data source ID.
         shared_ptr<int64_t> datasourceId_ {};
+        // Data source name.
         shared_ptr<string> datasourceName_ {};
+        // Field description.
         shared_ptr<string> fieldDescription_ {};
+        // Field ID.
         shared_ptr<string> fieldId_ {};
+        // Field name.
         shared_ptr<string> fieldName_ {};
+        // Whether a better matching result exists.
         shared_ptr<bool> hasBetterRule_ {};
+        // Identification result ID.
         shared_ptr<int64_t> id_ {};
+        // Identification record ID.
         shared_ptr<int64_t> identifyRecordId_ {};
+        // Whether it is a custom tagging rule.
         shared_ptr<bool> isCustomIdentify_ {};
+        // Whether it is locked.
         shared_ptr<bool> isLocked_ {};
+        // Security level abbreviation.
         shared_ptr<string> levelAbbreviation_ {};
+        // Security level color.
         shared_ptr<int64_t> levelColor_ {};
+        // Security level index.
         shared_ptr<int64_t> levelIndex_ {};
+        // Security level name.
         shared_ptr<string> levelName_ {};
+        // Modifier.
         shared_ptr<string> modifier_ {};
+        // Modification time.
         shared_ptr<string> modifyTime_ {};
+        // Project display name.
         shared_ptr<string> projectDisplayName_ {};
+        // Project ID.
         shared_ptr<int64_t> projectId_ {};
+        // Project name.
         shared_ptr<string> projectName_ {};
+        // Scan task ID.
         shared_ptr<int64_t> scanTaskId_ {};
+        // Status. Valid values: ENABLE and DISABLE.
         shared_ptr<string> status_ {};
+        // Table catalog.
         shared_ptr<string> tableCatalog_ {};
+        // Table description.
         shared_ptr<string> tableDescription_ {};
+        // Table environment.
         shared_ptr<string> tableEnv_ {};
+        // Table ID.
         shared_ptr<string> tableId_ {};
+        // Table name.
         shared_ptr<string> tableName_ {};
+        // Table identification task ID.
         shared_ptr<int64_t> tableTaskId_ {};
+        // Table type. Valid values: LOGIC_TABLE (logical table), LOGIC_DIM_TABLE (dimension logical table), LOGIC_FACT_TABLE (fact logical table), LOGIC_SUM_TABLE (summary logical table), LOGIC_ODM_SOURCE (source table), LOGIC_LABEL_TABLE (label logical table), PHYSICAL_TABLE (physical table), REAL_TIME_LOGIC_TABLE (real-time configured logical table).
         shared_ptr<string> tableType_ {};
       };
 
@@ -479,7 +516,9 @@ namespace Models
 
 
     protected:
+      // Paginated identification result list.
       shared_ptr<vector<PageResult::SecurityIdentifyResultList>> securityIdentifyResultList_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -530,12 +569,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend response error details.
     shared_ptr<string> message_ {};
+    // Paginated query result.
     shared_ptr<ListSecurityIdentifyResultsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

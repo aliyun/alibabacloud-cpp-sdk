@@ -132,6 +132,7 @@ namespace Models
 
 
         protected:
+          // The user ID.
           shared_ptr<string> id_ {};
         };
 
@@ -240,19 +241,37 @@ namespace Models
 
 
       protected:
+        // The business unit architects.
         shared_ptr<vector<BizUnitList::AccountList>> accountList_ {};
+        // The description of the business object.
         shared_ptr<string> description_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The environment identifier. Valid values:
+        // - DEV: development environment.
+        // - PROD: production environment.
         shared_ptr<string> env_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The update time.
         shared_ptr<string> gmtModified_ {};
+        // The business unit icon.
         shared_ptr<string> icon_ {};
+        // The business unit ID.
         shared_ptr<int64_t> id_ {};
+        // The ID of the user who last modified the business unit.
         shared_ptr<string> lastModifier_ {};
+        // The name of the user who last modified the business unit.
         shared_ptr<string> lastModifierName_ {};
+        // The production mode. Valid values:
+        // - BASIC: single-environment mode.
+        // - DEV_PROD: development/production dual-environment mode.
         shared_ptr<string> mode_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The owner of the business object.
         shared_ptr<string> ownerName_ {};
+        // The owner of the business object.
         shared_ptr<string> ownerUserId_ {};
       };
 
@@ -267,6 +286,7 @@ namespace Models
 
 
     protected:
+      // The business unit details.
       shared_ptr<vector<Data::BizUnitList>> bizUnitList_ {};
     };
 
@@ -317,11 +337,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<ListBizUnitsResponseBody::Data> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

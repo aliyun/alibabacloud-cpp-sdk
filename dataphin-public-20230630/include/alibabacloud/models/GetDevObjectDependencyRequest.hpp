@@ -75,14 +75,29 @@ namespace Models
 
 
   protected:
+    // Development object source.
+    // - BLACK_BOX: Logical table
+    // - DATA_PROCESS: Compute task
+    // - PIPELINE: Integration task
+    // 
     // This parameter is required.
     shared_ptr<string> objectFrom_ {};
+    // Object ID.
+    // 
     // This parameter is required.
     shared_ptr<string> objectId_ {};
+    // Development object type.
+    // - FILE_ID: Task FileId
+    // - MODEL_ID: Logical table
+    // 
     // This parameter is required.
     shared_ptr<string> objectType_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

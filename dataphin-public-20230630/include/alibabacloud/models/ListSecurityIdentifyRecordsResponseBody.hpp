@@ -347,34 +347,73 @@ namespace Models
 
 
       protected:
+        // The actual match rate.
         shared_ptr<double> actualIdentifyRate_ {};
+        // The business date.
         shared_ptr<string> bizDate_ {};
+        // The display name of the business unit.
         shared_ptr<string> bizUnitDisplayName_ {};
+        // The business unit ID.
         shared_ptr<int64_t> bizUnitId_ {};
+        // The business unit name.
         shared_ptr<string> bizUnitName_ {};
+        // The classification abbreviation.
         shared_ptr<string> classifyAbbreviation_ {};
+        // The classification ID.
         shared_ptr<int64_t> classifyId_ {};
+        // The classification name.
         shared_ptr<string> classifyName_ {};
+        // The classification effective status. Valid values:
+        // - ENABLE: enabled.
+        // - DISABLE: disabled.
         shared_ptr<string> classifyStatus_ {};
+        // The datasource ID.
         shared_ptr<int64_t> datasourceId_ {};
+        // The datasource name.
         shared_ptr<string> datasourceName_ {};
+        // The field description.
         shared_ptr<string> fieldDescription_ {};
+        // The field ID.
         shared_ptr<string> fieldId_ {};
+        // The field name.
         shared_ptr<string> fieldName_ {};
+        // The identification record ID.
         shared_ptr<int64_t> id_ {};
+        // Indicates whether this is a better match.
         shared_ptr<bool> isBetterMatch_ {};
+        // Indicates whether a custom tagging rule is used.
         shared_ptr<bool> isCustomIdentify_ {};
+        // Indicates whether the record is locked.
         shared_ptr<bool> isLocked_ {};
+        // The classification level abbreviation.
         shared_ptr<string> levelAbbreviation_ {};
+        // The classification level index.
         shared_ptr<int64_t> levelIndex_ {};
+        // The classification level name.
         shared_ptr<string> levelName_ {};
+        // The display name of the project.
         shared_ptr<string> projectDisplayName_ {};
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
+        // The table description.
         shared_ptr<string> tableDescription_ {};
+        // The table environment.
         shared_ptr<string> tableEnv_ {};
+        // The table ID.
         shared_ptr<string> tableId_ {};
+        // The table name.
         shared_ptr<string> tableName_ {};
+        // The table type. Valid values:
+        // - LOGIC_TABLE: logical table.
+        // - LOGIC_DIM_TABLE: logical dimension table.
+        // - LOGIC_FACT_TABLE: logical fact table.
+        // - LOGIC_SUM_TABLE: logical aggregate table.
+        // - LOGIC_ODM_SOURCE: source table.
+        // - LOGIC_LABEL_TABLE: logical label table.
+        // - PHYSICAL_TABLE: physical table.
+        // - REAL_TIME_LOGIC_TABLE: real-time configured logical table.
         shared_ptr<string> tableType_ {};
       };
 
@@ -397,7 +436,9 @@ namespace Models
 
 
     protected:
+      // The list of identification records.
       shared_ptr<vector<PageResult::IdentifyRecordList>> identifyRecordList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -448,12 +489,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // The paging query result.
     shared_ptr<ListSecurityIdentifyRecordsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

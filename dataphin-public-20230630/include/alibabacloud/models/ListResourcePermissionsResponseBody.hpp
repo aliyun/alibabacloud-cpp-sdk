@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // Personal account: the userId on the Dataphin side. Production account: the UserId obtained by calling the GetProjectProduceUser operation. User group: the user group ID obtained by calling the ListUserGroup operation.
           shared_ptr<string> id_ {};
+          // Personal account: the userId on the Dataphin side. Production account: the UserId obtained by calling the GetProjectProduceUser operation. User group: the user group ID obtained by calling the ListUserGroup operation.
           shared_ptr<string> name_ {};
+          // Authorization account type. Valid values: PERSONAL (personal account), PRODUCE (production account), and USER_GROUP (user group).
           shared_ptr<string> type_ {};
         };
 
@@ -229,9 +232,13 @@ namespace Models
 
 
           protected:
+            // Display name.
             shared_ptr<string> displayName_ {};
+            // Environment identifier. Development: DEV. Production: PROD.
             shared_ptr<string> env_ {};
+            // Project ID.
             shared_ptr<int64_t> id_ {};
+            // Name.
             shared_ptr<string> name_ {};
           };
 
@@ -291,10 +298,13 @@ namespace Models
 
 
           protected:
+            // Display name.
             shared_ptr<string> displayName_ {};
+            // Environment identifier. Development: DEV. Production: PROD.
             shared_ptr<string> env_ {};
-            // Id
+            // ID.
             shared_ptr<string> id_ {};
+            // Name.
             shared_ptr<string> name_ {};
           };
 
@@ -355,12 +365,19 @@ namespace Models
 
 
         protected:
+          // Business unit.
           shared_ptr<ResourceInfo::BizUnitInfo> bizUnitInfo_ {};
+          // Resource display name.
           shared_ptr<string> displayName_ {};
+          // Resource environment type. Development: DEV. Production: PROD.
           shared_ptr<string> env_ {};
+          // Permission resource ID.
           shared_ptr<string> id_ {};
+          // Permission resource name.
           shared_ptr<string> name_ {};
+          // Project.
           shared_ptr<ResourceInfo::ProjectInfo> projectInfo_ {};
+          // Resource type. Valid values: PHYSICAL_TABLE, PHYSICAL_VIEW, LOGICAL_TABLE, LOGICAL_VIEW, REALTIME_LOGICAL_TABLE, REALTIME_MIRROR_TABLE, and DATASOURCE.
           shared_ptr<string> type_ {};
         };
 
@@ -423,7 +440,9 @@ namespace Models
 
 
           protected:
+            // Expiration time.
             shared_ptr<string> endTime_ {};
+            // Validity period type. Custom: CUSTOM. Long-term: LONG_TERM.
             shared_ptr<string> type_ {};
           };
 
@@ -446,7 +465,9 @@ namespace Models
 
 
         protected:
+          // Validity period settings.
           shared_ptr<PermissionPeriodList::Period> period_ {};
+          // Permission type.
           shared_ptr<string> permissionType_ {};
         };
 
@@ -488,7 +509,9 @@ namespace Models
 
 
         protected:
+          // Expiration time.
           shared_ptr<string> endTime_ {};
+          // Validity period type. Custom: CUSTOM. Long-term: LONG_TERM.
           shared_ptr<string> type_ {};
         };
 
@@ -545,11 +568,17 @@ namespace Models
 
 
       protected:
+        // Authorization scope of the table. Specified table: selectTable. All tables in the project: projectAllTable. All logical tables in the business unit: bizUnitAllLogicTable.
         shared_ptr<string> authScope_ {};
+        // Validity period settings.
         shared_ptr<Data::Period> period_ {};
+        // List of validity periods for different permission types.
         shared_ptr<vector<Data::PermissionPeriodList>> permissionPeriodList_ {};
+        // Record ID.
         shared_ptr<string> recordId_ {};
+        // Permission resource.
         shared_ptr<Data::ResourceInfo> resourceInfo_ {};
+        // Authorized object.
         shared_ptr<Data::TargetAccount> targetAccount_ {};
       };
 
@@ -572,7 +601,9 @@ namespace Models
 
 
     protected:
+      // Paginated list.
       shared_ptr<vector<PageResult::Data>> data_ {};
+      // Total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -623,11 +654,17 @@ namespace Models
 
 
   protected:
+    // Error code. OK indicates a normal request.
     shared_ptr<string> code_ {};
+    // HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Paginated query result.
     shared_ptr<ListResourcePermissionsResponseBody::PageResult> pageResult_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

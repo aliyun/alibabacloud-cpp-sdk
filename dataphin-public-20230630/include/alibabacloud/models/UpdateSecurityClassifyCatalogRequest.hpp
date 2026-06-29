@@ -99,12 +99,22 @@ namespace Models
 
 
     protected:
+      // The name of the classification folder.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The list of administrator IDs. This parameter takes effect only when the parent folder is the root folder.
       shared_ptr<vector<string>> ownerList_ {};
+      // The full path of the parent classification folder. Default value: /.
       shared_ptr<string> parentPath_ {};
+      // The original full path of the folder.
+      // 
       // This parameter is required.
       shared_ptr<string> path_ {};
+      // The visibility scope of the classification folder. This parameter takes effect only when the parent folder is the root folder. Valid values:
+      // - PUBLIC: visible to all users.
+      // - PRIVATE: visible only to administrators.
+      // Default value: PUBLIC.
       shared_ptr<string> visibleType_ {};
     };
 
@@ -127,8 +137,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpdateSecurityClassifyCatalogRequest::UpdateCommand> updateCommand_ {};
   };

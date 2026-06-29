@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The display name of the user.
       shared_ptr<string> displayName_ {};
+      // The user ID.
       shared_ptr<string> id_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The user object.
     shared_ptr<GetUserBySourceIdResponseBody::User> user_ {};
   };
 

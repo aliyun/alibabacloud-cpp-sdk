@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // >Notice: This field is deprecated.</notice>.
     shared_ptr<int32_t> projectId_ {};
   };
 

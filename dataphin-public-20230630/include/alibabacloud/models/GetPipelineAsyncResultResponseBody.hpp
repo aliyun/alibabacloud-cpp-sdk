@@ -141,14 +141,26 @@ namespace Models
 
 
     protected:
+      // The asynchronous execution query ID.
       shared_ptr<int64_t> asyncId_ {};
+      // The error code returned when the execution fails.
       shared_ptr<string> errorCode_ {};
+      // The error message returned when the execution fails.
       shared_ptr<string> errorMessage_ {};
+      // The information about the server host that processes the execution request.
       shared_ptr<string> hostMachine_ {};
+      // The scheduling node ID of the pipeline task.
       shared_ptr<string> nodeId_ {};
+      // The primary key ID of the pipeline.
       shared_ptr<int64_t> pipelineId_ {};
+      // The current execution status. Valid values:
+      // - SUCCESS: execution succeeded.
+      // - FAILED: execution failed.
+      // - RUNNING: execution in progress.
       shared_ptr<string> status_ {};
+      // The publish ID generated after the pipeline task is submitted. You can use this ID to publish the task through the publish domain.
       shared_ptr<int64_t> submitId_ {};
+      // The version number generated when the pipeline task is submitted.
       shared_ptr<string> version_ {};
     };
 
@@ -199,12 +211,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The asynchronous execution result.
     shared_ptr<GetPipelineAsyncResultResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details returned by the backend.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

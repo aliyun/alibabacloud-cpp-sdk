@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The name of the resource file.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

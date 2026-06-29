@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // Backend response code
     shared_ptr<string> code_ {};
+    // Asynchronous execution query ID
     shared_ptr<int64_t> data_ {};
+    // HTTP response code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend response exception details
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

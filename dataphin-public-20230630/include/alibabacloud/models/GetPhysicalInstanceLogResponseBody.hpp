@@ -114,11 +114,17 @@ namespace Models
 
 
     protected:
+      // The execution duration of the task. Unit: seconds.
       shared_ptr<string> duration_ {};
+      // The time when the task finished running.
       shared_ptr<string> endTime_ {};
+      // The execution log content. This value is empty if the task has not been run.
       shared_ptr<string> logContent_ {};
+      // The time when the task started running.
       shared_ptr<string> startTime_ {};
+      // The execution status.
       shared_ptr<string> status_ {};
+      // The task ID for each run.
       shared_ptr<string> taskrunId_ {};
     };
 
@@ -169,11 +175,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // All execution logs of the instance, including logs from multiple reruns.
     shared_ptr<vector<GetPhysicalInstanceLogResponseBody::TaskrunLogList>> taskrunLogList_ {};
   };
 

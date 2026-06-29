@@ -97,7 +97,10 @@ namespace Models
 
 
       protected:
+        // The field instance IDs.
         shared_ptr<vector<string>> fieldInstanceIdList_ {};
+        // The instance ID.
+        // 
         // This parameter is required.
         shared_ptr<string> id_ {};
       };
@@ -128,10 +131,21 @@ namespace Models
 
 
     protected:
+      // The list of instances to operate on.
+      // 
       // This parameter is required.
       shared_ptr<vector<OperateCommand::InstanceIdList>> instanceIdList_ {};
+      // The operation to perform. Valid values:	
+      // - RERUN: Reruns the instance.
+      // - PAUSE: Pauses the instance.
+      // - RESUME: Resumes the instance.
+      // - TERMINATE: Stops the instance.
+      // - SET_SUCCESS: Sets the instance status to successful.
+      // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -162,9 +176,16 @@ namespace Models
 
 
   protected:
+    // The environment identifier. Valid values:
+    // - DEV: development environment. 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operation request.
+    // 
     // This parameter is required.
     shared_ptr<OperateInstanceRequest::OperateCommand> operateCommand_ {};
   };

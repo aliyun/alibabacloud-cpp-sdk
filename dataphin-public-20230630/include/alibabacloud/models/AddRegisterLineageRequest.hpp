@@ -167,16 +167,27 @@ namespace Models
 
 
       protected:
+        // The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> catalog_ {};
+        // The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> env_ {};
+        // The extended properties.
         Darabonba::Json extProperties_ {};
+        // The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
         shared_ptr<string> guid_ {};
+        // The asset subtype. Specify this parameter only when metadataType is set to TABLE and referenceType is not set to BY_GUID.
         shared_ptr<string> metadataSubType_ {};
+        // The asset type. Set this parameter based on the actual scenario.
+        // 
         // This parameter is required.
         shared_ptr<string> metadataType_ {};
+        // The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> name_ {};
+        // The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
+        // 
         // This parameter is required.
         shared_ptr<string> referenceType_ {};
+        // The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> schema_ {};
       };
 
@@ -284,16 +295,27 @@ namespace Models
 
 
       protected:
+        // The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> catalog_ {};
+        // The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> env_ {};
+        // The extended properties.
         Darabonba::Json extProperties_ {};
+        // The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
         shared_ptr<string> guid_ {};
+        // The asset subtype. Specify this parameter only when metadataType is set to TABLE and referenceType is not set to BY_GUID.
         shared_ptr<string> metadataSubType_ {};
+        // The asset type. Set this parameter based on the actual scenario.
+        // 
         // This parameter is required.
         shared_ptr<string> metadataType_ {};
+        // The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> name_ {};
+        // The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
+        // 
         // This parameter is required.
         shared_ptr<string> referenceType_ {};
+        // The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
         shared_ptr<string> schema_ {};
       };
 
@@ -424,14 +446,23 @@ namespace Models
 
 
         protected:
+          // The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> catalog_ {};
+          // The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> env_ {};
+          // The extended properties.
           Darabonba::Json extProperties_ {};
+          // The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
           shared_ptr<string> guid_ {};
+          // The asset type. Set this parameter based on the actual scenario.
           shared_ptr<string> metadataType_ {};
+          // The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> name_ {};
+          // The GUID of the parent asset. If the current object is a field, parentGuid is the GUID of the table to which the field belongs.
           shared_ptr<string> parentGuid_ {};
+          // The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
           shared_ptr<string> referenceType_ {};
+          // The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> schema_ {};
         };
 
@@ -539,14 +570,23 @@ namespace Models
 
 
         protected:
+          // The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> catalog_ {};
+          // The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> env_ {};
+          // The extended properties.
           Darabonba::Json extProperties_ {};
+          // The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
           shared_ptr<string> guid_ {};
+          // The asset type. Set this parameter based on the actual scenario.
           shared_ptr<string> metadataType_ {};
+          // The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> name_ {};
+          // The GUID of the parent asset. If the current object is a field, parentGuid is the GUID of the table to which the field belongs.
           shared_ptr<string> parentGuid_ {};
+          // The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
           shared_ptr<string> referenceType_ {};
+          // The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
           shared_ptr<string> schema_ {};
         };
 
@@ -578,9 +618,14 @@ namespace Models
 
 
       protected:
+        // Specifies whether this is a direct lineage relationship. Default value: true.
         shared_ptr<bool> isDirect_ {};
+        // The source asset reference.
+        // 
         // This parameter is required.
         shared_ptr<DetailedLineages::Source> source_ {};
+        // The target asset reference.
+        // 
         // This parameter is required.
         shared_ptr<DetailedLineages::Target> target_ {};
       };
@@ -646,14 +691,23 @@ namespace Models
 
 
     protected:
+      // Specifies whether to check the existence of the asset. By default, the existence is not checked.
       shared_ptr<bool> checkAssetExist_ {};
+      // The detailed lineage relationships. For tables, these are field-level lineage relationships. If you do not want to add field-level lineage, leave this parameter empty.
       shared_ptr<vector<AddRegisterLineageCommand::DetailedLineages>> detailedLineages_ {};
+      // The lineage relationship properties.
       Darabonba::Json relationProperties_ {};
+      // The source asset.
+      // 
       // This parameter is required.
       shared_ptr<AddRegisterLineageCommand::Source> source_ {};
+      // The target asset.
+      // 
       // This parameter is required.
       shared_ptr<AddRegisterLineageCommand::Target> target_ {};
+      // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
+      // The ID of the current user.
       shared_ptr<string> userId_ {};
     };
 
@@ -676,8 +730,12 @@ namespace Models
 
 
   protected:
+    // The command for registering and adding data lineage.
+    // 
     // This parameter is required.
     shared_ptr<AddRegisterLineageRequest::AddRegisterLineageCommand> addRegisterLineageCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The request context information.
+    // 
     // This parameter is required.
     shared_ptr<string> contextShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID used to query the pipeline task.
+    // 
     // This parameter is required.
     shared_ptr<string> queryIdShrink_ {};
   };

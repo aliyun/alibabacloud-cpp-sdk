@@ -87,6 +87,7 @@ namespace Models
 
 
       protected:
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
       };
 
@@ -132,12 +133,20 @@ namespace Models
 
 
     protected:
+      // The list of operations.
       shared_ptr<vector<string>> operateList_ {};
+      // The reason for revoking the authorization.
       shared_ptr<string> reason_ {};
+      // The list of resources.
+      // 
       // This parameter is required.
       shared_ptr<vector<RevokeCommand::ResourceList>> resourceList_ {};
+      // The resource type.
+      // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
+      // The user ID.
+      // 
       // This parameter is required.
       shared_ptr<string> userId_ {};
     };
@@ -161,8 +170,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The authorization revocation request.
+    // 
     // This parameter is required.
     shared_ptr<RevokeResourcePermissionRequest::RevokeCommand> revokeCommand_ {};
   };

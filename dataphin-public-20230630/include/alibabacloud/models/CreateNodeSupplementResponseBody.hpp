@@ -84,11 +84,18 @@ namespace Models
 
 
   protected:
+    // Error code. A value of OK indicates a successful request.
     shared_ptr<string> code_ {};
+    // HTTP status code returned by the backend
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // - Standard mode: the FlowId is returned.
+    // - Bulk mode: the submitted JobId is returned. You can call GetOperationSubmitStatus to query the task submission status. After the submission succeeds, the FlowId is returned.
     shared_ptr<string> submitId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

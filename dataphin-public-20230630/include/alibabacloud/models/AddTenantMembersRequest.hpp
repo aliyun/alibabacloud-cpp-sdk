@@ -91,7 +91,17 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The list of roles. Valid values:
+        // - SYSTEM_ADMIN
+        // - DATASOURCE_MANAGER
+        // - SECURITY_ADMIN
+        // - QUALITY_MANAGER
+        // - EXPORT_ADMIN
+        // - DATA_STANDARD_MANAGER
+        // - LABELS_BUSINESS_PLANNER
+        // - BUSINESS_MEMBER.
         shared_ptr<vector<string>> roleList_ {};
       };
 
@@ -106,6 +116,8 @@ namespace Models
 
 
     protected:
+      // The list of members.
+      // 
       // This parameter is required.
       shared_ptr<vector<AddCommand::UserList>> userList_ {};
     };
@@ -129,8 +141,12 @@ namespace Models
 
 
   protected:
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<AddTenantMembersRequest::AddCommand> addCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

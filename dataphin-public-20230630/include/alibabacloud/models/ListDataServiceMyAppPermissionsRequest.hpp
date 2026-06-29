@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // The search keyword.
       shared_ptr<string> keyword_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -111,10 +114,16 @@ namespace Models
 
 
   protected:
+    // The query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListDataServiceMyAppPermissionsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the data service project.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

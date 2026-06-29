@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The parameter.
         shared_ptr<string> key_ {};
+        // The parameter value.
         shared_ptr<string> value_ {};
       };
 
@@ -152,14 +154,24 @@ namespace Models
 
 
     protected:
+      // The end business date.
+      // 
       // This parameter is required.
       shared_ptr<string> endBizDate_ {};
+      // The workflow name.
       shared_ptr<string> flowName_ {};
+      // The node ID.
+      // 
       // This parameter is required.
       shared_ptr<string> nodeId_ {};
+      // The runtime parameters.
       shared_ptr<vector<ExecuteCommand::ParamList>> paramList_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // The start business date.
+      // 
       // This parameter is required.
       shared_ptr<string> startBizDate_ {};
     };
@@ -190,9 +202,16 @@ namespace Models
 
 
   protected:
+    // The environment identifier. Valid values:
+    // - DEV: development environment 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The request for running a manual task.
+    // 
     // This parameter is required.
     shared_ptr<ExecuteManualNodeRequest::ExecuteCommand> executeCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

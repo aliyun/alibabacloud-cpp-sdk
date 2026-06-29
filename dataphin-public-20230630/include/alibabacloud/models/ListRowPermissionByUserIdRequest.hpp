@@ -78,10 +78,16 @@ namespace Models
 
 
     protected:
+      // The specified operator.
+      // 
       // This parameter is required.
       shared_ptr<string> operator_ {};
+      // The page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageNum_ {};
+      // The page size.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
     };
@@ -105,8 +111,12 @@ namespace Models
 
 
   protected:
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<ListRowPermissionByUserIdRequest::ListRowPermissionByUserIdQuery> listRowPermissionByUserIdQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

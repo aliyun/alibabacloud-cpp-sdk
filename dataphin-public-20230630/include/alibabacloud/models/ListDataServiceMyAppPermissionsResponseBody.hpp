@@ -142,7 +142,9 @@ namespace Models
 
 
         protected:
+          // The configuration item.
           shared_ptr<string> key_ {};
+          // The configuration item value.
           shared_ptr<string> value_ {};
         };
 
@@ -246,17 +248,34 @@ namespace Models
       protected:
         // AppId
         shared_ptr<int32_t> appId_ {};
+        // The application name.
         shared_ptr<string> appName_ {};
+        // The name of the creator.
         shared_ptr<string> createUserName_ {};
+        // The ID of the creator.
         shared_ptr<string> creator_ {};
+        // The role of the current logon user relative to this record. Valid values:
+        // - SuperAdmin: the current user is a super administrator.
+        // - ProjMan: the current user is a project administrator for this record.
+        // - NormalUser: the current user is a regular user for this record, meaning the user is neither a super administrator nor a project administrator.
         shared_ptr<string> currentUserRole_ {};
+        // The ID of the owner.
         shared_ptr<string> owner_ {};
+        // The name of the owner.
         shared_ptr<string> ownerUserName_ {};
+        // The user to whom the permission belongs.
         shared_ptr<string> privilegeBelongTo_ {};
+        // The source of the authorization. Valid values:
+        // - 0: owner.
         shared_ptr<int32_t> privilegeFrom_ {};
+        // The project ID.
         shared_ptr<int32_t> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
+        // The description, used for troubleshooting.
         shared_ptr<vector<PermissionList::RemarkForDebugList>> remarkForDebugList_ {};
+        // The role. Valid values:
+        // - 0: owner.
         shared_ptr<int32_t> role_ {};
       };
 
@@ -279,7 +298,9 @@ namespace Models
 
 
     protected:
+      // The paginated permission list.
       shared_ptr<vector<PageResult::PermissionList>> permissionList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -330,12 +351,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // The paging query result.
     shared_ptr<ListDataServiceMyAppPermissionsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

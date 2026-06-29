@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The client file ID.
       shared_ptr<string> clientFileResourceId_ {};
+      // The client file name.
       shared_ptr<string> clientFileResourceName_ {};
+      // The client name.
       shared_ptr<string> clientName_ {};
+      // Indicates whether the client information is editable.
       shared_ptr<bool> editable_ {};
     };
 
@@ -149,11 +153,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<vector<GetSparkLocalClientInfoResponseBody::Data>> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

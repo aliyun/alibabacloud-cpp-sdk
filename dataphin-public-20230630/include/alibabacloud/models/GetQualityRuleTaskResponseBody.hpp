@@ -224,23 +224,41 @@ namespace Models
 
 
     protected:
+      // The business date.
       shared_ptr<string> bizDate_ {};
+      // The business date format.
       shared_ptr<string> bizDateFormat_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The creator.
       shared_ptr<string> creator_ {};
+      // The end time.
       shared_ptr<string> endTime_ {};
+      // The rule task ID.
       shared_ptr<int64_t> id_ {};
+      // The ID of the user who last modified the task.
       shared_ptr<string> modifier_ {};
+      // The modification time.
       shared_ptr<string> modifyTime_ {};
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
+      // The task status.
       shared_ptr<string> status_ {};
+      // The template ID.
       shared_ptr<int64_t> templateId_ {};
+      // The validation object name.
       shared_ptr<string> validateObjectName_ {};
+      // The validation object type.
       shared_ptr<string> validateObjectType_ {};
+      // The validation partition.
       shared_ptr<string> validatePartition_ {};
+      // Indicates whether the validation passed.
       shared_ptr<bool> validateSuccess_ {};
+      // The ID of the associated monitor.
       shared_ptr<int64_t> watchId_ {};
+      // The monitor task ID. This ID is empty for trial-run rule tasks.
       shared_ptr<int64_t> watchTaskId_ {};
     };
 
@@ -291,12 +309,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The rule task details.
     shared_ptr<GetQualityRuleTaskResponseBody::RuleTaskInfo> ruleTaskInfo_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

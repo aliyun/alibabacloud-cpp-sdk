@@ -108,11 +108,17 @@ namespace Models
 
 
     protected:
+      // The environment identifier.
       shared_ptr<string> env_ {};
+      // The keyword for fuzzy match.
       shared_ptr<string> keyword_ {};
+      // The project mode.
       shared_ptr<string> mode_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The project tags.
       shared_ptr<vector<string>> tagList_ {};
     };
 
@@ -135,8 +141,12 @@ namespace Models
 
 
   protected:
+    // The query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListProjectsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

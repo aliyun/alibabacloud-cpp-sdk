@@ -83,10 +83,16 @@ namespace Models
 
 
     protected:
+      // The rule IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> ruleIdList_ {};
+      // The schedule IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> scheduleIdList_ {};
+      // The ID of the monitored object.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
     };
@@ -110,8 +116,12 @@ namespace Models
 
 
   protected:
+    // The assignment binding instruction.
+    // 
     // This parameter is required.
     shared_ptr<AssignQualityRuleOfAllRuleScopeSchedulesRequest::AssignCommand> assignCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

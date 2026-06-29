@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Environment identifier
+    // - DEV: Development environment
+    // - PROD (default): Production environment
     shared_ptr<string> env_ {};
+    // Query Request
     shared_ptr<string> listQueryShrink_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

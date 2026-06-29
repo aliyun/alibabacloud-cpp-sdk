@@ -115,17 +115,29 @@ namespace Models
 
 
     protected:
+      // The abbreviation of the data domain.
+      // 
       // This parameter is required.
       shared_ptr<string> abbreviation_ {};
+      // The ID of the data board.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The ID of the data domain.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> dataDomainId_ {};
+      // The description of the data domain.
       shared_ptr<string> description_ {};
+      // The display name of the data domain.
+      // 
       // This parameter is required.
       shared_ptr<string> displayName_ {};
+      // The code of the data domain.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The ID of the parent data domain.
       shared_ptr<int64_t> parentId_ {};
     };
 
@@ -148,8 +160,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update request.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDataDomainRequest::UpdateCommand> updateCommand_ {};
   };

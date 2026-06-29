@@ -150,15 +150,25 @@ namespace Models
 
 
     protected:
+      // The abbreviation of the word root.
       shared_ptr<string> abbreviation_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The user ID of the creator.
       shared_ptr<string> creator_ {};
+      // The username of the creator.
       shared_ptr<string> creatorName_ {};
+      // The description of the word root.
       shared_ptr<string> description_ {};
+      // The full name of the word root.
       shared_ptr<string> fullName_ {};
+      // The user ID of the last modifier.
       shared_ptr<string> lastModifier_ {};
+      // The username of the last modifier.
       shared_ptr<string> lastModifierName_ {};
+      // The modification time.
       shared_ptr<string> modifyTime_ {};
+      // The name of the word root.
       shared_ptr<string> name_ {};
     };
 
@@ -209,12 +219,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The word root details.
     shared_ptr<GetStandardWordRootResponseBody::WordRootInfo> wordRootInfo_ {};
   };
 

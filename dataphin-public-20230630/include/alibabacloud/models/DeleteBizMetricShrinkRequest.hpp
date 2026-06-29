@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The delete request.
+    // 
     // This parameter is required.
     shared_ptr<string> deleteBizMetricCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

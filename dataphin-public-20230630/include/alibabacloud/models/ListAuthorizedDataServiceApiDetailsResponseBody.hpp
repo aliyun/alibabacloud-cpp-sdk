@@ -163,10 +163,15 @@ namespace Models
 
 
         protected:
+          // The example value.
           shared_ptr<string> exampleValue_ {};
+          // The field authorization status.
           shared_ptr<int32_t> isAuthorized_ {};
+          // The parameter type.
           shared_ptr<int32_t> parameterDataType_ {};
+          // The description.
           shared_ptr<string> parameterDescription_ {};
+          // The parameter name.
           shared_ptr<string> parameterName_ {};
         };
 
@@ -235,10 +240,15 @@ namespace Models
 
 
         protected:
+          // The example value.
           shared_ptr<string> exampleValue_ {};
+          // The field authorization status.
           shared_ptr<int32_t> isAuthorized_ {};
+          // The parameter type.
           shared_ptr<int32_t> parameterDataType_ {};
+          // The description.
           shared_ptr<string> parameterDescription_ {};
+          // The parameter name.
           shared_ptr<string> parameterName_ {};
         };
 
@@ -322,14 +332,23 @@ namespace Models
       protected:
         // API_ID
         shared_ptr<int64_t> apiId_ {};
+        // The API name.
         shared_ptr<string> apiName_ {};
+        // The application ID.
         shared_ptr<int64_t> appId_ {};
+        // The permission type.
         shared_ptr<string> authType_ {};
+        // The list of fields authorized for the API in the development environment.
         shared_ptr<vector<Data::AuthorizedDevReturnParameters>> authorizedDevReturnParameters_ {};
+        // The list of fields authorized for the API in the production environment.
         shared_ptr<vector<Data::AuthorizedProdReturnParameters>> authorizedProdReturnParameters_ {};
+        // The API description.
         shared_ptr<string> description_ {};
+        // The validity period of the API permission in the development environment.
         shared_ptr<string> devAuthPeriod_ {};
+        // The validity period of the API permission in the production environment.
         shared_ptr<string> prodAuthPeriod_ {};
+        // The data service project ID.
         shared_ptr<int64_t> projectId_ {};
       };
 
@@ -352,7 +371,9 @@ namespace Models
 
 
     protected:
+      // The list of authorized API details.
       shared_ptr<vector<Result::Data>> data_ {};
+      // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -403,11 +424,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID. It is a unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // The query result.
     shared_ptr<ListAuthorizedDataServiceApiDetailsResponseBody::Result> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

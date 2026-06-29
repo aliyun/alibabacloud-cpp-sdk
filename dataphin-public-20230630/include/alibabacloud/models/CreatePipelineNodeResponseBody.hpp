@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The error codes.
       shared_ptr<vector<string>> errorCodeList_ {};
+      // The error messages.
       shared_ptr<vector<string>> errorMessageList_ {};
+      // The ID of the pipeline created.
       shared_ptr<int64_t> pipelineId_ {};
     };
 
@@ -143,11 +146,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The pipeline node information.
     shared_ptr<CreatePipelineNodeResponseBody::Data> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

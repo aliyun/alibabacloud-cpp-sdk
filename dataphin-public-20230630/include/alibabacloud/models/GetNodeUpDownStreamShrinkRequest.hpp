@@ -84,13 +84,23 @@ namespace Models
 
 
   protected:
+    // The downstream depth. Default value: 1.
     shared_ptr<int32_t> downStreamDepth_ {};
+    // The environment identifier. Valid values:
+    // - DEV: development environment. 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeIdShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
     shared_ptr<int64_t> projectId_ {};
+    // The upstream depth. Default value: 1.
     shared_ptr<int32_t> upStreamDepth_ {};
   };
 

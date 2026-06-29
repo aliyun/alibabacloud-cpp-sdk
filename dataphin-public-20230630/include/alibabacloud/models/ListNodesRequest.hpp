@@ -172,20 +172,57 @@ namespace Models
 
 
     protected:
+      // Specifies whether to perform a dry run.
       shared_ptr<bool> dryRun_ {};
+      // The node business type. Valid values:
+      // - SCRIPT: script
+      // - LOGICAL_TABLE: logical table.
+      // 
       // This parameter is required.
       shared_ptr<string> nodeBizType_ {};
+      // The sub-business types. Valid values:
+      // - MAX_COMPUTE_SQL
+      // - HIVE_SQL
+      // - SHELL
+      // - PYTHON
+      // - ONE_SERVICE_SQL
+      // - DATABASE_SQL.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> nodeSubBizTypeList_ {};
+      // The user IDs of the owners.
       shared_ptr<vector<string>> ownerList_ {};
+      // The page number.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The node priorities. Valid values:
+      // - HIGHEST
+      // - HIGH
+      // - MIDDLE
+      // - LOW
+      // - LOWEST.
       shared_ptr<vector<string>> priorityList_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // Specifies whether scheduling is paused.
       shared_ptr<bool> schedulePaused_ {};
+      // The scheduling periods. Valid values:
+      // - YEARLY
+      // - MONTHLY
+      // - WEEKLY
+      // - DAILY
+      // - HOURLY
+      // - MINUTELY.
       shared_ptr<vector<string>> schedulePeriodList_ {};
+      // The node scheduling type. Valid values:
+      // - NORMAL: periodic scheduling
+      // - SUPPLEMENT: data backfill
+      // - MANUAL: manual scheduling.
       shared_ptr<string> scheduleType_ {};
+      // The search keyword. Fuzzy search by node name and exact search by node ID are supported.
       shared_ptr<string> searchText_ {};
     };
 
@@ -215,9 +252,16 @@ namespace Models
 
 
   protected:
+    // The environment identifier. Valid values:
+    // - DEV: development environment 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListNodesRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

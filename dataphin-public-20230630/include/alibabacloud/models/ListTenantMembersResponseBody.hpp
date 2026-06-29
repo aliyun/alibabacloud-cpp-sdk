@@ -170,9 +170,13 @@ namespace Models
 
 
         protected:
+          // Indicates whether the user group is enabled.
           shared_ptr<bool> active_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // The user group ID.
           shared_ptr<string> id_ {};
+          // The name of the user group.
           shared_ptr<string> name_ {};
         };
 
@@ -312,23 +316,41 @@ namespace Models
 
 
       protected:
+        // The account name.
         shared_ptr<string> accountName_ {};
+        // The DingTalk number.
         shared_ptr<string> dingNumber_ {};
+        // The display name of the user.
         shared_ptr<string> displayName_ {};
+        // The display name of the user without status.
         shared_ptr<string> displayNameWithoutStatus_ {};
+        // Indicates whether the IP address whitelist is enabled.
         shared_ptr<string> enableWhiteIp_ {};
+        // The time when the user was created.
         shared_ptr<int64_t> gmtCreate_ {};
+        // The time when the user was last modified.
         shared_ptr<int64_t> gmtModified_ {};
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The email address.
         shared_ptr<string> mail_ {};
+        // The phone number.
         shared_ptr<string> mobilePhone_ {};
+        // The username.
         shared_ptr<string> name_ {};
+        // The nickname of the user.
         shared_ptr<string> nickName_ {};
+        // The real name of the user.
         shared_ptr<string> realName_ {};
+        // The list of member roles.
         shared_ptr<vector<string>> roleList_ {};
+        // The user source ID.
         shared_ptr<string> sourceId_ {};
+        // The user source.
         shared_ptr<string> sourceType_ {};
+        // The list of user groups to which the user belongs.
         shared_ptr<vector<UserList::UserGroupList>> userGroupList_ {};
+        // The IP address whitelist.
         shared_ptr<string> whiteIp_ {};
       };
 
@@ -351,7 +373,9 @@ namespace Models
 
 
     protected:
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
+      // The list of users.
       shared_ptr<vector<PageResult::UserList>> userList_ {};
     };
 
@@ -402,11 +426,17 @@ namespace Models
 
 
   protected:
+    // The error code. OK indicates a successful request.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paginated query result.
     shared_ptr<ListTenantMembersResponseBody::PageResult> pageResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

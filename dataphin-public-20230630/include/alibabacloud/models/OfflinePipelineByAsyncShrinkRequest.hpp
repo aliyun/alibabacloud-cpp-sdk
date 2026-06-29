@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The request context information.
+    // 
     // This parameter is required.
     shared_ptr<string> contextShrink_ {};
+    // The offline pipeline node command.
+    // 
     // This parameter is required.
     shared_ptr<string> offlineCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

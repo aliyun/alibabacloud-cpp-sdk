@@ -178,7 +178,9 @@ namespace Models
 
 
         protected:
+          // The configuration item.
           shared_ptr<string> key_ {};
+          // The value of the configuration item.
           shared_ptr<string> value_ {};
         };
 
@@ -411,36 +413,71 @@ namespace Models
 
 
       protected:
+        // The asset inventory tags.
         shared_ptr<vector<string>> assetTagList_ {};
+        // The ID of the business unit.
         shared_ptr<int64_t> bizUnitId_ {};
+        // The name of the business unit.
         shared_ptr<string> bizUnitName_ {};
+        // The comment of the table.
         shared_ptr<string> comment_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The ID of the creator.
         shared_ptr<string> creator_ {};
+        // The ID of the data domain.
         shared_ptr<int64_t> dataDomainId_ {};
+        // The name of the data domain.
         shared_ptr<string> dataDomainName_ {};
+        // The ID of the data source.
         shared_ptr<int64_t> dataSourceId_ {};
+        // The display name of the table.
         shared_ptr<string> displayName_ {};
+        // The environment. Valid values:
+        // - dev
+        // - prod.
         shared_ptr<string> env_ {};
+        // The file ID. This value is used to navigate to the ODM model.
         shared_ptr<string> fileId_ {};
+        // The GUID of the table.
         shared_ptr<string> guid_ {};
+        // Indicates whether the project or business version to which the table belongs is in Basic mode.
         shared_ptr<bool> isBasicMode_ {};
+        // Indicates whether the table is a partitioned table.
         shared_ptr<bool> isPartitionTable_ {};
+        // The time when the table DDL was last modified.
         shared_ptr<string> lastDdlTime_ {};
+        // The time when the table data was last updated.
         shared_ptr<string> lastDmlTime_ {};
+        // The time when the data was last viewed.
         shared_ptr<string> lastQueryTime_ {};
+        // The lifecycle of the table, in days.
         shared_ptr<int64_t> lifeCycle_ {};
+        // The name of the table.
         shared_ptr<string> name_ {};
+        // The Dataphin user ID of the table owner. This value may be empty if the owner is not bound.
         shared_ptr<string> owner_ {};
+        // The ID of the parent model. This value is used to navigate to the ODM model.
         shared_ptr<string> parentModelId_ {};
+        // The ID of the logical project.
         shared_ptr<int64_t> projectId_ {};
+        // The name of the logical project.
         shared_ptr<string> projectName_ {};
+        // The security classification.
         shared_ptr<int64_t> securityLevel_ {};
+        // The abbreviation of the security classification name.
         shared_ptr<string> securityLevelAbbreviation_ {};
+        // The name of the security classification.
         shared_ptr<string> securityLevelName_ {};
+        // The storage type. Valid values:
+        // - HIVE
+        // - MAX_COMPUTE.
         shared_ptr<string> storageType_ {};
+        // The dynamic properties of the real-time meta table.
         shared_ptr<vector<TableList::StreamTableConfig>> streamTableConfig_ {};
+        // The total storage size of the table, in bytes.
         shared_ptr<int64_t> tableSizeInBytes_ {};
+        // The number of visits in the last 30 days.
         shared_ptr<int64_t> visitCount30d_ {};
       };
 
@@ -463,7 +500,9 @@ namespace Models
 
 
     protected:
+      // The list of tables.
       shared_ptr<vector<PageResult::TableList>> tableList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -514,12 +553,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // The paged query result.
     shared_ptr<ListTablesResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

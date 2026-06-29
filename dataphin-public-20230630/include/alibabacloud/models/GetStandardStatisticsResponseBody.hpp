@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // The number of standards.
         shared_ptr<int32_t> count_ {};
+        // The standard type.
         shared_ptr<string> standardType_ {};
       };
 
@@ -122,7 +124,9 @@ namespace Models
 
 
     protected:
+      // The mapping between standard types and the number of standards for each type. If the standard type is empty, the key is EMPTY.
       shared_ptr<vector<Data::StandardTypeCountList>> standardTypeCountList_ {};
+      // The total number of standards.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -173,12 +177,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The statistical results.
     shared_ptr<GetStandardStatisticsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

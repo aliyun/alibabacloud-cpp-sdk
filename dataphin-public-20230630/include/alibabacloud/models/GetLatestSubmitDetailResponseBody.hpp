@@ -142,8 +142,11 @@ namespace Models
 
 
         protected:
+          // The object ID.
           shared_ptr<string> objectId_ {};
+          // The object name.
           shared_ptr<string> objectName_ {};
+          // The object type.
           shared_ptr<string> objectType_ {};
         };
 
@@ -194,11 +197,17 @@ namespace Models
 
 
       protected:
+        // The change type. Valid values: CREATE, UPDATE, and DELETE.
         shared_ptr<string> changeType_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The object version.
         shared_ptr<string> objectVersion_ {};
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
+        // The submit comment.
         shared_ptr<string> submitComment_ {};
+        // The submit object.
         shared_ptr<ReleaseObject::SubmitObject> submitObject_ {};
       };
 
@@ -242,10 +251,32 @@ namespace Models
 
 
     protected:
+      // The submit record ID.
       shared_ptr<int64_t> id_ {};
+      // The publish status. Valid values: 
+      // - NOT_VERIFIED: not verified.
+      // - APPROVING: approval in progress.
+      // - APPROVE_FAILED: approval failed.
+      // - APPROVE_SUCCESS: approval succeeded.
+      // - APPROVE_REVOKED: approval revoked.
+      // - CHECKING: publish verification in progress.
+      // - CHECK_FAILED: publish verification failed.
+      // - CHECK_SUCCESS: publish verification succeeded.
+      // - PUBLISHING: publishing in progress.
+      // - FAILED: publish failed.
+      // - SUCCESS: publish succeeded.
       shared_ptr<string> publishStatus_ {};
+      // The pending submit record object.
       shared_ptr<SubmitDetailResult::ReleaseObject> releaseObject_ {};
+      // The submit status. Valid values: 
+      // 
+      // - TO_BE_PUBLISHED: pending.
+      // 
+      // - PUBLISHED: published.
+      // 
+      // - PUBLISHING: publishing.
       shared_ptr<string> submitStatus_ {};
+      // The record tag.
       shared_ptr<string> tag_ {};
     };
 
@@ -296,11 +327,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The pending submit details.
     shared_ptr<GetLatestSubmitDetailResponseBody::SubmitDetailResult> submitDetailResult_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

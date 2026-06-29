@@ -115,18 +115,34 @@ namespace Models
 
 
     protected:
+      // The commit remarks.
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // The compute engine type. Valid values:
+      // - MAX_COMPUTE
+      // - HADOOP.
+      // 
       // This parameter is required.
       shared_ptr<string> computeEngineType_ {};
+      // The resource description.
+      // 
       // This parameter is required.
       shared_ptr<string> description_ {};
+      // The resource ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The resource name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // The storage address of the resource.
+      // 
       // This parameter is required.
       shared_ptr<string> storageAddress_ {};
     };
@@ -150,8 +166,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The edit command.
+    // 
     // This parameter is required.
     shared_ptr<UpdateResourceRequest::UpdateCommand> updateCommand_ {};
   };

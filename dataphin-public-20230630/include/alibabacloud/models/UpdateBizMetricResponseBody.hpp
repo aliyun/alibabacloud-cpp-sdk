@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // Exception message
       shared_ptr<string> message_ {};
+      // Indicates whether the update was successful. Valid values: true (success) and false (failure)
       shared_ptr<bool> success_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // Error code. A value of OK indicates the request was successful
     shared_ptr<string> code_ {};
+    // Operation result
     shared_ptr<UpdateBizMetricResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

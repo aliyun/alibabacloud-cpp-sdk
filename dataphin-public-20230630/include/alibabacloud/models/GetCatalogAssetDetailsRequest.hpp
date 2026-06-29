@@ -78,9 +78,17 @@ namespace Models
 
 
     protected:
+      // The asset GUID.
+      // 
       // This parameter is required.
       shared_ptr<string> guid_ {};
+      // Specifies whether to include the field list. Default value: false. Valid values:
+      // - false: Not included.
+      // - true: Included.
       shared_ptr<bool> includeColumns_ {};
+      // Specifies whether to include detailed data. Default value: false. Valid values:
+      // - false: Not included.
+      // - true: Included.
       shared_ptr<bool> includeDetailedAttributes_ {};
     };
 
@@ -103,8 +111,12 @@ namespace Models
 
 
   protected:
+    // The paging query for the listing asset catalog list.
+    // 
     // This parameter is required.
     shared_ptr<GetCatalogAssetDetailsRequest::GetCatalogAssetDetailsQuery> getCatalogAssetDetailsQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

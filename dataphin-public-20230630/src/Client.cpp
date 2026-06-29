@@ -17,7 +17,14 @@ namespace DataphinPublic20230630
 {
 
 AlibabaCloud::DataphinPublic20230630::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shenzhen" , "dataphin-public.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "dataphin-public.cn-shanghai.aliyuncs.com"},
+    {"cn-hangzhou" , "dataphin-public.cn-hangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "dataphin-public.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "dataphin-public.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dataphin-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +43,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 新增数据服务应用的普通成员。
+ * @summary Adds a regular member to a data service application. Only the application owner can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param tmpReq AddDataServiceAppMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +87,8 @@ AddDataServiceAppMemberResponse Client::addDataServiceAppMemberWithOptions(const
 }
 
 /**
- * @summary 新增数据服务应用的普通成员。
+ * @summary Adds a regular member to a data service application. Only the application owner can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request AddDataServiceAppMemberRequest
  * @return AddDataServiceAppMemberResponse
@@ -90,7 +99,7 @@ AddDataServiceAppMemberResponse Client::addDataServiceAppMember(const AddDataSer
 }
 
 /**
- * @summary 添加数据服务项目用户并设置角色。
+ * @summary Adds users to a data service project and assigns roles to them.
  *
  * @param tmpReq AddDataServiceProjectMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -137,7 +146,7 @@ AddDataServiceProjectMemberResponse Client::addDataServiceProjectMemberWithOptio
 }
 
 /**
- * @summary 添加数据服务项目用户并设置角色。
+ * @summary Adds users to a data service project and assigns roles to them.
  *
  * @param request AddDataServiceProjectMemberRequest
  * @return AddDataServiceProjectMemberResponse
@@ -148,7 +157,7 @@ AddDataServiceProjectMemberResponse Client::addDataServiceProjectMember(const Ad
 }
 
 /**
- * @summary 增加项目成员。
+ * @summary Adds members to a project.
  *
  * @param tmpReq AddProjectMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -195,7 +204,7 @@ AddProjectMemberResponse Client::addProjectMemberWithOptions(const AddProjectMem
 }
 
 /**
- * @summary 增加项目成员。
+ * @summary Adds members to a project.
  *
  * @param request AddProjectMemberRequest
  * @return AddProjectMemberResponse
@@ -206,7 +215,7 @@ AddProjectMemberResponse Client::addProjectMember(const AddProjectMemberRequest 
 }
 
 /**
- * @summary 新增注册血缘。
+ * @summary Registers data lineage. Available since version v5.4.0.
  *
  * @param tmpReq AddRegisterLineageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -249,7 +258,7 @@ AddRegisterLineageResponse Client::addRegisterLineageWithOptions(const AddRegist
 }
 
 /**
- * @summary 新增注册血缘。
+ * @summary Registers data lineage. Available since version v5.4.0.
  *
  * @param request AddRegisterLineageRequest
  * @return AddRegisterLineageResponse
@@ -260,7 +269,7 @@ AddRegisterLineageResponse Client::addRegisterLineage(const AddRegisterLineageRe
 }
 
 /**
- * @summary 新增租户成员
+ * @summary Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
  *
  * @param tmpReq AddTenantMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -303,7 +312,7 @@ AddTenantMembersResponse Client::addTenantMembersWithOptions(const AddTenantMemb
 }
 
 /**
- * @summary 新增租户成员
+ * @summary Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
  *
  * @param request AddTenantMembersRequest
  * @return AddTenantMembersResponse
@@ -314,7 +323,7 @@ AddTenantMembersResponse Client::addTenantMembers(const AddTenantMembersRequest 
 }
 
 /**
- * @summary 通过原始用户添加租户成员.
+ * @summary Adds tenant members by using original user identities.
  *
  * @param tmpReq AddTenantMembersBySourceUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -357,7 +366,7 @@ AddTenantMembersBySourceUserResponse Client::addTenantMembersBySourceUserWithOpt
 }
 
 /**
- * @summary 通过原始用户添加租户成员.
+ * @summary Adds tenant members by using original user identities.
  *
  * @param request AddTenantMembersBySourceUserRequest
  * @return AddTenantMembersBySourceUserResponse
@@ -368,7 +377,7 @@ AddTenantMembersBySourceUserResponse Client::addTenantMembersBySourceUser(const 
 }
 
 /**
- * @summary 添加用户组成员.
+ * @summary Adds members to a user group.
  *
  * @param tmpReq AddUserGroupMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +420,7 @@ AddUserGroupMemberResponse Client::addUserGroupMemberWithOptions(const AddUserGr
 }
 
 /**
- * @summary 添加用户组成员.
+ * @summary Adds members to a user group.
  *
  * @param request AddUserGroupMemberRequest
  * @return AddUserGroupMemberResponse
@@ -422,7 +431,7 @@ AddUserGroupMemberResponse Client::addUserGroupMember(const AddUserGroupMemberRe
 }
 
 /**
- * @summary 申请API权限。
+ * @summary Applies for API permissions.
  *
  * @param tmpReq ApplyDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -469,7 +478,7 @@ ApplyDataServiceApiResponse Client::applyDataServiceApiWithOptions(const ApplyDa
 }
 
 /**
- * @summary 申请API权限。
+ * @summary Applies for API permissions.
  *
  * @param request ApplyDataServiceApiRequest
  * @return ApplyDataServiceApiResponse
@@ -480,7 +489,7 @@ ApplyDataServiceApiResponse Client::applyDataServiceApi(const ApplyDataServiceAp
 }
 
 /**
- * @summary 申请应用权限。
+ * @summary Applies for application permissions.
  *
  * @param tmpReq ApplyDataServiceAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -527,7 +536,7 @@ ApplyDataServiceAppResponse Client::applyDataServiceAppWithOptions(const ApplyDa
 }
 
 /**
- * @summary 申请应用权限。
+ * @summary Applies for application permissions.
  *
  * @param request ApplyDataServiceAppRequest
  * @return ApplyDataServiceAppResponse
@@ -538,7 +547,8 @@ ApplyDataServiceAppResponse Client::applyDataServiceApp(const ApplyDataServiceAp
 }
 
 /**
- * @summary 指定质量规则和调度设置进行绑定。
+ * @summary Binds specified quality rules to schedule settings.
+ * Release version: v5.4.2.
  *
  * @param tmpReq AssignQualityRuleOfAllRuleScopeSchedulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -581,7 +591,8 @@ AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllR
 }
 
 /**
- * @summary 指定质量规则和调度设置进行绑定。
+ * @summary Binds specified quality rules to schedule settings.
+ * Release version: v5.4.2.
  *
  * @param request AssignQualityRuleOfAllRuleScopeSchedulesRequest
  * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
@@ -592,7 +603,7 @@ AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllR
 }
 
 /**
- * @summary 项目计算源连通性检查。
+ * @summary Checks the connectivity of a compute source.
  *
  * @param tmpReq CheckComputeSourceConnectivityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -635,7 +646,7 @@ CheckComputeSourceConnectivityResponse Client::checkComputeSourceConnectivityWit
 }
 
 /**
- * @summary 项目计算源连通性检查。
+ * @summary Checks the connectivity of a compute source.
  *
  * @param request CheckComputeSourceConnectivityRequest
  * @return CheckComputeSourceConnectivityResponse
@@ -646,7 +657,7 @@ CheckComputeSourceConnectivityResponse Client::checkComputeSourceConnectivity(co
 }
 
 /**
- * @summary 计算源连通性检查。
+ * @summary Checks the connectivity of an existing compute source by compute source ID.
  *
  * @param request CheckComputeSourceConnectivityByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -681,7 +692,7 @@ CheckComputeSourceConnectivityByIdResponse Client::checkComputeSourceConnectivit
 }
 
 /**
- * @summary 计算源连通性检查。
+ * @summary Checks the connectivity of an existing compute source by compute source ID.
  *
  * @param request CheckComputeSourceConnectivityByIdRequest
  * @return CheckComputeSourceConnectivityByIdResponse
@@ -692,7 +703,7 @@ CheckComputeSourceConnectivityByIdResponse Client::checkComputeSourceConnectivit
 }
 
 /**
- * @summary 检查数据源连通性
+ * @summary Checks the connectivity of a data source.
  *
  * @param tmpReq CheckDataSourceConnectivityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -735,7 +746,7 @@ CheckDataSourceConnectivityResponse Client::checkDataSourceConnectivityWithOptio
 }
 
 /**
- * @summary 检查数据源连通性
+ * @summary Checks the connectivity of a data source.
  *
  * @param request CheckDataSourceConnectivityRequest
  * @return CheckDataSourceConnectivityResponse
@@ -746,7 +757,7 @@ CheckDataSourceConnectivityResponse Client::checkDataSourceConnectivity(const Ch
 }
 
 /**
- * @summary 检查已创建的数据源是否正常连通
+ * @summary Checks the connectivity of a data source.
  *
  * @param request CheckDataSourceConnectivityByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -781,7 +792,7 @@ CheckDataSourceConnectivityByIdResponse Client::checkDataSourceConnectivityByIdW
 }
 
 /**
- * @summary 检查已创建的数据源是否正常连通
+ * @summary Checks the connectivity of a data source.
  *
  * @param request CheckDataSourceConnectivityByIdRequest
  * @return CheckDataSourceConnectivityByIdResponse
@@ -792,7 +803,7 @@ CheckDataSourceConnectivityByIdResponse Client::checkDataSourceConnectivityById(
 }
 
 /**
- * @summary 检查项目是否存在依赖。
+ * @summary Checks whether a project has data dependencies such as tasks.
  *
  * @param request CheckProjectHasDependencyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +838,7 @@ CheckProjectHasDependencyResponse Client::checkProjectHasDependencyWithOptions(c
 }
 
 /**
- * @summary 检查项目是否存在依赖。
+ * @summary Checks whether a project has data dependencies such as tasks.
  *
  * @param request CheckProjectHasDependencyRequest
  * @return CheckProjectHasDependencyResponse
@@ -838,7 +849,7 @@ CheckProjectHasDependencyResponse Client::checkProjectHasDependency(const CheckP
 }
 
 /**
- * @summary 校验用户是否有指定资源权限点.
+ * @summary Checks whether a user has the permission on a specified resource.
  *
  * @param tmpReq CheckResourcePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -881,7 +892,7 @@ CheckResourcePermissionResponse Client::checkResourcePermissionWithOptions(const
 }
 
 /**
- * @summary 校验用户是否有指定资源权限点.
+ * @summary Checks whether a user has the permission on a specified resource.
  *
  * @param request CheckResourcePermissionRequest
  * @return CheckResourcePermissionResponse
@@ -892,7 +903,7 @@ CheckResourcePermissionResponse Client::checkResourcePermission(const CheckResou
 }
 
 /**
- * @summary 创建即席查询文件
+ * @summary Creates an ad hoc query file.
  *
  * @param tmpReq CreateAdHocFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -935,7 +946,7 @@ CreateAdHocFileResponse Client::createAdHocFileWithOptions(const CreateAdHocFile
 }
 
 /**
- * @summary 创建即席查询文件
+ * @summary Creates an ad hoc query file.
  *
  * @param request CreateAdHocFileRequest
  * @return CreateAdHocFileResponse
@@ -946,7 +957,7 @@ CreateAdHocFileResponse Client::createAdHocFile(const CreateAdHocFileRequest &re
 }
 
 /**
- * @summary 创建离线计算任务。
+ * @summary Creates a batch task.
  *
  * @param tmpReq CreateBatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +1000,7 @@ CreateBatchTaskResponse Client::createBatchTaskWithOptions(const CreateBatchTask
 }
 
 /**
- * @summary 创建离线计算任务。
+ * @summary Creates a batch task.
  *
  * @param request CreateBatchTaskRequest
  * @return CreateBatchTaskResponse
@@ -1000,7 +1011,7 @@ CreateBatchTaskResponse Client::createBatchTask(const CreateBatchTaskRequest &re
 }
 
 /**
- * @summary 创建业务实体。
+ * @summary Creates a business entity.
  *
  * @param tmpReq CreateBizEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1043,7 +1054,7 @@ CreateBizEntityResponse Client::createBizEntityWithOptions(const CreateBizEntity
 }
 
 /**
- * @summary 创建业务实体。
+ * @summary Creates a business entity.
  *
  * @param request CreateBizEntityRequest
  * @return CreateBizEntityResponse
@@ -1054,7 +1065,8 @@ CreateBizEntityResponse Client::createBizEntity(const CreateBizEntityRequest &re
 }
 
 /**
- * @summary 新建业务指标
+ * @summary Creates a business metric.
+ * Release version: v5.5.0.
  *
  * @param tmpReq CreateBizMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1097,7 +1109,8 @@ CreateBizMetricResponse Client::createBizMetricWithOptions(const CreateBizMetric
 }
 
 /**
- * @summary 新建业务指标
+ * @summary Creates a business metric.
+ * Release version: v5.5.0.
  *
  * @param request CreateBizMetricRequest
  * @return CreateBizMetricResponse
@@ -1108,7 +1121,7 @@ CreateBizMetricResponse Client::createBizMetric(const CreateBizMetricRequest &re
 }
 
 /**
- * @summary 创建数据板块。
+ * @summary Creates a data domain.
  *
  * @param tmpReq CreateBizUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1151,7 +1164,7 @@ CreateBizUnitResponse Client::createBizUnitWithOptions(const CreateBizUnitReques
 }
 
 /**
- * @summary 创建数据板块。
+ * @summary Creates a data domain.
  *
  * @param request CreateBizUnitRequest
  * @return CreateBizUnitResponse
@@ -1162,7 +1175,7 @@ CreateBizUnitResponse Client::createBizUnit(const CreateBizUnitRequest &request)
 }
 
 /**
- * @summary 创建计算源。
+ * @summary Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
  *
  * @param tmpReq CreateComputeSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1205,7 +1218,7 @@ CreateComputeSourceResponse Client::createComputeSourceWithOptions(const CreateC
 }
 
 /**
- * @summary 创建计算源。
+ * @summary Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
  *
  * @param request CreateComputeSourceRequest
  * @return CreateComputeSourceResponse
@@ -1216,7 +1229,7 @@ CreateComputeSourceResponse Client::createComputeSource(const CreateComputeSourc
 }
 
 /**
- * @summary 创建主题域。
+ * @summary Creates a data domain.
  *
  * @param tmpReq CreateDataDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1259,7 +1272,7 @@ CreateDataDomainResponse Client::createDataDomainWithOptions(const CreateDataDom
 }
 
 /**
- * @summary 创建主题域。
+ * @summary Creates a data domain.
  *
  * @param request CreateDataDomainRequest
  * @return CreateDataDomainResponse
@@ -1270,7 +1283,7 @@ CreateDataDomainResponse Client::createDataDomain(const CreateDataDomainRequest 
 }
 
 /**
- * @summary 创建新的数据服务API并提交。
+ * @summary Creates a data service API and submits it.
  *
  * @param tmpReq CreateDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1313,7 +1326,7 @@ CreateDataServiceApiResponse Client::createDataServiceApiWithOptions(const Creat
 }
 
 /**
- * @summary 创建新的数据服务API并提交。
+ * @summary Creates a data service API and submits it.
  *
  * @param request CreateDataServiceApiRequest
  * @return CreateDataServiceApiResponse
@@ -1324,7 +1337,8 @@ CreateDataServiceApiResponse Client::createDataServiceApi(const CreateDataServic
 }
 
 /**
- * @summary 创建数据服务应用。
+ * @summary Creates a data service application. Only super administrators or system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param tmpReq CreateDataServiceAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1367,7 +1381,8 @@ CreateDataServiceAppResponse Client::createDataServiceAppWithOptions(const Creat
 }
 
 /**
- * @summary 创建数据服务应用。
+ * @summary Creates a data service application. Only super administrators or system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request CreateDataServiceAppRequest
  * @return CreateDataServiceAppResponse
@@ -1378,7 +1393,8 @@ CreateDataServiceAppResponse Client::createDataServiceApp(const CreateDataServic
 }
 
 /**
- * @summary 创建数据服务应用分组。
+ * @summary Creates a data service application group. Only superusers and system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request CreateDataServiceAppGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1413,7 +1429,8 @@ CreateDataServiceAppGroupResponse Client::createDataServiceAppGroupWithOptions(c
 }
 
 /**
- * @summary 创建数据服务应用分组。
+ * @summary Creates a data service application group. Only superusers and system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request CreateDataServiceAppGroupRequest
  * @return CreateDataServiceAppGroupResponse
@@ -1424,7 +1441,7 @@ CreateDataServiceAppGroupResponse Client::createDataServiceAppGroup(const Create
 }
 
 /**
- * @summary 新建数据源
+ * @summary Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
  *
  * @param tmpReq CreateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1467,7 +1484,7 @@ CreateDataSourceResponse Client::createDataSourceWithOptions(const CreateDataSou
 }
 
 /**
- * @summary 新建数据源
+ * @summary Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
  *
  * @param request CreateDataSourceRequest
  * @return CreateDataSourceResponse
@@ -1478,7 +1495,7 @@ CreateDataSourceResponse Client::createDataSource(const CreateDataSourceRequest 
 }
 
 /**
- * @summary 创建菜单树文件目录
+ * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
  *
  * @param tmpReq CreateDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1521,7 +1538,7 @@ CreateDirectoryResponse Client::createDirectoryWithOptions(const CreateDirectory
 }
 
 /**
- * @summary 创建菜单树文件目录
+ * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
  *
  * @param request CreateDirectoryRequest
  * @return CreateDirectoryResponse
@@ -1532,7 +1549,9 @@ CreateDirectoryResponse Client::createDirectory(const CreateDirectoryRequest &re
 }
 
 /**
- * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
+ * @summary General-purpose backfill API that supports both list-mode and bulk-mode backfill:
+ * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
+ * 2. Task execution will incur computing costs and storage costs.
  *
  * @param tmpReq CreateNodeSupplementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1579,7 +1598,9 @@ CreateNodeSupplementResponse Client::createNodeSupplementWithOptions(const Creat
 }
 
 /**
- * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
+ * @summary General-purpose backfill API that supports both list-mode and bulk-mode backfill:
+ * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
+ * 2. Task execution will incur computing costs and storage costs.
  *
  * @param request CreateNodeSupplementRequest
  * @return CreateNodeSupplementResponse
@@ -1590,7 +1611,7 @@ CreateNodeSupplementResponse Client::createNodeSupplement(const CreateNodeSupple
 }
 
 /**
- * @summary 创建集成管道任务。
+ * @summary Create an integration pipeline/unstructured workflow task.
  *
  * @param tmpReq CreatePipelineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1641,7 +1662,7 @@ CreatePipelineResponse Client::createPipelineWithOptions(const CreatePipelineReq
 }
 
 /**
- * @summary 创建集成管道任务。
+ * @summary Create an integration pipeline/unstructured workflow task.
  *
  * @param request CreatePipelineRequest
  * @return CreatePipelineResponse
@@ -1652,7 +1673,7 @@ CreatePipelineResponse Client::createPipeline(const CreatePipelineRequest &reque
 }
 
 /**
- * @summary 异步创建集成管道任务。
+ * @summary Asynchronously create a pipeline/unstructured workflow.
  *
  * @param tmpReq CreatePipelineByAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1703,7 +1724,7 @@ CreatePipelineByAsyncResponse Client::createPipelineByAsyncWithOptions(const Cre
 }
 
 /**
- * @summary 异步创建集成管道任务。
+ * @summary Asynchronously create a pipeline/unstructured workflow.
  *
  * @param request CreatePipelineByAsyncRequest
  * @return CreatePipelineByAsyncResponse
@@ -1714,7 +1735,7 @@ CreatePipelineByAsyncResponse Client::createPipelineByAsync(const CreatePipeline
 }
 
 /**
- * @summary 创建数据集成任务。
+ * @summary Creates a data integration task. Note: This operation is deprecated starting from Dataphin v5.3.1. Use CreatePipeline instead.
  *
  * @param tmpReq CreatePipelineNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1757,7 +1778,7 @@ CreatePipelineNodeResponse Client::createPipelineNodeWithOptions(const CreatePip
 }
 
 /**
- * @summary 创建数据集成任务。
+ * @summary Creates a data integration task. Note: This operation is deprecated starting from Dataphin v5.3.1. Use CreatePipeline instead.
  *
  * @param request CreatePipelineNodeRequest
  * @return CreatePipelineNodeResponse
@@ -1768,7 +1789,7 @@ CreatePipelineNodeResponse Client::createPipelineNode(const CreatePipelineNodeRe
 }
 
 /**
- * @summary 创建资源文件。
+ * @summary Creates a resource file.
  *
  * @param tmpReq CreateResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1811,7 +1832,7 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
 }
 
 /**
- * @summary 创建资源文件。
+ * @summary Creates a resource file.
  *
  * @param request CreateResourceRequest
  * @return CreateResourceResponse
@@ -1822,7 +1843,9 @@ CreateResourceResponse Client::createResource(const CreateResourceRequest &reque
 }
 
 /**
- * @summary 创建行级权限
+ * @summary Creates a row-level permission.
+ *
+ * @description You can query detailed information about published APIs based on the appKey.
  *
  * @param tmpReq CreateRowPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1865,7 +1888,9 @@ CreateRowPermissionResponse Client::createRowPermissionWithOptions(const CreateR
 }
 
 /**
- * @summary 创建行级权限
+ * @summary Creates a row-level permission.
+ *
+ * @description You can query detailed information about published APIs based on the appKey.
  *
  * @param request CreateRowPermissionRequest
  * @return CreateRowPermissionResponse
@@ -1876,7 +1901,7 @@ CreateRowPermissionResponse Client::createRowPermission(const CreateRowPermissio
 }
 
 /**
- * @summary 新建数据分类。
+ * @summary Creates a data classification. Available since v5.4.2.
  *
  * @param tmpReq CreateSecurityClassifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1919,7 +1944,7 @@ CreateSecurityClassifyResponse Client::createSecurityClassifyWithOptions(const C
 }
 
 /**
- * @summary 新建数据分类。
+ * @summary Creates a data classification. Available since v5.4.2.
  *
  * @param request CreateSecurityClassifyRequest
  * @return CreateSecurityClassifyResponse
@@ -1930,7 +1955,7 @@ CreateSecurityClassifyResponse Client::createSecurityClassify(const CreateSecuri
 }
 
 /**
- * @summary 新建数据分类目录。
+ * @summary Creates a data classification folder. Available since v5.4.2.
  *
  * @param tmpReq CreateSecurityClassifyCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1973,7 +1998,7 @@ CreateSecurityClassifyCatalogResponse Client::createSecurityClassifyCatalogWithO
 }
 
 /**
- * @summary 新建数据分类目录。
+ * @summary Creates a data classification folder. Available since v5.4.2.
  *
  * @param request CreateSecurityClassifyCatalogRequest
  * @return CreateSecurityClassifyCatalogResponse
@@ -1984,7 +2009,8 @@ CreateSecurityClassifyCatalogResponse Client::createSecurityClassifyCatalog(cons
 }
 
 /**
- * @summary 新建安全识别结果。
+ * @summary Creates a security identification result.
+ * Release version: v5.4.2.
  *
  * @param tmpReq CreateSecurityIdentifyResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2027,7 +2053,8 @@ CreateSecurityIdentifyResultResponse Client::createSecurityIdentifyResultWithOpt
 }
 
 /**
- * @summary 新建安全识别结果。
+ * @summary Creates a security identification result.
+ * Release version: v5.4.2.
  *
  * @param request CreateSecurityIdentifyResultRequest
  * @return CreateSecurityIdentifyResultResponse
@@ -2038,7 +2065,7 @@ CreateSecurityIdentifyResultResponse Client::createSecurityIdentifyResult(const 
 }
 
 /**
- * @summary 新建数据分级。
+ * @summary Creates a data classification level. Available since v5.4.2.
  *
  * @param tmpReq CreateSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2081,7 +2108,7 @@ CreateSecurityLevelResponse Client::createSecurityLevelWithOptions(const CreateS
 }
 
 /**
- * @summary 新建数据分级。
+ * @summary Creates a data classification level. Available since v5.4.2.
  *
  * @param request CreateSecurityLevelRequest
  * @return CreateSecurityLevelResponse
@@ -2092,7 +2119,8 @@ CreateSecurityLevelResponse Client::createSecurityLevel(const CreateSecurityLeve
 }
 
 /**
- * @summary 创建标准。
+ * @summary Creates a standard.
+ * Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2135,7 +2163,8 @@ CreateStandardResponse Client::createStandardWithOptions(const CreateStandardReq
 }
 
 /**
- * @summary 创建标准。
+ * @summary Creates a standard.
+ * Release version: v5.4.2.
  *
  * @param request CreateStandardRequest
  * @return CreateStandardResponse
@@ -2146,7 +2175,8 @@ CreateStandardResponse Client::createStandard(const CreateStandardRequest &reque
 }
 
 /**
- * @summary 创建数据标准码表。
+ * @summary Creates a data standard lookup table.
+ * Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardLookupTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2189,7 +2219,8 @@ CreateStandardLookupTableResponse Client::createStandardLookupTableWithOptions(c
 }
 
 /**
- * @summary 创建数据标准码表。
+ * @summary Creates a data standard lookup table.
+ * Release version: v5.4.2.
  *
  * @param request CreateStandardLookupTableRequest
  * @return CreateStandardLookupTableResponse
@@ -2200,7 +2231,8 @@ CreateStandardLookupTableResponse Client::createStandardLookupTable(const Create
 }
 
 /**
- * @summary 创建标准映射关系, 包括有效映射和无效映射。
+ * @summary Creates standard mapping relationships, including valid mappings and invalid mappings.
+ * Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2243,7 +2275,8 @@ CreateStandardMappingResponse Client::createStandardMappingWithOptions(const Cre
 }
 
 /**
- * @summary 创建标准映射关系, 包括有效映射和无效映射。
+ * @summary Creates standard mapping relationships, including valid mappings and invalid mappings.
+ * Release version: v5.4.2.
  *
  * @param request CreateStandardMappingRequest
  * @return CreateStandardMappingResponse
@@ -2254,7 +2287,7 @@ CreateStandardMappingResponse Client::createStandardMapping(const CreateStandard
 }
 
 /**
- * @summary 创建标准关联关系。
+ * @summary Creates a standard association. Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2297,7 +2330,7 @@ CreateStandardRelationsResponse Client::createStandardRelationsWithOptions(const
 }
 
 /**
- * @summary 创建标准关联关系。
+ * @summary Creates a standard association. Release version: v5.4.2.
  *
  * @param request CreateStandardRelationsRequest
  * @return CreateStandardRelationsResponse
@@ -2308,7 +2341,8 @@ CreateStandardRelationsResponse Client::createStandardRelations(const CreateStan
 }
 
 /**
- * @summary 创建标准集。
+ * @summary Creates a standard set.
+ * Available since: v5.4.2.
  *
  * @param tmpReq CreateStandardSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2351,7 +2385,8 @@ CreateStandardSetResponse Client::createStandardSetWithOptions(const CreateStand
 }
 
 /**
- * @summary 创建标准集。
+ * @summary Creates a standard set.
+ * Available since: v5.4.2.
  *
  * @param request CreateStandardSetRequest
  * @return CreateStandardSetResponse
@@ -2362,7 +2397,8 @@ CreateStandardSetResponse Client::createStandardSet(const CreateStandardSetReque
 }
 
 /**
- * @summary 创建数据标准模板。
+ * @summary Create a data standard template.
+ * Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2405,7 +2441,8 @@ CreateStandardTemplateResponse Client::createStandardTemplateWithOptions(const C
 }
 
 /**
- * @summary 创建数据标准模板。
+ * @summary Create a data standard template.
+ * Release version: v5.4.2.
  *
  * @param request CreateStandardTemplateRequest
  * @return CreateStandardTemplateResponse
@@ -2416,7 +2453,8 @@ CreateStandardTemplateResponse Client::createStandardTemplate(const CreateStanda
 }
 
 /**
- * @summary 创建数据标准词根。
+ * @summary Creates a data standard root word.
+ * Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardWordRootRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2459,7 +2497,8 @@ CreateStandardWordRootResponse Client::createStandardWordRootWithOptions(const C
 }
 
 /**
- * @summary 创建数据标准词根。
+ * @summary Creates a data standard root word.
+ * Release version: v5.4.2.
  *
  * @param request CreateStandardWordRootRequest
  * @return CreateStandardWordRootResponse
@@ -2470,7 +2509,7 @@ CreateStandardWordRootResponse Client::createStandardWordRoot(const CreateStanda
 }
 
 /**
- * @summary 创建流批一体任务
+ * @summary Creates a stream-batch integrated node.
  *
  * @param tmpReq CreateStreamBatchJobMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2513,7 +2552,7 @@ CreateStreamBatchJobMappingResponse Client::createStreamBatchJobMappingWithOptio
 }
 
 /**
- * @summary 创建流批一体任务
+ * @summary Creates a stream-batch integrated node.
  *
  * @param request CreateStreamBatchJobMappingRequest
  * @return CreateStreamBatchJobMappingResponse
@@ -2524,7 +2563,7 @@ CreateStreamBatchJobMappingResponse Client::createStreamBatchJobMapping(const Cr
 }
 
 /**
- * @summary 创建自定义函数。
+ * @summary Creates a user-defined function.
  *
  * @param tmpReq CreateUdfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2567,7 +2606,7 @@ CreateUdfResponse Client::createUdfWithOptions(const CreateUdfRequest &tmpReq, c
 }
 
 /**
- * @summary 创建自定义函数。
+ * @summary Creates a user-defined function.
  *
  * @param request CreateUdfRequest
  * @return CreateUdfResponse
@@ -2578,7 +2617,7 @@ CreateUdfResponse Client::createUdf(const CreateUdfRequest &request) {
 }
 
 /**
- * @summary 新建用户组.
+ * @summary Creates a user group.
  *
  * @param tmpReq CreateUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2621,7 +2660,7 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
 }
 
 /**
- * @summary 新建用户组.
+ * @summary Creates a user group.
  *
  * @param request CreateUserGroupRequest
  * @return CreateUserGroupResponse
@@ -2632,7 +2671,7 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
- * @summary 删除菜单树即席查询文件
+ * @summary Deletes an ad hoc query file from the menu tree.
  *
  * @param request DeleteAdHocFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2671,7 +2710,7 @@ DeleteAdHocFileResponse Client::deleteAdHocFileWithOptions(const DeleteAdHocFile
 }
 
 /**
- * @summary 删除菜单树即席查询文件
+ * @summary Deletes an ad hoc query file from the menu tree.
  *
  * @param request DeleteAdHocFileRequest
  * @return DeleteAdHocFileResponse
@@ -2682,7 +2721,7 @@ DeleteAdHocFileResponse Client::deleteAdHocFile(const DeleteAdHocFileRequest &re
 }
 
 /**
- * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
+ * @summary Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
  *
  * @param tmpReq DeleteBatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2725,7 +2764,7 @@ DeleteBatchTaskResponse Client::deleteBatchTaskWithOptions(const DeleteBatchTask
 }
 
 /**
- * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
+ * @summary Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
  *
  * @param request DeleteBatchTaskRequest
  * @return DeleteBatchTaskResponse
@@ -2736,7 +2775,7 @@ DeleteBatchTaskResponse Client::deleteBatchTask(const DeleteBatchTaskRequest &re
 }
 
 /**
- * @summary 删除业务实体。
+ * @summary Deletes a business entity.
  *
  * @param request DeleteBizEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2779,7 +2818,7 @@ DeleteBizEntityResponse Client::deleteBizEntityWithOptions(const DeleteBizEntity
 }
 
 /**
- * @summary 删除业务实体。
+ * @summary Deletes a business entity.
  *
  * @param request DeleteBizEntityRequest
  * @return DeleteBizEntityResponse
@@ -2790,7 +2829,8 @@ DeleteBizEntityResponse Client::deleteBizEntity(const DeleteBizEntityRequest &re
 }
 
 /**
- * @summary 删除业务指标
+ * @summary Deletes a business metric.
+ * Release version: v5.5.0.
  *
  * @param tmpReq DeleteBizMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2833,7 +2873,8 @@ DeleteBizMetricResponse Client::deleteBizMetricWithOptions(const DeleteBizMetric
 }
 
 /**
- * @summary 删除业务指标
+ * @summary Deletes a business metric.
+ * Release version: v5.5.0.
  *
  * @param request DeleteBizMetricRequest
  * @return DeleteBizMetricResponse
@@ -2844,7 +2885,7 @@ DeleteBizMetricResponse Client::deleteBizMetric(const DeleteBizMetricRequest &re
 }
 
 /**
- * @summary 删除数据板块。
+ * @summary Deletes a data domain.
  *
  * @param request DeleteBizUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2879,7 +2920,7 @@ DeleteBizUnitResponse Client::deleteBizUnitWithOptions(const DeleteBizUnitReques
 }
 
 /**
- * @summary 删除数据板块。
+ * @summary Deletes a data domain.
  *
  * @param request DeleteBizUnitRequest
  * @return DeleteBizUnitResponse
@@ -2890,7 +2931,7 @@ DeleteBizUnitResponse Client::deleteBizUnit(const DeleteBizUnitRequest &request)
 }
 
 /**
- * @summary 删除计算源。
+ * @summary Deletes a compute source.
  *
  * @param request DeleteComputeSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2925,7 +2966,7 @@ DeleteComputeSourceResponse Client::deleteComputeSourceWithOptions(const DeleteC
 }
 
 /**
- * @summary 删除计算源。
+ * @summary Deletes a compute source.
  *
  * @param request DeleteComputeSourceRequest
  * @return DeleteComputeSourceResponse
@@ -2936,7 +2977,7 @@ DeleteComputeSourceResponse Client::deleteComputeSource(const DeleteComputeSourc
 }
 
 /**
- * @summary 删除主题域。
+ * @summary Deletes a subject domain.
  *
  * @param request DeleteDataDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2975,7 +3016,7 @@ DeleteDataDomainResponse Client::deleteDataDomainWithOptions(const DeleteDataDom
 }
 
 /**
- * @summary 删除主题域。
+ * @summary Deletes a subject domain.
  *
  * @param request DeleteDataDomainRequest
  * @return DeleteDataDomainResponse
@@ -2986,7 +3027,8 @@ DeleteDataDomainResponse Client::deleteDataDomain(const DeleteDataDomainRequest 
 }
 
 /**
- * @summary 删除数据服务应用。
+ * @summary Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request DeleteDataServiceAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3021,7 +3063,8 @@ DeleteDataServiceAppResponse Client::deleteDataServiceAppWithOptions(const Delet
 }
 
 /**
- * @summary 删除数据服务应用。
+ * @summary Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request DeleteDataServiceAppRequest
  * @return DeleteDataServiceAppResponse
@@ -3032,7 +3075,8 @@ DeleteDataServiceAppResponse Client::deleteDataServiceApp(const DeleteDataServic
 }
 
 /**
- * @summary 删除数据服务应用分组。
+ * @summary Deletes a data service application group. Only superusers and system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request DeleteDataServiceAppGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3067,7 +3111,8 @@ DeleteDataServiceAppGroupResponse Client::deleteDataServiceAppGroupWithOptions(c
 }
 
 /**
- * @summary 删除数据服务应用分组。
+ * @summary Deletes a data service application group. Only superusers and system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request DeleteDataServiceAppGroupRequest
  * @return DeleteDataServiceAppGroupResponse
@@ -3078,7 +3123,7 @@ DeleteDataServiceAppGroupResponse Client::deleteDataServiceAppGroup(const Delete
 }
 
 /**
- * @summary 删除数据源
+ * @summary Deletes a data source.
  *
  * @param tmpReq DeleteDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3121,7 +3166,7 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
 }
 
 /**
- * @summary 删除数据源
+ * @summary Deletes a data source.
  *
  * @param request DeleteDataSourceRequest
  * @return DeleteDataSourceResponse
@@ -3132,7 +3177,7 @@ DeleteDataSourceResponse Client::deleteDataSource(const DeleteDataSourceRequest 
 }
 
 /**
- * @summary 删除菜单树文件目录
+ * @summary Deletes a file directory from the menu tree.
  *
  * @param request DeleteDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3171,7 +3216,7 @@ DeleteDirectoryResponse Client::deleteDirectoryWithOptions(const DeleteDirectory
 }
 
 /**
- * @summary 删除菜单树文件目录
+ * @summary Deletes a file directory from the menu tree.
  *
  * @param request DeleteDirectoryRequest
  * @return DeleteDirectoryResponse
@@ -3182,7 +3227,8 @@ DeleteDirectoryResponse Client::deleteDirectory(const DeleteDirectoryRequest &re
 }
 
 /**
- * @summary 批量删除质量规则对象。
+ * @summary Deletes quality rule objects in batches.
+ * Release version: v5.4.2.
  *
  * @param tmpReq DeleteQualityRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3225,7 +3271,8 @@ DeleteQualityRulesResponse Client::deleteQualityRulesWithOptions(const DeleteQua
 }
 
 /**
- * @summary 批量删除质量规则对象。
+ * @summary Deletes quality rule objects in batches.
+ * Release version: v5.4.2.
  *
  * @param request DeleteQualityRulesRequest
  * @return DeleteQualityRulesResponse
@@ -3236,7 +3283,8 @@ DeleteQualityRulesResponse Client::deleteQualityRules(const DeleteQualityRulesRe
 }
 
 /**
- * @summary 批量删除质量调度对象。
+ * @summary Deletes quality scheduling objects in batches.
+ * Release version: v5.4.2.
  *
  * @param tmpReq DeleteQualitySchedulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3279,7 +3327,8 @@ DeleteQualitySchedulesResponse Client::deleteQualitySchedulesWithOptions(const D
 }
 
 /**
- * @summary 批量删除质量调度对象。
+ * @summary Deletes quality scheduling objects in batches.
+ * Release version: v5.4.2.
  *
  * @param request DeleteQualitySchedulesRequest
  * @return DeleteQualitySchedulesResponse
@@ -3290,7 +3339,8 @@ DeleteQualitySchedulesResponse Client::deleteQualitySchedules(const DeleteQualit
 }
 
 /**
- * @summary 批量删除质量模板对象。
+ * @summary Deletes quality template objects in batches.
+ * Online version: v5.4.2.
  *
  * @param tmpReq DeleteQualityTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3333,7 +3383,8 @@ DeleteQualityTemplatesResponse Client::deleteQualityTemplatesWithOptions(const D
 }
 
 /**
- * @summary 批量删除质量模板对象。
+ * @summary Deletes quality template objects in batches.
+ * Online version: v5.4.2.
  *
  * @param request DeleteQualityTemplatesRequest
  * @return DeleteQualityTemplatesResponse
@@ -3344,7 +3395,8 @@ DeleteQualityTemplatesResponse Client::deleteQualityTemplates(const DeleteQualit
 }
 
 /**
- * @summary 批量删除质量监控对象。
+ * @summary Deletes monitored objects in batches.
+ * Release version: v5.4.2.
  *
  * @param tmpReq DeleteQualityWatchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3387,7 +3439,8 @@ DeleteQualityWatchesResponse Client::deleteQualityWatchesWithOptions(const Delet
 }
 
 /**
- * @summary 批量删除质量监控对象。
+ * @summary Deletes monitored objects in batches.
+ * Release version: v5.4.2.
  *
  * @param request DeleteQualityWatchesRequest
  * @return DeleteQualityWatchesResponse
@@ -3398,7 +3451,7 @@ DeleteQualityWatchesResponse Client::deleteQualityWatches(const DeleteQualityWat
 }
 
 /**
- * @summary 删除注册血缘。
+ * @summary Deletes registered lineage. Available since version v5.4.0.
  *
  * @param tmpReq DeleteRegisterLineageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3441,7 +3494,7 @@ DeleteRegisterLineageResponse Client::deleteRegisterLineageWithOptions(const Del
 }
 
 /**
- * @summary 删除注册血缘。
+ * @summary Deletes registered lineage. Available since version v5.4.0.
  *
  * @param request DeleteRegisterLineageRequest
  * @return DeleteRegisterLineageResponse
@@ -3452,7 +3505,7 @@ DeleteRegisterLineageResponse Client::deleteRegisterLineage(const DeleteRegister
 }
 
 /**
- * @summary 删除资源文件。
+ * @summary Delete a resource file.
  *
  * @param request DeleteResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3495,7 +3548,7 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const DeleteResourceReq
 }
 
 /**
- * @summary 删除资源文件。
+ * @summary Delete a resource file.
  *
  * @param request DeleteResourceRequest
  * @return DeleteResourceResponse
@@ -3506,7 +3559,7 @@ DeleteResourceResponse Client::deleteResource(const DeleteResourceRequest &reque
 }
 
 /**
- * @summary 删除行级权限
+ * @summary Deletes a row-level permission.
  *
  * @param tmpReq DeleteRowPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3549,7 +3602,7 @@ DeleteRowPermissionResponse Client::deleteRowPermissionWithOptions(const DeleteR
 }
 
 /**
- * @summary 删除行级权限
+ * @summary Deletes a row-level permission.
  *
  * @param request DeleteRowPermissionRequest
  * @return DeleteRowPermissionResponse
@@ -3560,7 +3613,7 @@ DeleteRowPermissionResponse Client::deleteRowPermission(const DeleteRowPermissio
 }
 
 /**
- * @summary 删除数据分类。
+ * @summary Deletes a data categorization. Available since v5.4.2.
  *
  * @param tmpReq DeleteSecurityClassifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3603,7 +3656,7 @@ DeleteSecurityClassifyResponse Client::deleteSecurityClassifyWithOptions(const D
 }
 
 /**
- * @summary 删除数据分类。
+ * @summary Deletes a data categorization. Available since v5.4.2.
  *
  * @param request DeleteSecurityClassifyRequest
  * @return DeleteSecurityClassifyResponse
@@ -3614,7 +3667,7 @@ DeleteSecurityClassifyResponse Client::deleteSecurityClassify(const DeleteSecuri
 }
 
 /**
- * @summary 删除数据分类目录。
+ * @summary Deletes a data classification catalog. Release version: v5.4.2.
  *
  * @param tmpReq DeleteSecurityClassifyCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3657,7 +3710,7 @@ DeleteSecurityClassifyCatalogResponse Client::deleteSecurityClassifyCatalogWithO
 }
 
 /**
- * @summary 删除数据分类目录。
+ * @summary Deletes a data classification catalog. Release version: v5.4.2.
  *
  * @param request DeleteSecurityClassifyCatalogRequest
  * @return DeleteSecurityClassifyCatalogResponse
@@ -3668,7 +3721,7 @@ DeleteSecurityClassifyCatalogResponse Client::deleteSecurityClassifyCatalog(cons
 }
 
 /**
- * @summary 批量删除安全识别结果。
+ * @summary Deletes security identification results in batches. Release version: v5.4.2.
  *
  * @param tmpReq DeleteSecurityIdentifyResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3711,7 +3764,7 @@ DeleteSecurityIdentifyResultsResponse Client::deleteSecurityIdentifyResultsWithO
 }
 
 /**
- * @summary 批量删除安全识别结果。
+ * @summary Deletes security identification results in batches. Release version: v5.4.2.
  *
  * @param request DeleteSecurityIdentifyResultsRequest
  * @return DeleteSecurityIdentifyResultsResponse
@@ -3722,7 +3775,7 @@ DeleteSecurityIdentifyResultsResponse Client::deleteSecurityIdentifyResults(cons
 }
 
 /**
- * @summary 删除数据分级。
+ * @summary Deletes a data classification level. Available since v5.4.2.
  *
  * @param tmpReq DeleteSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3765,7 +3818,7 @@ DeleteSecurityLevelResponse Client::deleteSecurityLevelWithOptions(const DeleteS
 }
 
 /**
- * @summary 删除数据分级。
+ * @summary Deletes a data classification level. Available since v5.4.2.
  *
  * @param request DeleteSecurityLevelRequest
  * @return DeleteSecurityLevelResponse
@@ -3776,7 +3829,8 @@ DeleteSecurityLevelResponse Client::deleteSecurityLevel(const DeleteSecurityLeve
 }
 
 /**
- * @summary 删除标准。
+ * @summary Deletes a standard.
+ * Online version: v5.4.2.
  *
  * @param tmpReq DeleteStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3819,7 +3873,8 @@ DeleteStandardResponse Client::deleteStandardWithOptions(const DeleteStandardReq
 }
 
 /**
- * @summary 删除标准。
+ * @summary Deletes a standard.
+ * Online version: v5.4.2.
  *
  * @param request DeleteStandardRequest
  * @return DeleteStandardResponse
@@ -3830,7 +3885,8 @@ DeleteStandardResponse Client::deleteStandard(const DeleteStandardRequest &reque
 }
 
 /**
- * @summary 删除无效映射关系。
+ * @summary Deletes invalid mapping relationships.
+ * Online version: v5.4.2.
  *
  * @param tmpReq DeleteStandardInValidMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3873,7 +3929,8 @@ DeleteStandardInValidMappingResponse Client::deleteStandardInValidMappingWithOpt
 }
 
 /**
- * @summary 删除无效映射关系。
+ * @summary Deletes invalid mapping relationships.
+ * Online version: v5.4.2.
  *
  * @param request DeleteStandardInValidMappingRequest
  * @return DeleteStandardInValidMappingResponse
@@ -3884,7 +3941,7 @@ DeleteStandardInValidMappingResponse Client::deleteStandardInValidMapping(const 
 }
 
 /**
- * @summary 删除数据标准码表。
+ * @summary Deletes a data standard lookup table. Release version: v5.4.2.
  *
  * @param request DeleteStandardLookupTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3919,7 +3976,7 @@ DeleteStandardLookupTableResponse Client::deleteStandardLookupTableWithOptions(c
 }
 
 /**
- * @summary 删除数据标准码表。
+ * @summary Deletes a data standard lookup table. Release version: v5.4.2.
  *
  * @param request DeleteStandardLookupTableRequest
  * @return DeleteStandardLookupTableResponse
@@ -3930,7 +3987,8 @@ DeleteStandardLookupTableResponse Client::deleteStandardLookupTable(const Delete
 }
 
 /**
- * @summary 批量删除标准关联关系。
+ * @summary Deletes standard associations in batches.
+ * Release version: v5.4.2.
  *
  * @param tmpReq DeleteStandardRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3973,7 +4031,8 @@ DeleteStandardRelationsResponse Client::deleteStandardRelationsWithOptions(const
 }
 
 /**
- * @summary 批量删除标准关联关系。
+ * @summary Deletes standard associations in batches.
+ * Release version: v5.4.2.
  *
  * @param request DeleteStandardRelationsRequest
  * @return DeleteStandardRelationsResponse
@@ -3984,7 +4043,8 @@ DeleteStandardRelationsResponse Client::deleteStandardRelations(const DeleteStan
 }
 
 /**
- * @summary 删除标准集。
+ * @summary Deletes a standard set.
+ * Online version: v5.4.2.
  *
  * @param request DeleteStandardSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4019,7 +4079,8 @@ DeleteStandardSetResponse Client::deleteStandardSetWithOptions(const DeleteStand
 }
 
 /**
- * @summary 删除标准集。
+ * @summary Deletes a standard set.
+ * Online version: v5.4.2.
  *
  * @param request DeleteStandardSetRequest
  * @return DeleteStandardSetResponse
@@ -4030,7 +4091,8 @@ DeleteStandardSetResponse Client::deleteStandardSet(const DeleteStandardSetReque
 }
 
 /**
- * @summary 删除有效映射关系。
+ * @summary Deletes valid mapping relationships.
+ * Release version: v5.4.2.
  *
  * @param tmpReq DeleteStandardValidMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4073,7 +4135,8 @@ DeleteStandardValidMappingResponse Client::deleteStandardValidMappingWithOptions
 }
 
 /**
- * @summary 删除有效映射关系。
+ * @summary Deletes valid mapping relationships.
+ * Release version: v5.4.2.
  *
  * @param request DeleteStandardValidMappingRequest
  * @return DeleteStandardValidMappingResponse
@@ -4084,7 +4147,8 @@ DeleteStandardValidMappingResponse Client::deleteStandardValidMapping(const Dele
 }
 
 /**
- * @summary 删除数据标准词根。
+ * @summary Deletes a data standard root word.
+ * Online version: v5.4.2.
  *
  * @param request DeleteStandardWordRootRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4119,7 +4183,8 @@ DeleteStandardWordRootResponse Client::deleteStandardWordRootWithOptions(const D
 }
 
 /**
- * @summary 删除数据标准词根。
+ * @summary Deletes a data standard root word.
+ * Online version: v5.4.2.
  *
  * @param request DeleteStandardWordRootRequest
  * @return DeleteStandardWordRootResponse
@@ -4130,7 +4195,7 @@ DeleteStandardWordRootResponse Client::deleteStandardWordRoot(const DeleteStanda
 }
 
 /**
- * @summary 删除自定义函数。
+ * @summary Deletes a user-defined function.
  *
  * @param request DeleteUdfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4173,7 +4238,7 @@ DeleteUdfResponse Client::deleteUdfWithOptions(const DeleteUdfRequest &request, 
 }
 
 /**
- * @summary 删除自定义函数。
+ * @summary Deletes a user-defined function.
  *
  * @param request DeleteUdfRequest
  * @return DeleteUdfResponse
@@ -4184,7 +4249,7 @@ DeleteUdfResponse Client::deleteUdf(const DeleteUdfRequest &request) {
 }
 
 /**
- * @summary 删除用户组.
+ * @summary Deletes a user group.
  *
  * @param request DeleteUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4219,7 +4284,7 @@ DeleteUserGroupResponse Client::deleteUserGroupWithOptions(const DeleteUserGroup
 }
 
 /**
- * @summary 删除用户组.
+ * @summary Deletes a user group.
  *
  * @param request DeleteUserGroupRequest
  * @return DeleteUserGroupResponse
@@ -4230,7 +4295,7 @@ DeleteUserGroupResponse Client::deleteUserGroup(const DeleteUserGroupRequest &re
 }
 
 /**
- * @summary 执行即席查询任务。
+ * @summary Executes an ad hoc query task.
  *
  * @param tmpReq ExecuteAdHocTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4273,7 +4338,7 @@ ExecuteAdHocTaskResponse Client::executeAdHocTaskWithOptions(const ExecuteAdHocT
 }
 
 /**
- * @summary 执行即席查询任务。
+ * @summary Executes an ad hoc query task.
  *
  * @param request ExecuteAdHocTaskRequest
  * @return ExecuteAdHocTaskResponse
@@ -4284,7 +4349,7 @@ ExecuteAdHocTaskResponse Client::executeAdHocTask(const ExecuteAdHocTaskRequest 
 }
 
 /**
- * @summary 运行手动调度节点。
+ * @summary Runs a manually scheduled node.
  *
  * @param tmpReq ExecuteManualNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4331,7 +4396,7 @@ ExecuteManualNodeResponse Client::executeManualNodeWithOptions(const ExecuteManu
 }
 
 /**
- * @summary 运行手动调度节点。
+ * @summary Runs a manually scheduled node.
  *
  * @param request ExecuteManualNodeRequest
  * @return ExecuteManualNodeResponse
@@ -4342,7 +4407,7 @@ ExecuteManualNodeResponse Client::executeManualNode(const ExecuteManualNodeReque
 }
 
 /**
- * @summary 运行触发式节点。
+ * @summary Runs a trigger-based node.
  *
  * @param request ExecuteTriggerNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4393,7 +4458,7 @@ ExecuteTriggerNodeResponse Client::executeTriggerNodeWithOptions(const ExecuteTr
 }
 
 /**
- * @summary 运行触发式节点。
+ * @summary Runs a trigger-based node.
  *
  * @param request ExecuteTriggerNodeRequest
  * @return ExecuteTriggerNodeResponse
@@ -4404,7 +4469,7 @@ ExecuteTriggerNodeResponse Client::executeTriggerNode(const ExecuteTriggerNodeRe
 }
 
 /**
- * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
+ * @summary Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
  *
  * @param tmpReq FixDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4451,7 +4516,7 @@ FixDataResponse Client::fixDataWithOptions(const FixDataRequest &tmpReq, const D
 }
 
 /**
- * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
+ * @summary Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
  *
  * @param request FixDataRequest
  * @return FixDataResponse
@@ -4462,7 +4527,7 @@ FixDataResponse Client::fixData(const FixDataRequest &request) {
 }
 
 /**
- * @summary 根据行级权限ID获取某一行级权限下的所有授权账号
+ * @summary Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
  *
  * @param tmpReq GetAccountByRowPermissionIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4505,7 +4570,7 @@ GetAccountByRowPermissionIdResponse Client::getAccountByRowPermissionIdWithOptio
 }
 
 /**
- * @summary 根据行级权限ID获取某一行级权限下的所有授权账号
+ * @summary Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
  *
  * @param request GetAccountByRowPermissionIdRequest
  * @return GetAccountByRowPermissionIdResponse
@@ -4516,7 +4581,7 @@ GetAccountByRowPermissionIdResponse Client::getAccountByRowPermissionId(const Ge
 }
 
 /**
- * @summary 查询即席查询文件。
+ * @summary Queries a custom query file in the directory tree.
  *
  * @param request GetAdHocFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4555,7 +4620,7 @@ GetAdHocFileResponse Client::getAdHocFileWithOptions(const GetAdHocFileRequest &
 }
 
 /**
- * @summary 查询即席查询文件。
+ * @summary Queries a custom query file in the directory tree.
  *
  * @param request GetAdHocFileRequest
  * @return GetAdHocFileResponse
@@ -4566,7 +4631,7 @@ GetAdHocFileResponse Client::getAdHocFile(const GetAdHocFileRequest &request) {
 }
 
 /**
- * @summary 获取即席查询任务运行日志。
+ * @summary Retrieves the runtime logs of an ad hoc query task.
  *
  * @param request GetAdHocTaskLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4613,7 +4678,7 @@ GetAdHocTaskLogResponse Client::getAdHocTaskLogWithOptions(const GetAdHocTaskLog
 }
 
 /**
- * @summary 获取即席查询任务运行日志。
+ * @summary Retrieves the runtime logs of an ad hoc query task.
  *
  * @param request GetAdHocTaskLogRequest
  * @return GetAdHocTaskLogResponse
@@ -4624,7 +4689,7 @@ GetAdHocTaskLogResponse Client::getAdHocTaskLog(const GetAdHocTaskLogRequest &re
 }
 
 /**
- * @summary 获取即席查询的任务运行结果。
+ * @summary Retrieves the task execution result of an ad hoc query.
  *
  * @param request GetAdHocTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4667,7 +4732,7 @@ GetAdHocTaskResultResponse Client::getAdHocTaskResultWithOptions(const GetAdHocT
 }
 
 /**
- * @summary 获取即席查询的任务运行结果。
+ * @summary Retrieves the task execution result of an ad hoc query.
  *
  * @param request GetAdHocTaskResultRequest
  * @return GetAdHocTaskResultResponse
@@ -4678,7 +4743,7 @@ GetAdHocTaskResultResponse Client::getAdHocTaskResult(const GetAdHocTaskResultRe
 }
 
 /**
- * @summary 获取告警事件详情
+ * @summary Retrieves the details of an alert event.
  *
  * @param request GetAlertEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4713,7 +4778,7 @@ GetAlertEventResponse Client::getAlertEventWithOptions(const GetAlertEventReques
 }
 
 /**
- * @summary 获取告警事件详情
+ * @summary Retrieves the details of an alert event.
  *
  * @param request GetAlertEventRequest
  * @return GetAlertEventResponse
@@ -4724,7 +4789,8 @@ GetAlertEventResponse Client::getAlertEvent(const GetAlertEventRequest &request)
 }
 
 /**
- * @summary 根据资产对象GUID查询映射关系。
+ * @summary Queries mapping relationships by asset object GUID.
+ * Available since: v5.4.2.
  *
  * @param tmpReq GetAssetMappingRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4767,7 +4833,8 @@ GetAssetMappingRelationsResponse Client::getAssetMappingRelationsWithOptions(con
 }
 
 /**
- * @summary 根据资产对象GUID查询映射关系。
+ * @summary Queries mapping relationships by asset object GUID.
+ * Available since: v5.4.2.
  *
  * @param request GetAssetMappingRelationsRequest
  * @return GetAssetMappingRelationsResponse
@@ -4778,7 +4845,7 @@ GetAssetMappingRelationsResponse Client::getAssetMappingRelations(const GetAsset
 }
 
 /**
- * @summary 获取离线计算任务详情。
+ * @summary Retrieves the details of an offline compute node.
  *
  * @param request GetBatchTaskInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4825,7 +4892,7 @@ GetBatchTaskInfoResponse Client::getBatchTaskInfoWithOptions(const GetBatchTaskI
 }
 
 /**
- * @summary 获取离线计算任务详情。
+ * @summary Retrieves the details of an offline compute node.
  *
  * @param request GetBatchTaskInfoRequest
  * @return GetBatchTaskInfoResponse
@@ -4836,7 +4903,7 @@ GetBatchTaskInfoResponse Client::getBatchTaskInfo(const GetBatchTaskInfoRequest 
 }
 
 /**
- * @summary 获取离线计算任务指定版本任务详情。
+ * @summary Retrieves the details of a specified version of a batch task.
  *
  * @param request GetBatchTaskInfoByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4879,7 +4946,7 @@ GetBatchTaskInfoByVersionResponse Client::getBatchTaskInfoByVersionWithOptions(c
 }
 
 /**
- * @summary 获取离线计算任务指定版本任务详情。
+ * @summary Retrieves the details of a specified version of a batch task.
  *
  * @param request GetBatchTaskInfoByVersionRequest
  * @return GetBatchTaskInfoByVersionResponse
@@ -4890,7 +4957,7 @@ GetBatchTaskInfoByVersionResponse Client::getBatchTaskInfoByVersion(const GetBat
 }
 
 /**
- * @summary 获取离线任务自定义血缘。
+ * @summary Obtains the custom lineage of an offline task.
  *
  * @param request GetBatchTaskUdfLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4929,7 +4996,7 @@ GetBatchTaskUdfLineagesResponse Client::getBatchTaskUdfLineagesWithOptions(const
 }
 
 /**
- * @summary 获取离线任务自定义血缘。
+ * @summary Obtains the custom lineage of an offline task.
  *
  * @param request GetBatchTaskUdfLineagesRequest
  * @return GetBatchTaskUdfLineagesResponse
@@ -4940,7 +5007,7 @@ GetBatchTaskUdfLineagesResponse Client::getBatchTaskUdfLineages(const GetBatchTa
 }
 
 /**
- * @summary 获取离线计算任务版本列表。
+ * @summary Retrieves the version list of a batch task.
  *
  * @param request GetBatchTaskVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4979,7 +5046,7 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersionsWithOptions(const GetBa
 }
 
 /**
- * @summary 获取离线计算任务版本列表。
+ * @summary Retrieves the version list of a batch task.
  *
  * @param request GetBatchTaskVersionsRequest
  * @return GetBatchTaskVersionsResponse
@@ -4990,7 +5057,8 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersions(const GetBatchTaskVers
 }
 
 /**
- * @summary 根据归属资产GUID查询映射关系。
+ * @summary Query mapping relationships by belonging asset GUID.
+ * Release version: v5.4.2.
  *
  * @param tmpReq GetBelongAssetMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5033,7 +5101,8 @@ GetBelongAssetMappingResponse Client::getBelongAssetMappingWithOptions(const Get
 }
 
 /**
- * @summary 根据归属资产GUID查询映射关系。
+ * @summary Query mapping relationships by belonging asset GUID.
+ * Release version: v5.4.2.
  *
  * @param request GetBelongAssetMappingRequest
  * @return GetBelongAssetMappingResponse
@@ -5044,7 +5113,7 @@ GetBelongAssetMappingResponse Client::getBelongAssetMapping(const GetBelongAsset
 }
 
 /**
- * @summary 获取业务实体详情。
+ * @summary Retrieves the details of a business entity.
  *
  * @param request GetBizEntityInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5083,7 +5152,7 @@ GetBizEntityInfoResponse Client::getBizEntityInfoWithOptions(const GetBizEntityI
 }
 
 /**
- * @summary 获取业务实体详情。
+ * @summary Retrieves the details of a business entity.
  *
  * @param request GetBizEntityInfoRequest
  * @return GetBizEntityInfoResponse
@@ -5094,7 +5163,7 @@ GetBizEntityInfoResponse Client::getBizEntityInfo(const GetBizEntityInfoRequest 
 }
 
 /**
- * @summary 查询指定版本的业务实体的详情。
+ * @summary Queries the details of a business entity of a specified version.
  *
  * @param request GetBizEntityInfoByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5137,7 +5206,7 @@ GetBizEntityInfoByVersionResponse Client::getBizEntityInfoByVersionWithOptions(c
 }
 
 /**
- * @summary 查询指定版本的业务实体的详情。
+ * @summary Queries the details of a business entity of a specified version.
  *
  * @param request GetBizEntityInfoByVersionRequest
  * @return GetBizEntityInfoByVersionResponse
@@ -5148,7 +5217,8 @@ GetBizEntityInfoByVersionResponse Client::getBizEntityInfoByVersion(const GetBiz
 }
 
 /**
- * @summary 查询业务指标详情
+ * @summary Query business metric details by name.
+ * Release version: v5.5.0.
  *
  * @param tmpReq GetBizMetricByNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5191,7 +5261,8 @@ GetBizMetricByNameResponse Client::getBizMetricByNameWithOptions(const GetBizMet
 }
 
 /**
- * @summary 查询业务指标详情
+ * @summary Query business metric details by name.
+ * Release version: v5.5.0.
  *
  * @param request GetBizMetricByNameRequest
  * @return GetBizMetricByNameResponse
@@ -5202,7 +5273,7 @@ GetBizMetricByNameResponse Client::getBizMetricByName(const GetBizMetricByNameRe
 }
 
 /**
- * @summary 获取数据板块详情。
+ * @summary Retrieves the details of a data domain.
  *
  * @param request GetBizUnitInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5237,7 +5308,7 @@ GetBizUnitInfoResponse Client::getBizUnitInfoWithOptions(const GetBizUnitInfoReq
 }
 
 /**
- * @summary 获取数据板块详情。
+ * @summary Retrieves the details of a data domain.
  *
  * @param request GetBizUnitInfoRequest
  * @return GetBizUnitInfoResponse
@@ -5248,7 +5319,7 @@ GetBizUnitInfoResponse Client::getBizUnitInfo(const GetBizUnitInfoRequest &reque
 }
 
 /**
- * @summary 查询数据目录资产详情。
+ * @summary Queries asset details. Release version: v6.1.0.
  *
  * @param tmpReq GetCatalogAssetDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5291,7 +5362,7 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetailsWithOptions(const G
 }
 
 /**
- * @summary 查询数据目录资产详情。
+ * @summary Queries asset details. Release version: v6.1.0.
  *
  * @param request GetCatalogAssetDetailsRequest
  * @return GetCatalogAssetDetailsResponse
@@ -5302,7 +5373,10 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetails(const GetCatalogAs
 }
 
 /**
- * @summary 查询数据源连通性检查任务。
+ * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
+ * Release version: v5.5.0.
+ *
+ * @description Queries the details of connectivity tasks that have been tested for a specified data source ID.
  *
  * @param request GetCheckConnectivityJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5337,7 +5411,10 @@ GetCheckConnectivityJobsResponse Client::getCheckConnectivityJobsWithOptions(con
 }
 
 /**
- * @summary 查询数据源连通性检查任务。
+ * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
+ * Release version: v5.5.0.
+ *
+ * @description Queries the details of connectivity tasks that have been tested for a specified data source ID.
  *
  * @param request GetCheckConnectivityJobsRequest
  * @return GetCheckConnectivityJobsResponse
@@ -5348,7 +5425,7 @@ GetCheckConnectivityJobsResponse Client::getCheckConnectivityJobs(const GetCheck
 }
 
 /**
- * @summary 根据环境获取集群信息
+ * @summary Retrieves cluster information based on the environment.
  *
  * @param request GetClusterQueueInfoByEnvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5391,7 +5468,7 @@ GetClusterQueueInfoByEnvResponse Client::getClusterQueueInfoByEnvWithOptions(con
 }
 
 /**
- * @summary 根据环境获取集群信息
+ * @summary Retrieves cluster information based on the environment.
  *
  * @param request GetClusterQueueInfoByEnvRequest
  * @return GetClusterQueueInfoByEnvResponse
@@ -5402,7 +5479,7 @@ GetClusterQueueInfoByEnvResponse Client::getClusterQueueInfoByEnv(const GetClust
 }
 
 /**
- * @summary 获取计算源详情。
+ * @summary Retrieves the details of a compute source by compute source ID.
  *
  * @param request GetComputeSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5437,7 +5514,7 @@ GetComputeSourceResponse Client::getComputeSourceWithOptions(const GetComputeSou
 }
 
 /**
- * @summary 获取计算源详情。
+ * @summary Retrieves the details of a compute source by compute source ID.
  *
  * @param request GetComputeSourceRequest
  * @return GetComputeSourceResponse
@@ -5448,7 +5525,7 @@ GetComputeSourceResponse Client::getComputeSource(const GetComputeSourceRequest 
 }
 
 /**
- * @summary 获取主题域详情。
+ * @summary Retrieves the details of a data domain.
  *
  * @param request GetDataDomainInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5483,7 +5560,7 @@ GetDataDomainInfoResponse Client::getDataDomainInfoWithOptions(const GetDataDoma
 }
 
 /**
- * @summary 获取主题域详情。
+ * @summary Retrieves the details of a data domain.
  *
  * @param request GetDataDomainInfoRequest
  * @return GetDataDomainInfoResponse
@@ -5494,7 +5571,7 @@ GetDataDomainInfoResponse Client::getDataDomainInfo(const GetDataDomainInfoReque
 }
 
 /**
- * @summary 运维监控Api调用汇总统计。
+ * @summary Service Monitoring: Retrieves the aggregate statistics of API calls.
  *
  * @param request GetDataServiceApiCallSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5537,7 +5614,7 @@ GetDataServiceApiCallSummaryResponse Client::getDataServiceApiCallSummaryWithOpt
 }
 
 /**
- * @summary 运维监控Api调用汇总统计。
+ * @summary Service Monitoring: Retrieves the aggregate statistics of API calls.
  *
  * @param request GetDataServiceApiCallSummaryRequest
  * @return GetDataServiceApiCallSummaryResponse
@@ -5548,7 +5625,7 @@ GetDataServiceApiCallSummaryResponse Client::getDataServiceApiCallSummary(const 
 }
 
 /**
- * @summary 运维监控Api访问趋势分析。
+ * @summary Service Monitoring: Analyzes API access trends.
  *
  * @param request GetDataServiceApiCallTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5591,7 +5668,7 @@ GetDataServiceApiCallTrendResponse Client::getDataServiceApiCallTrendWithOptions
 }
 
 /**
- * @summary 运维监控Api访问趋势分析。
+ * @summary Service Monitoring: Analyzes API access trends.
  *
  * @param request GetDataServiceApiCallTrendRequest
  * @return GetDataServiceApiCallTrendResponse
@@ -5602,7 +5679,7 @@ GetDataServiceApiCallTrendResponse Client::getDataServiceApiCallTrend(const GetD
 }
 
 /**
- * @summary 获取API文档。
+ * @summary Retrieves API documentation.
  *
  * @param request GetDataServiceApiDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5641,7 +5718,7 @@ GetDataServiceApiDocumentResponse Client::getDataServiceApiDocumentWithOptions(c
 }
 
 /**
- * @summary 获取API文档。
+ * @summary Retrieves API documentation.
  *
  * @param request GetDataServiceApiDocumentRequest
  * @return GetDataServiceApiDocumentResponse
@@ -5652,7 +5729,7 @@ GetDataServiceApiDocumentResponse Client::getDataServiceApiDocument(const GetDat
 }
 
 /**
- * @summary 获取API异常影响汇总。
+ * @summary Retrieves the summary of API exception impacts.
  *
  * @param request GetDataServiceApiErrorImpactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5695,7 +5772,7 @@ GetDataServiceApiErrorImpactResponse Client::getDataServiceApiErrorImpactWithOpt
 }
 
 /**
- * @summary 获取API异常影响汇总。
+ * @summary Retrieves the summary of API exception impacts.
  *
  * @param request GetDataServiceApiErrorImpactRequest
  * @return GetDataServiceApiErrorImpactResponse
@@ -5706,7 +5783,7 @@ GetDataServiceApiErrorImpactResponse Client::getDataServiceApiErrorImpact(const 
 }
 
 /**
- * @summary 查询数据服务API分组列表。
+ * @summary Queries the list of API groups in Data Service.
  *
  * @param request GetDataServiceApiGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5741,7 +5818,7 @@ GetDataServiceApiGroupsResponse Client::getDataServiceApiGroupsWithOptions(const
 }
 
 /**
- * @summary 查询数据服务API分组列表。
+ * @summary Queries the list of API groups in Data Service.
  *
  * @param request GetDataServiceApiGroupsRequest
  * @return GetDataServiceApiGroupsResponse
@@ -5752,7 +5829,8 @@ GetDataServiceApiGroupsResponse Client::getDataServiceApiGroups(const GetDataSer
 }
 
 /**
- * @summary 查询数据服务应用详情。
+ * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
+ * Release version: v6.0.0.
  *
  * @param request GetDataServiceAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5787,7 +5865,8 @@ GetDataServiceAppResponse Client::getDataServiceAppWithOptions(const GetDataServ
 }
 
 /**
- * @summary 查询数据服务应用详情。
+ * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
+ * Release version: v6.0.0.
  *
  * @param request GetDataServiceAppRequest
  * @return GetDataServiceAppResponse
@@ -5798,7 +5877,7 @@ GetDataServiceAppResponse Client::getDataServiceApp(const GetDataServiceAppReque
 }
 
 /**
- * @summary 获取应用有权限的用户列表。
+ * @summary Retrieves the list of users who have permissions on an application.
  *
  * @param request GetDataServiceAppAuthorizedUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5837,7 +5916,7 @@ GetDataServiceAppAuthorizedUsersResponse Client::getDataServiceAppAuthorizedUser
 }
 
 /**
- * @summary 获取应用有权限的用户列表。
+ * @summary Retrieves the list of users who have permissions on an application.
  *
  * @param request GetDataServiceAppAuthorizedUsersRequest
  * @return GetDataServiceAppAuthorizedUsersResponse
@@ -5848,7 +5927,7 @@ GetDataServiceAppAuthorizedUsersResponse Client::getDataServiceAppAuthorizedUser
 }
 
 /**
- * @summary 查询数据服务项目的应用分组列表。
+ * @summary Queries the list of application groups for a data service project.
  *
  * @param request GetDataServiceAppGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5883,7 +5962,7 @@ GetDataServiceAppGroupsResponse Client::getDataServiceAppGroupsWithOptions(const
 }
 
 /**
- * @summary 查询数据服务项目的应用分组列表。
+ * @summary Queries the list of application groups for a data service project.
  *
  * @param request GetDataServiceAppGroupsRequest
  * @return GetDataServiceAppGroupsResponse
@@ -5894,7 +5973,8 @@ GetDataServiceAppGroupsResponse Client::getDataServiceAppGroups(const GetDataSer
 }
 
 /**
- * @summary 查询数据服务应用的成员列表。
+ * @summary Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
+ * Online version: v6.0.0.
  *
  * @param request GetDataServiceAppMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5929,7 +6009,8 @@ GetDataServiceAppMembersResponse Client::getDataServiceAppMembersWithOptions(con
 }
 
 /**
- * @summary 查询数据服务应用的成员列表。
+ * @summary Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
+ * Online version: v6.0.0.
  *
  * @param request GetDataServiceAppMembersRequest
  * @return GetDataServiceAppMembersResponse
@@ -5940,7 +6021,7 @@ GetDataServiceAppMembersResponse Client::getDataServiceAppMembers(const GetDataS
 }
 
 /**
- * @summary 查询分组下应用列表。
+ * @summary Queries the list of applications in a group.
  *
  * @param request GetDataServiceAppsByGroupIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5979,7 +6060,7 @@ GetDataServiceAppsByGroupIdResponse Client::getDataServiceAppsByGroupIdWithOptio
 }
 
 /**
- * @summary 查询分组下应用列表。
+ * @summary Queries the list of applications in a group.
  *
  * @param request GetDataServiceAppsByGroupIdRequest
  * @return GetDataServiceAppsByGroupIdResponse
@@ -5990,7 +6071,7 @@ GetDataServiceAppsByGroupIdResponse Client::getDataServiceAppsByGroupId(const Ge
 }
 
 /**
- * @summary 根据App分组Id查询账号有权限的应用列表。
+ * @summary Queries the list of applications that the account has permissions to access based on the app group ID.
  *
  * @param request GetDataServiceAuthorizedAppsByGroupIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6029,7 +6110,7 @@ GetDataServiceAuthorizedAppsByGroupIdResponse Client::getDataServiceAuthorizedAp
 }
 
 /**
- * @summary 根据App分组Id查询账号有权限的应用列表。
+ * @summary Queries the list of applications that the account has permissions to access based on the app group ID.
  *
  * @param request GetDataServiceAuthorizedAppsByGroupIdRequest
  * @return GetDataServiceAuthorizedAppsByGroupIdResponse
@@ -6040,7 +6121,7 @@ GetDataServiceAuthorizedAppsByGroupIdResponse Client::getDataServiceAuthorizedAp
 }
 
 /**
- * @summary 查询有权限的项目列表。
+ * @summary Queries the list of projects that the current user has permissions to access.
  *
  * @param request GetDataServiceAuthorizedProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6071,7 +6152,7 @@ GetDataServiceAuthorizedProjectsResponse Client::getDataServiceAuthorizedProject
 }
 
 /**
- * @summary 查询有权限的项目列表。
+ * @summary Queries the list of projects that the current user has permissions to access.
  *
  * @param request GetDataServiceAuthorizedProjectsRequest
  * @return GetDataServiceAuthorizedProjectsResponse
@@ -6082,7 +6163,7 @@ GetDataServiceAuthorizedProjectsResponse Client::getDataServiceAuthorizedProject
 }
 
 /**
- * @summary 当前登录当前用户作为负责人的项目列表。
+ * @summary Retrieves the list of projects for which the current user is the owner.
  *
  * @param request GetDataServiceMyProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6113,7 +6194,7 @@ GetDataServiceMyProjectsResponse Client::getDataServiceMyProjectsWithOptions(con
 }
 
 /**
- * @summary 当前登录当前用户作为负责人的项目列表。
+ * @summary Retrieves the list of projects for which the current user is the owner.
  *
  * @param request GetDataServiceMyProjectsRequest
  * @return GetDataServiceMyProjectsResponse
@@ -6124,7 +6205,7 @@ GetDataServiceMyProjectsResponse Client::getDataServiceMyProjects(const GetDataS
 }
 
 /**
- * @summary 获取可添加到项目成员的用户列表。
+ * @summary Retrieves the list of users who can be added as project members.
  *
  * @param request GetDataServiceProjectAddableUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6159,7 +6240,7 @@ GetDataServiceProjectAddableUsersResponse Client::getDataServiceProjectAddableUs
 }
 
 /**
- * @summary 获取可添加到项目成员的用户列表。
+ * @summary Retrieves the list of users who can be added as project members.
  *
  * @param request GetDataServiceProjectAddableUsersRequest
  * @return GetDataServiceProjectAddableUsersResponse
@@ -6170,7 +6251,7 @@ GetDataServiceProjectAddableUsersResponse Client::getDataServiceProjectAddableUs
 }
 
 /**
- * @summary 查询数据源变更影响的集成任务及数据库SQL任务。
+ * @summary Queries the integration tasks and database SQL tasks affected by data source changes.
  *
  * @param request GetDataSourceDependenciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6205,7 +6286,7 @@ GetDataSourceDependenciesResponse Client::getDataSourceDependenciesWithOptions(c
 }
 
 /**
- * @summary 查询数据源变更影响的集成任务及数据库SQL任务。
+ * @summary Queries the integration tasks and database SQL tasks affected by data source changes.
  *
  * @param request GetDataSourceDependenciesRequest
  * @return GetDataSourceDependenciesResponse
@@ -6216,7 +6297,7 @@ GetDataSourceDependenciesResponse Client::getDataSourceDependencies(const GetDat
 }
 
 /**
- * @summary 查询开发态对象上游依赖。
+ * @summary Query upstream dependencies of development objects.
  *
  * @param request GetDevObjectDependencyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6263,7 +6344,7 @@ GetDevObjectDependencyResponse Client::getDevObjectDependencyWithOptions(const G
 }
 
 /**
- * @summary 查询开发态对象上游依赖。
+ * @summary Query upstream dependencies of development objects.
  *
  * @param request GetDevObjectDependencyRequest
  * @return GetDevObjectDependencyResponse
@@ -6274,7 +6355,7 @@ GetDevObjectDependencyResponse Client::getDevObjectDependency(const GetDevObject
 }
 
 /**
- * @summary 获取文件夹目录树
+ * @summary Retrieves the folder directory tree.
  *
  * @param request GetDirectoryTreeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6313,7 +6394,7 @@ GetDirectoryTreeResponse Client::getDirectoryTreeWithOptions(const GetDirectoryT
 }
 
 /**
- * @summary 获取文件夹目录树
+ * @summary Retrieves the folder directory tree.
  *
  * @param request GetDirectoryTreeRequest
  * @return GetDirectoryTreeResponse
@@ -6324,7 +6405,7 @@ GetDirectoryTreeResponse Client::getDirectoryTree(const GetDirectoryTreeRequest 
 }
 
 /**
- * @summary 获取文件存储临时读写授权。
+ * @summary Obtains temporary read/write authorization for file storage.
  *
  * @param request GetFileStorageCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6367,7 +6448,7 @@ GetFileStorageCredentialResponse Client::getFileStorageCredentialWithOptions(con
 }
 
 /**
- * @summary 获取文件存储临时读写授权。
+ * @summary Obtains temporary read/write authorization for file storage.
  *
  * @param request GetFileStorageCredentialRequest
  * @return GetFileStorageCredentialResponse
@@ -6378,7 +6459,7 @@ GetFileStorageCredentialResponse Client::getFileStorageCredential(const GetFileS
 }
 
 /**
- * @summary 根据起始的实例查询该实例的下游
+ * @summary Queries the downstream instances of a specified instance.
  *
  * @param tmpReq GetInstanceDownStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6433,7 +6514,7 @@ GetInstanceDownStreamResponse Client::getInstanceDownStreamWithOptions(const Get
 }
 
 /**
- * @summary 根据起始的实例查询该实例的下游
+ * @summary Queries the downstream instances of a specified instance.
  *
  * @param request GetInstanceDownStreamRequest
  * @return GetInstanceDownStreamResponse
@@ -6444,7 +6525,7 @@ GetInstanceDownStreamResponse Client::getInstanceDownStream(const GetInstanceDow
 }
 
 /**
- * @summary 查询实例的上下游，支持逻辑表和代码任务。
+ * @summary Queries the dag of an instance. Logical tables and code nodes are supported.
  *
  * @param tmpReq GetInstanceUpDownStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6503,7 +6584,7 @@ GetInstanceUpDownStreamResponse Client::getInstanceUpDownStreamWithOptions(const
 }
 
 /**
- * @summary 查询实例的上下游，支持逻辑表和代码任务。
+ * @summary Queries the dag of an instance. Logical tables and code nodes are supported.
  *
  * @param request GetInstanceUpDownStreamRequest
  * @return GetInstanceUpDownStreamResponse
@@ -6514,7 +6595,7 @@ GetInstanceUpDownStreamResponse Client::getInstanceUpDownStream(const GetInstanc
 }
 
 /**
- * @summary 获取最新的待发布记录详情
+ * @summary Retrieves the details of the latest pending submit record.
  *
  * @param tmpReq GetLatestSubmitDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6557,7 +6638,7 @@ GetLatestSubmitDetailResponse Client::getLatestSubmitDetailWithOptions(const Get
 }
 
 /**
- * @summary 获取最新的待发布记录详情
+ * @summary Retrieves the details of the latest pending submit record.
  *
  * @param request GetLatestSubmitDetailRequest
  * @return GetLatestSubmitDetailResponse
@@ -6568,7 +6649,7 @@ GetLatestSubmitDetailResponse Client::getLatestSubmitDetail(const GetLatestSubmi
 }
 
 /**
- * @summary 获取用户角色列表
+ * @summary Retrieves the list of roles for the current user.
  *
  * @param request GetMyRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6599,7 +6680,7 @@ GetMyRolesResponse Client::getMyRolesWithOptions(const GetMyRolesRequest &reques
 }
 
 /**
- * @summary 获取用户角色列表
+ * @summary Retrieves the list of roles for the current user.
  *
  * @param request GetMyRolesRequest
  * @return GetMyRolesResponse
@@ -6610,7 +6691,7 @@ GetMyRolesResponse Client::getMyRoles(const GetMyRolesRequest &request) {
 }
 
 /**
- * @summary 获取当前用户归属租户.
+ * @summary Retrieves the tenants to which the current user belongs.
  *
  * @param tmpReq GetMyTenantsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6653,7 +6734,7 @@ GetMyTenantsResponse Client::getMyTenantsWithOptions(const GetMyTenantsRequest &
 }
 
 /**
- * @summary 获取当前用户归属租户.
+ * @summary Retrieves the tenants to which the current user belongs.
  *
  * @param request GetMyTenantsRequest
  * @return GetMyTenantsResponse
@@ -6664,7 +6745,7 @@ GetMyTenantsResponse Client::getMyTenants(const GetMyTenantsRequest &request) {
 }
 
 /**
- * @summary 通用查询节点上下游接口
+ * @summary Queries the dag of a node. This is a general-purpose operation.
  *
  * @param tmpReq GetNodeUpDownStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6723,7 +6804,7 @@ GetNodeUpDownStreamResponse Client::getNodeUpDownStreamWithOptions(const GetNode
 }
 
 /**
- * @summary 通用查询节点上下游接口
+ * @summary Queries the dag of a node. This is a general-purpose operation.
  *
  * @param request GetNodeUpDownStreamRequest
  * @return GetNodeUpDownStreamResponse
@@ -6734,7 +6815,7 @@ GetNodeUpDownStreamResponse Client::getNodeUpDownStream(const GetNodeUpDownStrea
 }
 
 /**
- * @summary 查询补数据提交的状态
+ * @summary Queries the submit status of a data backfill request.
  *
  * @param request GetOperationSubmitStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6773,7 +6854,7 @@ GetOperationSubmitStatusResponse Client::getOperationSubmitStatusWithOptions(con
 }
 
 /**
- * @summary 查询补数据提交的状态
+ * @summary Queries the submit status of a data backfill request.
  *
  * @param request GetOperationSubmitStatusRequest
  * @return GetOperationSubmitStatusResponse
@@ -6784,7 +6865,7 @@ GetOperationSubmitStatusResponse Client::getOperationSubmitStatus(const GetOpera
 }
 
 /**
- * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
+ * @summary Gets instance information.
  *
  * @param request GetPhysicalInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6827,7 +6908,7 @@ GetPhysicalInstanceResponse Client::getPhysicalInstanceWithOptions(const GetPhys
 }
 
 /**
- * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
+ * @summary Gets instance information.
  *
  * @param request GetPhysicalInstanceRequest
  * @return GetPhysicalInstanceResponse
@@ -6838,7 +6919,7 @@ GetPhysicalInstanceResponse Client::getPhysicalInstance(const GetPhysicalInstanc
 }
 
 /**
- * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
+ * @summary Retrieves the execution logs of an instance. If the instance has been rerun multiple times, multiple log entries are returned.
  *
  * @param request GetPhysicalInstanceLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6881,7 +6962,7 @@ GetPhysicalInstanceLogResponse Client::getPhysicalInstanceLogWithOptions(const G
 }
 
 /**
- * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
+ * @summary Retrieves the execution logs of an instance. If the instance has been rerun multiple times, multiple log entries are returned.
  *
  * @param request GetPhysicalInstanceLogRequest
  * @return GetPhysicalInstanceLogResponse
@@ -6892,7 +6973,7 @@ GetPhysicalInstanceLogResponse Client::getPhysicalInstanceLog(const GetPhysicalI
 }
 
 /**
- * @summary 查询物理调度节点。
+ * @summary Queries a physical schedule resource.
  *
  * @param request GetPhysicalNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6931,7 +7012,7 @@ GetPhysicalNodeResponse Client::getPhysicalNodeWithOptions(const GetPhysicalNode
 }
 
 /**
- * @summary 查询物理调度节点。
+ * @summary Queries a physical schedule resource.
  *
  * @param request GetPhysicalNodeRequest
  * @return GetPhysicalNodeResponse
@@ -6942,7 +7023,7 @@ GetPhysicalNodeResponse Client::getPhysicalNode(const GetPhysicalNodeRequest &re
 }
 
 /**
- * @summary 根据输出名查询对应的物理节点。
+ * @summary Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
  *
  * @param request GetPhysicalNodeByOutputNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6981,7 +7062,7 @@ GetPhysicalNodeByOutputNameResponse Client::getPhysicalNodeByOutputNameWithOptio
 }
 
 /**
- * @summary 根据输出名查询对应的物理节点。
+ * @summary Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
  *
  * @param request GetPhysicalNodeByOutputNameRequest
  * @return GetPhysicalNodeByOutputNameResponse
@@ -6992,7 +7073,7 @@ GetPhysicalNodeByOutputNameResponse Client::getPhysicalNodeByOutputName(const Ge
 }
 
 /**
- * @summary 查询调度节点代码内容。
+ * @summary Queries the code content of a schedule resource node.
  *
  * @param request GetPhysicalNodeContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7031,7 +7112,7 @@ GetPhysicalNodeContentResponse Client::getPhysicalNodeContentWithOptions(const G
 }
 
 /**
- * @summary 查询调度节点代码内容。
+ * @summary Queries the code content of a schedule resource node.
  *
  * @param request GetPhysicalNodeContentRequest
  * @return GetPhysicalNodeContentResponse
@@ -7042,7 +7123,7 @@ GetPhysicalNodeContentResponse Client::getPhysicalNodeContent(const GetPhysicalN
 }
 
 /**
- * @summary 查询节点的操作日志。
+ * @summary Queries the operation logs of a node.
  *
  * @param request GetPhysicalNodeOperationLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7081,7 +7162,7 @@ GetPhysicalNodeOperationLogResponse Client::getPhysicalNodeOperationLogWithOptio
 }
 
 /**
- * @summary 查询节点的操作日志。
+ * @summary Queries the operation logs of a node.
  *
  * @param request GetPhysicalNodeOperationLogRequest
  * @return GetPhysicalNodeOperationLogResponse
@@ -7092,7 +7173,7 @@ GetPhysicalNodeOperationLogResponse Client::getPhysicalNodeOperationLog(const Ge
 }
 
 /**
- * @summary 查询异步操作管道任务的执行结果。
+ * @summary Queries the execution result of an asynchronous pipeline task.
  *
  * @param tmpReq GetPipelineAsyncResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7139,7 +7220,7 @@ GetPipelineAsyncResultResponse Client::getPipelineAsyncResultWithOptions(const G
 }
 
 /**
- * @summary 查询异步操作管道任务的执行结果。
+ * @summary Queries the execution result of an asynchronous pipeline task.
  *
  * @param request GetPipelineAsyncResultRequest
  * @return GetPipelineAsyncResultResponse
@@ -7150,7 +7231,7 @@ GetPipelineAsyncResultResponse Client::getPipelineAsyncResult(const GetPipelineA
 }
 
 /**
- * @summary 根据管道任务id查询管道任务。
+ * @summary Queries a pipeline task by pipeline task ID.
  *
  * @param tmpReq GetPipelineByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7201,7 +7282,7 @@ GetPipelineByIdResponse Client::getPipelineByIdWithOptions(const GetPipelineById
 }
 
 /**
- * @summary 根据管道任务id查询管道任务。
+ * @summary Queries a pipeline task by pipeline task ID.
  *
  * @param request GetPipelineByIdRequest
  * @return GetPipelineByIdResponse
@@ -7212,7 +7293,7 @@ GetPipelineByIdResponse Client::getPipelineById(const GetPipelineByIdRequest &re
 }
 
 /**
- * @summary 获取项目详情。
+ * @summary Get project details by project ID.
  *
  * @param request GetProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7251,7 +7332,7 @@ GetProjectResponse Client::getProjectWithOptions(const GetProjectRequest &reques
 }
 
 /**
- * @summary 获取项目详情。
+ * @summary Get project details by project ID.
  *
  * @param request GetProjectRequest
  * @return GetProjectResponse
@@ -7262,7 +7343,7 @@ GetProjectResponse Client::getProject(const GetProjectRequest &request) {
 }
 
 /**
- * @summary 通过项目名获取项目详情。
+ * @summary Retrieves project details by project name.
  *
  * @param request GetProjectByNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7297,7 +7378,7 @@ GetProjectByNameResponse Client::getProjectByNameWithOptions(const GetProjectByN
 }
 
 /**
- * @summary 通过项目名获取项目详情。
+ * @summary Retrieves project details by project name.
  *
  * @param request GetProjectByNameRequest
  * @return GetProjectByNameResponse
@@ -7308,7 +7389,7 @@ GetProjectByNameResponse Client::getProjectByName(const GetProjectByNameRequest 
 }
 
 /**
- * @summary 获取项目生产账号
+ * @summary Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
  *
  * @param request GetProjectProduceUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7343,7 +7424,7 @@ GetProjectProduceUserResponse Client::getProjectProduceUserWithOptions(const Get
 }
 
 /**
- * @summary 获取项目生产账号
+ * @summary Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
  *
  * @param request GetProjectProduceUserRequest
  * @return GetProjectProduceUserResponse
@@ -7354,7 +7435,7 @@ GetProjectProduceUserResponse Client::getProjectProduceUser(const GetProjectProd
 }
 
 /**
- * @summary 获取项目白名单。
+ * @summary Retrieves the whitelist of a project.
  *
  * @param request GetProjectWhiteListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7389,7 +7470,7 @@ GetProjectWhiteListsResponse Client::getProjectWhiteListsWithOptions(const GetPr
 }
 
 /**
- * @summary 获取项目白名单。
+ * @summary Retrieves the whitelist of a project.
  *
  * @param request GetProjectWhiteListsRequest
  * @return GetProjectWhiteListsResponse
@@ -7400,7 +7481,7 @@ GetProjectWhiteListsResponse Client::getProjectWhiteLists(const GetProjectWhiteL
 }
 
 /**
- * @summary 通过监控对象ID获取告警设置。
+ * @summary Retrieves alert settings by monitored object ID. Release version: v5.4.2.
  *
  * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7435,7 +7516,7 @@ GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleS
 }
 
 /**
- * @summary 通过监控对象ID获取告警设置。
+ * @summary Retrieves alert settings by monitored object ID. Release version: v5.4.2.
  *
  * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
  * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
@@ -7446,7 +7527,8 @@ GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleS
 }
 
 /**
- * @summary 获取质量规则对象。
+ * @summary Retrieves a quality rule object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7481,7 +7563,8 @@ GetQualityRuleResponse Client::getQualityRuleWithOptions(const GetQualityRuleReq
 }
 
 /**
- * @summary 获取质量规则对象。
+ * @summary Retrieves a quality rule object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityRuleRequest
  * @return GetQualityRuleResponse
@@ -7492,7 +7575,7 @@ GetQualityRuleResponse Client::getQualityRule(const GetQualityRuleRequest &reque
 }
 
 /**
- * @summary 获取质量任务对象详情。
+ * @summary Retrieves the details of a quality node task object. Online version: v5.4.2.
  *
  * @param request GetQualityRuleTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7527,7 +7610,7 @@ GetQualityRuleTaskResponse Client::getQualityRuleTaskWithOptions(const GetQualit
 }
 
 /**
- * @summary 获取质量任务对象详情。
+ * @summary Retrieves the details of a quality node task object. Online version: v5.4.2.
  *
  * @param request GetQualityRuleTaskRequest
  * @return GetQualityRuleTaskResponse
@@ -7538,7 +7621,8 @@ GetQualityRuleTaskResponse Client::getQualityRuleTask(const GetQualityRuleTaskRe
 }
 
 /**
- * @summary 获取质量任务对象日志内容。
+ * @summary Retrieves the log content of a quality node task object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityRuleTaskLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7573,7 +7657,8 @@ GetQualityRuleTaskLogResponse Client::getQualityRuleTaskLogWithOptions(const Get
 }
 
 /**
- * @summary 获取质量任务对象日志内容。
+ * @summary Retrieves the log content of a quality node task object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityRuleTaskLogRequest
  * @return GetQualityRuleTaskLogResponse
@@ -7584,7 +7669,8 @@ GetQualityRuleTaskLogResponse Client::getQualityRuleTaskLog(const GetQualityRule
 }
 
 /**
- * @summary 获取质量调度对象。
+ * @summary Retrieves a quality schedule object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityScheduleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7619,7 +7705,8 @@ GetQualityScheduleResponse Client::getQualityScheduleWithOptions(const GetQualit
 }
 
 /**
- * @summary 获取质量调度对象。
+ * @summary Retrieves a quality schedule object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityScheduleRequest
  * @return GetQualityScheduleResponse
@@ -7630,7 +7717,8 @@ GetQualityScheduleResponse Client::getQualitySchedule(const GetQualityScheduleRe
 }
 
 /**
- * @summary 通过监控对象ID获取调度设置列表。
+ * @summary Retrieves a list of schedule settings by monitored object ID.
+ * Release version: v5.4.2.
  *
  * @param request GetQualitySchedulesByWatchIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7665,7 +7753,8 @@ GetQualitySchedulesByWatchIdResponse Client::getQualitySchedulesByWatchIdWithOpt
 }
 
 /**
- * @summary 通过监控对象ID获取调度设置列表。
+ * @summary Retrieves a list of schedule settings by monitored object ID.
+ * Release version: v5.4.2.
  *
  * @param request GetQualitySchedulesByWatchIdRequest
  * @return GetQualitySchedulesByWatchIdResponse
@@ -7676,7 +7765,8 @@ GetQualitySchedulesByWatchIdResponse Client::getQualitySchedulesByWatchId(const 
 }
 
 /**
- * @summary 获取质量模板对象。
+ * @summary Retrieves a quality template object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7711,7 +7801,8 @@ GetQualityTemplateResponse Client::getQualityTemplateWithOptions(const GetQualit
 }
 
 /**
- * @summary 获取质量模板对象。
+ * @summary Retrieves a quality template object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityTemplateRequest
  * @return GetQualityTemplateResponse
@@ -7722,7 +7813,8 @@ GetQualityTemplateResponse Client::getQualityTemplate(const GetQualityTemplateRe
 }
 
 /**
- * @summary 获取质量监控对象。
+ * @summary Retrieves a quality monitored object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityWatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7757,7 +7849,8 @@ GetQualityWatchResponse Client::getQualityWatchWithOptions(const GetQualityWatch
 }
 
 /**
- * @summary 获取质量监控对象。
+ * @summary Retrieves a quality monitored object.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityWatchRequest
  * @return GetQualityWatchResponse
@@ -7768,7 +7861,8 @@ GetQualityWatchResponse Client::getQualityWatch(const GetQualityWatchRequest &re
 }
 
 /**
- * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+ * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityWatchByObjectIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7807,7 +7901,8 @@ GetQualityWatchByObjectIdResponse Client::getQualityWatchByObjectIdWithOptions(c
 }
 
 /**
- * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+ * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
+ * Release version: v5.4.2.
  *
  * @param request GetQualityWatchByObjectIdRequest
  * @return GetQualityWatchByObjectIdResponse
@@ -7818,7 +7913,8 @@ GetQualityWatchByObjectIdResponse Client::getQualityWatchByObjectId(const GetQua
 }
 
 /**
- * @summary 获取监控任务对象。
+ * @summary Retrieves a monitoring node task object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityWatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7853,7 +7949,8 @@ GetQualityWatchTaskResponse Client::getQualityWatchTaskWithOptions(const GetQual
 }
 
 /**
- * @summary 获取监控任务对象。
+ * @summary Retrieves a monitoring node task object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityWatchTaskRequest
  * @return GetQualityWatchTaskResponse
@@ -7864,7 +7961,8 @@ GetQualityWatchTaskResponse Client::getQualityWatchTask(const GetQualityWatchTas
 }
 
 /**
- * @summary 获取监控任务对象的日志内容。
+ * @summary Retrieves the log content of a monitoring task object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityWatchTaskLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7899,7 +7997,8 @@ GetQualityWatchTaskLogResponse Client::getQualityWatchTaskLogWithOptions(const G
 }
 
 /**
- * @summary 获取监控任务对象的日志内容。
+ * @summary Retrieves the log content of a monitoring task object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityWatchTaskLogRequest
  * @return GetQualityWatchTaskLogResponse
@@ -7910,7 +8009,7 @@ GetQualityWatchTaskLogResponse Client::getQualityWatchTaskLog(const GetQualityWa
 }
 
 /**
- * @summary 根据集群ID获取集群版本
+ * @summary Retrieves the cluster version based on the cluster ID.
  *
  * @param request GetQueueEngineVersionByEnvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7961,7 +8060,7 @@ GetQueueEngineVersionByEnvResponse Client::getQueueEngineVersionByEnvWithOptions
 }
 
 /**
- * @summary 根据集群ID获取集群版本
+ * @summary Retrieves the cluster version based on the cluster ID.
  *
  * @param request GetQueueEngineVersionByEnvRequest
  * @return GetQueueEngineVersionByEnvResponse
@@ -7972,7 +8071,7 @@ GetQueueEngineVersionByEnvResponse Client::getQueueEngineVersionByEnv(const GetQ
 }
 
 /**
- * @summary 获取资源文件详情。
+ * @summary Retrieves the details of a resource file.
  *
  * @param request GetResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8011,7 +8110,7 @@ GetResourceResponse Client::getResourceWithOptions(const GetResourceRequest &req
 }
 
 /**
- * @summary 获取资源文件详情。
+ * @summary Retrieves the details of a resource file.
  *
  * @param request GetResourceRequest
  * @return GetResourceResponse
@@ -8022,7 +8121,7 @@ GetResourceResponse Client::getResource(const GetResourceRequest &request) {
 }
 
 /**
- * @summary 获取资源文件指定版本详情。
+ * @summary Gets the details of a specified version of a resource file.
  *
  * @param request GetResourceByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8065,7 +8164,7 @@ GetResourceByVersionResponse Client::getResourceByVersionWithOptions(const GetRe
 }
 
 /**
- * @summary 获取资源文件指定版本详情。
+ * @summary Gets the details of a specified version of a resource file.
  *
  * @param request GetResourceByVersionRequest
  * @return GetResourceByVersionResponse
@@ -8076,7 +8175,7 @@ GetResourceByVersionResponse Client::getResourceByVersion(const GetResourceByVer
 }
 
 /**
- * @summary 根据表Guid检索行级权限
+ * @summary Release version: v5.4.2.
  *
  * @param tmpReq GetRowPermissionByTableGuidsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8119,7 +8218,7 @@ GetRowPermissionByTableGuidsResponse Client::getRowPermissionByTableGuidsWithOpt
 }
 
 /**
- * @summary 根据表Guid检索行级权限
+ * @summary Release version: v5.4.2.
  *
  * @param request GetRowPermissionByTableGuidsRequest
  * @return GetRowPermissionByTableGuidsResponse
@@ -8130,7 +8229,7 @@ GetRowPermissionByTableGuidsResponse Client::getRowPermissionByTableGuids(const 
 }
 
 /**
- * @summary 获取数据分类详情。
+ * @summary Retrieves the details of a data classification. Release version: v5.4.2.
  *
  * @param request GetSecurityClassifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8165,7 +8264,7 @@ GetSecurityClassifyResponse Client::getSecurityClassifyWithOptions(const GetSecu
 }
 
 /**
- * @summary 获取数据分类详情。
+ * @summary Retrieves the details of a data classification. Release version: v5.4.2.
  *
  * @param request GetSecurityClassifyRequest
  * @return GetSecurityClassifyResponse
@@ -8176,7 +8275,8 @@ GetSecurityClassifyResponse Client::getSecurityClassify(const GetSecurityClassif
 }
 
 /**
- * @summary 获取识别结果详情。
+ * @summary Retrieves the details of an identification result.
+ * Release version: v5.4.2.
  *
  * @param request GetSecurityIdentifyResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8211,7 +8311,8 @@ GetSecurityIdentifyResultResponse Client::getSecurityIdentifyResultWithOptions(c
 }
 
 /**
- * @summary 获取识别结果详情。
+ * @summary Retrieves the details of an identification result.
+ * Release version: v5.4.2.
  *
  * @param request GetSecurityIdentifyResultRequest
  * @return GetSecurityIdentifyResultResponse
@@ -8222,7 +8323,7 @@ GetSecurityIdentifyResultResponse Client::getSecurityIdentifyResult(const GetSec
 }
 
 /**
- * @summary 获取数据分级详情。
+ * @summary Retrieves the details of a data classification level. Available since v5.4.2.
  *
  * @param request GetSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8257,7 +8358,7 @@ GetSecurityLevelResponse Client::getSecurityLevelWithOptions(const GetSecurityLe
 }
 
 /**
- * @summary 获取数据分级详情。
+ * @summary Retrieves the details of a data classification level. Available since v5.4.2.
  *
  * @param request GetSecurityLevelRequest
  * @return GetSecurityLevelResponse
@@ -8268,7 +8369,7 @@ GetSecurityLevelResponse Client::getSecurityLevel(const GetSecurityLevelRequest 
 }
 
 /**
- * @summary 通过密钥名称获取密钥值。
+ * @summary Retrieves a key value by key name. Online version: v5.4.2.
  *
  * @param request GetSecuritySecretKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8303,7 +8404,7 @@ GetSecuritySecretKeyResponse Client::getSecuritySecretKeyWithOptions(const GetSe
 }
 
 /**
- * @summary 通过密钥名称获取密钥值。
+ * @summary Retrieves a key value by key name. Online version: v5.4.2.
  *
  * @param request GetSecuritySecretKeyRequest
  * @return GetSecuritySecretKeyResponse
@@ -8314,7 +8415,7 @@ GetSecuritySecretKeyResponse Client::getSecuritySecretKey(const GetSecuritySecre
 }
 
 /**
- * @summary 获取计算源对应集群的spark客户信息
+ * @summary Retrieves the Spark client information of the cluster associated with a compute source.
  *
  * @param request GetSparkLocalClientInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8353,7 +8454,7 @@ GetSparkLocalClientInfoResponse Client::getSparkLocalClientInfoWithOptions(const
 }
 
 /**
- * @summary 获取计算源对应集群的spark客户信息
+ * @summary Retrieves the Spark client information of the cluster associated with a compute source.
  *
  * @param request GetSparkLocalClientInfoRequest
  * @return GetSparkLocalClientInfoResponse
@@ -8364,7 +8465,8 @@ GetSparkLocalClientInfoResponse Client::getSparkLocalClientInfo(const GetSparkLo
 }
 
 /**
- * @summary 获取标准详情。
+ * @summary Retrieves the details of a standard.
+ * Release version: v5.4.2.
  *
  * @param tmpReq GetStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8407,7 +8509,8 @@ GetStandardResponse Client::getStandardWithOptions(const GetStandardRequest &tmp
 }
 
 /**
- * @summary 获取标准详情。
+ * @summary Retrieves the details of a standard.
+ * Release version: v5.4.2.
  *
  * @param request GetStandardRequest
  * @return GetStandardResponse
@@ -8418,7 +8521,8 @@ GetStandardResponse Client::getStandard(const GetStandardRequest &request) {
 }
 
 /**
- * @summary 获取数据标准码表详情。
+ * @summary Retrieves the details of a data standard lookup table.
+ * Online version: v5.4.2.
  *
  * @param request GetStandardLookupTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8457,7 +8561,8 @@ GetStandardLookupTableResponse Client::getStandardLookupTableWithOptions(const G
 }
 
 /**
- * @summary 获取数据标准码表详情。
+ * @summary Retrieves the details of a data standard lookup table.
+ * Online version: v5.4.2.
  *
  * @param request GetStandardLookupTableRequest
  * @return GetStandardLookupTableResponse
@@ -8468,7 +8573,8 @@ GetStandardLookupTableResponse Client::getStandardLookupTable(const GetStandardL
 }
 
 /**
- * @summary 获取标准集详情。
+ * @summary Retrieves the details of a standard set.
+ * Release version: v5.4.2.
  *
  * @param request GetStandardSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8507,7 +8613,8 @@ GetStandardSetResponse Client::getStandardSetWithOptions(const GetStandardSetReq
 }
 
 /**
- * @summary 获取标准集详情。
+ * @summary Retrieves the details of a standard set.
+ * Release version: v5.4.2.
  *
  * @param request GetStandardSetRequest
  * @return GetStandardSetResponse
@@ -8518,7 +8625,8 @@ GetStandardSetResponse Client::getStandardSet(const GetStandardSetRequest &reque
 }
 
 /**
- * @summary 查询目录下按照标准类型统计标准数目。
+ * @summary Queries the number of standards grouped by standard type under a specified folder.
+ * Online version: v5.4.2.
  *
  * @param tmpReq GetStandardStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8561,7 +8669,8 @@ GetStandardStatisticsResponse Client::getStandardStatisticsWithOptions(const Get
 }
 
 /**
- * @summary 查询目录下按照标准类型统计标准数目。
+ * @summary Queries the number of standards grouped by standard type under a specified folder.
+ * Online version: v5.4.2.
  *
  * @param request GetStandardStatisticsRequest
  * @return GetStandardStatisticsResponse
@@ -8572,7 +8681,8 @@ GetStandardStatisticsResponse Client::getStandardStatistics(const GetStandardSta
 }
 
 /**
- * @summary 获取数据标准模板详情。
+ * @summary Retrieves the details of a data standard template.
+ * Online version: v5.4.2.
  *
  * @param tmpReq GetStandardTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8623,7 +8733,8 @@ GetStandardTemplateResponse Client::getStandardTemplateWithOptions(const GetStan
 }
 
 /**
- * @summary 获取数据标准模板详情。
+ * @summary Retrieves the details of a data standard template.
+ * Online version: v5.4.2.
  *
  * @param request GetStandardTemplateRequest
  * @return GetStandardTemplateResponse
@@ -8634,7 +8745,8 @@ GetStandardTemplateResponse Client::getStandardTemplate(const GetStandardTemplat
 }
 
 /**
- * @summary 获取数据标准词根详情。
+ * @summary Retrieves the details of a data standard word root.
+ * Online version: v5.4.2.
  *
  * @param request GetStandardWordRootRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8673,7 +8785,8 @@ GetStandardWordRootResponse Client::getStandardWordRootWithOptions(const GetStan
 }
 
 /**
- * @summary 获取数据标准词根详情。
+ * @summary Retrieves the details of a data standard word root.
+ * Online version: v5.4.2.
  *
  * @param request GetStandardWordRootRequest
  * @return GetStandardWordRootResponse
@@ -8684,7 +8797,7 @@ GetStandardWordRootResponse Client::getStandardWordRoot(const GetStandardWordRoo
 }
 
 /**
- * @summary 获取dataphin实时研发任务集合
+ * @summary Retrieves the list of real-time development nodes.
  *
  * @param request GetStreamJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8723,7 +8836,7 @@ GetStreamJobsResponse Client::getStreamJobsWithOptions(const GetStreamJobsReques
 }
 
 /**
- * @summary 获取dataphin实时研发任务集合
+ * @summary Retrieves the list of real-time development nodes.
  *
  * @param request GetStreamJobsRequest
  * @return GetStreamJobsResponse
@@ -8734,7 +8847,7 @@ GetStreamJobsResponse Client::getStreamJobs(const GetStreamJobsRequest &request)
 }
 
 /**
- * @summary 获取补数据工作流所有业务日期的Dagrun信息。
+ * @summary Retrieves dagrun information for all business dates of a data backfill instance workflow.
  *
  * @param request GetSupplementDagrunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8773,7 +8886,7 @@ GetSupplementDagrunResponse Client::getSupplementDagrunWithOptions(const GetSupp
 }
 
 /**
- * @summary 获取补数据工作流所有业务日期的Dagrun信息。
+ * @summary Retrieves dagrun information for all business dates of a data backfill instance workflow.
  *
  * @param request GetSupplementDagrunRequest
  * @return GetSupplementDagrunResponse
@@ -8784,7 +8897,7 @@ GetSupplementDagrunResponse Client::getSupplementDagrun(const GetSupplementDagru
 }
 
 /**
- * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
+ * @summary Lists the instances of all nodes for a specific business date in a data backfill workflow.
  *
  * @param request GetSupplementDagrunInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8823,7 +8936,7 @@ GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstanceWithOptio
 }
 
 /**
- * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
+ * @summary Lists the instances of all nodes for a specific business date in a data backfill workflow.
  *
  * @param request GetSupplementDagrunInstanceRequest
  * @return GetSupplementDagrunInstanceResponse
@@ -8834,7 +8947,7 @@ GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstance(const Ge
 }
 
 /**
- * @summary 查询表字段血缘信息
+ * @summary Queries table column lineage information.
  *
  * @param tmpReq GetTableColumnLineageByTaskIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8877,7 +8990,7 @@ GetTableColumnLineageByTaskIdResponse Client::getTableColumnLineageByTaskIdWithO
 }
 
 /**
- * @summary 查询表字段血缘信息
+ * @summary Queries table column lineage information.
  *
  * @param request GetTableColumnLineageByTaskIdRequest
  * @return GetTableColumnLineageByTaskIdResponse
@@ -8888,7 +9001,8 @@ GetTableColumnLineageByTaskIdResponse Client::getTableColumnLineageByTaskId(cons
 }
 
 /**
- * @summary 查询资产表字段血缘信息。
+ * @summary Queries the column-level data lineage of an asset table.
+ * Online version: v5.4.2.
  *
  * @param tmpReq GetTableColumnLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8935,7 +9049,8 @@ GetTableColumnLineagesResponse Client::getTableColumnLineagesWithOptions(const G
 }
 
 /**
- * @summary 查询资产表字段血缘信息。
+ * @summary Queries the column-level data lineage of an asset table.
+ * Online version: v5.4.2.
  *
  * @param request GetTableColumnLineagesRequest
  * @return GetTableColumnLineagesResponse
@@ -8946,7 +9061,8 @@ GetTableColumnLineagesResponse Client::getTableColumnLineages(const GetTableColu
 }
 
 /**
- * @summary 查询资产清单中Dataphin表的字段。
+ * @summary Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
+ * Release version: v5.4.2.
  *
  * @param request GetTableColumnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8985,7 +9101,8 @@ GetTableColumnsResponse Client::getTableColumnsWithOptions(const GetTableColumns
 }
 
 /**
- * @summary 查询资产清单中Dataphin表的字段。
+ * @summary Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
+ * Release version: v5.4.2.
  *
  * @param request GetTableColumnsRequest
  * @return GetTableColumnsResponse
@@ -8996,7 +9113,7 @@ GetTableColumnsResponse Client::getTableColumns(const GetTableColumnsRequest &re
 }
 
 /**
- * @summary 查询表血缘信息
+ * @summary Queries table lineage information.
  *
  * @param tmpReq GetTableLineageByTaskIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9039,7 +9156,7 @@ GetTableLineageByTaskIdResponse Client::getTableLineageByTaskIdWithOptions(const
 }
 
 /**
- * @summary 查询表血缘信息
+ * @summary Queries table lineage information.
  *
  * @param request GetTableLineageByTaskIdRequest
  * @return GetTableLineageByTaskIdResponse
@@ -9050,7 +9167,8 @@ GetTableLineageByTaskIdResponse Client::getTableLineageByTaskId(const GetTableLi
 }
 
 /**
- * @summary 查询资产表血缘信息。
+ * @summary Queries lineage information of an asset table.
+ * Release version: v5.4.2.
  *
  * @param tmpReq GetTableLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9097,7 +9215,8 @@ GetTableLineagesResponse Client::getTableLineagesWithOptions(const GetTableLinea
 }
 
 /**
- * @summary 查询资产表血缘信息。
+ * @summary Queries lineage information of an asset table.
+ * Release version: v5.4.2.
  *
  * @param request GetTableLineagesRequest
  * @return GetTableLineagesResponse
@@ -9108,7 +9227,7 @@ GetTableLineagesResponse Client::getTableLineages(const GetTableLineagesRequest 
 }
 
 /**
- * @summary 根据转交任务ID查询转交任务的进度
+ * @summary Queries the progress of a transfer task by transfer task ID.
  *
  * @param request GetTransferInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9143,7 +9262,7 @@ GetTransferInfoResponse Client::getTransferInfoWithOptions(const GetTransferInfo
 }
 
 /**
- * @summary 根据转交任务ID查询转交任务的进度
+ * @summary Queries the progress of a transfer task by transfer task ID.
  *
  * @param request GetTransferInfoRequest
  * @return GetTransferInfoResponse
@@ -9154,7 +9273,7 @@ GetTransferInfoResponse Client::getTransferInfo(const GetTransferInfoRequest &re
 }
 
 /**
- * @summary 获取自定义函数详情。
+ * @summary Retrieves the details of a user-defined function.
  *
  * @param request GetUdfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9193,7 +9312,7 @@ GetUdfResponse Client::getUdfWithOptions(const GetUdfRequest &request, const Dar
 }
 
 /**
- * @summary 获取自定义函数详情。
+ * @summary Retrieves the details of a user-defined function.
  *
  * @param request GetUdfRequest
  * @return GetUdfResponse
@@ -9204,7 +9323,7 @@ GetUdfResponse Client::getUdf(const GetUdfRequest &request) {
 }
 
 /**
- * @summary 查询自定义函数版本详情。
+ * @summary Queries the details of a specific version of a user-defined function.
  *
  * @param request GetUdfByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9247,7 +9366,7 @@ GetUdfByVersionResponse Client::getUdfByVersionWithOptions(const GetUdfByVersion
 }
 
 /**
- * @summary 查询自定义函数版本详情。
+ * @summary Queries the details of a specific version of a user-defined function.
  *
  * @param request GetUdfByVersionRequest
  * @return GetUdfByVersionResponse
@@ -9258,7 +9377,7 @@ GetUdfByVersionResponse Client::getUdfByVersion(const GetUdfByVersionRequest &re
 }
 
 /**
- * @summary 通过用户原始Id（如阿里云Id）获取用户详情
+ * @summary Retrieves user details by original user ID.
  *
  * @param request GetUserBySourceIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9293,7 +9412,7 @@ GetUserBySourceIdResponse Client::getUserBySourceIdWithOptions(const GetUserBySo
 }
 
 /**
- * @summary 通过用户原始Id（如阿里云Id）获取用户详情
+ * @summary Retrieves user details by original user ID.
  *
  * @param request GetUserBySourceIdRequest
  * @return GetUserBySourceIdResponse
@@ -9304,7 +9423,7 @@ GetUserBySourceIdResponse Client::getUserBySourceId(const GetUserBySourceIdReque
 }
 
 /**
- * @summary 获取用户组详情.
+ * @summary Retrieves the details of a user group.
  *
  * @param request GetUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9339,7 +9458,7 @@ GetUserGroupResponse Client::getUserGroupWithOptions(const GetUserGroupRequest &
 }
 
 /**
- * @summary 获取用户组详情.
+ * @summary Retrieves the details of a user group.
  *
  * @param request GetUserGroupRequest
  * @return GetUserGroupResponse
@@ -9350,7 +9469,7 @@ GetUserGroupResponse Client::getUserGroup(const GetUserGroupRequest &request) {
 }
 
 /**
- * @summary 获取用户详情
+ * @summary Retrieves user information in batches by user ID.
  *
  * @param tmpReq GetUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9393,7 +9512,7 @@ GetUsersResponse Client::getUsersWithOptions(const GetUsersRequest &tmpReq, cons
 }
 
 /**
- * @summary 获取用户详情
+ * @summary Retrieves user information in batches by user ID.
  *
  * @param request GetUsersRequest
  * @return GetUsersResponse
@@ -9404,7 +9523,7 @@ GetUsersResponse Client::getUsers(const GetUsersRequest &request) {
 }
 
 /**
- * @summary API授权。
+ * @summary Grants API authorization.
  *
  * @param tmpReq GrantDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9451,7 +9570,7 @@ GrantDataServiceApiResponse Client::grantDataServiceApiWithOptions(const GrantDa
 }
 
 /**
- * @summary API授权。
+ * @summary Grants API authorization.
  *
  * @param request GrantDataServiceApiRequest
  * @return GrantDataServiceApiResponse
@@ -9462,7 +9581,7 @@ GrantDataServiceApiResponse Client::grantDataServiceApi(const GrantDataServiceAp
 }
 
 /**
- * @summary 通过资源点对用户授权
+ * @summary Grants permissions on resources to users by resource point.
  *
  * @param tmpReq GrantResourcePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9505,7 +9624,7 @@ GrantResourcePermissionResponse Client::grantResourcePermissionWithOptions(const
 }
 
 /**
- * @summary 通过资源点对用户授权
+ * @summary Grants permissions on resources to users by resource point.
  *
  * @param request GrantResourcePermissionRequest
  * @return GrantResourcePermissionResponse
@@ -9516,7 +9635,7 @@ GrantResourcePermissionResponse Client::grantResourcePermission(const GrantResou
 }
 
 /**
- * @summary 获取用户角色列表
+ * @summary Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
  *
  * @param request ListAddableRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9547,7 +9666,7 @@ ListAddableRolesResponse Client::listAddableRolesWithOptions(const ListAddableRo
 }
 
 /**
- * @summary 获取用户角色列表
+ * @summary Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
  *
  * @param request ListAddableRolesRequest
  * @return ListAddableRolesResponse
@@ -9558,7 +9677,7 @@ ListAddableRolesResponse Client::listAddableRoles(const ListAddableRolesRequest 
 }
 
 /**
- * @summary 获取可加入租户成员列表的用户
+ * @summary Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
  *
  * @param tmpReq ListAddableUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9601,7 +9720,7 @@ ListAddableUsersResponse Client::listAddableUsersWithOptions(const ListAddableUs
 }
 
 /**
- * @summary 获取可加入租户成员列表的用户
+ * @summary Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
  *
  * @param request ListAddableUsersRequest
  * @return ListAddableUsersResponse
@@ -9612,7 +9731,7 @@ ListAddableUsersResponse Client::listAddableUsers(const ListAddableUsersRequest 
 }
 
 /**
- * @summary 根据条件查询多个告警事件
+ * @summary Performs a conditional query to list multiple alerting events.
  *
  * @param tmpReq ListAlertEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9655,7 +9774,7 @@ ListAlertEventsResponse Client::listAlertEventsWithOptions(const ListAlertEvents
 }
 
 /**
- * @summary 根据条件查询多个告警事件
+ * @summary Performs a conditional query to list multiple alerting events.
  *
  * @param request ListAlertEventsRequest
  * @return ListAlertEventsResponse
@@ -9666,7 +9785,7 @@ ListAlertEventsResponse Client::listAlertEvents(const ListAlertEventsRequest &re
 }
 
 /**
- * @summary 根据条件查询多个推送记录
+ * @summary Performs a conditional query to list multiple push records.
  *
  * @param tmpReq ListAlertNotificationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9709,7 +9828,7 @@ ListAlertNotificationsResponse Client::listAlertNotificationsWithOptions(const L
 }
 
 /**
- * @summary 根据条件查询多个推送记录
+ * @summary Performs a conditional query to list multiple push records.
  *
  * @param request ListAlertNotificationsRequest
  * @return ListAlertNotificationsResponse
@@ -9720,7 +9839,9 @@ ListAlertNotificationsResponse Client::listAlertNotifications(const ListAlertNot
 }
 
 /**
- * @summary 根据app查询api列表
+ * @summary Queries the list of APIs by application.
+ *
+ * @description Queries the detailed information of published APIs by appKey.
  *
  * @param tmpReq ListApiByAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9763,7 +9884,9 @@ ListApiByAppResponse Client::listApiByAppWithOptions(const ListApiByAppRequest &
 }
 
 /**
- * @summary 根据app查询api列表
+ * @summary Queries the list of APIs by application.
+ *
+ * @description Queries the detailed information of published APIs by appKey.
  *
  * @param request ListApiByAppRequest
  * @return ListApiByAppResponse
@@ -9774,7 +9897,7 @@ ListApiByAppResponse Client::listApiByApp(const ListApiByAppRequest &request) {
 }
 
 /**
- * @summary 查询应用已申请的API的具体的字段列表
+ * @summary Queries the list of specific fields for APIs that an application has requested.
  *
  * @param tmpReq ListAuthorizedDataServiceApiDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9817,7 +9940,7 @@ ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApi
 }
 
 /**
- * @summary 查询应用已申请的API的具体的字段列表
+ * @summary Queries the list of specific fields for APIs that an application has requested.
  *
  * @param request ListAuthorizedDataServiceApiDetailsRequest
  * @return ListAuthorizedDataServiceApiDetailsResponse
@@ -9828,7 +9951,7 @@ ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApi
 }
 
 /**
- * @summary 查询业务实体列表。
+ * @summary Queries a list of business entities.
  *
  * @param tmpReq ListBizEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9871,7 +9994,7 @@ ListBizEntitiesResponse Client::listBizEntitiesWithOptions(const ListBizEntities
 }
 
 /**
- * @summary 查询业务实体列表。
+ * @summary Queries a list of business entities.
  *
  * @param request ListBizEntitiesRequest
  * @return ListBizEntitiesResponse
@@ -9882,7 +10005,7 @@ ListBizEntitiesResponse Client::listBizEntities(const ListBizEntitiesRequest &re
 }
 
 /**
- * @summary 获取当前租户下的所有数据板块
+ * @summary Retrieves all business units under the current tenant.
  *
  * @param request ListBizUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9913,7 +10036,7 @@ ListBizUnitsResponse Client::listBizUnitsWithOptions(const ListBizUnitsRequest &
 }
 
 /**
- * @summary 获取当前租户下的所有数据板块
+ * @summary Retrieves all business units under the current tenant.
  *
  * @param request ListBizUnitsRequest
  * @return ListBizUnitsResponse
@@ -9924,7 +10047,7 @@ ListBizUnitsResponse Client::listBizUnits(const ListBizUnitsRequest &request) {
 }
 
 /**
- * @summary 查询数据目录资产列表。
+ * @summary Queries the list of asset catalog entries. Online version: v6.1.0.
  *
  * @param tmpReq ListCatalogAssetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9967,7 +10090,7 @@ ListCatalogAssetsResponse Client::listCatalogAssetsWithOptions(const ListCatalog
 }
 
 /**
- * @summary 查询数据目录资产列表。
+ * @summary Queries the list of asset catalog entries. Online version: v6.1.0.
  *
  * @param request ListCatalogAssetsRequest
  * @return ListCatalogAssetsResponse
@@ -9978,7 +10101,7 @@ ListCatalogAssetsResponse Client::listCatalogAssets(const ListCatalogAssetsReque
 }
 
 /**
- * @summary 查询计算源列表。
+ * @summary Query the list of compute sources.
  *
  * @param tmpReq ListComputeSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10021,7 +10144,7 @@ ListComputeSourcesResponse Client::listComputeSourcesWithOptions(const ListCompu
 }
 
 /**
- * @summary 查询计算源列表。
+ * @summary Query the list of compute sources.
  *
  * @param request ListComputeSourcesRequest
  * @return ListComputeSourcesResponse
@@ -10032,7 +10155,7 @@ ListComputeSourcesResponse Client::listComputeSources(const ListComputeSourcesRe
 }
 
 /**
- * @summary 获取主题域列表。
+ * @summary Retrieves a list of data domains.
  *
  * @param tmpReq ListDataDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10075,7 +10198,7 @@ ListDataDomainsResponse Client::listDataDomainsWithOptions(const ListDataDomains
 }
 
 /**
- * @summary 获取主题域列表。
+ * @summary Retrieves a list of data domains.
  *
  * @param request ListDataDomainsRequest
  * @return ListDataDomainsResponse
@@ -10086,7 +10209,7 @@ ListDataDomainsResponse Client::listDataDomains(const ListDataDomainsRequest &re
 }
 
 /**
- * @summary 查询API运维统计信息。
+ * @summary O&M analysis: API call statistics.
  *
  * @param tmpReq ListDataServiceApiCallStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10133,7 +10256,7 @@ ListDataServiceApiCallStatisticsResponse Client::listDataServiceApiCallStatistic
 }
 
 /**
- * @summary 查询API运维统计信息。
+ * @summary O&M analysis: API call statistics.
  *
  * @param request ListDataServiceApiCallStatisticsRequest
  * @return ListDataServiceApiCallStatisticsResponse
@@ -10144,7 +10267,7 @@ ListDataServiceApiCallStatisticsResponse Client::listDataServiceApiCallStatistic
 }
 
 /**
- * @summary 分页查询数据服务调用日志。
+ * @summary Queries data service call logs with pagination.
  *
  * @param tmpReq ListDataServiceApiCallsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10191,7 +10314,7 @@ ListDataServiceApiCallsResponse Client::listDataServiceApiCallsWithOptions(const
 }
 
 /**
- * @summary 分页查询数据服务调用日志。
+ * @summary Queries data service call logs with pagination.
  *
  * @param request ListDataServiceApiCallsRequest
  * @return ListDataServiceApiCallsResponse
@@ -10202,7 +10325,7 @@ ListDataServiceApiCallsResponse Client::listDataServiceApiCalls(const ListDataSe
 }
 
 /**
- * @summary API影响分析列表。
+ * @summary Operations analysis: analyzes the impact of abnormal API calls.
  *
  * @param tmpReq ListDataServiceApiImpactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10249,7 +10372,7 @@ ListDataServiceApiImpactsResponse Client::listDataServiceApiImpactsWithOptions(c
 }
 
 /**
- * @summary API影响分析列表。
+ * @summary Operations analysis: analyzes the impact of abnormal API calls.
  *
  * @param request ListDataServiceApiImpactsRequest
  * @return ListDataServiceApiImpactsResponse
@@ -10260,7 +10383,8 @@ ListDataServiceApiImpactsResponse Client::listDataServiceApiImpacts(const ListDa
 }
 
 /**
- * @summary 查询租户下所有的应用列表。
+ * @summary Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
+ * Release version: v6.0.0.
  *
  * @param tmpReq ListDataServiceAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10303,7 +10427,8 @@ ListDataServiceAppsResponse Client::listDataServiceAppsWithOptions(const ListDat
 }
 
 /**
- * @summary 查询租户下所有的应用列表。
+ * @summary Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
+ * Release version: v6.0.0.
  *
  * @param request ListDataServiceAppsRequest
  * @return ListDataServiceAppsResponse
@@ -10314,7 +10439,7 @@ ListDataServiceAppsResponse Client::listDataServiceApps(const ListDataServiceApp
 }
 
 /**
- * @summary 查询当前用户有权限的应用列表。
+ * @summary Queries the list of applications that the current user has permissions to access.
  *
  * @param tmpReq ListDataServiceAuthorizedAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10361,7 +10486,7 @@ ListDataServiceAuthorizedAppsResponse Client::listDataServiceAuthorizedAppsWithO
 }
 
 /**
- * @summary 查询当前用户有权限的应用列表。
+ * @summary Queries the list of applications that the current user has permissions to access.
  *
  * @param request ListDataServiceAuthorizedAppsRequest
  * @return ListDataServiceAuthorizedAppsResponse
@@ -10372,7 +10497,7 @@ ListDataServiceAuthorizedAppsResponse Client::listDataServiceAuthorizedApps(cons
 }
 
 /**
- * @summary 获取我管理的API权限列表。
+ * @summary Obtain the list of API permissions managed by me.
  *
  * @param tmpReq ListDataServiceMyApiPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10419,7 +10544,7 @@ ListDataServiceMyApiPermissionsResponse Client::listDataServiceMyApiPermissionsW
 }
 
 /**
- * @summary 获取我管理的API权限列表。
+ * @summary Obtain the list of API permissions managed by me.
  *
  * @param request ListDataServiceMyApiPermissionsRequest
  * @return ListDataServiceMyApiPermissionsResponse
@@ -10430,7 +10555,7 @@ ListDataServiceMyApiPermissionsResponse Client::listDataServiceMyApiPermissions(
 }
 
 /**
- * @summary 查询当前用户有权限的应用。
+ * @summary Queries the applications that the current user has permissions to access.
  *
  * @param tmpReq ListDataServiceMyAppPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10477,7 +10602,7 @@ ListDataServiceMyAppPermissionsResponse Client::listDataServiceMyAppPermissionsW
 }
 
 /**
- * @summary 查询当前用户有权限的应用。
+ * @summary Queries the applications that the current user has permissions to access.
  *
  * @param request ListDataServiceMyAppPermissionsRequest
  * @return ListDataServiceMyAppPermissionsResponse
@@ -10488,7 +10613,7 @@ ListDataServiceMyAppPermissionsResponse Client::listDataServiceMyAppPermissions(
 }
 
 /**
- * @summary 分页查询已发布的API列表。
+ * @summary Queries the list of published APIs by page.
  *
  * @param tmpReq ListDataServicePublishedApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10535,7 +10660,7 @@ ListDataServicePublishedApisResponse Client::listDataServicePublishedApisWithOpt
 }
 
 /**
- * @summary 分页查询已发布的API列表。
+ * @summary Queries the list of published APIs by page.
  *
  * @param request ListDataServicePublishedApisRequest
  * @return ListDataServicePublishedApisResponse
@@ -10546,7 +10671,7 @@ ListDataServicePublishedApisResponse Client::listDataServicePublishedApis(const 
 }
 
 /**
- * @summary 搜索数据源，所属结果包含数据源配置项
+ * @summary Search for data sources. The results include data source configuration items.
  *
  * @param tmpReq ListDataSourceWithConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10589,7 +10714,7 @@ ListDataSourceWithConfigResponse Client::listDataSourceWithConfigWithOptions(con
 }
 
 /**
- * @summary 搜索数据源，所属结果包含数据源配置项
+ * @summary Search for data sources. The results include data source configuration items.
  *
  * @param request ListDataSourceWithConfigRequest
  * @return ListDataSourceWithConfigResponse
@@ -10600,7 +10725,7 @@ ListDataSourceWithConfigResponse Client::listDataSourceWithConfig(const ListData
 }
 
 /**
- * @summary 遍历菜单树目录文件。
+ * @summary Query the directory tree file list.
  *
  * @param tmpReq ListFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10643,7 +10768,7 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &tmpReq, c
 }
 
 /**
- * @summary 遍历菜单树目录文件。
+ * @summary Query the directory tree file list.
  *
  * @param request ListFilesRequest
  * @return ListFilesResponse
@@ -10654,7 +10779,7 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 }
 
 /**
- * @summary 分页查询实例。
+ * @summary Paginate and query instances.
  *
  * @param tmpReq ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10701,7 +10826,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary 分页查询实例。
+ * @summary Paginate and query instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -10712,7 +10837,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
+ * @summary Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
  *
  * @param tmpReq ListNodeDownStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10759,7 +10884,7 @@ ListNodeDownStreamResponse Client::listNodeDownStreamWithOptions(const ListNodeD
 }
 
 /**
- * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
+ * @summary Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
  *
  * @param request ListNodeDownStreamRequest
  * @return ListNodeDownStreamResponse
@@ -10770,7 +10895,7 @@ ListNodeDownStreamResponse Client::listNodeDownStream(const ListNodeDownStreamRe
 }
 
 /**
- * @summary 查询调度节点列表。
+ * @summary Retrieves a list of scheduling nodes.
  *
  * @param tmpReq ListNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10817,7 +10942,7 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
 }
 
 /**
- * @summary 查询调度节点列表。
+ * @summary Retrieves a list of scheduling nodes.
  *
  * @param request ListNodesRequest
  * @return ListNodesResponse
@@ -10828,7 +10953,7 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
- * @summary 获取项目成员列表。
+ * @summary Queries the list of project members.
  *
  * @param tmpReq ListProjectMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10875,7 +11000,7 @@ ListProjectMembersResponse Client::listProjectMembersWithOptions(const ListProje
 }
 
 /**
- * @summary 获取项目成员列表。
+ * @summary Queries the list of project members.
  *
  * @param request ListProjectMembersRequest
  * @return ListProjectMembersResponse
@@ -10886,7 +11011,7 @@ ListProjectMembersResponse Client::listProjectMembers(const ListProjectMembersRe
 }
 
 /**
- * @summary 获取项目列表。
+ * @summary Retrieves a list of projects.
  *
  * @param tmpReq ListProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10929,7 +11054,7 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 }
 
 /**
- * @summary 获取项目列表。
+ * @summary Retrieves a list of projects.
  *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse
@@ -10940,7 +11065,7 @@ ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
 }
 
 /**
- * @summary 分页获取发布记录列表
+ * @summary Retrieves a paginated list of publish records.
  *
  * @param tmpReq ListPublishRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10983,7 +11108,7 @@ ListPublishRecordsResponse Client::listPublishRecordsWithOptions(const ListPubli
 }
 
 /**
- * @summary 分页获取发布记录列表
+ * @summary Retrieves a paginated list of publish records.
  *
  * @param request ListPublishRecordsRequest
  * @return ListPublishRecordsResponse
@@ -10994,7 +11119,8 @@ ListPublishRecordsResponse Client::listPublishRecords(const ListPublishRecordsRe
 }
 
 /**
- * @summary 分页查询质量规则任务。
+ * @summary Queries quality rule tasks by paging.
+ * Online version: v5.4.2.
  *
  * @param tmpReq ListQualityRuleTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11037,7 +11163,8 @@ ListQualityRuleTasksResponse Client::listQualityRuleTasksWithOptions(const ListQ
 }
 
 /**
- * @summary 分页查询质量规则任务。
+ * @summary Queries quality rule tasks by paging.
+ * Online version: v5.4.2.
  *
  * @param request ListQualityRuleTasksRequest
  * @return ListQualityRuleTasksResponse
@@ -11048,7 +11175,8 @@ ListQualityRuleTasksResponse Client::listQualityRuleTasks(const ListQualityRuleT
 }
 
 /**
- * @summary 分页查询质量规则。
+ * @summary Queries quality rules by paging.
+ * Online version: v5.4.2.
  *
  * @param tmpReq ListQualityRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11091,7 +11219,8 @@ ListQualityRulesResponse Client::listQualityRulesWithOptions(const ListQualityRu
 }
 
 /**
- * @summary 分页查询质量规则。
+ * @summary Queries quality rules by paging.
+ * Online version: v5.4.2.
  *
  * @param request ListQualityRulesRequest
  * @return ListQualityRulesResponse
@@ -11102,7 +11231,8 @@ ListQualityRulesResponse Client::listQualityRules(const ListQualityRulesRequest 
 }
 
 /**
- * @summary 分页查询质量模板。
+ * @summary Queries quality templates by paging.
+ * Online version: v5.4.2.
  *
  * @param tmpReq ListQualityTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11145,7 +11275,8 @@ ListQualityTemplatesResponse Client::listQualityTemplatesWithOptions(const ListQ
 }
 
 /**
- * @summary 分页查询质量模板。
+ * @summary Queries quality templates by paging.
+ * Online version: v5.4.2.
  *
  * @param request ListQualityTemplatesRequest
  * @return ListQualityTemplatesResponse
@@ -11156,7 +11287,8 @@ ListQualityTemplatesResponse Client::listQualityTemplates(const ListQualityTempl
 }
 
 /**
- * @summary 分页查询质量监控任务。
+ * @summary Queries quality monitoring nodes by paged query.
+ * Online version: v5.4.2.
  *
  * @param tmpReq ListQualityWatchTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11199,7 +11331,8 @@ ListQualityWatchTasksResponse Client::listQualityWatchTasksWithOptions(const Lis
 }
 
 /**
- * @summary 分页查询质量监控任务。
+ * @summary Queries quality monitoring nodes by paged query.
+ * Online version: v5.4.2.
  *
  * @param request ListQualityWatchTasksRequest
  * @return ListQualityWatchTasksResponse
@@ -11210,7 +11343,8 @@ ListQualityWatchTasksResponse Client::listQualityWatchTasks(const ListQualityWat
 }
 
 /**
- * @summary 分页查询质量监控对象。
+ * @summary Performs a paged query of quality monitored objects.
+ * Online version: v5.4.2.
  *
  * @param tmpReq ListQualityWatchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11253,7 +11387,8 @@ ListQualityWatchesResponse Client::listQualityWatchesWithOptions(const ListQuali
 }
 
 /**
- * @summary 分页查询质量监控对象。
+ * @summary Performs a paged query of quality monitored objects.
+ * Online version: v5.4.2.
  *
  * @param request ListQualityWatchesRequest
  * @return ListQualityWatchesResponse
@@ -11264,7 +11399,7 @@ ListQualityWatchesResponse Client::listQualityWatches(const ListQualityWatchesRe
 }
 
 /**
- * @summary 分页获取权限操作列表
+ * @summary Retrieves a paginated list of permission operation logs.
  *
  * @param tmpReq ListResourcePermissionOperationLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11307,7 +11442,7 @@ ListResourcePermissionOperationLogResponse Client::listResourcePermissionOperati
 }
 
 /**
- * @summary 分页获取权限操作列表
+ * @summary Retrieves a paginated list of permission operation logs.
  *
  * @param request ListResourcePermissionOperationLogRequest
  * @return ListResourcePermissionOperationLogResponse
@@ -11318,7 +11453,7 @@ ListResourcePermissionOperationLogResponse Client::listResourcePermissionOperati
 }
 
 /**
- * @summary 分页获取权限记录列表
+ * @summary Retrieves permission authorization records with pagination.
  *
  * @param tmpReq ListResourcePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11361,7 +11496,7 @@ ListResourcePermissionsResponse Client::listResourcePermissionsWithOptions(const
 }
 
 /**
- * @summary 分页获取权限记录列表
+ * @summary Retrieves permission authorization records with pagination.
  *
  * @param request ListResourcePermissionsRequest
  * @return ListResourcePermissionsResponse
@@ -11372,7 +11507,7 @@ ListResourcePermissionsResponse Client::listResourcePermissions(const ListResour
 }
 
 /**
- * @summary 分页查询行级权限
+ * @summary Performs a paged query of row-level permissions.
  *
  * @param tmpReq ListRowPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11415,7 +11550,7 @@ ListRowPermissionResponse Client::listRowPermissionWithOptions(const ListRowPerm
 }
 
 /**
- * @summary 分页查询行级权限
+ * @summary Performs a paged query of row-level permissions.
  *
  * @param request ListRowPermissionRequest
  * @return ListRowPermissionResponse
@@ -11426,7 +11561,7 @@ ListRowPermissionResponse Client::listRowPermission(const ListRowPermissionReque
 }
 
 /**
- * @summary 分页查询指定用户行级权限
+ * @summary Queries row-level permissions of a specified user by paging.
  *
  * @param tmpReq ListRowPermissionByUserIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11469,7 +11604,7 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserIdWithOptions(c
 }
 
 /**
- * @summary 分页查询指定用户行级权限
+ * @summary Queries row-level permissions of a specified user by paging.
  *
  * @param request ListRowPermissionByUserIdRequest
  * @return ListRowPermissionByUserIdResponse
@@ -11480,7 +11615,8 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserId(const ListRo
 }
 
 /**
- * @summary 分页查询安全识别结果的识别记录。
+ * @summary Queries identification records of security identification results by paging.
+ * Online version: v5.4.2.
  *
  * @param tmpReq ListSecurityIdentifyRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11523,7 +11659,8 @@ ListSecurityIdentifyRecordsResponse Client::listSecurityIdentifyRecordsWithOptio
 }
 
 /**
- * @summary 分页查询安全识别结果的识别记录。
+ * @summary Queries identification records of security identification results by paging.
+ * Online version: v5.4.2.
  *
  * @param request ListSecurityIdentifyRecordsRequest
  * @return ListSecurityIdentifyRecordsResponse
@@ -11534,7 +11671,8 @@ ListSecurityIdentifyRecordsResponse Client::listSecurityIdentifyRecords(const Li
 }
 
 /**
- * @summary 分页查询安全识别结果。
+ * @summary Query security identification results by page.
+ * Release version: v5.4.2.
  *
  * @param tmpReq ListSecurityIdentifyResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11577,7 +11715,8 @@ ListSecurityIdentifyResultsResponse Client::listSecurityIdentifyResultsWithOptio
 }
 
 /**
- * @summary 分页查询安全识别结果。
+ * @summary Query security identification results by page.
+ * Release version: v5.4.2.
  *
  * @param request ListSecurityIdentifyResultsRequest
  * @return ListSecurityIdentifyResultsResponse
@@ -11588,7 +11727,8 @@ ListSecurityIdentifyResultsResponse Client::listSecurityIdentifyResults(const Li
 }
 
 /**
- * @summary 分页查询标准列表。
+ * @summary Query the standard list by page.
+ * Release version: v5.4.2.
  *
  * @param tmpReq ListStandardsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11631,7 +11771,8 @@ ListStandardsResponse Client::listStandardsWithOptions(const ListStandardsReques
 }
 
 /**
- * @summary 分页查询标准列表。
+ * @summary Query the standard list by page.
+ * Release version: v5.4.2.
  *
  * @param request ListStandardsRequest
  * @return ListStandardsResponse
@@ -11642,7 +11783,7 @@ ListStandardsResponse Client::listStandards(const ListStandardsRequest &request)
 }
 
 /**
- * @summary 分页获取待发布记录列表
+ * @summary Paginate and retrieve the list of pending deployment records.
  *
  * @param tmpReq ListSubmitRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11685,7 +11826,7 @@ ListSubmitRecordsResponse Client::listSubmitRecordsWithOptions(const ListSubmitR
 }
 
 /**
- * @summary 分页获取待发布记录列表
+ * @summary Paginate and retrieve the list of pending deployment records.
  *
  * @param request ListSubmitRecordsRequest
  * @return ListSubmitRecordsResponse
@@ -11696,7 +11837,8 @@ ListSubmitRecordsResponse Client::listSubmitRecords(const ListSubmitRecordsReque
 }
 
 /**
- * @summary 分页查询查询资产表元数据。
+ * @summary Performs a paged query to retrieve asset table metadata.
+ * Online version: v5.4.2.
  *
  * @param tmpReq ListTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11739,7 +11881,8 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
 }
 
 /**
- * @summary 分页查询查询资产表元数据。
+ * @summary Performs a paged query to retrieve asset table metadata.
+ * Online version: v5.4.2.
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse
@@ -11750,7 +11893,7 @@ ListTablesResponse Client::listTables(const ListTablesRequest &request) {
 }
 
 /**
- * @summary 查询租户成员列表
+ * @summary Queries the list of tenant members.
  *
  * @param tmpReq ListTenantMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11793,7 +11936,7 @@ ListTenantMembersResponse Client::listTenantMembersWithOptions(const ListTenantM
 }
 
 /**
- * @summary 查询租户成员列表
+ * @summary Queries the list of tenant members.
  *
  * @param request ListTenantMembersRequest
  * @return ListTenantMembersResponse
@@ -11804,7 +11947,7 @@ ListTenantMembersResponse Client::listTenantMembers(const ListTenantMembersReque
 }
 
 /**
- * @summary 用户组成员列表分页查询.
+ * @summary Performs a paging query of user group members.
  *
  * @param tmpReq ListUserGroupMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11847,7 +11990,7 @@ ListUserGroupMembersResponse Client::listUserGroupMembersWithOptions(const ListU
 }
 
 /**
- * @summary 用户组成员列表分页查询.
+ * @summary Performs a paging query of user group members.
  *
  * @param request ListUserGroupMembersRequest
  * @return ListUserGroupMembersResponse
@@ -11858,7 +12001,7 @@ ListUserGroupMembersResponse Client::listUserGroupMembers(const ListUserGroupMem
 }
 
 /**
- * @summary 用户组列表分页查询.
+ * @summary Queries user groups by paging.
  *
  * @param tmpReq ListUserGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11901,7 +12044,7 @@ ListUserGroupsResponse Client::listUserGroupsWithOptions(const ListUserGroupsReq
 }
 
 /**
- * @summary 用户组列表分页查询.
+ * @summary Queries user groups by paging.
  *
  * @param request ListUserGroupsRequest
  * @return ListUserGroupsResponse
@@ -11912,7 +12055,7 @@ ListUserGroupsResponse Client::listUserGroups(const ListUserGroupsRequest &reque
 }
 
 /**
- * @summary 下线离线计算任务。
+ * @summary Offlines a batch task.
  *
  * @param request OfflineBatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11955,7 +12098,7 @@ OfflineBatchTaskResponse Client::offlineBatchTaskWithOptions(const OfflineBatchT
 }
 
 /**
- * @summary 下线离线计算任务。
+ * @summary Offlines a batch task.
  *
  * @param request OfflineBatchTaskRequest
  * @return OfflineBatchTaskResponse
@@ -11966,7 +12109,7 @@ OfflineBatchTaskResponse Client::offlineBatchTask(const OfflineBatchTaskRequest 
 }
 
 /**
- * @summary 下线业务实体、
+ * @summary Offline a business entity.
  *
  * @param tmpReq OfflineBizEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12009,7 +12152,7 @@ OfflineBizEntityResponse Client::offlineBizEntityWithOptions(const OfflineBizEnt
 }
 
 /**
- * @summary 下线业务实体、
+ * @summary Offline a business entity.
  *
  * @param request OfflineBizEntityRequest
  * @return OfflineBizEntityResponse
@@ -12020,7 +12163,7 @@ OfflineBizEntityResponse Client::offlineBizEntity(const OfflineBizEntityRequest 
 }
 
 /**
- * @summary 下线集成管道任务。
+ * @summary Offlines an integration pipeline node.
  *
  * @param tmpReq OfflinePipelineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12071,7 +12214,7 @@ OfflinePipelineResponse Client::offlinePipelineWithOptions(const OfflinePipeline
 }
 
 /**
- * @summary 下线集成管道任务。
+ * @summary Offlines an integration pipeline node.
  *
  * @param request OfflinePipelineRequest
  * @return OfflinePipelineResponse
@@ -12082,7 +12225,7 @@ OfflinePipelineResponse Client::offlinePipeline(const OfflinePipelineRequest &re
 }
 
 /**
- * @summary 异步下线集成管道任务。
+ * @summary Asynchronously offlines an integration pipeline node.
  *
  * @param tmpReq OfflinePipelineByAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12133,7 +12276,7 @@ OfflinePipelineByAsyncResponse Client::offlinePipelineByAsyncWithOptions(const O
 }
 
 /**
- * @summary 异步下线集成管道任务。
+ * @summary Asynchronously offlines an integration pipeline node.
  *
  * @param request OfflinePipelineByAsyncRequest
  * @return OfflinePipelineByAsyncResponse
@@ -12144,7 +12287,8 @@ OfflinePipelineByAsyncResponse Client::offlinePipelineByAsync(const OfflinePipel
 }
 
 /**
- * @summary 下线标准。
+ * @summary Offlines a standard.
+ * Online version: v5.4.2.
  *
  * @param tmpReq OfflineStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12187,7 +12331,8 @@ OfflineStandardResponse Client::offlineStandardWithOptions(const OfflineStandard
 }
 
 /**
- * @summary 下线标准。
+ * @summary Offlines a standard.
+ * Online version: v5.4.2.
  *
  * @param request OfflineStandardRequest
  * @return OfflineStandardResponse
@@ -12198,7 +12343,7 @@ OfflineStandardResponse Client::offlineStandard(const OfflineStandardRequest &re
 }
 
 /**
- * @summary 上线业务实体。
+ * @summary Brings a business entity online.
  *
  * @param tmpReq OnlineBizEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12241,7 +12386,7 @@ OnlineBizEntityResponse Client::onlineBizEntityWithOptions(const OnlineBizEntity
 }
 
 /**
- * @summary 上线业务实体。
+ * @summary Brings a business entity online.
  *
  * @param request OnlineBizEntityRequest
  * @return OnlineBizEntityResponse
@@ -12252,7 +12397,7 @@ OnlineBizEntityResponse Client::onlineBizEntity(const OnlineBizEntityRequest &re
 }
 
 /**
- * @summary 运维实例。
+ * @summary Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
  *
  * @param tmpReq OperateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12299,7 +12444,7 @@ OperateInstanceResponse Client::operateInstanceWithOptions(const OperateInstance
 }
 
 /**
- * @summary 运维实例。
+ * @summary Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
  *
  * @param request OperateInstanceRequest
  * @return OperateInstanceResponse
@@ -12310,7 +12455,7 @@ OperateInstanceResponse Client::operateInstance(const OperateInstanceRequest &re
 }
 
 /**
- * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+ * @summary Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
  *
  * @param tmpReq ParseBatchTaskDependencyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12353,7 +12498,7 @@ ParseBatchTaskDependencyResponse Client::parseBatchTaskDependencyWithOptions(con
 }
 
 /**
- * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+ * @summary Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
  *
  * @param request ParseBatchTaskDependencyRequest
  * @return ParseBatchTaskDependencyResponse
@@ -12364,7 +12509,7 @@ ParseBatchTaskDependencyResponse Client::parseBatchTaskDependency(const ParseBat
 }
 
 /**
- * @summary 暂停物理节点调度。
+ * @summary Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
  *
  * @param tmpReq PausePhysicalNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12411,7 +12556,7 @@ PausePhysicalNodeResponse Client::pausePhysicalNodeWithOptions(const PausePhysic
 }
 
 /**
- * @summary 暂停物理节点调度。
+ * @summary Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
  *
  * @param request PausePhysicalNodeRequest
  * @return PausePhysicalNodeResponse
@@ -12422,7 +12567,7 @@ PausePhysicalNodeResponse Client::pausePhysicalNode(const PausePhysicalNodeReque
 }
 
 /**
- * @summary 发布数据服务API到生产环境。
+ * @summary Publishes a data service API to the production environment.
  *
  * @param request PublishDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12465,7 +12610,7 @@ PublishDataServiceApiResponse Client::publishDataServiceApiWithOptions(const Pub
 }
 
 /**
- * @summary 发布数据服务API到生产环境。
+ * @summary Publishes a data service API to the production environment.
  *
  * @param request PublishDataServiceApiRequest
  * @return PublishDataServiceApiResponse
@@ -12476,7 +12621,7 @@ PublishDataServiceApiResponse Client::publishDataServiceApi(const PublishDataSer
 }
 
 /**
- * @summary 批量发布对象
+ * @summary Publishes objects in batches.
  *
  * @param tmpReq PublishObjectListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12519,7 +12664,7 @@ PublishObjectListResponse Client::publishObjectListWithOptions(const PublishObje
 }
 
 /**
- * @summary 批量发布对象
+ * @summary Publishes objects in batches.
  *
  * @param request PublishObjectListRequest
  * @return PublishObjectListResponse
@@ -12530,7 +12675,8 @@ PublishObjectListResponse Client::publishObjectList(const PublishObjectListReque
 }
 
 /**
- * @summary 发布标准。
+ * @summary Publishes a standard.
+ * Release version: v5.4.2.
  *
  * @param tmpReq PublishStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12573,7 +12719,8 @@ PublishStandardResponse Client::publishStandardWithOptions(const PublishStandard
 }
 
 /**
- * @summary 发布标准。
+ * @summary Publishes a standard.
+ * Release version: v5.4.2.
  *
  * @param request PublishStandardRequest
  * @return PublishStandardResponse
@@ -12584,7 +12731,8 @@ PublishStandardResponse Client::publishStandard(const PublishStandardRequest &re
 }
 
 /**
- * @summary 删除数据服务应用的普通成员。
+ * @summary Remove regular members from a data service application. Only the application owner can perform this operation.
+ * Released version: v6.0.0.
  *
  * @param tmpReq RemoveDataServiceAppMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12627,7 +12775,8 @@ RemoveDataServiceAppMemberResponse Client::removeDataServiceAppMemberWithOptions
 }
 
 /**
- * @summary 删除数据服务应用的普通成员。
+ * @summary Remove regular members from a data service application. Only the application owner can perform this operation.
+ * Released version: v6.0.0.
  *
  * @param request RemoveDataServiceAppMemberRequest
  * @return RemoveDataServiceAppMemberResponse
@@ -12638,7 +12787,7 @@ RemoveDataServiceAppMemberResponse Client::removeDataServiceAppMember(const Remo
 }
 
 /**
- * @summary 删除项目成员。
+ * @summary Deletes a project member.
  *
  * @param tmpReq RemoveProjectMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12685,7 +12834,7 @@ RemoveProjectMemberResponse Client::removeProjectMemberWithOptions(const RemoveP
 }
 
 /**
- * @summary 删除项目成员。
+ * @summary Deletes a project member.
  *
  * @param request RemoveProjectMemberRequest
  * @return RemoveProjectMemberResponse
@@ -12696,7 +12845,8 @@ RemoveProjectMemberResponse Client::removeProjectMember(const RemoveProjectMembe
 }
 
 /**
- * @summary 批量删除质量规则和调度的绑定关系。
+ * @summary Deletes the bindings between quality rules and schedules in batches.
+ * Release version: v5.4.2.
  *
  * @param tmpReq RemoveQualityRuleSchedulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12739,7 +12889,8 @@ RemoveQualityRuleSchedulesResponse Client::removeQualityRuleSchedulesWithOptions
 }
 
 /**
- * @summary 批量删除质量规则和调度的绑定关系。
+ * @summary Deletes the bindings between quality rules and schedules in batches.
+ * Release version: v5.4.2.
  *
  * @param request RemoveQualityRuleSchedulesRequest
  * @return RemoveQualityRuleSchedulesResponse
@@ -12750,7 +12901,7 @@ RemoveQualityRuleSchedulesResponse Client::removeQualityRuleSchedules(const Remo
 }
 
 /**
- * @summary 删除租户成员
+ * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
  *
  * @param tmpReq RemoveTenantMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12793,7 +12944,7 @@ RemoveTenantMemberResponse Client::removeTenantMemberWithOptions(const RemoveTen
 }
 
 /**
- * @summary 删除租户成员
+ * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
  *
  * @param request RemoveTenantMemberRequest
  * @return RemoveTenantMemberResponse
@@ -12804,7 +12955,7 @@ RemoveTenantMemberResponse Client::removeTenantMember(const RemoveTenantMemberRe
 }
 
 /**
- * @summary 移除用户组成员.
+ * @summary Removes members from a user group.
  *
  * @param tmpReq RemoveUserGroupMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12847,7 +12998,7 @@ RemoveUserGroupMemberResponse Client::removeUserGroupMemberWithOptions(const Rem
 }
 
 /**
- * @summary 移除用户组成员.
+ * @summary Removes members from a user group.
  *
  * @param request RemoveUserGroupMemberRequest
  * @return RemoveUserGroupMemberResponse
@@ -12858,7 +13009,7 @@ RemoveUserGroupMemberResponse Client::removeUserGroupMember(const RemoveUserGrou
 }
 
 /**
- * @summary 更新项目白名单。
+ * @summary Updates the whitelist of a project.
  *
  * @param tmpReq ReplaceProjectWhiteListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12905,7 +13056,7 @@ ReplaceProjectWhiteListsResponse Client::replaceProjectWhiteListsWithOptions(con
 }
 
 /**
- * @summary 更新项目白名单。
+ * @summary Updates the whitelist of a project.
  *
  * @param request ReplaceProjectWhiteListsRequest
  * @return ReplaceProjectWhiteListsResponse
@@ -12916,7 +13067,8 @@ ReplaceProjectWhiteListsResponse Client::replaceProjectWhiteLists(const ReplaceP
 }
 
 /**
- * @summary 重置数据服务应用密钥。
+ * @summary Reset the Data Service application key. Only the application owner can perform this operation.
+ * Release version: v6.0.0.
  *
  * @param tmpReq ResetDataServiceAppSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12959,7 +13111,8 @@ ResetDataServiceAppSecretResponse Client::resetDataServiceAppSecretWithOptions(c
 }
 
 /**
- * @summary 重置数据服务应用密钥。
+ * @summary Reset the Data Service application key. Only the application owner can perform this operation.
+ * Release version: v6.0.0.
  *
  * @param request ResetDataServiceAppSecretRequest
  * @return ResetDataServiceAppSecretResponse
@@ -12970,7 +13123,7 @@ ResetDataServiceAppSecretResponse Client::resetDataServiceAppSecret(const ResetD
 }
 
 /**
- * @summary 恢复物理节点调度。
+ * @summary Resume physical node scheduling.
  *
  * @param tmpReq ResumePhysicalNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13017,7 +13170,7 @@ ResumePhysicalNodeResponse Client::resumePhysicalNodeWithOptions(const ResumePhy
 }
 
 /**
- * @summary 恢复物理节点调度。
+ * @summary Resume physical node scheduling.
  *
  * @param request ResumePhysicalNodeRequest
  * @return ResumePhysicalNodeResponse
@@ -13028,7 +13181,7 @@ ResumePhysicalNodeResponse Client::resumePhysicalNode(const ResumePhysicalNodeRe
 }
 
 /**
- * @summary 重新转交运行失败的转交任务
+ * @summary Retransfers a failed transfer task.
  *
  * @param tmpReq RetryTransferOwnershipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13071,7 +13224,7 @@ RetryTransferOwnershipResponse Client::retryTransferOwnershipWithOptions(const R
 }
 
 /**
- * @summary 重新转交运行失败的转交任务
+ * @summary Retransfers a failed transfer task.
  *
  * @param request RetryTransferOwnershipRequest
  * @return RetryTransferOwnershipResponse
@@ -13082,7 +13235,7 @@ RetryTransferOwnershipResponse Client::retryTransferOwnership(const RetryTransfe
 }
 
 /**
- * @summary 回收API授权。
+ * @summary Revokes API authorization.
  *
  * @param tmpReq RevokeDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13129,7 +13282,7 @@ RevokeDataServiceApiResponse Client::revokeDataServiceApiWithOptions(const Revok
 }
 
 /**
- * @summary 回收API授权。
+ * @summary Revokes API authorization.
  *
  * @param request RevokeDataServiceApiRequest
  * @return RevokeDataServiceApiResponse
@@ -13140,7 +13293,7 @@ RevokeDataServiceApiResponse Client::revokeDataServiceApi(const RevokeDataServic
 }
 
 /**
- * @summary 回收用户资源授权
+ * @summary Revokes resource authorization from a user.
  *
  * @param tmpReq RevokeResourcePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13183,7 +13336,7 @@ RevokeResourcePermissionResponse Client::revokeResourcePermissionWithOptions(con
 }
 
 /**
- * @summary 回收用户资源授权
+ * @summary Revokes resource authorization from a user.
  *
  * @param request RevokeResourcePermissionRequest
  * @return RevokeResourcePermissionResponse
@@ -13194,7 +13347,7 @@ RevokeResourcePermissionResponse Client::revokeResourcePermission(const RevokeRe
 }
 
 /**
- * @summary 终止即席查询任务。
+ * @summary Stops an ad hoc query task.
  *
  * @param request StopAdHocTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13233,7 +13386,7 @@ StopAdHocTaskResponse Client::stopAdHocTaskWithOptions(const StopAdHocTaskReques
 }
 
 /**
- * @summary 终止即席查询任务。
+ * @summary Stops an ad hoc query task.
  *
  * @param request StopAdHocTaskRequest
  * @return StopAdHocTaskResponse
@@ -13244,7 +13397,7 @@ StopAdHocTaskResponse Client::stopAdHocTask(const StopAdHocTaskRequest &request)
 }
 
 /**
- * @summary 提交离线计算任务。
+ * @summary Submits a batch task.
  *
  * @param tmpReq SubmitBatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13287,7 +13440,7 @@ SubmitBatchTaskResponse Client::submitBatchTaskWithOptions(const SubmitBatchTask
 }
 
 /**
- * @summary 提交离线计算任务。
+ * @summary Submits a batch task.
  *
  * @param request SubmitBatchTaskRequest
  * @return SubmitBatchTaskResponse
@@ -13298,7 +13451,8 @@ SubmitBatchTaskResponse Client::submitBatchTask(const SubmitBatchTaskRequest &re
 }
 
 /**
- * @summary 批量提交规则任务,支持试跑。
+ * @summary Batch submit rule tasks with support for test runs.
+ * Release version: v5.4.2.
  *
  * @param tmpReq SubmitQualityRuleTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13341,7 +13495,8 @@ SubmitQualityRuleTasksResponse Client::submitQualityRuleTasksWithOptions(const S
 }
 
 /**
- * @summary 批量提交规则任务,支持试跑。
+ * @summary Batch submit rule tasks with support for test runs.
+ * Release version: v5.4.2.
  *
  * @param request SubmitQualityRuleTasksRequest
  * @return SubmitQualityRuleTasksResponse
@@ -13352,7 +13507,8 @@ SubmitQualityRuleTasksResponse Client::submitQualityRuleTasks(const SubmitQualit
 }
 
 /**
- * @summary 批量提交监控对象校验任务。
+ * @summary Submits quality watchtask check tasks in batches.
+ * Online version: v5.4.2.
  *
  * @param tmpReq SubmitQualityWatchTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13395,7 +13551,8 @@ SubmitQualityWatchTasksResponse Client::submitQualityWatchTasksWithOptions(const
 }
 
 /**
- * @summary 批量提交监控对象校验任务。
+ * @summary Submits quality watchtask check tasks in batches.
+ * Online version: v5.4.2.
  *
  * @param request SubmitQualityWatchTasksRequest
  * @return SubmitQualityWatchTasksResponse
@@ -13406,7 +13563,9 @@ SubmitQualityWatchTasksResponse Client::submitQualityWatchTasks(const SubmitQual
 }
 
 /**
- * @summary 同步部门信息。
+ * @summary Synchronizes department information.
+ *
+ * @description Queries the details of a published API operation by AppKey.
  *
  * @param tmpReq SyncDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13449,7 +13608,9 @@ SyncDepartmentResponse Client::syncDepartmentWithOptions(const SyncDepartmentReq
 }
 
 /**
- * @summary 同步部门信息。
+ * @summary Synchronizes department information.
+ *
+ * @description Queries the details of a published API operation by AppKey.
  *
  * @param request SyncDepartmentRequest
  * @return SyncDepartmentResponse
@@ -13460,7 +13621,7 @@ SyncDepartmentResponse Client::syncDepartment(const SyncDepartmentRequest &reque
 }
 
 /**
- * @summary 同步部门成员信息
+ * @summary Synchronizes department member information.
  *
  * @param tmpReq SyncDepartmentUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13503,7 +13664,7 @@ SyncDepartmentUserResponse Client::syncDepartmentUserWithOptions(const SyncDepar
 }
 
 /**
- * @summary 同步部门成员信息
+ * @summary Synchronizes department member information.
  *
  * @param request SyncDepartmentUserRequest
  * @return SyncDepartmentUserResponse
@@ -13514,7 +13675,7 @@ SyncDepartmentUserResponse Client::syncDepartmentUser(const SyncDepartmentUserRe
 }
 
 /**
- * @summary 一键转交负责人
+ * @summary Transfers ownership to a new owner in one click.
  *
  * @param tmpReq TransferOwnershipForAllObjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13557,7 +13718,7 @@ TransferOwnershipForAllObjectResponse Client::transferOwnershipForAllObjectWithO
 }
 
 /**
- * @summary 一键转交负责人
+ * @summary Transfers ownership to a new owner in one click.
  *
  * @param request TransferOwnershipForAllObjectRequest
  * @return TransferOwnershipForAllObjectResponse
@@ -13568,7 +13729,7 @@ TransferOwnershipForAllObjectResponse Client::transferOwnershipForAllObject(cons
 }
 
 /**
- * @summary 编辑即席查询文件。
+ * @summary Modifies an ad hoc query file.
  *
  * @param tmpReq UpdateAdHocFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13611,7 +13772,7 @@ UpdateAdHocFileResponse Client::updateAdHocFileWithOptions(const UpdateAdHocFile
 }
 
 /**
- * @summary 编辑即席查询文件。
+ * @summary Modifies an ad hoc query file.
  *
  * @param request UpdateAdHocFileRequest
  * @return UpdateAdHocFileResponse
@@ -13622,7 +13783,7 @@ UpdateAdHocFileResponse Client::updateAdHocFile(const UpdateAdHocFileRequest &re
 }
 
 /**
- * @summary 编辑离线计算任务。
+ * @summary Updates an offline compute node.
  *
  * @param tmpReq UpdateBatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13665,7 +13826,7 @@ UpdateBatchTaskResponse Client::updateBatchTaskWithOptions(const UpdateBatchTask
 }
 
 /**
- * @summary 编辑离线计算任务。
+ * @summary Updates an offline compute node.
  *
  * @param request UpdateBatchTaskRequest
  * @return UpdateBatchTaskResponse
@@ -13676,7 +13837,7 @@ UpdateBatchTaskResponse Client::updateBatchTask(const UpdateBatchTaskRequest &re
 }
 
 /**
- * @summary 编辑离线计算任务自定义血缘。
+ * @summary Edits the custom data lineage of a batch task.
  *
  * @param tmpReq UpdateBatchTaskUdfLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13719,7 +13880,7 @@ UpdateBatchTaskUdfLineagesResponse Client::updateBatchTaskUdfLineagesWithOptions
 }
 
 /**
- * @summary 编辑离线计算任务自定义血缘。
+ * @summary Edits the custom data lineage of a batch task.
  *
  * @param request UpdateBatchTaskUdfLineagesRequest
  * @return UpdateBatchTaskUdfLineagesResponse
@@ -13730,7 +13891,7 @@ UpdateBatchTaskUdfLineagesResponse Client::updateBatchTaskUdfLineages(const Upda
 }
 
 /**
- * @summary 更新业务实体、
+ * @summary Updates a business entity.
  *
  * @param tmpReq UpdateBizEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13773,7 +13934,7 @@ UpdateBizEntityResponse Client::updateBizEntityWithOptions(const UpdateBizEntity
 }
 
 /**
- * @summary 更新业务实体、
+ * @summary Updates a business entity.
  *
  * @param request UpdateBizEntityRequest
  * @return UpdateBizEntityResponse
@@ -13784,7 +13945,8 @@ UpdateBizEntityResponse Client::updateBizEntity(const UpdateBizEntityRequest &re
 }
 
 /**
- * @summary 更新业务指标
+ * @summary Update a business metric.
+ * Release version: v5.5.0.
  *
  * @param tmpReq UpdateBizMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13827,7 +13989,8 @@ UpdateBizMetricResponse Client::updateBizMetricWithOptions(const UpdateBizMetric
 }
 
 /**
- * @summary 更新业务指标
+ * @summary Update a business metric.
+ * Release version: v5.5.0.
  *
  * @param request UpdateBizMetricRequest
  * @return UpdateBizMetricResponse
@@ -13838,7 +14001,7 @@ UpdateBizMetricResponse Client::updateBizMetric(const UpdateBizMetricRequest &re
 }
 
 /**
- * @summary 更新数据板块。
+ * @summary Updates a data domain.
  *
  * @param tmpReq UpdateBizUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13881,7 +14044,7 @@ UpdateBizUnitResponse Client::updateBizUnitWithOptions(const UpdateBizUnitReques
 }
 
 /**
- * @summary 更新数据板块。
+ * @summary Updates a data domain.
  *
  * @param request UpdateBizUnitRequest
  * @return UpdateBizUnitResponse
@@ -13892,7 +14055,7 @@ UpdateBizUnitResponse Client::updateBizUnit(const UpdateBizUnitRequest &request)
 }
 
 /**
- * @summary 修改计算源。
+ * @summary Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
  *
  * @param tmpReq UpdateComputeSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13935,7 +14098,7 @@ UpdateComputeSourceResponse Client::updateComputeSourceWithOptions(const UpdateC
 }
 
 /**
- * @summary 修改计算源。
+ * @summary Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
  *
  * @param request UpdateComputeSourceRequest
  * @return UpdateComputeSourceResponse
@@ -13946,7 +14109,7 @@ UpdateComputeSourceResponse Client::updateComputeSource(const UpdateComputeSourc
 }
 
 /**
- * @summary 更新主题域。
+ * @summary Updates a data domain.
  *
  * @param tmpReq UpdateDataDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13989,7 +14152,7 @@ UpdateDataDomainResponse Client::updateDataDomainWithOptions(const UpdateDataDom
 }
 
 /**
- * @summary 更新主题域。
+ * @summary Updates a data domain.
  *
  * @param request UpdateDataDomainRequest
  * @return UpdateDataDomainResponse
@@ -14000,7 +14163,8 @@ UpdateDataDomainResponse Client::updateDataDomain(const UpdateDataDomainRequest 
 }
 
 /**
- * @summary 更新数据服务应用。
+ * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
+ * Release version: v6.0.0.
  *
  * @param tmpReq UpdateDataServiceAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14043,7 +14207,8 @@ UpdateDataServiceAppResponse Client::updateDataServiceAppWithOptions(const Updat
 }
 
 /**
- * @summary 更新数据服务应用。
+ * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
+ * Release version: v6.0.0.
  *
  * @param request UpdateDataServiceAppRequest
  * @return UpdateDataServiceAppResponse
@@ -14054,7 +14219,8 @@ UpdateDataServiceAppResponse Client::updateDataServiceApp(const UpdateDataServic
 }
 
 /**
- * @summary 更新数据服务应用分组。
+ * @summary Updates a data service application group. Only superusers and system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param tmpReq UpdateDataServiceAppGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14097,7 +14263,8 @@ UpdateDataServiceAppGroupResponse Client::updateDataServiceAppGroupWithOptions(c
 }
 
 /**
- * @summary 更新数据服务应用分组。
+ * @summary Updates a data service application group. Only superusers and system administrators can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request UpdateDataServiceAppGroupRequest
  * @return UpdateDataServiceAppGroupResponse
@@ -14108,7 +14275,8 @@ UpdateDataServiceAppGroupResponse Client::updateDataServiceAppGroup(const Update
 }
 
 /**
- * @summary 更新数据服务应用的普通成员。
+ * @summary Updates the regular members of a data service application. Only the application owner can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param tmpReq UpdateDataServiceAppMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14151,7 +14319,8 @@ UpdateDataServiceAppMemberResponse Client::updateDataServiceAppMemberWithOptions
 }
 
 /**
- * @summary 更新数据服务应用的普通成员。
+ * @summary Updates the regular members of a data service application. Only the application owner can perform this operation.
+ * Online version: v6.0.0.
  *
  * @param request UpdateDataServiceAppMemberRequest
  * @return UpdateDataServiceAppMemberResponse
@@ -14162,7 +14331,7 @@ UpdateDataServiceAppMemberResponse Client::updateDataServiceAppMember(const Upda
 }
 
 /**
- * @summary 编辑数据源基本信息
+ * @summary Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
  *
  * @param tmpReq UpdateDataSourceBasicInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14205,7 +14374,7 @@ UpdateDataSourceBasicInfoResponse Client::updateDataSourceBasicInfoWithOptions(c
 }
 
 /**
- * @summary 编辑数据源基本信息
+ * @summary Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
  *
  * @param request UpdateDataSourceBasicInfoRequest
  * @return UpdateDataSourceBasicInfoResponse
@@ -14216,7 +14385,7 @@ UpdateDataSourceBasicInfoResponse Client::updateDataSourceBasicInfo(const Update
 }
 
 /**
- * @summary 编辑数据源连接配置项
+ * @summary Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
  *
  * @param tmpReq UpdateDataSourceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14259,7 +14428,7 @@ UpdateDataSourceConfigResponse Client::updateDataSourceConfigWithOptions(const U
 }
 
 /**
- * @summary 编辑数据源连接配置项
+ * @summary Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
  *
  * @param request UpdateDataSourceConfigRequest
  * @return UpdateDataSourceConfigResponse
@@ -14270,7 +14439,7 @@ UpdateDataSourceConfigResponse Client::updateDataSourceConfig(const UpdateDataSo
 }
 
 /**
- * @summary 修改菜单树文件所在目录
+ * @summary Moves the file position in the menu tree.
  *
  * @param request UpdateFileDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14313,7 +14482,7 @@ UpdateFileDirectoryResponse Client::updateFileDirectoryWithOptions(const UpdateF
 }
 
 /**
- * @summary 修改菜单树文件所在目录
+ * @summary Moves the file position in the menu tree.
  *
  * @param request UpdateFileDirectoryRequest
  * @return UpdateFileDirectoryResponse
@@ -14324,7 +14493,7 @@ UpdateFileDirectoryResponse Client::updateFileDirectory(const UpdateFileDirector
 }
 
 /**
- * @summary 修改菜单树文件名称
+ * @summary Updates a file name.
  *
  * @param request UpdateFileNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14367,7 +14536,7 @@ UpdateFileNameResponse Client::updateFileNameWithOptions(const UpdateFileNameReq
 }
 
 /**
- * @summary 修改菜单树文件名称
+ * @summary Updates a file name.
  *
  * @param request UpdateFileNameRequest
  * @return UpdateFileNameResponse
@@ -14378,7 +14547,7 @@ UpdateFileNameResponse Client::updateFileName(const UpdateFileNameRequest &reque
 }
 
 /**
- * @summary 更新集成管道任务。
+ * @summary Updates an integration pipeline or unstructured workflow node.
  *
  * @param tmpReq UpdatePipelineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14429,7 +14598,7 @@ UpdatePipelineResponse Client::updatePipelineWithOptions(const UpdatePipelineReq
 }
 
 /**
- * @summary 更新集成管道任务。
+ * @summary Updates an integration pipeline or unstructured workflow node.
  *
  * @param request UpdatePipelineRequest
  * @return UpdatePipelineResponse
@@ -14440,7 +14609,7 @@ UpdatePipelineResponse Client::updatePipeline(const UpdatePipelineRequest &reque
 }
 
 /**
- * @summary 异步更新集成管道任务。
+ * @summary Asynchronously updates a pipeline or unstructured workflow node.
  *
  * @param tmpReq UpdatePipelineByAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14491,7 +14660,7 @@ UpdatePipelineByAsyncResponse Client::updatePipelineByAsyncWithOptions(const Upd
 }
 
 /**
- * @summary 异步更新集成管道任务。
+ * @summary Asynchronously updates a pipeline or unstructured workflow node.
  *
  * @param request UpdatePipelineByAsyncRequest
  * @return UpdatePipelineByAsyncResponse
@@ -14502,7 +14671,7 @@ UpdatePipelineByAsyncResponse Client::updatePipelineByAsync(const UpdatePipeline
 }
 
 /**
- * @summary 增加项目成员。
+ * @summary Edits project members.
  *
  * @param tmpReq UpdateProjectMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14549,7 +14718,7 @@ UpdateProjectMemberResponse Client::updateProjectMemberWithOptions(const UpdateP
 }
 
 /**
- * @summary 增加项目成员。
+ * @summary Edits project members.
  *
  * @param request UpdateProjectMemberRequest
  * @return UpdateProjectMemberResponse
@@ -14560,7 +14729,8 @@ UpdateProjectMemberResponse Client::updateProjectMember(const UpdateProjectMembe
 }
 
 /**
- * @summary 批量开启或关闭质量规则。
+ * @summary Enables or disables quality rules in batches.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateQualityRuleSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14603,7 +14773,8 @@ UpdateQualityRuleSwitchResponse Client::updateQualityRuleSwitchWithOptions(const
 }
 
 /**
- * @summary 批量开启或关闭质量规则。
+ * @summary Enables or disables quality rules in batches.
+ * Release version: v5.4.2.
  *
  * @param request UpdateQualityRuleSwitchRequest
  * @return UpdateQualityRuleSwitchResponse
@@ -14614,7 +14785,8 @@ UpdateQualityRuleSwitchResponse Client::updateQualityRuleSwitch(const UpdateQual
 }
 
 /**
- * @summary 批量开启或关闭质量监控对象。
+ * @summary Starts or stops quality monitored objects in batches.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateQualityWatchSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14657,7 +14829,8 @@ UpdateQualityWatchSwitchResponse Client::updateQualityWatchSwitchWithOptions(con
 }
 
 /**
- * @summary 批量开启或关闭质量监控对象。
+ * @summary Starts or stops quality monitored objects in batches.
+ * Release version: v5.4.2.
  *
  * @param request UpdateQualityWatchSwitchRequest
  * @return UpdateQualityWatchSwitchResponse
@@ -14668,7 +14841,7 @@ UpdateQualityWatchSwitchResponse Client::updateQualityWatchSwitch(const UpdateQu
 }
 
 /**
- * @summary 编辑资源文件。
+ * @summary Edits a resource file.
  *
  * @param tmpReq UpdateResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14711,7 +14884,7 @@ UpdateResourceResponse Client::updateResourceWithOptions(const UpdateResourceReq
 }
 
 /**
- * @summary 编辑资源文件。
+ * @summary Edits a resource file.
  *
  * @param request UpdateResourceRequest
  * @return UpdateResourceResponse
@@ -14722,7 +14895,7 @@ UpdateResourceResponse Client::updateResource(const UpdateResourceRequest &reque
 }
 
 /**
- * @summary 更新行级权限
+ * @summary Updates a row-level permission.
  *
  * @param tmpReq UpdateRowPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14765,7 +14938,7 @@ UpdateRowPermissionResponse Client::updateRowPermissionWithOptions(const UpdateR
 }
 
 /**
- * @summary 更新行级权限
+ * @summary Updates a row-level permission.
  *
  * @param request UpdateRowPermissionRequest
  * @return UpdateRowPermissionResponse
@@ -14776,7 +14949,8 @@ UpdateRowPermissionResponse Client::updateRowPermission(const UpdateRowPermissio
 }
 
 /**
- * @summary 更新数据分类。
+ * @summary Updates a data classification.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateSecurityClassifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14819,7 +14993,8 @@ UpdateSecurityClassifyResponse Client::updateSecurityClassifyWithOptions(const U
 }
 
 /**
- * @summary 更新数据分类。
+ * @summary Updates a data classification.
+ * Release version: v5.4.2.
  *
  * @param request UpdateSecurityClassifyRequest
  * @return UpdateSecurityClassifyResponse
@@ -14830,7 +15005,7 @@ UpdateSecurityClassifyResponse Client::updateSecurityClassify(const UpdateSecuri
 }
 
 /**
- * @summary 更新数据分类目录。
+ * @summary Updates a data classification folder. Release version: v5.4.2.
  *
  * @param tmpReq UpdateSecurityClassifyCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14873,7 +15048,7 @@ UpdateSecurityClassifyCatalogResponse Client::updateSecurityClassifyCatalogWithO
 }
 
 /**
- * @summary 更新数据分类目录。
+ * @summary Updates a data classification folder. Release version: v5.4.2.
  *
  * @param request UpdateSecurityClassifyCatalogRequest
  * @return UpdateSecurityClassifyCatalogResponse
@@ -14884,7 +15059,8 @@ UpdateSecurityClassifyCatalogResponse Client::updateSecurityClassifyCatalog(cons
 }
 
 /**
- * @summary 更新安全识别结果的生效状态。
+ * @summary Updates the effective status of security identification results.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateSecurityIdentifyResultStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14927,7 +15103,8 @@ UpdateSecurityIdentifyResultStatusResponse Client::updateSecurityIdentifyResultS
 }
 
 /**
- * @summary 更新安全识别结果的生效状态。
+ * @summary Updates the effective status of security identification results.
+ * Release version: v5.4.2.
  *
  * @param request UpdateSecurityIdentifyResultStatusRequest
  * @return UpdateSecurityIdentifyResultStatusResponse
@@ -14938,7 +15115,8 @@ UpdateSecurityIdentifyResultStatusResponse Client::updateSecurityIdentifyResultS
 }
 
 /**
- * @summary 通过分级顺序更新数据分级。
+ * @summary Updates data classification.
+ * Online version: v5.4.2.
  *
  * @param tmpReq UpdateSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14981,7 +15159,8 @@ UpdateSecurityLevelResponse Client::updateSecurityLevelWithOptions(const UpdateS
 }
 
 /**
- * @summary 通过分级顺序更新数据分级。
+ * @summary Updates data classification.
+ * Online version: v5.4.2.
  *
  * @param request UpdateSecurityLevelRequest
  * @return UpdateSecurityLevelResponse
@@ -14992,7 +15171,8 @@ UpdateSecurityLevelResponse Client::updateSecurityLevel(const UpdateSecurityLeve
 }
 
 /**
- * @summary 更新标准。
+ * @summary Updates a standard.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15035,7 +15215,8 @@ UpdateStandardResponse Client::updateStandardWithOptions(const UpdateStandardReq
 }
 
 /**
- * @summary 更新标准。
+ * @summary Updates a standard.
+ * Release version: v5.4.2.
  *
  * @param request UpdateStandardRequest
  * @return UpdateStandardResponse
@@ -15046,7 +15227,8 @@ UpdateStandardResponse Client::updateStandard(const UpdateStandardRequest &reque
 }
 
 /**
- * @summary 更新数据标准码表。
+ * @summary Updates a data standard lookup table.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardLookupTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15089,7 +15271,8 @@ UpdateStandardLookupTableResponse Client::updateStandardLookupTableWithOptions(c
 }
 
 /**
- * @summary 更新数据标准码表。
+ * @summary Updates a data standard lookup table.
+ * Release version: v5.4.2.
  *
  * @param request UpdateStandardLookupTableRequest
  * @return UpdateStandardLookupTableResponse
@@ -15100,7 +15283,8 @@ UpdateStandardLookupTableResponse Client::updateStandardLookupTable(const Update
 }
 
 /**
- * @summary 将标准映射关系置为无效映射。
+ * @summary Sets the standard mapping relationship to invalid mapping.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardMappingToInvalidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15143,7 +15327,8 @@ UpdateStandardMappingToInvalidResponse Client::updateStandardMappingToInvalidWit
 }
 
 /**
- * @summary 将标准映射关系置为无效映射。
+ * @summary Sets the standard mapping relationship to invalid mapping.
+ * Release version: v5.4.2.
  *
  * @param request UpdateStandardMappingToInvalidRequest
  * @return UpdateStandardMappingToInvalidResponse
@@ -15154,7 +15339,8 @@ UpdateStandardMappingToInvalidResponse Client::updateStandardMappingToInvalid(co
 }
 
 /**
- * @summary 更新标准集。
+ * @summary Update standard set.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15197,7 +15383,8 @@ UpdateStandardSetResponse Client::updateStandardSetWithOptions(const UpdateStand
 }
 
 /**
- * @summary 更新标准集。
+ * @summary Update standard set.
+ * Release version: v5.4.2.
  *
  * @param request UpdateStandardSetRequest
  * @return UpdateStandardSetResponse
@@ -15208,7 +15395,8 @@ UpdateStandardSetResponse Client::updateStandardSet(const UpdateStandardSetReque
 }
 
 /**
- * @summary 更新数据标准模板。
+ * @summary Updates a data standard template.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15251,7 +15439,8 @@ UpdateStandardTemplateResponse Client::updateStandardTemplateWithOptions(const U
 }
 
 /**
- * @summary 更新数据标准模板。
+ * @summary Updates a data standard template.
+ * Release version: v5.4.2.
  *
  * @param request UpdateStandardTemplateRequest
  * @return UpdateStandardTemplateResponse
@@ -15262,7 +15451,8 @@ UpdateStandardTemplateResponse Client::updateStandardTemplate(const UpdateStanda
 }
 
 /**
- * @summary 更新数据标准词根。
+ * @summary Updates a data standard root word.
+ * Online version: v5.4.2.
  *
  * @param tmpReq UpdateStandardWordRootRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15305,7 +15495,8 @@ UpdateStandardWordRootResponse Client::updateStandardWordRootWithOptions(const U
 }
 
 /**
- * @summary 更新数据标准词根。
+ * @summary Updates a data standard root word.
+ * Online version: v5.4.2.
  *
  * @param request UpdateStandardWordRootRequest
  * @return UpdateStandardWordRootResponse
@@ -15316,7 +15507,7 @@ UpdateStandardWordRootResponse Client::updateStandardWordRoot(const UpdateStanda
 }
 
 /**
- * @summary 修改租户计算设置。
+ * @summary Modifies the compute settings of a tenant.
  *
  * @param tmpReq UpdateTenantComputeEngineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15359,7 +15550,7 @@ UpdateTenantComputeEngineResponse Client::updateTenantComputeEngineWithOptions(c
 }
 
 /**
- * @summary 修改租户计算设置。
+ * @summary Modifies the compute settings of a tenant.
  *
  * @param request UpdateTenantComputeEngineRequest
  * @return UpdateTenantComputeEngineResponse
@@ -15370,7 +15561,7 @@ UpdateTenantComputeEngineResponse Client::updateTenantComputeEngine(const Update
 }
 
 /**
- * @summary 编辑租户成员
+ * @summary Edits tenant members.
  *
  * @param tmpReq UpdateTenantMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15413,7 +15604,7 @@ UpdateTenantMemberResponse Client::updateTenantMemberWithOptions(const UpdateTen
 }
 
 /**
- * @summary 编辑租户成员
+ * @summary Edits tenant members.
  *
  * @param request UpdateTenantMemberRequest
  * @return UpdateTenantMemberResponse
@@ -15424,7 +15615,7 @@ UpdateTenantMemberResponse Client::updateTenantMember(const UpdateTenantMemberRe
 }
 
 /**
- * @summary 编辑自定义函数。
+ * @summary Edits a user-defined function.
  *
  * @param tmpReq UpdateUdfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15467,7 +15658,7 @@ UpdateUdfResponse Client::updateUdfWithOptions(const UpdateUdfRequest &tmpReq, c
 }
 
 /**
- * @summary 编辑自定义函数。
+ * @summary Edits a user-defined function.
  *
  * @param request UpdateUdfRequest
  * @return UpdateUdfResponse
@@ -15478,7 +15669,7 @@ UpdateUdfResponse Client::updateUdf(const UpdateUdfRequest &request) {
 }
 
 /**
- * @summary 编辑用户组.
+ * @summary Edits a user group.
  *
  * @param tmpReq UpdateUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15521,7 +15712,7 @@ UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroup
 }
 
 /**
- * @summary 编辑用户组.
+ * @summary Edits a user group.
  *
  * @param request UpdateUserGroupRequest
  * @return UpdateUserGroupResponse
@@ -15532,7 +15723,7 @@ UpdateUserGroupResponse Client::updateUserGroup(const UpdateUserGroupRequest &re
 }
 
 /**
- * @summary 编辑用户组启用开关.
+ * @summary Modifies the enabled status of a user group.
  *
  * @param request UpdateUserGroupSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15571,7 +15762,7 @@ UpdateUserGroupSwitchResponse Client::updateUserGroupSwitchWithOptions(const Upd
 }
 
 /**
- * @summary 编辑用户组启用开关.
+ * @summary Modifies the enabled status of a user group.
  *
  * @param request UpdateUserGroupSwitchRequest
  * @return UpdateUserGroupSwitchResponse
@@ -15582,7 +15773,8 @@ UpdateUserGroupSwitchResponse Client::updateUserGroupSwitch(const UpdateUserGrou
 }
 
 /**
- * @summary 新建或者修改质量规则。
+ * @summary Create or modify a quality rule.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpsertQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15625,7 +15817,8 @@ UpsertQualityRuleResponse Client::upsertQualityRuleWithOptions(const UpsertQuali
 }
 
 /**
- * @summary 新建或者修改质量规则。
+ * @summary Create or modify a quality rule.
+ * Release version: v5.4.2.
  *
  * @param request UpsertQualityRuleRequest
  * @return UpsertQualityRuleResponse
@@ -15636,7 +15829,8 @@ UpsertQualityRuleResponse Client::upsertQualityRule(const UpsertQualityRuleReque
 }
 
 /**
- * @summary 新建或者修改调度设置。
+ * @summary Creates or updates scheduling settings.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpsertQualityScheduleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15679,7 +15873,8 @@ UpsertQualityScheduleResponse Client::upsertQualityScheduleWithOptions(const Ups
 }
 
 /**
- * @summary 新建或者修改调度设置。
+ * @summary Creates or updates scheduling settings.
+ * Release version: v5.4.2.
  *
  * @param request UpsertQualityScheduleRequest
  * @return UpsertQualityScheduleResponse
@@ -15690,7 +15885,8 @@ UpsertQualityScheduleResponse Client::upsertQualitySchedule(const UpsertQualityS
 }
 
 /**
- * @summary 新建或者修改质量模板。
+ * @summary Creates or updates a quality template.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpsertQualityTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15733,7 +15929,8 @@ UpsertQualityTemplateResponse Client::upsertQualityTemplateWithOptions(const Ups
 }
 
 /**
- * @summary 新建或者修改质量模板。
+ * @summary Creates or updates a quality template.
+ * Release version: v5.4.2.
  *
  * @param request UpsertQualityTemplateRequest
  * @return UpsertQualityTemplateResponse
@@ -15744,7 +15941,8 @@ UpsertQualityTemplateResponse Client::upsertQualityTemplate(const UpsertQualityT
 }
 
 /**
- * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+ * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpsertQualityWatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15787,7 +15985,8 @@ UpsertQualityWatchResponse Client::upsertQualityWatchWithOptions(const UpsertQua
 }
 
 /**
- * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+ * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
+ * Release version: v5.4.2.
  *
  * @param request UpsertQualityWatchRequest
  * @return UpsertQualityWatchResponse
@@ -15798,7 +15997,8 @@ UpsertQualityWatchResponse Client::upsertQualityWatch(const UpsertQualityWatchRe
 }
 
 /**
- * @summary 新建或者修改监控对象告警设置。
+ * @summary Creates or updates alert settings for a monitored object.
+ * Release version: v5.4.2.
  *
  * @param tmpReq UpsertQualityWatchAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15841,7 +16041,8 @@ UpsertQualityWatchAlertResponse Client::upsertQualityWatchAlertWithOptions(const
 }
 
 /**
- * @summary 新建或者修改监控对象告警设置。
+ * @summary Creates or updates alert settings for a monitored object.
+ * Release version: v5.4.2.
  *
  * @param request UpsertQualityWatchAlertRequest
  * @return UpsertQualityWatchAlertResponse

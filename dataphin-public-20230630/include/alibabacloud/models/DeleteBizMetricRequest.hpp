@@ -59,6 +59,8 @@ namespace Models
 
 
     protected:
+      // The name of the business metric to delete.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -82,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The delete request.
+    // 
     // This parameter is required.
     shared_ptr<DeleteBizMetricRequest::DeleteBizMetricCommand> deleteBizMetricCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

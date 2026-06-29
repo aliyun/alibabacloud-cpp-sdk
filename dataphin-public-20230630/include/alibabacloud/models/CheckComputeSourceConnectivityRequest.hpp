@@ -91,8 +91,12 @@ namespace Models
 
 
       protected:
+        // The configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The value of the configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -116,8 +120,12 @@ namespace Models
 
 
     protected:
+      // The connection configuration items.
+      // 
       // This parameter is required.
       shared_ptr<vector<CheckCommand::ConfigList>> configList_ {};
+      // The compute source type.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -141,8 +149,12 @@ namespace Models
 
 
   protected:
+    // The check command.
+    // 
     // This parameter is required.
     shared_ptr<CheckComputeSourceConnectivityRequest::CheckCommand> checkCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

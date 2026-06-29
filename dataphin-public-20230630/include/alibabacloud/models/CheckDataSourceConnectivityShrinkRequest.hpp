@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The object to check.
+    // 
     // This parameter is required.
     shared_ptr<string> checkCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

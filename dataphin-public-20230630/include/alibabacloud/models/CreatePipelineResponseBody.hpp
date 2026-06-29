@@ -104,10 +104,17 @@ namespace Models
 
 
     protected:
+      // Server-side execution machine name and IP
       shared_ptr<string> hostMachine_ {};
+      // Scheduling node ID of the pipeline/workflow task after successful creation
       shared_ptr<string> nodeId_ {};
+      // Pipeline/workflow ID after successful creation
       shared_ptr<int64_t> pipelineId_ {};
+      // Submit ID of the pending release list generated after successfully submitting the pipeline, used for release through the release domain.
+      // Workflow tasks only support PROD, so this value is not applicable.
       shared_ptr<int64_t> submitId_ {};
+      // Pending release version number generated after pipeline submission.
+      // Workflow tasks only support PROD, so this value is not applicable.
       shared_ptr<string> version_ {};
     };
 
@@ -158,12 +165,17 @@ namespace Models
 
 
   protected:
+    // Backend response code
     shared_ptr<string> code_ {};
+    // Integration pipeline/workflow task creation result
     shared_ptr<CreatePipelineResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend response exception details
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

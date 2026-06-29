@@ -164,13 +164,21 @@ namespace Models
 
 
       protected:
+        // The list of business unit IDs.
         shared_ptr<vector<int64_t>> bizUnitIdList_ {};
+        // The list of business unit IDs.
         shared_ptr<vector<string>> bizUnitNameList_ {};
+        // The list of data domain IDs.
         shared_ptr<vector<int64_t>> dataDomainIdList_ {};
+        // The list of data domain IDs.
         shared_ptr<vector<string>> dataDomainNameList_ {};
+        // Specifies whether the business entity is associated with a logical table.
         shared_ptr<bool> hasTableRef_ {};
+        // The list of owner user IDs.
         shared_ptr<vector<string>> ownerUserIdList_ {};
+        // The list of business entity statuses. For more information, refer to the API operation for querying business entity details.
         shared_ptr<vector<string>> statusList_ {};
+        // The list of business entity subtypes. For more information, refer to the API operation for querying business entity details.
         shared_ptr<vector<string>> subTypeList_ {};
       };
 
@@ -207,9 +215,13 @@ namespace Models
 
 
     protected:
+      // The filter criteria for the query.
       shared_ptr<ListQuery::FilterCriteria> filterCriteria_ {};
+      // The search keyword.
       shared_ptr<string> keyword_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> page_ {};
+      // The number of records per page. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -232,8 +244,12 @@ namespace Models
 
 
   protected:
+    // The query request.
+    // 
     // This parameter is required.
     shared_ptr<ListBizEntitiesRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

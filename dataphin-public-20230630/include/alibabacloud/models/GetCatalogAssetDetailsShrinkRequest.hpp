@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The paging query for the listing asset catalog list.
+    // 
     // This parameter is required.
     shared_ptr<string> getCatalogAssetDetailsQueryShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

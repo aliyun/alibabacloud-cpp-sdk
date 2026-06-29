@@ -91,8 +91,12 @@ namespace Models
 
 
       protected:
+        // The key ID of the configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The configuration value.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -116,8 +120,12 @@ namespace Models
 
 
     protected:
+      // The connection configuration items.
+      // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::ConfigItemList>> configItemList_ {};
+      // The data source ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
     };
@@ -141,8 +149,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data source configuration item change.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDataSourceConfigRequest::UpdateCommand> updateCommand_ {};
   };

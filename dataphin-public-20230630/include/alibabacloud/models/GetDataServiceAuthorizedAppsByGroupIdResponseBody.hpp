@@ -96,11 +96,14 @@ namespace Models
 
 
     protected:
-      // AppKey
+      // The application key.
+      // >Notice: Deprecated. Use AppKeyStr instead.</notice>.
       shared_ptr<int64_t> appKey_ {};
+      // The application key.
       shared_ptr<string> appKeyStr_ {};
       // AppId
       shared_ptr<int32_t> id_ {};
+      // The app name.
       shared_ptr<string> name_ {};
     };
 
@@ -151,12 +154,17 @@ namespace Models
 
 
   protected:
+    // The list of API groups.
     shared_ptr<vector<GetDataServiceAuthorizedAppsByGroupIdResponseBody::AppInfoList>> appInfoList_ {};
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

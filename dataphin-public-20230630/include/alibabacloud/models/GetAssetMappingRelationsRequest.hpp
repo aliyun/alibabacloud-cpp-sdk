@@ -78,10 +78,20 @@ namespace Models
 
 
     protected:
+      // The object type of the asset. Valid values:
+      // - COLUMN: field.
+      // - INDEX: metric.
+      // 
       // This parameter is required.
       shared_ptr<string> assetType_ {};
+      // The GUID of the asset object.
+      // 
       // This parameter is required.
       shared_ptr<string> guid_ {};
+      // The type of the mapping relationship. Valid values:
+      // - VALID: mapped.
+      // - INVALID: invalid mapping.
+      // 
       // This parameter is required.
       shared_ptr<string> relationType_ {};
     };
@@ -105,7 +115,10 @@ namespace Models
 
 
   protected:
+    // The query instruction.
     shared_ptr<GetAssetMappingRelationsRequest::AssetMappingQuery> assetMappingQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

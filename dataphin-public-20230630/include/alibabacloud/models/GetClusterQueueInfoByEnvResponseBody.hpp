@@ -197,20 +197,35 @@ namespace Models
 
 
     protected:
+      // The annotations.
       shared_ptr<string> annotations_ {};
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The creation time.
       shared_ptr<string> createAt_ {};
+      // The Flink image registry address.
       shared_ptr<string> flinkImageRegistry_ {};
+      // The Flink image repository.
       shared_ptr<string> flinkImageRepository_ {};
+      // The Flink image tag.
       shared_ptr<string> flinkImageTag_ {};
+      // The Flink version.
       shared_ptr<string> flinkVersion_ {};
+      // The labels.
       shared_ptr<string> labels_ {};
+      // The maximum number of vCores provided by each queue.
       shared_ptr<string> maxVcore_ {};
+      // The modification time.
       shared_ptr<string> modifiedAt_ {};
+      // The namespace.
       shared_ptr<string> namespace_ {};
+      // The queue name, which serves as a unique identifier. For Kubernetes, this is the resource group name.
       shared_ptr<string> queueName_ {};
+      // The resource version.
       shared_ptr<string> resourceVersion_ {};
+      // The resource specification.
       shared_ptr<string> spec_ {};
+      // The VVP cluster type.
       shared_ptr<string> vvpClusterType_ {};
     };
 
@@ -261,11 +276,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<GetClusterQueueInfoByEnvResponseBody::Data>> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

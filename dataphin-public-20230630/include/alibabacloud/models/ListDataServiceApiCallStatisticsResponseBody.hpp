@@ -211,19 +211,33 @@ namespace Models
 
 
       protected:
+        // API ID.
         shared_ptr<int64_t> apiId_ {};
+        // API name.
         shared_ptr<string> apiName_ {};
+        // Authorized application names.
         shared_ptr<vector<string>> appNameList_ {};
+        // Number of authorized applications.
         shared_ptr<int32_t> authorizedAppCount_ {};
+        // Average response time, in milliseconds.
         shared_ptr<double> avgResponseTime_ {};
+        // Number of calls.
         shared_ptr<int64_t> callCount_ {};
+        // Creator.
         shared_ptr<string> creator_ {};
+        // Number of call errors.
         shared_ptr<string> errorCount_ {};
+        // Error rate.
         shared_ptr<string> errorRate_ {};
+        // Last call time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> lastCallTime_ {};
+        // Offline percentage.
         shared_ptr<string> offlineRate_ {};
+        // Data service project ID.
         shared_ptr<int32_t> projectId_ {};
+        // Data service project.
         shared_ptr<string> projectName_ {};
+        // SQL table primary key.
         shared_ptr<int32_t> sqlId_ {};
       };
 
@@ -246,7 +260,9 @@ namespace Models
 
 
     protected:
+      // API call statistics list.
       shared_ptr<vector<PageResult::CallStatisticsList>> callStatisticsList_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -297,12 +313,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend error details.
     shared_ptr<string> message_ {};
+    // Paginated query result.
     shared_ptr<ListDataServiceApiCallStatisticsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

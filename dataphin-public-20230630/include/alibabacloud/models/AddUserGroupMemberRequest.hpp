@@ -72,8 +72,11 @@ namespace Models
 
 
     protected:
+      // The user group ID.
+      // 
       // This parameter is required.
       shared_ptr<string> userGroupId_ {};
+      // The list of user IDs.
       shared_ptr<vector<string>> userIdList_ {};
     };
 
@@ -96,7 +99,10 @@ namespace Models
 
 
   protected:
+    // The command to add user group members.
     shared_ptr<AddUserGroupMemberRequest::AddCommand> addCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

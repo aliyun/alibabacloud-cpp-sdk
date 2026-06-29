@@ -71,8 +71,14 @@ namespace Models
 
 
     protected:
+      // The current operation environment. Valid values:
+      // - DEV: development environment.
+      // - PROD: production environment.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The ID of the project to which the integration pipeline task belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -103,10 +109,16 @@ namespace Models
 
 
   protected:
+    // The asynchronous execution ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> asyncId_ {};
+    // The request context information.
+    // 
     // This parameter is required.
     shared_ptr<GetPipelineAsyncResultRequest::Context> context_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

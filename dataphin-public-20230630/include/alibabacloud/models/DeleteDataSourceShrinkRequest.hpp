@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The request for deleting a data source.
+    // 
     // This parameter is required.
     shared_ptr<string> deleteCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

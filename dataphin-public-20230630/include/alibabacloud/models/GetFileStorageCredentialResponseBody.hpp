@@ -141,15 +141,23 @@ namespace Models
 
 
     protected:
+      // The temporary AccessKey ID.
       shared_ptr<string> accessId_ {};
+      // The temporary AccessKey ID.
       shared_ptr<string> accessKey_ {};
+      // The file storage bucket.
       shared_ptr<string> bucket_ {};
+      // The endpoint.
       shared_ptr<string> endpoint_ {};
+      // The expiration time.
       shared_ptr<int64_t> expiration_ {};
+      // The storage object.
       shared_ptr<string> objectName_ {};
       // region
       shared_ptr<string> region_ {};
+      // The temporary security token.
       shared_ptr<string> securityToken_ {};
+      // The storage cluster type. Valid values: oss and ceph.
       shared_ptr<string> storageType_ {};
     };
 
@@ -200,12 +208,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The details of the temporary read/write authorization.
     shared_ptr<GetFileStorageCredentialResponseBody::StorageCredential> storageCredential_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -78,10 +78,16 @@ namespace Models
 
 
     protected:
+      // The data source description.
+      // 
       // This parameter is required.
       shared_ptr<string> description_ {};
+      // The data source ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The data source name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -105,8 +111,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The basic information to edit for the data source.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDataSourceBasicInfoRequest::UpdateCommand> updateCommand_ {};
   };

@@ -81,10 +81,16 @@ namespace Models
 
 
     protected:
+      // The rule ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> ruleId_ {};
+      // The schedule IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> scheduleIdList_ {};
+      // The ID of the monitored object.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
     };
@@ -108,8 +114,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The unbinding instruction.
+    // 
     // This parameter is required.
     shared_ptr<RemoveQualityRuleSchedulesRequest::RemoveCommand> removeCommand_ {};
   };

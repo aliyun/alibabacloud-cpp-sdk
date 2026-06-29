@@ -149,7 +149,9 @@ namespace Models
 
 
       protected:
+        // Node ID.
         shared_ptr<string> id_ {};
+        // Node name.
         shared_ptr<string> name_ {};
       };
 
@@ -200,8 +202,11 @@ namespace Models
 
 
       protected:
+        // Default value.
         shared_ptr<string> defaultValue_ {};
+        // Description.
         shared_ptr<string> description_ {};
+        // Parameter key.
         shared_ptr<string> key_ {};
       };
 
@@ -243,7 +248,13 @@ namespace Models
 
 
       protected:
+        // Period offset. This parameter is required when the dependency period type is LAST_N_PERIOD.
         shared_ptr<int32_t> periodOffset_ {};
+        // Dependency period type.
+        // - CURRENT_PERIOD
+        // - LAST_PERIOD
+        // - LAST_N_PERIOD
+        // - LAST_24_HOUR
         shared_ptr<string> periodType_ {};
       };
 
@@ -454,32 +465,82 @@ namespace Models
 
 
     protected:
+      // Indicates whether the task is automatically parsed.
       shared_ptr<bool> autoParse_ {};
+      // Business type.
+      // - SCRIPT: Script
+      // - LOGICAL_TABLE: Logical table
       shared_ptr<string> bizType_ {};
+      // Business unit ID.
       shared_ptr<string> bizUnitId_ {};
+      // Business unit name.
       shared_ptr<string> bizUnitName_ {};
+      // Cron expression for the scheduling node.
       shared_ptr<string> cronExpression_ {};
+      // Indicates whether a custom cron expression is used for the scheduling node.
       shared_ptr<bool> customCronExpression_ {};
+      // Dependency fields.
       shared_ptr<vector<string>> dependFieldList_ {};
+      // Dependency period configuration.
       shared_ptr<DevObjectDependencyList::DependencyPeriod> dependencyPeriod_ {};
+      // Dependency strategy.
+      // - ALL
+      // - FIRST
+      // - LAST
+      // - NEAR
       shared_ptr<string> dependencyStrategy_ {};
+      // Indicates whether the node is a dimension table intermediate node.
       shared_ptr<bool> dimMidNode_ {};
+      // Effect fields.
       shared_ptr<vector<string>> effectFieldList_ {};
+      // Additional business information.
       shared_ptr<string> externalBizInfo_ {};
+      // Indicates whether the dependency is manually added.
       shared_ptr<bool> manuallyAdd_ {};
+      // Node ID.
       shared_ptr<string> nodeId_ {};
+      // Node name.
       shared_ptr<string> nodeName_ {};
+      // Node output name.
       shared_ptr<string> nodeOutputName_ {};
+      // Output table information.
       shared_ptr<string> nodeOutputTableName_ {};
+      // Node type.
+      // - DATA_PROCESS: Code task
+      // - BBOX_LOGIC_TABLE_NODE: Black box logical table node
+      // - ONE_ID_LABEL: ID label node
+      // - ONE_ID_RULE: ID rule node
+      // - PIPELINE_NODE: Pipeline node
       shared_ptr<string> nodeType_ {};
+      // Cross-node output parameters.
       shared_ptr<vector<DevObjectDependencyList::OutputContextParamList>> outputContextParamList_ {};
+      // Node owners.
       shared_ptr<vector<DevObjectDependencyList::OwnerList>> ownerList_ {};
+      // Dependency period difference.
       shared_ptr<int32_t> periodDiff_ {};
+      // Project ID.
       shared_ptr<int64_t> projectId_ {};
+      // Project name.
       shared_ptr<string> projectName_ {};
+      // Schedule type.
+      // - MINUTELY: Minute
+      // - HOURLY: Hour
+      // - DAILY: Day
+      // - WEEKLY: Week
+      // - MONTHLY: Month
+      // - YEARLY: Year
       shared_ptr<string> scheduleType_ {};
+      // Indicates whether the node has a self-dependency.
       shared_ptr<bool> selfDepend_ {};
+      // Sub-business type.
+      // - MAX_COMPUTE_SQL
+      // - HIVE_SQL
+      // - SHELL
+      // - PYTHON
+      // - ONE_SERVICE_SQL
+      // - DATABASE_SQL, etc.
       shared_ptr<string> subBizType_ {};
+      // Indicates whether the configuration is valid.
       shared_ptr<bool> valid_ {};
     };
 
@@ -530,11 +591,17 @@ namespace Models
 
 
   protected:
+    // Error code. OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // Dependency list.
     shared_ptr<vector<GetDevObjectDependencyResponseBody::DevObjectDependencyList>> devObjectDependencyList_ {};
+    // HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

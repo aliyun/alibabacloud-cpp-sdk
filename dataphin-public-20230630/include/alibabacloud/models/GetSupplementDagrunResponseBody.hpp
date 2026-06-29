@@ -124,13 +124,28 @@ namespace Models
 
 
     protected:
+      // The business date. The time format must conform to the partition format specified by the business unit.
       shared_ptr<string> bizDate_ {};
+      // The runtime duration, in seconds.
       shared_ptr<string> duration_ {};
+      // The execution end timestamp.
       shared_ptr<int64_t> endExecuteTime_ {};
       // Dagrun ID
       shared_ptr<string> id_ {};
+      // The execution start timestamp.
       shared_ptr<int64_t> startExecuteTime_ {};
+      // The status of the data backfill instance workflow. Valid values:
+      // 
+      // - INIT: dagrun init.
+      // - CREATE_FAILED: dagrun creation failed.
+      // - CREATED: dagrun created.
+      // - READY: dagrun ready for exec.
+      // - RUNNING: dagrun running.
+      // - KILLED: dagrun stopped.
+      // - FAILED: dagrun failed.
+      // - SUCCESS: dagrun succeeded.
       shared_ptr<string> status_ {};
+      // The ID of the data backfill instance workflow.
       shared_ptr<string> supplementId_ {};
     };
 
@@ -181,11 +196,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The list of dagruns.
     shared_ptr<vector<GetSupplementDagrunResponseBody::DagrunList>> dagrunList_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

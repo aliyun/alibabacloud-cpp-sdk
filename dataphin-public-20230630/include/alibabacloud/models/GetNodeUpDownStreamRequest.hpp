@@ -77,7 +77,10 @@ namespace Models
 
 
     protected:
+      // This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, the full table is used by default.
       shared_ptr<string> fieldIdList_ {};
+      // The node ID.
+      // 
       // This parameter is required.
       shared_ptr<string> id_ {};
     };
@@ -129,13 +132,23 @@ namespace Models
 
 
   protected:
+    // The downstream depth. Default value: 1.
     shared_ptr<int32_t> downStreamDepth_ {};
+    // The environment identifier. Valid values:
+    // - DEV: development environment. 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The node ID.
+    // 
     // This parameter is required.
     shared_ptr<GetNodeUpDownStreamRequest::NodeId> nodeId_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
     shared_ptr<int64_t> projectId_ {};
+    // The upstream depth. Default value: 1.
     shared_ptr<int32_t> upStreamDepth_ {};
   };
 

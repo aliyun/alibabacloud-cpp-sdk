@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // The account name of the user.
           shared_ptr<string> accountName_ {};
+          // The username.
           shared_ptr<string> displayName_ {};
+          // The user ID.
           shared_ptr<string> id_ {};
         };
 
@@ -189,8 +192,11 @@ namespace Models
 
 
         protected:
+          // The account name of the user.
           shared_ptr<string> accountName_ {};
+          // The username.
           shared_ptr<string> displayName_ {};
+          // The user ID.
           shared_ptr<string> id_ {};
         };
 
@@ -243,11 +249,17 @@ namespace Models
 
 
       protected:
+        // The user who added the member.
         shared_ptr<MemberList::Creator> creator_ {};
+        // The time when the member was added to the user group.
         shared_ptr<int64_t> gmtCreate_ {};
+        // The user group member ID.
         shared_ptr<string> id_ {};
+        // The user group ID.
         shared_ptr<string> userGroupId_ {};
+        // The user group member.
         shared_ptr<MemberList::UserInfo> userInfo_ {};
+        // The role of the member in the user group.
         shared_ptr<string> userRole_ {};
       };
 
@@ -270,7 +282,9 @@ namespace Models
 
 
     protected:
+      // The paged list.
       shared_ptr<vector<PageResult::MemberList>> memberList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -321,11 +335,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paged query result.
     shared_ptr<ListUserGroupMembersResponseBody::PageResult> pageResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

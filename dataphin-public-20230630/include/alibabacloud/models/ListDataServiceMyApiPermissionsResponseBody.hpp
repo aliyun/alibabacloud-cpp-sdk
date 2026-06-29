@@ -181,16 +181,27 @@ namespace Models
 
 
       protected:
+        // API ID.
         shared_ptr<int64_t> apiId_ {};
+        // API name.
         shared_ptr<string> apiName_ {};
+        // Creator name.
         shared_ptr<string> createUserName_ {};
+        // Creator ID.
         shared_ptr<string> creator_ {};
+        // Owner ID.
         shared_ptr<string> owner_ {};
+        // Owner name.
         shared_ptr<string> ownerUserName_ {};
+        // The user to whom the privilege belongs.
         shared_ptr<string> privilegeBelongTo_ {};
+        // Authorization source. Valid value: 0, which indicates the owner.
         shared_ptr<int32_t> privilegeFrom_ {};
+        // Project ID.
         shared_ptr<int32_t> projectId_ {};
+        // Project name.
         shared_ptr<string> projectName_ {};
+        // Role. Valid value: 0, which indicates the owner.
         shared_ptr<int32_t> role_ {};
       };
 
@@ -213,7 +224,9 @@ namespace Models
 
 
     protected:
+      // Paginated permission list.
       shared_ptr<vector<PageResult::PermissionList>> permissionList_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -264,12 +277,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend response exception details.
     shared_ptr<string> message_ {};
+    // Paginated query result.
     shared_ptr<ListDataServiceMyApiPermissionsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

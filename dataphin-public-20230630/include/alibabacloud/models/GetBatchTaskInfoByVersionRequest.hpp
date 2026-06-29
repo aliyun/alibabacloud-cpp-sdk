@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The node ID in the node directory tree.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the project to which the node belongs.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
+    // The version number.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> versionId_ {};
   };

@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // Row permission description
       shared_ptr<string> rowPermissionDesc_ {};
+      // Row permission ID
       shared_ptr<string> rowPermissionId_ {};
+      // Row permission name
       shared_ptr<string> rowPermissionName_ {};
     };
 
@@ -139,11 +142,17 @@ namespace Models
 
 
   protected:
+    // Error code. A value of OK indicates that the request was successful
     shared_ptr<string> code_ {};
+    // Response data
     shared_ptr<vector<GetRowPermissionByTableGuidsResponseBody::Data>> data_ {};
+    // HTTP status code of the backend response
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

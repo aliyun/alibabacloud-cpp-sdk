@@ -96,14 +96,39 @@ namespace Models
 
 
     protected:
+      // Menu tree category
+      // - Ad hoc query: tempCode
+      // - Code task: codeManage
+      // - Offline pipeline: offlinePipeline
+      // - Pipeline custom component: offlinePipelineCustomPlugin
+      // - Sync task: dataX
+      // - Real-time meta table: streamMeta
+      // - Real-time custom source: streamCustomDataSource
+      // - Real-time computing template: streamTemplate
+      // - Resource management: resourceManage
+      // - Offline function: udfResource
+      // - Real-time function: streamFunction
+      // 
       // This parameter is required.
       shared_ptr<string> category_ {};
+      // File directory
+      // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
+      // Environment identifier
+      // - DEV
+      // - PROD
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // Project ID
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // Whether to recursively traverse and query
+      // - true: Yes, returns all nodes under the directory
+      // - false: No, returns only the first-level nodes under the directory
+      // 
       // This parameter is required.
       shared_ptr<bool> recursive_ {};
     };
@@ -127,8 +152,12 @@ namespace Models
 
 
   protected:
+    // Query conditions
+    // 
     // This parameter is required.
     shared_ptr<ListFilesRequest::ListQuery> listQuery_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

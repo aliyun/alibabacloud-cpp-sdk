@@ -118,8 +118,12 @@ namespace Models
 
 
         protected:
+          // Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+          // 
           // This parameter is required.
           shared_ptr<string> key_ {};
+          // Configuration item value
+          // 
           // This parameter is required.
           shared_ptr<string> value_ {};
         };
@@ -164,12 +168,43 @@ namespace Models
 
 
       protected:
+        // Whether to check connectivity
         shared_ptr<bool> checkActivity_ {};
+        // List of connection configuration items
+        // 
         // This parameter is required.
         shared_ptr<vector<ProdDataSourceCreate::ConfigItemList>> configItemList_ {};
+        // Data source description
         shared_ptr<string> description_ {};
+        // Data source name
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // Data source type:
+        // - MAX_COMPUTE
+        // - HDFS
+        // - LOG_HUB
+        // - POLARDB
+        // - HBASE_0_9_4
+        // - HBASE_1_1_X
+        // - DRDS
+        // - HIVE
+        // - FTP
+        // - ELASTIC_SEARCH
+        // - MYSQL
+        // - MONGODB
+        // - OSS
+        // - HANA
+        // - SQL_SERVER
+        // - POSTGRE_SQL
+        // - ANALYTICDB
+        // - ADB_FOR_MYSQL_V3
+        // - ADB_FOR_PG
+        // - ORACLE
+        // - VERTICA
+        // - DB2
+        // - TERA_DATA, etc.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -260,8 +295,12 @@ namespace Models
 
 
           protected:
+            // Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+            // 
             // This parameter is required.
             shared_ptr<string> key_ {};
+            // Configuration item value
+            // 
             // This parameter is required.
             shared_ptr<string> value_ {};
           };
@@ -306,12 +345,20 @@ namespace Models
 
 
         protected:
+          // Whether to check connectivity
           shared_ptr<bool> checkActivity_ {};
+          // List of connection configuration items
+          // 
           // This parameter is required.
           shared_ptr<vector<DataSourceCreate::ConfigItemList>> configItemList_ {};
+          // Description
           shared_ptr<string> description_ {};
+          // Data source name
+          // 
           // This parameter is required.
           shared_ptr<string> name_ {};
+          // Data source type
+          // 
           // This parameter is required.
           shared_ptr<string> type_ {};
         };
@@ -335,8 +382,9 @@ namespace Models
 
 
       protected:
-        // 数据源创建结构体
+        // Development environment data source
         shared_ptr<DevDataSourceCreate::DataSourceCreate> dataSourceCreate_ {};
+        // Associated production environment data source ID. This parameter cannot be empty when only creating a development environment compute source.
         shared_ptr<int64_t> prodDataSourceId_ {};
       };
 
@@ -361,8 +409,9 @@ namespace Models
 
 
     protected:
+      // Development environment data source
       shared_ptr<CreateCommand::DevDataSourceCreate> devDataSourceCreate_ {};
-      // 数据源创建结构体
+      // Production environment data source
       shared_ptr<CreateCommand::ProdDataSourceCreate> prodDataSourceCreate_ {};
     };
 
@@ -385,7 +434,10 @@ namespace Models
 
 
   protected:
+    // Request object
     shared_ptr<CreateDataSourceRequest::CreateCommand> createCommand_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

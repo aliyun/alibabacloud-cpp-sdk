@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The remarks for the offline operation.
+    // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
+    // The node ID in the node directory tree.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

@@ -158,15 +158,29 @@ namespace Models
 
 
       protected:
+        // The list of business event activity IDs included in the business process activity. This parameter takes effect only when the current activity is a business process activity.
         shared_ptr<vector<int64_t>> bizEventEntityIdList_ {};
+        // The description of the business activity. The description can be up to 128 characters in length.
         shared_ptr<string> description_ {};
+        // The display name of the business activity. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+        // 
         // This parameter is required.
         shared_ptr<string> displayName_ {};
+        // The code name of the business activity. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For ADB_PG engines, the code name can be up to 40 characters in length.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The user ID of the business activity owner.
         shared_ptr<string> ownerUserId_ {};
+        // The list of preceding business process activity IDs for the business process activity.
         shared_ptr<vector<int64_t>> preBizProcessIdList_ {};
+        // The list of associated online business entity IDs.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
+        // The type of the business activity. Valid values:
+        // - BIZ_EVENT: business event.
+        // - BIZ_SNAPSHOT: business snapshot.
+        // - BIZ_PROCESS: business process.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -257,14 +271,28 @@ namespace Models
 
 
       protected:
+        // The description of the business object. The description can be up to 128 characters in length.
         shared_ptr<string> description_ {};
+        // The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+        // 
         // This parameter is required.
         shared_ptr<string> displayName_ {};
+        // The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For ADB_PG engines, the code name can be up to 40 characters in length.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The user ID of the business object owner.
         shared_ptr<string> ownerUserId_ {};
+        // The parent entity from which the business object inherits. Only common business objects support inheritance, and the parent entity must be an online business object.
         shared_ptr<int64_t> parentId_ {};
+        // The list of associated online business entity IDs.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
+        // The object type of the business object. Valid values:
+        // - NORMAL: common object.
+        // - ENUM: enumeration object.
+        // - VIRTUAL: virtual object.
+        // - HIERARCHY: hierarchy object.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -311,12 +339,22 @@ namespace Models
 
 
     protected:
+      // The business object.
       shared_ptr<CreateCommand::BizObject> bizObject_ {};
+      // The business activity.
       shared_ptr<CreateCommand::BizProcess> bizProcess_ {};
+      // The ID of the business unit to which the business activity belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The ID of the data domain to which the business activity belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> dataDomainId_ {};
+      // The business type. Valid values: 
+      // - BIZ_OBJECT: business object.
+      // - BIZ_PROCESS: business activity.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -340,8 +378,12 @@ namespace Models
 
 
   protected:
+    // The create request.
+    // 
     // This parameter is required.
     shared_ptr<CreateBizEntityRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

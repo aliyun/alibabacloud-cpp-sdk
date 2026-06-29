@@ -117,14 +117,29 @@ namespace Models
 
 
     protected:
+      // The API ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> apiId_ {};
+      // The ID of the application.
       shared_ptr<int32_t> appId_ {};
+      // The permission type. Valid values:
+      // - USE: use permission
+      // - DELEGATION: delegation permission.
       shared_ptr<string> authType_ {};
+      // The API environment. Valid values:
+      // - DEV: development environment
+      // - PROD: production environment.
       shared_ptr<string> env_ {};
+      // The authorization object type. Valid values:
+      // - APP: application
+      // - USER: user.
       shared_ptr<string> granteeType_ {};
+      // The reason for the request.
+      // 
       // This parameter is required.
       shared_ptr<string> reason_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -154,10 +169,16 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
+    // The revoke instruction.
+    // 
     // This parameter is required.
     shared_ptr<RevokeDataServiceApiRequest::RevokeCommand> revokeCommand_ {};
   };

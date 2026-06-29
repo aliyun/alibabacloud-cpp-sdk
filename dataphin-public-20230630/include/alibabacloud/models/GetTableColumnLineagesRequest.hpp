@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to query downstream lineage. Default value: true.
       shared_ptr<bool> needDownstream_ {};
+      // Specifies whether to return tables that do not exist in the asset inventory. Default value: false.
       shared_ptr<bool> needNotExistObject_ {};
+      // Specifies whether to query upstream lineage. Default value: true.
       shared_ptr<bool> needUpstream_ {};
+      // The environment of the nodes to query. Valid values: dev and prod.
       shared_ptr<string> nodeEnv_ {};
+      // The list of node IDs to filter.
       shared_ptr<vector<string>> nodeIdList_ {};
     };
 
@@ -134,9 +139,14 @@ namespace Models
 
 
   protected:
+    // The filter conditions.
     shared_ptr<GetTableColumnLineagesRequest::FilterQuery> filterQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The GUID of the table, which is the unique identifier of the asset.
+    // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};
   };

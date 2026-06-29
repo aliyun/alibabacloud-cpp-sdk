@@ -78,10 +78,16 @@ namespace Models
 
 
     protected:
+      // The description of the delete operation.
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // The ID of the node in the folder.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
+      // The ID of the project to which the node belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -105,8 +111,12 @@ namespace Models
 
 
   protected:
+    // The delete request.
+    // 
     // This parameter is required.
     shared_ptr<DeleteBatchTaskRequest::DeleteCommand> deleteCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

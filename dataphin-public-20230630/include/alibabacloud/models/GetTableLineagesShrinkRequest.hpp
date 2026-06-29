@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The filter conditions.
     shared_ptr<string> filterQueryShrink_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The GUID of the table, which is the unique identifier of each asset.
+    // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};
   };

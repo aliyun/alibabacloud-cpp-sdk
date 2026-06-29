@@ -142,8 +142,11 @@ namespace Models
 
 
       protected:
+        // The type of view scope. Valid values: ALL_USERS_CAN_VIEW (visible to all users), PART_USERS_CAN_VIEW (visible to specific users), and PART_USERS_CAN_NOT_VIEW (invisible to specific users).
         shared_ptr<string> scopeType_ {};
+        // The names of user groups. This parameter takes effect only when the view scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW.
         shared_ptr<vector<string>> userGroupNames_ {};
+        // The usernames of individual accounts. This parameter is valid only when the view scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW.
         shared_ptr<vector<string>> userNames_ {};
       };
 
@@ -212,11 +215,15 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> description_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
-        // guid
+        // The GUID.
         shared_ptr<string> guid_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The relation type. Valid values: POSITIVE (positive correlation), NEGATIVE (negative correlation), and OTHER (other).
         shared_ptr<string> relationType_ {};
       };
 
@@ -260,7 +267,9 @@ namespace Models
 
 
       protected:
+        // The code of the custom attribute.
         shared_ptr<string> code_ {};
+        // The list of attribute values. 1. For custom input and single-select dropdown attributes, the first value in the list is used. 2. For multi-select dropdown attributes, all values in the list are used. 3. For hyperlink attributes, the first value is the display text and the second value is the link URL.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -348,12 +357,19 @@ namespace Models
 
 
       protected:
+        // The catalog description.
         shared_ptr<string> catalogDesc_ {};
+        // The catalog ID.
         shared_ptr<int64_t> catalogId_ {};
+        // The catalog name.
         shared_ptr<string> catalogName_ {};
+        // The parent catalog ID.
         shared_ptr<int64_t> parentCatalogId_ {};
+        // The parent path of the catalog.
         shared_ptr<string> parentPath_ {};
+        // The topic ID to which the catalog belongs.
         shared_ptr<int64_t> topicId_ {};
+        // The topic name to which the catalog belongs.
         shared_ptr<string> topicName_ {};
       };
 
@@ -422,11 +438,15 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> description_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
-        // guid
+        // The GUID.
         shared_ptr<string> guid_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The type of the technical metric. Valid values: INDEX (modeling metric) and CUSTOM_INDEX (custom metric).
         shared_ptr<string> subType_ {};
       };
 
@@ -567,22 +587,39 @@ namespace Models
 
 
     protected:
+      // The list of associated technical metrics.
       shared_ptr<vector<Data::AssociatedTechMetrics>> associatedTechMetrics_ {};
+      // The name of the business owner.
       shared_ptr<string> bizOwnerName_ {};
+      // The list of affiliated catalogs.
       shared_ptr<vector<Data::Catalogs>> catalogs_ {};
+      // The list of custom attributes.
       shared_ptr<vector<Data::CustomAttribute>> customAttribute_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The display name.
       shared_ptr<string> displayName_ {};
+      // The GUID of the business metric.
       shared_ptr<string> guid_ {};
+      // The list of labels.
       shared_ptr<vector<string>> labels_ {};
+      // The metric definition.
       shared_ptr<string> metricDefinition_ {};
+      // The expression of the metric relation diagram.
       shared_ptr<string> metricRelationDiagramExpression_ {};
+      // Indicates whether the metric relation diagram is enabled. A value of true indicates that the diagram is enabled. A value of false indicates that the diagram is disabled.
       shared_ptr<bool> metricRelationDiagramSwitchOpen_ {};
+      // The name of the business metric.
       shared_ptr<string> name_ {};
+      // The text content of the operation instruction.
       shared_ptr<string> operateInstructionContent_ {};
+      // Indicates whether the operation instruction is enabled. A value of true indicates that the operation instruction is enabled. A value of false indicates that the operation instruction is disabled.
       shared_ptr<bool> operateInstructionEnabled_ {};
+      // The list of related business metrics.
       shared_ptr<vector<Data::RelatedBizMetrics>> relatedBizMetrics_ {};
+      // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
+      // The view scope.
       shared_ptr<Data::ViewScope> viewScope_ {};
     };
 
@@ -633,12 +670,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The details of the business metric.
     shared_ptr<GetBizMetricByNameResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

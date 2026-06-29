@@ -120,7 +120,9 @@ namespace Models
 
 
         protected:
+          // The ID of the account associated with the rule.
           shared_ptr<string> accountId_ {};
+          // The name of the account associated with the rule.
           shared_ptr<string> accountName_ {};
         };
 
@@ -143,7 +145,9 @@ namespace Models
 
 
       protected:
+        // The type of the account associated with the rule.
         shared_ptr<string> accountType_ {};
+        // The accounts associated with the rule.
         shared_ptr<vector<UserMappingList::Accounts>> accounts_ {};
       };
 
@@ -166,7 +170,9 @@ namespace Models
 
 
     protected:
+      // The row-level permission rule IDs.
       shared_ptr<int64_t> id_ {};
+      // The accounts associated with the rule.
       shared_ptr<vector<Data::UserMappingList>> userMappingList_ {};
     };
 
@@ -217,11 +223,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<vector<GetAccountByRowPermissionIdResponseBody::Data>> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

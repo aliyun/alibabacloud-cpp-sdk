@@ -69,8 +69,12 @@ namespace Models
 
 
     protected:
+      // The review remarks. The value can be up to 128 characters in length.
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // The standard ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
     };
@@ -94,8 +98,12 @@ namespace Models
 
 
   protected:
+    // The offline instruction.
+    // 
     // This parameter is required.
     shared_ptr<OfflineStandardRequest::OfflineCommand> offlineCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

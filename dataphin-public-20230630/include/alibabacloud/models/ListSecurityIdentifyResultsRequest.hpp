@@ -149,15 +149,25 @@ namespace Models
 
 
     protected:
+      // Business unit names.
       shared_ptr<vector<string>> bizUnitNameList_ {};
+      // Data classification ID.
       shared_ptr<int64_t> classifyId_ {};
+      // Data source names.
       shared_ptr<vector<string>> datasourceNameList_ {};
+      // Environment identifier of the data source, project, or business unit.
       shared_ptr<string> env_ {};
+      // Whether it is locked.
       shared_ptr<bool> isLocked_ {};
+      // Keyword filter. Supports matching by table catalog, table name, table display name, and field name.
       shared_ptr<string> keyword_ {};
+      // Page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // Number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // Project names.
       shared_ptr<vector<string>> projectNameList_ {};
+      // Effective status filter: ENABLE or DISABLE.
       shared_ptr<string> status_ {};
     };
 
@@ -180,7 +190,10 @@ namespace Models
 
 
   protected:
+    // Query conditions.
     shared_ptr<ListSecurityIdentifyResultsRequest::ListQuery> listQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

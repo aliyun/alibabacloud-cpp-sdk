@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The execution command.
+    // 
     // This parameter is required.
     shared_ptr<string> executeCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

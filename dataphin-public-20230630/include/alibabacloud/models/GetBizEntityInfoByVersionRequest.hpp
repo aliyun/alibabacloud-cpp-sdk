@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The business entity ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The business type. Valid values: BIZ_OBJECT and BIZ_PROCESS.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The version.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> versionId_ {};
   };

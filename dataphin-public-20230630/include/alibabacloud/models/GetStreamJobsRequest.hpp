@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The Dataphin environment. Valid values:
+    // - DEV
+    // - PROD.
+    // 
     // This parameter is required.
     shared_ptr<string> env_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The Dataphin project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

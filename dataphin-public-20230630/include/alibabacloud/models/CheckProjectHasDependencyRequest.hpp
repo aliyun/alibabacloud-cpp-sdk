@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

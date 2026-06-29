@@ -97,8 +97,12 @@ namespace Models
 
 
       protected:
+        // The key of the configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The value of the configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -143,14 +147,24 @@ namespace Models
 
 
     protected:
+      // The connection configuration items.
+      // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::ConfigList>> configList_ {};
+      // The description.
+      // 
       // This parameter is required.
       shared_ptr<string> description_ {};
+      // The ID of the compute source.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The name of the compute source.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The type of the compute source.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -174,8 +188,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The edit command.
+    // 
     // This parameter is required.
     shared_ptr<UpdateComputeSourceRequest::UpdateCommand> updateCommand_ {};
   };

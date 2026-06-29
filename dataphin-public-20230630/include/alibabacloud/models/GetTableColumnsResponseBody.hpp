@@ -280,29 +280,53 @@ namespace Models
 
 
     protected:
+      // Data classification ID.
       shared_ptr<int64_t> classifyId_ {};
+      // Data classification name.
       shared_ptr<string> classifyName_ {};
+      // Column comment.
       shared_ptr<string> comment_ {};
+      // Creation time.
       shared_ptr<string> createTime_ {};
+      // Creator.
       shared_ptr<string> creator_ {};
+      // Data source ID.
       shared_ptr<int64_t> dataSourceId_ {};
+      // Data source type.
       shared_ptr<string> dataSourceType_ {};
+      // Data type.
       shared_ptr<string> dataType_ {};
+      // Default value.
       shared_ptr<string> defaultValue_ {};
+      // Column display name.
       shared_ptr<string> displayName_ {};
+      // Environment: dev or prod.
       shared_ptr<string> env_ {};
+      // Column GUID.
       shared_ptr<string> guid_ {};
+      // Whether this is a foreign key.
       shared_ptr<bool> isForeignKey_ {};
+      // Whether this is a partition column.
       shared_ptr<bool> isPartitionColumn_ {};
+      // Whether this is a primary key.
       shared_ptr<bool> isPrimaryKey_ {};
+      // Last modifier.
       shared_ptr<string> lastModifier_ {};
+      // Data level abbreviation.
       shared_ptr<string> levelAbbreviation_ {};
+      // Modification time.
       shared_ptr<string> modifyTime_ {};
+      // Column name.
       shared_ptr<string> name_ {};
+      // Whether null values are allowed.
       shared_ptr<bool> nullable_ {};
+      // Sequence number.
       shared_ptr<int32_t> seqNumber_ {};
+      // Table GUID.
       shared_ptr<string> tableGuid_ {};
+      // Table name.
       shared_ptr<string> tableName_ {};
+      // Query count in the last 30 days.
       shared_ptr<int64_t> visitCount30d_ {};
     };
 
@@ -353,12 +377,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // List of asset table columns.
     shared_ptr<vector<GetTableColumnsResponseBody::ColumnList>> columnList_ {};
+    // HTTP response code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend response exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

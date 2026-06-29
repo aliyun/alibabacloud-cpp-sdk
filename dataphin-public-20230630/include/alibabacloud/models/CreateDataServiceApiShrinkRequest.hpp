@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The request for creating an API.
+    // 
     // This parameter is required.
     shared_ptr<string> createCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

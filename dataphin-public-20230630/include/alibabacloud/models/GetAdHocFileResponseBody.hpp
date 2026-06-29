@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The file content.
       shared_ptr<string> content_ {};
+      // The creator.
       shared_ptr<string> creator_ {};
+      // The directory where the file is located.
       shared_ptr<string> directory_ {};
+      // The file ID.
       shared_ptr<int64_t> id_ {};
+      // The last modifier.
       shared_ptr<string> lastModifier_ {};
+      // The file name.
       shared_ptr<string> name_ {};
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
     };
 
@@ -179,11 +186,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The details of the custom query file.
     shared_ptr<GetAdHocFileResponseBody::FileInfo> fileInfo_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

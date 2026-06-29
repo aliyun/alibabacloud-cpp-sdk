@@ -98,10 +98,15 @@ namespace Models
 
 
       protected:
+        // The department ID (unique identifier of the department).
+        // 
         // This parameter is required.
         shared_ptr<string> departmentId_ {};
+        // The display name of the department.
+        // 
         // This parameter is required.
         shared_ptr<string> departmentName_ {};
+        // The parent department ID (unique identifier of the parent department). Set to null if no parent department exists.
         shared_ptr<string> parentDepartmentId_ {};
       };
 
@@ -116,6 +121,8 @@ namespace Models
 
 
     protected:
+      // The department list (full organization tree).
+      // 
       // This parameter is required.
       shared_ptr<vector<SyncDepartmentCommand::DepartmentList>> departmentList_ {};
     };
@@ -139,8 +146,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<SyncDepartmentRequest::SyncDepartmentCommand> syncDepartmentCommand_ {};
   };

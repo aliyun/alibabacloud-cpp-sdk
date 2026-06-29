@@ -89,6 +89,7 @@ namespace Models
 
 
       protected:
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
       };
 
@@ -143,15 +144,26 @@ namespace Models
 
 
     protected:
+      // The expiration timestamp, in milliseconds.
+      // 
       // This parameter is required.
       shared_ptr<string> effectiveEnd_ {};
+      // The operation types.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> operateList_ {};
+      // The reason for the authorization.
       shared_ptr<string> reason_ {};
+      // The list of resources.
+      // 
       // This parameter is required.
       shared_ptr<vector<GrantCommand::ResourceList>> resourceList_ {};
+      // The resource type.
+      // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
+      // The authorized users pending authorization.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> userIdList_ {};
     };
@@ -175,8 +187,12 @@ namespace Models
 
 
   protected:
+    // The grant request.
+    // 
     // This parameter is required.
     shared_ptr<GrantResourcePermissionRequest::GrantCommand> grantCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

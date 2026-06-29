@@ -69,7 +69,9 @@ namespace Models
 
 
     protected:
+      // The sensitivity level of the classification level. If this parameter is not specified, the classification level is deleted based on an exact match of the classification level name.
       shared_ptr<int64_t> index_ {};
+      // The classification level name.
       shared_ptr<string> name_ {};
     };
 
@@ -92,8 +94,12 @@ namespace Models
 
 
   protected:
+    // The delete instruction.
+    // 
     // This parameter is required.
     shared_ptr<DeleteSecurityLevelRequest::DeleteCommand> deleteCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

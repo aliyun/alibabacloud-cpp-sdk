@@ -57,10 +57,21 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The object ID, such as a table ID, datasource ID, or metric ID.
+    // 
     // This parameter is required.
     shared_ptr<string> watchObjectId_ {};
+    // The monitored object type. Valid values:
+    // - TABLE: Dataphin table.
+    // - DATASOURCE_TABLE: global table.
+    // - DATASOURCE: datasource.
+    // - INDEX: metric.
+    // - REALTIME_LOGICAL_TABLE: real-time meta table.
+    // 
     // This parameter is required.
     shared_ptr<string> watchType_ {};
   };

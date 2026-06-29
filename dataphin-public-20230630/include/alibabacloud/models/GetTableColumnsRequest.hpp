@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Asset table catalog: name of the business unit or project space.
+    // 
     // This parameter is required.
     shared_ptr<string> catalog_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Table name.
+    // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
   };

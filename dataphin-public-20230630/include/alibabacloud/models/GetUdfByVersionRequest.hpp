@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The ID of the user-defined function.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
+    // The version number.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> versionId_ {};
   };

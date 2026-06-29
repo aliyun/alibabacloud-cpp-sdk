@@ -122,14 +122,30 @@ namespace Models
 
 
     protected:
+      // Data source name
       shared_ptr<string> name_ {};
+      // Data source owner
       shared_ptr<vector<string>> ownerList_ {};
+      // Page number. The value starts from 1.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
+      // Number of records per page
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
+      // Data source scope. Valid values:
+      // - STREAMING: Real-time
+      // - OFFLINE: Offline
+      // - DIP_META_SYNC: Meta warehouse initialization
+      // - DATA_DISTILL: Data distillation
+      // - CUMPUTE_SOURCE_SHADOW: Shadow compute source
+      // - LABEL: Label
+      // - ALL: Offline + Real-time
       shared_ptr<vector<string>> scopeList_ {};
+      // Tag marked when creating the data source
       shared_ptr<string> tag_ {};
+      // Data source type
       shared_ptr<vector<string>> typeList_ {};
     };
 
@@ -152,8 +168,12 @@ namespace Models
 
 
   protected:
+    // Paginated query
+    // 
     // This parameter is required.
     shared_ptr<ListDataSourceWithConfigRequest::ListQuery> listQuery_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

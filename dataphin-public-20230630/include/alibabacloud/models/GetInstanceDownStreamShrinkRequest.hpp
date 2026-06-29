@@ -75,13 +75,28 @@ namespace Models
 
 
   protected:
+    // Number of levels to expand downstream in the DAG query. Valid values: 1 to 6.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> downStreamDepth_ {};
+    // Environment identifier.
+    // - DEV: Development environment.
+    // - PROD (default): Production environment.
     shared_ptr<string> env_ {};
+    // The request body.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceGetShrink_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Run status of the instance.
+    // - INIT
+    // - WATING
+    // - RUNNING
+    // - SUCCESS
+    // - FAILED
     shared_ptr<string> runStatus_ {};
   };
 

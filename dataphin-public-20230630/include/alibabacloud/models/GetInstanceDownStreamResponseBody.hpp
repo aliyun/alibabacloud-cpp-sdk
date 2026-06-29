@@ -118,8 +118,11 @@ namespace Models
 
 
       protected:
+        // Instance ID.
         shared_ptr<string> id_ {};
+        // Instance name.
         shared_ptr<string> name_ {};
+        // Node type.
         shared_ptr<string> type_ {};
       };
 
@@ -170,8 +173,11 @@ namespace Models
 
 
       protected:
+        // Field instance ID.
         shared_ptr<string> fieldInstanceId_ {};
+        // Run status.
         shared_ptr<string> runStatus_ {};
+        // Selection status of the instance.
         shared_ptr<string> selectStatus_ {};
       };
 
@@ -232,12 +238,35 @@ namespace Models
 
 
     protected:
+      // Depth level.
       shared_ptr<int32_t> downStreamDepth_ {};
+      // Extended information of the node instance.
       shared_ptr<string> extendInfo_ {};
+      // Field instance list.
       shared_ptr<vector<InstanceRelationList::FieldInstanceList>> fieldInstanceList_ {};
+      // Instance information.
       shared_ptr<InstanceRelationList::InstanceInfo> instanceInfo_ {};
+      // Run status of the instance.
       shared_ptr<string> runStatus_ {};
+      // Selection status of the instance, primarily used for logical fields.
+      // - OPTIONAL: Optional.
+      // - SELECTED: Required.
+      // - DISABLE: Not selectable.
+      // - GROUP_SELECTED: Select all or deselect all.
       shared_ptr<string> selectStatus_ {};
+      // Reason why the instance is selected.
+      // - PK_CHANGE
+      // - LOGIC_CHANGE
+      // - RELATION
+      // - BIZ_RELATIO
+      // - MV_RELATION
+      // - MODEL_REFRESH
+      // - FIELD_DELETED
+      // - FIELD_ADDED_NO_INSTANCE
+      // - PERMISSION_DENY
+      // - OUTSIDE_INCOMING
+      // - INSTANCE_STATUS
+      // - AFFECT_BY_UPSTREAM
       shared_ptr<string> selectStatusCause_ {};
     };
 
@@ -288,11 +317,17 @@ namespace Models
 
 
   protected:
+    // Error code. OK indicates a successful request.
     shared_ptr<string> code_ {};
+    // HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Downstream instances and dependency relationships.
     shared_ptr<vector<GetInstanceDownStreamResponseBody::InstanceRelationList>> instanceRelationList_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -95,8 +95,12 @@ namespace Models
 
 
       protected:
+        // The member role. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
+        // 
         // This parameter is required.
         shared_ptr<vector<int32_t>> roleList_ {};
+        // The user ID.
+        // 
         // This parameter is required.
         shared_ptr<string> userId_ {};
       };
@@ -120,8 +124,12 @@ namespace Models
 
 
     protected:
+      // The environment identifier. Valid values: DEV and PROD.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The list of user members.
+      // 
       // This parameter is required.
       shared_ptr<vector<AddCommand::UserList>> userList_ {};
     };
@@ -152,10 +160,16 @@ namespace Models
 
 
   protected:
+    // The command to add members.
+    // 
     // This parameter is required.
     shared_ptr<AddProjectMemberRequest::AddCommand> addCommand_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

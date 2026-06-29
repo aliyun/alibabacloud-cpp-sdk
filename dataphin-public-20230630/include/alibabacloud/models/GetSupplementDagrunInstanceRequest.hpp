@@ -57,11 +57,16 @@ namespace Models
 
 
   protected:
-    // Dagrun ID
+    // The dagrun ID.
     // 
     // This parameter is required.
     shared_ptr<string> dagrunId_ {};
+    // The environment identifier. Valid values:
+    // - DEV: development environment. 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

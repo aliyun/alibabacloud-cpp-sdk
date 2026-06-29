@@ -90,10 +90,15 @@ namespace Models
 
 
     protected:
+      // The list of administrator user IDs for the user group.
       shared_ptr<vector<string>> adminUserIdList_ {};
+      // The description of the user group.
       shared_ptr<string> description_ {};
+      // The ID of the user group.
+      // 
       // This parameter is required.
       shared_ptr<string> id_ {};
+      // The name of the user group.
       shared_ptr<string> name_ {};
     };
 
@@ -116,8 +121,11 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The command to edit the user group.
     shared_ptr<UpdateUserGroupRequest::UpdateCommand> updateCommand_ {};
   };
 

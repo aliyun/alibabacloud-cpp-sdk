@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The list of identification result IDs.
       shared_ptr<vector<int64_t>> identifyResultIdList_ {};
     };
 
@@ -84,8 +85,12 @@ namespace Models
 
 
   protected:
+    // The delete instruction.
+    // 
     // This parameter is required.
     shared_ptr<DeleteSecurityIdentifyResultsRequest::DeleteCommand> deleteCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

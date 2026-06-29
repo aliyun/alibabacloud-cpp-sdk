@@ -178,18 +178,31 @@ namespace Models
 
 
     protected:
+      // Compute engine type.
       shared_ptr<string> computeEngineType_ {};
+      // Creator.
       shared_ptr<string> creator_ {};
+      // Description.
       shared_ptr<string> description_ {};
+      // Storage directory.
       shared_ptr<string> directory_ {};
+      // Creation time, format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
+      // Modification time, format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
+      // Resource ID.
       shared_ptr<int64_t> id_ {};
+      // Last modifier.
       shared_ptr<string> lastModifier_ {};
+      // Resource file name.
       shared_ptr<string> name_ {};
+      // Project ID.
       shared_ptr<int64_t> projectId_ {};
+      // Resource type.
       shared_ptr<string> resourceType_ {};
+      // Resource size, unit: bytes.
       shared_ptr<int64_t> size_ {};
+      // Resource storage address.
       shared_ptr<string> storageAddress_ {};
     };
 
@@ -240,12 +253,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Backend error details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Resource file details.
     shared_ptr<GetResourceByVersionResponseBody::ResourceInfo> resourceInfo_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

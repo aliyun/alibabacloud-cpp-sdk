@@ -57,10 +57,19 @@ namespace Models
 
 
   protected:
+    // The environment identifier. Valid values:
+    // 
+    // - DEV: development environment.
+    // - PROD: production environment.
+    // 
     // This parameter is required.
     shared_ptr<string> envEnum_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
   };

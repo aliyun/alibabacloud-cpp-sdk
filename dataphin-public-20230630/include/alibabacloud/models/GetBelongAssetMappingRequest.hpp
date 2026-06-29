@@ -69,8 +69,11 @@ namespace Models
 
 
     protected:
+      // The GUID of the belonging asset.
+      // 
       // This parameter is required.
       shared_ptr<string> belongGuid_ {};
+      // The mapping relationship type. Valid values: VALID (mapped) and INVALID (invalid mapping).
       shared_ptr<string> relationType_ {};
     };
 
@@ -93,7 +96,10 @@ namespace Models
 
 
   protected:
+    // Query command.
     shared_ptr<GetBelongAssetMappingRequest::AssetMappingQuery> assetMappingQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

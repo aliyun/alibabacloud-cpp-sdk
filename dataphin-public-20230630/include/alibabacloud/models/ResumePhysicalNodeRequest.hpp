@@ -74,8 +74,12 @@ namespace Models
 
 
     protected:
+      // Node ID list.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> nodeIdList_ {};
+      // Project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -106,9 +110,16 @@ namespace Models
 
 
   protected:
+    // Environment identifier.
+    // - DEV: Development environment
+    // - PROD (default): Production environment
     shared_ptr<string> env_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Resume scheduling request.
+    // 
     // This parameter is required.
     shared_ptr<ResumePhysicalNodeRequest::ResumeCommand> resumeCommand_ {};
   };

@@ -155,15 +155,54 @@ namespace Models
 
 
     protected:
+      // The rule type. Valid values:
+      // - CONSISTENT: consistency.
+      // - EFFECTIVE: validity.
+      // - TIMELINESE: timeliness.
+      // - ACCURATE: accuracy.
+      // - UNIQUENESS: uniqueness.
+      // - COMPLETENESS: completeness.
+      // - STABILITY: stability.
+      // - CUSTOM: custom.
       shared_ptr<vector<string>> catalogList_ {};
+      // The search keyword for filtering. Supports searching by rule name and validation object.
       shared_ptr<string> keyword_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The rule strength. Valid values:
+      // - STRONG: strong.
+      // - WEAK: weak.
       shared_ptr<vector<string>> ruleStrengthList_ {};
+      // The rule effective status. Valid values:
+      // - ENABLE: enabled.
+      // - DISABLE: disabled.
       shared_ptr<vector<string>> statusList_ {};
+      // The rule template.
       shared_ptr<vector<int64_t>> templateIdList_ {};
+      // The task status. Valid values:
+      // - NOT_RUN: not executed.
+      // - WAITING: waiting.
+      // - RUNNING: executing.
+      // - SUCCESS: execution succeeded.
+      // - FAILED: execution failed.
+      // - CANCEL: canceled.
+      // - TIMEOUT: timed out.
+      // - OFFLINE: offline.
       shared_ptr<vector<string>> testRunTaskStatusList_ {};
+      // The trial run validation result. Valid values:
+      // - NOT_RUN: not executed.
+      // - WAITING: waiting for execution.
+      // - RUNNING: executing.
+      // - PASS: passed.
+      // - NOT_PASS: not passed.
+      // - FAILED: execution failed.
+      // - OFFLINE: offline. The task needs to be restarted.
+      // - CANCEL: task canceled.
+      // - TIMEOUT: task timed out.
       shared_ptr<vector<string>> testRunTaskValidateResultList_ {};
+      // The monitoring ID.
       shared_ptr<int64_t> watchId_ {};
     };
 
@@ -186,7 +225,10 @@ namespace Models
 
 
   protected:
+    // The paged query conditions.
     shared_ptr<ListQualityRulesRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Check user resource permission
+    // 
     // This parameter is required.
     shared_ptr<string> checkCommandShrink_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

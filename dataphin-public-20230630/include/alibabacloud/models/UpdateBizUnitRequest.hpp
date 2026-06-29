@@ -89,6 +89,8 @@ namespace Models
 
 
       protected:
+        // The user ID.
+        // 
         // This parameter is required.
         shared_ptr<string> userId_ {};
       };
@@ -140,15 +142,26 @@ namespace Models
 
 
     protected:
+      // The domain architects.
+      // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::BizUnitAccountList>> bizUnitAccountList_ {};
+      // The data domain ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The display name of the data domain.
+      // 
       // This parameter is required.
       shared_ptr<string> displayName_ {};
+      // The preset icon. For more information, refer to the create data domain operation.
+      // 
       // This parameter is required.
       shared_ptr<string> icon_ {};
+      // The data domain code.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -172,8 +185,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update request.
+    // 
     // This parameter is required.
     shared_ptr<UpdateBizUnitRequest::UpdateCommand> updateCommand_ {};
   };

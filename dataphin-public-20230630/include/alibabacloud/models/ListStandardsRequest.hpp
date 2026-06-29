@@ -151,16 +151,27 @@ namespace Models
 
 
     protected:
+      // Directory of the standard.
       shared_ptr<string> directory_ {};
+      // Search keyword: fuzzy search by standard name, English name, or code. Case-insensitive, sorted by relevance.
       shared_ptr<string> keyword_ {};
+      // Page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // Number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // Standard set ID list.
       shared_ptr<vector<int64_t>> standardSetIdList_ {};
+      // Stage of the standard: DEV or PROD.
+      // 
       // This parameter is required.
       shared_ptr<string> standardStage_ {};
+      // Standard status list. Standard statuses under DEV stage: DRAFT, UNDER_REVISION, UNDER_REVIEW, REVIEW_PASSED, IN_PUBLISH. Standard statuses under PROD stage: NOT_ACTIVATED, ACTIVE, EXPIRED.
       shared_ptr<vector<string>> standardStatusList_ {};
+      // Standard template ID list.
       shared_ptr<vector<int64_t>> standardTemplateIdList_ {};
+      // Standard type: Basic, EMPTY indicates the standard type is empty.
       shared_ptr<vector<string>> standardTypeList_ {};
+      // User ID: only queries standards visible to this user ID. If empty, queries standards visible to the current user.
       shared_ptr<string> userId_ {};
     };
 
@@ -183,8 +194,12 @@ namespace Models
 
 
   protected:
+    // Search conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListStandardsRequest::ListQuery> listQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

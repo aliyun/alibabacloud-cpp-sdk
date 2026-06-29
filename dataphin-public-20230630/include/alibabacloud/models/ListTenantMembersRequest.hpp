@@ -101,12 +101,36 @@ namespace Models
 
 
     protected:
+      // The page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
+      // The member roles:
+      // - SUPER_ADMIN: Dataphin super administrator
+      // - SYSTEM_ADMIN: system administrator
+      // - COMMON_USER: Dataphin user
+      // - DATA_ADMIN: Dataphin data administrator
+      // - EXPORT_ADMIN: export administrator
+      // - SECURITY_ADMIN: security administrator
+      // - DATASOURCE_MANAGER: data source administrator
+      // - QUALITY_MANAGER: asset quality manager
+      // - DATA_STANDARD_MANAGER: data standard administrator
+      // - LABELS_BUSINESS_PLANNER: tag business planner
+      // - BUSINESS_MEMBER: general business user
+      // - DATAPRO_OPERATE_SUPER_ADMIN: operations super administrator
+      // - DATAPRO_OPERATE_ADMIN: operations administrator
+      // - DATAPRO_OPERATE_MEMBER: operations member
+      // - DATAPRO_BUSINESS_ANALYST: business analyst
+      // - LABELS_BUSINESS_MEMBER: tag business member
+      // - DATAPRO_BUSINESS_MEMBER: DATAPRO general business user
       shared_ptr<vector<string>> roleList_ {};
+      // The search keyword.
       shared_ptr<string> searchText_ {};
+      // The IDs of the user groups to which the member belongs.
       shared_ptr<vector<string>> userGroupIdList_ {};
     };
 
@@ -129,8 +153,12 @@ namespace Models
 
 
   protected:
+    // The request object.
+    // 
     // This parameter is required.
     shared_ptr<ListTenantMembersRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

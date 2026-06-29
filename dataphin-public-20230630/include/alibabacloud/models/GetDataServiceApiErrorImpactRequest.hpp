@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The end time. Format: yyyy-MM-dd HH:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
+    // The start time. Format: yyyy-MM-dd HH:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

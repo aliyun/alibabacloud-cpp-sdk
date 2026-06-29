@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // The number of API calls.
       shared_ptr<int64_t> callCount_ {};
+      // The number of APIs with call errors.
       shared_ptr<int64_t> errorApiCount_ {};
+      // The number of applications affected by errors.
       shared_ptr<int64_t> errorAppCount_ {};
+      // The number of failed calls.
       shared_ptr<int64_t> errorCount_ {};
+      // The error rate.
       shared_ptr<double> errorRate_ {};
+      // The offline percentage.
       shared_ptr<double> offlineRate_ {};
     };
 
@@ -168,12 +174,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The aggregate statistics of API calls.
     shared_ptr<GetDataServiceApiCallSummaryResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

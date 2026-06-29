@@ -105,8 +105,12 @@ namespace Models
 
 
       protected:
+        // The file description.
         shared_ptr<string> description_ {};
+        // The full path of the parent directory of the file. If this parameter is left empty, the root path (/) is used.
         shared_ptr<string> directory_ {};
+        // The file name.
+        // 
         // This parameter is required.
         shared_ptr<string> fileName_ {};
       };
@@ -151,14 +155,24 @@ namespace Models
 
 
     protected:
+      // The task file information.
+      // 
       // This parameter is required.
       shared_ptr<CreatePipelineNodeCommand::FileInfo> fileInfo_ {};
+      // The node type. Valid values: NORMAL, MANUAL, and REAL_TIME.
+      // 
       // This parameter is required.
       shared_ptr<string> nodeType_ {};
+      // The pipeline name.
+      // 
       // This parameter is required.
       shared_ptr<string> pipelineName_ {};
+      // The pipeline type. Valid values: OFFLINE_PIPELINE and REAL_TIME_PIPELINE.
+      // 
       // This parameter is required.
       shared_ptr<string> pipelineType_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -182,8 +196,12 @@ namespace Models
 
 
   protected:
+    // The command to create a pipeline. Both offline and real-time pipelines are supported.
+    // 
     // This parameter is required.
     shared_ptr<CreatePipelineNodeRequest::CreatePipelineNodeCommand> createPipelineNodeCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

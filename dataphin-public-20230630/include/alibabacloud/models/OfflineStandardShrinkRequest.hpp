@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The offline instruction.
+    // 
     // This parameter is required.
     shared_ptr<string> offlineCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

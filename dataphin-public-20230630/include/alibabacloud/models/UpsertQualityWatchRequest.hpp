@@ -88,6 +88,7 @@ namespace Models
 
 
       protected:
+        // The table ID.
         shared_ptr<string> id_ {};
       };
 
@@ -221,17 +222,34 @@ namespace Models
 
 
       protected:
+        // The business unit ID.
         shared_ptr<int64_t> bizUnitId_ {};
+        // The cell aggregate table name.
         shared_ptr<string> cellSumLogicTableName_ {};
+        // The metric computation type. Valid values:
+        // - AUTO
+        // - CUSTOM
+        // - MOUNT
+        // - COMBINE.
         shared_ptr<string> computeType_ {};
+        // The metric data type.
         shared_ptr<string> dateType_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The metric display name.
         shared_ptr<string> displayName_ {};
+        // The statistical granularity name.
         shared_ptr<string> granularityDisplayName_ {};
+        // The statistical granularity ID.
         shared_ptr<int64_t> granularityId_ {};
+        // The metric ID.
         shared_ptr<string> id_ {};
+        // The metric name.
         shared_ptr<string> name_ {};
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
+        // The metric type. Valid values:
+        // - INDEX.
         shared_ptr<string> type_ {};
       };
 
@@ -263,6 +281,7 @@ namespace Models
 
 
       protected:
+        // The data source ID.
         shared_ptr<string> id_ {};
       };
 
@@ -317,12 +336,25 @@ namespace Models
 
 
     protected:
+      // The data source details.
       shared_ptr<UpsertCommand::DataSourceInfo> dataSourceInfo_ {};
+      // The monitored object ID. If this parameter is specified, the object is updated. If this parameter is not specified, a new object is created.
       shared_ptr<int64_t> id_ {};
+      // The monitoring metrics object.
       shared_ptr<UpsertCommand::IndexInfo> indexInfo_ {};
+      // The quality owner.
+      // 
       // This parameter is required.
       shared_ptr<string> qualityOwner_ {};
+      // The monitored table object.
       shared_ptr<UpsertCommand::TableInfo> tableInfo_ {};
+      // The monitored object type. Valid values:
+      // - TABLE: Dataphin table.
+      // - DATASOURCE_TABLE: global table.
+      // - DATASOURCE: data source.
+      // - INDEX: metric.
+      // - REALTIME_LOGICAL_TABLE: real-time meta table.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -346,8 +378,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpsertQualityWatchRequest::UpsertCommand> upsertCommand_ {};
   };

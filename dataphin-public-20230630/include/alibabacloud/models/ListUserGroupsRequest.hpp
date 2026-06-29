@@ -108,12 +108,20 @@ namespace Models
 
 
     protected:
+      // Specifies whether the user group is enabled.
       shared_ptr<bool> active_ {};
+      // The user IDs of the user group administrators.
       shared_ptr<vector<string>> adminIdList_ {};
+      // Specifies whether to filter user groups that the current user belongs to.
       shared_ptr<bool> filterMine_ {};
+      // The keyword for the user group name.
       shared_ptr<string> keyword_ {};
+      // The page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
     };
@@ -137,8 +145,12 @@ namespace Models
 
 
   protected:
+    // The paged query parameters.
+    // 
     // This parameter is required.
     shared_ptr<ListUserGroupsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

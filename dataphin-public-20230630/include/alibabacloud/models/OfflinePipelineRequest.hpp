@@ -98,11 +98,17 @@ namespace Models
 
 
     protected:
+      // The remarks.
       shared_ptr<string> comment_ {};
+      // Specifies whether to delete the node.
+      // 
       // This parameter is required.
       shared_ptr<bool> delete_ {};
+      // The file ID of the integration node. You can specify any one of PipelineId, FileId, or NodeId.
       shared_ptr<int64_t> fileId_ {};
+      // The scheduling node ID of the integration node. You can specify any one of PipelineId, FileId, or NodeId.
       shared_ptr<string> nodeId_ {};
+      // The primary key of the integration pipeline. You can specify any one of PipelineId, FileId, or NodeId.
       shared_ptr<int64_t> pipelineId_ {};
     };
 
@@ -144,8 +150,14 @@ namespace Models
 
 
     protected:
+      // The current operating environment. Valid values:
+      // - DEV: the development environment.
+      // - PROD: the production environment.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The ID of the project to which the integration pipeline node belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -178,10 +190,16 @@ namespace Models
 
 
   protected:
+    // The request context information.
+    // 
     // This parameter is required.
     shared_ptr<OfflinePipelineRequest::Context> context_ {};
+    // The offline command for the pipeline node.
+    // 
     // This parameter is required.
     shared_ptr<OfflinePipelineRequest::OfflineCommand> offlineCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

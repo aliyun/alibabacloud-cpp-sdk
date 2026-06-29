@@ -161,14 +161,23 @@ namespace Models
 
 
       protected:
+        // The comment for the submission.
         shared_ptr<string> comment_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The update time.
         shared_ptr<string> gmtModified_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
+        // Indicates whether the version has been published to the production environment.
         shared_ptr<bool> published_ {};
+        // The ID of the user who submitted the version.
         shared_ptr<string> userId_ {};
+        // The ID of the user who submitted the version.
         shared_ptr<string> userName_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -183,6 +192,7 @@ namespace Models
 
 
     protected:
+      // The list of batch task versions.
       shared_ptr<vector<Data::BatchTaskVersionList>> batchTaskVersionList_ {};
     };
 
@@ -233,11 +243,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The request result.
     shared_ptr<GetBatchTaskVersionsResponseBody::Data> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -151,15 +151,25 @@ namespace Models
 
 
       protected:
+        // The list of business event activity IDs contained in the business flow activity. This parameter is valid only when the current entity is a business flow activity.
         shared_ptr<vector<int64_t>> bizEventEntityIdList_ {};
+        // The description of the business process. The description can be up to 128 characters in length.
         shared_ptr<string> description_ {};
+        // The display name of the business process. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+        // 
         // This parameter is required.
         shared_ptr<string> displayName_ {};
+        // The code name of the business process. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The user ID of the business process owner.
+        // 
         // This parameter is required.
         shared_ptr<string> ownerUserId_ {};
+        // The preceding business flow activities of the business flow activity.
         shared_ptr<vector<int64_t>> preBizProcessIdList_ {};
+        // The list of associated online business entity IDs. If this parameter is not specified, the existing values are cleared.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
       };
 
@@ -239,14 +249,23 @@ namespace Models
 
 
       protected:
+        // The description of the business object. The description can be up to 128 characters in length.
         shared_ptr<string> description_ {};
+        // The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+        // 
         // This parameter is required.
         shared_ptr<string> displayName_ {};
+        // The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The user ID of the business object owner.
+        // 
         // This parameter is required.
         shared_ptr<string> ownerUserId_ {};
+        // The inherited entity of the business object. Only common business objects support inherited entity configuration, and only online business objects can be inherited.
         shared_ptr<int64_t> parentId_ {};
+        // The list of associated online business entity IDs. If this parameter is not specified, the existing values are cleared.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
       };
 
@@ -299,14 +318,24 @@ namespace Models
 
 
     protected:
+      // The business object.
       shared_ptr<UpdateCommand::BizObject> bizObject_ {};
+      // The business process.
       shared_ptr<UpdateCommand::BizProcess> bizProcess_ {};
+      // The ID of the business unit to which the business process belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The ID of the data domain to which the business process belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> dataDomainId_ {};
+      // The ID of the business entity.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The type of the business entity. For more information, refer to the create business entity operation.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -330,8 +359,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update request.
+    // 
     // This parameter is required.
     shared_ptr<UpdateBizEntityRequest::UpdateCommand> updateCommand_ {};
   };

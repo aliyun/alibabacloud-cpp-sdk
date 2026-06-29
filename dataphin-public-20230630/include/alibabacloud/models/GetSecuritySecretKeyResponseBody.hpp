@@ -181,18 +181,35 @@ namespace Models
 
 
     protected:
+      // The algorithm type. Valid values: AES, DES, DESEDE, SM2, SM4, RSA, and FF1.
       shared_ptr<string> algorithmType_ {};
+      // The alias of the algorithm type.
       shared_ptr<string> algorithmTypeAlias_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // Indicates whether OpenAPI query is supported.
       shared_ptr<bool> enableOpenapiQuery_ {};
+      // The generation method. Valid values:
+      // - SYSTEM_GENERATION: system-generated.
+      // - USER_GENERATION: user-generated.
       shared_ptr<string> generationType_ {};
+      // The key ID.
       shared_ptr<int64_t> id_ {};
+      // Indicates whether only the owner can manage the key.
       shared_ptr<bool> isOwnerManageOnly_ {};
+      // The key name.
       shared_ptr<string> name_ {};
+      // The owner.
       shared_ptr<string> owner_ {};
+      // The owner name.
       shared_ptr<string> ownerName_ {};
+      // The key values.
       shared_ptr<vector<string>> secretKeyList_ {};
+      // The number of sub-keys.
       shared_ptr<int64_t> subKeyCount_ {};
+      // The key type. Valid values:
+      // - HASH: hashing and masking.
+      // - ENCRYPT: encryption and decryption.
       shared_ptr<string> type_ {};
     };
 
@@ -243,12 +260,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The security key details.
     shared_ptr<GetSecuritySecretKeyResponseBody::SecuritySecretKeyInfo> securitySecretKeyInfo_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

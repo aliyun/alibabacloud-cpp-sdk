@@ -119,10 +119,16 @@ namespace Models
 
 
       protected:
+        // The code description.
         shared_ptr<string> description_ {};
+        // The English name of the code.
         shared_ptr<string> englishName_ {};
+        // The code name.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The code value.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -155,6 +161,8 @@ namespace Models
 
 
       protected:
+        // The directory to which the lookup table belongs.
+        // 
         // This parameter is required.
         shared_ptr<string> directory_ {};
       };
@@ -216,15 +224,25 @@ namespace Models
 
 
     protected:
+      // The lookup table code.
+      // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      // The lookup table description.
       shared_ptr<string> description_ {};
+      // The directory to which the lookup table belongs.
       shared_ptr<UpdateCommand::DirectoryReference> directoryReference_ {};
+      // The lookup table ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The list of lookup table values.
       shared_ptr<vector<UpdateCommand::LookupTableValueList>> lookupTableValueList_ {};
+      // The lookup table name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The ID of the lookup table owner. Default value: the user ID of the caller.
       shared_ptr<string> owner_ {};
     };
 
@@ -247,8 +265,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update command.
+    // 
     // This parameter is required.
     shared_ptr<UpdateStandardLookupTableRequest::UpdateCommand> updateCommand_ {};
   };

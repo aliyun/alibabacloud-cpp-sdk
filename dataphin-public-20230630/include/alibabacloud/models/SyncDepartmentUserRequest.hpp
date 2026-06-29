@@ -91,7 +91,10 @@ namespace Models
 
 
       protected:
+        // The list of department IDs to which the user belongs. If this parameter is left empty, the user-department affiliation is deleted.
         shared_ptr<vector<string>> departmentIdList_ {};
+        // The user ID in the user system. This value is the unique identifier of the user.
+        // 
         // This parameter is required.
         shared_ptr<string> sourceUserId_ {};
       };
@@ -107,6 +110,8 @@ namespace Models
 
 
     protected:
+      // The mapping between users and their affiliated departments.
+      // 
       // This parameter is required.
       shared_ptr<vector<SyncDepartmentUserCommand::DeptUserMapping>> deptUserMapping_ {};
     };
@@ -130,8 +135,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<SyncDepartmentUserRequest::SyncDepartmentUserCommand> syncDepartmentUserCommand_ {};
   };

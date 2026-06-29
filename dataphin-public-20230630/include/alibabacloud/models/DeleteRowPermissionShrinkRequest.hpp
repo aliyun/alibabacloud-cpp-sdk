@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<string> deleteRowPermissionCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -255,24 +255,43 @@ namespace Models
 
 
       protected:
+        // The account name.
         shared_ptr<string> accountName_ {};
+        // The DingTalk ID.
         shared_ptr<string> dingNumber_ {};
+        // The display name of the user.
         shared_ptr<string> displayName_ {};
+        // The display name of the user without the status.
         shared_ptr<string> displayNameWithoutStatus_ {};
+        // Indicates whether the IP whitelist is enabled.
         shared_ptr<string> enableWhiteIp_ {};
+        // The Lark chatbot.
         shared_ptr<string> feiShuRobot_ {};
+        // The time when the user was created.
         shared_ptr<int64_t> gmtCreate_ {};
+        // The time when the user was last modified.
         shared_ptr<int64_t> gmtModified_ {};
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The email address.
         shared_ptr<string> mail_ {};
+        // The phone number.
         shared_ptr<string> mobilePhone_ {};
+        // The username.
         shared_ptr<string> name_ {};
+        // The nickname of the user.
         shared_ptr<string> nickName_ {};
+        // The ID of the parent Alibaba Cloud account to which the user belongs.
         shared_ptr<string> parentId_ {};
+        // The real name of the user.
         shared_ptr<string> realName_ {};
+        // The source ID of the user.
         shared_ptr<string> sourceId_ {};
+        // The source type of the user.
         shared_ptr<string> sourceType_ {};
+        // The WeCom chatbot.
         shared_ptr<string> weChatRobot_ {};
+        // The IP whitelist.
         shared_ptr<string> whiteIp_ {};
       };
 
@@ -295,7 +314,9 @@ namespace Models
 
 
     protected:
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
+      // The list of users.
       shared_ptr<vector<PageResult::UserList>> userList_ {};
     };
 
@@ -346,11 +367,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paging query result.
     shared_ptr<ListAddableUsersResponseBody::PageResult> pageResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

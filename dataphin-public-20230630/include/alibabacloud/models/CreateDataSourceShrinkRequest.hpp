@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Request object
     shared_ptr<string> createCommandShrink_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

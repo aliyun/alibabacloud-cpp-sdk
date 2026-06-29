@@ -105,11 +105,24 @@ namespace Models
 
 
     protected:
+      // The asset type. Default value: TABLE. Valid values:
+      // - TABLE: table, including views and materialized views.
+      // - INDEX: technical metric.
+      // - BIZ_INDEX: business metric.
+      // - API: API.
+      // - PAGE: dashboard.
       shared_ptr<string> assetType_ {};
+      // The search keyword. Used when queryMode is set to ASSET_SEARCH. Supports keyword matching against the asset full name, asset name, asset display name, and asset description. If this parameter is not specified, all assets are queried.
       shared_ptr<string> keyword_ {};
+      // The asset name. Used when queryMode is set to EXACT_MATCH. If this parameter is not specified, all assets are queried.
       shared_ptr<string> name_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
+      // The page size. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
+      // The query type. Determines whether to use name for exact matching or keyword for fuzzy search. Default value: EXACT_MATCH. Valid values:
+      // - EXACT_MATCH: exact match.
+      // - ASSET_SEARCH: fuzzy search.
       shared_ptr<string> queryMode_ {};
     };
 
@@ -132,8 +145,12 @@ namespace Models
 
 
   protected:
+    // The query parameters.
+    // 
     // This parameter is required.
     shared_ptr<ListCatalogAssetsRequest::ListCatalogAssetsQuery> listCatalogAssetsQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

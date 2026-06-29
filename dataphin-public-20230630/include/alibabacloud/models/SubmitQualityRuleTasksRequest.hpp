@@ -99,8 +99,12 @@ namespace Models
 
 
       protected:
+        // Rule ID
+        // 
         // This parameter is required.
         shared_ptr<int64_t> ruleId_ {};
+        // Monitoring object ID
+        // 
         // This parameter is required.
         shared_ptr<int64_t> watchId_ {};
       };
@@ -152,12 +156,20 @@ namespace Models
 
 
     protected:
+      // Business date, format: yyyy-MM-dd
       shared_ptr<string> bizDate_ {};
+      // Whether it is a test run: true for test run, false for formal run.
+      // 
       // This parameter is required.
       shared_ptr<bool> isTestRun_ {};
+      // Partition expression - custom expression
       shared_ptr<string> partitionExpression_ {};
+      // Source of the test run partition expression: SCHEDULE for existing schedule, CUSTOM for custom.
       shared_ptr<string> partitionExpressionFrom_ {};
+      // Existing schedule ID
       shared_ptr<int64_t> scheduleId_ {};
+      // Monitoring object and rule IDs
+      // 
       // This parameter is required.
       shared_ptr<vector<SubmitCommand::WatchRuleIdList>> watchRuleIdList_ {};
     };
@@ -181,8 +193,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Submit command
+    // 
     // This parameter is required.
     shared_ptr<SubmitQualityRuleTasksRequest::SubmitCommand> submitCommand_ {};
   };

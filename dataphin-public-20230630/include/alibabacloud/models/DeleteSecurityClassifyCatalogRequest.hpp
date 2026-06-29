@@ -69,8 +69,11 @@ namespace Models
 
 
     protected:
+      // The full path of the original catalog.
+      // 
       // This parameter is required.
       shared_ptr<string> path_ {};
+      // Specifies whether to return deletion details. Default value: true.
       shared_ptr<bool> returnRemovedDetails_ {};
     };
 
@@ -93,8 +96,12 @@ namespace Models
 
 
   protected:
+    // The delete instruction.
+    // 
     // This parameter is required.
     shared_ptr<DeleteSecurityClassifyCatalogRequest::DeleteCommand> deleteCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

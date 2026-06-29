@@ -95,8 +95,12 @@ namespace Models
 
 
       protected:
+        // The configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The value of the configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -134,11 +138,18 @@ namespace Models
 
 
     protected:
+      // The connection configuration items.
+      // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::ConfigList>> configList_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The name of the compute source.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The type of the compute source.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -162,8 +173,12 @@ namespace Models
 
 
   protected:
+    // The create command.
+    // 
     // This parameter is required.
     shared_ptr<CreateComputeSourceRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

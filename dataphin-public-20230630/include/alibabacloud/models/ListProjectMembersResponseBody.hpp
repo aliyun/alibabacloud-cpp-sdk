@@ -156,13 +156,21 @@ namespace Models
 
 
       protected:
+        // The creation timestamp.
         shared_ptr<string> gmtCreate_ {};
+        // The last modified timestamp.
         shared_ptr<string> gmtModified_ {};
+        // The project ID.
         shared_ptr<int64_t> id_ {};
+        // The ID of the user who last modified the record.
         shared_ptr<string> lastModifier_ {};
+        // The name of the user who last modified the record.
         shared_ptr<string> lastModifierName_ {};
+        // The roles.
         shared_ptr<vector<int32_t>> roleIdList_ {};
+        // The user ID of the member.
         shared_ptr<string> userId_ {};
+        // The username of the member.
         shared_ptr<string> userName_ {};
       };
 
@@ -185,7 +193,9 @@ namespace Models
 
 
     protected:
+      // The list of project members.
       shared_ptr<vector<PageResult::ProjectMemberList>> projectMemberList_ {};
+      // The total number of project members.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -236,11 +246,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paging query result.
     shared_ptr<ListProjectMembersResponseBody::PageResult> pageResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

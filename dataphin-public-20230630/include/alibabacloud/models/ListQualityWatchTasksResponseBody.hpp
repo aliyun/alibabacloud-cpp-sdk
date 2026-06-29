@@ -187,9 +187,13 @@ namespace Models
 
 
           protected:
+            // The number of rules that failed to execute.
             shared_ptr<int64_t> errorRuleCount_ {};
+            // The number of rules that have been executed.
             shared_ptr<int64_t> finishedRuleCount_ {};
+            // The number of rules that were executed successfully.
             shared_ptr<int64_t> successRuleCount_ {};
+            // The total number of rules.
             shared_ptr<int64_t> totalRuleCount_ {};
           };
 
@@ -249,9 +253,13 @@ namespace Models
 
 
           protected:
+            // The number of rules that failed to execute.
             shared_ptr<int64_t> errorRuleCount_ {};
+            // The number of rules that have been executed.
             shared_ptr<int64_t> finishedRuleCount_ {};
+            // The number of rules that were executed successfully.
             shared_ptr<int64_t> successRuleCount_ {};
+            // The total number of rules.
             shared_ptr<int64_t> totalRuleCount_ {};
           };
 
@@ -311,9 +319,13 @@ namespace Models
 
 
           protected:
+            // The number of rules that failed to execute.
             shared_ptr<int64_t> errorRuleCount_ {};
+            // The number of rules that have been executed.
             shared_ptr<int64_t> finishedRuleCount_ {};
+            // The number of rules that were executed successfully.
             shared_ptr<int64_t> successRuleCount_ {};
+            // The total number of rules.
             shared_ptr<int64_t> totalRuleCount_ {};
           };
 
@@ -347,8 +359,11 @@ namespace Models
 
 
         protected:
+          // The strong rule count.
           shared_ptr<RuleCountInfo::StrongRuleCount> strongRuleCount_ {};
+          // The validation rule count.
           shared_ptr<RuleCountInfo::ValidateRuleCount> validateRuleCount_ {};
+          // The weak rule count.
           shared_ptr<RuleCountInfo::WeakRuleCount> weakRuleCount_ {};
         };
 
@@ -466,20 +481,43 @@ namespace Models
 
 
       protected:
+        // The business date.
         shared_ptr<string> bizDate_ {};
+        // The business date format.
         shared_ptr<string> bizDateFormat_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The creator.
         shared_ptr<string> creator_ {};
+        // The end time, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> endTime_ {};
+        // The quality watchtask ID.
         shared_ptr<int64_t> id_ {};
+        // The user ID of the last modifier.
         shared_ptr<string> modifier_ {};
+        // The modification time.
         shared_ptr<string> modifyTime_ {};
+        // The user ID of the quality owner.
         shared_ptr<string> qualityOwner_ {};
+        // The name of the quality owner.
         shared_ptr<string> qualityOwnerName_ {};
+        // The quality rule count information.
         shared_ptr<QualityWatchTaskList::RuleCountInfo> ruleCountInfo_ {};
+        // The quality rule IDs.
         shared_ptr<vector<int64_t>> ruleIdList_ {};
+        // The start time, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> startTime_ {};
+        // The task statuses. Valid values:
+        // - NOT_RUN: not executed.
+        // - WAITING: waiting.
+        // - RUNNING: running.
+        // - SUCCESS: succeeded.
+        // - FAILED: failed.
+        // - CANCEL: canceled.
+        // - TIMEOUT: timed out.
+        // - OFFLINE: offline.
         shared_ptr<string> status_ {};
+        // The monitored object ID.
         shared_ptr<int64_t> watchId_ {};
       };
 
@@ -502,7 +540,9 @@ namespace Models
 
 
     protected:
+      // The list of quality watchtasks.
       shared_ptr<vector<PageResult::QualityWatchTaskList>> qualityWatchTaskList_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -553,12 +593,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details from the backend.
     shared_ptr<string> message_ {};
+    // The paged query result.
     shared_ptr<ListQualityWatchTasksResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

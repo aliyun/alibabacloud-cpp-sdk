@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the user group.
+    // 
     // This parameter is required.
     shared_ptr<bool> active_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The user group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};
   };

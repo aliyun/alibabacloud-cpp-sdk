@@ -96,11 +96,16 @@ namespace Models
 
 
     protected:
-      // appKey
+      // The application key.
+      // >Notice: Deprecated. Use AppKeyStr instead.</notice>.
       shared_ptr<int64_t> appKey_ {};
+      // The application key.
       shared_ptr<string> appKeyStr_ {};
+      // The keyword.
       shared_ptr<string> keyword_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -123,8 +128,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The paged query parameters.
+    // 
     // This parameter is required.
     shared_ptr<ListApiByAppRequest::PageQuery> pageQuery_ {};
   };

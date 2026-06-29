@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The command to create a pipeline. Both offline and real-time pipelines are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> createPipelineNodeCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

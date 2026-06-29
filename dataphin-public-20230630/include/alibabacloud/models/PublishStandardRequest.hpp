@@ -108,13 +108,21 @@ namespace Models
 
 
     protected:
+      // Specifies whether to automatically publish after approval. Default value: true.
       shared_ptr<bool> autoPublishAfterApproval_ {};
+      // The review comment. Maximum length: 128 characters.
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // The standard ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The specified reviewers.
       shared_ptr<vector<string>> reviewerIdList_ {};
+      // The stage of the standard. Valid values: DEV and PROD. Default value: DEV.
       shared_ptr<string> standardStage_ {};
+      // The version number. Default value: -1 (latest version).
       shared_ptr<int32_t> version_ {};
     };
 
@@ -137,8 +145,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The publish command.
+    // 
     // This parameter is required.
     shared_ptr<PublishStandardRequest::PublishCommand> publishCommand_ {};
   };

@@ -175,20 +175,58 @@ namespace Models
 
 
     protected:
+      // The cron expression for timed scheduling.
       shared_ptr<string> cronExpression_ {};
+      // The ID of the schedule resource. If specified, the operation updates the existing resource. If not specified, the operation creates a new resource.
       shared_ptr<int64_t> id_ {};
+      // The name of the schedule resource.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The partition expression for custom expressions.
       shared_ptr<string> partitionExpression_ {};
+      // The partition type. Valid values:
+      // - EVERY_DAY: every day.
+      // - PRE_DAY: previous day.
+      // - TODAY: current day.
+      // - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
+      // - CUSTOM: custom.
       shared_ptr<string> partitionType_ {};
+      // The scheduling interval type for timed scheduling. Valid values:
+      // - DAILY: day.
+      // - WEEKLY: week.
+      // - MONTHLY: month.
+      // - HOURLY: hour.
+      // - MINUTELY: minute.
       shared_ptr<string> periodScheduleIntervalType_ {};
+      // The scheduling interval values for timed scheduling.
       shared_ptr<vector<string>> periodScheduleParamList_ {};
+      // The trigger method for fixed task triggers. Valid values:
+      // - ALL_TASKS_FINISHED
+      // - ONE_TASKS_FINISHED
+      // - PRE_ONE_TASKS_START.
       shared_ptr<string> staticTaskTriggerType_ {};
+      // The checklist of trigger nodes for trigger scheduling.
       shared_ptr<vector<string>> triggerNodeList_ {};
+      // The trigger method for trigger scheduling. Valid values:
+      // - STATIC_TASK_TRIGGER: fixed task trigger.
+      // - CODE_CHECK_TRIGGER: code check trigger.
       shared_ptr<string> triggerType_ {};
+      // The scheduling type. Valid values:
+      // - PERIOD_SCHEDULE: timed scheduling.
+      // - MANUAL_SCHEDULE: manual trigger.
+      // - CODE_CHECK_TRIGGER: code check trigger.
+      // - STATIC_TASK_TRIGGER: fixed task trigger.
+      // - DEPENDENCY_SCHEDULE: dependency scheduling.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
+      // The validation scope. Valid values:
+      // - TASK_REFERRED_PARTITION: task update partition.
+      // - USER_DEFINED_PARTITION: custom partition.
       shared_ptr<string> validatePartitionType_ {};
+      // The ID of the monitored object.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
     };
@@ -212,8 +250,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpsertQualityScheduleRequest::UpsertCommand> upsertCommand_ {};
   };

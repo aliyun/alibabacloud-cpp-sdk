@@ -21,7 +21,8 @@ namespace DataphinPublic20230630
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 新增数据服务应用的普通成员。
+       * @summary Adds a regular member to a data service application. Only the application owner can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param tmpReq AddDataServiceAppMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +31,8 @@ namespace DataphinPublic20230630
       Models::AddDataServiceAppMemberResponse addDataServiceAppMemberWithOptions(const Models::AddDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增数据服务应用的普通成员。
+       * @summary Adds a regular member to a data service application. Only the application owner can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request AddDataServiceAppMemberRequest
        * @return AddDataServiceAppMemberResponse
@@ -38,7 +40,7 @@ namespace DataphinPublic20230630
       Models::AddDataServiceAppMemberResponse addDataServiceAppMember(const Models::AddDataServiceAppMemberRequest &request);
 
       /**
-       * @summary 添加数据服务项目用户并设置角色。
+       * @summary Adds users to a data service project and assigns roles to them.
        *
        * @param tmpReq AddDataServiceProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +49,7 @@ namespace DataphinPublic20230630
       Models::AddDataServiceProjectMemberResponse addDataServiceProjectMemberWithOptions(const Models::AddDataServiceProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加数据服务项目用户并设置角色。
+       * @summary Adds users to a data service project and assigns roles to them.
        *
        * @param request AddDataServiceProjectMemberRequest
        * @return AddDataServiceProjectMemberResponse
@@ -55,7 +57,7 @@ namespace DataphinPublic20230630
       Models::AddDataServiceProjectMemberResponse addDataServiceProjectMember(const Models::AddDataServiceProjectMemberRequest &request);
 
       /**
-       * @summary 增加项目成员。
+       * @summary Adds members to a project.
        *
        * @param tmpReq AddProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +66,7 @@ namespace DataphinPublic20230630
       Models::AddProjectMemberResponse addProjectMemberWithOptions(const Models::AddProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加项目成员。
+       * @summary Adds members to a project.
        *
        * @param request AddProjectMemberRequest
        * @return AddProjectMemberResponse
@@ -72,7 +74,7 @@ namespace DataphinPublic20230630
       Models::AddProjectMemberResponse addProjectMember(const Models::AddProjectMemberRequest &request);
 
       /**
-       * @summary 新增注册血缘。
+       * @summary Registers data lineage. Available since version v5.4.0.
        *
        * @param tmpReq AddRegisterLineageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +83,7 @@ namespace DataphinPublic20230630
       Models::AddRegisterLineageResponse addRegisterLineageWithOptions(const Models::AddRegisterLineageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增注册血缘。
+       * @summary Registers data lineage. Available since version v5.4.0.
        *
        * @param request AddRegisterLineageRequest
        * @return AddRegisterLineageResponse
@@ -89,7 +91,7 @@ namespace DataphinPublic20230630
       Models::AddRegisterLineageResponse addRegisterLineage(const Models::AddRegisterLineageRequest &request);
 
       /**
-       * @summary 新增租户成员
+       * @summary Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
        *
        * @param tmpReq AddTenantMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +100,7 @@ namespace DataphinPublic20230630
       Models::AddTenantMembersResponse addTenantMembersWithOptions(const Models::AddTenantMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增租户成员
+       * @summary Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
        *
        * @param request AddTenantMembersRequest
        * @return AddTenantMembersResponse
@@ -106,7 +108,7 @@ namespace DataphinPublic20230630
       Models::AddTenantMembersResponse addTenantMembers(const Models::AddTenantMembersRequest &request);
 
       /**
-       * @summary 通过原始用户添加租户成员.
+       * @summary Adds tenant members by using original user identities.
        *
        * @param tmpReq AddTenantMembersBySourceUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +117,7 @@ namespace DataphinPublic20230630
       Models::AddTenantMembersBySourceUserResponse addTenantMembersBySourceUserWithOptions(const Models::AddTenantMembersBySourceUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过原始用户添加租户成员.
+       * @summary Adds tenant members by using original user identities.
        *
        * @param request AddTenantMembersBySourceUserRequest
        * @return AddTenantMembersBySourceUserResponse
@@ -123,7 +125,7 @@ namespace DataphinPublic20230630
       Models::AddTenantMembersBySourceUserResponse addTenantMembersBySourceUser(const Models::AddTenantMembersBySourceUserRequest &request);
 
       /**
-       * @summary 添加用户组成员.
+       * @summary Adds members to a user group.
        *
        * @param tmpReq AddUserGroupMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +134,7 @@ namespace DataphinPublic20230630
       Models::AddUserGroupMemberResponse addUserGroupMemberWithOptions(const Models::AddUserGroupMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加用户组成员.
+       * @summary Adds members to a user group.
        *
        * @param request AddUserGroupMemberRequest
        * @return AddUserGroupMemberResponse
@@ -140,7 +142,7 @@ namespace DataphinPublic20230630
       Models::AddUserGroupMemberResponse addUserGroupMember(const Models::AddUserGroupMemberRequest &request);
 
       /**
-       * @summary 申请API权限。
+       * @summary Applies for API permissions.
        *
        * @param tmpReq ApplyDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +151,7 @@ namespace DataphinPublic20230630
       Models::ApplyDataServiceApiResponse applyDataServiceApiWithOptions(const Models::ApplyDataServiceApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请API权限。
+       * @summary Applies for API permissions.
        *
        * @param request ApplyDataServiceApiRequest
        * @return ApplyDataServiceApiResponse
@@ -157,7 +159,7 @@ namespace DataphinPublic20230630
       Models::ApplyDataServiceApiResponse applyDataServiceApi(const Models::ApplyDataServiceApiRequest &request);
 
       /**
-       * @summary 申请应用权限。
+       * @summary Applies for application permissions.
        *
        * @param tmpReq ApplyDataServiceAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +168,7 @@ namespace DataphinPublic20230630
       Models::ApplyDataServiceAppResponse applyDataServiceAppWithOptions(const Models::ApplyDataServiceAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请应用权限。
+       * @summary Applies for application permissions.
        *
        * @param request ApplyDataServiceAppRequest
        * @return ApplyDataServiceAppResponse
@@ -174,7 +176,8 @@ namespace DataphinPublic20230630
       Models::ApplyDataServiceAppResponse applyDataServiceApp(const Models::ApplyDataServiceAppRequest &request);
 
       /**
-       * @summary 指定质量规则和调度设置进行绑定。
+       * @summary Binds specified quality rules to schedule settings.
+       * Release version: v5.4.2.
        *
        * @param tmpReq AssignQualityRuleOfAllRuleScopeSchedulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +186,8 @@ namespace DataphinPublic20230630
       Models::AssignQualityRuleOfAllRuleScopeSchedulesResponse assignQualityRuleOfAllRuleScopeSchedulesWithOptions(const Models::AssignQualityRuleOfAllRuleScopeSchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 指定质量规则和调度设置进行绑定。
+       * @summary Binds specified quality rules to schedule settings.
+       * Release version: v5.4.2.
        *
        * @param request AssignQualityRuleOfAllRuleScopeSchedulesRequest
        * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
@@ -191,7 +195,7 @@ namespace DataphinPublic20230630
       Models::AssignQualityRuleOfAllRuleScopeSchedulesResponse assignQualityRuleOfAllRuleScopeSchedules(const Models::AssignQualityRuleOfAllRuleScopeSchedulesRequest &request);
 
       /**
-       * @summary 项目计算源连通性检查。
+       * @summary Checks the connectivity of a compute source.
        *
        * @param tmpReq CheckComputeSourceConnectivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +204,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityResponse checkComputeSourceConnectivityWithOptions(const Models::CheckComputeSourceConnectivityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 项目计算源连通性检查。
+       * @summary Checks the connectivity of a compute source.
        *
        * @param request CheckComputeSourceConnectivityRequest
        * @return CheckComputeSourceConnectivityResponse
@@ -208,7 +212,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityResponse checkComputeSourceConnectivity(const Models::CheckComputeSourceConnectivityRequest &request);
 
       /**
-       * @summary 计算源连通性检查。
+       * @summary Checks the connectivity of an existing compute source by compute source ID.
        *
        * @param request CheckComputeSourceConnectivityByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +221,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityByIdResponse checkComputeSourceConnectivityByIdWithOptions(const Models::CheckComputeSourceConnectivityByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计算源连通性检查。
+       * @summary Checks the connectivity of an existing compute source by compute source ID.
        *
        * @param request CheckComputeSourceConnectivityByIdRequest
        * @return CheckComputeSourceConnectivityByIdResponse
@@ -225,7 +229,7 @@ namespace DataphinPublic20230630
       Models::CheckComputeSourceConnectivityByIdResponse checkComputeSourceConnectivityById(const Models::CheckComputeSourceConnectivityByIdRequest &request);
 
       /**
-       * @summary 检查数据源连通性
+       * @summary Checks the connectivity of a data source.
        *
        * @param tmpReq CheckDataSourceConnectivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +238,7 @@ namespace DataphinPublic20230630
       Models::CheckDataSourceConnectivityResponse checkDataSourceConnectivityWithOptions(const Models::CheckDataSourceConnectivityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查数据源连通性
+       * @summary Checks the connectivity of a data source.
        *
        * @param request CheckDataSourceConnectivityRequest
        * @return CheckDataSourceConnectivityResponse
@@ -242,7 +246,7 @@ namespace DataphinPublic20230630
       Models::CheckDataSourceConnectivityResponse checkDataSourceConnectivity(const Models::CheckDataSourceConnectivityRequest &request);
 
       /**
-       * @summary 检查已创建的数据源是否正常连通
+       * @summary Checks the connectivity of a data source.
        *
        * @param request CheckDataSourceConnectivityByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +255,7 @@ namespace DataphinPublic20230630
       Models::CheckDataSourceConnectivityByIdResponse checkDataSourceConnectivityByIdWithOptions(const Models::CheckDataSourceConnectivityByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查已创建的数据源是否正常连通
+       * @summary Checks the connectivity of a data source.
        *
        * @param request CheckDataSourceConnectivityByIdRequest
        * @return CheckDataSourceConnectivityByIdResponse
@@ -259,7 +263,7 @@ namespace DataphinPublic20230630
       Models::CheckDataSourceConnectivityByIdResponse checkDataSourceConnectivityById(const Models::CheckDataSourceConnectivityByIdRequest &request);
 
       /**
-       * @summary 检查项目是否存在依赖。
+       * @summary Checks whether a project has data dependencies such as tasks.
        *
        * @param request CheckProjectHasDependencyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +272,7 @@ namespace DataphinPublic20230630
       Models::CheckProjectHasDependencyResponse checkProjectHasDependencyWithOptions(const Models::CheckProjectHasDependencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查项目是否存在依赖。
+       * @summary Checks whether a project has data dependencies such as tasks.
        *
        * @param request CheckProjectHasDependencyRequest
        * @return CheckProjectHasDependencyResponse
@@ -276,7 +280,7 @@ namespace DataphinPublic20230630
       Models::CheckProjectHasDependencyResponse checkProjectHasDependency(const Models::CheckProjectHasDependencyRequest &request);
 
       /**
-       * @summary 校验用户是否有指定资源权限点.
+       * @summary Checks whether a user has the permission on a specified resource.
        *
        * @param tmpReq CheckResourcePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +289,7 @@ namespace DataphinPublic20230630
       Models::CheckResourcePermissionResponse checkResourcePermissionWithOptions(const Models::CheckResourcePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验用户是否有指定资源权限点.
+       * @summary Checks whether a user has the permission on a specified resource.
        *
        * @param request CheckResourcePermissionRequest
        * @return CheckResourcePermissionResponse
@@ -293,7 +297,7 @@ namespace DataphinPublic20230630
       Models::CheckResourcePermissionResponse checkResourcePermission(const Models::CheckResourcePermissionRequest &request);
 
       /**
-       * @summary 创建即席查询文件
+       * @summary Creates an ad hoc query file.
        *
        * @param tmpReq CreateAdHocFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +306,7 @@ namespace DataphinPublic20230630
       Models::CreateAdHocFileResponse createAdHocFileWithOptions(const Models::CreateAdHocFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建即席查询文件
+       * @summary Creates an ad hoc query file.
        *
        * @param request CreateAdHocFileRequest
        * @return CreateAdHocFileResponse
@@ -310,7 +314,7 @@ namespace DataphinPublic20230630
       Models::CreateAdHocFileResponse createAdHocFile(const Models::CreateAdHocFileRequest &request);
 
       /**
-       * @summary 创建离线计算任务。
+       * @summary Creates a batch task.
        *
        * @param tmpReq CreateBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +323,7 @@ namespace DataphinPublic20230630
       Models::CreateBatchTaskResponse createBatchTaskWithOptions(const Models::CreateBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建离线计算任务。
+       * @summary Creates a batch task.
        *
        * @param request CreateBatchTaskRequest
        * @return CreateBatchTaskResponse
@@ -327,7 +331,7 @@ namespace DataphinPublic20230630
       Models::CreateBatchTaskResponse createBatchTask(const Models::CreateBatchTaskRequest &request);
 
       /**
-       * @summary 创建业务实体。
+       * @summary Creates a business entity.
        *
        * @param tmpReq CreateBizEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +340,7 @@ namespace DataphinPublic20230630
       Models::CreateBizEntityResponse createBizEntityWithOptions(const Models::CreateBizEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建业务实体。
+       * @summary Creates a business entity.
        *
        * @param request CreateBizEntityRequest
        * @return CreateBizEntityResponse
@@ -344,7 +348,8 @@ namespace DataphinPublic20230630
       Models::CreateBizEntityResponse createBizEntity(const Models::CreateBizEntityRequest &request);
 
       /**
-       * @summary 新建业务指标
+       * @summary Creates a business metric.
+       * Release version: v5.5.0.
        *
        * @param tmpReq CreateBizMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +358,8 @@ namespace DataphinPublic20230630
       Models::CreateBizMetricResponse createBizMetricWithOptions(const Models::CreateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建业务指标
+       * @summary Creates a business metric.
+       * Release version: v5.5.0.
        *
        * @param request CreateBizMetricRequest
        * @return CreateBizMetricResponse
@@ -361,7 +367,7 @@ namespace DataphinPublic20230630
       Models::CreateBizMetricResponse createBizMetric(const Models::CreateBizMetricRequest &request);
 
       /**
-       * @summary 创建数据板块。
+       * @summary Creates a data domain.
        *
        * @param tmpReq CreateBizUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +376,7 @@ namespace DataphinPublic20230630
       Models::CreateBizUnitResponse createBizUnitWithOptions(const Models::CreateBizUnitRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据板块。
+       * @summary Creates a data domain.
        *
        * @param request CreateBizUnitRequest
        * @return CreateBizUnitResponse
@@ -378,7 +384,7 @@ namespace DataphinPublic20230630
       Models::CreateBizUnitResponse createBizUnit(const Models::CreateBizUnitRequest &request);
 
       /**
-       * @summary 创建计算源。
+       * @summary Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
        *
        * @param tmpReq CreateComputeSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +393,7 @@ namespace DataphinPublic20230630
       Models::CreateComputeSourceResponse createComputeSourceWithOptions(const Models::CreateComputeSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建计算源。
+       * @summary Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
        *
        * @param request CreateComputeSourceRequest
        * @return CreateComputeSourceResponse
@@ -395,7 +401,7 @@ namespace DataphinPublic20230630
       Models::CreateComputeSourceResponse createComputeSource(const Models::CreateComputeSourceRequest &request);
 
       /**
-       * @summary 创建主题域。
+       * @summary Creates a data domain.
        *
        * @param tmpReq CreateDataDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +410,7 @@ namespace DataphinPublic20230630
       Models::CreateDataDomainResponse createDataDomainWithOptions(const Models::CreateDataDomainRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建主题域。
+       * @summary Creates a data domain.
        *
        * @param request CreateDataDomainRequest
        * @return CreateDataDomainResponse
@@ -412,7 +418,7 @@ namespace DataphinPublic20230630
       Models::CreateDataDomainResponse createDataDomain(const Models::CreateDataDomainRequest &request);
 
       /**
-       * @summary 创建新的数据服务API并提交。
+       * @summary Creates a data service API and submits it.
        *
        * @param tmpReq CreateDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +427,7 @@ namespace DataphinPublic20230630
       Models::CreateDataServiceApiResponse createDataServiceApiWithOptions(const Models::CreateDataServiceApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建新的数据服务API并提交。
+       * @summary Creates a data service API and submits it.
        *
        * @param request CreateDataServiceApiRequest
        * @return CreateDataServiceApiResponse
@@ -429,7 +435,8 @@ namespace DataphinPublic20230630
       Models::CreateDataServiceApiResponse createDataServiceApi(const Models::CreateDataServiceApiRequest &request);
 
       /**
-       * @summary 创建数据服务应用。
+       * @summary Creates a data service application. Only super administrators or system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param tmpReq CreateDataServiceAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +445,8 @@ namespace DataphinPublic20230630
       Models::CreateDataServiceAppResponse createDataServiceAppWithOptions(const Models::CreateDataServiceAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据服务应用。
+       * @summary Creates a data service application. Only super administrators or system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request CreateDataServiceAppRequest
        * @return CreateDataServiceAppResponse
@@ -446,7 +454,8 @@ namespace DataphinPublic20230630
       Models::CreateDataServiceAppResponse createDataServiceApp(const Models::CreateDataServiceAppRequest &request);
 
       /**
-       * @summary 创建数据服务应用分组。
+       * @summary Creates a data service application group. Only superusers and system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request CreateDataServiceAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +464,8 @@ namespace DataphinPublic20230630
       Models::CreateDataServiceAppGroupResponse createDataServiceAppGroupWithOptions(const Models::CreateDataServiceAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据服务应用分组。
+       * @summary Creates a data service application group. Only superusers and system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request CreateDataServiceAppGroupRequest
        * @return CreateDataServiceAppGroupResponse
@@ -463,7 +473,7 @@ namespace DataphinPublic20230630
       Models::CreateDataServiceAppGroupResponse createDataServiceAppGroup(const Models::CreateDataServiceAppGroupRequest &request);
 
       /**
-       * @summary 新建数据源
+       * @summary Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
        *
        * @param tmpReq CreateDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +482,7 @@ namespace DataphinPublic20230630
       Models::CreateDataSourceResponse createDataSourceWithOptions(const Models::CreateDataSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建数据源
+       * @summary Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
        *
        * @param request CreateDataSourceRequest
        * @return CreateDataSourceResponse
@@ -480,7 +490,7 @@ namespace DataphinPublic20230630
       Models::CreateDataSourceResponse createDataSource(const Models::CreateDataSourceRequest &request);
 
       /**
-       * @summary 创建菜单树文件目录
+       * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
        *
        * @param tmpReq CreateDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +499,7 @@ namespace DataphinPublic20230630
       Models::CreateDirectoryResponse createDirectoryWithOptions(const Models::CreateDirectoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建菜单树文件目录
+       * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
        *
        * @param request CreateDirectoryRequest
        * @return CreateDirectoryResponse
@@ -497,7 +507,9 @@ namespace DataphinPublic20230630
       Models::CreateDirectoryResponse createDirectory(const Models::CreateDirectoryRequest &request);
 
       /**
-       * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
+       * @summary General-purpose backfill API that supports both list-mode and bulk-mode backfill:
+       * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
+       * 2. Task execution will incur computing costs and storage costs.
        *
        * @param tmpReq CreateNodeSupplementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +518,9 @@ namespace DataphinPublic20230630
       Models::CreateNodeSupplementResponse createNodeSupplementWithOptions(const Models::CreateNodeSupplementRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
+       * @summary General-purpose backfill API that supports both list-mode and bulk-mode backfill:
+       * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
+       * 2. Task execution will incur computing costs and storage costs.
        *
        * @param request CreateNodeSupplementRequest
        * @return CreateNodeSupplementResponse
@@ -514,7 +528,7 @@ namespace DataphinPublic20230630
       Models::CreateNodeSupplementResponse createNodeSupplement(const Models::CreateNodeSupplementRequest &request);
 
       /**
-       * @summary 创建集成管道任务。
+       * @summary Create an integration pipeline/unstructured workflow task.
        *
        * @param tmpReq CreatePipelineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +537,7 @@ namespace DataphinPublic20230630
       Models::CreatePipelineResponse createPipelineWithOptions(const Models::CreatePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建集成管道任务。
+       * @summary Create an integration pipeline/unstructured workflow task.
        *
        * @param request CreatePipelineRequest
        * @return CreatePipelineResponse
@@ -531,7 +545,7 @@ namespace DataphinPublic20230630
       Models::CreatePipelineResponse createPipeline(const Models::CreatePipelineRequest &request);
 
       /**
-       * @summary 异步创建集成管道任务。
+       * @summary Asynchronously create a pipeline/unstructured workflow.
        *
        * @param tmpReq CreatePipelineByAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +554,7 @@ namespace DataphinPublic20230630
       Models::CreatePipelineByAsyncResponse createPipelineByAsyncWithOptions(const Models::CreatePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 异步创建集成管道任务。
+       * @summary Asynchronously create a pipeline/unstructured workflow.
        *
        * @param request CreatePipelineByAsyncRequest
        * @return CreatePipelineByAsyncResponse
@@ -548,7 +562,7 @@ namespace DataphinPublic20230630
       Models::CreatePipelineByAsyncResponse createPipelineByAsync(const Models::CreatePipelineByAsyncRequest &request);
 
       /**
-       * @summary 创建数据集成任务。
+       * @summary Creates a data integration task. Note: This operation is deprecated starting from Dataphin v5.3.1. Use CreatePipeline instead.
        *
        * @param tmpReq CreatePipelineNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +571,7 @@ namespace DataphinPublic20230630
       Models::CreatePipelineNodeResponse createPipelineNodeWithOptions(const Models::CreatePipelineNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据集成任务。
+       * @summary Creates a data integration task. Note: This operation is deprecated starting from Dataphin v5.3.1. Use CreatePipeline instead.
        *
        * @param request CreatePipelineNodeRequest
        * @return CreatePipelineNodeResponse
@@ -565,7 +579,7 @@ namespace DataphinPublic20230630
       Models::CreatePipelineNodeResponse createPipelineNode(const Models::CreatePipelineNodeRequest &request);
 
       /**
-       * @summary 创建资源文件。
+       * @summary Creates a resource file.
        *
        * @param tmpReq CreateResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +588,7 @@ namespace DataphinPublic20230630
       Models::CreateResourceResponse createResourceWithOptions(const Models::CreateResourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建资源文件。
+       * @summary Creates a resource file.
        *
        * @param request CreateResourceRequest
        * @return CreateResourceResponse
@@ -582,7 +596,9 @@ namespace DataphinPublic20230630
       Models::CreateResourceResponse createResource(const Models::CreateResourceRequest &request);
 
       /**
-       * @summary 创建行级权限
+       * @summary Creates a row-level permission.
+       *
+       * @description You can query detailed information about published APIs based on the appKey.
        *
        * @param tmpReq CreateRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +607,9 @@ namespace DataphinPublic20230630
       Models::CreateRowPermissionResponse createRowPermissionWithOptions(const Models::CreateRowPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建行级权限
+       * @summary Creates a row-level permission.
+       *
+       * @description You can query detailed information about published APIs based on the appKey.
        *
        * @param request CreateRowPermissionRequest
        * @return CreateRowPermissionResponse
@@ -599,7 +617,7 @@ namespace DataphinPublic20230630
       Models::CreateRowPermissionResponse createRowPermission(const Models::CreateRowPermissionRequest &request);
 
       /**
-       * @summary 新建数据分类。
+       * @summary Creates a data classification. Available since v5.4.2.
        *
        * @param tmpReq CreateSecurityClassifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +626,7 @@ namespace DataphinPublic20230630
       Models::CreateSecurityClassifyResponse createSecurityClassifyWithOptions(const Models::CreateSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建数据分类。
+       * @summary Creates a data classification. Available since v5.4.2.
        *
        * @param request CreateSecurityClassifyRequest
        * @return CreateSecurityClassifyResponse
@@ -616,7 +634,7 @@ namespace DataphinPublic20230630
       Models::CreateSecurityClassifyResponse createSecurityClassify(const Models::CreateSecurityClassifyRequest &request);
 
       /**
-       * @summary 新建数据分类目录。
+       * @summary Creates a data classification folder. Available since v5.4.2.
        *
        * @param tmpReq CreateSecurityClassifyCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +643,7 @@ namespace DataphinPublic20230630
       Models::CreateSecurityClassifyCatalogResponse createSecurityClassifyCatalogWithOptions(const Models::CreateSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建数据分类目录。
+       * @summary Creates a data classification folder. Available since v5.4.2.
        *
        * @param request CreateSecurityClassifyCatalogRequest
        * @return CreateSecurityClassifyCatalogResponse
@@ -633,7 +651,8 @@ namespace DataphinPublic20230630
       Models::CreateSecurityClassifyCatalogResponse createSecurityClassifyCatalog(const Models::CreateSecurityClassifyCatalogRequest &request);
 
       /**
-       * @summary 新建安全识别结果。
+       * @summary Creates a security identification result.
+       * Release version: v5.4.2.
        *
        * @param tmpReq CreateSecurityIdentifyResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +661,8 @@ namespace DataphinPublic20230630
       Models::CreateSecurityIdentifyResultResponse createSecurityIdentifyResultWithOptions(const Models::CreateSecurityIdentifyResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建安全识别结果。
+       * @summary Creates a security identification result.
+       * Release version: v5.4.2.
        *
        * @param request CreateSecurityIdentifyResultRequest
        * @return CreateSecurityIdentifyResultResponse
@@ -650,7 +670,7 @@ namespace DataphinPublic20230630
       Models::CreateSecurityIdentifyResultResponse createSecurityIdentifyResult(const Models::CreateSecurityIdentifyResultRequest &request);
 
       /**
-       * @summary 新建数据分级。
+       * @summary Creates a data classification level. Available since v5.4.2.
        *
        * @param tmpReq CreateSecurityLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +679,7 @@ namespace DataphinPublic20230630
       Models::CreateSecurityLevelResponse createSecurityLevelWithOptions(const Models::CreateSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建数据分级。
+       * @summary Creates a data classification level. Available since v5.4.2.
        *
        * @param request CreateSecurityLevelRequest
        * @return CreateSecurityLevelResponse
@@ -667,7 +687,8 @@ namespace DataphinPublic20230630
       Models::CreateSecurityLevelResponse createSecurityLevel(const Models::CreateSecurityLevelRequest &request);
 
       /**
-       * @summary 创建标准。
+       * @summary Creates a standard.
+       * Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +697,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardResponse createStandardWithOptions(const Models::CreateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建标准。
+       * @summary Creates a standard.
+       * Release version: v5.4.2.
        *
        * @param request CreateStandardRequest
        * @return CreateStandardResponse
@@ -684,7 +706,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardResponse createStandard(const Models::CreateStandardRequest &request);
 
       /**
-       * @summary 创建数据标准码表。
+       * @summary Creates a data standard lookup table.
+       * Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +716,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardLookupTableResponse createStandardLookupTableWithOptions(const Models::CreateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据标准码表。
+       * @summary Creates a data standard lookup table.
+       * Release version: v5.4.2.
        *
        * @param request CreateStandardLookupTableRequest
        * @return CreateStandardLookupTableResponse
@@ -701,7 +725,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardLookupTableResponse createStandardLookupTable(const Models::CreateStandardLookupTableRequest &request);
 
       /**
-       * @summary 创建标准映射关系, 包括有效映射和无效映射。
+       * @summary Creates standard mapping relationships, including valid mappings and invalid mappings.
+       * Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,7 +735,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardMappingResponse createStandardMappingWithOptions(const Models::CreateStandardMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建标准映射关系, 包括有效映射和无效映射。
+       * @summary Creates standard mapping relationships, including valid mappings and invalid mappings.
+       * Release version: v5.4.2.
        *
        * @param request CreateStandardMappingRequest
        * @return CreateStandardMappingResponse
@@ -718,7 +744,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardMappingResponse createStandardMapping(const Models::CreateStandardMappingRequest &request);
 
       /**
-       * @summary 创建标准关联关系。
+       * @summary Creates a standard association. Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardRelationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +753,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardRelationsResponse createStandardRelationsWithOptions(const Models::CreateStandardRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建标准关联关系。
+       * @summary Creates a standard association. Release version: v5.4.2.
        *
        * @param request CreateStandardRelationsRequest
        * @return CreateStandardRelationsResponse
@@ -735,7 +761,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardRelationsResponse createStandardRelations(const Models::CreateStandardRelationsRequest &request);
 
       /**
-       * @summary 创建标准集。
+       * @summary Creates a standard set.
+       * Available since: v5.4.2.
        *
        * @param tmpReq CreateStandardSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +771,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardSetResponse createStandardSetWithOptions(const Models::CreateStandardSetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建标准集。
+       * @summary Creates a standard set.
+       * Available since: v5.4.2.
        *
        * @param request CreateStandardSetRequest
        * @return CreateStandardSetResponse
@@ -752,7 +780,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardSetResponse createStandardSet(const Models::CreateStandardSetRequest &request);
 
       /**
-       * @summary 创建数据标准模板。
+       * @summary Create a data standard template.
+       * Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +790,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardTemplateResponse createStandardTemplateWithOptions(const Models::CreateStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据标准模板。
+       * @summary Create a data standard template.
+       * Release version: v5.4.2.
        *
        * @param request CreateStandardTemplateRequest
        * @return CreateStandardTemplateResponse
@@ -769,7 +799,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardTemplateResponse createStandardTemplate(const Models::CreateStandardTemplateRequest &request);
 
       /**
-       * @summary 创建数据标准词根。
+       * @summary Creates a data standard root word.
+       * Release version: v5.4.2.
        *
        * @param tmpReq CreateStandardWordRootRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +809,8 @@ namespace DataphinPublic20230630
       Models::CreateStandardWordRootResponse createStandardWordRootWithOptions(const Models::CreateStandardWordRootRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据标准词根。
+       * @summary Creates a data standard root word.
+       * Release version: v5.4.2.
        *
        * @param request CreateStandardWordRootRequest
        * @return CreateStandardWordRootResponse
@@ -786,7 +818,7 @@ namespace DataphinPublic20230630
       Models::CreateStandardWordRootResponse createStandardWordRoot(const Models::CreateStandardWordRootRequest &request);
 
       /**
-       * @summary 创建流批一体任务
+       * @summary Creates a stream-batch integrated node.
        *
        * @param tmpReq CreateStreamBatchJobMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +827,7 @@ namespace DataphinPublic20230630
       Models::CreateStreamBatchJobMappingResponse createStreamBatchJobMappingWithOptions(const Models::CreateStreamBatchJobMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建流批一体任务
+       * @summary Creates a stream-batch integrated node.
        *
        * @param request CreateStreamBatchJobMappingRequest
        * @return CreateStreamBatchJobMappingResponse
@@ -803,7 +835,7 @@ namespace DataphinPublic20230630
       Models::CreateStreamBatchJobMappingResponse createStreamBatchJobMapping(const Models::CreateStreamBatchJobMappingRequest &request);
 
       /**
-       * @summary 创建自定义函数。
+       * @summary Creates a user-defined function.
        *
        * @param tmpReq CreateUdfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +844,7 @@ namespace DataphinPublic20230630
       Models::CreateUdfResponse createUdfWithOptions(const Models::CreateUdfRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义函数。
+       * @summary Creates a user-defined function.
        *
        * @param request CreateUdfRequest
        * @return CreateUdfResponse
@@ -820,7 +852,7 @@ namespace DataphinPublic20230630
       Models::CreateUdfResponse createUdf(const Models::CreateUdfRequest &request);
 
       /**
-       * @summary 新建用户组.
+       * @summary Creates a user group.
        *
        * @param tmpReq CreateUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +861,7 @@ namespace DataphinPublic20230630
       Models::CreateUserGroupResponse createUserGroupWithOptions(const Models::CreateUserGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建用户组.
+       * @summary Creates a user group.
        *
        * @param request CreateUserGroupRequest
        * @return CreateUserGroupResponse
@@ -837,7 +869,7 @@ namespace DataphinPublic20230630
       Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
 
       /**
-       * @summary 删除菜单树即席查询文件
+       * @summary Deletes an ad hoc query file from the menu tree.
        *
        * @param request DeleteAdHocFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +878,7 @@ namespace DataphinPublic20230630
       Models::DeleteAdHocFileResponse deleteAdHocFileWithOptions(const Models::DeleteAdHocFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除菜单树即席查询文件
+       * @summary Deletes an ad hoc query file from the menu tree.
        *
        * @param request DeleteAdHocFileRequest
        * @return DeleteAdHocFileResponse
@@ -854,7 +886,7 @@ namespace DataphinPublic20230630
       Models::DeleteAdHocFileResponse deleteAdHocFile(const Models::DeleteAdHocFileRequest &request);
 
       /**
-       * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
+       * @summary Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
        *
        * @param tmpReq DeleteBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +895,7 @@ namespace DataphinPublic20230630
       Models::DeleteBatchTaskResponse deleteBatchTaskWithOptions(const Models::DeleteBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
+       * @summary Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
        *
        * @param request DeleteBatchTaskRequest
        * @return DeleteBatchTaskResponse
@@ -871,7 +903,7 @@ namespace DataphinPublic20230630
       Models::DeleteBatchTaskResponse deleteBatchTask(const Models::DeleteBatchTaskRequest &request);
 
       /**
-       * @summary 删除业务实体。
+       * @summary Deletes a business entity.
        *
        * @param request DeleteBizEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +912,7 @@ namespace DataphinPublic20230630
       Models::DeleteBizEntityResponse deleteBizEntityWithOptions(const Models::DeleteBizEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除业务实体。
+       * @summary Deletes a business entity.
        *
        * @param request DeleteBizEntityRequest
        * @return DeleteBizEntityResponse
@@ -888,7 +920,8 @@ namespace DataphinPublic20230630
       Models::DeleteBizEntityResponse deleteBizEntity(const Models::DeleteBizEntityRequest &request);
 
       /**
-       * @summary 删除业务指标
+       * @summary Deletes a business metric.
+       * Release version: v5.5.0.
        *
        * @param tmpReq DeleteBizMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +930,8 @@ namespace DataphinPublic20230630
       Models::DeleteBizMetricResponse deleteBizMetricWithOptions(const Models::DeleteBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除业务指标
+       * @summary Deletes a business metric.
+       * Release version: v5.5.0.
        *
        * @param request DeleteBizMetricRequest
        * @return DeleteBizMetricResponse
@@ -905,7 +939,7 @@ namespace DataphinPublic20230630
       Models::DeleteBizMetricResponse deleteBizMetric(const Models::DeleteBizMetricRequest &request);
 
       /**
-       * @summary 删除数据板块。
+       * @summary Deletes a data domain.
        *
        * @param request DeleteBizUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -914,7 +948,7 @@ namespace DataphinPublic20230630
       Models::DeleteBizUnitResponse deleteBizUnitWithOptions(const Models::DeleteBizUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据板块。
+       * @summary Deletes a data domain.
        *
        * @param request DeleteBizUnitRequest
        * @return DeleteBizUnitResponse
@@ -922,7 +956,7 @@ namespace DataphinPublic20230630
       Models::DeleteBizUnitResponse deleteBizUnit(const Models::DeleteBizUnitRequest &request);
 
       /**
-       * @summary 删除计算源。
+       * @summary Deletes a compute source.
        *
        * @param request DeleteComputeSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +965,7 @@ namespace DataphinPublic20230630
       Models::DeleteComputeSourceResponse deleteComputeSourceWithOptions(const Models::DeleteComputeSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除计算源。
+       * @summary Deletes a compute source.
        *
        * @param request DeleteComputeSourceRequest
        * @return DeleteComputeSourceResponse
@@ -939,7 +973,7 @@ namespace DataphinPublic20230630
       Models::DeleteComputeSourceResponse deleteComputeSource(const Models::DeleteComputeSourceRequest &request);
 
       /**
-       * @summary 删除主题域。
+       * @summary Deletes a subject domain.
        *
        * @param request DeleteDataDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -948,7 +982,7 @@ namespace DataphinPublic20230630
       Models::DeleteDataDomainResponse deleteDataDomainWithOptions(const Models::DeleteDataDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除主题域。
+       * @summary Deletes a subject domain.
        *
        * @param request DeleteDataDomainRequest
        * @return DeleteDataDomainResponse
@@ -956,7 +990,8 @@ namespace DataphinPublic20230630
       Models::DeleteDataDomainResponse deleteDataDomain(const Models::DeleteDataDomainRequest &request);
 
       /**
-       * @summary 删除数据服务应用。
+       * @summary Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request DeleteDataServiceAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +1000,8 @@ namespace DataphinPublic20230630
       Models::DeleteDataServiceAppResponse deleteDataServiceAppWithOptions(const Models::DeleteDataServiceAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据服务应用。
+       * @summary Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request DeleteDataServiceAppRequest
        * @return DeleteDataServiceAppResponse
@@ -973,7 +1009,8 @@ namespace DataphinPublic20230630
       Models::DeleteDataServiceAppResponse deleteDataServiceApp(const Models::DeleteDataServiceAppRequest &request);
 
       /**
-       * @summary 删除数据服务应用分组。
+       * @summary Deletes a data service application group. Only superusers and system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request DeleteDataServiceAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -982,7 +1019,8 @@ namespace DataphinPublic20230630
       Models::DeleteDataServiceAppGroupResponse deleteDataServiceAppGroupWithOptions(const Models::DeleteDataServiceAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据服务应用分组。
+       * @summary Deletes a data service application group. Only superusers and system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request DeleteDataServiceAppGroupRequest
        * @return DeleteDataServiceAppGroupResponse
@@ -990,7 +1028,7 @@ namespace DataphinPublic20230630
       Models::DeleteDataServiceAppGroupResponse deleteDataServiceAppGroup(const Models::DeleteDataServiceAppGroupRequest &request);
 
       /**
-       * @summary 删除数据源
+       * @summary Deletes a data source.
        *
        * @param tmpReq DeleteDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -999,7 +1037,7 @@ namespace DataphinPublic20230630
       Models::DeleteDataSourceResponse deleteDataSourceWithOptions(const Models::DeleteDataSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据源
+       * @summary Deletes a data source.
        *
        * @param request DeleteDataSourceRequest
        * @return DeleteDataSourceResponse
@@ -1007,7 +1045,7 @@ namespace DataphinPublic20230630
       Models::DeleteDataSourceResponse deleteDataSource(const Models::DeleteDataSourceRequest &request);
 
       /**
-       * @summary 删除菜单树文件目录
+       * @summary Deletes a file directory from the menu tree.
        *
        * @param request DeleteDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1016,7 +1054,7 @@ namespace DataphinPublic20230630
       Models::DeleteDirectoryResponse deleteDirectoryWithOptions(const Models::DeleteDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除菜单树文件目录
+       * @summary Deletes a file directory from the menu tree.
        *
        * @param request DeleteDirectoryRequest
        * @return DeleteDirectoryResponse
@@ -1024,7 +1062,8 @@ namespace DataphinPublic20230630
       Models::DeleteDirectoryResponse deleteDirectory(const Models::DeleteDirectoryRequest &request);
 
       /**
-       * @summary 批量删除质量规则对象。
+       * @summary Deletes quality rule objects in batches.
+       * Release version: v5.4.2.
        *
        * @param tmpReq DeleteQualityRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1072,8 @@ namespace DataphinPublic20230630
       Models::DeleteQualityRulesResponse deleteQualityRulesWithOptions(const Models::DeleteQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除质量规则对象。
+       * @summary Deletes quality rule objects in batches.
+       * Release version: v5.4.2.
        *
        * @param request DeleteQualityRulesRequest
        * @return DeleteQualityRulesResponse
@@ -1041,7 +1081,8 @@ namespace DataphinPublic20230630
       Models::DeleteQualityRulesResponse deleteQualityRules(const Models::DeleteQualityRulesRequest &request);
 
       /**
-       * @summary 批量删除质量调度对象。
+       * @summary Deletes quality scheduling objects in batches.
+       * Release version: v5.4.2.
        *
        * @param tmpReq DeleteQualitySchedulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1091,8 @@ namespace DataphinPublic20230630
       Models::DeleteQualitySchedulesResponse deleteQualitySchedulesWithOptions(const Models::DeleteQualitySchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除质量调度对象。
+       * @summary Deletes quality scheduling objects in batches.
+       * Release version: v5.4.2.
        *
        * @param request DeleteQualitySchedulesRequest
        * @return DeleteQualitySchedulesResponse
@@ -1058,7 +1100,8 @@ namespace DataphinPublic20230630
       Models::DeleteQualitySchedulesResponse deleteQualitySchedules(const Models::DeleteQualitySchedulesRequest &request);
 
       /**
-       * @summary 批量删除质量模板对象。
+       * @summary Deletes quality template objects in batches.
+       * Online version: v5.4.2.
        *
        * @param tmpReq DeleteQualityTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1110,8 @@ namespace DataphinPublic20230630
       Models::DeleteQualityTemplatesResponse deleteQualityTemplatesWithOptions(const Models::DeleteQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除质量模板对象。
+       * @summary Deletes quality template objects in batches.
+       * Online version: v5.4.2.
        *
        * @param request DeleteQualityTemplatesRequest
        * @return DeleteQualityTemplatesResponse
@@ -1075,7 +1119,8 @@ namespace DataphinPublic20230630
       Models::DeleteQualityTemplatesResponse deleteQualityTemplates(const Models::DeleteQualityTemplatesRequest &request);
 
       /**
-       * @summary 批量删除质量监控对象。
+       * @summary Deletes monitored objects in batches.
+       * Release version: v5.4.2.
        *
        * @param tmpReq DeleteQualityWatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1129,8 @@ namespace DataphinPublic20230630
       Models::DeleteQualityWatchesResponse deleteQualityWatchesWithOptions(const Models::DeleteQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除质量监控对象。
+       * @summary Deletes monitored objects in batches.
+       * Release version: v5.4.2.
        *
        * @param request DeleteQualityWatchesRequest
        * @return DeleteQualityWatchesResponse
@@ -1092,7 +1138,7 @@ namespace DataphinPublic20230630
       Models::DeleteQualityWatchesResponse deleteQualityWatches(const Models::DeleteQualityWatchesRequest &request);
 
       /**
-       * @summary 删除注册血缘。
+       * @summary Deletes registered lineage. Available since version v5.4.0.
        *
        * @param tmpReq DeleteRegisterLineageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1147,7 @@ namespace DataphinPublic20230630
       Models::DeleteRegisterLineageResponse deleteRegisterLineageWithOptions(const Models::DeleteRegisterLineageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除注册血缘。
+       * @summary Deletes registered lineage. Available since version v5.4.0.
        *
        * @param request DeleteRegisterLineageRequest
        * @return DeleteRegisterLineageResponse
@@ -1109,7 +1155,7 @@ namespace DataphinPublic20230630
       Models::DeleteRegisterLineageResponse deleteRegisterLineage(const Models::DeleteRegisterLineageRequest &request);
 
       /**
-       * @summary 删除资源文件。
+       * @summary Delete a resource file.
        *
        * @param request DeleteResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1164,7 @@ namespace DataphinPublic20230630
       Models::DeleteResourceResponse deleteResourceWithOptions(const Models::DeleteResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除资源文件。
+       * @summary Delete a resource file.
        *
        * @param request DeleteResourceRequest
        * @return DeleteResourceResponse
@@ -1126,7 +1172,7 @@ namespace DataphinPublic20230630
       Models::DeleteResourceResponse deleteResource(const Models::DeleteResourceRequest &request);
 
       /**
-       * @summary 删除行级权限
+       * @summary Deletes a row-level permission.
        *
        * @param tmpReq DeleteRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1181,7 @@ namespace DataphinPublic20230630
       Models::DeleteRowPermissionResponse deleteRowPermissionWithOptions(const Models::DeleteRowPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除行级权限
+       * @summary Deletes a row-level permission.
        *
        * @param request DeleteRowPermissionRequest
        * @return DeleteRowPermissionResponse
@@ -1143,7 +1189,7 @@ namespace DataphinPublic20230630
       Models::DeleteRowPermissionResponse deleteRowPermission(const Models::DeleteRowPermissionRequest &request);
 
       /**
-       * @summary 删除数据分类。
+       * @summary Deletes a data categorization. Available since v5.4.2.
        *
        * @param tmpReq DeleteSecurityClassifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1198,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyResponse deleteSecurityClassifyWithOptions(const Models::DeleteSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据分类。
+       * @summary Deletes a data categorization. Available since v5.4.2.
        *
        * @param request DeleteSecurityClassifyRequest
        * @return DeleteSecurityClassifyResponse
@@ -1160,7 +1206,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyResponse deleteSecurityClassify(const Models::DeleteSecurityClassifyRequest &request);
 
       /**
-       * @summary 删除数据分类目录。
+       * @summary Deletes a data classification catalog. Release version: v5.4.2.
        *
        * @param tmpReq DeleteSecurityClassifyCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1215,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyCatalogResponse deleteSecurityClassifyCatalogWithOptions(const Models::DeleteSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据分类目录。
+       * @summary Deletes a data classification catalog. Release version: v5.4.2.
        *
        * @param request DeleteSecurityClassifyCatalogRequest
        * @return DeleteSecurityClassifyCatalogResponse
@@ -1177,7 +1223,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityClassifyCatalogResponse deleteSecurityClassifyCatalog(const Models::DeleteSecurityClassifyCatalogRequest &request);
 
       /**
-       * @summary 批量删除安全识别结果。
+       * @summary Deletes security identification results in batches. Release version: v5.4.2.
        *
        * @param tmpReq DeleteSecurityIdentifyResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1186,7 +1232,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityIdentifyResultsResponse deleteSecurityIdentifyResultsWithOptions(const Models::DeleteSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除安全识别结果。
+       * @summary Deletes security identification results in batches. Release version: v5.4.2.
        *
        * @param request DeleteSecurityIdentifyResultsRequest
        * @return DeleteSecurityIdentifyResultsResponse
@@ -1194,7 +1240,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityIdentifyResultsResponse deleteSecurityIdentifyResults(const Models::DeleteSecurityIdentifyResultsRequest &request);
 
       /**
-       * @summary 删除数据分级。
+       * @summary Deletes a data classification level. Available since v5.4.2.
        *
        * @param tmpReq DeleteSecurityLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1249,7 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityLevelResponse deleteSecurityLevelWithOptions(const Models::DeleteSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据分级。
+       * @summary Deletes a data classification level. Available since v5.4.2.
        *
        * @param request DeleteSecurityLevelRequest
        * @return DeleteSecurityLevelResponse
@@ -1211,7 +1257,8 @@ namespace DataphinPublic20230630
       Models::DeleteSecurityLevelResponse deleteSecurityLevel(const Models::DeleteSecurityLevelRequest &request);
 
       /**
-       * @summary 删除标准。
+       * @summary Deletes a standard.
+       * Online version: v5.4.2.
        *
        * @param tmpReq DeleteStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1220,7 +1267,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardResponse deleteStandardWithOptions(const Models::DeleteStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除标准。
+       * @summary Deletes a standard.
+       * Online version: v5.4.2.
        *
        * @param request DeleteStandardRequest
        * @return DeleteStandardResponse
@@ -1228,7 +1276,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardResponse deleteStandard(const Models::DeleteStandardRequest &request);
 
       /**
-       * @summary 删除无效映射关系。
+       * @summary Deletes invalid mapping relationships.
+       * Online version: v5.4.2.
        *
        * @param tmpReq DeleteStandardInValidMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1237,7 +1286,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardInValidMappingResponse deleteStandardInValidMappingWithOptions(const Models::DeleteStandardInValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除无效映射关系。
+       * @summary Deletes invalid mapping relationships.
+       * Online version: v5.4.2.
        *
        * @param request DeleteStandardInValidMappingRequest
        * @return DeleteStandardInValidMappingResponse
@@ -1245,7 +1295,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardInValidMappingResponse deleteStandardInValidMapping(const Models::DeleteStandardInValidMappingRequest &request);
 
       /**
-       * @summary 删除数据标准码表。
+       * @summary Deletes a data standard lookup table. Release version: v5.4.2.
        *
        * @param request DeleteStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1254,7 +1304,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardLookupTableResponse deleteStandardLookupTableWithOptions(const Models::DeleteStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据标准码表。
+       * @summary Deletes a data standard lookup table. Release version: v5.4.2.
        *
        * @param request DeleteStandardLookupTableRequest
        * @return DeleteStandardLookupTableResponse
@@ -1262,7 +1312,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardLookupTableResponse deleteStandardLookupTable(const Models::DeleteStandardLookupTableRequest &request);
 
       /**
-       * @summary 批量删除标准关联关系。
+       * @summary Deletes standard associations in batches.
+       * Release version: v5.4.2.
        *
        * @param tmpReq DeleteStandardRelationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1271,7 +1322,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardRelationsResponse deleteStandardRelationsWithOptions(const Models::DeleteStandardRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除标准关联关系。
+       * @summary Deletes standard associations in batches.
+       * Release version: v5.4.2.
        *
        * @param request DeleteStandardRelationsRequest
        * @return DeleteStandardRelationsResponse
@@ -1279,7 +1331,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardRelationsResponse deleteStandardRelations(const Models::DeleteStandardRelationsRequest &request);
 
       /**
-       * @summary 删除标准集。
+       * @summary Deletes a standard set.
+       * Online version: v5.4.2.
        *
        * @param request DeleteStandardSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1288,7 +1341,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardSetResponse deleteStandardSetWithOptions(const Models::DeleteStandardSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除标准集。
+       * @summary Deletes a standard set.
+       * Online version: v5.4.2.
        *
        * @param request DeleteStandardSetRequest
        * @return DeleteStandardSetResponse
@@ -1296,7 +1350,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardSetResponse deleteStandardSet(const Models::DeleteStandardSetRequest &request);
 
       /**
-       * @summary 删除有效映射关系。
+       * @summary Deletes valid mapping relationships.
+       * Release version: v5.4.2.
        *
        * @param tmpReq DeleteStandardValidMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1305,7 +1360,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardValidMappingResponse deleteStandardValidMappingWithOptions(const Models::DeleteStandardValidMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除有效映射关系。
+       * @summary Deletes valid mapping relationships.
+       * Release version: v5.4.2.
        *
        * @param request DeleteStandardValidMappingRequest
        * @return DeleteStandardValidMappingResponse
@@ -1313,7 +1369,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardValidMappingResponse deleteStandardValidMapping(const Models::DeleteStandardValidMappingRequest &request);
 
       /**
-       * @summary 删除数据标准词根。
+       * @summary Deletes a data standard root word.
+       * Online version: v5.4.2.
        *
        * @param request DeleteStandardWordRootRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1322,7 +1379,8 @@ namespace DataphinPublic20230630
       Models::DeleteStandardWordRootResponse deleteStandardWordRootWithOptions(const Models::DeleteStandardWordRootRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据标准词根。
+       * @summary Deletes a data standard root word.
+       * Online version: v5.4.2.
        *
        * @param request DeleteStandardWordRootRequest
        * @return DeleteStandardWordRootResponse
@@ -1330,7 +1388,7 @@ namespace DataphinPublic20230630
       Models::DeleteStandardWordRootResponse deleteStandardWordRoot(const Models::DeleteStandardWordRootRequest &request);
 
       /**
-       * @summary 删除自定义函数。
+       * @summary Deletes a user-defined function.
        *
        * @param request DeleteUdfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1339,7 +1397,7 @@ namespace DataphinPublic20230630
       Models::DeleteUdfResponse deleteUdfWithOptions(const Models::DeleteUdfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义函数。
+       * @summary Deletes a user-defined function.
        *
        * @param request DeleteUdfRequest
        * @return DeleteUdfResponse
@@ -1347,7 +1405,7 @@ namespace DataphinPublic20230630
       Models::DeleteUdfResponse deleteUdf(const Models::DeleteUdfRequest &request);
 
       /**
-       * @summary 删除用户组.
+       * @summary Deletes a user group.
        *
        * @param request DeleteUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1356,7 +1414,7 @@ namespace DataphinPublic20230630
       Models::DeleteUserGroupResponse deleteUserGroupWithOptions(const Models::DeleteUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除用户组.
+       * @summary Deletes a user group.
        *
        * @param request DeleteUserGroupRequest
        * @return DeleteUserGroupResponse
@@ -1364,7 +1422,7 @@ namespace DataphinPublic20230630
       Models::DeleteUserGroupResponse deleteUserGroup(const Models::DeleteUserGroupRequest &request);
 
       /**
-       * @summary 执行即席查询任务。
+       * @summary Executes an ad hoc query task.
        *
        * @param tmpReq ExecuteAdHocTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1431,7 @@ namespace DataphinPublic20230630
       Models::ExecuteAdHocTaskResponse executeAdHocTaskWithOptions(const Models::ExecuteAdHocTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行即席查询任务。
+       * @summary Executes an ad hoc query task.
        *
        * @param request ExecuteAdHocTaskRequest
        * @return ExecuteAdHocTaskResponse
@@ -1381,7 +1439,7 @@ namespace DataphinPublic20230630
       Models::ExecuteAdHocTaskResponse executeAdHocTask(const Models::ExecuteAdHocTaskRequest &request);
 
       /**
-       * @summary 运行手动调度节点。
+       * @summary Runs a manually scheduled node.
        *
        * @param tmpReq ExecuteManualNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1448,7 @@ namespace DataphinPublic20230630
       Models::ExecuteManualNodeResponse executeManualNodeWithOptions(const Models::ExecuteManualNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运行手动调度节点。
+       * @summary Runs a manually scheduled node.
        *
        * @param request ExecuteManualNodeRequest
        * @return ExecuteManualNodeResponse
@@ -1398,7 +1456,7 @@ namespace DataphinPublic20230630
       Models::ExecuteManualNodeResponse executeManualNode(const Models::ExecuteManualNodeRequest &request);
 
       /**
-       * @summary 运行触发式节点。
+       * @summary Runs a trigger-based node.
        *
        * @param request ExecuteTriggerNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1407,7 +1465,7 @@ namespace DataphinPublic20230630
       Models::ExecuteTriggerNodeResponse executeTriggerNodeWithOptions(const Models::ExecuteTriggerNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运行触发式节点。
+       * @summary Runs a trigger-based node.
        *
        * @param request ExecuteTriggerNodeRequest
        * @return ExecuteTriggerNodeResponse
@@ -1415,7 +1473,7 @@ namespace DataphinPublic20230630
       Models::ExecuteTriggerNodeResponse executeTriggerNode(const Models::ExecuteTriggerNodeRequest &request);
 
       /**
-       * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
+       * @summary Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
        *
        * @param tmpReq FixDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1424,7 +1482,7 @@ namespace DataphinPublic20230630
       Models::FixDataResponse fixDataWithOptions(const Models::FixDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
+       * @summary Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
        *
        * @param request FixDataRequest
        * @return FixDataResponse
@@ -1432,7 +1490,7 @@ namespace DataphinPublic20230630
       Models::FixDataResponse fixData(const Models::FixDataRequest &request);
 
       /**
-       * @summary 根据行级权限ID获取某一行级权限下的所有授权账号
+       * @summary Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
        *
        * @param tmpReq GetAccountByRowPermissionIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1499,7 @@ namespace DataphinPublic20230630
       Models::GetAccountByRowPermissionIdResponse getAccountByRowPermissionIdWithOptions(const Models::GetAccountByRowPermissionIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据行级权限ID获取某一行级权限下的所有授权账号
+       * @summary Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
        *
        * @param request GetAccountByRowPermissionIdRequest
        * @return GetAccountByRowPermissionIdResponse
@@ -1449,7 +1507,7 @@ namespace DataphinPublic20230630
       Models::GetAccountByRowPermissionIdResponse getAccountByRowPermissionId(const Models::GetAccountByRowPermissionIdRequest &request);
 
       /**
-       * @summary 查询即席查询文件。
+       * @summary Queries a custom query file in the directory tree.
        *
        * @param request GetAdHocFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1458,7 +1516,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocFileResponse getAdHocFileWithOptions(const Models::GetAdHocFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询即席查询文件。
+       * @summary Queries a custom query file in the directory tree.
        *
        * @param request GetAdHocFileRequest
        * @return GetAdHocFileResponse
@@ -1466,7 +1524,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocFileResponse getAdHocFile(const Models::GetAdHocFileRequest &request);
 
       /**
-       * @summary 获取即席查询任务运行日志。
+       * @summary Retrieves the runtime logs of an ad hoc query task.
        *
        * @param request GetAdHocTaskLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1475,7 +1533,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocTaskLogResponse getAdHocTaskLogWithOptions(const Models::GetAdHocTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取即席查询任务运行日志。
+       * @summary Retrieves the runtime logs of an ad hoc query task.
        *
        * @param request GetAdHocTaskLogRequest
        * @return GetAdHocTaskLogResponse
@@ -1483,7 +1541,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocTaskLogResponse getAdHocTaskLog(const Models::GetAdHocTaskLogRequest &request);
 
       /**
-       * @summary 获取即席查询的任务运行结果。
+       * @summary Retrieves the task execution result of an ad hoc query.
        *
        * @param request GetAdHocTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1492,7 +1550,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocTaskResultResponse getAdHocTaskResultWithOptions(const Models::GetAdHocTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取即席查询的任务运行结果。
+       * @summary Retrieves the task execution result of an ad hoc query.
        *
        * @param request GetAdHocTaskResultRequest
        * @return GetAdHocTaskResultResponse
@@ -1500,7 +1558,7 @@ namespace DataphinPublic20230630
       Models::GetAdHocTaskResultResponse getAdHocTaskResult(const Models::GetAdHocTaskResultRequest &request);
 
       /**
-       * @summary 获取告警事件详情
+       * @summary Retrieves the details of an alert event.
        *
        * @param request GetAlertEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1509,7 +1567,7 @@ namespace DataphinPublic20230630
       Models::GetAlertEventResponse getAlertEventWithOptions(const Models::GetAlertEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取告警事件详情
+       * @summary Retrieves the details of an alert event.
        *
        * @param request GetAlertEventRequest
        * @return GetAlertEventResponse
@@ -1517,7 +1575,8 @@ namespace DataphinPublic20230630
       Models::GetAlertEventResponse getAlertEvent(const Models::GetAlertEventRequest &request);
 
       /**
-       * @summary 根据资产对象GUID查询映射关系。
+       * @summary Queries mapping relationships by asset object GUID.
+       * Available since: v5.4.2.
        *
        * @param tmpReq GetAssetMappingRelationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1526,7 +1585,8 @@ namespace DataphinPublic20230630
       Models::GetAssetMappingRelationsResponse getAssetMappingRelationsWithOptions(const Models::GetAssetMappingRelationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据资产对象GUID查询映射关系。
+       * @summary Queries mapping relationships by asset object GUID.
+       * Available since: v5.4.2.
        *
        * @param request GetAssetMappingRelationsRequest
        * @return GetAssetMappingRelationsResponse
@@ -1534,7 +1594,7 @@ namespace DataphinPublic20230630
       Models::GetAssetMappingRelationsResponse getAssetMappingRelations(const Models::GetAssetMappingRelationsRequest &request);
 
       /**
-       * @summary 获取离线计算任务详情。
+       * @summary Retrieves the details of an offline compute node.
        *
        * @param request GetBatchTaskInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1543,7 +1603,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskInfoResponse getBatchTaskInfoWithOptions(const Models::GetBatchTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取离线计算任务详情。
+       * @summary Retrieves the details of an offline compute node.
        *
        * @param request GetBatchTaskInfoRequest
        * @return GetBatchTaskInfoResponse
@@ -1551,7 +1611,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskInfoResponse getBatchTaskInfo(const Models::GetBatchTaskInfoRequest &request);
 
       /**
-       * @summary 获取离线计算任务指定版本任务详情。
+       * @summary Retrieves the details of a specified version of a batch task.
        *
        * @param request GetBatchTaskInfoByVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1560,7 +1620,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskInfoByVersionResponse getBatchTaskInfoByVersionWithOptions(const Models::GetBatchTaskInfoByVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取离线计算任务指定版本任务详情。
+       * @summary Retrieves the details of a specified version of a batch task.
        *
        * @param request GetBatchTaskInfoByVersionRequest
        * @return GetBatchTaskInfoByVersionResponse
@@ -1568,7 +1628,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskInfoByVersionResponse getBatchTaskInfoByVersion(const Models::GetBatchTaskInfoByVersionRequest &request);
 
       /**
-       * @summary 获取离线任务自定义血缘。
+       * @summary Obtains the custom lineage of an offline task.
        *
        * @param request GetBatchTaskUdfLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1577,7 +1637,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskUdfLineagesResponse getBatchTaskUdfLineagesWithOptions(const Models::GetBatchTaskUdfLineagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取离线任务自定义血缘。
+       * @summary Obtains the custom lineage of an offline task.
        *
        * @param request GetBatchTaskUdfLineagesRequest
        * @return GetBatchTaskUdfLineagesResponse
@@ -1585,7 +1645,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskUdfLineagesResponse getBatchTaskUdfLineages(const Models::GetBatchTaskUdfLineagesRequest &request);
 
       /**
-       * @summary 获取离线计算任务版本列表。
+       * @summary Retrieves the version list of a batch task.
        *
        * @param request GetBatchTaskVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1594,7 +1654,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskVersionsResponse getBatchTaskVersionsWithOptions(const Models::GetBatchTaskVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取离线计算任务版本列表。
+       * @summary Retrieves the version list of a batch task.
        *
        * @param request GetBatchTaskVersionsRequest
        * @return GetBatchTaskVersionsResponse
@@ -1602,7 +1662,8 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskVersionsResponse getBatchTaskVersions(const Models::GetBatchTaskVersionsRequest &request);
 
       /**
-       * @summary 根据归属资产GUID查询映射关系。
+       * @summary Query mapping relationships by belonging asset GUID.
+       * Release version: v5.4.2.
        *
        * @param tmpReq GetBelongAssetMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1672,8 @@ namespace DataphinPublic20230630
       Models::GetBelongAssetMappingResponse getBelongAssetMappingWithOptions(const Models::GetBelongAssetMappingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据归属资产GUID查询映射关系。
+       * @summary Query mapping relationships by belonging asset GUID.
+       * Release version: v5.4.2.
        *
        * @param request GetBelongAssetMappingRequest
        * @return GetBelongAssetMappingResponse
@@ -1619,7 +1681,7 @@ namespace DataphinPublic20230630
       Models::GetBelongAssetMappingResponse getBelongAssetMapping(const Models::GetBelongAssetMappingRequest &request);
 
       /**
-       * @summary 获取业务实体详情。
+       * @summary Retrieves the details of a business entity.
        *
        * @param request GetBizEntityInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1628,7 +1690,7 @@ namespace DataphinPublic20230630
       Models::GetBizEntityInfoResponse getBizEntityInfoWithOptions(const Models::GetBizEntityInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取业务实体详情。
+       * @summary Retrieves the details of a business entity.
        *
        * @param request GetBizEntityInfoRequest
        * @return GetBizEntityInfoResponse
@@ -1636,7 +1698,7 @@ namespace DataphinPublic20230630
       Models::GetBizEntityInfoResponse getBizEntityInfo(const Models::GetBizEntityInfoRequest &request);
 
       /**
-       * @summary 查询指定版本的业务实体的详情。
+       * @summary Queries the details of a business entity of a specified version.
        *
        * @param request GetBizEntityInfoByVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1645,7 +1707,7 @@ namespace DataphinPublic20230630
       Models::GetBizEntityInfoByVersionResponse getBizEntityInfoByVersionWithOptions(const Models::GetBizEntityInfoByVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定版本的业务实体的详情。
+       * @summary Queries the details of a business entity of a specified version.
        *
        * @param request GetBizEntityInfoByVersionRequest
        * @return GetBizEntityInfoByVersionResponse
@@ -1653,7 +1715,8 @@ namespace DataphinPublic20230630
       Models::GetBizEntityInfoByVersionResponse getBizEntityInfoByVersion(const Models::GetBizEntityInfoByVersionRequest &request);
 
       /**
-       * @summary 查询业务指标详情
+       * @summary Query business metric details by name.
+       * Release version: v5.5.0.
        *
        * @param tmpReq GetBizMetricByNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1662,7 +1725,8 @@ namespace DataphinPublic20230630
       Models::GetBizMetricByNameResponse getBizMetricByNameWithOptions(const Models::GetBizMetricByNameRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询业务指标详情
+       * @summary Query business metric details by name.
+       * Release version: v5.5.0.
        *
        * @param request GetBizMetricByNameRequest
        * @return GetBizMetricByNameResponse
@@ -1670,7 +1734,7 @@ namespace DataphinPublic20230630
       Models::GetBizMetricByNameResponse getBizMetricByName(const Models::GetBizMetricByNameRequest &request);
 
       /**
-       * @summary 获取数据板块详情。
+       * @summary Retrieves the details of a data domain.
        *
        * @param request GetBizUnitInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1679,7 +1743,7 @@ namespace DataphinPublic20230630
       Models::GetBizUnitInfoResponse getBizUnitInfoWithOptions(const Models::GetBizUnitInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据板块详情。
+       * @summary Retrieves the details of a data domain.
        *
        * @param request GetBizUnitInfoRequest
        * @return GetBizUnitInfoResponse
@@ -1687,7 +1751,7 @@ namespace DataphinPublic20230630
       Models::GetBizUnitInfoResponse getBizUnitInfo(const Models::GetBizUnitInfoRequest &request);
 
       /**
-       * @summary 查询数据目录资产详情。
+       * @summary Queries asset details. Release version: v6.1.0.
        *
        * @param tmpReq GetCatalogAssetDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1696,7 +1760,7 @@ namespace DataphinPublic20230630
       Models::GetCatalogAssetDetailsResponse getCatalogAssetDetailsWithOptions(const Models::GetCatalogAssetDetailsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据目录资产详情。
+       * @summary Queries asset details. Release version: v6.1.0.
        *
        * @param request GetCatalogAssetDetailsRequest
        * @return GetCatalogAssetDetailsResponse
@@ -1704,7 +1768,10 @@ namespace DataphinPublic20230630
       Models::GetCatalogAssetDetailsResponse getCatalogAssetDetails(const Models::GetCatalogAssetDetailsRequest &request);
 
       /**
-       * @summary 查询数据源连通性检查任务。
+       * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
+       * Release version: v5.5.0.
+       *
+       * @description Queries the details of connectivity tasks that have been tested for a specified data source ID.
        *
        * @param request GetCheckConnectivityJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1713,7 +1780,10 @@ namespace DataphinPublic20230630
       Models::GetCheckConnectivityJobsResponse getCheckConnectivityJobsWithOptions(const Models::GetCheckConnectivityJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据源连通性检查任务。
+       * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
+       * Release version: v5.5.0.
+       *
+       * @description Queries the details of connectivity tasks that have been tested for a specified data source ID.
        *
        * @param request GetCheckConnectivityJobsRequest
        * @return GetCheckConnectivityJobsResponse
@@ -1721,7 +1791,7 @@ namespace DataphinPublic20230630
       Models::GetCheckConnectivityJobsResponse getCheckConnectivityJobs(const Models::GetCheckConnectivityJobsRequest &request);
 
       /**
-       * @summary 根据环境获取集群信息
+       * @summary Retrieves cluster information based on the environment.
        *
        * @param request GetClusterQueueInfoByEnvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1730,7 +1800,7 @@ namespace DataphinPublic20230630
       Models::GetClusterQueueInfoByEnvResponse getClusterQueueInfoByEnvWithOptions(const Models::GetClusterQueueInfoByEnvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据环境获取集群信息
+       * @summary Retrieves cluster information based on the environment.
        *
        * @param request GetClusterQueueInfoByEnvRequest
        * @return GetClusterQueueInfoByEnvResponse
@@ -1738,7 +1808,7 @@ namespace DataphinPublic20230630
       Models::GetClusterQueueInfoByEnvResponse getClusterQueueInfoByEnv(const Models::GetClusterQueueInfoByEnvRequest &request);
 
       /**
-       * @summary 获取计算源详情。
+       * @summary Retrieves the details of a compute source by compute source ID.
        *
        * @param request GetComputeSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1747,7 +1817,7 @@ namespace DataphinPublic20230630
       Models::GetComputeSourceResponse getComputeSourceWithOptions(const Models::GetComputeSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取计算源详情。
+       * @summary Retrieves the details of a compute source by compute source ID.
        *
        * @param request GetComputeSourceRequest
        * @return GetComputeSourceResponse
@@ -1755,7 +1825,7 @@ namespace DataphinPublic20230630
       Models::GetComputeSourceResponse getComputeSource(const Models::GetComputeSourceRequest &request);
 
       /**
-       * @summary 获取主题域详情。
+       * @summary Retrieves the details of a data domain.
        *
        * @param request GetDataDomainInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1764,7 +1834,7 @@ namespace DataphinPublic20230630
       Models::GetDataDomainInfoResponse getDataDomainInfoWithOptions(const Models::GetDataDomainInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取主题域详情。
+       * @summary Retrieves the details of a data domain.
        *
        * @param request GetDataDomainInfoRequest
        * @return GetDataDomainInfoResponse
@@ -1772,7 +1842,7 @@ namespace DataphinPublic20230630
       Models::GetDataDomainInfoResponse getDataDomainInfo(const Models::GetDataDomainInfoRequest &request);
 
       /**
-       * @summary 运维监控Api调用汇总统计。
+       * @summary Service Monitoring: Retrieves the aggregate statistics of API calls.
        *
        * @param request GetDataServiceApiCallSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1781,7 +1851,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiCallSummaryResponse getDataServiceApiCallSummaryWithOptions(const Models::GetDataServiceApiCallSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运维监控Api调用汇总统计。
+       * @summary Service Monitoring: Retrieves the aggregate statistics of API calls.
        *
        * @param request GetDataServiceApiCallSummaryRequest
        * @return GetDataServiceApiCallSummaryResponse
@@ -1789,7 +1859,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiCallSummaryResponse getDataServiceApiCallSummary(const Models::GetDataServiceApiCallSummaryRequest &request);
 
       /**
-       * @summary 运维监控Api访问趋势分析。
+       * @summary Service Monitoring: Analyzes API access trends.
        *
        * @param request GetDataServiceApiCallTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1798,7 +1868,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiCallTrendResponse getDataServiceApiCallTrendWithOptions(const Models::GetDataServiceApiCallTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运维监控Api访问趋势分析。
+       * @summary Service Monitoring: Analyzes API access trends.
        *
        * @param request GetDataServiceApiCallTrendRequest
        * @return GetDataServiceApiCallTrendResponse
@@ -1806,7 +1876,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiCallTrendResponse getDataServiceApiCallTrend(const Models::GetDataServiceApiCallTrendRequest &request);
 
       /**
-       * @summary 获取API文档。
+       * @summary Retrieves API documentation.
        *
        * @param request GetDataServiceApiDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1815,7 +1885,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiDocumentResponse getDataServiceApiDocumentWithOptions(const Models::GetDataServiceApiDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取API文档。
+       * @summary Retrieves API documentation.
        *
        * @param request GetDataServiceApiDocumentRequest
        * @return GetDataServiceApiDocumentResponse
@@ -1823,7 +1893,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiDocumentResponse getDataServiceApiDocument(const Models::GetDataServiceApiDocumentRequest &request);
 
       /**
-       * @summary 获取API异常影响汇总。
+       * @summary Retrieves the summary of API exception impacts.
        *
        * @param request GetDataServiceApiErrorImpactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1832,7 +1902,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiErrorImpactResponse getDataServiceApiErrorImpactWithOptions(const Models::GetDataServiceApiErrorImpactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取API异常影响汇总。
+       * @summary Retrieves the summary of API exception impacts.
        *
        * @param request GetDataServiceApiErrorImpactRequest
        * @return GetDataServiceApiErrorImpactResponse
@@ -1840,7 +1910,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiErrorImpactResponse getDataServiceApiErrorImpact(const Models::GetDataServiceApiErrorImpactRequest &request);
 
       /**
-       * @summary 查询数据服务API分组列表。
+       * @summary Queries the list of API groups in Data Service.
        *
        * @param request GetDataServiceApiGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1849,7 +1919,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiGroupsResponse getDataServiceApiGroupsWithOptions(const Models::GetDataServiceApiGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据服务API分组列表。
+       * @summary Queries the list of API groups in Data Service.
        *
        * @param request GetDataServiceApiGroupsRequest
        * @return GetDataServiceApiGroupsResponse
@@ -1857,7 +1927,8 @@ namespace DataphinPublic20230630
       Models::GetDataServiceApiGroupsResponse getDataServiceApiGroups(const Models::GetDataServiceApiGroupsRequest &request);
 
       /**
-       * @summary 查询数据服务应用详情。
+       * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
+       * Release version: v6.0.0.
        *
        * @param request GetDataServiceAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1866,7 +1937,8 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppResponse getDataServiceAppWithOptions(const Models::GetDataServiceAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据服务应用详情。
+       * @summary Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
+       * Release version: v6.0.0.
        *
        * @param request GetDataServiceAppRequest
        * @return GetDataServiceAppResponse
@@ -1874,7 +1946,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppResponse getDataServiceApp(const Models::GetDataServiceAppRequest &request);
 
       /**
-       * @summary 获取应用有权限的用户列表。
+       * @summary Retrieves the list of users who have permissions on an application.
        *
        * @param request GetDataServiceAppAuthorizedUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1883,7 +1955,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppAuthorizedUsersResponse getDataServiceAppAuthorizedUsersWithOptions(const Models::GetDataServiceAppAuthorizedUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用有权限的用户列表。
+       * @summary Retrieves the list of users who have permissions on an application.
        *
        * @param request GetDataServiceAppAuthorizedUsersRequest
        * @return GetDataServiceAppAuthorizedUsersResponse
@@ -1891,7 +1963,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppAuthorizedUsersResponse getDataServiceAppAuthorizedUsers(const Models::GetDataServiceAppAuthorizedUsersRequest &request);
 
       /**
-       * @summary 查询数据服务项目的应用分组列表。
+       * @summary Queries the list of application groups for a data service project.
        *
        * @param request GetDataServiceAppGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1900,7 +1972,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppGroupsResponse getDataServiceAppGroupsWithOptions(const Models::GetDataServiceAppGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据服务项目的应用分组列表。
+       * @summary Queries the list of application groups for a data service project.
        *
        * @param request GetDataServiceAppGroupsRequest
        * @return GetDataServiceAppGroupsResponse
@@ -1908,7 +1980,8 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppGroupsResponse getDataServiceAppGroups(const Models::GetDataServiceAppGroupsRequest &request);
 
       /**
-       * @summary 查询数据服务应用的成员列表。
+       * @summary Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
+       * Online version: v6.0.0.
        *
        * @param request GetDataServiceAppMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1917,7 +1990,8 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppMembersResponse getDataServiceAppMembersWithOptions(const Models::GetDataServiceAppMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据服务应用的成员列表。
+       * @summary Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
+       * Online version: v6.0.0.
        *
        * @param request GetDataServiceAppMembersRequest
        * @return GetDataServiceAppMembersResponse
@@ -1925,7 +1999,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppMembersResponse getDataServiceAppMembers(const Models::GetDataServiceAppMembersRequest &request);
 
       /**
-       * @summary 查询分组下应用列表。
+       * @summary Queries the list of applications in a group.
        *
        * @param request GetDataServiceAppsByGroupIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1934,7 +2008,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppsByGroupIdResponse getDataServiceAppsByGroupIdWithOptions(const Models::GetDataServiceAppsByGroupIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询分组下应用列表。
+       * @summary Queries the list of applications in a group.
        *
        * @param request GetDataServiceAppsByGroupIdRequest
        * @return GetDataServiceAppsByGroupIdResponse
@@ -1942,7 +2016,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAppsByGroupIdResponse getDataServiceAppsByGroupId(const Models::GetDataServiceAppsByGroupIdRequest &request);
 
       /**
-       * @summary 根据App分组Id查询账号有权限的应用列表。
+       * @summary Queries the list of applications that the account has permissions to access based on the app group ID.
        *
        * @param request GetDataServiceAuthorizedAppsByGroupIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1951,7 +2025,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAuthorizedAppsByGroupIdResponse getDataServiceAuthorizedAppsByGroupIdWithOptions(const Models::GetDataServiceAuthorizedAppsByGroupIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据App分组Id查询账号有权限的应用列表。
+       * @summary Queries the list of applications that the account has permissions to access based on the app group ID.
        *
        * @param request GetDataServiceAuthorizedAppsByGroupIdRequest
        * @return GetDataServiceAuthorizedAppsByGroupIdResponse
@@ -1959,7 +2033,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAuthorizedAppsByGroupIdResponse getDataServiceAuthorizedAppsByGroupId(const Models::GetDataServiceAuthorizedAppsByGroupIdRequest &request);
 
       /**
-       * @summary 查询有权限的项目列表。
+       * @summary Queries the list of projects that the current user has permissions to access.
        *
        * @param request GetDataServiceAuthorizedProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1968,7 +2042,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAuthorizedProjectsResponse getDataServiceAuthorizedProjectsWithOptions(const Models::GetDataServiceAuthorizedProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询有权限的项目列表。
+       * @summary Queries the list of projects that the current user has permissions to access.
        *
        * @param request GetDataServiceAuthorizedProjectsRequest
        * @return GetDataServiceAuthorizedProjectsResponse
@@ -1976,7 +2050,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceAuthorizedProjectsResponse getDataServiceAuthorizedProjects(const Models::GetDataServiceAuthorizedProjectsRequest &request);
 
       /**
-       * @summary 当前登录当前用户作为负责人的项目列表。
+       * @summary Retrieves the list of projects for which the current user is the owner.
        *
        * @param request GetDataServiceMyProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1985,7 +2059,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceMyProjectsResponse getDataServiceMyProjectsWithOptions(const Models::GetDataServiceMyProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 当前登录当前用户作为负责人的项目列表。
+       * @summary Retrieves the list of projects for which the current user is the owner.
        *
        * @param request GetDataServiceMyProjectsRequest
        * @return GetDataServiceMyProjectsResponse
@@ -1993,7 +2067,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceMyProjectsResponse getDataServiceMyProjects(const Models::GetDataServiceMyProjectsRequest &request);
 
       /**
-       * @summary 获取可添加到项目成员的用户列表。
+       * @summary Retrieves the list of users who can be added as project members.
        *
        * @param request GetDataServiceProjectAddableUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2002,7 +2076,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceProjectAddableUsersResponse getDataServiceProjectAddableUsersWithOptions(const Models::GetDataServiceProjectAddableUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取可添加到项目成员的用户列表。
+       * @summary Retrieves the list of users who can be added as project members.
        *
        * @param request GetDataServiceProjectAddableUsersRequest
        * @return GetDataServiceProjectAddableUsersResponse
@@ -2010,7 +2084,7 @@ namespace DataphinPublic20230630
       Models::GetDataServiceProjectAddableUsersResponse getDataServiceProjectAddableUsers(const Models::GetDataServiceProjectAddableUsersRequest &request);
 
       /**
-       * @summary 查询数据源变更影响的集成任务及数据库SQL任务。
+       * @summary Queries the integration tasks and database SQL tasks affected by data source changes.
        *
        * @param request GetDataSourceDependenciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2019,7 +2093,7 @@ namespace DataphinPublic20230630
       Models::GetDataSourceDependenciesResponse getDataSourceDependenciesWithOptions(const Models::GetDataSourceDependenciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据源变更影响的集成任务及数据库SQL任务。
+       * @summary Queries the integration tasks and database SQL tasks affected by data source changes.
        *
        * @param request GetDataSourceDependenciesRequest
        * @return GetDataSourceDependenciesResponse
@@ -2027,7 +2101,7 @@ namespace DataphinPublic20230630
       Models::GetDataSourceDependenciesResponse getDataSourceDependencies(const Models::GetDataSourceDependenciesRequest &request);
 
       /**
-       * @summary 查询开发态对象上游依赖。
+       * @summary Query upstream dependencies of development objects.
        *
        * @param request GetDevObjectDependencyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2036,7 +2110,7 @@ namespace DataphinPublic20230630
       Models::GetDevObjectDependencyResponse getDevObjectDependencyWithOptions(const Models::GetDevObjectDependencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询开发态对象上游依赖。
+       * @summary Query upstream dependencies of development objects.
        *
        * @param request GetDevObjectDependencyRequest
        * @return GetDevObjectDependencyResponse
@@ -2044,7 +2118,7 @@ namespace DataphinPublic20230630
       Models::GetDevObjectDependencyResponse getDevObjectDependency(const Models::GetDevObjectDependencyRequest &request);
 
       /**
-       * @summary 获取文件夹目录树
+       * @summary Retrieves the folder directory tree.
        *
        * @param request GetDirectoryTreeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2053,7 +2127,7 @@ namespace DataphinPublic20230630
       Models::GetDirectoryTreeResponse getDirectoryTreeWithOptions(const Models::GetDirectoryTreeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文件夹目录树
+       * @summary Retrieves the folder directory tree.
        *
        * @param request GetDirectoryTreeRequest
        * @return GetDirectoryTreeResponse
@@ -2061,7 +2135,7 @@ namespace DataphinPublic20230630
       Models::GetDirectoryTreeResponse getDirectoryTree(const Models::GetDirectoryTreeRequest &request);
 
       /**
-       * @summary 获取文件存储临时读写授权。
+       * @summary Obtains temporary read/write authorization for file storage.
        *
        * @param request GetFileStorageCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2070,7 +2144,7 @@ namespace DataphinPublic20230630
       Models::GetFileStorageCredentialResponse getFileStorageCredentialWithOptions(const Models::GetFileStorageCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文件存储临时读写授权。
+       * @summary Obtains temporary read/write authorization for file storage.
        *
        * @param request GetFileStorageCredentialRequest
        * @return GetFileStorageCredentialResponse
@@ -2078,7 +2152,7 @@ namespace DataphinPublic20230630
       Models::GetFileStorageCredentialResponse getFileStorageCredential(const Models::GetFileStorageCredentialRequest &request);
 
       /**
-       * @summary 根据起始的实例查询该实例的下游
+       * @summary Queries the downstream instances of a specified instance.
        *
        * @param tmpReq GetInstanceDownStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2087,7 +2161,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceDownStreamResponse getInstanceDownStreamWithOptions(const Models::GetInstanceDownStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据起始的实例查询该实例的下游
+       * @summary Queries the downstream instances of a specified instance.
        *
        * @param request GetInstanceDownStreamRequest
        * @return GetInstanceDownStreamResponse
@@ -2095,7 +2169,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceDownStreamResponse getInstanceDownStream(const Models::GetInstanceDownStreamRequest &request);
 
       /**
-       * @summary 查询实例的上下游，支持逻辑表和代码任务。
+       * @summary Queries the dag of an instance. Logical tables and code nodes are supported.
        *
        * @param tmpReq GetInstanceUpDownStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2104,7 +2178,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceUpDownStreamResponse getInstanceUpDownStreamWithOptions(const Models::GetInstanceUpDownStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例的上下游，支持逻辑表和代码任务。
+       * @summary Queries the dag of an instance. Logical tables and code nodes are supported.
        *
        * @param request GetInstanceUpDownStreamRequest
        * @return GetInstanceUpDownStreamResponse
@@ -2112,7 +2186,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceUpDownStreamResponse getInstanceUpDownStream(const Models::GetInstanceUpDownStreamRequest &request);
 
       /**
-       * @summary 获取最新的待发布记录详情
+       * @summary Retrieves the details of the latest pending submit record.
        *
        * @param tmpReq GetLatestSubmitDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2121,7 +2195,7 @@ namespace DataphinPublic20230630
       Models::GetLatestSubmitDetailResponse getLatestSubmitDetailWithOptions(const Models::GetLatestSubmitDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取最新的待发布记录详情
+       * @summary Retrieves the details of the latest pending submit record.
        *
        * @param request GetLatestSubmitDetailRequest
        * @return GetLatestSubmitDetailResponse
@@ -2129,7 +2203,7 @@ namespace DataphinPublic20230630
       Models::GetLatestSubmitDetailResponse getLatestSubmitDetail(const Models::GetLatestSubmitDetailRequest &request);
 
       /**
-       * @summary 获取用户角色列表
+       * @summary Retrieves the list of roles for the current user.
        *
        * @param request GetMyRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2138,7 +2212,7 @@ namespace DataphinPublic20230630
       Models::GetMyRolesResponse getMyRolesWithOptions(const Models::GetMyRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户角色列表
+       * @summary Retrieves the list of roles for the current user.
        *
        * @param request GetMyRolesRequest
        * @return GetMyRolesResponse
@@ -2146,7 +2220,7 @@ namespace DataphinPublic20230630
       Models::GetMyRolesResponse getMyRoles(const Models::GetMyRolesRequest &request);
 
       /**
-       * @summary 获取当前用户归属租户.
+       * @summary Retrieves the tenants to which the current user belongs.
        *
        * @param tmpReq GetMyTenantsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2155,7 +2229,7 @@ namespace DataphinPublic20230630
       Models::GetMyTenantsResponse getMyTenantsWithOptions(const Models::GetMyTenantsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前用户归属租户.
+       * @summary Retrieves the tenants to which the current user belongs.
        *
        * @param request GetMyTenantsRequest
        * @return GetMyTenantsResponse
@@ -2163,7 +2237,7 @@ namespace DataphinPublic20230630
       Models::GetMyTenantsResponse getMyTenants(const Models::GetMyTenantsRequest &request);
 
       /**
-       * @summary 通用查询节点上下游接口
+       * @summary Queries the dag of a node. This is a general-purpose operation.
        *
        * @param tmpReq GetNodeUpDownStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2172,7 +2246,7 @@ namespace DataphinPublic20230630
       Models::GetNodeUpDownStreamResponse getNodeUpDownStreamWithOptions(const Models::GetNodeUpDownStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用查询节点上下游接口
+       * @summary Queries the dag of a node. This is a general-purpose operation.
        *
        * @param request GetNodeUpDownStreamRequest
        * @return GetNodeUpDownStreamResponse
@@ -2180,7 +2254,7 @@ namespace DataphinPublic20230630
       Models::GetNodeUpDownStreamResponse getNodeUpDownStream(const Models::GetNodeUpDownStreamRequest &request);
 
       /**
-       * @summary 查询补数据提交的状态
+       * @summary Queries the submit status of a data backfill request.
        *
        * @param request GetOperationSubmitStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2189,7 +2263,7 @@ namespace DataphinPublic20230630
       Models::GetOperationSubmitStatusResponse getOperationSubmitStatusWithOptions(const Models::GetOperationSubmitStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询补数据提交的状态
+       * @summary Queries the submit status of a data backfill request.
        *
        * @param request GetOperationSubmitStatusRequest
        * @return GetOperationSubmitStatusResponse
@@ -2197,7 +2271,7 @@ namespace DataphinPublic20230630
       Models::GetOperationSubmitStatusResponse getOperationSubmitStatus(const Models::GetOperationSubmitStatusRequest &request);
 
       /**
-       * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
+       * @summary Gets instance information.
        *
        * @param request GetPhysicalInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2206,7 +2280,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalInstanceResponse getPhysicalInstanceWithOptions(const Models::GetPhysicalInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
+       * @summary Gets instance information.
        *
        * @param request GetPhysicalInstanceRequest
        * @return GetPhysicalInstanceResponse
@@ -2214,7 +2288,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalInstanceResponse getPhysicalInstance(const Models::GetPhysicalInstanceRequest &request);
 
       /**
-       * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
+       * @summary Retrieves the execution logs of an instance. If the instance has been rerun multiple times, multiple log entries are returned.
        *
        * @param request GetPhysicalInstanceLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2223,7 +2297,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalInstanceLogResponse getPhysicalInstanceLogWithOptions(const Models::GetPhysicalInstanceLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
+       * @summary Retrieves the execution logs of an instance. If the instance has been rerun multiple times, multiple log entries are returned.
        *
        * @param request GetPhysicalInstanceLogRequest
        * @return GetPhysicalInstanceLogResponse
@@ -2231,7 +2305,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalInstanceLogResponse getPhysicalInstanceLog(const Models::GetPhysicalInstanceLogRequest &request);
 
       /**
-       * @summary 查询物理调度节点。
+       * @summary Queries a physical schedule resource.
        *
        * @param request GetPhysicalNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2240,7 +2314,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeResponse getPhysicalNodeWithOptions(const Models::GetPhysicalNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询物理调度节点。
+       * @summary Queries a physical schedule resource.
        *
        * @param request GetPhysicalNodeRequest
        * @return GetPhysicalNodeResponse
@@ -2248,7 +2322,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeResponse getPhysicalNode(const Models::GetPhysicalNodeRequest &request);
 
       /**
-       * @summary 根据输出名查询对应的物理节点。
+       * @summary Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
        *
        * @param request GetPhysicalNodeByOutputNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2257,7 +2331,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeByOutputNameResponse getPhysicalNodeByOutputNameWithOptions(const Models::GetPhysicalNodeByOutputNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据输出名查询对应的物理节点。
+       * @summary Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
        *
        * @param request GetPhysicalNodeByOutputNameRequest
        * @return GetPhysicalNodeByOutputNameResponse
@@ -2265,7 +2339,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeByOutputNameResponse getPhysicalNodeByOutputName(const Models::GetPhysicalNodeByOutputNameRequest &request);
 
       /**
-       * @summary 查询调度节点代码内容。
+       * @summary Queries the code content of a schedule resource node.
        *
        * @param request GetPhysicalNodeContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2274,7 +2348,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeContentResponse getPhysicalNodeContentWithOptions(const Models::GetPhysicalNodeContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询调度节点代码内容。
+       * @summary Queries the code content of a schedule resource node.
        *
        * @param request GetPhysicalNodeContentRequest
        * @return GetPhysicalNodeContentResponse
@@ -2282,7 +2356,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeContentResponse getPhysicalNodeContent(const Models::GetPhysicalNodeContentRequest &request);
 
       /**
-       * @summary 查询节点的操作日志。
+       * @summary Queries the operation logs of a node.
        *
        * @param request GetPhysicalNodeOperationLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2291,7 +2365,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeOperationLogResponse getPhysicalNodeOperationLogWithOptions(const Models::GetPhysicalNodeOperationLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询节点的操作日志。
+       * @summary Queries the operation logs of a node.
        *
        * @param request GetPhysicalNodeOperationLogRequest
        * @return GetPhysicalNodeOperationLogResponse
@@ -2299,7 +2373,7 @@ namespace DataphinPublic20230630
       Models::GetPhysicalNodeOperationLogResponse getPhysicalNodeOperationLog(const Models::GetPhysicalNodeOperationLogRequest &request);
 
       /**
-       * @summary 查询异步操作管道任务的执行结果。
+       * @summary Queries the execution result of an asynchronous pipeline task.
        *
        * @param tmpReq GetPipelineAsyncResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2308,7 +2382,7 @@ namespace DataphinPublic20230630
       Models::GetPipelineAsyncResultResponse getPipelineAsyncResultWithOptions(const Models::GetPipelineAsyncResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询异步操作管道任务的执行结果。
+       * @summary Queries the execution result of an asynchronous pipeline task.
        *
        * @param request GetPipelineAsyncResultRequest
        * @return GetPipelineAsyncResultResponse
@@ -2316,7 +2390,7 @@ namespace DataphinPublic20230630
       Models::GetPipelineAsyncResultResponse getPipelineAsyncResult(const Models::GetPipelineAsyncResultRequest &request);
 
       /**
-       * @summary 根据管道任务id查询管道任务。
+       * @summary Queries a pipeline task by pipeline task ID.
        *
        * @param tmpReq GetPipelineByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2325,7 +2399,7 @@ namespace DataphinPublic20230630
       Models::GetPipelineByIdResponse getPipelineByIdWithOptions(const Models::GetPipelineByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据管道任务id查询管道任务。
+       * @summary Queries a pipeline task by pipeline task ID.
        *
        * @param request GetPipelineByIdRequest
        * @return GetPipelineByIdResponse
@@ -2333,7 +2407,7 @@ namespace DataphinPublic20230630
       Models::GetPipelineByIdResponse getPipelineById(const Models::GetPipelineByIdRequest &request);
 
       /**
-       * @summary 获取项目详情。
+       * @summary Get project details by project ID.
        *
        * @param request GetProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2342,7 +2416,7 @@ namespace DataphinPublic20230630
       Models::GetProjectResponse getProjectWithOptions(const Models::GetProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目详情。
+       * @summary Get project details by project ID.
        *
        * @param request GetProjectRequest
        * @return GetProjectResponse
@@ -2350,7 +2424,7 @@ namespace DataphinPublic20230630
       Models::GetProjectResponse getProject(const Models::GetProjectRequest &request);
 
       /**
-       * @summary 通过项目名获取项目详情。
+       * @summary Retrieves project details by project name.
        *
        * @param request GetProjectByNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2359,7 +2433,7 @@ namespace DataphinPublic20230630
       Models::GetProjectByNameResponse getProjectByNameWithOptions(const Models::GetProjectByNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过项目名获取项目详情。
+       * @summary Retrieves project details by project name.
        *
        * @param request GetProjectByNameRequest
        * @return GetProjectByNameResponse
@@ -2367,7 +2441,7 @@ namespace DataphinPublic20230630
       Models::GetProjectByNameResponse getProjectByName(const Models::GetProjectByNameRequest &request);
 
       /**
-       * @summary 获取项目生产账号
+       * @summary Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
        *
        * @param request GetProjectProduceUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2376,7 +2450,7 @@ namespace DataphinPublic20230630
       Models::GetProjectProduceUserResponse getProjectProduceUserWithOptions(const Models::GetProjectProduceUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目生产账号
+       * @summary Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
        *
        * @param request GetProjectProduceUserRequest
        * @return GetProjectProduceUserResponse
@@ -2384,7 +2458,7 @@ namespace DataphinPublic20230630
       Models::GetProjectProduceUserResponse getProjectProduceUser(const Models::GetProjectProduceUserRequest &request);
 
       /**
-       * @summary 获取项目白名单。
+       * @summary Retrieves the whitelist of a project.
        *
        * @param request GetProjectWhiteListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2393,7 +2467,7 @@ namespace DataphinPublic20230630
       Models::GetProjectWhiteListsResponse getProjectWhiteListsWithOptions(const Models::GetProjectWhiteListsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目白名单。
+       * @summary Retrieves the whitelist of a project.
        *
        * @param request GetProjectWhiteListsRequest
        * @return GetProjectWhiteListsResponse
@@ -2401,7 +2475,7 @@ namespace DataphinPublic20230630
       Models::GetProjectWhiteListsResponse getProjectWhiteLists(const Models::GetProjectWhiteListsRequest &request);
 
       /**
-       * @summary 通过监控对象ID获取告警设置。
+       * @summary Retrieves alert settings by monitored object ID. Release version: v5.4.2.
        *
        * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2410,7 +2484,7 @@ namespace DataphinPublic20230630
       Models::GetQualityAlertOfAllRuleScopeByWatchIdResponse getQualityAlertOfAllRuleScopeByWatchIdWithOptions(const Models::GetQualityAlertOfAllRuleScopeByWatchIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过监控对象ID获取告警设置。
+       * @summary Retrieves alert settings by monitored object ID. Release version: v5.4.2.
        *
        * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
        * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
@@ -2418,7 +2492,8 @@ namespace DataphinPublic20230630
       Models::GetQualityAlertOfAllRuleScopeByWatchIdResponse getQualityAlertOfAllRuleScopeByWatchId(const Models::GetQualityAlertOfAllRuleScopeByWatchIdRequest &request);
 
       /**
-       * @summary 获取质量规则对象。
+       * @summary Retrieves a quality rule object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2427,7 +2502,8 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleResponse getQualityRuleWithOptions(const Models::GetQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量规则对象。
+       * @summary Retrieves a quality rule object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityRuleRequest
        * @return GetQualityRuleResponse
@@ -2435,7 +2511,7 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleResponse getQualityRule(const Models::GetQualityRuleRequest &request);
 
       /**
-       * @summary 获取质量任务对象详情。
+       * @summary Retrieves the details of a quality node task object. Online version: v5.4.2.
        *
        * @param request GetQualityRuleTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2444,7 +2520,7 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleTaskResponse getQualityRuleTaskWithOptions(const Models::GetQualityRuleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量任务对象详情。
+       * @summary Retrieves the details of a quality node task object. Online version: v5.4.2.
        *
        * @param request GetQualityRuleTaskRequest
        * @return GetQualityRuleTaskResponse
@@ -2452,7 +2528,8 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleTaskResponse getQualityRuleTask(const Models::GetQualityRuleTaskRequest &request);
 
       /**
-       * @summary 获取质量任务对象日志内容。
+       * @summary Retrieves the log content of a quality node task object.
+       * Online version: v5.4.2.
        *
        * @param request GetQualityRuleTaskLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2461,7 +2538,8 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleTaskLogResponse getQualityRuleTaskLogWithOptions(const Models::GetQualityRuleTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量任务对象日志内容。
+       * @summary Retrieves the log content of a quality node task object.
+       * Online version: v5.4.2.
        *
        * @param request GetQualityRuleTaskLogRequest
        * @return GetQualityRuleTaskLogResponse
@@ -2469,7 +2547,8 @@ namespace DataphinPublic20230630
       Models::GetQualityRuleTaskLogResponse getQualityRuleTaskLog(const Models::GetQualityRuleTaskLogRequest &request);
 
       /**
-       * @summary 获取质量调度对象。
+       * @summary Retrieves a quality schedule object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityScheduleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2478,7 +2557,8 @@ namespace DataphinPublic20230630
       Models::GetQualityScheduleResponse getQualityScheduleWithOptions(const Models::GetQualityScheduleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量调度对象。
+       * @summary Retrieves a quality schedule object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityScheduleRequest
        * @return GetQualityScheduleResponse
@@ -2486,7 +2566,8 @@ namespace DataphinPublic20230630
       Models::GetQualityScheduleResponse getQualitySchedule(const Models::GetQualityScheduleRequest &request);
 
       /**
-       * @summary 通过监控对象ID获取调度设置列表。
+       * @summary Retrieves a list of schedule settings by monitored object ID.
+       * Release version: v5.4.2.
        *
        * @param request GetQualitySchedulesByWatchIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2495,7 +2576,8 @@ namespace DataphinPublic20230630
       Models::GetQualitySchedulesByWatchIdResponse getQualitySchedulesByWatchIdWithOptions(const Models::GetQualitySchedulesByWatchIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过监控对象ID获取调度设置列表。
+       * @summary Retrieves a list of schedule settings by monitored object ID.
+       * Release version: v5.4.2.
        *
        * @param request GetQualitySchedulesByWatchIdRequest
        * @return GetQualitySchedulesByWatchIdResponse
@@ -2503,7 +2585,8 @@ namespace DataphinPublic20230630
       Models::GetQualitySchedulesByWatchIdResponse getQualitySchedulesByWatchId(const Models::GetQualitySchedulesByWatchIdRequest &request);
 
       /**
-       * @summary 获取质量模板对象。
+       * @summary Retrieves a quality template object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2512,7 +2595,8 @@ namespace DataphinPublic20230630
       Models::GetQualityTemplateResponse getQualityTemplateWithOptions(const Models::GetQualityTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量模板对象。
+       * @summary Retrieves a quality template object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityTemplateRequest
        * @return GetQualityTemplateResponse
@@ -2520,7 +2604,8 @@ namespace DataphinPublic20230630
       Models::GetQualityTemplateResponse getQualityTemplate(const Models::GetQualityTemplateRequest &request);
 
       /**
-       * @summary 获取质量监控对象。
+       * @summary Retrieves a quality monitored object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityWatchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2529,7 +2614,8 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchResponse getQualityWatchWithOptions(const Models::GetQualityWatchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量监控对象。
+       * @summary Retrieves a quality monitored object.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityWatchRequest
        * @return GetQualityWatchResponse
@@ -2537,7 +2623,8 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchResponse getQualityWatch(const Models::GetQualityWatchRequest &request);
 
       /**
-       * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+       * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityWatchByObjectIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2546,7 +2633,8 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchByObjectIdResponse getQualityWatchByObjectIdWithOptions(const Models::GetQualityWatchByObjectIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+       * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
+       * Release version: v5.4.2.
        *
        * @param request GetQualityWatchByObjectIdRequest
        * @return GetQualityWatchByObjectIdResponse
@@ -2554,7 +2642,8 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchByObjectIdResponse getQualityWatchByObjectId(const Models::GetQualityWatchByObjectIdRequest &request);
 
       /**
-       * @summary 获取监控任务对象。
+       * @summary Retrieves a monitoring node task object.
+       * Online version: v5.4.2.
        *
        * @param request GetQualityWatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2563,7 +2652,8 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchTaskResponse getQualityWatchTaskWithOptions(const Models::GetQualityWatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取监控任务对象。
+       * @summary Retrieves a monitoring node task object.
+       * Online version: v5.4.2.
        *
        * @param request GetQualityWatchTaskRequest
        * @return GetQualityWatchTaskResponse
@@ -2571,7 +2661,8 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchTaskResponse getQualityWatchTask(const Models::GetQualityWatchTaskRequest &request);
 
       /**
-       * @summary 获取监控任务对象的日志内容。
+       * @summary Retrieves the log content of a monitoring task object.
+       * Online version: v5.4.2.
        *
        * @param request GetQualityWatchTaskLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2580,7 +2671,8 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchTaskLogResponse getQualityWatchTaskLogWithOptions(const Models::GetQualityWatchTaskLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取监控任务对象的日志内容。
+       * @summary Retrieves the log content of a monitoring task object.
+       * Online version: v5.4.2.
        *
        * @param request GetQualityWatchTaskLogRequest
        * @return GetQualityWatchTaskLogResponse
@@ -2588,7 +2680,7 @@ namespace DataphinPublic20230630
       Models::GetQualityWatchTaskLogResponse getQualityWatchTaskLog(const Models::GetQualityWatchTaskLogRequest &request);
 
       /**
-       * @summary 根据集群ID获取集群版本
+       * @summary Retrieves the cluster version based on the cluster ID.
        *
        * @param request GetQueueEngineVersionByEnvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2597,7 +2689,7 @@ namespace DataphinPublic20230630
       Models::GetQueueEngineVersionByEnvResponse getQueueEngineVersionByEnvWithOptions(const Models::GetQueueEngineVersionByEnvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据集群ID获取集群版本
+       * @summary Retrieves the cluster version based on the cluster ID.
        *
        * @param request GetQueueEngineVersionByEnvRequest
        * @return GetQueueEngineVersionByEnvResponse
@@ -2605,7 +2697,7 @@ namespace DataphinPublic20230630
       Models::GetQueueEngineVersionByEnvResponse getQueueEngineVersionByEnv(const Models::GetQueueEngineVersionByEnvRequest &request);
 
       /**
-       * @summary 获取资源文件详情。
+       * @summary Retrieves the details of a resource file.
        *
        * @param request GetResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2614,7 +2706,7 @@ namespace DataphinPublic20230630
       Models::GetResourceResponse getResourceWithOptions(const Models::GetResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取资源文件详情。
+       * @summary Retrieves the details of a resource file.
        *
        * @param request GetResourceRequest
        * @return GetResourceResponse
@@ -2622,7 +2714,7 @@ namespace DataphinPublic20230630
       Models::GetResourceResponse getResource(const Models::GetResourceRequest &request);
 
       /**
-       * @summary 获取资源文件指定版本详情。
+       * @summary Gets the details of a specified version of a resource file.
        *
        * @param request GetResourceByVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2631,7 +2723,7 @@ namespace DataphinPublic20230630
       Models::GetResourceByVersionResponse getResourceByVersionWithOptions(const Models::GetResourceByVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取资源文件指定版本详情。
+       * @summary Gets the details of a specified version of a resource file.
        *
        * @param request GetResourceByVersionRequest
        * @return GetResourceByVersionResponse
@@ -2639,7 +2731,7 @@ namespace DataphinPublic20230630
       Models::GetResourceByVersionResponse getResourceByVersion(const Models::GetResourceByVersionRequest &request);
 
       /**
-       * @summary 根据表Guid检索行级权限
+       * @summary Release version: v5.4.2.
        *
        * @param tmpReq GetRowPermissionByTableGuidsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2648,7 +2740,7 @@ namespace DataphinPublic20230630
       Models::GetRowPermissionByTableGuidsResponse getRowPermissionByTableGuidsWithOptions(const Models::GetRowPermissionByTableGuidsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据表Guid检索行级权限
+       * @summary Release version: v5.4.2.
        *
        * @param request GetRowPermissionByTableGuidsRequest
        * @return GetRowPermissionByTableGuidsResponse
@@ -2656,7 +2748,7 @@ namespace DataphinPublic20230630
       Models::GetRowPermissionByTableGuidsResponse getRowPermissionByTableGuids(const Models::GetRowPermissionByTableGuidsRequest &request);
 
       /**
-       * @summary 获取数据分类详情。
+       * @summary Retrieves the details of a data classification. Release version: v5.4.2.
        *
        * @param request GetSecurityClassifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2665,7 +2757,7 @@ namespace DataphinPublic20230630
       Models::GetSecurityClassifyResponse getSecurityClassifyWithOptions(const Models::GetSecurityClassifyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据分类详情。
+       * @summary Retrieves the details of a data classification. Release version: v5.4.2.
        *
        * @param request GetSecurityClassifyRequest
        * @return GetSecurityClassifyResponse
@@ -2673,7 +2765,8 @@ namespace DataphinPublic20230630
       Models::GetSecurityClassifyResponse getSecurityClassify(const Models::GetSecurityClassifyRequest &request);
 
       /**
-       * @summary 获取识别结果详情。
+       * @summary Retrieves the details of an identification result.
+       * Release version: v5.4.2.
        *
        * @param request GetSecurityIdentifyResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2682,7 +2775,8 @@ namespace DataphinPublic20230630
       Models::GetSecurityIdentifyResultResponse getSecurityIdentifyResultWithOptions(const Models::GetSecurityIdentifyResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取识别结果详情。
+       * @summary Retrieves the details of an identification result.
+       * Release version: v5.4.2.
        *
        * @param request GetSecurityIdentifyResultRequest
        * @return GetSecurityIdentifyResultResponse
@@ -2690,7 +2784,7 @@ namespace DataphinPublic20230630
       Models::GetSecurityIdentifyResultResponse getSecurityIdentifyResult(const Models::GetSecurityIdentifyResultRequest &request);
 
       /**
-       * @summary 获取数据分级详情。
+       * @summary Retrieves the details of a data classification level. Available since v5.4.2.
        *
        * @param request GetSecurityLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2699,7 +2793,7 @@ namespace DataphinPublic20230630
       Models::GetSecurityLevelResponse getSecurityLevelWithOptions(const Models::GetSecurityLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据分级详情。
+       * @summary Retrieves the details of a data classification level. Available since v5.4.2.
        *
        * @param request GetSecurityLevelRequest
        * @return GetSecurityLevelResponse
@@ -2707,7 +2801,7 @@ namespace DataphinPublic20230630
       Models::GetSecurityLevelResponse getSecurityLevel(const Models::GetSecurityLevelRequest &request);
 
       /**
-       * @summary 通过密钥名称获取密钥值。
+       * @summary Retrieves a key value by key name. Online version: v5.4.2.
        *
        * @param request GetSecuritySecretKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2716,7 +2810,7 @@ namespace DataphinPublic20230630
       Models::GetSecuritySecretKeyResponse getSecuritySecretKeyWithOptions(const Models::GetSecuritySecretKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过密钥名称获取密钥值。
+       * @summary Retrieves a key value by key name. Online version: v5.4.2.
        *
        * @param request GetSecuritySecretKeyRequest
        * @return GetSecuritySecretKeyResponse
@@ -2724,7 +2818,7 @@ namespace DataphinPublic20230630
       Models::GetSecuritySecretKeyResponse getSecuritySecretKey(const Models::GetSecuritySecretKeyRequest &request);
 
       /**
-       * @summary 获取计算源对应集群的spark客户信息
+       * @summary Retrieves the Spark client information of the cluster associated with a compute source.
        *
        * @param request GetSparkLocalClientInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2733,7 +2827,7 @@ namespace DataphinPublic20230630
       Models::GetSparkLocalClientInfoResponse getSparkLocalClientInfoWithOptions(const Models::GetSparkLocalClientInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取计算源对应集群的spark客户信息
+       * @summary Retrieves the Spark client information of the cluster associated with a compute source.
        *
        * @param request GetSparkLocalClientInfoRequest
        * @return GetSparkLocalClientInfoResponse
@@ -2741,7 +2835,8 @@ namespace DataphinPublic20230630
       Models::GetSparkLocalClientInfoResponse getSparkLocalClientInfo(const Models::GetSparkLocalClientInfoRequest &request);
 
       /**
-       * @summary 获取标准详情。
+       * @summary Retrieves the details of a standard.
+       * Release version: v5.4.2.
        *
        * @param tmpReq GetStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2750,7 +2845,8 @@ namespace DataphinPublic20230630
       Models::GetStandardResponse getStandardWithOptions(const Models::GetStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取标准详情。
+       * @summary Retrieves the details of a standard.
+       * Release version: v5.4.2.
        *
        * @param request GetStandardRequest
        * @return GetStandardResponse
@@ -2758,7 +2854,8 @@ namespace DataphinPublic20230630
       Models::GetStandardResponse getStandard(const Models::GetStandardRequest &request);
 
       /**
-       * @summary 获取数据标准码表详情。
+       * @summary Retrieves the details of a data standard lookup table.
+       * Online version: v5.4.2.
        *
        * @param request GetStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2767,7 +2864,8 @@ namespace DataphinPublic20230630
       Models::GetStandardLookupTableResponse getStandardLookupTableWithOptions(const Models::GetStandardLookupTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据标准码表详情。
+       * @summary Retrieves the details of a data standard lookup table.
+       * Online version: v5.4.2.
        *
        * @param request GetStandardLookupTableRequest
        * @return GetStandardLookupTableResponse
@@ -2775,7 +2873,8 @@ namespace DataphinPublic20230630
       Models::GetStandardLookupTableResponse getStandardLookupTable(const Models::GetStandardLookupTableRequest &request);
 
       /**
-       * @summary 获取标准集详情。
+       * @summary Retrieves the details of a standard set.
+       * Release version: v5.4.2.
        *
        * @param request GetStandardSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2784,7 +2883,8 @@ namespace DataphinPublic20230630
       Models::GetStandardSetResponse getStandardSetWithOptions(const Models::GetStandardSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取标准集详情。
+       * @summary Retrieves the details of a standard set.
+       * Release version: v5.4.2.
        *
        * @param request GetStandardSetRequest
        * @return GetStandardSetResponse
@@ -2792,7 +2892,8 @@ namespace DataphinPublic20230630
       Models::GetStandardSetResponse getStandardSet(const Models::GetStandardSetRequest &request);
 
       /**
-       * @summary 查询目录下按照标准类型统计标准数目。
+       * @summary Queries the number of standards grouped by standard type under a specified folder.
+       * Online version: v5.4.2.
        *
        * @param tmpReq GetStandardStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2801,7 +2902,8 @@ namespace DataphinPublic20230630
       Models::GetStandardStatisticsResponse getStandardStatisticsWithOptions(const Models::GetStandardStatisticsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询目录下按照标准类型统计标准数目。
+       * @summary Queries the number of standards grouped by standard type under a specified folder.
+       * Online version: v5.4.2.
        *
        * @param request GetStandardStatisticsRequest
        * @return GetStandardStatisticsResponse
@@ -2809,7 +2911,8 @@ namespace DataphinPublic20230630
       Models::GetStandardStatisticsResponse getStandardStatistics(const Models::GetStandardStatisticsRequest &request);
 
       /**
-       * @summary 获取数据标准模板详情。
+       * @summary Retrieves the details of a data standard template.
+       * Online version: v5.4.2.
        *
        * @param tmpReq GetStandardTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2818,7 +2921,8 @@ namespace DataphinPublic20230630
       Models::GetStandardTemplateResponse getStandardTemplateWithOptions(const Models::GetStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据标准模板详情。
+       * @summary Retrieves the details of a data standard template.
+       * Online version: v5.4.2.
        *
        * @param request GetStandardTemplateRequest
        * @return GetStandardTemplateResponse
@@ -2826,7 +2930,8 @@ namespace DataphinPublic20230630
       Models::GetStandardTemplateResponse getStandardTemplate(const Models::GetStandardTemplateRequest &request);
 
       /**
-       * @summary 获取数据标准词根详情。
+       * @summary Retrieves the details of a data standard word root.
+       * Online version: v5.4.2.
        *
        * @param request GetStandardWordRootRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2835,7 +2940,8 @@ namespace DataphinPublic20230630
       Models::GetStandardWordRootResponse getStandardWordRootWithOptions(const Models::GetStandardWordRootRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据标准词根详情。
+       * @summary Retrieves the details of a data standard word root.
+       * Online version: v5.4.2.
        *
        * @param request GetStandardWordRootRequest
        * @return GetStandardWordRootResponse
@@ -2843,7 +2949,7 @@ namespace DataphinPublic20230630
       Models::GetStandardWordRootResponse getStandardWordRoot(const Models::GetStandardWordRootRequest &request);
 
       /**
-       * @summary 获取dataphin实时研发任务集合
+       * @summary Retrieves the list of real-time development nodes.
        *
        * @param request GetStreamJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2852,7 +2958,7 @@ namespace DataphinPublic20230630
       Models::GetStreamJobsResponse getStreamJobsWithOptions(const Models::GetStreamJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取dataphin实时研发任务集合
+       * @summary Retrieves the list of real-time development nodes.
        *
        * @param request GetStreamJobsRequest
        * @return GetStreamJobsResponse
@@ -2860,7 +2966,7 @@ namespace DataphinPublic20230630
       Models::GetStreamJobsResponse getStreamJobs(const Models::GetStreamJobsRequest &request);
 
       /**
-       * @summary 获取补数据工作流所有业务日期的Dagrun信息。
+       * @summary Retrieves dagrun information for all business dates of a data backfill instance workflow.
        *
        * @param request GetSupplementDagrunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2869,7 +2975,7 @@ namespace DataphinPublic20230630
       Models::GetSupplementDagrunResponse getSupplementDagrunWithOptions(const Models::GetSupplementDagrunRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取补数据工作流所有业务日期的Dagrun信息。
+       * @summary Retrieves dagrun information for all business dates of a data backfill instance workflow.
        *
        * @param request GetSupplementDagrunRequest
        * @return GetSupplementDagrunResponse
@@ -2877,7 +2983,7 @@ namespace DataphinPublic20230630
       Models::GetSupplementDagrunResponse getSupplementDagrun(const Models::GetSupplementDagrunRequest &request);
 
       /**
-       * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
+       * @summary Lists the instances of all nodes for a specific business date in a data backfill workflow.
        *
        * @param request GetSupplementDagrunInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2886,7 +2992,7 @@ namespace DataphinPublic20230630
       Models::GetSupplementDagrunInstanceResponse getSupplementDagrunInstanceWithOptions(const Models::GetSupplementDagrunInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
+       * @summary Lists the instances of all nodes for a specific business date in a data backfill workflow.
        *
        * @param request GetSupplementDagrunInstanceRequest
        * @return GetSupplementDagrunInstanceResponse
@@ -2894,7 +3000,7 @@ namespace DataphinPublic20230630
       Models::GetSupplementDagrunInstanceResponse getSupplementDagrunInstance(const Models::GetSupplementDagrunInstanceRequest &request);
 
       /**
-       * @summary 查询表字段血缘信息
+       * @summary Queries table column lineage information.
        *
        * @param tmpReq GetTableColumnLineageByTaskIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2903,7 +3009,7 @@ namespace DataphinPublic20230630
       Models::GetTableColumnLineageByTaskIdResponse getTableColumnLineageByTaskIdWithOptions(const Models::GetTableColumnLineageByTaskIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询表字段血缘信息
+       * @summary Queries table column lineage information.
        *
        * @param request GetTableColumnLineageByTaskIdRequest
        * @return GetTableColumnLineageByTaskIdResponse
@@ -2911,7 +3017,8 @@ namespace DataphinPublic20230630
       Models::GetTableColumnLineageByTaskIdResponse getTableColumnLineageByTaskId(const Models::GetTableColumnLineageByTaskIdRequest &request);
 
       /**
-       * @summary 查询资产表字段血缘信息。
+       * @summary Queries the column-level data lineage of an asset table.
+       * Online version: v5.4.2.
        *
        * @param tmpReq GetTableColumnLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2920,7 +3027,8 @@ namespace DataphinPublic20230630
       Models::GetTableColumnLineagesResponse getTableColumnLineagesWithOptions(const Models::GetTableColumnLineagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资产表字段血缘信息。
+       * @summary Queries the column-level data lineage of an asset table.
+       * Online version: v5.4.2.
        *
        * @param request GetTableColumnLineagesRequest
        * @return GetTableColumnLineagesResponse
@@ -2928,7 +3036,8 @@ namespace DataphinPublic20230630
       Models::GetTableColumnLineagesResponse getTableColumnLineages(const Models::GetTableColumnLineagesRequest &request);
 
       /**
-       * @summary 查询资产清单中Dataphin表的字段。
+       * @summary Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
+       * Release version: v5.4.2.
        *
        * @param request GetTableColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2937,7 +3046,8 @@ namespace DataphinPublic20230630
       Models::GetTableColumnsResponse getTableColumnsWithOptions(const Models::GetTableColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资产清单中Dataphin表的字段。
+       * @summary Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
+       * Release version: v5.4.2.
        *
        * @param request GetTableColumnsRequest
        * @return GetTableColumnsResponse
@@ -2945,7 +3055,7 @@ namespace DataphinPublic20230630
       Models::GetTableColumnsResponse getTableColumns(const Models::GetTableColumnsRequest &request);
 
       /**
-       * @summary 查询表血缘信息
+       * @summary Queries table lineage information.
        *
        * @param tmpReq GetTableLineageByTaskIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2954,7 +3064,7 @@ namespace DataphinPublic20230630
       Models::GetTableLineageByTaskIdResponse getTableLineageByTaskIdWithOptions(const Models::GetTableLineageByTaskIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询表血缘信息
+       * @summary Queries table lineage information.
        *
        * @param request GetTableLineageByTaskIdRequest
        * @return GetTableLineageByTaskIdResponse
@@ -2962,7 +3072,8 @@ namespace DataphinPublic20230630
       Models::GetTableLineageByTaskIdResponse getTableLineageByTaskId(const Models::GetTableLineageByTaskIdRequest &request);
 
       /**
-       * @summary 查询资产表血缘信息。
+       * @summary Queries lineage information of an asset table.
+       * Release version: v5.4.2.
        *
        * @param tmpReq GetTableLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2971,7 +3082,8 @@ namespace DataphinPublic20230630
       Models::GetTableLineagesResponse getTableLineagesWithOptions(const Models::GetTableLineagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资产表血缘信息。
+       * @summary Queries lineage information of an asset table.
+       * Release version: v5.4.2.
        *
        * @param request GetTableLineagesRequest
        * @return GetTableLineagesResponse
@@ -2979,7 +3091,7 @@ namespace DataphinPublic20230630
       Models::GetTableLineagesResponse getTableLineages(const Models::GetTableLineagesRequest &request);
 
       /**
-       * @summary 根据转交任务ID查询转交任务的进度
+       * @summary Queries the progress of a transfer task by transfer task ID.
        *
        * @param request GetTransferInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2988,7 +3100,7 @@ namespace DataphinPublic20230630
       Models::GetTransferInfoResponse getTransferInfoWithOptions(const Models::GetTransferInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据转交任务ID查询转交任务的进度
+       * @summary Queries the progress of a transfer task by transfer task ID.
        *
        * @param request GetTransferInfoRequest
        * @return GetTransferInfoResponse
@@ -2996,7 +3108,7 @@ namespace DataphinPublic20230630
       Models::GetTransferInfoResponse getTransferInfo(const Models::GetTransferInfoRequest &request);
 
       /**
-       * @summary 获取自定义函数详情。
+       * @summary Retrieves the details of a user-defined function.
        *
        * @param request GetUdfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3005,7 +3117,7 @@ namespace DataphinPublic20230630
       Models::GetUdfResponse getUdfWithOptions(const Models::GetUdfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义函数详情。
+       * @summary Retrieves the details of a user-defined function.
        *
        * @param request GetUdfRequest
        * @return GetUdfResponse
@@ -3013,7 +3125,7 @@ namespace DataphinPublic20230630
       Models::GetUdfResponse getUdf(const Models::GetUdfRequest &request);
 
       /**
-       * @summary 查询自定义函数版本详情。
+       * @summary Queries the details of a specific version of a user-defined function.
        *
        * @param request GetUdfByVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3022,7 +3134,7 @@ namespace DataphinPublic20230630
       Models::GetUdfByVersionResponse getUdfByVersionWithOptions(const Models::GetUdfByVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自定义函数版本详情。
+       * @summary Queries the details of a specific version of a user-defined function.
        *
        * @param request GetUdfByVersionRequest
        * @return GetUdfByVersionResponse
@@ -3030,7 +3142,7 @@ namespace DataphinPublic20230630
       Models::GetUdfByVersionResponse getUdfByVersion(const Models::GetUdfByVersionRequest &request);
 
       /**
-       * @summary 通过用户原始Id（如阿里云Id）获取用户详情
+       * @summary Retrieves user details by original user ID.
        *
        * @param request GetUserBySourceIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3039,7 +3151,7 @@ namespace DataphinPublic20230630
       Models::GetUserBySourceIdResponse getUserBySourceIdWithOptions(const Models::GetUserBySourceIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过用户原始Id（如阿里云Id）获取用户详情
+       * @summary Retrieves user details by original user ID.
        *
        * @param request GetUserBySourceIdRequest
        * @return GetUserBySourceIdResponse
@@ -3047,7 +3159,7 @@ namespace DataphinPublic20230630
       Models::GetUserBySourceIdResponse getUserBySourceId(const Models::GetUserBySourceIdRequest &request);
 
       /**
-       * @summary 获取用户组详情.
+       * @summary Retrieves the details of a user group.
        *
        * @param request GetUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3056,7 +3168,7 @@ namespace DataphinPublic20230630
       Models::GetUserGroupResponse getUserGroupWithOptions(const Models::GetUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户组详情.
+       * @summary Retrieves the details of a user group.
        *
        * @param request GetUserGroupRequest
        * @return GetUserGroupResponse
@@ -3064,7 +3176,7 @@ namespace DataphinPublic20230630
       Models::GetUserGroupResponse getUserGroup(const Models::GetUserGroupRequest &request);
 
       /**
-       * @summary 获取用户详情
+       * @summary Retrieves user information in batches by user ID.
        *
        * @param tmpReq GetUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3073,7 +3185,7 @@ namespace DataphinPublic20230630
       Models::GetUsersResponse getUsersWithOptions(const Models::GetUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户详情
+       * @summary Retrieves user information in batches by user ID.
        *
        * @param request GetUsersRequest
        * @return GetUsersResponse
@@ -3081,7 +3193,7 @@ namespace DataphinPublic20230630
       Models::GetUsersResponse getUsers(const Models::GetUsersRequest &request);
 
       /**
-       * @summary API授权。
+       * @summary Grants API authorization.
        *
        * @param tmpReq GrantDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3090,7 +3202,7 @@ namespace DataphinPublic20230630
       Models::GrantDataServiceApiResponse grantDataServiceApiWithOptions(const Models::GrantDataServiceApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary API授权。
+       * @summary Grants API authorization.
        *
        * @param request GrantDataServiceApiRequest
        * @return GrantDataServiceApiResponse
@@ -3098,7 +3210,7 @@ namespace DataphinPublic20230630
       Models::GrantDataServiceApiResponse grantDataServiceApi(const Models::GrantDataServiceApiRequest &request);
 
       /**
-       * @summary 通过资源点对用户授权
+       * @summary Grants permissions on resources to users by resource point.
        *
        * @param tmpReq GrantResourcePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3107,7 +3219,7 @@ namespace DataphinPublic20230630
       Models::GrantResourcePermissionResponse grantResourcePermissionWithOptions(const Models::GrantResourcePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过资源点对用户授权
+       * @summary Grants permissions on resources to users by resource point.
        *
        * @param request GrantResourcePermissionRequest
        * @return GrantResourcePermissionResponse
@@ -3115,7 +3227,7 @@ namespace DataphinPublic20230630
       Models::GrantResourcePermissionResponse grantResourcePermission(const Models::GrantResourcePermissionRequest &request);
 
       /**
-       * @summary 获取用户角色列表
+       * @summary Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
        *
        * @param request ListAddableRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3124,7 +3236,7 @@ namespace DataphinPublic20230630
       Models::ListAddableRolesResponse listAddableRolesWithOptions(const Models::ListAddableRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户角色列表
+       * @summary Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
        *
        * @param request ListAddableRolesRequest
        * @return ListAddableRolesResponse
@@ -3132,7 +3244,7 @@ namespace DataphinPublic20230630
       Models::ListAddableRolesResponse listAddableRoles(const Models::ListAddableRolesRequest &request);
 
       /**
-       * @summary 获取可加入租户成员列表的用户
+       * @summary Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
        *
        * @param tmpReq ListAddableUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3141,7 +3253,7 @@ namespace DataphinPublic20230630
       Models::ListAddableUsersResponse listAddableUsersWithOptions(const Models::ListAddableUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取可加入租户成员列表的用户
+       * @summary Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
        *
        * @param request ListAddableUsersRequest
        * @return ListAddableUsersResponse
@@ -3149,7 +3261,7 @@ namespace DataphinPublic20230630
       Models::ListAddableUsersResponse listAddableUsers(const Models::ListAddableUsersRequest &request);
 
       /**
-       * @summary 根据条件查询多个告警事件
+       * @summary Performs a conditional query to list multiple alerting events.
        *
        * @param tmpReq ListAlertEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3158,7 +3270,7 @@ namespace DataphinPublic20230630
       Models::ListAlertEventsResponse listAlertEventsWithOptions(const Models::ListAlertEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据条件查询多个告警事件
+       * @summary Performs a conditional query to list multiple alerting events.
        *
        * @param request ListAlertEventsRequest
        * @return ListAlertEventsResponse
@@ -3166,7 +3278,7 @@ namespace DataphinPublic20230630
       Models::ListAlertEventsResponse listAlertEvents(const Models::ListAlertEventsRequest &request);
 
       /**
-       * @summary 根据条件查询多个推送记录
+       * @summary Performs a conditional query to list multiple push records.
        *
        * @param tmpReq ListAlertNotificationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3175,7 +3287,7 @@ namespace DataphinPublic20230630
       Models::ListAlertNotificationsResponse listAlertNotificationsWithOptions(const Models::ListAlertNotificationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据条件查询多个推送记录
+       * @summary Performs a conditional query to list multiple push records.
        *
        * @param request ListAlertNotificationsRequest
        * @return ListAlertNotificationsResponse
@@ -3183,7 +3295,9 @@ namespace DataphinPublic20230630
       Models::ListAlertNotificationsResponse listAlertNotifications(const Models::ListAlertNotificationsRequest &request);
 
       /**
-       * @summary 根据app查询api列表
+       * @summary Queries the list of APIs by application.
+       *
+       * @description Queries the detailed information of published APIs by appKey.
        *
        * @param tmpReq ListApiByAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3192,7 +3306,9 @@ namespace DataphinPublic20230630
       Models::ListApiByAppResponse listApiByAppWithOptions(const Models::ListApiByAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据app查询api列表
+       * @summary Queries the list of APIs by application.
+       *
+       * @description Queries the detailed information of published APIs by appKey.
        *
        * @param request ListApiByAppRequest
        * @return ListApiByAppResponse
@@ -3200,7 +3316,7 @@ namespace DataphinPublic20230630
       Models::ListApiByAppResponse listApiByApp(const Models::ListApiByAppRequest &request);
 
       /**
-       * @summary 查询应用已申请的API的具体的字段列表
+       * @summary Queries the list of specific fields for APIs that an application has requested.
        *
        * @param tmpReq ListAuthorizedDataServiceApiDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3209,7 +3325,7 @@ namespace DataphinPublic20230630
       Models::ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetailsWithOptions(const Models::ListAuthorizedDataServiceApiDetailsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用已申请的API的具体的字段列表
+       * @summary Queries the list of specific fields for APIs that an application has requested.
        *
        * @param request ListAuthorizedDataServiceApiDetailsRequest
        * @return ListAuthorizedDataServiceApiDetailsResponse
@@ -3217,7 +3333,7 @@ namespace DataphinPublic20230630
       Models::ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetails(const Models::ListAuthorizedDataServiceApiDetailsRequest &request);
 
       /**
-       * @summary 查询业务实体列表。
+       * @summary Queries a list of business entities.
        *
        * @param tmpReq ListBizEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3226,7 +3342,7 @@ namespace DataphinPublic20230630
       Models::ListBizEntitiesResponse listBizEntitiesWithOptions(const Models::ListBizEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询业务实体列表。
+       * @summary Queries a list of business entities.
        *
        * @param request ListBizEntitiesRequest
        * @return ListBizEntitiesResponse
@@ -3234,7 +3350,7 @@ namespace DataphinPublic20230630
       Models::ListBizEntitiesResponse listBizEntities(const Models::ListBizEntitiesRequest &request);
 
       /**
-       * @summary 获取当前租户下的所有数据板块
+       * @summary Retrieves all business units under the current tenant.
        *
        * @param request ListBizUnitsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3243,7 +3359,7 @@ namespace DataphinPublic20230630
       Models::ListBizUnitsResponse listBizUnitsWithOptions(const Models::ListBizUnitsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前租户下的所有数据板块
+       * @summary Retrieves all business units under the current tenant.
        *
        * @param request ListBizUnitsRequest
        * @return ListBizUnitsResponse
@@ -3251,7 +3367,7 @@ namespace DataphinPublic20230630
       Models::ListBizUnitsResponse listBizUnits(const Models::ListBizUnitsRequest &request);
 
       /**
-       * @summary 查询数据目录资产列表。
+       * @summary Queries the list of asset catalog entries. Online version: v6.1.0.
        *
        * @param tmpReq ListCatalogAssetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3260,7 +3376,7 @@ namespace DataphinPublic20230630
       Models::ListCatalogAssetsResponse listCatalogAssetsWithOptions(const Models::ListCatalogAssetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据目录资产列表。
+       * @summary Queries the list of asset catalog entries. Online version: v6.1.0.
        *
        * @param request ListCatalogAssetsRequest
        * @return ListCatalogAssetsResponse
@@ -3268,7 +3384,7 @@ namespace DataphinPublic20230630
       Models::ListCatalogAssetsResponse listCatalogAssets(const Models::ListCatalogAssetsRequest &request);
 
       /**
-       * @summary 查询计算源列表。
+       * @summary Query the list of compute sources.
        *
        * @param tmpReq ListComputeSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3277,7 +3393,7 @@ namespace DataphinPublic20230630
       Models::ListComputeSourcesResponse listComputeSourcesWithOptions(const Models::ListComputeSourcesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询计算源列表。
+       * @summary Query the list of compute sources.
        *
        * @param request ListComputeSourcesRequest
        * @return ListComputeSourcesResponse
@@ -3285,7 +3401,7 @@ namespace DataphinPublic20230630
       Models::ListComputeSourcesResponse listComputeSources(const Models::ListComputeSourcesRequest &request);
 
       /**
-       * @summary 获取主题域列表。
+       * @summary Retrieves a list of data domains.
        *
        * @param tmpReq ListDataDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3294,7 +3410,7 @@ namespace DataphinPublic20230630
       Models::ListDataDomainsResponse listDataDomainsWithOptions(const Models::ListDataDomainsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取主题域列表。
+       * @summary Retrieves a list of data domains.
        *
        * @param request ListDataDomainsRequest
        * @return ListDataDomainsResponse
@@ -3302,7 +3418,7 @@ namespace DataphinPublic20230630
       Models::ListDataDomainsResponse listDataDomains(const Models::ListDataDomainsRequest &request);
 
       /**
-       * @summary 查询API运维统计信息。
+       * @summary O&M analysis: API call statistics.
        *
        * @param tmpReq ListDataServiceApiCallStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3311,7 +3427,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiCallStatisticsResponse listDataServiceApiCallStatisticsWithOptions(const Models::ListDataServiceApiCallStatisticsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询API运维统计信息。
+       * @summary O&M analysis: API call statistics.
        *
        * @param request ListDataServiceApiCallStatisticsRequest
        * @return ListDataServiceApiCallStatisticsResponse
@@ -3319,7 +3435,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiCallStatisticsResponse listDataServiceApiCallStatistics(const Models::ListDataServiceApiCallStatisticsRequest &request);
 
       /**
-       * @summary 分页查询数据服务调用日志。
+       * @summary Queries data service call logs with pagination.
        *
        * @param tmpReq ListDataServiceApiCallsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3328,7 +3444,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiCallsResponse listDataServiceApiCallsWithOptions(const Models::ListDataServiceApiCallsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询数据服务调用日志。
+       * @summary Queries data service call logs with pagination.
        *
        * @param request ListDataServiceApiCallsRequest
        * @return ListDataServiceApiCallsResponse
@@ -3336,7 +3452,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiCallsResponse listDataServiceApiCalls(const Models::ListDataServiceApiCallsRequest &request);
 
       /**
-       * @summary API影响分析列表。
+       * @summary Operations analysis: analyzes the impact of abnormal API calls.
        *
        * @param tmpReq ListDataServiceApiImpactsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3345,7 +3461,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiImpactsResponse listDataServiceApiImpactsWithOptions(const Models::ListDataServiceApiImpactsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary API影响分析列表。
+       * @summary Operations analysis: analyzes the impact of abnormal API calls.
        *
        * @param request ListDataServiceApiImpactsRequest
        * @return ListDataServiceApiImpactsResponse
@@ -3353,7 +3469,8 @@ namespace DataphinPublic20230630
       Models::ListDataServiceApiImpactsResponse listDataServiceApiImpacts(const Models::ListDataServiceApiImpactsRequest &request);
 
       /**
-       * @summary 查询租户下所有的应用列表。
+       * @summary Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
+       * Release version: v6.0.0.
        *
        * @param tmpReq ListDataServiceAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3362,7 +3479,8 @@ namespace DataphinPublic20230630
       Models::ListDataServiceAppsResponse listDataServiceAppsWithOptions(const Models::ListDataServiceAppsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询租户下所有的应用列表。
+       * @summary Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
+       * Release version: v6.0.0.
        *
        * @param request ListDataServiceAppsRequest
        * @return ListDataServiceAppsResponse
@@ -3370,7 +3488,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceAppsResponse listDataServiceApps(const Models::ListDataServiceAppsRequest &request);
 
       /**
-       * @summary 查询当前用户有权限的应用列表。
+       * @summary Queries the list of applications that the current user has permissions to access.
        *
        * @param tmpReq ListDataServiceAuthorizedAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3379,7 +3497,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceAuthorizedAppsResponse listDataServiceAuthorizedAppsWithOptions(const Models::ListDataServiceAuthorizedAppsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询当前用户有权限的应用列表。
+       * @summary Queries the list of applications that the current user has permissions to access.
        *
        * @param request ListDataServiceAuthorizedAppsRequest
        * @return ListDataServiceAuthorizedAppsResponse
@@ -3387,7 +3505,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceAuthorizedAppsResponse listDataServiceAuthorizedApps(const Models::ListDataServiceAuthorizedAppsRequest &request);
 
       /**
-       * @summary 获取我管理的API权限列表。
+       * @summary Obtain the list of API permissions managed by me.
        *
        * @param tmpReq ListDataServiceMyApiPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3396,7 +3514,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceMyApiPermissionsResponse listDataServiceMyApiPermissionsWithOptions(const Models::ListDataServiceMyApiPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取我管理的API权限列表。
+       * @summary Obtain the list of API permissions managed by me.
        *
        * @param request ListDataServiceMyApiPermissionsRequest
        * @return ListDataServiceMyApiPermissionsResponse
@@ -3404,7 +3522,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceMyApiPermissionsResponse listDataServiceMyApiPermissions(const Models::ListDataServiceMyApiPermissionsRequest &request);
 
       /**
-       * @summary 查询当前用户有权限的应用。
+       * @summary Queries the applications that the current user has permissions to access.
        *
        * @param tmpReq ListDataServiceMyAppPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3413,7 +3531,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceMyAppPermissionsResponse listDataServiceMyAppPermissionsWithOptions(const Models::ListDataServiceMyAppPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询当前用户有权限的应用。
+       * @summary Queries the applications that the current user has permissions to access.
        *
        * @param request ListDataServiceMyAppPermissionsRequest
        * @return ListDataServiceMyAppPermissionsResponse
@@ -3421,7 +3539,7 @@ namespace DataphinPublic20230630
       Models::ListDataServiceMyAppPermissionsResponse listDataServiceMyAppPermissions(const Models::ListDataServiceMyAppPermissionsRequest &request);
 
       /**
-       * @summary 分页查询已发布的API列表。
+       * @summary Queries the list of published APIs by page.
        *
        * @param tmpReq ListDataServicePublishedApisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3430,7 +3548,7 @@ namespace DataphinPublic20230630
       Models::ListDataServicePublishedApisResponse listDataServicePublishedApisWithOptions(const Models::ListDataServicePublishedApisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询已发布的API列表。
+       * @summary Queries the list of published APIs by page.
        *
        * @param request ListDataServicePublishedApisRequest
        * @return ListDataServicePublishedApisResponse
@@ -3438,7 +3556,7 @@ namespace DataphinPublic20230630
       Models::ListDataServicePublishedApisResponse listDataServicePublishedApis(const Models::ListDataServicePublishedApisRequest &request);
 
       /**
-       * @summary 搜索数据源，所属结果包含数据源配置项
+       * @summary Search for data sources. The results include data source configuration items.
        *
        * @param tmpReq ListDataSourceWithConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3447,7 +3565,7 @@ namespace DataphinPublic20230630
       Models::ListDataSourceWithConfigResponse listDataSourceWithConfigWithOptions(const Models::ListDataSourceWithConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 搜索数据源，所属结果包含数据源配置项
+       * @summary Search for data sources. The results include data source configuration items.
        *
        * @param request ListDataSourceWithConfigRequest
        * @return ListDataSourceWithConfigResponse
@@ -3455,7 +3573,7 @@ namespace DataphinPublic20230630
       Models::ListDataSourceWithConfigResponse listDataSourceWithConfig(const Models::ListDataSourceWithConfigRequest &request);
 
       /**
-       * @summary 遍历菜单树目录文件。
+       * @summary Query the directory tree file list.
        *
        * @param tmpReq ListFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3464,7 +3582,7 @@ namespace DataphinPublic20230630
       Models::ListFilesResponse listFilesWithOptions(const Models::ListFilesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 遍历菜单树目录文件。
+       * @summary Query the directory tree file list.
        *
        * @param request ListFilesRequest
        * @return ListFilesResponse
@@ -3472,7 +3590,7 @@ namespace DataphinPublic20230630
       Models::ListFilesResponse listFiles(const Models::ListFilesRequest &request);
 
       /**
-       * @summary 分页查询实例。
+       * @summary Paginate and query instances.
        *
        * @param tmpReq ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3481,7 +3599,7 @@ namespace DataphinPublic20230630
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询实例。
+       * @summary Paginate and query instances.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -3489,7 +3607,7 @@ namespace DataphinPublic20230630
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
+       * @summary Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
        *
        * @param tmpReq ListNodeDownStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3498,7 +3616,7 @@ namespace DataphinPublic20230630
       Models::ListNodeDownStreamResponse listNodeDownStreamWithOptions(const Models::ListNodeDownStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
+       * @summary Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
        *
        * @param request ListNodeDownStreamRequest
        * @return ListNodeDownStreamResponse
@@ -3506,7 +3624,7 @@ namespace DataphinPublic20230630
       Models::ListNodeDownStreamResponse listNodeDownStream(const Models::ListNodeDownStreamRequest &request);
 
       /**
-       * @summary 查询调度节点列表。
+       * @summary Retrieves a list of scheduling nodes.
        *
        * @param tmpReq ListNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3515,7 +3633,7 @@ namespace DataphinPublic20230630
       Models::ListNodesResponse listNodesWithOptions(const Models::ListNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询调度节点列表。
+       * @summary Retrieves a list of scheduling nodes.
        *
        * @param request ListNodesRequest
        * @return ListNodesResponse
@@ -3523,7 +3641,7 @@ namespace DataphinPublic20230630
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary 获取项目成员列表。
+       * @summary Queries the list of project members.
        *
        * @param tmpReq ListProjectMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3532,7 +3650,7 @@ namespace DataphinPublic20230630
       Models::ListProjectMembersResponse listProjectMembersWithOptions(const Models::ListProjectMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目成员列表。
+       * @summary Queries the list of project members.
        *
        * @param request ListProjectMembersRequest
        * @return ListProjectMembersResponse
@@ -3540,7 +3658,7 @@ namespace DataphinPublic20230630
       Models::ListProjectMembersResponse listProjectMembers(const Models::ListProjectMembersRequest &request);
 
       /**
-       * @summary 获取项目列表。
+       * @summary Retrieves a list of projects.
        *
        * @param tmpReq ListProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3549,7 +3667,7 @@ namespace DataphinPublic20230630
       Models::ListProjectsResponse listProjectsWithOptions(const Models::ListProjectsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目列表。
+       * @summary Retrieves a list of projects.
        *
        * @param request ListProjectsRequest
        * @return ListProjectsResponse
@@ -3557,7 +3675,7 @@ namespace DataphinPublic20230630
       Models::ListProjectsResponse listProjects(const Models::ListProjectsRequest &request);
 
       /**
-       * @summary 分页获取发布记录列表
+       * @summary Retrieves a paginated list of publish records.
        *
        * @param tmpReq ListPublishRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3566,7 +3684,7 @@ namespace DataphinPublic20230630
       Models::ListPublishRecordsResponse listPublishRecordsWithOptions(const Models::ListPublishRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页获取发布记录列表
+       * @summary Retrieves a paginated list of publish records.
        *
        * @param request ListPublishRecordsRequest
        * @return ListPublishRecordsResponse
@@ -3574,7 +3692,8 @@ namespace DataphinPublic20230630
       Models::ListPublishRecordsResponse listPublishRecords(const Models::ListPublishRecordsRequest &request);
 
       /**
-       * @summary 分页查询质量规则任务。
+       * @summary Queries quality rule tasks by paging.
+       * Online version: v5.4.2.
        *
        * @param tmpReq ListQualityRuleTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3583,7 +3702,8 @@ namespace DataphinPublic20230630
       Models::ListQualityRuleTasksResponse listQualityRuleTasksWithOptions(const Models::ListQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询质量规则任务。
+       * @summary Queries quality rule tasks by paging.
+       * Online version: v5.4.2.
        *
        * @param request ListQualityRuleTasksRequest
        * @return ListQualityRuleTasksResponse
@@ -3591,7 +3711,8 @@ namespace DataphinPublic20230630
       Models::ListQualityRuleTasksResponse listQualityRuleTasks(const Models::ListQualityRuleTasksRequest &request);
 
       /**
-       * @summary 分页查询质量规则。
+       * @summary Queries quality rules by paging.
+       * Online version: v5.4.2.
        *
        * @param tmpReq ListQualityRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3600,7 +3721,8 @@ namespace DataphinPublic20230630
       Models::ListQualityRulesResponse listQualityRulesWithOptions(const Models::ListQualityRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询质量规则。
+       * @summary Queries quality rules by paging.
+       * Online version: v5.4.2.
        *
        * @param request ListQualityRulesRequest
        * @return ListQualityRulesResponse
@@ -3608,7 +3730,8 @@ namespace DataphinPublic20230630
       Models::ListQualityRulesResponse listQualityRules(const Models::ListQualityRulesRequest &request);
 
       /**
-       * @summary 分页查询质量模板。
+       * @summary Queries quality templates by paging.
+       * Online version: v5.4.2.
        *
        * @param tmpReq ListQualityTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3617,7 +3740,8 @@ namespace DataphinPublic20230630
       Models::ListQualityTemplatesResponse listQualityTemplatesWithOptions(const Models::ListQualityTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询质量模板。
+       * @summary Queries quality templates by paging.
+       * Online version: v5.4.2.
        *
        * @param request ListQualityTemplatesRequest
        * @return ListQualityTemplatesResponse
@@ -3625,7 +3749,8 @@ namespace DataphinPublic20230630
       Models::ListQualityTemplatesResponse listQualityTemplates(const Models::ListQualityTemplatesRequest &request);
 
       /**
-       * @summary 分页查询质量监控任务。
+       * @summary Queries quality monitoring nodes by paged query.
+       * Online version: v5.4.2.
        *
        * @param tmpReq ListQualityWatchTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3634,7 +3759,8 @@ namespace DataphinPublic20230630
       Models::ListQualityWatchTasksResponse listQualityWatchTasksWithOptions(const Models::ListQualityWatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询质量监控任务。
+       * @summary Queries quality monitoring nodes by paged query.
+       * Online version: v5.4.2.
        *
        * @param request ListQualityWatchTasksRequest
        * @return ListQualityWatchTasksResponse
@@ -3642,7 +3768,8 @@ namespace DataphinPublic20230630
       Models::ListQualityWatchTasksResponse listQualityWatchTasks(const Models::ListQualityWatchTasksRequest &request);
 
       /**
-       * @summary 分页查询质量监控对象。
+       * @summary Performs a paged query of quality monitored objects.
+       * Online version: v5.4.2.
        *
        * @param tmpReq ListQualityWatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3651,7 +3778,8 @@ namespace DataphinPublic20230630
       Models::ListQualityWatchesResponse listQualityWatchesWithOptions(const Models::ListQualityWatchesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询质量监控对象。
+       * @summary Performs a paged query of quality monitored objects.
+       * Online version: v5.4.2.
        *
        * @param request ListQualityWatchesRequest
        * @return ListQualityWatchesResponse
@@ -3659,7 +3787,7 @@ namespace DataphinPublic20230630
       Models::ListQualityWatchesResponse listQualityWatches(const Models::ListQualityWatchesRequest &request);
 
       /**
-       * @summary 分页获取权限操作列表
+       * @summary Retrieves a paginated list of permission operation logs.
        *
        * @param tmpReq ListResourcePermissionOperationLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3668,7 +3796,7 @@ namespace DataphinPublic20230630
       Models::ListResourcePermissionOperationLogResponse listResourcePermissionOperationLogWithOptions(const Models::ListResourcePermissionOperationLogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页获取权限操作列表
+       * @summary Retrieves a paginated list of permission operation logs.
        *
        * @param request ListResourcePermissionOperationLogRequest
        * @return ListResourcePermissionOperationLogResponse
@@ -3676,7 +3804,7 @@ namespace DataphinPublic20230630
       Models::ListResourcePermissionOperationLogResponse listResourcePermissionOperationLog(const Models::ListResourcePermissionOperationLogRequest &request);
 
       /**
-       * @summary 分页获取权限记录列表
+       * @summary Retrieves permission authorization records with pagination.
        *
        * @param tmpReq ListResourcePermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3685,7 +3813,7 @@ namespace DataphinPublic20230630
       Models::ListResourcePermissionsResponse listResourcePermissionsWithOptions(const Models::ListResourcePermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页获取权限记录列表
+       * @summary Retrieves permission authorization records with pagination.
        *
        * @param request ListResourcePermissionsRequest
        * @return ListResourcePermissionsResponse
@@ -3693,7 +3821,7 @@ namespace DataphinPublic20230630
       Models::ListResourcePermissionsResponse listResourcePermissions(const Models::ListResourcePermissionsRequest &request);
 
       /**
-       * @summary 分页查询行级权限
+       * @summary Performs a paged query of row-level permissions.
        *
        * @param tmpReq ListRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3702,7 +3830,7 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionResponse listRowPermissionWithOptions(const Models::ListRowPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询行级权限
+       * @summary Performs a paged query of row-level permissions.
        *
        * @param request ListRowPermissionRequest
        * @return ListRowPermissionResponse
@@ -3710,7 +3838,7 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionResponse listRowPermission(const Models::ListRowPermissionRequest &request);
 
       /**
-       * @summary 分页查询指定用户行级权限
+       * @summary Queries row-level permissions of a specified user by paging.
        *
        * @param tmpReq ListRowPermissionByUserIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3719,7 +3847,7 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionByUserIdResponse listRowPermissionByUserIdWithOptions(const Models::ListRowPermissionByUserIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询指定用户行级权限
+       * @summary Queries row-level permissions of a specified user by paging.
        *
        * @param request ListRowPermissionByUserIdRequest
        * @return ListRowPermissionByUserIdResponse
@@ -3727,7 +3855,8 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionByUserIdResponse listRowPermissionByUserId(const Models::ListRowPermissionByUserIdRequest &request);
 
       /**
-       * @summary 分页查询安全识别结果的识别记录。
+       * @summary Queries identification records of security identification results by paging.
+       * Online version: v5.4.2.
        *
        * @param tmpReq ListSecurityIdentifyRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3736,7 +3865,8 @@ namespace DataphinPublic20230630
       Models::ListSecurityIdentifyRecordsResponse listSecurityIdentifyRecordsWithOptions(const Models::ListSecurityIdentifyRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询安全识别结果的识别记录。
+       * @summary Queries identification records of security identification results by paging.
+       * Online version: v5.4.2.
        *
        * @param request ListSecurityIdentifyRecordsRequest
        * @return ListSecurityIdentifyRecordsResponse
@@ -3744,7 +3874,8 @@ namespace DataphinPublic20230630
       Models::ListSecurityIdentifyRecordsResponse listSecurityIdentifyRecords(const Models::ListSecurityIdentifyRecordsRequest &request);
 
       /**
-       * @summary 分页查询安全识别结果。
+       * @summary Query security identification results by page.
+       * Release version: v5.4.2.
        *
        * @param tmpReq ListSecurityIdentifyResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3753,7 +3884,8 @@ namespace DataphinPublic20230630
       Models::ListSecurityIdentifyResultsResponse listSecurityIdentifyResultsWithOptions(const Models::ListSecurityIdentifyResultsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询安全识别结果。
+       * @summary Query security identification results by page.
+       * Release version: v5.4.2.
        *
        * @param request ListSecurityIdentifyResultsRequest
        * @return ListSecurityIdentifyResultsResponse
@@ -3761,7 +3893,8 @@ namespace DataphinPublic20230630
       Models::ListSecurityIdentifyResultsResponse listSecurityIdentifyResults(const Models::ListSecurityIdentifyResultsRequest &request);
 
       /**
-       * @summary 分页查询标准列表。
+       * @summary Query the standard list by page.
+       * Release version: v5.4.2.
        *
        * @param tmpReq ListStandardsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3770,7 +3903,8 @@ namespace DataphinPublic20230630
       Models::ListStandardsResponse listStandardsWithOptions(const Models::ListStandardsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询标准列表。
+       * @summary Query the standard list by page.
+       * Release version: v5.4.2.
        *
        * @param request ListStandardsRequest
        * @return ListStandardsResponse
@@ -3778,7 +3912,7 @@ namespace DataphinPublic20230630
       Models::ListStandardsResponse listStandards(const Models::ListStandardsRequest &request);
 
       /**
-       * @summary 分页获取待发布记录列表
+       * @summary Paginate and retrieve the list of pending deployment records.
        *
        * @param tmpReq ListSubmitRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3787,7 +3921,7 @@ namespace DataphinPublic20230630
       Models::ListSubmitRecordsResponse listSubmitRecordsWithOptions(const Models::ListSubmitRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页获取待发布记录列表
+       * @summary Paginate and retrieve the list of pending deployment records.
        *
        * @param request ListSubmitRecordsRequest
        * @return ListSubmitRecordsResponse
@@ -3795,7 +3929,8 @@ namespace DataphinPublic20230630
       Models::ListSubmitRecordsResponse listSubmitRecords(const Models::ListSubmitRecordsRequest &request);
 
       /**
-       * @summary 分页查询查询资产表元数据。
+       * @summary Performs a paged query to retrieve asset table metadata.
+       * Online version: v5.4.2.
        *
        * @param tmpReq ListTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3804,7 +3939,8 @@ namespace DataphinPublic20230630
       Models::ListTablesResponse listTablesWithOptions(const Models::ListTablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询查询资产表元数据。
+       * @summary Performs a paged query to retrieve asset table metadata.
+       * Online version: v5.4.2.
        *
        * @param request ListTablesRequest
        * @return ListTablesResponse
@@ -3812,7 +3948,7 @@ namespace DataphinPublic20230630
       Models::ListTablesResponse listTables(const Models::ListTablesRequest &request);
 
       /**
-       * @summary 查询租户成员列表
+       * @summary Queries the list of tenant members.
        *
        * @param tmpReq ListTenantMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3821,7 +3957,7 @@ namespace DataphinPublic20230630
       Models::ListTenantMembersResponse listTenantMembersWithOptions(const Models::ListTenantMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询租户成员列表
+       * @summary Queries the list of tenant members.
        *
        * @param request ListTenantMembersRequest
        * @return ListTenantMembersResponse
@@ -3829,7 +3965,7 @@ namespace DataphinPublic20230630
       Models::ListTenantMembersResponse listTenantMembers(const Models::ListTenantMembersRequest &request);
 
       /**
-       * @summary 用户组成员列表分页查询.
+       * @summary Performs a paging query of user group members.
        *
        * @param tmpReq ListUserGroupMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3838,7 +3974,7 @@ namespace DataphinPublic20230630
       Models::ListUserGroupMembersResponse listUserGroupMembersWithOptions(const Models::ListUserGroupMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户组成员列表分页查询.
+       * @summary Performs a paging query of user group members.
        *
        * @param request ListUserGroupMembersRequest
        * @return ListUserGroupMembersResponse
@@ -3846,7 +3982,7 @@ namespace DataphinPublic20230630
       Models::ListUserGroupMembersResponse listUserGroupMembers(const Models::ListUserGroupMembersRequest &request);
 
       /**
-       * @summary 用户组列表分页查询.
+       * @summary Queries user groups by paging.
        *
        * @param tmpReq ListUserGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3855,7 +3991,7 @@ namespace DataphinPublic20230630
       Models::ListUserGroupsResponse listUserGroupsWithOptions(const Models::ListUserGroupsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户组列表分页查询.
+       * @summary Queries user groups by paging.
        *
        * @param request ListUserGroupsRequest
        * @return ListUserGroupsResponse
@@ -3863,7 +3999,7 @@ namespace DataphinPublic20230630
       Models::ListUserGroupsResponse listUserGroups(const Models::ListUserGroupsRequest &request);
 
       /**
-       * @summary 下线离线计算任务。
+       * @summary Offlines a batch task.
        *
        * @param request OfflineBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3872,7 +4008,7 @@ namespace DataphinPublic20230630
       Models::OfflineBatchTaskResponse offlineBatchTaskWithOptions(const Models::OfflineBatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下线离线计算任务。
+       * @summary Offlines a batch task.
        *
        * @param request OfflineBatchTaskRequest
        * @return OfflineBatchTaskResponse
@@ -3880,7 +4016,7 @@ namespace DataphinPublic20230630
       Models::OfflineBatchTaskResponse offlineBatchTask(const Models::OfflineBatchTaskRequest &request);
 
       /**
-       * @summary 下线业务实体、
+       * @summary Offline a business entity.
        *
        * @param tmpReq OfflineBizEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3889,7 +4025,7 @@ namespace DataphinPublic20230630
       Models::OfflineBizEntityResponse offlineBizEntityWithOptions(const Models::OfflineBizEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下线业务实体、
+       * @summary Offline a business entity.
        *
        * @param request OfflineBizEntityRequest
        * @return OfflineBizEntityResponse
@@ -3897,7 +4033,7 @@ namespace DataphinPublic20230630
       Models::OfflineBizEntityResponse offlineBizEntity(const Models::OfflineBizEntityRequest &request);
 
       /**
-       * @summary 下线集成管道任务。
+       * @summary Offlines an integration pipeline node.
        *
        * @param tmpReq OfflinePipelineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3906,7 +4042,7 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineResponse offlinePipelineWithOptions(const Models::OfflinePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下线集成管道任务。
+       * @summary Offlines an integration pipeline node.
        *
        * @param request OfflinePipelineRequest
        * @return OfflinePipelineResponse
@@ -3914,7 +4050,7 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineResponse offlinePipeline(const Models::OfflinePipelineRequest &request);
 
       /**
-       * @summary 异步下线集成管道任务。
+       * @summary Asynchronously offlines an integration pipeline node.
        *
        * @param tmpReq OfflinePipelineByAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3923,7 +4059,7 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineByAsyncResponse offlinePipelineByAsyncWithOptions(const Models::OfflinePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 异步下线集成管道任务。
+       * @summary Asynchronously offlines an integration pipeline node.
        *
        * @param request OfflinePipelineByAsyncRequest
        * @return OfflinePipelineByAsyncResponse
@@ -3931,7 +4067,8 @@ namespace DataphinPublic20230630
       Models::OfflinePipelineByAsyncResponse offlinePipelineByAsync(const Models::OfflinePipelineByAsyncRequest &request);
 
       /**
-       * @summary 下线标准。
+       * @summary Offlines a standard.
+       * Online version: v5.4.2.
        *
        * @param tmpReq OfflineStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3940,7 +4077,8 @@ namespace DataphinPublic20230630
       Models::OfflineStandardResponse offlineStandardWithOptions(const Models::OfflineStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下线标准。
+       * @summary Offlines a standard.
+       * Online version: v5.4.2.
        *
        * @param request OfflineStandardRequest
        * @return OfflineStandardResponse
@@ -3948,7 +4086,7 @@ namespace DataphinPublic20230630
       Models::OfflineStandardResponse offlineStandard(const Models::OfflineStandardRequest &request);
 
       /**
-       * @summary 上线业务实体。
+       * @summary Brings a business entity online.
        *
        * @param tmpReq OnlineBizEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3957,7 +4095,7 @@ namespace DataphinPublic20230630
       Models::OnlineBizEntityResponse onlineBizEntityWithOptions(const Models::OnlineBizEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上线业务实体。
+       * @summary Brings a business entity online.
        *
        * @param request OnlineBizEntityRequest
        * @return OnlineBizEntityResponse
@@ -3965,7 +4103,7 @@ namespace DataphinPublic20230630
       Models::OnlineBizEntityResponse onlineBizEntity(const Models::OnlineBizEntityRequest &request);
 
       /**
-       * @summary 运维实例。
+       * @summary Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
        *
        * @param tmpReq OperateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3974,7 +4112,7 @@ namespace DataphinPublic20230630
       Models::OperateInstanceResponse operateInstanceWithOptions(const Models::OperateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运维实例。
+       * @summary Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
        *
        * @param request OperateInstanceRequest
        * @return OperateInstanceResponse
@@ -3982,7 +4120,7 @@ namespace DataphinPublic20230630
       Models::OperateInstanceResponse operateInstance(const Models::OperateInstanceRequest &request);
 
       /**
-       * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+       * @summary Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
        *
        * @param tmpReq ParseBatchTaskDependencyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3991,7 +4129,7 @@ namespace DataphinPublic20230630
       Models::ParseBatchTaskDependencyResponse parseBatchTaskDependencyWithOptions(const Models::ParseBatchTaskDependencyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+       * @summary Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
        *
        * @param request ParseBatchTaskDependencyRequest
        * @return ParseBatchTaskDependencyResponse
@@ -3999,7 +4137,7 @@ namespace DataphinPublic20230630
       Models::ParseBatchTaskDependencyResponse parseBatchTaskDependency(const Models::ParseBatchTaskDependencyRequest &request);
 
       /**
-       * @summary 暂停物理节点调度。
+       * @summary Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
        *
        * @param tmpReq PausePhysicalNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4008,7 +4146,7 @@ namespace DataphinPublic20230630
       Models::PausePhysicalNodeResponse pausePhysicalNodeWithOptions(const Models::PausePhysicalNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 暂停物理节点调度。
+       * @summary Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
        *
        * @param request PausePhysicalNodeRequest
        * @return PausePhysicalNodeResponse
@@ -4016,7 +4154,7 @@ namespace DataphinPublic20230630
       Models::PausePhysicalNodeResponse pausePhysicalNode(const Models::PausePhysicalNodeRequest &request);
 
       /**
-       * @summary 发布数据服务API到生产环境。
+       * @summary Publishes a data service API to the production environment.
        *
        * @param request PublishDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4025,7 +4163,7 @@ namespace DataphinPublic20230630
       Models::PublishDataServiceApiResponse publishDataServiceApiWithOptions(const Models::PublishDataServiceApiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布数据服务API到生产环境。
+       * @summary Publishes a data service API to the production environment.
        *
        * @param request PublishDataServiceApiRequest
        * @return PublishDataServiceApiResponse
@@ -4033,7 +4171,7 @@ namespace DataphinPublic20230630
       Models::PublishDataServiceApiResponse publishDataServiceApi(const Models::PublishDataServiceApiRequest &request);
 
       /**
-       * @summary 批量发布对象
+       * @summary Publishes objects in batches.
        *
        * @param tmpReq PublishObjectListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4042,7 +4180,7 @@ namespace DataphinPublic20230630
       Models::PublishObjectListResponse publishObjectListWithOptions(const Models::PublishObjectListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量发布对象
+       * @summary Publishes objects in batches.
        *
        * @param request PublishObjectListRequest
        * @return PublishObjectListResponse
@@ -4050,7 +4188,8 @@ namespace DataphinPublic20230630
       Models::PublishObjectListResponse publishObjectList(const Models::PublishObjectListRequest &request);
 
       /**
-       * @summary 发布标准。
+       * @summary Publishes a standard.
+       * Release version: v5.4.2.
        *
        * @param tmpReq PublishStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4059,7 +4198,8 @@ namespace DataphinPublic20230630
       Models::PublishStandardResponse publishStandardWithOptions(const Models::PublishStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布标准。
+       * @summary Publishes a standard.
+       * Release version: v5.4.2.
        *
        * @param request PublishStandardRequest
        * @return PublishStandardResponse
@@ -4067,7 +4207,8 @@ namespace DataphinPublic20230630
       Models::PublishStandardResponse publishStandard(const Models::PublishStandardRequest &request);
 
       /**
-       * @summary 删除数据服务应用的普通成员。
+       * @summary Remove regular members from a data service application. Only the application owner can perform this operation.
+       * Released version: v6.0.0.
        *
        * @param tmpReq RemoveDataServiceAppMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4076,7 +4217,8 @@ namespace DataphinPublic20230630
       Models::RemoveDataServiceAppMemberResponse removeDataServiceAppMemberWithOptions(const Models::RemoveDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据服务应用的普通成员。
+       * @summary Remove regular members from a data service application. Only the application owner can perform this operation.
+       * Released version: v6.0.0.
        *
        * @param request RemoveDataServiceAppMemberRequest
        * @return RemoveDataServiceAppMemberResponse
@@ -4084,7 +4226,7 @@ namespace DataphinPublic20230630
       Models::RemoveDataServiceAppMemberResponse removeDataServiceAppMember(const Models::RemoveDataServiceAppMemberRequest &request);
 
       /**
-       * @summary 删除项目成员。
+       * @summary Deletes a project member.
        *
        * @param tmpReq RemoveProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4093,7 +4235,7 @@ namespace DataphinPublic20230630
       Models::RemoveProjectMemberResponse removeProjectMemberWithOptions(const Models::RemoveProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除项目成员。
+       * @summary Deletes a project member.
        *
        * @param request RemoveProjectMemberRequest
        * @return RemoveProjectMemberResponse
@@ -4101,7 +4243,8 @@ namespace DataphinPublic20230630
       Models::RemoveProjectMemberResponse removeProjectMember(const Models::RemoveProjectMemberRequest &request);
 
       /**
-       * @summary 批量删除质量规则和调度的绑定关系。
+       * @summary Deletes the bindings between quality rules and schedules in batches.
+       * Release version: v5.4.2.
        *
        * @param tmpReq RemoveQualityRuleSchedulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4110,7 +4253,8 @@ namespace DataphinPublic20230630
       Models::RemoveQualityRuleSchedulesResponse removeQualityRuleSchedulesWithOptions(const Models::RemoveQualityRuleSchedulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除质量规则和调度的绑定关系。
+       * @summary Deletes the bindings between quality rules and schedules in batches.
+       * Release version: v5.4.2.
        *
        * @param request RemoveQualityRuleSchedulesRequest
        * @return RemoveQualityRuleSchedulesResponse
@@ -4118,7 +4262,7 @@ namespace DataphinPublic20230630
       Models::RemoveQualityRuleSchedulesResponse removeQualityRuleSchedules(const Models::RemoveQualityRuleSchedulesRequest &request);
 
       /**
-       * @summary 删除租户成员
+       * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
        *
        * @param tmpReq RemoveTenantMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4127,7 +4271,7 @@ namespace DataphinPublic20230630
       Models::RemoveTenantMemberResponse removeTenantMemberWithOptions(const Models::RemoveTenantMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除租户成员
+       * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
        *
        * @param request RemoveTenantMemberRequest
        * @return RemoveTenantMemberResponse
@@ -4135,7 +4279,7 @@ namespace DataphinPublic20230630
       Models::RemoveTenantMemberResponse removeTenantMember(const Models::RemoveTenantMemberRequest &request);
 
       /**
-       * @summary 移除用户组成员.
+       * @summary Removes members from a user group.
        *
        * @param tmpReq RemoveUserGroupMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4144,7 +4288,7 @@ namespace DataphinPublic20230630
       Models::RemoveUserGroupMemberResponse removeUserGroupMemberWithOptions(const Models::RemoveUserGroupMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除用户组成员.
+       * @summary Removes members from a user group.
        *
        * @param request RemoveUserGroupMemberRequest
        * @return RemoveUserGroupMemberResponse
@@ -4152,7 +4296,7 @@ namespace DataphinPublic20230630
       Models::RemoveUserGroupMemberResponse removeUserGroupMember(const Models::RemoveUserGroupMemberRequest &request);
 
       /**
-       * @summary 更新项目白名单。
+       * @summary Updates the whitelist of a project.
        *
        * @param tmpReq ReplaceProjectWhiteListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4161,7 +4305,7 @@ namespace DataphinPublic20230630
       Models::ReplaceProjectWhiteListsResponse replaceProjectWhiteListsWithOptions(const Models::ReplaceProjectWhiteListsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新项目白名单。
+       * @summary Updates the whitelist of a project.
        *
        * @param request ReplaceProjectWhiteListsRequest
        * @return ReplaceProjectWhiteListsResponse
@@ -4169,7 +4313,8 @@ namespace DataphinPublic20230630
       Models::ReplaceProjectWhiteListsResponse replaceProjectWhiteLists(const Models::ReplaceProjectWhiteListsRequest &request);
 
       /**
-       * @summary 重置数据服务应用密钥。
+       * @summary Reset the Data Service application key. Only the application owner can perform this operation.
+       * Release version: v6.0.0.
        *
        * @param tmpReq ResetDataServiceAppSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4178,7 +4323,8 @@ namespace DataphinPublic20230630
       Models::ResetDataServiceAppSecretResponse resetDataServiceAppSecretWithOptions(const Models::ResetDataServiceAppSecretRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置数据服务应用密钥。
+       * @summary Reset the Data Service application key. Only the application owner can perform this operation.
+       * Release version: v6.0.0.
        *
        * @param request ResetDataServiceAppSecretRequest
        * @return ResetDataServiceAppSecretResponse
@@ -4186,7 +4332,7 @@ namespace DataphinPublic20230630
       Models::ResetDataServiceAppSecretResponse resetDataServiceAppSecret(const Models::ResetDataServiceAppSecretRequest &request);
 
       /**
-       * @summary 恢复物理节点调度。
+       * @summary Resume physical node scheduling.
        *
        * @param tmpReq ResumePhysicalNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4195,7 +4341,7 @@ namespace DataphinPublic20230630
       Models::ResumePhysicalNodeResponse resumePhysicalNodeWithOptions(const Models::ResumePhysicalNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复物理节点调度。
+       * @summary Resume physical node scheduling.
        *
        * @param request ResumePhysicalNodeRequest
        * @return ResumePhysicalNodeResponse
@@ -4203,7 +4349,7 @@ namespace DataphinPublic20230630
       Models::ResumePhysicalNodeResponse resumePhysicalNode(const Models::ResumePhysicalNodeRequest &request);
 
       /**
-       * @summary 重新转交运行失败的转交任务
+       * @summary Retransfers a failed transfer task.
        *
        * @param tmpReq RetryTransferOwnershipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4212,7 +4358,7 @@ namespace DataphinPublic20230630
       Models::RetryTransferOwnershipResponse retryTransferOwnershipWithOptions(const Models::RetryTransferOwnershipRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重新转交运行失败的转交任务
+       * @summary Retransfers a failed transfer task.
        *
        * @param request RetryTransferOwnershipRequest
        * @return RetryTransferOwnershipResponse
@@ -4220,7 +4366,7 @@ namespace DataphinPublic20230630
       Models::RetryTransferOwnershipResponse retryTransferOwnership(const Models::RetryTransferOwnershipRequest &request);
 
       /**
-       * @summary 回收API授权。
+       * @summary Revokes API authorization.
        *
        * @param tmpReq RevokeDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4229,7 +4375,7 @@ namespace DataphinPublic20230630
       Models::RevokeDataServiceApiResponse revokeDataServiceApiWithOptions(const Models::RevokeDataServiceApiRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 回收API授权。
+       * @summary Revokes API authorization.
        *
        * @param request RevokeDataServiceApiRequest
        * @return RevokeDataServiceApiResponse
@@ -4237,7 +4383,7 @@ namespace DataphinPublic20230630
       Models::RevokeDataServiceApiResponse revokeDataServiceApi(const Models::RevokeDataServiceApiRequest &request);
 
       /**
-       * @summary 回收用户资源授权
+       * @summary Revokes resource authorization from a user.
        *
        * @param tmpReq RevokeResourcePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4246,7 +4392,7 @@ namespace DataphinPublic20230630
       Models::RevokeResourcePermissionResponse revokeResourcePermissionWithOptions(const Models::RevokeResourcePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 回收用户资源授权
+       * @summary Revokes resource authorization from a user.
        *
        * @param request RevokeResourcePermissionRequest
        * @return RevokeResourcePermissionResponse
@@ -4254,7 +4400,7 @@ namespace DataphinPublic20230630
       Models::RevokeResourcePermissionResponse revokeResourcePermission(const Models::RevokeResourcePermissionRequest &request);
 
       /**
-       * @summary 终止即席查询任务。
+       * @summary Stops an ad hoc query task.
        *
        * @param request StopAdHocTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4263,7 +4409,7 @@ namespace DataphinPublic20230630
       Models::StopAdHocTaskResponse stopAdHocTaskWithOptions(const Models::StopAdHocTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 终止即席查询任务。
+       * @summary Stops an ad hoc query task.
        *
        * @param request StopAdHocTaskRequest
        * @return StopAdHocTaskResponse
@@ -4271,7 +4417,7 @@ namespace DataphinPublic20230630
       Models::StopAdHocTaskResponse stopAdHocTask(const Models::StopAdHocTaskRequest &request);
 
       /**
-       * @summary 提交离线计算任务。
+       * @summary Submits a batch task.
        *
        * @param tmpReq SubmitBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4280,7 +4426,7 @@ namespace DataphinPublic20230630
       Models::SubmitBatchTaskResponse submitBatchTaskWithOptions(const Models::SubmitBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交离线计算任务。
+       * @summary Submits a batch task.
        *
        * @param request SubmitBatchTaskRequest
        * @return SubmitBatchTaskResponse
@@ -4288,7 +4434,8 @@ namespace DataphinPublic20230630
       Models::SubmitBatchTaskResponse submitBatchTask(const Models::SubmitBatchTaskRequest &request);
 
       /**
-       * @summary 批量提交规则任务,支持试跑。
+       * @summary Batch submit rule tasks with support for test runs.
+       * Release version: v5.4.2.
        *
        * @param tmpReq SubmitQualityRuleTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4297,7 +4444,8 @@ namespace DataphinPublic20230630
       Models::SubmitQualityRuleTasksResponse submitQualityRuleTasksWithOptions(const Models::SubmitQualityRuleTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量提交规则任务,支持试跑。
+       * @summary Batch submit rule tasks with support for test runs.
+       * Release version: v5.4.2.
        *
        * @param request SubmitQualityRuleTasksRequest
        * @return SubmitQualityRuleTasksResponse
@@ -4305,7 +4453,8 @@ namespace DataphinPublic20230630
       Models::SubmitQualityRuleTasksResponse submitQualityRuleTasks(const Models::SubmitQualityRuleTasksRequest &request);
 
       /**
-       * @summary 批量提交监控对象校验任务。
+       * @summary Submits quality watchtask check tasks in batches.
+       * Online version: v5.4.2.
        *
        * @param tmpReq SubmitQualityWatchTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4314,7 +4463,8 @@ namespace DataphinPublic20230630
       Models::SubmitQualityWatchTasksResponse submitQualityWatchTasksWithOptions(const Models::SubmitQualityWatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量提交监控对象校验任务。
+       * @summary Submits quality watchtask check tasks in batches.
+       * Online version: v5.4.2.
        *
        * @param request SubmitQualityWatchTasksRequest
        * @return SubmitQualityWatchTasksResponse
@@ -4322,7 +4472,9 @@ namespace DataphinPublic20230630
       Models::SubmitQualityWatchTasksResponse submitQualityWatchTasks(const Models::SubmitQualityWatchTasksRequest &request);
 
       /**
-       * @summary 同步部门信息。
+       * @summary Synchronizes department information.
+       *
+       * @description Queries the details of a published API operation by AppKey.
        *
        * @param tmpReq SyncDepartmentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4331,7 +4483,9 @@ namespace DataphinPublic20230630
       Models::SyncDepartmentResponse syncDepartmentWithOptions(const Models::SyncDepartmentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步部门信息。
+       * @summary Synchronizes department information.
+       *
+       * @description Queries the details of a published API operation by AppKey.
        *
        * @param request SyncDepartmentRequest
        * @return SyncDepartmentResponse
@@ -4339,7 +4493,7 @@ namespace DataphinPublic20230630
       Models::SyncDepartmentResponse syncDepartment(const Models::SyncDepartmentRequest &request);
 
       /**
-       * @summary 同步部门成员信息
+       * @summary Synchronizes department member information.
        *
        * @param tmpReq SyncDepartmentUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4348,7 +4502,7 @@ namespace DataphinPublic20230630
       Models::SyncDepartmentUserResponse syncDepartmentUserWithOptions(const Models::SyncDepartmentUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步部门成员信息
+       * @summary Synchronizes department member information.
        *
        * @param request SyncDepartmentUserRequest
        * @return SyncDepartmentUserResponse
@@ -4356,7 +4510,7 @@ namespace DataphinPublic20230630
       Models::SyncDepartmentUserResponse syncDepartmentUser(const Models::SyncDepartmentUserRequest &request);
 
       /**
-       * @summary 一键转交负责人
+       * @summary Transfers ownership to a new owner in one click.
        *
        * @param tmpReq TransferOwnershipForAllObjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4365,7 +4519,7 @@ namespace DataphinPublic20230630
       Models::TransferOwnershipForAllObjectResponse transferOwnershipForAllObjectWithOptions(const Models::TransferOwnershipForAllObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 一键转交负责人
+       * @summary Transfers ownership to a new owner in one click.
        *
        * @param request TransferOwnershipForAllObjectRequest
        * @return TransferOwnershipForAllObjectResponse
@@ -4373,7 +4527,7 @@ namespace DataphinPublic20230630
       Models::TransferOwnershipForAllObjectResponse transferOwnershipForAllObject(const Models::TransferOwnershipForAllObjectRequest &request);
 
       /**
-       * @summary 编辑即席查询文件。
+       * @summary Modifies an ad hoc query file.
        *
        * @param tmpReq UpdateAdHocFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4382,7 +4536,7 @@ namespace DataphinPublic20230630
       Models::UpdateAdHocFileResponse updateAdHocFileWithOptions(const Models::UpdateAdHocFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑即席查询文件。
+       * @summary Modifies an ad hoc query file.
        *
        * @param request UpdateAdHocFileRequest
        * @return UpdateAdHocFileResponse
@@ -4390,7 +4544,7 @@ namespace DataphinPublic20230630
       Models::UpdateAdHocFileResponse updateAdHocFile(const Models::UpdateAdHocFileRequest &request);
 
       /**
-       * @summary 编辑离线计算任务。
+       * @summary Updates an offline compute node.
        *
        * @param tmpReq UpdateBatchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4399,7 +4553,7 @@ namespace DataphinPublic20230630
       Models::UpdateBatchTaskResponse updateBatchTaskWithOptions(const Models::UpdateBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑离线计算任务。
+       * @summary Updates an offline compute node.
        *
        * @param request UpdateBatchTaskRequest
        * @return UpdateBatchTaskResponse
@@ -4407,7 +4561,7 @@ namespace DataphinPublic20230630
       Models::UpdateBatchTaskResponse updateBatchTask(const Models::UpdateBatchTaskRequest &request);
 
       /**
-       * @summary 编辑离线计算任务自定义血缘。
+       * @summary Edits the custom data lineage of a batch task.
        *
        * @param tmpReq UpdateBatchTaskUdfLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4416,7 +4570,7 @@ namespace DataphinPublic20230630
       Models::UpdateBatchTaskUdfLineagesResponse updateBatchTaskUdfLineagesWithOptions(const Models::UpdateBatchTaskUdfLineagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑离线计算任务自定义血缘。
+       * @summary Edits the custom data lineage of a batch task.
        *
        * @param request UpdateBatchTaskUdfLineagesRequest
        * @return UpdateBatchTaskUdfLineagesResponse
@@ -4424,7 +4578,7 @@ namespace DataphinPublic20230630
       Models::UpdateBatchTaskUdfLineagesResponse updateBatchTaskUdfLineages(const Models::UpdateBatchTaskUdfLineagesRequest &request);
 
       /**
-       * @summary 更新业务实体、
+       * @summary Updates a business entity.
        *
        * @param tmpReq UpdateBizEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4433,7 +4587,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizEntityResponse updateBizEntityWithOptions(const Models::UpdateBizEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新业务实体、
+       * @summary Updates a business entity.
        *
        * @param request UpdateBizEntityRequest
        * @return UpdateBizEntityResponse
@@ -4441,7 +4595,8 @@ namespace DataphinPublic20230630
       Models::UpdateBizEntityResponse updateBizEntity(const Models::UpdateBizEntityRequest &request);
 
       /**
-       * @summary 更新业务指标
+       * @summary Update a business metric.
+       * Release version: v5.5.0.
        *
        * @param tmpReq UpdateBizMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4450,7 +4605,8 @@ namespace DataphinPublic20230630
       Models::UpdateBizMetricResponse updateBizMetricWithOptions(const Models::UpdateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新业务指标
+       * @summary Update a business metric.
+       * Release version: v5.5.0.
        *
        * @param request UpdateBizMetricRequest
        * @return UpdateBizMetricResponse
@@ -4458,7 +4614,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizMetricResponse updateBizMetric(const Models::UpdateBizMetricRequest &request);
 
       /**
-       * @summary 更新数据板块。
+       * @summary Updates a data domain.
        *
        * @param tmpReq UpdateBizUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4467,7 +4623,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizUnitResponse updateBizUnitWithOptions(const Models::UpdateBizUnitRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据板块。
+       * @summary Updates a data domain.
        *
        * @param request UpdateBizUnitRequest
        * @return UpdateBizUnitResponse
@@ -4475,7 +4631,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizUnitResponse updateBizUnit(const Models::UpdateBizUnitRequest &request);
 
       /**
-       * @summary 修改计算源。
+       * @summary Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
        *
        * @param tmpReq UpdateComputeSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4484,7 +4640,7 @@ namespace DataphinPublic20230630
       Models::UpdateComputeSourceResponse updateComputeSourceWithOptions(const Models::UpdateComputeSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改计算源。
+       * @summary Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
        *
        * @param request UpdateComputeSourceRequest
        * @return UpdateComputeSourceResponse
@@ -4492,7 +4648,7 @@ namespace DataphinPublic20230630
       Models::UpdateComputeSourceResponse updateComputeSource(const Models::UpdateComputeSourceRequest &request);
 
       /**
-       * @summary 更新主题域。
+       * @summary Updates a data domain.
        *
        * @param tmpReq UpdateDataDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4501,7 +4657,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataDomainResponse updateDataDomainWithOptions(const Models::UpdateDataDomainRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新主题域。
+       * @summary Updates a data domain.
        *
        * @param request UpdateDataDomainRequest
        * @return UpdateDataDomainResponse
@@ -4509,7 +4665,8 @@ namespace DataphinPublic20230630
       Models::UpdateDataDomainResponse updateDataDomain(const Models::UpdateDataDomainRequest &request);
 
       /**
-       * @summary 更新数据服务应用。
+       * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
+       * Release version: v6.0.0.
        *
        * @param tmpReq UpdateDataServiceAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4518,7 +4675,8 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppResponse updateDataServiceAppWithOptions(const Models::UpdateDataServiceAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据服务应用。
+       * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
+       * Release version: v6.0.0.
        *
        * @param request UpdateDataServiceAppRequest
        * @return UpdateDataServiceAppResponse
@@ -4526,7 +4684,8 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppResponse updateDataServiceApp(const Models::UpdateDataServiceAppRequest &request);
 
       /**
-       * @summary 更新数据服务应用分组。
+       * @summary Updates a data service application group. Only superusers and system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param tmpReq UpdateDataServiceAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4535,7 +4694,8 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppGroupResponse updateDataServiceAppGroupWithOptions(const Models::UpdateDataServiceAppGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据服务应用分组。
+       * @summary Updates a data service application group. Only superusers and system administrators can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request UpdateDataServiceAppGroupRequest
        * @return UpdateDataServiceAppGroupResponse
@@ -4543,7 +4703,8 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppGroupResponse updateDataServiceAppGroup(const Models::UpdateDataServiceAppGroupRequest &request);
 
       /**
-       * @summary 更新数据服务应用的普通成员。
+       * @summary Updates the regular members of a data service application. Only the application owner can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param tmpReq UpdateDataServiceAppMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4552,7 +4713,8 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppMemberResponse updateDataServiceAppMemberWithOptions(const Models::UpdateDataServiceAppMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据服务应用的普通成员。
+       * @summary Updates the regular members of a data service application. Only the application owner can perform this operation.
+       * Online version: v6.0.0.
        *
        * @param request UpdateDataServiceAppMemberRequest
        * @return UpdateDataServiceAppMemberResponse
@@ -4560,7 +4722,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataServiceAppMemberResponse updateDataServiceAppMember(const Models::UpdateDataServiceAppMemberRequest &request);
 
       /**
-       * @summary 编辑数据源基本信息
+       * @summary Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
        *
        * @param tmpReq UpdateDataSourceBasicInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4569,7 +4731,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceBasicInfoResponse updateDataSourceBasicInfoWithOptions(const Models::UpdateDataSourceBasicInfoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑数据源基本信息
+       * @summary Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
        *
        * @param request UpdateDataSourceBasicInfoRequest
        * @return UpdateDataSourceBasicInfoResponse
@@ -4577,7 +4739,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceBasicInfoResponse updateDataSourceBasicInfo(const Models::UpdateDataSourceBasicInfoRequest &request);
 
       /**
-       * @summary 编辑数据源连接配置项
+       * @summary Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
        *
        * @param tmpReq UpdateDataSourceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4586,7 +4748,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceConfigResponse updateDataSourceConfigWithOptions(const Models::UpdateDataSourceConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑数据源连接配置项
+       * @summary Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
        *
        * @param request UpdateDataSourceConfigRequest
        * @return UpdateDataSourceConfigResponse
@@ -4594,7 +4756,7 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceConfigResponse updateDataSourceConfig(const Models::UpdateDataSourceConfigRequest &request);
 
       /**
-       * @summary 修改菜单树文件所在目录
+       * @summary Moves the file position in the menu tree.
        *
        * @param request UpdateFileDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4603,7 +4765,7 @@ namespace DataphinPublic20230630
       Models::UpdateFileDirectoryResponse updateFileDirectoryWithOptions(const Models::UpdateFileDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改菜单树文件所在目录
+       * @summary Moves the file position in the menu tree.
        *
        * @param request UpdateFileDirectoryRequest
        * @return UpdateFileDirectoryResponse
@@ -4611,7 +4773,7 @@ namespace DataphinPublic20230630
       Models::UpdateFileDirectoryResponse updateFileDirectory(const Models::UpdateFileDirectoryRequest &request);
 
       /**
-       * @summary 修改菜单树文件名称
+       * @summary Updates a file name.
        *
        * @param request UpdateFileNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4620,7 +4782,7 @@ namespace DataphinPublic20230630
       Models::UpdateFileNameResponse updateFileNameWithOptions(const Models::UpdateFileNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改菜单树文件名称
+       * @summary Updates a file name.
        *
        * @param request UpdateFileNameRequest
        * @return UpdateFileNameResponse
@@ -4628,7 +4790,7 @@ namespace DataphinPublic20230630
       Models::UpdateFileNameResponse updateFileName(const Models::UpdateFileNameRequest &request);
 
       /**
-       * @summary 更新集成管道任务。
+       * @summary Updates an integration pipeline or unstructured workflow node.
        *
        * @param tmpReq UpdatePipelineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4637,7 +4799,7 @@ namespace DataphinPublic20230630
       Models::UpdatePipelineResponse updatePipelineWithOptions(const Models::UpdatePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新集成管道任务。
+       * @summary Updates an integration pipeline or unstructured workflow node.
        *
        * @param request UpdatePipelineRequest
        * @return UpdatePipelineResponse
@@ -4645,7 +4807,7 @@ namespace DataphinPublic20230630
       Models::UpdatePipelineResponse updatePipeline(const Models::UpdatePipelineRequest &request);
 
       /**
-       * @summary 异步更新集成管道任务。
+       * @summary Asynchronously updates a pipeline or unstructured workflow node.
        *
        * @param tmpReq UpdatePipelineByAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4654,7 +4816,7 @@ namespace DataphinPublic20230630
       Models::UpdatePipelineByAsyncResponse updatePipelineByAsyncWithOptions(const Models::UpdatePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 异步更新集成管道任务。
+       * @summary Asynchronously updates a pipeline or unstructured workflow node.
        *
        * @param request UpdatePipelineByAsyncRequest
        * @return UpdatePipelineByAsyncResponse
@@ -4662,7 +4824,7 @@ namespace DataphinPublic20230630
       Models::UpdatePipelineByAsyncResponse updatePipelineByAsync(const Models::UpdatePipelineByAsyncRequest &request);
 
       /**
-       * @summary 增加项目成员。
+       * @summary Edits project members.
        *
        * @param tmpReq UpdateProjectMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4671,7 +4833,7 @@ namespace DataphinPublic20230630
       Models::UpdateProjectMemberResponse updateProjectMemberWithOptions(const Models::UpdateProjectMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加项目成员。
+       * @summary Edits project members.
        *
        * @param request UpdateProjectMemberRequest
        * @return UpdateProjectMemberResponse
@@ -4679,7 +4841,8 @@ namespace DataphinPublic20230630
       Models::UpdateProjectMemberResponse updateProjectMember(const Models::UpdateProjectMemberRequest &request);
 
       /**
-       * @summary 批量开启或关闭质量规则。
+       * @summary Enables or disables quality rules in batches.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateQualityRuleSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4688,7 +4851,8 @@ namespace DataphinPublic20230630
       Models::UpdateQualityRuleSwitchResponse updateQualityRuleSwitchWithOptions(const Models::UpdateQualityRuleSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量开启或关闭质量规则。
+       * @summary Enables or disables quality rules in batches.
+       * Release version: v5.4.2.
        *
        * @param request UpdateQualityRuleSwitchRequest
        * @return UpdateQualityRuleSwitchResponse
@@ -4696,7 +4860,8 @@ namespace DataphinPublic20230630
       Models::UpdateQualityRuleSwitchResponse updateQualityRuleSwitch(const Models::UpdateQualityRuleSwitchRequest &request);
 
       /**
-       * @summary 批量开启或关闭质量监控对象。
+       * @summary Starts or stops quality monitored objects in batches.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateQualityWatchSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4705,7 +4870,8 @@ namespace DataphinPublic20230630
       Models::UpdateQualityWatchSwitchResponse updateQualityWatchSwitchWithOptions(const Models::UpdateQualityWatchSwitchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量开启或关闭质量监控对象。
+       * @summary Starts or stops quality monitored objects in batches.
+       * Release version: v5.4.2.
        *
        * @param request UpdateQualityWatchSwitchRequest
        * @return UpdateQualityWatchSwitchResponse
@@ -4713,7 +4879,7 @@ namespace DataphinPublic20230630
       Models::UpdateQualityWatchSwitchResponse updateQualityWatchSwitch(const Models::UpdateQualityWatchSwitchRequest &request);
 
       /**
-       * @summary 编辑资源文件。
+       * @summary Edits a resource file.
        *
        * @param tmpReq UpdateResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4722,7 +4888,7 @@ namespace DataphinPublic20230630
       Models::UpdateResourceResponse updateResourceWithOptions(const Models::UpdateResourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑资源文件。
+       * @summary Edits a resource file.
        *
        * @param request UpdateResourceRequest
        * @return UpdateResourceResponse
@@ -4730,7 +4896,7 @@ namespace DataphinPublic20230630
       Models::UpdateResourceResponse updateResource(const Models::UpdateResourceRequest &request);
 
       /**
-       * @summary 更新行级权限
+       * @summary Updates a row-level permission.
        *
        * @param tmpReq UpdateRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4739,7 +4905,7 @@ namespace DataphinPublic20230630
       Models::UpdateRowPermissionResponse updateRowPermissionWithOptions(const Models::UpdateRowPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新行级权限
+       * @summary Updates a row-level permission.
        *
        * @param request UpdateRowPermissionRequest
        * @return UpdateRowPermissionResponse
@@ -4747,7 +4913,8 @@ namespace DataphinPublic20230630
       Models::UpdateRowPermissionResponse updateRowPermission(const Models::UpdateRowPermissionRequest &request);
 
       /**
-       * @summary 更新数据分类。
+       * @summary Updates a data classification.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateSecurityClassifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4756,7 +4923,8 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityClassifyResponse updateSecurityClassifyWithOptions(const Models::UpdateSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据分类。
+       * @summary Updates a data classification.
+       * Release version: v5.4.2.
        *
        * @param request UpdateSecurityClassifyRequest
        * @return UpdateSecurityClassifyResponse
@@ -4764,7 +4932,7 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityClassifyResponse updateSecurityClassify(const Models::UpdateSecurityClassifyRequest &request);
 
       /**
-       * @summary 更新数据分类目录。
+       * @summary Updates a data classification folder. Release version: v5.4.2.
        *
        * @param tmpReq UpdateSecurityClassifyCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4773,7 +4941,7 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityClassifyCatalogResponse updateSecurityClassifyCatalogWithOptions(const Models::UpdateSecurityClassifyCatalogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据分类目录。
+       * @summary Updates a data classification folder. Release version: v5.4.2.
        *
        * @param request UpdateSecurityClassifyCatalogRequest
        * @return UpdateSecurityClassifyCatalogResponse
@@ -4781,7 +4949,8 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityClassifyCatalogResponse updateSecurityClassifyCatalog(const Models::UpdateSecurityClassifyCatalogRequest &request);
 
       /**
-       * @summary 更新安全识别结果的生效状态。
+       * @summary Updates the effective status of security identification results.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateSecurityIdentifyResultStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4790,7 +4959,8 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityIdentifyResultStatusResponse updateSecurityIdentifyResultStatusWithOptions(const Models::UpdateSecurityIdentifyResultStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新安全识别结果的生效状态。
+       * @summary Updates the effective status of security identification results.
+       * Release version: v5.4.2.
        *
        * @param request UpdateSecurityIdentifyResultStatusRequest
        * @return UpdateSecurityIdentifyResultStatusResponse
@@ -4798,7 +4968,8 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityIdentifyResultStatusResponse updateSecurityIdentifyResultStatus(const Models::UpdateSecurityIdentifyResultStatusRequest &request);
 
       /**
-       * @summary 通过分级顺序更新数据分级。
+       * @summary Updates data classification.
+       * Online version: v5.4.2.
        *
        * @param tmpReq UpdateSecurityLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4807,7 +4978,8 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityLevelResponse updateSecurityLevelWithOptions(const Models::UpdateSecurityLevelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过分级顺序更新数据分级。
+       * @summary Updates data classification.
+       * Online version: v5.4.2.
        *
        * @param request UpdateSecurityLevelRequest
        * @return UpdateSecurityLevelResponse
@@ -4815,7 +4987,8 @@ namespace DataphinPublic20230630
       Models::UpdateSecurityLevelResponse updateSecurityLevel(const Models::UpdateSecurityLevelRequest &request);
 
       /**
-       * @summary 更新标准。
+       * @summary Updates a standard.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateStandardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4824,7 +4997,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardResponse updateStandardWithOptions(const Models::UpdateStandardRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新标准。
+       * @summary Updates a standard.
+       * Release version: v5.4.2.
        *
        * @param request UpdateStandardRequest
        * @return UpdateStandardResponse
@@ -4832,7 +5006,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardResponse updateStandard(const Models::UpdateStandardRequest &request);
 
       /**
-       * @summary 更新数据标准码表。
+       * @summary Updates a data standard lookup table.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateStandardLookupTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4841,7 +5016,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardLookupTableResponse updateStandardLookupTableWithOptions(const Models::UpdateStandardLookupTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据标准码表。
+       * @summary Updates a data standard lookup table.
+       * Release version: v5.4.2.
        *
        * @param request UpdateStandardLookupTableRequest
        * @return UpdateStandardLookupTableResponse
@@ -4849,7 +5025,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardLookupTableResponse updateStandardLookupTable(const Models::UpdateStandardLookupTableRequest &request);
 
       /**
-       * @summary 将标准映射关系置为无效映射。
+       * @summary Sets the standard mapping relationship to invalid mapping.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateStandardMappingToInvalidRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4858,7 +5035,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardMappingToInvalidResponse updateStandardMappingToInvalidWithOptions(const Models::UpdateStandardMappingToInvalidRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将标准映射关系置为无效映射。
+       * @summary Sets the standard mapping relationship to invalid mapping.
+       * Release version: v5.4.2.
        *
        * @param request UpdateStandardMappingToInvalidRequest
        * @return UpdateStandardMappingToInvalidResponse
@@ -4866,7 +5044,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardMappingToInvalidResponse updateStandardMappingToInvalid(const Models::UpdateStandardMappingToInvalidRequest &request);
 
       /**
-       * @summary 更新标准集。
+       * @summary Update standard set.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateStandardSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4875,7 +5054,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardSetResponse updateStandardSetWithOptions(const Models::UpdateStandardSetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新标准集。
+       * @summary Update standard set.
+       * Release version: v5.4.2.
        *
        * @param request UpdateStandardSetRequest
        * @return UpdateStandardSetResponse
@@ -4883,7 +5063,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardSetResponse updateStandardSet(const Models::UpdateStandardSetRequest &request);
 
       /**
-       * @summary 更新数据标准模板。
+       * @summary Updates a data standard template.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpdateStandardTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4892,7 +5073,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardTemplateResponse updateStandardTemplateWithOptions(const Models::UpdateStandardTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据标准模板。
+       * @summary Updates a data standard template.
+       * Release version: v5.4.2.
        *
        * @param request UpdateStandardTemplateRequest
        * @return UpdateStandardTemplateResponse
@@ -4900,7 +5082,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardTemplateResponse updateStandardTemplate(const Models::UpdateStandardTemplateRequest &request);
 
       /**
-       * @summary 更新数据标准词根。
+       * @summary Updates a data standard root word.
+       * Online version: v5.4.2.
        *
        * @param tmpReq UpdateStandardWordRootRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4909,7 +5092,8 @@ namespace DataphinPublic20230630
       Models::UpdateStandardWordRootResponse updateStandardWordRootWithOptions(const Models::UpdateStandardWordRootRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据标准词根。
+       * @summary Updates a data standard root word.
+       * Online version: v5.4.2.
        *
        * @param request UpdateStandardWordRootRequest
        * @return UpdateStandardWordRootResponse
@@ -4917,7 +5101,7 @@ namespace DataphinPublic20230630
       Models::UpdateStandardWordRootResponse updateStandardWordRoot(const Models::UpdateStandardWordRootRequest &request);
 
       /**
-       * @summary 修改租户计算设置。
+       * @summary Modifies the compute settings of a tenant.
        *
        * @param tmpReq UpdateTenantComputeEngineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4926,7 +5110,7 @@ namespace DataphinPublic20230630
       Models::UpdateTenantComputeEngineResponse updateTenantComputeEngineWithOptions(const Models::UpdateTenantComputeEngineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改租户计算设置。
+       * @summary Modifies the compute settings of a tenant.
        *
        * @param request UpdateTenantComputeEngineRequest
        * @return UpdateTenantComputeEngineResponse
@@ -4934,7 +5118,7 @@ namespace DataphinPublic20230630
       Models::UpdateTenantComputeEngineResponse updateTenantComputeEngine(const Models::UpdateTenantComputeEngineRequest &request);
 
       /**
-       * @summary 编辑租户成员
+       * @summary Edits tenant members.
        *
        * @param tmpReq UpdateTenantMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4943,7 +5127,7 @@ namespace DataphinPublic20230630
       Models::UpdateTenantMemberResponse updateTenantMemberWithOptions(const Models::UpdateTenantMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑租户成员
+       * @summary Edits tenant members.
        *
        * @param request UpdateTenantMemberRequest
        * @return UpdateTenantMemberResponse
@@ -4951,7 +5135,7 @@ namespace DataphinPublic20230630
       Models::UpdateTenantMemberResponse updateTenantMember(const Models::UpdateTenantMemberRequest &request);
 
       /**
-       * @summary 编辑自定义函数。
+       * @summary Edits a user-defined function.
        *
        * @param tmpReq UpdateUdfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4960,7 +5144,7 @@ namespace DataphinPublic20230630
       Models::UpdateUdfResponse updateUdfWithOptions(const Models::UpdateUdfRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑自定义函数。
+       * @summary Edits a user-defined function.
        *
        * @param request UpdateUdfRequest
        * @return UpdateUdfResponse
@@ -4968,7 +5152,7 @@ namespace DataphinPublic20230630
       Models::UpdateUdfResponse updateUdf(const Models::UpdateUdfRequest &request);
 
       /**
-       * @summary 编辑用户组.
+       * @summary Edits a user group.
        *
        * @param tmpReq UpdateUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4977,7 +5161,7 @@ namespace DataphinPublic20230630
       Models::UpdateUserGroupResponse updateUserGroupWithOptions(const Models::UpdateUserGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑用户组.
+       * @summary Edits a user group.
        *
        * @param request UpdateUserGroupRequest
        * @return UpdateUserGroupResponse
@@ -4985,7 +5169,7 @@ namespace DataphinPublic20230630
       Models::UpdateUserGroupResponse updateUserGroup(const Models::UpdateUserGroupRequest &request);
 
       /**
-       * @summary 编辑用户组启用开关.
+       * @summary Modifies the enabled status of a user group.
        *
        * @param request UpdateUserGroupSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4994,7 +5178,7 @@ namespace DataphinPublic20230630
       Models::UpdateUserGroupSwitchResponse updateUserGroupSwitchWithOptions(const Models::UpdateUserGroupSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑用户组启用开关.
+       * @summary Modifies the enabled status of a user group.
        *
        * @param request UpdateUserGroupSwitchRequest
        * @return UpdateUserGroupSwitchResponse
@@ -5002,7 +5186,8 @@ namespace DataphinPublic20230630
       Models::UpdateUserGroupSwitchResponse updateUserGroupSwitch(const Models::UpdateUserGroupSwitchRequest &request);
 
       /**
-       * @summary 新建或者修改质量规则。
+       * @summary Create or modify a quality rule.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpsertQualityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5011,7 +5196,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityRuleResponse upsertQualityRuleWithOptions(const Models::UpsertQualityRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建或者修改质量规则。
+       * @summary Create or modify a quality rule.
+       * Release version: v5.4.2.
        *
        * @param request UpsertQualityRuleRequest
        * @return UpsertQualityRuleResponse
@@ -5019,7 +5205,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityRuleResponse upsertQualityRule(const Models::UpsertQualityRuleRequest &request);
 
       /**
-       * @summary 新建或者修改调度设置。
+       * @summary Creates or updates scheduling settings.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpsertQualityScheduleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5028,7 +5215,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityScheduleResponse upsertQualityScheduleWithOptions(const Models::UpsertQualityScheduleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建或者修改调度设置。
+       * @summary Creates or updates scheduling settings.
+       * Release version: v5.4.2.
        *
        * @param request UpsertQualityScheduleRequest
        * @return UpsertQualityScheduleResponse
@@ -5036,7 +5224,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityScheduleResponse upsertQualitySchedule(const Models::UpsertQualityScheduleRequest &request);
 
       /**
-       * @summary 新建或者修改质量模板。
+       * @summary Creates or updates a quality template.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpsertQualityTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5045,7 +5234,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityTemplateResponse upsertQualityTemplateWithOptions(const Models::UpsertQualityTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建或者修改质量模板。
+       * @summary Creates or updates a quality template.
+       * Release version: v5.4.2.
        *
        * @param request UpsertQualityTemplateRequest
        * @return UpsertQualityTemplateResponse
@@ -5053,7 +5243,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityTemplateResponse upsertQualityTemplate(const Models::UpsertQualityTemplateRequest &request);
 
       /**
-       * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+       * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpsertQualityWatchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5062,7 +5253,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityWatchResponse upsertQualityWatchWithOptions(const Models::UpsertQualityWatchRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+       * @summary Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
+       * Release version: v5.4.2.
        *
        * @param request UpsertQualityWatchRequest
        * @return UpsertQualityWatchResponse
@@ -5070,7 +5262,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityWatchResponse upsertQualityWatch(const Models::UpsertQualityWatchRequest &request);
 
       /**
-       * @summary 新建或者修改监控对象告警设置。
+       * @summary Creates or updates alert settings for a monitored object.
+       * Release version: v5.4.2.
        *
        * @param tmpReq UpsertQualityWatchAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5079,7 +5272,8 @@ namespace DataphinPublic20230630
       Models::UpsertQualityWatchAlertResponse upsertQualityWatchAlertWithOptions(const Models::UpsertQualityWatchAlertRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建或者修改监控对象告警设置。
+       * @summary Creates or updates alert settings for a monitored object.
+       * Release version: v5.4.2.
        *
        * @param request UpsertQualityWatchAlertRequest
        * @return UpsertQualityWatchAlertResponse

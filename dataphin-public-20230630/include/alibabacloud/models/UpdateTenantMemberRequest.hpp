@@ -118,10 +118,15 @@ namespace Models
 
 
       protected:
+        // The DingTalk number.
         shared_ptr<string> dingNumber_ {};
+        // The email address.
         shared_ptr<string> mail_ {};
+        // The phone number.
         shared_ptr<string> mobilePhone_ {};
+        // The list of roles.
         shared_ptr<vector<string>> roleList_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -136,6 +141,8 @@ namespace Models
 
 
     protected:
+      // The list of members.
+      // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::MemberList>> memberList_ {};
     };
@@ -159,8 +166,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The request object.
+    // 
     // This parameter is required.
     shared_ptr<UpdateTenantMemberRequest::UpdateCommand> updateCommand_ {};
   };

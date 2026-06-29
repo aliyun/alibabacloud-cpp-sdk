@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Create command.
+    // 
     // This parameter is required.
     shared_ptr<string> createCommandShrink_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

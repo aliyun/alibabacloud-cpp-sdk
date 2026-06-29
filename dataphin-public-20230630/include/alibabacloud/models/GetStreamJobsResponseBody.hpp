@@ -133,13 +133,30 @@ namespace Models
 
 
     protected:
+      // The environment identifier. Valid values:
+      // - DEV: development.
+      // - PROD: production.
       shared_ptr<string> env_ {};
+      // The mapping ID of the real-time node.
       shared_ptr<int64_t> id_ {};
+      // The name of the real-time node.
       shared_ptr<string> jobName_ {};
+      // The ID of the user who last modified the node.
       shared_ptr<string> modifierId_ {};
+      // The ID of the creator.
       shared_ptr<string> ownerId_ {};
+      // The Dataphin project ID.
       shared_ptr<string> projectId_ {};
+      // The node status. Valid values:
+      // - 0: draft.
+      // - 1: submitting.
+      // - 2: submitted.
+      // - 3: published.
+      // - 100: in development.
       shared_ptr<string> status_ {};
+      // The node type. Valid values:
+      // - FLINK_SQL
+      // - FLINK_DATASTREAM.
       shared_ptr<string> type_ {};
     };
 
@@ -190,12 +207,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<GetStreamJobsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

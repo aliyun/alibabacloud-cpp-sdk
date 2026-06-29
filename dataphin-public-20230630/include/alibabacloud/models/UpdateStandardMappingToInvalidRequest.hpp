@@ -83,8 +83,12 @@ namespace Models
 
 
     protected:
+      // Belonging GUID list, with an upper limit of 1000
       shared_ptr<vector<string>> belongGuidList_ {};
+      // GUID list, with an upper limit of 1000
       shared_ptr<vector<string>> guidList_ {};
+      // Standard ID
+      // 
       // This parameter is required.
       shared_ptr<int64_t> standardId_ {};
     };
@@ -108,8 +112,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Update Command
+    // 
     // This parameter is required.
     shared_ptr<UpdateStandardMappingToInvalidRequest::UpdateCommand> updateCommand_ {};
   };

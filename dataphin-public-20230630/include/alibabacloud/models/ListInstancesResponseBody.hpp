@@ -191,7 +191,9 @@ namespace Models
 
 
           protected:
+            // User ID
             shared_ptr<string> id_ {};
+            // Username
             shared_ptr<string> name_ {};
           };
 
@@ -233,7 +235,9 @@ namespace Models
 
 
           protected:
+            // Username
             shared_ptr<string> id_ {};
+            // Username
             shared_ptr<string> name_ {};
           };
 
@@ -275,7 +279,9 @@ namespace Models
 
 
           protected:
+            // User ID
             shared_ptr<string> id_ {};
+            // Username
             shared_ptr<string> name_ {};
           };
 
@@ -430,24 +436,56 @@ namespace Models
 
 
         protected:
+          // Business Unit
           shared_ptr<string> bizUnitName_ {};
+          // Creation Time
           shared_ptr<string> createTime_ {};
+          // Node Creator
           shared_ptr<NodeInfo::Creator> creator_ {};
+          // Node Description
           shared_ptr<string> description_ {};
+          // Whether to dry run
           shared_ptr<bool> dryRun_ {};
+          // Node Source
           shared_ptr<string> from_ {};
+          // Whether a development environment exists
           shared_ptr<bool> hasDev_ {};
+          // Whether a production environment exists
           shared_ptr<bool> hasProd_ {};
+          // Node ID
           shared_ptr<string> id_ {};
+          // Last Modified Time
           shared_ptr<string> lastModifiedTime_ {};
+          // Modifier
           shared_ptr<NodeInfo::Modifier> modifier_ {};
+          // Node Name
           shared_ptr<string> name_ {};
+          // Owner
           shared_ptr<vector<NodeInfo::OwnerList>> ownerList_ {};
+          // Priority
+          // - HIGHEST
+          // - HIGH
+          // - MIDDLE
+          // - LOW
+          // - LOWEST
           shared_ptr<vector<string>> priorityList_ {};
+          // Running Resource Group
           shared_ptr<vector<string>> resourceGroupList_ {};
+          // Whether scheduling is paused
           shared_ptr<bool> schedulePaused_ {};
+          // Schedule Period
           shared_ptr<vector<string>> schedulePeriodList_ {};
+          // Sub-business Type
+          // - MAX_COMPUTE_SQL
+          // - HIVE_SQL
+          // - SHELL
+          // - PYTHON
+          // - ONE_SERVICE_SQL
+          // - DATABASE_SQL
           shared_ptr<string> subDetailType_ {};
+          // Node Business Type
+          // - SCRIPT: Script
+          // - LOGICAL_TABLE: Logical Table
           shared_ptr<string> type_ {};
         };
 
@@ -529,15 +567,25 @@ namespace Models
 
 
       protected:
+        // Business Date
         shared_ptr<string> bizDate_ {};
+        // Schedule Time
         shared_ptr<string> dueTime_ {};
+        // Running duration, in seconds
         shared_ptr<string> duration_ {};
+        // Execution End Time
         shared_ptr<int64_t> endExecuteTime_ {};
+        // Node extended information: specific information for instances from different business systems, such as pipeline fileId, whether the logical table has hierarchical dimensions, mid node information, and instance output name
         shared_ptr<string> extendInfo_ {};
+        // Instance ID
         shared_ptr<string> id_ {};
+        // Hourly/Minutely instance sequence number
         shared_ptr<int32_t> index_ {};
+        // Node Details
         shared_ptr<Data::NodeInfo> nodeInfo_ {};
+        // Execution start time
         shared_ptr<int64_t> startExecuteTime_ {};
+        // Instance Status
         shared_ptr<vector<string>> statusList_ {};
       };
 
@@ -560,7 +608,9 @@ namespace Models
 
 
     protected:
+      // Paginated records
       shared_ptr<vector<PageResult::Data>> data_ {};
+      // Total number of records
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -611,11 +661,17 @@ namespace Models
 
 
   protected:
+    // Request error code. OK indicates a normal request.
     shared_ptr<string> code_ {};
+    // Backend response HTTP code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request error message
     shared_ptr<string> message_ {};
+    // Paginated result
     shared_ptr<ListInstancesResponseBody::PageResult> pageResult_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

@@ -87,12 +87,31 @@ namespace Models
 
 
     protected:
+      // The menu tree category. Valid values:
+      // - tempCode: custom query
+      // - codeManage: code node
+      // - offlinePipeline: offline pipeline
+      // - offlinePipelineCustomPlugin: pipeline custom component
+      // - dataX: synchronization task
+      // - streamMeta: real-time meta table
+      // - streamCustomDataSource: real-time custom source
+      // - streamTemplate: real-time compute template
+      // - resourceManage: resource management
+      // - udfResource: offline function
+      // - streamFunction: real-time function.
+      // 
       // This parameter is required.
       shared_ptr<string> category_ {};
+      // The parent directory of the new file directory.
+      // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
+      // The name of the new file directory.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -116,8 +135,12 @@ namespace Models
 
 
   protected:
+    // The create request.
+    // 
     // This parameter is required.
     shared_ptr<CreateDirectoryRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

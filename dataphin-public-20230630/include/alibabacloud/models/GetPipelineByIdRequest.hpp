@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // Supports querying by the integration task file ID (fileId).
       shared_ptr<int64_t> fileId_ {};
+      // Supports querying by the integration task scheduling node ID (nodeId).
       shared_ptr<string> nodeId_ {};
+      // Supports querying by the integration pipeline primary key (pipelineId).
       shared_ptr<int64_t> pipelineId_ {};
     };
 
@@ -123,8 +126,14 @@ namespace Models
 
 
     protected:
+      // The current operating environment. Valid values:
+      // - DEV: the development environment.
+      // - PROD: the production environment.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The ID of the project to which the integration pipeline task belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -157,10 +166,16 @@ namespace Models
 
 
   protected:
+    // The request context information.
+    // 
     // This parameter is required.
     shared_ptr<GetPipelineByIdRequest::Context> context_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID used to query the pipeline task.
+    // 
     // This parameter is required.
     shared_ptr<GetPipelineByIdRequest::QueryId> queryId_ {};
   };

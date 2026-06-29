@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The command to create a data service application.
+    // 
     // This parameter is required.
     shared_ptr<string> createCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

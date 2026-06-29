@@ -338,33 +338,62 @@ namespace Models
 
 
       protected:
+        // The ID of the API.
         shared_ptr<int64_t> apiId_ {};
+        // The name of the API.
         shared_ptr<string> apiName_ {};
+        // The application key.
+        // >Notice: This parameter is deprecated. Use AppKeyStr instead.
         shared_ptr<int64_t> appKey_ {};
+        // The application key.
         shared_ptr<string> appKeyStr_ {};
+        // The name of the application.
         shared_ptr<string> appName_ {};
+        // The business status code.
         shared_ptr<string> bizCode_ {};
+        // The description of the business status code.
         shared_ptr<string> bizCodeDescription_ {};
+        // The IP address of the request.
         shared_ptr<string> clientIp_ {};
+        // The duration of the request, in milliseconds.
         shared_ptr<int32_t> costTime_ {};
+        // The end time of the request. Format: yyyy-MM-dd HH:mm:ss.SSS.
         shared_ptr<string> endTime_ {};
+        // The environment. Valid values: 0 (dev) and 1 (prod).
         shared_ptr<int32_t> env_ {};
+        // The execution duration.
         shared_ptr<int32_t> executeCostTime_ {};
+        // The execution mode. Valid values: 1 (synchronous) and 2 (asynchronous).
         shared_ptr<int32_t> executeMode_ {};
+        // The HTTP status code.
         shared_ptr<string> httpStatusCode_ {};
+        // The description of the status code.
         shared_ptr<string> httpStatusDescription_ {};
+        // The job ID.
         shared_ptr<string> jobId_ {};
+        // The project ID.
         shared_ptr<int32_t> projectId_ {};
+        // The name of the project.
         shared_ptr<string> projectName_ {};
+        // The request ID.
         shared_ptr<string> requestId_ {};
+        // The request parameters.
         shared_ptr<string> requestParameter_ {};
+        // The size of the request.
         shared_ptr<int32_t> requestSize_ {};
+        // The response parameters.
         shared_ptr<string> responseParameter_ {};
+        // The size of the response.
         shared_ptr<int32_t> responseSize_ {};
+        // The number of returned data records.
         shared_ptr<int32_t> resultCount_ {};
+        // The SQL statement.
         shared_ptr<string> sql_ {};
+        // The start time of the request. Format: yyyy-MM-dd HH:mm:ss.SSS.
         shared_ptr<string> startTime_ {};
+        // The call status of the job.
         shared_ptr<int32_t> status_ {};
+        // Indicates whether the request was successful.
         shared_ptr<bool> successful_ {};
       };
 
@@ -387,7 +416,9 @@ namespace Models
 
 
     protected:
+      // The list of API call logs.
       shared_ptr<vector<PageResult::CallLogList>> callLogList_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -438,12 +469,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paginated query result.
     shared_ptr<ListDataServiceApiCallsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

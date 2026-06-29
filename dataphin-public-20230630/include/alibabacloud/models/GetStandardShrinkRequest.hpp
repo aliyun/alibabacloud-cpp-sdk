@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The query command.
+    // 
     // This parameter is required.
     shared_ptr<string> standardGetQueryShrink_ {};
   };

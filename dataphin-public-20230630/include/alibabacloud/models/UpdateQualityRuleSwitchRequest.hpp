@@ -72,8 +72,12 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the quality rules.
+      // 
       // This parameter is required.
       shared_ptr<bool> open_ {};
+      // The list of rule IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> ruleIdList_ {};
     };
@@ -97,8 +101,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpdateQualityRuleSwitchRequest::UpdateCommand> updateCommand_ {};
   };

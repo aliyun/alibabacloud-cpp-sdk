@@ -57,9 +57,16 @@ namespace Models
 
 
   protected:
+    // Create backfill request
+    // 
     // This parameter is required.
     shared_ptr<string> createCommandShrink_ {};
+    // Environment identifier.
+    // - DEV: development environment.
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -200,7 +200,13 @@ namespace Models
 
 
         protected:
+          // The period offset. This parameter is required when PeriodType is set to LAST_N_PERIOD.
           shared_ptr<int32_t> periodOffset_ {};
+          // The dependency period type. Valid values:
+          // - CURRENT_PERIOD
+          // - LAST_PERIOD
+          // - LAST_N_PERIOD
+          // - LAST_24_HOUR.
           shared_ptr<string> periodType_ {};
         };
 
@@ -289,16 +295,29 @@ namespace Models
 
 
       protected:
+        // The dependency period.
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
+        // The dependency strategy. Valid values: ALL, FIRST, LAST, NEAR.
         shared_ptr<string> dependStrategy_ {};
+        // The fields of the dependent logical table.
         shared_ptr<vector<string>> fieldList_ {};
+        // The type of the upstream dependency node. Valid values:
+        // - PHYSICAL: physical node.
+        // - LOGICAL: logical table dependency.
         shared_ptr<string> nodeType_ {};
+        // The period difference. A value of 0 indicates a same-period dependency. A positive number indicates a dependency on the previous N periods.
         shared_ptr<int32_t> periodDiff_ {};
+        // Indicates whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
+        // The upstream node ID.
         shared_ptr<string> sourceNodeId_ {};
+        // The upstream node name.
         shared_ptr<string> sourceNodeName_ {};
+        // The output name of the upstream node.
         shared_ptr<string> sourceNodeOutputName_ {};
+        // The username of the upstream node owner.
         shared_ptr<string> sourceNodeUserName_ {};
+        // The input table name.
         shared_ptr<string> sourceTableName_ {};
       };
 
@@ -330,6 +349,7 @@ namespace Models
 
 
       protected:
+        // The Spark client version.
         shared_ptr<string> sparkClientVersion_ {};
       };
 
@@ -371,7 +391,9 @@ namespace Models
 
 
       protected:
+        // The parameter name.
         shared_ptr<string> key_ {};
+        // The parameter value.
         shared_ptr<string> value_ {};
       };
 
@@ -440,10 +462,15 @@ namespace Models
 
 
       protected:
+        // The end time in the format of HH:mm.
         shared_ptr<string> endTime_ {};
+        // The custom interval.
         shared_ptr<int32_t> interval_ {};
+        // The interval unit. Valid values: MINUTE, HOUR.
         shared_ptr<string> intervalUnit_ {};
+        // The scheduling period.
         shared_ptr<string> schedulePeriod_ {};
+        // The start time in the format of HH:mm.
         shared_ptr<string> startTime_ {};
       };
 
@@ -697,38 +724,85 @@ namespace Models
 
 
     protected:
+      // The node code.
       shared_ptr<string> code_ {};
+      // The cron expression for automatic scheduling. For more information, refer to the Linux cron expression syntax.
       shared_ptr<string> cronExpression_ {};
+      // The custom scheduling interval configuration.
       shared_ptr<TaskInfo::CustomScheduleConfig> customScheduleConfig_ {};
+      // The ID of the DAG to which the node belongs.
       shared_ptr<string> dagId_ {};
+      // The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
+      // The data source ID for database SQL nodes.
       shared_ptr<string> dataSourceId_ {};
+      // The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
+      // The node ID in the node directory tree.
       shared_ptr<int64_t> fileId_ {};
+      // Indicates whether the node has a development environment node.
       shared_ptr<bool> hasDevNode_ {};
+      // The node name.
       shared_ptr<string> name_ {};
+      // Indicates whether the node needs to be published.
       shared_ptr<bool> needPublish_ {};
+      // The node description.
       shared_ptr<string> nodeDescription_ {};
+      // The source of the node, indicating the organization or application that created the node.
       shared_ptr<string> nodeFrom_ {};
+      // The node ID.
       shared_ptr<string> nodeId_ {};
+      // The node name.
       shared_ptr<string> nodeName_ {};
+      // The list of node output names.
       shared_ptr<vector<string>> nodeOutputNameList_ {};
+      // The node status. Valid values:
+      // - 1: Normal.
+      // - 2: Paused.
+      // - 3: Dry run.
       shared_ptr<int32_t> nodeStatus_ {};
+      // The user ID of the current operator.
       shared_ptr<string> operatorUserId_ {};
+      // The name of the node owner.
       shared_ptr<string> ownerName_ {};
+      // The user ID of the node owner.
       shared_ptr<string> ownerUserId_ {};
+      // The list of custom node parameters.
       shared_ptr<vector<TaskInfo::ParamList>> paramList_ {};
+      // Indicates whether the node scheduling is paused.
       shared_ptr<bool> paused_ {};
+      // The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
+      // Indicates whether the node has been published.
       shared_ptr<bool> published_ {};
+      // The remarks.
       shared_ptr<string> remark_ {};
+      // Indicates whether the node can be rerun.
       shared_ptr<bool> rerunable_ {};
+      // The scheduling period. Valid values:
+      // - YEARLY
+      // - MONTHLY
+      // - WEEKLY
+      // - DAILY
+      // - HOURLY
+      // - MINUTELY.
       shared_ptr<string> schedulePeriod_ {};
+      // The scheduling type. Valid values:
+      // - 1: periodic node.
+      // - 3: manual node.
       shared_ptr<int32_t> scheduleType_ {};
+      // The Spark client information.
       shared_ptr<TaskInfo::SparkClientInfo> sparkClientInfo_ {};
+      // The publish status. Valid values:
+      // - 0: draft.
+      // - 1: submitted.
+      // - 100: in development.
       shared_ptr<string> status_ {};
+      // The node type. For more information, see the API operation for creating a batch task.
       shared_ptr<int32_t> taskType_ {};
+      // The upstream dependencies.
       shared_ptr<vector<TaskInfo::UpStreamList>> upStreamList_ {};
     };
 
@@ -779,11 +853,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The node details.
     shared_ptr<GetBatchTaskInfoByVersionResponseBody::TaskInfo> taskInfo_ {};
   };
 

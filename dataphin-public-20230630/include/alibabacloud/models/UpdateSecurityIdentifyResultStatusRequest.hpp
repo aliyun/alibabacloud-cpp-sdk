@@ -72,8 +72,12 @@ namespace Models
 
 
     protected:
+      // Specifies whether the result is effective.
+      // 
       // This parameter is required.
       shared_ptr<bool> enable_ {};
+      // The list of identification result IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> identifyResultIdList_ {};
     };
@@ -97,8 +101,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpdateSecurityIdentifyResultStatusRequest::UpdateCommand> updateCommand_ {};
   };

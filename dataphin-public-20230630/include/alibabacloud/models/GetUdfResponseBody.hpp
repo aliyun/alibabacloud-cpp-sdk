@@ -169,17 +169,39 @@ namespace Models
 
 
     protected:
+      // The category. Valid values:
+      // - 1: window function.
+      // - 2: aggregate function.
+      // - 3: numeric function.
+      // - 4: string function.
+      // - 5: time function.
+      // - 6: IP address utility function.
+      // - 7: URL-related function.
+      // - 8: encoding and decoding function.
+      // - 9: business-related function.
+      // - 10: other.
       shared_ptr<int32_t> category_ {};
+      // The registered class name.
       shared_ptr<string> className_ {};
+      // The command help information.
       shared_ptr<string> commandHelp_ {};
+      // The compute engine. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
       shared_ptr<string> computeEngineType_ {};
+      // The creator.
       shared_ptr<string> creator_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The directory where the function is stored.
       shared_ptr<string> directory_ {};
+      // The creation time, in the yyyy-MM-d HH:mm:ss format.
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time, in the yyyy-MM-d HH:mm:ss format.
       shared_ptr<string> gmtModified_ {};
+      // The user-defined function ID.
       shared_ptr<int64_t> id_ {};
+      // The last modifier.
       shared_ptr<string> lastModifier_ {};
+      // The function name.
       shared_ptr<string> name_ {};
     };
 
@@ -230,12 +252,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The details of the user-defined function.
     shared_ptr<GetUdfResponseBody::UdfInfo> udfInfo_ {};
   };
 

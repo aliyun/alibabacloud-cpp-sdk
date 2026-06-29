@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The regular member to add to the data service application.
+    // 
     // This parameter is required.
     shared_ptr<string> addCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

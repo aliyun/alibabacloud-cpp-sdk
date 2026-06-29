@@ -72,8 +72,12 @@ namespace Models
 
 
     protected:
+      // The row-level permission ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> rowPermissionId_ {};
+      // The row-level permission rule IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> ruleIds_ {};
     };
@@ -97,8 +101,12 @@ namespace Models
 
 
   protected:
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<GetAccountByRowPermissionIdRequest::GetAccountByRowPermissionIdQuery> getAccountByRowPermissionIdQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

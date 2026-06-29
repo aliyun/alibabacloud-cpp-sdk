@@ -87,12 +87,20 @@ namespace Models
 
 
     protected:
+      // Business unit ID
+      // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
+      // Offline comment
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // Business entity ID
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // Business entity type. For more information, see the "CreateBizEntity" operation.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -116,8 +124,12 @@ namespace Models
 
 
   protected:
+    // Offline request
+    // 
     // This parameter is required.
     shared_ptr<OfflineBizEntityRequest::OfflineCommand> offlineCommand_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

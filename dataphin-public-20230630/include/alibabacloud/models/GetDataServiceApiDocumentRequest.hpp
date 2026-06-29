@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The API ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The version.
     shared_ptr<string> versionId_ {};
   };
 

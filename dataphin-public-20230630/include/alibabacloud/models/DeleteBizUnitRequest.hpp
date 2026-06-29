@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The business domain ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

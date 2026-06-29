@@ -84,8 +84,12 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> appId_ {};
+      // The expiration date in the format of yyyy-MM-dd.
+      // 
       // This parameter is required.
       shared_ptr<string> expireDate_ {};
+      // The reason for the application.
+      // 
       // This parameter is required.
       shared_ptr<string> reason_ {};
     };
@@ -116,10 +120,16 @@ namespace Models
 
 
   protected:
+    // The apply command.
+    // 
     // This parameter is required.
     shared_ptr<ApplyDataServiceAppRequest::ApplyCommand> applyCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The data service project ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

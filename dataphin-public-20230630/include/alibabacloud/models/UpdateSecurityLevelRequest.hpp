@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The classification description.
       shared_ptr<string> description_ {};
+      // The classification order. If this parameter is not specified, the classification name is used for matching.
       shared_ptr<int64_t> index_ {};
+      // The classification name.
       shared_ptr<string> name_ {};
     };
 
@@ -102,8 +105,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpdateSecurityLevelRequest::UpdateCommand> updateCommand_ {};
   };

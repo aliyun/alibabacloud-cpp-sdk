@@ -96,10 +96,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether the compute source is bound to a project.
       shared_ptr<bool> bindProject_ {};
+      // The keyword used for filtering.
       shared_ptr<string> keyword_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The type of the compute source.
       shared_ptr<string> type_ {};
     };
 
@@ -122,8 +127,12 @@ namespace Models
 
 
   protected:
+    // The query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListComputeSourcesRequest::ListQuery> listQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

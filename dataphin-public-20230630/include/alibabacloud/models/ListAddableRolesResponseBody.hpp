@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The role code.
       shared_ptr<string> code_ {};
+      // The role name.
       shared_ptr<string> name_ {};
     };
 
@@ -129,11 +131,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of roles.
     shared_ptr<vector<ListAddableRolesResponseBody::RoleList>> roleList_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

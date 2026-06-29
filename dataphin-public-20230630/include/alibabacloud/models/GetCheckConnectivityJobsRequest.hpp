@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The data source ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> dataSourceId_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

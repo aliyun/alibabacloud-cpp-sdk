@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The command to update regular members of a data service application.
+    // 
     // This parameter is required.
     shared_ptr<string> updateCommandShrink_ {};
   };

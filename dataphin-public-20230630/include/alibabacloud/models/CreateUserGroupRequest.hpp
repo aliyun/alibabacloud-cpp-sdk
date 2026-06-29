@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the user group.
       shared_ptr<bool> active_ {};
+      // The user IDs of the user group administrators.
       shared_ptr<vector<string>> adminUserIdList_ {};
+      // The description of the user group.
       shared_ptr<string> description_ {};
+      // The name of the user group.
       shared_ptr<string> name_ {};
     };
 
@@ -115,7 +119,10 @@ namespace Models
 
 
   protected:
+    // The creation request.
     shared_ptr<CreateUserGroupRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

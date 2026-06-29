@@ -36,6 +36,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const SubmitCommand& obj) { 
         DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(CodeTemplateVersion, codeTemplateVersion_);
         DARABONBA_PTR_TO_JSON(Comment, comment_);
         DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_TO_JSON(CustomScheduleConfig, customScheduleConfig_);
@@ -45,6 +46,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NodeDescription, nodeDescription_);
         DARABONBA_PTR_TO_JSON(NodeOutputNameList, nodeOutputNameList_);
         DARABONBA_PTR_TO_JSON(NodeStatus, nodeStatus_);
+        DARABONBA_PTR_TO_JSON(OfflineCodeTemplateId, offlineCodeTemplateId_);
+        DARABONBA_PTR_TO_JSON(OfflineCodeTemplateParams, offlineCodeTemplateParams_);
         DARABONBA_PTR_TO_JSON(ParamList, paramList_);
         DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
@@ -55,6 +58,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, SubmitCommand& obj) { 
         DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(CodeTemplateVersion, codeTemplateVersion_);
         DARABONBA_PTR_FROM_JSON(Comment, comment_);
         DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_FROM_JSON(CustomScheduleConfig, customScheduleConfig_);
@@ -64,6 +68,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NodeDescription, nodeDescription_);
         DARABONBA_PTR_FROM_JSON(NodeOutputNameList, nodeOutputNameList_);
         DARABONBA_PTR_FROM_JSON(NodeStatus, nodeStatus_);
+        DARABONBA_PTR_FROM_JSON(OfflineCodeTemplateId, offlineCodeTemplateId_);
+        DARABONBA_PTR_FROM_JSON(OfflineCodeTemplateParams, offlineCodeTemplateParams_);
         DARABONBA_PTR_FROM_JSON(ParamList, paramList_);
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
@@ -156,7 +162,14 @@ namespace Models
 
 
         protected:
+          // The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
           shared_ptr<int32_t> periodOffset_ {};
+          // The dependency period type. Valid values:
+          // - CURRENT_PERIOD: current period
+          // - LAST_PERIOD: previous period
+          // - LAST_N_PERIOD: last N days
+          // - LAST_24_HOUR: last 24 hours
+          // 
           // This parameter is required.
           shared_ptr<string> periodType_ {};
         };
@@ -232,16 +245,33 @@ namespace Models
 
 
       protected:
+        // The dependency period.
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
+        // The dependency strategy. Valid values:
+        // - ALL: all
+        // - FIRST: first
+        // - LAST: last
+        // - NEAR: nearest
         shared_ptr<string> dependStrategy_ {};
+        // The dependent logical table fields.
         shared_ptr<vector<string>> fieldList_ {};
+        // The type of the upstream dependency node. Valid values:
+        // - PHYSICAL: physical node
+        // - LOGICAL: logical table dependency
         shared_ptr<string> nodeType_ {};
+        // The period difference. A value of 0 indicates a same-period dependency. A positive number indicates a dependency on the previous N periods.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> periodDiff_ {};
+        // Indicates whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
+        // The ID of the upstream node.
         shared_ptr<string> sourceNodeId_ {};
+        // The output name of the upstream node.
+        // 
         // This parameter is required.
         shared_ptr<string> sourceNodeOutputName_ {};
+        // The name of the input table.
         shared_ptr<string> sourceTableName_ {};
       };
 
@@ -273,6 +303,8 @@ namespace Models
 
 
       protected:
+        // The version name of the Spark client.
+        // 
         // This parameter is required.
         shared_ptr<string> sparkClientVersion_ {};
       };
@@ -315,9 +347,75 @@ namespace Models
 
 
       protected:
+        // The parameter name.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The parameter value.
+        // 
         // This parameter is required.
+        shared_ptr<string> value_ {};
+      };
+
+      class OfflineCodeTemplateParams : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const OfflineCodeTemplateParams& obj) { 
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(EncryptEnabled, encryptEnabled_);
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, OfflineCodeTemplateParams& obj) { 
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(EncryptEnabled, encryptEnabled_);
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        OfflineCodeTemplateParams() = default ;
+        OfflineCodeTemplateParams(const OfflineCodeTemplateParams &) = default ;
+        OfflineCodeTemplateParams(OfflineCodeTemplateParams &&) = default ;
+        OfflineCodeTemplateParams(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~OfflineCodeTemplateParams() = default ;
+        OfflineCodeTemplateParams& operator=(const OfflineCodeTemplateParams &) = default ;
+        OfflineCodeTemplateParams& operator=(OfflineCodeTemplateParams &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->description_ == nullptr
+        && this->encryptEnabled_ == nullptr && this->key_ == nullptr && this->value_ == nullptr; };
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline OfflineCodeTemplateParams& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // encryptEnabled Field Functions 
+        bool hasEncryptEnabled() const { return this->encryptEnabled_ != nullptr;};
+        void deleteEncryptEnabled() { this->encryptEnabled_ = nullptr;};
+        inline bool getEncryptEnabled() const { DARABONBA_PTR_GET_DEFAULT(encryptEnabled_, false) };
+        inline OfflineCodeTemplateParams& setEncryptEnabled(bool encryptEnabled) { DARABONBA_PTR_SET_VALUE(encryptEnabled_, encryptEnabled) };
+
+
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline OfflineCodeTemplateParams& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline OfflineCodeTemplateParams& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> description_ {};
+        shared_ptr<bool> encryptEnabled_ {};
+        shared_ptr<string> key_ {};
         shared_ptr<string> value_ {};
       };
 
@@ -386,28 +484,53 @@ namespace Models
 
 
       protected:
+        // The end time in the format of HH:mm.
+        // 
         // This parameter is required.
         shared_ptr<string> endTime_ {};
+        // The custom interval.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> interval_ {};
+        // The interval unit. Valid values:
+        // - MINUTE: minute
+        // - HOUR: hour
+        // 
         // This parameter is required.
         shared_ptr<string> intervalUnit_ {};
+        // The schedule period. Valid values:
+        // - YEARLY
+        // - MONTHLY
+        // - WEEKLY
+        // - DAILY
+        // - HOURLY
+        // - MINUTELY
+        // 
         // This parameter is required.
         shared_ptr<string> schedulePeriod_ {};
+        // The start time in the format of HH:mm.
+        // 
         // This parameter is required.
         shared_ptr<string> startTime_ {};
       };
 
       virtual bool empty() const override { return this->code_ == nullptr
-        && this->comment_ == nullptr && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->engine_ == nullptr && this->fileId_ == nullptr
-        && this->name_ == nullptr && this->nodeDescription_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->paramList_ == nullptr
-        && this->priority_ == nullptr && this->projectId_ == nullptr && this->pythonModuleList_ == nullptr && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr
-        && this->upStreamList_ == nullptr; };
+        && this->codeTemplateVersion_ == nullptr && this->comment_ == nullptr && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->engine_ == nullptr
+        && this->fileId_ == nullptr && this->name_ == nullptr && this->nodeDescription_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr
+        && this->offlineCodeTemplateId_ == nullptr && this->offlineCodeTemplateParams_ == nullptr && this->paramList_ == nullptr && this->priority_ == nullptr && this->projectId_ == nullptr
+        && this->pythonModuleList_ == nullptr && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr && this->upStreamList_ == nullptr; };
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
       inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
       inline SubmitCommand& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // codeTemplateVersion Field Functions 
+      bool hasCodeTemplateVersion() const { return this->codeTemplateVersion_ != nullptr;};
+      void deleteCodeTemplateVersion() { this->codeTemplateVersion_ = nullptr;};
+      inline int32_t getCodeTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(codeTemplateVersion_, 0) };
+      inline SubmitCommand& setCodeTemplateVersion(int32_t codeTemplateVersion) { DARABONBA_PTR_SET_VALUE(codeTemplateVersion_, codeTemplateVersion) };
 
 
       // comment Field Functions 
@@ -477,6 +600,22 @@ namespace Models
       inline SubmitCommand& setNodeStatus(int32_t nodeStatus) { DARABONBA_PTR_SET_VALUE(nodeStatus_, nodeStatus) };
 
 
+      // offlineCodeTemplateId Field Functions 
+      bool hasOfflineCodeTemplateId() const { return this->offlineCodeTemplateId_ != nullptr;};
+      void deleteOfflineCodeTemplateId() { this->offlineCodeTemplateId_ = nullptr;};
+      inline string getOfflineCodeTemplateId() const { DARABONBA_PTR_GET_DEFAULT(offlineCodeTemplateId_, "") };
+      inline SubmitCommand& setOfflineCodeTemplateId(string offlineCodeTemplateId) { DARABONBA_PTR_SET_VALUE(offlineCodeTemplateId_, offlineCodeTemplateId) };
+
+
+      // offlineCodeTemplateParams Field Functions 
+      bool hasOfflineCodeTemplateParams() const { return this->offlineCodeTemplateParams_ != nullptr;};
+      void deleteOfflineCodeTemplateParams() { this->offlineCodeTemplateParams_ = nullptr;};
+      inline const vector<SubmitCommand::OfflineCodeTemplateParams> & getOfflineCodeTemplateParams() const { DARABONBA_PTR_GET_CONST(offlineCodeTemplateParams_, vector<SubmitCommand::OfflineCodeTemplateParams>) };
+      inline vector<SubmitCommand::OfflineCodeTemplateParams> getOfflineCodeTemplateParams() { DARABONBA_PTR_GET(offlineCodeTemplateParams_, vector<SubmitCommand::OfflineCodeTemplateParams>) };
+      inline SubmitCommand& setOfflineCodeTemplateParams(const vector<SubmitCommand::OfflineCodeTemplateParams> & offlineCodeTemplateParams) { DARABONBA_PTR_SET_VALUE(offlineCodeTemplateParams_, offlineCodeTemplateParams) };
+      inline SubmitCommand& setOfflineCodeTemplateParams(vector<SubmitCommand::OfflineCodeTemplateParams> && offlineCodeTemplateParams) { DARABONBA_PTR_SET_RVALUE(offlineCodeTemplateParams_, offlineCodeTemplateParams) };
+
+
       // paramList Field Functions 
       bool hasParamList() const { return this->paramList_ != nullptr;};
       void deleteParamList() { this->paramList_ = nullptr;};
@@ -535,27 +674,64 @@ namespace Models
 
 
     protected:
+      // The code of the node.
+      // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      shared_ptr<int32_t> codeTemplateVersion_ {};
+      // The comment for the submit operation.
+      // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
+      // The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
       shared_ptr<string> cronExpression_ {};
+      // The custom schedule interval configuration.
       shared_ptr<SubmitCommand::CustomScheduleConfig> customScheduleConfig_ {};
+      // The execution engine for the node, such as for Python tasks. Valid values:
+      // - PYTHON2_7
+      // - PYTHON3_7
+      // - PYTHON3_11
       shared_ptr<string> engine_ {};
+      // The node ID in the directory tree.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
+      // The name of the batch task.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The description of the node.
       shared_ptr<string> nodeDescription_ {};
+      // The list of node output names.
       shared_ptr<vector<string>> nodeOutputNameList_ {};
+      // The node status. Valid values:
+      // - 1: Normal.
+      // - 2: Paused.
+      // - 3: Dry run.
       shared_ptr<int32_t> nodeStatus_ {};
+      shared_ptr<string> offlineCodeTemplateId_ {};
+      shared_ptr<vector<SubmitCommand::OfflineCodeTemplateParams>> offlineCodeTemplateParams_ {};
+      // The list of custom parameters.
       shared_ptr<vector<SubmitCommand::ParamList>> paramList_ {};
+      // The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
+      // The ID of the project to which the node belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // The Python third-party packages that the node depends on.
       shared_ptr<vector<string>> pythonModuleList_ {};
+      // The schedule period. Valid values:
+      // - YEARLY
+      // - MONTHLY
+      // - WEEKLY
+      // - DAILY
+      // - HOURLY
+      // - MINUTELY
       shared_ptr<string> schedulePeriod_ {};
+      // The Spark client information.
       shared_ptr<SubmitCommand::SparkClientInfo> sparkClientInfo_ {};
+      // The upstream dependencies.
       shared_ptr<vector<SubmitCommand::UpStreamList>> upStreamList_ {};
     };
 
@@ -578,8 +754,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The submit request.
+    // 
     // This parameter is required.
     shared_ptr<SubmitBatchTaskRequest::SubmitCommand> submitCommand_ {};
   };

@@ -74,8 +74,12 @@ namespace Models
 
 
     protected:
+      // The list of node IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> nodeIdList_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -106,9 +110,16 @@ namespace Models
 
 
   protected:
+    // The environment identifier. Valid values:
+    // - DEV: development environment 
+    // - PROD (default): production environment.
     shared_ptr<string> env_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The pause scheduling request.
+    // 
     // This parameter is required.
     shared_ptr<PausePhysicalNodeRequest::PauseCommand> pauseCommand_ {};
   };

@@ -96,13 +96,22 @@ namespace Models
 
 
     protected:
+      // The abbreviation of the root word.
+      // 
       // This parameter is required.
       shared_ptr<string> abbreviation_ {};
+      // The description of the root word.
       shared_ptr<string> description_ {};
+      // The full name of the root word.
+      // 
       // This parameter is required.
       shared_ptr<string> fullName_ {};
+      // The name of the root word.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The name of the root word before the update.
+      // 
       // This parameter is required.
       shared_ptr<string> oldName_ {};
     };
@@ -126,8 +135,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update instruction.
+    // 
     // This parameter is required.
     shared_ptr<UpdateStandardWordRootRequest::UpdateCommand> updateCommand_ {};
   };

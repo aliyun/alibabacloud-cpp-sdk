@@ -81,10 +81,15 @@ namespace Models
 
 
     protected:
+      // The list of cluster node endpoints.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> clusterUrlList_ {};
+      // The compute source type.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
+      // The version number.
       shared_ptr<string> version_ {};
     };
 
@@ -107,8 +112,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The update command.
+    // 
     // This parameter is required.
     shared_ptr<UpdateTenantComputeEngineRequest::UpdateCommand> updateCommand_ {};
   };

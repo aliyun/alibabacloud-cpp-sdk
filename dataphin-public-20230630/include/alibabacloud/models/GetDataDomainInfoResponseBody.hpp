@@ -178,18 +178,31 @@ namespace Models
 
 
     protected:
+      // The abbreviation of the data domain.
       shared_ptr<string> abbreviation_ {};
+      // The ID of the business unit to which the data domain belongs.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The description of the business object.
       shared_ptr<string> description_ {};
+      // The display name.
       shared_ptr<string> displayName_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The update time.
       shared_ptr<string> gmtModified_ {};
+      // The data domain ID.
       shared_ptr<int64_t> id_ {};
+      // The ID of the user who last modified the data domain.
       shared_ptr<string> lastModifier_ {};
+      // The name of the user who last modified the data domain.
       shared_ptr<string> lastModifierName_ {};
+      // The name.
       shared_ptr<string> name_ {};
+      // The ID of the business object owner.
       shared_ptr<string> ownerName_ {};
+      // The ID of the business object owner.
       shared_ptr<string> ownerUserId_ {};
+      // The ID of the parent data domain.
       shared_ptr<int64_t> parentId_ {};
     };
 
@@ -240,11 +253,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The data domain details.
     shared_ptr<GetDataDomainInfoResponseBody::DataDomainInfo> dataDomainInfo_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

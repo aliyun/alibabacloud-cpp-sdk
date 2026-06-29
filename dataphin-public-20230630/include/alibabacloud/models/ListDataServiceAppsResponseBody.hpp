@@ -126,7 +126,9 @@ namespace Models
 
 
         protected:
+          // User ID.
           shared_ptr<string> id_ {};
+          // Username.
           shared_ptr<string> name_ {};
         };
 
@@ -170,10 +172,15 @@ namespace Models
 
 
       protected:
+        // Application group name.
         shared_ptr<string> appGroup_ {};
+        // Application ID.
         shared_ptr<int32_t> appId_ {};
+        // Application name.
         shared_ptr<string> appName_ {};
+        // Indicates whether the current user has joined the application.
         shared_ptr<bool> isMember_ {};
+        // Owner list.
         shared_ptr<vector<AppList::OwnerList>> ownerList_ {};
       };
 
@@ -196,7 +203,9 @@ namespace Models
 
 
     protected:
+      // Application list.
       shared_ptr<vector<Data::AppList>> appList_ {};
+      // Total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -247,12 +256,17 @@ namespace Models
 
 
   protected:
+    // Backend response code.
     shared_ptr<string> code_ {};
+    // The list of all applications under the tenant.
     shared_ptr<ListDataServiceAppsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

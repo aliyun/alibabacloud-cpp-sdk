@@ -87,9 +87,14 @@ namespace Models
 
 
     protected:
+      // The abbreviation of the classification level.
       shared_ptr<string> abbreviation_ {};
+      // The description of the classification level.
       shared_ptr<string> description_ {};
+      // The sort order of the classification level. If this parameter is not specified, the current maximum order ID is used by default.
       shared_ptr<int64_t> index_ {};
+      // The name of the classification level.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -113,8 +118,12 @@ namespace Models
 
 
   protected:
+    // The create command.
+    // 
     // This parameter is required.
     shared_ptr<CreateSecurityLevelRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

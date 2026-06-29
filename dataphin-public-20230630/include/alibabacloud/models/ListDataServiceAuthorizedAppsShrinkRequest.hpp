@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The query conditions.
     shared_ptr<string> listQueryShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the data service project.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

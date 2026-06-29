@@ -133,16 +133,28 @@ namespace Models
 
 
     protected:
+      // The datasource environment identifier. This parameter is required only for datasource tables.
       shared_ptr<string> datasourceEnv_ {};
+      // The datasource name. This parameter is required only for datasource tables.
       shared_ptr<string> datasourceName_ {};
+      // The field name.
+      // 
       // This parameter is required.
       shared_ptr<string> fieldName_ {};
+      // Specifies whether the table is a datasource table. Default value: false (treated as a Dataphin table).
       shared_ptr<bool> isDatasourceTable_ {};
+      // The search keyword. The search scope is the field name.
       shared_ptr<string> keyword_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The table catalog. For datasource tables, specify the database or schema name. For Dataphin physical tables, specify the project name in English. For Dataphin logical tables, specify the business unit name in English.
+      // 
       // This parameter is required.
       shared_ptr<string> tableCatalog_ {};
+      // The table name.
+      // 
       // This parameter is required.
       shared_ptr<string> tableName_ {};
     };
@@ -166,8 +178,12 @@ namespace Models
 
 
   protected:
+    // The query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListSecurityIdentifyRecordsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

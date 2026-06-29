@@ -72,8 +72,12 @@ namespace Models
 
 
     protected:
+      // The user group ID.
+      // 
       // This parameter is required.
       shared_ptr<string> userGroupId_ {};
+      // The list of user IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> userIdList_ {};
     };
@@ -97,8 +101,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The command to remove user group members.
+    // 
     // This parameter is required.
     shared_ptr<RemoveUserGroupMemberRequest::RemoveCommand> removeCommand_ {};
   };

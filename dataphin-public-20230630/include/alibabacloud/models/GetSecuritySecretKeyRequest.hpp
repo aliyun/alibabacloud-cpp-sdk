@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The key name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

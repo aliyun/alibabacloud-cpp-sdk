@@ -74,8 +74,11 @@ namespace Models
 
 
     protected:
+      // The environment identifier. Valid values: DEV and PROD.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The user IDs.
       shared_ptr<vector<string>> userIdList_ {};
     };
 
@@ -105,10 +108,16 @@ namespace Models
 
 
   protected:
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The command to remove a member.
+    // 
     // This parameter is required.
     shared_ptr<RemoveProjectMemberRequest::RemoveCommand> removeCommand_ {};
   };

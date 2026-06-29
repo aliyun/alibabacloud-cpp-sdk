@@ -59,6 +59,8 @@ namespace Models
 
 
     protected:
+      // The row-level permission ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> rowPermissionId_ {};
     };
@@ -82,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The request command.
+    // 
     // This parameter is required.
     shared_ptr<DeleteRowPermissionRequest::DeleteRowPermissionCommand> deleteRowPermissionCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

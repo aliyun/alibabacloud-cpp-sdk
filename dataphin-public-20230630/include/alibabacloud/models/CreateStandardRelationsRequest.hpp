@@ -83,6 +83,8 @@ namespace Models
 
 
       protected:
+        // The standard ID.
+        // 
         // This parameter is required.
         shared_ptr<int64_t> standardId_ {};
       };
@@ -113,10 +115,16 @@ namespace Models
 
 
     protected:
+      // The standard association type: RELATIVE.
+      // 
       // This parameter is required.
       shared_ptr<string> relationType_ {};
+      // The standard ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> standardId_ {};
+      // The list of referenced standards.
+      // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::StandardRefList>> standardRefList_ {};
     };
@@ -140,8 +148,12 @@ namespace Models
 
 
   protected:
+    // The create command.
+    // 
     // This parameter is required.
     shared_ptr<CreateStandardRelationsRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

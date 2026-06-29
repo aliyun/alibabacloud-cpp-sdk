@@ -62,6 +62,8 @@ namespace Models
 
 
     protected:
+      // The rule IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> ruleIdList_ {};
     };
@@ -85,8 +87,12 @@ namespace Models
 
 
   protected:
+    // The delete instruction.
+    // 
     // This parameter is required.
     shared_ptr<DeleteQualityRulesRequest::DeleteCommand> deleteCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

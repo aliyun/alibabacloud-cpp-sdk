@@ -276,25 +276,45 @@ namespace Models
 
 
       protected:
+        // The approval flow ID.
         shared_ptr<string> approvalId_ {};
+        // The approval status. For more information, refer to the query business entity details operation.
         shared_ptr<string> approvalStatus_ {};
+        // The list of business event activity IDs contained in the business flow activity. This parameter is valid only when the type is a business flow activity.
         shared_ptr<vector<int64_t>> bizEventEntityIdList_ {};
+        // The description of the business process.
         shared_ptr<string> description_ {};
+        // The display name of the business process.
         shared_ptr<string> displayName_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The update time.
         shared_ptr<string> gmtModified_ {};
+        // Indicates whether the business process is depended on by other entities.
         shared_ptr<bool> hasDependent_ {};
+        // The business process ID.
         shared_ptr<int64_t> id_ {};
+        // The ID of the user who last modified the business object.
         shared_ptr<string> lastModifier_ {};
+        // The name of the user who last modified the business object.
         shared_ptr<string> lastModifierName_ {};
+        // The name of the business process.
         shared_ptr<string> name_ {};
+        // The online status. For more information, refer to the query business entity details operation.
         shared_ptr<string> onlineStatus_ {};
+        // The owner of the business object.
         shared_ptr<string> ownerName_ {};
+        // The owner of the business object.
         shared_ptr<string> ownerUserId_ {};
+        // The preceding business flow activities of the business flow activity.
         shared_ptr<vector<int64_t>> preBizProcessIdList_ {};
+        // The list of associated online business entity IDs.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
+        // The number of associated fact tables.
         shared_ptr<int32_t> refFactTableCount_ {};
+        // The status. For more information, refer to the query business entity details operation.
         shared_ptr<string> status_ {};
+        // The type of the business process. For more information, refer to the query business entity details operation.
         shared_ptr<string> type_ {};
       };
 
@@ -505,25 +525,45 @@ namespace Models
 
 
       protected:
+        // The approval flow ID.
         shared_ptr<string> approvalId_ {};
+        // The approval status. For more information, refer to the query business entity details operation.
         shared_ptr<string> approvalStatus_ {};
+        // The list of child business objects of the business object.
         shared_ptr<vector<int64_t>> childBizEntityIdList_ {};
+        // The description of the business object.
         shared_ptr<string> description_ {};
+        // The display name of the business object.
         shared_ptr<string> displayName_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The update time.
         shared_ptr<string> gmtModified_ {};
+        // The business object ID.
         shared_ptr<int64_t> id_ {};
+        // The ID of the user who last modified the business object.
         shared_ptr<string> lastModifier_ {};
+        // The name of the user who last modified the business object.
         shared_ptr<string> lastModifierName_ {};
+        // The code name of the business object.
         shared_ptr<string> name_ {};
+        // The online status. For more information, refer to the query business entity details operation.
         shared_ptr<string> onlineStatus_ {};
+        // The owner of the business object.
         shared_ptr<string> ownerName_ {};
+        // The owner of the business object.
         shared_ptr<string> ownerUserId_ {};
+        // The parent entity that the business object inherits from. Only common business objects support inheritance, and the parent entity must be online.
         shared_ptr<int64_t> parentId_ {};
+        // The list of associated online business entity IDs.
         shared_ptr<vector<int64_t>> refBizEntityIdList_ {};
+        // The number of associated logical dimension tables.
         shared_ptr<int32_t> refDimTableCount_ {};
+        // The number of associated aggregate tables.
         shared_ptr<int32_t> refSummaryTableCount_ {};
+        // The status. For more information, refer to the query business entity details operation.
         shared_ptr<string> status_ {};
+        // The object type of the business object. For more information, refer to the query business entity details operation.
         shared_ptr<string> type_ {};
       };
 
@@ -569,10 +609,15 @@ namespace Models
 
 
     protected:
+      // The business object.
       shared_ptr<BizEntityInfo::BizObject> bizObject_ {};
+      // The business process.
       shared_ptr<BizEntityInfo::BizProcess> bizProcess_ {};
+      // The business unit ID of the business object.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The ID of the subject domain to which the entity belongs.
       shared_ptr<int64_t> dataDomainId_ {};
+      // The type of the business entity. For more information, refer to the query business entity details operation.
       shared_ptr<string> type_ {};
     };
 
@@ -623,11 +668,17 @@ namespace Models
 
 
   protected:
+    // The creation result.
     shared_ptr<GetBizEntityInfoByVersionResponseBody::BizEntityInfo> bizEntityInfo_ {};
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

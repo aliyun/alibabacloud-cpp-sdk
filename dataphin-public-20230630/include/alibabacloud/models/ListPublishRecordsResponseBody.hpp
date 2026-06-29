@@ -227,21 +227,37 @@ namespace Models
 
 
       protected:
+        // Change type. Valid values: 0: Create. 1: Update. 2: Delete.
         shared_ptr<int32_t> changeType_ {};
+        // Publish error message.
         shared_ptr<string> errorMessage_ {};
+        // Publish completion time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> finishTime_ {};
+        // Creation time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> gmtCreate_ {};
+        // Modification time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> gmtModify_ {};
+        // Publish record ID, which is not the object ID and is globally unique in the publish list.
         shared_ptr<int64_t> id_ {};
+        // Node ID.
         shared_ptr<string> nodeId_ {};
+        // Object ID.
         shared_ptr<string> objectId_ {};
+        // Object name.
         shared_ptr<string> objectName_ {};
+        // Object type.
         shared_ptr<string> objectType_ {};
+        // Object version.
         shared_ptr<string> objectVersion_ {};
+        // Project ID.
         shared_ptr<string> projectId_ {};
+        // Publish name.
         shared_ptr<string> publishName_ {};
+        // Publish status. Valid values: 0: Failed. 1: Succeeded. 2: Publishing.
         shared_ptr<int32_t> publishStatus_ {};
+        // Publisher ID.
         shared_ptr<string> publisher_ {};
+        // Publisher name.
         shared_ptr<string> publisherName_ {};
       };
 
@@ -264,7 +280,9 @@ namespace Models
 
 
     protected:
+      // Publish record list.
       shared_ptr<vector<ListResult::Data>> data_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -315,11 +333,17 @@ namespace Models
 
 
   protected:
+    // Error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // Backend response HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Query result.
     shared_ptr<ListPublishRecordsResponseBody::ListResult> listResult_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

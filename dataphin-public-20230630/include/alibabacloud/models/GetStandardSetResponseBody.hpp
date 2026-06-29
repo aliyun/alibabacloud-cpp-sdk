@@ -148,7 +148,9 @@ namespace Models
 
 
         protected:
+          // The user ID.
           shared_ptr<string> id_ {};
+          // The username.
           shared_ptr<string> name_ {};
         };
 
@@ -171,7 +173,12 @@ namespace Models
 
 
       protected:
+        // The list of specified users who can view the standard set. This parameter takes effect only when the visibility type is set to SPECIFIED.
         shared_ptr<vector<VisibilityConfig::SpecifiedUserList>> specifiedUserList_ {};
+        // The visibility type. Valid values:
+        // - PUBLIC: public.
+        // - PRIVATE: private. Only standard set members and administrators can view the standard set.
+        // - SPECIFIED: visible to specified users only.
         shared_ptr<string> type_ {};
       };
 
@@ -231,9 +238,15 @@ namespace Models
 
 
       protected:
+        // The approval process type. Valid values:
+        // - BY_DEFAULT: default approval type.
+        // - BY_TEMPLATE: approval based on an approval template.
         shared_ptr<string> approvalType_ {};
+        // Indicates whether approval is enabled.
         shared_ptr<bool> enableApproval_ {};
+        // Indicates whether batch approval submission is enabled.
         shared_ptr<bool> isSubmitInBatch_ {};
+        // The approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -275,7 +288,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -317,7 +332,9 @@ namespace Models
 
 
       protected:
+        // The user group ID.
         shared_ptr<string> id_ {};
+        // The user group name.
         shared_ptr<string> name_ {};
       };
 
@@ -359,7 +376,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -401,7 +420,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -433,6 +454,7 @@ namespace Models
 
 
       protected:
+        // The parent directory.
         shared_ptr<string> directory_ {};
       };
 
@@ -474,7 +496,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> id_ {};
+        // The username.
         shared_ptr<string> name_ {};
       };
 
@@ -534,9 +558,15 @@ namespace Models
 
 
       protected:
+        // The approval process type. Valid values:
+        // - BY_DEFAULT: default approval type.
+        // - BY_TEMPLATE: approval based on an approval template.
         shared_ptr<string> approvalType_ {};
+        // Indicates whether approval is enabled.
         shared_ptr<bool> enableApproval_ {};
+        // Indicates whether batch approval submission is enabled.
         shared_ptr<bool> isSubmitInBatch_ {};
+        // The approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -675,21 +705,37 @@ namespace Models
 
 
     protected:
+      // The approval configuration for going online.
       shared_ptr<StandardSetInfo::ApprovalConfig> approvalConfig_ {};
+      // The code of the standard set.
       shared_ptr<string> code_ {};
+      // The time when the standard set was created.
       shared_ptr<string> createTime_ {};
+      // The creator.
       shared_ptr<StandardSetInfo::Creator> creator_ {};
+      // The default standard template ID.
       shared_ptr<int64_t> defaultStandardTemplateId_ {};
+      // The description of the standard set.
       shared_ptr<string> description_ {};
+      // The directory to which the standard set belongs.
       shared_ptr<StandardSetInfo::DirectoryReference> directoryReference_ {};
+      // The standard set ID.
       shared_ptr<int64_t> id_ {};
+      // The user who last modified the standard set.
       shared_ptr<StandardSetInfo::LastModifier> lastModifier_ {};
+      // The list of maintainers.
       shared_ptr<vector<StandardSetInfo::MaintainerList>> maintainerList_ {};
+      // The list of member groups.
       shared_ptr<vector<StandardSetInfo::MemberGroupList>> memberGroupList_ {};
+      // The list of members.
       shared_ptr<vector<StandardSetInfo::MemberList>> memberList_ {};
+      // The time when the standard set was last modified.
       shared_ptr<string> modifyTime_ {};
+      // The name of the standard set.
       shared_ptr<string> name_ {};
+      // The approval configuration for going offline.
       shared_ptr<StandardSetInfo::OfflineApprovalConfig> offlineApprovalConfig_ {};
+      // The visibility configuration.
       shared_ptr<StandardSetInfo::VisibilityConfig> visibilityConfig_ {};
     };
 
@@ -740,12 +786,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The details of the standard set.
     shared_ptr<GetStandardSetResponseBody::StandardSetInfo> standardSetInfo_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

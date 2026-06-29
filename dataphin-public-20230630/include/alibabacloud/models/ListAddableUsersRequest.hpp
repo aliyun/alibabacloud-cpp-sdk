@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> page_ {};
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The search keyword.
       shared_ptr<string> searchText_ {};
     };
 
@@ -102,8 +105,12 @@ namespace Models
 
 
   protected:
+    // The request object.
+    // 
     // This parameter is required.
     shared_ptr<ListAddableUsersRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

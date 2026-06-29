@@ -174,22 +174,50 @@ namespace Models
 
 
     protected:
+      // The list of alert reasons.
       shared_ptr<vector<string>> alertReasonList_ {};
+      // The list of push channel types.
       shared_ptr<vector<string>> channelTypeList_ {};
+      // The list of custom message channel IDs.
       shared_ptr<vector<string>> customChannelIdList_ {};
+      // The keyword for the query.
       shared_ptr<string> keyword_ {};
+      // The list of monitored item IDs.
       shared_ptr<vector<string>> monitoredItemIdList_ {};
+      // The end time of the push.
+      // 
       // This parameter is required.
       shared_ptr<string> notifyEndTime_ {};
+      // The start time of the push.
+      // 
       // This parameter is required.
       shared_ptr<string> notifyStartTime_ {};
+      // The page number.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
+      // The number of records per page.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
+      // The source system. Valid values:
+      // 
+      // - ALL: all.
+      // - DQE: data quality.
+      // - OS: data service.
+      // - STREAM: real-time computing.
+      // - VDM_BATCH: offline computing.
+      // - SOP: O&M platform.
+      // - REAL_TIME_PIPELINE: real-time integration.
+      // - KGB: baseline monitoring.
+      // 
+      // And more.
+      // 
       // This parameter is required.
       shared_ptr<string> sourceSystem_ {};
+      // The list of push statuses.
       shared_ptr<vector<string>> statusList_ {};
+      // The list of push recipient IDs.
       shared_ptr<vector<string>> userIdList_ {};
     };
 
@@ -212,7 +240,10 @@ namespace Models
 
 
   protected:
+    // The query conditions.
     shared_ptr<ListAlertNotificationsRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

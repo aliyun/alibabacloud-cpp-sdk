@@ -187,11 +187,34 @@ namespace Models
 
 
         protected:
+          // The example value.
           shared_ptr<string> exampleValue_ {};
+          // The data type. Valid values:
+          // - "STRING"
+          // - "DOUBLE"
+          // - "INT"
+          // - "DATE"
+          // - "LONG"
+          // - "FLOAT"
+          // - "BOOLEAN"
+          // - "SHORT"
+          // - "BYTE"
+          // - "BIGDECIMAL"
+          // - "BINARY"
+          // - "ARRAY"
+          // - "Array(int)"
+          // - "Array(string)".
+          // 
           // This parameter is required.
           shared_ptr<string> parameterDataType_ {};
+          // The parameter description.
           shared_ptr<string> parameterDescription_ {};
+          // The location of the response parameter for operation-type APIs. This parameter must be set when the API is an operation-type API with batch data volume. Valid values:
+          // - success: the response data of a successful operation
+          // - failed: the response data of a failed operation.
           shared_ptr<string> parameterLocation_ {};
+          // The parameter name.
+          // 
           // This parameter is required.
           shared_ptr<string> parameterName_ {};
         };
@@ -280,15 +303,43 @@ namespace Models
 
 
         protected:
+          // The default value of the input parameter for operation-type APIs. This parameter takes effect when the parameter is not required. If not specified, the value is null.
           shared_ptr<string> defaultValue_ {};
+          // The example value.
           shared_ptr<string> exampleValue_ {};
+          // Specifies whether the parameter is required.
+          // 
           // This parameter is required.
           shared_ptr<bool> isRequiredParameter_ {};
+          // The data type. Valid values:
+          // - "STRING"
+          // - "DOUBLE"
+          // - "INT"
+          // - "DATE"
+          // - "LONG"
+          // - "FLOAT"
+          // - "BOOLEAN"
+          // - "SHORT"
+          // - "BYTE"
+          // - "BIGDECIMAL"
+          // - "BINARY"
+          // - "ARRAY"
+          // - "Array(int)"
+          // - "Array(string)".
+          // 
           // This parameter is required.
           shared_ptr<string> parameterDataType_ {};
+          // The parameter description.
           shared_ptr<string> parameterDescription_ {};
+          // The parameter name.
+          // 
           // This parameter is required.
           shared_ptr<string> parameterName_ {};
+          // The value type of the parameter. Valid values:
+          // 
+          // - 1 (single value): A fixed value used for operators such as =, >=, <=, >, <, !=, and between. 
+          // - 2 (multiple values): The input parameter contains multiple values separated by commas (,). Used for In and Not In operators.
+          // 
           // This parameter is required.
           shared_ptr<string> parameterValueType_ {};
         };
@@ -357,15 +408,33 @@ namespace Models
 
 
       protected:
+        // The ID of the datasource. This parameter is required when the API mode is direct datasource connection.
         shared_ptr<int64_t> datasourceID_ {};
+        // The data type on which the API is based. Valid values:
+        // - 1: datasource.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> datasourceType_ {};
+        // Specifies whether to paginate the results. This parameter is required only when RequestType is set to List. Default value: false. Pagination is not supported in asynchronous call mode.
         shared_ptr<bool> isPaginated_ {};
+        // The SQL script.
+        // 
         // This parameter is required.
         shared_ptr<string> script_ {};
+        // The list of request parameters for the script API.
         shared_ptr<vector<ScriptDetails::ScriptRequestParameters>> scriptRequestParameters_ {};
+        // The list of response parameters for the script API.
         shared_ptr<vector<ScriptDetails::ScriptResponseParameters>> scriptResponseParameters_ {};
+        // The sorting priority. This parameter takes effect only when the SQL mode is basic mode. Default value: 2. Valid values:
+        // 
+        // - 1: SQL script 
+        // - 2: OrderByList request parameter.
         shared_ptr<int32_t> sortPriority_ {};
+        // The SQL mode. Valid values:
+        // 
+        // - 1: basic mode
+        // - 2: advanced mode.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> sqlMode_ {};
       };
@@ -444,11 +513,44 @@ namespace Models
 
 
       protected:
+        // The data volume per batch. Valid values:
+        // - When the data volume type is single record, this parameter cannot be set.
+        // - When the data volume type is batch:
+        //   - If the transaction processing mode is 1, this parameter cannot be set.
+        //   - If the transaction processing mode is 2, the value ranges from 1 to 1000000.
         shared_ptr<int32_t> batchInputDataSize_ {};
+        // The data volume type. Valid values:
+        // - 1: single record
+        // - 2: batch.
         shared_ptr<int32_t> dataVolumeType_ {};
+        // The error handling method. Valid values:
+        // - 1: partial success allowed
+        // - 2: all must succeed
+        // 
+        // Parameter rules:
+        // - When the data volume type is single record, this parameter cannot be set.
+        // - When the data volume type is batch, the value is 1 or 2.
         shared_ptr<int32_t> errorHandlingType_ {};
+        // The maximum number of input records. Valid values:
+        // - When the data volume type is single record, this parameter cannot be set.
+        // - When the data volume type is batch, the value ranges from 1 to 1000000.
         shared_ptr<int32_t> maxInputDataSize_ {};
+        // The degree of parallelism. Valid values:
+        // - When the data volume type is single record, this parameter cannot be set.
+        // - When the data volume type is batch:
+        //   - If the transaction processing mode is 1, this parameter cannot be set.
+        //   - If the transaction processing mode is 2, the value ranges from 1 to 5.
         shared_ptr<int32_t> parallelNum_ {};
+        // The transaction processing mode. Valid values:
+        // - 0: no transaction
+        // - 1: no batching
+        // - 2: batch processing
+        // 
+        // Parameter rules:
+        // - When the data volume type is single record, the transaction processing mode is 0.
+        // - When the data volume type is batch:
+        //   - If the error handling method is 1, the transaction processing mode is 1 or 2.
+        //   - If the error handling method is 2, the transaction processing mode can only be 1.
         shared_ptr<int32_t> transactionType_ {};
       };
 
@@ -606,35 +708,87 @@ namespace Models
 
 
     protected:
+      // The group ID of the API.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> apiGroupId_ {};
+      // The group name of the API.
+      // 
       // This parameter is required.
       shared_ptr<string> apiGroupName_ {};
+      // The name of the API.
+      // 
       // This parameter is required.
       shared_ptr<string> apiName_ {};
+      // The type of the API. Valid values:
+      // 
+      // - 3: datasource SQL mode.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> apiType_ {};
+      // The protocol. Different gateway types support different protocols. For more information, see the documentation. Valid values:
+      // - 0: HTTP 
+      // - 1: HTTPS.
+      // 
       // This parameter is required.
       shared_ptr<vector<int32_t>> bizProtocol_ {};
+      // The cache timeout period, in seconds.
       shared_ptr<int32_t> cacheTimeout_ {};
+      // The call mode of the API. Default value: 1. Valid values:
+      // 
+      // - 1: synchronous call
+      // - 2: asynchronous call.
       shared_ptr<int32_t> callMode_ {};
+      // The custom update frequency. This parameter is required when the update frequency is set to custom.
       shared_ptr<string> customUpdateRate_ {};
+      // The description of the API.
       shared_ptr<string> description_ {};
+      // The configuration of the operation-type API. This parameter is not required when creating a query-type API.
       shared_ptr<CreateCommand::DmlConfig> dmlConfig_ {};
+      // The execution timeout period for asynchronous API calls. This parameter takes effect only for asynchronous API calls and is required when the call mode is asynchronous.
       shared_ptr<int32_t> executionTimeout_ {};
+      // The development mode of the API. Valid values:
+      // 
+      // - 0: Basic mode 
+      // - 1: Dev-Prod mode.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> mode_ {};
+      // The ID of the data service project.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // The request method of the API. Valid values:
+      // 
+      // - 0 (GET): Returns a single record. The query result is unique. 
+      // - 1 (LIST): Returns multiple records.
+      // - 2 (CREATE): Creates objects. Supports single or batch creation.
+      // - 3 (UPDATE): Updates objects. Supports single or batch updates.
+      // - 4 (DELETE): Deletes objects. Supports single or batch deletions.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> requestType_ {};
+      // Specifies whether to return the SQL in the result.
       shared_ptr<bool> returnSqlSwitch_ {};
+      // The list of row-level permission IDs.
       shared_ptr<vector<int64_t>> rowPermissionIds_ {};
+      // The details of the script API.
+      // 
       // This parameter is required.
       shared_ptr<CreateCommand::ScriptDetails> scriptDetails_ {};
+      // The timeout period, in seconds.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> timeout_ {};
+      // The update frequency. Default value: 1. Valid values:
+      // 
+      // - 0: custom
+      // - 1: day
+      // - 2: hour
+      // - 3: minute.
       shared_ptr<int32_t> updateRate_ {};
+      // The version of the API.
+      // 
       // This parameter is required.
       shared_ptr<string> version_ {};
     };
@@ -658,8 +812,12 @@ namespace Models
 
 
   protected:
+    // The request for creating an API.
+    // 
     // This parameter is required.
     shared_ptr<CreateDataServiceApiRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

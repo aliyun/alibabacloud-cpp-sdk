@@ -69,8 +69,12 @@ namespace Models
 
 
     protected:
+      // The object ID.
+      // 
       // This parameter is required.
       shared_ptr<string> objectId_ {};
+      // The object type.
+      // 
       // This parameter is required.
       shared_ptr<string> objectType_ {};
     };
@@ -94,8 +98,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The pending submit query request.
+    // 
     // This parameter is required.
     shared_ptr<GetLatestSubmitDetailRequest::SubmitDetailQuery> submitDetailQuery_ {};
   };

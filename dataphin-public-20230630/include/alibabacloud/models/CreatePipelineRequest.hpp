@@ -155,13 +155,25 @@ namespace Models
 
 
         protected:
+          // Indicates the data distribution method when the current component has multiple downstream components:
+          // true indicates that data from the current component is sent to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records. The default value is true.
+          // false indicates that data from the current component is sent in full to all downstream components. For example, if the current component has 100 records and two downstream components, both downstream components receive all 100 records.
+          // For workflow tasks, this value can be ignored.
           shared_ptr<bool> isDistribute_ {};
+          // Plugin/operator ID. Each plugin/operator has a unique identifier. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepKey. Developers should inherit this component/operator configuration class and implement the corresponding component/operator configuration. Each component/operator configuration has the same structure as the configuration created on the Dataphin page
+          // 
           // This parameter is required.
           shared_ptr<string> key_ {};
+          // Specific component configuration in JSON string format. Refer to the utility class: subclasses of com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig (for workflow operators, use com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.unstructured.BaseOAUnstructuredNeuronConfig) and their toJsonString method. Developers should inherit this component/operator configuration class and implement the corresponding component/operator configuration. Each component/operator configuration has the same structure as the task configuration created on the Dataphin page
+          // 
           // This parameter is required.
           shared_ptr<string> pluginConfig_ {};
+          // Step name. Step names must be unique within the same pipeline task
+          // 
           // This parameter is required.
           shared_ptr<string> stepName_ {};
+          // Component type: input indicates an input component, output indicates an output component, transfrom indicates a transform component, process indicates a flow control component. For workflow tasks, this indicates the operator type, such as image for image, text for text. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepType. Developers should inherit this component/operator configuration class and implement the corresponding component/operator configuration. Each component/operator configuration has the same structure as the configuration created on the Dataphin page
+          // 
           // This parameter is required.
           shared_ptr<string> stepType_ {};
         };
@@ -213,9 +225,15 @@ namespace Models
 
 
         protected:
+          // For conditional distribution components, set to true when the downstream condition is true, otherwise set to false.
+          // For workflow tasks, this can be ignored.
           shared_ptr<bool> sendTo_ {};
+          // Input step name, i.e., Steps[*].StepName
+          // 
           // This parameter is required.
           shared_ptr<string> source_ {};
+          // Output step name, i.e., Steps[*].StepName
+          // 
           // This parameter is required.
           shared_ptr<string> target_ {};
         };
@@ -241,8 +259,12 @@ namespace Models
 
 
       protected:
+        // DAG (directed acyclic graph) link configuration: describes the connections between all components/operators
+        // 
         // This parameter is required.
         shared_ptr<vector<PipelineConfig::Hops>> hops_ {};
+        // Component/operator configuration: contains detailed configuration of all components/operators used
+        // 
         // This parameter is required.
         shared_ptr<vector<PipelineConfig::Steps>> steps_ {};
       };
@@ -312,11 +334,17 @@ namespace Models
 
 
       protected:
+        // Directory of the integration pipeline/workflow task node (defaults to root directory). The directory must exist. If it does not exist, call the relevant API to create a directory of type offlinePipeline (or unstructuredPipeline for workflows)
         shared_ptr<string> directory_ {};
+        // Pipeline/workflow file ID. Leave empty for initial creation. When updating a pipeline/workflow task, at least one of pipelineId, fileId, or nodeId must be specified
         shared_ptr<int64_t> fileId_ {};
+        // Scheduling node ID of the pipeline/workflow task. Leave empty for initial creation. When updating a pipeline/workflow task, at least one of pipelineId, fileId, or nodeId must be specified
         shared_ptr<string> nodeId_ {};
+        // Integration pipeline/workflow task name
+        // 
         // This parameter is required.
         shared_ptr<string> nodeName_ {};
+        // Pipeline/workflow task ID. Leave empty for initial creation. When updating a pipeline/workflow task, at least one of pipelineId, fileId, or nodeId must be specified
         shared_ptr<int64_t> pipelineId_ {};
       };
 
@@ -391,17 +419,31 @@ namespace Models
 
 
     protected:
+      // Comment
       shared_ptr<string> comment_ {};
+      // Integration pipeline configuration mode: PIPELINE indicates pipeline mode (default), JSON indicates script mode.
+      // For workflows, this can be ignored.
       shared_ptr<string> mode_ {};
+      // Integration pipeline/workflow task basic information
+      // 
       // This parameter is required.
       shared_ptr<CreateCommand::NodeInfo> nodeInfo_ {};
+      // Integration pipeline component/workflow operator configuration
+      // 
       // This parameter is required.
       shared_ptr<CreateCommand::PipelineConfig> pipelineConfig_ {};
+      // In script mode: integration pipeline configuration (in JSON string format).
+      // Workflow tasks do not support script mode
       shared_ptr<string> pipelineJson_ {};
+      // Task type: 0 indicates offline integration (default), 1 indicates real-time integration, 14 indicates a workflow task
       shared_ptr<int32_t> pipelineType_ {};
+      // Scheduling configuration in JSON string format. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method
+      // 
       // This parameter is required.
       shared_ptr<string> scheduleConfig_ {};
+      // Channel configuration in JSON string format. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting#toJsonString method
       shared_ptr<string> settings_ {};
+      // Whether to submit. Submitted by default
       shared_ptr<bool> submit_ {};
     };
 
@@ -443,8 +485,12 @@ namespace Models
 
 
     protected:
+      // Current operating environment: DEV indicates the development environment, PROD indicates the production environment (for workflows, only PROD is currently supported)
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // Project ID to which the integration pipeline/workflow task belongs
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -477,10 +523,16 @@ namespace Models
 
 
   protected:
+    // Request context information
+    // 
     // This parameter is required.
     shared_ptr<CreatePipelineRequest::Context> context_ {};
+    // Pipeline/workflow task creation configuration
+    // 
     // This parameter is required.
     shared_ptr<CreatePipelineRequest::CreateCommand> createCommand_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

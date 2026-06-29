@@ -78,9 +78,18 @@ namespace Models
 
 
     protected:
+      // Application ID
+      // 
       // This parameter is required.
       shared_ptr<int32_t> appId_ {};
+      // The new application key, which must be globally unique and is used when calling APIs.
+      // The length is 8 to 128 English characters, and can contain digits, underscores (_), and hyphens (-).
+      // Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
       shared_ptr<string> appKey_ {};
+      // The new application secret.
+      // If this parameter is left empty, the system automatically generates a new AppSecret value.
+      // The length is 8 to 127 English characters, and can contain digits, underscores (_), and hyphens (-).
+      // Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
       shared_ptr<string> appSecret_ {};
     };
 
@@ -103,8 +112,12 @@ namespace Models
 
 
   protected:
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // Reset Data Service Application Key
+    // 
     // This parameter is required.
     shared_ptr<ResetDataServiceAppSecretRequest::UpdateCommand> updateCommand_ {};
   };

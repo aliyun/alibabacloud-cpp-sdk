@@ -141,9 +141,13 @@ namespace Models
 
 
       protected:
+        // The code description.
         shared_ptr<string> description_ {};
+        // The English name of the code.
         shared_ptr<string> englishName_ {};
+        // The code name.
         shared_ptr<string> name_ {};
+        // The code value.
         shared_ptr<string> value_ {};
       };
 
@@ -175,6 +179,7 @@ namespace Models
 
 
       protected:
+        // The directory to which the lookup table belongs.
         shared_ptr<string> directory_ {};
       };
 
@@ -285,19 +290,33 @@ namespace Models
 
 
     protected:
+      // The code of the lookup table.
       shared_ptr<string> code_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The user ID of the creator.
       shared_ptr<string> creator_ {};
+      // The username of the creator.
       shared_ptr<string> creatorName_ {};
+      // The description of the lookup table.
       shared_ptr<string> description_ {};
+      // The directory to which the lookup table belongs.
       shared_ptr<LookupTableInfo::DirectoryReference> directoryReference_ {};
+      // The lookup table ID.
       shared_ptr<int64_t> id_ {};
+      // The user ID of the last modifier.
       shared_ptr<string> lastModifier_ {};
+      // The username of the last modifier.
       shared_ptr<string> lastModifierName_ {};
+      // The list of lookup table values.
       shared_ptr<vector<LookupTableInfo::LookupTableValueList>> lookupTableValueList_ {};
+      // The modification time.
       shared_ptr<string> modifyTime_ {};
+      // The name of the lookup table.
       shared_ptr<string> name_ {};
+      // The user ID of the owner.
       shared_ptr<string> owner_ {};
+      // The username of the owner.
       shared_ptr<string> ownerName_ {};
     };
 
@@ -348,12 +367,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The lookup table details.
     shared_ptr<GetStandardLookupTableResponseBody::LookupTableInfo> lookupTableInfo_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

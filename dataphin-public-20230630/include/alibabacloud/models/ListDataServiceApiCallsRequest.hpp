@@ -144,18 +144,30 @@ namespace Models
 
 
     protected:
+      // The ID of the API.
       shared_ptr<int64_t> apiId_ {};
+      // The name of the API.
       shared_ptr<string> apiName_ {};
-      // appKey
+      // The application key.
+      // >Notice: This parameter is deprecated. Use AppKeyStr instead.
       shared_ptr<int64_t> appKey_ {};
+      // The application key.
       shared_ptr<string> appKeyStr_ {};
+      // The IP address.
       shared_ptr<string> clientIp_ {};
+      // The end time. Format: yyyy-MM-dd HH:mm:ss.
+      // 
       // This parameter is required.
       shared_ptr<string> endTime_ {};
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The start time. Format: yyyy-MM-dd HH:mm:ss.
+      // 
       // This parameter is required.
       shared_ptr<string> startTime_ {};
+      // Indicates whether the call was successful.
       shared_ptr<bool> successful_ {};
     };
 
@@ -185,10 +197,16 @@ namespace Models
 
 
   protected:
+    // The query conditions.
+    // 
     // This parameter is required.
     shared_ptr<ListDataServiceApiCallsRequest::ListQuery> listQuery_ {};
+    // The ID of the tenant.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the data service project.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
   };

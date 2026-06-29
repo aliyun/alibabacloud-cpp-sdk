@@ -143,15 +143,25 @@ namespace Models
 
 
       protected:
+        // List of change types (0: Create / 1: Update / 2: Delete).
         shared_ptr<vector<int32_t>> changeTypeList_ {};
+        // Page number.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> page_ {};
+        // Page size.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> pageSize_ {};
+        // Project ID.
+        // 
         // This parameter is required.
         shared_ptr<vector<int64_t>> projectIdList_ {};
+        // Submission end time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> submitEndTime_ {};
+        // Submission start time in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> submitStartTime_ {};
+        // Submitter.
         shared_ptr<vector<string>> submitterList_ {};
       };
 
@@ -174,7 +184,10 @@ namespace Models
 
 
     protected:
+      // Search keyword.
       shared_ptr<string> keyword_ {};
+      // Pending deployment record filter.
+      // 
       // This parameter is required.
       shared_ptr<ListQuery::SearchFilter> searchFilter_ {};
     };
@@ -198,8 +211,12 @@ namespace Models
 
 
   protected:
+    // Query command.
+    // 
     // This parameter is required.
     shared_ptr<ListSubmitRecordsRequest::ListQuery> listQuery_ {};
+    // Tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The query parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> listCatalogAssetsQueryShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

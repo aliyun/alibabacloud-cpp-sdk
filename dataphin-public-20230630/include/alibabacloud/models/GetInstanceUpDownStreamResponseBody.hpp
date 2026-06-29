@@ -130,10 +130,15 @@ namespace Models
 
 
       protected:
+        // The list of field IDs.
         shared_ptr<vector<string>> fieldInstanceIdList_ {};
+        // The instance ID.
         shared_ptr<string> id_ {};
+        // The node name.
         shared_ptr<string> name_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The node type.
         shared_ptr<string> nodeType_ {};
       };
 
@@ -204,10 +209,18 @@ namespace Models
 
 
       protected:
+        // The list of field IDs.
         shared_ptr<vector<string>> fieldInstanceIdList_ {};
+        // The instance ID.
         shared_ptr<string> id_ {};
+        // The node name.
         shared_ptr<string> name_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The node type. Valid values:
+        // - DATA_PROCESS: code node.
+        // - BBOX_LOGIC_TABLE_NODE: logical table node.
+        // - PIPELINE_NODE: pipeline node.
         shared_ptr<string> nodeType_ {};
       };
 
@@ -278,10 +291,15 @@ namespace Models
 
 
       protected:
+        // The list of field IDs.
         shared_ptr<vector<string>> fieldInstanceIdList_ {};
+        // The instance ID.
         shared_ptr<string> id_ {};
+        // The node name.
         shared_ptr<string> name_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The node type.
         shared_ptr<string> nodeType_ {};
       };
 
@@ -315,8 +333,11 @@ namespace Models
 
 
     protected:
+      // The downstream instances.
       shared_ptr<vector<InstanceDagInfo::DownInstanceList>> downInstanceList_ {};
+      // The center instances.
       shared_ptr<vector<InstanceDagInfo::StartInstanceList>> startInstanceList_ {};
+      // The upstream instances.
       shared_ptr<vector<InstanceDagInfo::UpInstanceList>> upInstanceList_ {};
     };
 
@@ -367,11 +388,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The instance dag data, including the current instance and its upstream and downstream instances.
     shared_ptr<GetInstanceUpDownStreamResponseBody::InstanceDagInfo> instanceDagInfo_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

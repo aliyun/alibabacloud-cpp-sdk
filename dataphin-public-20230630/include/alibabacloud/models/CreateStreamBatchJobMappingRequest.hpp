@@ -142,23 +142,42 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
+      // 
       // This parameter is required.
       shared_ptr<string> clusterId_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The folder in which the node is generated.
+      // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
+      // The Flink DPI engine version.
+      // 
       // This parameter is required.
       shared_ptr<string> engineVersion_ {};
+      // The environment.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The file name.
+      // 
       // This parameter is required.
       shared_ptr<string> fileName_ {};
+      // The file type.
+      // 
       // This parameter is required.
       shared_ptr<string> fileType_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // The queue name.
+      // 
       // This parameter is required.
       shared_ptr<string> queueName_ {};
+      // The VVP cluster type. Valid values: SESSION and PREJOB. This parameter is specific to VVP. If not applicable, leave this parameter empty or do not pass it.
+      // 
       // This parameter is required.
       shared_ptr<string> vvpClusterType_ {};
     };
@@ -182,8 +201,12 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The stream-batch integrated node information.
+    // 
     // This parameter is required.
     shared_ptr<CreateStreamBatchJobMappingRequest::StreamBatchJobMappingCreateCommand> streamBatchJobMappingCreateCommand_ {};
   };

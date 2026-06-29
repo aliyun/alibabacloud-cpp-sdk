@@ -199,11 +199,17 @@ namespace Models
 
 
           protected:
+            // The data type.
             shared_ptr<string> dataType_ {};
+            // The description.
             shared_ptr<string> description_ {};
+            // The column ID.
             shared_ptr<string> id_ {};
+            // The column name.
             shared_ptr<string> name_ {};
+            // Indicates whether the column is a partition key.
             shared_ptr<bool> partitionKey_ {};
+            // Indicates whether the column is a primary key.
             shared_ptr<bool> primaryKey_ {};
           };
 
@@ -312,19 +318,33 @@ namespace Models
 
 
         protected:
+          // The business unit ID.
           shared_ptr<string> bizUnitId_ {};
+          // The business unit name.
           shared_ptr<string> bizUnitName_ {};
+          // The list of lineage columns.
           shared_ptr<vector<OutputLineageList::ColumnList>> columnList_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // The display name of the table.
           shared_ptr<string> displayName_ {};
+          // The environment. Valid values: prod and dev.
           shared_ptr<string> env_ {};
+          // Indicates whether the full table is selected.
           shared_ptr<bool> fullTable_ {};
+          // The globally unique ID.
           shared_ptr<string> guid_ {};
+          // The table name.
           shared_ptr<string> name_ {};
+          // The owner of the table.
           shared_ptr<string> ownerName_ {};
+          // The owner of the table.
           shared_ptr<string> ownerUserId_ {};
+          // The project to which the table belongs.
           shared_ptr<string> projectId_ {};
+          // The project to which the table belongs.
           shared_ptr<string> projectName_ {};
+          // The table subtype. For example, dim indicates a dimension logical table.
           shared_ptr<string> subType_ {};
         };
 
@@ -447,11 +467,17 @@ namespace Models
 
 
           protected:
+            // The data type.
             shared_ptr<string> dataType_ {};
+            // The description.
             shared_ptr<string> description_ {};
+            // The column ID.
             shared_ptr<string> id_ {};
+            // The column name.
             shared_ptr<string> name_ {};
+            // Indicates whether the column is a partition key.
             shared_ptr<bool> partitionKey_ {};
+            // Indicates whether the column is a primary key.
             shared_ptr<bool> primaryKey_ {};
           };
 
@@ -560,19 +586,33 @@ namespace Models
 
 
         protected:
+          // The business unit ID.
           shared_ptr<string> bizUnitId_ {};
+          // The business unit name.
           shared_ptr<string> bizUnitName_ {};
+          // The list of lineage columns.
           shared_ptr<vector<InputLineageList::ColumnList>> columnList_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // The display name of the table.
           shared_ptr<string> displayName_ {};
+          // The environment. Valid values: prod and dev.
           shared_ptr<string> env_ {};
+          // Indicates whether the full table is selected.
           shared_ptr<bool> fullTable_ {};
+          // The globally unique ID.
           shared_ptr<string> guid_ {};
+          // The table name.
           shared_ptr<string> name_ {};
+          // The owner of the table.
           shared_ptr<string> ownerName_ {};
+          // The owner of the table.
           shared_ptr<string> ownerUserId_ {};
+          // The project to which the table belongs.
           shared_ptr<string> projectId_ {};
+          // The project to which the table belongs.
           shared_ptr<string> projectName_ {};
+          // The table subtype. For example, dim indicates a dimension logical table.
           shared_ptr<string> subType_ {};
         };
 
@@ -597,7 +637,9 @@ namespace Models
 
 
       protected:
+        // The collection of input lineage tables.
         shared_ptr<vector<LineageGroupList::InputLineageList>> inputLineageList_ {};
+        // The collection of output lineage tables.
         shared_ptr<vector<LineageGroupList::OutputLineageList>> outputLineageList_ {};
       };
 
@@ -612,6 +654,7 @@ namespace Models
 
 
     protected:
+      // The list of lineage groups.
       shared_ptr<vector<Data::LineageGroupList>> lineageGroupList_ {};
     };
 
@@ -662,11 +705,17 @@ namespace Models
 
 
   protected:
+    // The error code. The value OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<GetBatchTaskUdfLineagesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

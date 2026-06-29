@@ -142,9 +142,11 @@ namespace Models
 
 
       protected:
+        // The whitelist description.
         shared_ptr<string> description_ {};
-        // ip
+        // The IP address.
         shared_ptr<string> ip_ {};
+        // The port.
         shared_ptr<string> port_ {};
       };
 
@@ -289,24 +291,45 @@ namespace Models
 
 
     protected:
+      // The dependent data module display name.
       shared_ptr<string> bizUnitDisplayName_ {};
+      // The dependent data module ID.
       shared_ptr<int64_t> bizUnitId_ {};
+      // The compute source ID.
       shared_ptr<int64_t> computeSourceId_ {};
+      // The compute source name.
       shared_ptr<string> computeSourceName_ {};
+      // The project description.
       shared_ptr<string> description_ {};
+      // The project display name.
       shared_ptr<string> displayName_ {};
+      // The environment.
       shared_ptr<string> env_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The update time.
       shared_ptr<string> gmtModified_ {};
+      // The project ID.
       shared_ptr<int64_t> id_ {};
+      // The project mode. Valid values:
+      // - BASIC
+      // - DEV_PROD
       shared_ptr<string> mode_ {};
+      // The project name.
       shared_ptr<string> name_ {};
+      // The project tag.
       shared_ptr<string> nameSpaceTag_ {};
+      // The project owner ID.
       shared_ptr<string> owner_ {};
+      // The project owner.
       shared_ptr<string> ownerName_ {};
+      // The stream compute source ID.
       shared_ptr<int64_t> streamComputeSourceId_ {};
+      // The stream compute source name.
       shared_ptr<string> streamComputeSourceName_ {};
+      // The project type.
       shared_ptr<string> type_ {};
+      // The whitelists.
       shared_ptr<vector<ProjectInfo::WhiteLists>> whiteLists_ {};
     };
 
@@ -357,11 +380,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The project details.
     shared_ptr<GetProjectResponseBody::ProjectInfo> projectInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

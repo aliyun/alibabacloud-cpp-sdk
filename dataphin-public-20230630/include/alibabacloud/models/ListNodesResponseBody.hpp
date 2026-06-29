@@ -156,7 +156,9 @@ namespace Models
 
 
         protected:
+          // The project ID.
           shared_ptr<string> id_ {};
+          // The project name.
           shared_ptr<string> name_ {};
         };
 
@@ -198,7 +200,9 @@ namespace Models
 
 
         protected:
+          // The user ID.
           shared_ptr<string> id_ {};
+          // The username.
           shared_ptr<string> name_ {};
         };
 
@@ -240,7 +244,9 @@ namespace Models
 
 
         protected:
+          // The user ID.
           shared_ptr<string> id_ {};
+          // The username.
           shared_ptr<string> name_ {};
         };
 
@@ -282,7 +288,9 @@ namespace Models
 
 
         protected:
+          // The user ID.
           shared_ptr<string> id_ {};
+          // The username.
           shared_ptr<string> name_ {};
         };
 
@@ -444,25 +452,51 @@ namespace Models
 
 
       protected:
+        // The name of the business unit to which the node belongs.
         shared_ptr<string> bizUnitName_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The creator.
         shared_ptr<NodeList::Creator> creator_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // Specifies whether to perform a dry run.
         shared_ptr<bool> dryRun_ {};
+        // The extended information.
         shared_ptr<string> extendInfo_ {};
+        // The source.
         shared_ptr<string> from_ {};
+        // Indicates whether a development environment exists.
         shared_ptr<bool> hasDev_ {};
+        // Indicates whether a production environment exists.
         shared_ptr<bool> hasProd_ {};
+        // The node ID.
         shared_ptr<string> id_ {};
+        // The last modification time.
         shared_ptr<string> lastModifiedTime_ {};
+        // The user who last modified the node.
         shared_ptr<NodeList::Modifier> modifier_ {};
+        // The node name.
         shared_ptr<string> name_ {};
+        // The owner.
         shared_ptr<vector<NodeList::OwnerList>> ownerList_ {};
+        // The priority.
         shared_ptr<vector<string>> priorityList_ {};
+        // The project to which the node belongs.
         shared_ptr<NodeList::ProjectInfo> projectInfo_ {};
+        // Indicates whether scheduling is paused.
         shared_ptr<bool> schedulePaused_ {};
+        // The scheduling period.
         shared_ptr<vector<string>> schedulePeriodList_ {};
+        // The sub-business types. Valid values:
+        // - MAX_COMPUTE_SQL
+        // - HIVE_SQL
+        // - SHELL
+        // - PYTHON
+        // - ONE_SERVICE_SQL
+        // - DATABASE_SQL.
         shared_ptr<string> subDetailType_ {};
+        // The node type.
         shared_ptr<string> type_ {};
       };
 
@@ -485,7 +519,9 @@ namespace Models
 
 
     protected:
+      // The list of nodes on the current page.
       shared_ptr<vector<PageResult::NodeList>> nodeList_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -536,11 +572,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The paging query result.
     shared_ptr<ListNodesResponseBody::PageResult> pageResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

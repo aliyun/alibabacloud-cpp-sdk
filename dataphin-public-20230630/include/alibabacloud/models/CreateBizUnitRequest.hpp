@@ -89,6 +89,8 @@ namespace Models
 
 
       protected:
+        // The user ID.
+        // 
         // This parameter is required.
         shared_ptr<string> userId_ {};
       };
@@ -140,14 +142,38 @@ namespace Models
 
 
     protected:
+      // The list of data domain architects.
+      // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::BizUnitAccountList>> bizUnitAccountList_ {};
+      // The description of the business object. The description can be up to 128 characters in length.
       shared_ptr<string> description_ {};
+      // The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+      // 
       // This parameter is required.
       shared_ptr<string> displayName_ {};
+      // The preset icon. Valid values:
+      // - icon-e-commerce: E-commerce.
+      // - icon-finance: Finance.
+      // - con-cloud-computing: Cloud computing.
+      // - icon-advertisement: Advertising and marketing.
+      // - icon-logistics: Logistics.
+      // - icon-entertainment: Entertainment.
+      // - icon-traffic: Travel.
+      // - icon-health: Health.
+      // - icon-social-contact: Social and communication.
+      // - con-dining: Dining.
+      // - icon-education: Education.
+      // - icon-environment: Environment.
+      // 
       // This parameter is required.
       shared_ptr<string> icon_ {};
+      // The production mode. Valid values:
+      // - BASIC: single-environment mode.
+      // - DEV_PROD: development/production dual-environment mode.
       shared_ptr<string> mode_ {};
+      // The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For ADB_PG engines, the code name can be up to 40 characters in length.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -171,8 +197,12 @@ namespace Models
 
 
   protected:
+    // The create request.
+    // 
     // This parameter is required.
     shared_ptr<CreateBizUnitRequest::CreateCommand> createCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

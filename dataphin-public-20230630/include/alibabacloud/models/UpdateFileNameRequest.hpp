@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The file ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
+    // The new file name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

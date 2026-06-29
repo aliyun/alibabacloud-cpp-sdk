@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Error code of the request. OK indicates a successful request.
     shared_ptr<string> code_ {};
+    // HTTP status code returned by the backend
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message of the request
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

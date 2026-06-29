@@ -160,16 +160,27 @@ namespace Models
 
 
     protected:
+      // File category
       shared_ptr<string> category_ {};
+      // File content
       shared_ptr<string> content_ {};
+      // Creator
       shared_ptr<string> creator_ {};
+      // File directory
       shared_ptr<string> directory_ {};
+      // File type, such as directory
       shared_ptr<string> fileType_ {};
+      // Creation time
       shared_ptr<int64_t> gmtCreate_ {};
+      // Modification time
       shared_ptr<int64_t> gmtModified_ {};
+      // File ID
       shared_ptr<int64_t> id_ {};
+      // Last modifier
       shared_ptr<string> lastModifier_ {};
+      // File name
       shared_ptr<string> name_ {};
+      // Project ID
       shared_ptr<int64_t> projectId_ {};
     };
 
@@ -220,11 +231,17 @@ namespace Models
 
 
   protected:
+    // Request error code. OK indicates a normal request.
     shared_ptr<string> code_ {};
+    // File list
     shared_ptr<vector<ListFilesResponseBody::FileList>> fileList_ {};
+    // Backend response HTTP code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

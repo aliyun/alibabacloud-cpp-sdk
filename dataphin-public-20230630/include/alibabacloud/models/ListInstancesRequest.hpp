@@ -238,28 +238,81 @@ namespace Models
 
 
     protected:
+      // Business Type
+      // 
+      // - SCRIPT: Script Instance
+      // - LOGICAL_TABLE: Logical Table
       shared_ptr<string> bizType_ {};
+      // Business unit ID. Required when querying summary logical tables.
       shared_ptr<int64_t> bizUnitId_ {};
+      // Workflow ID
       shared_ptr<string> flowId_ {};
+      // End business date and time. The time format must conform to the partition format specified by the business unit.
       shared_ptr<string> maxBizDate_ {};
+      // Maximum instance run time
       shared_ptr<string> maxRunDate_ {};
+      // Start business date and time. The time format must conform to the partition format specified by the business unit.
       shared_ptr<string> minBizDate_ {};
+      // Minimum instance run time
       shared_ptr<string> minRunDate_ {};
+      // Node ID
       shared_ptr<string> nodeId_ {};
+      // Node Owner
       shared_ptr<vector<string>> ownerList_ {};
+      // Page Number
+      // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
+      // Page Size
+      // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
+      // Priority
+      // - HIGHEST
+      // - HIGH
+      // - MIDDLE
+      // - LOW
+      // - LOWEST
       shared_ptr<vector<string>> priorityList_ {};
+      // Project ID
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
+      // Running status
+      // - INIT: Initialized
+      // - WAIT_SUBMISSION: Waiting for Submission
+      // - WAIT_SCHEDULE: Waiting for Schedule Time
+      // - DISPATCH_BLOCKED: Throttled
+      // - WAIT_RESOURCE: Waiting for Scheduling Resources
+      // - RUNNING: Running
+      // - SUCCESS: Succeeded
+      // - FAILED: Failed
       shared_ptr<vector<string>> runStatusList_ {};
+      // Whether scheduling is paused
       shared_ptr<bool> schedulePaused_ {};
+      // Schedule Period
+      // - YEARLY
+      // - MONTHLY
+      // - WEEKLY
+      // - DAILY
+      // - HOURLY
+      // - MINUTELY
       shared_ptr<vector<string>> schedulePeriodList_ {};
+      // Instance schedule type
+      // - NORMAL (Periodic Instance)
+      // - MANUAL (Manual Instance)
+      // 
       // This parameter is required.
       shared_ptr<string> scheduleType_ {};
+      // Fuzzy match by node name or exact match by node ID
       shared_ptr<string> searchText_ {};
+      // Sub-business Type
+      // - MAX_COMPUTE_SQL
+      // - HIVE_SQL
+      // - SHELL
+      // - PYTHON
+      // - ONE_SERVICE_SQL
+      // - DATABASE_SQL
       shared_ptr<vector<string>> subBizTypeList_ {};
     };
 
@@ -289,8 +342,14 @@ namespace Models
 
 
   protected:
+    // Environment identifier
+    // - DEV: Development environment
+    // - PROD (default): Production environment
     shared_ptr<string> env_ {};
+    // Query Request
     shared_ptr<ListInstancesRequest::ListQuery> listQuery_ {};
+    // Tenant ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };
