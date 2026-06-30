@@ -610,6 +610,23 @@ namespace Gpdb20160503
       Models::CreateJDBCDataSourceResponse createJDBCDataSource(const Models::CreateJDBCDataSourceRequest &request);
 
       /**
+       * @summary 创建模型算子 API KEY
+       *
+       * @param request CreateModelOperatorApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelOperatorApiKeyResponse
+       */
+      Models::CreateModelOperatorApiKeyResponse createModelOperatorApiKeyWithOptions(const Models::CreateModelOperatorApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模型算子 API KEY
+       *
+       * @param request CreateModelOperatorApiKeyRequest
+       * @return CreateModelOperatorApiKeyResponse
+       */
+      Models::CreateModelOperatorApiKeyResponse createModelOperatorApiKey(const Models::CreateModelOperatorApiKeyRequest &request);
+
+      /**
        * @summary Creates a model service.
        *
        * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
@@ -2511,6 +2528,40 @@ namespace Gpdb20160503
       Models::DescribeLogBackupsResponse describeLogBackups(const Models::DescribeLogBackupsRequest &request);
 
       /**
+       * @summary 获取模型算子 API KEY 详情
+       *
+       * @param request DescribeModelOperatorApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelOperatorApiKeyResponse
+       */
+      Models::DescribeModelOperatorApiKeyResponse describeModelOperatorApiKeyWithOptions(const Models::DescribeModelOperatorApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模型算子 API KEY 详情
+       *
+       * @param request DescribeModelOperatorApiKeyRequest
+       * @return DescribeModelOperatorApiKeyResponse
+       */
+      Models::DescribeModelOperatorApiKeyResponse describeModelOperatorApiKey(const Models::DescribeModelOperatorApiKeyRequest &request);
+
+      /**
+       * @summary 获取模型算子用量
+       *
+       * @param tmpReq DescribeModelOperatorUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelOperatorUsageResponse
+       */
+      Models::DescribeModelOperatorUsageResponse describeModelOperatorUsageWithOptions(const Models::DescribeModelOperatorUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模型算子用量
+       *
+       * @param request DescribeModelOperatorUsageRequest
+       * @return DescribeModelOperatorUsageResponse
+       */
+      Models::DescribeModelOperatorUsageResponse describeModelOperatorUsage(const Models::DescribeModelOperatorUsageRequest &request);
+
+      /**
        * @summary Queries the information about a model service.
        *
        * @description ## [](#)Usage notes
@@ -3698,6 +3749,40 @@ namespace Gpdb20160503
        * @return ListInstanceExtensionsResponse
        */
       Models::ListInstanceExtensionsResponse listInstanceExtensions(const Models::ListInstanceExtensionsRequest &request);
+
+      /**
+       * @summary 获取模型算子 API KEY 列表
+       *
+       * @param request ListModelOperatorApiKeysRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelOperatorApiKeysResponse
+       */
+      Models::ListModelOperatorApiKeysResponse listModelOperatorApiKeysWithOptions(const Models::ListModelOperatorApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模型算子 API KEY 列表
+       *
+       * @param request ListModelOperatorApiKeysRequest
+       * @return ListModelOperatorApiKeysResponse
+       */
+      Models::ListModelOperatorApiKeysResponse listModelOperatorApiKeys(const Models::ListModelOperatorApiKeysRequest &request);
+
+      /**
+       * @summary 获取模型服务列表
+       *
+       * @param request ListModelOperatorServicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelOperatorServicesResponse
+       */
+      Models::ListModelOperatorServicesResponse listModelOperatorServicesWithOptions(const Models::ListModelOperatorServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模型服务列表
+       *
+       * @param request ListModelOperatorServicesRequest
+       * @return ListModelOperatorServicesResponse
+       */
+      Models::ListModelOperatorServicesResponse listModelOperatorServices(const Models::ListModelOperatorServicesRequest &request);
 
       /**
        * @summary Queries all model services.

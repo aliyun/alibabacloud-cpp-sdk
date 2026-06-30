@@ -98,6 +98,9 @@
 #include <alibabacloud/models/CreateJDBCDataSourceRequest.hpp>
 #include <alibabacloud/models/CreateJDBCDataSourceResponseBody.hpp>
 #include <alibabacloud/models/CreateJDBCDataSourceResponse.hpp>
+#include <alibabacloud/models/CreateModelOperatorApiKeyRequest.hpp>
+#include <alibabacloud/models/CreateModelOperatorApiKeyResponseBody.hpp>
+#include <alibabacloud/models/CreateModelOperatorApiKeyResponse.hpp>
 #include <alibabacloud/models/CreateModelServiceRequest.hpp>
 #include <alibabacloud/models/CreateModelServiceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateModelServiceResponseBody.hpp>
@@ -393,6 +396,13 @@
 #include <alibabacloud/models/DescribeLogBackupsRequest.hpp>
 #include <alibabacloud/models/DescribeLogBackupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeLogBackupsResponse.hpp>
+#include <alibabacloud/models/DescribeModelOperatorApiKeyRequest.hpp>
+#include <alibabacloud/models/DescribeModelOperatorApiKeyResponseBody.hpp>
+#include <alibabacloud/models/DescribeModelOperatorApiKeyResponse.hpp>
+#include <alibabacloud/models/DescribeModelOperatorUsageRequest.hpp>
+#include <alibabacloud/models/DescribeModelOperatorUsageShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeModelOperatorUsageResponseBody.hpp>
+#include <alibabacloud/models/DescribeModelOperatorUsageResponse.hpp>
 #include <alibabacloud/models/DescribeModelServiceRequest.hpp>
 #include <alibabacloud/models/DescribeModelServiceResponseBody.hpp>
 #include <alibabacloud/models/DescribeModelServiceResponse.hpp>
@@ -578,6 +588,12 @@
 #include <alibabacloud/models/ListInstanceExtensionsRequest.hpp>
 #include <alibabacloud/models/ListInstanceExtensionsResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceExtensionsResponse.hpp>
+#include <alibabacloud/models/ListModelOperatorApiKeysRequest.hpp>
+#include <alibabacloud/models/ListModelOperatorApiKeysResponseBody.hpp>
+#include <alibabacloud/models/ListModelOperatorApiKeysResponse.hpp>
+#include <alibabacloud/models/ListModelOperatorServicesRequest.hpp>
+#include <alibabacloud/models/ListModelOperatorServicesResponseBody.hpp>
+#include <alibabacloud/models/ListModelOperatorServicesResponse.hpp>
 #include <alibabacloud/models/ListModelServicesRequest.hpp>
 #include <alibabacloud/models/ListModelServicesResponseBody.hpp>
 #include <alibabacloud/models/ListModelServicesResponse.hpp>

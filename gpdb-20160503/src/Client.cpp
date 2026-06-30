@@ -2417,6 +2417,48 @@ CreateJDBCDataSourceResponse Client::createJDBCDataSource(const CreateJDBCDataSo
 }
 
 /**
+ * @summary 创建模型算子 API KEY
+ *
+ * @param request CreateModelOperatorApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelOperatorApiKeyResponse
+ */
+CreateModelOperatorApiKeyResponse Client::createModelOperatorApiKeyWithOptions(const CreateModelOperatorApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateModelOperatorApiKey"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelOperatorApiKeyResponse>();
+}
+
+/**
+ * @summary 创建模型算子 API KEY
+ *
+ * @param request CreateModelOperatorApiKeyRequest
+ * @return CreateModelOperatorApiKeyResponse
+ */
+CreateModelOperatorApiKeyResponse Client::createModelOperatorApiKey(const CreateModelOperatorApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createModelOperatorApiKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a model service.
  *
  * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
@@ -8285,6 +8327,128 @@ DescribeLogBackupsResponse Client::describeLogBackups(const DescribeLogBackupsRe
 }
 
 /**
+ * @summary 获取模型算子 API KEY 详情
+ *
+ * @param request DescribeModelOperatorApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelOperatorApiKeyResponse
+ */
+DescribeModelOperatorApiKeyResponse Client::describeModelOperatorApiKeyWithOptions(const DescribeModelOperatorApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["ApiKeyId"] = request.getApiKeyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelOperatorApiKey"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelOperatorApiKeyResponse>();
+}
+
+/**
+ * @summary 获取模型算子 API KEY 详情
+ *
+ * @param request DescribeModelOperatorApiKeyRequest
+ * @return DescribeModelOperatorApiKeyResponse
+ */
+DescribeModelOperatorApiKeyResponse Client::describeModelOperatorApiKey(const DescribeModelOperatorApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelOperatorApiKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取模型算子用量
+ *
+ * @param tmpReq DescribeModelOperatorUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelOperatorUsageResponse
+ */
+DescribeModelOperatorUsageResponse Client::describeModelOperatorUsageWithOptions(const DescribeModelOperatorUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeModelOperatorUsageShrinkRequest request = DescribeModelOperatorUsageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApiKeyIds()) {
+    request.setApiKeyIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApiKeyIds(), "ApiKeyIds", "simple"));
+  }
+
+  if (!!tmpReq.hasKeys()) {
+    request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKeys(), "Keys", "simple"));
+  }
+
+  if (!!tmpReq.hasModelNames()) {
+    request.setModelNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModelNames(), "ModelNames", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasApiKeyIdsShrink()) {
+    query["ApiKeyIds"] = request.getApiKeyIdsShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGroupBy()) {
+    query["GroupBy"] = request.getGroupBy();
+  }
+
+  if (!!request.hasKeysShrink()) {
+    query["Keys"] = request.getKeysShrink();
+  }
+
+  if (!!request.hasModelNamesShrink()) {
+    query["ModelNames"] = request.getModelNamesShrink();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelOperatorUsage"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelOperatorUsageResponse>();
+}
+
+/**
+ * @summary 获取模型算子用量
+ *
+ * @param request DescribeModelOperatorUsageRequest
+ * @return DescribeModelOperatorUsageResponse
+ */
+DescribeModelOperatorUsageResponse Client::describeModelOperatorUsage(const DescribeModelOperatorUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelOperatorUsageWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a model service.
  *
  * @description ## [](#)Usage notes
@@ -12122,6 +12286,98 @@ ListInstanceExtensionsResponse Client::listInstanceExtensionsWithOptions(const L
 ListInstanceExtensionsResponse Client::listInstanceExtensions(const ListInstanceExtensionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInstanceExtensionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取模型算子 API KEY 列表
+ *
+ * @param request ListModelOperatorApiKeysRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelOperatorApiKeysResponse
+ */
+ListModelOperatorApiKeysResponse Client::listModelOperatorApiKeysWithOptions(const ListModelOperatorApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelOperatorApiKeys"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelOperatorApiKeysResponse>();
+}
+
+/**
+ * @summary 获取模型算子 API KEY 列表
+ *
+ * @param request ListModelOperatorApiKeysRequest
+ * @return ListModelOperatorApiKeysResponse
+ */
+ListModelOperatorApiKeysResponse Client::listModelOperatorApiKeys(const ListModelOperatorApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listModelOperatorApiKeysWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取模型服务列表
+ *
+ * @param request ListModelOperatorServicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelOperatorServicesResponse
+ */
+ListModelOperatorServicesResponse Client::listModelOperatorServicesWithOptions(const ListModelOperatorServicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelOperatorServices"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelOperatorServicesResponse>();
+}
+
+/**
+ * @summary 获取模型服务列表
+ *
+ * @param request ListModelOperatorServicesRequest
+ * @return ListModelOperatorServicesResponse
+ */
+ListModelOperatorServicesResponse Client::listModelOperatorServices(const ListModelOperatorServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listModelOperatorServicesWithOptions(request, runtime);
 }
 
 /**
