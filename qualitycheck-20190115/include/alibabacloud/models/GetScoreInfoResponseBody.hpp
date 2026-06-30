@@ -260,10 +260,14 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** means the call succeeded. Any other value means the call failed. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
     shared_ptr<GetScoreInfoResponseBody::Data> data_ {};
+    // Details about the error if the call fails. If the call succeeds, this value is successful.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
     shared_ptr<bool> success_ {};
   };
 

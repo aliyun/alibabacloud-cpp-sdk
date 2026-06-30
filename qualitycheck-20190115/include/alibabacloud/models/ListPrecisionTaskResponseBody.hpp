@@ -410,13 +410,20 @@ namespace Models
 
 
   protected:
+    // Result code. A value of **200** means success. Any other value means failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // Total number of items.
     shared_ptr<int32_t> count_ {};
     shared_ptr<ListPrecisionTaskResponseBody::Data> data_ {};
+    // Error details if the request failed. Returns successful if the request succeeded.
     shared_ptr<string> message_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. If true, the request succeeded. If false or null, the request failed.
     shared_ptr<bool> success_ {};
   };
 

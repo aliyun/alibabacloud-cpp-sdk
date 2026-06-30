@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
+    // The current quality check score.
     shared_ptr<string> data_ {};
+    // The response message. If the request is successful, "successful" is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of `true` indicates success, and a value of `false` or `null` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

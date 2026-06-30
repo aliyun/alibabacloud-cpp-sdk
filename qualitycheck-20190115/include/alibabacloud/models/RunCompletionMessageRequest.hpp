@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The content of the message.
       shared_ptr<string> content_ {};
+      // The role of the message sender. Valid values: `user`, `agent`, `system`, and `function`.
       shared_ptr<string> role_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // A list of messages that form the conversation history and the current prompt.
     shared_ptr<vector<RunCompletionMessageRequest::Messages>> messages_ {};
+    // The model specification to use. Valid values: `TYXM_PLUS` and `TYXM_TURBO`.
     shared_ptr<string> modelCode_ {};
+    // Specifies whether to stream the response using Server-Sent Events (SSE). If `true`, the response is streamed. Defaults to `false`.
     shared_ptr<bool> stream_ {};
   };
 

@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // Indicates whether the newly added rule category is selected.
       shared_ptr<bool> select_ {};
+      // Rule category ID
       shared_ptr<int32_t> type_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // Return Result
     shared_ptr<AddRuleCategoryResponseBody::Data> data_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

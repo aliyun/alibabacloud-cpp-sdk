@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // The business space ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // A JSON string that contains the custom parameters for the operation. See the **jsonStr attributes** section for details.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

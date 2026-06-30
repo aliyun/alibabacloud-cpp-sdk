@@ -114,7 +114,9 @@ namespace Models
 
 
       protected:
+        // Start index of the conversation
         shared_ptr<int32_t> from_ {};
+        // End index of the conversation
         shared_ptr<int32_t> to_ {};
       };
 
@@ -165,8 +167,11 @@ namespace Models
 
 
       protected:
+        // Condition ID
         shared_ptr<string> cid_ {};
+        // Hit count
         shared_ptr<int32_t> hitTime_ {};
+        // Location
         shared_ptr<string> location_ {};
       };
 
@@ -219,11 +224,17 @@ namespace Models
 
 
     protected:
+      // false: relative position; the sentence position is determined in combination with the anchor and the role
       shared_ptr<bool> absolute_ {};
+      // true: Every sentence must satisfy the condition;
       shared_ptr<bool> allSentencesSatisfy_ {};
+      // Precondition and postcondition
       shared_ptr<CheckRange::Anchor> anchor_ {};
+      // Relative range
       shared_ptr<CheckRange::Range> range_ {};
+      // Corresponds to RoleType.type
       shared_ptr<string> role_ {};
+      // Corresponds to RoleType.id
       shared_ptr<int32_t> roleId_ {};
     };
 
@@ -298,14 +309,23 @@ namespace Models
 
 
   protected:
+    // Detection range
     shared_ptr<ConditionBasicInfo::CheckRange> checkRange_ {};
+    // Condition ID, which may be the primary key in the database or a transformed identifier such as a, b, or c
     shared_ptr<string> cid_ {};
+    // Exclude
     shared_ptr<int32_t> exclusion_ {};
+    // Primary key in the database
     shared_ptr<int64_t> id_ {};
+    // Lambda expression; for example: a&&b
     shared_ptr<string> lambda_ {};
+    // Condition name
     shared_ptr<string> name_ {};
+    // List of operators
     shared_ptr<vector<OperatorBasicInfo>> operators_ {};
+    // ID of the rule to which the condition belongs
     shared_ptr<string> rid_ {};
+    // User group
     shared_ptr<string> userGroup_ {};
   };
 

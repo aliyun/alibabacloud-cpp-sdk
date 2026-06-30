@@ -901,18 +901,29 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Other values indicate failure. Callers can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
+    // Total entries.
     shared_ptr<int32_t> count_ {};
+    // Current page number.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<ListSchemeTaskConfigResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // This field marks the data. When querying more than 10,000 entries using GetResult, include the \\`lastDataId\\` of the last entry from the previous query in each request parameter.
     shared_ptr<string> lastDataId_ {};
+    // Provides error details on failure. For success, it is **successful**.
     shared_ptr<string> message_ {};
     shared_ptr<ListSchemeTaskConfigResponseBody::Messages> messages_ {};
+    // Current page.
     shared_ptr<int32_t> pageNumber_ {};
+    // Entries displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Internal field. Ignore it.
     shared_ptr<string> resultCountId_ {};
+    // Indicates whether the request was successful. Callers can use this field to determine if the request succeeded: \\`true\\` for success, \\`false\\`/\\`null\\` for failure.
     shared_ptr<bool> success_ {};
   };
 

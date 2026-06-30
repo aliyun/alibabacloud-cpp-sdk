@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Workspace ID
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // Pass an empty string as the value.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

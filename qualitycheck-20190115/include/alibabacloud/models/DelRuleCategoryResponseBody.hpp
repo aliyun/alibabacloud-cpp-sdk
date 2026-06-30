@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether to select a new rule category.
       shared_ptr<bool> select_ {};
     };
 
@@ -108,10 +109,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<DelRuleCategoryResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

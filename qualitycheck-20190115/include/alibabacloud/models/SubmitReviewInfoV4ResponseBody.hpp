@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // Result code. Use this field to identify failure causes.
     shared_ptr<string> code_ {};
+    // Error details if the request failed. Returns **successful** if the request succeeded.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. true = success, false or null = failure
     shared_ptr<bool> success_ {};
   };
 

@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** means success. Any other value means failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // The hotword ID you specified as vocabId.
     shared_ptr<string> data_ {};
+    // Details about the error if the request fails. If the request succeeds, the value is **successful**.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Use this field to check the result:
+    // 
+    // - **true** means success.
+    // 
+    // - false or **null** means failure.
     shared_ptr<bool> success_ {};
   };
 

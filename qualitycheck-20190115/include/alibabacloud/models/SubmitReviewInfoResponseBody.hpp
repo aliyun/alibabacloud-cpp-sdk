@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The result code. 200 indicates success.
+    // 
+    // > If the value is different, it indicates failure. Callers can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
+    // Returns the quality inspection score after review upon successful saving.
     shared_ptr<string> data_ {};
+    // Indicates error details on failure, or **successful** on success.
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // Callers can use this field to determine if the request was successful:
+    // 
+    // - true indicates success
+    // 
+    // - false/null indicates failure
     shared_ptr<bool> success_ {};
   };
 

@@ -130,12 +130,18 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Any other value indicates failure. The caller can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
+    // ID of the newly created quality inspection job.
     shared_ptr<int64_t> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // When an error occurs, this field provides error details. When the operation succeeds, the value is "successful".
     shared_ptr<string> message_ {};
     shared_ptr<CreateSchemeTaskConfigResponseBody::Messages> messages_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. The caller can use this field to determine the request outcome: true indicates success; false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

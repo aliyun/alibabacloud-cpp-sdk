@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Result code. **200** means success. Any other value means failure. Use this field to diagnose errors.
     shared_ptr<string> code_ {};
+    // Hotword ID
     shared_ptr<string> data_ {};
+    // Error details if the call fails. Returns **successful** on success.
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. true means success. **false** or **null** means failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -124,9 +124,13 @@ namespace Models
 
 
       protected:
+        // List of conditions.
         shared_ptr<vector<ConditionBasicInfo>> conditionInfoList_ {};
+        // Whether the rule was hit.
         shared_ptr<bool> matched_ {};
+        // The ID of the rule.
         shared_ptr<int64_t> rid_ {};
+        // Flowchart type. Deprecated. Default value: 1.
         shared_ptr<int32_t> taskFlowType_ {};
       };
 
@@ -179,8 +183,11 @@ namespace Models
 
 
       protected:
+        // Flowchart canvas.
         shared_ptr<TaskGraphFlow> graphFlow_ {};
+        // Rule ID.
         shared_ptr<int64_t> rid_ {};
+        // Flowchart type. Deprecated. Default value: 1.
         shared_ptr<int32_t> taskFlowType_ {};
       };
 
@@ -426,22 +433,43 @@ namespace Models
 
 
           protected:
+            // Start time offset of this sentence relative to the start of the full dialogue, in milliseconds. For example, if the total audio duration is 2 minutes and 10 seconds, and a customer starts speaking at 1 minute and 12 seconds and finishes at 1 minute and 20 seconds, then begin equals 72000 and end equals 80000.
             shared_ptr<int64_t> begin_ {};
+            // Start time of this sentence. Example: 2019-11-25 15:37:16.
             shared_ptr<string> beginTime_ {};
+            // Channel ID.
             shared_ptr<int32_t> channelId_ {};
+            // Internal use only. Ignore this field.
             shared_ptr<int32_t> emotionFineGrainedValue_ {};
+            // Emotion intensity score. Value equals volume in decibels divided by 10. Valid range: [1, 10]. Higher values indicate stronger emotion.
             shared_ptr<int32_t> emotionValue_ {};
+            // End time offset of this sentence relative to the start of the full dialogue, in milliseconds. For example, if the total audio duration is 2 minutes and 10 seconds, and a customer starts speaking at 1 minute and 12 seconds and finishes at 1 minute and 20 seconds, then begin equals 72000 and end equals 80000.
             shared_ptr<int64_t> end_ {};
+            // Hit status. Valid values:
+            // 
+            // - **0**: Not hit
+            // 
+            // - **1**: Hit
             shared_ptr<int32_t> hitStatus_ {};
+            // Start time of this sentence in hh:mm:ss format.
             shared_ptr<string> hourMinSec_ {};
+            // Role identifier. In offline voice scenarios, roles are limited to agent or customer. In offline text quality check scenarios, this field shows the identity value passed in during upload.
             shared_ptr<string> identity_ {};
+            // Index of this sentence in the full list of sentences. This is the index of the sentence in the dialogues array of the request parameters, starting from 0.
             shared_ptr<int32_t> pid_ {};
+            // Internal use only. Ignore this field.
             shared_ptr<int64_t> renterId_ {};
+            // Speaker role for this sentence. Valid values: agent and customer.
             shared_ptr<string> role_ {};
+            // Internal use only. Ignore this field.
             shared_ptr<int64_t> sid_ {};
+            // Silence duration, in milliseconds.
             shared_ptr<int32_t> silenceDuration_ {};
+            // Average speech rate for this sentence, in words per minute.
             shared_ptr<int32_t> speechRate_ {};
+            // Internal use only. Ignore this field.
             shared_ptr<string> uuid_ {};
+            // Dialogue content.
             shared_ptr<string> words_ {};
           };
 
@@ -565,16 +593,27 @@ namespace Models
 
 
           protected:
+            // Condition ID.
             shared_ptr<string> cid_ {};
+            // Internal field. Ignore this field.
             shared_ptr<string> customizeCode_ {};
+            // Starting character position for highlighting. Index starts at 0. Maximum value is the total number of characters in the sentence minus 1. The character at position from is included in the highlight.
             shared_ptr<int32_t> from_ {};
+            // Operator ID.
             shared_ptr<string> oid_ {};
+            // Key information matched by the operator.
             shared_ptr<string> operatorKey_ {};
+            // Index of this sentence in the full list of sentences. This is the index of the sentence in the dialogues array of the request parameters, starting from 0.
             shared_ptr<int32_t> pid_ {};
+            // Similar phrase.
             shared_ptr<string> similarPhrase_ {};
+            // Internal use only. Ignore this field.
             shared_ptr<string> tid_ {};
+            // The position of the character that follows the highlighted keyword. The character at the \\`to\\` position is not included in the highlight. For example, if \\`from\\` is 0 and \\`to\\` is 3, the highlighted keyword consists of the characters at indices 0, 1, and 2. The maximum value is one less than the total number of characters in the sentence.
             shared_ptr<int32_t> to_ {};
+            // Internal use only. Ignore this field.
             shared_ptr<string> uuid_ {};
+            // Key information matched by the operator. For details, see **Detailed explanation of Val key information** in the response parameter description below.
             shared_ptr<string> val_ {};
           };
 
@@ -608,8 +647,11 @@ namespace Models
 
 
         protected:
+          // Condition ID.
           shared_ptr<vector<string>> cid_ {};
+          // Key information that was hit. This information appears highlighted on the review page. Examples include keywords matched by a keyword-check operator or category information matched by an agent-model-check operator.
           shared_ptr<vector<ConditionHitInfoList::KeyWords>> keyWords_ {};
+          // Sentence details for the current hit check item.
           shared_ptr<ConditionHitInfoList::Phrase> phrase_ {};
         };
 
@@ -701,12 +743,19 @@ namespace Models
 
 
         protected:
+          // Check item type.
           shared_ptr<int32_t> checkType_ {};
+          // Index number.
           shared_ptr<int32_t> index_ {};
+          // Lambda expression.
           shared_ptr<string> lambda_ {};
+          // Node name.
           shared_ptr<string> name_ {};
+          // ID of the next flow node.
           shared_ptr<int64_t> nextNodeId_ {};
+          // Flow node condition.
           shared_ptr<NextNodeSituations> situation_ {};
+          // List of trigger IDs.
           shared_ptr<vector<string>> triggers_ {};
         };
 
@@ -812,18 +861,31 @@ namespace Models
 
 
       protected:
+        // ID of the hit branch.
         shared_ptr<int64_t> branchHitId_ {};
+        // List of branch information.
         shared_ptr<vector<HitRuleReviewInfoList::BranchInfoList>> branchInfoList_ {};
+        // Information about hit conditions.
         shared_ptr<vector<HitRuleReviewInfoList::ConditionHitInfoList>> conditionHitInfoList_ {};
+        // List of conditions.
         shared_ptr<vector<ConditionBasicInfo>> conditionInfoList_ {};
+        // Judgement node name.
         shared_ptr<string> judgeNodeName_ {};
+        // Lambda expression. Example: a&\\&b.
         shared_ptr<string> lambda_ {};
+        // Whether the rule was hit.
         shared_ptr<bool> matched_ {};
+        // Node type.
         shared_ptr<string> nodeType_ {};
+        // Check item ID.
         shared_ptr<int64_t> rid_ {};
+        // Rule name.
         shared_ptr<string> ruleName_ {};
+        // Whether scoring applies. Valid values: 1 (no scoring) and 3 (scoring).
         shared_ptr<int32_t> ruleScoreType_ {};
+        // Scoring type. Valid values: 0 (add or subtract points on hit) and 1 (one-time score on hit).
         shared_ptr<int32_t> scoreNumType_ {};
+        // Flow ID.
         shared_ptr<int64_t> taskFlowId_ {};
       };
 
@@ -857,8 +919,11 @@ namespace Models
 
 
     protected:
+      // Information about hit check items.
       shared_ptr<vector<Data::HitRuleReviewInfoList>> hitRuleReviewInfoList_ {};
+      // List of hit advanced flow nodes.
       shared_ptr<vector<Data::HitTaskFlowList>> hitTaskFlowList_ {};
+      // Information about rules that were not hit.
       shared_ptr<vector<Data::UnhitRuleReviewInfoList>> unhitRuleReviewInfoList_ {};
     };
 
@@ -909,11 +974,17 @@ namespace Models
 
 
   protected:
+    // Result code. 200 indicates success. Other values indicate failure. Callers can use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // Full response body.
     shared_ptr<TestRuleV4ResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error details when an error occurs. Returns successful when the request succeeds.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Callers can use this field to determine success: true means success; false or null means failure.
     shared_ptr<bool> success_ {};
   };
 

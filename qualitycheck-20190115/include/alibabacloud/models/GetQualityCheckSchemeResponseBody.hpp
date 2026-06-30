@@ -168,11 +168,17 @@ namespace Models
 
 
       protected:
+        // The name of the quality check dimension.
         shared_ptr<string> checkName_ {};
+        // The ID of the quality check dimension type.
         shared_ptr<int64_t> checkType_ {};
+        // The status. Valid values: 0 (disabled) and 1 (enabled).
         shared_ptr<int32_t> enable_ {};
+        // The quality check plan ID.
         shared_ptr<int64_t> schemeId_ {};
+        // The score of the quality check dimension.
         shared_ptr<int32_t> score_ {};
+        // The original score.
         shared_ptr<int32_t> sourceScore_ {};
       };
 
@@ -307,22 +313,39 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The username of the creator.
       shared_ptr<string> createUserName_ {};
+      // The data type of the quality check plan. Valid values: 0 (text) and 1 (audio).
       shared_ptr<int32_t> dataType_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The total score of the quality check plan.
       shared_ptr<string> initScore_ {};
+      // The name of the quality check plan.
       shared_ptr<string> name_ {};
+      // The list of associated rule IDs.
       shared_ptr<vector<string>> ruleIds_ {};
+      // The list of rules.
       shared_ptr<vector<RulesInfo>> ruleList_ {};
+      // The list of quality check dimensions.
       shared_ptr<vector<Data::SchemeCheckTypeList>> schemeCheckTypeList_ {};
+      // The quality check plan ID.
       shared_ptr<int64_t> schemeId_ {};
+      // The quality check plan template ID.
       shared_ptr<int64_t> schemeTemplateId_ {};
+      // The status. Valid values: 0 (deleted), 1 (published), 2 (unpublished), and 3 (updated but not published). Default value: 2.
       shared_ptr<int32_t> status_ {};
+      // The type of the quality check plan template. Valid values: 1 (system-built) and 2 (custom).
       shared_ptr<int32_t> templateType_ {};
+      // The type of the quality check plan. Valid values: 0 (system-built) and 1 (custom).
       shared_ptr<int32_t> type_ {};
+      // The time when the plan was last updated.
       shared_ptr<string> updateTime_ {};
+      // The username of the user who last updated the plan.
       shared_ptr<string> updateUserName_ {};
+      // The version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -383,12 +406,19 @@ namespace Models
 
 
   protected:
+    // The result code. A value of 200 indicates success. Other values indicate failure. Use this code to determine the cause of a failure.
     shared_ptr<string> code_ {};
+    // The QualityCheckScheme object. This is the JSON object of the quality check plan. For more information, see [`Description of quality check task objects`](https://help.aliyun.com/document_detail/453292.html).
     shared_ptr<GetQualityCheckSchemeResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // If an error occurs, this field provides details about the error. If the request is successful, the value is **successful**.
     shared_ptr<string> message_ {};
+    // The list of returned messages.
     shared_ptr<vector<string>> messages_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

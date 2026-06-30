@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // Generated file type
         shared_ptr<string> fileType_ {};
+        // Generated file URL
         shared_ptr<string> fileUrl_ {};
       };
 
@@ -147,10 +149,15 @@ namespace Models
 
 
     protected:
+      // File path
       shared_ptr<string> filePath_ {};
+      // List of returned file paths
       shared_ptr<vector<Data::FilePathList>> filePathList_ {};
+      // Markdown file path
       shared_ptr<string> filePathMd_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
+      // Task status
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -194,11 +201,15 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Any other value indicates failure. Use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
+    // Quality inspection task ID.
     shared_ptr<GetMiningTaskResultResponseBody::Data> data_ {};
+    // Details of the error if an error occurs. Otherwise, **successful**.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. true means success. false or null means failure.
     shared_ptr<string> success_ {};
   };
 

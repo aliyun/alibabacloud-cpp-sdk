@@ -50,6 +50,8 @@ namespace Models
   protected:
     // baseMeAgentId
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // jsonStr is a JSON string that contains all Custom Parameters for this API. For details, see **jsonStr property description** below.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

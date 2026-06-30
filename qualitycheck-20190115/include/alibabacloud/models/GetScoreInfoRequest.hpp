@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // Workspace ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // Paged queries are not supported. Pass an empty string.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

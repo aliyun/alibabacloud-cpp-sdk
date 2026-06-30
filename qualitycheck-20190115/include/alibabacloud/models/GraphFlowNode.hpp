@@ -199,19 +199,33 @@ namespace Models
 
 
     protected:
+      // 1: Do not auto-review.
       shared_ptr<int32_t> autoReview_ {};
+      // Enable branch judgment.
       shared_ptr<bool> branchJudge_ {};
+      // Maximum N sentences to check.
       shared_ptr<int32_t> checkMoreSize_ {};
+      // Quality check dimension
       shared_ptr<int32_t> checkType_ {};
+      // General operator logic.
       shared_ptr<string> lambda_ {};
+      // Role when the type is \\`single\\`.
       shared_ptr<string> role_ {};
+      // Is scored.
       shared_ptr<int32_t> ruleScoreType_ {};
+      // Indicates expression when the type is \\`single\\`.
       shared_ptr<string> sayType_ {};
+      // Score value
       shared_ptr<int32_t> scoreNum_ {};
+      // 0: Add or deduct points after the rule is triggered; 1: Score once after the rule is triggered.
       shared_ptr<int32_t> scoreNumType_ {};
+      // 0: Score when the node is hit.
       shared_ptr<int32_t> scoreRuleHitType_ {};
+      // 1: Add points; 3: Deduct points; default is 1.
       shared_ptr<int32_t> scoreType_ {};
+      // Operators to follow.
       shared_ptr<vector<string>> triggers_ {};
+      // Property type
       shared_ptr<string> type_ {};
     };
 
@@ -291,11 +305,17 @@ namespace Models
 
 
     protected:
+      // Quality check dimension
       shared_ptr<int32_t> checkType_ {};
+      // Flow branch priority. A smaller value indicates higher priority.
       shared_ptr<int32_t> index_ {};
+      // Lambda expression for the next hop.
       shared_ptr<string> lambda_ {};
+      // Conditional branch name.
       shared_ptr<string> name_ {};
+      // Next node ID.
       shared_ptr<int64_t> nextNodeId_ {};
+      // Operators to follow.
       shared_ptr<vector<string>> triggers_ {};
     };
 
@@ -379,16 +399,25 @@ namespace Models
 
 
   protected:
+    // Operator information.
     shared_ptr<vector<ConditionBasicInfo>> conditions_ {};
+    // Used for frontend display.
     shared_ptr<string> content_ {};
+    // Node ID.
     shared_ptr<int64_t> id_ {};
-    // index
+    // Index
     shared_ptr<int32_t> index_ {};
+    // Node name
     shared_ptr<string> name_ {};
+    // Child nodes
     shared_ptr<vector<GraphFlowNode::NextNodes>> nextNodes_ {};
+    // Node Type
     shared_ptr<string> nodeType_ {};
+    // Node properties
     shared_ptr<GraphFlowNode::Properties> properties_ {};
+    // Rule ID. \\`rid\\` is empty if the rule is not persisted. If the rule is persisted, \\`rid\\` equals \\`ID\\`.
     shared_ptr<int64_t> rid_ {};
+    // Whether to use operator matching or legacy matching.
     shared_ptr<bool> useConditions_ {};
   };
 

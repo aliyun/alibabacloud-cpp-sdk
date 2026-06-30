@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Whether this is the new quality check version. Valid values: 0 (legacy version) and 1 (new version). Default value: 1.
     shared_ptr<int32_t> isSchemeData_ {};
+    // JSON request parameters for rule testing. For details, see the supplemental description of request parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> testJson_ {};
   };

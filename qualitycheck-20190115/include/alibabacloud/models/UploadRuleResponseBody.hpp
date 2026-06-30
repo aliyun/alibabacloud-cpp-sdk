@@ -111,10 +111,18 @@ namespace Models
 
 
   protected:
+    // Result code. **200** means success. Any other value indicates failure. Use this field to diagnose errors.
     shared_ptr<string> code_ {};
     shared_ptr<UploadRuleResponseBody::Data> data_ {};
+    // Error details if the call fails. **successful** if successful.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the request succeeded. Use this field to verify success:
+    // 
+    // - **true** means success.
+    // 
+    // - false or **null** means failure.
     shared_ptr<bool> success_ {};
   };
 

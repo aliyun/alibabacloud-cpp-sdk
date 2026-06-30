@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // Workspace ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // This API supports batch modification of user roles. The value of the \\`jsonStr\\` input parameter is a List type. Refer to the example value. See the detailed information below for the complete JSON string content.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

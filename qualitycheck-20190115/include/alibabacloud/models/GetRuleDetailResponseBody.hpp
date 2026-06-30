@@ -1228,8 +1228,11 @@ namespace Models
 
     protected:
       shared_ptr<Data::Conditions> conditions_ {};
+      // The total number of items.
       shared_ptr<int32_t> count_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
       shared_ptr<Data::Rules> rules_ {};
     };
@@ -1274,10 +1277,19 @@ namespace Models
 
 
   protected:
+    // The result code. **200** means success. Any other value means failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetRuleDetailResponseBody::Data> data_ {};
+    // The error message if the request fails. If the request succeeds, the value is **successful**.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Use this field to check the result:
+    // 
+    // - **true** means success.
+    // 
+    // - false or **null** means failure.
     shared_ptr<bool> success_ {};
   };
 

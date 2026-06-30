@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // Flow scoring logic settings
     shared_ptr<int32_t> flowRuleScoreType_ {};
+    // Canvas ID of the flow
     shared_ptr<int64_t> id_ {};
+    // All nodes in the flow
     shared_ptr<vector<GraphFlowNode>> nodes_ {};
+    // Rule ID
     shared_ptr<int64_t> rid_ {};
+    // Rule Name
     shared_ptr<string> ruleName_ {};
+    // Used for frontend display
     shared_ptr<string> showProperties_ {};
+    // Skip if the first session node is not hit
     shared_ptr<bool> skipWhenFirstSessionNodeMiss_ {};
   };
 

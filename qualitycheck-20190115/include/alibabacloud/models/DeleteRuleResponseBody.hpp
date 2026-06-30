@@ -120,11 +120,16 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Details of the error if the request failed. If the request succeeded, the value is "successful".
     shared_ptr<string> message_ {};
     shared_ptr<DeleteRuleResponseBody::Messages> messages_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Use this field to determine request status: true means success. **false** or **null** means failure.
     shared_ptr<bool> success_ {};
   };
 

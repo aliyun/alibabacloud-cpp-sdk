@@ -275,17 +275,28 @@ namespace Models
 
 
     protected:
+      // If the source is a dataset, this is the dataset ID.
       shared_ptr<int64_t> dataSetId_ {};
+      // If the source is a dataset, this is the dataset name.
       shared_ptr<string> dataSetName_ {};
+      // The total duration of the audio recording.
       shared_ptr<int32_t> duration_ {};
+      // The number of incorrectly transcribed words.
       shared_ptr<int32_t> incorrectWords_ {};
+      // The task name.
       shared_ptr<string> name_ {};
       shared_ptr<Data::Precisions> precisions_ {};
+      // The source of the file. Possible values: 3: Dataset. 0: Call center.
       shared_ptr<int32_t> source_ {};
+      // The task status. Possible values: 0: Transcribing. 1: Transcription complete.
       shared_ptr<int32_t> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The total number of files in the task.
       shared_ptr<int32_t> totalCount_ {};
+      // The time when the task was last updated.
       shared_ptr<string> updateTime_ {};
+      // The total number of verified files.
       shared_ptr<int32_t> verifiedCount_ {};
     };
 
@@ -329,10 +340,15 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** indicates that the request was successful. Other values indicate that the request failed. Use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
+    // The task details.
     shared_ptr<GetPrecisionTaskResponseBody::Data> data_ {};
+    // If the request fails, this field provides the error details. If the request is successful, the value is \\`successful\\`.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

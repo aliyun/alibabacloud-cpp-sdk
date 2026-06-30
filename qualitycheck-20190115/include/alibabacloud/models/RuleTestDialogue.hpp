@@ -147,15 +147,25 @@ namespace Models
 
 
     protected:
+      // Start Time in long
       shared_ptr<int64_t> begin_ {};
+      // Start Time in long
       shared_ptr<int64_t> beginTime_ {};
+      // Emotion energy value
       shared_ptr<int32_t> emotionValue_ {};
+      // End time in long
       shared_ptr<int64_t> end_ {};
+      // Hour, minute, second
       shared_ptr<string> hourMinSec_ {};
+      // Identity
       shared_ptr<string> identity_ {};
+      // Role
       shared_ptr<string> role_ {};
+      // Silence duration
       shared_ptr<int64_t> silenceDuration_ {};
+      // Speech rate
       shared_ptr<int64_t> speechRate_ {};
+      // Dialogue
       shared_ptr<string> words_ {};
     };
 
@@ -192,9 +202,13 @@ namespace Models
 
 
   protected:
+    // Content
     shared_ptr<vector<RuleTestDialogue::Content>> content_ {};
+    // Conversation ID
     shared_ptr<int64_t> id_ {};
+    // Conversation Name
     shared_ptr<string> name_ {};
+    // group
     shared_ptr<string> userGroup_ {};
   };
 

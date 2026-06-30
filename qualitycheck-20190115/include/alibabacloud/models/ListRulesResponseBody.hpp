@@ -139,13 +139,25 @@ namespace Models
 
 
     protected:
+      // The names of business categories associated with the rule.
       shared_ptr<vector<string>> businessCategoryNameList_ {};
+      // Comments for the rule.
       shared_ptr<string> comments_ {};
+      // The time when the rule was created.
       shared_ptr<string> createTime_ {};
+      // The rule name.
       shared_ptr<string> name_ {};
+      // The rule ID.
       shared_ptr<int64_t> rid_ {};
+      // The rule category. Valid values:
+      // 
+      // - 1: Custom rule
+      // 
+      // - 0: System-provided rule
       shared_ptr<int32_t> ruleType_ {};
+      // The type value of the rule\\"s rule type.
       shared_ptr<int32_t> type_ {};
+      // The name of the rule\\"s rule type.
       shared_ptr<string> typeName_ {};
     };
 
@@ -211,13 +223,21 @@ namespace Models
 
 
   protected:
+    // The result code. A value of 200 means success. Any other value means failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
+    // The rule list.
     shared_ptr<vector<ListRulesResponseBody::Data>> data_ {};
+    // Details about an error if the request failed. If the request succeeded, the value is successful.
     shared_ptr<string> message_ {};
+    // The page number of the rule list.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -94,11 +94,17 @@ namespace Models
 
 
   protected:
+    // Rule condition information; conditions for multiple rules are all placed in a single list
     shared_ptr<vector<ConditionBasicInfo>> conditions_ {};
+    // Total number of entries
     shared_ptr<int32_t> count_ {};
+    // Testing copy
     shared_ptr<vector<RuleTestDialogue>> dialogues_ {};
+    // Current page
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    // Basic rule information; multiple rules may exist
     shared_ptr<vector<RuleInfo>> rules_ {};
   };
 

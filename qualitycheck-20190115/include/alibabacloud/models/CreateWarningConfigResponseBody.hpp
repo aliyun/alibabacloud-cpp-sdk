@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Other values indicate failure. The caller can determine the failure reason based on this field.
     shared_ptr<string> code_ {};
+    // The ID of the warning configuration successfully created.
     shared_ptr<string> data_ {};
+    // Error details when an error occurs. Returns \\"successful\\" on success.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful. The caller can determine if the request was successful based on this field: true indicates success, false/null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

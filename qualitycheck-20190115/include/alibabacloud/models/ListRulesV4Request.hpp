@@ -271,32 +271,57 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // Workspace ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // Name of the business that owns the rule.
     shared_ptr<string> businessName_ {};
+    // Top-level business category.
     shared_ptr<int32_t> businessRange_ {};
+    // Category name.
     shared_ptr<string> categoryName_ {};
+    // Whether to count the total number of items.
     shared_ptr<bool> countTotal_ {};
+    // ID of the rule creator. Same as CreateUserId. Specify one only.
     shared_ptr<string> createEmpid_ {};
+    // ID of the rule creator. Same as CreateEmpId. Specify one only.
     shared_ptr<int64_t> createUserId_ {};
+    // Current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // Filter by creation time (right boundary).
     shared_ptr<string> endTime_ {};
+    // ID of the rule updater. Same as UpdateUserId. Specify one only.
     shared_ptr<string> lastUpdateEmpid_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Required fields.
     shared_ptr<vector<string>> requireInfos_ {};
+    // Search by rule ID.
     shared_ptr<int64_t> rid_ {};
+    // Search by rule ID or rule name.
     shared_ptr<string> ruleIdOrRuleName_ {};
+    // Scoring type.
     shared_ptr<int32_t> ruleScoreSingleType_ {};
+    // Rule category.
     shared_ptr<int32_t> ruleType_ {};
+    // Quality inspection scheme ID.
     shared_ptr<int64_t> schemeId_ {};
+    // Source type.
     shared_ptr<int32_t> sourceType_ {};
+    // Filter by creation time (left boundary).
     shared_ptr<string> startTime_ {};
+    // Rule status.
     shared_ptr<int32_t> status_ {};
+    // Type value of the rule category that the rule belongs to.
     shared_ptr<int32_t> type_ {};
+    // Name of the rule category that the rule belongs to.
     shared_ptr<string> typeName_ {};
+    // Filter by update time (right boundary).
     shared_ptr<string> updateEndTime_ {};
+    // Filter by update time (left boundary).
     shared_ptr<string> updateStartTime_ {};
+    // ID of the rule updater. Same as LastUpdateEmpId. Specify one only.
     shared_ptr<int64_t> updateUserId_ {};
   };
 

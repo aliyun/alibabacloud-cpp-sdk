@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Other values indicate failure. Callers can determine the failure reason using this field.
     shared_ptr<string> code_ {};
+    // Current detection accuracy: Number of incorrect characters in verified files / Total number of characters in verified files.
     shared_ptr<float> data_ {};
+    // Error details when an error occurs. Successful when successful.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Callers can determine if the request was successful using this field: true indicates success; false/null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

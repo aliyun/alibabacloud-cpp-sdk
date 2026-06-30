@@ -82,8 +82,11 @@ namespace Models
 
 
     protected:
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // User access token
       shared_ptr<string> token_ {};
+      // WebSocket connection domain name
       shared_ptr<string> wsEndpoint_ {};
     };
 
@@ -120,8 +123,11 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // Return Result
     shared_ptr<ApplyWsTokenResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

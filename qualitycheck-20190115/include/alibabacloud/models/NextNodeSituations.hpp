@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // Collection of matching conditions
       shared_ptr<vector<JudgeNodeMetaDesc>> conditions_ {};
+      // The matching relationship between conditions
       shared_ptr<string> type_ {};
     };
 
@@ -96,7 +98,9 @@ namespace Models
 
 
   protected:
+    // Judgment Conditions
     shared_ptr<vector<NextNodeSituations::ConditionGroup>> conditionGroup_ {};
+    // The matching relationship between conditions: currently all are OR relationships.
     shared_ptr<string> type_ {};
   };
 

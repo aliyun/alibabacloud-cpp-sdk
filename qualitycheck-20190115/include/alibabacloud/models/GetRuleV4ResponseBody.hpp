@@ -100,12 +100,19 @@ namespace Models
 
 
   protected:
+    // Result code. A value of **200** indicates success. Other values indicate failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // Rule information.
     shared_ptr<RulesInfo> data_ {};
+    // HTTP status code returned by the request. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error details if the request failed. Returns **successful** if the request succeeded.
     shared_ptr<string> message_ {};
+    // Error details if the request failed. Use this field when returning multiple messages.
     shared_ptr<vector<string>> messages_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Set to true for success. Set to false or null for failure.
     shared_ptr<bool> success_ {};
   };
 

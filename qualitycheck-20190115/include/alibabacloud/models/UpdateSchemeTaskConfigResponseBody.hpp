@@ -120,11 +120,16 @@ namespace Models
 
 
   protected:
+    // Result code. **200** means success. Other values mean failure.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error details if an error occurs. When successful, the value is **successful**.
     shared_ptr<string> message_ {};
     shared_ptr<UpdateSchemeTaskConfigResponseBody::Messages> messages_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. true means success. false or null means failure.
     shared_ptr<bool> success_ {};
   };
 

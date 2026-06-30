@@ -121,7 +121,9 @@ namespace Models
 
 
       protected:
+        // Quality inspection scheme name
         shared_ptr<string> name_ {};
+        // Quality inspection scheme ID
         shared_ptr<int64_t> schemeId_ {};
       };
 
@@ -236,10 +238,47 @@ namespace Models
 
 
           protected:
+            // Type of the value
+            // 
+            // - 0: String
+            // 
+            // - 1: Number
+            // 
+            // - 2: List (use list type for all parameter values when using =)
+            // 
+            // - 3: Date
+            // 
+            // - 4: List_Json
             shared_ptr<int32_t> dataType_ {};
+            // List of on-the-fly recording data
             shared_ptr<vector<Darabonba::Json>> listObject_ {};
+            // Check item name
             shared_ptr<string> name_ {};
+            // Operator
+            // 
+            // - 1: ==
+            // 
+            // - 2: >
+            // 
+            // - 3: <
+            // 
+            // - 4: range
+            // 
+            // - 5: >=
+            // 
+            // - 6: <=
+            // 
+            // - 7: !=
+            // 
+            // - 8: null
+            // 
+            // - 9: not null
+            // 
+            // - 10: contains
+            // 
+            // - 11: does not contain
             shared_ptr<int32_t> symbol_ {};
+            // Matching value for on-the-fly recording data
             shared_ptr<string> value_ {};
           };
 
@@ -254,6 +293,7 @@ namespace Models
 
 
         protected:
+          // Parameter matching configurations for on-the-fly recording
           shared_ptr<vector<AssignConfigs::AssignConfigContests>> assignConfigContests_ {};
         };
 
@@ -290,9 +330,13 @@ namespace Models
 
 
       protected:
+        // Data screening items for on-the-fly recording
         shared_ptr<vector<DataConfig::AssignConfigs>> assignConfigs_ {};
+        // Dataset task. Manage datasets.
         shared_ptr<string> dataSets_ {};
+        // Index number
         shared_ptr<int64_t> index_ {};
+        // JSON text for filtering conditions used in secondary quality inspection. For details, see the request parameters of the GetResult API.
         shared_ptr<string> resultParam_ {};
       };
 
@@ -398,18 +442,55 @@ namespace Models
 
 
     protected:
+      // Task priority:
+      // 
+      // - 0 (low)
+      // 
+      // - 1 (medium)
+      // 
+      // - 2 (high)
       shared_ptr<int32_t> asrTaskPriority_ {};
+      // Assignment type
       shared_ptr<int32_t> assignType_ {};
+      // Data configuration
       shared_ptr<Data::DataConfig> dataConfig_ {};
+      // Quality inspection task ID
       shared_ptr<int64_t> id_ {};
+      // Manual review
       shared_ptr<int32_t> manualReview_ {};
+      // Language model ID
       shared_ptr<string> modeCustomizationId_ {};
+      // Language model name
       shared_ptr<string> modelName_ {};
+      // Quality inspection task name
       shared_ptr<string> name_ {};
+      // Quality inspection scheme IDs
       shared_ptr<vector<int64_t>> schemeIdList_ {};
+      // Quality inspection schemes
       shared_ptr<vector<Data::SchemeList>> schemeList_ {};
+      // Quality inspection task ID
       shared_ptr<int64_t> schemeTaskConfigId_ {};
+      // Quality inspection result type:
+      // 
+      // - 1: offline voice
+      // 
+      // - 2: offline text
+      // 
+      // - 3: real-time voice
+      // 
+      // - 4: real-time text
+      // 
+      // - 5: contact center secondary quality inspection
+      // 
+      // - 51: call center voice secondary quality inspection
+      // 
+      // - 52: call center text secondary quality inspection
+      // 
+      // - 11: dataset voice
+      // 
+      // - 12: dataset text
       shared_ptr<string> sourceDataType_ {};
+      // Enable status. Valid values: 0 (disabled) or 1 (enabled)
       shared_ptr<string> status_ {};
     };
 
@@ -460,11 +541,19 @@ namespace Models
 
 
   protected:
+    // Result code. **200** means success.
+    // 
+    // > Any other value means failure. The caller can use this field to identify the cause.
     shared_ptr<string> code_ {};
+    // Response data. See the additional notes below.
     shared_ptr<GetSchemeTaskConfigResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<string> httpStatusCode_ {};
+    // Error details if the request failed. Returns successful if the request succeeded.
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Use this field to check the result: true means success, false or null means failure.
     shared_ptr<string> success_ {};
   };
 

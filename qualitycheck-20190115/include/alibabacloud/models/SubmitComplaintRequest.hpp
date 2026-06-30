@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // The business space ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // A JSON string that contains the complaint details. For more information, see the following table.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

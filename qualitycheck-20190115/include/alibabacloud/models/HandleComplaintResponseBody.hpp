@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** indicates that the request was successful. Other values indicate that the request failed. You can use this code to identify the cause of the error.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<string> data_ {};
+    // The response message. If the request is successful, **successful** is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. A value of **true** indicates success, and **false or null** indicates failure.
     shared_ptr<bool> success_ {};
   };
 

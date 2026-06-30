@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The Job ID.
       shared_ptr<string> taskId_ {};
+      // The UUID of the call.
       shared_ptr<string> tid_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // The Result code. A value of 200 indicates Succeeded. Any other value indicates failed. The API caller can determine the cause of failure based on this field.
     shared_ptr<string> code_ {};
+    // The complete response Content.
     shared_ptr<UpdateSyncQualityCheckDataResponseBody::Data> data_ {};
+    // Details of the error when an error occurs; "successful" when the operation succeeded.
     shared_ptr<string> message_ {};
+    // The request ID, which is the UUID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the Request succeeded. The API caller can use this field to determine whether the Request succeeded: true indicates success; false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

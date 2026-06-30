@@ -259,21 +259,39 @@ namespace Models
 
 
       protected:
+        // Line-of-business name.
         shared_ptr<string> business_ {};
+        // Call ID.
         shared_ptr<string> callId_ {};
+        // Recording generation UNIX timestamp, accurate to milliseconds.
         shared_ptr<string> callTime_ {};
+        // Call type:  
+        // - 1: Outgoing call  
+        // - 3: Incoming call
         shared_ptr<int32_t> callType_ {};
+        // Callee number.
         shared_ptr<string> callee_ {};
+        // Caller number.
         shared_ptr<string> caller_ {};
+        // Internal field. Ignore this.
         shared_ptr<string> dataSetName_ {};
+        // Total number of words in the conversation.
         shared_ptr<int64_t> duration_ {};
+        // Call duration.
         shared_ptr<int64_t> durationAudio_ {};
+        // File ID, which is the callId in the request parameters. If not specified, a random ID will be generated.
         shared_ptr<string> id_ {};
+        // Recording file name.
         shared_ptr<string> name_ {};
+        // Internal field. Ignore it.
         shared_ptr<string> primaryId_ {};
+        // Custom data 1.
         shared_ptr<string> remark1_ {};
+        // Custom data 2.
         shared_ptr<string> remark2_ {};
+        // Custom data 3.
         shared_ptr<string> remark3_ {};
+        // Recording file URL, used for playback.
         shared_ptr<string> url_ {};
       };
 
@@ -411,12 +429,19 @@ namespace Models
 
 
           protected:
+            // The Start Time of this sentence, represented as an offset in milliseconds from the starting point.
             shared_ptr<int64_t> begin_ {};
+            // Emotion intensity value ranging from 1 to 10. A higher value indicates stronger emotion.
             shared_ptr<int32_t> emotionValue_ {};
+            // The End Time of this sentence, represented as an offset in milliseconds from the starting point.
             shared_ptr<int32_t> end_ {};
+            // The role in the conversation content. Possible values: agent, Customer, System.
             shared_ptr<string> role_ {};
+            // Internal field. Ignore.
             shared_ptr<int32_t> silenceDuration_ {};
+            // The speech rate of this sentence.
             shared_ptr<int32_t> speechRate_ {};
+            // A sentence spoken by this role.
             shared_ptr<string> words_ {};
           };
 
@@ -476,9 +501,13 @@ namespace Models
 
 
           protected:
+            // The ID of the condition that was hit.
             shared_ptr<string> cid_ {};
+            // The starting character position (inclusive) of the keyword to be highlighted. The value starts from 0 and can be at most the total number of characters in the sentence minus 1.
             shared_ptr<int32_t> from_ {};
+            // The ending character position (exclusive) of the keyword to be highlighted. The maximum value is the total number of characters in the sentence minus 1. For example, in the sentence “不可能给你退货的”, if from=0 and to=3, the highlighted keyword is “不可能”, which consists of three characters.
             shared_ptr<int32_t> to_ {};
+            // The exact keyword content.
             shared_ptr<string> val_ {};
           };
 
@@ -512,8 +541,11 @@ namespace Models
 
 
         protected:
+          // List of hit condition IDs.
           shared_ptr<vector<string>> cid_ {};
+          // Returns the specific characters in the current sentence that hit the rule, which are the keywords to be highlighted.
           shared_ptr<vector<Hits::KeyWords>> keyWords_ {};
+          // Details of the sentence that hit the current rule.
           shared_ptr<Hits::Phrase> phrase_ {};
         };
 
@@ -557,10 +589,15 @@ namespace Models
 
 
       protected:
+        // Specific hit location information. At the sentence dimension, returns which condition in the rule was hit and which specific characters triggered the hit within the sentence.
         shared_ptr<vector<HitResult::Hits>> hits_ {};
+        // Hit rule name.
         shared_ptr<string> name_ {};
+        // Review accuracy; possible values: 0 (fault); 1 (correct).
         shared_ptr<int32_t> reviewResult_ {};
+        // Hit rule ID.
         shared_ptr<string> rid_ {};
+        // Rule type associated with the hit rule.
         shared_ptr<string> type_ {};
       };
 
@@ -648,12 +685,19 @@ namespace Models
 
 
       protected:
+        // The start time of this sentence, which is the offset from the starting point in milliseconds.
         shared_ptr<int64_t> begin_ {};
+        // Emotion intensity value ranging from 1 to 10. A higher value indicates stronger emotion.
         shared_ptr<int32_t> emotionValue_ {};
+        // The end time of this sentence, which is the offset from the starting point in milliseconds.
         shared_ptr<int64_t> end_ {};
+        // Role in the dialogue content. Possible values: agent, Customer.
         shared_ptr<string> role_ {};
+        // Internal field. Ignore it.
         shared_ptr<int32_t> silenceDuration_ {};
+        // The average speech rate of this sentence, in characters per minute.
         shared_ptr<int32_t> speechRate_ {};
+        // Dialogue content.
         shared_ptr<string> words_ {};
       };
 
@@ -704,8 +748,11 @@ namespace Models
 
 
       protected:
+        // Agent ID.
         shared_ptr<string> id_ {};
+        // Agent name
         shared_ptr<string> name_ {};
+        // Skill group name
         shared_ptr<string> skillGroup_ {};
       };
 
@@ -827,20 +874,35 @@ namespace Models
 
 
     protected:
+      // Agent information
       shared_ptr<Data::Agent> agent_ {};
+      // Transcription result (dialogue text)
       shared_ptr<vector<Data::AsrResult>> asrResult_ {};
+      // Review comments.
       shared_ptr<string> comments_ {};
+      // Job Creation Time.
       shared_ptr<string> createTime_ {};
+      // When status is neither 0 nor 1, this field indicates the Error Details.
       shared_ptr<string> errorMessage_ {};
+      // Rule hit result.
       shared_ptr<vector<Data::HitResult>> hitResult_ {};
+      // Recording file information
       shared_ptr<Data::Recording> recording_ {};
+      // The quality inspector who actually reviewed the task.
       shared_ptr<string> resolver_ {};
+      // Review accuracy. Possible values: 0 (fault); 1 (correct); 2 (partially correct); 3 (pending review).
       shared_ptr<int32_t> reviewResult_ {};
+      // Review status; possible values: 0 (not reviewed); 1 (reviewed).
       shared_ptr<int32_t> reviewStatus_ {};
+      // Username of the assigned quality inspector.
       shared_ptr<string> reviewer_ {};
+      // Quality inspection score, with a maximum of 100.
       shared_ptr<int32_t> score_ {};
+      // Current job status. Possible values: 0 (not completed); 1 (completed). The caller can use this field to determine whether the job is complete. Values other than 0 or 1 indicate an error; see the errorMessage field for Error Details.
       shared_ptr<int32_t> status_ {};
+      // Job ID.
       shared_ptr<string> taskId_ {};
+      // Internal field. Ignore it.
       shared_ptr<string> taskName_ {};
     };
 
@@ -913,14 +975,23 @@ namespace Models
 
 
   protected:
+    // Result code. A value of 200 indicates success. Any other value indicates failure. The caller can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
+    // Total number of entries.
     shared_ptr<int32_t> count_ {};
+    // Query result.
     shared_ptr<vector<GetSyncResultResponseBody::Data>> data_ {};
+    // Error details when an error occurs; "successful" when the operation succeeded.
     shared_ptr<string> message_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Internal field. Ignore it.
     shared_ptr<string> resultCountId_ {};
+    // Indicates whether the request succeeded. The caller can use this field to determine the request status: true indicates success; false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -349,13 +349,20 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
     shared_ptr<VerifySentenceResponseBody::Data> data_ {};
+    // Number of incorrect characters in this sentence.
     shared_ptr<int32_t> incorrectWords_ {};
+    // Error details if the request failed. Returns successful if the request succeeded.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Correct role after manual verification. Valid values: 0 (agent), 1 (customer).
     shared_ptr<int32_t> sourceRole_ {};
+    // Indicates whether the request succeeded. Set to true for success. Set to false or null for failure.
     shared_ptr<bool> success_ {};
+    // Transcribed role. Valid values: 0 (agent), 1 (customer).
     shared_ptr<int32_t> targetRole_ {};
   };
 

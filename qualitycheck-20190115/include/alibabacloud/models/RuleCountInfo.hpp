@@ -472,52 +472,121 @@ namespace Models
 
 
   protected:
+    // The review option.
+    // 
+    // - 1: Manual review
+    // 
+    // - 3: Automatic review
     shared_ptr<int32_t> autoReview_ {};
+    // A list of basic information about business categories.
     shared_ptr<vector<BusinessCategoryBasicInfo>> businessCategoryBasicInfoList_ {};
+    // A list of business category names.
     shared_ptr<vector<string>> businessCategoryNameList_ {};
+    // The business scope.
     shared_ptr<vector<int32_t>> businessRange_ {};
+    // The number of checked sessions.
     shared_ptr<int64_t> checkNumber_ {};
+    // The comments.
     shared_ptr<string> comments_ {};
+    // The name of the creator.
     shared_ptr<string> createEmpName_ {};
+    // The employee ID of the creator.
     shared_ptr<string> createEmpid_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // You can set this parameter to 1 to reject rule edits, or to 0 or null to allow rule edits.
     shared_ptr<int32_t> deny_ {};
+    // Indicates if the rule is active. \\`0\\`: No. \\`1\\`: Yes.
     shared_ptr<int32_t> effective_ {};
+    // The effective end time.
     shared_ptr<string> effectiveEndTime_ {};
+    // The effective start time.
     shared_ptr<string> effectiveStartTime_ {};
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // Indicates if the rule is active for the entire lifecycle. \\`0\\`: No. \\`1\\`: Yes.
     shared_ptr<int32_t> fullCycle_ {};
+    // The flow canvas, in JSON format.
     Darabonba::Json graphFlow_ {};
+    // The number of hit sessions.
     shared_ptr<int64_t> hitNumber_ {};
+    // The hit rate.
     shared_ptr<float> hitRate_ {};
+    // The hit rate of actual violations.
     shared_ptr<float> hitRealViolationRate_ {};
+    // Indicates if the rule is deleted.
     shared_ptr<int32_t> isDelete_ {};
+    // Indicates if the rule is selected.
     shared_ptr<bool> isSelect_ {};
+    // The scheduled task name.
     shared_ptr<string> jobName_ {};
+    // The name of the user who last updated the rule.
     shared_ptr<string> lastUpdateEmpName_ {};
+    // The employee ID of the user who last updated the rule.
     shared_ptr<string> lastUpdateEmpid_ {};
+    // The last update time.
     shared_ptr<string> lastUpdateTime_ {};
+    // The rule name.
     shared_ptr<string> name_ {};
+    // The operation mode.
     shared_ptr<int32_t> operationMode_ {};
+    // The number of items pending review.
     shared_ptr<int64_t> preReviewNumber_ {};
+    // The number of problems found.
     shared_ptr<int64_t> problemNumber_ {};
+    // The quality check type.
+    // 
+    // - 0: Offline
+    // 
+    // - 1: Real-time
     shared_ptr<int32_t> qualityCheckType_ {};
+    // The number of actual violations after review.
     shared_ptr<int32_t> realViolationNumber_ {};
+    // The review accuracy rate.
     shared_ptr<float> reviewAccuracyRate_ {};
+    // The number of reviewed items.
     shared_ptr<int64_t> reviewNumber_ {};
+    // The review rate.
     shared_ptr<float> reviewRate_ {};
+    // The review status name.
     shared_ptr<string> reviewStatusName_ {};
+    // The rule ID.
     shared_ptr<int64_t> rid_ {};
+    // The scoring type. \\`8\\`: No score is set.
     shared_ptr<int32_t> ruleScoreSingleType_ {};
+    // Specifies if a score is calculated.
+    // 
+    // - 1: No
+    // 
+    // - 3: Yes
     shared_ptr<int32_t> ruleScoreType_ {};
+    // The rule origin. For example, a built-in rule or a user-created rule.
     shared_ptr<int32_t> ruleType_ {};
+    // The sub-item ID.
     shared_ptr<int64_t> scoreSubId_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The status of the rule.
+    // 
+    // - 0: Pending
+    // 
+    // - 1: Active
+    // 
+    // - 2: Expired
     shared_ptr<int32_t> status_ {};
+    // The rule category.
+    // 
+    // - 10: Standard
+    // 
+    // - 11: Flow-based
     shared_ptr<int32_t> targetType_ {};
+    // The rule type.
     shared_ptr<int32_t> type_ {};
+    // The type name.
     shared_ptr<string> typeName_ {};
+    // The number of unreviewed items.
     shared_ptr<int64_t> unReviewNumber_ {};
+    // The user group.
     shared_ptr<string> userGroup_ {};
   };
 

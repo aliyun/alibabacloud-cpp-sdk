@@ -725,10 +725,14 @@ namespace Models
 
 
   protected:
+    // The result `code`. A value of **200** indicates that the request was successful. Other values indicate failure. Use this field to identify the cause of the failure.
     shared_ptr<string> code_ {};
     shared_ptr<UploadDataSyncResponseBody::Data> data_ {};
+    // The response message. If the request succeeds, the value is **successful**. Otherwise, this parameter provides error details.
     shared_ptr<string> message_ {};
+    // The `request ID`.
     shared_ptr<string> requestId_ {};
+    // Specifies whether the request succeeded. `true` indicates success; `false` or `null` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

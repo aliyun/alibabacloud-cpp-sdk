@@ -395,25 +395,51 @@ namespace Models
 
 
     protected:
+      // Indicates whether to perform a full-text quality check after the real-time quality check is complete. Valid values:
+      // 
+      // - 1: yes
+      // 
+      // - 0: no
       shared_ptr<int32_t> allContentQualityCheck_ {};
+      // The ID of the rule used for the full-text quality check.
       shared_ptr<string> allRids_ {};
       shared_ptr<Data::AllRuleList> allRuleList_ {};
+      // The time when the configuration was created.
       shared_ptr<string> createTime_ {};
+      // The configuration ID.
       shared_ptr<int64_t> id_ {};
+      // This is an internal parameter. You can ignore it.
       shared_ptr<string> instanceId_ {};
+      // The language model ID.
       shared_ptr<int64_t> modelId_ {};
+      // The language model name.
       shared_ptr<string> modelName_ {};
+      // The configuration name.
       shared_ptr<string> name_ {};
+      // The quality check type. Valid values:
+      // 
+      // - 0: offline
+      // 
+      // - 1: real-time
       shared_ptr<int32_t> qualityCheckType_ {};
+      // The quality check rule ID.
       shared_ptr<string> rid_ {};
       shared_ptr<Data::RuleList> ruleList_ {};
+      // The source of the skill group. The value is fixed at 0.
       shared_ptr<int32_t> skillGroupFrom_ {};
+      // The skill group ID.
       shared_ptr<string> skillGroupId_ {};
+      // The skill group name.
       shared_ptr<string> skillGroupName_ {};
+      // The status of the configuration. Valid values: 0 (disabled) and 1 (enabled).
       shared_ptr<int32_t> status_ {};
+      // The configuration type. Valid values: 1 (custom configuration) and 0 (built-in configuration).
       shared_ptr<int32_t> type_ {};
+      // The time when the configuration was last updated.
       shared_ptr<string> updateTime_ {};
+      // The hotword ID.
       shared_ptr<int64_t> vocabId_ {};
+      // The hotword name.
       shared_ptr<string> vocabName_ {};
     };
 
@@ -457,10 +483,23 @@ namespace Models
 
 
   protected:
+    // The response code. A value of **200** indicates a successful response.
+    // 
+    // > Other values indicate a failed response. You can use this field to identify the cause of the failure.
     shared_ptr<string> code_ {};
+    // The details of the skill group rule configuration.
     shared_ptr<GetSkillGroupConfigResponseBody::Data> data_ {};
+    // The response message. If the request is successful, a value of **successful** is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // The caller can use this field to determine whether the request was successful:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - false or **null**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

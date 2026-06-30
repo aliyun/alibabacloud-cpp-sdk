@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Result code. A value of **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // ID of the created rule.
     shared_ptr<string> data_ {};
+    // Error details if the request fails. Returns "successful" on success.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
     shared_ptr<bool> success_ {};
   };
 

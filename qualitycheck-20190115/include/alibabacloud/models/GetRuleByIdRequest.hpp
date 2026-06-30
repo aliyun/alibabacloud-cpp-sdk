@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // The business space ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // The rule ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };

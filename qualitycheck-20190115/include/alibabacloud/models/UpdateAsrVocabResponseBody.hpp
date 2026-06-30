@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The status code. A value of **200** indicates that the request was successful. Other values indicate that the request failed.
     shared_ptr<string> code_ {};
+    // The ID of the hotword vocabulary. This is the value of the **vocabId** that you specified in the request.
     shared_ptr<string> data_ {};
+    // The message that is returned. If the request is successful, **successful** is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of **false** or **null** indicates failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -2989,14 +2989,22 @@ namespace Models
 
 
   protected:
+    // Result code. `200` indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // Total number of records.
     shared_ptr<int32_t> count_ {};
     shared_ptr<GetResultResponseBody::Data> data_ {};
+    // Error details if the request failed. Returns successful if the request succeeded.
     shared_ptr<string> message_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Unique request ID.
     shared_ptr<string> requestId_ {};
+    // Reserved field. Ignore this field.
     shared_ptr<string> resultCountId_ {};
+    // Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
     shared_ptr<bool> success_ {};
   };
 

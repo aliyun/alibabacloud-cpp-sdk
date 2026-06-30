@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // Business category ID
     shared_ptr<string> data_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

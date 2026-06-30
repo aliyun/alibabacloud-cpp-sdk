@@ -50,6 +50,7 @@ namespace Models
   protected:
     // baseMeAgentId
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // The request parameter JSON. For details, see the supplementary description of request parameters.
     shared_ptr<string> jsonStr_ {};
   };
 

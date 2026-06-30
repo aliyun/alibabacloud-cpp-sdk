@@ -220,18 +220,29 @@ namespace Models
 
 
   protected:
+    // Business type. This field has no practical meaning and can be ignored.
     shared_ptr<int32_t> businessType_ {};
+    // Result code. **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // Total number of entries.
     shared_ptr<int32_t> count_ {};
+    // Current page number.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<GetRulesCountListResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error details if the request failed. Returns "successful" on success.
     shared_ptr<string> message_ {};
     shared_ptr<GetRulesCountListResponseBody::Messages> messages_ {};
+    // Current page.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of rows per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Use this field to determine request success: true means success; false or null means failure.
     shared_ptr<bool> success_ {};
+    // Total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

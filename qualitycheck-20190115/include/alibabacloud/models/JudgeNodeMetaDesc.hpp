@@ -178,12 +178,18 @@ namespace Models
 
 
   protected:
+    // Actual value
     shared_ptr<string> actualValue_ {};
+    // Data type
     shared_ptr<int32_t> dataType_ {};
     shared_ptr<JudgeNodeMetaDesc::ExpressionMetaDesc> expressionMetaDesc_ {};
+    // System field
     shared_ptr<string> field_ {};
+    // Field data source type: 1: System predefined field. 2: Quality inspection field for passed parameters.
     shared_ptr<int32_t> fieldType_ {};
+    // Expression
     shared_ptr<int32_t> symbol_ {};
+    // Preset value
     shared_ptr<string> value_ {};
   };
 

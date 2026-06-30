@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // Task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -117,12 +118,17 @@ namespace Models
 
 
   protected:
+    // Result code. A value of **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // Response data
     shared_ptr<CreateMiningTaskResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<string> httpStatusCode_ {};
+    // Error details if the call failed. Returns successful if the call succeeded.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded
     shared_ptr<string> success_ {};
   };
 

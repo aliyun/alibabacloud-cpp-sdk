@@ -156,10 +156,15 @@ namespace Models
 
 
       protected:
+        // The name of the quality check dimension.
         shared_ptr<string> checkName_ {};
+        // The type of the quality check dimension.
         shared_ptr<int32_t> checkType_ {};
+        // The enabled status. Valid values: 0 (disabled) and 1 (enabled).
         shared_ptr<int32_t> enable_ {};
+        // The score of the quality check dimension.
         shared_ptr<int32_t> score_ {};
+        // An internal parameter. You can ignore this parameter.
         shared_ptr<int32_t> targetType_ {};
       };
 
@@ -275,13 +280,21 @@ namespace Models
 
 
         protected:
+          // The quality check dimension to which the item belongs.
           shared_ptr<int32_t> checkType_ {};
+          // The name of the check item.
           shared_ptr<string> name_ {};
+          // The ID of the check item.
           shared_ptr<int64_t> rid_ {};
+          // Indicates whether to calculate a score. Valid values: 1 (no score) and 3 (score).
           shared_ptr<int32_t> ruleScoreType_ {};
+          // The score.
           shared_ptr<int32_t> scoreNum_ {};
+          // The scoring type. Valid values: 0 (Points are added or deducted each time the rule is triggered) and 1 (A one-time score is given when the rule is triggered).
           shared_ptr<int32_t> scoreNumType_ {};
+          // The scoring method. Valid values: 1 (add points) and 3 (deduct points).
           shared_ptr<int32_t> scoreType_ {};
+          // The application scenario of the check item. Valid values: 10 (common check item) and 11 (SOP flow check item).
           shared_ptr<int32_t> targetType_ {};
         };
 
@@ -296,6 +309,7 @@ namespace Models
 
 
       protected:
+        // The rule information. This parameter is reserved for future use. Currently, only one rule is returned.
         shared_ptr<vector<RuleList::Rules>> rules_ {};
       };
 
@@ -406,19 +420,33 @@ namespace Models
 
 
     protected:
+      // The time when the scheme was created.
       shared_ptr<string> createTime_ {};
+      // The name of the creator.
       shared_ptr<string> createUserName_ {};
+      // The data type of the quality check scheme. Valid values: 0 (text) and 1 (audio).
       shared_ptr<int32_t> dataType_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The name of the quality check scheme.
       shared_ptr<string> name_ {};
+      // The list of check items.
       shared_ptr<vector<Data::RuleList>> ruleList_ {};
+      // The list of quality check dimensions.
       shared_ptr<vector<Data::SchemeCheckTypeList>> schemeCheckTypeList_ {};
+      // The ID of the quality check scheme.
       shared_ptr<int64_t> schemeId_ {};
+      // The status of the quality check scheme. Valid values: 0 (deleted), 1 (published), 2 (unpublished), and 3 (updated but not published).
       shared_ptr<int32_t> status_ {};
+      // The type of the quality check scheme template. Valid values: 1 (built-in) and 2 (user-defined).
       shared_ptr<int32_t> templateType_ {};
+      // The type of the quality check scheme. Valid values: 0 (built-in) and 1 (user-defined).
       shared_ptr<int32_t> type_ {};
+      // The time when the scheme was last updated.
       shared_ptr<string> updateTime_ {};
+      // The name of the user who last updated the scheme.
       shared_ptr<string> updateUserName_ {};
+      // The version of the quality check scheme.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -491,14 +519,23 @@ namespace Models
 
 
   protected:
+    // The status code. A value of **200** indicates success. Other values indicate a failure. Use this code to identify the cause of the failure.
     shared_ptr<string> code_ {};
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
+    // The data of the quality check scheme list.
     shared_ptr<vector<ListQualityCheckSchemeResponseBody::Data>> data_ {};
+    // The returned message. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // An internal parameter. You can ignore this parameter.
     shared_ptr<string> resultCountId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of **false** or **null** indicates failure.
     shared_ptr<bool> success_ {};
   };
 

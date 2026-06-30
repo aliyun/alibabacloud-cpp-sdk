@@ -75,12 +75,17 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // Workspace ID
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // Whether to copy. Setting to true is equivalent to copying the rule.
     shared_ptr<bool> isCopy_ {};
+    // For more information about the format of JsonStrForlRule, see [`Rule object description`](https://help.aliyun.com/document_detail/453053.html).
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStrForRule_ {};
+    // Returns the IDs and names of quality inspection schemes associated with this rule.
     shared_ptr<bool> returnRelatedSchemes_ {};
+    // Rule ID. Not required when creating, required when modifying.
     shared_ptr<int64_t> ruleId_ {};
   };
 

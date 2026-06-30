@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The workspace ID. This ID is used to select a specific workspace in a multi-workspace scenario. The default workspace is used if you do not specify this parameter.
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // The complete JSON string. For more information, see the details below.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

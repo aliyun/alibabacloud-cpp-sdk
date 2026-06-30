@@ -171,8 +171,15 @@ namespace Models
 
 
     protected:
+      // The ASR version.
+      // 
+      // - 2 or **null**: V2 (Intelligent Speech Interaction ASR)
+      // 
+      // - **3**: V3 (Paraformer ASR)
       shared_ptr<int32_t> asrVersion_ {};
+      // The language model ID. This field appears only for V3.
       shared_ptr<string> modelCustomizationId_ {};
+      // The hotword group name.
       shared_ptr<string> name_ {};
       shared_ptr<Data::Words> words_ {};
     };
@@ -217,10 +224,19 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** means success. Any other value means failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetAsrVocabResponseBody::Data> data_ {};
+    // Error details if the request fails. If successful, the value is **successful**.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Use this field to check the result:
+    // 
+    // - **true** means success
+    // 
+    // - false or **null** means failure
     shared_ptr<bool> success_ {};
   };
 

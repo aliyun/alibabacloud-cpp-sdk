@@ -162,13 +162,21 @@ namespace Models
 
 
       protected:
+        // Rule Name
         shared_ptr<string> name_ {};
+        // Rule ID
         shared_ptr<int64_t> rid_ {};
+        // Agent score: default is 0, range [0, 100]
         shared_ptr<int32_t> scoreNum_ {};
+        // 0 – Points added or deducted after a rule is triggered
         shared_ptr<int32_t> scoreNumType_ {};
+        // 0—score when a hit occurs at an edge zone
         shared_ptr<int32_t> scoreRuleHitType_ {};
+        // 1 for adding points, 3 for deducting points; default is 1
         shared_ptr<int32_t> scoreType_ {};
+        // Flow ID
         shared_ptr<int64_t> taskFlowId_ {};
+        // flow name
         shared_ptr<string> taskFlowName_ {};
       };
 
@@ -205,9 +213,13 @@ namespace Models
 
 
     protected:
+      // list of scoring items
       shared_ptr<vector<TaskFlowScoreInfoList::SchemeScoreInfoList>> schemeScoreInfoList_ {};
+      // Flow ID
       shared_ptr<int64_t> taskFlowId_ {};
+      // flow name
       shared_ptr<string> taskFlowName_ {};
+      // \\"Flow version: 0: tree, 1: graph\\"
       shared_ptr<int32_t> taskFlowType_ {};
     };
 
@@ -304,13 +316,21 @@ namespace Models
 
 
     protected:
+      // Rule Name
       shared_ptr<string> name_ {};
+      // Rule ID
       shared_ptr<int64_t> rid_ {};
+      // Agent rating: default 0, [0, 100]
       shared_ptr<int32_t> scoreNum_ {};
+      // 0 – Add or subtract points after triggering a rule
       shared_ptr<int32_t> scoreNumType_ {};
+      // 0 – Score when hitting an edge zone
       shared_ptr<int32_t> scoreRuleHitType_ {};
+      // 1 for adding points, 3 for deducting points; default is 1
       shared_ptr<int32_t> scoreType_ {};
+      // Flow ID
       shared_ptr<int64_t> taskFlowId_ {};
+      // Flow name
       shared_ptr<string> taskFlowName_ {};
     };
 
@@ -378,13 +398,21 @@ namespace Models
 
 
   protected:
+    // Check item name
     shared_ptr<string> checkName_ {};
+    // Quality inspection dimension ID
     shared_ptr<int64_t> checkType_ {};
+    // Is enabled
     shared_ptr<int32_t> enable_ {};
+    // Quality inspection scheme ID
     shared_ptr<int64_t> schemeId_ {};
+    // List of scoring items under the check item. See SchemeScoreInfo.
     shared_ptr<vector<SchemeCheckType::SchemeScoreInfoList>> schemeScoreInfoList_ {};
+    // Final score
     shared_ptr<int32_t> score_ {};
+    // Original score
     shared_ptr<int32_t> sourceScore_ {};
+    // List of scoring items under the check item. See TaskFlowScoreInfo.
     shared_ptr<vector<SchemeCheckType::TaskFlowScoreInfoList>> taskFlowScoreInfoList_ {};
   };
 

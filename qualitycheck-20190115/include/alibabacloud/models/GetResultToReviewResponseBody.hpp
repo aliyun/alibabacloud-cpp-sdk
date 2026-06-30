@@ -1841,18 +1841,26 @@ namespace Models
 
 
     protected:
+      // Protocol used in the audio URL. Possible values: http, https.
       shared_ptr<string> audioScheme_ {};
+      // Audio URL without the protocol prefix (http\\:// or https\\://). Combine with AudioScheme to form the full URL.
       shared_ptr<string> audioURL_ {};
+      // Review comments.
       shared_ptr<string> comments_ {};
       shared_ptr<Data::Dialogues> dialogues_ {};
+      // File ID.
       shared_ptr<string> fileId_ {};
+      // File name.
       shared_ptr<string> fileMergeName_ {};
       shared_ptr<Data::HitRuleReviewInfoList> hitRuleReviewInfoList_ {};
       shared_ptr<Data::ManualScoreInfoList> manualScoreInfoList_ {};
       shared_ptr<Data::ReviewHistoryList> reviewHistoryList_ {};
       shared_ptr<Data::ReviewTypeIdList> reviewTypeIdList_ {};
+      // Current task status. 0: incomplete. 1: complete. Use this field to check completion. Any other value indicates an error.
       shared_ptr<int32_t> status_ {};
+      // Quality inspection score.
       shared_ptr<int32_t> totalScore_ {};
+      // File ID.
       shared_ptr<string> vid_ {};
     };
 
@@ -1896,10 +1904,15 @@ namespace Models
 
 
   protected:
+    // Result code. **200** means success. Any other value means failure. Use this field to identify the cause.
     shared_ptr<string> code_ {};
+    // Detailed response data.
     shared_ptr<GetResultToReviewResponseBody::Data> data_ {};
+    // Error details if the call fails. Returns **successful** on success.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. true means success. **false** or **null** means failure.
     shared_ptr<bool> success_ {};
   };
 

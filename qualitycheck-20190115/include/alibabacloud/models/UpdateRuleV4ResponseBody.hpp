@@ -130,12 +130,18 @@ namespace Models
 
 
   protected:
+    // Result code. A value of 200 indicates success. Any other value indicates failure. The caller can use this field to determine the reason for failure.
     shared_ptr<string> code_ {};
+    // The updated rule ID.
     shared_ptr<int64_t> data_ {};
+    // The HTTP response status code returned by the HTTP Request. A value of 200 indicates that the request succeeded.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // When an error occurs, this field provides error details. When the request succeeds, the value is **successful**.
     shared_ptr<string> message_ {};
     shared_ptr<UpdateRuleV4ResponseBody::Messages> messages_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. The caller can use this field to determine the request status: true indicates success; false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

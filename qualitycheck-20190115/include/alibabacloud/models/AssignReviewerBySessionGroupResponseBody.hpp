@@ -120,11 +120,16 @@ namespace Models
 
 
   protected:
+    // Result code. A value of 200 indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error details if the request failed. Returns successful if the request succeeded.
     shared_ptr<string> message_ {};
     shared_ptr<AssignReviewerBySessionGroupResponseBody::Messages> messages_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Set to true for success. Set to false or null for failure.
     shared_ptr<bool> success_ {};
   };
 

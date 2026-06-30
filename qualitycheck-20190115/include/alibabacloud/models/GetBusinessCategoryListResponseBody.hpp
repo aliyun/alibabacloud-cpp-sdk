@@ -163,10 +163,17 @@ namespace Models
 
 
   protected:
+    // Result code. The value **200** indicates success. Any other value indicates failure, and the caller can determine the cause of failure based on this field.
     shared_ptr<string> code_ {};
     shared_ptr<GetBusinessCategoryListResponseBody::Data> data_ {};
+    // When an error occurs, this field provides error details; when successful, the value is **successful**.
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. The caller can use this field to determine the request outcome:
+    // 
+    // - **true** indicates success
+    // - **false/null** indicates failure
     shared_ptr<bool> success_ {};
   };
 

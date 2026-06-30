@@ -630,19 +630,32 @@ namespace Models
 
 
     protected:
+      // The protocol of the audio URL. Possible values: http, https.
       shared_ptr<string> audioScheme_ {};
+      // The audio URL, excluding http/https.
       shared_ptr<string> audioURL_ {};
       shared_ptr<Data::Dialogues> dialogues_ {};
+      // The total duration of files in the current task, in seconds.
       shared_ptr<int32_t> duration_ {};
+      // File ID.
       shared_ptr<string> fileId_ {};
+      // File name.
       shared_ptr<string> fileName_ {};
+      // The number of incorrect words in the transcription.
       shared_ptr<int32_t> incorrectWords_ {};
+      // The index of the current file. Pass this value when manually verifying the next data entry. It starts from 1, so the first entry has a value of 1.
       shared_ptr<int32_t> index_ {};
+      // Current recognition accuracy.
       shared_ptr<float> precision_ {};
+      // File status. Possible values: 0: Not completed; 1: Not completed; 2: Completed; 3: Completed.
       shared_ptr<int32_t> status_ {};
+      // The total number of files for this task.
       shared_ptr<int32_t> totalCount_ {};
+      // Last update time.
       shared_ptr<string> updateTime_ {};
+      // Indicates whether manual verification has been performed. Possible values: \\`false\\`: Not yet verified; \\`true\\`: Already verified.
       shared_ptr<bool> verified_ {};
+      // The total number of verified files.
       shared_ptr<int32_t> verifiedCount_ {};
     };
 
@@ -686,10 +699,15 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** indicates success. Other values indicate failure. The caller can determine the cause of failure using this field.
     shared_ptr<string> code_ {};
+    // File details.
     shared_ptr<GetNextResultToVerifyResponseBody::Data> data_ {};
+    // Error details if an error occurs. If successful, the value is \\"successful\\".
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. The caller can determine if the request was successful using this field: \\`true\\` indicates success; \\`false\\`/\\`null\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

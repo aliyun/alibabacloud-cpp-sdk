@@ -130,12 +130,18 @@ namespace Models
 
 
   protected:
+    // Result code. **200** means success. Any other value means failure. Callers can use this field to identify the cause of failure.
     shared_ptr<string> code_ {};
+    // Quality check dimension ID.
     shared_ptr<int64_t> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error details when the request fails. Returns **successful** on success.
     shared_ptr<string> message_ {};
     shared_ptr<CreateCheckTypeToSchemeResponseBody::Messages> messages_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Callers can use this field to determine success: true means success. false or null means failure.
     shared_ptr<bool> success_ {};
   };
 

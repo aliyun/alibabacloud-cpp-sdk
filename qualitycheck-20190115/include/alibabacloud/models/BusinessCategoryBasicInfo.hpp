@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<int32_t> bid_ {};
+    // Business name
     shared_ptr<string> name_ {};
     // originalId
     shared_ptr<int64_t> originalId_ {};
+    // Service Type (ServiceCategory).
     shared_ptr<int32_t> serviceType_ {};
   };
 

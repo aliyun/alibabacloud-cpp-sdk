@@ -252,13 +252,20 @@ namespace Models
 
 
   protected:
+    // The result code. A value of `200` indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
     shared_ptr<ListUsersResponseBody::Data> data_ {};
+    // The message returned. The value is successful if the request is successful. Otherwise, an error message is returned.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

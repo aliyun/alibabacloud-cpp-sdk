@@ -204,10 +204,14 @@ namespace Models
 
 
   protected:
+    // The result code. A value of **200** indicates that the request was successful. Other values indicate that the request failed. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
     shared_ptr<ListAsrVocabResponseBody::Data> data_ {};
+    // The error details if the request fails. If the request is successful, the value is **successful**.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Use this field to determine if the request was successful. A value of true indicates success. A value of **false** or **null** indicates failure.
     shared_ptr<bool> success_ {};
   };
 

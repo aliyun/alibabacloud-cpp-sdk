@@ -174,12 +174,21 @@ namespace Models
 
 
         protected:
+          // Rule remarks
           shared_ptr<string> comments_ {};
+          // Rule importance level
           shared_ptr<int32_t> level_ {};
+          // Rule category name
+          // >Notice: The requiredFields parameter must include "ruleInfoBase.ruleCategoryName".
           shared_ptr<string> ruleCategoryName_ {};
+          // Score value
           shared_ptr<int32_t> scoreNum_ {};
+          // Scoring type. 0: bonus/penalty points, 1: one-time score.
           shared_ptr<int32_t> scoreNumType_ {};
+          // 1 for bonus points, 3 for penalty points. Default is 1.
           shared_ptr<int32_t> scoreType_ {};
+          // Rule type ID
+          // >Notice: The requiredFields parameter must include "ruleInfoBase".
           shared_ptr<int32_t> type_ {};
         };
 
@@ -297,13 +306,21 @@ namespace Models
 
 
           protected:
+            // Start time of this sentence relative to the entire conversation, in milliseconds.
             shared_ptr<int64_t> begin_ {};
+            // Emotional value of this sentence, 0-10. Higher values indicate stronger emotions.
             shared_ptr<int32_t> emotionValue_ {};
+            // End time of this sentence relative to the entire conversation, in milliseconds.
             shared_ptr<int64_t> end_ {};
+            // Deprecated field. Ignore it.
             shared_ptr<string> identity_ {};
+            // Role of this sentence. Valid values: customer service representative, customer.
             shared_ptr<string> role_ {};
+            // Deprecated field. Ignore it.
             shared_ptr<int32_t> silenceDuration_ {};
+            // Speech rate of this sentence, in characters per minute.
             shared_ptr<int32_t> speechRate_ {};
+            // Dialogue content.
             shared_ptr<string> words_ {};
           };
 
@@ -372,10 +389,15 @@ namespace Models
 
 
           protected:
+            // Condition ID of the rule.
             shared_ptr<int32_t> cid_ {};
+            // Start position of the keyword.
             shared_ptr<int32_t> from_ {};
+            // Index value of the hit sentence in the entire conversation.
             shared_ptr<int32_t> pid_ {};
+            // End position of the keyword.
             shared_ptr<int32_t> to_ {};
+            // Keyword.
             shared_ptr<string> val_ {};
           };
 
@@ -400,7 +422,9 @@ namespace Models
 
 
         protected:
+          // Keywords that met the condition.
           shared_ptr<vector<Hit::HitKeyWords>> hitKeyWords_ {};
+          // Dialogue content that met the condition.
           shared_ptr<Hit::Phrase> phrase_ {};
         };
 
@@ -439,9 +463,13 @@ namespace Models
 
 
       protected:
+        // List of hit sentences. For this API, if a hit occurs, it is a single data entry.
         shared_ptr<vector<Rules::Hit>> hit_ {};
+        // ID of the hit rule.
         shared_ptr<string> rid_ {};
+        // Rule basic information
         shared_ptr<Rules::RuleInfoBase> ruleInfoBase_ {};
+        // Name of the hit rule.
         shared_ptr<string> ruleName_ {};
       };
 
@@ -485,10 +513,15 @@ namespace Models
 
 
     protected:
+      // Time of recording and dialogue occurrence, in milliseconds since January 1, 1970, 00:00:00 UTC (UNIX timestamp in milliseconds, such as 1584535485856).
       shared_ptr<int64_t> beginTime_ {};
+      // List of hit rules. Each item is a rule. Only hit rule information and hit rule location information are returned.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // Final score, with a maximum of 100.
       shared_ptr<int32_t> score_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // Unique identifier for the current conversation.
       shared_ptr<string> tid_ {};
     };
 
@@ -532,10 +565,15 @@ namespace Models
 
 
   protected:
+    // Result status code. 200 indicates success. Other values indicate failure. The caller can determine the reason for failure using this field.
     shared_ptr<string> code_ {};
+    // Returned result, including hit information.
     shared_ptr<SyncQualityCheckResponseBody::Data> data_ {};
+    // Error details if an error occurs. "successful" if successful.
     shared_ptr<string> message_ {};
+    // Unique request identifier.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. The caller can use this field to determine if the request succeeded: true for success; false/null for failure.
     shared_ptr<bool> success_ {};
   };
 

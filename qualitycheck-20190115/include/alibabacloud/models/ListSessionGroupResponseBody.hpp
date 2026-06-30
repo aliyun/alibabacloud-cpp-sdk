@@ -670,18 +670,29 @@ namespace Models
 
 
   protected:
+    // The result code. A value of \\`200\\` indicates that the request was successful. Other values indicate that the request failed.
     shared_ptr<string> code_ {};
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
+    // The number of the returned page. The default value is 1.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<ListSessionGroupResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The data marker. To retrieve more than 10,000 records, include the LastDataId from the previous response in the next request.
     shared_ptr<string> lastDataId_ {};
+    // The error details if the request fails. \\`successful\\` is returned if the request is successful.
     shared_ptr<string> message_ {};
     shared_ptr<ListSessionGroupResponseBody::Messages> messages_ {};
+    // The number of the current page.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A reserved parameter. You can ignore this parameter.
     shared_ptr<string> resultCountId_ {};
+    // Indicates whether the request was successful. A value of \\`true\\` indicates that the request was successful. A value of \\`false\\` or \\`null\\` indicates that the request failed.
     shared_ptr<bool> success_ {};
   };
 

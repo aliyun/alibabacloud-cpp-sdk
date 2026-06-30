@@ -844,13 +844,20 @@ namespace Models
 
 
   protected:
+    // Result code. **200** indicates success. Other values indicate failure. Callers can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
+    // Total number of entries.
     shared_ptr<int32_t> count_ {};
     shared_ptr<ListTaskAssignRulesResponseBody::Data> data_ {};
+    // Error details if an error occurs. "successful" if the request succeeds.
     shared_ptr<string> message_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Callers can use this field to determine if the request succeeded: true for success, false/null for failure.
     shared_ptr<bool> success_ {};
   };
 

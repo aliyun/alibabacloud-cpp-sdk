@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // Workspace ID
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // Whether to delete the rule even if it is associated with quality inspection tasks.
     shared_ptr<bool> forceDelete_ {};
+    // Rule ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };

@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // BaseMeAgentId
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // A complete JSON string. For details, see the table below.
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};
   };

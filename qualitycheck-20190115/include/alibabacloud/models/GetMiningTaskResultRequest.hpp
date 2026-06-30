@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Workspace ID
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // Task ID
     shared_ptr<string> taskId_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Workspace ID
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // Webhook address
     shared_ptr<string> callbackUrl_ {};
+    // File path
     shared_ptr<string> filePath_ {};
+    // Task parameters
     shared_ptr<string> param_ {};
+    // Task type
     shared_ptr<string> taskType_ {};
   };
 

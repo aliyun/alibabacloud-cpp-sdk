@@ -59,8 +59,11 @@ namespace Models
   protected:
     // baseMeAgentId
     shared_ptr<int64_t> baseMeAgentId_ {};
+    // For details about JsonStrForRule, see the document [`Rule Object Description`](https://help.aliyun.com/document_detail/453053.html).
+    // 
     // This parameter is required.
     shared_ptr<string> jsonStrForRule_ {};
+    // Rule ID.
     shared_ptr<int64_t> ruleId_ {};
   };
 

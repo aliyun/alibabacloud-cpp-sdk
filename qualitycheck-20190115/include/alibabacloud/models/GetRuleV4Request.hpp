@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Rule ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };
