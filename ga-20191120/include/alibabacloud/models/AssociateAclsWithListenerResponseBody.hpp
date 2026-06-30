@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL.
+    // The ID of the access control policy group.
     shared_ptr<vector<string>> aclIds_ {};
-    // The ID of the listener.
+    // The listener ID.
     shared_ptr<string> listenerId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

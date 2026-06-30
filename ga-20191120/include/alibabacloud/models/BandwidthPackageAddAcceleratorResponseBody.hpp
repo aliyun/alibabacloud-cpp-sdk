@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The GA instance IDs.
+    // The ID of the Alibaba Cloud Global Accelerator (GA) instance to which the bandwidth plan is attached.
     shared_ptr<vector<string>> accelerators_ {};
-    // The bandwidth plan ID.
+    // The ID of the bandwidth plan attached to the Alibaba Cloud Global Accelerator (GA) instance.
     shared_ptr<string> bandwidthPackageId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

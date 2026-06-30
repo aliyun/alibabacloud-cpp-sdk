@@ -57,20 +57,17 @@ namespace Models
 
 
   protected:
-    // The IP version used to connect to the GA instance. Valid values:
-    // 
-    // *   **IPv4** (default)
-    // *   **IPv6**
+    // The IP address protocol used to connect to Global Accelerator (GA). Valid values:
+    // - **IPv4** (default): IPv4 address protocol. Queries regions that support IPv4.
+    // - **IPv6**: IPv6 address protocol. Queries regions that support IPv6.
     shared_ptr<string> ipVersion_ {};
-    // Specifies whether to query regions where endpoint groups of GA can be deployed. Valid values:
-    // 
-    // *   **true**: yes
-    // *   **false** (default): no
+    // Specifies whether the region is an endpoint group region supported by Global Accelerator.
+    // - **true**: Yes.
+    // - **false** (default): No.
     shared_ptr<bool> isEpg_ {};
-    // Specifies whether to query regions supported by GA. Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
+    // Specifies whether the region is an acceleration area supported by Global Accelerator.
+    // - **true**: Yes.
+    // - **false** (default): No.
     shared_ptr<bool> isIpSet_ {};
   };
 

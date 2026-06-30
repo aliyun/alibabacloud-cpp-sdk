@@ -101,29 +101,41 @@ namespace Models
     protected:
       // The name of the action on the managed instance. Valid values:
       // 
-      // *   **Create**
-      // *   **Update**
-      // *   **Delete**
-      // *   **Associate**
-      // *   **UserUnmanaged**
-      // *   **CreateChild**
+      // - **Create**
+      // 
+      // - **Update**
+      // 
+      // - **Delete**
+      // 
+      // - **Associate**
+      // 
+      // - **UserUnmanaged**
+      // 
+      // - **CreateChild**
       shared_ptr<string> action_ {};
       // The type of the child resource. Valid values:
       // 
-      // *   **Listener**: listener.
-      // *   **IpSet**: acceleration region.
-      // *   **EndpointGroup**: endpoint group.
-      // *   **ForwardingRule**: forwarding rule.
-      // *   **Endpoint**: endpoint.
-      // *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
-      // *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+      // - **Listener**: listener.
       // 
-      // >  This parameter takes effect only if **Action** is set to **CreateChild**.
+      // - **IpSet**: acceleration region.
+      // 
+      // - **EndpointGroup**: endpoint group.
+      // 
+      // - **ForwardingRule**: forwarding rule.
+      // 
+      // - **Endpoint**: endpoint.
+      // 
+      // - **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
+      // 
+      // - **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+      // 
+      // > This parameter takes effect only if **Action** is set to **CreateChild**.
       shared_ptr<string> childType_ {};
       // Indicates whether the specified actions are managed.
       // 
-      // *   **true**: The specified actions are managed, and users cannot perform the actions on the managed instance.
-      // *   **false**: The specified actions are not managed, and users can perform the actions on the managed instance.
+      // - **true**: The specified actions are managed, and users cannot perform the actions on the managed instance.
+      // 
+      // - **false**: The specified actions are not managed, and users can perform the actions on the managed instance.
       shared_ptr<bool> isManaged_ {};
     };
 
@@ -232,37 +244,45 @@ namespace Models
     shared_ptr<string> ipSetId_ {};
     // The IP version. Valid values:
     // 
-    // *   **IPv4**
-    // *   **IPv6**
-    // *   **DUAL_STACK**
+    // - **IPv4**
+    // 
+    // - **IPv6**
+    // 
+    // - **DUAL_STACK**
     shared_ptr<string> ipVersion_ {};
     // The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
     // 
-    // *   **BGP**: BGP (Multi-ISP) lines. This is the default value.
-    // *   **BGP_PRO**: BGP (Multi-ISP) Pro lines.
+    // - **BGP**: BGP (Multi-ISP) lines. This is the default value.
+    // 
+    // - **BGP_PRO**: BGP (Multi-ISP) Pro lines.
     shared_ptr<string> ispType_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the service that manages the instance.
     // 
-    // >  This parameter is returned only if the value of **ServiceManaged** is **true**.
+    // > This parameter is returned only if the value of **ServiceManaged** is **true**.
     shared_ptr<string> serviceId_ {};
     // Indicates whether the GA instance is managed. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> serviceManaged_ {};
     // The actions that users can perform on the managed instance.
     // 
-    // > *   This parameter is returned only if the value of **ServiceManaged** is **true**.
-    // >*   Users can perform only specific actions on a managed instance.
+    // > - This parameter is returned only if the value of **ServiceManaged** is **true**.
+    // >
+    // > - Users can perform only specific actions on a managed instance.
     shared_ptr<vector<DescribeIpSetResponseBody::ServiceManagedInfos>> serviceManagedInfos_ {};
     // The status of the acceleration region. Valid values:
     // 
-    // *   **init**: The acceleration region is being initialized.
-    // *   **active**: The acceleration region is in the running state.
-    // *   **updating**: The acceleration region is being configured.
-    // *   **deleting**: The GA instance is being deleted.
+    // - **init**: The acceleration region is being initialized.
+    // 
+    // - **active**: The acceleration region is in the running state.
+    // 
+    // - **updating**: The acceleration region is being configured.
+    // 
+    // - **deleting**: The GA instance is being deleted.
     shared_ptr<string> state_ {};
   };
 

@@ -126,29 +126,41 @@ namespace Models
       protected:
         // The name of the action that you can perform on the managed instance. Valid values:
         // 
-        // *   **Create**: Create an instance.
-        // *   **Update**: Update the current instance.
-        // *   **Delete**: Delete the current instance.
-        // *   **Associate**: Reference the current instance.
-        // *   **UserUnmanaged**: Unmanage the instance.
-        // *   **CreateChild**: Create a child resource on the current instance.
+        // - **Create**: Create an instance.
+        // 
+        // - **Update**: Update the current instance.
+        // 
+        // - **Delete**: Delete the current instance.
+        // 
+        // - **Associate**: Reference the current instance.
+        // 
+        // - **UserUnmanaged**: Unmanage the instance.
+        // 
+        // - **CreateChild**: Create a child resource on the current instance.
         shared_ptr<string> action_ {};
         // The type of the child resource. Valid values:
         // 
-        // *   **Listener**: listener.
-        // *   **IpSet**: acceleration region.
-        // *   **EndpointGroup**: endpoint group.
-        // *   **ForwardingRule**: forwarding rule.
-        // *   **Endpoint**: endpoint.
-        // *   **EndpointGroupDestination**: the protocol mapping of an endpoint group associated with a custom routing listener.
-        // *   **EndpointPolicy**: the traffic policy of an endpoint associated with a custom routing listener.
+        // - **Listener**: listener.
         // 
-        // >  This parameter is returned only if the value of **Action** is **CreateChild**.
+        // - **IpSet**: acceleration region.
+        // 
+        // - **EndpointGroup**: endpoint group.
+        // 
+        // - **ForwardingRule**: forwarding rule.
+        // 
+        // - **Endpoint**: endpoint.
+        // 
+        // - **EndpointGroupDestination**: the protocol mapping of an endpoint group associated with a custom routing listener.
+        // 
+        // - **EndpointPolicy**: the traffic policy of an endpoint associated with a custom routing listener.
+        // 
+        // > This parameter is returned only if the value of **Action** is **CreateChild**.
         shared_ptr<string> childType_ {};
         // Indicates whether the specified actions are managed. Valid values:
         // 
-        // *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
-        // *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+        // - **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
+        // 
+        // - **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
         shared_ptr<bool> isManaged_ {};
       };
 
@@ -209,7 +221,7 @@ namespace Models
         protected:
           // The path configuration.
           // 
-          // >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
+          // > GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -245,7 +257,7 @@ namespace Models
         protected:
           // The domain name configuration.
           // 
-          // >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
+          // > GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -286,33 +298,45 @@ namespace Models
       protected:
         // The domain name configuration.
         // 
-        // >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
+        // > GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
         shared_ptr<RuleConditions::HostConfig> hostConfig_ {};
         // The path configuration.
         // 
-        // >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
+        // > GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
         shared_ptr<RuleConditions::PathConfig> pathConfig_ {};
         // The type of the forwarding condition. Valid values:
         // 
-        // *   **Host:** domain name.
-        // *   **Path:** path.
-        // *   **RequestHeader:** HTTP header.
-        // *   **Query:** query string.
-        // *   **Method:** HTTP method.
-        // *   **Cookie:** cookie.
-        // *   **SourceIP:** source IP address.
+        // - **Host:** domain name.
+        // 
+        // - **Path:** path.
+        // 
+        // - **RequestHeader:** HTTP header.
+        // 
+        // - **Query:** query string.
+        // 
+        // - **Method:** HTTP method.
+        // 
+        // - **Cookie:** cookie.
+        // 
+        // - **SourceIP:** source IP address.
         shared_ptr<string> ruleConditionType_ {};
         // The value of the forwarding condition type.
         // 
         // Different JSON strings are returned based on the value of the **RuleConditionType** parameter.
         // 
-        // *   If you set **RuleConditionType** to **Host**, a domain name condition is returned. If multiple domain names are returned in a forwarding condition, the relationship between the domain names is OR.
-        // *   If you set **RuleConditionType** to **Path**, a path condition is returned. If multiple forwarding conditions of the path type are returned in a forwarding rule, the relationship between the forwarding conditions is OR. If multiple paths are returned in a forwarding condition, the relationship between the paths is OR.
-        // *   If you set **RuleConditionType** to **RequestHeader**, an HTTP header condition that consists of key-value pairs is returned.
-        // *   If you set **RuleConditionType** to **Query**, a query string condition that consists of key-value pairs is returned.
-        // *   If you set **RuleConditionType** to **Method**, an HTTP method condition is returned.
-        // *   If you set **RuleConditionType** to **Cookie**, a cookie condition that consists of key-value pairs is returned.
-        // *   If you set **RuleConditionType** to **SourceIP**, a source IP address condition is returned. If multiple source IP addresses are returned in a forwarding condition, the relationship between the source IP addresses is OR.
+        // - If you set **RuleConditionType** to **Host**, a domain name condition is returned. If multiple domain names are returned in a forwarding condition, the relationship between the domain names is OR.
+        // 
+        // - If you set **RuleConditionType** to **Path**, a path condition is returned. If multiple forwarding conditions of the path type are returned in a forwarding rule, the relationship between the forwarding conditions is OR. If multiple paths are returned in a forwarding condition, the relationship between the paths is OR.
+        // 
+        // - If you set **RuleConditionType** to **RequestHeader**, an HTTP header condition that consists of key-value pairs is returned.
+        // 
+        // - If you set **RuleConditionType** to **Query**, a query string condition that consists of key-value pairs is returned.
+        // 
+        // - If you set **RuleConditionType** to **Method**, an HTTP method condition is returned.
+        // 
+        // - If you set **RuleConditionType** to **Cookie**, a cookie condition that consists of key-value pairs is returned.
+        // 
+        // - If you set **RuleConditionType** to **SourceIP**, a source IP address condition is returned. If multiple source IP addresses are returned in a forwarding condition, the relationship between the source IP addresses is OR.
         shared_ptr<string> ruleConditionValue_ {};
       };
 
@@ -390,7 +414,7 @@ namespace Models
           protected:
             // The endpoint group ID.
             // 
-            // >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
+            // > GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
             shared_ptr<string> endpointGroupId_ {};
           };
 
@@ -407,7 +431,7 @@ namespace Models
         protected:
           // The information about the endpoint groups.
           // 
-          // >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
+          // > GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
           shared_ptr<vector<ForwardGroupConfig::ServerGroupTuples>> serverGroupTuples_ {};
         };
 
@@ -446,61 +470,79 @@ namespace Models
       protected:
         // The forwarding action configuration.
         // 
-        // >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
+        // > GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
         shared_ptr<RuleActions::ForwardGroupConfig> forwardGroupConfig_ {};
         // The forwarding priority.
         // 
-        // >  This parameter does not take effect.
+        // > This parameter does not take effect.
         shared_ptr<int32_t> order_ {};
         // The type of the forwarding action. Valid values:
         // 
-        // *   **ForwardGroup**: forwards a request.
-        // *   **Redirect**: redirects a request.
-        // *   **FixResponse**: returns a fixed response.
-        // *   **Rewrite**: rewrites a request.
-        // *   **AddHeader**: adds a header to a request.
-        // *   **RemoveHeaderConfig**: deletes the header from a request.
-        // *   **Drop**: drops a request.
+        // - **ForwardGroup**: forwards a request.
+        // 
+        // - **Redirect**: redirects a request.
+        // 
+        // - **FixResponse**: returns a fixed response.
+        // 
+        // - **Rewrite**: rewrites a request.
+        // 
+        // - **AddHeader**: adds a header to a request.
+        // 
+        // - **RemoveHeaderConfig**: deletes the header from a request.
+        // 
+        // - **Drop**: drops a request.
         shared_ptr<string> ruleActionType_ {};
         // The value of the forwarding action.
         // 
         // Different JSON strings are returned based on the value of **RuleActionType**.
         // 
-        // *   If you set **RuleActionType** to **ForwardGroup**, the information about a virtual endpoint group is returned. The following section describes the parameters:
+        // - If you set **RuleActionType** to **ForwardGroup**, the information about a virtual endpoint group is returned. The following section describes the parameters:
         // 
-        //     *   `type`: `endpointgroup` is returned.
-        //     *   `value`: the ID of the virtual endpoint group.
+        //   - `type`: `endpointgroup` is returned.
         // 
-        // *   If you set **RuleActionType** to **Redirect**, the redirecting configuration is returned. The following section describes the parameters:
+        //   - `value`: the ID of the virtual endpoint group.
         // 
-        //     *   `protocol`: the protocol of requests after the requests are redirected.
-        //     *   `domain`: the domain name to which requests are redirected.
-        //     *   `port`: the port to which requests are redirected.
-        //     *   `path`: the path to which requests are redirected.
-        //     *   `query`: the query string of the requests that are redirected.
-        //     *   `code`: the redirecting code.
+        // - If you set **RuleActionType** to **Redirect**, the redirecting configuration is returned. The following section describes the parameters:
         // 
-        // *   If you set **RuleActionType** to **FixResponse**, the information about the fixed response that you configured is returned. The following section describes the parameters:
+        //   - `protocol`: the protocol of requests after the requests are redirected.
         // 
-        //     *   `code`: the HTTP status code.
-        //     *   `type`: the content type of the response.
-        //     *   `content`: the content of the response.
+        //   - `domain`: the domain name to which requests are redirected.
         // 
-        // *   If **RuleActionType** is set to **AddHeader**, the information about the HTTP header that is added is returned. The following section describes the parameters:
+        //   - `port`: the port to which requests are redirected.
         // 
-        //     *   `name`: the name of the HTTP header.
-        //     *   `type`: the content type of the HTTP header.
-        //     *   `value`: the content of the HTTP header.
+        //   - `path`: the path to which requests are redirected.
         // 
-        // *   If you set **RuleActionType** to **RemoveHeader**, the information about the HTTP header that is deleted is returned.
+        //   - `query`: the query string of the requests that are redirected.
         // 
-        // *   If you set **RuleActionType** to **Rewrite**, the rewriting configuration is returned. The following section describes the parameters:
+        //   - `code`: the redirecting code.
         // 
-        //     *   `domain`: the domain name to which requests are redirected.
-        //     *   `path`: the path to which requests are redirected.
-        //     *   `query`: the query string of the requests that are redirected.
+        // - If you set **RuleActionType** to **FixResponse**, the information about the fixed response that you configured is returned. The following section describes the parameters:
         // 
-        // *   If you set **RuleActionType** to **Drop**, an empty string is returned.
+        //   - `code`: the HTTP status code.
+        // 
+        //   - `type`: the content type of the response.
+        // 
+        //   - `content`: the content of the response.
+        // 
+        // - If **RuleActionType** is set to **AddHeader**, the information about the HTTP header that is added is returned. The following section describes the parameters:
+        // 
+        //   - `name`: the name of the HTTP header.
+        // 
+        //   - `type`: the content type of the HTTP header.
+        // 
+        //   - `value`: the content of the HTTP header.
+        // 
+        // - If you set **RuleActionType** to **RemoveHeader**, the information about the HTTP header that is deleted is returned.
+        // 
+        // - If you set **RuleActionType** to **Rewrite**, the rewriting configuration is returned. The following section describes the parameters:
+        // 
+        //   - `domain`: the domain name to which requests are redirected.
+        // 
+        //   - `path`: the path to which requests are redirected.
+        // 
+        //   - `query`: the query string of the requests that are redirected.
+        // 
+        // - If you set **RuleActionType** to **Drop**, an empty string is returned.
         shared_ptr<string> ruleActionValue_ {};
       };
 
@@ -601,9 +643,11 @@ namespace Models
       shared_ptr<string> forwardingRuleName_ {};
       // The state of the forwarding rule. Valid values:
       // 
-      // *   **active:** The forwarding rule is normal.
-      // *   **configuring:** The forwarding rule is being modified.
-      // *   **deleting:** The forwarding rule is being deleted.
+      // - **active:** The forwarding rule is normal.
+      // 
+      // - **configuring:** The forwarding rule is being modified.
+      // 
+      // - **deleting:** The forwarding rule is being deleted.
       shared_ptr<string> forwardingRuleStatus_ {};
       // The listener ID.
       shared_ptr<string> listenerId_ {};
@@ -617,18 +661,19 @@ namespace Models
       shared_ptr<vector<ForwardingRules::RuleConditions>> ruleConditions_ {};
       // The ID of the service that manages the instance.
       // 
-      // >  This parameter is returned only if the value of **ServiceManaged** is **true**.
+      // > This parameter is returned only if the value of **ServiceManaged** is **true**.
       shared_ptr<string> serviceId_ {};
       // Indicates whether the GA instance is managed. Valid values:
       // 
-      // *   **true**: The GA instance is managed.
-      // *   **false**: The GA instance is not managed.
+      // - **true**: The GA instance is managed.
+      // 
+      // - **false**: The GA instance is not managed.
       shared_ptr<bool> serviceManaged_ {};
       // The actions that you can perform on the managed instance.
       // 
-      // >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+      // > This parameter takes effect only if **ServiceManaged** is set to **True**.
       // 
-      // *   You can perform only specific actions on the managed instance.
+      // - You can perform only specific actions on the managed instance.
       shared_ptr<vector<ForwardingRules::ServiceManagedInfos>> serviceManagedInfos_ {};
     };
 
@@ -678,8 +723,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The token that is used for the next query. Valid values:
     // 
-    // *   If **NextToken** is not returned, it indicates that no additional results exist.
-    // *   If **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If **NextToken** is not returned, it indicates that no additional results exist.
+    // 
+    // - If **NextToken** is returned, the value indicates the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

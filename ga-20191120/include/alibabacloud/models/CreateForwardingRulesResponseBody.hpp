@@ -60,7 +60,7 @@ namespace Models
 
 
     protected:
-      // The ID of the forwarding rule.
+      // The forwarding rule ID.
       shared_ptr<string> forwardingRuleId_ {};
     };
 
@@ -83,7 +83,7 @@ namespace Models
 
 
   protected:
-    // The forwarding rules.
+    // The details of the forwarding rules.
     shared_ptr<vector<CreateForwardingRulesResponseBody::ForwardingRules>> forwardingRules_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

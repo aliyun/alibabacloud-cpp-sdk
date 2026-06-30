@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance to which the traffic policies belong.
+    // The instance ID of the Alibaba Cloud Global Accelerator (GA) instance for which you want to query traffic policies.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The IP address of the traffic destination.
+    // The IP address of the traffic policy destination.
     shared_ptr<string> address_ {};
-    // The ID of the endpoint group to which the traffic policies belong.
+    // The ID of the endpoint group for which you want to query traffic policies.
     shared_ptr<string> endpointGroupId_ {};
-    // The ID of the endpoint to which the traffic policies belong.
+    // The ID of the endpoint for which you want to query traffic policies.
     shared_ptr<string> endpointId_ {};
-    // The ID of the listener to which the traffic policies belong.
+    // The ID of the listener for which you want to query traffic policies.
     shared_ptr<string> listenerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **ap-southeast-1**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

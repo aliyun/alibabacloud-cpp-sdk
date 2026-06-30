@@ -155,26 +155,29 @@ namespace Models
     protected:
       // The discounted amount.
       // 
-      // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+      // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
       shared_ptr<double> canPromFee_ {};
       // The code of the commodity to which the coupon can be applied.
       // 
-      // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+      // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
       shared_ptr<string> optionCode_ {};
       // The name of the coupon.
       // 
-      // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+      // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
       shared_ptr<string> promotionName_ {};
       // The code of the coupon.
-      // > *   `youhuiquan_promotion_option_id_for_blank` indicates coupons that cannot be applied to the commodity.
-      // > *   This parameter does not take effect for accounts registered on the China site (aliyun.com).
+      // 
+      // > - `youhuiquan_promotion_option_id_for_blank` indicates coupons that cannot be applied to the commodity.
+      // >
+      // > - This parameter does not take effect for accounts registered on the China site (aliyun.com).
       shared_ptr<string> promotionOptionNo_ {};
       // Indicates whether the coupon was selected.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
       // 
-      // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+      // - **false**
+      // 
+      // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
       shared_ptr<bool> selected_ {};
     };
 
@@ -280,23 +283,23 @@ namespace Models
       protected:
         // The discounted price.
         // 
-        // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+        // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
         shared_ptr<double> finalPromFee_ {};
         // The code of the discount option.
         // 
-        // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+        // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
         shared_ptr<string> optionCode_ {};
         // The sub-type of the discount.
         // 
-        // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+        // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
         shared_ptr<string> promType_ {};
         // The ID of the discount item.
         // 
-        // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+        // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
         shared_ptr<string> promotionId_ {};
         // The name of the discount item.
         // 
-        // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+        // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
         shared_ptr<string> promotionName_ {};
       };
 
@@ -462,7 +465,7 @@ namespace Models
       shared_ptr<double> originalPrice_ {};
       // The details of the discount.
       // 
-      // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+      // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
       shared_ptr<vector<OrderDetails::PromDetails>> promDetails_ {};
       // The number of instances that are purchased.
       shared_ptr<int64_t> quantity_ {};
@@ -540,8 +543,9 @@ namespace Models
   protected:
     // The currency unit.
     // 
-    // *   China site: **CNY**.
-    // *   International site: **USD**.
+    // - China site: **CNY**.
+    // 
+    // - International site: **USD**.
     shared_ptr<string> currency_ {};
     // The discount.
     shared_ptr<double> discountPrice_ {};
@@ -551,7 +555,7 @@ namespace Models
     shared_ptr<double> originalPrice_ {};
     // The details of the coupon.
     // 
-    // >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+    // > This parameter does not take effect for accounts registered on the China site (aliyun.com).
     shared_ptr<vector<DescribeCommodityPriceResponseBody::Promotions>> promotions_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

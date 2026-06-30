@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The region ID of the GA instance.
+    // The acceleration region instance ID of the basic Alibaba Cloud Global Accelerator (GA) instance.
     shared_ptr<string> ipSetId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

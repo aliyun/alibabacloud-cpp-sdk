@@ -140,9 +140,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the endpoint group.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The tag value of the endpoint group.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -193,31 +193,43 @@ namespace Models
 
 
     protected:
-      // The name of the action on the managed instance.
+      // The name of the action on the managed instance. Valid values:
       // 
-      // *   **Create**
-      // *   **Update**
-      // *   **Delete**
-      // *   **Associate**
-      // *   **UserUnmanaged**
-      // *   **CreateChild**
+      // - **Create**: Create an instance.
+      // 
+      // - **Update**: Update the instance.
+      // 
+      // - **Delete**: Delete the instance.
+      // 
+      // - **Associate**: Associate the instance.
+      // 
+      // - **UserUnmanaged**: Releases the instance from service management.
+      // 
+      // - **CreateChild**: Create a child resource.
       shared_ptr<string> action_ {};
-      // The type of the child resource.
+      // The type of the child resource. Valid values:
       // 
-      // *   **Listener:** listener.
-      // *   **IpSet:** acceleration region.
-      // *   **EndpointGroup:** endpoint group.
-      // *   **ForwardingRule:** forwarding rule.
-      // *   **Endpoint:** endpoint.
-      // *   **EndpointGroupDestination:** protocol mapping of an endpoint group associated with a custom routing listener.
-      // *   **EndpointPolicy:** traffic policy of an endpoint associated with a custom routing listener.
+      // - **Listener**: A listener.
       // 
-      // >  This parameter takes effect only if the value of **Action** is **CreateChild**.
+      // - **IpSet**: An acceleration region.
+      // 
+      // - **EndpointGroup**: An endpoint group.
+      // 
+      // - **ForwardingRule**: A forwarding rule.
+      // 
+      // - **Endpoint**: An endpoint.
+      // 
+      // - **EndpointGroupDestination**: A protocol mapping for an endpoint group of a custom routing listener.
+      // 
+      // - **EndpointPolicy**: A traffic policy for an endpoint of a custom routing listener.
+      // 
+      // > This parameter is valid only when **Action** is set to **CreateChild**.
       shared_ptr<string> childType_ {};
-      // Indicates whether the specified actions are managed.
+      // Indicates whether the action is managed. Valid values:
       // 
-      // *   **true:** The specified actions are managed. Users cannot perform the specified actions on the managed instance.****
-      // *   **false:** The specified actions are not managed. Users can perform the specified actions on the managed instance.
+      // - **true**: The action is managed. You cannot perform this action on the instance.
+      // 
+      // - **false**: The action is not managed. You can perform this action on the instance.
       shared_ptr<bool> isManaged_ {};
     };
 
@@ -313,18 +325,22 @@ namespace Models
 
     protected:
       shared_ptr<string> CIDR_ {};
+      // The private IP address.
       shared_ptr<string> privateIp_ {};
+      // The VSwitch ID in the VPC.
       shared_ptr<string> vSwitchId_ {};
     };
 
     class EndpointConfigurations : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const EndpointConfigurations& obj) { 
+        DARABONBA_PTR_TO_JSON(ApiKeys, apiKeys_);
         DARABONBA_PTR_TO_JSON(EnableClientIPPreservation, enableClientIPPreservation_);
         DARABONBA_PTR_TO_JSON(EnableProxyProtocol, enableProxyProtocol_);
         DARABONBA_PTR_TO_JSON(Endpoint, endpoint_);
         DARABONBA_PTR_TO_JSON(ProbePort, probePort_);
         DARABONBA_PTR_TO_JSON(ProbeProtocol, probeProtocol_);
+        DARABONBA_PTR_TO_JSON(Provider, provider_);
         DARABONBA_PTR_TO_JSON(SubAddress, subAddress_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
@@ -332,11 +348,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Weight, weight_);
       };
       friend void from_json(const Darabonba::Json& j, EndpointConfigurations& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApiKeys, apiKeys_);
         DARABONBA_PTR_FROM_JSON(EnableClientIPPreservation, enableClientIPPreservation_);
         DARABONBA_PTR_FROM_JSON(EnableProxyProtocol, enableProxyProtocol_);
         DARABONBA_PTR_FROM_JSON(Endpoint, endpoint_);
         DARABONBA_PTR_FROM_JSON(ProbePort, probePort_);
         DARABONBA_PTR_FROM_JSON(ProbeProtocol, probeProtocol_);
+        DARABONBA_PTR_FROM_JSON(Provider, provider_);
         DARABONBA_PTR_FROM_JSON(SubAddress, subAddress_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
@@ -354,9 +372,19 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->enableClientIPPreservation_ == nullptr
-        && this->enableProxyProtocol_ == nullptr && this->endpoint_ == nullptr && this->probePort_ == nullptr && this->probeProtocol_ == nullptr && this->subAddress_ == nullptr
-        && this->type_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->weight_ == nullptr; };
+      virtual bool empty() const override { return this->apiKeys_ == nullptr
+        && this->enableClientIPPreservation_ == nullptr && this->enableProxyProtocol_ == nullptr && this->endpoint_ == nullptr && this->probePort_ == nullptr && this->probeProtocol_ == nullptr
+        && this->provider_ == nullptr && this->subAddress_ == nullptr && this->type_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr
+        && this->weight_ == nullptr; };
+      // apiKeys Field Functions 
+      bool hasApiKeys() const { return this->apiKeys_ != nullptr;};
+      void deleteApiKeys() { this->apiKeys_ = nullptr;};
+      inline const vector<string> & getApiKeys() const { DARABONBA_PTR_GET_CONST(apiKeys_, vector<string>) };
+      inline vector<string> getApiKeys() { DARABONBA_PTR_GET(apiKeys_, vector<string>) };
+      inline EndpointConfigurations& setApiKeys(const vector<string> & apiKeys) { DARABONBA_PTR_SET_VALUE(apiKeys_, apiKeys) };
+      inline EndpointConfigurations& setApiKeys(vector<string> && apiKeys) { DARABONBA_PTR_SET_RVALUE(apiKeys_, apiKeys) };
+
+
       // enableClientIPPreservation Field Functions 
       bool hasEnableClientIPPreservation() const { return this->enableClientIPPreservation_ != nullptr;};
       void deleteEnableClientIPPreservation() { this->enableClientIPPreservation_ = nullptr;};
@@ -390,6 +418,13 @@ namespace Models
       void deleteProbeProtocol() { this->probeProtocol_ = nullptr;};
       inline string getProbeProtocol() const { DARABONBA_PTR_GET_DEFAULT(probeProtocol_, "") };
       inline EndpointConfigurations& setProbeProtocol(string probeProtocol) { DARABONBA_PTR_SET_VALUE(probeProtocol_, probeProtocol) };
+
+
+      // provider Field Functions 
+      bool hasProvider() const { return this->provider_ != nullptr;};
+      void deleteProvider() { this->provider_ = nullptr;};
+      inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+      inline EndpointConfigurations& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
       // subAddress Field Functions 
@@ -430,38 +465,57 @@ namespace Models
 
 
     protected:
-      // Indicates whether the client IP address preservation feature is enabled. Valid values:
+      // The API keys for the endpoint configuration.
+      shared_ptr<vector<string>> apiKeys_ {};
+      // Indicates whether client IP preservation is enabled by using the automatic method.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> enableClientIPPreservation_ {};
-      // Indicates whether the proxy protocol is used to preserve client IP addresses.
-      shared_ptr<bool> enableProxyProtocol_ {};
-      // The IP address, domain name, or ID of the endpoint.
-      shared_ptr<string> endpoint_ {};
-      // The port that is used to monitor latency.
-      shared_ptr<int32_t> probePort_ {};
-      // The protocol that is used to monitor latency. Valid values:
+      // Indicates whether client IP preservation is enabled using the Proxy Protocol.
       // 
-      // *   **tcp**
-      // *   **icmp**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
+      shared_ptr<bool> enableProxyProtocol_ {};
+      // The IP address, domain name, or instance ID of the endpoint.
+      shared_ptr<string> endpoint_ {};
+      // The port used for latency probing.
+      shared_ptr<int32_t> probePort_ {};
+      // The protocol for latency probing. Valid values:
+      // 
+      // - **tcp**: TCP
+      // 
+      // - **icmp**: ICMP
       shared_ptr<string> probeProtocol_ {};
-      // The private IP address of the ENI.
+      // The provider of the endpoint configuration.
+      shared_ptr<string> provider_ {};
+      // The private IP address of the elastic network interface.
       shared_ptr<string> subAddress_ {};
       // The type of the endpoint. Valid values:
       // 
-      // *   **Domain**: a custom domain name.
-      // *   **Ip**: a custom IP address.
-      // *   **IpTarget**: a custom private IP address.
-      // *   **PublicIp**: a public IP address provided by Alibaba Cloud.
-      // *   **ECS**: an Elastic Compute Service (ECS) instance.
-      // *   **SLB**: a Server Load Balancer (SLB) instance.
-      // *   **ALB** an Application Load Balancer (ALB) instance.
-      // *   **OSS**: an Object Storage Service (OSS) bucket.
-      // *   **ENI**: an elastic network interface (ENI).
-      // *   **NLB**: a Network Load Balancer (NLB) instance.
+      // - **Domain**: A custom domain name.
+      // 
+      // - **Ip**: A custom IP address.
+      // 
+      // - **IpTarget**: A custom private IP address.
+      // 
+      // - **PublicIp**: An Alibaba Cloud public IP address.
+      // 
+      // - **ECS**: An ECS instance.
+      // 
+      // - **SLB**: An SLB instance.
+      // 
+      // - **ALB**: An ALB instance.
+      // 
+      // - **OSS**: An OSS instance.
+      // 
+      // - **ENI**: An elastic network interface.
+      // 
+      // - **NLB**: An NLB instance.
       shared_ptr<string> type_ {};
-      // The IDs of vSwitches that are deployed in the VPC.
+      // A list of VSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
@@ -756,91 +810,122 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The Global Accelerator instance ID.
     shared_ptr<string> acceleratorId_ {};
+    // The custom header fields to record in access logs.
     shared_ptr<vector<string>> accessLogRecordCustomizedHeaderList_ {};
-    shared_ptr<bool> accessLogRecordCustomizedHeadersEnabled_ {};
-    // Indicates the binding status between the Simple Log Service project and the endpoint group. Valid values:
+    // Specifies whether to record custom header fields in access logs. Valid values:
     // 
-    // *   **on:** The endpoint group is bound to the Simple Log Service project.
-    // *   **off:** The endpoint group is not bound to the Simple Log Service project.
-    // *   **binding:** The endpoint group is being bound to the Simple Log Service project.
-    // *   **unbinding:** The endpoint group is being unbound from the Simple Log Service project.
+    // - **true**: Yes.
+    // 
+    // - **false** (default): No.
+    // 
+    // > You can set this parameter to **true** only when **EnableAccessLog** is set to **true**.
+    shared_ptr<bool> accessLogRecordCustomizedHeadersEnabled_ {};
+    // The status of the access log configuration. Valid values:
+    // 
+    // - **on**: The access log is configured.
+    // 
+    // - **off**: The access log is not configured.
+    // 
+    // - **binding**: The access log is being configured.
+    // 
+    // - **unbinding**: The access log configuration is being removed.
     shared_ptr<string> accessLogSwitch_ {};
     // The description of the endpoint group.
     shared_ptr<string> description_ {};
-    // Indicates whether the access log feature is enabled. Valid values:
+    // Indicates whether access logging is enabled.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Access logging is enabled.
+    // 
+    // - **false**: Access logging is disabled.
     shared_ptr<bool> enableAccessLog_ {};
-    // The configurations of endpoints in the endpoint group.
+    // The endpoint configurations.
     shared_ptr<vector<DescribeEndpointGroupResponseBody::EndpointConfigurations>> endpointConfigurations_ {};
-    // The ID of the endpoint group.
+    // The endpoint group ID.
     shared_ptr<string> endpointGroupId_ {};
-    // The active endpoint IP addresses of the endpoint group.
+    // The list of active IP addresses of the endpoints in the endpoint group.
+    // >Notice: For an endpoint group configured for back-to-source from a private network, the console displays only the private back-to-source IP addresses and not the public IP addresses. If the network connection type for the backend service of the endpoint group changes (for example, from a private network to a public network, or to a mix of private and public networks), you must monitor the changes in the back-to-source IP addresses and update the access control list (ACL) of the backend service accordingly.
     shared_ptr<vector<string>> endpointGroupIpList_ {};
-    // The ID of the region where the endpoint group is deployed.
+    // The region ID where the endpoint group is deployed.
     shared_ptr<string> endpointGroupRegion_ {};
-    // The type of endpoint group. Valid values:
+    // The type of the endpoint group. Valid values:
     // 
-    // *   **default**: a default endpoint group
-    // *   **virtual**: a virtual endpoint group
+    // - **default**: A default endpoint group.
+    // 
+    // - **virtual**: A virtual endpoint group.
     shared_ptr<string> endpointGroupType_ {};
-    // The endpoint group IP addresses to be confirmed. After the GA instance is upgraded, the IP addresses that are added to the endpoint group need to be confirmed.
+    // A list of endpoint IP addresses pending confirmation after a Global Accelerator instance upgrade.
     shared_ptr<vector<string>> endpointGroupUnconfirmedIpList_ {};
+    // The IP version used to connect to the backend service. Valid values:
+    // 
+    // - **IPv4** (default): Global Accelerator connects to the backend service using IPv4.
+    // 
+    // - **IPv6**: Global Accelerator connects to the backend service using IPv6.
+    // 
+    // - **ProtocolAffinity**: Global Accelerator connects to the backend service using the same IP version as the client request.
     shared_ptr<string> endpointIpVersion_ {};
+    // The private IP addresses of the endpoints.
     shared_ptr<vector<DescribeEndpointGroupResponseBody::EndpointPrivateIpList>> endpointPrivateIpList_ {};
-    // The version of the protocol that is used by the backend service.
+    // The version of the backend service protocol. Valid values:
     // 
-    // *   **HTTP1.1**
-    // *   **HTTP2**
+    // - **HTTP1.1**
+    // 
+    // - **HTTP2**
     shared_ptr<string> endpointProtocolVersion_ {};
-    // The protocol that is used by the backend service.
+    // The protocol used by the backend service. Valid values:
     // 
-    // *   **HTTP**
-    // *   **HTTPS**
+    // - **HTTP**
+    // 
+    // - **HTTPS**
     shared_ptr<string> endpointRequestProtocol_ {};
-    // The ID of the forwarding rule that is associated with the endpoint group.
+    // The IDs of the associated forwarding rules.
     shared_ptr<vector<string>> forwardingRuleIds_ {};
-    // Indicates whether the health check feature is enabled. Valid values:
+    // Indicates whether health checks are enabled.
     // 
-    // *   **true**: enabled
-    // *   **false**: disabled
+    // - **true**: Health checks are enabled.
+    // 
+    // - **false**: Health checks are disabled.
     shared_ptr<bool> healthCheckEnabled_ {};
+    // The domain name used for health checks.
     shared_ptr<string> healthCheckHost_ {};
-    // The interval between two consecutive health checks. Unit: seconds.
+    // The health check interval, in seconds.
     shared_ptr<int32_t> healthCheckIntervalSeconds_ {};
-    // The path to which health check probes are sent.
+    // The path for health check probes.
     shared_ptr<string> healthCheckPath_ {};
-    // The port that is used for health checks.
+    // The port used for health checks.
     shared_ptr<int32_t> healthCheckPort_ {};
-    // The protocol over which health check requests are sent. Valid values:
+    // The protocol used for health checks.
     // 
-    // *   **tcp** or **TCP**
-    // *   **http** or **HTTP**
-    // *   **https** or **HTTPS**
+    // - **tcp** or **TCP**: TCP
+    // 
+    // - **http** or **HTTP**: HTTP
+    // 
+    // - **https** or **HTTPS**: HTTPS
     shared_ptr<string> healthCheckProtocol_ {};
-    // The ID of the listener.
+    // The listener ID.
     shared_ptr<string> listenerId_ {};
     // The name of the endpoint group.
     shared_ptr<string> name_ {};
-    // The mappings between ports.
+    // The port mapping configuration.
     shared_ptr<vector<DescribeEndpointGroupResponseBody::PortOverrides>> portOverrides_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the service that manages the GA instance.
+    // The ID of the service that manages the instance.
     // 
-    // >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+    // > This parameter is returned only if **ServiceManaged** is set to **True**.
     shared_ptr<string> serviceId_ {};
-    // Indicates whether the instance is managed.
+    // Indicates whether the instance is a managed instance. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The instance is a managed instance.
+    // 
+    // - **false**: The instance is not a managed instance.
     shared_ptr<bool> serviceManaged_ {};
-    // The actions that users can perform on the managed instance.
-    // >*   This parameter takes effect only if the value of **ServiceManaged** is **true**.
-    // >*   Users can perform only specific actions on a managed instance.
+    // A list of management states for actions that can be performed on the instance.
+    // 
+    // > - This parameter is returned only if **ServiceManaged** is set to **True**.
+    // >
+    // > - When an instance is managed, some operations may be restricted.
     shared_ptr<vector<DescribeEndpointGroupResponseBody::ServiceManagedInfos>> serviceManagedInfos_ {};
     // The name of the Logstore.
     shared_ptr<string> slsLogStoreName_ {};
@@ -848,18 +933,21 @@ namespace Models
     shared_ptr<string> slsProjectName_ {};
     // The region of the Log Service project.
     shared_ptr<string> slsRegion_ {};
-    // The status of the endpoint group. Valid values:
+    // The status of the endpoint group.
     // 
-    // *   **init**: The endpoint group is being initialized.
-    // *   **active**: The endpoint group is running as expected.
-    // *   **updating**: The endpoint group is being updated.
-    // *   **deleting**: The endpoint group is being deleted.
+    // - **init**: The endpoint group is being initialized.
+    // 
+    // - **active**: The endpoint group is active.
+    // 
+    // - **updating**: The endpoint group is being updated.
+    // 
+    // - **deleting**: The endpoint group is being deleted.
     shared_ptr<string> state_ {};
-    // The tag of the endpoint group.
+    // A list of tags attached to the endpoint group.
     shared_ptr<vector<DescribeEndpointGroupResponseBody::Tags>> tags_ {};
-    // The number of consecutive failed health checks that must occur before an endpoint is considered unhealthy.
+    // The number of consecutive failed health checks before an endpoint is marked as unhealthy.
     shared_ptr<int32_t> thresholdCount_ {};
-    // The traffic ratio of the endpoint group when the specified listener is associated with multiple endpoint groups.
+    // The percentage of traffic that is distributed to the endpoint group. This parameter is returned only when a listener is associated with multiple endpoint groups.
     shared_ptr<int32_t> trafficPercentage_ {};
   };
 

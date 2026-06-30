@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The bandwidth plan ID.
+    // The ID of the bandwidth plan.
     shared_ptr<string> bandwidthPackage_ {};
     // The description of the bandwidth plan.
     shared_ptr<string> description_ {};

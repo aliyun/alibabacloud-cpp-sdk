@@ -75,25 +75,24 @@ namespace Models
 
 
   protected:
-    // The ID of the accelerated IP address.
-    // 
-    // >  You must specify **EndpointId** or **AccelerateIpId**.
+    // The accelerated IP address instance ID of the basic Global Accelerator (GA) instance.
+    // > **EndpointId** and **AccelerateIpId** cannot both be empty.
     shared_ptr<string> accelerateIpId_ {};
-    // The ID of the basic GA instance.
+    // The instance ID of the basic Global Accelerator (GA) instance.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value of each API request is different.
     shared_ptr<string> clientToken_ {};
-    // The ID of the endpoint.
+    // The endpoint ID of the basic Global Accelerator (GA) instance.
     // 
-    // >  You must specify **EndpointId** or **AccelerateIpId**.
+    // > **EndpointId** and **AccelerateIpId** cannot both be empty.
     shared_ptr<string> endpointId_ {};
-    // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+    // The region ID of the Global Accelerator instance. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

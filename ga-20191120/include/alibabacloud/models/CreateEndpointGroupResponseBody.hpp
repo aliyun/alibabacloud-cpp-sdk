@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the endpoint group.
+    // The endpoint group ID.
     shared_ptr<string> endpointGroupId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

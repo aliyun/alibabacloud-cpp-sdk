@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the endpoint group mappings.
+    // The list of mapping configuration IDs for the endpoint group.
     shared_ptr<vector<string>> destinationIds_ {};
-    // The IDs of the endpoint group mappings.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

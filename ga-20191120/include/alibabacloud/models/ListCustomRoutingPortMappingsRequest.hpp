@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the GA instance whose port mapping table you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The ID of the endpoint group.
+    // The ID of the endpoint group whose port mapping table you want to query.
     shared_ptr<string> endpointGroupId_ {};
-    // The ID of the listener.
+    // The ID of the listener whose port mapping table you want to query.
     shared_ptr<string> listenerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
     // 

@@ -77,23 +77,23 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate a token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
     shared_ptr<string> clientToken_ {};
-    // The endpoint group description.
+    // The description of the endpoint group.
     // 
-    // The description can be up to 256 characters in length and cannot contain `http://` or `https://`.
+    // The description can be up to 256 characters in length and cannot contain `http://` or `https://` characters.
     shared_ptr<string> description_ {};
-    // The endpoint group ID.
+    // The ID of the endpoint group.
     // 
     // This parameter is required.
     shared_ptr<string> endpointGroupId_ {};
-    // The endpoint group name.
+    // The name of the endpoint group.
     // 
-    // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 1 to 128 characters in length, start with a letter or a Chinese character, and can contain digits, underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
-    // The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
+    // The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

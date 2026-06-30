@@ -63,9 +63,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
     shared_ptr<string> regionId_ {};
-    // The accelerated domain name to be modified.
+    // The accelerated domain name that you want to update.
     // 
     // This parameter is required.
     shared_ptr<string> targetDomain_ {};

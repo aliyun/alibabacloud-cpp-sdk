@@ -224,13 +224,15 @@ namespace Models
       // 
       // Valid values on the China site (aliyun.com):
       // 
-      // *   **ga_gapluspre_public_cn**: GA instance.
-      // *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
+      // - **ga_gapluspre_public_cn**: GA instance.
+      // 
+      // - **ga_plusbwppre_public_cn**: basic bandwidth plan.
       // 
       // Valid values on the international site (alibabacloud.com):
       // 
-      // *   **ga_pluspre_public_intl**: GA instance.
-      // *   **ga_bwppreintl_public_intl:** basic bandwidth plan.
+      // - **ga_pluspre_public_intl**: GA instance.
+      // 
+      // - **ga_bwppreintl_public_intl:** basic bandwidth plan.
       shared_ptr<string> commodityCode_ {};
       // The information about commodity modules.
       // 
@@ -238,19 +240,23 @@ namespace Models
       shared_ptr<vector<Orders::Components>> components_ {};
       // The subscription duration.
       // 
-      // *   Valid values if you set **PricingCycle** to **Month**: **1** to **9**.
-      // *   Valid values if you set **PricingCycle** to **Year**: **1** to **3**.
+      // - Valid values if you set **PricingCycle** to **Month**: **1** to **9**.
+      // 
+      // - Valid values if you set **PricingCycle** to **Year**: **1** to **3**.
       shared_ptr<int64_t> duration_ {};
       // The type of the order. Valid values:
       // 
-      // *   **BUY**: purchase order.
-      // *   **RENEW**: renewal order.
-      // *   **UPGRADE**: upgrade order.
+      // - **BUY**: purchase order.
+      // 
+      // - **RENEW**: renewal order.
+      // 
+      // - **UPGRADE**: upgrade order.
       shared_ptr<string> orderType_ {};
       // The billing cycle. Valid values:
       // 
-      // *   **Month**
-      // *   **Year**
+      // - **Month**
+      // 
+      // - **Year**
       shared_ptr<string> pricingCycle_ {};
       // The number of instances that you want to purchase.
       shared_ptr<int64_t> quantity_ {};
@@ -288,7 +294,7 @@ namespace Models
     shared_ptr<vector<DescribeCommodityPriceRequest::Orders>> orders_ {};
     // The coupon code.
     // 
-    // >  This parameter is unavailable on the China site (aliyun.com).
+    // > This parameter is unavailable on the China site (aliyun.com).
     shared_ptr<string> promotionOptionNo_ {};
     // The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
     // 

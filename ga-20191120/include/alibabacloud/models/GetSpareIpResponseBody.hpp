@@ -50,10 +50,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the secondary IP address. Valid values:
-    // 
-    // *   **active:** The secondary IP address is available.
-    // *   **inuse:** The secondary IP address is in use.
+    // The status of the CNAME spare IP address. Valid values:
+    // - **active**: active.
+    // - **inuse**: in use.
     shared_ptr<string> state_ {};
   };
 

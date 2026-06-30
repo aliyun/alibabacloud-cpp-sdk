@@ -76,15 +76,15 @@ namespace Models
 
 
     protected:
-      // The domain name that is specified by the certificate. You can associate each domain name with only one additional certificate.
+      // The domain name for which the certificate takes effect. Each domain name can be bound to only one additional certificate.
       // 
-      // You can specify up to 10 domain names in each request.
+      // You can specify up to 10 domain names at a time.
       // 
       // This parameter is required.
       shared_ptr<string> domain_ {};
-      // The ID of the certificate. Only server certificates are supported.
+      // The certificate ID. Only server certificates are supported.
       // 
-      // You can specify up to 10 certificate IDs in each request.
+      // You can specify up to 10 certificate IDs at a time.
       // 
       // This parameter is required.
       shared_ptr<string> id_ {};
@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // The GA instance ID.
+    // The instance ID of the Alibaba Cloud Global Accelerator (GA).
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The additional certificates.
+    // The list of additional certificates.
     // 
-    // You can specify up to 10 certificates in each request.
+    // You can specify up to 10 certificates at a time.
     // 
     // This parameter is required.
     shared_ptr<vector<AssociateAdditionalCertificatesWithListenerRequest::Certificates>> certificates_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
-    // The listener ID. Only HTTPS listeners are supported.
+    // The instance ID of the listener. Only HTTPS listeners are supported.
     // 
     // This parameter is required.
     shared_ptr<string> listenerId_ {};
-    // The region ID of the GA instance. Set the value to **cn-hangzhou**.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

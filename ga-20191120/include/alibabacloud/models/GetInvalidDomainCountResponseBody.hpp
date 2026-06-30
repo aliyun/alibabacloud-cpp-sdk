@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The number of invalid domain names.
     shared_ptr<string> invalidDomainCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -197,31 +197,33 @@ namespace Models
 
 
     protected:
-      // The ID of the GA instance.
+      // The ID of the Global Accelerator instance to which the port mapping belongs.
       shared_ptr<string> acceleratorId_ {};
       // The acceleration port.
       shared_ptr<int32_t> acceleratorPort_ {};
       // The service IP address and port of the backend instance.
       shared_ptr<PortMappings::DestinationSocketAddress> destinationSocketAddress_ {};
-      // The access policy of traffic for the backend instance.
+      // The traffic policy for the backend instance.
       // 
-      // *   **allow**: allows traffic to the backend instance.
-      // *   **deny**: denies all traffic to the backend instance.
+      // - **allow**: allows the backend instance to receive traffic.
+      // 
+      // - **deny**: denies the backend instance from receiving traffic.
       shared_ptr<string> destinationTrafficState_ {};
       // The ID of the endpoint group.
       shared_ptr<string> endpointGroupId_ {};
-      // The ID of the region in which the endpoint group resides.
+      // The ID of the region where the endpoint group is deployed.
       shared_ptr<string> endpointGroupRegion_ {};
       // The ID of the endpoint.
       shared_ptr<string> endpointId_ {};
-      // The ID of the listener.
+      // The ID of the custom routing listener to which the port mapping belongs.
       shared_ptr<string> listenerId_ {};
       // The protocol of the backend service.
       // 
-      // *   **tcp**: TCP
-      // *   **udp**: UDP
+      // - **TCP**: TCP.
+      // 
+      // - **UDP**: UDP.
       shared_ptr<vector<string>> protocols_ {};
-      // The name of the endpoint (vSwitch).
+      // The name of the vSwitch instance of the endpoint.
       shared_ptr<string> vswitch_ {};
     };
 
@@ -265,15 +267,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Details about the port mapping table.
+    // The information about the port mappings.
     shared_ptr<vector<ListCustomRoutingPortMappingsByDestinationResponseBody::PortMappings>> portMappings_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance that you want to query.
+    // The ID of the Global Accelerator instance that you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+    // The region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

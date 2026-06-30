@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The instance ID of the Alibaba Cloud Global Accelerator (GA).
+    // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
+    // The ID of the linked peripheral resource.
     shared_ptr<string> associatedResourceId_ {};
+    // The Region ID where the linked instance is located.
     shared_ptr<string> associatedResourceRegionId_ {};
+    // The resource type of the linked peripheral resource.
     shared_ptr<string> associatedResourceType_ {};
+    // The Region ID where the Alibaba Cloud Global Accelerator (GA) instance is located. The only valid value is cn-hangzhou.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

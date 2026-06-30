@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the bandwidth plan that you want to query.
+    // The ID of the bandwidth plan to query.
     // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The number of entries returned, which indicates the number of idle accelerated IP addresses.
     shared_ptr<int64_t> totalCount_ {};

@@ -104,22 +104,26 @@ namespace Models
 
 
     protected:
-      // The endpoint port that is mapped to the listener port.
+      // The endpoint port in the port override settings.
       shared_ptr<int32_t> endpointPort_ {};
-      // The listener port that is mapped to the endpoint port.
+      // The listener port in the port override settings.
       // 
-      // > *   You cannot configure port mappings for virtual endpoint groups of TCP listeners. If a virtual endpoint group already exists on the listener, you cannot configure port mappings for the default endpoint group. If port mappings are configured for the default endpoint group, you cannot add a virtual endpoint group.
-      // >*   If you configure port mappings for a listener, you cannot modify the listener protocol. You can only switch between HTTP and HTTPS.
-      // >*   Listener port: When you modify the listener port range, make sure that the port range includes the ports configured in port mappings. For example, if you set the listener port range to 80 to 82 and map the listener ports to endpoint ports 100 to 102, you cannot change the listener port range to 80 to 81.
+      // > - For TCP listeners, virtual endpoint groups do not support port overrides. If a listener is already associated with a virtual endpoint group, you cannot configure port overrides for the default endpoint group. If the default endpoint group has port overrides configured, you cannot add a virtual endpoint group.
+      // >
+      // > - After you configure port overrides, you can change the listener protocol only between HTTP and HTTPS.
+      // >
+      // > - The updated listener port range must include all listener ports in the configured port overrides. For example, if the listener port range is 80-82 and port overrides are configured to map the ports to endpoint ports 100-102, you cannot update the listener port range to 80-81.
       shared_ptr<int32_t> listenerPort_ {};
     };
 
     class EndpointConfigurations : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const EndpointConfigurations& obj) { 
+        DARABONBA_PTR_TO_JSON(ApiKeys, apiKeys_);
         DARABONBA_PTR_TO_JSON(EnableClientIPPreservation, enableClientIPPreservation_);
         DARABONBA_PTR_TO_JSON(EnableProxyProtocol, enableProxyProtocol_);
         DARABONBA_PTR_TO_JSON(Endpoint, endpoint_);
+        DARABONBA_PTR_TO_JSON(Provider, provider_);
         DARABONBA_PTR_TO_JSON(SubAddress, subAddress_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
@@ -127,9 +131,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Weight, weight_);
       };
       friend void from_json(const Darabonba::Json& j, EndpointConfigurations& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApiKeys, apiKeys_);
         DARABONBA_PTR_FROM_JSON(EnableClientIPPreservation, enableClientIPPreservation_);
         DARABONBA_PTR_FROM_JSON(EnableProxyProtocol, enableProxyProtocol_);
         DARABONBA_PTR_FROM_JSON(Endpoint, endpoint_);
+        DARABONBA_PTR_FROM_JSON(Provider, provider_);
         DARABONBA_PTR_FROM_JSON(SubAddress, subAddress_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
@@ -147,9 +153,18 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->enableClientIPPreservation_ == nullptr
-        && this->enableProxyProtocol_ == nullptr && this->endpoint_ == nullptr && this->subAddress_ == nullptr && this->type_ == nullptr && this->vSwitchIds_ == nullptr
-        && this->vpcId_ == nullptr && this->weight_ == nullptr; };
+      virtual bool empty() const override { return this->apiKeys_ == nullptr
+        && this->enableClientIPPreservation_ == nullptr && this->enableProxyProtocol_ == nullptr && this->endpoint_ == nullptr && this->provider_ == nullptr && this->subAddress_ == nullptr
+        && this->type_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->weight_ == nullptr; };
+      // apiKeys Field Functions 
+      bool hasApiKeys() const { return this->apiKeys_ != nullptr;};
+      void deleteApiKeys() { this->apiKeys_ = nullptr;};
+      inline const vector<string> & getApiKeys() const { DARABONBA_PTR_GET_CONST(apiKeys_, vector<string>) };
+      inline vector<string> getApiKeys() { DARABONBA_PTR_GET(apiKeys_, vector<string>) };
+      inline EndpointConfigurations& setApiKeys(const vector<string> & apiKeys) { DARABONBA_PTR_SET_VALUE(apiKeys_, apiKeys) };
+      inline EndpointConfigurations& setApiKeys(vector<string> && apiKeys) { DARABONBA_PTR_SET_RVALUE(apiKeys_, apiKeys) };
+
+
       // enableClientIPPreservation Field Functions 
       bool hasEnableClientIPPreservation() const { return this->enableClientIPPreservation_ != nullptr;};
       void deleteEnableClientIPPreservation() { this->enableClientIPPreservation_ = nullptr;};
@@ -169,6 +184,13 @@ namespace Models
       void deleteEndpoint() { this->endpoint_ = nullptr;};
       inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
       inline EndpointConfigurations& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
+
+
+      // provider Field Functions 
+      bool hasProvider() const { return this->provider_ != nullptr;};
+      void deleteProvider() { this->provider_ = nullptr;};
+      inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+      inline EndpointConfigurations& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
       // subAddress Field Functions 
@@ -209,67 +231,89 @@ namespace Models
 
 
     protected:
-      // Specifies whether to automatically preserve client IP addresses. Valid values:
+      shared_ptr<vector<string>> apiKeys_ {};
+      // Specifies whether to preserve client source IP addresses. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: Preserves client source IP addresses.
       // 
-      // > *   By default, client IP address preservation is disabled for an endpoint group of a UDP or TCP listener. You can configure this parameter based on your business requirements.
-      // >*   By default, client IP address preservation is enabled for an endpoint group of an HTTP or HTTP listener. You can obtain client IP addresses by using the X-Forwarded-For header. You cannot disable the feature.
-      // >*   EnableClientIPPreservation and EnableProxyProtocol cannot be set to true at the same time.
-      // >>For more information, see [Preserve client IP addresses](https://help.aliyun.com/document_detail/158080.html).
+      // - **false** (default): Does not preserve client source IP addresses.
+      // 
+      // > * For endpoint groups of TCP or UDP listeners, this feature is disabled by default but can be enabled if needed.
+      // >
+      // > * For endpoint groups of HTTP or HTTPS listeners, client source IP addresses are preserved by default. The client IP addresses are retrieved from the X-Forwarded-For header. You cannot disable this feature.
+      // >
+      // > * You cannot set both `EnableClientIPPreservation` and `EnableProxyProtocol` to `true`.
+      // >
+      // > * For more information, see [preserve client source IP addresses](https://help.aliyun.com/document_detail/158080.html).
       shared_ptr<bool> enableClientIPPreservation_ {};
-      // Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
+      // Specifies whether to use the Proxy Protocol to preserve client source IP addresses. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: Preserves client source IP addresses.
       // 
-      // > *   This parameter is available only to endpoint groups of TCP listeners.
-      // >*   EnableClientIPPreservation and EnableProxyProtocol cannot be set to true at the same time.
-      // >>For more information, see [Preserve client IP addresses](https://help.aliyun.com/document_detail/158080.html).
+      // - **false** (default): Does not preserve client source IP addresses.
+      // 
+      // > * You can configure this parameter only for endpoint groups of TCP listeners.
+      // >
+      // > * You cannot set both `EnableClientIPPreservation` and `EnableProxyProtocol` to `true`.
+      // >
+      // > * For more information, see [preserve client source IP addresses](https://help.aliyun.com/document_detail/158080.html).
       shared_ptr<bool> enableProxyProtocol_ {};
-      // Enter the IP address, domain name, or instance ID based on the value of the Type parameter.
+      // Enter an IP address, a domain name, or an instance ID based on the value of the `Type` parameter.
       // 
       // This parameter is required.
       shared_ptr<string> endpoint_ {};
-      // The private IP address of the ENI.
+      shared_ptr<string> provider_ {};
+      // The private IP address of the elastic network interface.
       // 
-      // >  This parameter is available only when you set the endpoint type to **ENI**. If you leave this parameter empty, the primary private IP address of the ENI is used.
+      // > If the endpoint type is **ENI**, you can specify this parameter. If you omit this parameter, the primary private IP address of the ENI is used.
       shared_ptr<string> subAddress_ {};
-      // The type of the endpoint. Valid values:
+      // The type of endpoint. Valid values:
       // 
-      // *   **Domain**: a custom domain name.
-      // *   **Ip**: a custom IP address.
-      // *   **IpTarget**: a custom private IP address.
-      // *   **PublicIp**: a public IP address provided by Alibaba Cloud.
-      // *   **ECS**: an Elastic Compute Service (ECS) instance.
-      // *   **SLB**: a Server Load Balancer (SLB) instance.
-      // *   **ALB**: an Application Load Balancer (ALB) instance.
-      // *   **OSS**: an Object Storage Service (OSS) bucket.
-      // *   **ENI**: an elastic network interface (ENI).
-      // *   **NLB**: a Network Load Balancer (NLB) instance.
+      // - **Domain**: a custom domain name.
       // 
-      // > *   If you set this parameter to **ECS**, **ENI**, **SLB**, **ALB**, **NLB**, or **IpTarget**, and the AliyunServiceRoleForGaVpcEndpoint service-linked role does not exist, the system automatically creates the role.
-      // >*   If you set this parameter to **ALB** and the AliyunServiceRoleForGaAlb service-linked role does not exist, the system automatically creates the role.
-      // >*   If you set this parameter to **OSS** and the AliyunServiceRoleForGaOss service-linked role does not exist, the system automatically creates the role.
-      // >*   If you set this parameter to **NLB** and the AliyunServiceRoleForGaNlb service-linked role does not exist, the system automatically creates the role.
-      // >>For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/178360.html).
+      // - **Ip**: a custom IP address.
+      // 
+      // - **IpTarget**: a custom private IP address.
+      // 
+      // - **PublicIp**: an Alibaba Cloud public IP address.
+      // 
+      // - **ECS**: an ECS instance.
+      // 
+      // - **SLB**: an SLB instance.
+      // 
+      // - **ALB**: an ALB instance.
+      // 
+      // - **OSS**: an OSS instance.
+      // 
+      // - **ENI**: an elastic network interface.
+      // 
+      // - **NLB**: an NLB instance.
+      // 
+      // > * If the endpoint type is **ECS**, **ENI**, **SLB**, or **IpTarget**, and the service-linked role does not exist, the system automatically creates a service-linked role named AliyunServiceRoleForGaVpcEndpoint.
+      // >
+      // > * If the endpoint type is **ALB**, and the service-linked role does not exist, the system automatically creates a service-linked role named AliyunServiceRoleForGaAlb.
+      // >
+      // > * If the endpoint type is **OSS**, and the service-linked role does not exist, the system automatically creates a service-linked role named AliyunServiceRoleForGaOss.
+      // >
+      // > * If the endpoint type is **NLB**, and the service-linked role does not exist, the system automatically creates a service-linked role named AliyunServiceRoleForGaNlb.
+      // >
+      // > > For more information, see [service-linked roles](https://help.aliyun.com/document_detail/178360.html).
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The IDs of vSwitches that are deployed in the VPC.
+      // A list of vSwitches in the VPC.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The virtual private cloud (VPC) ID.
+      // The ID of the VPC.
       // 
-      // You can specify one VPC ID for an endpoint group of an intelligent routing listener.
+      // You can specify at most one VPC ID for an endpoint group that is associated with an intelligent routing listener.
       // 
-      // >  This parameter is valid and required only if Type is set to **IpTarget**.
+      // > This parameter is required only when the endpoint type is **IpTarget**.
       shared_ptr<string> vpcId_ {};
       // The weight of the endpoint.
       // 
       // Valid values: **0** to **255**.
       // 
-      // >  If you set the weight of an endpoint to 0, GA stops distributing traffic to the endpoint. Proceed with caution.
+      // > If you set the weight of an endpoint to 0, Global Accelerator stops distributing traffic to the endpoint. Proceed with caution.
       // 
       // This parameter is required.
       shared_ptr<int32_t> weight_ {};
@@ -418,71 +462,79 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A client-generated token to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // The token must be unique across requests and can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** is unique for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the endpoint group.
     // 
-    // The description can be up to 200 characters in length and cannot start with `http://` or `https://`.
+    // The description can be up to 200 characters long and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The configurations of the endpoints in the endpoint group.
+    // The configurations of the endpoints.
     shared_ptr<vector<UpdateEndpointGroupRequest::EndpointConfigurations>> endpointConfigurations_ {};
     // The ID of the endpoint group.
     // 
     // This parameter is required.
     shared_ptr<string> endpointGroupId_ {};
-    // The ID of the region where the endpoint group is created.
+    // The ID of the region where the endpoint group is deployed.
     // 
     // This parameter is required.
     shared_ptr<string> endpointGroupRegion_ {};
+    // Specifies the IP protocol that GA uses to communicate with endpoints. Valid values: ● **IPv4** (default): Use IPv4. ● **IPv6**: Use IPv6. ● **ProtocolAffinity**: Use the same IP protocol as the client request.
     shared_ptr<string> endpointIpVersion_ {};
-    // The protocol version that is used by the backend service. Valid values:
+    // The version of the backend service protocol. Valid values:
     // 
-    // *   **HTTP1.1**
-    // *   **HTTP2**
+    // - **HTTP1.1**
     // 
-    // >  This parameter takes effect only when you set EndpointRequestProtocol to HTTPS.
+    // - **HTTP2**
+    // 
+    // > You can configure this parameter only when `EndpointRequestProtocol` is set to HTTPS.
     shared_ptr<string> endpointProtocolVersion_ {};
-    // The protocol that is used by the backend service. Valid values:
+    // The backend service protocol. Valid values:
     // 
-    // *   **HTTP**
-    // *   **HTTPS**
+    // - **HTTP**
     // 
-    // > *   You can set this parameter only when the listener that is associated with the endpoint group uses the HTTP or HTTPS protocol.
-    // > *   For an HTTP listener, the backend service protocol must be HTTP.
+    // - **HTTPS**
+    // 
+    // > * You can configure this parameter only for endpoint groups of HTTP or HTTPS listeners.
+    // >
+    // > * For an HTTP listener, the backend service protocol must be HTTP.
     shared_ptr<string> endpointRequestProtocol_ {};
-    // Specifies whether to enable the health check feature. Valid values: Valid values:
+    // Specifies whether to enable health checks. Valid values:
     // 
-    // *   **true**: The health check feature is enabled.
-    // *   **false** (default)
+    // - **true**: Enables health checks.
+    // 
+    // - **false** (default): Disables health checks.
     shared_ptr<bool> healthCheckEnabled_ {};
+    // The domain name for the health check.
     shared_ptr<string> healthCheckHost_ {};
-    // The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**.
+    // The interval between health checks, in seconds. Valid values: **1** to **50**.
     shared_ptr<int32_t> healthCheckIntervalSeconds_ {};
-    // The path to which health check requests are sent.
+    // The path for health checks.
     shared_ptr<string> healthCheckPath_ {};
-    // The port that is used for health checks. Valid values: **1** to **65535**.
+    // The port used for health checks. Valid values: **1** to **65535**.
     shared_ptr<int32_t> healthCheckPort_ {};
-    // The protocol over which to send health check requests. Valid values:
+    // The protocol for health checks. Valid values:
     // 
-    // *   **tcp** or **TCP**
-    // *   **http** or **HTTP**
-    // *   **https** or **HTTPS**
+    // - **tcp** or **TCP**
+    // 
+    // - **http** or **HTTP**
+    // 
+    // - **https** or **HTTPS**
     shared_ptr<string> healthCheckProtocol_ {};
     // The name of the endpoint group.
     // 
-    // The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 1 to 128 characters long, start with a letter or a Chinese character, and can contain digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
-    // The port mapping.
+    // The port override settings.
     shared_ptr<vector<UpdateEndpointGroupRequest::PortOverrides>> portOverrides_ {};
     // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy.
+    // The number of consecutive successful or failed health checks required to change an endpoint\\"s health status.
     // 
     // Valid values: **2** to **10**.
     shared_ptr<int32_t> thresholdCount_ {};

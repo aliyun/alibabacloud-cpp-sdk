@@ -115,19 +115,39 @@ namespace Models
 
 
   protected:
+    // The instance ID of Alibaba Cloud Global Accelerator (GA).
+    // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
+    // A list of custom header field names to be included in access logs.
     shared_ptr<vector<string>> accessLogRecordCustomizedHeaderList_ {};
+    // Specifies whether to include custom headers in access logs. Valid values:
+    // 
+    // - **true**: Yes.
+    // - **false** (default): No.
+    // 
+    // > You can set this parameter to **true** only when the **AccessLogEnabled** toggle for the instance is turned on.
     shared_ptr<bool> accessLogRecordCustomizedHeadersEnabled_ {};
+    // An idempotent token.
     shared_ptr<string> clientToken_ {};
+    // The ID of the endpoint group.
+    // 
     // This parameter is required.
     shared_ptr<string> endpointGroupId_ {};
+    // The listener ID.
+    // 
     // This parameter is required.
     shared_ptr<string> listenerId_ {};
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. The only valid value is cn-hangzhou.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The name of the Logstore.
+    // 
     // This parameter is required.
     shared_ptr<string> slsLogStoreName_ {};
+    // The name of the Data Service Project.
+    // 
     // This parameter is required.
     shared_ptr<string> slsProjectName_ {};
   };

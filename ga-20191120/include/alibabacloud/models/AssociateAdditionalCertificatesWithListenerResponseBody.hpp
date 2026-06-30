@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The listener ID.
+    // The listener instance ID.
     shared_ptr<string> listenerId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

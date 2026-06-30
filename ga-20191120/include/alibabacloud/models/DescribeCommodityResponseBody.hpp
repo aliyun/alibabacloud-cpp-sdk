@@ -273,13 +273,15 @@ namespace Models
     // 
     // Examples for the China site (aliyun.com):
     // 
-    // *   **ga_gapluspre_public_cn**: GA instance.
-    // *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
+    // - **ga_gapluspre_public_cn**: GA instance.
+    // 
+    // - **ga_plusbwppre_public_cn**: basic bandwidth plan.
     // 
     // Examples for the international site (alibabacloud.com):
     // 
-    // *   **ga_pluspre_public_intl**: GA instance.
-    // *   **ga_bwppreintl_public_intl**: basic bandwidth plan.
+    // - **ga_pluspre_public_intl**: GA instance.
+    // 
+    // - **ga_bwppreintl_public_intl**: basic bandwidth plan.
     shared_ptr<string> commodityCode_ {};
     // The name of the commodity.
     shared_ptr<string> commodityName_ {};

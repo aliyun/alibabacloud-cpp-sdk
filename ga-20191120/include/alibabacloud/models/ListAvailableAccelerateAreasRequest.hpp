@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the Global Accelerator instance.
     shared_ptr<string> acceleratorId_ {};
+    // The access mode of the acceleration area. Valid values:
+    // 
+    // - anycast: queries the supported anycast acceleration areas.
+    // 
+    // - Other values: queries the supported non-anycast acceleration areas.
     shared_ptr<string> accessMode_ {};
-    // The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+    // The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

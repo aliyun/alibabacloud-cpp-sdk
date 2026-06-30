@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the accelerated IP address of the basic GA instance.
+    // The accelerated IP address instance ID of the basic GA instance.
     shared_ptr<string> accelerateIpId_ {};
     // The ID of the basic GA instance.
     shared_ptr<string> acceleratorId_ {};
-    // The ID of the endpoint that is associated with the basic GA instance.
+    // The endpoint ID of the basic GA instance.
     shared_ptr<string> endpointId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the mapping between the accelerated IP address and endpoint.
+    // The attach status between the accelerated IP address and the endpoint of the basic GA instance.
     // 
-    // >  This parameter is not in use and empty.
+    // > This parameter is not currently in use.
     shared_ptr<string> state_ {};
   };
 

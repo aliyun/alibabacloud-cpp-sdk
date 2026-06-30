@@ -126,7 +126,7 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The instance ID of the Alibaba Cloud Global Accelerator (GA) instance.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
@@ -134,31 +134,31 @@ namespace Models
     shared_ptr<bool> accessLogRecordCustomizedHeadersEnabled_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The IDs of the endpoint groups.
+    // The list of endpoint group IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> endpointGroupIds_ {};
-    // The ID of the listener.
+    // The instance ID of the listener.
     // 
     // This parameter is required.
     shared_ptr<string> listenerId_ {};
-    // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the Logstore.
+    // The name of the SLS Logstore.
     // 
     // This parameter is required.
     shared_ptr<string> slsLogStoreName_ {};
-    // The name of the Log Service project.
+    // The name of the SLS project.
     // 
     // This parameter is required.
     shared_ptr<string> slsProjectName_ {};
-    // The region ID of the Log Service project.
+    // The region ID of the SLS service.
     // 
     // This parameter is required.
     shared_ptr<string> slsRegionId_ {};

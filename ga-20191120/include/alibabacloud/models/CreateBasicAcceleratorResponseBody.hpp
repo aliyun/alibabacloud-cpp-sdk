@@ -57,15 +57,16 @@ namespace Models
 
 
   protected:
-    // The ID of the basic GA instance.
+    // The instance ID of the basic Alibaba Cloud Global Accelerator (GA) instance.
     shared_ptr<string> acceleratorId_ {};
     // The order ID.
     // 
-    // This parameter is returned only if ChargeType is set to PREPAY.
+    // This parameter is returned only when ChargeType is set to PREPAY (upfront).
     // 
-    // If **AutoPay** is set to **false**, go to [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment after an order is generated.
+    // If **AutoPay** is set to **false**, which means automatic payment of the bill is not enabled, go to the <props="china">[Order Center](https://usercenter2.aliyun.com/order/list)
+    // <props="intl">[Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -80,15 +80,15 @@ namespace Models
 
 
     protected:
-      // The tag key of the GA resource. The tag key cannot be an empty string.
+      // The tag key of the Global Accelerator resource. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
       // You can specify up to 20 tag keys.
       shared_ptr<string> key_ {};
-      // The tag value of the GA resource. The tag value can be an empty string.
+      // The tag value of the Global Accelerator resource. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
       // You can specify up to 20 tag values.
       shared_ptr<string> value_ {};
@@ -149,29 +149,35 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the Global Accelerator instance.
     shared_ptr<string> acceleratorId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+    // The region ID of the Global Accelerator instance. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the GA instance. Valid values:
+    // The state of the Global Accelerator instance. Valid values:
     // 
-    // *   **init**: The GA instance is being initialized.
-    // *   **active**: The GA instance is available.
-    // *   **configuring**: The GA instance is being configured.
-    // *   **binding**: The GA instance is being associated.
-    // *   **unbinding**: The GA instance is being disassociated.
-    // *   **deleting**: The GA instance is being deleted.
-    // *   **finacialLocked**: The GA instance is locked due to overdue payments.
+    // - **init**: The instance is being initialized.
+    // 
+    // - **active**: The instance is active.
+    // 
+    // - **configuring**: The instance is being configured.
+    // 
+    // - **binding**: The instance is being bound.
+    // 
+    // - **unbinding**: The instance is being unbound.
+    // 
+    // - **deleting**: The instance is being deleted.
+    // 
+    // - **finacialLocked**: The instance is locked due to an overdue payment.
     shared_ptr<string> state_ {};
-    // The tags of the GA instance.
+    // The tags of the resource.
     shared_ptr<vector<ListAcceleratorsRequest::Tag>> tag_ {};
   };
 

@@ -75,16 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the Global Accelerator instance.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The page number. Default value: **1**.
+    // The page number. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to **50**. Default value: **10**.
+    // The number of entries to return on each page. The maximum value is **50**. The default value is **10**.
     shared_ptr<int32_t> pageSize_ {};
+    // The transport layer protocol used by the listener.
     shared_ptr<string> protocol_ {};
-    // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+    // The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

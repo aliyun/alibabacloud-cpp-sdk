@@ -104,9 +104,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N that is added to the bandwidth plan.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of tag N that is added to the bandwidth plan.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -253,71 +253,79 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance that is associated with the bandwidth plan.
+    // The instance ID of the Alibaba Cloud Global Accelerator (GA) instance attached to the bandwidth plan.
     shared_ptr<vector<string>> accelerators_ {};
     // The bandwidth value of the bandwidth plan. Unit: Mbit/s.
     shared_ptr<int32_t> bandwidth_ {};
-    // The ID of the bandwidth plan.
+    // The bandwidth plan ID.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The type of the bandwidth. Valid values:
+    // The bandwidth type. Valid values:
     // 
-    // *   **Basic**: basic bandwidth
-    // *   **Enhanced**: enhanced bandwidth
-    // *   **Advanced**: premium bandwidth
+    // - **Basic**: standard acceleration bandwidth.
+    // 
+    // - **Enhanced**: enhanced acceleration bandwidth.
+    // 
+    // - **Advanced**: premium acceleration bandwidth.
     shared_ptr<string> bandwidthType_ {};
-    // The metering method that is used when you use the pay-as-you-go billing method. Valid values:
-    // 
-    // *   **PayByTraffic**: pay-by-data-transfer
-    // *   **PayBY95**: pay-by-95th-percentile
+    // The billable methods for the pay-as-you-go billing method. Valid values:
+    // - **PayByTraffic**: pay-by-data-transfer.
+    // - **PayBY95**: pay-by-95th-percentile.
     shared_ptr<string> billingType_ {};
-    // Area A specified in the cross-region acceleration bandwidth plan. Only **China-mainland** (the Chinese mainland) is returned.
+    // The interconnected area A of the cross-border acceleration bandwidth plan. The value is returned only as **China-mainland** (the Chinese mainland).
     // 
-    // This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+    // This parameter is returned only on the Alibaba Cloud International Website (www.alibabacloud.com).
     shared_ptr<string> cbnGeographicRegionIdA_ {};
-    // Area B specified in the cross-region acceleration bandwidth plan. Only **Global** (global) is returned.
+    // The interconnected area B of the cross-border acceleration bandwidth plan. The value is returned only as **Global**.
     // 
-    // This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+    // This parameter is returned only on the Chinese site (Chinese mainland).
     shared_ptr<string> cbnGeographicRegionIdB_ {};
-    // The billing method of the bandwidth plan.
-    // 
-    // *   **PREPAY**: subscription. This is the default value.
-    // *   **POSTPAY**: pay-as-you-go.
+    // The billing method. Valid values:
+    // - **PREPAY** (default): subscription.
+    // - **POSTPAY**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The timestamp that indicates when the bandwidth plan was created.
+    // The timestamp when the bandwidth plan was created.
     shared_ptr<string> createTime_ {};
     // The description of the bandwidth plan.
     shared_ptr<string> description_ {};
-    // The timestamp that indicates when the bandwidth plan expires.
+    // The timestamp when the bandwidth plan expires.
     shared_ptr<string> expiredTime_ {};
     // The name of the bandwidth plan.
     shared_ptr<string> name_ {};
-    // The percentage of the minimum bandwidth guaranteed if the pay-by-95th-percentile-bandwidth metering method is used. Valid values: **30** to **100**.
+    // The minimum percentage for the pay-by-95th-percentile metering method. Valid values: **30** to **100**.
     shared_ptr<int32_t> ratio_ {};
-    // The ID of the region where GA instance is deployed. **cn-hangzhou** is returned.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The state of the bandwidth plan. Valid values:
+    // The status of the bandwidth plan. Valid values:
     // 
-    // *   **init**: The bandwidth plan is being initialized.
-    // *   **active**: The bandwidth plan is available.
-    // *   **binded**: The bandwidth plan is associated with a GA instance.
-    // *   **binding**: The bandwidth plan is being associated.
-    // *   **unbinding**: The bandwidth plan is being disassociated.
-    // *   **updating**: The bandwidth plan is being updated.
-    // *   **finacialLocked**: The bandwidth plan is locked due to overdue payments.
-    // *   **Locked**: The bandwidth plan is locked.
+    // - **init**: initialization.
+    // 
+    // - **active**: active.
+    // 
+    // - **binded**: attached.
+    // 
+    // - **binding**: being attached.
+    // 
+    // - **unbinding**: being disassociated.
+    // 
+    // - **updating**: being updated.
+    // 
+    // - **finacialLocked**: locked due to overdue payment.
+    // 
+    // - **locked**: locked.
     shared_ptr<string> state_ {};
-    // Tag objects.
+    // The resource tags.
     shared_ptr<vector<DescribeBandwidthPackageResponseBody::Tags>> tags_ {};
     // The type of the bandwidth plan. Valid values:
     // 
-    // *   **Basic**: a basic bandwidth plan
-    // *   **CrossDomain**: a cross-region acceleration bandwidth plan
+    // - **Basic**: basic bandwidth plan.
     // 
-    // If you call this operation on the Alibaba Cloud China Site (aliyun.com), only **Basic** is returned.
+    // - **CrossDomain**: cross-border acceleration bandwidth plan.
+    // 
+    // Only **Basic** is returned on the Alibaba Cloud China Website (www.aliyun.com).
     shared_ptr<string> type_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the Anti-DDoS Pro/Premium instance that is associated with the GA instance.
+    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance associated with the Global Accelerator (GA) instance.
     shared_ptr<string> ddosId_ {};
-    // The ID of the GA instance that is associated with the Anti-DDoS Pro/Premium instance.
+    // The ID of the Global Accelerator (GA) instance with which the Anti-DDoS Pro or Anti-DDoS Premium instance is associated.
     shared_ptr<string> gaId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -129,7 +129,7 @@ namespace Models
       shared_ptr<string> areaId_ {};
       // The area name.
       shared_ptr<string> localName_ {};
-      // The information about the regions.
+      // The region list.
       shared_ptr<vector<Areas::RegionList>> regionList_ {};
     };
 
@@ -152,7 +152,7 @@ namespace Models
 
 
   protected:
-    // The information about the areas.
+    // The area information.
     shared_ptr<vector<ListCommonAreasResponseBody::Areas>> areas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -140,49 +140,46 @@ namespace Models
 
 
   protected:
-    // The ID of the accelerated IP address.
+    // The accelerated IP address instance ID of the basic Global Accelerator (GA) instance.
     shared_ptr<string> accelerateIpId_ {};
-    // The ID of the basic GA instance.
+    // The instance ID of the basic Global Accelerator (GA) instance.
     shared_ptr<string> acceleratorId_ {};
     // The address of the endpoint.
     shared_ptr<string> endpointAddress_ {};
-    // The ID of the endpoint.
+    // The endpoint ID of the basic Global Accelerator (GA) instance.
     shared_ptr<string> endpointId_ {};
-    // The name of the endpoint.
+    // The name of the endpoint of the basic Global Accelerator (GA) instance.
     shared_ptr<string> endpointName_ {};
     // The secondary address of the endpoint.
     // 
-    // This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**.
-    // 
-    // *   If the endpoint type is **ECS**, **EndpointSubAddress** returns the primary or secondary private IP address of the primary ENI.
-    // *   If the endpoint type is **ENI**, **EndpointSubAddress** returns the primary or secondary private IP address of the secondary ENI.
-    // *   If the endpoint type is **NLB**, **EndpointSubAddress** returns the primary private IP address of the NLB backend server.
+    // This parameter is returned when the endpoint type attached to the accelerated IP address is **ECS**, **ENI**, or **NLB**.
+    // - If the endpoint type is **ECS**, EndpointSubAddress is the secondary private IP address or the primary private IP address of the primary network interface controller (NIC).
+    // - If the endpoint type is **ENI**, EndpointSubAddress is the secondary private IP address or the primary private IP address of the secondary elastic network interface (ENI).
+    // - If the endpoint type is **NLB**, EndpointSubAddress is the primary private IP address of the NLB backend server.
     shared_ptr<string> endpointSubAddress_ {};
-    // The type of the secondary address of the endpoint.
+    // The type of the secondary address of the endpoint. Valid values:
+    // - **primary**: The secondary address type is the primary private IP address.
+    // - **secondary**: The secondary address type is the secondary private IP address.
     // 
-    // *   **primary**: a primary private IP address.
-    // *   **secondary**: a secondary private IP address.
-    // 
-    // This parameter is returned if the endpoint type is **ECS**, **ENI**, or **NLB**. If the endpoint type is set to **NLB**, **primary** is returned.
+    // This parameter is returned when the endpoint type bound to the accelerated IP address is **ECS**, **ENI**, or **NLB**. If the endpoint type is **NLB**, only **primary** is returned.
     shared_ptr<string> endpointSubAddressType_ {};
-    // The type of endpoint. Valid values:
-    // 
-    // *   **ENI**: elastic network interface (ENI).
-    // *   **SLB**: Classic Load Balancer (CLB) instance.
-    // *   **ECS**: Elastic Compute Service (ECS) instance.
-    // *   **NLB**: Network Load Balancer (NLB) instance.
+    // The endpoint type. Valid values:
+    // - **ENI**: an Alibaba Cloud elastic network interface (ENI).
+    // - **SLB**: an Alibaba Cloud Classic Load Balancer (CLB) instance.
+    // - **ECS**: an Alibaba Cloud ECS instance.
+    // - **NLB**: an Alibaba Cloud Network Load Balancer (NLB) instance.
     shared_ptr<string> endpointType_ {};
-    // The ID of the zone where the endpoint is created.
+    // The zone ID of the endpoint.
     // 
-    // This parameter is returned only when the endpoint type is **NLB**.
+    // Currently, this parameter is returned only when the endpoint type bound to the accelerated IP address is **NLB**.
     shared_ptr<string> endpointZoneId_ {};
-    // The accelerated IP address of the basic GA instance.
+    // The accelerated IP address of the basic Global Accelerator (GA) instance.
     shared_ptr<string> ipAddress_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The association status between the accelerated IP address and endpoint.
+    // The status of the attachment between the accelerated IP address and the endpoint of the basic Global Accelerator (GA) instance.
     // 
-    // A value of **active** indicates that the accelerated IP address is associated with the endpoint.
+    // The value **active** indicates that the accelerated IP address is attached to the endpoint.
     shared_ptr<string> state_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the basic GA instance.
+    // The instance ID of the basic Alibaba Cloud Global Accelerator (GA) instance.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The ID of the region to which the basic GA instance belongs. Set the value to **cn-hangzhou**.
+    // The region ID of the basic Alibaba Cloud Global Accelerator (GA) instance. Set the value to **ap-southeast-1**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

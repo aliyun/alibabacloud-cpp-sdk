@@ -133,27 +133,31 @@ namespace Models
       protected:
         // Indicates whether the region is in the Chinese mainland. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: The region is in the Chinese mainland.
+        // 
+        // - **false**: The region is not in the Chinese mainland.
         shared_ptr<bool> chinaMainland_ {};
-        // The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
+        // The line type of the public IP address in the acceleration region.
         // 
-        // *   **BGP**: BGP (Multi-ISP) lines.
-        // *   **BGP_PRO**: BGP (Multi-ISP) Pro lines.
+        // - **BGP** (default): BGP (Multi-ISP) line.
+        // 
+        // - **BGP_PRO**: BGP (Multi-ISP) Pro line.
         shared_ptr<vector<string>> ispTypeList_ {};
-        // The acceleration region name.
+        // The name of the region.
         shared_ptr<string> localName_ {};
-        // Indicates whether multiple zones are supported. Valid values:
+        // Indicates whether multi-zone deployment is supported. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Multi-zone deployment is supported.
+        // 
+        // - **false**: Multi-zone deployment is not supported.
         shared_ptr<bool> multiAz_ {};
-        // The ID of the acceleration region.
+        // The ID of the region.
         shared_ptr<string> regionId_ {};
         // Indicates whether IPv6 is supported. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: IPv6 is supported.
+        // 
+        // - **false**: IPv6 is not supported.
         shared_ptr<bool> supportIpv6_ {};
       };
 
@@ -183,11 +187,11 @@ namespace Models
 
 
     protected:
-      // The ID of the acceleration area.
+      // The ID of the area.
       shared_ptr<string> areaId_ {};
-      // The acceleration area name.
+      // The name of the area.
       shared_ptr<string> localName_ {};
-      // The information about acceleration regions.
+      // The list of regions.
       shared_ptr<vector<Areas::RegionList>> regionList_ {};
     };
 
@@ -210,9 +214,9 @@ namespace Models
 
 
   protected:
-    // The information about acceleration areas.
+    // The list of areas.
     shared_ptr<vector<ListAvailableAccelerateAreasResponseBody::Areas>> areas_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -143,27 +143,37 @@ namespace Models
         shared_ptr<string> endpointId_ {};
         // The health check details of the endpoint.
         // 
-        // >  This parameter is unavailable.
+        // > This parameter is unavailable.
         shared_ptr<string> healthDetail_ {};
         // The health status of the endpoint. Valid values:
         // 
-        // *   **init:** The endpoint is being initialized.
-        // *   **normal:** The endpoint is normal.
-        // *   **abnormal:** The endpoint is abnormal.
+        // - **init:** The endpoint is being initialized.
+        // 
+        // - **normal:** The endpoint is normal.
+        // 
+        // - **abnormal:** The endpoint is abnormal.
         shared_ptr<string> healthStatus_ {};
         // The port that is used to connect to the endpoint.
         shared_ptr<int64_t> port_ {};
         // The type of the endpoint. Valid values:
         // 
-        // *   **Domain:** a custom domain name.
-        // *   **Ip:** a custom IP address.
-        // *   **PublicIp:** a public IP address provided by Alibaba Cloud.
-        // *   **ECS:** an Elastic Compute Service (ECS) instance.
-        // *   **SLB:** a Classic Load Balancer (CLB) instance.
-        // *   **ALB:** an Application Load Balancer (ALB) instance.
-        // *   **OSS:** an Object Storage Service (OSS) bucket.
-        // *   **ENI:** an elastic network interface (ENI).
-        // *   **NLB:** a Network Load Balancer (NLB) instance.
+        // - **Domain:** a custom domain name.
+        // 
+        // - **Ip:** a custom IP address.
+        // 
+        // - **PublicIp:** a public IP address provided by Alibaba Cloud.
+        // 
+        // - **ECS:** an Elastic Compute Service (ECS) instance.
+        // 
+        // - **SLB:** a Classic Load Balancer (CLB) instance.
+        // 
+        // - **ALB:** an Application Load Balancer (ALB) instance.
+        // 
+        // - **OSS:** an Object Storage Service (OSS) bucket.
+        // 
+        // - **ENI:** an elastic network interface (ENI).
+        // 
+        // - **NLB:** a Network Load Balancer (NLB) instance.
         shared_ptr<string> type_ {};
       };
 
@@ -213,8 +223,9 @@ namespace Models
       shared_ptr<string> endpointGroupId_ {};
       // The type of the endpoint group. Valid values:
       // 
-      // *   **default:** the default endpoint group.
-      // *   **virtual:** a virtual endpoint group.
+      // - **default:** the default endpoint group.
+      // 
+      // - **virtual:** a virtual endpoint group.
       shared_ptr<string> endpointGroupType_ {};
       // The information about the endpoints.
       shared_ptr<vector<EndpointGroups::Endpoints>> endpoints_ {};
@@ -222,10 +233,13 @@ namespace Models
       shared_ptr<vector<string>> forwardingRuleIds_ {};
       // The health status of the endpoint group. Valid values:
       // 
-      // *   **init:** The endpoint group is being initialized.
-      // *   **normal:** The endpoint group is normal.
-      // *   **abnormal:** The endpoint group is abnormal.
-      // *   **partiallyAbnormal:** The endpoint group is partially abnormal.
+      // - **init:** The endpoint group is being initialized.
+      // 
+      // - **normal:** The endpoint group is normal.
+      // 
+      // - **abnormal:** The endpoint group is abnormal.
+      // 
+      // - **partiallyAbnormal:** The endpoint group is partially abnormal.
       shared_ptr<string> healthStatus_ {};
     };
 
@@ -266,9 +280,11 @@ namespace Models
     shared_ptr<vector<GetHealthStatusResponseBody::EndpointGroups>> endpointGroups_ {};
     // The health status of endpoints and endpoint groups. Valid values:
     // 
-    // *   **normal**
-    // *   **abnormal**
-    // *   **partiallyAbnormal**
+    // - **normal**
+    // 
+    // - **abnormal**
+    // 
+    // - **partiallyAbnormal**
     shared_ptr<string> healthStatus_ {};
     // The ID of the listener.
     shared_ptr<string> listenerId_ {};

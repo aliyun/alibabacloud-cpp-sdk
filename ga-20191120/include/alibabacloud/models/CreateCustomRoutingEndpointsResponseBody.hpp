@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the endpoints.
+    // The list of endpoint IDs.
     shared_ptr<vector<string>> endpointIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

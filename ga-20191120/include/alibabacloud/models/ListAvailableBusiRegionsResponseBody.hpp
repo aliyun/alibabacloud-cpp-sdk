@@ -90,15 +90,17 @@ namespace Models
     protected:
       // Indicates whether the region is in the Chinese mainland. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> chinaMainland_ {};
       // The name of the region.
       shared_ptr<string> localName_ {};
       // Indicates whether it is a point of presence (PoP) of Alibaba Cloud. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> pop_ {};
       // The ID of the region.
       shared_ptr<string> regionId_ {};

@@ -233,8 +233,9 @@ namespace Models
     shared_ptr<string> address_ {};
     // Indicates whether the automatic diagnostics feature is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> detectEnable_ {};
     // The threshold that is used to trigger automatic diagnostics.
     // 
@@ -260,11 +261,15 @@ namespace Models
     shared_ptr<int32_t> silenceTime_ {};
     // The status of the origin probing task. Valid values:
     // 
-    // *   **init**
-    // *   **active**
-    // *   **updating**
-    // *   **inactive**
-    // *   **deleting**
+    // - **init**
+    // 
+    // - **active**
+    // 
+    // - **updating**
+    // 
+    // - **inactive**
+    // 
+    // - **deleting**
     shared_ptr<string> state_ {};
     // The ID of the origin probing task.
     shared_ptr<string> taskId_ {};

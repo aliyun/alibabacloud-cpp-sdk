@@ -84,14 +84,25 @@ namespace Models
 
 
   protected:
+    // Alibaba Cloud Global Accelerator (GA) instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
+    // Linked instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> associatedResourceId_ {};
+    // Region ID of the linked instance.
     shared_ptr<string> associatedResourceRegionId_ {};
+    // Resource type of the linked peripheral resource.
+    // 
     // This parameter is required.
     shared_ptr<string> associatedResourceType_ {};
+    // Specifies whether to perform a dry run of the request. Valid values:  
+    // - **true**: Sends a dry run request without detaching the resource. The system checks whether required parameters are specified, whether the request format is valid, and whether business limits are met. If the check fails, an error is returned. If the check passes, an HTTP 2xx status code is returned.  
+    // - **false** (default): Sends a normal request. If the check passes, an HTTP 2xx status code is returned and the endpoint group is created immediately.
     shared_ptr<bool> dryRun_ {};
+    // Region ID of the Alibaba Cloud Global Accelerator (GA) instance. Valid value: **cn-hangzhou** only.
     shared_ptr<string> regionId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ACL ID.
+    // The ID of the access control policy group.
     shared_ptr<string> aclId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

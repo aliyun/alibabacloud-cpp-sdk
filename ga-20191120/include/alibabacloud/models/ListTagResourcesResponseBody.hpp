@@ -111,19 +111,9 @@ namespace Models
 
 
       protected:
-        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource.
-        // 
-        // *   **accelerator**: a standard GA instance
-        // *   **basicaccelerator**: a basic GA instance
-        // *   **bandwidthpackage**: a bandwidth plan
-        // *   **acl**: an ACL
-        // *   **endpointgroup**: an endpoint group
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -181,7 +171,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the resources to which tags are added.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

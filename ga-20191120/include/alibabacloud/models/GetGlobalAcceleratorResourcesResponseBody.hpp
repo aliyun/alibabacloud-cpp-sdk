@@ -106,11 +106,27 @@ namespace Models
 
 
     protected:
+      // Instance ID of Alibaba Cloud Global Accelerator (GA).
       shared_ptr<string> acceleratorId_ {};
+      // Association pattern:  
+      // - **Managed**: Managed mode, where GA restricts user operations based on management policies.  
+      // - **Associated** (default): Loose coupling association, where GA does not restrict user operations; WAF uses loose coupling.
       shared_ptr<string> associatedMode_ {};
+      // ID of the linked instance.
       shared_ptr<string> associatedResourceId_ {};
+      // Region ID of the linked instance.
       shared_ptr<string> associatedResourceRegionId_ {};
+      // Resource type of the linked instance.
       shared_ptr<string> associatedResourceType_ {};
+      // Status of the association between the Alibaba Cloud Global Accelerator (GA) instance and other cloud product resources.  
+      // 
+      // - **active**: The resource is active.  
+      // 
+      // - **binding**: The resource is being attached.  
+      // 
+      // - **unBinding**: The resource is being detached.  
+      // 
+      // - **wafRelease**: The WAF instance has been released.
       shared_ptr<string> state_ {};
     };
 
@@ -133,8 +149,9 @@ namespace Models
 
 
   protected:
+    // List of linked instances.
     shared_ptr<vector<GetGlobalAcceleratorResourcesResponseBody::AssociatedResources>> associatedResources_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
   };
 

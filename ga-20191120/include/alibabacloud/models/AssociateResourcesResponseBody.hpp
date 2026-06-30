@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // Alibaba Cloud Global Accelerator (GA) instance ID.
     shared_ptr<string> acceleratorId_ {};
+    // Linked instance ID.
     shared_ptr<string> associatedResourceId_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
   };
 

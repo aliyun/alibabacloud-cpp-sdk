@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The endpoint group ID.
+    // The ID of the endpoint group for the basic Alibaba Cloud Global Accelerator (GA) instance.
     shared_ptr<string> endpointGroupId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number of the list. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **100**. Default value: **10**.
+    // The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+    // The region ID of the Global Accelerator instance. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

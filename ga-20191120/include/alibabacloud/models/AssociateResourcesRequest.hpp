@@ -94,15 +94,29 @@ namespace Models
 
 
   protected:
+    // Alibaba Cloud Global Accelerator (GA) instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
+    // Association pattern:  
+    // - **Managed**: Managed mode. GA restricts user operations based on management policies. Currently, no resources use this type.  
+    // - **Associated** (default): Loose coupling association. GA does not restrict user operations. WAF uses loose coupling.
     shared_ptr<string> associatedMode_ {};
+    // Resource ID of the linked instance.
     shared_ptr<string> associatedResourceId_ {};
+    // Region of the linked instance.
+    // 
     // This parameter is required.
     shared_ptr<string> associatedResourceRegionId_ {};
+    // Resource type of the linked instance.
+    // 
     // This parameter is required.
     shared_ptr<string> associatedResourceType_ {};
+    // Indicates whether to perform a dry run of the request. Valid values:  
+    // - **true**: Sends a dry run request without associating resources. Checks include required parameters, request format, and business restrictions. If the check fails, an error is returned. If the check passes, an HTTP 2xx status code is returned.  
+    // - **false** (Default Value): Sends a normal request. If the check passes, an HTTP 2xx status code is returned and the endpoint group is created immediately.
     shared_ptr<bool> dryRun_ {};
+    // Region ID of the basic Alibaba Cloud Global Accelerator (GA) instance. Valid value: **cn-hangzhou** only.
     shared_ptr<string> regionId_ {};
   };
 

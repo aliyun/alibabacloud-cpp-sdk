@@ -130,54 +130,55 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance on which you want to perform the origin probing task.
+    // The instance ID of the Alibaba Cloud Global Accelerator (GA) instance to be probed.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The URL or IP address that you want to probe.
+    // The URL or IP address to be probed.
     // 
     // This parameter is required.
     shared_ptr<string> address_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of a request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to enable the automatic diagnostics feature. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**
+    // 
+    // - **false** (default)
     shared_ptr<bool> detectEnable_ {};
-    // The threshold that is used to trigger the automatic diagnostics feature. Unit: percentage.
+    // The threshold that triggers automatic diagnostics. Unit: %.
     // 
     // Valid values: **0** to **100**.
     // 
-    // The default value is **0**, which indicates that the automatic diagnostics feature is not triggered.
+    // Default value: **0**, which indicates that automatic diagnostics is not triggered.
     shared_ptr<int32_t> detectThreshold_ {};
-    // The number of times that the threshold must be reached before the automatic diagnostics feature is triggered.
+    // The number of times that the threshold must be reached to trigger automatic diagnostics.
     // 
     // Valid values: **1** to **20**. Default value: **1**.
     shared_ptr<int32_t> detectTimes_ {};
-    // The ID of the listener on which you want to perform the origin probing task.
+    // The instance ID of the listener to be probed.
     // 
     // This parameter is required.
     shared_ptr<string> listenerId_ {};
-    // The extended options of the listener protocol that is used by the origin probing task. The options vary based on the listener protocol.
+    // The advanced extension options for the listener protocol type of the origin probing task. Different listener protocol types correspond to different extension options.
     shared_ptr<string> optionsJson_ {};
-    // The region ID of the GA instance. Set the value to **cn-hangzhou**.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic task, GA must wait until the silence period ends before GA can trigger another automatic diagnostic task.
+    // The silence period for automatic diagnostics. This parameter specifies the interval between two consecutive automatic diagnostics when the availability does not recover to normal after automatic diagnostics is triggered.
     // 
-    // If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of **DetectTimes**, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate remains below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
+    // When the availability is consecutively below the automatic diagnostics threshold for the specified number of times (the value of **DetectTimes**), automatic diagnostics is triggered. If the availability remains below the threshold during the silence period, automatic diagnostics is not triggered again within the silence period. If the availability has not recovered after the silence period, automatic diagnostics is triggered again.
     // 
     // Unit: seconds. Valid values: **300** to **86400**. Default value: **300**.
     shared_ptr<int32_t> silenceTime_ {};
     // The name of the origin probing task.
     // 
-    // The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 1 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

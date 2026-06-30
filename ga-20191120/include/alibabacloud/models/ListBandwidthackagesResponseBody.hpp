@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // The tag key of the bandwidth plan.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The tag value of the bandwidth plan.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -216,41 +216,49 @@ namespace Models
 
 
     protected:
-      // The IDs of the GA instances that are associated with the bandwidth plans.
+      // The IDs of the Global Accelerator instances that are associated with the bandwidth plan.
       shared_ptr<vector<string>> accelerators_ {};
-      // The bandwidth of the bandwidth plan. Unit: Mbit/s.
+      // The bandwidth of the bandwidth plan. Unit: Mbps.
       shared_ptr<int32_t> bandwidth_ {};
       // The ID of the bandwidth plan.
       shared_ptr<string> bandwidthPackageId_ {};
-      // The billing method of the bandwidth plan. Valid values:
+      // The billing method.
       // 
-      // *   **PREPAY**: subscription. This is the default value.
-      // *   **POSTPAY**: pay-as-you-go.
+      // - **PREPAY** (default): subscription.
+      // 
+      // - **POSTPAY**: pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The time when the bandwidth plan was created.
+      // The timestamp that indicates when the bandwidth plan was created.
       shared_ptr<string> createTime_ {};
       // The description of the bandwidth plan.
       shared_ptr<string> description_ {};
-      // The expiration time of the bandwidth plan.
+      // The timestamp that indicates when the bandwidth plan expires.
       shared_ptr<string> expiredTime_ {};
-      // The name of the GA instance.
+      // The name of the bandwidth plan.
       shared_ptr<string> name_ {};
-      // The request ID.
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the bandwidth plan. Valid values:
+      // The status of the bandwidth plan.
       // 
-      // *   **init:** The bandwidth plan is being initialized.
-      // *   **active:** The bandwidth plan is available.
-      // *   **binded:** The bandwidth plan is associated with a GA instance.
-      // *   **binding:** The bandwidth plan is being associated with a GA instance.
-      // *   **unbinding:** The bandwidth plan is being disassociated from a GA instance.
-      // *   **updating:** The bandwidth plan is being updated.
-      // *   **finacialLocked:** The bandwidth plan is locked due to overdue payments.
-      // *   **locked:** The bandwidth plan is locked.
+      // - **init**: The bandwidth plan is being initialized.
+      // 
+      // - **active**: The bandwidth plan is available.
+      // 
+      // - **binded**: The bandwidth plan is bound.
+      // 
+      // - **binding**: The bandwidth plan is being bound.
+      // 
+      // - **unbinding**: The bandwidth plan is being unbound.
+      // 
+      // - **updating**: The bandwidth plan is being updated.
+      // 
+      // - **finacialLocked**: The bandwidth plan is financially locked.
+      // 
+      // - **locked**: The bandwidth plan is locked.
       shared_ptr<string> state_ {};
-      // The tag of the bandwidth plan.
+      // The tags of the resource.
       shared_ptr<vector<BandwidthPackages::Tags>> tags_ {};
     };
 
@@ -296,11 +304,11 @@ namespace Models
   protected:
     // The details of the bandwidth plans.
     shared_ptr<vector<ListBandwidthackagesResponseBody::BandwidthPackages>> bandwidthPackages_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

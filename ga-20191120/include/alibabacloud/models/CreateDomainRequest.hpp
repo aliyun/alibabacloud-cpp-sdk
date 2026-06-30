@@ -83,8 +83,9 @@ namespace Models
     shared_ptr<string> domain_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
-    // *   **true:** performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, a 2xx HTTP status code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true:** performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, a 2xx HTTP status code is returned.
+    // 
+    // - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
     shared_ptr<string> regionId_ {};

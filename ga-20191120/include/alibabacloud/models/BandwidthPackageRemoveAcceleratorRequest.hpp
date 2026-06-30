@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the Alibaba Cloud Global Accelerator (GA) instance to disassociate from the bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // The ID of the bandwidth plan.
+    // The ID of the bandwidth plan to disassociate from the Alibaba Cloud Global Accelerator (GA) instance.
     // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+    // The region of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **ap-southeast-1**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

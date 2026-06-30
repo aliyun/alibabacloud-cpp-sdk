@@ -151,17 +151,17 @@ namespace Models
 
 
           protected:
-            // The first port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+            // The start port of the traffic destination that can receive traffic. The port value must fall within the backend service port range of the endpoint group.
             // 
             // This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
             // 
-            // You can specify port ranges for at most 20 destinations in each endpoint and specify at most five first ports for each destination.
+            // You can specify up to 20 port ranges for traffic destinations for each endpoint, and up to 5 start ports for each traffic destination.
             shared_ptr<int32_t> fromPort_ {};
-            // The last port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+            // The end port of the traffic destination that can receive traffic. The port value must fall within the backend service port range of the endpoint group.
             // 
             // This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
             // 
-            // You can specify port ranges for at most 20 destinations in each endpoint and specify at most five last ports for each destination.
+            // You can specify up to 20 port ranges for traffic destinations for each endpoint, and up to 5 end ports for each traffic destination.
             shared_ptr<int32_t> toPort_ {};
           };
 
@@ -184,19 +184,19 @@ namespace Models
 
 
         protected:
-          // The IP address of the destination to which traffic is forwarded.
+          // The IP address of the traffic destination that can receive traffic.
           // 
           // This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
           // 
-          // You can specify at most 20 destination IP addresses for each endpoint.
+          // You can specify up to 20 traffic destination IP addresses for each endpoint.
           shared_ptr<string> address_ {};
-          // The port range of the destination to which traffic is forwarded. The value of this parameter must fall within the port range of the endpoint group.
+          // The port range of the traffic destination that can receive traffic. The port range must fall within the backend service port range of the endpoint group.
           // 
-          // If you leave this parameter empty, traffic is forwarded to all destination ports.
+          // If this parameter is left empty, all ports of the traffic destination are supported.
           // 
           // This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
           // 
-          // You can specify port ranges for at most 20 destinations in each endpoint and specify at most five port ranges for each destination.
+          // You can specify up to 20 port ranges for traffic destinations for each endpoint, and up to 5 port ranges for each traffic destination.
           shared_ptr<vector<PolicyConfigurations::PortRanges>> portRanges_ {};
         };
 
@@ -233,23 +233,24 @@ namespace Models
 
 
       protected:
-        // The name of the vSwitch that is specified as an endpoint.
+        // The name of the endpoint vSwitch instance.
         shared_ptr<string> endpoint_ {};
-        // The destination to which traffic is forwarded.
+        // The traffic destination configurations.
         // 
-        // You can specify at most 20 destinations for each endpoint.
+        // You can specify up to 20 traffic destinations for each endpoint.
         shared_ptr<vector<EndpointConfigurations::PolicyConfigurations>> policyConfigurations_ {};
-        // The traffic policy that is used to process traffic to the endpoint. Valid values:
+        // The traffic policy for the backend service. Valid values:
         // 
-        // *   **AllowAll**: allows all traffic to the endpoint.
-        // *   **DenyAll** (default): denies all traffic to the endpoint.
-        // *   **AllowCustom**: allows traffic only to specified destinations in the endpoint.
+        // - **AllowAll**: allows all traffic to access the specified backend service.
         // 
-        // If you set this parameter to AllowCustom, you must specify IP addresses and port ranges as the destinations to which traffic is distributed. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to the specified IP addresses over all destination ports.
+        // - **DenyAll** (default): denies all traffic from accessing the specified backend service.
+        // 
+        // - **AllowCustom**: allows traffic to access specified destinations.
+        // You must specify the IP address and port range of the destination. If the port range is left empty, all ports of the destination are supported.
         shared_ptr<string> trafficToEndpointPolicy_ {};
-        // The type of endpoint.
+        // The type of the backend service for the endpoint. Valid values:
         // 
-        // Set the value to **PrivateSubNet**, which specifies a private CIDR block. This is the default value.
+        //  **PrivateSubNet** (default): private CIDR block.
         shared_ptr<string> type_ {};
       };
 
@@ -302,21 +303,21 @@ namespace Models
 
 
       protected:
-        // The first backend service port for the endpoint group.
+        // The start port of the backend service for the endpoint group.
         // 
-        // Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
+        // Valid values: **1** to **65499**. The value of **FromPort** must be less than or equal to the value of **ToPort**.
         // 
-        // You can specify at most 20 first backend service ports for each endpoint group.
+        // You can specify up to 20 start port entries for each endpoint group.
         shared_ptr<int32_t> fromPort_ {};
-        // The backend service protocol.
+        // The protocol types of the backend service for the endpoint group.
         // 
-        // You can specify up to four backend service protocols in each mapping configuration.
+        // You can specify up to 4 backend service protocol types in each mapping port range and protocol type entry for the endpoint group.
         shared_ptr<vector<string>> protocols_ {};
-        // The last backend service port for the endpoint group.
+        // The end port of the backend service for the endpoint group.
         // 
-        // Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
+        // Valid values: **1** to **65499**. The value of **FromPort** must be less than or equal to the value of **ToPort**.
         // 
-        // You can specify at most 20 last backend service ports for each endpoint group.
+        // You can specify up to 20 end port entries for each endpoint group.
         shared_ptr<int32_t> toPort_ {};
       };
 
@@ -364,31 +365,31 @@ namespace Models
     protected:
       // The description of the endpoint group.
       // 
-      // The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
+      // The description can be up to 256 characters in length and cannot contain `http://` or `https://`.
       // 
-      // You can specify at most five endpoint group descriptions.
+      // You can specify up to 5 endpoint group descriptions.
       shared_ptr<string> description_ {};
-      // The mapping configuration of the endpoint group.
+      // The mapping configurations of the endpoint group.
       // 
-      // You need to specify the backend service ports and protocols for the endpoint group. The ports are mapped to listener ports.
+      // You must specify the backend service port range and protocol type for the endpoint group. The specified information forms a mapping relationship with the associated listener port range.
       // 
-      // You can specify at most 20 mapping configurations for each endpoint group.
+      // You can specify up to 20 mapping port range and protocol type entries for each endpoint group.
       shared_ptr<vector<EndpointGroupConfigurations::DestinationConfigurations>> destinationConfigurations_ {};
-      // The information about the endpoints.
+      // The endpoint configurations.
       // 
-      // You can specify at most 10 endpoints for each endpoint group.
+      // You can specify up to 10 endpoint configurations for each endpoint group.
       shared_ptr<vector<EndpointGroupConfigurations::EndpointConfigurations>> endpointConfigurations_ {};
-      // The ID of the region in which the endpoint group resides.
+      // The region ID of the endpoint group.
       // 
-      // You can specify at most five region IDs.
+      // You can specify up to 5 endpoint group region IDs.
       // 
       // This parameter is required.
       shared_ptr<string> endpointGroupRegion_ {};
       // The name of the endpoint group.
       // 
-      // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+      // The name must be 1 to 128 characters in length and must start with a letter or Chinese character. The name can contain digits, underscores (_), and hyphens (-).
       // 
-      // You can specify at most five endpoint group names.
+      // You can specify up to 5 endpoint group names.
       shared_ptr<string> name_ {};
     };
 
@@ -439,32 +440,31 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the Alibaba Cloud Global Accelerator (GA) instance.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request is different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
-    // 
-    // *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: performs a dry run without creating custom routing type endpoint groups. The system checks the required parameters, request format, and business limits. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the custom routing type endpoint groups are created.
     shared_ptr<bool> dryRun_ {};
-    // The information about the endpoint groups.
+    // The endpoint group configurations.
     // 
-    // You can specify at most five endpoint groups.
+    // You can specify up to 5 endpoint group configurations.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateCustomRoutingEndpointGroupsRequest::EndpointGroupConfigurations>> endpointGroupConfigurations_ {};
-    // The ID of the custom routing listener.
+    // The ID of the custom routing type listener.
     // 
     // This parameter is required.
     shared_ptr<string> listenerId_ {};
-    // The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+    // The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **ap-southeast-1**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

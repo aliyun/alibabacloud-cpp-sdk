@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the traffic destinations.
+    // The IDs of the traffic policies.
     shared_ptr<vector<string>> policyIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

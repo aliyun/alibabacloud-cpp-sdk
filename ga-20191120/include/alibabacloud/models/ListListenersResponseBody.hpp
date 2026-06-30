@@ -162,40 +162,45 @@ namespace Models
 
 
       protected:
-        // Indicates whether the `GA-AP` header is used to retrieve the information about acceleration regions. Valid values:
+        // Indicates whether the `GA-AP` header is used to retrieve the acceleration region information.
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
         // 
-        // >  This parameter is returned only for HTTP and HTTPS listeners.
+        // - **false**
+        // 
+        // > This parameter is available only for HTTP and HTTPS listeners.
         shared_ptr<bool> XForwardedForGaApEnabled_ {};
-        // Indicates whether the `GA-ID` header is used to retrieve the ID of the GA instance. Valid values:
+        // Indicates whether the `GA-ID` header is used to retrieve the ID of the GA instance.
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
         // 
-        // >  This parameter is returned only for HTTP and HTTPS listeners.
+        // - **false**
+        // 
+        // > This parameter is available only for HTTP and HTTPS listeners.
         shared_ptr<bool> XForwardedForGaIdEnabled_ {};
-        // Indicates whether the `GA-X-Forward-Port` header is used to retrieve the listener ports of the GA instance. Valid values:
+        // Indicates whether the `GA-X-Forward-Port` header is used to retrieve the listener port of the GA instance.
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
         // 
-        // >  This parameter is returned only for HTTP and HTTPS listeners.
+        // - **false**
+        // 
+        // > This parameter is available only for HTTP and HTTPS listeners.
         shared_ptr<bool> XForwardedForPortEnabled_ {};
-        // Indicates whether the `GA-X-Forward-Proto` header is used to retrieve the listener protocol of the GA instance. Valid values:
+        // Indicates whether the `GA-X-Forward-Proto` header is used to retrieve the listener protocol of the GA instance.
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
         // 
-        // >  This parameter is returned only for HTTP and HTTPS listeners.
+        // - **false**
+        // 
+        // > This parameter is available only for HTTP and HTTPS listeners.
         shared_ptr<bool> XForwardedForProtoEnabled_ {};
-        // Indicates whether the `X-Real-IP` header is used to retrieve client IP addresses. Valid values:
+        // Indicates whether the `X-Real-IP` header is used to retrieve the real IP address of the client.
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
         // 
-        // >  This parameter is returned only for HTTP and HTTPS listeners.
+        // - **false**
+        // 
+        // > This parameter is available only for HTTP and HTTPS listeners.
         shared_ptr<bool> XRealIpEnabled_ {};
       };
 
@@ -246,31 +251,43 @@ namespace Models
 
 
       protected:
-        // The name of the action on the managed instance. Valid values:
+        // The name of the managed policy action. Valid values:
         // 
-        // *   **Create**
-        // *   **Update**
-        // *   **Delete**
-        // *   **Associate**
-        // *   **UserUnmanaged**
-        // *   **CreateChild**
+        // - **Create**: Create an instance.
+        // 
+        // - **Update**: Update the current instance.
+        // 
+        // - **Delete**: Delete the current instance.
+        // 
+        // - **Associate**: Associate the instance with other resources.
+        // 
+        // - **UserUnmanaged**: Unmanage the instance.
+        // 
+        // - **CreateChild**: Create a child resource in the current instance.
         shared_ptr<string> action_ {};
         // The type of the child resource. Valid values:
         // 
-        // *   **Listener**: listener.
-        // *   **IpSet**: acceleration region.
-        // *   **EndpointGroup**: endpoint group.
-        // *   **ForwardingRule**: forwarding rule.
-        // *   **Endpoint**: endpoint.
-        // *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
-        // *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+        // - **Listener**: listener.
         // 
-        // >  This parameter takes effect only if the value of **Action** is **CreateChild**.
+        // - **IpSet**: acceleration region.
+        // 
+        // - **EndpointGroup**: endpoint group.
+        // 
+        // - **ForwardingRule**: forwarding rule.
+        // 
+        // - **Endpoint**: endpoint.
+        // 
+        // - **EndpointGroupDestination**: protocol mapping of an endpoint group that is associated with a custom routing listener.
+        // 
+        // - **EndpointPolicy**: traffic policy for an endpoint that is associated with a custom routing listener.
+        // 
+        // > This parameter is returned only if the value of **Action** is **CreateChild**.
         shared_ptr<string> childType_ {};
-        // Indicates whether the specified actions are managed.
+        // Indicates whether the specified action is managed. Valid values:
         // 
-        // *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
-        // *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+        // - **true**: The action is managed. You cannot perform the specified action on the managed instance.
+        // 
+        // - **false**: The action is not managed. You can perform the specified action on the managed instance.
         shared_ptr<bool> isManaged_ {};
       };
 
@@ -312,9 +329,9 @@ namespace Models
 
 
       protected:
-        // The first port in the listener port range that is used to receive and forward requests to endpoints.
+        // The start port used to receive and forward requests to endpoints.
         shared_ptr<int32_t> fromPort_ {};
-        // The last port in the listener port range that is used to receive and forward requests to endpoints.
+        // The end port used to receive and forward requests to endpoints.
         shared_ptr<int32_t> toPort_ {};
       };
 
@@ -358,9 +375,9 @@ namespace Models
       protected:
         // The ID of the SSL certificate.
         shared_ptr<string> id_ {};
-        // The type of the SSL certificate.
+        // The type of the certificate.
         // 
-        // Only **Server** may be returned, which indicates a server certificate.
+        // Only **Server**, which indicates a server-side certificate, is returned.
         shared_ptr<string> type_ {};
       };
 
@@ -402,9 +419,9 @@ namespace Models
 
 
       protected:
-        // The first port in the range of ports that are used by backend servers.
+        // The start port of the backend server.
         shared_ptr<string> fromPort_ {};
-        // The last port in the range of ports that are used by backend servers.
+        // The end port of the backend server.
         shared_ptr<string> toPort_ {};
       };
 
@@ -571,28 +588,31 @@ namespace Models
 
 
     protected:
-      // The ID of the GA instance.
+      // The ID of the Global Accelerator instance.
       shared_ptr<string> acceleratorId_ {};
-      // The range of ports that are used by backend servers.
+      // The port mapping of the backend server.
       shared_ptr<vector<Listeners::BackendPorts>> backendPorts_ {};
-      // The information about the SSL certificates.
+      // The details of the SSL certificate.
       shared_ptr<vector<Listeners::Certificates>> certificates_ {};
-      // Indicates whether client affinity is enabled for the listener.
+      // Client affinity.
       // 
-      // *   If **NONE** is returned, client affinity is disabled. When client affinity is disabled, requests from the same client may be forwarded to different endpoints.
-      // *   If **SOURCE_IP** is returned, client affinity is enabled. When a client accesses stateful applications, requests from the same client are forwarded to the same endpoint regardless of the source port or protocol.
+      // - **NONE**: Client affinity is disabled. Requests from the same client are not always routed to the same endpoint.
+      // 
+      // - **SOURCE_IP**: Client affinity is enabled. When a client accesses a stateful application, all requests from the same client are routed to the same endpoint regardless of the source port or protocol.
       shared_ptr<string> clientAffinity_ {};
-      // The timestamp that indicates when the listener was created. Unit: milliseconds.
+      // The UNIX timestamp that indicates when the listener was created. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the listener.
       shared_ptr<string> description_ {};
       // The maximum version of the HTTP protocol. Valid values:
       // 
-      // *   **http3**
-      // *   **http2**
-      // *   **http1.1**
+      // - **http3**: HTTP/3.
       // 
-      // >  This parameter is returned only for HTTPS listeners.
+      // - **http2**: HTTP/2.
+      // 
+      // - **http1.1**: HTTP/1.1.
+      // 
+      // > This parameter is available only for HTTPS listeners.
       shared_ptr<string> httpVersion_ {};
       // The timeout period of idle connections. Unit: seconds.
       shared_ptr<int32_t> idleTimeout_ {};
@@ -600,79 +620,95 @@ namespace Models
       shared_ptr<string> listenerId_ {};
       // The name of the listener.
       shared_ptr<string> name_ {};
-      // The information about the listener ports.
+      // The listener port range.
       shared_ptr<vector<Listeners::PortRanges>> portRanges_ {};
-      // The network transmission protocol that is used by the listener. Valid values:
+      // The transport layer protocol used by the listener.
       // 
-      // *   **tcp**
-      // *   **udp**
-      // *   **http**
-      // *   **https**
+      // - **TCP**: TCP.
+      // 
+      // - **UDP**: UDP.
+      // 
+      // - **HTTP**: HTTP.
+      // 
+      // - **HTTPS**: HTTPS.
       shared_ptr<string> protocol_ {};
-      // Indicates whether client IP address preservation is enabled. Valid values:
+      // Indicates whether the proxy protocol is used to preserve client IP addresses.
       // 
-      // *   **true**: Client IP address preservation is enabled. This feature allows you to view client IP addresses on backend servers.
-      // *   **false**: Client IP address preservation is disabled.
+      // - **true**: The proxy protocol is used to preserve client IP addresses. After you enable the proxy protocol, you can retrieve the source IP addresses of clients from the backend servers.
+      // 
+      // - **false**: The proxy protocol is not used to preserve client IP addresses.
       shared_ptr<bool> proxyProtocol_ {};
-      // The timeout period of HTTP or HTTPS requests. Unit: seconds.
+      // The timeout period for HTTP or HTTPS requests. Unit: seconds.
       // 
-      // >  This parameter is returned only for HTTP and HTTPS listeners. If no responses are received from the backend server within the timeout period, GA returns an HTTP 504 error code to the client.
+      // > This parameter is available only for HTTP and HTTPS listeners. If a backend server does not respond within the timeout period, Global Accelerator returns an HTTP 504 error to the client.
       shared_ptr<int32_t> requestTimeout_ {};
-      // The ID of the security policy.
+      // The ID of the security policy instance.
       // 
-      // *   **tls_cipher_policy_1_0**
+      // - **tls_cipher_policy_1_0**
       // 
-      //     *   Supported Transport Layer Security (TLS) versions: TLS 1.0, TLS 1.1, and TLS 1.2.
-      //     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+      //   - Supported TLS versions: TLSv1.0, TLSv1.1, and TLSv1.2.
       // 
-      // *   **tls_cipher_policy_1_1**
+      //   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
       // 
-      //     *   Supported TLS versions: TLS 1.1 and TLS 1.2.
-      //     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+      // - **tls_cipher_policy_1_1**
       // 
-      // *   **tls_cipher_policy_1_2**
+      //   - Supported TLS versions: TLSv1.1 and TLSv1.2.
       // 
-      //     *   Supported TLS version: TLS 1.2.
-      //     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+      //   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
       // 
-      // *   **tls_cipher_policy_1_2_strict**
+      // - **tls_cipher_policy_1_2**
       // 
-      //     *   Supported TLS version: TLS 1.2.
-      //     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+      //   - Supported TLS version: TLSv1.2.
       // 
-      // *   **tls_cipher_policy_1_2_strict_with_1_3**
+      //   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
       // 
-      //     *   Supported TLS versions: TLS 1.2 and TLS 1.3.
-      //     *   Supported cipher suites: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+      // - **tls_cipher_policy_1_2_strict**
       // 
-      // >  This parameter is returned only for HTTPS listeners.
+      //   - Supported TLS version: TLSv1.2.
+      // 
+      //   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+      // 
+      // - **tls_cipher_policy_1_2_strict_with_1_3**
+      // 
+      //   - Supported TLS versions: TLSv1.2 and TLSv1.3.
+      // 
+      //   - Supported cipher suites: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+      // 
+      // > This parameter is available only for HTTPS listeners.
       shared_ptr<string> securityPolicyId_ {};
       // The ID of the service that manages the instance.
       // 
-      // >  This parameter is returned only if the value of **ServiceManaged** is **true**.
+      // > This parameter is returned only if **ServiceManaged** is set to **True**.
       shared_ptr<string> serviceId_ {};
-      // Indicates whether the instance is managed. Valid values:
+      // Indicates whether the instance is a managed instance. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The instance is a managed instance.
+      // 
+      // - **false**: The instance is not a managed instance.
       shared_ptr<bool> serviceManaged_ {};
-      // The actions that users can perform on the managed instance.
-      // > *   This parameter is returned only if the value of **ServiceManaged** is **true**.
-      // > *   Users can perform only specific actions on a managed instance.
+      // The actions that you can perform on the managed instance.
+      // 
+      // > - This parameter is returned only if **ServiceManaged** is set to **True**.
+      // >
+      // > - When an instance is managed, you cannot perform some operations on the instance.
       shared_ptr<vector<Listeners::ServiceManagedInfos>> serviceManagedInfos_ {};
-      // The status of the listener. Valid values:
+      // The status of the listener.
       // 
-      // *   **active**
-      // *   **init**
-      // *   **updating**
-      // *   **deleting**
+      // - **active**: The listener is running.
+      // 
+      // - **init**: The listener is being initialized.
+      // 
+      // - **updating**: The listener is being updated.
+      // 
+      // - **deleting**: The listener is being deleted.
       shared_ptr<string> state_ {};
-      // The routing type of the listener. Valid values:
+      // The routing type of the listener.
       // 
-      // *   **Standard**: intelligent routing.
-      // *   **CustomRouting**: custom routing.
+      // - **Standard**: smart routing.
+      // 
+      // - **CustomRouting**: custom routing.
       shared_ptr<string> type_ {};
-      // The configurations of the `XForward` headers.
+      // The configuration of the `XForward` fields.
       shared_ptr<Listeners::XForwardedForConfig> XForwardedForConfig_ {};
     };
 
@@ -716,13 +752,13 @@ namespace Models
 
 
   protected:
-    // The information about the listeners.
+    // The details of the listeners.
     shared_ptr<vector<ListListenersResponseBody::Listeners>> listeners_ {};
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

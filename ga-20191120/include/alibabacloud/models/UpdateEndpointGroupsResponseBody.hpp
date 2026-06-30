@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The IDs of the endpoint groups.
     shared_ptr<vector<string>> endpointGroupIds_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

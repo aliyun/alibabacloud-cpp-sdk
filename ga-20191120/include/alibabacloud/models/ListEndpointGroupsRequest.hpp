@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AcceleratorId, acceleratorId_);
       DARABONBA_PTR_TO_JSON(AccessLogSwitch, accessLogSwitch_);
       DARABONBA_PTR_TO_JSON(EndpointGroupId, endpointGroupId_);
+      DARABONBA_PTR_TO_JSON(EndpointGroupRegion, endpointGroupRegion_);
       DARABONBA_PTR_TO_JSON(EndpointGroupType, endpointGroupType_);
       DARABONBA_PTR_TO_JSON(ListenerId, listenerId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AcceleratorId, acceleratorId_);
       DARABONBA_PTR_FROM_JSON(AccessLogSwitch, accessLogSwitch_);
       DARABONBA_PTR_FROM_JSON(EndpointGroupId, endpointGroupId_);
+      DARABONBA_PTR_FROM_JSON(EndpointGroupRegion, endpointGroupRegion_);
       DARABONBA_PTR_FROM_JSON(EndpointGroupType, endpointGroupType_);
       DARABONBA_PTR_FROM_JSON(ListenerId, listenerId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -84,23 +86,19 @@ namespace Models
 
 
     protected:
-      // The tag key of the endpoint group. It cannot be an empty string.
+      // The tag key. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
-      // 
-      // You can specify up to 20 tag keys.
+      // The tag key can be up to 64 characters long and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the endpoint group. The tag value can be an empty string.
+      // The tag value. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
-      // 
-      // You can specify up to 20 tag values.
+      // The tag value can be up to 128 characters long and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->acceleratorId_ == nullptr
-        && this->accessLogSwitch_ == nullptr && this->endpointGroupId_ == nullptr && this->endpointGroupType_ == nullptr && this->listenerId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->tag_ == nullptr; };
+        && this->accessLogSwitch_ == nullptr && this->endpointGroupId_ == nullptr && this->endpointGroupRegion_ == nullptr && this->endpointGroupType_ == nullptr && this->listenerId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->tag_ == nullptr; };
     // acceleratorId Field Functions 
     bool hasAcceleratorId() const { return this->acceleratorId_ != nullptr;};
     void deleteAcceleratorId() { this->acceleratorId_ = nullptr;};
@@ -120,6 +118,13 @@ namespace Models
     void deleteEndpointGroupId() { this->endpointGroupId_ = nullptr;};
     inline string getEndpointGroupId() const { DARABONBA_PTR_GET_DEFAULT(endpointGroupId_, "") };
     inline ListEndpointGroupsRequest& setEndpointGroupId(string endpointGroupId) { DARABONBA_PTR_SET_VALUE(endpointGroupId_, endpointGroupId) };
+
+
+    // endpointGroupRegion Field Functions 
+    bool hasEndpointGroupRegion() const { return this->endpointGroupRegion_ != nullptr;};
+    void deleteEndpointGroupRegion() { this->endpointGroupRegion_ = nullptr;};
+    inline string getEndpointGroupRegion() const { DARABONBA_PTR_GET_DEFAULT(endpointGroupRegion_, "") };
+    inline ListEndpointGroupsRequest& setEndpointGroupRegion(string endpointGroupRegion) { DARABONBA_PTR_SET_VALUE(endpointGroupRegion_, endpointGroupRegion) };
 
 
     // endpointGroupType Field Functions 
@@ -167,34 +172,38 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the Global Accelerator instance.
     // 
     // This parameter is required.
     shared_ptr<string> acceleratorId_ {};
-    // Specifies whether the access logging feature is enabled. Default value: off. Valid values:
+    // Whether to enable the access log. Valid values:
     // 
-    // *   **on**: The access logging feature is enabled.
-    // *   **off**: The access logging feature is disabled.
+    // - **on**: enables the access log.
+    // 
+    // - **off** (default): disables the access log.
     shared_ptr<string> accessLogSwitch_ {};
     // The ID of the endpoint group.
     shared_ptr<string> endpointGroupId_ {};
-    // The type of the endpoint group. Valid values: Valid values:
+    shared_ptr<string> endpointGroupRegion_ {};
+    // The type of the endpoint group. Valid values:
     // 
-    // *   **default**
-    // *   **virtual**
-    // *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
+    // - **default**: a default endpoint group.
+    // 
+    // - **virtual**: a virtual endpoint group.
+    // 
+    // - If you omit this parameter, the operation returns all default and virtual endpoint groups.
     shared_ptr<string> endpointGroupType_ {};
     // The ID of the listener.
     shared_ptr<string> listenerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+    // The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tag of the endpoint group.
+    // The tags used to filter endpoint groups. You can specify up to 20 tags.
     shared_ptr<vector<ListEndpointGroupsRequest::Tag>> tag_ {};
   };
 
