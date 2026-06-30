@@ -3811,6 +3811,10 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartner(const 
 GrantPromotionOfferForPartnerResponse Client::grantPromotionOfferForPartnerWithOptions(const GrantPromotionOfferForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasActivityCode()) {
+    query["ActivityCode"] = request.getActivityCode();
+  }
+
   if (!!request.hasActivityId()) {
     query["ActivityId"] = request.getActivityId();
   }

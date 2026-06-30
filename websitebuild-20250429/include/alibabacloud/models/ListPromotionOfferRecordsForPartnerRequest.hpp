@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The activity code.
     shared_ptr<string> activityCode_ {};
-    // The belonging ID.
+    // The belong ID.
     shared_ptr<string> belongId_ {};
     // The number of entries per query.
     // 

@@ -13,6 +13,7 @@ namespace Models
   class GrantPromotionOfferForPartnerRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GrantPromotionOfferForPartnerRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ActivityCode, activityCode_);
       DARABONBA_PTR_TO_JSON(ActivityId, activityId_);
       DARABONBA_PTR_TO_JSON(BelongId, belongId_);
       DARABONBA_PTR_TO_JSON(Channel, channel_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Remark, remark_);
     };
     friend void from_json(const Darabonba::Json& j, GrantPromotionOfferForPartnerRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ActivityCode, activityCode_);
       DARABONBA_PTR_FROM_JSON(ActivityId, activityId_);
       DARABONBA_PTR_FROM_JSON(BelongId, belongId_);
       DARABONBA_PTR_FROM_JSON(Channel, channel_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->activityId_ == nullptr
-        && this->belongId_ == nullptr && this->channel_ == nullptr && this->employeeCode_ == nullptr && this->remark_ == nullptr; };
+    virtual bool empty() const override { return this->activityCode_ == nullptr
+        && this->activityId_ == nullptr && this->belongId_ == nullptr && this->channel_ == nullptr && this->employeeCode_ == nullptr && this->remark_ == nullptr; };
+    // activityCode Field Functions 
+    bool hasActivityCode() const { return this->activityCode_ != nullptr;};
+    void deleteActivityCode() { this->activityCode_ = nullptr;};
+    inline string getActivityCode() const { DARABONBA_PTR_GET_DEFAULT(activityCode_, "") };
+    inline GrantPromotionOfferForPartnerRequest& setActivityCode(string activityCode) { DARABONBA_PTR_SET_VALUE(activityCode_, activityCode) };
+
+
     // activityId Field Functions 
     bool hasActivityId() const { return this->activityId_ != nullptr;};
     void deleteActivityId() { this->activityId_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> activityCode_ {};
     // The activity ID.
     shared_ptr<string> activityId_ {};
     // The user ID.

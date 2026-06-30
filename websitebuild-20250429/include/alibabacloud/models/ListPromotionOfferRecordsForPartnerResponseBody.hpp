@@ -251,7 +251,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // The list of issuance records.
       shared_ptr<vector<Module::Records>> records_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -357,7 +357,7 @@ namespace Models
   protected:
     // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
@@ -379,7 +379,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     // The reserved parameter.
     shared_ptr<bool> synchro_ {};
