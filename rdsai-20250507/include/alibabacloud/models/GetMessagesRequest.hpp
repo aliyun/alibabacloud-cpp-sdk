@@ -66,12 +66,12 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set the value to **GetMessages**.
+    // The ID of the conversation.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
-    // The ID of the conversation.
+    // The ID of the message from which to start fetching the list. Use this for pagination.
     shared_ptr<string> firstId_ {};
-    // The ID of the first message.
+    // The maximum number of messages to return per page. Valid values: 1–100. Default: 100.
     shared_ptr<int64_t> limit_ {};
   };
 

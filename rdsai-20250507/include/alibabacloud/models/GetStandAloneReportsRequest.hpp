@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The task end time based on which the reports are filtered. If you do not specify this parameter, all reports are returned.
+    // The end of the query\\"s time range. The time must be in UTC and in the `YYYY-MM-DDTHH:mm:ssZ` format. If omitted, no end time filter is applied.
     shared_ptr<string> endTime_ {};
-    // The page number. Pages start from 1. Default value: 1.
+    // The number of the page to return. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records on each page. Default value: 20. Maximum value: 100.
+    // The number of entries to return on each page. Default: 20. Maximum: 100.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> reportType_ {};
-    // The task start time based on which the reports are filtered. If you do not specify this parameter, all reports are returned.
+    // The start of the query\\"s time range. The time must be in UTC and in the `YYYY-MM-DDTHH:mm:ssZ` format. If omitted, no start time filter is applied.
     shared_ptr<string> startTime_ {};
   };
 

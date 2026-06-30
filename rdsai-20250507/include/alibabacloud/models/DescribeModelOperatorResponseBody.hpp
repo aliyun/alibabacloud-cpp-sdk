@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(KeyUsageList, keyUsageList_);
         DARABONBA_PTR_TO_JSON(PrefixCacheEnabled, prefixCacheEnabled_);
+        DARABONBA_PTR_TO_JSON(SessionIds, sessionIds_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TotalQuota, totalQuota_);
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(KeyUsageList, keyUsageList_);
         DARABONBA_PTR_FROM_JSON(PrefixCacheEnabled, prefixCacheEnabled_);
+        DARABONBA_PTR_FROM_JSON(SessionIds, sessionIds_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TotalQuota, totalQuota_);
@@ -150,7 +152,9 @@ namespace Models
 
 
         protected:
+          // The date of the usage record.
           shared_ptr<string> date_ {};
+          // The number of tokens used by the API key on this date.
           shared_ptr<string> usage_ {};
         };
 
@@ -209,13 +213,19 @@ namespace Models
 
 
       protected:
-        // API Key
+        // The API key.
         shared_ptr<string> apiKey_ {};
+        // The daily usage for the API key.
         shared_ptr<vector<KeyUsageList::DailyUsage>> dailyUsage_ {};
+        // Indicates whether the API key has been deleted.
         shared_ptr<bool> deleted_ {};
+        // The name of the API key.
         shared_ptr<string> keyName_ {};
+        // The type of the API key.
         shared_ptr<string> keyType_ {};
+        // The total number of tokens used by this API key.
         shared_ptr<string> keyUsed_ {};
+        // The token usage for the current cycle.
         shared_ptr<string> usedQuota_ {};
       };
 
@@ -257,14 +267,16 @@ namespace Models
 
 
       protected:
+        // The date of the usage record.
         shared_ptr<string> date_ {};
+        // The number of tokens used on this date.
         shared_ptr<int64_t> usage_ {};
       };
 
       virtual bool empty() const override { return this->apiKey_ == nullptr
         && this->autoRenew_ == nullptr && this->baseUrl_ == nullptr && this->chargeType_ == nullptr && this->dailyUsage_ == nullptr && this->endTime_ == nullptr
-        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->keyUsageList_ == nullptr && this->prefixCacheEnabled_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->totalQuota_ == nullptr && this->usedQuota_ == nullptr; };
+        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->keyUsageList_ == nullptr && this->prefixCacheEnabled_ == nullptr && this->sessionIds_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->totalQuota_ == nullptr && this->usedQuota_ == nullptr; };
       // apiKey Field Functions 
       bool hasApiKey() const { return this->apiKey_ != nullptr;};
       void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -339,6 +351,15 @@ namespace Models
       inline Data& setPrefixCacheEnabled(bool prefixCacheEnabled) { DARABONBA_PTR_SET_VALUE(prefixCacheEnabled_, prefixCacheEnabled) };
 
 
+      // sessionIds Field Functions 
+      bool hasSessionIds() const { return this->sessionIds_ != nullptr;};
+      void deleteSessionIds() { this->sessionIds_ = nullptr;};
+      inline const vector<string> & getSessionIds() const { DARABONBA_PTR_GET_CONST(sessionIds_, vector<string>) };
+      inline vector<string> getSessionIds() { DARABONBA_PTR_GET(sessionIds_, vector<string>) };
+      inline Data& setSessionIds(const vector<string> & sessionIds) { DARABONBA_PTR_SET_VALUE(sessionIds_, sessionIds) };
+      inline Data& setSessionIds(vector<string> && sessionIds) { DARABONBA_PTR_SET_RVALUE(sessionIds_, sessionIds) };
+
+
       // startTime Field Functions 
       bool hasStartTime() const { return this->startTime_ != nullptr;};
       void deleteStartTime() { this->startTime_ = nullptr;};
@@ -368,19 +389,38 @@ namespace Models
 
 
     protected:
+      // The API key.
       shared_ptr<string> apiKey_ {};
+      // Indicates whether auto-renewal is enabled for the instance. Valid values:
+      // 
+      // - **true**: Enabled.
+      // 
+      // - **false** (default): Disabled.
       shared_ptr<bool> autoRenew_ {};
+      // The endpoint URL for model requests.
       shared_ptr<string> baseUrl_ {};
+      // The billing method. Valid values: `PREPAY` (subscription) and `POSTPAY` (pay-as-you-go).
       shared_ptr<string> chargeType_ {};
+      // The daily token usage.
       shared_ptr<vector<Data::DailyUsage>> dailyUsage_ {};
+      // The UNIX timestamp, in milliseconds, indicating when the instance expires.
       shared_ptr<int64_t> endTime_ {};
+      // The instance type.
       shared_ptr<string> instanceClass_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The usage of each API key, including deleted keys.
       shared_ptr<vector<Data::KeyUsageList>> keyUsageList_ {};
+      // Indicates whether prefix caching is enabled.
       shared_ptr<bool> prefixCacheEnabled_ {};
+      shared_ptr<vector<string>> sessionIds_ {};
+      // The UNIX timestamp, in milliseconds, indicating when the instance started.
       shared_ptr<int64_t> startTime_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The total quota for the current cycle, such as the monthly quota.
       shared_ptr<int64_t> totalQuota_ {};
+      // The usage in the current cycle, such as the monthly usage.
       shared_ptr<int64_t> usedQuota_ {};
     };
 
@@ -417,10 +457,13 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<DescribeModelOperatorResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

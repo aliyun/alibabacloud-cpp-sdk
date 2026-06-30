@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(UsageType, usageType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMOTokenUsageDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(UsageType, usageType_);
     };
     DescribeMOTokenUsageDetailRequest() = default ;
     DescribeMOTokenUsageDetailRequest(const DescribeMOTokenUsageDetailRequest &) = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
         && this->consumerName_ == nullptr && this->cursor_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr
-        && this->page_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr && this->startTime_ == nullptr; };
+        && this->page_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr && this->startTime_ == nullptr && this->usageType_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -120,18 +122,38 @@ namespace Models
     inline DescribeMOTokenUsageDetailRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // usageType Field Functions 
+    bool hasUsageType() const { return this->usageType_ != nullptr;};
+    void deleteUsageType() { this->usageType_ = nullptr;};
+    inline string getUsageType() const { DARABONBA_PTR_GET_DEFAULT(usageType_, "") };
+    inline DescribeMOTokenUsageDetailRequest& setUsageType(string usageType) { DARABONBA_PTR_SET_VALUE(usageType_, usageType) };
+
+
   protected:
+    // The API key used for the request.
     shared_ptr<string> apiKey_ {};
+    // The consumer associated with the API key.
     shared_ptr<string> consumerName_ {};
+    // The cursor-based pagination token. This parameter takes priority over Page. Leave this parameter empty for the first call. For subsequent calls, use the NextCursor value returned in the previous response.
     shared_ptr<string> cursor_ {};
+    // The end time in ISO 8601 format (UTC).
     shared_ptr<string> endTime_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The model that was called.
     shared_ptr<string> model_ {};
+    // The page number. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> page_ {};
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region in which the instance resides.
     shared_ptr<string> region_ {};
+    // The start time in ISO 8601 format (UTC).
     shared_ptr<string> startTime_ {};
+    // The type of usage to query.
+    shared_ptr<string> usageType_ {};
   };
 
   } // namespace Models

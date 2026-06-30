@@ -84,13 +84,34 @@ namespace Models
 
 
   protected:
+    // The names of the API keys to use for filtering the data. If this parameter is not specified, data from all keys is returned.
     shared_ptr<string> apiKeyNameShrink_ {};
+    // The end of the query time range, specified as a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The aggregation interval for monitoring data, in seconds. Default: 15.
     shared_ptr<int32_t> interval_ {};
+    // The metric to query. Valid values:
+    // 
+    // - `pv`
+    // 
+    // - `uv`
+    // 
+    // - `qps`
+    // 
+    // - `success_rate`
+    // 
+    // - `rt`
+    // 
+    // - `rate_limited_count`
+    // 
     // This parameter is required.
     shared_ptr<string> metric_ {};
+    // The start of the query time range, specified as a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

@@ -78,17 +78,17 @@ namespace Models
     protected:
       // The name of the configuration item. Valid values:
       // 
-      // *   **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Enables authentication via external email addresses.
-      // *   **GOTRUE_SITE_URL**: the URL that is displayed in the emails sent from the instance.
-      // *   **GOTRUE_SMTP_PORT**: the port of the SMTP service provider.
-      // *   **GOTRUE_SMTP_SENDER_NAME**: the name of the sender of the email.
-      // *   **GOTRUE_SMTP_USER**: the username of the SMTP service provider.
-      // *   **GOTRUE_SMTP_PASS**: the key of the SMTP service provider.
-      // *   **GOTRUE_SMTP_ADMIN_EMAIL**: the email address of the SMTP service provider.
-      // *   **GOTRUE_SMTP_HOST**: The host address of the SMTP service provider.
-      // *   **GOTRUE_MAILER_AUTOCONFIRM**: specifies whether to enable automatic confirmation.
-      // *   **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
-      // *   **GOTRUE_MAILER_OTP_LENGTH**: The verification code length of the one-time password (OTP). The value must be an integer greater than or equal to 6.
+      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Specifies whether to allow external email addresses.
+      // - **GOTRUE_SITE_URL**: The website URL displayed when the AI application sends emails.
+      // - **GOTRUE_SMTP_PORT**: The port of the SMTP provider.
+      // - **GOTRUE_SMTP_SENDER_NAME**: The name of the email sender.
+      // - **GOTRUE_SMTP_USER**: The username of the SMTP provider.
+      // - **GOTRUE_SMTP_PASS**: The secret key of the SMTP provider.
+      // - **GOTRUE_SMTP_ADMIN_EMAIL**: The email address of the SMTP provider.
+      // - **GOTRUE_SMTP_HOST**: The host address of the SMTP provider.
+      // - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether to enable automatic confirmation.
+      // - **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
+      // - **GOTRUE_MAILER_OTP_LENGTH**: The length of the one-time password (OTP) verification code. The value must be an integer greater than or equal to 6.
       shared_ptr<string> name_ {};
       // The value of the configuration item.
       shared_ptr<string> value_ {};
@@ -98,10 +98,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ApiKeys& obj) { 
         DARABONBA_PTR_TO_JSON(AnonKey, anonKey_);
+        DARABONBA_PTR_TO_JSON(E2bApiKey, e2bApiKey_);
         DARABONBA_PTR_TO_JSON(ServiceKey, serviceKey_);
       };
       friend void from_json(const Darabonba::Json& j, ApiKeys& obj) { 
         DARABONBA_PTR_FROM_JSON(AnonKey, anonKey_);
+        DARABONBA_PTR_FROM_JSON(E2bApiKey, e2bApiKey_);
         DARABONBA_PTR_FROM_JSON(ServiceKey, serviceKey_);
       };
       ApiKeys() = default ;
@@ -116,12 +118,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->anonKey_ == nullptr
-        && this->serviceKey_ == nullptr; };
+        && this->e2bApiKey_ == nullptr && this->serviceKey_ == nullptr; };
       // anonKey Field Functions 
       bool hasAnonKey() const { return this->anonKey_ != nullptr;};
       void deleteAnonKey() { this->anonKey_ = nullptr;};
       inline string getAnonKey() const { DARABONBA_PTR_GET_DEFAULT(anonKey_, "") };
       inline ApiKeys& setAnonKey(string anonKey) { DARABONBA_PTR_SET_VALUE(anonKey_, anonKey) };
+
+
+      // e2bApiKey Field Functions 
+      bool hasE2bApiKey() const { return this->e2bApiKey_ != nullptr;};
+      void deleteE2bApiKey() { this->e2bApiKey_ = nullptr;};
+      inline string getE2bApiKey() const { DARABONBA_PTR_GET_DEFAULT(e2bApiKey_, "") };
+      inline ApiKeys& setE2bApiKey(string e2bApiKey) { DARABONBA_PTR_SET_VALUE(e2bApiKey_, e2bApiKey) };
 
 
       // serviceKey Field Functions 
@@ -134,6 +143,7 @@ namespace Models
     protected:
       // The ANON_KEY of Supabase.
       shared_ptr<string> anonKey_ {};
+      shared_ptr<string> e2bApiKey_ {};
       // The SERVICE_ROLE_KEY of Supabase.
       shared_ptr<string> serviceKey_ {};
     };
@@ -180,13 +190,13 @@ namespace Models
 
 
   protected:
-    // The API keys.
+    // API Keys。
     shared_ptr<DescribeInstanceAuthInfoResponseBody::ApiKeys> apiKeys_ {};
-    // The authentication configurations.
+    // The list of authentication configurations.
     shared_ptr<vector<DescribeInstanceAuthInfoResponseBody::ConfigList>> configList_ {};
-    // The ID of the RDS Supabase instance.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The JWT key.
+    // The JWT secret.
     shared_ptr<string> jwtSecret_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

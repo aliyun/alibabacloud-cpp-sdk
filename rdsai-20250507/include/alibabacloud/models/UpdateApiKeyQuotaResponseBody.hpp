@@ -59,12 +59,14 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const CustomKeyList& obj) { 
           DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
+          DARABONBA_PTR_TO_JSON(DailyTokenQuota, dailyTokenQuota_);
           DARABONBA_PTR_TO_JSON(LimitRate, limitRate_);
           DARABONBA_PTR_TO_JSON(LimitType, limitType_);
           DARABONBA_PTR_TO_JSON(TokenQuota, tokenQuota_);
         };
         friend void from_json(const Darabonba::Json& j, CustomKeyList& obj) { 
           DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
+          DARABONBA_PTR_FROM_JSON(DailyTokenQuota, dailyTokenQuota_);
           DARABONBA_PTR_FROM_JSON(LimitRate, limitRate_);
           DARABONBA_PTR_FROM_JSON(LimitType, limitType_);
           DARABONBA_PTR_FROM_JSON(TokenQuota, tokenQuota_);
@@ -81,12 +83,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->limitRate_ == nullptr && this->limitType_ == nullptr && this->tokenQuota_ == nullptr; };
+        && this->dailyTokenQuota_ == nullptr && this->limitRate_ == nullptr && this->limitType_ == nullptr && this->tokenQuota_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
         inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
         inline CustomKeyList& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+        // dailyTokenQuota Field Functions 
+        bool hasDailyTokenQuota() const { return this->dailyTokenQuota_ != nullptr;};
+        void deleteDailyTokenQuota() { this->dailyTokenQuota_ = nullptr;};
+        inline int64_t getDailyTokenQuota() const { DARABONBA_PTR_GET_DEFAULT(dailyTokenQuota_, 0L) };
+        inline CustomKeyList& setDailyTokenQuota(int64_t dailyTokenQuota) { DARABONBA_PTR_SET_VALUE(dailyTokenQuota_, dailyTokenQuota) };
 
 
         // limitRate Field Functions 
@@ -111,10 +120,20 @@ namespace Models
 
 
       protected:
-        // Api Key
+        // The API key.
         shared_ptr<string> apiKey_ {};
+        shared_ptr<int64_t> dailyTokenQuota_ {};
+        // The limit rate.
         shared_ptr<float> limitRate_ {};
+        // The quota limiting method. Valid values:
+        // 
+        // - `ratio`: Sets the limit based on a ratio.
+        // 
+        // - `fixed`: Sets the limit to a fixed value.
+        // 
+        // - `auto`: Allocates the limit automatically.
         shared_ptr<string> limitType_ {};
+        // The token quota for the API key.
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
@@ -129,6 +148,7 @@ namespace Models
 
 
     protected:
+      // The list of custom API keys.
       shared_ptr<vector<Data::CustomKeyList>> customKeyList_ {};
     };
 
@@ -165,10 +185,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<UpdateApiKeyQuotaResponseBody::Data> data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

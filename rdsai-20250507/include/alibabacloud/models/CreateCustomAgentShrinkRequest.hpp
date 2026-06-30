@@ -75,16 +75,16 @@ namespace Models
 
 
   protected:
-    // The system prompts.
+    // Specifies whether to enable tools.
     shared_ptr<bool> enableTools_ {};
-    // The operation that you want to perform. Set the value to **CreateCustomAgent**.
+    // The name of the agent.
     shared_ptr<string> name_ {};
     shared_ptr<string> skillIdsShrink_ {};
-    // The name of the dedicated agent.
+    // The system prompt.
     // 
     // This parameter is required.
     shared_ptr<string> systemPrompt_ {};
-    // Specifies whether to enable tools.
+    // The tool information.
     shared_ptr<string> toolsShrink_ {};
   };
 

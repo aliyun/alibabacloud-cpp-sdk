@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The ID of the RDS Supabase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // This parameter is reserved.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results. You do not need to specify this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The name of the sandbox template.
     shared_ptr<string> templateName_ {};
   };
 

@@ -144,19 +144,20 @@ namespace Models
 
 
     protected:
-      // The creation time of the task.
+      // The time when the report was created, in YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
-      // The end time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The inspection end time, in YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
       shared_ptr<string> inspectionItems_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> reportLanguage_ {};
       shared_ptr<string> reportType_ {};
-      // The start time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The inspection start time, in YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
-      // The status of the task.
+      // The status of the report.
       shared_ptr<string> status_ {};
-      // The ID of the report.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -217,17 +218,17 @@ namespace Models
   protected:
     // The response message.
     shared_ptr<string> message_ {};
-    // The page number. Pages start from 1. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of reports returned on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The details of the report.
+    // A list of inspection reports.
     shared_ptr<vector<GetScheduledReportsResponseBody::Reports>> reports_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of returned reports.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

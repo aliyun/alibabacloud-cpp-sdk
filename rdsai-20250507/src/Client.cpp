@@ -18,7 +18,23 @@ namespace RdsAi20250507
 {
 
 AlibabaCloud::RdsAi20250507::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "rdsai.us-west-1.aliyuncs.com"},
+    {"eu-central-1" , "rdsai.eu-central-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "rdsai.aliyuncs.com"},
+    {"cn-shenzhen" , "rdsai.aliyuncs.com"},
+    {"cn-shanghai" , "rdsai.aliyuncs.com"},
+    {"cn-hongkong" , "rdsai.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "rdsai.aliyuncs.com"},
+    {"cn-guangzhou" , "rdsai.aliyuncs.com"},
+    {"cn-chengdu" , "rdsai.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "rdsai.aliyuncs.com"},
+    {"ap-southeast-5" , "rdsai.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "rdsai.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "rdsai.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "rdsai.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("rdsai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -210,7 +226,10 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStop(const ChatMessagesTask
 }
 
 /**
- * @summary 创建实例密钥
+ * @summary Create a custom API key.
+ *
+ * @description ### Supported engines
+ * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request CreateApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -219,6 +238,10 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStop(const ChatMessagesTask
 CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDailyTokenQuota()) {
+    query["DailyTokenQuota"] = request.getDailyTokenQuota();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -261,7 +284,10 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 }
 
 /**
- * @summary 创建实例密钥
+ * @summary Create a custom API key.
+ *
+ * @description ### Supported engines
+ * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request CreateApiKeyRequest
  * @return CreateApiKeyResponse
@@ -274,11 +300,10 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 /**
  * @summary Creates an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
- * RDS PostgreSQL
- * ### [](#)References
- * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * @description ### Supported Engine  
+ * RDS PostgreSQL  
+ * ### Related Function Documentation  
+ * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
  *
  * @param tmpReq CreateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -327,6 +352,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 
   if (!!request.hasDashboardUsername()) {
     query["DashboardUsername"] = request.getDashboardUsername();
+  }
+
+  if (!!request.hasDatabase()) {
+    query["Database"] = request.getDatabase();
   }
 
   if (!!request.hasDatabasePassword()) {
@@ -381,11 +410,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 /**
  * @summary Creates an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
- * RDS PostgreSQL
- * ### [](#)References
- * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * @description ### Supported Engine  
+ * RDS PostgreSQL  
+ * ### Related Function Documentation  
+ * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
  *
  * @param request CreateAppInstanceRequest
  * @return CreateAppInstanceResponse
@@ -396,7 +424,7 @@ CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceReque
 }
 
 /**
- * @summary Creates a dedicated agent.
+ * @summary Creates a user-specific agent.
  *
  * @param tmpReq CreateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -453,7 +481,7 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 }
 
 /**
- * @summary Creates a dedicated agent.
+ * @summary Creates a user-specific agent.
  *
  * @param request CreateCustomAgentRequest
  * @return CreateCustomAgentResponse
@@ -464,7 +492,7 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
- * @summary Creates an inspection task for multiple instances.
+ * @summary Creates an inspection task for one or more instances.
  *
  * @param request CreateInspectionTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +551,7 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
 }
 
 /**
- * @summary Creates an inspection task for multiple instances.
+ * @summary Creates an inspection task for one or more instances.
  *
  * @param request CreateInspectionTaskRequest
  * @return CreateInspectionTaskResponse
@@ -534,7 +562,89 @@ CreateInspectionTaskResponse Client::createInspectionTask(const CreateInspection
 }
 
 /**
- * @summary Creates a new scheduled inspection configuration for multiple instances.
+ * @summary 创建沙箱模板
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request CreateSandboxTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSandboxTemplateResponse
+ */
+CreateSandboxTemplateResponse Client::createSandboxTemplateWithOptions(const CreateSandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDefaultCpu()) {
+    query["DefaultCpu"] = request.getDefaultCpu();
+  }
+
+  if (!!request.hasDefaultMemory()) {
+    query["DefaultMemory"] = request.getDefaultMemory();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReplicas()) {
+    query["Replicas"] = request.getReplicas();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSandboxTemplate"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSandboxTemplateResponse>();
+}
+
+/**
+ * @summary 创建沙箱模板
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request CreateSandboxTemplateRequest
+ * @return CreateSandboxTemplateResponse
+ */
+CreateSandboxTemplateResponse Client::createSandboxTemplate(const CreateSandboxTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSandboxTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a scheduled inspection task for one or more instances.
+ *
+ * @description ### Supported engines
+ * RDS PostgreSQL
+ * ### Related feature documentation
+ * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -605,7 +715,13 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
 }
 
 /**
- * @summary Creates a new scheduled inspection configuration for multiple instances.
+ * @summary Creates a scheduled inspection task for one or more instances.
+ *
+ * @description ### Supported engines
+ * RDS PostgreSQL
+ * ### Related feature documentation
+ * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
  * @return CreateScheduledTaskResponse
@@ -680,7 +796,10 @@ CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
 }
 
 /**
- * @summary 删除apiKey
+ * @summary Deletes a custom API key.
+ *
+ * @description ### Applicable engine
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DeleteApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -715,7 +834,10 @@ DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const DeleteApiKeyRequest &
 }
 
 /**
- * @summary 删除apiKey
+ * @summary Deletes a custom API key.
+ *
+ * @description ### Applicable engine
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DeleteApiKeyRequest
  * @return DeleteApiKeyResponse
@@ -728,12 +850,12 @@ DeleteApiKeyResponse Client::deleteApiKey(const DeleteApiKeyRequest &request) {
 /**
  * @summary Deletes an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
- * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
+ * ### 相关功能文档
+ * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  If you delete an RDS Supabase instance, the created RDS for PostgreSQL instance and the created NAT gateway are not automatically deleted. You must manually release the instance and delete the Internet NAT gateway and EIP.
+ * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
  *
  * @param request DeleteAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -774,12 +896,12 @@ DeleteAppInstanceResponse Client::deleteAppInstanceWithOptions(const DeleteAppIn
 /**
  * @summary Deletes an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
- * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
+ * ### 相关功能文档
+ * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  If you delete an RDS Supabase instance, the created RDS for PostgreSQL instance and the created NAT gateway are not automatically deleted. You must manually release the instance and delete the Internet NAT gateway and EIP.
+ * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
  *
  * @param request DeleteAppInstanceRequest
  * @return DeleteAppInstanceResponse
@@ -829,6 +951,66 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除沙箱模板
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request DeleteSandboxTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSandboxTemplateResponse
+ */
+DeleteSandboxTemplateResponse Client::deleteSandboxTemplateWithOptions(const DeleteSandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSandboxTemplate"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSandboxTemplateResponse>();
+}
+
+/**
+ * @summary 删除沙箱模板
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request DeleteSandboxTemplateRequest
+ * @return DeleteSandboxTemplateResponse
+ */
+DeleteSandboxTemplateResponse Client::deleteSandboxTemplate(const DeleteSandboxTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSandboxTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -916,11 +1098,11 @@ DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
 }
 
 /**
- * @summary Queries the details of an RDS Supabase instance.
+ * @summary Queries the details of an RDS AI application instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### [](#)References
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstanceAttributeRequest
@@ -956,11 +1138,11 @@ DescribeAppInstanceAttributeResponse Client::describeAppInstanceAttributeWithOpt
 }
 
 /**
- * @summary Queries the details of an RDS Supabase instance.
+ * @summary Queries the details of an RDS AI application instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### [](#)References
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstanceAttributeRequest
@@ -972,11 +1154,11 @@ DescribeAppInstanceAttributeResponse Client::describeAppInstanceAttribute(const 
 }
 
 /**
- * @summary Queries the RDS Supabase instances.
+ * @summary This API retrieves a list of RDS AI application instances.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Supported engines
  * RDS PostgreSQL
- * ### [](#)References
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstancesRequest
@@ -1024,11 +1206,11 @@ DescribeAppInstancesResponse Client::describeAppInstancesWithOptions(const Descr
 }
 
 /**
- * @summary Queries the RDS Supabase instances.
+ * @summary This API retrieves a list of RDS AI application instances.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Supported engines
  * RDS PostgreSQL
- * ### [](#)References
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstancesRequest
@@ -1040,7 +1222,67 @@ DescribeAppInstancesResponse Client::describeAppInstances(const DescribeAppInsta
 }
 
 /**
- * @summary Queries the events.
+ * @summary 查询已支持的沙箱模板列表
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request DescribeCommonSandboxTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCommonSandboxTemplatesResponse
+ */
+DescribeCommonSandboxTemplatesResponse Client::describeCommonSandboxTemplatesWithOptions(const DescribeCommonSandboxTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCommonSandboxTemplates"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCommonSandboxTemplatesResponse>();
+}
+
+/**
+ * @summary 查询已支持的沙箱模板列表
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request DescribeCommonSandboxTemplatesRequest
+ * @return DescribeCommonSandboxTemplatesResponse
+ */
+DescribeCommonSandboxTemplatesResponse Client::describeCommonSandboxTemplates(const DescribeCommonSandboxTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCommonSandboxTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary This API retrieves the list of events.
  *
  * @param request DescribeEventsListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1091,7 +1333,7 @@ DescribeEventsListResponse Client::describeEventsListWithOptions(const DescribeE
 }
 
 /**
- * @summary Queries the events.
+ * @summary This API retrieves the list of events.
  *
  * @param request DescribeEventsListRequest
  * @return DescribeEventsListResponse
@@ -1102,11 +1344,11 @@ DescribeEventsListResponse Client::describeEventsList(const DescribeEventsListRe
 }
 
 /**
- * @summary Queries the authentication information about an RDS Supabase instance.
+ * @summary Queries the authentication information of an RDS AI application instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### [](#)References
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceAuthInfoRequest
@@ -1142,11 +1384,11 @@ DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfoWithOptions(con
 }
 
 /**
- * @summary Queries the authentication information about an RDS Supabase instance.
+ * @summary Queries the authentication information of an RDS AI application instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### [](#)References
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceAuthInfoRequest
@@ -1160,9 +1402,9 @@ DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfo(const Describe
 /**
  * @summary Queries the endpoint of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceEndpointsRequest
@@ -1200,9 +1442,9 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpointsWithOptions(c
 /**
  * @summary Queries the endpoint of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceEndpointsRequest
@@ -1216,9 +1458,9 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpoints(const Descri
 /**
  * @summary Queries the IP address whitelists of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceIpWhitelistRequest
@@ -1260,9 +1502,9 @@ DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelistWithOptio
 /**
  * @summary Queries the IP address whitelists of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceIpWhitelistRequest
@@ -1322,9 +1564,9 @@ DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfig(const Descri
 /**
  * @summary Queries the SSL settings of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceSSLRequest
@@ -1362,9 +1604,9 @@ DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const Describ
 /**
  * @summary Queries the SSL settings of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceSSLRequest
@@ -1378,11 +1620,11 @@ DescribeInstanceSSLResponse Client::describeInstanceSSL(const DescribeInstanceSS
 /**
  * @summary Queries the storage configurations of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
+ * > 当前仅支持对象存储OSS。
  *
  * @param request DescribeInstanceStorageConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1419,11 +1661,11 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfigWithO
 /**
  * @summary Queries the storage configurations of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
+ * > 当前仅支持对象存储OSS。
  *
  * @param request DescribeInstanceStorageConfigRequest
  * @return DescribeInstanceStorageConfigResponse
@@ -1434,7 +1676,10 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfig(cons
 }
 
 /**
- * @summary 查看 model operator 实例具体 token 使用情况
+ * @summary Queries the token usage records of RDS AI Assistant Ultimate Edition.
+ *
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
  *
  * @param request DescribeMOTokenUsageDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1483,6 +1728,10 @@ DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetailWithOptions
     query["StartTime"] = request.getStartTime();
   }
 
+  if (!!request.hasUsageType()) {
+    query["UsageType"] = request.getUsageType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1501,7 +1750,10 @@ DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetailWithOptions
 }
 
 /**
- * @summary 查看 model operator 实例具体 token 使用情况
+ * @summary Queries the token usage records of RDS AI Assistant Ultimate Edition.
+ *
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
  *
  * @param request DescribeMOTokenUsageDetailRequest
  * @return DescribeMOTokenUsageDetailResponse
@@ -1512,7 +1764,10 @@ DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetail(const Desc
 }
 
 /**
- * @summary 查询MO实例信息
+ * @summary View basic information and usage for the RDS AI Assistant Ultimate Edition.
+ *
+ * @description ### Supported engines
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeModelOperatorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1543,7 +1798,10 @@ DescribeModelOperatorResponse Client::describeModelOperatorWithOptions(const Des
 }
 
 /**
- * @summary 查询MO实例信息
+ * @summary View basic information and usage for the RDS AI Assistant Ultimate Edition.
+ *
+ * @description ### Supported engines
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeModelOperatorRequest
  * @return DescribeModelOperatorResponse
@@ -1554,7 +1812,10 @@ DescribeModelOperatorResponse Client::describeModelOperator(const DescribeModelO
 }
 
 /**
- * @summary 查询监控数据
+ * @summary Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+ *
+ * @description ### Supported engines
+ * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param tmpReq DescribeMonitorDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1872,10 @@ DescribeMonitorDataResponse Client::describeMonitorDataWithOptions(const Describ
 }
 
 /**
- * @summary 查询监控数据
+ * @summary Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+ *
+ * @description ### Supported engines
+ * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeMonitorDataRequest
  * @return DescribeMonitorDataResponse
@@ -1622,7 +1886,12 @@ DescribeMonitorDataResponse Client::describeMonitorData(const DescribeMonitorDat
 }
 
 /**
- * @summary 查询沙箱模板列表
+ * @summary Lists the sandbox templates you can use to create Supabase sandboxes.
+ *
+ * @description ### Applicable engine
+ * RDS Supabase
+ * ### Related documents
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeSandboxTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1677,7 +1946,12 @@ DescribeSandboxTemplatesResponse Client::describeSandboxTemplatesWithOptions(con
 }
 
 /**
- * @summary 查询沙箱模板列表
+ * @summary Lists the sandbox templates you can use to create Supabase sandboxes.
+ *
+ * @description ### Applicable engine
+ * RDS Supabase
+ * ### Related documents
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeSandboxTemplatesRequest
  * @return DescribeSandboxTemplatesResponse
@@ -1688,7 +1962,10 @@ DescribeSandboxTemplatesResponse Client::describeSandboxTemplates(const Describe
 }
 
 /**
- * @summary 更新旗舰版白名单
+ * @summary Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+ *
+ * @description ### Supported engine
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeWhitelistIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1719,7 +1996,10 @@ DescribeWhitelistIpsResponse Client::describeWhitelistIpsWithOptions(const Descr
 }
 
 /**
- * @summary 更新旗舰版白名单
+ * @summary Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+ *
+ * @description ### Supported engine
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeWhitelistIpsRequest
  * @return DescribeWhitelistIpsResponse
@@ -1730,7 +2010,10 @@ DescribeWhitelistIpsResponse Client::describeWhitelistIps(const DescribeWhitelis
 }
 
 /**
- * @summary 关闭Supabase的沙箱和边缘函数能力
+ * @summary Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+ *
+ * @description Disables the sandbox and edge function capabilities for a Supabase instance.
+ * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
  *
  * @param request DisableAgentRuntimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1769,7 +2052,10 @@ DisableAgentRuntimeResponse Client::disableAgentRuntimeWithOptions(const Disable
 }
 
 /**
- * @summary 关闭Supabase的沙箱和边缘函数能力
+ * @summary Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+ *
+ * @description Disables the sandbox and edge function capabilities for a Supabase instance.
+ * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
  *
  * @param request DisableAgentRuntimeRequest
  * @return DisableAgentRuntimeResponse
@@ -1780,7 +2066,11 @@ DisableAgentRuntimeResponse Client::disableAgentRuntime(const DisableAgentRuntim
 }
 
 /**
- * @summary 启用Supabase的沙箱和边缘函数能力
+ * @summary Enables the sandbox and Edge Routine capabilities for a Supabase instance. Read the operation description before you call this operation.
+ *
+ * @description During the public preview, the sandbox and Edge Routine features are free of charge.
+ * ### Before you begin
+ * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
  *
  * @param request EnableAgentRuntimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1827,7 +2117,11 @@ EnableAgentRuntimeResponse Client::enableAgentRuntimeWithOptions(const EnableAge
 }
 
 /**
- * @summary 启用Supabase的沙箱和边缘函数能力
+ * @summary Enables the sandbox and Edge Routine capabilities for a Supabase instance. Read the operation description before you call this operation.
+ *
+ * @description During the public preview, the sandbox and Edge Routine features are free of charge.
+ * ### Before you begin
+ * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
  *
  * @param request EnableAgentRuntimeRequest
  * @return EnableAgentRuntimeResponse
@@ -1839,6 +2133,9 @@ EnableAgentRuntimeResponse Client::enableAgentRuntime(const EnableAgentRuntimeRe
 
 /**
  * @summary GetAvailableLLMModels
+ *
+ * @description ### 适用引擎
+ * RDS SUPABASE
  *
  * @param request GetAvailableLLMModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1878,6 +2175,9 @@ GetAvailableLLMModelsResponse Client::getAvailableLLMModelsWithOptions(const Get
 
 /**
  * @summary GetAvailableLLMModels
+ *
+ * @description ### 适用引擎
+ * RDS SUPABASE
  *
  * @param request GetAvailableLLMModelsRequest
  * @return GetAvailableLLMModelsResponse
@@ -1942,7 +2242,7 @@ GetConversationsResponse Client::getConversations(const GetConversationsRequest 
 }
 
 /**
- * @summary Queries the dedicated agents created by a user.
+ * @summary Retrieves details for a specified custom agent.
  *
  * @param request GetCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1973,7 +2273,7 @@ GetCustomAgentResponse Client::getCustomAgentWithOptions(const GetCustomAgentReq
 }
 
 /**
- * @summary Queries the dedicated agents created by a user.
+ * @summary Retrieves details for a specified custom agent.
  *
  * @param request GetCustomAgentRequest
  * @return GetCustomAgentResponse
@@ -2034,7 +2334,7 @@ GetInspectionReportResponse Client::getInspectionReport(const GetInspectionRepor
 }
 
 /**
- * @summary Queries specific conversation messages.
+ * @summary Retrieves a list of messages in a specific conversation.
  *
  * @param request GetMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2077,7 +2377,7 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
 }
 
 /**
- * @summary Queries specific conversation messages.
+ * @summary Retrieves a list of messages in a specific conversation.
  *
  * @param request GetMessagesRequest
  * @return GetMessagesResponse
@@ -2089,6 +2389,8 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
 
 /**
  * @summary Obtain RDS AI Assistant Ultimate order information
+ *
+ * @description ### Applicable DPI engine
  *
  * @param request GetModelOperatorOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2113,6 +2415,8 @@ GetModelOperatorOrderResponse Client::getModelOperatorOrderWithOptions(const Get
 
 /**
  * @summary Obtain RDS AI Assistant Ultimate order information
+ *
+ * @description ### Applicable DPI engine
  *
  * @param request GetModelOperatorOrderRequest
  * @return GetModelOperatorOrderResponse
@@ -2173,7 +2477,7 @@ GetScheduledInstancesResponse Client::getScheduledInstances(const GetScheduledIn
 }
 
 /**
- * @summary Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
+ * @summary Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
  *
  * @param request GetScheduledReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2220,7 +2524,7 @@ GetScheduledReportsResponse Client::getScheduledReportsWithOptions(const GetSche
 }
 
 /**
- * @summary Queries the list of all inspection reports for a specified scheduled task. You can filter and paginate inspection reports by time range.
+ * @summary Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
  *
  * @param request GetScheduledReportsRequest
  * @return GetScheduledReportsResponse
@@ -2277,7 +2581,7 @@ GetSkillResponse Client::getSkill(const GetSkillRequest &request) {
 }
 
 /**
- * @summary Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
+ * @summary Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
  *
  * @param request GetStandAloneReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2324,7 +2628,7 @@ GetStandAloneReportsResponse Client::getStandAloneReportsWithOptions(const GetSt
 }
 
 /**
- * @summary Queries the individual inspection reports of all non-scheduled tasks under a specified user. Pagination is supported.
+ * @summary Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
  *
  * @param request GetStandAloneReportsRequest
  * @return GetStandAloneReportsResponse
@@ -2335,7 +2639,10 @@ GetStandAloneReportsResponse Client::getStandAloneReports(const GetStandAloneRep
 }
 
 /**
- * @summary 查询实例密钥信息
+ * @summary View Custom API Key
+ *
+ * @description ### Supported engines
+ * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ListApiKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2374,7 +2681,10 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary 查询实例密钥信息
+ * @summary View Custom API Key
+ *
+ * @description ### Supported engines
+ * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ListApiKeysRequest
  * @return ListApiKeysResponse
@@ -2385,7 +2695,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary Queries the dedicated agents created by a user.
+ * @summary Lists your custom agents.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2420,7 +2730,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary Queries the dedicated agents created by a user.
+ * @summary Lists your custom agents.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -2464,6 +2774,9 @@ ListCustomAgentToolsResponse Client::listCustomAgentTools() {
 
 /**
  * @summary ListLLMTokenUsage
+ *
+ * @description ### 适用引擎
+ * RDS SUPABASE
  *
  * @param request ListLLMTokenUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2512,6 +2825,9 @@ ListLLMTokenUsageResponse Client::listLLMTokenUsageWithOptions(const ListLLMToke
 /**
  * @summary ListLLMTokenUsage
  *
+ * @description ### 适用引擎
+ * RDS SUPABASE
+ *
  * @param request ListLLMTokenUsageRequest
  * @return ListLLMTokenUsageResponse
  */
@@ -2521,7 +2837,7 @@ ListLLMTokenUsageResponse Client::listLLMTokenUsage(const ListLLMTokenUsageReque
 }
 
 /**
- * @summary Queries the basic information of all inspection configurations under a specified user.
+ * @summary Lists basic information about all inspection configurations for the specified user ID.
  *
  * @param request ListScheduledTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2560,7 +2876,7 @@ ListScheduledTasksResponse Client::listScheduledTasksWithOptions(const ListSched
 }
 
 /**
- * @summary Queries the basic information of all inspection configurations under a specified user.
+ * @summary Lists basic information about all inspection configurations for the specified user ID.
  *
  * @param request ListScheduledTasksRequest
  * @return ListScheduledTasksResponse
@@ -2623,6 +2939,11 @@ ListSkillResponse Client::listSkill(const ListSkillRequest &request) {
 /**
  * @summary 修改RDS AI应用实例
  *
+ * @description ### 适用引擎
+ * RDS PostgreSQL
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
  * @param tmpReq ModifyAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAppInstanceResponse
@@ -2672,6 +2993,11 @@ ModifyAppInstanceResponse Client::modifyAppInstanceWithOptions(const ModifyAppIn
 /**
  * @summary 修改RDS AI应用实例
  *
+ * @description ### 适用引擎
+ * RDS PostgreSQL
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
  * @param request ModifyAppInstanceRequest
  * @return ModifyAppInstanceResponse
  */
@@ -2683,10 +3009,9 @@ ModifyAppInstanceResponse Client::modifyAppInstance(const ModifyAppInstanceReque
 /**
  * @summary Modifies the authentication configurations of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Applicable Engine
  * RDS PostgreSQL
- * ### [](#)References
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * ### Related Function Documentation
  *
  * @param tmpReq ModifyInstanceAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2733,10 +3058,9 @@ ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfigWithOptions(con
 /**
  * @summary Modifies the authentication configurations of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Applicable Engine
  * RDS PostgreSQL
- * ### [](#)References
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * ### Related Function Documentation
  *
  * @param request ModifyInstanceAuthConfigRequest
  * @return ModifyInstanceAuthConfigResponse
@@ -2807,9 +3131,9 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceCo
 /**
  * @summary Modifies the IP address whitelist of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceIpWhitelistRequest
@@ -2863,9 +3187,9 @@ ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelistWithOptions(c
 /**
  * @summary Modifies the IP address whitelist of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceIpWhitelistRequest
@@ -2943,9 +3267,9 @@ ModifyInstanceRAGConfigResponse Client::modifyInstanceRAGConfig(const ModifyInst
 /**
  * @summary Modifies the SSL settings of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceSSLRequest
@@ -2999,9 +3323,9 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSLWithOptions(const ModifyInsta
 /**
  * @summary Modifies the SSL settings of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceSSLRequest
@@ -3015,11 +3339,9 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSL(const ModifyInstanceSSLReque
 /**
  * @summary Modifies the storage configurations of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Supported Engine
  * RDS PostgreSQL
- * ### [](#)References
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
+ * ### Related Function Documentation
  *
  * @param tmpReq ModifyInstanceStorageConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3070,11 +3392,9 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfigWithOptio
 /**
  * @summary Modifies the storage configurations of an RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### Supported Engine
  * RDS PostgreSQL
- * ### [](#)References
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  Only Object Storage Service (OSS) is supported for the storage of RDS Supabase.
+ * ### Related Function Documentation
  *
  * @param request ModifyInstanceStorageConfigRequest
  * @return ModifyInstanceStorageConfigResponse
@@ -3087,9 +3407,9 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfig(const Mo
 /**
  * @summary Modifies the SSL settings of RDS Supabase instances in batches.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq ModifyInstancesSSLRequest
@@ -3149,9 +3469,9 @@ ModifyInstancesSSLResponse Client::modifyInstancesSSLWithOptions(const ModifyIns
 /**
  * @summary Modifies the SSL settings of RDS Supabase instances in batches.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstancesSSLRequest
@@ -3210,6 +3530,78 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacksWithOptions(const
 ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacks(const ModifyMessagesFeedbacksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyMessagesFeedbacksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改沙箱模板
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request ModifySandboxTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySandboxTemplateResponse
+ */
+ModifySandboxTemplateResponse Client::modifySandboxTemplateWithOptions(const ModifySandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDefaultCpu()) {
+    query["DefaultCpu"] = request.getDefaultCpu();
+  }
+
+  if (!!request.hasDefaultMemory()) {
+    query["DefaultMemory"] = request.getDefaultMemory();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReplicas()) {
+    query["Replicas"] = request.getReplicas();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySandboxTemplate"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySandboxTemplateResponse>();
+}
+
+/**
+ * @summary 修改沙箱模板
+ *
+ * @description ### 适用引擎
+ * RDS Supabase
+ * ### 相关功能文档
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ *
+ * @param request ModifySandboxTemplateRequest
+ * @return ModifySandboxTemplateResponse
+ */
+ModifySandboxTemplateResponse Client::modifySandboxTemplate(const ModifySandboxTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySandboxTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -3287,7 +3679,10 @@ ModifyScheduledTaskResponse Client::modifyScheduledTask(const ModifyScheduledTas
 }
 
 /**
- * @summary 更新旗舰版白名单
+ * @summary Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ModifyWhitelistIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3322,7 +3717,10 @@ ModifyWhitelistIpsResponse Client::modifyWhitelistIpsWithOptions(const ModifyWhi
 }
 
 /**
- * @summary 更新旗舰版白名单
+ * @summary Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ModifyWhitelistIpsRequest
  * @return ModifyWhitelistIpsResponse
@@ -3333,7 +3731,10 @@ ModifyWhitelistIpsResponse Client::modifyWhitelistIps(const ModifyWhitelistIpsRe
 }
 
 /**
- * @summary 重命名实例密钥
+ * @summary Renames an API key.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request RenameApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3372,7 +3773,10 @@ RenameApiKeyResponse Client::renameApiKeyWithOptions(const RenameApiKeyRequest &
 }
 
 /**
- * @summary 重命名实例密钥
+ * @summary Renames an API key.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request RenameApiKeyRequest
  * @return RenameApiKeyResponse
@@ -3383,7 +3787,10 @@ RenameApiKeyResponse Client::renameApiKey(const RenameApiKeyRequest &request) {
 }
 
 /**
- * @summary 重置apiKey
+ * @summary Resets an API key.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ResetApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3418,7 +3825,10 @@ ResetApiKeyResponse Client::resetApiKeyWithOptions(const ResetApiKeyRequest &req
 }
 
 /**
- * @summary 重置apiKey
+ * @summary Resets an API key.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ResetApiKeyRequest
  * @return ResetApiKeyResponse
@@ -3431,11 +3841,11 @@ ResetApiKeyResponse Client::resetApiKey(const ResetApiKeyRequest &request) {
 /**
  * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  You can only change the password of a RDS Supabase Dashboard user.
+ * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
  *
  * @param request ResetInstancePasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3480,11 +3890,11 @@ ResetInstancePasswordResponse Client::resetInstancePasswordWithOptions(const Res
 /**
  * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >  You can only change the password of a RDS Supabase Dashboard user.
+ * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
  *
  * @param request ResetInstancePasswordRequest
  * @return ResetInstancePasswordResponse
@@ -3497,9 +3907,9 @@ ResetInstancePasswordResponse Client::resetInstancePassword(const ResetInstanceP
 /**
  * @summary Restarts an RDS Supabase instance that is in the Running state.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request RestartInstanceRequest
@@ -3537,9 +3947,9 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstance
 /**
  * @summary Restarts an RDS Supabase instance that is in the Running state.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request RestartInstanceRequest
@@ -3553,9 +3963,9 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 /**
  * @summary Starts a stopped RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StartInstanceRequest
@@ -3593,9 +4003,9 @@ StartInstanceResponse Client::startInstanceWithOptions(const StartInstanceReques
 /**
  * @summary Starts a stopped RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StartInstanceRequest
@@ -3609,9 +4019,9 @@ StartInstanceResponse Client::startInstance(const StartInstanceRequest &request)
 /**
  * @summary Stops a running RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest
@@ -3653,9 +4063,9 @@ StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &
 /**
  * @summary Stops a running RDS Supabase instance.
  *
- * @description ### [](#)Supported database engine
+ * @description ### 适用引擎
  * RDS PostgreSQL
- * ### [](#)References
+ * ### 相关功能文档
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest
@@ -3667,7 +4077,10 @@ StopInstanceResponse Client::stopInstance(const StopInstanceRequest &request) {
 }
 
 /**
- * @summary 修改实例密钥配额
+ * @summary Modify the API KEY Quota
+ *
+ * @description ### Supported engine
+ * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param tmpReq UpdateApiKeyQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3708,7 +4121,10 @@ UpdateApiKeyQuotaResponse Client::updateApiKeyQuotaWithOptions(const UpdateApiKe
 }
 
 /**
- * @summary 修改实例密钥配额
+ * @summary Modify the API KEY Quota
+ *
+ * @description ### Supported engine
+ * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request UpdateApiKeyQuotaRequest
  * @return UpdateApiKeyQuotaResponse
@@ -3719,7 +4135,7 @@ UpdateApiKeyQuotaResponse Client::updateApiKeyQuota(const UpdateApiKeyQuotaReque
 }
 
 /**
- * @summary Updates the custom agent.
+ * @summary Updates a custom agent.
  *
  * @param tmpReq UpdateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3780,7 +4196,7 @@ UpdateCustomAgentResponse Client::updateCustomAgentWithOptions(const UpdateCusto
 }
 
 /**
- * @summary Updates the custom agent.
+ * @summary Updates a custom agent.
  *
  * @param request UpdateCustomAgentRequest
  * @return UpdateCustomAgentResponse
@@ -3791,7 +4207,10 @@ UpdateCustomAgentResponse Client::updateCustomAgent(const UpdateCustomAgentReque
 }
 
 /**
- * @summary 更新 API key 的告警百分比阈值
+ * @summary Updates the alert threshold percentage for API keys.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param tmpReq UpdateMOQuotaAlertThresholdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3832,7 +4251,10 @@ UpdateMOQuotaAlertThresholdResponse Client::updateMOQuotaAlertThresholdWithOptio
 }
 
 /**
- * @summary 更新 API key 的告警百分比阈值
+ * @summary Updates the alert threshold percentage for API keys.
+ *
+ * @description ### Applicable engines
+ * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request UpdateMOQuotaAlertThresholdRequest
  * @return UpdateMOQuotaAlertThresholdResponse

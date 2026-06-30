@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set the value to **ListCustomAgent**.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page number of the returned page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

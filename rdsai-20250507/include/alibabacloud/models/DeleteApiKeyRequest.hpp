@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Api Key
+    // The API key to delete.
     // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The query content.
+    // The ID of the conversation.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
-    // The ID of the parent message.
+    // The inputs for the task.
     shared_ptr<string> inputsShrink_ {};
-    // The ID of the conversation.
+    // The ID of the parent message.
     shared_ptr<string> parentMessageId_ {};
-    // The operation that you want to perform. Set the value to **ChatMessages**.
+    // The content of the query.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};

@@ -112,21 +112,21 @@ namespace Models
 
 
   protected:
-    // The answer.
+    // The content of the generated answer.
     shared_ptr<string> answer_ {};
     // The ID of the conversation.
     shared_ptr<string> conversationId_ {};
-    // The creation time of the conversation.
+    // The time when the message was created. This value is a UNIX timestamp.
     shared_ptr<int64_t> createdAt_ {};
-    // The event.
+    // The event associated with the message.
     shared_ptr<string> event_ {};
-    // The message ID.
+    // The ID of the message, which is distinct from `MessageId`.
     shared_ptr<string> id_ {};
-    // The message ID.
+    // The unique ID of the message.
     shared_ptr<string> messageId_ {};
     // The query mode.
     shared_ptr<string> mode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the asynchronous task.
     shared_ptr<string> taskId_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set the value to **GetCustomAgent**.
+    // The ID of the custom agent.
     shared_ptr<string> customAgentId_ {};
   };
 

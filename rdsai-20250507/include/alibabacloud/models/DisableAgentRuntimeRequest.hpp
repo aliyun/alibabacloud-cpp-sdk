@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // An idempotent parameter.
     shared_ptr<string> clientToken_ {};
+    // The ID of the AI application instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The ID of the region where the instance is located.
     shared_ptr<string> regionId_ {};
   };
 

@@ -45,6 +45,7 @@ namespace Models
     class SandboxTemplates : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const SandboxTemplates& obj) { 
+        DARABONBA_PTR_TO_JSON(CreatedBy, createdBy_);
         DARABONBA_PTR_TO_JSON(DefaultCpu, defaultCpu_);
         DARABONBA_PTR_TO_JSON(DefaultMemory, defaultMemory_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       };
       friend void from_json(const Darabonba::Json& j, SandboxTemplates& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreatedBy, createdBy_);
         DARABONBA_PTR_FROM_JSON(DefaultCpu, defaultCpu_);
         DARABONBA_PTR_FROM_JSON(DefaultMemory, defaultMemory_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -73,9 +75,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->defaultCpu_ == nullptr
-        && this->defaultMemory_ == nullptr && this->description_ == nullptr && this->enableVpcAccess_ == nullptr && this->name_ == nullptr && this->replicas_ == nullptr
-        && this->templateId_ == nullptr; };
+      virtual bool empty() const override { return this->createdBy_ == nullptr
+        && this->defaultCpu_ == nullptr && this->defaultMemory_ == nullptr && this->description_ == nullptr && this->enableVpcAccess_ == nullptr && this->name_ == nullptr
+        && this->replicas_ == nullptr && this->templateId_ == nullptr; };
+      // createdBy Field Functions 
+      bool hasCreatedBy() const { return this->createdBy_ != nullptr;};
+      void deleteCreatedBy() { this->createdBy_ = nullptr;};
+      inline string getCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
+      inline SandboxTemplates& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
+
+
       // defaultCpu Field Functions 
       bool hasDefaultCpu() const { return this->defaultCpu_ != nullptr;};
       void deleteDefaultCpu() { this->defaultCpu_ = nullptr;};
@@ -126,12 +135,19 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> createdBy_ {};
+      // The default number of CPUs for a sandbox created from this template.
       shared_ptr<string> defaultCpu_ {};
+      // The default memory size for a sandbox created from this template.
       shared_ptr<string> defaultMemory_ {};
+      // The description of the sandbox template.
       shared_ptr<string> description_ {};
+      // Specifies whether sandboxes created from this template can access resources in the VPC of the parent RDS Supabase instance.
       shared_ptr<string> enableVpcAccess_ {};
+      // The name of the sandbox template.
       shared_ptr<string> name_ {};
       shared_ptr<int64_t> replicas_ {};
+      // The ID of the sandbox template. Use this ID when you create a sandbox.
       shared_ptr<string> templateId_ {};
     };
 
@@ -190,13 +206,19 @@ namespace Models
 
 
   protected:
+    // This parameter is reserved.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries returned on the current page.
     shared_ptr<int64_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of sandbox templates.
     shared_ptr<vector<DescribeSandboxTemplatesResponseBody::SandboxTemplates>> sandboxTemplates_ {};
+    // The total number of entries that match the query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

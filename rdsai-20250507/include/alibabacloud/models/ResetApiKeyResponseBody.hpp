@@ -97,7 +97,9 @@ namespace Models
 
 
       protected:
+        // The custom API key.
         shared_ptr<string> apiKey_ {};
+        // The name of the API key.
         shared_ptr<string> keyName_ {};
       };
 
@@ -127,8 +129,11 @@ namespace Models
 
 
     protected:
+      // The new system API key.
       shared_ptr<string> apiKey_ {};
+      // The model invocation URL.
       shared_ptr<string> baseUrl_ {};
+      // A list of custom API keys.
       shared_ptr<vector<Data::CustomKeyList>> customKeyList_ {};
     };
 
@@ -165,10 +170,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ResetApiKeyResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

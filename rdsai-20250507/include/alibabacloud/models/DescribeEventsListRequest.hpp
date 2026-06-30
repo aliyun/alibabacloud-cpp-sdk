@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The start time of the query period.
+    // The end of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The region ID.
+    // The instance IDs. You can specify one or more instance IDs.
     shared_ptr<string> instanceIdList_ {};
-    // The number of records per page.
+    // The number of the page to return.
     shared_ptr<int64_t> pageNumber_ {};
-    // The end time of the query period.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
-    // The operation that you want to perform. Set the value to **DescribeEventsList**.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The RDS Supabase instances.
+    // The beginning of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

@@ -221,24 +221,24 @@ namespace Models
 
 
     protected:
-      // The response to the query.
+      // The AI-generated response to the query.
       shared_ptr<string> answer_ {};
-      // The ID of the conversation.
+      // The unique identifier for the conversation.
       shared_ptr<string> conversationId_ {};
-      // The creation time of the conversation.
+      // The Unix timestamp (in seconds) when the message was created.
       shared_ptr<string> createdAt_ {};
       shared_ptr<vector<Data::Events>> events_ {};
-      // The feedback.
+      // The user\\"s feedback on the answer, such as "like" or "dislike".
       shared_ptr<string> feedback_ {};
       shared_ptr<string> generationFinishedAt_ {};
       shared_ptr<string> generationStartedAt_ {};
       shared_ptr<string> generationStatus_ {};
-      // The message ID.
+      // The unique identifier for the message.
       shared_ptr<string> id_ {};
       shared_ptr<string> lastSentEntryId_ {};
-      // The query statement.
+      // The user\\"s query.
       shared_ptr<string> query_ {};
-      // The retriever resources.
+      // The resources that were retrieved to generate the answer.
       shared_ptr<vector<Darabonba::Json>> retrieverResources_ {};
       shared_ptr<string> streamKey_ {};
     };
@@ -276,13 +276,13 @@ namespace Models
 
 
   protected:
-    // The returned results.
+    // A list of message objects.
     shared_ptr<vector<GetMessagesResponseBody::Data>> data_ {};
-    // Indicates whether the current page is followed by a page.
+    // Indicates whether there are more messages to retrieve.
     shared_ptr<bool> hasMore_ {};
-    // The maximum number of entries to return.
+    // The value of the Limit parameter used for this request.
     shared_ptr<int64_t> limit_ {};
-    // The request ID.
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

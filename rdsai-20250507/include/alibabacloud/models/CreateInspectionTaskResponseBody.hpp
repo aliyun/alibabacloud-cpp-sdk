@@ -100,9 +100,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the result is returned.
+    // The response data.
     shared_ptr<CreateInspectionTaskResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

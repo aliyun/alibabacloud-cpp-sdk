@@ -84,18 +84,18 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set the value to **UpdateCustomAgent**.
+    // The agent ID.
     // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
-    // The system prompts.
+    // Specifies whether to enable tools.
     shared_ptr<bool> enableTools_ {};
-    // The ID of the agent.
+    // The name of the custom agent.
     shared_ptr<string> name_ {};
     shared_ptr<string> skillIdsShrink_ {};
-    // The name of the agent.
+    // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // Specifies whether to enable tools.
+    // The tools that the custom agent can use.
     shared_ptr<string> toolsShrink_ {};
   };
 

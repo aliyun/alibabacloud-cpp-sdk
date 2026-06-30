@@ -132,32 +132,44 @@ namespace Models
   protected:
     // The description of the scheduled inspection task.
     shared_ptr<string> description_ {};
-    // The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+    // The inspection frequency. Use commas (,) to separate multiple values. The default is DAILY. Valid values:
     // 
-    // *   DAILY
-    // *   Monday
-    // *   Tuesday
-    // *   Wednesday
-    // *   Thursday
-    // *   Friday
-    // *   Saturday \\*Sunday
+    // - DAILY: Every day
     // 
-    // ### [](#daily--dailymonday--daily-)Note: DAILY takes precedence over other values. For example, if you enter DAILY,Monday, the backend uses DAILY as the inspection frequency.
+    // - Monday: Monday
+    // 
+    // - Tuesday: Tuesday
+    // 
+    // - Wednesday: Wednesday
+    // 
+    // - Thursday: Thursday
+    // 
+    // - Friday: Friday
+    // 
+    // - Saturday: Saturday
+    // 
+    // - Sunday: Sunday
+    // 
+    // ### Note: DAILY overrides weekly values. For example, if you enter DAILY,Monday, the system uses DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
     shared_ptr<string> inspectionItems_ {};
-    // The IDs of the related instances. Separate multiple IDs with commas (,).
+    // The IDs of the instances for the task. Use commas (,) to separate multiple IDs.
     shared_ptr<string> instanceIds_ {};
-    // The name of the scheduled inspection task. The name cannot exceed 64 characters in length.
+    // The name of the scheduled inspection task. The maximum length is 64 characters.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
+    // The report language. The default value is zh-CN. Supported values: zh-CN, zh-TW, ja-JP, and en-US.
     shared_ptr<string> reportLanguage_ {};
+    // The ID of the region where the report is stored.
     shared_ptr<string> reportRegionId_ {};
+    // The type of the report.
     shared_ptr<string> reportType_ {};
-    // The time when the inspection task is executed. Specify the time in the ISO 8601 standard in the HH:mm:ssZ format. The time must be in UTC. Default value: 02:00 AM.
+    // The execution time for the scheduled inspection task. Specify the time in the HH:mm:ssZ format (UTC time). The default is 02:00:00Z.
     shared_ptr<string> startTime_ {};
-    // The inspection time range. The default value is the latest 24 hours. Valid values: 1 to 168. The maximum value is 7 days.
+    // The time range of data to inspect, in hours. Valid values are from 1 to 168 (7 days). The default is 24.
     shared_ptr<string> timeRange_ {};
   };
 

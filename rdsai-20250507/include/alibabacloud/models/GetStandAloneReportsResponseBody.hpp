@@ -144,19 +144,20 @@ namespace Models
 
 
     protected:
-      // The creation time of the inspection task.
+      // The time the inspection task was created.
       shared_ptr<string> createdTime_ {};
-      // The end time of the inspection. The time is in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The end time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
       shared_ptr<string> endTime_ {};
       shared_ptr<string> inspectionItems_ {};
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> reportLanguage_ {};
       shared_ptr<string> reportType_ {};
-      // The start time of the inspection. The time is in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The start time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
       shared_ptr<string> startTime_ {};
       // The status of the inspection task.
       shared_ptr<string> status_ {};
-      // The ID of the inspection report.
+      // The ID of the inspection task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -217,17 +218,17 @@ namespace Models
   protected:
     // The response message.
     shared_ptr<string> message_ {};
-    // The page number. Pages start from 1. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records on each page. Default value: 20. Maximum value: 100.
+    // The number of entries per page. The default value is 20 and the maximum value is 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The reports.
+    // A list of inspection reports.
     shared_ptr<vector<GetStandAloneReportsResponseBody::Reports>> reports_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of records.
+    // The total number of entries across all pages.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -119,7 +119,9 @@ namespace Models
 
 
       protected:
+        // The component status.
         shared_ptr<string> status_ {};
+        // The component type.
         shared_ptr<string> type_ {};
       };
 
@@ -214,28 +216,29 @@ namespace Models
 
 
     protected:
-      // The name of the AI application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The application type. Only **supabase** is supported. For more information, see [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
+      // The application type. The only supported value is **supabase**, which represents [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
       shared_ptr<string> appType_ {};
+      // The components of the instance.
       shared_ptr<vector<Instances::Components>> components_ {};
-      // The ID of the RDS for PostgreSQL instance with which the RDS Supabase instances are associated.
+      // The DB instance ID of the connected ApsaraDB RDS for PostgreSQL instance.
       shared_ptr<string> DBInstanceName_ {};
       // The instance type.
       shared_ptr<string> instanceClass_ {};
-      // The minor version number of RDS Supabase instance.
+      // The minor version of the AI application.
       shared_ptr<string> instanceMinorVersion_ {};
-      // The ID of the RDS Supabase instance.
+      // The ID of the application instance.
       shared_ptr<string> instanceName_ {};
-      // The public endpoint of the AI application.
+      // The public connection string.
       shared_ptr<string> publicConnectionString_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The instance status. For more information, see [Instance state table](https://help.aliyun.com/document_detail/2623972.html).
+      // The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/2623972.html).
       shared_ptr<string> status_ {};
-      // The ID of the vSwitch.
+      // The VSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The internal endpoint of the AI application.
+      // The VPC connection string.
       shared_ptr<string> vpcConnectionString_ {};
     };
 
@@ -286,13 +289,13 @@ namespace Models
 
 
   protected:
-    // The information about the RDS Supabase instances.
+    // A list of instances.
     shared_ptr<vector<DescribeAppInstancesResponseBody::Instances>> instances_ {};
-    // A reserved parameter. You do not need to specify this parameter.
+    // This parameter is reserved for future use.
     shared_ptr<int64_t> maxResults_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

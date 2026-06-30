@@ -104,7 +104,6 @@ namespace Models
   protected:
     shared_ptr<vector<ModifyAppInstanceResponseBody::Components>> components_ {};
     shared_ptr<string> instanceName_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

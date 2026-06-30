@@ -57,11 +57,14 @@ namespace Models
 
 
   protected:
-    // API KEY
+    // The API key to rename.
     // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The new name for the API key.
+    // 
     // This parameter is required.
     shared_ptr<string> keyName_ {};
   };

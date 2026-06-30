@@ -41,14 +41,18 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Inputs& obj) { 
         DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
+        DARABONBA_PTR_TO_JSON(EnableThinking, enableThinking_);
         DARABONBA_PTR_TO_JSON(Language, language_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ThinkEffort, thinkEffort_);
         DARABONBA_PTR_TO_JSON(Timezone, timezone_);
       };
       friend void from_json(const Darabonba::Json& j, Inputs& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
+        DARABONBA_PTR_FROM_JSON(EnableThinking, enableThinking_);
         DARABONBA_PTR_FROM_JSON(Language, language_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ThinkEffort, thinkEffort_);
         DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
       };
       Inputs() = default ;
@@ -63,12 +67,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->language_ == nullptr && this->regionId_ == nullptr && this->timezone_ == nullptr; };
+        && this->enableThinking_ == nullptr && this->language_ == nullptr && this->regionId_ == nullptr && this->thinkEffort_ == nullptr && this->timezone_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
       inline string getCustomAgentId() const { DARABONBA_PTR_GET_DEFAULT(customAgentId_, "") };
       inline Inputs& setCustomAgentId(string customAgentId) { DARABONBA_PTR_SET_VALUE(customAgentId_, customAgentId) };
+
+
+      // enableThinking Field Functions 
+      bool hasEnableThinking() const { return this->enableThinking_ != nullptr;};
+      void deleteEnableThinking() { this->enableThinking_ = nullptr;};
+      inline string getEnableThinking() const { DARABONBA_PTR_GET_DEFAULT(enableThinking_, "") };
+      inline Inputs& setEnableThinking(string enableThinking) { DARABONBA_PTR_SET_VALUE(enableThinking_, enableThinking) };
 
 
       // language Field Functions 
@@ -85,6 +96,13 @@ namespace Models
       inline Inputs& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // thinkEffort Field Functions 
+      bool hasThinkEffort() const { return this->thinkEffort_ != nullptr;};
+      void deleteThinkEffort() { this->thinkEffort_ = nullptr;};
+      inline string getThinkEffort() const { DARABONBA_PTR_GET_DEFAULT(thinkEffort_, "") };
+      inline Inputs& setThinkEffort(string thinkEffort) { DARABONBA_PTR_SET_VALUE(thinkEffort_, thinkEffort) };
+
+
       // timezone Field Functions 
       bool hasTimezone() const { return this->timezone_ != nullptr;};
       void deleteTimezone() { this->timezone_ = nullptr;};
@@ -93,9 +111,15 @@ namespace Models
 
 
     protected:
+      // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
+      shared_ptr<string> enableThinking_ {};
+      // The language of the conversation.
       shared_ptr<string> language_ {};
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
+      shared_ptr<string> thinkEffort_ {};
+      // The time zone. Default value: **Asia/Shanghai**.
       shared_ptr<string> timezone_ {};
     };
 
@@ -139,14 +163,14 @@ namespace Models
 
 
   protected:
-    // The query content.
+    // The ID of the conversation.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
-    // The ID of the parent message.
+    // The inputs for the task.
     shared_ptr<ChatMessagesRequest::Inputs> inputs_ {};
-    // The ID of the conversation.
+    // The ID of the parent message.
     shared_ptr<string> parentMessageId_ {};
-    // The operation that you want to perform. Set the value to **ChatMessages**.
+    // The content of the query.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};

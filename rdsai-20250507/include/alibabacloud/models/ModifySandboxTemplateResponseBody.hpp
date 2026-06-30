@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DISABLEAGENTRUNTIMERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DISABLEAGENTRUNTIMERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_MODIFYSANDBOXTEMPLATERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYSANDBOXTEMPLATERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace RdsAi20250507
 {
 namespace Models
 {
-  class DisableAgentRuntimeResponseBody : public Darabonba::Model {
+  class ModifySandboxTemplateResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DisableAgentRuntimeResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ModifySandboxTemplateResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, DisableAgentRuntimeResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ModifySandboxTemplateResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    DisableAgentRuntimeResponseBody() = default ;
-    DisableAgentRuntimeResponseBody(const DisableAgentRuntimeResponseBody &) = default ;
-    DisableAgentRuntimeResponseBody(DisableAgentRuntimeResponseBody &&) = default ;
-    DisableAgentRuntimeResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DisableAgentRuntimeResponseBody() = default ;
-    DisableAgentRuntimeResponseBody& operator=(const DisableAgentRuntimeResponseBody &) = default ;
-    DisableAgentRuntimeResponseBody& operator=(DisableAgentRuntimeResponseBody &&) = default ;
+    ModifySandboxTemplateResponseBody() = default ;
+    ModifySandboxTemplateResponseBody(const ModifySandboxTemplateResponseBody &) = default ;
+    ModifySandboxTemplateResponseBody(ModifySandboxTemplateResponseBody &&) = default ;
+    ModifySandboxTemplateResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifySandboxTemplateResponseBody() = default ;
+    ModifySandboxTemplateResponseBody& operator=(const ModifySandboxTemplateResponseBody &) = default ;
+    ModifySandboxTemplateResponseBody& operator=(ModifySandboxTemplateResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,18 @@ namespace Models
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
     inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
-    inline DisableAgentRuntimeResponseBody& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+    inline ModifySandboxTemplateResponseBody& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DisableAgentRuntimeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline ModifySandboxTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The ID of the AI application instance.
     shared_ptr<string> instanceName_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

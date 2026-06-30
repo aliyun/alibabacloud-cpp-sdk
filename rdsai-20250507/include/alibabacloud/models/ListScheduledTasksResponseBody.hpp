@@ -172,25 +172,32 @@ namespace Models
 
 
     protected:
-      // The creation time of the task.
+      // The time the task was created, in UTC.
       shared_ptr<string> createTime_ {};
-      // The description of the inspection task.
+      // The description of the inspection.
       shared_ptr<string> description_ {};
-      // The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+      // The inspection frequency. Multiple values are separated by commas. The default is DAILY. Valid values:
       // 
-      // *   DAILY
-      // *   Monday
-      // *   Tuesday
-      // *   Wednesday
-      // *   Thursday
-      // *   Friday
-      // *   Saturday
-      // *   Sunday
+      // - DAILY: Every day
       // 
-      // ### [](#daily--dailymonday--daily-)Note: DAILY takes precedence over other values. For example, if you set this parameter to DAILY,Monday, the backend will use DAILY as the inspection frequency.
+      // - Monday: Monday
+      // 
+      // - Tuesday: Tuesday
+      // 
+      // - Wednesday: Wednesday
+      // 
+      // - Thursday: Thursday
+      // 
+      // - Friday: Friday
+      // 
+      // - Saturday: Saturday
+      // 
+      // - Sunday: Sunday
+      // 
+      // ### Note: The DAILY setting overrides any specified days of the week. For example, if you specify DAILY,Monday, the inspection runs daily.
       shared_ptr<string> frequency_ {};
       shared_ptr<string> inspectionItems_ {};
-      // The number of instances covered by the task.
+      // The number of instances in the task.
       shared_ptr<int64_t> instanceCount_ {};
       // The name of the task.
       shared_ptr<string> name_ {};
@@ -199,9 +206,9 @@ namespace Models
       shared_ptr<string> reportType_ {};
       // The ID of the scheduled inspection configuration.
       shared_ptr<string> scheduledId_ {};
-      // The actual start time of the task.
+      // The task start time, in UTC.
       shared_ptr<string> taskStartTime_ {};
-      // The inspection time range. The default value is the latest 24 hours. Valid values: 1 to 168. The maximum value is 7 days.
+      // The inspection time range in hours. Default: 24. Valid values: 1 to 168.
       shared_ptr<string> timeRange_ {};
     };
 
@@ -264,15 +271,15 @@ namespace Models
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records returned on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of scheduled inspection tasks.
+    // A list of scheduled inspection tasks.
     shared_ptr<vector<ListScheduledTasksResponseBody::Schedules>> schedules_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of entries that are returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

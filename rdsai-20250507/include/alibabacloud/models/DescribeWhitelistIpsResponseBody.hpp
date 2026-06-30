@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The list of IP addresses and CIDR blocks on the whitelist.
       shared_ptr<string> ipWhitelist_ {};
     };
 
@@ -110,10 +112,13 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<DescribeWhitelistIpsResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

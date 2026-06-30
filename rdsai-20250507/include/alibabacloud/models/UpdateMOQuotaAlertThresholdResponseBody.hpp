@@ -99,11 +99,15 @@ namespace Models
 
 
     protected:
-      // API Key
+      // The API key.
       shared_ptr<string> apikey_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The API key name.
       shared_ptr<string> keyName_ {};
+      // The key type.
       shared_ptr<string> keyType_ {};
+      // The alert threshold percentage. For example, a value of 80 triggers an alert when usage reaches 80% of the usage quota. The alert is reset after the usage falls below this percentage.
       shared_ptr<int32_t> thresholdPercent_ {};
     };
 
@@ -133,9 +137,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result list.
     shared_ptr<vector<UpdateMOQuotaAlertThresholdResponseBody::Results>> results_ {};
+    // A value of `true` indicates that the request was successful.
     shared_ptr<bool> success_ {};
   };
 

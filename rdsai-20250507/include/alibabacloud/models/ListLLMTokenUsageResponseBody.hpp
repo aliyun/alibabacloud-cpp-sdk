@@ -214,7 +214,6 @@ namespace Models
     shared_ptr<int64_t> explicitCachedTokens_ {};
     shared_ptr<int64_t> implicitCachedTokens_ {};
     shared_ptr<int64_t> promptTokens_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<ListLLMTokenUsageResponseBody::TokenUsages>> tokenUsages_ {};
     shared_ptr<int64_t> totalTokens_ {};

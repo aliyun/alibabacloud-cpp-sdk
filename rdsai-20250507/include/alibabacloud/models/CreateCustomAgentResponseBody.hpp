@@ -170,9 +170,9 @@ namespace Models
 
 
   protected:
-    // The creation time of the agent.
+    // The creation time.
     shared_ptr<string> createdAt_ {};
-    // Indicates whether tools are enabled.
+    // Specifies whether to enable tools.
     shared_ptr<bool> enableTools_ {};
     // AgentId
     shared_ptr<string> id_ {};
@@ -181,9 +181,9 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<CreateCustomAgentResponseBody::Skills>> skills_ {};
-    // The system prompts.
+    // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The information about the tool.
+    // The tool information.
     shared_ptr<vector<string>> tools_ {};
   };
 

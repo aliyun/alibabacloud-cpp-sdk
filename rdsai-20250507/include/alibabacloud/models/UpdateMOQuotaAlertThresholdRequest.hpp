@@ -70,8 +70,9 @@ namespace Models
 
 
     protected:
-      // ApiKey
+      // The API key.
       shared_ptr<string> apikey_ {};
+      // The alert threshold percentage. For example, a value of 80 triggers an alert when usage reaches 80% of the usage quota. The alert is reset after the usage falls below this percentage.
       shared_ptr<int32_t> thresholdPercent_ {};
     };
 
@@ -94,8 +95,12 @@ namespace Models
 
 
   protected:
+    // A list of API keys.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateMOQuotaAlertThresholdRequest::Apikey>> apikey_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

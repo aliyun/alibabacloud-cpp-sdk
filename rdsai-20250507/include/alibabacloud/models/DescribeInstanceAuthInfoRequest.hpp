@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The region ID.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The operation that you want to perform. Set the value to **DescribeInstanceAuthInfo**.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

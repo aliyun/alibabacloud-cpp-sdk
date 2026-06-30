@@ -41,6 +41,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(BaseUrl, baseUrl_);
         DARABONBA_PTR_TO_JSON(CustomKeyList, customKeyList_);
+        DARABONBA_PTR_TO_JSON(DailyTokenQuota, dailyTokenQuota_);
         DARABONBA_PTR_TO_JSON(IsRateLimited, isRateLimited_);
         DARABONBA_PTR_TO_JSON(Page, page_);
         DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -51,6 +52,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(BaseUrl, baseUrl_);
         DARABONBA_PTR_FROM_JSON(CustomKeyList, customKeyList_);
+        DARABONBA_PTR_FROM_JSON(DailyTokenQuota, dailyTokenQuota_);
         DARABONBA_PTR_FROM_JSON(IsRateLimited, isRateLimited_);
         DARABONBA_PTR_FROM_JSON(Page, page_);
         DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -73,6 +75,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const CustomKeyList& obj) { 
           DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
+          DARABONBA_PTR_TO_JSON(DailyTokenQuota, dailyTokenQuota_);
           DARABONBA_PTR_TO_JSON(IsRateLimited, isRateLimited_);
           DARABONBA_PTR_TO_JSON(KeyName, keyName_);
           DARABONBA_PTR_TO_JSON(LimitRate, limitRate_);
@@ -82,6 +85,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, CustomKeyList& obj) { 
           DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
+          DARABONBA_PTR_FROM_JSON(DailyTokenQuota, dailyTokenQuota_);
           DARABONBA_PTR_FROM_JSON(IsRateLimited, isRateLimited_);
           DARABONBA_PTR_FROM_JSON(KeyName, keyName_);
           DARABONBA_PTR_FROM_JSON(LimitRate, limitRate_);
@@ -101,13 +105,20 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->isRateLimited_ == nullptr && this->keyName_ == nullptr && this->limitRate_ == nullptr && this->limitType_ == nullptr && this->thresholdPercent_ == nullptr
-        && this->tokenQuota_ == nullptr; };
+        && this->dailyTokenQuota_ == nullptr && this->isRateLimited_ == nullptr && this->keyName_ == nullptr && this->limitRate_ == nullptr && this->limitType_ == nullptr
+        && this->thresholdPercent_ == nullptr && this->tokenQuota_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
         inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
         inline CustomKeyList& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+        // dailyTokenQuota Field Functions 
+        bool hasDailyTokenQuota() const { return this->dailyTokenQuota_ != nullptr;};
+        void deleteDailyTokenQuota() { this->dailyTokenQuota_ = nullptr;};
+        inline int64_t getDailyTokenQuota() const { DARABONBA_PTR_GET_DEFAULT(dailyTokenQuota_, 0L) };
+        inline CustomKeyList& setDailyTokenQuota(int64_t dailyTokenQuota) { DARABONBA_PTR_SET_VALUE(dailyTokenQuota_, dailyTokenQuota) };
 
 
         // isRateLimited Field Functions 
@@ -153,19 +164,32 @@ namespace Models
 
 
       protected:
-        // API Key
+        // The API key.
         shared_ptr<string> apiKey_ {};
+        shared_ptr<int64_t> dailyTokenQuota_ {};
+        // Specifies if the API key is rate-limited.
         shared_ptr<bool> isRateLimited_ {};
+        // The key name.
         shared_ptr<string> keyName_ {};
+        // The limit, specified as a ratio in decimal format. This parameter is used when LimitType is ratio.
         shared_ptr<float> limitRate_ {};
+        // The limit type. Valid values:
+        // 
+        // - **fixed**: A fixed value.
+        // 
+        // - **ratio**: A percentage of the total quota.
+        // 
+        // - **auto**: The quota is allocated automatically.
         shared_ptr<string> limitType_ {};
+        // The alarm threshold percentage. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
         shared_ptr<int32_t> thresholdPercent_ {};
+        // The token quota.
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
       virtual bool empty() const override { return this->baseUrl_ == nullptr
-        && this->customKeyList_ == nullptr && this->isRateLimited_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->systemApiKey_ == nullptr
-        && this->thresholdPercent_ == nullptr && this->total_ == nullptr; };
+        && this->customKeyList_ == nullptr && this->dailyTokenQuota_ == nullptr && this->isRateLimited_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
+        && this->systemApiKey_ == nullptr && this->thresholdPercent_ == nullptr && this->total_ == nullptr; };
       // baseUrl Field Functions 
       bool hasBaseUrl() const { return this->baseUrl_ != nullptr;};
       void deleteBaseUrl() { this->baseUrl_ = nullptr;};
@@ -180,6 +204,13 @@ namespace Models
       inline vector<Data::CustomKeyList> getCustomKeyList() { DARABONBA_PTR_GET(customKeyList_, vector<Data::CustomKeyList>) };
       inline Data& setCustomKeyList(const vector<Data::CustomKeyList> & customKeyList) { DARABONBA_PTR_SET_VALUE(customKeyList_, customKeyList) };
       inline Data& setCustomKeyList(vector<Data::CustomKeyList> && customKeyList) { DARABONBA_PTR_SET_RVALUE(customKeyList_, customKeyList) };
+
+
+      // dailyTokenQuota Field Functions 
+      bool hasDailyTokenQuota() const { return this->dailyTokenQuota_ != nullptr;};
+      void deleteDailyTokenQuota() { this->dailyTokenQuota_ = nullptr;};
+      inline int64_t getDailyTokenQuota() const { DARABONBA_PTR_GET_DEFAULT(dailyTokenQuota_, 0L) };
+      inline Data& setDailyTokenQuota(int64_t dailyTokenQuota) { DARABONBA_PTR_SET_VALUE(dailyTokenQuota_, dailyTokenQuota) };
 
 
       // isRateLimited Field Functions 
@@ -225,13 +256,22 @@ namespace Models
 
 
     protected:
+      // The base URL for model calls.
       shared_ptr<string> baseUrl_ {};
+      // The custom API key list.
       shared_ptr<vector<Data::CustomKeyList>> customKeyList_ {};
+      shared_ptr<int64_t> dailyTokenQuota_ {};
+      // Specifies if the system-generated key is rate-limited.
       shared_ptr<bool> isRateLimited_ {};
+      // The page number.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The system-generated key.
       shared_ptr<string> systemApiKey_ {};
+      // The alarm threshold percentage for the SystemApiKey. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
       shared_ptr<int32_t> thresholdPercent_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -268,10 +308,13 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<ListApiKeysResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

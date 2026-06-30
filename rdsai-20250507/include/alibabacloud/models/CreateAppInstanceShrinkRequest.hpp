@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
       DARABONBA_PTR_TO_JSON(DashboardUsername, dashboardUsername_);
+      DARABONBA_PTR_TO_JSON(Database, database_);
       DARABONBA_PTR_TO_JSON(DatabasePassword, databasePassword_);
       DARABONBA_PTR_TO_JSON(InitializeWithExistingData, initializeWithExistingData_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
       DARABONBA_PTR_FROM_JSON(DashboardUsername, dashboardUsername_);
+      DARABONBA_PTR_FROM_JSON(Database, database_);
       DARABONBA_PTR_FROM_JSON(DatabasePassword, databasePassword_);
       DARABONBA_PTR_FROM_JSON(InitializeWithExistingData, initializeWithExistingData_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
@@ -61,8 +63,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->appType_ == nullptr && this->clientToken_ == nullptr && this->componentsShrink_ == nullptr && this->DBInstanceConfigShrink_ == nullptr && this->DBInstanceName_ == nullptr
-        && this->dashboardPassword_ == nullptr && this->dashboardUsername_ == nullptr && this->databasePassword_ == nullptr && this->initializeWithExistingData_ == nullptr && this->instanceClass_ == nullptr
-        && this->publicEndpointEnabled_ == nullptr && this->publicNetworkAccessEnabled_ == nullptr && this->RAGEnabled_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->dashboardPassword_ == nullptr && this->dashboardUsername_ == nullptr && this->database_ == nullptr && this->databasePassword_ == nullptr && this->initializeWithExistingData_ == nullptr
+        && this->instanceClass_ == nullptr && this->publicEndpointEnabled_ == nullptr && this->publicNetworkAccessEnabled_ == nullptr && this->RAGEnabled_ == nullptr && this->regionId_ == nullptr
+        && this->vSwitchId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -117,6 +120,13 @@ namespace Models
     void deleteDashboardUsername() { this->dashboardUsername_ = nullptr;};
     inline string getDashboardUsername() const { DARABONBA_PTR_GET_DEFAULT(dashboardUsername_, "") };
     inline CreateAppInstanceShrinkRequest& setDashboardUsername(string dashboardUsername) { DARABONBA_PTR_SET_VALUE(dashboardUsername_, dashboardUsername) };
+
+
+    // database Field Functions 
+    bool hasDatabase() const { return this->database_ != nullptr;};
+    void deleteDatabase() { this->database_ = nullptr;};
+    inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+    inline CreateAppInstanceShrinkRequest& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
 
 
     // databasePassword Field Functions 
@@ -184,6 +194,7 @@ namespace Models
     shared_ptr<string> appType_ {};
     // The name of the new AI application.
     shared_ptr<string> clientToken_ {};
+    // List of modules
     shared_ptr<string> componentsShrink_ {};
     // A reserved parameter.
     shared_ptr<string> DBInstanceConfigShrink_ {};
@@ -195,6 +206,7 @@ namespace Models
     // 
     // The password must be 8 to 32 characters in length and must contain at least three of the following characters: uppercase letters, lowercase letters, digits, and underscores (_).
     shared_ptr<string> dashboardUsername_ {};
+    shared_ptr<string> database_ {};
     // The idempotency token. The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     shared_ptr<string> databasePassword_ {};
     // Specifies whether to enable public endpoint.

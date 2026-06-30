@@ -23,6 +23,9 @@
 #include <alibabacloud/models/CreateInspectionTaskRequest.hpp>
 #include <alibabacloud/models/CreateInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateInspectionTaskResponse.hpp>
+#include <alibabacloud/models/CreateSandboxTemplateRequest.hpp>
+#include <alibabacloud/models/CreateSandboxTemplateResponseBody.hpp>
+#include <alibabacloud/models/CreateSandboxTemplateResponse.hpp>
 #include <alibabacloud/models/CreateScheduledTaskRequest.hpp>
 #include <alibabacloud/models/CreateScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateScheduledTaskResponse.hpp>
@@ -39,6 +42,9 @@
 #include <alibabacloud/models/DeleteCustomAgentRequest.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponse.hpp>
+#include <alibabacloud/models/DeleteSandboxTemplateRequest.hpp>
+#include <alibabacloud/models/DeleteSandboxTemplateResponseBody.hpp>
+#include <alibabacloud/models/DeleteSandboxTemplateResponse.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskRequest.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponse.hpp>
@@ -51,6 +57,9 @@
 #include <alibabacloud/models/DescribeAppInstancesRequest.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponseBody.hpp>
 #include <alibabacloud/models/DescribeAppInstancesResponse.hpp>
+#include <alibabacloud/models/DescribeCommonSandboxTemplatesRequest.hpp>
+#include <alibabacloud/models/DescribeCommonSandboxTemplatesResponseBody.hpp>
+#include <alibabacloud/models/DescribeCommonSandboxTemplatesResponse.hpp>
 #include <alibabacloud/models/DescribeEventsListRequest.hpp>
 #include <alibabacloud/models/DescribeEventsListResponseBody.hpp>
 #include <alibabacloud/models/DescribeEventsListResponse.hpp>
@@ -173,6 +182,9 @@
 #include <alibabacloud/models/ModifyMessagesFeedbacksRequest.hpp>
 #include <alibabacloud/models/ModifyMessagesFeedbacksResponseBody.hpp>
 #include <alibabacloud/models/ModifyMessagesFeedbacksResponse.hpp>
+#include <alibabacloud/models/ModifySandboxTemplateRequest.hpp>
+#include <alibabacloud/models/ModifySandboxTemplateResponseBody.hpp>
+#include <alibabacloud/models/ModifySandboxTemplateResponse.hpp>
 #include <alibabacloud/models/ModifyScheduledTaskRequest.hpp>
 #include <alibabacloud/models/ModifyScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/ModifyScheduledTaskResponse.hpp>

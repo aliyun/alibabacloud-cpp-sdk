@@ -75,11 +75,23 @@ namespace Models
 
 
   protected:
+    // The idempotence parameter.
     shared_ptr<string> clientToken_ {};
+    // The instance ID of the AI application.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // The security group ID used to create an endpoint.
+    // 
+    // **If not specified**: The system automatically creates a security group named **sg-aliyun-rds-created-supabase-sandbox** in the VPC where the instance resides. No manual operation is required.
+    // 
+    // **If specified**: Ensure that the specified security group allows the CIDR block of the VPC where the Supabase instance resides (both inbound and outbound directions must be allowed). Otherwise, network connectivity issues may occur.
+    // >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine capabilities, the system automatically creates the endpoint. When subsequent Supabase instances in the same VPC enable this capability, the existing endpoint is reused and no new endpoint is created.
     shared_ptr<string> securityGroupId_ {};
+    // The vSwitch ID used to create an endpoint. If this parameter is not specified, the vSwitch of the Supabase instance is used by default.
+    // >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine capabilities, the system automatically creates the endpoint. When subsequent Supabase instances in the same VPC enable this capability, the existing endpoint is reused and no new endpoint is created.
     shared_ptr<string> vSwitchId_ {};
   };
 
