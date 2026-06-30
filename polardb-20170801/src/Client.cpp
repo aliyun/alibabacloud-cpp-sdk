@@ -4145,7 +4145,7 @@ CreateDBLinkResponse Client::createDBLink(const CreateDBLinkRequest &request) {
 }
 
 /**
- * @summary Add read-only nodes to a PolarDB cluster.
+ * @summary Adds read-only nodes to a PolarDB cluster.
  *
  * @param request CreateDBNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4236,7 +4236,7 @@ CreateDBNodesResponse Client::createDBNodesWithOptions(const CreateDBNodesReques
 }
 
 /**
- * @summary Add read-only nodes to a PolarDB cluster.
+ * @summary Adds read-only nodes to a PolarDB cluster.
  *
  * @param request CreateDBNodesRequest
  * @return CreateDBNodesResponse
@@ -9349,7 +9349,7 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasks(const 
 }
 
 /**
- * @summary 查询该apikey的详细信息
+ * @summary Queries the details of a specified API key.
  *
  * @param request DescribeApikeyAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9392,7 +9392,7 @@ DescribeApikeyAttributeResponse Client::describeApikeyAttributeWithOptions(const
 }
 
 /**
- * @summary 查询该apikey的详细信息
+ * @summary Queries the details of a specified API key.
  *
  * @param request DescribeApikeyAttributeRequest
  * @return DescribeApikeyAttributeResponse
@@ -15987,6 +15987,106 @@ DescribePolarAgentUserSessionsResponse Client::describePolarAgentUserSessions(co
 }
 
 /**
+ * @summary Queries a PolarClaw Agent file.
+ *
+ * @param request DescribePolarClawAgentFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawAgentFileResponse
+ */
+DescribePolarClawAgentFileResponse Client::describePolarClawAgentFileWithOptions(const DescribePolarClawAgentFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawAgentFile"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawAgentFileResponse>();
+}
+
+/**
+ * @summary Queries a PolarClaw Agent file.
+ *
+ * @param request DescribePolarClawAgentFileRequest
+ * @return DescribePolarClawAgentFileResponse
+ */
+DescribePolarClawAgentFileResponse Client::describePolarClawAgentFile(const DescribePolarClawAgentFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawAgentFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the PolarClaw Agent tool catalog.
+ *
+ * @param request DescribePolarClawAgentToolsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawAgentToolsResponse
+ */
+DescribePolarClawAgentToolsResponse Client::describePolarClawAgentToolsWithOptions(const DescribePolarClawAgentToolsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasIncludePlugins()) {
+    query["IncludePlugins"] = request.getIncludePlugins();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawAgentTools"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawAgentToolsResponse>();
+}
+
+/**
+ * @summary Queries the PolarClaw Agent tool catalog.
+ *
+ * @param request DescribePolarClawAgentToolsRequest
+ * @return DescribePolarClawAgentToolsResponse
+ */
+DescribePolarClawAgentToolsResponse Client::describePolarClawAgentTools(const DescribePolarClawAgentToolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawAgentToolsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries all installed plug-ins and their status information under a specified application.
  *
  * @param tmpReq DescribePolarClawAgentsRequest
@@ -16260,6 +16360,52 @@ DescribePolarClawPluginsResponse Client::describePolarClawPluginsWithOptions(con
 DescribePolarClawPluginsResponse Client::describePolarClawPlugins(const DescribePolarClawPluginsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolarClawPluginsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a PolarClaw Skill.
+ *
+ * @param request DescribePolarClawSkillDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawSkillDetailResponse
+ */
+DescribePolarClawSkillDetailResponse Client::describePolarClawSkillDetailWithOptions(const DescribePolarClawSkillDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasSlug()) {
+    query["Slug"] = request.getSlug();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawSkillDetail"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawSkillDetailResponse>();
+}
+
+/**
+ * @summary Queries the details of a PolarClaw Skill.
+ *
+ * @param request DescribePolarClawSkillDetailRequest
+ * @return DescribePolarClawSkillDetailResponse
+ */
+DescribePolarClawSkillDetailResponse Client::describePolarClawSkillDetail(const DescribePolarClawSkillDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawSkillDetailWithOptions(request, runtime);
 }
 
 /**
@@ -19447,6 +19593,68 @@ InstallPolarClawPluginResponse Client::installPolarClawPluginWithOptions(const I
 InstallPolarClawPluginResponse Client::installPolarClawPlugin(const InstallPolarClawPluginRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return installPolarClawPluginWithOptions(request, runtime);
+}
+
+/**
+ * @summary Installs a PolarClaw Skill.
+ *
+ * @param request InstallPolarClawSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallPolarClawSkillResponse
+ */
+InstallPolarClawSkillResponse Client::installPolarClawSkillWithOptions(const InstallPolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasForce()) {
+    query["Force"] = request.getForce();
+  }
+
+  if (!!request.hasSkillVersion()) {
+    query["SkillVersion"] = request.getSkillVersion();
+  }
+
+  if (!!request.hasSlug()) {
+    query["Slug"] = request.getSlug();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  if (!!request.hasUrl()) {
+    query["Url"] = request.getUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InstallPolarClawSkill"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallPolarClawSkillResponse>();
+}
+
+/**
+ * @summary Installs a PolarClaw Skill.
+ *
+ * @param request InstallPolarClawSkillRequest
+ * @return InstallPolarClawSkillResponse
+ */
+InstallPolarClawSkillResponse Client::installPolarClawSkill(const InstallPolarClawSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return installPolarClawSkillWithOptions(request, runtime);
 }
 
 /**
@@ -23362,7 +23570,7 @@ ModifyDBEndpointAddressResponse Client::modifyDBEndpointAddress(const ModifyDBEn
 }
 
 /**
- * @summary Modifies the node specifications of a PolarDB cluster.
+ * @summary Changes the node specifications of a PolarDB cluster.
  *
  * @param request ModifyDBNodeClassRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23453,7 +23661,7 @@ ModifyDBNodeClassResponse Client::modifyDBNodeClassWithOptions(const ModifyDBNod
 }
 
 /**
- * @summary Modifies the node specifications of a PolarDB cluster.
+ * @summary Changes the node specifications of a PolarDB cluster.
  *
  * @param request ModifyDBNodeClassRequest
  * @return ModifyDBNodeClassResponse
@@ -26506,6 +26714,56 @@ SearchMemoriesResponse Client::searchMemories(const SearchMemoriesRequest &reque
 }
 
 /**
+ * @summary Searches for PolarClaw Skills.
+ *
+ * @param request SearchPolarClawSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchPolarClawSkillsResponse
+ */
+SearchPolarClawSkillsResponse Client::searchPolarClawSkillsWithOptions(const SearchPolarClawSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchPolarClawSkills"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchPolarClawSkillsResponse>();
+}
+
+/**
+ * @summary Searches for PolarClaw Skills.
+ *
+ * @param request SearchPolarClawSkillsRequest
+ * @return SearchPolarClawSkillsResponse
+ */
+SearchPolarClawSkillsResponse Client::searchPolarClawSkills(const SearchPolarClawSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchPolarClawSkillsWithOptions(request, runtime);
+}
+
+/**
  * @summary Sets file quota rules for specific directories in a PolarFS instance.
  *
  * @description ## Request
@@ -27224,7 +27482,7 @@ UpdateExtensionsResponse Client::updateExtensions(const UpdateExtensionsRequest 
 }
 
 /**
- * @summary Update PolarClaw Agent
+ * @summary Updates a PolarClaw agent.
  *
  * @param tmpReq UpdatePolarClawAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27297,7 +27555,7 @@ UpdatePolarClawAgentResponse Client::updatePolarClawAgentWithOptions(const Updat
 }
 
 /**
- * @summary Update PolarClaw Agent
+ * @summary Updates a PolarClaw agent.
  *
  * @param request UpdatePolarClawAgentRequest
  * @return UpdatePolarClawAgentResponse
@@ -27305,6 +27563,138 @@ UpdatePolarClawAgentResponse Client::updatePolarClawAgentWithOptions(const Updat
 UpdatePolarClawAgentResponse Client::updatePolarClawAgent(const UpdatePolarClawAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updatePolarClawAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the skills of a PolarClaw Agent.
+ *
+ * @param tmpReq UpdatePolarClawAgentSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePolarClawAgentSkillsResponse
+ */
+UpdatePolarClawAgentSkillsResponse Client::updatePolarClawAgentSkillsWithOptions(const UpdatePolarClawAgentSkillsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePolarClawAgentSkillsShrinkRequest request = UpdatePolarClawAgentSkillsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSkills()) {
+    request.setSkillsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSkills(), "Skills", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasSkillsShrink()) {
+    query["Skills"] = request.getSkillsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePolarClawAgentSkills"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePolarClawAgentSkillsResponse>();
+}
+
+/**
+ * @summary Updates the skills of a PolarClaw Agent.
+ *
+ * @param request UpdatePolarClawAgentSkillsRequest
+ * @return UpdatePolarClawAgentSkillsResponse
+ */
+UpdatePolarClawAgentSkillsResponse Client::updatePolarClawAgentSkills(const UpdatePolarClawAgentSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePolarClawAgentSkillsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the tool configuration of a PolarClaw Agent.
+ *
+ * @param tmpReq UpdatePolarClawAgentToolsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePolarClawAgentToolsResponse
+ */
+UpdatePolarClawAgentToolsResponse Client::updatePolarClawAgentToolsWithOptions(const UpdatePolarClawAgentToolsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePolarClawAgentToolsShrinkRequest request = UpdatePolarClawAgentToolsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAllow()) {
+    request.setAllowShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAllow(), "Allow", "json"));
+  }
+
+  if (!!tmpReq.hasAlsoAllow()) {
+    request.setAlsoAllowShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAlsoAllow(), "AlsoAllow", "json"));
+  }
+
+  if (!!tmpReq.hasDeny()) {
+    request.setDenyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeny(), "Deny", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAllowShrink()) {
+    query["Allow"] = request.getAllowShrink();
+  }
+
+  if (!!request.hasAlsoAllowShrink()) {
+    query["AlsoAllow"] = request.getAlsoAllowShrink();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDenyShrink()) {
+    query["Deny"] = request.getDenyShrink();
+  }
+
+  if (!!request.hasProfile()) {
+    query["Profile"] = request.getProfile();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePolarClawAgentTools"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePolarClawAgentToolsResponse>();
+}
+
+/**
+ * @summary Updates the tool configuration of a PolarClaw Agent.
+ *
+ * @param request UpdatePolarClawAgentToolsRequest
+ * @return UpdatePolarClawAgentToolsResponse
+ */
+UpdatePolarClawAgentToolsResponse Client::updatePolarClawAgentTools(const UpdatePolarClawAgentToolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePolarClawAgentToolsWithOptions(request, runtime);
 }
 
 /**
@@ -27421,6 +27811,70 @@ UpdatePolarClawCronJobResponse Client::updatePolarClawCronJobWithOptions(const U
 UpdatePolarClawCronJobResponse Client::updatePolarClawCronJob(const UpdatePolarClawCronJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updatePolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the PolarClaw Skill configuration.
+ *
+ * @param tmpReq UpdatePolarClawSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePolarClawSkillResponse
+ */
+UpdatePolarClawSkillResponse Client::updatePolarClawSkillWithOptions(const UpdatePolarClawSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePolarClawSkillShrinkRequest request = UpdatePolarClawSkillShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEnv()) {
+    request.setEnvShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnv(), "Env", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasEnvShrink()) {
+    query["Env"] = request.getEnvShrink();
+  }
+
+  if (!!request.hasSkillKey()) {
+    query["SkillKey"] = request.getSkillKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePolarClawSkill"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePolarClawSkillResponse>();
+}
+
+/**
+ * @summary Updates the PolarClaw Skill configuration.
+ *
+ * @param request UpdatePolarClawSkillRequest
+ * @return UpdatePolarClawSkillResponse
+ */
+UpdatePolarClawSkillResponse Client::updatePolarClawSkill(const UpdatePolarClawSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePolarClawSkillWithOptions(request, runtime);
 }
 
 /**

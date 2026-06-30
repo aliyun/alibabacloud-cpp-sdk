@@ -192,18 +192,31 @@ namespace Models
 
 
       protected:
+        // The dimension reference ID, which is the ConsumerId.
         shared_ptr<string> dimensionRefId_ {};
+        // The statistics dimension. The value is typically Consumer.
         shared_ptr<string> dimensionType_ {};
+        // The gateway instance ID.
         shared_ptr<string> gwClusterId_ {};
+        // The number of cache tokens for the current month.
         shared_ptr<string> monthlyCacheToken_ {};
+        // The cost points consumed for the current month.
         shared_ptr<string> monthlyCostPoints_ {};
+        // The number of input tokens for the current month.
         shared_ptr<string> monthlyInputToken_ {};
+        // The number of output tokens for the current month.
         shared_ptr<string> monthlyOutputToken_ {};
+        // The number of tokens for the current month.
         shared_ptr<string> monthlyToken_ {};
+        // The cumulative number of cache tokens.
         shared_ptr<string> totalCacheToken_ {};
+        // The cumulative cost points consumed.
         shared_ptr<string> totalCostPoints_ {};
+        // The cumulative number of input tokens.
         shared_ptr<string> totalInputToken_ {};
+        // The cumulative number of output tokens.
         shared_ptr<string> totalOutputToken_ {};
+        // The cumulative number of tokens.
         shared_ptr<string> totalToken_ {};
       };
 
@@ -309,14 +322,23 @@ namespace Models
 
 
       protected:
+        // The API key.
         shared_ptr<string> apiKey_ {};
+        // The user group ID.
         shared_ptr<string> consumerGroupId_ {};
+        // The consumer ID.
         shared_ptr<string> consumerId_ {};
+        // The consumer tag.
         shared_ptr<string> consumerTag_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The gateway instance ID.
         shared_ptr<string> gwClusterId_ {};
+        // The last modification time.
         shared_ptr<string> modifyTime_ {};
+        // The consumer name.
         shared_ptr<string> name_ {};
+        // The consumer status.
         shared_ptr<string> status_ {};
       };
 
@@ -341,7 +363,9 @@ namespace Models
 
 
     protected:
+      // The consumer information.
       shared_ptr<Items::Consumer> consumer_ {};
+      // The usage statistics for the consumer.
       shared_ptr<vector<Items::UsageStatistics>> usageStatistics_ {};
     };
 
@@ -364,7 +388,9 @@ namespace Models
 
 
   protected:
+    // The list of consumer objects.
     shared_ptr<vector<DescribeApikeyAttributeResponseBody::Items>> items_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,10 +66,18 @@ namespace Models
 
 
   protected:
+    // The plaintext API key.
+    // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: **30**, **50**, and **100**.
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

@@ -117,7 +117,9 @@ namespace Models
 
 
       protected:
+        // The fallback model list.
         shared_ptr<vector<string>> fallbacks_ {};
+        // The primary model.
         shared_ptr<string> primary_ {};
       };
 
@@ -190,7 +192,7 @@ namespace Models
         shared_ptr<string> avatar_ {};
         // The avatar URL.
         shared_ptr<string> avatarUrl_ {};
-        // The emoji identifier in Unicode encoding format such as U+1F99E, or a direct emoji character.
+        // The emoji identifier in Unicode format such as U+1F99E, or a direct emoji character.
         shared_ptr<string> emoji_ {};
         // The identity name.
         shared_ptr<string> name_ {};
@@ -263,10 +265,15 @@ namespace Models
 
 
       protected:
+        // Indicates whether the file is missing.
         shared_ptr<bool> missing_ {};
+        // The file name.
         shared_ptr<string> name_ {};
+        // The file path.
         shared_ptr<string> path_ {};
+        // The file size, in bytes.
         shared_ptr<int64_t> size_ {};
+        // The last updated timestamp, in milliseconds.
         shared_ptr<int64_t> updatedAtMs_ {};
       };
 
@@ -338,16 +345,21 @@ namespace Models
 
 
     protected:
+      // Indicates whether this is the default agent.
       shared_ptr<bool> default_ {};
+      // The agent file list.
       shared_ptr<vector<Agents::Files>> files_ {};
       // Agent ID
       shared_ptr<string> id_ {};
       // The identity information.
       shared_ptr<Agents::Identity> identity_ {};
+      // The model configuration.
       shared_ptr<Agents::Model> model_ {};
-      // The display name of the agent.
+      // The agent display name.
       shared_ptr<string> name_ {};
+      // The list of skills available to the agent.
       shared_ptr<vector<string>> skills_ {};
+      // The working directory path.
       shared_ptr<string> workspace_ {};
     };
 

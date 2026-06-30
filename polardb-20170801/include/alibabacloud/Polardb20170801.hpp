@@ -1006,7 +1006,7 @@ namespace Polardb20170801
       Models::CreateDBLinkResponse createDBLink(const Models::CreateDBLinkRequest &request);
 
       /**
-       * @summary Add read-only nodes to a PolarDB cluster.
+       * @summary Adds read-only nodes to a PolarDB cluster.
        *
        * @param request CreateDBNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1015,7 +1015,7 @@ namespace Polardb20170801
       Models::CreateDBNodesResponse createDBNodesWithOptions(const Models::CreateDBNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add read-only nodes to a PolarDB cluster.
+       * @summary Adds read-only nodes to a PolarDB cluster.
        *
        * @param request CreateDBNodesRequest
        * @return CreateDBNodesResponse
@@ -2475,7 +2475,7 @@ namespace Polardb20170801
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasks(const Models::DescribeActiveOperationTasksRequest &request);
 
       /**
-       * @summary 查询该apikey的详细信息
+       * @summary Queries the details of a specified API key.
        *
        * @param request DescribeApikeyAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2484,7 +2484,7 @@ namespace Polardb20170801
       Models::DescribeApikeyAttributeResponse describeApikeyAttributeWithOptions(const Models::DescribeApikeyAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询该apikey的详细信息
+       * @summary Queries the details of a specified API key.
        *
        * @param request DescribeApikeyAttributeRequest
        * @return DescribeApikeyAttributeResponse
@@ -4247,6 +4247,40 @@ namespace Polardb20170801
       Models::DescribePolarAgentUserSessionsResponse describePolarAgentUserSessions(const Models::DescribePolarAgentUserSessionsRequest &request);
 
       /**
+       * @summary Queries a PolarClaw Agent file.
+       *
+       * @param request DescribePolarClawAgentFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawAgentFileResponse
+       */
+      Models::DescribePolarClawAgentFileResponse describePolarClawAgentFileWithOptions(const Models::DescribePolarClawAgentFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a PolarClaw Agent file.
+       *
+       * @param request DescribePolarClawAgentFileRequest
+       * @return DescribePolarClawAgentFileResponse
+       */
+      Models::DescribePolarClawAgentFileResponse describePolarClawAgentFile(const Models::DescribePolarClawAgentFileRequest &request);
+
+      /**
+       * @summary Queries the PolarClaw Agent tool catalog.
+       *
+       * @param request DescribePolarClawAgentToolsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawAgentToolsResponse
+       */
+      Models::DescribePolarClawAgentToolsResponse describePolarClawAgentToolsWithOptions(const Models::DescribePolarClawAgentToolsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the PolarClaw Agent tool catalog.
+       *
+       * @param request DescribePolarClawAgentToolsRequest
+       * @return DescribePolarClawAgentToolsResponse
+       */
+      Models::DescribePolarClawAgentToolsResponse describePolarClawAgentTools(const Models::DescribePolarClawAgentToolsRequest &request);
+
+      /**
        * @summary Queries all installed plug-ins and their status information under a specified application.
        *
        * @param tmpReq DescribePolarClawAgentsRequest
@@ -4346,6 +4380,23 @@ namespace Polardb20170801
        * @return DescribePolarClawPluginsResponse
        */
       Models::DescribePolarClawPluginsResponse describePolarClawPlugins(const Models::DescribePolarClawPluginsRequest &request);
+
+      /**
+       * @summary Queries the details of a PolarClaw Skill.
+       *
+       * @param request DescribePolarClawSkillDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawSkillDetailResponse
+       */
+      Models::DescribePolarClawSkillDetailResponse describePolarClawSkillDetailWithOptions(const Models::DescribePolarClawSkillDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a PolarClaw Skill.
+       *
+       * @param request DescribePolarClawSkillDetailRequest
+       * @return DescribePolarClawSkillDetailResponse
+       */
+      Models::DescribePolarClawSkillDetailResponse describePolarClawSkillDetail(const Models::DescribePolarClawSkillDetailRequest &request);
 
       /**
        * @summary Queries the status of a PolarClaw asynchronous task.
@@ -5242,6 +5293,23 @@ namespace Polardb20170801
        * @return InstallPolarClawPluginResponse
        */
       Models::InstallPolarClawPluginResponse installPolarClawPlugin(const Models::InstallPolarClawPluginRequest &request);
+
+      /**
+       * @summary Installs a PolarClaw Skill.
+       *
+       * @param request InstallPolarClawSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallPolarClawSkillResponse
+       */
+      Models::InstallPolarClawSkillResponse installPolarClawSkillWithOptions(const Models::InstallPolarClawSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Installs a PolarClaw Skill.
+       *
+       * @param request InstallPolarClawSkillRequest
+       * @return InstallPolarClawSkillResponse
+       */
+      Models::InstallPolarClawSkillResponse installPolarClawSkill(const Models::InstallPolarClawSkillRequest &request);
 
       /**
        * @summary Queries a list of orders.
@@ -6209,7 +6277,7 @@ namespace Polardb20170801
       Models::ModifyDBEndpointAddressResponse modifyDBEndpointAddress(const Models::ModifyDBEndpointAddressRequest &request);
 
       /**
-       * @summary Modifies the node specifications of a PolarDB cluster.
+       * @summary Changes the node specifications of a PolarDB cluster.
        *
        * @param request ModifyDBNodeClassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6218,7 +6286,7 @@ namespace Polardb20170801
       Models::ModifyDBNodeClassResponse modifyDBNodeClassWithOptions(const Models::ModifyDBNodeClassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the node specifications of a PolarDB cluster.
+       * @summary Changes the node specifications of a PolarDB cluster.
        *
        * @param request ModifyDBNodeClassRequest
        * @return ModifyDBNodeClassResponse
@@ -7020,6 +7088,23 @@ namespace Polardb20170801
       Models::SearchMemoriesResponse searchMemories(const Models::SearchMemoriesRequest &request);
 
       /**
+       * @summary Searches for PolarClaw Skills.
+       *
+       * @param request SearchPolarClawSkillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchPolarClawSkillsResponse
+       */
+      Models::SearchPolarClawSkillsResponse searchPolarClawSkillsWithOptions(const Models::SearchPolarClawSkillsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Searches for PolarClaw Skills.
+       *
+       * @param request SearchPolarClawSkillsRequest
+       * @return SearchPolarClawSkillsResponse
+       */
+      Models::SearchPolarClawSkillsResponse searchPolarClawSkills(const Models::SearchPolarClawSkillsRequest &request);
+
+      /**
        * @summary Sets file quota rules for specific directories in a PolarFS instance.
        *
        * @description ## Request
@@ -7214,7 +7299,7 @@ namespace Polardb20170801
       Models::UpdateExtensionsResponse updateExtensions(const Models::UpdateExtensionsRequest &request);
 
       /**
-       * @summary Update PolarClaw Agent
+       * @summary Updates a PolarClaw agent.
        *
        * @param tmpReq UpdatePolarClawAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7223,12 +7308,46 @@ namespace Polardb20170801
       Models::UpdatePolarClawAgentResponse updatePolarClawAgentWithOptions(const Models::UpdatePolarClawAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update PolarClaw Agent
+       * @summary Updates a PolarClaw agent.
        *
        * @param request UpdatePolarClawAgentRequest
        * @return UpdatePolarClawAgentResponse
        */
       Models::UpdatePolarClawAgentResponse updatePolarClawAgent(const Models::UpdatePolarClawAgentRequest &request);
+
+      /**
+       * @summary Updates the skills of a PolarClaw Agent.
+       *
+       * @param tmpReq UpdatePolarClawAgentSkillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePolarClawAgentSkillsResponse
+       */
+      Models::UpdatePolarClawAgentSkillsResponse updatePolarClawAgentSkillsWithOptions(const Models::UpdatePolarClawAgentSkillsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the skills of a PolarClaw Agent.
+       *
+       * @param request UpdatePolarClawAgentSkillsRequest
+       * @return UpdatePolarClawAgentSkillsResponse
+       */
+      Models::UpdatePolarClawAgentSkillsResponse updatePolarClawAgentSkills(const Models::UpdatePolarClawAgentSkillsRequest &request);
+
+      /**
+       * @summary Updates the tool configuration of a PolarClaw Agent.
+       *
+       * @param tmpReq UpdatePolarClawAgentToolsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePolarClawAgentToolsResponse
+       */
+      Models::UpdatePolarClawAgentToolsResponse updatePolarClawAgentToolsWithOptions(const Models::UpdatePolarClawAgentToolsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the tool configuration of a PolarClaw Agent.
+       *
+       * @param request UpdatePolarClawAgentToolsRequest
+       * @return UpdatePolarClawAgentToolsResponse
+       */
+      Models::UpdatePolarClawAgentToolsResponse updatePolarClawAgentTools(const Models::UpdatePolarClawAgentToolsRequest &request);
 
       /**
        * @summary Updates the configuration of a PolarClaw scheduled task, allowing for partial field updates.
@@ -7246,6 +7365,23 @@ namespace Polardb20170801
        * @return UpdatePolarClawCronJobResponse
        */
       Models::UpdatePolarClawCronJobResponse updatePolarClawCronJob(const Models::UpdatePolarClawCronJobRequest &request);
+
+      /**
+       * @summary Updates the PolarClaw Skill configuration.
+       *
+       * @param tmpReq UpdatePolarClawSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePolarClawSkillResponse
+       */
+      Models::UpdatePolarClawSkillResponse updatePolarClawSkillWithOptions(const Models::UpdatePolarClawSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the PolarClaw Skill configuration.
+       *
+       * @param request UpdatePolarClawSkillRequest
+       * @return UpdatePolarClawSkillResponse
+       */
+      Models::UpdatePolarClawSkillResponse updatePolarClawSkill(const Models::UpdatePolarClawSkillRequest &request);
 
       /**
        * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.

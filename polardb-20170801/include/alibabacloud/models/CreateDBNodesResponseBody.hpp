@@ -102,7 +102,7 @@ namespace Models
 
 
   protected:
-    // The database cluster ID.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<CreateDBNodesResponseBody::DBNodeIds> DBNodeIds_ {};
     // The order ID.
