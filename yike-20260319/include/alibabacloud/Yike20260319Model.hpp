@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_YIKE20260319MODEL_HPP_
 #define ALIBABACLOUD_YIKE20260319MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/EntityMediaBasicInfo.hpp>
 #include <alibabacloud/models/AddYikeProductionMembersRequest.hpp>
 #include <alibabacloud/models/AddYikeProductionMembersResponseBody.hpp>
 #include <alibabacloud/models/AddYikeProductionMembersResponse.hpp>
@@ -38,6 +39,9 @@
 #include <alibabacloud/models/GetYikeAssetMediaInfoRequest.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponse.hpp>
+#include <alibabacloud/models/GetYikeProjectExportJobRequest.hpp>
+#include <alibabacloud/models/GetYikeProjectExportJobResponseBody.hpp>
+#include <alibabacloud/models/GetYikeProjectExportJobResponse.hpp>
 #include <alibabacloud/models/GetYikePromptExpansionVoiceFixJobRequest.hpp>
 #include <alibabacloud/models/GetYikePromptExpansionVoiceFixJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikePromptExpansionVoiceFixJobResponse.hpp>
@@ -86,6 +90,9 @@
 #include <alibabacloud/models/SubmitYikeAvatarNarratorJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeAvatarNarratorJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeAvatarNarratorJobResponse.hpp>
+#include <alibabacloud/models/SubmitYikeProjectExportJobRequest.hpp>
+#include <alibabacloud/models/SubmitYikeProjectExportJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitYikeProjectExportJobResponse.hpp>
 #include <alibabacloud/models/SubmitYikePromptExpansionVoiceFixJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikePromptExpansionVoiceFixJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikePromptExpansionVoiceFixJobResponse.hpp>

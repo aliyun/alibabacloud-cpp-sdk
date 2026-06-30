@@ -75,14 +75,28 @@ namespace Models
 
 
   protected:
+    // The nickname of the sub-account user.
+    // 
     // This parameter is required.
     shared_ptr<string> nickname_ {};
+    // The password of the sub-account.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // The associated projects. Multiple project IDs are supported, separated by commas.
+    // > - A single user can be added to multiple projects.
+    // 
     // This parameter is required.
     shared_ptr<string> productionIds_ {};
+    // The username prefix of the sub-account. Rules:
+    // 
+    // - The prefix can be up to 50 characters in length and must be unique within the workspace.
+    // - The system automatically generates the login name in the following format: {UserNamePrefix}.{Workspace Code}@{Alibaba Cloud UID}.yikeai.
+    // 
     // This parameter is required.
     shared_ptr<string> userNamePrefix_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

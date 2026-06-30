@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
+    // The project ID. If this parameter is not specified, the default project is queried.
     shared_ptr<string> productionId_ {};
   };
 

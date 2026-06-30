@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete the media asset information and files. Valid values:
+    // - true (default): logical deletion. The media asset is moved to the recycle bin, and the files are retained.
+    // - false: deletes the media asset information and files.
     shared_ptr<bool> logicDelete_ {};
+    // The ICE media asset ID.
     shared_ptr<string> mediaIds_ {};
   };
 

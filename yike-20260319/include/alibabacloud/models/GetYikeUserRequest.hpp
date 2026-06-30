@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The username of the WonderClip sub-account.
     shared_ptr<string> userName_ {};
   };
 

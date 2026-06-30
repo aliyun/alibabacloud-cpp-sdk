@@ -129,13 +129,21 @@ namespace Models
 
 
     protected:
+      // The authentication method.
       shared_ptr<string> auth_ {};
+      // The cover URL.
       shared_ptr<string> coverUrl_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The username of the creator.
       shared_ptr<string> createUserName_ {};
+      // The project description.
       shared_ptr<string> description_ {};
+      // The project ID.
       shared_ptr<string> productionId_ {};
+      // The project title.
       shared_ptr<string> title_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -172,9 +180,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The list of projects.
     shared_ptr<vector<ListYikeProductionsResponseBody::ProductionList>> productionList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

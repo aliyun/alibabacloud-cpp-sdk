@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The media asset ID.
+    // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};
   };

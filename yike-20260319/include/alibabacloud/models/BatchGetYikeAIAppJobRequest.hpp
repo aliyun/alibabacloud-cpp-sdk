@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The list of task IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> jobIds_ {};
   };
 

@@ -21,7 +21,7 @@ namespace Yike20260319
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 增加一刻项目成员
+       * @summary Adds a member to a Yike project.
        *
        * @param request AddYikeProductionMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Yike20260319
       Models::AddYikeProductionMembersResponse addYikeProductionMembersWithOptions(const Models::AddYikeProductionMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加一刻项目成员
+       * @summary Adds a member to a Yike project.
        *
        * @param request AddYikeProductionMembersRequest
        * @return AddYikeProductionMembersResponse
@@ -38,7 +38,7 @@ namespace Yike20260319
       Models::AddYikeProductionMembersResponse addYikeProductionMembers(const Models::AddYikeProductionMembersRequest &request);
 
       /**
-       * @summary 增加用户积分
+       * @summary Increases user credits.
        *
        * @param request AddYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Yike20260319
       Models::AddYikeUserCreditResponse addYikeUserCreditWithOptions(const Models::AddYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加用户积分
+       * @summary Increases user credits.
        *
        * @param request AddYikeUserCreditRequest
        * @return AddYikeUserCreditResponse
@@ -55,7 +55,7 @@ namespace Yike20260319
       Models::AddYikeUserCreditResponse addYikeUserCredit(const Models::AddYikeUserCreditRequest &request);
 
       /**
-       * @summary 批量获取一刻AI应用生成任务
+       * @summary Retrieves multiple Yike AI application generation tasks in a batch.
        *
        * @param request BatchGetYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Yike20260319
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJobWithOptions(const Models::BatchGetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取一刻AI应用生成任务
+       * @summary Retrieves multiple Yike AI application generation tasks in a batch.
        *
        * @param request BatchGetYikeAIAppJobRequest
        * @return BatchGetYikeAIAppJobResponse
@@ -72,7 +72,7 @@ namespace Yike20260319
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJob(const Models::BatchGetYikeAIAppJobRequest &request);
 
       /**
-       * @summary 批量获取媒资信息
+       * @summary Retrieves information about multiple media assets in a batch.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Yike20260319
       Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfosWithOptions(const Models::BatchGetYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取媒资信息
+       * @summary Retrieves information about multiple media assets in a batch.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @return BatchGetYikeAssetMediaInfosResponse
@@ -89,7 +89,7 @@ namespace Yike20260319
       Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfos(const Models::BatchGetYikeAssetMediaInfosRequest &request);
 
       /**
-       * @summary 获取一刻媒资上传凭证
+       * @summary Retrieves the upload credential for a media asset.
        *
        * @param request CreateYikeAssetUploadRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Yike20260319
       Models::CreateYikeAssetUploadResponse createYikeAssetUploadWithOptions(const Models::CreateYikeAssetUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻媒资上传凭证
+       * @summary Retrieves the upload credential for a media asset.
        *
        * @param request CreateYikeAssetUploadRequest
        * @return CreateYikeAssetUploadResponse
@@ -106,7 +106,7 @@ namespace Yike20260319
       Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
 
       /**
-       * @summary 创建一刻项目
+       * @summary Creates a project.
        *
        * @param request CreateYikeProductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Yike20260319
       Models::CreateYikeProductionResponse createYikeProductionWithOptions(const Models::CreateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一刻项目
+       * @summary Creates a project.
        *
        * @param request CreateYikeProductionRequest
        * @return CreateYikeProductionResponse
@@ -123,7 +123,7 @@ namespace Yike20260319
       Models::CreateYikeProductionResponse createYikeProduction(const Models::CreateYikeProductionRequest &request);
 
       /**
-       * @summary 创建一刻子用户
+       * @summary Creates a sub-account user in WonderClip.
        *
        * @param request CreateYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace Yike20260319
       Models::CreateYikeUserResponse createYikeUserWithOptions(const Models::CreateYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一刻子用户
+       * @summary Creates a sub-account user in WonderClip.
        *
        * @param request CreateYikeUserRequest
        * @return CreateYikeUserResponse
@@ -140,7 +140,7 @@ namespace Yike20260319
       Models::CreateYikeUserResponse createYikeUser(const Models::CreateYikeUserRequest &request);
 
       /**
-       * @summary 创建工作室
+       * @summary Creates a workspace.
        *
        * @param request CreateYikeWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace Yike20260319
       Models::CreateYikeWorkspaceResponse createYikeWorkspaceWithOptions(const Models::CreateYikeWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工作室
+       * @summary Creates a workspace.
        *
        * @param request CreateYikeWorkspaceRequest
        * @return CreateYikeWorkspaceResponse
@@ -157,7 +157,7 @@ namespace Yike20260319
       Models::CreateYikeWorkspaceResponse createYikeWorkspace(const Models::CreateYikeWorkspaceRequest &request);
 
       /**
-       * @summary 删除媒资信息
+       * @summary Deletes media asset information.
        *
        * @param request DeleteYikeAssetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace Yike20260319
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfosWithOptions(const Models::DeleteYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除媒资信息
+       * @summary Deletes media asset information.
        *
        * @param request DeleteYikeAssetMediaInfosRequest
        * @return DeleteYikeAssetMediaInfosResponse
@@ -174,7 +174,7 @@ namespace Yike20260319
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfos(const Models::DeleteYikeAssetMediaInfosRequest &request);
 
       /**
-       * @summary 获取一刻AI应用任务
+       * @summary Retrieves the details of an AI application task.
        *
        * @param request GetYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace Yike20260319
       Models::GetYikeAIAppJobResponse getYikeAIAppJobWithOptions(const Models::GetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻AI应用任务
+       * @summary Retrieves the details of an AI application task.
        *
        * @param request GetYikeAIAppJobRequest
        * @return GetYikeAIAppJobResponse
@@ -191,7 +191,7 @@ namespace Yike20260319
       Models::GetYikeAIAppJobResponse getYikeAIAppJob(const Models::GetYikeAIAppJobRequest &request);
 
       /**
-       * @summary 查询一刻口播视频生成任务
+       * @summary Queries an agent task.
        *
        * @param request GetYikeAgentJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +200,7 @@ namespace Yike20260319
       Models::GetYikeAgentJobResponse getYikeAgentJobWithOptions(const Models::GetYikeAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一刻口播视频生成任务
+       * @summary Queries an agent task.
        *
        * @param request GetYikeAgentJobRequest
        * @return GetYikeAgentJobResponse
@@ -208,7 +208,7 @@ namespace Yike20260319
       Models::GetYikeAgentJobResponse getYikeAgentJob(const Models::GetYikeAgentJobRequest &request);
 
       /**
-       * @summary 获取一刻媒资内容信息
+       * @summary Retrieves the content information of a media asset.
        *
        * @param request GetYikeAssetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace Yike20260319
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfoWithOptions(const Models::GetYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻媒资内容信息
+       * @summary Retrieves the content information of a media asset.
        *
        * @param request GetYikeAssetMediaInfoRequest
        * @return GetYikeAssetMediaInfoResponse
@@ -225,7 +225,24 @@ namespace Yike20260319
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
 
       /**
-       * @summary 查询一刻提示词扩写和音频修复视频生成任务
+       * @summary Queries the information and results of an editing project export task.
+       *
+       * @param request GetYikeProjectExportJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeProjectExportJobResponse
+       */
+      Models::GetYikeProjectExportJobResponse getYikeProjectExportJobWithOptions(const Models::GetYikeProjectExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the information and results of an editing project export task.
+       *
+       * @param request GetYikeProjectExportJobRequest
+       * @return GetYikeProjectExportJobResponse
+       */
+      Models::GetYikeProjectExportJobResponse getYikeProjectExportJob(const Models::GetYikeProjectExportJobRequest &request);
+
+      /**
+       * @summary Queries a Yike prompt enhancement and audio repair video generation task.
        *
        * @param request GetYikePromptExpansionVoiceFixJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +251,7 @@ namespace Yike20260319
       Models::GetYikePromptExpansionVoiceFixJobResponse getYikePromptExpansionVoiceFixJobWithOptions(const Models::GetYikePromptExpansionVoiceFixJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一刻提示词扩写和音频修复视频生成任务
+       * @summary Queries a Yike prompt enhancement and audio repair video generation task.
        *
        * @param request GetYikePromptExpansionVoiceFixJobRequest
        * @return GetYikePromptExpansionVoiceFixJobResponse
@@ -242,7 +259,7 @@ namespace Yike20260319
       Models::GetYikePromptExpansionVoiceFixJobResponse getYikePromptExpansionVoiceFixJob(const Models::GetYikePromptExpansionVoiceFixJobRequest &request);
 
       /**
-       * @summary 获取一刻故事板任务
+       * @summary Retrieves a storyboard task.
        *
        * @param request GetYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +268,7 @@ namespace Yike20260319
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJobWithOptions(const Models::GetYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻故事板任务
+       * @summary Retrieves a storyboard task.
        *
        * @param request GetYikeStoryboardJobRequest
        * @return GetYikeStoryboardJobResponse
@@ -259,7 +276,7 @@ namespace Yike20260319
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
 
       /**
-       * @summary 获取一刻子用户信息
+       * @summary Retrieves information about a WonderClip sub-account.
        *
        * @param request GetYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +285,7 @@ namespace Yike20260319
       Models::GetYikeUserResponse getYikeUserWithOptions(const Models::GetYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻子用户信息
+       * @summary Retrieves information about a WonderClip sub-account.
        *
        * @param request GetYikeUserRequest
        * @return GetYikeUserResponse
@@ -276,7 +293,7 @@ namespace Yike20260319
       Models::GetYikeUserResponse getYikeUser(const Models::GetYikeUserRequest &request);
 
       /**
-       * @summary 查询一刻用户积分
+       * @summary Queries the credit balance of a WonderClip user.
        *
        * @param request GetYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +302,7 @@ namespace Yike20260319
       Models::GetYikeUserCreditResponse getYikeUserCreditWithOptions(const Models::GetYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一刻用户积分
+       * @summary Queries the credit balance of a WonderClip user.
        *
        * @param request GetYikeUserCreditRequest
        * @return GetYikeUserCreditResponse
@@ -293,7 +310,7 @@ namespace Yike20260319
       Models::GetYikeUserCreditResponse getYikeUserCredit(const Models::GetYikeUserCreditRequest &request);
 
       /**
-       * @summary 查询一刻口播视频生成任务
+       * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
        *
        * @param request GetYikeVoiceNarratorJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +319,7 @@ namespace Yike20260319
       Models::GetYikeVoiceNarratorJobResponse getYikeVoiceNarratorJobWithOptions(const Models::GetYikeVoiceNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一刻口播视频生成任务
+       * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
        *
        * @param request GetYikeVoiceNarratorJobRequest
        * @return GetYikeVoiceNarratorJobResponse
@@ -310,7 +327,7 @@ namespace Yike20260319
       Models::GetYikeVoiceNarratorJobResponse getYikeVoiceNarratorJob(const Models::GetYikeVoiceNarratorJobRequest &request);
 
       /**
-       * @summary 获取一刻文件夹列表
+       * @summary Retrieves the list of folders.
        *
        * @param request ListYikeAssetFoldersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +336,7 @@ namespace Yike20260319
       Models::ListYikeAssetFoldersResponse listYikeAssetFoldersWithOptions(const Models::ListYikeAssetFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻文件夹列表
+       * @summary Retrieves the list of folders.
        *
        * @param request ListYikeAssetFoldersRequest
        * @return ListYikeAssetFoldersResponse
@@ -327,7 +344,7 @@ namespace Yike20260319
       Models::ListYikeAssetFoldersResponse listYikeAssetFolders(const Models::ListYikeAssetFoldersRequest &request);
 
       /**
-       * @summary 获取一刻项目列表
+       * @summary Retrieves a list of Yike projects.
        *
        * @param request ListYikeProductionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +353,7 @@ namespace Yike20260319
       Models::ListYikeProductionsResponse listYikeProductionsWithOptions(const Models::ListYikeProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻项目列表
+       * @summary Retrieves a list of Yike projects.
        *
        * @param request ListYikeProductionsRequest
        * @return ListYikeProductionsResponse
@@ -344,7 +361,7 @@ namespace Yike20260319
       Models::ListYikeProductionsResponse listYikeProductions(const Models::ListYikeProductionsRequest &request);
 
       /**
-       * @summary 获取一刻工作室列表
+       * @summary Get Yike Workspace List
        *
        * @param request ListYikeWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +370,7 @@ namespace Yike20260319
       Models::ListYikeWorkspacesResponse listYikeWorkspacesWithOptions(const Models::ListYikeWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻工作室列表
+       * @summary Get Yike Workspace List
        *
        * @param request ListYikeWorkspacesRequest
        * @return ListYikeWorkspacesResponse
@@ -361,7 +378,7 @@ namespace Yike20260319
       Models::ListYikeWorkspacesResponse listYikeWorkspaces(const Models::ListYikeWorkspacesRequest &request);
 
       /**
-       * @summary 检查应用参数是否合法
+       * @summary Checks whether the application parameters are valid.
        *
        * @param request PrecheckYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +387,7 @@ namespace Yike20260319
       Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJobWithOptions(const Models::PrecheckYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查应用参数是否合法
+       * @summary Checks whether the application parameters are valid.
        *
        * @param request PrecheckYikeAIAppJobRequest
        * @return PrecheckYikeAIAppJobResponse
@@ -378,7 +395,7 @@ namespace Yike20260319
       Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJob(const Models::PrecheckYikeAIAppJobRequest &request);
 
       /**
-       * @summary 注册一刻媒资
+       * @summary Registers a Yike media asset.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +404,7 @@ namespace Yike20260319
       Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfoWithOptions(const Models::RegisterYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 注册一刻媒资
+       * @summary Registers a Yike media asset.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @return RegisterYikeAssetMediaInfoResponse
@@ -395,7 +412,7 @@ namespace Yike20260319
       Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfo(const Models::RegisterYikeAssetMediaInfoRequest &request);
 
       /**
-       * @summary 故事板任务恢复继续执行任务
+       * @summary Resumes the execution of a storyboard task.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +421,7 @@ namespace Yike20260319
       Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJobWithOptions(const Models::ResumeYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 故事板任务恢复继续执行任务
+       * @summary Resumes the execution of a storyboard task.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @return ResumeYikeStoryboardJobResponse
@@ -412,7 +429,7 @@ namespace Yike20260319
       Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJob(const Models::ResumeYikeStoryboardJobRequest &request);
 
       /**
-       * @summary 配置一刻事件回调
+       * @summary Configures event callbacks for the business system.
        *
        * @param request SetYikeCallbackConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +438,7 @@ namespace Yike20260319
       Models::SetYikeCallbackConfigResponse setYikeCallbackConfigWithOptions(const Models::SetYikeCallbackConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置一刻事件回调
+       * @summary Configures event callbacks for the business system.
        *
        * @param request SetYikeCallbackConfigRequest
        * @return SetYikeCallbackConfigResponse
@@ -429,7 +446,7 @@ namespace Yike20260319
       Models::SetYikeCallbackConfigResponse setYikeCallbackConfig(const Models::SetYikeCallbackConfigRequest &request);
 
       /**
-       * @summary 设置用户角色
+       * @summary Sets the user role.
        *
        * @param request SetYikeUserRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +455,7 @@ namespace Yike20260319
       Models::SetYikeUserRoleResponse setYikeUserRoleWithOptions(const Models::SetYikeUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置用户角色
+       * @summary Sets the user role.
        *
        * @param request SetYikeUserRoleRequest
        * @return SetYikeUserRoleResponse
@@ -446,7 +463,7 @@ namespace Yike20260319
       Models::SetYikeUserRoleResponse setYikeUserRole(const Models::SetYikeUserRoleRequest &request);
 
       /**
-       * @summary 扣减用户积分
+       * @summary Reclaims credits from a user.
        *
        * @param request SubYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +472,7 @@ namespace Yike20260319
       Models::SubYikeUserCreditResponse subYikeUserCreditWithOptions(const Models::SubYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 扣减用户积分
+       * @summary Reclaims credits from a user.
        *
        * @param request SubYikeUserCreditRequest
        * @return SubYikeUserCreditResponse
@@ -463,7 +480,7 @@ namespace Yike20260319
       Models::SubYikeUserCreditResponse subYikeUserCredit(const Models::SubYikeUserCreditRequest &request);
 
       /**
-       * @summary 提交一刻AI应用任务
+       * @summary Submits an AI application task to Yike AI.
        *
        * @param request SubmitYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +489,7 @@ namespace Yike20260319
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJobWithOptions(const Models::SubmitYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻AI应用任务
+       * @summary Submits an AI application task to Yike AI.
        *
        * @param request SubmitYikeAIAppJobRequest
        * @return SubmitYikeAIAppJobResponse
@@ -480,7 +497,10 @@ namespace Yike20260319
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
 
       /**
-       * @summary 提交一刻数字人口播视频生成任务
+       * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+       *
+       * @description ## Operation description
+       * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitYikeAvatarNarratorJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +509,10 @@ namespace Yike20260319
       Models::SubmitYikeAvatarNarratorJobResponse submitYikeAvatarNarratorJobWithOptions(const Models::SubmitYikeAvatarNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻数字人口播视频生成任务
+       * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+       *
+       * @description ## Operation description
+       * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitYikeAvatarNarratorJobRequest
        * @return SubmitYikeAvatarNarratorJobResponse
@@ -497,7 +520,24 @@ namespace Yike20260319
       Models::SubmitYikeAvatarNarratorJobResponse submitYikeAvatarNarratorJob(const Models::SubmitYikeAvatarNarratorJobRequest &request);
 
       /**
-       * @summary 提交一刻提示词扩写和音频修复视频生成任务
+       * @summary Submits an online editing project export task that supports exporting pure audio and SRT subtitles.
+       *
+       * @param request SubmitYikeProjectExportJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitYikeProjectExportJobResponse
+       */
+      Models::SubmitYikeProjectExportJobResponse submitYikeProjectExportJobWithOptions(const Models::SubmitYikeProjectExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits an online editing project export task that supports exporting pure audio and SRT subtitles.
+       *
+       * @param request SubmitYikeProjectExportJobRequest
+       * @return SubmitYikeProjectExportJobResponse
+       */
+      Models::SubmitYikeProjectExportJobResponse submitYikeProjectExportJob(const Models::SubmitYikeProjectExportJobRequest &request);
+
+      /**
+       * @summary Submits a video generation task with prompt enhancement and audio repair.
        *
        * @param request SubmitYikePromptExpansionVoiceFixJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +546,7 @@ namespace Yike20260319
       Models::SubmitYikePromptExpansionVoiceFixJobResponse submitYikePromptExpansionVoiceFixJobWithOptions(const Models::SubmitYikePromptExpansionVoiceFixJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻提示词扩写和音频修复视频生成任务
+       * @summary Submits a video generation task with prompt enhancement and audio repair.
        *
        * @param request SubmitYikePromptExpansionVoiceFixJobRequest
        * @return SubmitYikePromptExpansionVoiceFixJobResponse
@@ -514,7 +554,9 @@ namespace Yike20260319
       Models::SubmitYikePromptExpansionVoiceFixJobResponse submitYikePromptExpansionVoiceFixJob(const Models::SubmitYikePromptExpansionVoiceFixJobRequest &request);
 
       /**
-       * @summary 提交一刻故事板全链路编排任务
+       * @summary Submits a storyboard generation task.
+       *
+       * @description Ensure that your credits remain above 5,000 when calling this operation. Insufficient credits may cause the task to be interrupted.
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +565,9 @@ namespace Yike20260319
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJobWithOptions(const Models::SubmitYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻故事板全链路编排任务
+       * @summary Submits a storyboard generation task.
+       *
+       * @description Ensure that your credits remain above 5,000 when calling this operation. Insufficient credits may cause the task to be interrupted.
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @return SubmitYikeStoryboardJobResponse
@@ -531,7 +575,7 @@ namespace Yike20260319
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJob(const Models::SubmitYikeStoryboardJobRequest &request);
 
       /**
-       * @summary 提交一刻口播视频生成任务
+       * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
        *
        * @param request SubmitYikeVoiceNarratorJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +584,7 @@ namespace Yike20260319
       Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJobWithOptions(const Models::SubmitYikeVoiceNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻口播视频生成任务
+       * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
        *
        * @param request SubmitYikeVoiceNarratorJobRequest
        * @return SubmitYikeVoiceNarratorJobResponse
@@ -548,7 +592,7 @@ namespace Yike20260319
       Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJob(const Models::SubmitYikeVoiceNarratorJobRequest &request);
 
       /**
-       * @summary 更新一刻项目
+       * @summary Update a Yike project
        *
        * @param request UpdateYikeProductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +601,7 @@ namespace Yike20260319
       Models::UpdateYikeProductionResponse updateYikeProductionWithOptions(const Models::UpdateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新一刻项目
+       * @summary Update a Yike project
        *
        * @param request UpdateYikeProductionRequest
        * @return UpdateYikeProductionResponse
@@ -565,7 +609,7 @@ namespace Yike20260319
       Models::UpdateYikeProductionResponse updateYikeProduction(const Models::UpdateYikeProductionRequest &request);
 
       /**
-       * @summary 修改一刻项目成员权限
+       * @summary Modifies the permissions of a Yike project member.
        *
        * @param request UpdateYikeProductionMemberAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +618,7 @@ namespace Yike20260319
       Models::UpdateYikeProductionMemberAuthResponse updateYikeProductionMemberAuthWithOptions(const Models::UpdateYikeProductionMemberAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改一刻项目成员权限
+       * @summary Modifies the permissions of a Yike project member.
        *
        * @param request UpdateYikeProductionMemberAuthRequest
        * @return UpdateYikeProductionMemberAuthResponse

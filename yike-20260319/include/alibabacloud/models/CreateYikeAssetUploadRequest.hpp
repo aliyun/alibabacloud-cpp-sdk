@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The file name extension.
+    // 
     // This parameter is required.
     shared_ptr<string> fileExt_ {};
+    // The file type. Default value: Media.
     shared_ptr<string> fileType_ {};
   };
 

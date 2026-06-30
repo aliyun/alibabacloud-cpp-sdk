@@ -48,8 +48,16 @@ namespace Models
 
 
   protected:
+    // The callback configuration. CallbackEventList supports multiple events, including:
+    // - EventType: the event type. Valid values:
+    //   - UserCreated: The user is created.
+    //   - UserCreditAdded: Credits are added to the user.
+    // - UserData: a JSON object that contains user-defined data.
+    // 
     // This parameter is required.
     shared_ptr<string> callbackConfig_ {};
+    // The HTTP callback URL.
+    // 
     // This parameter is required.
     shared_ptr<string> callbackUrl_ {};
   };

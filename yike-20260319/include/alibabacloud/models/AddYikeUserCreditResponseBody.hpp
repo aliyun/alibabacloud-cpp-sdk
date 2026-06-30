@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
+    // The error code returned when the increase fails. Valid values:
+    // - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: The primary account does not have sufficient credit balance.
     shared_ptr<string> errorCode_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
+    // Indicates whether the credits were increased successfully.
     shared_ptr<bool> result_ {};
   };
 

@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> productionId_ {};
+    // The project title.
     shared_ptr<string> title_ {};
   };
 

@@ -57,7 +57,9 @@ namespace Models
 
 
   protected:
+    // The total allocated credits.
     shared_ptr<string> creditTotal_ {};
+    // The remaining available credits.
     shared_ptr<string> creditUsage_ {};
     // RequestId
     shared_ptr<string> requestId_ {};

@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The project ID.
     shared_ptr<string> productionId_ {};
     // RequestId
     shared_ptr<string> requestId_ {};

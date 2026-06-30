@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The number of credits to increase. The value must be greater than 0.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> credit_ {};
+    // The ID of the sub-account user.
+    // 
     // This parameter is required.
     shared_ptr<string> yikeUserId_ {};
   };

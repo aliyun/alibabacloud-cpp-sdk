@@ -50,6 +50,7 @@ namespace Models
   protected:
     // RequestId
     shared_ptr<string> requestId_ {};
+    // Indicates whether the permissions were set successfully.
     shared_ptr<bool> result_ {};
   };
 

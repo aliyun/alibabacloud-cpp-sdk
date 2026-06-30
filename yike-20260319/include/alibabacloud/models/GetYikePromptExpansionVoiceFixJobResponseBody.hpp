@@ -156,16 +156,44 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The error code. This parameter is returned when the task is in the Failed state.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The task ID.
     shared_ptr<string> jobId_ {};
+    // The task parameters, in JSON format. The following fields are included:
+    // - model (String, required): The model name. Example: happyhorse-1.0-r2v.
+    // - input (Object, required): The input data object.
+    //   - prompt (String, required): The prompt content. The maximum length is 10,000 characters.
+    //   - media (Array(Object), required): The list of media materials used to specify reference images and audio.
+    //     - type (String, required): The input media type. Valid values: reference_image and reference_audio.
+    //     - url (String, required): The URL of the input media.
+    // - parameters (Object, required): The video generation parameter object.
+    //   - duration (Integer, required): The video duration in seconds. The value must be a positive integer. Valid values: 5 to 15.
+    //   - ratio (String, required): The aspect ratio. Valid values: 16:9, 9:16, 4:3, 3:4, and 1:1.
+    //   - resolution (String, required): The video resolution. Valid values: 720P and 1080P.
+    //   - specialEdition (Bool, optional): The cost-effective edition parameter. This parameter can be set to true only when the resolution is 1080P.
+    //   - skipPromptEnhancer (Bool, optional): Specifies whether to skip prompt enhancement. Default value: false.
+    //   - skipVoiceResync (Bool, optional): Specifies whether to skip audio repair. Default value: false.
     shared_ptr<string> jobParams_ {};
+    // The task result of the node.
     shared_ptr<vector<GetYikePromptExpansionVoiceFixJobResponseBody::JobResult>> jobResult_ {};
+    // The task status. Valid values:
+    // 
+    // - **Succeeded**: The task is processed.
+    // 
+    // - **Failed**: The task failed.
+    // 
+    // - **Running**: The task is being processed.
     shared_ptr<string> jobStatus_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The custom user parameter.
     shared_ptr<string> userData_ {};
   };
 

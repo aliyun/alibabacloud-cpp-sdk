@@ -104,9 +104,13 @@ namespace Models
 
 
     protected:
+      // The online editing project ID.
       shared_ptr<string> editingProjectId_ {};
+      // The asset ID.
       shared_ptr<string> mediaId_ {};
+      // The output language.
       shared_ptr<string> outputLanguage_ {};
+      // The download URL.
       shared_ptr<string> outputUrl_ {};
     };
 
@@ -186,15 +190,33 @@ namespace Models
 
 
   protected:
+    // The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> createTime_ {};
+    // The error code. This parameter is returned only when the task is in the Failed state.
     shared_ptr<string> errorCode_ {};
+    // The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> finishTime_ {};
+    // The task ID.
     shared_ptr<string> jobId_ {};
+    // The input parameters of the task. The value is a JSON string.
     shared_ptr<string> jobParams_ {};
+    // The task results. This parameter is valid only when the task is in the Succeeded state.
     shared_ptr<vector<GetYikeAgentJobResponseBody::JobResult>> jobResult_ {};
+    // The task status. Valid values:
+    // 
+    // - Running
+    // - Succeeded
+    // - Failed.
     shared_ptr<string> jobStatus_ {};
+    // The agent task type. Valid values:
+    // 
+    // - VoiceNarrator: narration video without a digital human.
+    // - AvatarNarrator: narration video with a digital human.
+    // - VideoClone: video cloning.
     shared_ptr<string> jobType_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The custom user data that was passed in when the task was created. The value is returned as-is.
     shared_ptr<string> userData_ {};
   };
 

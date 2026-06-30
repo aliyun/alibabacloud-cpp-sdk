@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The AI application ID.
     shared_ptr<string> appId_ {};
+    // The input parameters for running the AI application. The value is a JSON-serialized string.
     shared_ptr<string> appParams_ {};
   };
 

@@ -118,12 +118,19 @@ namespace Models
 
 
     protected:
+      // Workspace code
       shared_ptr<string> code_ {};
+      // Creation time.
       shared_ptr<string> createTime_ {};
+      // Default project ID
       shared_ptr<string> defaultProductionId_ {};
+      // Workspace status
       shared_ptr<string> status_ {};
+      // Title
       shared_ptr<string> title_ {};
+      // Number of users in the workspace
       shared_ptr<string> userCount_ {};
+      // Workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -155,7 +162,9 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Total number of workspaces
     shared_ptr<int32_t> totalCount_ {};
+    // Workspace list
     shared_ptr<vector<ListYikeWorkspacesResponseBody::WorkspaceList>> workspaceList_ {};
   };
 

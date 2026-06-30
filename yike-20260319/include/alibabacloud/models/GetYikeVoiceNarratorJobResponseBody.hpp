@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The online editing project ID.
       shared_ptr<string> editingProjectId_ {};
+      // The asset ID.
       shared_ptr<string> mediaId_ {};
+      // The output language.
       shared_ptr<string> outputLanguage_ {};
+      // The download URL.
       shared_ptr<string> outputUrl_ {};
     };
 
@@ -159,12 +163,22 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is returned only when JobStatus is Failed.
     shared_ptr<string> errorCode_ {};
+    // The task ID.
     shared_ptr<string> jobId_ {};
+    // The input parameters of the task, in JSON string format.
     shared_ptr<string> jobParams_ {};
+    // The task results. This parameter is valid only when JobStatus is Succeeded.
     shared_ptr<vector<GetYikeVoiceNarratorJobResponseBody::JobResult>> jobResult_ {};
+    // The task status. Valid values:
+    // - Running
+    // - Succeeded
+    // - Failed.
     shared_ptr<string> jobStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The custom user data passed in when the task was created. The value is returned as-is.
     shared_ptr<string> userData_ {};
   };
 

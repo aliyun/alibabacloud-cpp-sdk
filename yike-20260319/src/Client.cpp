@@ -17,7 +17,10 @@ namespace Yike20260319
 {
 
 AlibabaCloud::Yike20260319::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shanghai" , "yike.cn-shanghai.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("yike", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +39,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 增加一刻项目成员
+ * @summary Adds a member to a Yike project.
  *
  * @param request AddYikeProductionMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,7 +74,7 @@ AddYikeProductionMembersResponse Client::addYikeProductionMembersWithOptions(con
 }
 
 /**
- * @summary 增加一刻项目成员
+ * @summary Adds a member to a Yike project.
  *
  * @param request AddYikeProductionMembersRequest
  * @return AddYikeProductionMembersResponse
@@ -82,7 +85,7 @@ AddYikeProductionMembersResponse Client::addYikeProductionMembers(const AddYikeP
 }
 
 /**
- * @summary 增加用户积分
+ * @summary Increases user credits.
  *
  * @param request AddYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -117,7 +120,7 @@ AddYikeUserCreditResponse Client::addYikeUserCreditWithOptions(const AddYikeUser
 }
 
 /**
- * @summary 增加用户积分
+ * @summary Increases user credits.
  *
  * @param request AddYikeUserCreditRequest
  * @return AddYikeUserCreditResponse
@@ -128,7 +131,7 @@ AddYikeUserCreditResponse Client::addYikeUserCredit(const AddYikeUserCreditReque
 }
 
 /**
- * @summary 批量获取一刻AI应用生成任务
+ * @summary Retrieves multiple Yike AI application generation tasks in a batch.
  *
  * @param request BatchGetYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -159,7 +162,7 @@ BatchGetYikeAIAppJobResponse Client::batchGetYikeAIAppJobWithOptions(const Batch
 }
 
 /**
- * @summary 批量获取一刻AI应用生成任务
+ * @summary Retrieves multiple Yike AI application generation tasks in a batch.
  *
  * @param request BatchGetYikeAIAppJobRequest
  * @return BatchGetYikeAIAppJobResponse
@@ -170,7 +173,7 @@ BatchGetYikeAIAppJobResponse Client::batchGetYikeAIAppJob(const BatchGetYikeAIAp
 }
 
 /**
- * @summary 批量获取媒资信息
+ * @summary Retrieves information about multiple media assets in a batch.
  *
  * @param request BatchGetYikeAssetMediaInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -201,7 +204,7 @@ BatchGetYikeAssetMediaInfosResponse Client::batchGetYikeAssetMediaInfosWithOptio
 }
 
 /**
- * @summary 批量获取媒资信息
+ * @summary Retrieves information about multiple media assets in a batch.
  *
  * @param request BatchGetYikeAssetMediaInfosRequest
  * @return BatchGetYikeAssetMediaInfosResponse
@@ -212,7 +215,7 @@ BatchGetYikeAssetMediaInfosResponse Client::batchGetYikeAssetMediaInfos(const Ba
 }
 
 /**
- * @summary 获取一刻媒资上传凭证
+ * @summary Retrieves the upload credential for a media asset.
  *
  * @param request CreateYikeAssetUploadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -247,7 +250,7 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUploadWithOptions(const Cre
 }
 
 /**
- * @summary 获取一刻媒资上传凭证
+ * @summary Retrieves the upload credential for a media asset.
  *
  * @param request CreateYikeAssetUploadRequest
  * @return CreateYikeAssetUploadResponse
@@ -258,7 +261,7 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUpload(const CreateYikeAsse
 }
 
 /**
- * @summary 创建一刻项目
+ * @summary Creates a project.
  *
  * @param request CreateYikeProductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -293,7 +296,7 @@ CreateYikeProductionResponse Client::createYikeProductionWithOptions(const Creat
 }
 
 /**
- * @summary 创建一刻项目
+ * @summary Creates a project.
  *
  * @param request CreateYikeProductionRequest
  * @return CreateYikeProductionResponse
@@ -304,7 +307,7 @@ CreateYikeProductionResponse Client::createYikeProduction(const CreateYikeProduc
 }
 
 /**
- * @summary 创建一刻子用户
+ * @summary Creates a sub-account user in WonderClip.
  *
  * @param request CreateYikeUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -351,7 +354,7 @@ CreateYikeUserResponse Client::createYikeUserWithOptions(const CreateYikeUserReq
 }
 
 /**
- * @summary 创建一刻子用户
+ * @summary Creates a sub-account user in WonderClip.
  *
  * @param request CreateYikeUserRequest
  * @return CreateYikeUserResponse
@@ -362,7 +365,7 @@ CreateYikeUserResponse Client::createYikeUser(const CreateYikeUserRequest &reque
 }
 
 /**
- * @summary 创建工作室
+ * @summary Creates a workspace.
  *
  * @param request CreateYikeWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -397,7 +400,7 @@ CreateYikeWorkspaceResponse Client::createYikeWorkspaceWithOptions(const CreateY
 }
 
 /**
- * @summary 创建工作室
+ * @summary Creates a workspace.
  *
  * @param request CreateYikeWorkspaceRequest
  * @return CreateYikeWorkspaceResponse
@@ -408,7 +411,7 @@ CreateYikeWorkspaceResponse Client::createYikeWorkspace(const CreateYikeWorkspac
 }
 
 /**
- * @summary 删除媒资信息
+ * @summary Deletes media asset information.
  *
  * @param request DeleteYikeAssetMediaInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -443,7 +446,7 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfosWithOptions(c
 }
 
 /**
- * @summary 删除媒资信息
+ * @summary Deletes media asset information.
  *
  * @param request DeleteYikeAssetMediaInfosRequest
  * @return DeleteYikeAssetMediaInfosResponse
@@ -454,7 +457,7 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfos(const Delete
 }
 
 /**
- * @summary 获取一刻AI应用任务
+ * @summary Retrieves the details of an AI application task.
  *
  * @param request GetYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -485,7 +488,7 @@ GetYikeAIAppJobResponse Client::getYikeAIAppJobWithOptions(const GetYikeAIAppJob
 }
 
 /**
- * @summary 获取一刻AI应用任务
+ * @summary Retrieves the details of an AI application task.
  *
  * @param request GetYikeAIAppJobRequest
  * @return GetYikeAIAppJobResponse
@@ -496,7 +499,7 @@ GetYikeAIAppJobResponse Client::getYikeAIAppJob(const GetYikeAIAppJobRequest &re
 }
 
 /**
- * @summary 查询一刻口播视频生成任务
+ * @summary Queries an agent task.
  *
  * @param request GetYikeAgentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -527,7 +530,7 @@ GetYikeAgentJobResponse Client::getYikeAgentJobWithOptions(const GetYikeAgentJob
 }
 
 /**
- * @summary 查询一刻口播视频生成任务
+ * @summary Queries an agent task.
  *
  * @param request GetYikeAgentJobRequest
  * @return GetYikeAgentJobResponse
@@ -538,7 +541,7 @@ GetYikeAgentJobResponse Client::getYikeAgentJob(const GetYikeAgentJobRequest &re
 }
 
 /**
- * @summary 获取一刻媒资内容信息
+ * @summary Retrieves the content information of a media asset.
  *
  * @param request GetYikeAssetMediaInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -569,7 +572,7 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfoWithOptions(const Get
 }
 
 /**
- * @summary 获取一刻媒资内容信息
+ * @summary Retrieves the content information of a media asset.
  *
  * @param request GetYikeAssetMediaInfoRequest
  * @return GetYikeAssetMediaInfoResponse
@@ -580,7 +583,49 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfo(const GetYikeAssetMe
 }
 
 /**
- * @summary 查询一刻提示词扩写和音频修复视频生成任务
+ * @summary Queries the information and results of an editing project export task.
+ *
+ * @param request GetYikeProjectExportJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeProjectExportJobResponse
+ */
+GetYikeProjectExportJobResponse Client::getYikeProjectExportJobWithOptions(const GetYikeProjectExportJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYikeProjectExportJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeProjectExportJobResponse>();
+}
+
+/**
+ * @summary Queries the information and results of an editing project export task.
+ *
+ * @param request GetYikeProjectExportJobRequest
+ * @return GetYikeProjectExportJobResponse
+ */
+GetYikeProjectExportJobResponse Client::getYikeProjectExportJob(const GetYikeProjectExportJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeProjectExportJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a Yike prompt enhancement and audio repair video generation task.
  *
  * @param request GetYikePromptExpansionVoiceFixJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -611,7 +656,7 @@ GetYikePromptExpansionVoiceFixJobResponse Client::getYikePromptExpansionVoiceFix
 }
 
 /**
- * @summary 查询一刻提示词扩写和音频修复视频生成任务
+ * @summary Queries a Yike prompt enhancement and audio repair video generation task.
  *
  * @param request GetYikePromptExpansionVoiceFixJobRequest
  * @return GetYikePromptExpansionVoiceFixJobResponse
@@ -622,7 +667,7 @@ GetYikePromptExpansionVoiceFixJobResponse Client::getYikePromptExpansionVoiceFix
 }
 
 /**
- * @summary 获取一刻故事板任务
+ * @summary Retrieves a storyboard task.
  *
  * @param request GetYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -653,7 +698,7 @@ GetYikeStoryboardJobResponse Client::getYikeStoryboardJobWithOptions(const GetYi
 }
 
 /**
- * @summary 获取一刻故事板任务
+ * @summary Retrieves a storyboard task.
  *
  * @param request GetYikeStoryboardJobRequest
  * @return GetYikeStoryboardJobResponse
@@ -664,7 +709,7 @@ GetYikeStoryboardJobResponse Client::getYikeStoryboardJob(const GetYikeStoryboar
 }
 
 /**
- * @summary 获取一刻子用户信息
+ * @summary Retrieves information about a WonderClip sub-account.
  *
  * @param request GetYikeUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +740,7 @@ GetYikeUserResponse Client::getYikeUserWithOptions(const GetYikeUserRequest &req
 }
 
 /**
- * @summary 获取一刻子用户信息
+ * @summary Retrieves information about a WonderClip sub-account.
  *
  * @param request GetYikeUserRequest
  * @return GetYikeUserResponse
@@ -706,7 +751,7 @@ GetYikeUserResponse Client::getYikeUser(const GetYikeUserRequest &request) {
 }
 
 /**
- * @summary 查询一刻用户积分
+ * @summary Queries the credit balance of a WonderClip user.
  *
  * @param request GetYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -737,7 +782,7 @@ GetYikeUserCreditResponse Client::getYikeUserCreditWithOptions(const GetYikeUser
 }
 
 /**
- * @summary 查询一刻用户积分
+ * @summary Queries the credit balance of a WonderClip user.
  *
  * @param request GetYikeUserCreditRequest
  * @return GetYikeUserCreditResponse
@@ -748,7 +793,7 @@ GetYikeUserCreditResponse Client::getYikeUserCredit(const GetYikeUserCreditReque
 }
 
 /**
- * @summary 查询一刻口播视频生成任务
+ * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
  *
  * @param request GetYikeVoiceNarratorJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -779,7 +824,7 @@ GetYikeVoiceNarratorJobResponse Client::getYikeVoiceNarratorJobWithOptions(const
 }
 
 /**
- * @summary 查询一刻口播视频生成任务
+ * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
  *
  * @param request GetYikeVoiceNarratorJobRequest
  * @return GetYikeVoiceNarratorJobResponse
@@ -790,7 +835,7 @@ GetYikeVoiceNarratorJobResponse Client::getYikeVoiceNarratorJob(const GetYikeVoi
 }
 
 /**
- * @summary 获取一刻文件夹列表
+ * @summary Retrieves the list of folders.
  *
  * @param request ListYikeAssetFoldersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +874,7 @@ ListYikeAssetFoldersResponse Client::listYikeAssetFoldersWithOptions(const ListY
 }
 
 /**
- * @summary 获取一刻文件夹列表
+ * @summary Retrieves the list of folders.
  *
  * @param request ListYikeAssetFoldersRequest
  * @return ListYikeAssetFoldersResponse
@@ -840,7 +885,7 @@ ListYikeAssetFoldersResponse Client::listYikeAssetFolders(const ListYikeAssetFol
 }
 
 /**
- * @summary 获取一刻项目列表
+ * @summary Retrieves a list of Yike projects.
  *
  * @param request ListYikeProductionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -887,7 +932,7 @@ ListYikeProductionsResponse Client::listYikeProductionsWithOptions(const ListYik
 }
 
 /**
- * @summary 获取一刻项目列表
+ * @summary Retrieves a list of Yike projects.
  *
  * @param request ListYikeProductionsRequest
  * @return ListYikeProductionsResponse
@@ -898,7 +943,7 @@ ListYikeProductionsResponse Client::listYikeProductions(const ListYikeProduction
 }
 
 /**
- * @summary 获取一刻工作室列表
+ * @summary Get Yike Workspace List
  *
  * @param request ListYikeWorkspacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -933,7 +978,7 @@ ListYikeWorkspacesResponse Client::listYikeWorkspacesWithOptions(const ListYikeW
 }
 
 /**
- * @summary 获取一刻工作室列表
+ * @summary Get Yike Workspace List
  *
  * @param request ListYikeWorkspacesRequest
  * @return ListYikeWorkspacesResponse
@@ -944,7 +989,7 @@ ListYikeWorkspacesResponse Client::listYikeWorkspaces(const ListYikeWorkspacesRe
 }
 
 /**
- * @summary 检查应用参数是否合法
+ * @summary Checks whether the application parameters are valid.
  *
  * @param request PrecheckYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -979,7 +1024,7 @@ PrecheckYikeAIAppJobResponse Client::precheckYikeAIAppJobWithOptions(const Prech
 }
 
 /**
- * @summary 检查应用参数是否合法
+ * @summary Checks whether the application parameters are valid.
  *
  * @param request PrecheckYikeAIAppJobRequest
  * @return PrecheckYikeAIAppJobResponse
@@ -990,7 +1035,7 @@ PrecheckYikeAIAppJobResponse Client::precheckYikeAIAppJob(const PrecheckYikeAIAp
 }
 
 /**
- * @summary 注册一刻媒资
+ * @summary Registers a Yike media asset.
  *
  * @param request RegisterYikeAssetMediaInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1078,7 @@ RegisterYikeAssetMediaInfoResponse Client::registerYikeAssetMediaInfoWithOptions
 }
 
 /**
- * @summary 注册一刻媒资
+ * @summary Registers a Yike media asset.
  *
  * @param request RegisterYikeAssetMediaInfoRequest
  * @return RegisterYikeAssetMediaInfoResponse
@@ -1044,7 +1089,7 @@ RegisterYikeAssetMediaInfoResponse Client::registerYikeAssetMediaInfo(const Regi
 }
 
 /**
- * @summary 故事板任务恢复继续执行任务
+ * @summary Resumes the execution of a storyboard task.
  *
  * @param request ResumeYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1075,7 +1120,7 @@ ResumeYikeStoryboardJobResponse Client::resumeYikeStoryboardJobWithOptions(const
 }
 
 /**
- * @summary 故事板任务恢复继续执行任务
+ * @summary Resumes the execution of a storyboard task.
  *
  * @param request ResumeYikeStoryboardJobRequest
  * @return ResumeYikeStoryboardJobResponse
@@ -1086,7 +1131,7 @@ ResumeYikeStoryboardJobResponse Client::resumeYikeStoryboardJob(const ResumeYike
 }
 
 /**
- * @summary 配置一刻事件回调
+ * @summary Configures event callbacks for the business system.
  *
  * @param request SetYikeCallbackConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,7 +1166,7 @@ SetYikeCallbackConfigResponse Client::setYikeCallbackConfigWithOptions(const Set
 }
 
 /**
- * @summary 配置一刻事件回调
+ * @summary Configures event callbacks for the business system.
  *
  * @param request SetYikeCallbackConfigRequest
  * @return SetYikeCallbackConfigResponse
@@ -1132,7 +1177,7 @@ SetYikeCallbackConfigResponse Client::setYikeCallbackConfig(const SetYikeCallbac
 }
 
 /**
- * @summary 设置用户角色
+ * @summary Sets the user role.
  *
  * @param request SetYikeUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1167,7 +1212,7 @@ SetYikeUserRoleResponse Client::setYikeUserRoleWithOptions(const SetYikeUserRole
 }
 
 /**
- * @summary 设置用户角色
+ * @summary Sets the user role.
  *
  * @param request SetYikeUserRoleRequest
  * @return SetYikeUserRoleResponse
@@ -1178,7 +1223,7 @@ SetYikeUserRoleResponse Client::setYikeUserRole(const SetYikeUserRoleRequest &re
 }
 
 /**
- * @summary 扣减用户积分
+ * @summary Reclaims credits from a user.
  *
  * @param request SubYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1213,7 +1258,7 @@ SubYikeUserCreditResponse Client::subYikeUserCreditWithOptions(const SubYikeUser
 }
 
 /**
- * @summary 扣减用户积分
+ * @summary Reclaims credits from a user.
  *
  * @param request SubYikeUserCreditRequest
  * @return SubYikeUserCreditResponse
@@ -1224,7 +1269,7 @@ SubYikeUserCreditResponse Client::subYikeUserCredit(const SubYikeUserCreditReque
 }
 
 /**
- * @summary 提交一刻AI应用任务
+ * @summary Submits an AI application task to Yike AI.
  *
  * @param request SubmitYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1267,7 +1312,7 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJobWithOptions(const SubmitYik
 }
 
 /**
- * @summary 提交一刻AI应用任务
+ * @summary Submits an AI application task to Yike AI.
  *
  * @param request SubmitYikeAIAppJobRequest
  * @return SubmitYikeAIAppJobResponse
@@ -1278,7 +1323,10 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJob(const SubmitYikeAIAppJobRe
 }
 
 /**
- * @summary 提交一刻数字人口播视频生成任务
+ * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+ *
+ * @description ## Operation description
+ * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitYikeAvatarNarratorJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1313,7 +1361,10 @@ SubmitYikeAvatarNarratorJobResponse Client::submitYikeAvatarNarratorJobWithOptio
 }
 
 /**
- * @summary 提交一刻数字人口播视频生成任务
+ * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+ *
+ * @description ## Operation description
+ * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitYikeAvatarNarratorJobRequest
  * @return SubmitYikeAvatarNarratorJobResponse
@@ -1324,7 +1375,57 @@ SubmitYikeAvatarNarratorJobResponse Client::submitYikeAvatarNarratorJob(const Su
 }
 
 /**
- * @summary 提交一刻提示词扩写和音频修复视频生成任务
+ * @summary Submits an online editing project export task that supports exporting pure audio and SRT subtitles.
+ *
+ * @param request SubmitYikeProjectExportJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitYikeProjectExportJobResponse
+ */
+SubmitYikeProjectExportJobResponse Client::submitYikeProjectExportJobWithOptions(const SubmitYikeProjectExportJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExportType()) {
+    query["ExportType"] = request.getExportType();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitYikeProjectExportJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitYikeProjectExportJobResponse>();
+}
+
+/**
+ * @summary Submits an online editing project export task that supports exporting pure audio and SRT subtitles.
+ *
+ * @param request SubmitYikeProjectExportJobRequest
+ * @return SubmitYikeProjectExportJobResponse
+ */
+SubmitYikeProjectExportJobResponse Client::submitYikeProjectExportJob(const SubmitYikeProjectExportJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitYikeProjectExportJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a video generation task with prompt enhancement and audio repair.
  *
  * @param request SubmitYikePromptExpansionVoiceFixJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1359,7 +1460,7 @@ SubmitYikePromptExpansionVoiceFixJobResponse Client::submitYikePromptExpansionVo
 }
 
 /**
- * @summary 提交一刻提示词扩写和音频修复视频生成任务
+ * @summary Submits a video generation task with prompt enhancement and audio repair.
  *
  * @param request SubmitYikePromptExpansionVoiceFixJobRequest
  * @return SubmitYikePromptExpansionVoiceFixJobResponse
@@ -1370,7 +1471,9 @@ SubmitYikePromptExpansionVoiceFixJobResponse Client::submitYikePromptExpansionVo
 }
 
 /**
- * @summary 提交一刻故事板全链路编排任务
+ * @summary Submits a storyboard generation task.
+ *
+ * @description Ensure that your credits remain above 5,000 when calling this operation. Insufficient credits may cause the task to be interrupted.
  *
  * @param request SubmitYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1459,7 +1562,9 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
 }
 
 /**
- * @summary 提交一刻故事板全链路编排任务
+ * @summary Submits a storyboard generation task.
+ *
+ * @description Ensure that your credits remain above 5,000 when calling this operation. Insufficient credits may cause the task to be interrupted.
  *
  * @param request SubmitYikeStoryboardJobRequest
  * @return SubmitYikeStoryboardJobResponse
@@ -1470,7 +1575,7 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJob(const SubmitYike
 }
 
 /**
- * @summary 提交一刻口播视频生成任务
+ * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
  *
  * @param request SubmitYikeVoiceNarratorJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1505,7 +1610,7 @@ SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJobWithOptions
 }
 
 /**
- * @summary 提交一刻口播视频生成任务
+ * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
  *
  * @param request SubmitYikeVoiceNarratorJobRequest
  * @return SubmitYikeVoiceNarratorJobResponse
@@ -1516,7 +1621,7 @@ SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJob(const Subm
 }
 
 /**
- * @summary 更新一刻项目
+ * @summary Update a Yike project
  *
  * @param request UpdateYikeProductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1551,7 +1656,7 @@ UpdateYikeProductionResponse Client::updateYikeProductionWithOptions(const Updat
 }
 
 /**
- * @summary 更新一刻项目
+ * @summary Update a Yike project
  *
  * @param request UpdateYikeProductionRequest
  * @return UpdateYikeProductionResponse
@@ -1562,7 +1667,7 @@ UpdateYikeProductionResponse Client::updateYikeProduction(const UpdateYikeProduc
 }
 
 /**
- * @summary 修改一刻项目成员权限
+ * @summary Modifies the permissions of a Yike project member.
  *
  * @param request UpdateYikeProductionMemberAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1601,7 +1706,7 @@ UpdateYikeProductionMemberAuthResponse Client::updateYikeProductionMemberAuthWit
 }
 
 /**
- * @summary 修改一刻项目成员权限
+ * @summary Modifies the permissions of a Yike project member.
  *
  * @param request UpdateYikeProductionMemberAuthRequest
  * @return UpdateYikeProductionMemberAuthResponse

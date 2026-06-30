@@ -57,10 +57,19 @@ namespace Models
 
 
   protected:
+    // The permission name. Valid values:
+    // 
+    // - Manage: manageable
+    // - Edit: editable.
+    // 
     // This parameter is required.
     shared_ptr<string> auth_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> productionId_ {};
+    // The RAM user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> yikeUserId_ {};
   };

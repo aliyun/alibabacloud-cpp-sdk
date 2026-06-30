@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETYIKEVOICENARRATORJOBREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_GETYIKEVOICENARRATORJOBREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETYIKEPROJECTEXPORTJOBREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GETYIKEPROJECTEXPORTJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,21 +10,21 @@ namespace Yike20260319
 {
 namespace Models
 {
-  class GetYikeVoiceNarratorJobRequest : public Darabonba::Model {
+  class GetYikeProjectExportJobRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetYikeVoiceNarratorJobRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetYikeProjectExportJobRequest& obj) { 
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
     };
-    friend void from_json(const Darabonba::Json& j, GetYikeVoiceNarratorJobRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetYikeProjectExportJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
     };
-    GetYikeVoiceNarratorJobRequest() = default ;
-    GetYikeVoiceNarratorJobRequest(const GetYikeVoiceNarratorJobRequest &) = default ;
-    GetYikeVoiceNarratorJobRequest(GetYikeVoiceNarratorJobRequest &&) = default ;
-    GetYikeVoiceNarratorJobRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetYikeVoiceNarratorJobRequest() = default ;
-    GetYikeVoiceNarratorJobRequest& operator=(const GetYikeVoiceNarratorJobRequest &) = default ;
-    GetYikeVoiceNarratorJobRequest& operator=(GetYikeVoiceNarratorJobRequest &&) = default ;
+    GetYikeProjectExportJobRequest() = default ;
+    GetYikeProjectExportJobRequest(const GetYikeProjectExportJobRequest &) = default ;
+    GetYikeProjectExportJobRequest(GetYikeProjectExportJobRequest &&) = default ;
+    GetYikeProjectExportJobRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetYikeProjectExportJobRequest() = default ;
+    GetYikeProjectExportJobRequest& operator=(const GetYikeProjectExportJobRequest &) = default ;
+    GetYikeProjectExportJobRequest& operator=(GetYikeProjectExportJobRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -34,7 +34,7 @@ namespace Models
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
     inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
-    inline GetYikeVoiceNarratorJobRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+    inline GetYikeProjectExportJobRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
   protected:

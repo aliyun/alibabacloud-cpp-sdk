@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The project ID.
     shared_ptr<string> productionId_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

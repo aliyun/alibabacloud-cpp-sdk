@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> productionId_ {};
+    // The IDs of the RAM users.
+    // 
     // This parameter is required.
     shared_ptr<string> yikeUserIds_ {};
   };

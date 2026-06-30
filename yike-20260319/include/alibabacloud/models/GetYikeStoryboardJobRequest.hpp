@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The screenshot task ID.
     shared_ptr<string> jobId_ {};
   };
 

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The IDs or input URLs for which errors occurred during retrieval.
     shared_ptr<vector<string>> ignoredList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

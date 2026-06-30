@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The project title.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

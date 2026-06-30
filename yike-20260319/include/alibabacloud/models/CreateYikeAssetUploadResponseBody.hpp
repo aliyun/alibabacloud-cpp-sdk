@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The OSS URL of the file, without authentication.
     shared_ptr<string> fileURL_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The upload address.
     shared_ptr<string> uploadAddress_ {};
+    // The upload credential.
     shared_ptr<string> uploadAuth_ {};
   };
 

@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
+        // The output file URL.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -151,7 +153,9 @@ namespace Models
 
 
       protected:
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
+        // The output file URL.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -193,7 +197,9 @@ namespace Models
 
 
       protected:
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
+        // The output file URL.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -227,8 +233,11 @@ namespace Models
 
 
     protected:
+      // The audio task result.
       shared_ptr<vector<Result::AudioResult>> audioResult_ {};
+      // The image task result.
       shared_ptr<vector<Result::ImageResult>> imageResult_ {};
+      // The video task result.
       shared_ptr<vector<Result::VideoResult>> videoResult_ {};
     };
 
@@ -308,15 +317,30 @@ namespace Models
 
 
   protected:
+    // The AI application ID.
     shared_ptr<string> appId_ {};
+    // The input parameters for the AI application run. The value is a string obtained after JSON serialize.
     shared_ptr<string> appParams_ {};
+    // The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> executionFinishTime_ {};
+    // The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> executionStartTime_ {};
+    // The folder ID.
     shared_ptr<string> folderId_ {};
+    // The task ID.
     shared_ptr<string> jobId_ {};
+    // The project ID.
     shared_ptr<string> productionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task execution result.
     shared_ptr<GetYikeAIAppJobResponseBody::Result> result_ {};
+    // The task status. Valid values:
+    // - Created: The task is created.
+    // - Queuing: The task is queuing.
+    // - Executing: The task is being executed.
+    // - Finished: The task is finished.
+    // - Failed: The task failed.
     shared_ptr<string> status_ {};
   };
 

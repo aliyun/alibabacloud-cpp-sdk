@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The error code returned when the deduction fails.
+    // - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: the account credit balance is insufficient.
     shared_ptr<string> errorCode_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> result_ {};
   };
 

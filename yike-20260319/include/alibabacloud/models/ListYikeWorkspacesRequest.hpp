@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Current page number
     shared_ptr<int32_t> pageNo_ {};
+    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
   };
 

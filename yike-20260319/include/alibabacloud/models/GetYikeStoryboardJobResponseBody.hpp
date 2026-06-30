@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The list of abnormal storyboard IDs.
       shared_ptr<string> exceptionStoryboardIds_ {};
+      // The list of failed shots.
       shared_ptr<string> failureShotList_ {};
+      // The downloadable OSS URL.
       shared_ptr<string> outputUrl_ {};
+      // The URL of the SRT file.
       shared_ptr<string> srtFileUrl_ {};
+      // The detailed storyboard information for the storyboard generation task.
       shared_ptr<string> storyboardInfoList_ {};
+      // The list of successful storyboard IDs, separated by commas.
       shared_ptr<string> successStoryboardIds_ {};
+      // The list of successful storyboards.
       shared_ptr<string> successStoryboardList_ {};
     };
 
@@ -252,16 +259,29 @@ namespace Models
 
 
     protected:
+      // The aspect ratio of the video.
       shared_ptr<string> aspectRatio_ {};
+      // The OSS URL of the file.
       shared_ptr<string> fileURL_ {};
+      // The random seed.
       shared_ptr<string> modelParams_ {};
+      // The narration voice ID.
       shared_ptr<string> narrationVoiceId_ {};
+      // The resolution of the generated video.
       shared_ptr<string> resolution_ {};
+      // The shot prompt generation mode.
       shared_ptr<string> shotPromptMode_ {};
+      // The shot splitting mode.
       shared_ptr<string> shotSplitMode_ {};
+      // The source type.
       shared_ptr<string> sourceType_ {};
+      // The style ID.
       shared_ptr<string> styleId_ {};
+      // The task title. Requirements:
+      // - The title cannot exceed 128 bytes in length.
+      // - The title must be UTF-8 encoded.
       shared_ptr<string> title_ {};
+      // The video model.
       shared_ptr<string> videoModel_ {};
     };
 
@@ -321,9 +341,13 @@ namespace Models
 
 
     protected:
+      // The credit consumption for element image generation.
       shared_ptr<string> elementImageGeneration_ {};
+      // The total credit consumption.
       shared_ptr<string> totalCreditCost_ {};
+      // The credit consumption for video composition.
       shared_ptr<string> videoComposition_ {};
+      // The credit consumption for video generation.
       shared_ptr<string> videoGeneration_ {};
     };
 
@@ -378,11 +402,23 @@ namespace Models
 
 
   protected:
+    // The credit consumption.
     shared_ptr<GetYikeStoryboardJobResponseBody::JobCredit> jobCredit_ {};
+    // The task ID. You can obtain this value from the response of [SubmitPackageJob](https://help.aliyun.com/document_detail/461964.html).
     shared_ptr<string> jobId_ {};
+    // The algorithm job parameters. This is a JSON object whose content varies depending on the algorithm.
     shared_ptr<GetYikeStoryboardJobResponseBody::JobParams> jobParams_ {};
+    // The task result.
     shared_ptr<GetYikeStoryboardJobResponseBody::JobResult> jobResult_ {};
+    // The task status. Valid values:
+    // 
+    // - **Succeeded**: The task is successful.
+    // 
+    // - **Failed**: The task failed.
+    // 
+    // - **Running**: The task is running.
     shared_ptr<string> jobStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

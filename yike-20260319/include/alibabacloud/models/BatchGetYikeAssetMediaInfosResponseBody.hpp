@@ -253,25 +253,43 @@ namespace Models
 
 
       protected:
+        // The business to which the media asset belongs.
         shared_ptr<string> biz_ {};
+        // The business type of the media asset.
         shared_ptr<string> businessType_ {};
+        // The category.
         shared_ptr<string> category_ {};
+        // The cover URL.
         shared_ptr<string> coverURL_ {};
+        // The time when the media asset was created.
         shared_ptr<string> createTime_ {};
+        // The time when the media asset was deleted.
         shared_ptr<string> deletedTime_ {};
+        // The content description.
         shared_ptr<string> description_ {};
+        // The address of the media asset to be registered in the corresponding system.
         shared_ptr<string> inputURL_ {};
         // MediaId
         shared_ptr<string> mediaId_ {};
+        // The tags.
         shared_ptr<string> mediaTags_ {};
+        // The media type of the media asset.
         shared_ptr<string> mediaType_ {};
+        // The time when the media asset was modified.
         shared_ptr<string> modifiedTime_ {};
+        // The snapshots.
         shared_ptr<string> snapshots_ {};
+        // The source.
         shared_ptr<string> source_ {};
+        // The sprite images.
         shared_ptr<string> spriteImages_ {};
+        // The resource status.
         shared_ptr<string> status_ {};
+        // The title.
         shared_ptr<string> title_ {};
+        // The transcoding status.
         shared_ptr<string> transcodeStatus_ {};
+        // The user data.
         shared_ptr<string> userData_ {};
       };
 
@@ -414,16 +432,27 @@ namespace Models
 
 
         protected:
+          // The bitrate.
           shared_ptr<string> bitrate_ {};
+          // The duration.
           shared_ptr<string> duration_ {};
+          // The file name.
           shared_ptr<string> fileName_ {};
+          // The file size, in bytes.
           shared_ptr<string> fileSize_ {};
+          // The file status.
           shared_ptr<string> fileStatus_ {};
+          // The file type.
           shared_ptr<string> fileType_ {};
+          // The OSS URL of the file.
           shared_ptr<string> fileUrl_ {};
+          // The container format.
           shared_ptr<string> formatName_ {};
+          // The height.
           shared_ptr<string> height_ {};
+          // The storage region of the file.
           shared_ptr<string> region_ {};
+          // The width.
           shared_ptr<string> width_ {};
         };
 
@@ -438,6 +467,7 @@ namespace Models
 
 
       protected:
+        // The basic file information, including the duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
@@ -571,17 +601,29 @@ namespace Models
 
 
       protected:
+        // The audit label.
         shared_ptr<string> auditBlockedLabel_ {};
+        // The audit status.
         shared_ptr<string> auditStatus_ {};
+        // The ID of the creation task.
         shared_ptr<string> creationJobId_ {};
+        // The folder ID.
         shared_ptr<string> folderId_ {};
+        // Indicates whether the media asset is marked as a favorite.
         shared_ptr<string> isFavorite_ {};
+        // Indicates whether the media asset is logically deleted.
         shared_ptr<string> isLogicalDeleted_ {};
+        // The media asset subtype.
         shared_ptr<string> mediaAssetSubType_ {};
+        // The media asset type.
         shared_ptr<string> mediaAssetType_ {};
+        // The project ID.
         shared_ptr<string> productionId_ {};
+        // The source ID.
         shared_ptr<string> sourceId_ {};
+        // The source name.
         shared_ptr<string> sourceName_ {};
+        // The source type.
         shared_ptr<string> sourceType_ {};
       };
 
@@ -622,11 +664,13 @@ namespace Models
 
 
     protected:
+      // The business information.
       shared_ptr<MediaInfos::BizData> bizData_ {};
       // FileInfos
       shared_ptr<vector<MediaInfos::FileInfoList>> fileInfoList_ {};
       // BasicInfo
       shared_ptr<MediaInfos::MediaBasicInfo> mediaBasicInfo_ {};
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -658,7 +702,9 @@ namespace Models
 
 
   protected:
+    // The IDs that failed to be retrieved.
     shared_ptr<vector<string>> ignoredList_ {};
+    // The collection of media assets that meet the requirements.
     shared_ptr<vector<BatchGetYikeAssetMediaInfosResponseBody::MediaInfos>> mediaInfos_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

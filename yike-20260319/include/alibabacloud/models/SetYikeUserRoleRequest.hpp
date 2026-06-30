@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The role of the user. Valid values:
+    // - SuperAdmin: super administrator.
+    // - Admin: administrator.
+    // - RegularUser: regular member.
     shared_ptr<string> roleName_ {};
+    // The ID of the sub-account user.
     shared_ptr<string> yikeUserId_ {};
   };
 

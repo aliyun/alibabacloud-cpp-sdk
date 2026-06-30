@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The folder ID.
       shared_ptr<string> folderId_ {};
+      // The folder name.
       shared_ptr<string> folderName_ {};
+      // Indicates whether the folder is the default folder.
       shared_ptr<bool> isDefault_ {};
+      // The project ID.
       shared_ptr<string> productionId_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -160,11 +166,15 @@ namespace Models
 
 
   protected:
+    // The folder list.
     shared_ptr<vector<ListYikeAssetFoldersResponseBody::FolderList>> folderList_ {};
+    // The maximum number of results.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of folders.
     shared_ptr<int32_t> total_ {};
   };
 
