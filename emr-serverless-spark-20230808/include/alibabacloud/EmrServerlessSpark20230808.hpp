@@ -449,7 +449,7 @@ namespace EmrServerlessSpark20230808
       Models::GetAICenterStateResponse getAICenterState(const string &workspaceId, const Models::GetAICenterStateRequest &request);
 
       /**
-       * @summary 获取CacheCluster详情
+       * @summary Retrieves the details of a Cache cluster.
        *
        * @param request GetCacheClusterRequest
        * @param headers map
@@ -459,7 +459,7 @@ namespace EmrServerlessSpark20230808
       Models::GetCacheClusterResponse getCacheClusterWithOptions(const string &cacheClusterId, const Models::GetCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取CacheCluster详情
+       * @summary Retrieves the details of a Cache cluster.
        *
        * @param request GetCacheClusterRequest
        * @return GetCacheClusterResponse
@@ -623,6 +623,24 @@ namespace EmrServerlessSpark20230808
        * @return GetRayJobResponse
        */
       Models::GetRayJobResponse getRayJob(const string &workspaceId, const string &submissionId, const Models::GetRayJobRequest &request);
+
+      /**
+       * @summary Retrieves the log of a Ray job.
+       *
+       * @param request GetRayLogRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRayLogResponse
+       */
+      Models::GetRayLogResponse getRayLogWithOptions(const string &workspaceId, const string &instanceId, const Models::GetRayLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the log of a Ray job.
+       *
+       * @param request GetRayLogRequest
+       * @return GetRayLogResponse
+       */
+      Models::GetRayLogResponse getRayLog(const string &workspaceId, const string &instanceId, const Models::GetRayLogRequest &request);
 
       /**
        * @summary Retrieves the configuration of a Spark job.
@@ -981,6 +999,24 @@ namespace EmrServerlessSpark20230808
        * @return ListRayJobResponse
        */
       Models::ListRayJobResponse listRayJob(const string &workspaceId, const Models::ListRayJobRequest &request);
+
+      /**
+       * @summary Lists Ray logs.
+       *
+       * @param request ListRayLogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRayLogsResponse
+       */
+      Models::ListRayLogsResponse listRayLogsWithOptions(const string &workspaceId, const string &instanceId, const Models::ListRayLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists Ray logs.
+       *
+       * @param request ListRayLogsRequest
+       * @return ListRayLogsResponse
+       */
+      Models::ListRayLogsResponse listRayLogs(const string &workspaceId, const string &instanceId, const Models::ListRayLogsRequest &request);
 
       /**
        * @summary Retrieves a list of release versions.

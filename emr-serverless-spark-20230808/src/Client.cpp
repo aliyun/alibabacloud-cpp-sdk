@@ -18,7 +18,24 @@ namespace EmrServerlessSpark20230808
 {
 
 AlibabaCloud::EmrServerlessSpark20230808::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "emr-serverless-spark.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "emr-serverless-spark.us-east-1.aliyuncs.com"},
+    {"na-south-1" , "emr-serverless-spark.na-south-1.aliyuncs.com"},
+    {"eu-central-1" , "emr-serverless-spark.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "emr-serverless-spark.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "emr-serverless-spark.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "emr-serverless-spark.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "emr-serverless-spark.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "emr-serverless-spark.cn-hangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "emr-serverless-spark.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "emr-serverless-spark.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-5" , "emr-serverless-spark.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-1" , "emr-serverless-spark.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "emr-serverless-spark.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("emr-serverless-spark", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1553,7 +1570,7 @@ GetAICenterStateResponse Client::getAICenterState(const string &workspaceId, con
 }
 
 /**
- * @summary 获取CacheCluster详情
+ * @summary Retrieves the details of a Cache cluster.
  *
  * @param request GetCacheClusterRequest
  * @param headers map
@@ -1586,7 +1603,7 @@ GetCacheClusterResponse Client::getCacheClusterWithOptions(const string &cacheCl
 }
 
 /**
- * @summary 获取CacheCluster详情
+ * @summary Retrieves the details of a Cache cluster.
  *
  * @param request GetCacheClusterRequest
  * @return GetCacheClusterResponse
@@ -1988,6 +2005,55 @@ GetRayJobResponse Client::getRayJob(const string &workspaceId, const string &sub
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getRayJobWithOptions(workspaceId, submissionId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the log of a Ray job.
+ *
+ * @param request GetRayLogRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRayLogResponse
+ */
+GetRayLogResponse Client::getRayLogWithOptions(const string &workspaceId, const string &instanceId, const GetRayLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucketName()) {
+    query["bucketName"] = request.getBucketName();
+  }
+
+  if (!!request.hasPath()) {
+    query["path"] = request.getPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRayLog"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ray/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/log")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRayLogResponse>();
+}
+
+/**
+ * @summary Retrieves the log of a Ray job.
+ *
+ * @param request GetRayLogRequest
+ * @return GetRayLogResponse
+ */
+GetRayLogResponse Client::getRayLog(const string &workspaceId, const string &instanceId, const GetRayLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRayLogWithOptions(workspaceId, instanceId, request, headers, runtime);
 }
 
 /**
@@ -3127,6 +3193,67 @@ ListRayJobResponse Client::listRayJob(const string &workspaceId, const ListRayJo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listRayJobWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Lists Ray logs.
+ *
+ * @param request ListRayLogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRayLogsResponse
+ */
+ListRayLogsResponse Client::listRayLogsWithOptions(const string &workspaceId, const string &instanceId, const ListRayLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucketName()) {
+    query["bucketName"] = request.getBucketName();
+  }
+
+  if (!!request.hasDelimiter()) {
+    query["delimiter"] = request.getDelimiter();
+  }
+
+  if (!!request.hasMarker()) {
+    query["marker"] = request.getMarker();
+  }
+
+  if (!!request.hasMaxKeys()) {
+    query["maxKeys"] = request.getMaxKeys();
+  }
+
+  if (!!request.hasPrefix()) {
+    query["prefix"] = request.getPrefix();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRayLogs"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/interactive/v1/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ray/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/logs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRayLogsResponse>();
+}
+
+/**
+ * @summary Lists Ray logs.
+ *
+ * @param request ListRayLogsRequest
+ * @return ListRayLogsResponse
+ */
+ListRayLogsResponse Client::listRayLogs(const string &workspaceId, const string &instanceId, const ListRayLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRayLogsWithOptions(workspaceId, instanceId, request, headers, runtime);
 }
 
 /**

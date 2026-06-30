@@ -120,6 +120,9 @@
 #include <alibabacloud/models/GetRayJobRequest.hpp>
 #include <alibabacloud/models/GetRayJobResponseBody.hpp>
 #include <alibabacloud/models/GetRayJobResponse.hpp>
+#include <alibabacloud/models/GetRayLogRequest.hpp>
+#include <alibabacloud/models/GetRayLogResponseBody.hpp>
+#include <alibabacloud/models/GetRayLogResponse.hpp>
 #include <alibabacloud/models/GetRunConfigurationRequest.hpp>
 #include <alibabacloud/models/GetRunConfigurationResponseBody.hpp>
 #include <alibabacloud/models/GetRunConfigurationResponse.hpp>
@@ -182,6 +185,9 @@
 #include <alibabacloud/models/ListRayJobShrinkRequest.hpp>
 #include <alibabacloud/models/ListRayJobResponseBody.hpp>
 #include <alibabacloud/models/ListRayJobResponse.hpp>
+#include <alibabacloud/models/ListRayLogsRequest.hpp>
+#include <alibabacloud/models/ListRayLogsResponseBody.hpp>
+#include <alibabacloud/models/ListRayLogsResponse.hpp>
 #include <alibabacloud/models/ListReleaseVersionsRequest.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponse.hpp>
