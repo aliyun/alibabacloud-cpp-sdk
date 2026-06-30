@@ -49,7 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> count_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

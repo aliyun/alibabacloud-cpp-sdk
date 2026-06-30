@@ -88,7 +88,6 @@ namespace Models
     shared_ptr<int64_t> fileSize_ {};
     shared_ptr<string> mp4FileUrl_ {};
     shared_ptr<string> playUrl_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<int64_t> status_ {};
   };

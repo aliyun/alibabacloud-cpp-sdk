@@ -162,7 +162,6 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<vector<string>> managers_ {};
     shared_ptr<string> name_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<GetSubscribedCalendarResponseBody::SubscribeScope> subscribeScope_ {};
   };

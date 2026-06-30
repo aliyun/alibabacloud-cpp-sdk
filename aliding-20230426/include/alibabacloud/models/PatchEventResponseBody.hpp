@@ -955,7 +955,6 @@ namespace Models
     shared_ptr<PatchEventResponseBody::Organizer> organizer_ {};
     shared_ptr<PatchEventResponseBody::Recurrence> recurrence_ {};
     shared_ptr<vector<PatchEventResponseBody::Reminders>> reminders_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<PatchEventResponseBody::RichTextDescription> richTextDescription_ {};
     shared_ptr<PatchEventResponseBody::Start> start_ {};

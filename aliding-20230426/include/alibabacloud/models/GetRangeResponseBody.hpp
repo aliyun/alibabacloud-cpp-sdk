@@ -99,7 +99,6 @@ namespace Models
     shared_ptr<vector<vector<string>>> displayValues_ {};
     shared_ptr<vector<vector<string>>> formulas_ {};
     shared_ptr<vector<vector<GetRangeResponseBody::Hyperlinks>>> hyperlinks_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<vector<Darabonba::Json>>> values_ {};
   };

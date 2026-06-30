@@ -80,7 +80,6 @@ namespace Models
   protected:
     shared_ptr<int32_t> pageNo_ {};
     shared_ptr<int32_t> pageSize_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<vector<string>> unsubscribedStaffIds_ {};

@@ -1108,7 +1108,6 @@ namespace Models
   protected:
     shared_ptr<vector<ListEventsResponseBody::Events>> events_ {};
     shared_ptr<string> nextToken_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> syncToken_ {};
     shared_ptr<string> vendorRequestId_ {};

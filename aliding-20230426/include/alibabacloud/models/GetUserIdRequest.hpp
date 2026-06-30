@@ -82,7 +82,6 @@ namespace Models
 
   protected:
     shared_ptr<GetUserIdRequest::TenantContext> tenantContext_ {};
-    // unionId
     shared_ptr<string> unionId_ {};
   };
 

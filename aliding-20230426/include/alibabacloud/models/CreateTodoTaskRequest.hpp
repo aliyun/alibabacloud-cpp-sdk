@@ -237,9 +237,7 @@ namespace Models
 
 
     protected:
-      // fieldKey
       shared_ptr<string> fieldKey_ {};
-      // fieldValue
       shared_ptr<string> fieldValue_ {};
     };
 

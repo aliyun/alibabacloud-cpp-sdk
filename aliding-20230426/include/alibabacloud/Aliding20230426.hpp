@@ -1423,6 +1423,24 @@ namespace Aliding20230426
       Models::DeleteWorkspaceMembersResponse deleteWorkspaceMembers(const Models::DeleteWorkspaceMembersRequest &request);
 
       /**
+       * @summary 停用群模版（场景群降级为普通群）
+       *
+       * @param tmpReq DisableSceneGroupTemplateRequest
+       * @param tmpHeader DisableSceneGroupTemplateHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableSceneGroupTemplateResponse
+       */
+      Models::DisableSceneGroupTemplateResponse disableSceneGroupTemplateWithOptions(const Models::DisableSceneGroupTemplateRequest &tmpReq, const Models::DisableSceneGroupTemplateHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停用群模版（场景群降级为普通群）
+       *
+       * @param request DisableSceneGroupTemplateRequest
+       * @return DisableSceneGroupTemplateResponse
+       */
+      Models::DisableSceneGroupTemplateResponse disableSceneGroupTemplate(const Models::DisableSceneGroupTemplateRequest &request);
+
+      /**
        * @summary 删除块元素
        *
        * @param tmpReq DocBlocksDeleteRequest

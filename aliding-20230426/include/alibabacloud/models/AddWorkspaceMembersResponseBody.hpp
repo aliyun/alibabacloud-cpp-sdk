@@ -52,7 +52,6 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> notInOrgList_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

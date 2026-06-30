@@ -102,7 +102,6 @@ namespace Models
     shared_ptr<string> externalLinkUrl_ {};
     shared_ptr<string> hostPassword_ {};
     shared_ptr<vector<string>> phoneNumbers_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> roomCode_ {};
   };

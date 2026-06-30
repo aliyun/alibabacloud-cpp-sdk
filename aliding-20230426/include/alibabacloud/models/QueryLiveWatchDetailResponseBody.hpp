@@ -118,7 +118,6 @@ namespace Models
     shared_ptr<int32_t> playbackUv_ {};
     shared_ptr<int32_t> praiseCount_ {};
     shared_ptr<int32_t> pv_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<int64_t> totalWatchTime_ {};
     shared_ptr<int32_t> uv_ {};

@@ -205,7 +205,6 @@ namespace Models
 
   protected:
     shared_ptr<QueryConferenceInfoResponseBody::ConfInfo> confInfo_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

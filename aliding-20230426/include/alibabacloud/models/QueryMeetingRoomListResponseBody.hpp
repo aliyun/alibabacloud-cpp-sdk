@@ -346,7 +346,6 @@ namespace Models
   protected:
     shared_ptr<bool> hasMore_ {};
     shared_ptr<int64_t> nextToken_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<QueryMeetingRoomListResponseBody::Result>> result_ {};
   };

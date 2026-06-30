@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_INVITEUSERSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_INVITEUSERSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DISABLESCENEGROUPTEMPLATERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DISABLESCENEGROUPTEMPLATERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace Aliding20230426
 {
 namespace Models
 {
-  class InviteUsersResponseBody : public Darabonba::Model {
+  class DisableSceneGroupTemplateResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const InviteUsersResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DisableSceneGroupTemplateResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(success, success_);
       DARABONBA_PTR_TO_JSON(vendorRequestId, vendorRequestId_);
       DARABONBA_PTR_TO_JSON(vendorType, vendorType_);
     };
-    friend void from_json(const Darabonba::Json& j, InviteUsersResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DisableSceneGroupTemplateResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(success, success_);
       DARABONBA_PTR_FROM_JSON(vendorRequestId, vendorRequestId_);
       DARABONBA_PTR_FROM_JSON(vendorType, vendorType_);
     };
-    InviteUsersResponseBody() = default ;
-    InviteUsersResponseBody(const InviteUsersResponseBody &) = default ;
-    InviteUsersResponseBody(InviteUsersResponseBody &&) = default ;
-    InviteUsersResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~InviteUsersResponseBody() = default ;
-    InviteUsersResponseBody& operator=(const InviteUsersResponseBody &) = default ;
-    InviteUsersResponseBody& operator=(InviteUsersResponseBody &&) = default ;
+    DisableSceneGroupTemplateResponseBody() = default ;
+    DisableSceneGroupTemplateResponseBody(const DisableSceneGroupTemplateResponseBody &) = default ;
+    DisableSceneGroupTemplateResponseBody(DisableSceneGroupTemplateResponseBody &&) = default ;
+    DisableSceneGroupTemplateResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DisableSceneGroupTemplateResponseBody() = default ;
+    DisableSceneGroupTemplateResponseBody& operator=(const DisableSceneGroupTemplateResponseBody &) = default ;
+    DisableSceneGroupTemplateResponseBody& operator=(DisableSceneGroupTemplateResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -41,28 +41,28 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline InviteUsersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DisableSceneGroupTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline InviteUsersResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline DisableSceneGroupTemplateResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // vendorRequestId Field Functions 
     bool hasVendorRequestId() const { return this->vendorRequestId_ != nullptr;};
     void deleteVendorRequestId() { this->vendorRequestId_ = nullptr;};
     inline string getVendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
-    inline InviteUsersResponseBody& setVendorRequestId(string vendorRequestId) { DARABONBA_PTR_SET_VALUE(vendorRequestId_, vendorRequestId) };
+    inline DisableSceneGroupTemplateResponseBody& setVendorRequestId(string vendorRequestId) { DARABONBA_PTR_SET_VALUE(vendorRequestId_, vendorRequestId) };
 
 
     // vendorType Field Functions 
     bool hasVendorType() const { return this->vendorType_ != nullptr;};
     void deleteVendorType() { this->vendorType_ = nullptr;};
     inline string getVendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
-    inline InviteUsersResponseBody& setVendorType(string vendorType) { DARABONBA_PTR_SET_VALUE(vendorType_, vendorType) };
+    inline DisableSceneGroupTemplateResponseBody& setVendorType(string vendorType) { DARABONBA_PTR_SET_VALUE(vendorType_, vendorType) };
 
 
   protected:

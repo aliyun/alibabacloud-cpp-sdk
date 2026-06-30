@@ -49,7 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<string> liveId_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

@@ -124,7 +124,6 @@ namespace Models
     shared_ptr<vector<CommentListReportResponseBody::Comments>> comments_ {};
     shared_ptr<bool> hasMore_ {};
     shared_ptr<int64_t> nextCursor_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

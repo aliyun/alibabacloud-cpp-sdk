@@ -69,7 +69,6 @@ namespace Models
     shared_ptr<int64_t> groupId_ {};
     shared_ptr<string> groupName_ {};
     shared_ptr<int64_t> parentId_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

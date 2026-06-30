@@ -134,7 +134,6 @@ namespace Models
   protected:
     shared_ptr<string> nextToken_ {};
     shared_ptr<vector<QueryOrgHonorsResponseBody::OpenHonors>> openHonors_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

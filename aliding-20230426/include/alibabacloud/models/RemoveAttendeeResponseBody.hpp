@@ -136,7 +136,6 @@ namespace Models
     Darabonba::Json errorCtx_ {};
     shared_ptr<string> errorMsg_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
-    // RequestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

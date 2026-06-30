@@ -617,7 +617,6 @@ namespace Models
 
     protected:
       shared_ptr<string> displayName_ {};
-      // --
       shared_ptr<vector<string>> meetingRooms_ {};
     };
 
@@ -1053,7 +1052,6 @@ namespace Models
     shared_ptr<GetEventResponseBody::OriginStart> originStart_ {};
     shared_ptr<GetEventResponseBody::Recurrence> recurrence_ {};
     shared_ptr<vector<GetEventResponseBody::Reminders>> reminders_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<GetEventResponseBody::RichTextDescription> richTextDescription_ {};
     shared_ptr<string> seriesMasterId_ {};

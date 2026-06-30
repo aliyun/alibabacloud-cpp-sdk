@@ -49,7 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<string> tenantContextShrink_ {};
-    // unionId
     shared_ptr<string> unionId_ {};
   };
 

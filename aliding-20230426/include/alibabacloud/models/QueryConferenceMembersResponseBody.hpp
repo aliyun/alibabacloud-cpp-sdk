@@ -204,7 +204,6 @@ namespace Models
   protected:
     shared_ptr<vector<QueryConferenceMembersResponseBody::MemberModels>> memberModels_ {};
     shared_ptr<string> nextToken_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<int32_t> totalCount_ {};
   };

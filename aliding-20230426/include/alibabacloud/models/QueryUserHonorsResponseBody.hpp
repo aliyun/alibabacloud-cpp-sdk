@@ -178,7 +178,6 @@ namespace Models
   protected:
     shared_ptr<vector<QueryUserHonorsResponseBody::Honors>> honors_ {};
     shared_ptr<string> nextToken_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

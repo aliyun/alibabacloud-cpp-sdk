@@ -49,7 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<string> openConversationId_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

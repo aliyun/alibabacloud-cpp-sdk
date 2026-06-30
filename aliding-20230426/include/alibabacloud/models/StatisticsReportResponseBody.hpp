@@ -79,7 +79,6 @@ namespace Models
     shared_ptr<int64_t> commentUserNum_ {};
     shared_ptr<int64_t> likeNum_ {};
     shared_ptr<int64_t> readNum_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

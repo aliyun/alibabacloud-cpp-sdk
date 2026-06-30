@@ -269,7 +269,6 @@ namespace Models
   protected:
     shared_ptr<string> nextToken_ {};
     shared_ptr<vector<ListNodesResponseBody::Nodes>> nodes_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

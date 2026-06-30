@@ -106,7 +106,6 @@ namespace Models
     shared_ptr<string> dentryUuid_ {};
     shared_ptr<string> docKey_ {};
     shared_ptr<string> nodeId_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> url_ {};
     shared_ptr<string> vendorRequestId_ {};

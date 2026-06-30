@@ -67,7 +67,6 @@ namespace Models
 
   protected:
     shared_ptr<bool> result_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> vendorRequestId_ {};
     shared_ptr<string> vendorType_ {};

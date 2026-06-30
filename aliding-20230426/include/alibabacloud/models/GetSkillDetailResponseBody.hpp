@@ -51,7 +51,6 @@ namespace Models
 
   protected:
     Darabonba::Json data_ {};
-    // RequestId
     shared_ptr<string> requestId_ {};
   };
 

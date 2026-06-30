@@ -183,9 +183,7 @@ namespace Models
 
 
     protected:
-      // fieldKey
       shared_ptr<string> fieldKey_ {};
-      // fieldValue
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -377,7 +375,6 @@ namespace Models
     shared_ptr<CreateTodoTaskResponseBody::NotifyConfigs> notifyConfigs_ {};
     shared_ptr<vector<string>> participantIds_ {};
     shared_ptr<int32_t> priority_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> source_ {};
     shared_ptr<string> sourceId_ {};

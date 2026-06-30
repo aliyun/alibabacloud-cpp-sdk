@@ -6714,6 +6714,80 @@ DeleteWorkspaceMembersResponse Client::deleteWorkspaceMembers(const DeleteWorksp
 }
 
 /**
+ * @summary 停用群模版（场景群降级为普通群）
+ *
+ * @param tmpReq DisableSceneGroupTemplateRequest
+ * @param tmpHeader DisableSceneGroupTemplateHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableSceneGroupTemplateResponse
+ */
+DisableSceneGroupTemplateResponse Client::disableSceneGroupTemplateWithOptions(const DisableSceneGroupTemplateRequest &tmpReq, const DisableSceneGroupTemplateHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DisableSceneGroupTemplateShrinkRequest request = DisableSceneGroupTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  DisableSceneGroupTemplateShrinkHeaders headers = DisableSceneGroupTemplateShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOpenConversationId()) {
+    body["OpenConversationId"] = request.getOpenConversationId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DisableSceneGroupTemplate"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/disableSceneGroupTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableSceneGroupTemplateResponse>();
+}
+
+/**
+ * @summary 停用群模版（场景群降级为普通群）
+ *
+ * @param request DisableSceneGroupTemplateRequest
+ * @return DisableSceneGroupTemplateResponse
+ */
+DisableSceneGroupTemplateResponse Client::disableSceneGroupTemplate(const DisableSceneGroupTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  DisableSceneGroupTemplateHeaders headers = DisableSceneGroupTemplateHeaders();
+  return disableSceneGroupTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 删除块元素
  *
  * @param tmpReq DocBlocksDeleteRequest

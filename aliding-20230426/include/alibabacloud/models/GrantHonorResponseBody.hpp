@@ -63,7 +63,6 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> failedUserIds_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<string>> successUserIds_ {};
   };

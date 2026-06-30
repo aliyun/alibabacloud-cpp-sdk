@@ -268,7 +268,6 @@ namespace Models
 
 
   protected:
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<GetMineWorkspaceResponseBody::Workspace> workspace_ {};
   };

@@ -208,7 +208,6 @@ namespace Models
   protected:
     shared_ptr<vector<QueryLiveWatchUserListResponseBody::OrgUsesList>> orgUsesList_ {};
     shared_ptr<vector<QueryLiveWatchUserListResponseBody::OutOrgUserList>> outOrgUserList_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

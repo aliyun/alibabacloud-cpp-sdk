@@ -49,7 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<bool> result_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

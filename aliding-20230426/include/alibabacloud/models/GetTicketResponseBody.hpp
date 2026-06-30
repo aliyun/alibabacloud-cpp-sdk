@@ -107,9 +107,7 @@ namespace Models
 
 
     protected:
-      // OpenTemplateBizId
       shared_ptr<string> openTemplateBizId_ {};
-      // OpenTemplateBizId
       shared_ptr<string> openTemplateId_ {};
       shared_ptr<string> templateName_ {};
     };

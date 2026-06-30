@@ -313,7 +313,6 @@ namespace Models
   protected:
     shared_ptr<bool> hasMore_ {};
     shared_ptr<vector<QueryCloudRecordTextResponseBody::ParagraphList>> paragraphList_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

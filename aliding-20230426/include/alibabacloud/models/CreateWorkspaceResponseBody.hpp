@@ -77,7 +77,6 @@ namespace Models
   protected:
     shared_ptr<string> description_ {};
     shared_ptr<string> name_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> url_ {};
     shared_ptr<string> workspaceId_ {};

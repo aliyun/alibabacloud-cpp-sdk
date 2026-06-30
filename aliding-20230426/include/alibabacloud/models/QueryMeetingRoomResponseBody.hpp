@@ -474,7 +474,6 @@ namespace Models
 
 
   protected:
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<QueryMeetingRoomResponseBody::Result> result_ {};
     shared_ptr<string> vendorRequestId_ {};

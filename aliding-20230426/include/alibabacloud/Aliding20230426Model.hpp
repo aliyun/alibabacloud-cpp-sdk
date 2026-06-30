@@ -457,6 +457,12 @@
 #include <alibabacloud/models/DeleteWorkspaceMembersShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteWorkspaceMembersResponseBody.hpp>
 #include <alibabacloud/models/DeleteWorkspaceMembersResponse.hpp>
+#include <alibabacloud/models/DisableSceneGroupTemplateHeaders.hpp>
+#include <alibabacloud/models/DisableSceneGroupTemplateShrinkHeaders.hpp>
+#include <alibabacloud/models/DisableSceneGroupTemplateRequest.hpp>
+#include <alibabacloud/models/DisableSceneGroupTemplateShrinkRequest.hpp>
+#include <alibabacloud/models/DisableSceneGroupTemplateResponseBody.hpp>
+#include <alibabacloud/models/DisableSceneGroupTemplateResponse.hpp>
 #include <alibabacloud/models/DocBlocksDeleteHeaders.hpp>
 #include <alibabacloud/models/DocBlocksDeleteShrinkHeaders.hpp>
 #include <alibabacloud/models/DocBlocksDeleteRequest.hpp>

@@ -217,7 +217,6 @@ namespace Models
 
 
       protected:
-        // WordCount
         shared_ptr<int64_t> wordCount_ {};
       };
 
@@ -912,7 +911,6 @@ namespace Models
     shared_ptr<vector<GetSpaceDirectoriesResponseBody::Children>> children_ {};
     shared_ptr<bool> hasMore_ {};
     shared_ptr<string> nextToken_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

@@ -836,7 +836,6 @@ namespace Models
     shared_ptr<CreateEventResponseBody::Organizer> organizer_ {};
     shared_ptr<CreateEventResponseBody::Recurrence> recurrence_ {};
     shared_ptr<vector<CreateEventResponseBody::Reminders>> reminders_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<CreateEventResponseBody::RichTextDescription> richTextDescription_ {};
     shared_ptr<CreateEventResponseBody::Start> start_ {};

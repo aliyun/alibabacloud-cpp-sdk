@@ -98,7 +98,6 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> phones_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> roomCode_ {};
     shared_ptr<string> scheduleConferenceId_ {};

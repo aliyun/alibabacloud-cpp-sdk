@@ -103,7 +103,6 @@ namespace Models
     shared_ptr<string> errorMsg_ {};
     shared_ptr<bool> finished_ {};
     Darabonba::Json metadata_ {};
-    // RequestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

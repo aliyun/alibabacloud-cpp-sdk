@@ -258,7 +258,6 @@ namespace Models
 
   protected:
     shared_ptr<GetNodeResponseBody::Node> node_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
   };
 

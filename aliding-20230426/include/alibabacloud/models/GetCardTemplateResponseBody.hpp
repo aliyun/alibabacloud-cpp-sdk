@@ -106,7 +106,6 @@ namespace Models
 
     protected:
       shared_ptr<string> description_ {};
-      // Id
       shared_ptr<string> id_ {};
       shared_ptr<bool> ifPrivateFiled_ {};
       shared_ptr<string> name_ {};

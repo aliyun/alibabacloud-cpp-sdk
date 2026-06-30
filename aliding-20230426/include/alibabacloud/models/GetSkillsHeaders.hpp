@@ -70,7 +70,6 @@ namespace Models
 
 
     protected:
-      // Buc SsoTicket
       shared_ptr<string> ssoTicket_ {};
       // This parameter is required.
       shared_ptr<string> accountId_ {};

@@ -251,7 +251,6 @@ namespace Models
     shared_ptr<vector<GetReportTemplateByNameResponseBody::Fields>> fields_ {};
     shared_ptr<string> id_ {};
     shared_ptr<string> name_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> userName_ {};
     shared_ptr<string> userid_ {};

@@ -291,7 +291,6 @@ namespace Models
     shared_ptr<vector<ListReportResponseBody::DataList>> dataList_ {};
     shared_ptr<bool> hasMore_ {};
     shared_ptr<int64_t> nextCursor_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<int64_t> size_ {};
   };

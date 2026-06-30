@@ -108,7 +108,6 @@ namespace Models
     shared_ptr<int64_t> lastNonEmptyColumn_ {};
     shared_ptr<int64_t> lastNonEmptyRow_ {};
     shared_ptr<string> name_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<int64_t> rowCount_ {};
     shared_ptr<string> visibility_ {};

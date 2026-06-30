@@ -1322,7 +1322,6 @@ namespace Models
     shared_ptr<QueryDentryResponseBody::LinkSourceInfo> linkSourceInfo_ {};
     shared_ptr<string> name_ {};
     shared_ptr<string> path_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<QueryDentryResponseBody::Space> space_ {};
     shared_ptr<string> spaceId_ {};

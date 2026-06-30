@@ -195,7 +195,6 @@ namespace Models
     shared_ptr<int32_t> liveStatus_ {};
     shared_ptr<int64_t> playbackDuration_ {};
     shared_ptr<string> replayUrl_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> staffId_ {};
     shared_ptr<int64_t> startTime_ {};
