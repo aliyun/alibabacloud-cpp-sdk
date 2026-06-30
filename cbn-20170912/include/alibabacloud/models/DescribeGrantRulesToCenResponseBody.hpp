@@ -225,17 +225,19 @@ namespace Models
 
   protected:
     shared_ptr<DescribeGrantRulesToCenResponseBody::GrantRules> grantRules_ {};
-    // *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
-    // *   If a value is specified for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.
-    shared_ptr<int64_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+    // - The maximum number of entries to return per page.
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - This value is the same as the **MaxResults** value that you specified in the request.
+    shared_ptr<int64_t> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results.
+    // 
+    // - If the **NextToken** parameter is empty, no more results are available.
+    // 
+    // - To retrieve the next page, set the NextToken request parameter to this value.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -347,7 +347,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCensResponseBody::Cens> cens_ {};
-    // The number of the page returned.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};

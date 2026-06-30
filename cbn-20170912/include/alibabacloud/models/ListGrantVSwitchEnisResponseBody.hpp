@@ -122,24 +122,25 @@ namespace Models
 
 
     protected:
-      // The ENI description.
+      // The description of the ENI.
       shared_ptr<string> description_ {};
-      // The ENI ID.
+      // The ID of the ENI.
       shared_ptr<string> networkInterfaceId_ {};
-      // The ENI name.
+      // The name of the ENI.
       shared_ptr<string> networkInterfaceName_ {};
       // The primary private IPv4 address of the ENI.
       shared_ptr<string> primaryIpAddress_ {};
-      // Indicates whether the ENI is created by a transit router. Valid values:
+      // Indicates whether the ENI is created by a transit router.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The ENI is created by a transit router.
       // 
-      // ENIs that are created by transit routers cannot be used as multicast sources or members.
+      // - **false**: The ENI is not created by a transit router.
+      // 
+      // ENIs created by transit routers cannot be used as multicast sources or members.
       shared_ptr<bool> transitRouterFlag_ {};
-      // The vSwitch ID.
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
-      // The VPC ID.
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -183,17 +184,19 @@ namespace Models
 
 
   protected:
-    // The information about the ENI.
+    // A list of ENI information.
     shared_ptr<vector<ListGrantVSwitchEnisResponseBody::GrantVSwitchEnis>> grantVSwitchEnis_ {};
-    // The total number of entries returned.
+    // The maximum number of entries returned.
     shared_ptr<int64_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token that is used for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     // 
-    // > If MaxResults and NextToken are sued to query results by page, ignore this parameter.
+    // >Notice: 
+    // 
+    // This parameter is invalid if you use MaxResults and NextToken to perform a paged query.
     shared_ptr<string> totalCount_ {};
   };
 

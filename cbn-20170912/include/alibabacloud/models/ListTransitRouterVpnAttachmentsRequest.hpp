@@ -90,15 +90,15 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
       // 
-      // You can specify at most 20 tag keys.
+      // You can specify up to 20 tag keys.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https:// `.
       // 
-      // Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+      // Each tag key must have a unique tag value. You can specify up to 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -185,28 +185,29 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
     // The number of entries to return on each page. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-    // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+    // - If this is your first query or no next query is to be sent, you do not need to specify this parameter.
+    // 
+    // - If a next query is to be sent, set the value to the NextToken value returned from the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the transit router.
+    // The ID of the region where the transit router is deployed.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // For more information, see [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html).
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The information about the tags that are added to the CEN instance.
+    // The tags of the CEN instance.
     // 
-    // You can query at most 20 tags in each call.
+    // You can query a maximum of 20 tags at a time.
     shared_ptr<vector<ListTransitRouterVpnAttachmentsRequest::Tag>> tag_ {};
-    // The ID of the VPN attachment.
+    // The ID of the VPN connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The ID of the transit router.
     shared_ptr<string> transitRouterId_ {};

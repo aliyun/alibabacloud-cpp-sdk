@@ -122,9 +122,9 @@ namespace Models
     shared_ptr<string> childInstanceRegionId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VBR**: virtual border router (VBR)
-    // *   **CCN**: Cloud Connect Network (CCN) instance
+    // - **VPC**: virtual private cloud (VPC)
+    // - **VBR**: virtual border router (VBR)
+    // - **CCN**: Cloud Connect Network (CCN) instance
     shared_ptr<string> childInstanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

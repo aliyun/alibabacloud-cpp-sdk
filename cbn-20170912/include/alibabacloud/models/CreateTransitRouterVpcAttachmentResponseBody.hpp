@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the VPC connection.
     shared_ptr<string> transitRouterAttachmentId_ {};

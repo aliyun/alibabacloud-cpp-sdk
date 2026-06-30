@@ -107,25 +107,29 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the attached network instance.
+    // The ID of the network instance.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
-    // The ID of the region where the attached network instance is created.
+    // The region ID of the network instance.
+    // 
+    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
-    // The ID of the route table of the attached network instance.
+    // The route table ID of the network instance.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRouteTableId_ {};
-    // The type of the attached network instance.
+    // The type of the network instance. Valid values:
     // 
-    // Set the value to **VPC**, which indicates a virtual private cloud (VPC).
+    // - **VPC**: virtual private cloud.
+    // 
+    // - **VBR**: virtual border router.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
-    // The destination CIDR block of the route that you want to withdraw.
+    // The destination CIDR block of the route entry that you want to withdraw.
     // 
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};

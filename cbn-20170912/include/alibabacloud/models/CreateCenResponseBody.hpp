@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The CEN instance ID.
+    // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -78,10 +78,18 @@ namespace Models
 
 
   protected:
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query. Valid values:
+    // 
+    // - If **NextToken** is empty, there is no next query.
+    // - If **NextToken** has a return value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

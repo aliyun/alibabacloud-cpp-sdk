@@ -155,12 +155,13 @@ namespace Models
 
 
   protected:
-    // The token that determines the start point of the query. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // *   If **NextToken** was not returned, it indicates that no additional results exist.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - If **NextToken** is empty, no next query is to be sent.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };

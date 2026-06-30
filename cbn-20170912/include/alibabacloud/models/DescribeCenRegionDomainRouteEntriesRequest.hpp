@@ -112,31 +112,35 @@ namespace Models
 
 
   protected:
-    // The CEN instance ID.
+    // The ID of the CEN instance.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
     // The region ID.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // Call [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenRegionId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1** to **500**. Default value: **10**.
+    // The number of entries to return on each page. The default value is **10**. Valid values: **1** to **500**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The route status. Valid values:
+    // The status of the route entry. Valid values:
     // 
-    // *   **Active** (default): available
-    // *   **Candidate**: standby
-    // *   **Rejected**: rejected
-    // *   **Prohibited**: prohibited
-    // *   **All** (default value): all routes
+    // - **Active** (default): active.
+    // 
+    // - **Candidate**: backup.
+    // 
+    // - **Rejected**: rejected.
+    // 
+    // - **Prohibited**: disabled.
+    // 
+    // - **All**: all route entries in the current region, regardless of their status.
     shared_ptr<string> status_ {};
   };
 

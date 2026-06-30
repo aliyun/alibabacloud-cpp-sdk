@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the Enterprise Edition transit router.
+    // The ID of the Enterprise Edition transit router instance.
     shared_ptr<string> transitRouterId_ {};
   };
 

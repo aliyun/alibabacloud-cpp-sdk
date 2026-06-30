@@ -94,15 +94,15 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
       // 
-      // You can specify at most 20 tag keys.
+      // You can specify up to 20 tag keys.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https:// `.
       // 
-      // Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+      // Each tag key must have a unique tag value. You can specify up to 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -110,9 +110,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Options& obj) { 
         DARABONBA_PTR_TO_JSON(Igmpv2Support, igmpv2Support_);
+        DARABONBA_PTR_TO_JSON(StrictSourceControl, strictSourceControl_);
       };
       friend void from_json(const Darabonba::Json& j, Options& obj) { 
         DARABONBA_PTR_FROM_JSON(Igmpv2Support, igmpv2Support_);
+        DARABONBA_PTR_FROM_JSON(StrictSourceControl, strictSourceControl_);
       };
       Options() = default ;
       Options(const Options &) = default ;
@@ -125,7 +127,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->igmpv2Support_ == nullptr; };
+      virtual bool empty() const override { return this->igmpv2Support_ == nullptr
+        && this->strictSourceControl_ == nullptr; };
       // igmpv2Support Field Functions 
       bool hasIgmpv2Support() const { return this->igmpv2Support_ != nullptr;};
       void deleteIgmpv2Support() { this->igmpv2Support_ = nullptr;};
@@ -133,15 +136,25 @@ namespace Models
       inline Options& setIgmpv2Support(string igmpv2Support) { DARABONBA_PTR_SET_VALUE(igmpv2Support_, igmpv2Support) };
 
 
+      // strictSourceControl Field Functions 
+      bool hasStrictSourceControl() const { return this->strictSourceControl_ != nullptr;};
+      void deleteStrictSourceControl() { this->strictSourceControl_ = nullptr;};
+      inline string getStrictSourceControl() const { DARABONBA_PTR_GET_DEFAULT(strictSourceControl_, "") };
+      inline Options& setStrictSourceControl(string strictSourceControl) { DARABONBA_PTR_SET_VALUE(strictSourceControl_, strictSourceControl) };
+
+
     protected:
-      // Indicates whether the IGMP feature is enabled for the multicast domain. Once enabled, hosts can dynamically join or leave multicast groups by using IGMP protocol. Valid values:
+      // Specifies whether to enable the Internet Group Management Protocol (IGMP) feature for the multicast domain. After you enable IGMP, hosts can dynamically join or leave multicast groups using IGMP. Valid values:
       // 
-      // *   **enable**: enables IGMP.
-      // *   **disable**(default): disables IGMP.
+      // - **enable**: enables the IGMP feature.
       // 
-      // > *   The IGMP feature is in beta testing. To use it, contact your account manager.
-      // > *   If you select this option, you cannot disable IPv6 after the VBR is created.
+      // - **disable** (default): disables the IGMP feature.
+      // 
+      // > * The IGMP feature is in public preview. To use this feature, contact your account manager to request permissions.
+      // >
+      // > * After the IGMP feature is enabled, you cannot disable it.
       shared_ptr<string> igmpv2Support_ {};
+      shared_ptr<string> strictSourceControl_ {};
     };
 
     virtual bool empty() const override { return this->cenId_ == nullptr
@@ -248,36 +261,37 @@ namespace Models
     shared_ptr<string> cenId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+    // Generate a token on your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs a dry run. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and sends the request.
+    // - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): sends a normal request. After the request passes the check, the multicast domain is created.
     shared_ptr<bool> dryRun_ {};
-    // Multicast domain feature.
+    // The multicast domain options.
     shared_ptr<CreateTransitRouterMulticastDomainRequest::Options> options_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the transit router.
+    // The ID of the region where the transit router is deployed.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The information about the tags.
+    // The tag.
     // 
-    // You can specify at most 20 tags in each call.
+    // You can specify up to 20 tags in each call.
     shared_ptr<vector<CreateTransitRouterMulticastDomainRequest::Tag>> tag_ {};
     // The ID of the transit router.
     shared_ptr<string> transitRouterId_ {};
     // The description of the multicast domain.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The description can be empty or 1 to 256 characters in length, and cannot start with \\`http\\://\\` or \\`https\\://\\`.
     shared_ptr<string> transitRouterMulticastDomainDescription_ {};
     // The name of the multicast domain.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with \\`http\\://\\` or \\`https\\://\\`.
     shared_ptr<string> transitRouterMulticastDomainName_ {};
   };
 

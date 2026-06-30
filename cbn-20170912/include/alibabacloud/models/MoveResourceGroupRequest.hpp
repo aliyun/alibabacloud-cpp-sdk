@@ -114,16 +114,17 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client generates this value. Make sure that the value is unique among different requests. The token can contain a maximum of 64 ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false:** performs a dry run and sends the request.
+    // - **true**: performs a dry run. The system checks the required parameters, the request format, and business limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
-    // The ID of the resource group to which you want to move the CEN instance or bandwidth plan.
+    // The ID of the new resource group.
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
@@ -137,8 +138,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of the resource. Valid values:
     // 
-    // *   **CEN**: CEN instance
-    // *   **bandwidthpackage**: bandwidth plan
+    // - **cen**: a CEN instance.
+    // 
+    // - **bandwidthpackage**: a bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

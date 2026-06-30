@@ -126,10 +126,10 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: VPC
-    // *   **ExpressConnect**: VBR
-    // *   **VPN**: IPsec-VPN connection
-    // *   **ECR**: ECR
+    // - **VPC**: VPC
+    // - **ExpressConnect**: VBR
+    // - **VPN**: IPsec-VPN connection
+    // - **ECR**: ECR
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};

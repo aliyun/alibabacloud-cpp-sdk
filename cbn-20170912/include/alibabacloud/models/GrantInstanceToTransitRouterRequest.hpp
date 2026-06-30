@@ -135,17 +135,21 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of network instance. Valid values:
     // 
-    // *   **VPC**: VPC
-    // *   **ExpressConnect**: VBR
-    // *   **VPN**: IPsec-VPN connection
-    // *   **ECR**: ECR
+    // - **VPC**: VPC
+    // 
+    // - **ExpressConnect**: VBR
+    // 
+    // - **VPN**: IPsec-VPN connection
+    // 
+    // - **ECR**: ECR
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     // The entity that pays the fees of the network instance. Valid values:
     // 
-    // *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-    // *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+    // - **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
+    // 
+    // - **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

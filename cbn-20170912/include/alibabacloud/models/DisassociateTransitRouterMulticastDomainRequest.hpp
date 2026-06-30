@@ -117,20 +117,21 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
+    // Generate a token from your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether only to precheck the API request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: prechecks the request but does not disassociate the vSwitch from the multicast domain. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the DryRunOperation error code is returned.
-    // - **false** (default): sends the request. The vSwitch is disassociated from the multicast domain after the request passes the precheck.
+    // - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): performs a normal request. If the request passes the check, the vSwitch is dissociated from the multicast domain.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the virtual private cloud (VPC) connection.
+    // The ID of the VPC connection.
     // 
-    // A connection ID is generated after a VPC to which the vSwitch belongs is connected to a transit router.
+    // The VPC connection is created after the Virtual Private Cloud (VPC) to which the vSwitch belongs is connected to the transit router.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterAttachmentId_ {};
@@ -138,7 +139,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterMulticastDomainId_ {};
-    // The IDs of vSwitches.
+    // The list of vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

@@ -130,36 +130,37 @@ namespace Models
 
 
   protected:
-    // The CEN instance ID.
+    // The ID of the CEN instance.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // Specifies whether to enable IPv6. true: enables IPv6. false: disables IPv6. If you do not specify a value, vSwitches are not filtered based on this attribute.
+    // Specifies whether IPv6 is enabled. Valid values: true and false. If you do not specify this parameter, the query is not filtered by this property.
     shared_ptr<bool> enabledIpv6_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+    // The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the VPC.
+    // The ID of the region where the VPC is deployed.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The VPC ID.
+    // The ID of the VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone.
+    // The zone ID.
     // 
-    // *   If you specify a zone ID, the system queries the information about the vSwitches in the specified zone.
-    // *   If you do not specify a zone ID, the system queries the information about the vSwitches in all zones.
+    // - If you specify a zone ID, only the vSwitches in that zone are queried.
     // 
-    // You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+    // - If you do not specify a zone ID, the vSwitches in all zones of the VPC are queried by default.
+    // 
+    // Call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
     shared_ptr<string> zoneId_ {};
   };
 

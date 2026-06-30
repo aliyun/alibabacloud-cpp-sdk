@@ -149,40 +149,41 @@ namespace Models
 
 
   protected:
-    // The new CIDR block of the transit router.
+    // The new CIDR block.
     shared_ptr<string> cidr_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a client token to make sure that the token is unique for each request. The token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID is different for each request.
     shared_ptr<string> clientToken_ {};
-    // The new description of the transit router CIDR block.
+    // The new description of the CIDR block.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform a dry run. The valid values are:
     // 
-    // *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false**: performs a dry run and sends the request.
+    // - **true**: Sends a check request but does not modify the CIDR block. The system checks the required parameters, request format, and service limits. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): Sends a normal request. The CIDR block is modified after the request passes the check.
     shared_ptr<bool> dryRun_ {};
-    // The new name of the transit router CIDR block.
+    // The new name of the CIDR block.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to allow the system to automatically add a route that points to the CIDR block to the route table of the transit router. Valid values:
+    // Specifies whether to automatically add a route that points to the CIDR block to the route table of the transit router.
     // 
-    // *   **true**
+    // - **true**: Yes.
     // 
-    //     If you specify true, create a private VPN connection, and enable route learning for the VPN connection, the system automatically adds the following route to the transit router route table that is in route learning relationship with the VPN connection: a blackhole route whose destination CIDR block is the CIDR block of the transit router. The CIDR block of the transit router refers to the CIDR block from which IP addresses of IPsec-VPN connections are allocated. The blackhole route is advertised only to the route tables of virtual border routers (VBRs) connected to the transit router.
+    //   This blackhole route is advertised only to the route tables of virtual border routers (VBRs) that are attached to the transit router.
     // 
-    // *   **false**
+    // - **false**: No.
     shared_ptr<bool> publishCidrRoute_ {};
-    // The ID of the region where the transit router is deployed.
+    // The ID of the region where the Transit Router instance is deployed.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -190,11 +191,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the CIDR block.
     // 
-    // You can call the [ListTransitRouterCidr](https://help.aliyun.com/document_detail/462772.html) operation to query the ID of a CIDR block.
+    // Call the [ListTransitRouterCidr](https://help.aliyun.com/document_detail/462772.html) operation to query the ID of the CIDR block.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterCidrId_ {};
-    // The ID of the transit router.
+    // The ID of the Transit Router instance.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterId_ {};

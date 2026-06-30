@@ -128,13 +128,15 @@ namespace Models
       shared_ptr<int64_t> resourceOwnerId_ {};
       // The type of resource associated with the multicast domain.
       // 
-      // Valid value: **VPC**.
+      // The value is **VPC**.
       shared_ptr<string> resourceType_ {};
-      // The association status. Valid values:
+      // The association status.
       // 
-      // *   **Associated**: The resource is associated with the multicast domain.
-      // *   **Associating**: The resource is being associated with the multicast domain.
-      // *   **Dissociating**: The resource is being disassociated from the multicast domain.
+      // - **Associated**: The resource is associated with the multicast domain.
+      // 
+      // - **Associating**: The resource is being associated with the multicast domain.
+      // 
+      // - **Dissociating**: The resource is being dissociated from the multicast domain.
       shared_ptr<string> status_ {};
       // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
@@ -184,18 +186,19 @@ namespace Models
 
 
   protected:
-    // The number of entries returned on each page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // *   If **NextToken** is empty, it indicates that no subsequent query is to be sent.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - If **NextToken** is empty, it indicates that no next query is to be sent.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the resource associated with the multicast domain.
+    // The list of associations.
     shared_ptr<vector<ListTransitRouterMulticastDomainAssociationsResponseBody::TransitRouterMulticastAssociations>> transitRouterMulticastAssociations_ {};
   };
 

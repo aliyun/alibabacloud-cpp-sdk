@@ -88,17 +88,17 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https:// `.
       // 
-      // You can specify at most 20 tag keys.
+      // You can specify up to 20 tag keys.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the resource.
       // 
-      // The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https:// `.
       // 
-      // Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+      // Each tag key must have a unique tag value. You can specify up to 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -185,23 +185,27 @@ namespace Models
 
 
   protected:
-    // The IDs of the CEN instances.
+    // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The maximum number of entries to return for a single query. The default value is **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that is used for the next query. Valid values:
+    // 
+    // - If this is your first query, you do not need to specify this parameter.
+    // 
+    // - If a subsequent query is to be sent, set the value to the NextToken value that is returned in the previous request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the Enterprise Edition transit router.
+    // The ID of the region where the Enterprise Edition transit router is deployed.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The information about the tags.
+    // The tag.
     // 
-    // You can specify at most 20 tags in each call.
+    // You can specify up to 20 tags.
     shared_ptr<vector<ListTransitRouterVbrAttachmentsRequest::Tag>> tag_ {};
     // The ID of the VBR connection.
     shared_ptr<string> transitRouterAttachmentId_ {};

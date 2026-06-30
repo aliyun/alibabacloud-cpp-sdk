@@ -50,8 +50,8 @@ namespace Models
   protected:
     // Indicates whether the transit router feature is activated.
     // 
-    // *   **true**: activated
-    // *   If this value is not returned, the system prompts that the current account does not have the transit router feature activated.
+    // - **true**: activated
+    // - If this value is not returned, the system prompts that the current account does not have the transit router feature activated.
     shared_ptr<string> enabled_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

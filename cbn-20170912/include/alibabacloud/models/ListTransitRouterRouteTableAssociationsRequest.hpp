@@ -132,31 +132,37 @@ namespace Models
   protected:
     // The number of entries to return on each page. Default value: **50**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token for the next query.
     // 
-    // *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-    // *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+    // - You do not need to specify this parameter for the first query.
+    // 
+    // - For a subsequent query, set this parameter to the **NextToken** value returned from the previous query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the associated forwarding correlation. Valid values:
+    // The status of the association.
     // 
-    // *   **Active**: The associated forwarding correlation is available.
-    // *   **Associating**: The associated forwarding correlation is being created.
-    // *   **Dissociating**: The associated forwarding correlation is being deleted.
+    // - **Active**: The association is active.
+    // 
+    // - **Associating**: The association is being created.
+    // 
+    // - **Dissociating**: The association is being deleted.
     shared_ptr<string> status_ {};
     // The ID of the network instance connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
-    // The ID of the next hop.
+    // The ID of the next hop resource.
     shared_ptr<string> transitRouterAttachmentResourceId_ {};
-    // The type of next hop. Valid values:
+    // The type of the next hop resource.
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VBR**: virtual border router (VBR)
-    // *   **TR**: transit router
-    // *   **VPN**: VPN attachment
+    // - **VPC**: virtual private cloud (VPC).
+    // 
+    // - **VBR**: virtual border router (VBR).
+    // 
+    // - **TR**: transit router.
+    // 
+    // - **VPN**: VPN connection.
     shared_ptr<string> transitRouterAttachmentResourceType_ {};
     // The ID of the route table of the Enterprise Edition transit router.
     shared_ptr<string> transitRouterRouteTableId_ {};

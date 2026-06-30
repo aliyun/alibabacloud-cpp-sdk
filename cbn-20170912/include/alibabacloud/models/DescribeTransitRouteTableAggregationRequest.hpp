@@ -114,16 +114,17 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // Generate a token from your client to ensure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the request as the ClientToken. The RequestId is different for each request.
     shared_ptr<string> clientToken_ {};
     // The number of entries to return on each page. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-    // *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+    // - You do not need to specify this parameter for the first request.
+    // 
+    // - You must specify the token that is obtained from the previous query as the value of **NextToken**.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

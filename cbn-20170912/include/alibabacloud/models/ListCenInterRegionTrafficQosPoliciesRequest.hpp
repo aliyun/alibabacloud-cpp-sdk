@@ -132,10 +132,11 @@ namespace Models
   protected:
     // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token for the next page of results. Valid values:
     // 
-    // *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-    // *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+    // - If this is your first query or no next page exists, do not specify this parameter.
+    // 
+    // - If a next page exists, set the value to the **NextToken** value returned from the previous call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -143,17 +144,17 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The description of the QoS policy.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
     shared_ptr<string> trafficQosPolicyDescription_ {};
     // The ID of the QoS policy.
     shared_ptr<string> trafficQosPolicyId_ {};
     // The name of the QoS policy.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
     shared_ptr<string> trafficQosPolicyName_ {};
     // The ID of the inter-region connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
-    // The ID of the transit router.
+    // The ID of the TransitRouter instance.
     shared_ptr<string> transitRouterId_ {};
   };
 

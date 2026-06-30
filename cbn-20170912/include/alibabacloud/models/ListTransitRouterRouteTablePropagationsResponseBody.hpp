@@ -105,18 +105,23 @@ namespace Models
     protected:
       // The ID of the network instance.
       shared_ptr<string> resourceId_ {};
-      // The type of the network instance. Valid values:
+      // The type of the network instance.
       // 
-      // *   **VPC**: VPC
-      // *   **VBR**: VBR
-      // *   **TR**: transit router
-      // *   **VPN**: VPN connection
+      // - **VPC**: a VPC.
+      // 
+      // - **VBR**: a VBR.
+      // 
+      // - **TR**: a transit router.
+      // 
+      // - **VPN**: a VPN connection.
       shared_ptr<string> resourceType_ {};
-      // The status of the route learning correlation. Valid values:
+      // The status of the route propagation.
       // 
-      // *   **Enabling**: being enabled
-      // *   **Disabling**: being disabled
-      // *   **Active**: available
+      // - **Enabling**: The propagation is being enabled.
+      // 
+      // - **Disabling**: The propagation is being disabled.
+      // 
+      // - **Active**: The propagation is active.
       shared_ptr<string> status_ {};
       // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
@@ -166,13 +171,13 @@ namespace Models
   protected:
     // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of route learning correlations.
+    // A list of the route propagations.
     shared_ptr<vector<ListTransitRouterRouteTablePropagationsResponseBody::TransitRouterPropagations>> transitRouterPropagations_ {};
   };
 

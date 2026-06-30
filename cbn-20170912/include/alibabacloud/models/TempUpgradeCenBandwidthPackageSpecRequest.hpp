@@ -94,10 +94,18 @@ namespace Models
 
 
   protected:
+    // The maximum temporary bandwidth. Unit: Mbps.
+    // 
+    // Valid values: **2 to 10,000**
+    // 
     // This parameter is required.
     shared_ptr<int32_t> bandwidth_ {};
+    // Bandwidth package ID.
+    // 
     // This parameter is required.
     shared_ptr<string> cenBandwidthPackageId_ {};
+    // The expiration time of the temporary upgrade. It follows the ISO8601 standard and is displayed in UTC time, `YYYY-MM-DDThh:mm:ssZ`.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};

@@ -143,22 +143,27 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance to which the VPC is attached.
+    // The ID of the CEN instance to which the VPC is connected.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The number of entries to return on each page. Valid values: 10 to 500.
+    // The maximum number of entries to return on each page. Valid values: 10 to 500.
     // 
     // Default value:
     // 
-    // *   If you do not specify a value, the default value is 20.
-    // *   If this parameter is set to a value greater than 500, the default value is 500.
+    // - If you do not specify this parameter, the default value is 20.
+    // 
+    // - If you specify a value greater than 500, the default value is 500.
     shared_ptr<int64_t> maxResults_ {};
-    // The ID of ENI N. Valid values of N: 1 to 100.
+    // The ID of the ENI.
     shared_ptr<vector<string>> networkInterfaceId_ {};
     // The name of the ENI.
     shared_ptr<string> networkInterfaceName_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used for the next query. Valid values:
+    // 
+    // - If this is your first query, you do not need to specify this parameter.
+    // 
+    // - If a next query is to be sent, set the value to the NextToken value that was returned from the last call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -166,7 +171,9 @@ namespace Models
     shared_ptr<string> primaryIpAddress_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of a vSwitch in the VPC. You can specify only one vSwitch in each call.
+    // The ID of a vSwitch in the VPC.
+    // 
+    // You can query information about the ENIs in only one vSwitch at a time.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

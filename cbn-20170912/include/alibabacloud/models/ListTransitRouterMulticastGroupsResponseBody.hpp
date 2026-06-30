@@ -186,50 +186,59 @@ namespace Models
 
 
     protected:
-      // The IP address of the multicast group to which the multicast resource belongs.
+      // The IP address of the multicast group.
       shared_ptr<string> groupIpAddress_ {};
-      // Indicates whether the multicast resource is a multicast member. Valid values:
+      // Indicates whether the multicast resource is a multicast member.
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: The resource is a multicast member.
+      // 
+      // - **false**: The resource is not a multicast member.
       shared_ptr<bool> groupMember_ {};
-      // Indicates whether the multicast resource is a multicast source. Valid values:
+      // Indicates whether the multicast resource is a multicast source.
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: The resource is a multicast source.
+      // 
+      // - **false**: The resource is not a multicast source.
       shared_ptr<bool> groupSource_ {};
-      // The type of the multicast source.
+      // The type of the multicast member.
       // 
-      // If the value is **Static**, the multicast source is manually specified.
+      // - **Static**: The multicast member is manually specified.
+      // 
+      // - **IGMPv2**: The multicast member dynamically joins the multicast group based on Internet Group Management Protocol Version 2 (IGMPv2).
       shared_ptr<string> memberType_ {};
-      // The ID of the ENI, which is a multicast resource.
+      // The ID of the ENI. The ENI is the multicast resource.
       shared_ptr<string> networkInterfaceId_ {};
-      // The ID of the multicast domain associated with the multicast resource that is deployed across regions.
+      // The ID of the multicast domain that is associated with the cross-region multicast resource.
       shared_ptr<string> peerTransitRouterMulticastDomainId_ {};
       // The ID of the resource associated with the multicast resource.
       shared_ptr<string> resourceId_ {};
-      // The ID of the Alibaba Cloud account to which the multicast resource belongs.
+      // The ID of the Alibaba Cloud account that owns the multicast resource.
       shared_ptr<int64_t> resourceOwnerId_ {};
-      // The type of the multicast resource. Valid values:
+      // The type of the multicast resource.
       // 
-      // *   **VPC**: The multicast resource is in a VPC.
-      // *   **TR**: The multicast resource is deployed across regions.
+      // - **VPC**: The multicast resource is in a VPC.
+      // 
+      // - **TR**: The multicast resource is a cross-region resource.
       shared_ptr<string> resourceType_ {};
-      // The type of the multicast member.
+      // The type of the multicast source.
       // 
-      // If the value is **Static**, the multicast member is manually specified.
+      // - **Static**: The multicast source is manually specified.
+      // 
+      // - **IGMPv2**: The multicast source dynamically joins the multicast group based on IGMPv2.
       shared_ptr<string> sourceType_ {};
-      // The status of the multicast resource. Valid values:
+      // The status of the multicast resource.
       // 
-      // *   **Registering**: being created
-      // *   **Registered**: available
-      // *   **Deregistering**: being deleted
+      // - **Registering**: The resource is being created.
+      // 
+      // - **Registered**: The resource is available.
+      // 
+      // - **Deregistering**: The resource is being deleted.
       shared_ptr<string> status_ {};
       // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
       // The ID of the multicast domain.
       shared_ptr<string> transitRouterMulticastDomainId_ {};
-      // The ID of the vSwitch to which the multicast resource belongs.
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
     };
 
@@ -273,16 +282,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token for the next page of results.
     // 
-    // *   If **NextToken** was not returned, it indicates that no additional results exist.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - If **NextToken** is empty, no next page exists.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // A list of multicast groups.
     shared_ptr<vector<ListTransitRouterMulticastGroupsResponseBody::TransitRouterMulticastGroups>> transitRouterMulticastGroups_ {};

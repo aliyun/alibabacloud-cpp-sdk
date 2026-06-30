@@ -117,16 +117,54 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete all tags. Valid values:
+    // 
+    // - **true**: Yes
+    // - **false** (default): No
+    // 
+    // > This parameter takes effect only when the **TagKey.N** parameter is empty.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
+    // 
+    // This parameter is not required when the resource type is Cen or BandwidthPackage. For all other resource types, this parameter is required.
     shared_ptr<string> regionId_ {};
+    // Resource ID. The value of **N** ranges from **1** to **50**.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Resource type. Valid values:
+    // 
+    // **Cen**: Cloud Enterprise Network (CEN).
+    // 
+    // **BandwidthPackage**: Bandwidth package.
+    // 
+    // **TransitRouter**: Transit router.
+    // 
+    // **TransitRouterVpcAttachment**: VPC attachment.
+    // 
+    // **TransitRouterVbrAttachment**: VBR attachment.
+    // 
+    // **TransitRouterPeerAttachment**: Inter-region attachment.
+    // 
+    // **TransitRouterVpnAttachment**: VPN attachment.
+    // 
+    // **TransitRouterRouteTable**: Route table.
+    // 
+    // **Flowlog**: Flow log.
+    // 
+    // **TransitRouterMulticastDomain**: Multicast domain.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // Tag key.
+    // 
+    // A tag key can contain up to 64 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+    // 
+    // If you specify multiple tag keys, the logical relation among these tag keys is **OR**. Valid values of **N**: **1** to **20**.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

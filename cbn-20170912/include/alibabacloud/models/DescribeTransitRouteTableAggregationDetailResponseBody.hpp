@@ -83,17 +83,21 @@ namespace Models
 
 
     protected:
-      // The error message returned if the configuration of the aggregate route fails.
+      // The message returned if the configuration of the aggregate route fails.
       shared_ptr<string> description_ {};
-      // The ID of the virtual private cloud (VPC) for which the aggregate route is configured.
+      // The ID of the VPC instance for which the aggregate route is configured.
       shared_ptr<string> instanceId_ {};
-      // The status of the aggregate route. Valid values:
+      // The configuration status of the aggregate route.
       // 
-      // *   **Configured**: The aggregate route is advertised to the VPC.
-      // *   **Configuring**: The aggregate route is being advertised.
-      // *   **ConfigFailed**: The aggregate route failed to be advertised.
-      // *   **PartialConfigured**: Failed to advertise the aggregate route to some VPCs.
-      // *   **Deleting**: The aggregate route is being deleted.
+      // - **Configured**: The aggregate route is advertised to the VPC instance.
+      // 
+      // - **Configuring**: The aggregate route is being advertised.
+      // 
+      // - **ConfigFailed**: The aggregate route failed to be advertised.
+      // 
+      // - **PartialConfigured**: The aggregate route was partially advertised.
+      // 
+      // - **Deleting**: The aggregate route is being deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -130,13 +134,13 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> count_ {};
-    // The configuration of the aggregate route.
+    // The configuration details of the aggregate route.
     shared_ptr<vector<DescribeTransitRouteTableAggregationDetailResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the cloud service is accessed.
+    // The region ID from which the Alibaba Cloud service is accessed.
     // 
     // This parameter is required.
     shared_ptr<string> accessRegionId_ {};
-    // The ID of the CEN instance.
+    // The ID of the Cloud Enterprise Network (CEN) instance.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The IP addresses or CIDR blocks of the cloud service.
+    // The IP address or CIDR block of the Alibaba Cloud service.
     // 
     // This parameter is required.
     shared_ptr<string> host_ {};
-    // The region ID of the cloud service.
+    // The region ID of the Alibaba Cloud service.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> hostRegionId_ {};
-    // The ID of the virtual private cloud (VPC) that is associated with the cloud service.
+    // The ID of the VPC that is associated with the Alibaba Cloud service.
     shared_ptr<string> hostVpcId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

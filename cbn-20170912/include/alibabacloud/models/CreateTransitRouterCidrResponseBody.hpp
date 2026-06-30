@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the CIDR block.
+    // The ID of the transit router CIDR block.
     shared_ptr<string> transitRouterCidrId_ {};
   };
 

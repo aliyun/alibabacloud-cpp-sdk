@@ -130,13 +130,13 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The ID of the Cloud Enterprise Network (CEN) instance.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
     // The ID of the Alibaba Cloud account to which the network instance belongs.
     // 
-    // > If the network instance and the CEN instance belong to different Alibaba Cloud accounts, this parameter is required.
+    // > This parameter is required if the network instance belongs to another Alibaba Cloud account.
     shared_ptr<int64_t> childInstanceAliUid_ {};
     // The ID of the network instance.
     // 
@@ -150,14 +150,15 @@ namespace Models
     shared_ptr<string> childInstanceRegionId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: a virtual private cloud (VPC)
-    // *   **VBR**: a virtual border router (VBR)
+    // - **VPC**: a virtual private cloud (VPC).
+    // 
+    // - **VBR**: a virtual border router (VBR).
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
     // The destination CIDR block of the route.
     // 
-    // Specify the value of this parameter in CIDR notation. Example: 192.168.10.0/24.
+    // The destination CIDR block must be in CIDR format. Example: 192.168.10.0/24.
     // 
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};
@@ -165,7 +166,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the route table configured on the network instance.
+    // The ID of the route table of the network instance.
     // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};

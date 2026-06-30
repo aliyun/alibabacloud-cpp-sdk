@@ -145,14 +145,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can only contain ASCII characters.
+    // Generate a token from your client to ensure that it is unique among different requests. The ClientToken parameter can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The number of entries to return on each page. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token that determines the start point of the next query. Valid values:
     // 
-    // *   If this is your first query and no next queries are to be sent, ignore this parameter.
-    // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+    // - If this is your first query and no next query is to be sent, ignore this parameter.
+    // 
+    // - If a next query is to be sent, set the value to the NextToken value returned from the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -162,13 +163,13 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of resource associated with the multicast domain.
     // 
-    // Valid value: **VPC**.
+    // The value is **VPC**.
     shared_ptr<string> resourceType_ {};
     // The ID of the network instance connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The ID of the multicast domain.
     shared_ptr<string> transitRouterMulticastDomainId_ {};
-    // The IDs of vSwitches.
+    // The list of vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

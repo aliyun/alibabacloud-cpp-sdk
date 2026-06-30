@@ -141,11 +141,11 @@ namespace Models
 
 
       protected:
-        // The ID of the ENI created by the Enterprise Edition transit router in the vSwitch.
+        // The ID of the ENI that the Enterprise Edition transit router creates in the vSwitch.
         shared_ptr<string> networkInterfaceId_ {};
-        // The vSwitch ID.
+        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // The zone ID.
+        // The ID of the zone.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -231,7 +231,17 @@ namespace Models
 
 
       protected:
+        // Specifies whether appliance mode is enabled.
+        // 
+        // - **disable** (default): Appliance mode is disabled.
+        // 
+        // - **enable**: Appliance mode is enabled.
         shared_ptr<string> applianceModeSupport_ {};
+        // Specifies whether IPv6 is enabled.
+        // 
+        // - **disable** (default): IPv6 is disabled.
+        // 
+        // - **enable**: IPv6 is enabled.
         shared_ptr<string> ipv6Support_ {};
       };
 
@@ -382,57 +392,63 @@ namespace Models
 
 
     protected:
-      // Indicates whether the Enterprise Edition transit router can automatically advertise routes to the VPC. Valid values:
+      // Specifies whether the Enterprise Edition transit router automatically advertises routes to the VPC.
       // 
-      // *   **false**
-      // *   **true**
+      // - **false**: Routes are not automatically advertised.
+      // 
+      // - **true**: Routes are automatically advertised.
       shared_ptr<bool> autoPublishRouteEnabled_ {};
       // The ID of the CEN instance.
       shared_ptr<string> cenId_ {};
       // The billing method of the VPC connection.
       // 
-      // Only **POSTPAY** may be returned, which indicates the default pay-as-you-go billing method.
+      // The value is always **POSTPAY**, which indicates the pay-as-you-go billing method.
       shared_ptr<string> chargeType_ {};
       // The time when the VPC connection was created.
       // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time is in the `YYYY-MM-DDThh:mmZ` format and in UTC.
       shared_ptr<string> creationTime_ {};
+      // The cloud service to which the resource belongs.
       shared_ptr<string> managedService_ {};
+      // A collection of feature attributes.
       shared_ptr<TransitRouterAttachments::Options> options_ {};
-      // The entity that pays the fees of the network instance. Valid values:
+      // Specifies who pays for the network instance. Valid values:
       // 
-      // *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-      // *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+      // - **PayByCenOwner**: The account that owns the CEN instance pays the fees.
+      // 
+      // - **PayByResourceOwner**: The account that owns the network instance pays the fees.
       shared_ptr<string> orderType_ {};
-      // The type of resource to which the transit router is connected.
+      // The type of resource to which the connection is attached.
       // 
-      // Only **VPC** may be returned, which indicates VPCs.
+      // The value is always **VPC**, which indicates a VPC.
       shared_ptr<string> resourceType_ {};
-      // The status of the VPC connection. Valid values:
+      // The status of the VPC connection.
       // 
-      // *   **Attached**
-      // *   **Attaching**
-      // *   **Detaching**
+      // - **Attached**: The connection is established.
+      // 
+      // - **Attaching**: The connection is being created.
+      // 
+      // - **Detaching**: The connection is being deleted.
       shared_ptr<string> status_ {};
-      // The tags.
+      // A list of tags.
       shared_ptr<vector<TransitRouterAttachments::Tags>> tags_ {};
       // The description of the VPC connection.
       shared_ptr<string> transitRouterAttachmentDescription_ {};
-      // The VPC connection ID.
+      // The ID of the VPC connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
       // The name of the VPC connection.
       shared_ptr<string> transitRouterAttachmentName_ {};
-      // The description of the Enterprise Edition transit router.
+      // The ID of the Enterprise Edition transit router.
       shared_ptr<string> transitRouterId_ {};
-      // The features of the VPC connection.
+      // The feature attributes of the VPC connection. This parameter is deprecated. We recommend that you use the Options parameter instead.
       shared_ptr<map<string, string>> transitRouterVPCAttachmentOptions_ {};
-      // The VPC ID.
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
-      // The ID of the Alibaba Cloud account to which the VPC belongs.
+      // The ID of the account that owns the VPC.
       shared_ptr<int64_t> vpcOwnerId_ {};
-      // The region ID of the VPC.
+      // The ID of the region where the VPC is deployed.
       shared_ptr<string> vpcRegionId_ {};
-      // The primary and secondary zones, vSwitches, and ENIs of the VPC.
+      // The zone mappings of the VPC connection. This includes the vSwitches and elastic network interfaces (ENIs) in the associated VPC.
       shared_ptr<vector<TransitRouterAttachments::ZoneMappings>> zoneMappings_ {};
     };
 
@@ -476,18 +492,19 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. Valid values:
+    // The token to retrieve the next page of results.
     // 
-    // *   If **NextToken** is returned, it indicates that no additional results exist.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - If this parameter is empty, all results have been returned.
+    // 
+    // - If a value is returned for **NextToken**, it is the token to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the VPC connection.
+    // A list of VPC connections.
     shared_ptr<vector<ListTransitRouterVpcAttachmentsResponseBody::TransitRouterAttachments>> transitRouterAttachments_ {};
   };
 

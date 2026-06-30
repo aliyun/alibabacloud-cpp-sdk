@@ -84,15 +84,17 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh-CN (Chinese, which is the default language), en-US (English), and ja (Japanese).
+    // The language of the response. Valid values:
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VBR**: virtual border router (VBR)
-    // *   **CCN**: Cloud Connect Network (CCN) instance
+    // - **VPC**: a virtual private cloud (VPC).
+    // 
+    // - **VBR**: a virtual border router (VBR).
+    // 
+    // - **CCN**: a Cloud Connect Network (CCN) instance.
     shared_ptr<string> productType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

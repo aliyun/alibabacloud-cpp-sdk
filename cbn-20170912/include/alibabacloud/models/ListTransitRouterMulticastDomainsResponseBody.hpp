@@ -121,9 +121,11 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Options& obj) { 
           DARABONBA_PTR_TO_JSON(Igmpv2Support, igmpv2Support_);
+          DARABONBA_PTR_TO_JSON(StrictSourceControl, strictSourceControl_);
         };
         friend void from_json(const Darabonba::Json& j, Options& obj) { 
           DARABONBA_PTR_FROM_JSON(Igmpv2Support, igmpv2Support_);
+          DARABONBA_PTR_FROM_JSON(StrictSourceControl, strictSourceControl_);
         };
         Options() = default ;
         Options(const Options &) = default ;
@@ -136,7 +138,8 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->igmpv2Support_ == nullptr; };
+        virtual bool empty() const override { return this->igmpv2Support_ == nullptr
+        && this->strictSourceControl_ == nullptr; };
         // igmpv2Support Field Functions 
         bool hasIgmpv2Support() const { return this->igmpv2Support_ != nullptr;};
         void deleteIgmpv2Support() { this->igmpv2Support_ = nullptr;};
@@ -144,9 +147,17 @@ namespace Models
         inline Options& setIgmpv2Support(string igmpv2Support) { DARABONBA_PTR_SET_VALUE(igmpv2Support_, igmpv2Support) };
 
 
+        // strictSourceControl Field Functions 
+        bool hasStrictSourceControl() const { return this->strictSourceControl_ != nullptr;};
+        void deleteStrictSourceControl() { this->strictSourceControl_ = nullptr;};
+        inline string getStrictSourceControl() const { DARABONBA_PTR_GET_DEFAULT(strictSourceControl_, "") };
+        inline Options& setStrictSourceControl(string strictSourceControl) { DARABONBA_PTR_SET_VALUE(strictSourceControl_, strictSourceControl) };
+
+
       protected:
-        // Indicates whether the IGMP feature is enabled for the multicast domain.
+        // Indicates whether IGMPv2 is enabled for the multicast domain.
         shared_ptr<string> igmpv2Support_ {};
+        shared_ptr<string> strictSourceControl_ {};
       };
 
       virtual bool empty() const override { return this->cenId_ == nullptr
@@ -220,21 +231,21 @@ namespace Models
 
 
     protected:
-      // The CEN instance ID.
+      // The ID of the CEN instance.
       shared_ptr<string> cenId_ {};
-      // Multicast domain feature.
+      // The options of the multicast domain.
       shared_ptr<TransitRouterMulticastDomains::Options> options_ {};
-      // The region ID of the transit router.
+      // The ID of the region where the transit router is deployed.
       // 
-      // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+      // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
       shared_ptr<string> regionId_ {};
       // The status of the multicast domain.
       // 
-      // The valid value is **Active**, which indicates that the multicast domain is available.
+      // The value is **Active**, which indicates that the multicast domain is available.
       shared_ptr<string> status_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<TransitRouterMulticastDomains::Tags>> tags_ {};
-      // The transit router ID.
+      // The ID of the transit router.
       shared_ptr<string> transitRouterId_ {};
       // The description of the multicast domain.
       shared_ptr<string> transitRouterMulticastDomainDescription_ {};
@@ -284,16 +295,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next query.
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+    // - If the value of **NextToken** is empty, it indicates that no next query is to be sent.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // The list of multicast domains.
     shared_ptr<vector<ListTransitRouterMulticastDomainsResponseBody::TransitRouterMulticastDomains>> transitRouterMulticastDomains_ {};

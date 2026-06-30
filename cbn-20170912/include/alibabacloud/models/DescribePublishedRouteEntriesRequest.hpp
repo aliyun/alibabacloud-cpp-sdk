@@ -131,7 +131,7 @@ namespace Models
     shared_ptr<string> childInstanceId_ {};
     // The ID of the region where the network instance is deployed.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // For more information, see [](t2264556.xdita#).
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
@@ -139,17 +139,19 @@ namespace Models
     shared_ptr<string> childInstanceRouteTableId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: VPC
-    // *   **VBR**: VBR
-    // *   **CCN**: Cloud Connect Network (CCN) instance
+    // - **VPC**: virtual private cloud.
+    // 
+    // - **VBR**: virtual border router.
+    // 
+    // - **CCN**: Cloud Connect Network.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
     // The destination CIDR block of the route that you want to query.
     shared_ptr<string> destinationCidrBlock_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries per page. Default value: **10**. Valid values: **1** to **500**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

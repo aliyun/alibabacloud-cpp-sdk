@@ -103,21 +103,27 @@ namespace Models
 
 
     protected:
-      // The ID of the next hop.
+      // The ID of the next hop resource.
       shared_ptr<string> resourceId_ {};
-      // The type of next hop. Valid values:
+      // The type of the next hop resource.
       // 
-      // *   **VPC**: VPC
-      // *   **VBR**: VBR
-      // *   **TR**: transit router
-      // *   **VPN** :VPN attachment
+      // - **VPC**: virtual private cloud (VPC).
+      // 
+      // - **VBR**: virtual border router (VBR).
+      // 
+      // - **TR**: transit router.
+      // 
+      // - **VPN**: VPN connection.
       shared_ptr<string> resourceType_ {};
-      // The status of the associated forwarding correlation. Valid values:
+      // The status of the association.
       // 
-      // *   **Active**: The associated forwarding correlation is available.
-      // *   **Associating**: The associated forwarding correlation is being created.
-      // *   **Dissociating**: The associated forwarding correlation is being deleted.
-      // *   **Deleted**: The associated forwarding correlation is deleted.
+      // - **Active**: The association is active.
+      // 
+      // - **Associating**: The association is being created.
+      // 
+      // - **Dissociating**: The association is being deleted.
+      // 
+      // - **Deleted**: The association is deleted.
       shared_ptr<string> status_ {};
       // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
@@ -167,16 +173,17 @@ namespace Models
   protected:
     // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token for the next query.
     // 
-    // *   If **NextToken** was not returned, it indicates that no additional results exist.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - If this parameter is not returned, it indicates that no more results are to be returned.
+    // 
+    // - If a value is returned for this parameter, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of associated forwarding correlations.
+    // A list of forwarding associations.
     shared_ptr<vector<ListTransitRouterRouteTableAssociationsResponseBody::TransitRouterAssociations>> transitRouterAssociations_ {};
   };
 

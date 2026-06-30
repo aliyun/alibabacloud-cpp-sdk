@@ -98,13 +98,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cenBandwidthPackageId_ {};
-    // The new description of the bandwidth plan.
+    // The new description for the bandwidth plan.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The description can be empty or 1 to 256 characters long. It cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
-    // The new name of the bandwidth plan.
+    // The new name for the bandwidth plan.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The name can be empty or 1 to 128 characters long. It cannot start with http\\:// or https\\://.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

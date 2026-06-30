@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the flow log.
+    // The flow log ID.
     shared_ptr<string> flowLogId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the call is successful.
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: The call is successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<string> success_ {};
   };
 

@@ -96,15 +96,11 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
-      // 
-      // You can specify at most 20 tag keys.
+      // The tag key must be 1 to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
-      // 
-      // Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+      // The tag value can be 0 to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -213,43 +209,47 @@ namespace Models
 
 
   protected:
-    // The IDs of the CEN instances.
+    // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The number of entries to return on each page. The default value is **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The pagination token that is used in the next request to retrieve a new page of results.
     // 
-    // *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-    // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+    // - If this is your first query or no more results are available, you do not need to specify this parameter.
+    // 
+    // - For subsequent queries, set this parameter to the `NextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
-    // The entity that pays the fees of the network instance. Valid values:
+    // The entity that pays for the network instance. Valid values:
     // 
-    // *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-    // *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+    // - **PayByCenOwner**: The fees are paid by the account that owns the CEN instance.
+    // 
+    // - **PayByResourceOwner**: The fees are paid by the account that owns the network instance.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the Enterprise Edition transit router.
+    // The ID of the region where the Enterprise Edition transit router is deployed.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether the network instance is attached to the CEN instance. Valid values:
+    // The status of the VPC connection. Valid values:
     // 
-    // *   **Attaching**: being attached to the CEN instance.
-    // *   **Attached**: attached to the CEN instance.
-    // *   **Detaching**: being detached from the CEN instance.
+    // - **Attaching**: The VPC connection is being created.
+    // 
+    // - **Attached**: The VPC connection is created.
+    // 
+    // - **Detaching**: The VPC connection is being deleted.
     shared_ptr<string> status_ {};
-    // The information about the tags.
+    // The tags.
     // 
-    // You can specify at most 20 tags in each call.
+    // You can specify up to 20 tags.
     shared_ptr<vector<ListTransitRouterVpcAttachmentsRequest::Tag>> tag_ {};
     // The ID of the VPC connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The ID of the Enterprise Edition transit router.
     shared_ptr<string> transitRouterId_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -153,8 +153,9 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run, without performing the actual request. Valid values:
     // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     // The differentiated services code point (DSCP) value used to match packets in the queue.
     shared_ptr<vector<int32_t>> dscps_ {};
@@ -162,7 +163,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The new description of the queue.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The description must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
     shared_ptr<string> qosQueueDescription_ {};
     // The queue ID.
     // 
@@ -170,7 +171,7 @@ namespace Models
     shared_ptr<string> qosQueueId_ {};
     // The new name of the queue.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The name must be 1 to 128 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
     shared_ptr<string> qosQueueName_ {};
     // The percentage of bandwidth that can be allocated to the current queue.
     // 

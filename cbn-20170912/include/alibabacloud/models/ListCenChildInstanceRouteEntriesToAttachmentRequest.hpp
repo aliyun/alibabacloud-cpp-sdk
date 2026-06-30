@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The match mode of the route.
+      // The route matching mode.
       // 
-      // *   **prefix-exact-match**: exact match.
+      // - **prefix-exact-match**: exact match
       shared_ptr<string> key_ {};
-      // The destination CIDR blocks.
+      // A list of destination CIDR blocks.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -183,24 +183,25 @@ namespace Models
   protected:
     // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
-    // The ID of the route table configured on the network instance.
+    // The ID of the route table of the network instance.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRouteTableId_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The number of entries to return on each page. The default value is **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token for the next page of results.
     // 
-    // *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-    // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+    // - If this is your first query, leave this parameter empty.
+    // 
+    // - If a next query is required, set the value to the NextToken value returned from the last call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The filter condition for the destination CIDR block.
+    // The filter for the destination CIDR block.
     shared_ptr<vector<ListCenChildInstanceRouteEntriesToAttachmentRequest::RouteFilter>> routeFilter_ {};
-    // Specifies whether to host the route. If you leave the parameter empty, the route is not hosted. A value of TR specifies that the route is hosted on a transit router.
+    // The type of the managed routing service. If this parameter is empty, the route is not managed. Set the value to TR. This value indicates that the route is managed by a transit router.
     shared_ptr<string> serviceType_ {};
     // The ID of the network instance connection.
     // 

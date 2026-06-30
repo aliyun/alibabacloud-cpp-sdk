@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> cenBandwidthPackageId_ {};
     // The ID of the order for the bandwidth plan.
     shared_ptr<string> cenBandwidthPackageOrderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

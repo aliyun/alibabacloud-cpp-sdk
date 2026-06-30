@@ -327,18 +327,19 @@ namespace Models
     shared_ptr<string> childInstanceRegionId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: VPC
-    // *   **VBR**: VBR
-    // *   **CCN**: CCN instance
+    // - **VPC**: VPC
+    // - **VBR**: VBR
+    // - **CCN**: CCN instance
     shared_ptr<string> childInstanceType_ {};
+    // The cloud service that the network instance belongs to. Its standard code is only returned when the VPC is connected to the transit router. For self-managed VPCs, no code is returned.
     shared_ptr<string> managedService_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the network instance is attached to the CEN instance.
     // 
-    // *   **Attaching**: The network instance is being attached to the CEN instance.
-    // *   **Attached**: The network instance is attached to the CEN instance.
-    // *   **Detaching**: The network instance is being detached from the CEN instance.
+    // - **Attaching**: The network instance is being attached to the CEN instance.
+    // - **Attached**: The network instance is attached to the CEN instance.
+    // - **Detaching**: The network instance is being detached from the CEN instance.
     shared_ptr<string> status_ {};
   };
 

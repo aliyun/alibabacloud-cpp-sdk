@@ -160,28 +160,31 @@ namespace Models
   protected:
     // Specifies whether to enable the local Enterprise Edition transit router to automatically advertise the routes of the inter-region connection to the peer transit router. Valid values:
     // 
-    // *   **false** (default): no
-    // *   **true**: yes
+    // - **false** (default): no
+    // 
+    // - **true**: yes
     shared_ptr<bool> autoPublishRouteEnabled_ {};
     // The bandwidth value of the inter-region connection. Unit: Mbit/s.
     // 
-    // *   This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
-    // *   This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
+    // - This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
+    // 
+    // - This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
     shared_ptr<int32_t> bandwidth_ {};
     // The bandwidth allocation method. Valid values:
     // 
-    // *   **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
-    // *   **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
+    // - **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
+    // 
+    // - **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
     shared_ptr<string> bandwidthType_ {};
     // The ID of the bandwidth plan that is used to allocate bandwidth to the inter-region connection.
     // 
-    // >  If you set **BandwidthType** to **DataTransfer**, you do not need to set this parameter.
+    // > If you set **BandwidthType** to **DataTransfer**, you do not need to set this parameter.
     shared_ptr<string> cenBandwidthPackageId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+    // > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
     shared_ptr<string> clientToken_ {};
     // The default line type.
     // 
@@ -191,8 +194,9 @@ namespace Models
     shared_ptr<string> defaultLinkType_ {};
     // Specifies whether to perform a dry run to check information such as the permissions and the instance status. Default values:
     // 
-    // *   **false** (default): performs a dry run and sends the request.
-    // *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+    // - **false** (default): performs a dry run and sends the request.
+    // 
+    // - **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -200,7 +204,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The new description of the inter-region connection.
     // 
-    // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+    // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
     shared_ptr<string> transitRouterAttachmentDescription_ {};
     // The ID of the inter-region connection.
     // 
@@ -208,7 +212,7 @@ namespace Models
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The new name of the inter-region connection.
     // 
-    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
     shared_ptr<string> transitRouterAttachmentName_ {};
   };
 

@@ -172,9 +172,11 @@ namespace Models
       // 
       // You can enter up to two port numbers. Take note of the following rules:
       // 
-      // *   If you enter only one port number, such as 1, packets whose destination port is 1 meet the traffic classification rule. A value of -1 specifies all destination ports.
-      // *   If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 meet the traffic classification rule.
-      // *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
+      // - If you enter only one port number, such as 1, packets whose destination port is 1 meet the traffic classification rule. A value of -1 specifies all destination ports.
+      // 
+      // - If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 meet the traffic classification rule.
+      // 
+      // - If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
       // 
       // You can create up to 50 traffic classification rules in each call. You can specify a destination port range for each traffic classification rule.
       shared_ptr<vector<int32_t>> dstPortRange_ {};
@@ -182,7 +184,7 @@ namespace Models
       // 
       // Packets that carry the specified DSCP value meet the traffic classification rule. If you do not specify a DSCP value, all packets meet the traffic classification rule.
       // 
-      // >  The DSCP value that you specify for this parameter is the DSCP value that packets carry before they are transmitted over the inter-region connection.
+      // > The DSCP value that you specify for this parameter is the DSCP value that packets carry before they are transmitted over the inter-region connection.
       // 
       // You can create up to 50 traffic classification rules in each call. You can specify a DSCP value for each traffic classification rule.
       shared_ptr<int32_t> matchDscp_ {};
@@ -192,18 +194,29 @@ namespace Models
       // 
       // **Some protocols use a fixed port. Click to view the protocols and ports.**
       // 
-      // *   If the protocol is **ICMP**, the destination port must be **-1**.
-      // *   If the protocol is **GRE**, the destination port must be **1**.
-      // *   If the protocol is **SSH**, the destination port must be **22**.
-      // *   If the protocol is **Telnet**, the destination port must be **23**.
-      // *   If the protocol is **HTTP**, the destination port must be **80**.
-      // *   If the protocol is **HTTPS**, the destination port must be **443**.
-      // *   If the protocol is **MS SQL**, the destination port must be **1443**.
-      // *   If the protocol is **Oracle**, the destination port must be **1521**.
-      // *   If the protocol is **Mysql**, the destination port must be **3306**.
-      // *   If the protocol is **RDP**, the destination port must be **3389**.
-      // *   If the protocol is **Postgre SQL**, the destination port must be **5432**.
-      // *   If the protocol is **Redis**, the destination port must be **6379**.
+      // - If the protocol is **ICMP**, the destination port must be **-1**.
+      // 
+      // - If the protocol is **GRE**, the destination port must be **1**.
+      // 
+      // - If the protocol is **SSH**, the destination port must be **22**.
+      // 
+      // - If the protocol is **Telnet**, the destination port must be **23**.
+      // 
+      // - If the protocol is **HTTP**, the destination port must be **80**.
+      // 
+      // - If the protocol is **HTTPS**, the destination port must be **443**.
+      // 
+      // - If the protocol is **MS SQL**, the destination port must be **1443**.
+      // 
+      // - If the protocol is **Oracle**, the destination port must be **1521**.
+      // 
+      // - If the protocol is **Mysql**, the destination port must be **3306**.
+      // 
+      // - If the protocol is **RDP**, the destination port must be **3389**.
+      // 
+      // - If the protocol is **Postgre SQL**, the destination port must be **5432**.
+      // 
+      // - If the protocol is **Redis**, the destination port must be **6379**.
       // 
       // You can create up to 50 traffic classification rules in each call. You can specify a protocol for each traffic classification rule.
       shared_ptr<string> protocol_ {};
@@ -219,9 +232,11 @@ namespace Models
       // 
       // You can enter up to two port numbers. Take note of the following rules:
       // 
-      // *   If you enter only one port number, such as 1, packets whose source port is 1 meet the traffic classification rule. A value of -1 specifies all source ports.
-      // *   If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 meet the traffic classification rule.
-      // *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
+      // - If you enter only one port number, such as 1, packets whose source port is 1 meet the traffic classification rule. A value of -1 specifies all source ports.
+      // 
+      // - If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 meet the traffic classification rule.
+      // 
+      // - If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
       // 
       // You can create up to 50 traffic classification rules in each call. You can specify a source port range for each traffic classification rule.
       shared_ptr<vector<int32_t>> srcPortRange_ {};
@@ -229,13 +244,13 @@ namespace Models
       // 
       // You can create up to 50 traffic classification rules in each call. You can specify a description for each traffic classification rule.
       // 
-      // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+      // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
       shared_ptr<string> trafficMatchRuleDescription_ {};
       // The name of the traffic classification rule.
       // 
       // You can create up to 50 traffic classification rules in each call. You can specify a name for each traffic classification rule.
       // 
-      // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+      // The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
       shared_ptr<string> trafficMatchRuleName_ {};
     };
 
@@ -334,12 +349,13 @@ namespace Models
     // 
     // You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+    // > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs a dry run. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and sends the request.
+    // - **true**: performs a dry run. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): performs a dry run and sends the request.
     shared_ptr<bool> dryRun_ {};
     // The differentiated services code point (DSCP) value to be added to packets that match the traffic classification rule. Valid values: **0** to **63**.
     // 
@@ -359,11 +375,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The description of the traffic marking policy.
     // 
-    // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+    // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
     shared_ptr<string> trafficMarkingPolicyDescription_ {};
     // The name of the traffic marking policy.
     // 
-    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
     shared_ptr<string> trafficMarkingPolicyName_ {};
     // The traffic classification rules in the traffic marking policy.
     // 

@@ -241,38 +241,38 @@ namespace Models
 
 
     protected:
-      // Indicates whether the Enterprise Edition transit router is allowed to automatically advertise routes to the VBR. Valid values:
+      // Indicates whether the Enterprise Edition transit router automatically advertises routes to the VBR.
       // 
-      // *   **false** (default)
-      // *   **true**
+      // - **false**: no.
+      // 
+      // - **true**: yes.
       shared_ptr<bool> autoPublishRouteEnabled_ {};
       // The ID of the CEN instance.
       shared_ptr<string> cenId_ {};
       // The time when the VBR connection was created.
       // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time is displayed in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       shared_ptr<string> managedService_ {};
-      // The entity that pays the fees of the network instance. Valid values:
+      // The payer for the network instance. Valid values:
       // 
-      // *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-      // *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+      // - **PayByCenOwner**: The connection fee and data transfer fee for the VBR are paid by the account that owns the transit router.
+      // 
+      // - **PayByResourceOwner**: The connection fee and data transfer fee for the VBR are paid by the account that owns the VBR.
       shared_ptr<string> orderType_ {};
-      // The type of resource to which the transit router is connected. Valid values:
+      // The resource type of the connection.
       // 
-      // *   **VPC**
-      // *   **CCN**
-      // *   **VBR**
-      // *   **TR**
+      // The value is set to **VBR**, which indicates a VBR instance.
       shared_ptr<string> resourceType_ {};
-      // The status of the VBR connection. Valid values:
+      // The status of the VBR connection.
       // 
-      // *   **Attached**
-      // *   **Attaching**
-      // *   **Detaching**
-      // *   **Detached**
+      // - **Attached**: The connection is established.
+      // 
+      // - **Attaching**: The connection is being established.
+      // 
+      // - **Detaching**: The connection is being removed.
       shared_ptr<string> status_ {};
-      // A list of tags.
+      // The list of tags.
       shared_ptr<vector<TransitRouterAttachments::Tags>> tags_ {};
       // The description of the VBR connection.
       shared_ptr<string> transitRouterAttachmentDescription_ {};
@@ -280,13 +280,13 @@ namespace Models
       shared_ptr<string> transitRouterAttachmentId_ {};
       // The name of the VBR connection.
       shared_ptr<string> transitRouterAttachmentName_ {};
-      // The description of the Enterprise Edition transit router.
+      // The ID of the Enterprise Edition transit router.
       shared_ptr<string> transitRouterId_ {};
       // The VBR ID.
       shared_ptr<string> vbrId_ {};
       // The ID of the Alibaba Cloud account to which the VBR belongs.
       shared_ptr<int64_t> vbrOwnerId_ {};
-      // The region ID of the VBR.
+      // The ID of the region where the VBR is deployed.
       shared_ptr<string> vbrRegionId_ {};
     };
 
@@ -330,9 +330,13 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token that is used for the next query.
+    // 
+    // - If this parameter is empty, no more data is returned.
+    // 
+    // - If a value is returned for this parameter, it is the token that you can use to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

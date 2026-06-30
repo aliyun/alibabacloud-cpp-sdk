@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The ID of the areas that are connected by the CEN instance.
+    // The ID of the geographic span.
     // 
-    // > If you do not set this parameter, the system queries the information about all areas supported by CEN.
+    // > If you do not specify this parameter, the system queries all geographic spans that are supported by Cloud Enterprise Network (CEN).
     shared_ptr<string> geographicSpanId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

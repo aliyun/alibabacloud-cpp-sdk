@@ -116,12 +116,12 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Default values:
     // 
-    // *   **false** (default): performs a dry run and sends the request.
-    // *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request.
+    // - **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -129,7 +129,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The new description of the route.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The description must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
     shared_ptr<string> transitRouterRouteEntryDescription_ {};
     // The ID of the route.
     // 
@@ -137,7 +137,7 @@ namespace Models
     shared_ptr<string> transitRouterRouteEntryId_ {};
     // The new name of the route.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+    // The name must be 1 to 128 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
     shared_ptr<string> transitRouterRouteEntryName_ {};
   };
 

@@ -130,30 +130,35 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page. Default value: **50**.
+    // The number of entries to return on each page. The default value is **50**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the route learning correlation. Valid values:
+    // The status of the route propagation.
     // 
-    // *   **Active**: available
-    // *   **Enabling**: being enabled
-    // *   **Disabling**: being disabled
+    // - **Active**: The propagation is active.
+    // 
+    // - **Enabling**: The propagation is being enabled.
+    // 
+    // - **Disabling**: The propagation is being disabled.
     shared_ptr<string> status_ {};
     // The ID of the network instance connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The ID of the network instance.
     shared_ptr<string> transitRouterAttachmentResourceId_ {};
-    // The type of the network instance. Valid values:
+    // The type of the network instance.
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VBR**: virtual border router (VBR)
-    // *   **TR**: transit router
-    // *   **VPN**: VPN connection
+    // - **VPC**: a virtual private cloud (VPC).
+    // 
+    // - **VBR**: a virtual border router (VBR).
+    // 
+    // - **TR**: a transit router.
+    // 
+    // - **VPN**: a VPN connection.
     shared_ptr<string> transitRouterAttachmentResourceType_ {};
     // The ID of the route table of the Enterprise Edition transit router.
     // 

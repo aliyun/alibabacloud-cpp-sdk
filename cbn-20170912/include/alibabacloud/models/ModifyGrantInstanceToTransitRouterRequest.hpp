@@ -103,11 +103,22 @@ namespace Models
 
 
   protected:
+    // The ID of the CEN instance.
+    // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
+    // A token used to ensure the idempotence of the request.
+    // 
+    // You can generate this token from your client, but you must ensure it is unique for each request. The client token can contain only ASCII characters.
+    // 
+    // > If you do not specify this parameter, the system uses the request\\"s **RequestId** as the **ClientToken**. The **RequestId** is unique for each API request.
     shared_ptr<string> clientToken_ {};
+    // The ID of the network instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The payer for the network instance.
+    // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};

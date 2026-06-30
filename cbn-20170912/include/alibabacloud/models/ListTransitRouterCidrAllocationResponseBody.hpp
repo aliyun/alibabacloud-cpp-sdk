@@ -103,7 +103,7 @@ namespace Models
 
 
     protected:
-      // The CIDR blocks that have IP addresses allocated to network instances.
+      // The allocated CIDR block.
       shared_ptr<string> allocatedCidrBlock_ {};
       // The ID of the network instance connection.
       shared_ptr<string> attachmentId_ {};
@@ -111,7 +111,7 @@ namespace Models
       shared_ptr<string> attachmentName_ {};
       // The CIDR block of the transit router.
       shared_ptr<string> cidr_ {};
-      // The ID of the CIDR block.
+      // The ID of the CIDR block of the transit router.
       shared_ptr<string> transitRouterCidrId_ {};
     };
 
@@ -155,21 +155,23 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     // 
-    // *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
-    // *   If a value is specified for **MaxResults**, query results are returned in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.
+    // - If you did not set the **MaxResults** parameter in the request, this parameter indicates the total number of entries.
+    // 
+    // - If you set the **MaxResults** parameter in the request, this parameter indicates the number of entries on the current page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. Valid values:
+    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If **NextToken** was not returned, it indicates that no additional results exist.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - If **NextToken** is empty, no next page exists.
+    // 
+    // - If **NextToken** is not empty, the value of this parameter indicates the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the CIDR blocks that have IP addresses allocated to network instances.
+    // A list of CIDR block allocations.
     shared_ptr<vector<ListTransitRouterCidrAllocationResponseBody::TransitRouterCidrAllocations>> transitRouterCidrAllocations_ {};
   };
 

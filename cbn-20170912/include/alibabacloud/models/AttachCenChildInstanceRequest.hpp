@@ -132,9 +132,9 @@ namespace Models
     shared_ptr<string> childInstanceRegionId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: VPC
-    // *   **VBR**: VBR
-    // *   **CCN**: CCN instance
+    // - **VPC**: VPC
+    // - **VBR**: VBR
+    // - **CCN**: CCN instance
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};

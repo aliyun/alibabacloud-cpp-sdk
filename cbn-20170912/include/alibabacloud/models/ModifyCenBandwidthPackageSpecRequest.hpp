@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The new maximum bandwidth value of the bandwidth plan. Unit: Mbit/s.
+    // The new maximum bandwidth of the bandwidth plan. Unit: Mbps.
     // 
     // Valid values: **2** to **10000**.
     shared_ptr<int32_t> bandwidth_ {};

@@ -115,15 +115,25 @@ namespace Models
 
 
   protected:
+    // The ID of the Cloud Enterprise Network instance.
+    // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
+    // The number of entries to return on each page. Minimum value: **0**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query. Valid values:
+    // 
+    // - You do not need to specify this parameter for the first query or if there is no next query.
+    // - If there is a next query, set the value to the **NextToken** value that is returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The list of vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
+    // The ID of the VPC instance.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

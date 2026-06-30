@@ -123,10 +123,11 @@ namespace Models
   protected:
     // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-    // *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+    // - You do not need to specify this parameter for the first query.
+    // 
+    // - If a next query is to be sent, set the value to the **NextToken** value returned from the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -134,15 +135,15 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The description of the traffic marking policy.
     // 
-    // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+    // The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
     shared_ptr<string> trafficMarkingPolicyDescription_ {};
     // The ID of the traffic marking policy.
     shared_ptr<string> trafficMarkingPolicyId_ {};
     // The name of the traffic marking policy.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http:// or https://.
+    // The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
     shared_ptr<string> trafficMarkingPolicyName_ {};
-    // The ID of the transit router.
+    // The ID of the TransitRouter instance.
     shared_ptr<string> transitRouterId_ {};
   };
 

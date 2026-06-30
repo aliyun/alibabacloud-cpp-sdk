@@ -51,9 +51,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Options& obj) { 
         DARABONBA_PTR_TO_JSON(Igmpv2Support, igmpv2Support_);
+        DARABONBA_PTR_TO_JSON(StrictSourceControl, strictSourceControl_);
       };
       friend void from_json(const Darabonba::Json& j, Options& obj) { 
         DARABONBA_PTR_FROM_JSON(Igmpv2Support, igmpv2Support_);
+        DARABONBA_PTR_FROM_JSON(StrictSourceControl, strictSourceControl_);
       };
       Options() = default ;
       Options(const Options &) = default ;
@@ -66,7 +68,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->igmpv2Support_ == nullptr; };
+      virtual bool empty() const override { return this->igmpv2Support_ == nullptr
+        && this->strictSourceControl_ == nullptr; };
       // igmpv2Support Field Functions 
       bool hasIgmpv2Support() const { return this->igmpv2Support_ != nullptr;};
       void deleteIgmpv2Support() { this->igmpv2Support_ = nullptr;};
@@ -74,12 +77,21 @@ namespace Models
       inline Options& setIgmpv2Support(string igmpv2Support) { DARABONBA_PTR_SET_VALUE(igmpv2Support_, igmpv2Support) };
 
 
+      // strictSourceControl Field Functions 
+      bool hasStrictSourceControl() const { return this->strictSourceControl_ != nullptr;};
+      void deleteStrictSourceControl() { this->strictSourceControl_ = nullptr;};
+      inline string getStrictSourceControl() const { DARABONBA_PTR_GET_DEFAULT(strictSourceControl_, "") };
+      inline Options& setStrictSourceControl(string strictSourceControl) { DARABONBA_PTR_SET_VALUE(strictSourceControl_, strictSourceControl) };
+
+
     protected:
-      // Indicates whether the IGMP feature is enabled for the multicast domain. Once enabled, hosts can dynamically join or leave multicast groups by using the IGMP protocol. Default value: **enable**.
+      // Specifies whether to enable the Internet Group Management Protocol (IGMP) feature for the multicast domain. When this feature is enabled, hosts can use IGMP to dynamically join or leave multicast groups. Set the value to **enable**.
       // 
-      // > *   The IGMP feature is in beta testing. To use it, contact your account manager.
-      // > *   The IGMP feature cannot be disabled after it is enabled.
+      // > - The IGMP feature is in public preview. To use this feature, contact your account manager.
+      // >
+      // > - You cannot disable the IGMP feature after it is enabled.
       shared_ptr<string> igmpv2Support_ {};
+      shared_ptr<string> strictSourceControl_ {};
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
@@ -158,16 +170,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A client token that ensures the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a unique token on your client for each request. The token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request.
+    // - **true**: Performs a dry run. The system checks the required parameters, request format, and service limits. If the check fails, an error message is returned. If the check passes, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): Sends the request. If the request passes the check, the name and description of the multicast domain are modified.
     shared_ptr<bool> dryRun_ {};
-    // Multicast domain feature.
+    // The feature options of the multicast domain.
     shared_ptr<ModifyTransitRouterMulticastDomainRequest::Options> options_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -175,7 +188,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The new description of the multicast domain.
     // 
-    // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+    // The description can be empty or 1 to 256 characters long. It cannot start with http\\:// or https\\://.
     shared_ptr<string> transitRouterMulticastDomainDescription_ {};
     // The ID of the multicast domain.
     // 
@@ -183,7 +196,7 @@ namespace Models
     shared_ptr<string> transitRouterMulticastDomainId_ {};
     // The new name of the multicast domain.
     // 
-    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+    // The name can be empty or 1 to 128 characters long. It cannot start with http\\:// or https\\://.
     shared_ptr<string> transitRouterMulticastDomainName_ {};
   };
 

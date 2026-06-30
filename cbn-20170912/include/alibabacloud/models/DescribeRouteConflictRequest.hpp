@@ -130,25 +130,27 @@ namespace Models
 
 
   protected:
-    // The ID of the network instance that you want to query.
+    // The ID of the network instance to query.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
     // The ID of the region where the network instance is deployed.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
-    // The ID of the route table that is configured on the network instance.
+    // The ID of the route table of the network instance.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRouteTableId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VBR**: virtual border router (VBR)
-    // *   **CCN**: Cloud Connect Network (CCN) instance
+    // - **VPC**: virtual private cloud.
+    // 
+    // - **VBR**: virtual border router.
+    // 
+    // - **CCN**: Cloud Connect Network.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
@@ -156,7 +158,7 @@ namespace Models
     shared_ptr<string> destinationCidrBlock_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};

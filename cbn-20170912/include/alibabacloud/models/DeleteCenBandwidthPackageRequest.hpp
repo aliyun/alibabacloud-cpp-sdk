@@ -75,6 +75,8 @@ namespace Models
 
 
   protected:
+    // The ID of the bandwidth plan that you want to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> cenBandwidthPackageId_ {};
     shared_ptr<string> ownerAccount_ {};

@@ -194,16 +194,16 @@ namespace Models
   protected:
     // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The IP address of the DNS server used by PrivateZone.
+    // The IP addresses of the DNS servers for the PrivateZone service.
     shared_ptr<string> privateZoneDnsServers_ {};
     shared_ptr<DescribeCenPrivateZoneRoutesResponseBody::PrivateZoneInfos> privateZoneInfos_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

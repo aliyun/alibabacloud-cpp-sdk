@@ -195,23 +195,23 @@ namespace Models
 
 
       protected:
-        // The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+        // The address type. Valid values are IPv4, IPv6, or empty.
         shared_ptr<string> addressFamily_ {};
-        // The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
+        // The destination CIDR block of the traffic message. IPv4 and IPv6 addresses are supported.
         shared_ptr<string> dstCidr_ {};
-        // The destination port range used to match data packets.
+        // The destination port range to be matched by the traffic classification rule.
         shared_ptr<vector<int32_t>> dstPortRange_ {};
-        // The DSCP value used to match data packets.
+        // The DSCP value of the traffic message.
         // 
-        // >  If the value of the **MatchDscp** parameter is -1, data packets are considered a match regardless of the DSCP value.
+        // > If **MatchDscp** returns -1, it indicates that all DSCP values are matched.
         shared_ptr<int32_t> matchDscp_ {};
-        // The protocol that is used to match packets.
+        // The protocol type of the traffic message.
         // 
-        // >  Traffic marking policies support multiple protocols. For more information, see the documentation of CEN.
+        // > A traffic marking policy supports matching multiple protocol types. For more information about the protocol types, see the relevant documentation.
         shared_ptr<string> protocol_ {};
-        // The source CIDR block of packets. IPv6 and IPv4 addresses are supported.
+        // The source CIDR block of the traffic message. IPv6 and IPv4 addresses are supported.
         shared_ptr<string> srcCidr_ {};
-        // The source port range used to match data packets.
+        // The source port range to be matched by the traffic classification rule.
         shared_ptr<vector<int32_t>> srcPortRange_ {};
         // The description of the traffic classification rule.
         shared_ptr<string> trafficMatchRuleDescription_ {};
@@ -219,11 +219,13 @@ namespace Models
         shared_ptr<string> trafficMatchRuleId_ {};
         // The name of the traffic classification rule.
         shared_ptr<string> trafficMatchRuleName_ {};
-        // The status of the traffic classification rule. Valid values:
+        // The status of the traffic classification rule.
         // 
-        // *   **Creating**: The rule is being created.
-        // *   **Active**: The rule is available.
-        // *   **Deleting**: The rule is being deleted.
+        // - **Creating**: The rule is being created.
+        // 
+        // - **Active**: The rule is available.
+        // 
+        // - **Deleting**: The rule is being deleted.
         shared_ptr<string> trafficMatchRuleStatus_ {};
       };
 
@@ -289,11 +291,11 @@ namespace Models
 
 
     protected:
-      // The Differentiated Service Code Point (DSCP) value of the traffic marking policy.
+      // The Differentiated Services Code Point (DSCP) value of the traffic marking policy.
       shared_ptr<int32_t> markingDscp_ {};
       // The priority of the traffic marking policy.
       // 
-      // A lower value indicates a higher priority.
+      // A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
       // The description of the traffic marking policy.
       shared_ptr<string> trafficMarkingPolicyDescription_ {};
@@ -301,16 +303,19 @@ namespace Models
       shared_ptr<string> trafficMarkingPolicyId_ {};
       // The name of the traffic marking policy.
       shared_ptr<string> trafficMarkingPolicyName_ {};
-      // The status of the traffic marking policy. Valid values:
+      // The status of the traffic marking policy.
       // 
-      // *   **Creating**: The policy is being created.
-      // *   **Active**: The policy is available.
-      // *   **Modifying**: The policy is being modified.
-      // *   **Deleting**: The policy is being deleted.
+      // - **Creating**: The policy is being created.
+      // 
+      // - **Active**: The policy is available.
+      // 
+      // - **Modifying**: The policy is being modified.
+      // 
+      // - **Deleting**: The policy is being deleted.
       shared_ptr<string> trafficMarkingPolicyStatus_ {};
-      // The traffic classification rules.
+      // The list of traffic classification rules.
       shared_ptr<vector<TrafficMarkingPolicies::TrafficMatchRules>> trafficMatchRules_ {};
-      // The ID of the transit router.
+      // The ID of the TransitRouter instance.
       shared_ptr<string> transitRouterId_ {};
     };
 
@@ -354,18 +359,19 @@ namespace Models
 
 
   protected:
-    // The number of entries returned on each page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query.
+    // The token that is used for the next query.
     // 
-    // *   If **NextToken** was not returned in the previous query, it indicates that no additional results exist.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // - If **NextToken** is empty, no next query is to be sent.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the traffic marking policy.
+    // The list of traffic marking policies.
     shared_ptr<vector<ListTrafficMarkingPoliciesResponseBody::TrafficMarkingPolicies>> trafficMarkingPolicies_ {};
   };
 

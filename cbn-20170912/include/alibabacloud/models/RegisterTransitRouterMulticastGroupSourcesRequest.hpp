@@ -124,26 +124,31 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A client token to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a unique value from your client. The client token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID is different for each request.
+    // > If you do not specify this parameter, the system uses the request ID as the client token. The request ID is different for each request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run, without sending the actual request. Default values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): sends the request. If the request passes the check, a multicast source is created.
     shared_ptr<bool> dryRun_ {};
-    // The IP address of the multicast group to which the multicast source belongs. Valid values: **224.0.1.0** to **239.255.255.254**.
+    // The IP address of the multicast group to which the multicast source belongs. Valid values range from **224.0.1.0** to **239.255.255.254**.
     // 
-    // > 224.0.0.0 to 224.0.0.255 are reserved by the system and cannot be used by multicast groups.
+    // >Notice: 
     // 
-    // If the multicast group does not exist in the multicast domain, the system automatically creates the multicast group in the multicast domain.
+    // The IP addresses from 224.0.0.0 to 224.0.0.127 are system reserved IP addresses. They cannot be used as multicast group IP addresses.
+    // 
+    // 
+    // 
+    // If the specified multicast group does not exist in the multicast domain, the system automatically creates the multicast group.
     // 
     // This parameter is required.
     shared_ptr<string> groupIpAddress_ {};
-    // The IDs of the ENIs.
+    // A list of ENI IDs.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -155,8 +160,9 @@ namespace Models
     shared_ptr<string> transitRouterMulticastDomainId_ {};
     // The ID of the VPC to which the ENI belongs.
     // 
-    // *   If the ENI belongs to the current Alibaba Cloud account, ignore this parameter.
-    // *   If the ENI belongs to a different Alibaba Cloud account, you must set this parameter.
+    // - If the ENI belongs to your Alibaba Cloud account, this parameter is optional.
+    // 
+    // - If the ENI belongs to a different Alibaba Cloud account, this parameter is required.
     shared_ptr<string> vpcId_ {};
   };
 
