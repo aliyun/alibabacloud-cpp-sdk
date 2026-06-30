@@ -48,9 +48,25 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
+    // The detection service supported by the enhanced image moderation feature. Valid values:
+    // 
+    // - baselineCheck: common baseline moderation
+    // 
+    // - baselineCheck_pro: common baseline moderation Professional Edition
+    // 
+    // - baselineCheck_cb: common baseline moderation for services outside China
+    // 
+    // - tonalityImprove: content administration moderation
+    // 
+    // - aigcCheck: AIGC image moderation
+    // 
+    // - profilePhotoCheck: profile picture moderation
+    // 
+    // - advertisingCheck: ad material moderation
+    // 
+    // - liveStreamCheck: video or live stream screenshot moderation
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The value is a JSON string.
+    // A set of parameters related to the content to be moderated. The value must be a JSON string.
     shared_ptr<string> serviceParameters_ {};
   };
 

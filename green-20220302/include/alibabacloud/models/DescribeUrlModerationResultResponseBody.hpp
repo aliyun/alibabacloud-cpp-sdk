@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+        // The confidence score, ranging from 0 to 100, with two decimal places.
         shared_ptr<float> confidence_ {};
-        // The labels returned after the asynchronous URL moderation.
+        // The label returned after URL moderation.
         shared_ptr<string> label_ {};
       };
 
@@ -152,11 +152,11 @@ namespace Models
 
 
       protected:
-        // The ICP number.
+        // The ICP filing number.
         shared_ptr<string> icpNo_ {};
-        // The type of the ICP filing.
+        // The ICP filing type.
         shared_ptr<string> icpType_ {};
-        // The type of site
+        // The website type
         shared_ptr<string> siteType_ {};
       };
 
@@ -195,13 +195,13 @@ namespace Models
 
 
     protected:
-      // The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
+      // The value of the dataId parameter passed in the API request. This field is not returned if the parameter is not passed in the request.
       shared_ptr<string> dataId_ {};
-      // The supplementary information.
+      // Additional information.
       shared_ptr<Data::ExtraInfo> extraInfo_ {};
-      // The ReqId field returned by an asynchronous URL moderation operation.
+      // The ReqId field returned by the asynchronous URL moderation operation
       shared_ptr<string> reqId_ {};
-      // The returned results.
+      // The returned collection.
       shared_ptr<vector<Data::Result>> result_ {};
     };
 
@@ -238,13 +238,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeUrlModerationResultResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message of this request.
     shared_ptr<string> msg_ {};
-    // The request ID.
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

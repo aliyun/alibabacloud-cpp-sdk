@@ -48,9 +48,14 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
+    // The service code for video moderation.
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The value is a JSON string.
+    // The parameters that are required for the moderation service. The value must be a JSON string.
+    // 
+    // - url: Required. The URL of the object to be moderated. Make sure that the URL can be accessed over the Internet.
+    // - dataId: Optional. The data ID of the object to be moderated.
+    // 
+    // For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/2505810.html).
     shared_ptr<string> serviceParameters_ {};
   };
 

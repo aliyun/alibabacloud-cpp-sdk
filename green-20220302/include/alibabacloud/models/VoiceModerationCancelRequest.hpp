@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
+    // The type of moderation service. Valid values include \\`nickname_detection\\` for user nicknames. Other values are to be determined.
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The value is a JSON string.
+    // The ID of the task that you want to cancel.
     shared_ptr<string> serviceParameters_ {};
   };
 

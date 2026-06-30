@@ -4,6 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
+#include <alibabacloud/WebsocketUtils.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -11,6 +12,7 @@ using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::Green20220302::Models;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
+using namespace AlibabaCloud::OpenApi::WebsocketUtils;
 namespace AlibabaCloud
 {
 namespace Green20220302
@@ -36,7 +38,12 @@ AlibabaCloud::Green20220302::Client::Client(Config &config): OpenApiClient(confi
     {"cn-hangzhou-finance" , "green.aliyuncs.com"},
     {"cn-shenzhen-finance-1" , "green.aliyuncs.com"},
     {"cn-shanghai-finance-1" , "green.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "green.aliyuncs.com"}
+    {"cn-north-2-gov-1" , "green.aliyuncs.com"},
+    {"cn-shenzhen" , "green-cip.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "green-cip.cn-shanghai.aliyuncs.com"},
+    {"cn-hangzhou" , "green-cip.cn-hangzhou.aliyuncs.com"},
+    {"cn-beijing" , "green-cip.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-1" , "green-cip.ap-southeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("green", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -56,7 +63,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 文档审核结果
+ * @summary Document review results
  *
  * @param request DescribeFileModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -91,7 +98,7 @@ DescribeFileModerationResultResponse Client::describeFileModerationResultWithOpt
 }
 
 /**
- * @summary 文档审核结果
+ * @summary Document review results
  *
  * @param request DescribeFileModerationResultRequest
  * @return DescribeFileModerationResultResponse
@@ -102,10 +109,10 @@ DescribeFileModerationResultResponse Client::describeFileModerationResult(const 
 }
 
 /**
- * @summary Obtains the moderation results of an Image Moderation 2.0 task.
+ * @summary Retrieves the results of an Image Moderation Pro task.
  *
- * @description *   Billing: This operation is free of charge.
- * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description - Billing information: This operation is not billed.
+ * - QPS limit: This operation is limited to 100 queries per second (QPS) for each user. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request DescribeImageModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -136,10 +143,10 @@ DescribeImageModerationResultResponse Client::describeImageModerationResultWithO
 }
 
 /**
- * @summary Obtains the moderation results of an Image Moderation 2.0 task.
+ * @summary Retrieves the results of an Image Moderation Pro task.
  *
- * @description *   Billing: This operation is free of charge.
- * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description - Billing information: This operation is not billed.
+ * - QPS limit: This operation is limited to 100 queries per second (QPS) for each user. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request DescribeImageModerationResultRequest
  * @return DescribeImageModerationResultResponse
@@ -150,7 +157,9 @@ DescribeImageModerationResultResponse Client::describeImageModerationResult(cons
 }
 
 /**
- * @summary Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
+ * @summary The enhanced image moderation auxiliary information API operation retrieves additional auxiliary information detected by the enhanced image moderation API operation, including OCR results and custom image library hit information.
+ *
+ * @description This API operation must be used with the enhanced image moderation API. After you call the enhanced image moderation API operation, you can call this API operation to obtain additional detection information. This API operation is free of charge.
  *
  * @param request DescribeImageResultExtRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -185,7 +194,9 @@ DescribeImageResultExtResponse Client::describeImageResultExtWithOptions(const D
 }
 
 /**
- * @summary Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
+ * @summary The enhanced image moderation auxiliary information API operation retrieves additional auxiliary information detected by the enhanced image moderation API operation, including OCR results and custom image library hit information.
+ *
+ * @description This API operation must be used with the enhanced image moderation API. After you call the enhanced image moderation API operation, you can call this API operation to obtain additional detection information. This API operation is free of charge.
  *
  * @param request DescribeImageResultExtRequest
  * @return DescribeImageResultExtResponse
@@ -196,7 +207,11 @@ DescribeImageResultExtResponse Client::describeImageResultExt(const DescribeImag
 }
 
 /**
- * @summary 查询异步多模态检测结果
+ * @summary Query the results of an asynchronous multimodal moderation task.
+ *
+ * @description - Billing information: This API call is free.
+ * - Query timeout: Wait 30 seconds after you submit an asynchronous moderation task before querying the result. Do not wait longer than 24 hours, or the result will be automatically deleted.
+ * - This API has a per-user rate limiting limit of 10 requests per second. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
  *
  * @param request DescribeMultimodalModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -227,7 +242,11 @@ DescribeMultimodalModerationResultResponse Client::describeMultimodalModerationR
 }
 
 /**
- * @summary 查询异步多模态检测结果
+ * @summary Query the results of an asynchronous multimodal moderation task.
+ *
+ * @description - Billing information: This API call is free.
+ * - Query timeout: Wait 30 seconds after you submit an asynchronous moderation task before querying the result. Do not wait longer than 24 hours, or the result will be automatically deleted.
+ * - This API has a per-user rate limiting limit of 10 requests per second. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
  *
  * @param request DescribeMultimodalModerationResultRequest
  * @return DescribeMultimodalModerationResultResponse
@@ -238,7 +257,7 @@ DescribeMultimodalModerationResultResponse Client::describeMultimodalModerationR
 }
 
 /**
- * @summary Queries the token for uploading files.
+ * @summary Retrieves an upload token.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUploadTokenResponse
@@ -260,7 +279,7 @@ DescribeUploadTokenResponse Client::describeUploadTokenWithOptions(const Darabon
 }
 
 /**
- * @summary Queries the token for uploading files.
+ * @summary Retrieves an upload token.
  *
  * @return DescribeUploadTokenResponse
  */
@@ -270,11 +289,11 @@ DescribeUploadTokenResponse Client::describeUploadToken() {
 }
 
 /**
- * @summary Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+ * @summary Queries moderation results based on the ReqId returned by asynchronous URL moderation.
  *
- * @description *   Billing: This operation is free of charge.
- * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
- * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description - Billing information: This operation is free of charge.
+ * - Query timeout: We recommend that you set the query interval to 480 seconds (query the results 480 seconds after you submit the asynchronous moderation task). The maximum timeout period is 3 days. After this period, the results are automatically deleted.
+ * - The QPS limit for this operation is 100 queries per second (QPS) per user. If the limit is exceeded, your API calls will be throttled, which may affect your business. Make sure you call the operation at a reasonable rate.
  *
  * @param request DescribeUrlModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -305,11 +324,11 @@ DescribeUrlModerationResultResponse Client::describeUrlModerationResultWithOptio
 }
 
 /**
- * @summary Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+ * @summary Queries moderation results based on the ReqId returned by asynchronous URL moderation.
  *
- * @description *   Billing: This operation is free of charge.
- * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
- * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description - Billing information: This operation is free of charge.
+ * - Query timeout: We recommend that you set the query interval to 480 seconds (query the results 480 seconds after you submit the asynchronous moderation task). The maximum timeout period is 3 days. After this period, the results are automatically deleted.
+ * - The QPS limit for this operation is 100 queries per second (QPS) per user. If the limit is exceeded, your API calls will be throttled, which may affect your business. Make sure you call the operation at a reasonable rate.
  *
  * @param request DescribeUrlModerationResultRequest
  * @return DescribeUrlModerationResultResponse
@@ -320,7 +339,7 @@ DescribeUrlModerationResultResponse Client::describeUrlModerationResult(const De
 }
 
 /**
- * @summary Moderates files.
+ * @summary Moderates document content.
  *
  * @param request FileModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -355,7 +374,7 @@ FileModerationResponse Client::fileModerationWithOptions(const FileModerationReq
 }
 
 /**
- * @summary Moderates files.
+ * @summary Moderates document content.
  *
  * @param request FileModerationRequest
  * @return FileModerationResponse
@@ -366,7 +385,11 @@ FileModerationResponse Client::fileModeration(const FileModerationRequest &reque
 }
 
 /**
- * @summary Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
+ * @summary This API is used for asynchronous image moderation. Asynchronous moderation tasks do not return detection results in real time. You can obtain the detection results using a callback or by polling. The detection results are retained for up to three days.
+ *
+ * @description - The following image formats are supported: PNG, JPG, JPEG, BMP, WEBP, TIFF, ICO, HEIC, and SVG.
+ * - The image size cannot exceed 10 MB. The recommended image resolution is greater than 200 × 200 pixels. A low resolution may compromise the accuracy of the Content Moderation algorithm.
+ * - The timeout period for image downloads is 3 seconds. If an image download exceeds this duration, a download timeout error is returned.
  *
  * @param request ImageAsyncModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -401,7 +424,11 @@ ImageAsyncModerationResponse Client::imageAsyncModerationWithOptions(const Image
 }
 
 /**
- * @summary Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
+ * @summary This API is used for asynchronous image moderation. Asynchronous moderation tasks do not return detection results in real time. You can obtain the detection results using a callback or by polling. The detection results are retained for up to three days.
+ *
+ * @description - The following image formats are supported: PNG, JPG, JPEG, BMP, WEBP, TIFF, ICO, HEIC, and SVG.
+ * - The image size cannot exceed 10 MB. The recommended image resolution is greater than 200 × 200 pixels. A low resolution may compromise the accuracy of the Content Moderation algorithm.
+ * - The timeout period for image downloads is 3 seconds. If an image download exceeds this duration, a download timeout error is returned.
  *
  * @param request ImageAsyncModerationRequest
  * @return ImageAsyncModerationResponse
@@ -412,7 +439,7 @@ ImageAsyncModerationResponse Client::imageAsyncModeration(const ImageAsyncModera
 }
 
 /**
- * @summary 图片批量调用
+ * @summary Batch Invocation of Images
  *
  * @param request ImageBatchModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -447,7 +474,7 @@ ImageBatchModerationResponse Client::imageBatchModerationWithOptions(const Image
 }
 
 /**
- * @summary 图片批量调用
+ * @summary Batch Invocation of Images
  *
  * @param request ImageBatchModerationRequest
  * @return ImageBatchModerationResponse
@@ -458,9 +485,12 @@ ImageBatchModerationResponse Client::imageBatchModeration(const ImageBatchModera
 }
 
 /**
- * @summary Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
+ * @summary Image moderation
  *
- * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
+ * @description Before you call this operation, complete the following steps:
+ * 1. [Activate AI Guardrails-Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+ * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of the enhanced image moderation feature.
+ * 3. For more information about API usage and parameters, see the [API reference](https://help.aliyun.com/document_detail/467829.html).
  *
  * @param request ImageModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -495,9 +525,12 @@ ImageModerationResponse Client::imageModerationWithOptions(const ImageModeration
 }
 
 /**
- * @summary Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
+ * @summary Image moderation
  *
- * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
+ * @description Before you call this operation, complete the following steps:
+ * 1. [Activate AI Guardrails-Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+ * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of the enhanced image moderation feature.
+ * 3. For more information about API usage and parameters, see the [API reference](https://help.aliyun.com/document_detail/467829.html).
  *
  * @param request ImageModerationRequest
  * @return ImageModerationResponse
@@ -554,7 +587,7 @@ ImageQueueModerationResponse Client::imageQueueModeration(const ImageQueueModera
 }
 
 /**
- * @summary Content Security Manual Review Result Callback Interface
+ * @summary The channel callback API for manual review results in Content Moderation.
  *
  * @param request ManualCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -605,7 +638,7 @@ ManualCallbackResponse Client::manualCallbackWithOptions(const ManualCallbackReq
 }
 
 /**
- * @summary Content Security Manual Review Result Callback Interface
+ * @summary The channel callback API for manual review results in Content Moderation.
  *
  * @param request ManualCallbackRequest
  * @return ManualCallbackResponse
@@ -616,7 +649,7 @@ ManualCallbackResponse Client::manualCallback(const ManualCallbackRequest &reque
 }
 
 /**
- * @summary Content Security Manual Review Request Interface
+ * @summary Interface for submitting Content Moderation manual review requests
  *
  * @param request ManualModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -651,7 +684,7 @@ ManualModerationResponse Client::manualModerationWithOptions(const ManualModerat
 }
 
 /**
- * @summary Content Security Manual Review Request Interface
+ * @summary Interface for submitting Content Moderation manual review requests
  *
  * @param request ManualModerationRequest
  * @return ManualModerationResponse
@@ -662,7 +695,7 @@ ManualModerationResponse Client::manualModeration(const ManualModerationRequest 
 }
 
 /**
- * @summary Retrieve manual review results
+ * @summary Retrieves the manual review result.
  *
  * @param request ManualModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +726,7 @@ ManualModerationResultResponse Client::manualModerationResultWithOptions(const M
 }
 
 /**
- * @summary Retrieve manual review results
+ * @summary Retrieves the manual review result.
  *
  * @param request ManualModerationResultRequest
  * @return ManualModerationResultResponse
@@ -704,7 +737,9 @@ ManualModerationResultResponse Client::manualModerationResult(const ManualModera
 }
 
 /**
- * @summary 多模态AgentAPI同步检测接口
+ * @summary This is the synchronous detection API for the multi-modal agent.
+ *
+ * @description This is the AI Guardrails agent.
  *
  * @param request MultiModalAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -739,7 +774,9 @@ MultiModalAgentResponse Client::multiModalAgentWithOptions(const MultiModalAgent
 }
 
 /**
- * @summary 多模态AgentAPI同步检测接口
+ * @summary This is the synchronous detection API for the multi-modal agent.
+ *
+ * @description This is the AI Guardrails agent.
  *
  * @param request MultiModalAgentRequest
  * @return MultiModalAgentResponse
@@ -750,7 +787,7 @@ MultiModalAgentResponse Client::multiModalAgent(const MultiModalAgentRequest &re
 }
 
 /**
- * @summary 同步检测接口
+ * @summary API for synchronous detection
  *
  * @param request MultiModalGuardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -785,7 +822,7 @@ MultiModalGuardResponse Client::multiModalGuardWithOptions(const MultiModalGuard
 }
 
 /**
- * @summary 同步检测接口
+ * @summary API for synchronous detection
  *
  * @param request MultiModalGuardRequest
  * @return MultiModalGuardResponse
@@ -796,7 +833,9 @@ MultiModalGuardResponse Client::multiModalGuard(const MultiModalGuardRequest &re
 }
 
 /**
- * @summary 视频检测任务提交
+ * @summary An asynchronous multimodal AI safety guardrail API for audio and video. It provides comprehensive detection of non-compliant content, sensitive content, prompt injection attacks, malicious files, and malicious URLs.
+ *
+ * @description If an API is subject to billing, add the following sentence in bold: "Before using this API, ensure that you fully understand the billing methods and pricing of the XXX product." The word "pricing" must be a hyperlink to https\\://www\\.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -831,7 +870,9 @@ MultiModalGuardAsyncResponse Client::multiModalGuardAsyncWithOptions(const Multi
 }
 
 /**
- * @summary 视频检测任务提交
+ * @summary An asynchronous multimodal AI safety guardrail API for audio and video. It provides comprehensive detection of non-compliant content, sensitive content, prompt injection attacks, malicious files, and malicious URLs.
+ *
+ * @description If an API is subject to billing, add the following sentence in bold: "Before using this API, ensure that you fully understand the billing methods and pricing of the XXX product." The word "pricing" must be a hyperlink to https\\://www\\.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncRequest
  * @return MultiModalGuardAsyncResponse
@@ -842,7 +883,9 @@ MultiModalGuardAsyncResponse Client::multiModalGuardAsync(const MultiModalGuardA
 }
 
 /**
- * @summary 获取视频检测结果
+ * @summary This AI Security Guardrail API retrieves asynchronous multimodal results from both audio and video.
+ *
+ * @description For APIs that incur charges, add the following sentence in bold at the beginning of the description: "Before you use this API, make sure that you fully understand the billing methods and pricing of the XXX product." Link the word \\"pricing\\" to https\\://www\\.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -877,7 +920,9 @@ MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResultWithOptions
 }
 
 /**
- * @summary 获取视频检测结果
+ * @summary This AI Security Guardrail API retrieves asynchronous multimodal results from both audio and video.
+ *
+ * @description For APIs that incur charges, add the following sentence in bold at the beginning of the description: "Before you use this API, make sure that you fully understand the billing methods and pricing of the XXX product." Link the word \\"pricing\\" to https\\://www\\.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @return MultiModalGuardAsyncResultResponse
@@ -940,7 +985,56 @@ MultiModalGuardForBase64Response Client::multiModalGuardForBase64(const MultiMod
 }
 
 /**
- * @summary 多模态-异步检测
+ * @summary Provides a WebSocket-based multimodal detection API for AI safety guardrails. This API supports content compliance detection, sensitive content detection, prompt attack detection, malicious file detection, malicious URL detection, and other comprehensive detection capabilities.
+ *
+ * @param request MultiModalGuardWsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultiModalGuardWsResponse
+ */
+MultiModalGuardWsResponse Client::multiModalGuardWsWithOptions(const MultiModalGuardWsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MultiModalGuardWs"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "wss"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"},
+    {"websocketSubProtocol" , "awap"}
+  }).get<map<string, string>>());
+  MultiModalGuardWsResponse res = MultiModalGuardWsResponse();
+  json tmp = callApi(params, req, runtime);
+  if (!Darabonba::isNull(tmp.at("webSocketClient"))) {
+    res.setWebSocketClient(Client::createWebSocketClient(tmp.at("webSocketClient")));
+  }
+
+  return res;
+}
+
+/**
+ * @summary Provides a WebSocket-based multimodal detection API for AI safety guardrails. This API supports content compliance detection, sensitive content detection, prompt attack detection, malicious file detection, malicious URL detection, and other comprehensive detection capabilities.
+ *
+ * @param request MultiModalGuardWsRequest
+ * @return MultiModalGuardWsResponse
+ */
+MultiModalGuardWsResponse Client::multiModalGuardWs(const MultiModalGuardWsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return multiModalGuardWsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Multimodal-Asynchronous Detection
+ *
+ * @description The asynchronous URL moderation service supports two billing methods: pay-as-you-go and resource plan usage.
+ * - After you activate the enhanced text moderation service, the default billing method is pay-as-you-go. You are billed daily based on actual usage. No charges apply if you do not invoke the service.
+ * - If your moderation volume is large or your moderation needs are relatively stable, purchase a resource plan in advance. Larger resource plans offer greater discounts. You can stack multiple resource plans.
  *
  * @param request MultimodalAsyncModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -975,7 +1069,11 @@ MultimodalAsyncModerationResponse Client::multimodalAsyncModerationWithOptions(c
 }
 
 /**
- * @summary 多模态-异步检测
+ * @summary Multimodal-Asynchronous Detection
+ *
+ * @description The asynchronous URL moderation service supports two billing methods: pay-as-you-go and resource plan usage.
+ * - After you activate the enhanced text moderation service, the default billing method is pay-as-you-go. You are billed daily based on actual usage. No charges apply if you do not invoke the service.
+ * - If your moderation volume is large or your moderation needs are relatively stable, purchase a resource plan in advance. Larger resource plans offer greater discounts. You can stack multiple resource plans.
  *
  * @param request MultimodalAsyncModerationRequest
  * @return MultimodalAsyncModerationResponse
@@ -986,9 +1084,9 @@ MultimodalAsyncModerationResponse Client::multimodalAsyncModeration(const Multim
 }
 
 /**
- * @summary Provides moderation services for multiple business scenarios and identifies various violation risks.
+ * @summary This service uses dynamic policies and models to defend against adversarial content. It provides moderation services for various business scenarios and detects different types of violations.
  *
- * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
+ * @description Before you use this operation, review the [billing methods and pricing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) for Text Moderation Plus.
  *
  * @param request TextModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1023,9 +1121,9 @@ TextModerationResponse Client::textModerationWithOptions(const TextModerationReq
 }
 
 /**
- * @summary Provides moderation services for multiple business scenarios and identifies various violation risks.
+ * @summary This service uses dynamic policies and models to defend against adversarial content. It provides moderation services for various business scenarios and detects different types of violations.
  *
- * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
+ * @description Before you use this operation, review the [billing methods and pricing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) for Text Moderation Plus.
  *
  * @param request TextModerationRequest
  * @return TextModerationResponse
@@ -1036,9 +1134,9 @@ TextModerationResponse Client::textModeration(const TextModerationRequest &reque
 }
 
 /**
- * @summary Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
+ * @summary Text Moderation Plus is an upgraded service that moderates the input instructions and generated text of large language models (LLMs). This service can retrieve standard answers for specific input instructions and lets you enable or disable moderation labels.
  *
- * @description Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
+ * @description Before you use this API, [activate AI Guardrails Pro](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) for Text Moderation Plus.
  *
  * @param request TextModerationPlusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1073,9 +1171,9 @@ TextModerationPlusResponse Client::textModerationPlusWithOptions(const TextModer
 }
 
 /**
- * @summary Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
+ * @summary Text Moderation Plus is an upgraded service that moderates the input instructions and generated text of large language models (LLMs). This service can retrieve standard answers for specific input instructions and lets you enable or disable moderation labels.
  *
- * @description Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
+ * @description Before you use this API, [activate AI Guardrails Pro](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) for Text Moderation Plus.
  *
  * @param request TextModerationPlusRequest
  * @return TextModerationPlusResponse
@@ -1086,7 +1184,11 @@ TextModerationPlusResponse Client::textModerationPlus(const TextModerationPlusRe
 }
 
 /**
- * @summary Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
+ * @summary The URL asynchronous moderation service detects threats such as fraud, pornography, and gambling in URLs to protect the content ecosystem of your platform.
+ *
+ * @description The URL asynchronous moderation service supports the pay-as-you-go and resource plan billing methods.
+ * - After you activate the enhanced edition of Text Moderation, the default billing method is pay-as-you-go. You are charged CNY 30 per 10,000 calls based on your daily usage. No fees are incurred if you do not call the service.
+ * - If you have many moderation requests or relatively fixed moderation requirements, we recommend that you purchase resource plans in advance. The larger the resource plan you purchase, the greater the discount you receive. You can purchase and use multiple resource plans.
  *
  * @param request UrlAsyncModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,7 +1223,11 @@ UrlAsyncModerationResponse Client::urlAsyncModerationWithOptions(const UrlAsyncM
 }
 
 /**
- * @summary Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
+ * @summary The URL asynchronous moderation service detects threats such as fraud, pornography, and gambling in URLs to protect the content ecosystem of your platform.
+ *
+ * @description The URL asynchronous moderation service supports the pay-as-you-go and resource plan billing methods.
+ * - After you activate the enhanced edition of Text Moderation, the default billing method is pay-as-you-go. You are charged CNY 30 per 10,000 calls based on your daily usage. No fees are incurred if you do not call the service.
+ * - If you have many moderation requests or relatively fixed moderation requirements, we recommend that you purchase resource plans in advance. The larger the resource plan you purchase, the greater the discount you receive. You can purchase and use multiple resource plans.
  *
  * @param request UrlAsyncModerationRequest
  * @return UrlAsyncModerationResponse
@@ -1132,7 +1238,9 @@ UrlAsyncModerationResponse Client::urlAsyncModeration(const UrlAsyncModerationRe
 }
 
 /**
- * @summary Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
+ * @summary The enhanced video moderation feature of Content Moderation detects threats and non-compliant content in video files. Use this operation to submit a moderation task.
+ *
+ * @description Before you call this operation, make sure that you have activated the [enhanced Content Moderation](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) service and understand the [billing methods](https://help.aliyun.com/document_detail/2505807.html) and [pricing](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of the enhanced video moderation feature.
  *
  * @param request VideoModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1167,7 +1275,9 @@ VideoModerationResponse Client::videoModerationWithOptions(const VideoModeration
 }
 
 /**
- * @summary Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
+ * @summary The enhanced video moderation feature of Content Moderation detects threats and non-compliant content in video files. Use this operation to submit a moderation task.
+ *
+ * @description Before you call this operation, make sure that you have activated the [enhanced Content Moderation](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) service and understand the [billing methods](https://help.aliyun.com/document_detail/2505807.html) and [pricing](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of the enhanced video moderation feature.
  *
  * @param request VideoModerationRequest
  * @return VideoModerationResponse
@@ -1178,7 +1288,7 @@ VideoModerationResponse Client::videoModeration(const VideoModerationRequest &re
 }
 
 /**
- * @summary Cancels a live stream moderation task.
+ * @summary Cancels an ApsaraVideo Live moderation task.
  *
  * @param request VideoModerationCancelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1213,7 +1323,7 @@ VideoModerationCancelResponse Client::videoModerationCancelWithOptions(const Vid
 }
 
 /**
- * @summary Cancels a live stream moderation task.
+ * @summary Cancels an ApsaraVideo Live moderation task.
  *
  * @param request VideoModerationCancelRequest
  * @return VideoModerationCancelResponse
@@ -1224,9 +1334,9 @@ VideoModerationCancelResponse Client::videoModerationCancel(const VideoModeratio
 }
 
 /**
- * @summary Get Video Detection Results
+ * @summary Retrieves the task result of an enhanced video content moderation node.
  *
- * @description This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
+ * @description This operation is not billed. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, the results are automatically deleted.
  *
  * @param request VideoModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1261,9 +1371,9 @@ VideoModerationResultResponse Client::videoModerationResultWithOptions(const Vid
 }
 
 /**
- * @summary Get Video Detection Results
+ * @summary Retrieves the task result of an enhanced video content moderation node.
  *
- * @description This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
+ * @description This operation is not billed. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, the results are automatically deleted.
  *
  * @param request VideoModerationResultRequest
  * @return VideoModerationResultResponse
@@ -1274,7 +1384,7 @@ VideoModerationResultResponse Client::videoModerationResult(const VideoModeratio
 }
 
 /**
- * @summary Submits a Voice Moderation 2.0 task.
+ * @summary Submits a task for enhanced voice moderation.
  *
  * @param request VoiceModerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1309,7 +1419,7 @@ VoiceModerationResponse Client::voiceModerationWithOptions(const VoiceModeration
 }
 
 /**
- * @summary Submits a Voice Moderation 2.0 task.
+ * @summary Submits a task for enhanced voice moderation.
  *
  * @param request VoiceModerationRequest
  * @return VoiceModerationResponse
@@ -1320,7 +1430,7 @@ VoiceModerationResponse Client::voiceModeration(const VoiceModerationRequest &re
 }
 
 /**
- * @summary Cancels a Voice Moderation 2.0 task.
+ * @summary This operation cancels an enhanced voice moderation task.
  *
  * @param request VoiceModerationCancelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1355,7 +1465,7 @@ VoiceModerationCancelResponse Client::voiceModerationCancelWithOptions(const Voi
 }
 
 /**
- * @summary Cancels a Voice Moderation 2.0 task.
+ * @summary This operation cancels an enhanced voice moderation task.
  *
  * @param request VoiceModerationCancelRequest
  * @return VoiceModerationCancelResponse
@@ -1366,7 +1476,7 @@ VoiceModerationCancelResponse Client::voiceModerationCancel(const VoiceModeratio
 }
 
 /**
- * @summary Obtains the moderation results of a Voice Moderation 2.0 task.
+ * @summary Retrieve the detection results for enhanced voice moderation.
  *
  * @param request VoiceModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1401,7 +1511,7 @@ VoiceModerationResultResponse Client::voiceModerationResultWithOptions(const Voi
 }
 
 /**
- * @summary Obtains the moderation results of a Voice Moderation 2.0 task.
+ * @summary Retrieve the detection results for enhanced voice moderation.
  *
  * @param request VoiceModerationResultRequest
  * @return VoiceModerationResultResponse

@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The value of dataId passed in the API request. This field is absent if dataId was not included in the request.
       shared_ptr<string> dataId_ {};
+      // The ReqId field returned by the URL asynchronous enhanced moderation API. Use this field to query moderation results.
       shared_ptr<string> reqId_ {};
     };
 
@@ -110,8 +112,11 @@ namespace Models
 
 
   protected:
+    // Return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
+    // Returned data.
     shared_ptr<MultimodalAsyncModerationResponseBody::Data> data_ {};
+    // The response message for this request.
     shared_ptr<string> msg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

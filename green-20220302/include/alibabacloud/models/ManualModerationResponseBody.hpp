@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The value of dataId passed during the API request. This field will not be present if it was not provided during the request.
+      // The value of dataId passed in the API request. This field is not present if no dataId was passed in the request.
       shared_ptr<string> dataId_ {};
-      // Task ID
+      // The task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -114,11 +114,11 @@ namespace Models
   protected:
     // Status code
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The response data.
     shared_ptr<ManualModerationResponseBody::Data> data_ {};
     // Error message
     shared_ptr<string> message_ {};
-    // ID of the request
+    // The ID of the request
     shared_ptr<string> requestId_ {};
   };
 

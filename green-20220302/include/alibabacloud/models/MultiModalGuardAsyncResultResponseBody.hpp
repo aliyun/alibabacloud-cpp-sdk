@@ -207,10 +207,23 @@ namespace Models
 
 
             protected:
+              // The confidence score, ranging from 0 to 100, accurate to two decimal places.
               shared_ptr<float> confidence_ {};
+              // The description of the label.
               shared_ptr<string> description_ {};
+              // Additional information about the detection result.
               Darabonba::Json ext_ {};
+              // The label of the detection result.
               shared_ptr<string> label_ {};
+              // The risk level. Valid values:
+              // 
+              // - `high`: High risk. If the content matches an entry in a custom keyword library, the risk level defaults to high.
+              // 
+              // - `medium`: Medium risk.
+              // 
+              // - `low`: Low risk.
+              // 
+              // - `none`: No risk detected.
               shared_ptr<string> level_ {};
             };
 
@@ -247,9 +260,39 @@ namespace Models
 
 
           protected:
+            // The risk level. Valid values include:
+            // 
+            // - high: High risk. If a match is found in a custom dictionary, the risk level defaults to high.
+            // 
+            // - medium: Medium risk.
+            // 
+            // - low: Low risk.
+            // 
+            // - none: No risk detected.
             shared_ptr<string> level_ {};
+            // A list of detection results.
             shared_ptr<vector<Detail::Result>> result_ {};
+            // Suggestion
+            // 
+            // - block: A suggestion to block.
+            // 
+            // - pass: A suggestion to pass.
+            // 
+            // - watch: A suggestion to watch.
+            // 
+            // - mask: A suggestion to mask.
             shared_ptr<string> suggestion_ {};
+            // The detection type. Valid values:
+            // 
+            // - `contentModeration`: Content moderation.
+            // 
+            // - `promptAttack`: Prompt attack detection.
+            // 
+            // - `sensitiveData`: Sensitive data detection.
+            // 
+            // - `modelHallucination`: Model hallucination.
+            // 
+            // - `maliciousFile`: Malicious file detection.
             shared_ptr<string> type_ {};
           };
 
@@ -293,10 +336,23 @@ namespace Models
 
 
         protected:
+          // A list of detection results.
           shared_ptr<vector<Frames::Detail>> detail_ {};
+          // The time offset of the frame in the video, in seconds.
           shared_ptr<float> offset_ {};
+          // The recommended action. Valid values:
+          // 
+          // - `block`: Block the content.
+          // 
+          // - `pass`: Pass the content.
+          // 
+          // - `watch`: The content requires review.
+          // 
+          // - `mask`: Mask the content.
           shared_ptr<string> suggestion_ {};
+          // The absolute timestamp of the frame, in milliseconds.
           shared_ptr<int64_t> timestamp_ {};
+          // The temporary URL of the video frame.
           shared_ptr<string> url_ {};
         };
 
@@ -326,8 +382,19 @@ namespace Models
 
 
       protected:
+        // The moderation results for video frames.
         shared_ptr<vector<FrameResult::Frames>> frames_ {};
+        // The frame count.
         shared_ptr<int32_t> sliceNum_ {};
+        // The recommended action. Valid values:
+        // 
+        // - `block`: Block the content.
+        // 
+        // - `pass`: Pass the content.
+        // 
+        // - `watch`: The content requires review.
+        // 
+        // - `mask`: Mask the content.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -475,10 +542,23 @@ namespace Models
 
 
             protected:
+              // The confidence score, ranging from 0 to 100, accurate to two decimal places.
               shared_ptr<float> confidence_ {};
+              // The description of the label.
               shared_ptr<string> description_ {};
+              // Additional information about the detection result.
               Darabonba::Json ext_ {};
+              // The label of the detection result.
               shared_ptr<string> label_ {};
+              // The risk level. Valid values:
+              // 
+              // - `high`: High risk. If the content matches an entry in a custom keyword library, the risk level defaults to high.
+              // 
+              // - `medium`: Medium risk.
+              // 
+              // - `low`: Low risk.
+              // 
+              // - `none`: No risk detected.
               shared_ptr<string> level_ {};
             };
 
@@ -515,9 +595,39 @@ namespace Models
 
 
           protected:
+            // The risk level. Valid values:
+            // 
+            // - `high`: High risk. If the content matches an entry in a custom keyword library, the risk level defaults to high.
+            // 
+            // - `medium`: Medium risk.
+            // 
+            // - `low`: Low risk.
+            // 
+            // - `none`: No risk detected.
             shared_ptr<string> level_ {};
+            // A list of detection results.
             shared_ptr<vector<Detail::Result>> result_ {};
+            // The recommended action. Valid values:
+            // 
+            // - `block`: Block the content.
+            // 
+            // - `pass`: Pass the content.
+            // 
+            // - `watch`: The content requires review.
+            // 
+            // - `mask`: Mask the content.
             shared_ptr<string> suggestion_ {};
+            // The detection type. Valid values:
+            // 
+            // - `contentModeration`: Content moderation.
+            // 
+            // - `promptAttack`: Prompt attack detection.
+            // 
+            // - `sensitiveData`: Sensitive data detection.
+            // 
+            // - `modelHallucination`: Model hallucination.
+            // 
+            // - `maliciousFile`: Malicious file detection.
             shared_ptr<string> type_ {};
           };
 
@@ -568,11 +678,25 @@ namespace Models
 
 
         protected:
+          // Detection details for the audio slice.
           shared_ptr<vector<SliceDetails::Detail>> detail_ {};
+          // The end time of the audio slice, in seconds.
           shared_ptr<int64_t> endTime_ {};
+          // The start time of the audio slice, in seconds.
           shared_ptr<int64_t> startTime_ {};
+          // The recommended action. Valid values:
+          // 
+          // - `block`: Block the content.
+          // 
+          // - `pass`: Pass the content.
+          // 
+          // - `watch`: The content requires review.
+          // 
+          // - `mask`: Mask the content.
           shared_ptr<string> suggestion_ {};
+          // The speech-to-text transcript of the audio slice.
           shared_ptr<string> text_ {};
+          // The temporary URL of the audio slice.
           shared_ptr<string> url_ {};
         };
 
@@ -602,8 +726,11 @@ namespace Models
 
 
       protected:
+        // Details for each audio slice.
         shared_ptr<vector<AudioResult::SliceDetails>> sliceDetails_ {};
+        // The slice count.
         shared_ptr<int32_t> sliceNum_ {};
+        // The overall recommended action for the audio content.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -656,11 +783,25 @@ namespace Models
 
 
     protected:
+      // The audio moderation result.
       shared_ptr<Data::AudioResult> audioResult_ {};
+      // The value of the `dataId` parameter from the request. This field is omitted if `dataId` was not provided.
       shared_ptr<string> dataId_ {};
+      // The video frame moderation result.
       shared_ptr<Data::FrameResult> frameResult_ {};
+      // The unique identifier for the live stream.
       shared_ptr<string> liveId_ {};
+      // The recommended action. Valid values:
+      // 
+      // - `block`: Block the content.
+      // 
+      // - `pass`: Pass the content.
+      // 
+      // - `watch`: The content requires review.
+      // 
+      // - `mask`: Mask the content.
       shared_ptr<string> suggestion_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -697,10 +838,13 @@ namespace Models
 
 
   protected:
+    // The status code of the response.
     shared_ptr<int32_t> code_ {};
+    // The response data.
     shared_ptr<MultiModalGuardAsyncResultResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

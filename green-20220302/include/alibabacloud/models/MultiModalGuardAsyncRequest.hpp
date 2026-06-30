@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The moderation service type. Valid values: `audio_security_check` and `video_security_check`.
     shared_ptr<string> service_ {};
+    // The parameter set required for the moderation service.
     shared_ptr<string> serviceParameters_ {};
   };
 

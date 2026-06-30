@@ -110,8 +110,11 @@ namespace Models
 
 
       protected:
+        // Agent details.
         Darabonba::Json agentDetail_ {};
+        // The length of the content.
         shared_ptr<int64_t> contentLength_ {};
+        // The length of the prompt.
         shared_ptr<int64_t> promptLength_ {};
       };
 
@@ -162,8 +165,27 @@ namespace Models
 
 
       protected:
+        // The description of the label.
         shared_ptr<string> description_ {};
+        // The risk label.
         shared_ptr<string> label_ {};
+        // A description of the result when the session is terminated.
+        // 
+        // - **SESSION_KILLED**: The session was successfully terminated.
+        // 
+        // - **SESSION_EXPIRED**: The session has expired.
+        // 
+        // - **SESSION_NO_PERMISSION**: The account used to terminate the session does not have sufficient permissions.
+        // 
+        // - **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is incorrect.
+        // 
+        // - **SESSION_IGNORED_USER**: The session of an account that does not need to be terminated.
+        // 
+        // - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command of an Alibaba Cloud operations account.
+        // 
+        // - **SESSION_KILL_TASK_TIMEOUT**: A timeout occurred when terminating the session.
+        // 
+        // - **SESSION_OTHER_ERROR**: Other errors.
         shared_ptr<string> reason_ {};
       };
 
@@ -202,9 +224,21 @@ namespace Models
 
 
     protected:
+      // The data ID.
       shared_ptr<string> dataId_ {};
+      // The structure of the label item.
       shared_ptr<vector<Data::Result>> result_ {};
+      // The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+      // 
+      // - high: High risk
+      // 
+      // - medium: Medium risk
+      // 
+      // - low: Low risk
+      // 
+      // - none: No risk detected
       shared_ptr<string> riskLevel_ {};
+      // Token usage.
       shared_ptr<Data::Usage> usage_ {};
     };
 
@@ -241,8 +275,11 @@ namespace Models
 
 
   protected:
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The result of the image content detection.
     shared_ptr<MultiModalAgentResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The error code. This error code is the same as the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<FileModerationResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

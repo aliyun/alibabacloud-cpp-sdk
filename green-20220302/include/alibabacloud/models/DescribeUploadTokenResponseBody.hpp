@@ -128,21 +128,21 @@ namespace Models
 
 
     protected:
-      // The AccessKey ID.
+      // The AccessKey ID of the temporary credential for file upload.
       shared_ptr<string> accessKeyId_ {};
-      // The AccessKey secret.
+      // The temporary authorization secret.
       shared_ptr<string> accessKeySecret_ {};
       // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The time when the file sharing link expires.
+      // The expiration time.
       shared_ptr<int32_t> expiration_ {};
       // The file prefix.
       shared_ptr<string> fileNamePrefix_ {};
-      // the oss intranet point.
+      // The internal endpoint of OSS.
       shared_ptr<string> ossInternalEndPoint_ {};
-      // the oss internet point.
+      // The Internet endpoint of OSS.
       shared_ptr<string> ossInternetEndPoint_ {};
-      // The security token.
+      // The security token of the temporary credential for file upload.
       shared_ptr<string> securityToken_ {};
     };
 
@@ -179,11 +179,11 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeUploadTokenResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message for the request.
     shared_ptr<string> msg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

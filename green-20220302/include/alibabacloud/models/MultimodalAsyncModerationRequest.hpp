@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The type of moderation service. Valid values:
+    // 
+    // - post_text_image_detection: multimodal moderation for post text and images
+    // 
+    // - profile_text_image_detection: multimodal moderation for profile picture and nickname
     shared_ptr<string> service_ {};
+    // The parameter set required by the moderation service. This value must be a JSON string.
     shared_ptr<string> serviceParameters_ {};
   };
 

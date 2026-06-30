@@ -139,13 +139,13 @@ namespace Models
 
 
       protected:
-        // Description
+        // The description.
         shared_ptr<string> description_ {};
-        // The label
+        // The label.
         shared_ptr<string> label_ {};
-        // The sensitive data.
+        // The list of sensitive data.
         shared_ptr<vector<string>> sensitiveData_ {};
-        // The level of sensitivity data
+        // The sensitivity level.
         shared_ptr<string> sensitiveLevel_ {};
       };
 
@@ -225,8 +225,11 @@ namespace Models
 
 
         protected:
+          // The end position of the non-compliant word.
           shared_ptr<int32_t> endPos_ {};
+          // The non-compliant word.
           shared_ptr<string> riskWord_ {};
+          // The start position of the non-compliant word.
           shared_ptr<int32_t> startPos_ {};
         };
 
@@ -268,9 +271,9 @@ namespace Models
 
 
         protected:
-          // The terms that are hit. Multiple terms are separated by commas (,).
+          // The keywords that were hit, separated by commas.
           shared_ptr<string> keyWords_ {};
-          // The library name.
+          // The name of the keyword library.
           shared_ptr<string> libName_ {};
         };
 
@@ -323,16 +326,17 @@ namespace Models
 
 
       protected:
-        // The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+        // The confidence score. The value ranges from 0 to 100. The value is accurate to two decimal places.
         shared_ptr<float> confidence_ {};
-        // The custom term hit by the moderated content.
+        // The custom keywords that were hit.
         shared_ptr<vector<Result::CustomizedHit>> customizedHit_ {};
         // The description of the label.
         shared_ptr<string> description_ {};
         // The label.
         shared_ptr<string> label_ {};
+        // The position information of the risk words.
         shared_ptr<vector<Result::RiskPositions>> riskPositions_ {};
-        // The term hit by the moderated content.
+        // The risk keywords that were hit.
         shared_ptr<string> riskWords_ {};
       };
 
@@ -383,6 +387,7 @@ namespace Models
 
 
         protected:
+          // The output.
           shared_ptr<string> outputText_ {};
         };
 
@@ -397,6 +402,7 @@ namespace Models
 
 
       protected:
+        // The LLM output.
         shared_ptr<Ext::LlmContent> llmContent_ {};
       };
 
@@ -456,13 +462,13 @@ namespace Models
 
 
       protected:
-        // The level of prompt attack
+        // The attack level.
         shared_ptr<string> attackLevel_ {};
-        // The confidence
+        // The confidence score.
         shared_ptr<float> confidence_ {};
-        // Description
+        // The description.
         shared_ptr<string> description_ {};
-        // The label
+        // The label.
         shared_ptr<string> label_ {};
       };
 
@@ -513,11 +519,11 @@ namespace Models
 
 
       protected:
-        // The answer.
+        // The suggested answer.
         shared_ptr<string> answer_ {};
-        // Hit Label
+        // The label that was hit.
         shared_ptr<string> hitLabel_ {};
-        // Hit Library Name
+        // The name of the keyword library that was hit.
         shared_ptr<string> hitLibName_ {};
       };
 
@@ -634,28 +640,35 @@ namespace Models
 
 
     protected:
+      // The AccountId from the request.
       shared_ptr<string> accountId_ {};
-      // The suggestion.
+      // The suggested actions.
       shared_ptr<vector<Data::Advice>> advice_ {};
-      // The level of prompt attack
+      // The attack level.
       shared_ptr<string> attackLevel_ {};
-      // The result of prompt attack detect
+      // The prompt attack detection results.
       shared_ptr<vector<Data::AttackResult>> attackResult_ {};
-      // The id of data
+      // The ID of the data that was moderated.
+      // 
+      // > If you specify the \\`dataId\\` parameter in the request, the value of this parameter is returned.
       shared_ptr<string> dataId_ {};
+      // The detected language.
       shared_ptr<string> detectedLanguage_ {};
+      // The auxiliary information.
       shared_ptr<Data::Ext> ext_ {};
+      // The ID of the manual review task.
       shared_ptr<string> manualTaskId_ {};
-      // The results.
+      // The moderation results.
       shared_ptr<vector<Data::Result>> result_ {};
-      // Risk Level
+      // The risk level.
       shared_ptr<string> riskLevel_ {};
       // The score.
       shared_ptr<float> score_ {};
-      // The level of sensitivity data
+      // The sensitivity level.
       shared_ptr<string> sensitiveLevel_ {};
-      // The result of sensitivity data detect
+      // The sensitive data detection results.
       shared_ptr<vector<Data::SensitiveResult>> sensitiveResult_ {};
+      // The translated content.
       shared_ptr<string> translatedContent_ {};
     };
 
@@ -692,13 +705,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The moderation results.
+    // The data that is returned.
     shared_ptr<TextModerationPlusResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // A human-readable description of the error.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

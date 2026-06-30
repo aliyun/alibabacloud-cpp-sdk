@@ -71,6 +71,7 @@ find_package(CURL REQUIRED)
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Target Setup >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 set(SOURCE_FILES
     src/Client.cpp
+    src/MultiModalGuardWs.cpp
 )
 
 # Create library target

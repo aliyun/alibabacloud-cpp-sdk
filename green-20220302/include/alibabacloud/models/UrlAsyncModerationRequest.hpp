@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
+    // Service name: URL threat detection
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The value is a JSON string.
+    // The parameter set for the content moderation object. This parameter is a JSON string. For more information, see the description of ServiceParameters.
     shared_ptr<string> serviceParameters_ {};
   };
 

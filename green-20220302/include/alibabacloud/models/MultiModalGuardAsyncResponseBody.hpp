@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The custom data ID.
       shared_ptr<string> dataId_ {};
+      // The ID of the asynchronous task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -110,10 +112,13 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
+    // The response data.
     shared_ptr<MultiModalGuardAsyncResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

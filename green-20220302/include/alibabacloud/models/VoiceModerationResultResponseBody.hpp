@@ -192,8 +192,11 @@ namespace Models
 
 
           protected:
+            // The end position.
             shared_ptr<int32_t> endPos_ {};
+            // The detected sensitive word.
             shared_ptr<string> riskWord_ {};
+            // The start position.
             shared_ptr<int32_t> startPos_ {};
           };
 
@@ -235,7 +238,9 @@ namespace Models
 
 
           protected:
+            // The custom keyword.
             shared_ptr<string> keyWords_ {};
+            // The name of the custom library.
             shared_ptr<string> libName_ {};
           };
 
@@ -296,12 +301,19 @@ namespace Models
 
 
         protected:
+          // The confidence score.
           shared_ptr<float> confidence_ {};
+          // The matched custom libraries.
           shared_ptr<vector<Result::CustomizedHit>> customizedHit_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // The label.
           shared_ptr<string> label_ {};
+          // The risk level.
           shared_ptr<string> riskLevel_ {};
+          // A list of risk positions.
           shared_ptr<vector<Result::RiskPositions>> riskPositions_ {};
+          // The matched risky content.
           shared_ptr<string> riskWords_ {};
         };
 
@@ -419,34 +431,43 @@ namespace Models
 
 
       protected:
-        // The description of the labels.
+        // The description of the label.
         shared_ptr<string> descriptions_ {};
-        // The end time of the audio segment in seconds.
+        // The end time of the slice, in seconds.
         shared_ptr<int64_t> endTime_ {};
-        // The end timestamp of the segment. Unit: milliseconds.
+        // The end timestamp of the slice, in milliseconds.
         shared_ptr<int64_t> endTimestamp_ {};
-        // Extended fields.
+        // Extended information.
         shared_ptr<string> extend_ {};
-        // The details of the labels.
+        // The matched violation labels.
         shared_ptr<string> labels_ {};
-        // Reserved parameter.
+        // A reserved field.
         Darabonba::Json originAlgoResult_ {};
+        // The text detection results.
         shared_ptr<vector<SliceDetails::Result>> result_ {};
-        // Risk Level.
+        // The risk level, which is determined based on the configured thresholds for high and low risk scores. Valid values:
+        // 
+        // - `high`: high risk
+        // 
+        // - `medium`: medium risk
+        // 
+        // - `low`: low risk
+        // 
+        // - `none`: no risk detected
         shared_ptr<string> riskLevel_ {};
-        // The details of the risky content.
+        // Details about the matched risk.
         shared_ptr<string> riskTips_ {};
-        // The term hit by the risky content.
+        // The matched risk keywords.
         shared_ptr<string> riskWords_ {};
-        // The risk score. Default range: 0 to 99.
+        // The risk score. The value ranges from 0 to 99.
         shared_ptr<float> score_ {};
-        // The start time of the audio segment in seconds.
+        // The start time of the slice, in seconds.
         shared_ptr<int64_t> startTime_ {};
-        // The start timestamp of the segment. Unit: milliseconds.
+        // The start timestamp of the slice, in milliseconds.
         shared_ptr<int64_t> startTimestamp_ {};
-        // The text converted from the audio segment.
+        // The transcribed text of the audio slice.
         shared_ptr<string> text_ {};
-        // The temporary URL of the audio segment.
+        // The temporary URL of the audio slice.
         shared_ptr<string> url_ {};
       };
 
@@ -505,18 +526,27 @@ namespace Models
 
 
     protected:
-      // The ID of the moderated object.
+      // The value of the `dataId` parameter you specified in the request. This parameter is returned only if you specified it in the request.
       shared_ptr<string> dataId_ {};
       // The unique ID of the live stream.
       shared_ptr<string> liveId_ {};
+      // The ID of the manual review task.
       shared_ptr<string> manualTaskId_ {};
-      // Risk Level.
+      // The risk level, which is determined based on the configured thresholds for high and low risk scores. Valid values:
+      // 
+      // - `high`: high risk
+      // 
+      // - `medium`: medium risk
+      // 
+      // - `low`: low risk
+      // 
+      // - `none`: no risk detected
       shared_ptr<string> riskLevel_ {};
-      // The moderation results of audio segments.
+      // The slice results.
       shared_ptr<vector<Data::SliceDetails>> sliceDetails_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The URL of the moderated content.
+      // The task URL.
       shared_ptr<string> url_ {};
     };
 
@@ -553,13 +583,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<VoiceModerationResultResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

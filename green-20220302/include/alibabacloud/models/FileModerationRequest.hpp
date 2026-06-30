@@ -48,9 +48,12 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
+    // The service supported by enhanced document moderation.
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The value is a JSON string.
+    // The set of parameters required for the moderation service. The value must be a JSON string.
+    // 
+    // - url: Required. The URL of the object to be moderated. Make sure that the URL can be accessed over the Internet.
+    // - dataId: Optional. The data ID that corresponds to the moderated object.
     shared_ptr<string> serviceParameters_ {};
   };
 

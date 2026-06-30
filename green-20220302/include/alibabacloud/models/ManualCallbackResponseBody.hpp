@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Message information
+    // The message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

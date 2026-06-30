@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Channel field
+    // The channel field.
     shared_ptr<string> channel_ {};
-    // Checksum.
+    // The checksum.
     shared_ptr<string> checksum_ {};
-    // Code value
+    // The code.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<string> data_ {};
-    // Message information
+    // The message.
     shared_ptr<string> msg_ {};
-    // Platform request ID, used for troubleshooting assistance
+    // The ID of the platform request. This ID is used to troubleshoot issues.
     shared_ptr<string> reqId_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
+    // The moderation service type.
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The value is a JSON string.
+    // The TaskId of the task to be canceled.
     shared_ptr<string> serviceParameters_ {};
   };
 

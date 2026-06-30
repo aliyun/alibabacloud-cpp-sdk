@@ -73,7 +73,7 @@ namespace Models
 
 
     protected:
-      // The ID of the moderated object.
+      // The value of the dataId parameter that you specified in the API request. This parameter is not returned if you did not specify the dataId parameter in the request.
       shared_ptr<string> dataId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The return code. A return code of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<VideoModerationResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

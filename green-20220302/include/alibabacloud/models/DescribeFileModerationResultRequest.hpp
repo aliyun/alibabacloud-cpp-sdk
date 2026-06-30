@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
+    // The service for enhanced file moderation.
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The value is a JSON string.
+    // The parameters for the moderation service, specified as a JSON string.
     // 
-    // *   taskId: required. The URL of the object that you want to moderate. Make sure that the URL can be accessed over the Internet.
+    // - taskId: Required. The URL of the object to moderate. The URL must be accessible over the public network.
     shared_ptr<string> serviceParameters_ {};
   };
 

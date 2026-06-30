@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ReqId field returned by the asynchronous moderation API.
     shared_ptr<string> reqId_ {};
   };
 

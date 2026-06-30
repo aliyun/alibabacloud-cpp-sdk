@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the whiteboard application. To get the whiteboard application ID, see [CreateApp](https://help.aliyun.com/document_detail/204234.html).
     shared_ptr<string> appID_ {};
+    // The set of parameters for the auditing service. This includes the taskId of the detection task to query. You can specify only one taskId at a time.
     shared_ptr<string> serviceParameters_ {};
   };
 

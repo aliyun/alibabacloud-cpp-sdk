@@ -125,13 +125,13 @@ namespace Models
 
 
       protected:
-        // The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+        // The confidence score. The value ranges from 0 to 100. The value is accurate to two decimal places.
         shared_ptr<float> confidence_ {};
-        // The description of the result.
+        // The description.
         shared_ptr<string> description_ {};
-        // The labels returned after the image moderation.
+        // The label returned after the image content is moderated.
         shared_ptr<string> label_ {};
-        // Risk Level
+        // The risk level.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -197,19 +197,21 @@ namespace Models
 
 
     protected:
+      // The AccountId specified in the request.
       shared_ptr<string> accountId_ {};
-      // The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
+      // The value of the \\`dataId\\` parameter specified in the API request. This field is not returned if \\`dataId\\` was not specified.
       shared_ptr<string> dataId_ {};
-      // The information about the captured frames.
+      // Information about the image frames.
       shared_ptr<string> frame_ {};
-      // The number of frames.
+      // The number of result frames.
       shared_ptr<int32_t> frameNum_ {};
+      // The ID of the manual review task.
       shared_ptr<string> manualTaskId_ {};
-      // The reqId field returned by the Image Async Moderation API.
+      // The \\`ReqId\\` returned by the asynchronous Image Moderation Pro API.
       shared_ptr<string> reqId_ {};
-      // The results of image moderation parameters such as the label parameter and the confidence parameter.
+      // The results of the image moderation, including risk labels and confidence scores.
       shared_ptr<vector<Data::Result>> result_ {};
-      // Risk Level.
+      // The risk level.
       shared_ptr<string> riskLevel_ {};
     };
 
@@ -246,13 +248,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The error code. This is the same as the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // The image moderation results.
+    // The results of the image content moderation.
     shared_ptr<DescribeImageModerationResultResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message.
     shared_ptr<string> msg_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The unique ID of the request. Alibaba Cloud generates this ID for each request. Use this ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

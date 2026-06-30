@@ -41,12 +41,14 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(DataId, dataId_);
         DARABONBA_PTR_TO_JSON(Result, result_);
+        DARABONBA_PTR_TO_JSON(ReviewCount, reviewCount_);
         DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(DataId, dataId_);
         DARABONBA_PTR_FROM_JSON(Result, result_);
+        DARABONBA_PTR_FROM_JSON(ReviewCount, reviewCount_);
         DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       };
@@ -99,14 +101,14 @@ namespace Models
 
 
       protected:
-        // Label description
+        // The label description.
         shared_ptr<string> description_ {};
-        // Risk label
+        // The risk label.
         shared_ptr<string> label_ {};
       };
 
       virtual bool empty() const override { return this->dataId_ == nullptr
-        && this->result_ == nullptr && this->riskLevel_ == nullptr && this->taskId_ == nullptr; };
+        && this->result_ == nullptr && this->reviewCount_ == nullptr && this->riskLevel_ == nullptr && this->taskId_ == nullptr; };
       // dataId Field Functions 
       bool hasDataId() const { return this->dataId_ != nullptr;};
       void deleteDataId() { this->dataId_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
       inline vector<Data::Result> getResult() { DARABONBA_PTR_GET(result_, vector<Data::Result>) };
       inline Data& setResult(const vector<Data::Result> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
       inline Data& setResult(vector<Data::Result> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+
+
+      // reviewCount Field Functions 
+      bool hasReviewCount() const { return this->reviewCount_ != nullptr;};
+      void deleteReviewCount() { this->reviewCount_ = nullptr;};
+      inline string getReviewCount() const { DARABONBA_PTR_GET_DEFAULT(reviewCount_, "") };
+      inline Data& setReviewCount(string reviewCount) { DARABONBA_PTR_SET_VALUE(reviewCount_, reviewCount) };
 
 
       // riskLevel Field Functions 
@@ -138,19 +147,20 @@ namespace Models
 
 
     protected:
-      // The value of dataId passed during the API request. This field will not be present if it was not provided during the request.
+      // The value of dataId passed in the API request. This field is not returned if dataId was not specified in the request.
       shared_ptr<string> dataId_ {};
-      // Detailed label results.
+      // The detailed label results.
       shared_ptr<vector<Data::Result>> result_ {};
-      // Risk level, returned based on the set high and low risk scores. Possible values include:
+      shared_ptr<string> reviewCount_ {};
+      // The risk level, returned based on the configured high and low risk scores. Valid values:
       // 
-      // - high: High risk
+      // - high: high risk
       //  
-      // - low: Low risk
+      // - low: low risk
       // 
-      //  - none: No risk detected
+      // - none: no risk detected
       shared_ptr<string> riskLevel_ {};
-      // Task ID
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -187,13 +197,13 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<ManualModerationResultResponseBody::Data> data_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -129,11 +129,11 @@ namespace Models
 
 
         protected:
-          // Custom words, multiple words separated by commas.
+          // The custom words, multiple words are separated by commas.
           shared_ptr<string> keyWords_ {};
-          // Custom library ID.
+          // The custom library ID
           shared_ptr<string> libId_ {};
-          // Custom library name.
+          // The custom library name.
           shared_ptr<string> libName_ {};
         };
 
@@ -167,11 +167,11 @@ namespace Models
 
 
       protected:
-        // When a custom text library is hit, the custom library ID, custom library name, and custom word are returned.
+        // When a custom text library is hit, the custom library ID, custom library name, and custom words are returned.
         shared_ptr<vector<TextInImage::CustomTexts>> customTexts_ {};
-        // Returns the text information in the recognized image.
+        // The text information detected in the image.
         shared_ptr<vector<string>> ocrDatas_ {};
-        // The risk words that are hit. Multiple words are separated by commas (,).
+        // The hit risk keywords
         shared_ptr<vector<string>> riskWords_ {};
       };
 
@@ -203,7 +203,7 @@ namespace Models
 
 
       protected:
-        // Identified person coding information.
+        // The figure ID.
         shared_ptr<string> figureId_ {};
       };
 
@@ -292,11 +292,11 @@ namespace Models
 
 
     protected:
-      // If a custom image library is hit, information about the hit custom image library is returned.
+      // The list of custom image library hit information.
       shared_ptr<vector<Data::CustomImage>> customImage_ {};
-      // Person information list.
+      // The list of figure information.
       shared_ptr<vector<Data::PublicFigure>> publicFigure_ {};
-      // Returns the text information in the hit image.
+      // The text information in the hit image.
       shared_ptr<Data::TextInImage> textInImage_ {};
     };
 
@@ -333,11 +333,11 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeImageResultExtResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message of the request.
     shared_ptr<string> msg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

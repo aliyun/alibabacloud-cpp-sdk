@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The type of the moderation service. Valid values:
+    // 
+    // - query_security_check: AI input content moderation.
+    // 
+    // - response_security_check: AI-generated content moderation.
     shared_ptr<string> service_ {};
+    // The set of parameters required for the moderation service. The value must be a JSON string.
     shared_ptr<string> serviceParameters_ {};
   };
 

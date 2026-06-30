@@ -180,6 +180,7 @@ namespace Models
 
 
             protected:
+              // The output text from the foundation model.
               shared_ptr<string> outputText_ {};
             };
 
@@ -230,11 +231,11 @@ namespace Models
 
 
             protected:
-              // The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+              // The confidence score, ranging from 0 to 100, rounded to two decimal places.
               shared_ptr<float> confidence_ {};
-              // The description of the result.
+              // The description of the Label field.
               shared_ptr<string> description_ {};
-              // The label returned after a frame is moderated. Multiple risk labels and the corresponding scores of confidence levels may be returned for a frame.
+              // The classification of the detection result.
               shared_ptr<string> label_ {};
             };
 
@@ -317,9 +318,13 @@ namespace Models
 
 
               protected:
+                // The height.
                 shared_ptr<int32_t> h_ {};
+                // The width.
                 shared_ptr<int32_t> w_ {};
+                // The x-coordinate of the starting point.
                 shared_ptr<int32_t> x_ {};
+                // The y-coordinate of the starting point.
                 shared_ptr<int32_t> y_ {};
               };
 
@@ -349,9 +354,11 @@ namespace Models
 
 
             protected:
-              // The information about the code of the identified figure.
+              // The code of the recognized public figure.
               shared_ptr<string> figureId_ {};
+              // The name of the recognized public figure.
               shared_ptr<string> figureName_ {};
+              // The location of the recognized public figure.
               shared_ptr<vector<PublicFigure::Location>> location_ {};
             };
 
@@ -423,11 +430,11 @@ namespace Models
 
 
               protected:
-                // Confidence score, ranging from 0 to 100, with two decimal places.
+                // The confidence score, ranging from 0 to 100, rounded to two decimal places.
                 shared_ptr<int64_t> confidence_ {};
-                // label
+                // The hit label.
                 shared_ptr<string> label_ {};
-                // Logo name.
+                // The logo name.
                 shared_ptr<string> name_ {};
               };
 
@@ -491,9 +498,9 @@ namespace Models
                 shared_ptr<int32_t> h_ {};
                 // The width of the text area. Unit: pixels.
                 shared_ptr<int32_t> w_ {};
-                // The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin. Unit: pixels.
+                // The distance from the upper-left corner of the text area to the y-axis, with the upper-left corner of the image as the origin. Unit: pixels.
                 shared_ptr<int32_t> x_ {};
-                // The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin. Unit: pixels.
+                // The distance from the upper-left corner of the text area to the x-axis, with the upper-left corner of the image as the origin. Unit: pixels.
                 shared_ptr<int32_t> y_ {};
               };
 
@@ -518,9 +525,9 @@ namespace Models
 
 
             protected:
-              // The location of the logo.
+              // The text line and coordinate information.
               shared_ptr<LogoData::Location> location_ {};
-              // Logo information.
+              // The logo identification information.
               shared_ptr<vector<LogoData::Logo>> logo_ {};
             };
 
@@ -633,18 +640,19 @@ namespace Models
 
 
           protected:
-            // If a custom image library is hit, information about the custom image library is returned.
+            // The custom image library information that is hit. This field is returned only when a custom image library is hit.
             shared_ptr<vector<Results::CustomImage>> customImage_ {};
-            // Returns logo information when the video contains a logo.
+            // The logo information returned when the video contains a logo.
             shared_ptr<vector<Results::LogoData>> logoData_ {};
-            // If the video contains a specific figure, the code of the identified figure is returned.
+            // The recognized public figure codes returned when the video contains specific public figures.
             shared_ptr<vector<Results::PublicFigure>> publicFigure_ {};
-            // The results of frame moderation parameters such as the label parameter and the confidence parameter.
+            // The hit result details.
             shared_ptr<vector<Results::Result>> result_ {};
-            // The moderation service that is called.
+            // The image moderation service type.
             shared_ptr<string> service_ {};
-            // The information about the text hit in the image is returned.
+            // The text information in the image that is hit.
             Darabonba::Json textInImage_ {};
+            // The foundation model result.
             shared_ptr<Results::VlContent> vlContent_ {};
           };
 
@@ -688,13 +696,21 @@ namespace Models
 
 
         protected:
-          // The interval between the start of the video file and the captured frame. Unit: seconds.
+          // The offset of the captured frame.
           shared_ptr<float> offset_ {};
-          // The results of frame moderation parameters such as the label parameter and the confidence parameter.
+          // The frame detection result details.
           shared_ptr<vector<Frames::Results>> results_ {};
-          // Risk Level.
+          // The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+          // 
+          // - high: High risk.
+          // 
+          // - medium: Medium risk.
+          //  
+          // - low: Low risk.
+          // 
+          // - none: No risk detected.
           shared_ptr<string> riskLevel_ {};
-          // The temporary URL of a captured frame.
+          // The temporary URL of the captured frame image.
           shared_ptr<string> tempUrl_ {};
           // The absolute timestamp. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
@@ -747,11 +763,11 @@ namespace Models
 
 
         protected:
-          // The description of the result.
+          // The description of the Label field.
           shared_ptr<string> description_ {};
-          // The label against which a captured frame is matched.
+          // The video frame label.
           shared_ptr<string> label_ {};
-          // The number of times that the label is matched.
+          // The number of times the label appears.
           shared_ptr<int32_t> labelSum_ {};
         };
 
@@ -790,13 +806,21 @@ namespace Models
 
 
       protected:
-        // The number of captured frames that are returned for the video file.
+        // The number of result frames.
         shared_ptr<int32_t> frameNum_ {};
-        // The summary of the labels against which captured frames are matched.
+        // The video frame label summary.
         shared_ptr<vector<FrameResult::FrameSummarys>> frameSummarys_ {};
-        // The information about the frames that match the labels.
+        // The information about video frames that contain hit labels.
         shared_ptr<vector<FrameResult::Frames>> frames_ {};
-        // Risk Level.
+        // The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+        // 
+        // - high: High risk.
+        // 
+        // - medium: Medium risk.
+        //  
+        // - low: Low risk.
+        // 
+        // - none: No risk detected.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -924,12 +948,29 @@ namespace Models
 
 
           protected:
+            // The code or name of the service provider, used to identify the content producer.
             shared_ptr<string> contentProducer_ {};
+            // The name, ID, or code of the propagation platform. For services that provide artificial intelligence-generated content, this value can be the same as ContentProducer.
             shared_ptr<string> contentPropagator_ {};
+            // Indicates whether the content is generated by artificial intelligence (AI). Valid values:
+            // 
+            // - 1: The content is generated through artificial intelligence content generation.
+            // 
+            // - 2: (Propagation platforms only) The content may be generated through artificial intelligence content generation.
+            // 
+            // - 3: (Propagation platforms only) The content is suspected to be generated through artificial intelligence content generation.
             shared_ptr<string> label_ {};
+            // The content production ID, which is the unique identifier used by the production platform to trace synthesized content.
             shared_ptr<string> produceID_ {};
+            // The content propagation ID, which is the unique identifier assigned by the propagation platform to the propagated AI-generated content.
             shared_ptr<string> propagateID_ {};
+            // The reserved field.
+            // 
+            // This field can store information used by the content generation service provider for self-initiated security protection to safeguard content and identifier integrity. A hashing mechanism based on ContentProducer and ProduceID can be used to securely store and verify critical information.
             shared_ptr<string> reservedCode1_ {};
+            // The reserved field.
+            // 
+            // This field can be used by the content propagation service provider for self-initiated security protection to safeguard content and identifier integrity. A hashing mechanism based on ContentProducer and ProduceID can be used to securely store and verify critical information.
             shared_ptr<string> reservedCode2_ {};
           };
 
@@ -952,7 +993,9 @@ namespace Models
 
 
         protected:
+          // The AIGC metadata.
           shared_ptr<AigcData::AIGC> AIGC_ {};
+          // The detection result.
           shared_ptr<string> result_ {};
         };
 
@@ -967,6 +1010,7 @@ namespace Models
 
 
       protected:
+        // The AIGC metadata detection result.
         shared_ptr<Ext::AigcData> aigcData_ {};
       };
 
@@ -1001,6 +1045,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(EndTimestamp, endTimestamp_);
             DARABONBA_PTR_TO_JSON(Extend, extend_);
             DARABONBA_PTR_TO_JSON(Labels, labels_);
+            DARABONBA_PTR_TO_JSON(Result, result_);
             DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
             DARABONBA_PTR_TO_JSON(RiskTips, riskTips_);
             DARABONBA_PTR_TO_JSON(RiskWords, riskWords_);
@@ -1016,6 +1061,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(EndTimestamp, endTimestamp_);
             DARABONBA_PTR_FROM_JSON(Extend, extend_);
             DARABONBA_PTR_FROM_JSON(Labels, labels_);
+            DARABONBA_PTR_FROM_JSON(Result, result_);
             DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
             DARABONBA_PTR_FROM_JSON(RiskTips, riskTips_);
             DARABONBA_PTR_FROM_JSON(RiskWords, riskWords_);
@@ -1036,10 +1082,201 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Result : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Result& obj) { 
+              DARABONBA_PTR_TO_JSON(Confidence, confidence_);
+              DARABONBA_PTR_TO_JSON(CustomizedHit, customizedHit_);
+              DARABONBA_PTR_TO_JSON(Description, description_);
+              DARABONBA_PTR_TO_JSON(Label, label_);
+              DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
+              DARABONBA_PTR_TO_JSON(RiskPositions, riskPositions_);
+              DARABONBA_PTR_TO_JSON(RiskWords, riskWords_);
+            };
+            friend void from_json(const Darabonba::Json& j, Result& obj) { 
+              DARABONBA_PTR_FROM_JSON(Confidence, confidence_);
+              DARABONBA_PTR_FROM_JSON(CustomizedHit, customizedHit_);
+              DARABONBA_PTR_FROM_JSON(Description, description_);
+              DARABONBA_PTR_FROM_JSON(Label, label_);
+              DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
+              DARABONBA_PTR_FROM_JSON(RiskPositions, riskPositions_);
+              DARABONBA_PTR_FROM_JSON(RiskWords, riskWords_);
+            };
+            Result() = default ;
+            Result(const Result &) = default ;
+            Result(Result &&) = default ;
+            Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Result() = default ;
+            Result& operator=(const Result &) = default ;
+            Result& operator=(Result &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class RiskPositions : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const RiskPositions& obj) { 
+                DARABONBA_PTR_TO_JSON(EndPos, endPos_);
+                DARABONBA_PTR_TO_JSON(RiskWord, riskWord_);
+                DARABONBA_PTR_TO_JSON(StartPos, startPos_);
+              };
+              friend void from_json(const Darabonba::Json& j, RiskPositions& obj) { 
+                DARABONBA_PTR_FROM_JSON(EndPos, endPos_);
+                DARABONBA_PTR_FROM_JSON(RiskWord, riskWord_);
+                DARABONBA_PTR_FROM_JSON(StartPos, startPos_);
+              };
+              RiskPositions() = default ;
+              RiskPositions(const RiskPositions &) = default ;
+              RiskPositions(RiskPositions &&) = default ;
+              RiskPositions(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~RiskPositions() = default ;
+              RiskPositions& operator=(const RiskPositions &) = default ;
+              RiskPositions& operator=(RiskPositions &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->endPos_ == nullptr
+        && this->riskWord_ == nullptr && this->startPos_ == nullptr; };
+              // endPos Field Functions 
+              bool hasEndPos() const { return this->endPos_ != nullptr;};
+              void deleteEndPos() { this->endPos_ = nullptr;};
+              inline int32_t getEndPos() const { DARABONBA_PTR_GET_DEFAULT(endPos_, 0) };
+              inline RiskPositions& setEndPos(int32_t endPos) { DARABONBA_PTR_SET_VALUE(endPos_, endPos) };
+
+
+              // riskWord Field Functions 
+              bool hasRiskWord() const { return this->riskWord_ != nullptr;};
+              void deleteRiskWord() { this->riskWord_ = nullptr;};
+              inline string getRiskWord() const { DARABONBA_PTR_GET_DEFAULT(riskWord_, "") };
+              inline RiskPositions& setRiskWord(string riskWord) { DARABONBA_PTR_SET_VALUE(riskWord_, riskWord) };
+
+
+              // startPos Field Functions 
+              bool hasStartPos() const { return this->startPos_ != nullptr;};
+              void deleteStartPos() { this->startPos_ = nullptr;};
+              inline int32_t getStartPos() const { DARABONBA_PTR_GET_DEFAULT(startPos_, 0) };
+              inline RiskPositions& setStartPos(int32_t startPos) { DARABONBA_PTR_SET_VALUE(startPos_, startPos) };
+
+
+            protected:
+              shared_ptr<int32_t> endPos_ {};
+              shared_ptr<string> riskWord_ {};
+              shared_ptr<int32_t> startPos_ {};
+            };
+
+            class CustomizedHit : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const CustomizedHit& obj) { 
+                DARABONBA_PTR_TO_JSON(KeyWords, keyWords_);
+                DARABONBA_PTR_TO_JSON(LibName, libName_);
+              };
+              friend void from_json(const Darabonba::Json& j, CustomizedHit& obj) { 
+                DARABONBA_PTR_FROM_JSON(KeyWords, keyWords_);
+                DARABONBA_PTR_FROM_JSON(LibName, libName_);
+              };
+              CustomizedHit() = default ;
+              CustomizedHit(const CustomizedHit &) = default ;
+              CustomizedHit(CustomizedHit &&) = default ;
+              CustomizedHit(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~CustomizedHit() = default ;
+              CustomizedHit& operator=(const CustomizedHit &) = default ;
+              CustomizedHit& operator=(CustomizedHit &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->keyWords_ == nullptr
+        && this->libName_ == nullptr; };
+              // keyWords Field Functions 
+              bool hasKeyWords() const { return this->keyWords_ != nullptr;};
+              void deleteKeyWords() { this->keyWords_ = nullptr;};
+              inline string getKeyWords() const { DARABONBA_PTR_GET_DEFAULT(keyWords_, "") };
+              inline CustomizedHit& setKeyWords(string keyWords) { DARABONBA_PTR_SET_VALUE(keyWords_, keyWords) };
+
+
+              // libName Field Functions 
+              bool hasLibName() const { return this->libName_ != nullptr;};
+              void deleteLibName() { this->libName_ = nullptr;};
+              inline string getLibName() const { DARABONBA_PTR_GET_DEFAULT(libName_, "") };
+              inline CustomizedHit& setLibName(string libName) { DARABONBA_PTR_SET_VALUE(libName_, libName) };
+
+
+            protected:
+              shared_ptr<string> keyWords_ {};
+              shared_ptr<string> libName_ {};
+            };
+
+            virtual bool empty() const override { return this->confidence_ == nullptr
+        && this->customizedHit_ == nullptr && this->description_ == nullptr && this->label_ == nullptr && this->riskLevel_ == nullptr && this->riskPositions_ == nullptr
+        && this->riskWords_ == nullptr; };
+            // confidence Field Functions 
+            bool hasConfidence() const { return this->confidence_ != nullptr;};
+            void deleteConfidence() { this->confidence_ = nullptr;};
+            inline float getConfidence() const { DARABONBA_PTR_GET_DEFAULT(confidence_, 0.0) };
+            inline Result& setConfidence(float confidence) { DARABONBA_PTR_SET_VALUE(confidence_, confidence) };
+
+
+            // customizedHit Field Functions 
+            bool hasCustomizedHit() const { return this->customizedHit_ != nullptr;};
+            void deleteCustomizedHit() { this->customizedHit_ = nullptr;};
+            inline const vector<Result::CustomizedHit> & getCustomizedHit() const { DARABONBA_PTR_GET_CONST(customizedHit_, vector<Result::CustomizedHit>) };
+            inline vector<Result::CustomizedHit> getCustomizedHit() { DARABONBA_PTR_GET(customizedHit_, vector<Result::CustomizedHit>) };
+            inline Result& setCustomizedHit(const vector<Result::CustomizedHit> & customizedHit) { DARABONBA_PTR_SET_VALUE(customizedHit_, customizedHit) };
+            inline Result& setCustomizedHit(vector<Result::CustomizedHit> && customizedHit) { DARABONBA_PTR_SET_RVALUE(customizedHit_, customizedHit) };
+
+
+            // description Field Functions 
+            bool hasDescription() const { return this->description_ != nullptr;};
+            void deleteDescription() { this->description_ = nullptr;};
+            inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+            inline Result& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+            // label Field Functions 
+            bool hasLabel() const { return this->label_ != nullptr;};
+            void deleteLabel() { this->label_ = nullptr;};
+            inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+            inline Result& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+            // riskLevel Field Functions 
+            bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
+            void deleteRiskLevel() { this->riskLevel_ = nullptr;};
+            inline string getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
+            inline Result& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
+
+
+            // riskPositions Field Functions 
+            bool hasRiskPositions() const { return this->riskPositions_ != nullptr;};
+            void deleteRiskPositions() { this->riskPositions_ = nullptr;};
+            inline const vector<Result::RiskPositions> & getRiskPositions() const { DARABONBA_PTR_GET_CONST(riskPositions_, vector<Result::RiskPositions>) };
+            inline vector<Result::RiskPositions> getRiskPositions() { DARABONBA_PTR_GET(riskPositions_, vector<Result::RiskPositions>) };
+            inline Result& setRiskPositions(const vector<Result::RiskPositions> & riskPositions) { DARABONBA_PTR_SET_VALUE(riskPositions_, riskPositions) };
+            inline Result& setRiskPositions(vector<Result::RiskPositions> && riskPositions) { DARABONBA_PTR_SET_RVALUE(riskPositions_, riskPositions) };
+
+
+            // riskWords Field Functions 
+            bool hasRiskWords() const { return this->riskWords_ != nullptr;};
+            void deleteRiskWords() { this->riskWords_ = nullptr;};
+            inline string getRiskWords() const { DARABONBA_PTR_GET_DEFAULT(riskWords_, "") };
+            inline Result& setRiskWords(string riskWords) { DARABONBA_PTR_SET_VALUE(riskWords_, riskWords) };
+
+
+          protected:
+            shared_ptr<float> confidence_ {};
+            shared_ptr<vector<Result::CustomizedHit>> customizedHit_ {};
+            shared_ptr<string> description_ {};
+            shared_ptr<string> label_ {};
+            shared_ptr<string> riskLevel_ {};
+            shared_ptr<vector<Result::RiskPositions>> riskPositions_ {};
+            shared_ptr<string> riskWords_ {};
+          };
+
           virtual bool empty() const override { return this->descriptions_ == nullptr
-        && this->endTime_ == nullptr && this->endTimestamp_ == nullptr && this->extend_ == nullptr && this->labels_ == nullptr && this->riskLevel_ == nullptr
-        && this->riskTips_ == nullptr && this->riskWords_ == nullptr && this->score_ == nullptr && this->startTime_ == nullptr && this->startTimestamp_ == nullptr
-        && this->text_ == nullptr && this->url_ == nullptr; };
+        && this->endTime_ == nullptr && this->endTimestamp_ == nullptr && this->extend_ == nullptr && this->labels_ == nullptr && this->result_ == nullptr
+        && this->riskLevel_ == nullptr && this->riskTips_ == nullptr && this->riskWords_ == nullptr && this->score_ == nullptr && this->startTime_ == nullptr
+        && this->startTimestamp_ == nullptr && this->text_ == nullptr && this->url_ == nullptr; };
           // descriptions Field Functions 
           bool hasDescriptions() const { return this->descriptions_ != nullptr;};
           void deleteDescriptions() { this->descriptions_ = nullptr;};
@@ -1073,6 +1310,15 @@ namespace Models
           void deleteLabels() { this->labels_ = nullptr;};
           inline string getLabels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
           inline SliceDetails& setLabels(string labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+
+
+          // result Field Functions 
+          bool hasResult() const { return this->result_ != nullptr;};
+          void deleteResult() { this->result_ = nullptr;};
+          inline const vector<SliceDetails::Result> & getResult() const { DARABONBA_PTR_GET_CONST(result_, vector<SliceDetails::Result>) };
+          inline vector<SliceDetails::Result> getResult() { DARABONBA_PTR_GET(result_, vector<SliceDetails::Result>) };
+          inline SliceDetails& setResult(const vector<SliceDetails::Result> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+          inline SliceDetails& setResult(vector<SliceDetails::Result> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
           // riskLevel Field Functions 
@@ -1132,31 +1378,40 @@ namespace Models
 
 
         protected:
-          // The description of the labels.
+          // The label descriptions.
           shared_ptr<string> descriptions_ {};
-          // The end time of the text after voice-to-text conversion. Unit: seconds.
+          // The end time of the segment, in seconds.
           shared_ptr<int64_t> endTime_ {};
-          // The end timestamp of the segment. Unit: milliseconds.
+          // The end timestamp.
           shared_ptr<int64_t> endTimestamp_ {};
-          // A reserved parameter.
+          // The extended field.
           shared_ptr<string> extend_ {};
-          // The details of the labels.
+          // The violation labels that are hit.
           shared_ptr<string> labels_ {};
-          // Risk Level.
+          shared_ptr<vector<SliceDetails::Result>> result_ {};
+          // The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+          // 
+          // - high: High risk.
+          // 
+          // - medium: Medium risk.
+          //  
+          // - low: Low risk.
+          // 
+          // - none: No risk detected.
           shared_ptr<string> riskLevel_ {};
-          // Subcategory labels. Multiple labels are separated by commas (,).
+          // The details of the hit risk.
           shared_ptr<string> riskTips_ {};
-          // The risk words that are hit. Multiple words are separated by commas (,).
+          // The risk keywords that are hit.
           shared_ptr<string> riskWords_ {};
           // The risk score. Default range: 0 to 99.
           shared_ptr<float> score_ {};
-          // The start time of the text after voice-to-text conversion. Unit: seconds.
+          // The start time of the segment, in seconds.
           shared_ptr<int64_t> startTime_ {};
-          // The start timestamp of the segment. Unit: milliseconds.
+          // The start timestamp, in milliseconds.
           shared_ptr<int64_t> startTimestamp_ {};
-          // The text converted from voice.
+          // The transcribed text of the audio segment.
           shared_ptr<string> text_ {};
-          // If the moderation object is a voice stream, this parameter indicates the temporary access URL of the voice stream to which the text entry corresponds. The validity period of the URL is 30 minutes. You must prepare another URL to store the voice stream at the earliest opportunity.
+          // The temporary URL of the audio segment file.
           shared_ptr<string> url_ {};
         };
 
@@ -1207,11 +1462,11 @@ namespace Models
 
 
         protected:
-          // The description of the labels.
+          // The label descriptions.
           shared_ptr<string> description_ {};
-          // The voice label.
+          // The video audio label.
           shared_ptr<string> label_ {};
-          // The number of times that the label is matched.
+          // The number of times the label appears.
           shared_ptr<int32_t> labelSum_ {};
         };
 
@@ -1243,11 +1498,19 @@ namespace Models
 
 
       protected:
-        // Summary of voice labels.
+        // The audio label summary.
         shared_ptr<vector<AudioResult::AudioSummarys>> audioSummarys_ {};
-        // Risk Level.
+        // The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+        // 
+        // - high: High risk.
+        // 
+        // - medium: Medium risk.
+        //  
+        // - low: Low risk.
+        // 
+        // - none: No risk detected.
         shared_ptr<string> riskLevel_ {};
-        // The details about the text in the moderated voice. The value is a JSON array that contains one or more elements. Each element corresponds to a text entry.
+        // The list of audio segments.
         shared_ptr<vector<AudioResult::SliceDetails>> sliceDetails_ {};
       };
 
@@ -1317,17 +1580,27 @@ namespace Models
 
 
     protected:
-      // The voice moderation results. The moderation results contain a structure.
+      // The segmented results of video audio moderation.
       shared_ptr<Data::AudioResult> audioResult_ {};
-      // The value of dataId that is specified in the API request. If this parameter is not specified in the API request, the dataId field is not available in the response.
+      // The value of dataId passed in the API request. This field is not returned if dataId was not specified in the request.
       shared_ptr<string> dataId_ {};
+      // The extended information.
       shared_ptr<Data::Ext> ext_ {};
-      // The image moderation results. If the call is successful, the HTTP status code 200 and moderation results are returned. The moderation results contain a structure.
+      // The list of video frame capture results.
       shared_ptr<Data::FrameResult> frameResult_ {};
       // The unique ID of the live stream.
       shared_ptr<string> liveId_ {};
+      // The manual review task ID.
       shared_ptr<string> manualTaskId_ {};
-      // Risk Level.
+      // The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+      // 
+      // - high: High risk.
+      // 
+      // - medium: Medium risk.
+      //  
+      // - low: Low risk.
+      // 
+      // - none: No risk detected.
       shared_ptr<string> riskLevel_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -1366,11 +1639,11 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code. The status code 200 indicates that the request was successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The moderation results.
+    // The moderation result data.
     shared_ptr<VideoModerationResultResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

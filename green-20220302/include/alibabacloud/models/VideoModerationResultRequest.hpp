@@ -48,16 +48,9 @@ namespace Models
 
 
   protected:
-    // The type of the moderation service.
-    // 
-    // Valid values:
-    // 
-    // *   liveStreamDetection: live stream moderation
-    // *   videoDetection: video file moderation
-    // *   liveStreamDetection_cb: live stream moderation_For regions outside the Chinese mainland
-    // *   videoDetection_cb: video file moderation_For regions outside the Chinese mainland.
+    // The service code for video moderation.
     shared_ptr<string> service_ {};
-    // The parameters required by the moderation service. The ID of the task that you want to query. You can specify one task ID at a time.
+    // The parameter set required by the moderation service. taskId specifies the task ID of the moderation task to query. Only one taskId can be specified per request.
     shared_ptr<string> serviceParameters_ {};
   };
 

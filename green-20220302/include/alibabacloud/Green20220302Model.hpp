@@ -58,6 +58,9 @@
 #include <alibabacloud/models/MultiModalGuardForBase64Request.hpp>
 #include <alibabacloud/models/MultiModalGuardForBase64ResponseBody.hpp>
 #include <alibabacloud/models/MultiModalGuardForBase64Response.hpp>
+#include <alibabacloud/models/MultiModalGuardWsRequest.hpp>
+#include <alibabacloud/models/MultiModalGuardWsResponseBody.hpp>
+#include <alibabacloud/models/MultiModalGuardWsResponse.hpp>
 #include <alibabacloud/models/MultimodalAsyncModerationRequest.hpp>
 #include <alibabacloud/models/MultimodalAsyncModerationResponseBody.hpp>
 #include <alibabacloud/models/MultimodalAsyncModerationResponse.hpp>

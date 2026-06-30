@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The moderation service to run.
     shared_ptr<string> service_ {};
+    // The parameters for the moderation service, provided as a JSON string.
     shared_ptr<string> serviceParameters_ {};
   };
 

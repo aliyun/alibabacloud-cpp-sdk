@@ -120,7 +120,9 @@ namespace Models
 
 
         protected:
+          // Description of the Label field.
           shared_ptr<string> description_ {};
+          // Risk label.
           shared_ptr<string> label_ {};
         };
 
@@ -135,6 +137,7 @@ namespace Models
 
 
       protected:
+        // Main post moderation results.
         shared_ptr<vector<MainData::Results>> results_ {};
       };
 
@@ -197,7 +200,9 @@ namespace Models
 
 
         protected:
+          // Description of the Label field.
           shared_ptr<string> description_ {};
+          // Risk label.
           shared_ptr<string> label_ {};
         };
 
@@ -258,7 +263,9 @@ namespace Models
 
 
           protected:
+            // Description of the Label field.
             shared_ptr<string> description_ {};
+            // Risk label.
             shared_ptr<string> label_ {};
           };
 
@@ -273,6 +280,7 @@ namespace Models
 
 
         protected:
+          // Comment moderation results.
           shared_ptr<vector<CommentDatasItem::Results>> results_ {};
         };
 
@@ -297,7 +305,9 @@ namespace Models
 
 
       protected:
+        // Moderation results.
         shared_ptr<vector<CommentDatas::CommentDatasItem>> commentDatas_ {};
+        // Comment moderation results.
         shared_ptr<vector<CommentDatas::Results>> results_ {};
       };
 
@@ -343,10 +353,15 @@ namespace Models
 
 
     protected:
+      // Comment moderation results.
       shared_ptr<vector<Data::CommentDatas>> commentDatas_ {};
+      // The dataId value passed in the API request. This field is absent if no dataId was provided in the request.
       shared_ptr<string> dataId_ {};
+      // Main post moderation results.
       shared_ptr<Data::MainData> mainData_ {};
+      // The ReqId field returned by the asynchronous moderation API.
       shared_ptr<string> reqId_ {};
+      // Risk level.
       shared_ptr<string> riskLevel_ {};
     };
 
@@ -383,9 +398,13 @@ namespace Models
 
 
   protected:
+    // The error code, which matches the HTTP status code.
     shared_ptr<int64_t> code_ {};
+    // The returned data.
     shared_ptr<DescribeMultimodalModerationResultResponseBody::Data> data_ {};
+    // The response message for this request.
     shared_ptr<string> msg_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

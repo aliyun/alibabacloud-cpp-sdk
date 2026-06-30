@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ReqId field returned by the asynchronous Image Moderation 2.0 API.
+    // The \\`ReqId\\` returned by the asynchronous Image Moderation Pro API.
     shared_ptr<string> reqId_ {};
   };
 

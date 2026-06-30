@@ -115,6 +115,7 @@ namespace Models
 
 
         protected:
+          // The output content.
           shared_ptr<string> outputText_ {};
         };
 
@@ -129,6 +130,7 @@ namespace Models
 
 
       protected:
+        // The output from the Large Language Model (LLM).
         shared_ptr<Ext::LlmContent> llmContent_ {};
       };
 
@@ -194,19 +196,41 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The \\`accountId\\` specified in the request.
       shared_ptr<string> accountId_ {};
-      // The ID of the moderated object.
+      // The data ID of the moderated object.
+      // 
+      // > If you specify the dataId parameter in the request, its value is returned in this parameter.
       shared_ptr<string> dataId_ {};
-      // The description of the labels.
+      // The description of the label.
       shared_ptr<string> descriptions_ {};
-      // The device ID.
+      // The \\`deviceId\\` specified in the request.
       shared_ptr<string> deviceId_ {};
+      // Auxiliary reference information for the text.
       shared_ptr<Data::Ext> ext_ {};
-      // The labels. Multiple labels are separated by commas (,). Valid values: ad: ad violation profanity: abuse contraband: contraband sexual_content: pornography violence: violence nonsense: irrigation spam: spam negative_content: undesirable content cyberbullying: cyberbullying C_customized: custom library that is hit
+      // The moderation labels. If multiple labels are returned, they are separated by commas (,). Valid values: ad: advertisement profanity: profanity contraband: contraband sexual_content: sexual content violence: violent and terrorist content nonsense: meaningless content spam: spam negative_content: undesirable content cyberbullying: cyberbullying C_customized: A match in a custom library
       shared_ptr<string> labels_ {};
+      // The ID of the manual review task.
       shared_ptr<string> manualTaskId_ {};
-      // The JSON string used to locate the cause. Valid values: riskTips: subcategory label riskWords: risk words adNums: hit advertising number customizedWords: customized words customizedLibs: customized libraries
+      // A JSON string that contains the reason for the moderation result. The string includes the following fields:
+      // 
+      // 1. riskTips: The sub-labels.
+      // 
+      // 2. riskWords: The detected risk words.
+      // 
+      // 3. adNums: The detected ad-related numbers.
+      // 
+      // 4. customizedWords: The detected custom words.
+      // 
+      // 5. customizedLibs: The names of the custom libraries that contain a match.
+      // 
+      // 6. riskLevel: The risk level, which is recommended by the system. Valid values:
+      // 
+      // - high: high risk
+      // 
+      // - medium: medium risk
+      // 
+      // - low: low risk
       shared_ptr<string> reason_ {};
     };
 
@@ -243,11 +267,11 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The moderation results.
+    // The moderation result data.
     shared_ptr<TextModerationResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The response message for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

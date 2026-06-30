@@ -158,11 +158,11 @@ namespace Models
 
 
           protected:
-            // The description of the labels.
+            // The description of the label.
             shared_ptr<string> description_ {};
-            // The details of the labels.
+            // The label.
             shared_ptr<string> label_ {};
-            // The number of times that the label is matched.
+            // The number of times the label appears.
             shared_ptr<int32_t> labelSum_ {};
           };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
         protected:
-          // Risk Level
+          // The risk level.
           shared_ptr<string> riskLevel_ {};
-          // Text Label
+          // The text labels.
           shared_ptr<vector<TextSummary::TextLabels>> textLabels_ {};
         };
 
@@ -259,11 +259,11 @@ namespace Models
 
 
           protected:
-            // The description.
+            // The description of the label.
             shared_ptr<string> description_ {};
-            // The details of the labels.
+            // The label.
             shared_ptr<string> label_ {};
-            // The number of times that the label is matched.
+            // The number of times the label appears.
             shared_ptr<int32_t> labelSum_ {};
           };
 
@@ -286,9 +286,9 @@ namespace Models
 
 
         protected:
-          // Image Label
+          // The image labels.
           shared_ptr<vector<ImageSummary::ImageLabels>> imageLabels_ {};
-          // Risk Level
+          // The risk level.
           shared_ptr<string> riskLevel_ {};
         };
 
@@ -320,11 +320,11 @@ namespace Models
 
 
       protected:
-        // Image Results Summary
+        // The image summary information.
         shared_ptr<PageSummary::ImageSummary> imageSummary_ {};
-        // Number of pages
+        // The total number of pages.
         shared_ptr<int32_t> pageSum_ {};
-        // Text Results Summary
+        // The text summary information.
         shared_ptr<PageSummary::TextSummary> textSummary_ {};
       };
 
@@ -459,21 +459,21 @@ namespace Models
         protected:
           // The description.
           shared_ptr<string> description_ {};
-          // The description of the labels.
+          // The description of the label.
           shared_ptr<string> descriptions_ {};
-          // The details of the labels.
+          // The value of the label.
           shared_ptr<string> labels_ {};
-          // Risk Level
+          // The risk level.
           shared_ptr<string> riskLevel_ {};
-          // The risk details that are hit.
+          // Details about the hit risk.
           shared_ptr<string> riskTips_ {};
-          // The risk words that are hit.
+          // The risk keywords that were hit.
           shared_ptr<string> riskWords_ {};
-          // The moderation service.
+          // The service.
           shared_ptr<string> service_ {};
           // The text content.
           shared_ptr<string> text_ {};
-          // The text segmentation information.
+          // Information about the text segment.
           shared_ptr<string> textSegment_ {};
         };
 
@@ -560,13 +560,13 @@ namespace Models
 
 
           protected:
-            // The H value of the coordinate point.
+            // The height of the detected area.
             shared_ptr<int32_t> h_ {};
-            // The W value of the coordinate point.
+            // The width of the detected area.
             shared_ptr<int32_t> w_ {};
-            // The X value of the coordinate point.
+            // The X coordinate of the point.
             shared_ptr<int32_t> x_ {};
-            // The Y value of the coordinate point.
+            // The Y-coordinate of the point.
             shared_ptr<int32_t> y_ {};
           };
 
@@ -617,11 +617,11 @@ namespace Models
 
 
           protected:
-            // The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+            // The confidence score.
             shared_ptr<float> confidence_ {};
             // The description.
             shared_ptr<string> description_ {};
-            // The details of the labels.
+            // The label.
             shared_ptr<string> label_ {};
           };
 
@@ -671,11 +671,11 @@ namespace Models
           shared_ptr<string> description_ {};
           // The label information.
           shared_ptr<vector<ImageResult::LabelResult>> labelResult_ {};
-          // The location information
+          // The location information.
           shared_ptr<ImageResult::Location> location_ {};
-          // Risk Level
+          // The risk level.
           shared_ptr<string> riskLevel_ {};
-          // The moderation service.
+          // The service that was called.
           shared_ptr<string> service_ {};
         };
 
@@ -723,13 +723,13 @@ namespace Models
       protected:
         // The image moderation results.
         shared_ptr<vector<PageResult::ImageResult>> imageResult_ {};
-        // The image URL.
+        // The URL of the image.
         shared_ptr<string> imageUrl_ {};
         // The page number.
         shared_ptr<int32_t> pageNum_ {};
         // The text moderation results.
         shared_ptr<vector<PageResult::TextResult>> textResult_ {};
-        // The text URL.
+        // The URL where the text content is stored.
         shared_ptr<string> textUrl_ {};
       };
 
@@ -790,18 +790,19 @@ namespace Models
 
 
     protected:
+      // The AccountId specified in the request.
       shared_ptr<string> accountId_ {};
-      // The ID of the moderated object.
+      // The ID of the data.
       shared_ptr<string> dataId_ {};
-      // Optional. The document type.
+      // The document type. This parameter is optional.
       shared_ptr<string> docType_ {};
-      // An array that consists of the moderation results.
+      // A list of moderation results.
       shared_ptr<vector<Data::PageResult>> pageResult_ {};
-      // Summary of results
+      // The summary information.
       shared_ptr<Data::PageSummary> pageSummary_ {};
-      // Risk Level
+      // The risk level.
       shared_ptr<string> riskLevel_ {};
-      // The URL of the moderated object.
+      // The download URL for the file.
       shared_ptr<string> url_ {};
     };
 
@@ -838,13 +839,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeFileModerationResultResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -73,7 +73,7 @@ namespace Models
 
 
     protected:
-      // The ID of the moderated object.
+      // The value of the dataId parameter that you specify in the API request. If you do not specify this parameter in the request, this field is not returned.
       shared_ptr<string> dataId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The data structure of the returned task information.
     shared_ptr<VoiceModerationResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -135,11 +135,11 @@ namespace Models
 
 
         protected:
-          // Confidence score, ranging from 0 to 100, rounded to two decimal places. Some labels do not have a confidence score.
+          // The confidence score. The value ranges from 0 to 100, with two decimal places. Some labels do not have a confidence score.
           shared_ptr<float> confidence_ {};
-          // Description.
+          // The description.
           shared_ptr<string> description_ {};
-          // The labels returned after image content detection. A single image may have multiple labels and corresponding scores detected.
+          // The label returned after the image content moderation. An image may have multiple labels and scores.
           shared_ptr<string> label_ {};
         };
 
@@ -272,9 +272,9 @@ namespace Models
                 shared_ptr<int32_t> h_ {};
                 // The width of the text area, in pixels.
                 shared_ptr<int32_t> w_ {};
-                // The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
+                // The x-coordinate of the upper-left corner of the text area, in pixels. The origin (0,0) is the upper-left corner of the image.
                 shared_ptr<int32_t> x_ {};
-                // The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
+                // The y-coordinate of the upper-left corner of the text area, in pixels. The origin (0,0) is the upper-left corner of the image.
                 shared_ptr<int32_t> y_ {};
               };
 
@@ -297,9 +297,9 @@ namespace Models
 
 
             protected:
-              // Text line coordinate information.
+              // The coordinates of the text line.
               shared_ptr<OcrResult::Location> location_ {};
-              // Text information.
+              // The text.
               shared_ptr<string> text_ {};
             };
 
@@ -350,11 +350,11 @@ namespace Models
 
 
             protected:
-              // Custom words, separate multiple words with commas.
+              // The custom keywords. Separate multiple keywords with a comma.
               shared_ptr<string> keyWords_ {};
-              // Custom library ID.
+              // The ID of the custom library.
               shared_ptr<string> libId_ {};
-              // Custom library name.
+              // The name of the custom library.
               shared_ptr<string> libName_ {};
             };
 
@@ -388,11 +388,11 @@ namespace Models
 
 
           protected:
-            // When a custom text library is matched, return the custom library ID, custom library name, and custom words.
+            // If a custom text library is hit, the ID and name of the library, and the hit keywords are returned.
             shared_ptr<vector<TextInImage::CustomText>> customText_ {};
-            // Return the text information of each line recognized in the image.
+            // The information for each line of text recognized in the image.
             shared_ptr<vector<TextInImage::OcrResult>> ocrResult_ {};
-            // hit risk keywords
+            // The detected risk keywords.
             shared_ptr<vector<string>> riskWord_ {};
           };
 
@@ -475,13 +475,13 @@ namespace Models
 
 
             protected:
-              // The width of the text area, in pixels.
+              // The height of the area, in pixels.
               shared_ptr<int32_t> h_ {};
-              // The height of the text area, in pixels.
+              // The width of the area, in pixels.
               shared_ptr<int32_t> w_ {};
-              // The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
+              // The x-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
               shared_ptr<int32_t> x_ {};
-              // The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
+              // The y-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
               shared_ptr<int32_t> y_ {};
             };
 
@@ -511,11 +511,11 @@ namespace Models
 
 
           protected:
-            // Identify the encoded information of the person.
+            // The ID of the recognized public figure.
             shared_ptr<string> figureId_ {};
-            // The identified person\\"s name information.
+            // The name of the recognized public figure.
             shared_ptr<string> figureName_ {};
-            // The location information of the identifier.
+            // The location of the recognized object.
             shared_ptr<vector<PublicFigure::Location>> location_ {};
           };
 
@@ -587,11 +587,11 @@ namespace Models
 
 
             protected:
-              // Confidence score, from 0 to 100, rounded to two decimal places.
+              // The confidence score. The value ranges from 0 to 100, with two decimal places.
               shared_ptr<float> confidence_ {};
-              // Identify the category.
+              // The category of the logo.
               shared_ptr<string> label_ {};
-              // identifier  name.
+              // The name of the logo.
               shared_ptr<string> name_ {};
             };
 
@@ -651,13 +651,13 @@ namespace Models
 
 
             protected:
-              // The width of the text area, in pixels.
+              // The height of the logo area, in pixels.
               shared_ptr<int32_t> h_ {};
-              // The height of the text area, in pixels.
+              // The width of the logo area, in pixels.
               shared_ptr<int32_t> w_ {};
-              // The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
+              // The x-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
               shared_ptr<int32_t> x_ {};
-              // The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
+              // The y-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
               shared_ptr<int32_t> y_ {};
             };
 
@@ -682,9 +682,9 @@ namespace Models
 
 
           protected:
-            // The location information of the identifier.
+            // The location of the recognized object.
             shared_ptr<LogoData::Location> location_ {};
-            // identification information
+            // Identity information.
             shared_ptr<vector<LogoData::Logo>> logo_ {};
           };
 
@@ -737,9 +737,9 @@ namespace Models
           protected:
             // The ID of the hit custom image.
             shared_ptr<string> imageId_ {};
-            // Custom library ID
+            // The ID of the custom library.
             shared_ptr<string> libId_ {};
-            // The name of the hit custom gallery.
+            // The name of the hit custom image library.
             shared_ptr<string> libName_ {};
           };
 
@@ -782,13 +782,13 @@ namespace Models
 
 
         protected:
-          // Custom image library hit information list.
+          // A list of hits in custom image libraries.
           shared_ptr<vector<Ext::CustomImage>> customImage_ {};
-          // Logo identification information.
+          // Logo information.
           shared_ptr<Ext::LogoData> logoData_ {};
-          // List of character information.
+          // A list of public figures.
           shared_ptr<vector<Ext::PublicFigure>> publicFigure_ {};
-          // Return the text information from the recognized images.
+          // The text detected in the image.
           shared_ptr<Ext::TextInImage> textInImage_ {};
         };
 
@@ -827,13 +827,13 @@ namespace Models
 
 
       protected:
-        // Image supplementary reference information.
+        // Additional reference information for the image.
         shared_ptr<Results::Ext> ext_ {};
-        // The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
+        // The results of the image detection, including threat labels and confidence scores. This is an array.
         shared_ptr<vector<Results::Result>> result_ {};
-        // Risk level.
+        // The risk level.
         shared_ptr<string> riskLevel_ {};
-        // The enhanced image detection service supports various detection services.
+        // The detection service supported by Image Moderation Pro.
         shared_ptr<string> service_ {};
       };
 
@@ -884,11 +884,11 @@ namespace Models
 
 
       protected:
-        // Confidence score, ranging from 0 to 100, retained to two decimal places. Some labels do not have a confidence score.
+        // The confidence score. The value ranges from 0 to 100, with two decimal places. Some labels do not have a confidence score.
         shared_ptr<float> confidence_ {};
-        // Description.
+        // The description.
         shared_ptr<string> description_ {};
-        // The labels returned after image content detection. A single image may be associated with multiple labels and corresponding scores.
+        // The label returned after the image content moderation. An image may have multiple labels and scores.
         shared_ptr<string> label_ {};
       };
 
@@ -934,14 +934,15 @@ namespace Models
 
 
     protected:
-      // To detect the data ID corresponding to the object.
+      // The data ID of the moderated object.
       shared_ptr<string> dataId_ {};
+      // The ID of the manual review task.
       shared_ptr<string> manualTaskId_ {};
-      // The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
+      // An array of results for the image moderation. The results contain parameters such as threat labels and confidence scores.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The risk labels, confidence scores, and other parameters for each service\\"s image detection, in an array structure.
+      // The detailed moderation results for each detection service. This is an array.
       shared_ptr<vector<Data::Results>> results_ {};
-      // Risk level.
+      // The risk level.
       shared_ptr<string> riskLevel_ {};
     };
 
@@ -978,13 +979,13 @@ namespace Models
 
 
   protected:
-    // Return code. A return of 200 represents success.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The result of image content detection.
+    // The results of the image content moderation.
     shared_ptr<ImageBatchModerationResponseBody::Data> data_ {};
-    // The response message for this request.
+    // The response message for the request.
     shared_ptr<string> msg_ {};
-    // The ID of this invocation request, generated by Alibaba Cloud as a unique identifier for the request, can be used for troubleshooting and pinpointing issues.
+    // The unique ID of the request. Alibaba Cloud generates this ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

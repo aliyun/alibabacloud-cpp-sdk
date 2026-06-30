@@ -58,7 +58,6 @@ namespace Models
 
   protected:
     shared_ptr<string> imageBase64Str_ {};
-    // Service
     shared_ptr<string> service_ {};
     shared_ptr<string> serviceParameters_ {};
   };
