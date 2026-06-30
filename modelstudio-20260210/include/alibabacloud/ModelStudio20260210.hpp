@@ -615,7 +615,7 @@ namespace ModelStudio20260210
       Models::UpdateOrganizationResponse updateOrganization(const Models::UpdateOrganizationRequest &request);
 
       /**
-       * @summary 修改组织成员角色
+       * @summary Modifies the roles of organization members.
        *
        * @param request UpdateOrganizationMemberRequest
        * @param headers map
@@ -625,7 +625,7 @@ namespace ModelStudio20260210
       Models::UpdateOrganizationMemberResponse updateOrganizationMemberWithOptions(const Models::UpdateOrganizationMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改组织成员角色
+       * @summary Modifies the roles of organization members.
        *
        * @param request UpdateOrganizationMemberRequest
        * @return UpdateOrganizationMemberResponse

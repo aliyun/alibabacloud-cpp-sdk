@@ -38,10 +38,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Auth& obj) { 
         DARABONBA_PTR_TO_JSON(accessIps, accessIps_);
+        DARABONBA_PTR_TO_JSON(modelAccessScope, modelAccessScope_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Auth& obj) { 
         DARABONBA_PTR_FROM_JSON(accessIps, accessIps_);
+        DARABONBA_PTR_FROM_JSON(modelAccessScope, modelAccessScope_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
       Auth() = default ;
@@ -55,8 +57,52 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ModelAccessScope : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ModelAccessScope& obj) { 
+          DARABONBA_PTR_TO_JSON(accessibleModels, accessibleModels_);
+          DARABONBA_PTR_TO_JSON(allowAllModels, allowAllModels_);
+        };
+        friend void from_json(const Darabonba::Json& j, ModelAccessScope& obj) { 
+          DARABONBA_PTR_FROM_JSON(accessibleModels, accessibleModels_);
+          DARABONBA_PTR_FROM_JSON(allowAllModels, allowAllModels_);
+        };
+        ModelAccessScope() = default ;
+        ModelAccessScope(const ModelAccessScope &) = default ;
+        ModelAccessScope(ModelAccessScope &&) = default ;
+        ModelAccessScope(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ModelAccessScope() = default ;
+        ModelAccessScope& operator=(const ModelAccessScope &) = default ;
+        ModelAccessScope& operator=(ModelAccessScope &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->accessibleModels_ == nullptr
+        && this->allowAllModels_ == nullptr; };
+        // accessibleModels Field Functions 
+        bool hasAccessibleModels() const { return this->accessibleModels_ != nullptr;};
+        void deleteAccessibleModels() { this->accessibleModels_ = nullptr;};
+        inline const vector<string> & getAccessibleModels() const { DARABONBA_PTR_GET_CONST(accessibleModels_, vector<string>) };
+        inline vector<string> getAccessibleModels() { DARABONBA_PTR_GET(accessibleModels_, vector<string>) };
+        inline ModelAccessScope& setAccessibleModels(const vector<string> & accessibleModels) { DARABONBA_PTR_SET_VALUE(accessibleModels_, accessibleModels) };
+        inline ModelAccessScope& setAccessibleModels(vector<string> && accessibleModels) { DARABONBA_PTR_SET_RVALUE(accessibleModels_, accessibleModels) };
+
+
+        // allowAllModels Field Functions 
+        bool hasAllowAllModels() const { return this->allowAllModels_ != nullptr;};
+        void deleteAllowAllModels() { this->allowAllModels_ = nullptr;};
+        inline bool getAllowAllModels() const { DARABONBA_PTR_GET_DEFAULT(allowAllModels_, false) };
+        inline ModelAccessScope& setAllowAllModels(bool allowAllModels) { DARABONBA_PTR_SET_VALUE(allowAllModels_, allowAllModels) };
+
+
+      protected:
+        shared_ptr<vector<string>> accessibleModels_ {};
+        shared_ptr<bool> allowAllModels_ {};
+      };
+
       virtual bool empty() const override { return this->accessIps_ == nullptr
-        && this->type_ == nullptr; };
+        && this->modelAccessScope_ == nullptr && this->type_ == nullptr; };
       // accessIps Field Functions 
       bool hasAccessIps() const { return this->accessIps_ != nullptr;};
       void deleteAccessIps() { this->accessIps_ = nullptr;};
@@ -64,6 +110,15 @@ namespace Models
       inline vector<string> getAccessIps() { DARABONBA_PTR_GET(accessIps_, vector<string>) };
       inline Auth& setAccessIps(const vector<string> & accessIps) { DARABONBA_PTR_SET_VALUE(accessIps_, accessIps) };
       inline Auth& setAccessIps(vector<string> && accessIps) { DARABONBA_PTR_SET_RVALUE(accessIps_, accessIps) };
+
+
+      // modelAccessScope Field Functions 
+      bool hasModelAccessScope() const { return this->modelAccessScope_ != nullptr;};
+      void deleteModelAccessScope() { this->modelAccessScope_ = nullptr;};
+      inline const Auth::ModelAccessScope & getModelAccessScope() const { DARABONBA_PTR_GET_CONST(modelAccessScope_, Auth::ModelAccessScope) };
+      inline Auth::ModelAccessScope getModelAccessScope() { DARABONBA_PTR_GET(modelAccessScope_, Auth::ModelAccessScope) };
+      inline Auth& setModelAccessScope(const Auth::ModelAccessScope & modelAccessScope) { DARABONBA_PTR_SET_VALUE(modelAccessScope_, modelAccessScope) };
+      inline Auth& setModelAccessScope(Auth::ModelAccessScope && modelAccessScope) { DARABONBA_PTR_SET_RVALUE(modelAccessScope_, modelAccessScope) };
 
 
       // type Field Functions 
@@ -79,6 +134,7 @@ namespace Models
       // > 
       // > - When you use custom permissions, if you do not specify the IP address whitelist, the server sets it to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
       shared_ptr<vector<string>> accessIps_ {};
+      shared_ptr<Auth::ModelAccessScope> modelAccessScope_ {};
       // Valid values:
       // - All: all permissions.
       // - Custom: custom permissions.

@@ -51,7 +51,10 @@ namespace Models
 
 
   protected:
+    // The list of account IDs for batch operations.
     shared_ptr<vector<string>> accountIds_ {};
+    // The code of the new role. When you perform a batch operation, all specified accounts are changed to this role.
+    // 
     // This parameter is required.
     shared_ptr<string> newRoleCode_ {};
   };

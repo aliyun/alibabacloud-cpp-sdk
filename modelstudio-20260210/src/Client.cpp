@@ -1513,7 +1513,7 @@ UpdateOrganizationResponse Client::updateOrganization(const UpdateOrganizationRe
 }
 
 /**
- * @summary 修改组织成员角色
+ * @summary Modifies the roles of organization members.
  *
  * @param request UpdateOrganizationMemberRequest
  * @param headers map
@@ -1550,7 +1550,7 @@ UpdateOrganizationMemberResponse Client::updateOrganizationMemberWithOptions(con
 }
 
 /**
- * @summary 修改组织成员角色
+ * @summary Modifies the roles of organization members.
  *
  * @param request UpdateOrganizationMemberRequest
  * @return UpdateOrganizationMemberResponse
