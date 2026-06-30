@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // **The consumption duration in seconds.**
         shared_ptr<int64_t> consumeSecond_ {};
+        // **The time period.**
         shared_ptr<string> period_ {};
+        // **The resource type.**
         shared_ptr<string> resourceType_ {};
       };
 
@@ -154,8 +157,11 @@ namespace Models
 
 
       protected:
+        // The consumption duration in seconds.
         shared_ptr<int64_t> consumeSecond_ {};
+        // The deduction date.
         shared_ptr<string> deductionDate_ {};
+        // The resource type.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -307,19 +313,33 @@ namespace Models
 
 
       protected:
+        // The Alibaba Cloud account ID.
         shared_ptr<int64_t> aliUid_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The end time.
         shared_ptr<string> endTime_ {};
+        // The expiration time.
         shared_ptr<string> expiredTime_ {};
+        // The group ID.
         shared_ptr<string> groupId_ {};
+        // The group resource type.
         shared_ptr<string> groupResourceType_ {};
+        // Indicates whether the resource is a No-Lx resource.
         shared_ptr<bool> noLx_ {};
+        // The source of the No-Lx resource.
         shared_ptr<string> noLxSource_ {};
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
+        // The group resource type.
         shared_ptr<string> resourceType_ {};
+        // The start time.
         shared_ptr<string> startTime_ {};
+        // The status.
         shared_ptr<string> status_ {};
+        // The total duration.
         shared_ptr<int64_t> totalTime_ {};
+        // The used duration.
         shared_ptr<int64_t> usedTime_ {};
       };
 
@@ -353,8 +373,11 @@ namespace Models
 
 
     protected:
+      // **The available core-hour packages.**
       shared_ptr<vector<Data::AvailableCorePackages>> availableCorePackages_ {};
+      // The deduction details.
       shared_ptr<vector<Data::Deductions>> deductions_ {};
+      // **The usage details.**
       shared_ptr<vector<Data::Usages>> usages_ {};
     };
 
@@ -377,7 +400,9 @@ namespace Models
 
 
   protected:
+    // The deduction data.
     shared_ptr<DescribeDeductionStatisticResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

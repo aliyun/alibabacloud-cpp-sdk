@@ -92,7 +92,9 @@ namespace Models
 
 
       protected:
+        // The promotion rule description.
         shared_ptr<string> description_ {};
+        // The promotion rule ID.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -194,10 +196,15 @@ namespace Models
 
 
         protected:
+          // The option code.
           shared_ptr<string> optionCode_ {};
+          // The promotion description.
           shared_ptr<string> promotionDesc_ {};
+          // The promotion ID.
           shared_ptr<string> promotionId_ {};
+          // The promotion name.
           shared_ptr<string> promotionName_ {};
+          // Indicates whether the promotion is selected.
           shared_ptr<bool> selected_ {};
         };
 
@@ -289,10 +296,14 @@ namespace Models
 
 
           protected:
+            // The discount amount.
             shared_ptr<float> discountPrice_ {};
+            // The original price.
             shared_ptr<float> originalPrice_ {};
+            // The resource type.
             shared_ptr<string> resourceType_ {};
             shared_ptr<float> savingPlanRecommendPrice_ {};
+            // The trade price, which is the original price minus the discount amount.
             shared_ptr<float> tradePrice_ {};
           };
 
@@ -380,12 +391,18 @@ namespace Models
 
 
           protected:
+            // The discount amount.
             shared_ptr<float> discountPrice_ {};
+            // The module code.
             shared_ptr<string> moduleCode_ {};
+            // The module name.
             shared_ptr<string> moduleName_ {};
+            // The module value.
             shared_ptr<string> moduleValue_ {};
+            // The original price.
             shared_ptr<float> originalPrice_ {};
             shared_ptr<float> savingPlanDiscountPrice_ {};
+            // The trade price, which is the original price minus the discount amount.
             shared_ptr<float> tradePrice_ {};
           };
 
@@ -417,8 +434,11 @@ namespace Models
 
 
         protected:
+          // A list of pricing module details.
           shared_ptr<vector<PriceDetails::ModuleDetails>> moduleDetails_ {};
+          // The sort order.
           shared_ptr<int32_t> orderItem_ {};
+          // A breakdown of the price.
           shared_ptr<PriceDetails::PriceDetail> priceDetail_ {};
         };
 
@@ -488,13 +508,25 @@ namespace Models
 
 
       protected:
+        // The currency.
+        // 
+        // China site: CNY.
+        // 
+        // International site: USD.
         shared_ptr<string> currency_ {};
+        // The discount amount.
         shared_ptr<float> discountPrice_ {};
+        // The original price.
         shared_ptr<float> originalPrice_ {};
+        // A list of price details.
         shared_ptr<vector<Price::PriceDetails>> priceDetails_ {};
+        // A list of promotions.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
+        // A map of instance IDs to their corresponding refund amounts.
         shared_ptr<map<string, float>> refundInstanceIdPriceMap_ {};
+        // The refund amount.
         shared_ptr<float> refundPrice_ {};
+        // The trade price, which is the original price minus the discount amount.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -519,7 +551,9 @@ namespace Models
 
 
     protected:
+      // The price information.
       shared_ptr<PriceInfo::Price> price_ {};
+      // A list of promotion rules.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
     };
 
@@ -542,7 +576,9 @@ namespace Models
 
 
   protected:
+    // The detailed price information.
     shared_ptr<DescribeMultiPriceResponseBody::PriceInfo> priceInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

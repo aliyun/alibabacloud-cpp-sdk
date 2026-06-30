@@ -78,11 +78,23 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The instance ID.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The key of the attribute.
     shared_ptr<string> key_ {};
+    // The resource type.
+    // > This parameter is case-sensitive. Ensure that the value is spelled correctly.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The value of the attribute.
+    // 
+    // - PackageUsedUpStrategy: Valid values:
+    //    - Postpaid: Enters the pay-as-you-go phase.
+    //    - Shutdown: Hibernation.
+    //    - Maintenance: Shuts down and enters O&M mode. Client connections are not allowed.
     shared_ptr<string> value_ {};
   };
 

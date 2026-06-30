@@ -65,7 +65,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(PeriodTotalCredit, periodTotalCredit_);
           DARABONBA_PTR_TO_JSON(PeriodUsedCredit, periodUsedCredit_);
           DARABONBA_PTR_TO_JSON(RemainCredit, remainCredit_);
+          DARABONBA_PTR_TO_JSON(TodayUsed, todayUsed_);
           DARABONBA_PTR_TO_JSON(TotalCredit, totalCredit_);
+          DARABONBA_PTR_TO_JSON(TotalUsed, totalUsed_);
           DARABONBA_PTR_TO_JSON(TotalUsedCredit, totalUsedCredit_);
           DARABONBA_PTR_TO_JSON(WarnPercent, warnPercent_);
           DARABONBA_PTR_TO_JSON(WeekUsedCredit, weekUsedCredit_);
@@ -80,7 +82,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(PeriodTotalCredit, periodTotalCredit_);
           DARABONBA_PTR_FROM_JSON(PeriodUsedCredit, periodUsedCredit_);
           DARABONBA_PTR_FROM_JSON(RemainCredit, remainCredit_);
+          DARABONBA_PTR_FROM_JSON(TodayUsed, todayUsed_);
           DARABONBA_PTR_FROM_JSON(TotalCredit, totalCredit_);
+          DARABONBA_PTR_FROM_JSON(TotalUsed, totalUsed_);
           DARABONBA_PTR_FROM_JSON(TotalUsedCredit, totalUsedCredit_);
           DARABONBA_PTR_FROM_JSON(WarnPercent, warnPercent_);
           DARABONBA_PTR_FROM_JSON(WeekUsedCredit, weekUsedCredit_);
@@ -134,14 +138,16 @@ namespace Models
 
 
         protected:
+          // The time point in the format of `yyyy-MM-dd HH` (accurate to the hour).
           shared_ptr<string> timePoint_ {};
+          // The number of credits consumed during the hour.
           shared_ptr<int64_t> usedCredit_ {};
         };
 
         virtual bool empty() const override { return this->creditTrendList_ == nullptr
         && this->currentInstanceId_ == nullptr && this->currentRemainCredit_ == nullptr && this->currentTotalCredit_ == nullptr && this->currentUsedCredit_ == nullptr && this->dayUsedCredit_ == nullptr
-        && this->periodTotalCredit_ == nullptr && this->periodUsedCredit_ == nullptr && this->remainCredit_ == nullptr && this->totalCredit_ == nullptr && this->totalUsedCredit_ == nullptr
-        && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
+        && this->periodTotalCredit_ == nullptr && this->periodUsedCredit_ == nullptr && this->remainCredit_ == nullptr && this->todayUsed_ == nullptr && this->totalCredit_ == nullptr
+        && this->totalUsed_ == nullptr && this->totalUsedCredit_ == nullptr && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
         // creditTrendList Field Functions 
         bool hasCreditTrendList() const { return this->creditTrendList_ != nullptr;};
         void deleteCreditTrendList() { this->creditTrendList_ = nullptr;};
@@ -207,11 +213,25 @@ namespace Models
         inline UsageInfo& setRemainCredit(int64_t remainCredit) { DARABONBA_PTR_SET_VALUE(remainCredit_, remainCredit) };
 
 
+        // todayUsed Field Functions 
+        bool hasTodayUsed() const { return this->todayUsed_ != nullptr;};
+        void deleteTodayUsed() { this->todayUsed_ = nullptr;};
+        inline string getTodayUsed() const { DARABONBA_PTR_GET_DEFAULT(todayUsed_, "") };
+        inline UsageInfo& setTodayUsed(string todayUsed) { DARABONBA_PTR_SET_VALUE(todayUsed_, todayUsed) };
+
+
         // totalCredit Field Functions 
         bool hasTotalCredit() const { return this->totalCredit_ != nullptr;};
         void deleteTotalCredit() { this->totalCredit_ = nullptr;};
         inline int64_t getTotalCredit() const { DARABONBA_PTR_GET_DEFAULT(totalCredit_, 0L) };
         inline UsageInfo& setTotalCredit(int64_t totalCredit) { DARABONBA_PTR_SET_VALUE(totalCredit_, totalCredit) };
+
+
+        // totalUsed Field Functions 
+        bool hasTotalUsed() const { return this->totalUsed_ != nullptr;};
+        void deleteTotalUsed() { this->totalUsed_ = nullptr;};
+        inline string getTotalUsed() const { DARABONBA_PTR_GET_DEFAULT(totalUsed_, "") };
+        inline UsageInfo& setTotalUsed(string totalUsed) { DARABONBA_PTR_SET_VALUE(totalUsed_, totalUsed) };
 
 
         // totalUsedCredit Field Functions 
@@ -236,18 +256,33 @@ namespace Models
 
 
       protected:
+        // The hourly consumption samples of the current credit package.
         shared_ptr<vector<UsageInfo::CreditTrendList>> creditTrendList_ {};
+        // The instance ID of the current active credit package.
         shared_ptr<string> currentInstanceId_ {};
+        // The remaining credits of the current active credit package.
         shared_ptr<int64_t> currentRemainCredit_ {};
+        // The total credits of the current active credit package.
         shared_ptr<int64_t> currentTotalCredit_ {};
+        // The used credits of the current active credit package.
         shared_ptr<int64_t> currentUsedCredit_ {};
+        // The credit usage in the last 1 day.
         shared_ptr<int64_t> dayUsedCredit_ {};
+        // The shared credit quota in the current active period.
         shared_ptr<int64_t> periodTotalCredit_ {};
+        // The shared credit usage in the current active period.
         shared_ptr<int64_t> periodUsedCredit_ {};
+        // The cumulative remaining credits.
         shared_ptr<int64_t> remainCredit_ {};
+        shared_ptr<string> todayUsed_ {};
+        // The cumulative total credits.
         shared_ptr<int64_t> totalCredit_ {};
+        shared_ptr<string> totalUsed_ {};
+        // The cumulative credit usage.
         shared_ptr<int64_t> totalUsedCredit_ {};
+        // The alert threshold percentage (0–100).
         shared_ptr<int32_t> warnPercent_ {};
+        // The credit usage in the last 1 week.
         shared_ptr<int64_t> weekUsedCredit_ {};
       };
 
@@ -270,7 +305,9 @@ namespace Models
 
 
     protected:
+      // The usage data details.
       shared_ptr<UsageInfoList::UsageInfo> usageInfo_ {};
+      // The usage primary key. When `UsageType=User`, this is the `aliUid`. When `UsageType=CreditPackage`, this is the credit package instance ID. When `UsageType=Agent`, this is the `AgentId`.
       shared_ptr<string> usageInfoKey_ {};
     };
 
@@ -293,7 +330,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The array of usage data.
     shared_ptr<vector<DescribeCreditUsageInfoResponseBody::UsageInfoList>> usageInfoList_ {};
   };
 

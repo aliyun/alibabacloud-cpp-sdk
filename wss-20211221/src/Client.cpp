@@ -17,7 +17,11 @@ namespace Wss20211221
 {
 
 AlibabaCloud::Wss20211221::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shanghai" , "wss.cn-shanghai.aliyuncs.com"},
+    {"ap-southeast-1" , "wss.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("wss", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +40,13 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 多商品组合下单
+ * @summary Use this API to order, renew, and modify specific products, such as monthly resource plans for Elastic Desktop Service (EDS) Enterprise Edition.
+ *
+ * @description <props="china">
+ * Before calling this API, make sure you understand how Wuying Workspace is billed and its [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws).
+ * <props="intl">
+ * Before calling this API, make sure you understand how Wuying Workspace is billed and its [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560).
+ * If you do not specify automatic payment, this API does not handle the payment. You must use the returned order ID to construct a payment URL. The order becomes active and the resource is provisioned only after the payment is complete.
  *
  * @param tmpReq CreateMultiOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -89,7 +99,13 @@ CreateMultiOrderResponse Client::createMultiOrderWithOptions(const CreateMultiOr
 }
 
 /**
- * @summary 多商品组合下单
+ * @summary Use this API to order, renew, and modify specific products, such as monthly resource plans for Elastic Desktop Service (EDS) Enterprise Edition.
+ *
+ * @description <props="china">
+ * Before calling this API, make sure you understand how Wuying Workspace is billed and its [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws).
+ * <props="intl">
+ * Before calling this API, make sure you understand how Wuying Workspace is billed and its [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560).
+ * If you do not specify automatic payment, this API does not handle the payment. You must use the returned order ID to construct a payment URL. The order becomes active and the resource is provisioned only after the payment is complete.
  *
  * @param request CreateMultiOrderRequest
  * @return CreateMultiOrderResponse
@@ -100,7 +116,14 @@ CreateMultiOrderResponse Client::createMultiOrder(const CreateMultiOrderRequest 
 }
 
 /**
- * @summary 查询积分包Agent列表
+ * @summary Queries a list of agents and their usage information.
+ *
+ * @description ## Usage notes
+ * - **Pagination**: This operation supports pagination by using the `NextToken` and `MaxResults` parameters. For the first request, set `NextToken` to an empty string.
+ * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the results.
+ * - **Status filtering**: Use the `Status` parameter to filter agents by status. Valid values are 0 (deleted) and 1 (active).
+ * - **Sorting**: By default, the results are sorted by `id` in ascending order.
+ * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the ID of the JVS_COPILOT agent that is associated with the current user.
  *
  * @param request DescribeCreditPackageAgentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -147,7 +170,14 @@ DescribeCreditPackageAgentsResponse Client::describeCreditPackageAgentsWithOptio
 }
 
 /**
- * @summary 查询积分包Agent列表
+ * @summary Queries a list of agents and their usage information.
+ *
+ * @description ## Usage notes
+ * - **Pagination**: This operation supports pagination by using the `NextToken` and `MaxResults` parameters. For the first request, set `NextToken` to an empty string.
+ * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the results.
+ * - **Status filtering**: Use the `Status` parameter to filter agents by status. Valid values are 0 (deleted) and 1 (active).
+ * - **Sorting**: By default, the results are sorted by `id` in ascending order.
+ * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the ID of the JVS_COPILOT agent that is associated with the current user.
  *
  * @param request DescribeCreditPackageAgentsRequest
  * @return DescribeCreditPackageAgentsResponse
@@ -158,7 +188,18 @@ DescribeCreditPackageAgentsResponse Client::describeCreditPackageAgents(const De
 }
 
 /**
- * @summary 查询积分包用量信息
+ * @summary Queries credit usage by a specified dimension such as user, credit package, or agent.
+ *
+ * @description ## Operation description
+ * This API operation queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, or Agent). The response includes the total, remaining, and used credits of the current credit package, hourly consumption samples, alert thresholds, period quotas, and other information.
+ * - **User**: User dimension. Returns the aggregated usage and remaining credits across all active credit packages for the current user.
+ * - **CreditPackage**: Credit package dimension. Returns the total, remaining, and consumption samples for a specified credit package instance.
+ * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, alert, and other information for a specified agent.
+ * **Notes**:
+ * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Set this parameter to the credit package instance ID when `UsageType=CreditPackage`, or to the AgentId when `UsageType=Agent`.
+ * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly specified and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
+ * - Time window constants: The `dayUsedCredit` statistics window is `now - ONE_DAY_MILLIS`, and the `weekUsedCredit` statistics window is `now - ONE_WEEK_MILLIS`.
+ * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
  *
  * @param request DescribeCreditUsageInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -197,7 +238,18 @@ DescribeCreditUsageInfoResponse Client::describeCreditUsageInfoWithOptions(const
 }
 
 /**
- * @summary 查询积分包用量信息
+ * @summary Queries credit usage by a specified dimension such as user, credit package, or agent.
+ *
+ * @description ## Operation description
+ * This API operation queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, or Agent). The response includes the total, remaining, and used credits of the current credit package, hourly consumption samples, alert thresholds, period quotas, and other information.
+ * - **User**: User dimension. Returns the aggregated usage and remaining credits across all active credit packages for the current user.
+ * - **CreditPackage**: Credit package dimension. Returns the total, remaining, and consumption samples for a specified credit package instance.
+ * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, alert, and other information for a specified agent.
+ * **Notes**:
+ * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Set this parameter to the credit package instance ID when `UsageType=CreditPackage`, or to the AgentId when `UsageType=Agent`.
+ * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly specified and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
+ * - Time window constants: The `dayUsedCredit` statistics window is `now - ONE_DAY_MILLIS`, and the `weekUsedCredit` statistics window is `now - ONE_WEEK_MILLIS`.
+ * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
  *
  * @param request DescribeCreditUsageInfoRequest
  * @return DescribeCreditUsageInfoResponse
@@ -208,7 +260,15 @@ DescribeCreditUsageInfoResponse Client::describeCreditUsageInfo(const DescribeCr
 }
 
 /**
- * @summary 查询计量消耗信息
+ * @summary Retrieves resource deduction and usage statistics based on specified criteria.
+ *
+ * @description ## Request
+ * - This API supports GET and POST methods.
+ * - The `periods` parameter is a JSON array of `PeriodParam` objects, each containing the `periodUnit` and `baseTime` fields.
+ * - The `resourceTypes` parameter is a JSON array of resource type strings.
+ * - The `startTime` and `endTime` parameters are timestamps that define the query\\"s time range.
+ * - The `nextToken`, `maxResults`, `pageNo`, and `pageSize` parameters control pagination and the number of results to return.
+ * - The API throws a `SalesClientException` if the `resourceTypes` parameter contains an invalid value or if the `periods` parameter fails JSON parsing.
  *
  * @param request DescribeDeductionStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -255,7 +315,15 @@ DescribeDeductionStatisticResponse Client::describeDeductionStatisticWithOptions
 }
 
 /**
- * @summary 查询计量消耗信息
+ * @summary Retrieves resource deduction and usage statistics based on specified criteria.
+ *
+ * @description ## Request
+ * - This API supports GET and POST methods.
+ * - The `periods` parameter is a JSON array of `PeriodParam` objects, each containing the `periodUnit` and `baseTime` fields.
+ * - The `resourceTypes` parameter is a JSON array of resource type strings.
+ * - The `startTime` and `endTime` parameters are timestamps that define the query\\"s time range.
+ * - The `nextToken`, `maxResults`, `pageNo`, and `pageSize` parameters control pagination and the number of results to return.
+ * - The API throws a `SalesClientException` if the `resourceTypes` parameter contains an invalid value or if the `periods` parameter fails JSON parsing.
  *
  * @param request DescribeDeductionStatisticRequest
  * @return DescribeDeductionStatisticResponse
@@ -266,7 +334,7 @@ DescribeDeductionStatisticResponse Client::describeDeductionStatistic(const Desc
 }
 
 /**
- * @summary 查询物流地址
+ * @summary Retrieves information about delivery addresses.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDeliveryAddressResponse
@@ -288,7 +356,7 @@ DescribeDeliveryAddressResponse Client::describeDeliveryAddressWithOptions(const
 }
 
 /**
- * @summary 查询物流地址
+ * @summary Retrieves information about delivery addresses.
  *
  * @return DescribeDeliveryAddressResponse
  */
@@ -298,7 +366,10 @@ DescribeDeliveryAddressResponse Client::describeDeliveryAddress() {
 }
 
 /**
- * @summary 批量询价
+ * @summary Queries prices for Elastic Desktop Service products, covering order types such as purchase, renewal, configuration change, and cancellation.
+ *
+ * @description <props="china">
+ * Before using this interface, ensure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) for Wuying Workspace.
  *
  * @param request DescribeMultiPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -341,7 +412,10 @@ DescribeMultiPriceResponse Client::describeMultiPriceWithOptions(const DescribeM
 }
 
 /**
- * @summary 批量询价
+ * @summary Queries prices for Elastic Desktop Service products, covering order types such as purchase, renewal, configuration change, and cancellation.
+ *
+ * @description <props="china">
+ * Before using this interface, ensure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) for Wuying Workspace.
  *
  * @param request DescribeMultiPriceRequest
  * @return DescribeMultiPriceResponse
@@ -352,7 +426,7 @@ DescribeMultiPriceResponse Client::describeMultiPrice(const DescribeMultiPriceRe
 }
 
 /**
- * @summary 查询核时包抵扣明细
+ * @summary Query deduction details for time-based packages.
  *
  * @param request DescribePackageDeductionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +485,7 @@ DescribePackageDeductionsResponse Client::describePackageDeductionsWithOptions(c
 }
 
 /**
- * @summary 查询核时包抵扣明细
+ * @summary Query deduction details for time-based packages.
  *
  * @param request DescribePackageDeductionsRequest
  * @return DescribePackageDeductionsResponse
@@ -422,7 +496,7 @@ DescribePackageDeductionsResponse Client::describePackageDeductions(const Descri
 }
 
 /**
- * @summary 更新实例属性
+ * @summary Modifies the attributes of an instance.
  *
  * @param request ModifyInstancePropertiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -469,7 +543,7 @@ ModifyInstancePropertiesResponse Client::modifyInstancePropertiesWithOptions(con
 }
 
 /**
- * @summary 更新实例属性
+ * @summary Modifies the attributes of an instance.
  *
  * @param request ModifyInstancePropertiesRequest
  * @return ModifyInstancePropertiesResponse
@@ -480,7 +554,15 @@ ModifyInstancePropertiesResponse Client::modifyInstanceProperties(const ModifyIn
 }
 
 /**
- * @summary 批量设置Agent积分配额
+ * @summary Sets the credit quota for specified Agents.
+ *
+ * @description ## Description
+ * This operation sets the credit quota for one or more Agents of a specific type.
+ * ### Usage notes
+ * - The `AgentType` parameter specifies the type of Agent to which the quota applies, such as `JVSClaw` or `OpenClaw`.
+ * - The `AgentIds` parameter is an array of up to 100 Agent IDs.
+ * - The `CreditQuota` parameter specifies the credit quota for each Agent.
+ * ### Examples
  *
  * @param request SetAgentCreditQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +605,15 @@ SetAgentCreditQuotaResponse Client::setAgentCreditQuotaWithOptions(const SetAgen
 }
 
 /**
- * @summary 批量设置Agent积分配额
+ * @summary Sets the credit quota for specified Agents.
+ *
+ * @description ## Description
+ * This operation sets the credit quota for one or more Agents of a specific type.
+ * ### Usage notes
+ * - The `AgentType` parameter specifies the type of Agent to which the quota applies, such as `JVSClaw` or `OpenClaw`.
+ * - The `AgentIds` parameter is an array of up to 100 Agent IDs.
+ * - The `CreditQuota` parameter specifies the credit quota for each Agent.
+ * ### Examples
  *
  * @param request SetAgentCreditQuotaRequest
  * @return SetAgentCreditQuotaResponse

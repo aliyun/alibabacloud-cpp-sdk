@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // The town ID.
         shared_ptr<int64_t> townId_ {};
+        // The town name.
         shared_ptr<string> townName_ {};
       };
 
@@ -149,7 +151,11 @@ namespace Models
 
 
       protected:
+        // The province ID. For more information, see [China regions, countries and territories codes](https://help.aliyun.com/document_detail/167926.html).
+        // 
+        // For example, **110000** represents Beijing and **120000** represents Tianjin.
         shared_ptr<int64_t> provinceId_ {};
+        // The province name.
         shared_ptr<string> provinceName_ {};
       };
 
@@ -191,7 +197,9 @@ namespace Models
 
 
       protected:
+        // The city ID.
         shared_ptr<int64_t> cityId_ {};
+        // The city name.
         shared_ptr<string> cityName_ {};
       };
 
@@ -233,7 +241,9 @@ namespace Models
 
 
       protected:
+        // The area ID.
         shared_ptr<int64_t> areaId_ {};
+        // The area name.
         shared_ptr<string> areaName_ {};
       };
 
@@ -312,14 +322,23 @@ namespace Models
 
 
     protected:
+      // The area.
       shared_ptr<Addresses::Area> area_ {};
+      // The city.
       shared_ptr<Addresses::City> city_ {};
+      // The contact name.
       shared_ptr<string> contacts_ {};
+      // Indicates whether this is the default address.
       shared_ptr<bool> defaultAddress_ {};
+      // The detailed address, which should include the street name and house number.
       shared_ptr<string> detail_ {};
+      // The mobile number.
       shared_ptr<string> mobile_ {};
+      // The postal code.
       shared_ptr<string> postalCode_ {};
+      // The province.
       shared_ptr<Addresses::Province> province_ {};
+      // The town.
       shared_ptr<Addresses::Town> town_ {};
     };
 
@@ -349,8 +368,13 @@ namespace Models
 
 
   protected:
+    // The address list.
     shared_ptr<vector<DescribeDeliveryAddressResponseBody::Addresses>> addresses_ {};
+    // The request ID. Alibaba Cloud generates this unique identifier for each request.
     shared_ptr<string> requestId_ {};
+    // The total count of addresses.
+    // 
+    // > Up to 20 addresses are supported.
     shared_ptr<int32_t> totalCount_ {};
   };
 

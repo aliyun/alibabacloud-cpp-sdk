@@ -129,14 +129,21 @@ namespace Models
 
 
     protected:
-      // Agent ID
+      // The ID of the agent.
       shared_ptr<string> agentId_ {};
+      // **The creation time of the instance.**
       shared_ptr<string> createdTime_ {};
+      // **The ID of the active credit package instance.**
       shared_ptr<string> creditPackageId_ {};
+      // **The expiration time of the instance.**
       shared_ptr<string> expiredTime_ {};
+      // The instance type.
       shared_ptr<string> instanceType_ {};
+      // **The total credit.**
       shared_ptr<int64_t> totalCredit_ {};
+      // **The amount of credit used.**
       shared_ptr<int64_t> usedCredit_ {};
+      // **The alarm threshold, specified as a percentage. Valid values: 0 to 100.**
       shared_ptr<int32_t> warnPercent_ {};
     };
 
@@ -173,9 +180,13 @@ namespace Models
 
 
   protected:
+    // A list of agents.
     shared_ptr<vector<DescribeCreditPackageAgentsResponseBody::Agents>> agents_ {};
+    // The number of results returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this value is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The request ID. Provide this ID when contacting support.
     shared_ptr<string> requestId_ {};
   };
 

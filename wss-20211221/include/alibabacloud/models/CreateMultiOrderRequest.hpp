@@ -116,7 +116,53 @@ namespace Models
 
 
       protected:
+        // The key of the component.
         shared_ptr<string> key_ {};
+        // The value of the component.
+        // 
+        // Example and valid values for the keys of a monthly duration package (Enterprise Edition):
+        // 
+        // - RegionId: cn-shanghai
+        // 
+        // - InstanceType: eds.enterprise_office.4c8g
+        // 
+        // - DurationType (in hours): Valid values:
+        // 
+        //   - 120
+        // 
+        //   - 250
+        // 
+        // - OsType: Valid values:
+        // 
+        //   - Windows
+        // 
+        //   - Linux
+        // 
+        // - RootDiskSize (in GiB): 80
+        // 
+        // - RootDiskCategory: Valid values:
+        // 
+        //   - cloud_efficiency (Ultra Disk)
+        // 
+        //   - cloud_auto (ESSD AutoPL Disk)
+        // 
+        //   - `cloud_essd` (Enhanced SSD). This value is supported only by specific instance types.
+        // 
+        // - RootPerformanceLevel: Valid values:
+        // 
+        //   - PL0
+        // 
+        //   - PL1
+        // 
+        //   - PL2
+        // 
+        //   - PL3
+        // 
+        // - DataDiskSize (in GiB): Same as `RootDiskSize`.
+        // 
+        // - DataDiskCategory: Same as `RootDiskCategory`.
+        // 
+        // - DataPerformanceLevel: Same as `RootPerformanceLevel`.
         shared_ptr<string> value_ {};
       };
 
@@ -207,16 +253,36 @@ namespace Models
 
 
     protected:
+      // The number of resources to purchase.
       shared_ptr<int32_t> amount_ {};
+      // Specifies whether to enable automatic payment.
       shared_ptr<bool> autoPay_ {};
+      // Specifies whether to enable auto-renewal.
       shared_ptr<bool> autoRenew_ {};
       shared_ptr<bool> buyChange_ {};
+      // The components that define the resource.
       shared_ptr<vector<OrderItems::Components>> components_ {};
       shared_ptr<vector<string>> instanceIds_ {};
+      // The subscription period. Valid values:
+      // 
+      // - If `PeriodUnit` is set to `Year`, the valid values are 1, 2, 3, and 5.
+      // 
+      // - If `PeriodUnit` is set to `Month`, the valid values are 1, 2, 3, and 6.
       shared_ptr<int32_t> period_ {};
+      // The time unit of the subscription duration.
+      // 
+      // > This parameter is required for prepaid instances and is case-sensitive.
       shared_ptr<string> periodUnit_ {};
+      // The promotion ID.
       shared_ptr<string> promotionId_ {};
+      // A list of resource IDs.
+      // 
+      // > For a monthly duration package, this parameter specifies the IDs of the cloud desktops. This parameter is required unless the `OrderType` is `create`.
       shared_ptr<vector<string>> resourceIds_ {};
+      // The type of the resource.
+      // 
+      // > This parameter is case-sensitive.
+      // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
     };
@@ -264,8 +330,11 @@ namespace Models
 
   protected:
     shared_ptr<string> channelCookie_ {};
+    // The items in the order.
     shared_ptr<vector<CreateMultiOrderRequest::OrderItems>> orderItems_ {};
+    // The order type.
     shared_ptr<string> orderType_ {};
+    // The extended properties.
     shared_ptr<map<string, string>> properties_ {};
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };

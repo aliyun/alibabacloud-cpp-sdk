@@ -111,7 +111,53 @@ namespace Models
 
 
       protected:
+        // The key of the component.
         shared_ptr<string> key_ {};
+        // The value of the component.
+        // 
+        // The following are the keys and their sample or enumerated values for a monthly duration package of the enterprise edition:
+        // 
+        // - `RegionId`: cn-shanghai
+        // 
+        // - `InstanceType`: eds.enterprise_office.4c8g
+        // 
+        // - `DurationType` (in hours): [enum]
+        // 
+        //   - 120
+        // 
+        //   - 250
+        // 
+        // - `OsType`: [enum]
+        // 
+        //   - Windows
+        // 
+        //   - Linux
+        // 
+        // - `RootDiskSize` (in GiB): 80
+        // 
+        // - `RootDiskCategory`: [enum]
+        // 
+        //   - `cloud_efficiency` (Ultra Cloud Disk)
+        // 
+        //   - `cloud_auto` (AutoPL Cloud Disk)
+        // 
+        //   - `cloud_essd` (Enhanced SSD (ESSD), available only for specific instance types)
+        // 
+        // - `RootPerformanceLevel`: [enum]
+        // 
+        //   - PL0
+        // 
+        //   - PL1
+        // 
+        //   - PL2
+        // 
+        //   - PL3
+        // 
+        // - `DataDiskSize` (in GiB): Same as `RootDiskSize`.
+        // 
+        // - `DataDiskCategory`: Same as `RootDiskCategory`.
+        // 
+        // - `DataPerformanceLevel`: Same as `RootPerformanceLevel`.
         shared_ptr<string> value_ {};
       };
 
@@ -195,14 +241,28 @@ namespace Models
 
 
     protected:
+      // The quantity to purchase.
       shared_ptr<int32_t> amount_ {};
+      // A list of components.
       shared_ptr<vector<OrderItems::Components>> components_ {};
       shared_ptr<string> data_ {};
+      // A list of instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
+      // The subscription period. Valid values:
+      // 
+      // - If `PeriodUnit` is `Year`, the valid values are 1, 2, and 3.
+      // 
+      // - If `PeriodUnit` is `Month`, the valid values are 1, 2, 3, and 6.
       shared_ptr<int32_t> period_ {};
+      // The unit of the subscription period.
       shared_ptr<string> periodUnit_ {};
+      // The promotion ID.
       shared_ptr<string> promotionId_ {};
+      // A list of resource IDs.
       shared_ptr<vector<string>> resourceIds_ {};
+      // The resource type.
+      // 
+      // > The value is case-sensitive.
       shared_ptr<string> resourceType_ {};
       shared_ptr<string> savingPlanPeriod_ {};
     };
@@ -240,9 +300,13 @@ namespace Models
 
 
   protected:
+    // The order items.
     shared_ptr<vector<DescribeMultiPriceRequest::OrderItems>> orderItems_ {};
+    // The order type.
     shared_ptr<string> orderType_ {};
+    // The package code. This parameter is not required for non-package types.
     shared_ptr<string> packageCode_ {};
+    // The ID of the user who owns the resource in the reseller model. This parameter is not required in non-reseller mode.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 

@@ -238,22 +238,35 @@ namespace Models
 
 
     protected:
+      // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
+      // The cloud computer name.
       shared_ptr<string> desktopName_ {};
+      // The desktop type.
       shared_ptr<string> desktopType_ {};
+      // The billing cycle end time.
       shared_ptr<string> endTime_ {};
       shared_ptr<string> groupResourceType_ {};
       shared_ptr<string> instanceId_ {};
+      // The core-hour package state.
       shared_ptr<string> instanceState_ {};
       shared_ptr<string> instanceType_ {};
+      // The memory size, in MB.
       shared_ptr<int64_t> memory_ {};
+      // The OS of the cloud computer.
       shared_ptr<string> osType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
       shared_ptr<string> sessionId_ {};
+      // The billing cycle start time.
       shared_ptr<string> staTime_ {};
+      // The deducted core-hours.
       shared_ptr<float> usedCoreTime_ {};
+      // The usage duration, in seconds.
       shared_ptr<int64_t> usedTime_ {};
       shared_ptr<string> usedTimeDecimal_ {};
       shared_ptr<int64_t> usedTimeWithScale_ {};
@@ -321,12 +334,19 @@ namespace Models
 
 
   protected:
+    // The deduction details.
     shared_ptr<vector<DescribePackageDeductionsResponseBody::Deductions>> deductions_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matching entries.
     shared_ptr<int64_t> totalCount_ {};
+    // The total core-hours deducted for all matching entries.
     shared_ptr<float> totalUsedCoreTime_ {};
+    // The total usage duration of all matching entries, in seconds.
     shared_ptr<int64_t> totalUsedTime_ {};
     shared_ptr<string> totalUsedTimeDecimal_ {};
   };

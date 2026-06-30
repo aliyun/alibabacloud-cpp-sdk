@@ -110,13 +110,20 @@ namespace Models
 
 
   protected:
+    // The end time, in Unix timestamp format.
     shared_ptr<int64_t> endTime_ {};
+    // An array of instance IDs. If you specify this parameter, the `PackageIds` parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // An array of package IDs.
     shared_ptr<vector<string>> packageIds_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
     shared_ptr<vector<string>> resourceTypes_ {};
+    // The start time, in Unix timestamp format.
     shared_ptr<int64_t> startTime_ {};
   };
 

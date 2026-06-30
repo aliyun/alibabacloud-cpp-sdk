@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The base time.
       shared_ptr<string> baseTime_ {};
+      // The period unit. For valid values, see the `PeriodUnit` enumeration.
       shared_ptr<string> periodUnit_ {};
     };
 
@@ -124,10 +126,15 @@ namespace Models
 
 
   protected:
+    // The end time, specified as a Unix timestamp.
     shared_ptr<int64_t> endTime_ {};
+    // The list of instance IDs, specified as a JSON array.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The list of periods, formatted as a JSON array of `PeriodParam` objects.
     shared_ptr<vector<DescribeDeductionStatisticRequest::Periods>> periods_ {};
+    // The list of resource types, specified as a JSON array.
     shared_ptr<vector<string>> resourceTypes_ {};
+    // The start time, specified as a Unix timestamp.
     shared_ptr<int64_t> startTime_ {};
   };
 

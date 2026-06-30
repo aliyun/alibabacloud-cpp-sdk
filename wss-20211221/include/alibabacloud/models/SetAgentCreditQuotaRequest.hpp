@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // A list of Agent IDs.
     shared_ptr<vector<string>> agentIds_ {};
+    // The Agent type.
     shared_ptr<string> agentType_ {};
+    // The business type.
     shared_ptr<string> bizType_ {};
+    // The credit quota.
     shared_ptr<int32_t> creditQuota_ {};
   };
 
