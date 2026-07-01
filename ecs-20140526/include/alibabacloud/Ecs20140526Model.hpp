@@ -985,6 +985,9 @@
 #include <alibabacloud/models/ModifyStorageSetAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyStorageSetAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyStorageSetAttributeResponse.hpp>
+#include <alibabacloud/models/ModifySystemEventAttributeRequest.hpp>
+#include <alibabacloud/models/ModifySystemEventAttributeResponseBody.hpp>
+#include <alibabacloud/models/ModifySystemEventAttributeResponse.hpp>
 #include <alibabacloud/models/ModifyUserBusinessBehaviorRequest.hpp>
 #include <alibabacloud/models/ModifyUserBusinessBehaviorResponseBody.hpp>
 #include <alibabacloud/models/ModifyUserBusinessBehaviorResponse.hpp>

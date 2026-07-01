@@ -125,27 +125,26 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The index of the network interface controller (NIC).
+    // The index of the network card specified for the ENI.
     // 
-    // > The value of this parameter varies based on the instance family of the specified instance. If the instance type of the specified instance does not support NICs, leave this parameter empty. If the instance type of the specified instance supports NICs, set this parameter to a valid value. For information about the valid values of this parameter, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+    // >Valid values of NetworkCardIndex depend on the instance family. If the instance type does not support network cards, you cannot specify this parameter. If the instance type supports network cards, see [Instance families](https://help.aliyun.com/document_detail/25378.html) for valid values.
     shared_ptr<int32_t> networkCardIndex_ {};
-    // The ID of the ENI.
+    // The network interface controller (NIC) ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the trunk ENI.
-    // 
-    // > This parameter is unavailable.
+    // >This parameter is not yet available.
     shared_ptr<string> trunkNetworkInstanceId_ {};
-    // > This parameter is no longer supported.
+    // >This parameter is deprecated.
     shared_ptr<bool> waitForNetworkConfigurationReady_ {};
   };
 

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

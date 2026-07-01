@@ -108,17 +108,17 @@ namespace Models
 
 
   protected:
-    // One or more IPv6 addresses to delete. Valid values of N: 1 to 10.
+    // One or more IPv6 addresses to unassign. Valid values of N: 1 to 10.
     shared_ptr<vector<string>> ipv6Address_ {};
     // One or more IPv6 prefixes to unassign. Valid values of N: 1 to 10.
     shared_ptr<vector<string>> ipv6Prefix_ {};
-    // The ID of the ENI.
+    // The ID of the network interface controller (NIC).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the ENI. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -163,43 +163,43 @@ namespace Models
   protected:
     // Specifies whether to query the default version.
     shared_ptr<bool> defaultVersion_ {};
-    // Specifies whether to query the configurations of the launch template. Valid values:
+    // Specifies whether to query detailed template configuration information. Valid values:
     // 
-    // - true: queries the basic information and other details of the launch template. The details include the image ID and system disk size.
+    // - true: Queries detailed template configuration information. In addition to basic template information, detailed configuration such as image ID and system disk size is returned.
     // 
-    // - false: queries only the basic information of the launch template. The basic information includes the template ID, template name, and default version.
+    // - false: Queries only basic template information, such as template ID, template name, and default version.
     // 
     // Default value: true.
     shared_ptr<bool> detailFlag_ {};
-    // The ID of the launch template.
+    // The launch template ID.
     // 
-    // You must set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+    // You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the template.
     shared_ptr<string> launchTemplateId_ {};
-    // The name of the launch template.
+    // The launch template name.
     // 
-    // You must set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+    // You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the template.
     shared_ptr<string> launchTemplateName_ {};
-    // The versions of the launch template.
+    // One or more launch template version numbers.
     shared_ptr<vector<int64_t>> launchTemplateVersion_ {};
-    // The maximum version number in the version range to query. This parameter is used together with `MinVersion` to specify a version range to query.
+    // The maximum version number used to filter query results. Used together with `MinVersion` to query version information within the range between the minimum and maximum version numbers.
     shared_ptr<int64_t> maxVersion_ {};
-    // The minimum version number in the version range to query. This parameter is used together with `MaxVersion` to specify a version range to query.
+    // The minimum version number used to filter query results. Used together with `MaxVersion` to query version information within the range between the minimum and maximum version numbers.
     shared_ptr<int64_t> minVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return.
+    // The page number of the launch template list.
     // 
-    // Pages start from page 1.
+    // Minimum value: 1. 
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in a paged query. Settings this parameter for paging. 
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the launch template.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

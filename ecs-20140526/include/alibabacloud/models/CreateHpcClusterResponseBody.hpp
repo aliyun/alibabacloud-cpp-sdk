@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of cluster.
+    // The cluster ID.
     shared_ptr<string> hpcClusterId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -262,7 +262,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of queried instances in the auto provisioning group.
+    // The total number of instances in the auto provisioning group.
     shared_ptr<int32_t> totalCount_ {};
   };
 

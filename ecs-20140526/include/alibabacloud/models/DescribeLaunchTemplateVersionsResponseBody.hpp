@@ -1413,11 +1413,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLaunchTemplateVersionsResponseBody::LaunchTemplateVersionSets> launchTemplateVersionSets_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in a paged query. Settings this parameter for paging.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of launch templates.
     shared_ptr<int32_t> totalCount_ {};

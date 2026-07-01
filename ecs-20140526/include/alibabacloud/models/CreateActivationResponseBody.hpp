@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The value of the activation code. The value is returned only once when you call this operation and cannot be queried afterwards. Make sure that you properly save the returned value.
+    // The value of the activation code. The code is returned only once when you call this operation and cannot be queried afterward. Store the return value properly.
     shared_ptr<string> activationCode_ {};
     // The activation code ID.
     shared_ptr<string> activationId_ {};

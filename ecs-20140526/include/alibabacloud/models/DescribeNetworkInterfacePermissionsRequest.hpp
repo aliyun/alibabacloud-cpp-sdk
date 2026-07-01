@@ -115,13 +115,13 @@ namespace Models
 
 
   protected:
-    // The ID of the network interface controller (NIC). You must specify NetworkInterfaceId or NetworkInterfacePermissionId.N to determine the query scope.
+    // The ID of the network interface controller (NIC). You must specify `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query scope.
     shared_ptr<string> networkInterfaceId_ {};
-    // The list of network interface controller (NIC) permission IDs. Number of elements in the list: 1 to 100.
+    // The list of NIC permission IDs. Number of elements in the list: 1 to 100.
     shared_ptr<vector<string>> networkInterfacePermissionId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the network interface controller (NIC) permission list.
+    // The page number of the NIC permission list.
     // 
     // Minimum value: 1
     // 
@@ -133,7 +133,7 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the network interface controller (NIC) permissions. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region of the network interface controller (NIC) permissions. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

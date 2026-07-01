@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the automatic snapshot policy. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http\\:// or https\\://. The tag key cannot start with acs: or aliyun.
+      // The tag key of the automatic snapshot policy. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The value of tag N of the automatic snapshot policy. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http\\:// or https\\://. The tag value cannot start with acs:.
+      // The tag value of the automatic snapshot policy. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -179,33 +179,33 @@ namespace Models
   protected:
     // The ID of the automatic snapshot policy.
     shared_ptr<string> autoSnapshotPolicyId_ {};
-    // The name of the automatic snapshot policy.
+    // The name of the automatic snapshot policy. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must support characters in the Unicode letter category, which includes characters from various languages such as English and Chinese.
     shared_ptr<string> autoSnapshotPolicyName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number of the automatic snapshot policy list.
     // 
-    // Pages start from page 1.
+    // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page when automatic snapshot policies are displayed in paging mode.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the automatic snapshot policy. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the automatic snapshot policies that you want to query. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+    // The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
     // 
-    // > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+    // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags of the automatic snapshot policy.
+    // The tags.
     shared_ptr<vector<DescribeAutoSnapshotPolicyExRequest::Tag>> tag_ {};
   };
 

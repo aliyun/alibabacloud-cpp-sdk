@@ -693,23 +693,23 @@ namespace Models
   protected:
     shared_ptr<DescribeInstanceHistoryEventsResponseBody::InstanceSystemEventSet> instanceSystemEventSet_ {};
     // The query token returned in this invocation.
-    // > When you use MaxResults and NextToken for paging and no NextToken is returned, no more data is available.
+    // > When you use MaxResults and NextToken parameters for paging query and no NextToken is returned, no more data is available.
     shared_ptr<string> nextToken_ {};
     // The page number of the instance event list.
     // 
-    // > * When you use MaxResults and NextToken for paging, the returned PageNumber parameter value is meaningless.
-    // > * This parameter will be deprecated. Use NextToken and MaxResults for paging instead.
+    // > * When you use MaxResults and NextToken parameters for paging query, the returned PageNumber parameter value is meaningless.
+    // > * This parameter will be deprecated. Use NextToken and MaxResults for paging query instead.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page as specified in the request.
     // 
-    // > * When you use MaxResults and NextToken for paging, the returned PageSize parameter value is meaningless.
-    // > * This parameter will be deprecated. Use NextToken and MaxResults for paging instead.
+    // > * When you use MaxResults and NextToken parameters for paging query, the returned PageSize parameter value is meaningless.
+    // > * This parameter will be deprecated. Use NextToken and MaxResults for paging query instead.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of instance events.
     // 
-    // > When you use MaxResults and NextToken for paging, the returned TotalCount parameter value is meaningless.
+    // > When you use MaxResults and NextToken parameters for paging query, the returned TotalCount parameter value is meaningless.
     shared_ptr<int32_t> totalCount_ {};
   };
 

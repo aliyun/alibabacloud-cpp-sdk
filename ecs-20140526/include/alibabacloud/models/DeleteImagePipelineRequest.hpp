@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the image template.
+    // The image template ID.
     // 
     // This parameter is required.
     shared_ptr<string> imagePipelineId_ {};

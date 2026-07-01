@@ -139,7 +139,7 @@ namespace Models
   protected:
     shared_ptr<AssignIpv6AddressesResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
     shared_ptr<AssignIpv6AddressesResponseBody::Ipv6Sets> ipv6Sets_ {};
-    // The ID of the ENI.
+    // The network interface controller (NIC) ID.
     shared_ptr<string> networkInterfaceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

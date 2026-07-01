@@ -130,57 +130,46 @@ namespace Models
 
 
   protected:
-    // The attributes of the security group. Valid value:
+    // The security group attribute. Valid values:
     // 
-    // - snapshotPolicyIds: queries information about snapshot policies associated with a security group.
+    // - snapshotPolicyIds: queries the snapshot policies associated with the security group.
     shared_ptr<string> attribute_ {};
-    // The direction in which the security group rule is applied. Valid values:
-    // 
-    // - egress: outbound
-    // 
-    // - ingress: inbound
-    // 
-    // - all: outbound and inbound
+    // The direction of the security group rule. Valid values: 
+    //          
+    // - egress: outbound.
+    // - ingress: inbound.
+    // - all: both inbound and outbound.
     // 
     // Default value: all.
     shared_ptr<string> direction_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries per page for a paged query.
     // 
     // - Minimum value: 10.
-    // 
     // - Maximum value: 1000.
     // 
     // Default value: 500.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
-    // The network interface controller (NIC) type of the security group rule.
+    // The network type of the security group rule.
     // 
-    // - Valid values for rules of security groups in the classic network:
+    // - For security groups in a VPC, the only valid value is intranet (default), which indicates internal network.
+    //     > If you set this parameter to internet or leave it empty, the value is automatically set to intranet.
     // 
-    //   - internet (default)
-    // 
-    //   - intranet
-    // 
-    //   \\*\\*
-    // 
-    //   **Note** You can query security group rules of only one NIC type in a single call. To query security group rules of both NIC types, call the operation twice.
-    // 
-    // - When the security group is in a virtual private cloud (VPC), set the value to intranet, which is the default value for rules of security groups in VPCs.
-    // 
-    //   \\*\\*
-    // 
-    //   **Note** If you set this parameter to internet or leave this parameter empty, a value of intranet is automatically used.
+    // - Valid values for security groups in the classic network:
+    //     - internet (default): Internet.
+    //     - intranet: internal network.
+    //     > The classic network feature has been offline. For details, see [Retirement announcement](https://help.aliyun.com/document_detail/2833134.html).
     shared_ptr<string> nicType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the security group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the security group.
+    // The security group ID.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

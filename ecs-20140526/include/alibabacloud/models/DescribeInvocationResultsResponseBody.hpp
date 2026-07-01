@@ -490,7 +490,7 @@ namespace Models
       shared_ptr<string> nextToken_ {};
       // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page in the paging query.
+      // The number of entries per page. This value is the PageSize value specified in the paging query settings.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of commands.
       shared_ptr<int64_t> totalCount_ {};

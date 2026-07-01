@@ -98,7 +98,7 @@ namespace Models
     protected:
       // The tag key of the file sending task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
       // 
-      // If you use one tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+      // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count of resources that attach all specified tags cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
       // 
       // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
@@ -222,7 +222,7 @@ namespace Models
   protected:
     // The instance ID. If you specify this parameter, all file sending records of the specified instance are queried.
     shared_ptr<string> instanceId_ {};
-    // The overall sending status of the file. The overall status depends on the shared execution status of all target instances. Valid values:
+    // The overall sending status of the file. The overall status depends on the combined execution status of all instances in the sending task. Valid values:
     // 
     // - Pending: The system is validating or sending the file. The overall status is Pending if the file sending status of at least one instance is Pending.
     // - Running: The file is being sent to instances. The overall status is Running if the file sending status of at least one instance is Running.
@@ -232,7 +232,7 @@ namespace Models
     shared_ptr<string> invocationStatus_ {};
     // The execution ID.
     shared_ptr<string> invokeId_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of entries per page for a paged query.
     // 
     // Maximum value: 50.
     // 
@@ -244,19 +244,19 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter is about to go offline. Use NextToken and MaxResults to execute paging query operations.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
     shared_ptr<int64_t> pageNumber_ {};
-    // > This parameter is about to go offline. Use NextToken and MaxResults to execute paging query operations.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID of the ECS instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the file sending task belongs. After you specify this parameter, you must also specify ResourceGroupId when sending a file. This way, you can filter the file sending results of the specified resource group.
+    // The ID of the resource group to which the file sending task belongs. After you specify this parameter, you must also specify ResourceGroupId when sending the file. This parameter allows you to filter file sending results by resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeSendFileResultsRequest::Tag>> tag_ {};
   };
 

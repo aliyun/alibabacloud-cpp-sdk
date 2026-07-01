@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the command.
+    // The command ID.
     shared_ptr<string> commandId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -195,11 +195,15 @@ namespace Models
 
 
   protected:
-    // The instance type of the spot instance.
+    // The currency unit of the price.
+    // 
+    // China site: CNY.
+    // 
+    // International site: USD.
     shared_ptr<string> currency_ {};
-    // The network type of the spot instance.
+    // The start row of the next page. Set the `Offset` parameter to this value to query the next page of data.
     shared_ptr<int32_t> nextOffset_ {};
-    // The instance type of the spot instance.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSpotPriceHistoryResponseBody::SpotPrices> spotPrices_ {};
   };

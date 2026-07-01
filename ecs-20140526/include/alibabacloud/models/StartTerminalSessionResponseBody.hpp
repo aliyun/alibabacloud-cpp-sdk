@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> securityToken_ {};
     // The session ID.
     shared_ptr<string> sessionId_ {};
-    // The URL of the WebSocket session for the remote connection to the ECS instance. The URL contains the session ID (SessionId) and the SecurityToken used for system verification.
+    // The URL of the WebSocket session for the remote connection to the ECS instance. The URL contains the session ID (`SessionId`) and the `SecurityToken` for system verification.
     shared_ptr<string> webSocketUrl_ {};
   };
 

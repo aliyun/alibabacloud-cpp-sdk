@@ -350,7 +350,6 @@ namespace Models
 
 
   protected:
-    // Information about the availability zones.
     shared_ptr<DescribeAvailableResourceResponseBody::AvailableZones> availableZones_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

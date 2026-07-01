@@ -205,17 +205,17 @@ namespace Models
 
 
         protected:
-          // The currency.
+          // The currency unit.
           // 
-          // CNY for sites in the Chinese mainland.
+          // China site: CNY.
           // 
-          // USD for international sites.
+          // International site: USD.
           shared_ptr<string> currency_ {};
-          // The discount amount.
+          // The discount.
           shared_ptr<float> discountPrice_ {};
           // The original price.
           shared_ptr<float> originalPrice_ {};
-          // The trade price, calculated as `OriginalPrice` - `DiscountPrice`.
+          // The transaction price, which is the original price minus the discount.
           shared_ptr<float> tradePrice_ {};
         };
 
@@ -230,7 +230,7 @@ namespace Models
 
 
       protected:
-        // The price of the marketplace image.
+        // The Alibaba Cloud Marketplace image price.
         shared_ptr<RelatedPrice::MarketplaceImagePrice> marketplaceImagePrice_ {};
       };
 
@@ -492,20 +492,20 @@ namespace Models
 
 
       protected:
-        // The currency.
+        // The currency unit.
         // 
-        // CNY for sites in the Chinese mainland.
+        // China site: CNY.
         // 
-        // USD for international sites.
+        // International site: USD.
         shared_ptr<string> currency_ {};
         shared_ptr<Price::DetailInfos> detailInfos_ {};
-        // The discount amount.
+        // The discount.
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The hourly price of a No Upfront or Partial Upfront Reserved Instance Voucher.
+        // The hourly price of a reserved instance with the no upfront or partial upfront payment option.
         shared_ptr<float> reservedInstanceHourPrice_ {};
-        // The trade price, calculated as `OriginalPrice` - `DiscountPrice`.
+        // The transaction price, which is the original price minus the discount.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -539,9 +539,9 @@ namespace Models
 
 
     protected:
-      // The price details.
+      // The price.
       shared_ptr<PriceInfo::Price> price_ {};
-      // The related prices.
+      // The related price.
       shared_ptr<PriceInfo::RelatedPrice> relatedPrice_ {};
       shared_ptr<PriceInfo::Rules> rules_ {};
     };
@@ -565,7 +565,7 @@ namespace Models
 
 
   protected:
-    // Details about the price and promotional rules.
+    // The price information, including the price and promotion rules.
     shared_ptr<DescribePriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
