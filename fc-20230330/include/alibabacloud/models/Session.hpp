@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(containerId, containerId_);
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_TO_JSON(enableAutoPause, enableAutoPause_);
+      DARABONBA_PTR_TO_JSON(enableAutoResume, enableAutoResume_);
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
       DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(lastModifiedTime, lastModifiedTime_);
@@ -37,6 +39,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(containerId, containerId_);
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_FROM_JSON(enableAutoPause, enableAutoPause_);
+      DARABONBA_PTR_FROM_JSON(enableAutoResume, enableAutoResume_);
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
       DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(lastModifiedTime, lastModifiedTime_);
@@ -62,9 +66,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containerId_ == nullptr
-        && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->functionName_ == nullptr && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr
-        && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr
-        && this->sessionId_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
+        && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->functionName_ == nullptr
+        && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr
+        && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr && this->sessionId_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr
+        && this->sessionTTLInSeconds_ == nullptr; };
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
@@ -84,6 +89,20 @@ namespace Models
     void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
     inline bool getDisableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
     inline Session& setDisableSessionIdReuse(bool disableSessionIdReuse) { DARABONBA_PTR_SET_VALUE(disableSessionIdReuse_, disableSessionIdReuse) };
+
+
+    // enableAutoPause Field Functions 
+    bool hasEnableAutoPause() const { return this->enableAutoPause_ != nullptr;};
+    void deleteEnableAutoPause() { this->enableAutoPause_ = nullptr;};
+    inline bool getEnableAutoPause() const { DARABONBA_PTR_GET_DEFAULT(enableAutoPause_, false) };
+    inline Session& setEnableAutoPause(bool enableAutoPause) { DARABONBA_PTR_SET_VALUE(enableAutoPause_, enableAutoPause) };
+
+
+    // enableAutoResume Field Functions 
+    bool hasEnableAutoResume() const { return this->enableAutoResume_ != nullptr;};
+    void deleteEnableAutoResume() { this->enableAutoResume_ = nullptr;};
+    inline bool getEnableAutoResume() const { DARABONBA_PTR_GET_DEFAULT(enableAutoResume_, false) };
+    inline Session& setEnableAutoResume(bool enableAutoResume) { DARABONBA_PTR_SET_VALUE(enableAutoResume_, enableAutoResume) };
 
 
     // functionName Field Functions 
@@ -179,35 +198,36 @@ namespace Models
 
 
   protected:
-    // The ID of the function instance associated with the session.
+    // The instance ID of the function instance associated with the session.
     shared_ptr<string> containerId_ {};
     // The time when the session was created.
     shared_ptr<string> createdTime_ {};
-    // Specifies whether an expired session ID can be reused. If `true`, an expired session ID cannot be reused. If `false` (the default), sending a request with an expired session ID creates a new session bound to a new instance.
+    // Specifies whether to disable session ID reuse. Default value: False, which indicates that after the session expires, you can use the same session ID to initiate requests. The system treats the request as a new session and binds it to a new instance. If you set this parameter to True, the session ID cannot be reused after the session expires.
     shared_ptr<bool> disableSessionIdReuse_ {};
-    // The name of the function associated with the session.
+    shared_ptr<bool> enableAutoPause_ {};
+    shared_ptr<bool> enableAutoResume_ {};
+    // The name of the function to which the session belongs.
     shared_ptr<string> functionName_ {};
-    // The JuiceFS mount configuration, enabling the associated function instance to access specified JuiceFS resources.
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     // The time when the session was last updated.
     shared_ptr<string> lastModifiedTime_ {};
-    // The NAS configuration, enabling the associated function instance to access specified NAS resources.
+    // The NAS configuration. After configuration, the instance associated with the session can access the specified NAS resource.
     shared_ptr<NASConfig> nasConfig_ {};
-    // The OSS mount configuration, enabling the associated function instance to access specified OSS resources.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
-    // The PolarFS mount configuration, enabling the associated function instance to access specified PolarFS resources.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
-    // The qualifier, which specifies a function version or alias. Defaults to `LATEST` if unspecified.
+    // The qualifier passed in when the customer created the session. If not specified, the default value is LATEST.
     shared_ptr<string> qualifier_ {};
-    // The type of session affinity.
+    // The session affinity type.
     shared_ptr<string> sessionAffinityType_ {};
-    // The unique identifier for the function session.
+    // The unique identifier of the function session.
     shared_ptr<string> sessionId_ {};
-    // The maximum duration, in seconds, that the session can be idle before it expires.
+    // The idle timeout period of the session.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
-    // The status of the session. `Active` indicates the session is valid, and `Expired` indicates it is no longer valid.
+    // The session status. Valid values:
+    // - Active: The session is valid.
+    // - Expired: The session has expired.
     shared_ptr<string> sessionStatus_ {};
-    // The maximum lifespan of the session, in seconds.
+    // The maximum lifetime of the session.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 

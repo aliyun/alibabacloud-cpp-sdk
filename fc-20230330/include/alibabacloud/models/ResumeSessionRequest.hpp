@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> fileSystemOnly_ {};
-    // Alias or version of the function associated with the session ID
+    // The function alias or version associated with the session ID to resume.
     shared_ptr<string> qualifier_ {};
   };
 

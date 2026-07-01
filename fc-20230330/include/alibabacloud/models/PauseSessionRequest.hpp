@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The function alias or version associated with the session to pause
+    // The function alias or version associated with the session ID to save.
     shared_ptr<string> qualifier_ {};
   };
 

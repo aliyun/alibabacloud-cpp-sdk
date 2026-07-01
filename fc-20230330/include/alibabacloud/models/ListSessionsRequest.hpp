@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The number of sessions to be returned. If this parameter is not specified, 20 sessions are returned by default.
+    // The number of sessions to return. Default value: 20.
     shared_ptr<int32_t> limit_ {};
-    // The token for the next page.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The function alias or version.
+    // The function alias or version information.
     shared_ptr<string> qualifier_ {};
-    // The SessionId value to filter. If specified, all session information associated with this session ID in Active or Expired states is returned.
+    // The session ID to filter by. If specified, all Active or Expired status information associated with this session is returned.
     shared_ptr<string> sessionId_ {};
-    // The session status to filter. By default, information for all sessions in the Active and Expired states is returned. You can specify Active to retrieve only active sessions, or Expired to retrieve only expired sessions.
+    // The session status to filter by. By default, all session information in Active or Expired status is returned. Set this parameter to Active to retrieve only active session information, or to Expired to retrieve only expired session information.
     shared_ptr<string> sessionStatus_ {};
   };
 

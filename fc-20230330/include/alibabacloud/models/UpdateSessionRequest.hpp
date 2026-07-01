@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The session update configuration.
     shared_ptr<UpdateSessionInput> body_ {};
-    // The function alias or version associated with the session to be updated.
+    // The function alias or version associated with the session ID to update.
     shared_ptr<string> qualifier_ {};
   };
 

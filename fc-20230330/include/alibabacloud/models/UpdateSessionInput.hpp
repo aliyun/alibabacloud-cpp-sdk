@@ -18,6 +18,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateSessionInput& obj) { 
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_TO_JSON(enableAutoPause, enableAutoPause_);
+      DARABONBA_PTR_TO_JSON(enableAutoResume, enableAutoResume_);
       DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
@@ -27,6 +29,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateSessionInput& obj) { 
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_FROM_JSON(enableAutoPause, enableAutoPause_);
+      DARABONBA_PTR_FROM_JSON(enableAutoResume, enableAutoResume_);
       DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
@@ -46,13 +50,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disableSessionIdReuse_ == nullptr
-        && this->juiceFsConfig_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr
-        && this->sessionTTLInSeconds_ == nullptr; };
+        && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->juiceFsConfig_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr
+        && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
     // disableSessionIdReuse Field Functions 
     bool hasDisableSessionIdReuse() const { return this->disableSessionIdReuse_ != nullptr;};
     void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
     inline bool getDisableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
     inline UpdateSessionInput& setDisableSessionIdReuse(bool disableSessionIdReuse) { DARABONBA_PTR_SET_VALUE(disableSessionIdReuse_, disableSessionIdReuse) };
+
+
+    // enableAutoPause Field Functions 
+    bool hasEnableAutoPause() const { return this->enableAutoPause_ != nullptr;};
+    void deleteEnableAutoPause() { this->enableAutoPause_ = nullptr;};
+    inline bool getEnableAutoPause() const { DARABONBA_PTR_GET_DEFAULT(enableAutoPause_, false) };
+    inline UpdateSessionInput& setEnableAutoPause(bool enableAutoPause) { DARABONBA_PTR_SET_VALUE(enableAutoPause_, enableAutoPause) };
+
+
+    // enableAutoResume Field Functions 
+    bool hasEnableAutoResume() const { return this->enableAutoResume_ != nullptr;};
+    void deleteEnableAutoResume() { this->enableAutoResume_ = nullptr;};
+    inline bool getEnableAutoResume() const { DARABONBA_PTR_GET_DEFAULT(enableAutoResume_, false) };
+    inline UpdateSessionInput& setEnableAutoResume(bool enableAutoResume) { DARABONBA_PTR_SET_VALUE(enableAutoResume_, enableAutoResume) };
 
 
     // juiceFsConfig Field Functions 
@@ -106,19 +124,20 @@ namespace Models
 
 
   protected:
-    // Defaults to `false`. If set to `false`, you can reuse a `SessionID` to start a new session on a new instance after the original session expires. If set to `true`, you cannot reuse a `SessionID` after its session expires.
+    // Specifies whether to disable session ID reuse after the session expires. Valid values:
+    // - False: After the session associated with a SessionID expires, you can use the same SessionID to initiate requests. The system treats this as a new session and binds it to a new instance.
+    // - True: After the session associated with a SessionID expires, the SessionID cannot be reused.
+    // Default value: False.
     shared_ptr<bool> disableSessionIdReuse_ {};
-    // The JuiceFS configuration.
+    shared_ptr<bool> enableAutoPause_ {};
+    shared_ptr<bool> enableAutoResume_ {};
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
-    // The NAS configuration.
     shared_ptr<NASConfig> nasConfig_ {};
-    // The OSS mount configuration.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
-    // The PolarFS configuration.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
-    // The session idle timeout, in seconds.
+    // The session idle timeout period.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
-    // The session duration, in seconds.
+    // The session lifetime.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
 
