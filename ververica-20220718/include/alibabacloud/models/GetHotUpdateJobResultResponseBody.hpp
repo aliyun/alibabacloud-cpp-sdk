@@ -87,11 +87,21 @@ namespace Models
 
 
   protected:
+    // The result of the dynamic update.
     shared_ptr<HotUpdateJobResult> data_ {};
+    // - If the success parameter is false, an error code is returned.
+    // 
+    // - If the success parameter is true, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If the success parameter is false, an error message is returned.
+    // 
+    // - If the success parameter is true, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. A value of 200 is always returned. The success parameter indicates whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

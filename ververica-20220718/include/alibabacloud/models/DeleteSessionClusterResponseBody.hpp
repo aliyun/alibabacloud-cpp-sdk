@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The data structure of the deleted session cluster.
     shared_ptr<SessionCluster> data_ {};
+    // This parameter is not empty and indicates the error code if \\`success\\` is \\`false\\`. This parameter is empty if \\`success\\` is \\`true\\`.
     shared_ptr<string> errorCode_ {};
+    // This parameter is not empty and indicates the error message if \\`success\\` is \\`false\\`. This parameter is empty if \\`success\\` is \\`true\\`.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. A value of 200 is returned. The \\`success\\` parameter indicates whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

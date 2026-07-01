@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The error level.
     shared_ptr<string> failureSeverity_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The error cause.
     shared_ptr<string> reason_ {};
   };
 

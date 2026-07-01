@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // This data structure represents the created scheduled plan.
     shared_ptr<ScheduledPlan> data_ {};
+    // If success is false, this parameter is not empty and indicates the business error code. If success is true, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // If success is false, this parameter is not empty and indicates the business error message. If success is true, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The business status code. This is always 200. Use the success parameter to determine if the business request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the business request was successful.
     shared_ptr<bool> success_ {};
   };
 

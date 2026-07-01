@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The folder ID.
     shared_ptr<string> folderId_ {};
+    // The folder name.
     shared_ptr<string> name_ {};
+    // The parent folder ID.
     shared_ptr<string> parentId_ {};
   };
 

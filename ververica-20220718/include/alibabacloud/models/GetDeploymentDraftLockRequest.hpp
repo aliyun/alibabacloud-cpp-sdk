@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the job draft. You can get this ID by calling the ListDeploymentDrafts operation.
+    // 
     // This parameter is required.
     shared_ptr<string> deploymentDraftId_ {};
   };

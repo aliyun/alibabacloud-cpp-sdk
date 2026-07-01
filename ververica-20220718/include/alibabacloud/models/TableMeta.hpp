@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The catalog name.
     shared_ptr<string> catalogName_ {};
+    // The database name.
     shared_ptr<string> databaseName_ {};
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

@@ -89,11 +89,13 @@ namespace Models
   protected:
     // The lineage information.
     shared_ptr<LineageInfo> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If the value of success was false, an error code was returned.
+    // 
+    // - If the value of success was true, a null value was returned.
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If the value of success was false, an error message was returned.
+    // 
+    // - If the value of success was true, a null value was returned.
     shared_ptr<string> errorMessage_ {};
     // The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
     shared_ptr<int32_t> httpCode_ {};

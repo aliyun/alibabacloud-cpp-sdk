@@ -98,16 +98,19 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // *   If the value of success was true, the details of the job was returned.
-    // *   If the value of success was false, a null value was returned.
+    // - The job instance information if `success` is `true`.
+    // 
+    // - An empty object if `success` is `false`.
     shared_ptr<Job> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - An error code if `success` is `false`.
+    // 
+    // - An empty string if `success` is `true`.
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - An error message if `success` is `false`.
+    // 
+    // - An empty string if `success` is `true`.
     shared_ptr<string> errorMessage_ {};
-    // The value was fixed to 200.
+    // A fixed value of 200.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

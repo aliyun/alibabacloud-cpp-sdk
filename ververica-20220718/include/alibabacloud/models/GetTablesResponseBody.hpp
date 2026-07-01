@@ -88,12 +88,21 @@ namespace Models
 
 
   protected:
-    // If the value of success was true, the list and details of tables that meet the condition were returned. If the value of success was false, a null value was returned.
+    // If success is true, a list of tables that meet the criteria and their details are returned. If success is false, this parameter is empty.
     shared_ptr<vector<Table>> data_ {};
+    // - If success is false, an error code is returned.
+    // 
+    // - If success is true, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If success is false, an error message is returned.
+    // 
+    // - If success is true, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The business status code. This is always 200. Use the success parameter to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

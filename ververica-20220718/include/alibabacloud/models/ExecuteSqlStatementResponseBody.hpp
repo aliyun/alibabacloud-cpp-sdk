@@ -87,12 +87,21 @@ namespace Models
 
 
   protected:
-    // The result of executing the SQL statement to query the metadata.
+    // The result of the SQL statement execution for metadata.
     shared_ptr<SqlStatementExecuteResult> data_ {};
+    // - If \\`success\\` is \\`false\\`, an error code is returned.
+    // 
+    // - If \\`success\\` is \\`true\\`, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If \\`success\\` is \\`false\\`, an error message is returned.
+    // 
+    // - If \\`success\\` is \\`true\\`, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The status code. The value is always 200. Use the \\`success\\` parameter to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

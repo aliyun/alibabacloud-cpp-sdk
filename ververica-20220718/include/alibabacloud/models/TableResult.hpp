@@ -61,8 +61,10 @@ namespace Models
 
 
   protected:
+    // The ID of the collect sink operator.
     shared_ptr<string> collectSinkOperatorId_ {};
     shared_ptr<vector<RowUpdate>> rowUpdates_ {};
+    // The name of the table.
     shared_ptr<string> tableName_ {};
   };
 

@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The data structure of the updated session cluster.
     shared_ptr<SessionCluster> data_ {};
+    // The error code returned if the request fails. This parameter is empty if the request is successful.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails. This parameter is empty if the request is successful.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. The value is always 200. Use the \\`success\\` parameter to determine if the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

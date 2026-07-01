@@ -118,10 +118,6 @@ namespace Models
     Darabonba::Json properties_ {};
     // The schema information about the table.
     shared_ptr<Schema> schema_ {};
-    // TABLE;
-    //   MATERIALIZED_TABLE;
-    //   VIEW;
-    // 
     // This parameter is required.
     shared_ptr<string> tableType_ {};
   };

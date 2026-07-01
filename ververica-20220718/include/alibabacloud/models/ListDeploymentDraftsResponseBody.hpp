@@ -116,14 +116,27 @@ namespace Models
 
 
   protected:
+    // A list of job drafts that match the query. This parameter is returned if the request is successful. If the request fails, this parameter is empty.
     shared_ptr<vector<DeploymentDraft>> data_ {};
+    // - If the request fails, the error code is returned.
+    // 
+    // - If the request is successful, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If the request fails, the error message is returned.
+    // 
+    // - If the request is successful, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. If this parameter is not empty and its value is not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The page number of the returned page.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries on the returned page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalSize_ {};
   };
 

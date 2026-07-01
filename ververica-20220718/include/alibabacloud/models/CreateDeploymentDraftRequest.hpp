@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The data structure of the job draft.
+    // 
     // This parameter is required.
     shared_ptr<DeploymentDraft> body_ {};
   };

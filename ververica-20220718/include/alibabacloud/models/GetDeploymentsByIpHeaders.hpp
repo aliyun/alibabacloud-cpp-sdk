@@ -52,6 +52,8 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};
   };

@@ -163,9 +163,11 @@ namespace Models
     shared_ptr<string> savepointLocation_ {};
     // The method that is used to create a savepoint.
     // 
-    // *   `USER_REQUEST`: The savepoint is manually created.
-    // *   `STOP_WITH_SAVEPOINT`: The savepoint is created when you cancel the deployment.
-    // *   `RETAINED_CHECKPOINT`: The savepoint is created based on the returned checkpoint.
+    // - `USER_REQUEST`: The savepoint is manually created.
+    // 
+    // - `STOP_WITH_SAVEPOINT`: The savepoint is created when you cancel the deployment.
+    // 
+    // - `RETAINED_CHECKPOINT`: The savepoint is created based on the returned checkpoint.
     shared_ptr<string> savepointOrigin_ {};
     // The status of the savepoint.
     shared_ptr<SavepointStatus> status_ {};

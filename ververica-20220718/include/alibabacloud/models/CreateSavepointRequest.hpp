@@ -65,8 +65,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to use the native format mode. Valid values:
     // 
-    // *   true: The native format mode is used.
-    // *   false: The native format mode is not used.
+    // - true: The native format mode is used.
+    // 
+    // - false: The native format mode is not used.
     shared_ptr<bool> nativeFormat_ {};
   };
 

@@ -87,18 +87,23 @@ namespace Models
 
 
   protected:
+    // Required for a data ingestion job.
     shared_ptr<CdcYamlArtifact> cdcYamlArtifact_ {};
-    // The information required for the SQL deployment.
+    // Required for a JAR job.
     shared_ptr<JarArtifact> jarArtifact_ {};
-    // The type of the deployment. This parameter is required and cannot be modified after the deployment is created.
+    // Specifies the kind of job. This field is required and cannot be changed after creation.
     // 
-    // *   SQLSCRIPT
-    // *   JAR
-    // *   PYTHON
+    // - SQLSCRIPT: An SQL job.
+    // 
+    // - JAR: A JAR job.
+    // 
+    // - PYTHON: A Python job.
+    // 
+    // - CDCYAML: A CDC data ingestion job.
     shared_ptr<string> kind_ {};
-    // The information required for the Python deployment.
+    // Required for a Python job.
     shared_ptr<PythonArtifact> pythonArtifact_ {};
-    // The information required for the JAR deployment.
+    // Required for an SQL job.
     shared_ptr<SqlArtifact> sqlArtifact_ {};
   };
 

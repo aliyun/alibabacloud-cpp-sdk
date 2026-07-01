@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The data structure of the session cluster to be updated.
     shared_ptr<SessionCluster> body_ {};
   };
 

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The parameter that is used to stop the job.
+    // The parameters to stop the job instance.
     // 
     // This parameter is required.
     shared_ptr<StopJobRequestBody> body_ {};

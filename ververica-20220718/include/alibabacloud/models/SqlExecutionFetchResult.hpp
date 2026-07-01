@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The result of the data query language (DQL) statement.
     shared_ptr<DqlResult> dqlResult_ {};
+    // The information about the SQL execution.
     shared_ptr<SqlExecution> sqlExecution_ {};
   };
 

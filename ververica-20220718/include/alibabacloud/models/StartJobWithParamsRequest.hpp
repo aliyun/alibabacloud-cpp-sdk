@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The parameter that is used to start the job.
+    // Parameters to start the job instance.
     shared_ptr<JobStartParameters> body_ {};
   };
 

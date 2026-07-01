@@ -116,14 +116,23 @@ namespace Models
 
 
   protected:
+    // The list of jobs that meet the filter criteria. This parameter is returned only when the request is successful.
     shared_ptr<vector<ScheduledPlanExecutedInfo>> data_ {};
+    // The error code that is returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message that is returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. The value is always 200. Use the \\`success\\` parameter to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The page number of the returned page.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries on the returned page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries that meet the filter criteria.
     shared_ptr<int32_t> totalSize_ {};
   };
 

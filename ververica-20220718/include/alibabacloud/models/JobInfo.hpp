@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // The job instance ID.
     shared_ptr<string> id_ {};
+    // The job details.
     Darabonba::Json properties_ {};
   };
 

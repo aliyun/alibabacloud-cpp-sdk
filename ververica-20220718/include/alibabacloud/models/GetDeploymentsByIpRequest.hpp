@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The destination IP address. This parameter is used to match the destination sink address of a job.
     shared_ptr<string> dstIp_ {};
+    // The destination port. Use this parameter with dstIp.
     shared_ptr<string> dstPort_ {};
+    // Specifies whether to exclude the job summary from the response. If you exclude the summary, only deployment information is returned. This improves performance.
     shared_ptr<bool> ignoreJobSummary_ {};
+    // Specifies whether to exclude resource configuration information. This reduces the size of the returned data.
     shared_ptr<bool> ignoreResourceSetting_ {};
+    // The source IP address. This parameter is used to match the input source address of a job.
     shared_ptr<string> srcIp_ {};
+    // The source port. Use this parameter with srcIp for an exact match of the connection.
     shared_ptr<string> srcPort_ {};
   };
 

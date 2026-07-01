@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The page number to return. The default value is 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries to return on each page. The default value is 10. The maximum value is 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

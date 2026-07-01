@@ -81,8 +81,9 @@ namespace Models
     shared_ptr<LogReservePolicy> logReservePolicy_ {};
     // The type of the system log template.
     // 
-    // *   default: The default template is used.
-    // *   oss: Logs are delivered to Object Storage Service (OSS).
+    // - default: The default template is used.
+    // 
+    // - oss: Logs are delivered to Object Storage Service (OSS).
     shared_ptr<string> loggingProfile_ {};
   };
 

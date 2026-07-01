@@ -126,26 +126,29 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // *   If the value of success was true, all jobs that meet the condition were returned.
-    // *   If the value of success was false, a null value was returned.
+    // - An array of job instances for a successful request (when `success` is `true`).
+    // 
+    // - An empty array for a failed request (when `success` is `false`).
     shared_ptr<vector<Job>> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - The error code for a failed request (when `success` is `false`).
+    // 
+    // - An empty string if the request is successful (when `success` is `true`).
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - The error message for a failed request (when `success` is `false`).
+    // 
+    // - An empty string if the request is successful (when `success` is `true`).
     shared_ptr<string> errorMessage_ {};
-    // The value was fixed to 200.
+    // A fixed value of 200.
     shared_ptr<int32_t> httpCode_ {};
-    // The page number.
+    // The page number of the returned results.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalSize_ {};
   };
 

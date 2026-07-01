@@ -97,21 +97,25 @@ namespace Models
 
 
   protected:
+    // The detailed information about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // *   If the value of success was true, the job that you created was returned.
-    // *   If the value of success was false, a null value was returned.
+    // - When \\`success\\` is \\`true\\`, the created instance information is returned.
+    // 
+    // - Returns an empty value if \\`success\\` is false.
     shared_ptr<Job> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If success is false, the call returns a business error code.If success is true, the call returns business data. The following table describes the data format.If success is true, the call returns business data. The following table describes the data format.
+    // 
+    // - When success is true, an empty value is returned.
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If success is false, a business error message is returned.
+    // 
+    // - When \\`success\\` is true, an empty value is returned.
     shared_ptr<string> errorMessage_ {};
-    // The value was fixed to 200.
+    // Fixed value: 200.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the service request was successful.
     shared_ptr<bool> success_ {};
   };
 

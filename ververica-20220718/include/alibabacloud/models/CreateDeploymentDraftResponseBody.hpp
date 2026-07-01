@@ -87,11 +87,21 @@ namespace Models
 
 
   protected:
+    // The data structure of the job draft.
     shared_ptr<DeploymentDraft> data_ {};
+    // - If \\`success\\` is \\`false\\`, an error code is returned.
+    // 
+    // - If \\`success\\` is \\`true\\`, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If \\`success\\` is \\`false\\`, an error message is returned.
+    // 
+    // - If \\`success\\` is \\`true\\`, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // Indicates whether the request was successful. A value other than 200 indicates that the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

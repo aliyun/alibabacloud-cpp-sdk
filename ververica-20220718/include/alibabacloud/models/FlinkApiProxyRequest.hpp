@@ -80,8 +80,9 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     // The type of the resource. Valid values:
     // 
-    // *   jobs
-    // *   sessionclusters
+    // - jobs
+    // 
+    // - sessionclusters
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

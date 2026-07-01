@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The deployment target resource.
     shared_ptr<Resource> body_ {};
   };
 

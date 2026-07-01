@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Folder ID. If empty, the root folder is returned.
     shared_ptr<string> folderId_ {};
+    // The type of the root folder.
     shared_ptr<string> rootType_ {};
   };
 

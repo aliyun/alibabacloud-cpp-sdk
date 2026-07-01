@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The parallelism.
     shared_ptr<int64_t> jobParallelism_ {};
   };
 

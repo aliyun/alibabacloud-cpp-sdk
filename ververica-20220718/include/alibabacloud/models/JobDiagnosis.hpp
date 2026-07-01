@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const JobDiagnosis& obj) { 
       DARABONBA_PTR_TO_JSON(diagnoseId, diagnoseId_);
       DARABONBA_PTR_TO_JSON(diagnoseTime, diagnoseTime_);
+      DARABONBA_PTR_TO_JSON(healthScore, healthScore_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
       DARABONBA_PTR_TO_JSON(riskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(symptoms, symptoms_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, JobDiagnosis& obj) { 
       DARABONBA_PTR_FROM_JSON(diagnoseId, diagnoseId_);
       DARABONBA_PTR_FROM_JSON(diagnoseTime, diagnoseTime_);
+      DARABONBA_PTR_FROM_JSON(healthScore, healthScore_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(riskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(symptoms, symptoms_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diagnoseId_ == nullptr
-        && this->diagnoseTime_ == nullptr && this->namespace_ == nullptr && this->riskLevel_ == nullptr && this->symptoms_ == nullptr && this->workspace_ == nullptr; };
+        && this->diagnoseTime_ == nullptr && this->healthScore_ == nullptr && this->namespace_ == nullptr && this->riskLevel_ == nullptr && this->symptoms_ == nullptr
+        && this->workspace_ == nullptr; };
     // diagnoseId Field Functions 
     bool hasDiagnoseId() const { return this->diagnoseId_ != nullptr;};
     void deleteDiagnoseId() { this->diagnoseId_ = nullptr;};
@@ -54,6 +57,13 @@ namespace Models
     void deleteDiagnoseTime() { this->diagnoseTime_ = nullptr;};
     inline int64_t getDiagnoseTime() const { DARABONBA_PTR_GET_DEFAULT(diagnoseTime_, 0L) };
     inline JobDiagnosis& setDiagnoseTime(int64_t diagnoseTime) { DARABONBA_PTR_SET_VALUE(diagnoseTime_, diagnoseTime) };
+
+
+    // healthScore Field Functions 
+    bool hasHealthScore() const { return this->healthScore_ != nullptr;};
+    void deleteHealthScore() { this->healthScore_ = nullptr;};
+    inline int32_t getHealthScore() const { DARABONBA_PTR_GET_DEFAULT(healthScore_, 0) };
+    inline JobDiagnosis& setHealthScore(int32_t healthScore) { DARABONBA_PTR_SET_VALUE(healthScore_, healthScore) };
 
 
     // namespace Field Functions 
@@ -87,23 +97,18 @@ namespace Models
 
 
   protected:
-    // The diagnostic task ID.
+    // The diagnostic ID.
     shared_ptr<string> diagnoseId_ {};
-    // The time when the deployment is diagnosed.
+    // The diagnostic time.
     shared_ptr<int64_t> diagnoseTime_ {};
+    shared_ptr<int32_t> healthScore_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The severity level of the risk.
-    // 
-    // Valid values:
-    // 
-    // *   RISK_LEVEL_HIGH
-    // *   RISK_LEVEL_MID
-    // *   RISK_LEVEL_LOW
+    // The risk level.
     shared_ptr<string> riskLevel_ {};
     // The diagnostic details.
     shared_ptr<JobDiagnosisSymptoms> symptoms_ {};
-    // The workspace to which the deployment belongs.
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

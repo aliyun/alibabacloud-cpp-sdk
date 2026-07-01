@@ -98,15 +98,15 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // The details of the job of the deployment returned.
+    // Details of the job instance created from the deployment.
     shared_ptr<Job> data_ {};
-    // If the value of success was false, an error code was returned. If the value of success was true, a null value was returned.
+    // The error code. This field is populated only when `success` is `false` and is empty otherwise.
     shared_ptr<string> errorCode_ {};
-    // If the value of success was false, an error message was returned. If the value of success was true, a null value was returned.
+    // The error message. This field is populated only when `success` is `false` and is empty otherwise.
     shared_ptr<string> errorMessage_ {};
-    // The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+    // The HTTP status code. This value is always 200. Use the `success` field to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -89,11 +89,13 @@ namespace Models
   protected:
     // The information returned after the folder is updated.
     shared_ptr<Folder> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If the value of success was false, an error code was returned.
+    // 
+    // - If the value of success was true, a null value was returned.
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If the value of success was false, an error message was returned.
+    // 
+    // - If the value of success was true, a null value was returned.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code. If this parameter was not empty and the value of this parameter was not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};

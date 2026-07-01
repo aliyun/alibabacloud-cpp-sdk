@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Specifies whether to exclude job summary information, such as jobName and status, from the response. Set this to true to return only the JobId and improve performance.
     shared_ptr<bool> ignoreJobSummary_ {};
+    // Specifies whether to exclude resource configuration information, such as parallelism and the number of CUs, to reduce the response size.
     shared_ptr<bool> ignoreResourceSetting_ {};
   };
 

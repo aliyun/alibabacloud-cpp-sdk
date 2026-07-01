@@ -69,8 +69,12 @@ namespace Models
 
 
   protected:
+    // The primary key column group.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> columns_ {};
+    // The constraint name.
+    // 
     // This parameter is required.
     shared_ptr<string> constraintName_ {};
     // This parameter is required.

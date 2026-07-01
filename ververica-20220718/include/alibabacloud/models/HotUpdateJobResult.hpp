@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // 动态更新参数。
     shared_ptr<HotUpdateJobParams> hotUpdateParams_ {};
+    // 动态更新id。
     shared_ptr<string> jobHotUpdateId_ {};
+    // 作业实例id。
     shared_ptr<string> jobId_ {};
+    // 动态更新状态。
     shared_ptr<HotUpdateJobStatus> status_ {};
+    // 目标作业资源配置。
     shared_ptr<BriefResourceSetting> targetResourceSetting_ {};
   };
 

@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The details of the abnormal diagnostic items.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The diagnostics result.
     shared_ptr<JobDiagnosis> data_ {};
+    // The error code. This parameter is not empty when success is false, indicating a business error code. This parameter is empty when success is true.
     shared_ptr<string> errorCode_ {};
+    // The error message. This parameter is not empty when success is false, indicating a business error message. This parameter is empty when success is true.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code, which is always 200. Use the success parameter to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

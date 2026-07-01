@@ -116,14 +116,23 @@ namespace Models
 
 
   protected:
+    // A list of runtime events matching the filter criteria. Returned only when the request is successful (`success` is `true`).
     shared_ptr<vector<Event>> data_ {};
+    // The business error code. Returned only when the request fails (that is, `success` is `false`).
     shared_ptr<string> errorCode_ {};
+    // The business error message. Returned only when the request fails (that is, `success` is `false`).
     shared_ptr<string> errorMessage_ {};
+    // The business status code. This field always returns `200`. To confirm the request\\"s success, check the `success` parameter.
     shared_ptr<int32_t> httpCode_ {};
+    // The page number of the returned page.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries on this page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the business request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalSize_ {};
   };
 

@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // The statement index.
     shared_ptr<int32_t> statementIndex_ {};
+    // The submit preview results.
     shared_ptr<SubmitPreviewResult> submitPreviewResult_ {};
+    // The table results.
     shared_ptr<vector<TableResult>> tableResults_ {};
   };
 

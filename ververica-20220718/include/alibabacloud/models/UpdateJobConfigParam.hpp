@@ -40,6 +40,7 @@ namespace Models
 
 
   protected:
+    // The job parameter configuration.
     Darabonba::Json newFlinkConf_ {};
   };
 

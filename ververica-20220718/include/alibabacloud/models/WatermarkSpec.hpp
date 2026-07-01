@@ -57,7 +57,9 @@ namespace Models
 
 
   protected:
+    // The column of the event time attribute.
     shared_ptr<string> column_ {};
+    // The watermark expression.
     shared_ptr<string> watermarkExpression_ {};
     shared_ptr<string> watermarkType_ {};
   };

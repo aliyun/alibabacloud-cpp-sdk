@@ -116,14 +116,23 @@ namespace Models
 
 
   protected:
+    // The list of scheduled plans that meet the filter criteria. This parameter is returned only if the request is successful. If the request fails, this parameter is empty.
     shared_ptr<vector<ScheduledPlan>> data_ {};
+    // The error code returned if the request fails. This parameter is empty if the request is successful.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails. This parameter is empty if the request is successful.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. The value is always 200. Use the \\`success\\` parameter to determine if the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // A paging parameter that specifies the page index to return.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries on the returned page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalSize_ {};
   };
 

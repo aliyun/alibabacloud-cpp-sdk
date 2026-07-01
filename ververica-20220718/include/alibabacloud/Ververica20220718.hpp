@@ -21,7 +21,7 @@ namespace Ververica20220718
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Executes a scheduled plan.
+       * @summary This operation applies a scheduled plan.
        *
        * @param headers ApplyScheduledPlanHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Ververica20220718
       Models::ApplyScheduledPlanResponse applyScheduledPlanWithOptions(const string &_namespace, const string &scheduledPlanId, const Models::ApplyScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes a scheduled plan.
+       * @summary This operation applies a scheduled plan.
        *
        * @return ApplyScheduledPlanResponse
        */
@@ -73,7 +73,7 @@ namespace Ververica20220718
       Models::CreateDeploymentResponse createDeployment(const string &_namespace, const Models::CreateDeploymentRequest &request);
 
       /**
-       * @summary Creates an SQL draft.
+       * @summary Creates a draft for an SQL or data ingestion job.
        *
        * @param request CreateDeploymentDraftRequest
        * @param headers CreateDeploymentDraftHeaders
@@ -83,7 +83,7 @@ namespace Ververica20220718
       Models::CreateDeploymentDraftResponse createDeploymentDraftWithOptions(const string &_namespace, const Models::CreateDeploymentDraftRequest &request, const Models::CreateDeploymentDraftHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an SQL draft.
+       * @summary Creates a draft for an SQL or data ingestion job.
        *
        * @param request CreateDeploymentDraftRequest
        * @return CreateDeploymentDraftResponse
@@ -109,7 +109,9 @@ namespace Ververica20220718
       Models::CreateDeploymentTargetResponse createDeploymentTarget(const string &_namespace, const Models::CreateDeploymentTargetRequest &request);
 
       /**
-       * @summary 创建部署目标V2
+       * @summary Creates a deployment target.
+       *
+       * @description The previous API for creating deployment targets supported only fixed or elastic resources. This new API supports fixed resources, elastic resources, and mixed mode.
        *
        * @param request CreateDeploymentTargetV2Request
        * @param headers CreateDeploymentTargetV2Headers
@@ -119,7 +121,9 @@ namespace Ververica20220718
       Models::CreateDeploymentTargetV2Response createDeploymentTargetV2WithOptions(const string &_namespace, const Models::CreateDeploymentTargetV2Request &request, const Models::CreateDeploymentTargetV2Headers &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建部署目标V2
+       * @summary Creates a deployment target.
+       *
+       * @description The previous API for creating deployment targets supported only fixed or elastic resources. This new API supports fixed resources, elastic resources, and mixed mode.
        *
        * @param request CreateDeploymentTargetV2Request
        * @return CreateDeploymentTargetV2Response
@@ -181,7 +185,7 @@ namespace Ververica20220718
       Models::CreateSavepointResponse createSavepoint(const string &_namespace, const Models::CreateSavepointRequest &request);
 
       /**
-       * @summary Creates a scheduled tuning plan.
+       * @summary Creates a scheduled plan.
        *
        * @param request CreateScheduledPlanRequest
        * @param headers CreateScheduledPlanHeaders
@@ -191,7 +195,7 @@ namespace Ververica20220718
       Models::CreateScheduledPlanResponse createScheduledPlanWithOptions(const string &_namespace, const Models::CreateScheduledPlanRequest &request, const Models::CreateScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scheduled tuning plan.
+       * @summary Creates a scheduled plan.
        *
        * @param request CreateScheduledPlanRequest
        * @return CreateScheduledPlanResponse
@@ -199,7 +203,7 @@ namespace Ververica20220718
       Models::CreateScheduledPlanResponse createScheduledPlan(const string &_namespace, const Models::CreateScheduledPlanRequest &request);
 
       /**
-       * @summary Create a session cluster
+       * @summary Creates a session cluster.
        *
        * @param request CreateSessionClusterRequest
        * @param headers CreateSessionClusterHeaders
@@ -209,7 +213,7 @@ namespace Ververica20220718
       Models::CreateSessionClusterResponse createSessionClusterWithOptions(const string &_namespace, const Models::CreateSessionClusterRequest &request, const Models::CreateSessionClusterHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a session cluster
+       * @summary Creates a session cluster.
        *
        * @param request CreateSessionClusterRequest
        * @return CreateSessionClusterResponse
@@ -285,7 +289,7 @@ namespace Ververica20220718
       Models::DeleteDeploymentResponse deleteDeployment(const string &_namespace, const string &deploymentId);
 
       /**
-       * @summary Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
+       * @summary Deletes a draft of an SQL or data ingestion job. The draft cannot be deleted if it has any published or running deployment.
        *
        * @param headers DeleteDeploymentDraftHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -294,7 +298,7 @@ namespace Ververica20220718
       Models::DeleteDeploymentDraftResponse deleteDeploymentDraftWithOptions(const string &_namespace, const string &deploymentDraftId, const Models::DeleteDeploymentDraftHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
+       * @summary Deletes a draft of an SQL or data ingestion job. The draft cannot be deleted if it has any published or running deployment.
        *
        * @return DeleteDeploymentDraftResponse
        */
@@ -381,7 +385,7 @@ namespace Ververica20220718
       Models::DeleteSavepointResponse deleteSavepoint(const string &_namespace, const string &savepointId);
 
       /**
-       * @summary Deletes a scheduled tuning plan.
+       * @summary Deletes a scheduled plan.
        *
        * @param headers DeleteScheduledPlanHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -390,7 +394,7 @@ namespace Ververica20220718
       Models::DeleteScheduledPlanResponse deleteScheduledPlanWithOptions(const string &_namespace, const string &scheduledPlanId, const Models::DeleteScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a scheduled tuning plan.
+       * @summary Deletes a scheduled plan.
        *
        * @return DeleteScheduledPlanResponse
        */
@@ -413,7 +417,7 @@ namespace Ververica20220718
       Models::DeleteSessionClusterResponse deleteSessionCluster(const string &_namespace, const string &sessionClusterName);
 
       /**
-       * @summary Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
+       * @summary Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
        *
        * @param headers DeleteUdfArtifactHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -422,7 +426,7 @@ namespace Ververica20220718
       Models::DeleteUdfArtifactResponse deleteUdfArtifactWithOptions(const string &_namespace, const string &udfArtifactName, const Models::DeleteUdfArtifactHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
+       * @summary Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
        *
        * @return DeleteUdfArtifactResponse
        */
@@ -463,7 +467,7 @@ namespace Ververica20220718
       Models::DeleteVariableResponse deleteVariable(const string &_namespace, const string &name);
 
       /**
-       * @summary Deploys an SQL draft.
+       * @summary Deploys a draft of an SQL job.
        *
        * @param request DeployDeploymentDraftAsyncRequest
        * @param headers DeployDeploymentDraftAsyncHeaders
@@ -473,7 +477,7 @@ namespace Ververica20220718
       Models::DeployDeploymentDraftAsyncResponse deployDeploymentDraftAsyncWithOptions(const string &_namespace, const Models::DeployDeploymentDraftAsyncRequest &request, const Models::DeployDeploymentDraftAsyncHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploys an SQL draft.
+       * @summary Deploys a draft of an SQL job.
        *
        * @param request DeployDeploymentDraftAsyncRequest
        * @return DeployDeploymentDraftAsyncResponse
@@ -481,7 +485,7 @@ namespace Ververica20220718
       Models::DeployDeploymentDraftAsyncResponse deployDeploymentDraftAsync(const string &_namespace, const Models::DeployDeploymentDraftAsyncRequest &request);
 
       /**
-       * @summary Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
+       * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
        *
        * @param request ExecuteSqlStatementRequest
        * @param headers ExecuteSqlStatementHeaders
@@ -491,7 +495,7 @@ namespace Ververica20220718
       Models::ExecuteSqlStatementResponse executeSqlStatementWithOptions(const string &_namespace, const Models::ExecuteSqlStatementRequest &request, const Models::ExecuteSqlStatementHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
+       * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
        *
        * @param request ExecuteSqlStatementRequest
        * @return ExecuteSqlStatementResponse
@@ -553,7 +557,7 @@ namespace Ververica20220718
       Models::GenerateResourcePlanWithFlinkConfAsyncResponse generateResourcePlanWithFlinkConfAsync(const string &_namespace, const string &deploymentId, const Models::GenerateResourcePlanWithFlinkConfAsyncRequest &request);
 
       /**
-       * @summary Queries the scheduled plan of an application.
+       * @summary Retrieves the execution plan for an application.
        *
        * @param request GetAppliedScheduledPlanRequest
        * @param headers GetAppliedScheduledPlanHeaders
@@ -563,7 +567,7 @@ namespace Ververica20220718
       Models::GetAppliedScheduledPlanResponse getAppliedScheduledPlanWithOptions(const string &_namespace, const Models::GetAppliedScheduledPlanRequest &request, const Models::GetAppliedScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scheduled plan of an application.
+       * @summary Retrieves the execution plan for an application.
        *
        * @param request GetAppliedScheduledPlanRequest
        * @return GetAppliedScheduledPlanResponse
@@ -571,7 +575,7 @@ namespace Ververica20220718
       Models::GetAppliedScheduledPlanResponse getAppliedScheduledPlan(const string &_namespace, const Models::GetAppliedScheduledPlanRequest &request);
 
       /**
-       * @summary Obtains details of the specified catalog or all catalogs.
+       * @summary Retrieves the details of a specified catalog or all catalogs.
        *
        * @param request GetCatalogsRequest
        * @param headers GetCatalogsHeaders
@@ -581,7 +585,7 @@ namespace Ververica20220718
       Models::GetCatalogsResponse getCatalogsWithOptions(const string &_namespace, const Models::GetCatalogsRequest &request, const Models::GetCatalogsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains details of the specified catalog or all catalogs.
+       * @summary Retrieves the details of a specified catalog or all catalogs.
        *
        * @param request GetCatalogsRequest
        * @return GetCatalogsResponse
@@ -589,7 +593,7 @@ namespace Ververica20220718
       Models::GetCatalogsResponse getCatalogs(const string &_namespace, const Models::GetCatalogsRequest &request);
 
       /**
-       * @summary Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
+       * @summary Retrieves information about one or more databases in a specified catalog.
        *
        * @param request GetDatabasesRequest
        * @param headers GetDatabasesHeaders
@@ -599,7 +603,7 @@ namespace Ververica20220718
       Models::GetDatabasesResponse getDatabasesWithOptions(const string &_namespace, const string &catalogName, const Models::GetDatabasesRequest &request, const Models::GetDatabasesHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
+       * @summary Retrieves information about one or more databases in a specified catalog.
        *
        * @param request GetDatabasesRequest
        * @return GetDatabasesResponse
@@ -607,7 +611,7 @@ namespace Ververica20220718
       Models::GetDatabasesResponse getDatabases(const string &_namespace, const string &catalogName, const Models::GetDatabasesRequest &request);
 
       /**
-       * @summary Obtains the deployment result based on the ID of the asynchronous ticket.
+       * @summary Checks the deployment result of a job draft.
        *
        * @param headers GetDeployDeploymentDraftResultHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,7 +620,7 @@ namespace Ververica20220718
       Models::GetDeployDeploymentDraftResultResponse getDeployDeploymentDraftResultWithOptions(const string &_namespace, const string &ticketId, const Models::GetDeployDeploymentDraftResultHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the deployment result based on the ID of the asynchronous ticket.
+       * @summary Checks the deployment result of a job draft.
        *
        * @return GetDeployDeploymentDraftResultResponse
        */
@@ -639,7 +643,7 @@ namespace Ververica20220718
       Models::GetDeploymentResponse getDeployment(const string &_namespace, const string &deploymentId);
 
       /**
-       * @summary Obtains the details of an SQL draft.
+       * @summary Retrieves the details of an SQL or data ingestion job draft.
        *
        * @param headers GetDeploymentDraftHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -648,14 +652,14 @@ namespace Ververica20220718
       Models::GetDeploymentDraftResponse getDeploymentDraftWithOptions(const string &_namespace, const string &deploymentDraftId, const Models::GetDeploymentDraftHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of an SQL draft.
+       * @summary Retrieves the details of an SQL or data ingestion job draft.
        *
        * @return GetDeploymentDraftResponse
        */
       Models::GetDeploymentDraftResponse getDeploymentDraft(const string &_namespace, const string &deploymentDraftId);
 
       /**
-       * @summary Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
+       * @summary Before using an API to edit, validate, or deploy a job draft, you must acquire an edit lock to prevent conflicts between user interface (UI) and API operations. Acquiring this lock requires either the "Develop SQL/YAML Job (Create, Edit)" or "Unlock SQL/YAML Job Draft" permission.
        *
        * @param request GetDeploymentDraftLockRequest
        * @param headers GetDeploymentDraftLockHeaders
@@ -665,7 +669,7 @@ namespace Ververica20220718
       Models::GetDeploymentDraftLockResponse getDeploymentDraftLockWithOptions(const string &_namespace, const Models::GetDeploymentDraftLockRequest &request, const Models::GetDeploymentDraftLockHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
+       * @summary Before using an API to edit, validate, or deploy a job draft, you must acquire an edit lock to prevent conflicts between user interface (UI) and API operations. Acquiring this lock requires either the "Develop SQL/YAML Job (Create, Edit)" or "Unlock SQL/YAML Job Draft" permission.
        *
        * @param request GetDeploymentDraftLockRequest
        * @return GetDeploymentDraftLockResponse
@@ -673,7 +677,9 @@ namespace Ververica20220718
       Models::GetDeploymentDraftLockResponse getDeploymentDraftLock(const string &_namespace, const Models::GetDeploymentDraftLockRequest &request);
 
       /**
-       * @summary 通过Ip获取已部署作业
+       * @summary Gets a list of deployed jobs and their information on a node by a specified IP address.
+       *
+       * @description Use this operation to query for associated Flink deployments based on the source or destination IP address and port of a network connection.
        *
        * @param request GetDeploymentsByIpRequest
        * @param headers GetDeploymentsByIpHeaders
@@ -683,7 +689,9 @@ namespace Ververica20220718
       Models::GetDeploymentsByIpResponse getDeploymentsByIpWithOptions(const string &_namespace, const Models::GetDeploymentsByIpRequest &request, const Models::GetDeploymentsByIpHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过Ip获取已部署作业
+       * @summary Gets a list of deployed jobs and their information on a node by a specified IP address.
+       *
+       * @description Use this operation to query for associated Flink deployments based on the source or destination IP address and port of a network connection.
        *
        * @param request GetDeploymentsByIpRequest
        * @return GetDeploymentsByIpResponse
@@ -691,7 +699,9 @@ namespace Ververica20220718
       Models::GetDeploymentsByIpResponse getDeploymentsByIp(const string &_namespace, const Models::GetDeploymentsByIpRequest &request);
 
       /**
-       * @summary 通过标签获取已部署作业
+       * @summary Queries a list of deployed jobs and their information by a specified label.
+       *
+       * @description Queries a list of deployed jobs and their details by a specified job label. The query performs an exact match on the `labelKey` and `labelValue`.
        *
        * @param request GetDeploymentsByLabelRequest
        * @param headers GetDeploymentsByLabelHeaders
@@ -701,7 +711,9 @@ namespace Ververica20220718
       Models::GetDeploymentsByLabelResponse getDeploymentsByLabelWithOptions(const string &_namespace, const Models::GetDeploymentsByLabelRequest &request, const Models::GetDeploymentsByLabelHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过标签获取已部署作业
+       * @summary Queries a list of deployed jobs and their information by a specified label.
+       *
+       * @description Queries a list of deployed jobs and their details by a specified job label. The query performs an exact match on the `labelKey` and `labelValue`.
        *
        * @param request GetDeploymentsByLabelRequest
        * @return GetDeploymentsByLabelResponse
@@ -709,7 +721,7 @@ namespace Ververica20220718
       Models::GetDeploymentsByLabelResponse getDeploymentsByLabel(const string &_namespace, const Models::GetDeploymentsByLabelRequest &request);
 
       /**
-       * @summary 通过名称获取已部署作业
+       * @summary Retrieves deployed job instances by name from a specified workspace and namespace.
        *
        * @param request GetDeploymentsByNameRequest
        * @param headers GetDeploymentsByNameHeaders
@@ -719,7 +731,7 @@ namespace Ververica20220718
       Models::GetDeploymentsByNameResponse getDeploymentsByNameWithOptions(const string &_namespace, const string &deploymentName, const Models::GetDeploymentsByNameRequest &request, const Models::GetDeploymentsByNameHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过名称获取已部署作业
+       * @summary Retrieves deployed job instances by name from a specified workspace and namespace.
        *
        * @param request GetDeploymentsByNameRequest
        * @return GetDeploymentsByNameResponse
@@ -727,7 +739,7 @@ namespace Ververica20220718
       Models::GetDeploymentsByNameResponse getDeploymentsByName(const string &_namespace, const string &deploymentName, const Models::GetDeploymentsByNameRequest &request);
 
       /**
-       * @summary Queries events.
+       * @summary Retrieves runtime events.
        *
        * @param request GetEventsRequest
        * @param headers GetEventsHeaders
@@ -737,7 +749,7 @@ namespace Ververica20220718
       Models::GetEventsResponse getEventsWithOptions(const string &_namespace, const Models::GetEventsRequest &request, const Models::GetEventsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries events.
+       * @summary Retrieves runtime events.
        *
        * @param request GetEventsRequest
        * @return GetEventsResponse
@@ -745,7 +757,7 @@ namespace Ververica20220718
       Models::GetEventsResponse getEvents(const string &_namespace, const Models::GetEventsRequest &request);
 
       /**
-       * @summary Obtains the details of a folder.
+       * @summary Retrieves specific folder information.
        *
        * @param request GetFolderRequest
        * @param headers GetFolderHeaders
@@ -755,7 +767,7 @@ namespace Ververica20220718
       Models::GetFolderResponse getFolderWithOptions(const string &_namespace, const Models::GetFolderRequest &request, const Models::GetFolderHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a folder.
+       * @summary Retrieves specific folder information.
        *
        * @param request GetFolderRequest
        * @return GetFolderResponse
@@ -779,7 +791,7 @@ namespace Ververica20220718
       Models::GetGenerateResourcePlanResultResponse getGenerateResourcePlanResult(const string &_namespace, const string &ticketId);
 
       /**
-       * @summary Obtains the dynamic update result of a deployment when you dynamically update the deployment.
+       * @summary Retrieves the result of a hot update for a job.
        *
        * @param headers GetHotUpdateJobResultHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -788,14 +800,14 @@ namespace Ververica20220718
       Models::GetHotUpdateJobResultResponse getHotUpdateJobResultWithOptions(const string &_namespace, const string &jobHotUpdateId, const Models::GetHotUpdateJobResultHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the dynamic update result of a deployment when you dynamically update the deployment.
+       * @summary Retrieves the result of a hot update for a job.
        *
        * @return GetHotUpdateJobResultResponse
        */
       Models::GetHotUpdateJobResultResponse getHotUpdateJobResult(const string &_namespace, const string &jobHotUpdateId);
 
       /**
-       * @summary Obtains the details of a job.
+       * @summary Retrieves detailed information about a job instance.
        *
        * @param headers GetJobHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -804,14 +816,14 @@ namespace Ververica20220718
       Models::GetJobResponse getJobWithOptions(const string &_namespace, const string &jobId, const Models::GetJobHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a job.
+       * @summary Retrieves detailed information about a job instance.
        *
        * @return GetJobResponse
        */
       Models::GetJobResponse getJob(const string &_namespace, const string &jobId);
 
       /**
-       * @summary Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
+       * @summary Performs intelligent diagnostics on a job and retrieves information about abnormal diagnostic items.
        *
        * @param headers GetJobDiagnosisHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -820,7 +832,7 @@ namespace Ververica20220718
       Models::GetJobDiagnosisResponse getJobDiagnosisWithOptions(const string &_namespace, const string &deploymentId, const string &jobId, const Models::GetJobDiagnosisHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
+       * @summary Performs intelligent diagnostics on a job and retrieves information about abnormal diagnostic items.
        *
        * @return GetJobDiagnosisResponse
        */
@@ -911,7 +923,7 @@ namespace Ververica20220718
       Models::GetSavepointResponse getSavepoint(const string &_namespace, const string &savepointId);
 
       /**
-       * @summary Queries the information about a session cluster.
+       * @summary Retrieves a session cluster.
        *
        * @param headers GetSessionClusterHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -920,14 +932,14 @@ namespace Ververica20220718
       Models::GetSessionClusterResponse getSessionClusterWithOptions(const string &_namespace, const string &sessionClusterName, const Models::GetSessionClusterHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a session cluster.
+       * @summary Retrieves a session cluster.
        *
        * @return GetSessionClusterResponse
        */
       Models::GetSessionClusterResponse getSessionCluster(const string &_namespace, const string &sessionClusterName);
 
       /**
-       * @summary Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
+       * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
        *
        * @param request GetTablesRequest
        * @param headers GetTablesHeaders
@@ -937,7 +949,7 @@ namespace Ververica20220718
       Models::GetTablesResponse getTablesWithOptions(const string &_namespace, const string &catalogName, const string &databaseName, const Models::GetTablesRequest &request, const Models::GetTablesHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
+       * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
        *
        * @param request GetTablesRequest
        * @return GetTablesResponse
@@ -963,7 +975,7 @@ namespace Ververica20220718
       Models::GetUdfArtifactsResponse getUdfArtifacts(const string &_namespace, const Models::GetUdfArtifactsRequest &request);
 
       /**
-       * @summary Get validate DeploymentDraft result
+       * @summary Queries the depth validation result of a job draft by ticket ID.
        *
        * @param headers GetValidateDeploymentDraftResultHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -972,7 +984,7 @@ namespace Ververica20220718
       Models::GetValidateDeploymentDraftResultResponse getValidateDeploymentDraftResultWithOptions(const string &_namespace, const string &ticketId, const Models::GetValidateDeploymentDraftResultHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get validate DeploymentDraft result
+       * @summary Queries the depth validation result of a job draft by ticket ID.
        *
        * @return GetValidateDeploymentDraftResultResponse
        */
@@ -1011,7 +1023,7 @@ namespace Ververica20220718
       Models::ListCustomConnectorsResponse listCustomConnectors(const string &_namespace);
 
       /**
-       * @summary Queries a list of SQL drafts.
+       * @summary Retrieves a list of SQL or data ingestion job drafts.
        *
        * @param request ListDeploymentDraftsRequest
        * @param headers ListDeploymentDraftsHeaders
@@ -1021,7 +1033,7 @@ namespace Ververica20220718
       Models::ListDeploymentDraftsResponse listDeploymentDraftsWithOptions(const string &_namespace, const Models::ListDeploymentDraftsRequest &request, const Models::ListDeploymentDraftsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of SQL drafts.
+       * @summary Retrieves a list of SQL or data ingestion job drafts.
        *
        * @param request ListDeploymentDraftsRequest
        * @return ListDeploymentDraftsResponse
@@ -1047,7 +1059,7 @@ namespace Ververica20220718
       Models::ListDeploymentTargetsResponse listDeploymentTargets(const string &_namespace, const Models::ListDeploymentTargetsRequest &request);
 
       /**
-       * @summary Obtains information about all deployments.
+       * @summary Retrieve information about all deployed jobs.
        *
        * @param request ListDeploymentsRequest
        * @param headers ListDeploymentsHeaders
@@ -1057,7 +1069,7 @@ namespace Ververica20220718
       Models::ListDeploymentsResponse listDeploymentsWithOptions(const string &_namespace, const Models::ListDeploymentsRequest &request, const Models::ListDeploymentsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains information about all deployments.
+       * @summary Retrieve information about all deployed jobs.
        *
        * @param request ListDeploymentsRequest
        * @return ListDeploymentsResponse
@@ -1099,7 +1111,7 @@ namespace Ververica20220718
       Models::ListEngineVersionMetadataResponse listEngineVersionMetadata();
 
       /**
-       * @summary Queries the information about all jobs in a deployment.
+       * @summary Retrieves information about all job instances for a specified deployment.
        *
        * @param request ListJobsRequest
        * @param headers ListJobsHeaders
@@ -1109,7 +1121,7 @@ namespace Ververica20220718
       Models::ListJobsResponse listJobsWithOptions(const string &_namespace, const Models::ListJobsRequest &request, const Models::ListJobsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about all jobs in a deployment.
+       * @summary Retrieves information about all job instances for a specified deployment.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -1153,7 +1165,7 @@ namespace Ververica20220718
       Models::ListSavepointsResponse listSavepoints(const string &_namespace, const Models::ListSavepointsRequest &request);
 
       /**
-       * @summary Obtains a list of scheduled tuning plans.
+       * @summary Lists scheduled plans.
        *
        * @param request ListScheduledPlanRequest
        * @param headers ListScheduledPlanHeaders
@@ -1163,7 +1175,7 @@ namespace Ververica20220718
       Models::ListScheduledPlanResponse listScheduledPlanWithOptions(const string &_namespace, const Models::ListScheduledPlanRequest &request, const Models::ListScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of scheduled tuning plans.
+       * @summary Lists scheduled plans.
        *
        * @param request ListScheduledPlanRequest
        * @return ListScheduledPlanResponse
@@ -1171,7 +1183,7 @@ namespace Ververica20220718
       Models::ListScheduledPlanResponse listScheduledPlan(const string &_namespace, const Models::ListScheduledPlanRequest &request);
 
       /**
-       * @summary Queries the execution history of a scheduled plan.
+       * @summary Retrieves the execution history of a scheduled plan.
        *
        * @param request ListScheduledPlanExecutedHistoryRequest
        * @param headers ListScheduledPlanExecutedHistoryHeaders
@@ -1181,7 +1193,7 @@ namespace Ververica20220718
       Models::ListScheduledPlanExecutedHistoryResponse listScheduledPlanExecutedHistoryWithOptions(const string &_namespace, const Models::ListScheduledPlanExecutedHistoryRequest &request, const Models::ListScheduledPlanExecutedHistoryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution history of a scheduled plan.
+       * @summary Retrieves the execution history of a scheduled plan.
        *
        * @param request ListScheduledPlanExecutedHistoryRequest
        * @return ListScheduledPlanExecutedHistoryResponse
@@ -1189,7 +1201,7 @@ namespace Ververica20220718
       Models::ListScheduledPlanExecutedHistoryResponse listScheduledPlanExecutedHistory(const string &_namespace, const Models::ListScheduledPlanExecutedHistoryRequest &request);
 
       /**
-       * @summary Queries a list of session clusters.
+       * @summary This operation lists session clusters.
        *
        * @param headers ListSessionClustersHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -1198,7 +1210,7 @@ namespace Ververica20220718
       Models::ListSessionClustersResponse listSessionClustersWithOptions(const string &_namespace, const Models::ListSessionClustersHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of session clusters.
+       * @summary This operation lists session clusters.
        *
        * @return ListSessionClustersResponse
        */
@@ -1261,7 +1273,7 @@ namespace Ververica20220718
       /**
        * @deprecated OpenAPI StartJob is deprecated
        *
-       * @summary Creates and starts a job.
+       * @summary Create and start a job instance.
        *
        * @param request StartJobRequest
        * @param headers StartJobHeaders
@@ -1273,7 +1285,7 @@ namespace Ververica20220718
       /**
        * @deprecated OpenAPI StartJob is deprecated
        *
-       * @summary Creates and starts a job.
+       * @summary Create and start a job instance.
        *
        * @param request StartJobRequest
        * @return StartJobResponse
@@ -1281,7 +1293,7 @@ namespace Ververica20220718
       Models::StartJobResponse startJob(const string &_namespace, const Models::StartJobRequest &request);
 
       /**
-       * @summary Starts a job.
+       * @summary Starts a job instance.
        *
        * @param request StartJobWithParamsRequest
        * @param headers StartJobWithParamsHeaders
@@ -1291,7 +1303,7 @@ namespace Ververica20220718
       Models::StartJobWithParamsResponse startJobWithParamsWithOptions(const string &_namespace, const Models::StartJobWithParamsRequest &request, const Models::StartJobWithParamsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a job.
+       * @summary Starts a job instance.
        *
        * @param request StartJobWithParamsRequest
        * @return StartJobWithParamsResponse
@@ -1315,7 +1327,7 @@ namespace Ververica20220718
       Models::StartSessionClusterResponse startSessionCluster(const string &_namespace, const string &sessionClusterName);
 
       /**
-       * @summary Stops the scheduled plan of an application.
+       * @summary Stops the application of a scheduled plan.
        *
        * @param headers StopApplyScheduledPlanHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -1324,14 +1336,14 @@ namespace Ververica20220718
       Models::StopApplyScheduledPlanResponse stopApplyScheduledPlanWithOptions(const string &_namespace, const string &scheduledPlanId, const Models::StopApplyScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops the scheduled plan of an application.
+       * @summary Stops the application of a scheduled plan.
        *
        * @return StopApplyScheduledPlanResponse
        */
       Models::StopApplyScheduledPlanResponse stopApplyScheduledPlan(const string &_namespace, const string &scheduledPlanId);
 
       /**
-       * @summary Stops a job.
+       * @summary Stops a job instance.
        *
        * @param request StopJobRequest
        * @param headers StopJobHeaders
@@ -1341,7 +1353,7 @@ namespace Ververica20220718
       Models::StopJobResponse stopJobWithOptions(const string &_namespace, const string &jobId, const Models::StopJobRequest &request, const Models::StopJobHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a job.
+       * @summary Stops a job instance.
        *
        * @param request StopJobRequest
        * @return StopJobResponse
@@ -1401,7 +1413,7 @@ namespace Ververica20220718
       Models::UpdateDeploymentResponse updateDeployment(const string &_namespace, const string &deploymentId, const Models::UpdateDeploymentRequest &request);
 
       /**
-       * @summary Updates an SQL draft.
+       * @summary Updates the draft of an SQL or data ingestion job.
        *
        * @param request UpdateDeploymentDraftRequest
        * @param headers UpdateDeploymentDraftHeaders
@@ -1411,7 +1423,7 @@ namespace Ververica20220718
       Models::UpdateDeploymentDraftResponse updateDeploymentDraftWithOptions(const string &_namespace, const string &deploymentDraftId, const Models::UpdateDeploymentDraftRequest &request, const Models::UpdateDeploymentDraftHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an SQL draft.
+       * @summary Updates the draft of an SQL or data ingestion job.
        *
        * @param request UpdateDeploymentDraftRequest
        * @return UpdateDeploymentDraftResponse
@@ -1419,7 +1431,7 @@ namespace Ververica20220718
       Models::UpdateDeploymentDraftResponse updateDeploymentDraft(const string &_namespace, const string &deploymentDraftId, const Models::UpdateDeploymentDraftRequest &request);
 
       /**
-       * @summary Updates a cluster on which the deployment is deployed.
+       * @summary Updates a deployment target.
        *
        * @param request UpdateDeploymentTargetRequest
        * @param headers UpdateDeploymentTargetHeaders
@@ -1429,7 +1441,7 @@ namespace Ververica20220718
       Models::UpdateDeploymentTargetResponse updateDeploymentTargetWithOptions(const string &_namespace, const string &deploymentTargetName, const Models::UpdateDeploymentTargetRequest &request, const Models::UpdateDeploymentTargetHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a cluster on which the deployment is deployed.
+       * @summary Updates a deployment target.
        *
        * @param request UpdateDeploymentTargetRequest
        * @return UpdateDeploymentTargetResponse
@@ -1437,7 +1449,9 @@ namespace Ververica20220718
       Models::UpdateDeploymentTargetResponse updateDeploymentTarget(const string &_namespace, const string &deploymentTargetName, const Models::UpdateDeploymentTargetRequest &request);
 
       /**
-       * @summary 更新部署目标
+       * @summary Updates a deployment target.
+       *
+       * @description This new API operation updates deployment targets that use fixed resources, elastic resources, or mixed mode. The previous operation supported only fixed and elastic resources.
        *
        * @param request UpdateDeploymentTargetV2Request
        * @param headers UpdateDeploymentTargetV2Headers
@@ -1447,7 +1461,9 @@ namespace Ververica20220718
       Models::UpdateDeploymentTargetV2Response updateDeploymentTargetV2WithOptions(const string &_namespace, const string &deploymentTargetName, const Models::UpdateDeploymentTargetV2Request &request, const Models::UpdateDeploymentTargetV2Headers &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新部署目标
+       * @summary Updates a deployment target.
+       *
+       * @description This new API operation updates deployment targets that use fixed resources, elastic resources, or mixed mode. The previous operation supported only fixed and elastic resources.
        *
        * @param request UpdateDeploymentTargetV2Request
        * @return UpdateDeploymentTargetV2Response
@@ -1491,7 +1507,7 @@ namespace Ververica20220718
       Models::UpdateMemberResponse updateMember(const string &_namespace, const Models::UpdateMemberRequest &request);
 
       /**
-       * @summary Update a scheduled tuning plan.
+       * @summary Updates a scheduled plan.
        *
        * @param request UpdateScheduledPlanRequest
        * @param headers UpdateScheduledPlanHeaders
@@ -1501,7 +1517,7 @@ namespace Ververica20220718
       Models::UpdateScheduledPlanResponse updateScheduledPlanWithOptions(const string &_namespace, const string &scheduledPlanId, const Models::UpdateScheduledPlanRequest &request, const Models::UpdateScheduledPlanHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a scheduled tuning plan.
+       * @summary Updates a scheduled plan.
        *
        * @param request UpdateScheduledPlanRequest
        * @return UpdateScheduledPlanResponse
@@ -1563,7 +1579,9 @@ namespace Ververica20220718
       Models::UpdateVariableResponse updateVariable(const string &_namespace, const string &name, const Models::UpdateVariableRequest &request);
 
       /**
-       * @summary validate DeploymentDraft async
+       * @summary Asynchronously performs an in-depth check of a Flink job draft to validate its syntax and resource configuration.
+       *
+       * @description This API asynchronously validates a job draft. It conducts end-to-end compliance and compatibility checks on the draft\\"s configuration before it is submitted for deployment.
        *
        * @param request ValidateDeploymentDraftAsyncRequest
        * @param headers ValidateDeploymentDraftAsyncHeaders
@@ -1573,7 +1591,9 @@ namespace Ververica20220718
       Models::ValidateDeploymentDraftAsyncResponse validateDeploymentDraftAsyncWithOptions(const string &_namespace, const Models::ValidateDeploymentDraftAsyncRequest &request, const Models::ValidateDeploymentDraftAsyncHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary validate DeploymentDraft async
+       * @summary Asynchronously performs an in-depth check of a Flink job draft to validate its syntax and resource configuration.
+       *
+       * @description This API asynchronously validates a job draft. It conducts end-to-end compliance and compatibility checks on the draft\\"s configuration before it is submitted for deployment.
        *
        * @param request ValidateDeploymentDraftAsyncRequest
        * @return ValidateDeploymentDraftAsyncResponse

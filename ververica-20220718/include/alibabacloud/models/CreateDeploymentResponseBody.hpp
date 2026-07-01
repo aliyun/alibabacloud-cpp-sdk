@@ -87,14 +87,17 @@ namespace Models
 
 
   protected:
-    // *   If the value of success was true, the deployment that you created was returned.
-    // *   If the value of success was false, a null value was returned.
+    // - If the value of success was true, the deployment that you created was returned.
+    // 
+    // - If the value of success was false, a null value was returned.
     shared_ptr<Deployment> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If the value of success was false, an error code was returned.
+    // 
+    // - If the value of success was true, a null value was returned.
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If the value of success was false, an error message was returned.
+    // 
+    // - If the value of success was true, a null value was returned.
     shared_ptr<string> errorMessage_ {};
     // The value was fixed to 200.
     shared_ptr<int32_t> httpCode_ {};

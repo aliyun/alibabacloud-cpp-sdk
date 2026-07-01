@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<vector<Deployment>> data_ {};
+    // The error code. This parameter is returned only when success is false. If success is true, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // The error message. This parameter is returned only when success is false. If success is true, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. A value of 200 indicates that the request was successful. Use the success parameter to determine whether the business request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

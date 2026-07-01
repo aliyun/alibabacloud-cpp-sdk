@@ -63,8 +63,12 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> extensionConf_ {};
+    // The catalog name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The catalog configuration parameters.
+    // 
     // This parameter is required.
     Darabonba::Json properties_ {};
   };

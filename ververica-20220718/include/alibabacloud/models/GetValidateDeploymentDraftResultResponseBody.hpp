@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The result object of the in-depth check for the job draft.
     shared_ptr<AsyncDraftValidateResult> data_ {};
+    // If success is false, this parameter is not empty and indicates the business error code. If success is true, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // If success is false, this parameter is not empty and indicates the business error message. If success is true, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The business status code. This is always 200. The success parameter indicates whether the business request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the business request was successful.
     shared_ptr<bool> success_ {};
   };
 

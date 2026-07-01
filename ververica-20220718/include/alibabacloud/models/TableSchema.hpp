@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The ID of the collect sink operator.
     shared_ptr<string> collectSinkOperatorId_ {};
+    // The schema of the table.
     shared_ptr<Schema> schema_ {};
+    // The name of the table.
     shared_ptr<string> tableName_ {};
   };
 

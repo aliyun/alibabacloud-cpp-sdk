@@ -63,9 +63,11 @@ namespace Models
     shared_ptr<string> plan_ {};
     // The status of the ticket that applies for an asynchronous operation. Valid values:
     // 
-    // *   EXECUTING
-    // *   FINISHED
-    // *   FAILED
+    // - EXECUTING
+    // 
+    // - FINISHED
+    // 
+    // - FAILED
     shared_ptr<string> ticketStatus_ {};
   };
 

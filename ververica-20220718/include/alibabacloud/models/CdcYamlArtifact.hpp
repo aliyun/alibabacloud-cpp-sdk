@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Full URL paths to the additional dependencies.
     shared_ptr<vector<string>> additionalDependencies_ {};
+    // Code for the data ingestion job.
     shared_ptr<string> cdcYaml_ {};
   };
 

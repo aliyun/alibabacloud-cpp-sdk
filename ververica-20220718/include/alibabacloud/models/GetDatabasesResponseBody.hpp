@@ -88,12 +88,21 @@ namespace Models
 
 
   protected:
-    // If the value of success was true, the list of databases that meet the specified condition was returned. If the value of success was false, a null value was returned.
+    // The list of databases. This parameter is returned only if the request is successful. If the request fails, this parameter is empty.
     shared_ptr<vector<Database>> data_ {};
+    // - If \\`success\\` is \\`false\\`, an error code is returned.
+    // 
+    // - If \\`success\\` is \\`true\\`, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If \\`success\\` is \\`false\\`, an error message is returned.
+    // 
+    // - If \\`success\\` is \\`true\\`, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. A value of 200 is always returned. To determine whether the request was successful, check the value of the \\`success\\` parameter.
     shared_ptr<int32_t> httpCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

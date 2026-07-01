@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The ID of the asynchronous ticket. Use this ID to query the result of the asynchronous operation.
       shared_ptr<string> ticketId_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<ValidateDeploymentDraftAsyncResponseBody::Data> data_ {};
+    // The error code. This parameter is returned when the request fails. If the request is successful, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // The error message. This parameter is returned when the request fails. If the request is successful, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The status code. This is always 200. Use the success parameter to determine if the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

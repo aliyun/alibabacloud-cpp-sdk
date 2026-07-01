@@ -75,21 +75,15 @@ namespace Models
 
 
   protected:
-    // The deployment ID.
+    // The ID of the deployment.
     // 
     // This parameter is required.
     shared_ptr<string> deploymentId_ {};
-    // The page number. Minimum value: 1. Default value: 1.
+    // The page number to return. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page. Maximum value: 100. Minimum value: 1. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The collation.
-    // 
-    // Valid values:
-    // 
-    // *   gmt_create
-    // *   job_id
-    // *   status
+    // The field to sort the results by.
     shared_ptr<string> sortName_ {};
     shared_ptr<string> sortOrder_ {};
   };

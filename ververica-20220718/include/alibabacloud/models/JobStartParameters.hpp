@@ -82,14 +82,15 @@ namespace Models
 
 
   protected:
-    // The deployment ID.
+    // Job ID
     shared_ptr<string> deploymentId_ {};
+    // Job instance ID
     shared_ptr<string> jobId_ {};
-    // The variables.
+    // Job variables
     shared_ptr<vector<LocalVariable>> localVariables_ {};
-    // The queue in which the deployment is running.
+    // Resource queue for job execution
     shared_ptr<string> resourceQueueName_ {};
-    // The configuration of the start offset of the deployment.
+    // Job start offset settings
     shared_ptr<DeploymentRestoreStrategy> restoreStrategy_ {};
   };
 

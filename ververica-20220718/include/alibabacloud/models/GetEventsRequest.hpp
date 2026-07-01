@@ -66,9 +66,12 @@ namespace Models
 
 
   protected:
+    // The ID of the deployed job. If you specify this parameter, the operation returns events only for this job.
     shared_ptr<string> deploymentId_ {};
     shared_ptr<string> deploymentName_ {};
+    // The page number to retrieve. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

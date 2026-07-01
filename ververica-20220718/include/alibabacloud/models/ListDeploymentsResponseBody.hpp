@@ -116,26 +116,29 @@ namespace Models
 
 
   protected:
-    // *   If the value of success was true, the list of all deployments was returned.
-    // *   If the value of success was false, a null value was returned.
+    // - When success is true, returns a list of jobs that meet the query conditions;
+    // 
+    // - When success is false, returns an empty value.
     shared_ptr<vector<Deployment>> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - When success is false, returns a business error code;
+    // 
+    // - When success is true, returns an empty value.
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - When success is false, returns a business error message;
+    // 
+    // - When success is true, returns an empty value.
     shared_ptr<string> errorMessage_ {};
-    // The value was fixed to 200.
+    // Static field with a fixed value of 200.
     shared_ptr<int32_t> httpCode_ {};
-    // The page number.
+    // Pagination parameter: page index, indicating the requested page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page.
+    // Pagination parameter: the number of elements on the requested page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the business request succeeded.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of elements that meet the query conditions.
     shared_ptr<int32_t> totalSize_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The resource specifications for the updated deployment target.
     shared_ptr<ResourceSpec> body_ {};
   };
 

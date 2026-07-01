@@ -98,11 +98,17 @@ namespace Models
 
 
   protected:
+    // Job resource diagnosis.
     shared_ptr<JobDiagnosisSymptom> autopilot_ {};
+    // Other namespace diagnosis.
     shared_ptr<vector<JobDiagnosisSymptom>> others_ {};
+    // Run diagnosis.
     shared_ptr<vector<JobDiagnosisSymptom>> runtime_ {};
+    // Startup procedure diagnosis.
     shared_ptr<vector<JobDiagnosisSymptom>> startup_ {};
+    // Job status diagnosis.
     shared_ptr<vector<JobDiagnosisSymptom>> state_ {};
+    // Underlying abnormal diagnosis.
     shared_ptr<vector<JobDiagnosisSymptom>> troubleshooting_ {};
   };
 

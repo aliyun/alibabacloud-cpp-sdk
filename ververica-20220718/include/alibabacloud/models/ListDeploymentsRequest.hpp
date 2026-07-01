@@ -121,37 +121,25 @@ namespace Models
 
 
   protected:
-    // The ID of the user who creates the deployment.
+    // Creator UID.
     shared_ptr<string> creator_ {};
-    // The execution mode of the deployment.
-    // 
-    // Valid values:
-    // 
-    // *   BATCH
-    // *   STREAMING
+    // Deployment execution mode.
     shared_ptr<string> executionMode_ {};
-    // The tag key.
+    // Label name.
     shared_ptr<string> labelKey_ {};
-    // The tag value. Separate multiple values with semicolon (;).
+    // Tag values. Multiple values are separated by semicolons.
     shared_ptr<string> labelValueArray_ {};
-    // The ID of the user who modifies the deployment.
+    // Modifier UID.
     shared_ptr<string> modifier_ {};
-    // The name of the deployment.
+    // Deployment name.
     shared_ptr<string> name_ {};
-    // The page number. Minimum value: 1. Default value: 1.
+    // Pagination parameter. Page index indicating the requested page number. Minimum value is 1. Default value is 1.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // Pagination parameter. Number of elements on the requested page. Maximum value is 100, minimum value is 1, and default value is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Sorting method. Supports returning data in descending order by creation time or updated time.
     shared_ptr<string> sortName_ {};
-    // The latest status of the deployment.
-    // 
-    // Valid values:
-    // 
-    // *   CANCELLED
-    // *   FAILED
-    // *   RUNNING
-    // *   TRANSITIONING
-    // *   FINISHED
+    // The status of the latest job for the deployment.
     shared_ptr<string> status_ {};
   };
 

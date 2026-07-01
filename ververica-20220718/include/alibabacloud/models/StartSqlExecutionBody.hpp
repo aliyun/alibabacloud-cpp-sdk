@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The description of the SQL execution.
     shared_ptr<string> description_ {};
+    // The SQL file ID.
     shared_ptr<string> sqlFileId_ {};
+    // The SQL script content.
     shared_ptr<string> sqlScript_ {};
   };
 

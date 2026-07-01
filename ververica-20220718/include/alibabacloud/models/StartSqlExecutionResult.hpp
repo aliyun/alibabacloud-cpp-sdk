@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Indicates whether the SQL execution is newly created.
     shared_ptr<bool> newlyCreated_ {};
+    // The SQL execution ID.
     shared_ptr<string> sqlExecutionId_ {};
+    // Indicates whether the SQL execution is successful.
     shared_ptr<bool> success_ {};
   };
 

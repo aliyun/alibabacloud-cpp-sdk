@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The name of the perjob deployment target.
     shared_ptr<string> name_ {};
+    // The namespace name.
     shared_ptr<string> namespace_ {};
+    // The resource quota.
     shared_ptr<ResourceQuota> quota_ {};
   };
 

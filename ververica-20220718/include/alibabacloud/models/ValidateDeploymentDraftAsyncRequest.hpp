@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The parameter object for the job draft.
     shared_ptr<DraftValidateParams> body_ {};
   };
 

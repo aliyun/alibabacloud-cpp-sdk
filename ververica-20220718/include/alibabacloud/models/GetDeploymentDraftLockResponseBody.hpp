@@ -87,11 +87,21 @@ namespace Models
 
 
   protected:
+    // The details of the edit lock.
     shared_ptr<Lock> data_ {};
+    // - An error code is returned if the request fails.
+    // 
+    // - This parameter is empty if the request succeeds.
     shared_ptr<string> errorCode_ {};
+    // - An error message is returned if the request fails.
+    // 
+    // - This parameter is empty if the request succeeds.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. A value other than 200 indicates that the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

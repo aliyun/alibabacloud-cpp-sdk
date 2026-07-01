@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the database. If you do not specify this parameter, information about all databases in the catalog is returned.
     shared_ptr<string> databaseName_ {};
   };
 

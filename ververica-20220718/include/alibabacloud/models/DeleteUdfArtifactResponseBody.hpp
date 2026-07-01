@@ -87,11 +87,21 @@ namespace Models
 
 
   protected:
+    // The result of deleting the user-defined function file.
     shared_ptr<DeleteUdfArtifactResult> data_ {};
+    // - If success is false, an error code is returned.
+    // 
+    // - If success is true, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If success is false, an error message is returned.
+    // 
+    // - If success is true, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. A value of 200 is returned. Use the success parameter to check if the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

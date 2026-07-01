@@ -20,6 +20,26 @@ namespace Ververica20220718
 
 AlibabaCloud::Ververica20220718::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "ververica.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "ververica.us-east-1.aliyuncs.com"},
+    {"eu-west-1" , "ververica.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "ververica.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "ververica.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "ververica.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "ververica.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "ververica.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "ververica.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "ververica.cn-qingdao.aliyuncs.com"},
+    {"cn-hongkong" , "ververica.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "ververica.cn-hangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "ververica.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "ververica.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-5" , "ververica.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "ververica.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "ververica.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "ververica.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ververica", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -38,7 +58,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Executes a scheduled plan.
+ * @summary This operation applies a scheduled plan.
  *
  * @param headers ApplyScheduledPlanHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -72,7 +92,7 @@ ApplyScheduledPlanResponse Client::applyScheduledPlanWithOptions(const string &_
 }
 
 /**
- * @summary Executes a scheduled plan.
+ * @summary This operation applies a scheduled plan.
  *
  * @return ApplyScheduledPlanResponse
  */
@@ -194,7 +214,7 @@ CreateDeploymentResponse Client::createDeployment(const string &_namespace, cons
 }
 
 /**
- * @summary Creates an SQL draft.
+ * @summary Creates a draft for an SQL or data ingestion job.
  *
  * @param request CreateDeploymentDraftRequest
  * @param headers CreateDeploymentDraftHeaders
@@ -231,7 +251,7 @@ CreateDeploymentDraftResponse Client::createDeploymentDraftWithOptions(const str
 }
 
 /**
- * @summary Creates an SQL draft.
+ * @summary Creates a draft for an SQL or data ingestion job.
  *
  * @param request CreateDeploymentDraftRequest
  * @return CreateDeploymentDraftResponse
@@ -298,7 +318,9 @@ CreateDeploymentTargetResponse Client::createDeploymentTarget(const string &_nam
 }
 
 /**
- * @summary 创建部署目标V2
+ * @summary Creates a deployment target.
+ *
+ * @description The previous API for creating deployment targets supported only fixed or elastic resources. This new API supports fixed resources, elastic resources, and mixed mode.
  *
  * @param request CreateDeploymentTargetV2Request
  * @param headers CreateDeploymentTargetV2Headers
@@ -341,7 +363,9 @@ CreateDeploymentTargetV2Response Client::createDeploymentTargetV2WithOptions(con
 }
 
 /**
- * @summary 创建部署目标V2
+ * @summary Creates a deployment target.
+ *
+ * @description The previous API for creating deployment targets supported only fixed or elastic resources. This new API supports fixed resources, elastic resources, and mixed mode.
  *
  * @param request CreateDeploymentTargetV2Request
  * @return CreateDeploymentTargetV2Response
@@ -513,7 +537,7 @@ CreateSavepointResponse Client::createSavepoint(const string &_namespace, const 
 }
 
 /**
- * @summary Creates a scheduled tuning plan.
+ * @summary Creates a scheduled plan.
  *
  * @param request CreateScheduledPlanRequest
  * @param headers CreateScheduledPlanHeaders
@@ -550,7 +574,7 @@ CreateScheduledPlanResponse Client::createScheduledPlanWithOptions(const string 
 }
 
 /**
- * @summary Creates a scheduled tuning plan.
+ * @summary Creates a scheduled plan.
  *
  * @param request CreateScheduledPlanRequest
  * @return CreateScheduledPlanResponse
@@ -562,7 +586,7 @@ CreateScheduledPlanResponse Client::createScheduledPlan(const string &_namespace
 }
 
 /**
- * @summary Create a session cluster
+ * @summary Creates a session cluster.
  *
  * @param request CreateSessionClusterRequest
  * @param headers CreateSessionClusterHeaders
@@ -599,7 +623,7 @@ CreateSessionClusterResponse Client::createSessionClusterWithOptions(const strin
 }
 
 /**
- * @summary Create a session cluster
+ * @summary Creates a session cluster.
  *
  * @param request CreateSessionClusterRequest
  * @return CreateSessionClusterResponse
@@ -799,7 +823,7 @@ DeleteDeploymentResponse Client::deleteDeployment(const string &_namespace, cons
 }
 
 /**
- * @summary Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
+ * @summary Deletes a draft of an SQL or data ingestion job. The draft cannot be deleted if it has any published or running deployment.
  *
  * @param headers DeleteDeploymentDraftHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -833,7 +857,7 @@ DeleteDeploymentDraftResponse Client::deleteDeploymentDraftWithOptions(const str
 }
 
 /**
- * @summary Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
+ * @summary Deletes a draft of an SQL or data ingestion job. The draft cannot be deleted if it has any published or running deployment.
  *
  * @return DeleteDeploymentDraftResponse
  */
@@ -1069,7 +1093,7 @@ DeleteSavepointResponse Client::deleteSavepoint(const string &_namespace, const 
 }
 
 /**
- * @summary Deletes a scheduled tuning plan.
+ * @summary Deletes a scheduled plan.
  *
  * @param headers DeleteScheduledPlanHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1103,7 +1127,7 @@ DeleteScheduledPlanResponse Client::deleteScheduledPlanWithOptions(const string 
 }
 
 /**
- * @summary Deletes a scheduled tuning plan.
+ * @summary Deletes a scheduled plan.
  *
  * @return DeleteScheduledPlanResponse
  */
@@ -1159,7 +1183,7 @@ DeleteSessionClusterResponse Client::deleteSessionCluster(const string &_namespa
 }
 
 /**
- * @summary Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
+ * @summary Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
  *
  * @param headers DeleteUdfArtifactHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1193,7 +1217,7 @@ DeleteUdfArtifactResponse Client::deleteUdfArtifactWithOptions(const string &_na
 }
 
 /**
- * @summary Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
+ * @summary Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
  *
  * @return DeleteUdfArtifactResponse
  */
@@ -1307,7 +1331,7 @@ DeleteVariableResponse Client::deleteVariable(const string &_namespace, const st
 }
 
 /**
- * @summary Deploys an SQL draft.
+ * @summary Deploys a draft of an SQL job.
  *
  * @param request DeployDeploymentDraftAsyncRequest
  * @param headers DeployDeploymentDraftAsyncHeaders
@@ -1344,7 +1368,7 @@ DeployDeploymentDraftAsyncResponse Client::deployDeploymentDraftAsyncWithOptions
 }
 
 /**
- * @summary Deploys an SQL draft.
+ * @summary Deploys a draft of an SQL job.
  *
  * @param request DeployDeploymentDraftAsyncRequest
  * @return DeployDeploymentDraftAsyncResponse
@@ -1356,7 +1380,7 @@ DeployDeploymentDraftAsyncResponse Client::deployDeploymentDraftAsync(const stri
 }
 
 /**
- * @summary Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
+ * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
  *
  * @param request ExecuteSqlStatementRequest
  * @param headers ExecuteSqlStatementHeaders
@@ -1393,7 +1417,7 @@ ExecuteSqlStatementResponse Client::executeSqlStatementWithOptions(const string 
 }
 
 /**
- * @summary Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
+ * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
  *
  * @param request ExecuteSqlStatementRequest
  * @return ExecuteSqlStatementResponse
@@ -1582,7 +1606,7 @@ GenerateResourcePlanWithFlinkConfAsyncResponse Client::generateResourcePlanWithF
 }
 
 /**
- * @summary Queries the scheduled plan of an application.
+ * @summary Retrieves the execution plan for an application.
  *
  * @param request GetAppliedScheduledPlanRequest
  * @param headers GetAppliedScheduledPlanHeaders
@@ -1624,7 +1648,7 @@ GetAppliedScheduledPlanResponse Client::getAppliedScheduledPlanWithOptions(const
 }
 
 /**
- * @summary Queries the scheduled plan of an application.
+ * @summary Retrieves the execution plan for an application.
  *
  * @param request GetAppliedScheduledPlanRequest
  * @return GetAppliedScheduledPlanResponse
@@ -1636,7 +1660,7 @@ GetAppliedScheduledPlanResponse Client::getAppliedScheduledPlan(const string &_n
 }
 
 /**
- * @summary Obtains details of the specified catalog or all catalogs.
+ * @summary Retrieves the details of a specified catalog or all catalogs.
  *
  * @param request GetCatalogsRequest
  * @param headers GetCatalogsHeaders
@@ -1678,7 +1702,7 @@ GetCatalogsResponse Client::getCatalogsWithOptions(const string &_namespace, con
 }
 
 /**
- * @summary Obtains details of the specified catalog or all catalogs.
+ * @summary Retrieves the details of a specified catalog or all catalogs.
  *
  * @param request GetCatalogsRequest
  * @return GetCatalogsResponse
@@ -1690,7 +1714,7 @@ GetCatalogsResponse Client::getCatalogs(const string &_namespace, const GetCatal
 }
 
 /**
- * @summary Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
+ * @summary Retrieves information about one or more databases in a specified catalog.
  *
  * @param request GetDatabasesRequest
  * @param headers GetDatabasesHeaders
@@ -1732,7 +1756,7 @@ GetDatabasesResponse Client::getDatabasesWithOptions(const string &_namespace, c
 }
 
 /**
- * @summary Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
+ * @summary Retrieves information about one or more databases in a specified catalog.
  *
  * @param request GetDatabasesRequest
  * @return GetDatabasesResponse
@@ -1744,7 +1768,7 @@ GetDatabasesResponse Client::getDatabases(const string &_namespace, const string
 }
 
 /**
- * @summary Obtains the deployment result based on the ID of the asynchronous ticket.
+ * @summary Checks the deployment result of a job draft.
  *
  * @param headers GetDeployDeploymentDraftResultHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1778,7 +1802,7 @@ GetDeployDeploymentDraftResultResponse Client::getDeployDeploymentDraftResultWit
 }
 
 /**
- * @summary Obtains the deployment result based on the ID of the asynchronous ticket.
+ * @summary Checks the deployment result of a job draft.
  *
  * @return GetDeployDeploymentDraftResultResponse
  */
@@ -1834,7 +1858,7 @@ GetDeploymentResponse Client::getDeployment(const string &_namespace, const stri
 }
 
 /**
- * @summary Obtains the details of an SQL draft.
+ * @summary Retrieves the details of an SQL or data ingestion job draft.
  *
  * @param headers GetDeploymentDraftHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -1868,7 +1892,7 @@ GetDeploymentDraftResponse Client::getDeploymentDraftWithOptions(const string &_
 }
 
 /**
- * @summary Obtains the details of an SQL draft.
+ * @summary Retrieves the details of an SQL or data ingestion job draft.
  *
  * @return GetDeploymentDraftResponse
  */
@@ -1879,7 +1903,7 @@ GetDeploymentDraftResponse Client::getDeploymentDraft(const string &_namespace, 
 }
 
 /**
- * @summary Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
+ * @summary Before using an API to edit, validate, or deploy a job draft, you must acquire an edit lock to prevent conflicts between user interface (UI) and API operations. Acquiring this lock requires either the "Develop SQL/YAML Job (Create, Edit)" or "Unlock SQL/YAML Job Draft" permission.
  *
  * @param request GetDeploymentDraftLockRequest
  * @param headers GetDeploymentDraftLockHeaders
@@ -1921,7 +1945,7 @@ GetDeploymentDraftLockResponse Client::getDeploymentDraftLockWithOptions(const s
 }
 
 /**
- * @summary Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
+ * @summary Before using an API to edit, validate, or deploy a job draft, you must acquire an edit lock to prevent conflicts between user interface (UI) and API operations. Acquiring this lock requires either the "Develop SQL/YAML Job (Create, Edit)" or "Unlock SQL/YAML Job Draft" permission.
  *
  * @param request GetDeploymentDraftLockRequest
  * @return GetDeploymentDraftLockResponse
@@ -1933,7 +1957,9 @@ GetDeploymentDraftLockResponse Client::getDeploymentDraftLock(const string &_nam
 }
 
 /**
- * @summary 通过Ip获取已部署作业
+ * @summary Gets a list of deployed jobs and their information on a node by a specified IP address.
+ *
+ * @description Use this operation to query for associated Flink deployments based on the source or destination IP address and port of a network connection.
  *
  * @param request GetDeploymentsByIpRequest
  * @param headers GetDeploymentsByIpHeaders
@@ -1995,7 +2021,9 @@ GetDeploymentsByIpResponse Client::getDeploymentsByIpWithOptions(const string &_
 }
 
 /**
- * @summary 通过Ip获取已部署作业
+ * @summary Gets a list of deployed jobs and their information on a node by a specified IP address.
+ *
+ * @description Use this operation to query for associated Flink deployments based on the source or destination IP address and port of a network connection.
  *
  * @param request GetDeploymentsByIpRequest
  * @return GetDeploymentsByIpResponse
@@ -2007,7 +2035,9 @@ GetDeploymentsByIpResponse Client::getDeploymentsByIp(const string &_namespace, 
 }
 
 /**
- * @summary 通过标签获取已部署作业
+ * @summary Queries a list of deployed jobs and their information by a specified label.
+ *
+ * @description Queries a list of deployed jobs and their details by a specified job label. The query performs an exact match on the `labelKey` and `labelValue`.
  *
  * @param request GetDeploymentsByLabelRequest
  * @param headers GetDeploymentsByLabelHeaders
@@ -2061,7 +2091,9 @@ GetDeploymentsByLabelResponse Client::getDeploymentsByLabelWithOptions(const str
 }
 
 /**
- * @summary 通过标签获取已部署作业
+ * @summary Queries a list of deployed jobs and their information by a specified label.
+ *
+ * @description Queries a list of deployed jobs and their details by a specified job label. The query performs an exact match on the `labelKey` and `labelValue`.
  *
  * @param request GetDeploymentsByLabelRequest
  * @return GetDeploymentsByLabelResponse
@@ -2073,7 +2105,7 @@ GetDeploymentsByLabelResponse Client::getDeploymentsByLabel(const string &_names
 }
 
 /**
- * @summary 通过名称获取已部署作业
+ * @summary Retrieves deployed job instances by name from a specified workspace and namespace.
  *
  * @param request GetDeploymentsByNameRequest
  * @param headers GetDeploymentsByNameHeaders
@@ -2119,7 +2151,7 @@ GetDeploymentsByNameResponse Client::getDeploymentsByNameWithOptions(const strin
 }
 
 /**
- * @summary 通过名称获取已部署作业
+ * @summary Retrieves deployed job instances by name from a specified workspace and namespace.
  *
  * @param request GetDeploymentsByNameRequest
  * @return GetDeploymentsByNameResponse
@@ -2131,7 +2163,7 @@ GetDeploymentsByNameResponse Client::getDeploymentsByName(const string &_namespa
 }
 
 /**
- * @summary Queries events.
+ * @summary Retrieves runtime events.
  *
  * @param request GetEventsRequest
  * @param headers GetEventsHeaders
@@ -2185,7 +2217,7 @@ GetEventsResponse Client::getEventsWithOptions(const string &_namespace, const G
 }
 
 /**
- * @summary Queries events.
+ * @summary Retrieves runtime events.
  *
  * @param request GetEventsRequest
  * @return GetEventsResponse
@@ -2197,7 +2229,7 @@ GetEventsResponse Client::getEvents(const string &_namespace, const GetEventsReq
 }
 
 /**
- * @summary Obtains the details of a folder.
+ * @summary Retrieves specific folder information.
  *
  * @param request GetFolderRequest
  * @param headers GetFolderHeaders
@@ -2243,7 +2275,7 @@ GetFolderResponse Client::getFolderWithOptions(const string &_namespace, const G
 }
 
 /**
- * @summary Obtains the details of a folder.
+ * @summary Retrieves specific folder information.
  *
  * @param request GetFolderRequest
  * @return GetFolderResponse
@@ -2300,7 +2332,7 @@ GetGenerateResourcePlanResultResponse Client::getGenerateResourcePlanResult(cons
 }
 
 /**
- * @summary Obtains the dynamic update result of a deployment when you dynamically update the deployment.
+ * @summary Retrieves the result of a hot update for a job.
  *
  * @param headers GetHotUpdateJobResultHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2334,7 +2366,7 @@ GetHotUpdateJobResultResponse Client::getHotUpdateJobResultWithOptions(const str
 }
 
 /**
- * @summary Obtains the dynamic update result of a deployment when you dynamically update the deployment.
+ * @summary Retrieves the result of a hot update for a job.
  *
  * @return GetHotUpdateJobResultResponse
  */
@@ -2345,7 +2377,7 @@ GetHotUpdateJobResultResponse Client::getHotUpdateJobResult(const string &_names
 }
 
 /**
- * @summary Obtains the details of a job.
+ * @summary Retrieves detailed information about a job instance.
  *
  * @param headers GetJobHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2379,7 +2411,7 @@ GetJobResponse Client::getJobWithOptions(const string &_namespace, const string 
 }
 
 /**
- * @summary Obtains the details of a job.
+ * @summary Retrieves detailed information about a job instance.
  *
  * @return GetJobResponse
  */
@@ -2390,7 +2422,7 @@ GetJobResponse Client::getJob(const string &_namespace, const string &jobId) {
 }
 
 /**
- * @summary Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
+ * @summary Performs intelligent diagnostics on a job and retrieves information about abnormal diagnostic items.
  *
  * @param headers GetJobDiagnosisHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2424,7 +2456,7 @@ GetJobDiagnosisResponse Client::getJobDiagnosisWithOptions(const string &_namesp
 }
 
 /**
- * @summary Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
+ * @summary Performs intelligent diagnostics on a job and retrieves information about abnormal diagnostic items.
  *
  * @return GetJobDiagnosisResponse
  */
@@ -2673,7 +2705,7 @@ GetSavepointResponse Client::getSavepoint(const string &_namespace, const string
 }
 
 /**
- * @summary Queries the information about a session cluster.
+ * @summary Retrieves a session cluster.
  *
  * @param headers GetSessionClusterHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2707,7 +2739,7 @@ GetSessionClusterResponse Client::getSessionClusterWithOptions(const string &_na
 }
 
 /**
- * @summary Queries the information about a session cluster.
+ * @summary Retrieves a session cluster.
  *
  * @return GetSessionClusterResponse
  */
@@ -2718,7 +2750,7 @@ GetSessionClusterResponse Client::getSessionCluster(const string &_namespace, co
 }
 
 /**
- * @summary Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
+ * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
  *
  * @param request GetTablesRequest
  * @param headers GetTablesHeaders
@@ -2760,7 +2792,7 @@ GetTablesResponse Client::getTablesWithOptions(const string &_namespace, const s
 }
 
 /**
- * @summary Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
+ * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
  *
  * @param request GetTablesRequest
  * @return GetTablesResponse
@@ -2826,7 +2858,7 @@ GetUdfArtifactsResponse Client::getUdfArtifacts(const string &_namespace, const 
 }
 
 /**
- * @summary Get validate DeploymentDraft result
+ * @summary Queries the depth validation result of a job draft by ticket ID.
  *
  * @param headers GetValidateDeploymentDraftResultHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2860,7 +2892,7 @@ GetValidateDeploymentDraftResultResponse Client::getValidateDeploymentDraftResul
 }
 
 /**
- * @summary Get validate DeploymentDraft result
+ * @summary Queries the depth validation result of a job draft by ticket ID.
  *
  * @return GetValidateDeploymentDraftResultResponse
  */
@@ -2961,7 +2993,7 @@ ListCustomConnectorsResponse Client::listCustomConnectors(const string &_namespa
 }
 
 /**
- * @summary Queries a list of SQL drafts.
+ * @summary Retrieves a list of SQL or data ingestion job drafts.
  *
  * @param request ListDeploymentDraftsRequest
  * @param headers ListDeploymentDraftsHeaders
@@ -3007,7 +3039,7 @@ ListDeploymentDraftsResponse Client::listDeploymentDraftsWithOptions(const strin
 }
 
 /**
- * @summary Queries a list of SQL drafts.
+ * @summary Retrieves a list of SQL or data ingestion job drafts.
  *
  * @param request ListDeploymentDraftsRequest
  * @return ListDeploymentDraftsResponse
@@ -3077,7 +3109,7 @@ ListDeploymentTargetsResponse Client::listDeploymentTargets(const string &_names
 }
 
 /**
- * @summary Obtains information about all deployments.
+ * @summary Retrieve information about all deployed jobs.
  *
  * @param request ListDeploymentsRequest
  * @param headers ListDeploymentsHeaders
@@ -3155,7 +3187,7 @@ ListDeploymentsResponse Client::listDeploymentsWithOptions(const string &_namesp
 }
 
 /**
- * @summary Obtains information about all deployments.
+ * @summary Retrieve information about all deployed jobs.
  *
  * @param request ListDeploymentsRequest
  * @return ListDeploymentsResponse
@@ -3273,7 +3305,7 @@ ListEngineVersionMetadataResponse Client::listEngineVersionMetadata() {
 }
 
 /**
- * @summary Queries the information about all jobs in a deployment.
+ * @summary Retrieves information about all job instances for a specified deployment.
  *
  * @param request ListJobsRequest
  * @param headers ListJobsHeaders
@@ -3331,7 +3363,7 @@ ListJobsResponse Client::listJobsWithOptions(const string &_namespace, const Lis
 }
 
 /**
- * @summary Queries the information about all jobs in a deployment.
+ * @summary Retrieves information about all job instances for a specified deployment.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -3467,7 +3499,7 @@ ListSavepointsResponse Client::listSavepoints(const string &_namespace, const Li
 }
 
 /**
- * @summary Obtains a list of scheduled tuning plans.
+ * @summary Lists scheduled plans.
  *
  * @param request ListScheduledPlanRequest
  * @param headers ListScheduledPlanHeaders
@@ -3517,7 +3549,7 @@ ListScheduledPlanResponse Client::listScheduledPlanWithOptions(const string &_na
 }
 
 /**
- * @summary Obtains a list of scheduled tuning plans.
+ * @summary Lists scheduled plans.
  *
  * @param request ListScheduledPlanRequest
  * @return ListScheduledPlanResponse
@@ -3529,7 +3561,7 @@ ListScheduledPlanResponse Client::listScheduledPlan(const string &_namespace, co
 }
 
 /**
- * @summary Queries the execution history of a scheduled plan.
+ * @summary Retrieves the execution history of a scheduled plan.
  *
  * @param request ListScheduledPlanExecutedHistoryRequest
  * @param headers ListScheduledPlanExecutedHistoryHeaders
@@ -3575,7 +3607,7 @@ ListScheduledPlanExecutedHistoryResponse Client::listScheduledPlanExecutedHistor
 }
 
 /**
- * @summary Queries the execution history of a scheduled plan.
+ * @summary Retrieves the execution history of a scheduled plan.
  *
  * @param request ListScheduledPlanExecutedHistoryRequest
  * @return ListScheduledPlanExecutedHistoryResponse
@@ -3587,7 +3619,7 @@ ListScheduledPlanExecutedHistoryResponse Client::listScheduledPlanExecutedHistor
 }
 
 /**
- * @summary Queries a list of session clusters.
+ * @summary This operation lists session clusters.
  *
  * @param headers ListSessionClustersHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -3621,7 +3653,7 @@ ListSessionClustersResponse Client::listSessionClustersWithOptions(const string 
 }
 
 /**
- * @summary Queries a list of session clusters.
+ * @summary This operation lists session clusters.
  *
  * @return ListSessionClustersResponse
  */
@@ -3808,7 +3840,7 @@ RegisterUdfFunctionResponse Client::registerUdfFunction(const string &_namespace
 /**
  * @deprecated OpenAPI StartJob is deprecated
  *
- * @summary Creates and starts a job.
+ * @summary Create and start a job instance.
  *
  * @param request StartJobRequest
  * @param headers StartJobHeaders
@@ -3847,7 +3879,7 @@ StartJobResponse Client::startJobWithOptions(const string &_namespace, const Sta
 /**
  * @deprecated OpenAPI StartJob is deprecated
  *
- * @summary Creates and starts a job.
+ * @summary Create and start a job instance.
  *
  * @param request StartJobRequest
  * @return StartJobResponse
@@ -3859,7 +3891,7 @@ StartJobResponse Client::startJob(const string &_namespace, const StartJobReques
 }
 
 /**
- * @summary Starts a job.
+ * @summary Starts a job instance.
  *
  * @param request StartJobWithParamsRequest
  * @param headers StartJobWithParamsHeaders
@@ -3896,7 +3928,7 @@ StartJobWithParamsResponse Client::startJobWithParamsWithOptions(const string &_
 }
 
 /**
- * @summary Starts a job.
+ * @summary Starts a job instance.
  *
  * @param request StartJobWithParamsRequest
  * @return StartJobWithParamsResponse
@@ -3953,7 +3985,7 @@ StartSessionClusterResponse Client::startSessionCluster(const string &_namespace
 }
 
 /**
- * @summary Stops the scheduled plan of an application.
+ * @summary Stops the application of a scheduled plan.
  *
  * @param headers StopApplyScheduledPlanHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -3987,7 +4019,7 @@ StopApplyScheduledPlanResponse Client::stopApplyScheduledPlanWithOptions(const s
 }
 
 /**
- * @summary Stops the scheduled plan of an application.
+ * @summary Stops the application of a scheduled plan.
  *
  * @return StopApplyScheduledPlanResponse
  */
@@ -3998,7 +4030,7 @@ StopApplyScheduledPlanResponse Client::stopApplyScheduledPlan(const string &_nam
 }
 
 /**
- * @summary Stops a job.
+ * @summary Stops a job instance.
  *
  * @param request StopJobRequest
  * @param headers StopJobHeaders
@@ -4035,7 +4067,7 @@ StopJobResponse Client::stopJobWithOptions(const string &_namespace, const strin
 }
 
 /**
- * @summary Stops a job.
+ * @summary Stops a job instance.
  *
  * @param request StopJobRequest
  * @return StopJobResponse
@@ -4196,7 +4228,7 @@ UpdateDeploymentResponse Client::updateDeployment(const string &_namespace, cons
 }
 
 /**
- * @summary Updates an SQL draft.
+ * @summary Updates the draft of an SQL or data ingestion job.
  *
  * @param request UpdateDeploymentDraftRequest
  * @param headers UpdateDeploymentDraftHeaders
@@ -4233,7 +4265,7 @@ UpdateDeploymentDraftResponse Client::updateDeploymentDraftWithOptions(const str
 }
 
 /**
- * @summary Updates an SQL draft.
+ * @summary Updates the draft of an SQL or data ingestion job.
  *
  * @param request UpdateDeploymentDraftRequest
  * @return UpdateDeploymentDraftResponse
@@ -4245,7 +4277,7 @@ UpdateDeploymentDraftResponse Client::updateDeploymentDraft(const string &_names
 }
 
 /**
- * @summary Updates a cluster on which the deployment is deployed.
+ * @summary Updates a deployment target.
  *
  * @param request UpdateDeploymentTargetRequest
  * @param headers UpdateDeploymentTargetHeaders
@@ -4282,7 +4314,7 @@ UpdateDeploymentTargetResponse Client::updateDeploymentTargetWithOptions(const s
 }
 
 /**
- * @summary Updates a cluster on which the deployment is deployed.
+ * @summary Updates a deployment target.
  *
  * @param request UpdateDeploymentTargetRequest
  * @return UpdateDeploymentTargetResponse
@@ -4294,7 +4326,9 @@ UpdateDeploymentTargetResponse Client::updateDeploymentTarget(const string &_nam
 }
 
 /**
- * @summary 更新部署目标
+ * @summary Updates a deployment target.
+ *
+ * @description This new API operation updates deployment targets that use fixed resources, elastic resources, or mixed mode. The previous operation supported only fixed and elastic resources.
  *
  * @param request UpdateDeploymentTargetV2Request
  * @param headers UpdateDeploymentTargetV2Headers
@@ -4331,7 +4365,9 @@ UpdateDeploymentTargetV2Response Client::updateDeploymentTargetV2WithOptions(con
 }
 
 /**
- * @summary 更新部署目标
+ * @summary Updates a deployment target.
+ *
+ * @description This new API operation updates deployment targets that use fixed resources, elastic resources, or mixed mode. The previous operation supported only fixed and elastic resources.
  *
  * @param request UpdateDeploymentTargetV2Request
  * @return UpdateDeploymentTargetV2Response
@@ -4441,7 +4477,7 @@ UpdateMemberResponse Client::updateMember(const string &_namespace, const Update
 }
 
 /**
- * @summary Update a scheduled tuning plan.
+ * @summary Updates a scheduled plan.
  *
  * @param request UpdateScheduledPlanRequest
  * @param headers UpdateScheduledPlanHeaders
@@ -4478,7 +4514,7 @@ UpdateScheduledPlanResponse Client::updateScheduledPlanWithOptions(const string 
 }
 
 /**
- * @summary Update a scheduled tuning plan.
+ * @summary Updates a scheduled plan.
  *
  * @param request UpdateScheduledPlanRequest
  * @return UpdateScheduledPlanResponse
@@ -4637,7 +4673,9 @@ UpdateVariableResponse Client::updateVariable(const string &_namespace, const st
 }
 
 /**
- * @summary validate DeploymentDraft async
+ * @summary Asynchronously performs an in-depth check of a Flink job draft to validate its syntax and resource configuration.
+ *
+ * @description This API asynchronously validates a job draft. It conducts end-to-end compliance and compatibility checks on the draft\\"s configuration before it is submitted for deployment.
  *
  * @param request ValidateDeploymentDraftAsyncRequest
  * @param headers ValidateDeploymentDraftAsyncHeaders
@@ -4674,7 +4712,9 @@ ValidateDeploymentDraftAsyncResponse Client::validateDeploymentDraftAsyncWithOpt
 }
 
 /**
- * @summary validate DeploymentDraft async
+ * @summary Asynchronously performs an in-depth check of a Flink job draft to validate its syntax and resource configuration.
+ *
+ * @description This API asynchronously validates a job draft. It conducts end-to-end compliance and compatibility checks on the draft\\"s configuration before it is submitted for deployment.
  *
  * @param request ValidateDeploymentDraftAsyncRequest
  * @return ValidateDeploymentDraftAsyncResponse

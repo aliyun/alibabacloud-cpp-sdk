@@ -87,12 +87,21 @@ namespace Models
 
 
   protected:
-    // The data structure of the folder.
+    // Folder data structure.
     shared_ptr<Folder> data_ {};
+    // - If success is false, the business error code is returned.
+    // 
+    // - If success is true, an empty value is returned.
     shared_ptr<string> errorCode_ {};
+    // - If success is false, the business error message is returned.
+    // 
+    // - If success is true, an empty value is returned.
     shared_ptr<string> errorMessage_ {};
+    // Indicates task success or failure. If the parameter is not empty and not 200, it means failure.
     shared_ptr<int32_t> httpCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

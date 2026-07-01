@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The description of the variable.
     shared_ptr<string> description_ {};
-    // The type of the variable. Valid value: Plain.
+    // The type of the variable. `Clear` indicates plaintext and `Encrypted` indicates ciphertext.
     // 
     // This parameter is required.
     shared_ptr<string> kind_ {};

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is empty if the request is successful. If the request fails, this parameter is not empty.
     shared_ptr<string> errorCode_ {};
+    // The error message. This parameter is empty if the request is successful. If the request fails, this parameter is not empty.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code. A value of 200 is always returned. Use the success parameter to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

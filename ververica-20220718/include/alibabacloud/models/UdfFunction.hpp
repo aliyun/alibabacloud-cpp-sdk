@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The class name.
     shared_ptr<string> className_ {};
+    // The function name.
     shared_ptr<string> functionName_ {};
+    // The UDF artifact name.
     shared_ptr<string> udfArtifactName_ {};
   };
 

@@ -51,7 +51,10 @@ namespace Models
 
 
   protected:
+    // The resources for the deployment target.
     shared_ptr<Resource> body_ {};
+    // The name of the deployment target.
+    // 
     // This parameter is required.
     shared_ptr<string> deploymentTargetName_ {};
   };

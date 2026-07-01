@@ -297,60 +297,61 @@ namespace Models
 
 
   protected:
-    // The content template of the job.
+    // Job instance content template.
     shared_ptr<Artifact> artifact_ {};
-    // The resource configuration of the job in batch mode.
+    // Batch mode resource settings.
     shared_ptr<BatchResourceSetting> batchResourceSetting_ {};
-    // The time when the job was created.
+    // Creation time.
     shared_ptr<string> createdAt_ {};
-    // The ID of the account that is used to create the job.
+    // Creator.
     shared_ptr<string> creator_ {};
-    // The name of the account that is used to create the job.
+    // Creator name.
     shared_ptr<string> creatorName_ {};
-    // The deployment ID.
+    // Deployment ID.
     shared_ptr<string> deploymentId_ {};
-    // The name of the deployment.
+    // Deployment name.
     shared_ptr<string> deploymentName_ {};
-    // The end time of the job.
+    // Job instance end time.
     shared_ptr<int64_t> endTime_ {};
-    // The engine version of the deployment.
+    // Job engine version.
     shared_ptr<string> engineVersion_ {};
-    // The execution mode of the job. Valid values:
+    // Job instance execution mode.
     // 
-    // *   STREAM
-    // *   BATCH
+    // - STREAM: Stream mode.
+    // 
+    // - BATCH: Batch mode.
     shared_ptr<string> executionMode_ {};
-    // The configuration of the job.
+    // Full parameter settings for the job instance.
     Darabonba::Json flinkConf_ {};
-    // The job ID.
+    // Job instance ID.
     shared_ptr<string> jobId_ {};
-    // The variables.
+    // Job variables.
     shared_ptr<vector<LocalVariable>> localVariables_ {};
-    // The logging configuration of the job.
+    // Job instance log configuration.
     shared_ptr<Logging> logging_ {};
-    // The resource information of the job.
+    // Job instance resource information.
     shared_ptr<JobMetric> metric_ {};
-    // The time when the job was modified.
+    // Modification time.
     shared_ptr<string> modifiedAt_ {};
-    // The ID of the account that is used to modify the job.
+    // Modifier.
     shared_ptr<string> modifier_ {};
-    // The name of the account that is used to modify the job.
+    // Modifier name.
     shared_ptr<string> modifierName_ {};
     // The name of the namespace.
     shared_ptr<string> namespace_ {};
-    // The startup strategy of the job.
+    // Job instance startup policy.
     shared_ptr<DeploymentRestoreStrategy> restoreStrategy_ {};
-    // If the job runs in a session cluster, the value of this parameter is the name of the session cluster. Otherwise, the value of this parameter is null.
+    // If the job instance runs on a Session cluster, this shows the Session cluster name; otherwise, it is null.
     shared_ptr<string> sessionClusterName_ {};
-    // The start time of the job.
+    // Job instance start time.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the job.
+    // Job instance status.
     shared_ptr<JobStatus> status_ {};
-    // The resource configuration of the job in streaming mode.
+    // Stream mode resource settings.
     shared_ptr<StreamingResourceSetting> streamingResourceSetting_ {};
-    // The Flink configuration.
+    // User job parameter settings.
     Darabonba::Json userFlinkConf_ {};
-    // The workspace.
+    // Workspace.
     shared_ptr<string> workspace_ {};
   };
 

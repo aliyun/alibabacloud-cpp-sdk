@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The destination table information.
     shared_ptr<string> destination_ {};
+    // The job instance ID.
     shared_ptr<string> jobId_ {};
+    // The source table information.
     shared_ptr<string> source_ {};
   };
 

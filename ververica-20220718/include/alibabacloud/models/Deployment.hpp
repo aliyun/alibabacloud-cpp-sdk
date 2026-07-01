@@ -276,54 +276,57 @@ namespace Models
 
 
   protected:
-    // The parameters that are required for starting a deployment.
+    // The data structure required to start the deployed job.
     shared_ptr<Artifact> artifact_ {};
-    // The resource configuration of the batch deployment.
+    // Resource settings for a batch job.
     shared_ptr<BatchResourceSetting> batchResourceSetting_ {};
-    // The time at which the deployment was created.
+    // Creation time.
     shared_ptr<string> createdAt_ {};
-    // The ID of the account that is used to create the deployment.
+    // Creator.
     shared_ptr<string> creator_ {};
-    // The name of the account that is used to create the deployment.
+    // Name of the creator.
     shared_ptr<string> creatorName_ {};
-    // Specifies whether the deployment is modified after the deployment is started.
+    // Indicates whether the deployed job has been modified after it was started.
     shared_ptr<bool> deploymentHasChanged_ {};
-    // The ID of the deployment.
+    // Deployed job ID.
     shared_ptr<string> deploymentId_ {};
-    // The cluster on which the deployment is deployed.
+    // Deployment target.
     shared_ptr<BriefDeploymentTarget> deploymentTarget_ {};
-    // The description of the deployment.
+    // Description.
     shared_ptr<string> description_ {};
-    // The engine version of the deployment.
+    // Engine version.
     shared_ptr<string> engineVersion_ {};
-    // The execution mode of the deployment. Valid values:
+    // Execution mode.
     // 
-    // *   STREAMING
-    // *   BATCH
+    // - STREAMING: stream mode.
+    // 
+    // - BATCH: batch mode.
     shared_ptr<string> executionMode_ {};
-    // The Realtime Compute for Apache Flink configuration.
+    // Flink configuration.
     Darabonba::Json flinkConf_ {};
-    // The summary of jobs in the deployment.
+    // A summary of information about the job instances under the deployed job.
     shared_ptr<JobSummary> jobSummary_ {};
+    // Job labels.
     Darabonba::Json labels_ {};
-    // The variables of the deployment.
+    // Job variables.
     shared_ptr<vector<LocalVariable>> localVariables_ {};
-    // The logging configuration.
+    // Log configuration.
     shared_ptr<Logging> logging_ {};
-    // The time at which the deployment was modified.
+    // Modification time.
     shared_ptr<string> modifiedAt_ {};
-    // The ID of the account that is used to modify the deployment.
+    // Modifier.
     shared_ptr<string> modifier_ {};
-    // The name of the account that is used to modify the deployment.
+    // Name of the modifier.
     shared_ptr<string> modifierName_ {};
-    // The name of the deployment.
+    // Deployed job name.
     shared_ptr<string> name_ {};
     // The name of the namespace.
     shared_ptr<string> namespace_ {};
+    // Associated job draft ID.
     shared_ptr<string> referencedDeploymentDraftId_ {};
-    // The resource configuration of the streaming deployment.
+    // Resource settings for a stream job.
     shared_ptr<StreamingResourceSetting> streamingResourceSetting_ {};
-    // The workspace to which the deployment belongs.
+    // Workspace.
     shared_ptr<string> workspace_ {};
   };
 

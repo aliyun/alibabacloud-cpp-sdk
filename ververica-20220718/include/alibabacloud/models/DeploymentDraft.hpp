@@ -207,39 +207,39 @@ namespace Models
 
 
   protected:
-    // The script of the SQL deployment.
+    // The artifact. Supported types include SQLSCRIPT and CDCYAML.
     shared_ptr<Artifact> artifact_ {};
-    // The time when the draft was created.
+    // Output only. The creation time, represented as a Unix timestamp.
     shared_ptr<int64_t> createdAt_ {};
-    // The ID of the account that is used to create the draft.
+    // Output only. The ID of the creator.
     shared_ptr<string> creator_ {};
-    // The name of the account that is used to create the draft.
+    // Output only. The name of the creator.
     shared_ptr<string> creatorName_ {};
-    // The draft ID.
+    // The deployment draft ID.
     shared_ptr<string> deploymentDraftId_ {};
-    // The engine version of the deployment.
+    // The engine version.
     shared_ptr<string> engineVersion_ {};
     // The execution mode.
     shared_ptr<string> executionMode_ {};
-    // The labels of the deployment.
+    // Key-value pairs to apply as labels.
     Darabonba::Json labels_ {};
-    // The variables.
+    // The local variables.
     shared_ptr<vector<LocalVariable>> localVariables_ {};
-    // The lock of the draft.
+    // The deployment draft lock.
     shared_ptr<Lock> lock_ {};
-    // The time when the draft was modified.
+    // Output only. The modification time, represented as a Unix timestamp.
     shared_ptr<int64_t> modifiedAt_ {};
-    // The ID of the account that is used to modify the draft.
+    // Output only. The ID of the modifier.
     shared_ptr<string> modifier_ {};
-    // The name of the account that is used to modify the draft.
+    // Output only. The name of the modifier.
     shared_ptr<string> modifierName_ {};
-    // The name of the draft.
+    // The deployment draft name.
     shared_ptr<string> name_ {};
-    // The name of the namespace.
+    // The namespace.
     shared_ptr<string> namespace_ {};
-    // The ID of the parent folder.
+    // The parent ID.
     shared_ptr<string> parentId_ {};
-    // The ID of the associated deployment.
+    // The referenced deployment ID.
     shared_ptr<string> referencedDeploymentId_ {};
     // The workspace.
     shared_ptr<string> workspace_ {};

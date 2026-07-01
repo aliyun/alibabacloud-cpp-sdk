@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // This data structure represents the scheduled plan to be created.
     shared_ptr<ScheduledPlan> body_ {};
   };
 

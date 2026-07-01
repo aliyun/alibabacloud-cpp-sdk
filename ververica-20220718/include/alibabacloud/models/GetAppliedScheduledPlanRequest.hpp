@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the deployed job.
+    // 
     // This parameter is required.
     shared_ptr<string> deploymentId_ {};
   };
