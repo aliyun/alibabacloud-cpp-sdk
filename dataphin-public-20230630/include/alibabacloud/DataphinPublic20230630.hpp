@@ -490,6 +490,41 @@ namespace DataphinPublic20230630
       Models::CreateDataSourceResponse createDataSource(const Models::CreateDataSourceRequest &request);
 
       /**
+       * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+       *
+       * @description ## Operation description
+       * - This API creates a new dataset in a specified project.
+       * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+       * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+       * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+       * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+       * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+       *
+       * @param tmpReq CreateDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+       *
+       * @description ## Operation description
+       * - This API creates a new dataset in a specified project.
+       * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+       * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+       * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+       * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+       * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+       *
+       * @param request CreateDatasetRequest
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
+
+      /**
        * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
        *
        * @param tmpReq CreateDirectoryRequest
@@ -1043,6 +1078,23 @@ namespace DataphinPublic20230630
        * @return DeleteDataSourceResponse
        */
       Models::DeleteDataSourceResponse deleteDataSource(const Models::DeleteDataSourceRequest &request);
+
+      /**
+       * @summary Deletes a dataset. Release version: v6.2.0.
+       *
+       * @param request DeleteDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatasetResponse
+       */
+      Models::DeleteDatasetResponse deleteDatasetWithOptions(const Models::DeleteDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a dataset. Release version: v6.2.0.
+       *
+       * @param request DeleteDatasetRequest
+       * @return DeleteDatasetResponse
+       */
+      Models::DeleteDatasetResponse deleteDataset(const Models::DeleteDatasetRequest &request);
 
       /**
        * @summary Deletes a file directory from the menu tree.
@@ -1662,6 +1714,23 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskVersionsResponse getBatchTaskVersions(const Models::GetBatchTaskVersionsRequest &request);
 
       /**
+       * @summary 获取指定离线模板ID版本列表。
+       *
+       * @param request GetBatchTemplateVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBatchTemplateVersionsResponse
+       */
+      Models::GetBatchTemplateVersionsResponse getBatchTemplateVersionsWithOptions(const Models::GetBatchTemplateVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定离线模板ID版本列表。
+       *
+       * @param request GetBatchTemplateVersionsRequest
+       * @return GetBatchTemplateVersionsResponse
+       */
+      Models::GetBatchTemplateVersionsResponse getBatchTemplateVersions(const Models::GetBatchTemplateVersionsRequest &request);
+
+      /**
        * @summary Query mapping relationships by belonging asset GUID.
        * Release version: v5.4.2.
        *
@@ -2101,6 +2170,27 @@ namespace DataphinPublic20230630
       Models::GetDataSourceDependenciesResponse getDataSourceDependencies(const Models::GetDataSourceDependenciesRequest &request);
 
       /**
+       * @summary Retrieves a dataset. Release version: v6.2.0.
+       *
+       * @description Queries the details of a tested connectivity task based on the data source ID.
+       *
+       * @param request GetDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDatasetResponse
+       */
+      Models::GetDatasetResponse getDatasetWithOptions(const Models::GetDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a dataset. Release version: v6.2.0.
+       *
+       * @description Queries the details of a tested connectivity task based on the data source ID.
+       *
+       * @param request GetDatasetRequest
+       * @return GetDatasetResponse
+       */
+      Models::GetDatasetResponse getDataset(const Models::GetDatasetRequest &request);
+
+      /**
        * @summary Query upstream dependencies of development objects.
        *
        * @param request GetDevObjectDependencyRequest
@@ -2252,6 +2342,57 @@ namespace DataphinPublic20230630
        * @return GetNodeUpDownStreamResponse
        */
       Models::GetNodeUpDownStreamResponse getNodeUpDownStream(const Models::GetNodeUpDownStreamRequest &request);
+
+      /**
+       * @summary 根据Id查询运行记录
+       *
+       * @param tmpReq GetOperationRecordByIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOperationRecordByIdResponse
+       */
+      Models::GetOperationRecordByIdResponse getOperationRecordByIdWithOptions(const Models::GetOperationRecordByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据Id查询运行记录
+       *
+       * @param request GetOperationRecordByIdRequest
+       * @return GetOperationRecordByIdResponse
+       */
+      Models::GetOperationRecordByIdResponse getOperationRecordById(const Models::GetOperationRecordByIdRequest &request);
+
+      /**
+       * @summary Queries the details of an execution record. Released in version v6.2.0.
+       *
+       * @param tmpReq GetOperationRecordDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOperationRecordDetailResponse
+       */
+      Models::GetOperationRecordDetailResponse getOperationRecordDetailWithOptions(const Models::GetOperationRecordDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an execution record. Released in version v6.2.0.
+       *
+       * @param request GetOperationRecordDetailRequest
+       * @return GetOperationRecordDetailResponse
+       */
+      Models::GetOperationRecordDetailResponse getOperationRecordDetail(const Models::GetOperationRecordDetailRequest &request);
+
+      /**
+       * @summary Queries the execution code of an operation log. Online version: v6.2.0.
+       *
+       * @param tmpReq GetOperationRecordRunCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOperationRecordRunCodeResponse
+       */
+      Models::GetOperationRecordRunCodeResponse getOperationRecordRunCodeWithOptions(const Models::GetOperationRecordRunCodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the execution code of an operation log. Online version: v6.2.0.
+       *
+       * @param request GetOperationRecordRunCodeRequest
+       * @return GetOperationRecordRunCodeResponse
+       */
+      Models::GetOperationRecordRunCodeResponse getOperationRecordRunCode(const Models::GetOperationRecordRunCodeRequest &request);
 
       /**
        * @summary Queries the submit status of a data backfill request.
@@ -3333,6 +3474,23 @@ namespace DataphinPublic20230630
       Models::ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetails(const Models::ListAuthorizedDataServiceApiDetailsRequest &request);
 
       /**
+       * @summary Queries offline computing templates by paging. Online version: v6.2.0.
+       *
+       * @param tmpReq ListBatchTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBatchTemplatesResponse
+       */
+      Models::ListBatchTemplatesResponse listBatchTemplatesWithOptions(const Models::ListBatchTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries offline computing templates by paging. Online version: v6.2.0.
+       *
+       * @param request ListBatchTemplatesRequest
+       * @return ListBatchTemplatesResponse
+       */
+      Models::ListBatchTemplatesResponse listBatchTemplates(const Models::ListBatchTemplatesRequest &request);
+
+      /**
        * @summary Queries a list of business entities.
        *
        * @param tmpReq ListBizEntitiesRequest
@@ -3573,6 +3731,29 @@ namespace DataphinPublic20230630
       Models::ListDataSourceWithConfigResponse listDataSourceWithConfig(const Models::ListDataSourceWithConfigRequest &request);
 
       /**
+       * @summary Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+       *
+       * @description ## Operation description
+       * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+       *
+       * @param tmpReq ListDatasetsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatasetsResponse
+       */
+      Models::ListDatasetsResponse listDatasetsWithOptions(const Models::ListDatasetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+       *
+       * @description ## Operation description
+       * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+       *
+       * @param request ListDatasetsRequest
+       * @return ListDatasetsResponse
+       */
+      Models::ListDatasetsResponse listDatasets(const Models::ListDatasetsRequest &request);
+
+      /**
        * @summary Query the directory tree file list.
        *
        * @param tmpReq ListFilesRequest
@@ -3639,6 +3820,23 @@ namespace DataphinPublic20230630
        * @return ListNodesResponse
        */
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
+
+      /**
+       * @summary Performs a paged query on the list of operation records. Online version: v6.2.0.
+       *
+       * @param tmpReq ListOperationRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOperationRecordResponse
+       */
+      Models::ListOperationRecordResponse listOperationRecordWithOptions(const Models::ListOperationRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on the list of operation records. Online version: v6.2.0.
+       *
+       * @param request ListOperationRecordRequest
+       * @return ListOperationRecordResponse
+       */
+      Models::ListOperationRecordResponse listOperationRecord(const Models::ListOperationRecordRequest &request);
 
       /**
        * @summary Queries the list of project members.
@@ -4754,6 +4952,39 @@ namespace DataphinPublic20230630
        * @return UpdateDataSourceConfigResponse
        */
       Models::UpdateDataSourceConfigResponse updateDataSourceConfig(const Models::UpdateDataSourceConfigRequest &request);
+
+      /**
+       * @summary Dataphin OpenAPI 模板。
+       *
+       * @description ## 请求说明
+       * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+       * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+       * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+       * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+       * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+       * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+       *
+       * @param tmpReq UpdateDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDatasetResponse
+       */
+      Models::UpdateDatasetResponse updateDatasetWithOptions(const Models::UpdateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Dataphin OpenAPI 模板。
+       *
+       * @description ## 请求说明
+       * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+       * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+       * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+       * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+       * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+       * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+       *
+       * @param request UpdateDatasetRequest
+       * @return UpdateDatasetResponse
+       */
+      Models::UpdateDatasetResponse updateDataset(const Models::UpdateDatasetRequest &request);
 
       /**
        * @summary Moves the file position in the menu tree.

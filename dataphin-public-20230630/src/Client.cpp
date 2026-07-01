@@ -1495,6 +1495,82 @@ CreateDataSourceResponse Client::createDataSource(const CreateDataSourceRequest 
 }
 
 /**
+ * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+ *
+ * @description ## Operation description
+ * - This API creates a new dataset in a specified project.
+ * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+ * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+ * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+ * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+ * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+ * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+ *
+ * @param tmpReq CreateDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDatasetShrinkRequest request = CreateDatasetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDataset"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatasetResponse>();
+}
+
+/**
+ * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+ *
+ * @description ## Operation description
+ * - This API creates a new dataset in a specified project.
+ * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+ * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+ * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+ * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+ * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+ * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+ *
+ * @param request CreateDatasetRequest
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDatasetWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
  *
  * @param tmpReq CreateDirectoryRequest
@@ -3174,6 +3250,56 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
 DeleteDataSourceResponse Client::deleteDataSource(const DeleteDataSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a dataset. Release version: v6.2.0.
+ *
+ * @param request DeleteDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatasetResponse
+ */
+DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataset"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatasetResponse>();
+}
+
+/**
+ * @summary Deletes a dataset. Release version: v6.2.0.
+ *
+ * @param request DeleteDatasetRequest
+ * @return DeleteDatasetResponse
+ */
+DeleteDatasetResponse Client::deleteDataset(const DeleteDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDatasetWithOptions(request, runtime);
 }
 
 /**
@@ -5057,6 +5183,60 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersions(const GetBatchTaskVers
 }
 
 /**
+ * @summary 获取指定离线模板ID版本列表。
+ *
+ * @param request GetBatchTemplateVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBatchTemplateVersionsResponse
+ */
+GetBatchTemplateVersionsResponse Client::getBatchTemplateVersionsWithOptions(const GetBatchTemplateVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBatchTemplateVersions"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBatchTemplateVersionsResponse>();
+}
+
+/**
+ * @summary 获取指定离线模板ID版本列表。
+ *
+ * @param request GetBatchTemplateVersionsRequest
+ * @return GetBatchTemplateVersionsResponse
+ */
+GetBatchTemplateVersionsResponse Client::getBatchTemplateVersions(const GetBatchTemplateVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBatchTemplateVersionsWithOptions(request, runtime);
+}
+
+/**
  * @summary Query mapping relationships by belonging asset GUID.
  * Release version: v5.4.2.
  *
@@ -6297,6 +6477,60 @@ GetDataSourceDependenciesResponse Client::getDataSourceDependencies(const GetDat
 }
 
 /**
+ * @summary Retrieves a dataset. Release version: v6.2.0.
+ *
+ * @description Queries the details of a tested connectivity task based on the data source ID.
+ *
+ * @param request GetDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDatasetResponse
+ */
+GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataset"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDatasetResponse>();
+}
+
+/**
+ * @summary Retrieves a dataset. Release version: v6.2.0.
+ *
+ * @description Queries the details of a tested connectivity task based on the data source ID.
+ *
+ * @param request GetDatasetRequest
+ * @return GetDatasetResponse
+ */
+GetDatasetResponse Client::getDataset(const GetDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDatasetWithOptions(request, runtime);
+}
+
+/**
  * @summary Query upstream dependencies of development objects.
  *
  * @param request GetDevObjectDependencyRequest
@@ -6812,6 +7046,168 @@ GetNodeUpDownStreamResponse Client::getNodeUpDownStreamWithOptions(const GetNode
 GetNodeUpDownStreamResponse Client::getNodeUpDownStream(const GetNodeUpDownStreamRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNodeUpDownStreamWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据Id查询运行记录
+ *
+ * @param tmpReq GetOperationRecordByIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOperationRecordByIdResponse
+ */
+GetOperationRecordByIdResponse Client::getOperationRecordByIdWithOptions(const GetOperationRecordByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetOperationRecordByIdShrinkRequest request = GetOperationRecordByIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDetailCommand()) {
+    request.setDetailCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDetailCommand(), "DetailCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDetailCommandShrink()) {
+    body["DetailCommand"] = request.getDetailCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetOperationRecordById"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOperationRecordByIdResponse>();
+}
+
+/**
+ * @summary 根据Id查询运行记录
+ *
+ * @param request GetOperationRecordByIdRequest
+ * @return GetOperationRecordByIdResponse
+ */
+GetOperationRecordByIdResponse Client::getOperationRecordById(const GetOperationRecordByIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getOperationRecordByIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of an execution record. Released in version v6.2.0.
+ *
+ * @param tmpReq GetOperationRecordDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOperationRecordDetailResponse
+ */
+GetOperationRecordDetailResponse Client::getOperationRecordDetailWithOptions(const GetOperationRecordDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetOperationRecordDetailShrinkRequest request = GetOperationRecordDetailShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRecordDetailCommand()) {
+    request.setRecordDetailCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecordDetailCommand(), "RecordDetailCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasRecordDetailCommandShrink()) {
+    body["RecordDetailCommand"] = request.getRecordDetailCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetOperationRecordDetail"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOperationRecordDetailResponse>();
+}
+
+/**
+ * @summary Queries the details of an execution record. Released in version v6.2.0.
+ *
+ * @param request GetOperationRecordDetailRequest
+ * @return GetOperationRecordDetailResponse
+ */
+GetOperationRecordDetailResponse Client::getOperationRecordDetail(const GetOperationRecordDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getOperationRecordDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the execution code of an operation log. Online version: v6.2.0.
+ *
+ * @param tmpReq GetOperationRecordRunCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOperationRecordRunCodeResponse
+ */
+GetOperationRecordRunCodeResponse Client::getOperationRecordRunCodeWithOptions(const GetOperationRecordRunCodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetOperationRecordRunCodeShrinkRequest request = GetOperationRecordRunCodeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCodeCommand()) {
+    request.setCodeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCodeCommand(), "CodeCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCodeCommandShrink()) {
+    body["CodeCommand"] = request.getCodeCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetOperationRecordRunCode"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOperationRecordRunCodeResponse>();
+}
+
+/**
+ * @summary Queries the execution code of an operation log. Online version: v6.2.0.
+ *
+ * @param request GetOperationRecordRunCodeRequest
+ * @return GetOperationRecordRunCodeResponse
+ */
+GetOperationRecordRunCodeResponse Client::getOperationRecordRunCode(const GetOperationRecordRunCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getOperationRecordRunCodeWithOptions(request, runtime);
 }
 
 /**
@@ -9951,6 +10347,68 @@ ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApi
 }
 
 /**
+ * @summary Queries offline computing templates by paging. Online version: v6.2.0.
+ *
+ * @param tmpReq ListBatchTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBatchTemplatesResponse
+ */
+ListBatchTemplatesResponse Client::listBatchTemplatesWithOptions(const ListBatchTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListBatchTemplatesShrinkRequest request = ListBatchTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListBatchTemplates"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBatchTemplatesResponse>();
+}
+
+/**
+ * @summary Queries offline computing templates by paging. Online version: v6.2.0.
+ *
+ * @param request ListBatchTemplatesRequest
+ * @return ListBatchTemplatesResponse
+ */
+ListBatchTemplatesResponse Client::listBatchTemplates(const ListBatchTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBatchTemplatesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of business entities.
  *
  * @param tmpReq ListBizEntitiesRequest
@@ -10725,6 +11183,66 @@ ListDataSourceWithConfigResponse Client::listDataSourceWithConfig(const ListData
 }
 
 /**
+ * @summary Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+ *
+ * @description ## Operation description
+ * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+ *
+ * @param tmpReq ListDatasetsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatasetsResponse
+ */
+ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDatasetsShrinkRequest request = ListDatasetsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDatasetQuery()) {
+    request.setDatasetQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDatasetQuery(), "DatasetQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDatasetQueryShrink()) {
+    body["DatasetQuery"] = request.getDatasetQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListDatasets"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatasetsResponse>();
+}
+
+/**
+ * @summary Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+ *
+ * @description ## Operation description
+ * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+ *
+ * @param request ListDatasetsRequest
+ * @return ListDatasetsResponse
+ */
+ListDatasetsResponse Client::listDatasets(const ListDatasetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDatasetsWithOptions(request, runtime);
+}
+
+/**
  * @summary Query the directory tree file list.
  *
  * @param tmpReq ListFilesRequest
@@ -10950,6 +11468,60 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
 ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Performs a paged query on the list of operation records. Online version: v6.2.0.
+ *
+ * @param tmpReq ListOperationRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOperationRecordResponse
+ */
+ListOperationRecordResponse Client::listOperationRecordWithOptions(const ListOperationRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListOperationRecordShrinkRequest request = ListOperationRecordShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListCommand()) {
+    request.setListCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListCommand(), "ListCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListCommandShrink()) {
+    body["ListCommand"] = request.getListCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListOperationRecord"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOperationRecordResponse>();
+}
+
+/**
+ * @summary Performs a paged query on the list of operation records. Online version: v6.2.0.
+ *
+ * @param request ListOperationRecordRequest
+ * @return ListOperationRecordResponse
+ */
+ListOperationRecordResponse Client::listOperationRecord(const ListOperationRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOperationRecordWithOptions(request, runtime);
 }
 
 /**
@@ -14436,6 +15008,80 @@ UpdateDataSourceConfigResponse Client::updateDataSourceConfigWithOptions(const U
 UpdateDataSourceConfigResponse Client::updateDataSourceConfig(const UpdateDataSourceConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataSourceConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Dataphin OpenAPI 模板。
+ *
+ * @description ## 请求说明
+ * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+ * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+ * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+ * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+ * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+ * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+ *
+ * @param tmpReq UpdateDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDatasetResponse
+ */
+UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDatasetShrinkRequest request = UpdateDatasetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataset"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDatasetResponse>();
+}
+
+/**
+ * @summary Dataphin OpenAPI 模板。
+ *
+ * @description ## 请求说明
+ * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+ * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+ * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+ * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+ * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+ * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+ *
+ * @param request UpdateDatasetRequest
+ * @return UpdateDatasetResponse
+ */
+UpdateDatasetResponse Client::updateDataset(const UpdateDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDatasetWithOptions(request, runtime);
 }
 
 /**
