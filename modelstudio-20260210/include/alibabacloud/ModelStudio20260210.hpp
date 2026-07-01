@@ -209,7 +209,7 @@ namespace ModelStudio20260210
       /**
        * @summary Disables an API key.
        *
-       * @description An API key cannot be disabled if it is already disabled.
+       * @description An API key that is already disabled cannot be disabled again.
        *
        * @param request DisableApiKeyRequest
        * @param headers map
@@ -221,7 +221,7 @@ namespace ModelStudio20260210
       /**
        * @summary Disables an API key.
        *
-       * @description An API key cannot be disabled if it is already disabled.
+       * @description An API key that is already disabled cannot be disabled again.
        *
        * @param request DisableApiKeyRequest
        * @return DisableApiKeyResponse
@@ -251,7 +251,7 @@ namespace ModelStudio20260210
       Models::EnableApiKeyResponse enableApiKey(const string &apiKeyId, const Models::EnableApiKeyRequest &request);
 
       /**
-       * @summary Retrieves the information of a specified authentication credential API key.
+       * @summary Retrieves the information about a specified API key.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -260,7 +260,7 @@ namespace ModelStudio20260210
       Models::GetApiKeyResponse getApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the information of a specified authentication credential API key.
+       * @summary Retrieves the information about a specified API key.
        *
        * @return GetApiKeyResponse
        */
@@ -409,7 +409,7 @@ namespace ModelStudio20260210
       Models::GetTokenPlanOrgInviteConfigResponse getTokenPlanOrgInviteConfig(const Models::GetTokenPlanOrgInviteConfigRequest &request);
 
       /**
-       * @summary Retrieves a list of API key authentication credentials.
+       * @summary Retrieves a list of API key information for authentication credentials.
        *
        * @param request ListApiKeysRequest
        * @param headers map
@@ -419,7 +419,7 @@ namespace ModelStudio20260210
       Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of API key authentication credentials.
+       * @summary Retrieves a list of API key information for authentication credentials.
        *
        * @param request ListApiKeysRequest
        * @return ListApiKeysResponse

@@ -95,7 +95,13 @@ namespace Models
 
 
       protected:
+        // The list of accessible models.
+        // >Notice: The content takes effect only when allowAllModels is set to false.
         shared_ptr<vector<string>> accessibleModels_ {};
+        // Specifies whether to allow access to all models with granted inference permissions in the workspace. Valid values:
+        // 
+        // - true
+        // - false
         shared_ptr<bool> allowAllModels_ {};
       };
 
@@ -130,8 +136,9 @@ namespace Models
       // The IP access whitelist.
       // 
       // > 
-      // > - When you set custom permissions and do not specify the IP access whitelist, the server sets the whitelist to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
+      // > - When you customize the permission scope, if the IP access whitelist is not specified, the server sets it to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
       shared_ptr<vector<string>> accessIps_ {};
+      // The model access scope.
       shared_ptr<Auth::ModelAccessScope> modelAccessScope_ {};
       // Valid values:
       // 
@@ -160,6 +167,8 @@ namespace Models
 
   protected:
     // The API key permission settings.
+    // 
+    // > Do not fill in this section or fill it in completely for each UpdateApiKey operation. Otherwise, the configuration may not match your expectations.
     shared_ptr<UpdateApiKeyRequest::Auth> auth_ {};
     // The description.
     shared_ptr<string> description_ {};

@@ -142,7 +142,9 @@ namespace Models
 
 
         protected:
+          // The list of accessible models.
           shared_ptr<vector<string>> accessibleModels_ {};
+          // Indicates whether access to all models with inference permissions in the workspace is allowed.
           shared_ptr<bool> allowAllModels_ {};
         };
 
@@ -174,8 +176,9 @@ namespace Models
 
 
       protected:
-        // The IP address whitelist.
+        // The IP access whitelist.
         shared_ptr<vector<string>> accessIps_ {};
+        // The model access scope.
         shared_ptr<Auth::ModelAccessScope> modelAccessScope_ {};
         // All: all permissions. Custom: custom permissions.
         shared_ptr<string> type_ {};
@@ -339,11 +342,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
+    // The token used to retrieve more results. This parameter is not required for the first query. For subsequent queries, use the token obtained from the previous response.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

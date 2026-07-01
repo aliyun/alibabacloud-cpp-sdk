@@ -509,7 +509,7 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId, const
 /**
  * @summary Disables an API key.
  *
- * @description An API key cannot be disabled if it is already disabled.
+ * @description An API key that is already disabled cannot be disabled again.
  *
  * @param request DisableApiKeyRequest
  * @param headers map
@@ -538,7 +538,7 @@ DisableApiKeyResponse Client::disableApiKeyWithOptions(const string &apiKeyId, c
 /**
  * @summary Disables an API key.
  *
- * @description An API key cannot be disabled if it is already disabled.
+ * @description An API key that is already disabled cannot be disabled again.
  *
  * @param request DisableApiKeyRequest
  * @return DisableApiKeyResponse
@@ -593,7 +593,7 @@ EnableApiKeyResponse Client::enableApiKey(const string &apiKeyId, const EnableAp
 }
 
 /**
- * @summary Retrieves the information of a specified authentication credential API key.
+ * @summary Retrieves the information about a specified API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -618,7 +618,7 @@ GetApiKeyResponse Client::getApiKeyWithOptions(const string &apiKeyId, const map
 }
 
 /**
- * @summary Retrieves the information of a specified authentication credential API key.
+ * @summary Retrieves the information about a specified API key.
  *
  * @return GetApiKeyResponse
  */
@@ -944,7 +944,7 @@ GetTokenPlanOrgInviteConfigResponse Client::getTokenPlanOrgInviteConfig(const Ge
 }
 
 /**
- * @summary Retrieves a list of API key authentication credentials.
+ * @summary Retrieves a list of API key information for authentication credentials.
  *
  * @param request ListApiKeysRequest
  * @param headers map
@@ -1001,7 +1001,7 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary Retrieves a list of API key authentication credentials.
+ * @summary Retrieves a list of API key information for authentication credentials.
  *
  * @param request ListApiKeysRequest
  * @return ListApiKeysResponse

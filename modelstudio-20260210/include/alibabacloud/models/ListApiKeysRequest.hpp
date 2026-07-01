@@ -96,23 +96,23 @@ namespace Models
   protected:
     // The API key ID for exact match.
     shared_ptr<int64_t> apiKeyId_ {};
-    // The keyword for fuzzy match against the description.
+    // The keyword for fuzzy match by description.
     shared_ptr<string> description_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
+    // The token used to retrieve more results. This parameter is not required for the first query. For subsequent queries, use the token obtained from the previous response.
     shared_ptr<string> nextToken_ {};
     // The sort order. Valid values:
     // 
     // - DESC (default)
     // 
-    // - ASC.
+    // - ASC
     shared_ptr<string> order_ {};
     // The field by which to sort results. Valid values:
     // 
     // - apiKeyId (default)
     // 
-    // - gmtCreate.
+    // - gmtCreate
     shared_ptr<string> orderBy_ {};
     // The workspace ID for exact match.
     shared_ptr<string> workspaceId_ {};

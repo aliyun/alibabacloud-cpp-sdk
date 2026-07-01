@@ -85,8 +85,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the API call is successful. Valid values:
     // 
-    // - true: The call succeeded.
-    // - false: The call failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 
