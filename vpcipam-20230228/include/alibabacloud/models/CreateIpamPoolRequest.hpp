@@ -106,13 +106,17 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. A maximum of 20 tag keys are supported. Once this value is specified, it cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag key must start with a letter but cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // 
+      // > You must specify at least one of the **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameters.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. A maximum of 20 tag values are supported. Once this value is specified, it can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with a `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      // 
+      // > You must specify at least one of the **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameters.
       shared_ptr<string> value_ {};
     };
 
@@ -264,66 +268,71 @@ namespace Models
 
 
   protected:
-    // The default network mask assigned by the IPAM address pool.  
+    // The default CIDR mask for allocations from the IPAM address pool.
     // 
-    // > The IPv4 network mask value range is 0 to 32 bits, and the IPv6 network mask value range is 0 to 128 bits.
+    // > The IPv4 CIDR mask ranges from **0** to **32** bits. The IPv6 CIDR mask ranges from **0** to **128** bits.
     shared_ptr<int32_t> allocationDefaultCidrMask_ {};
-    // The maximum network mask assigned by the IPAM address pool.  
-    // > The IPv4 network mask value range is **0 to 32** bits, and the IPv6 network mask value range is **0 to 128** bits.
-    shared_ptr<int32_t> allocationMaxCidrMask_ {};
-    // The minimum network mask assigned by the IPAM address pool.  
-    // > The IPv4 network mask value range is **0 to 32** bits, and the IPv6 network mask value range is **0 to 128** bits.
-    shared_ptr<int32_t> allocationMinCidrMask_ {};
-    // Whether the pool has the auto-import feature enabled.
-    shared_ptr<bool> autoImport_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // The maximum CIDR mask for allocations from the IPAM address pool.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+    // > The IPv4 CIDR mask ranges from **0** to **32** bits. The IPv6 CIDR mask ranges from **0** to **128** bits.
+    shared_ptr<int32_t> allocationMaxCidrMask_ {};
+    // The minimum CIDR mask for allocations from the IPAM address pool.
+    // 
+    // > The IPv4 CIDR mask ranges from **0** to **32** bits. The IPv6 CIDR mask ranges from **0** to **128** bits.
+    shared_ptr<int32_t> allocationMinCidrMask_ {};
+    // Specifies whether to enable the auto-import feature for the address pool.
+    shared_ptr<bool> autoImport_ {};
+    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // 
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: performs only a dry run. The system checks the request for potential issues, including missing required parameters, request format, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, DryRunOperation is returned.
+    // - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is directly performed.
     shared_ptr<bool> dryRun_ {};
-    // IP address protocol version. Values:
-    // - **IPv4**: IPv4 protocol.
-    // - **IPv6**: IPv6 protocol.
-    shared_ptr<string> ipVersion_ {};
-    // Description of the IPAM address pool. 
-    // The length should be between 1 to 256 characters, and it must start with an uppercase or lowercase English letter or a Chinese character, but cannot begin with `http://` or `https://`. If left blank, the default value is empty.
-    shared_ptr<string> ipamPoolDescription_ {};
-    // The name of the IPAM pool.
+    // The IP address protocol version. Valid values:
     // 
-    // It must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+    // - **IPv4**: IPv4.
+    // 
+    // - **IPv6**: IPv6.
+    shared_ptr<string> ipVersion_ {};
+    // The description of the IPAM address pool.
+    // 
+    // The description must be 1 to 256 characters in length and must start with an uppercase or lowercase English letter or a Chinese character. It cannot start with `http://` or `https://`. If this parameter is not specified, the description is empty by default.
+    shared_ptr<string> ipamPoolDescription_ {};
+    // The name of the IPAM address pool.
+    // 
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> ipamPoolName_ {};
-    // The ID of the IPAM scope.
+    // The instance ID of the IPAM scope.
     // 
     // This parameter is required.
     shared_ptr<string> ipamScopeId_ {};
-    // The type of the IPv6 CIDR block of the VPC. Valid values:
+    // The type of IPv6 CIDR block. This parameter takes effect only for public IPv6 address pools. Valid values:
     // 
-    // *   **BGP** (default)
-    // *   **ChinaMobile**
-    // *   **ChinaUnicom**
-    // *   **ChinaTelecom**
+    // - **BGP** (default): Alibaba Cloud BGP IPv6.
+    // - **ChinaMobile**: China Mobile (single-line).
+    // - **ChinaUnicom**: China Unicom (single-line).
+    // - **ChinaTelecom**: China Telecom (single-line).
     // 
-    // >  If you are allowed to use single-ISP bandwidth, you can set the value to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
+    // > If you are a user who has activated the single-line bandwidth whitelist, this field can be set to **ChinaTelecom** (China Telecom), **ChinaUnicom** (China Unicom), or **ChinaMobile** (China Mobile).
     shared_ptr<string> ipv6Isp_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The effective region of the IPAM pool.
+    // The region where the IPAM address pool takes effect.
     shared_ptr<string> poolRegionId_ {};
-    // The ID of the region where the IPAM instance is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the IPAM. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) API to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The resource group ID of the IPAM address pool.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the source IPAM pool.
+    // The instance ID of the source IPAM address pool.
     // 
-    // >  If you do not specify this parameter, the pool is a parent pool.
+    // > If this parameter is not specified, the created address pool is a parent address pool.
     shared_ptr<string> sourceIpamPoolId_ {};
     // The tag list.
     shared_ptr<vector<CreateIpamPoolRequest::Tag>> tag_ {};

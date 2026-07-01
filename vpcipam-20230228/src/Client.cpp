@@ -17,7 +17,42 @@ namespace VpcIpam20230228
 {
 
 AlibabaCloud::VpcIpam20230228::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "vpcipam.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "vpcipam.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "vpcipam.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "vpcipam.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "vpcipam.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "vpcipam.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "vpcipam.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "vpcipam.cn-wulanchabu.aliyuncs.com"},
+    {"cn-wuhan-lr" , "vpcipam.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "vpcipam.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "vpcipam.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "vpcipam.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "vpcipam.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "vpcipam.cn-qingdao.aliyuncs.com"},
+    {"cn-nanjing" , "vpcipam.cn-nanjing.aliyuncs.com"},
+    {"cn-huhehaote" , "vpcipam.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "vpcipam.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "vpcipam.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "vpcipam.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "vpcipam.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "vpcipam.cn-guangzhou.aliyuncs.com"},
+    {"cn-fuzhou" , "vpcipam.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "vpcipam.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "vpcipam.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "vpcipam.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "vpcipam.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "vpcipam.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "vpcipam.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "vpcipam.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "vpcipam.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "vpcipam.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-2" , "vpcipam.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "vpcipam.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("vpcipam", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +71,18 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加ipam可信服务纳管成员
+ * @summary Adds members to an IP Address Manager (IPAM).
+ *
+ * @description - Only the delegated administrator of an IPAM instance in a resource directory can perform multi-account management.
+ * - An IPAM delegated administrator can use an IPAM instance in only one region for multi-account management. A maximum of 1,000 member accounts can be added.
+ *   >Notice: 
+ *   If you add a folder as a member, the system counts all member accounts of the resource directory that are in the folder.
+ *   
+ * - Members can be of the Folder or Account type.
+ *   - Folder: The delegated IPAM administrator can view IP usage in the IPAM effective region for all resource directory member accounts in the folder.
+ *   - Account: The delegated IPAM administrator can view IP usage in the IPAM effective region for the specified resource directory member account.
+ * - A managed member cannot share its resource discovery with the IPAM delegated administrator. The IPAM delegated administrator cannot add a member if that member has already shared its resource discovery.
+ * - Adding the first member enables the IPAM trusted service for the resource directory.
  *
  * @param request AddIpamMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -95,7 +141,18 @@ AddIpamMembersResponse Client::addIpamMembersWithOptions(const AddIpamMembersReq
 }
 
 /**
- * @summary 添加ipam可信服务纳管成员
+ * @summary Adds members to an IP Address Manager (IPAM).
+ *
+ * @description - Only the delegated administrator of an IPAM instance in a resource directory can perform multi-account management.
+ * - An IPAM delegated administrator can use an IPAM instance in only one region for multi-account management. A maximum of 1,000 member accounts can be added.
+ *   >Notice: 
+ *   If you add a folder as a member, the system counts all member accounts of the resource directory that are in the folder.
+ *   
+ * - Members can be of the Folder or Account type.
+ *   - Folder: The delegated IPAM administrator can view IP usage in the IPAM effective region for all resource directory member accounts in the folder.
+ *   - Account: The delegated IPAM administrator can view IP usage in the IPAM effective region for the specified resource directory member account.
+ * - A managed member cannot share its resource discovery with the IPAM delegated administrator. The IPAM delegated administrator cannot add a member if that member has already shared its resource discovery.
+ * - Adding the first member enables the IPAM trusted service for the resource directory.
  *
  * @param request AddIpamMembersRequest
  * @return AddIpamMembersResponse
@@ -106,15 +163,15 @@ AddIpamMembersResponse Client::addIpamMembers(const AddIpamMembersRequest &reque
 }
 
 /**
- * @summary Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+ * @summary Provisions a CIDR block for an IPAM pool.
  *
- * @description *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
- * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
- * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
- * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
- * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
- * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
- * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
+ * @description - Before provisioning a CIDR block, make sure that you have created an IPAM pool. You can call **CreateIpamPool** to create an IPAM pool.
+ * - If the parent pool does not have a provisioned CIDR block, the subpool does not support CIDR block provisioning.
+ * - If the parent pool has a provisioned CIDR block, the subpool can have a provisioned CIDR block, and the provisioned CIDR block must be a subset of the parent pool\\"s provisioned CIDR block.
+ * - If the parent pool has a provisioned CIDR block and also has CIDR allocations, the CIDR block provisioned for the subpool must not conflict with the existing CIDR allocations.
+ * - The request to provision a CIDR block for an IPAM pool must be initiated from the IPAM hosted region.
+ * - The CIDR block provisioned for an IPAM pool must not conflict with CIDR blocks provisioned for other pools within the same scope.
+ * - The number of CIDR blocks that can be provisioned for a pool is limited. The default maximum for a public IPv6 top-level pool is 1. The default maximum for other types of pools is 50.
  *
  * @param request AddIpamPoolCidrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -165,15 +222,15 @@ AddIpamPoolCidrResponse Client::addIpamPoolCidrWithOptions(const AddIpamPoolCidr
 }
 
 /**
- * @summary Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+ * @summary Provisions a CIDR block for an IPAM pool.
  *
- * @description *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
- * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
- * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
- * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
- * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
- * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
- * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
+ * @description - Before provisioning a CIDR block, make sure that you have created an IPAM pool. You can call **CreateIpamPool** to create an IPAM pool.
+ * - If the parent pool does not have a provisioned CIDR block, the subpool does not support CIDR block provisioning.
+ * - If the parent pool has a provisioned CIDR block, the subpool can have a provisioned CIDR block, and the provisioned CIDR block must be a subset of the parent pool\\"s provisioned CIDR block.
+ * - If the parent pool has a provisioned CIDR block and also has CIDR allocations, the CIDR block provisioned for the subpool must not conflict with the existing CIDR allocations.
+ * - The request to provision a CIDR block for an IPAM pool must be initiated from the IPAM hosted region.
+ * - The CIDR block provisioned for an IPAM pool must not conflict with CIDR blocks provisioned for other pools within the same scope.
+ * - The number of CIDR blocks that can be provisioned for a pool is limited. The default maximum for a public IPv6 top-level pool is 1. The default maximum for other types of pools is 50.
  *
  * @param request AddIpamPoolCidrRequest
  * @return AddIpamPoolCidrResponse
@@ -184,9 +241,9 @@ AddIpamPoolCidrResponse Client::addIpamPoolCidr(const AddIpamPoolCidrRequest &re
 }
 
 /**
- * @summary Associates resource discovery with an IPAM instance.
+ * @summary Associates a resource discovery with an IPAM instance.
  *
- * @description *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
+ * @description - You can associate a resource discovery instance with an IPAM instance only once.
  *
  * @param request AssociateIpamResourceDiscoveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -249,9 +306,9 @@ AssociateIpamResourceDiscoveryResponse Client::associateIpamResourceDiscoveryWit
 }
 
 /**
- * @summary Associates resource discovery with an IPAM instance.
+ * @summary Associates a resource discovery with an IPAM instance.
  *
- * @description *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
+ * @description - You can associate a resource discovery instance with an IPAM instance only once.
  *
  * @param request AssociateIpamResourceDiscoveryRequest
  * @return AssociateIpamResourceDiscoveryResponse
@@ -430,9 +487,9 @@ CreateIpamResponse Client::createIpam(const CreateIpamRequest &request) {
 }
 
 /**
- * @summary Creates an IP Address Manager (IPAM) pool.
+ * @summary Create an IPAM address pool.
  *
- * @description The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
+ * @description - The default maximum number of public IPv6 top-level pools per ISP type per region is 1.
  *
  * @param request CreateIpamPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -539,9 +596,9 @@ CreateIpamPoolResponse Client::createIpamPoolWithOptions(const CreateIpamPoolReq
 }
 
 /**
- * @summary Creates an IP Address Manager (IPAM) pool.
+ * @summary Create an IPAM address pool.
  *
- * @description The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
+ * @description - The default maximum number of public IPv6 top-level pools per ISP type per region is 1.
  *
  * @param request CreateIpamPoolRequest
  * @return CreateIpamPoolResponse
@@ -552,12 +609,12 @@ CreateIpamPoolResponse Client::createIpamPool(const CreateIpamPoolRequest &reque
 }
 
 /**
- * @summary Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+ * @summary Creates a custom reserved CIDR block from an IPAM pool.
  *
- * @description *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
- * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
- * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
- * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+ * @description - Before you create a custom reserved CIDR block, ensure that you have created an IPAM pool and added a CIDR block to it. You can call the **CreateIpamPool** operation to create an IPAM pool and the **AddIpamPoolCidr** operation to add a CIDR block to the pool.
+ * - When you specify the Cidr or CidrMask parameter to create a custom reserved CIDR block, the mask must be within the range specified for the IPAM pool.
+ * - If an IPAM pool has a region attribute, the request to create a custom reserved CIDR block must be initiated from the region where the pool is located.
+ * - The custom reserved CIDR block must not conflict with existing CIDR block allocations in the IPAM pool.
  *
  * @param request CreateIpamPoolAllocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -616,12 +673,12 @@ CreateIpamPoolAllocationResponse Client::createIpamPoolAllocationWithOptions(con
 }
 
 /**
- * @summary Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+ * @summary Creates a custom reserved CIDR block from an IPAM pool.
  *
- * @description *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
- * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
- * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
- * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+ * @description - Before you create a custom reserved CIDR block, ensure that you have created an IPAM pool and added a CIDR block to it. You can call the **CreateIpamPool** operation to create an IPAM pool and the **AddIpamPoolCidr** operation to add a CIDR block to the pool.
+ * - When you specify the Cidr or CidrMask parameter to create a custom reserved CIDR block, the mask must be within the range specified for the IPAM pool.
+ * - If an IPAM pool has a region attribute, the request to create a custom reserved CIDR block must be initiated from the region where the pool is located.
+ * - The custom reserved CIDR block must not conflict with existing CIDR block allocations in the IPAM pool.
  *
  * @param request CreateIpamPoolAllocationRequest
  * @return CreateIpamPoolAllocationResponse
@@ -632,10 +689,10 @@ CreateIpamPoolAllocationResponse Client::createIpamPoolAllocation(const CreateIp
 }
 
 /**
- * @summary Creates a custom resource discovery instance.
+ * @summary Creates a resource discovery instance of a custom type.
  *
- * @description *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
- * *   You can create only custom resource discovery instances.
+ * @description - Each Alibaba Cloud account can have only one resource discovery instance in each region.
+ * - This operation creates only resource discovery instances of a custom type.
  *
  * @param request CreateIpamResourceDiscoveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -710,10 +767,10 @@ CreateIpamResourceDiscoveryResponse Client::createIpamResourceDiscoveryWithOptio
 }
 
 /**
- * @summary Creates a custom resource discovery instance.
+ * @summary Creates a resource discovery instance of a custom type.
  *
- * @description *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
- * *   You can create only custom resource discovery instances.
+ * @description - Each Alibaba Cloud account can have only one resource discovery instance in each region.
+ * - This operation creates only resource discovery instances of a custom type.
  *
  * @param request CreateIpamResourceDiscoveryRequest
  * @return CreateIpamResourceDiscoveryResponse
@@ -724,7 +781,7 @@ CreateIpamResourceDiscoveryResponse Client::createIpamResourceDiscovery(const Cr
 }
 
 /**
- * @summary Creates a public scope and private scope to respectively manage public and private IP addresses.
+ * @summary Creates scopes for IPAM to manage private and public IP addresses.
  *
  * @param request CreateIpamScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -803,7 +860,7 @@ CreateIpamScopeResponse Client::createIpamScopeWithOptions(const CreateIpamScope
 }
 
 /**
- * @summary Creates a public scope and private scope to respectively manage public and private IP addresses.
+ * @summary Creates scopes for IPAM to manage private and public IP addresses.
  *
  * @param request CreateIpamScopeRequest
  * @return CreateIpamScopeResponse
@@ -814,11 +871,13 @@ CreateIpamScopeResponse Client::createIpamScope(const CreateIpamScopeRequest &re
 }
 
 /**
- * @summary Deletes an IP Address Manager (IPAM).
+ * @summary Deletes an IPAM instance.
  *
- * @description ## [](#)Prerequisites
- * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
- * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+ * @description ## Prerequisites
+ * - Before you delete an IPAM instance, ensure that all IPAM pools in the instance are deleted. You can call the **DeleteIpamPool** operation to delete the IPAM pools.
+ * - Before you delete an IPAM instance, ensure that all custom IPAM scopes in the instance are deleted. You can call the **DeleteIpamScope** operation to delete the IPAM scopes.
+ * - Before you delete an IPAM instance, ensure that the default resource discovery instance is not shared.
+ * - Before you delete an IPAM instance, ensure that no shared resource discovery instances are associated with the IPAM instance.
  *
  * @param request DeleteIpamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -877,11 +936,13 @@ DeleteIpamResponse Client::deleteIpamWithOptions(const DeleteIpamRequest &reques
 }
 
 /**
- * @summary Deletes an IP Address Manager (IPAM).
+ * @summary Deletes an IPAM instance.
  *
- * @description ## [](#)Prerequisites
- * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
- * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+ * @description ## Prerequisites
+ * - Before you delete an IPAM instance, ensure that all IPAM pools in the instance are deleted. You can call the **DeleteIpamPool** operation to delete the IPAM pools.
+ * - Before you delete an IPAM instance, ensure that all custom IPAM scopes in the instance are deleted. You can call the **DeleteIpamScope** operation to delete the IPAM scopes.
+ * - Before you delete an IPAM instance, ensure that the default resource discovery instance is not shared.
+ * - Before you delete an IPAM instance, ensure that no shared resource discovery instances are associated with the IPAM instance.
  *
  * @param request DeleteIpamRequest
  * @return DeleteIpamResponse
@@ -892,12 +953,13 @@ DeleteIpamResponse Client::deleteIpam(const DeleteIpamRequest &request) {
 }
 
 /**
- * @summary Deletes an IP Address Manager (IPAM) scope.
+ * @summary Deletes an IPAM pool instance.
  *
- * @description ### [](#)Usage notes
- * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
- * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
- * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+ * @description ### Usage notes
+ * - Before deleting a parent pool, make sure that all subpools under the parent pool have been deleted.
+ * - When a parent pool has an effective region configured and has addresses that have already been allocated, the parent pool cannot be deleted.
+ * - When a subpool has an effective region configured and has addresses that have already been allocated, the subpool cannot be deleted.
+ * - When a pool has a sharing relationship, the pool cannot be deleted.
  *
  * @param request DeleteIpamPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -956,12 +1018,13 @@ DeleteIpamPoolResponse Client::deleteIpamPoolWithOptions(const DeleteIpamPoolReq
 }
 
 /**
- * @summary Deletes an IP Address Manager (IPAM) scope.
+ * @summary Deletes an IPAM pool instance.
  *
- * @description ### [](#)Usage notes
- * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
- * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
- * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+ * @description ### Usage notes
+ * - Before deleting a parent pool, make sure that all subpools under the parent pool have been deleted.
+ * - When a parent pool has an effective region configured and has addresses that have already been allocated, the parent pool cannot be deleted.
+ * - When a subpool has an effective region configured and has addresses that have already been allocated, the subpool cannot be deleted.
+ * - When a pool has a sharing relationship, the pool cannot be deleted.
  *
  * @param request DeleteIpamPoolRequest
  * @return DeleteIpamPoolResponse
@@ -972,7 +1035,7 @@ DeleteIpamPoolResponse Client::deleteIpamPool(const DeleteIpamPoolRequest &reque
 }
 
 /**
- * @summary Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+ * @summary Releases a CIDR allocation from an IP Address Management (IPAM) address pool. Supported allocation types include virtual private cloud (VPC) and custom allocation.
  *
  * @param request DeleteIpamPoolAllocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1015,7 +1078,7 @@ DeleteIpamPoolAllocationResponse Client::deleteIpamPoolAllocationWithOptions(con
 }
 
 /**
- * @summary Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+ * @summary Releases a CIDR allocation from an IP Address Management (IPAM) address pool. Supported allocation types include virtual private cloud (VPC) and custom allocation.
  *
  * @param request DeleteIpamPoolAllocationRequest
  * @return DeleteIpamPoolAllocationResponse
@@ -1026,12 +1089,12 @@ DeleteIpamPoolAllocationResponse Client::deleteIpamPoolAllocation(const DeleteIp
 }
 
 /**
- * @summary Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+ * @summary Deletes a provisioned CIDR block from an IP Address Manager (IPAM) pool.
  *
- * @description *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
- * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
- * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
- * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+ * @description - If CIDR blocks are provisioned in both a parent pool and its sub-pools, delete the CIDR blocks from the sub-pools before you delete the CIDR block from the parent pool.
+ * - If a CIDR block is provisioned only in a parent pool, you can delete the CIDR block directly from the parent pool.
+ * - If allocations exist from the provisioned CIDR block, delete the allocations before you delete the CIDR block.
+ * - Requests to delete a provisioned CIDR block from an IPAM pool must be sent from the region where the IPAM is deployed.
  *
  * @param request DeleteIpamPoolCidrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1078,12 +1141,12 @@ DeleteIpamPoolCidrResponse Client::deleteIpamPoolCidrWithOptions(const DeleteIpa
 }
 
 /**
- * @summary Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+ * @summary Deletes a provisioned CIDR block from an IP Address Manager (IPAM) pool.
  *
- * @description *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
- * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
- * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
- * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+ * @description - If CIDR blocks are provisioned in both a parent pool and its sub-pools, delete the CIDR blocks from the sub-pools before you delete the CIDR block from the parent pool.
+ * - If a CIDR block is provisioned only in a parent pool, you can delete the CIDR block directly from the parent pool.
+ * - If allocations exist from the provisioned CIDR block, delete the allocations before you delete the CIDR block.
+ * - Requests to delete a provisioned CIDR block from an IPAM pool must be sent from the region where the IPAM is deployed.
  *
  * @param request DeleteIpamPoolCidrRequest
  * @return DeleteIpamPoolCidrResponse
@@ -1094,9 +1157,9 @@ DeleteIpamPoolCidrResponse Client::deleteIpamPoolCidr(const DeleteIpamPoolCidrRe
 }
 
 /**
- * @summary Deletes a custom resource discovery instance.
+ * @summary Deletes a resource discovery instance.
  *
- * @description *   If a resource discovery instance is shared, it cannot be deleted.
+ * @description - A resource discovery instance cannot be deleted if it is shared.
  *
  * @param request DeleteIpamResourceDiscoveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1155,9 +1218,9 @@ DeleteIpamResourceDiscoveryResponse Client::deleteIpamResourceDiscoveryWithOptio
 }
 
 /**
- * @summary Deletes a custom resource discovery instance.
+ * @summary Deletes a resource discovery instance.
  *
- * @description *   If a resource discovery instance is shared, it cannot be deleted.
+ * @description - A resource discovery instance cannot be deleted if it is shared.
  *
  * @param request DeleteIpamResourceDiscoveryRequest
  * @return DeleteIpamResourceDiscoveryResponse
@@ -1168,11 +1231,11 @@ DeleteIpamResourceDiscoveryResponse Client::deleteIpamResourceDiscovery(const De
 }
 
 /**
- * @summary Deletes an IP Address Manager (IPAM) scope.
+ * @summary Deletes an IPAM scope.
  *
- * @description ### [](#)Usage notes
- * *   You cannot delete the private scope and public scope created by the system.
- * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+ * @description ### Usage notes
+ * - You cannot delete the two default IPAM scopes that the system automatically creates.
+ * - Before you delete a custom IPAM scope, ensure that all IPAM pools in the scope are deleted. You can call the **DeleteIpamPool** operation to delete an IPAM pool.
  *
  * @param request DeleteIpamScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1231,11 +1294,11 @@ DeleteIpamScopeResponse Client::deleteIpamScopeWithOptions(const DeleteIpamScope
 }
 
 /**
- * @summary Deletes an IP Address Manager (IPAM) scope.
+ * @summary Deletes an IPAM scope.
  *
- * @description ### [](#)Usage notes
- * *   You cannot delete the private scope and public scope created by the system.
- * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+ * @description ### Usage notes
+ * - You cannot delete the two default IPAM scopes that the system automatically creates.
+ * - Before you delete a custom IPAM scope, ensure that all IPAM pools in the scope are deleted. You can call the **DeleteIpamPool** operation to delete an IPAM pool.
  *
  * @param request DeleteIpamScopeRequest
  * @return DeleteIpamScopeResponse
@@ -1246,7 +1309,7 @@ DeleteIpamScopeResponse Client::deleteIpamScope(const DeleteIpamScopeRequest &re
 }
 
 /**
- * @summary Disassociates resource discovery and IPAM instances.
+ * @summary Disassociates a resource discovery from an IP Address Manager (IPAM) instance.
  *
  * @param request DissociateIpamResourceDiscoveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1309,7 +1372,7 @@ DissociateIpamResourceDiscoveryResponse Client::dissociateIpamResourceDiscoveryW
 }
 
 /**
- * @summary Disassociates resource discovery and IPAM instances.
+ * @summary Disassociates a resource discovery from an IP Address Manager (IPAM) instance.
  *
  * @param request DissociateIpamResourceDiscoveryRequest
  * @return DissociateIpamResourceDiscoveryResponse
@@ -1320,7 +1383,7 @@ DissociateIpamResourceDiscoveryResponse Client::dissociateIpamResourceDiscovery(
 }
 
 /**
- * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+ * @summary Queries a specified CIDR block allocation in an IPAM pool.
  *
  * @param request GetIpamPoolAllocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1347,7 +1410,7 @@ GetIpamPoolAllocationResponse Client::getIpamPoolAllocationWithOptions(const Get
 }
 
 /**
- * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+ * @summary Queries a specified CIDR block allocation in an IPAM pool.
  *
  * @param request GetIpamPoolAllocationRequest
  * @return GetIpamPoolAllocationResponse
@@ -1358,7 +1421,7 @@ GetIpamPoolAllocationResponse Client::getIpamPoolAllocation(const GetIpamPoolAll
 }
 
 /**
- * @summary Gets the available CIDR blocks of the IPAM pool.
+ * @summary Retrieves an available CIDR block from an IPAM pool.
  *
  * @param request GetIpamPoolNextAvailableCidrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1385,7 +1448,7 @@ GetIpamPoolNextAvailableCidrResponse Client::getIpamPoolNextAvailableCidrWithOpt
 }
 
 /**
- * @summary Gets the available CIDR blocks of the IPAM pool.
+ * @summary Retrieves an available CIDR block from an IPAM pool.
  *
  * @param request GetIpamPoolNextAvailableCidrRequest
  * @return GetIpamPoolNextAvailableCidrResponse
@@ -1396,7 +1459,7 @@ GetIpamPoolNextAvailableCidrResponse Client::getIpamPoolNextAvailableCidr(const 
 }
 
 /**
- * @summary Queries whether IP Address Manager (IPAM) is activated.
+ * @summary Retrieves the status of the IPAM service.
  *
  * @param request GetVpcIpamServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1447,7 +1510,7 @@ GetVpcIpamServiceStatusResponse Client::getVpcIpamServiceStatusWithOptions(const
 }
 
 /**
- * @summary Queries whether IP Address Manager (IPAM) is activated.
+ * @summary Retrieves the status of the IPAM service.
  *
  * @param request GetVpcIpamServiceStatusRequest
  * @return GetVpcIpamServiceStatusResponse
@@ -1458,7 +1521,15 @@ GetVpcIpamServiceStatusResponse Client::getVpcIpamServiceStatus(const GetVpcIpam
 }
 
 /**
- * @summary 查询VPC或VSwitch下已使用IP信息。
+ * @summary Lists the IP addresses used by discovered resources in a VPC or vSwitch.
+ *
+ * @description Supported query combinations:
+ * - `VpcId` only
+ * - `VSwitchId` only
+ * - `VpcId` + `VSwitchId`
+ * - `VpcId` + `CidrBlock`
+ * - `VSwitchId` + `CidrBlock`
+ * - `VpcId` + `VSwitchId` + `CidrBlock`
  *
  * @param request ListIpamDiscoveredIpAddressesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1517,7 +1588,15 @@ ListIpamDiscoveredIpAddressesResponse Client::listIpamDiscoveredIpAddressesWithO
 }
 
 /**
- * @summary 查询VPC或VSwitch下已使用IP信息。
+ * @summary Lists the IP addresses used by discovered resources in a VPC or vSwitch.
+ *
+ * @description Supported query combinations:
+ * - `VpcId` only
+ * - `VSwitchId` only
+ * - `VpcId` + `VSwitchId`
+ * - `VpcId` + `CidrBlock`
+ * - `VSwitchId` + `CidrBlock`
+ * - `VpcId` + `VSwitchId` + `CidrBlock`
  *
  * @param request ListIpamDiscoveredIpAddressesRequest
  * @return ListIpamDiscoveredIpAddressesResponse
@@ -1528,7 +1607,7 @@ ListIpamDiscoveredIpAddressesResponse Client::listIpamDiscoveredIpAddresses(cons
 }
 
 /**
- * @summary Queries discovered resources.
+ * @summary Queries resource information under a resource discovery.
  *
  * @param request ListIpamDiscoveredResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1579,7 +1658,7 @@ ListIpamDiscoveredResourceResponse Client::listIpamDiscoveredResourceWithOptions
 }
 
 /**
- * @summary Queries discovered resources.
+ * @summary Queries resource information under a resource discovery.
  *
  * @param request ListIpamDiscoveredResourceRequest
  * @return ListIpamDiscoveredResourceResponse
@@ -1590,7 +1669,7 @@ ListIpamDiscoveredResourceResponse Client::listIpamDiscoveredResource(const List
 }
 
 /**
- * @summary 查询ipam可信服务纳管成员
+ * @summary Lists the members managed by the IPAM trusted service.
  *
  * @param request ListIpamMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1649,7 +1728,7 @@ ListIpamMembersResponse Client::listIpamMembersWithOptions(const ListIpamMembers
 }
 
 /**
- * @summary 查询ipam可信服务纳管成员
+ * @summary Lists the members managed by the IPAM trusted service.
  *
  * @param request ListIpamMembersRequest
  * @return ListIpamMembersResponse
@@ -1660,7 +1739,7 @@ ListIpamMembersResponse Client::listIpamMembers(const ListIpamMembersRequest &re
 }
 
 /**
- * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+ * @summary Queries CIDR block allocations in an IPAM pool.
  *
  * @param request ListIpamPoolAllocationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1715,7 +1794,7 @@ ListIpamPoolAllocationsResponse Client::listIpamPoolAllocationsWithOptions(const
 }
 
 /**
- * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+ * @summary Queries CIDR block allocations in an IPAM pool.
  *
  * @param request ListIpamPoolAllocationsRequest
  * @return ListIpamPoolAllocationsResponse
@@ -1726,7 +1805,7 @@ ListIpamPoolAllocationsResponse Client::listIpamPoolAllocations(const ListIpamPo
 }
 
 /**
- * @summary Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+ * @summary Queries the provisioned CIDR blocks of an IPAM pool.
  *
  * @param request ListIpamPoolCidrsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1773,7 +1852,7 @@ ListIpamPoolCidrsResponse Client::listIpamPoolCidrsWithOptions(const ListIpamPoo
 }
 
 /**
- * @summary Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+ * @summary Queries the provisioned CIDR blocks of an IPAM pool.
  *
  * @param request ListIpamPoolCidrsRequest
  * @return ListIpamPoolCidrsResponse
@@ -1784,7 +1863,7 @@ ListIpamPoolCidrsResponse Client::listIpamPoolCidrs(const ListIpamPoolCidrsReque
 }
 
 /**
- * @summary Queries IP Address Manager (IPAM) pools.
+ * @summary Queries IPAM pools.
  *
  * @param request ListIpamPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1879,7 +1958,7 @@ ListIpamPoolsResponse Client::listIpamPoolsWithOptions(const ListIpamPoolsReques
 }
 
 /**
- * @summary Queries IP Address Manager (IPAM) pools.
+ * @summary Queries IPAM pools.
  *
  * @param request ListIpamPoolsRequest
  * @return ListIpamPoolsResponse
@@ -1890,7 +1969,7 @@ ListIpamPoolsResponse Client::listIpamPools(const ListIpamPoolsRequest &request)
 }
 
 /**
- * @summary Queries resources in an IP Address Manager (IPAM) pool.
+ * @summary Queries resources within an IPAM scope.
  *
  * @param request ListIpamResourceCidrsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1953,7 +2032,7 @@ ListIpamResourceCidrsResponse Client::listIpamResourceCidrsWithOptions(const Lis
 }
 
 /**
- * @summary Queries resources in an IP Address Manager (IPAM) pool.
+ * @summary Queries resources within an IPAM scope.
  *
  * @param request ListIpamResourceCidrsRequest
  * @return ListIpamResourceCidrsResponse
@@ -1964,7 +2043,7 @@ ListIpamResourceCidrsResponse Client::listIpamResourceCidrs(const ListIpamResour
 }
 
 /**
- * @summary Queries IPAM resource discovery instances.
+ * @summary Retrieves a list of IPAM resource discovery instances.
  *
  * @param request ListIpamResourceDiscoveriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2043,7 +2122,7 @@ ListIpamResourceDiscoveriesResponse Client::listIpamResourceDiscoveriesWithOptio
 }
 
 /**
- * @summary Queries IPAM resource discovery instances.
+ * @summary Retrieves a list of IPAM resource discovery instances.
  *
  * @param request ListIpamResourceDiscoveriesRequest
  * @return ListIpamResourceDiscoveriesResponse
@@ -2054,7 +2133,7 @@ ListIpamResourceDiscoveriesResponse Client::listIpamResourceDiscoveries(const Li
 }
 
 /**
- * @summary Queries the association between resource discovery and IPAM.
+ * @summary Lists the associations between resource discoveries and IP Address Managers (IPAMs).
  *
  * @param request ListIpamResourceDiscoveryAssociationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2117,7 +2196,7 @@ ListIpamResourceDiscoveryAssociationsResponse Client::listIpamResourceDiscoveryA
 }
 
 /**
- * @summary Queries the association between resource discovery and IPAM.
+ * @summary Lists the associations between resource discoveries and IP Address Managers (IPAMs).
  *
  * @param request ListIpamResourceDiscoveryAssociationsRequest
  * @return ListIpamResourceDiscoveryAssociationsResponse
@@ -2128,7 +2207,7 @@ ListIpamResourceDiscoveryAssociationsResponse Client::listIpamResourceDiscoveryA
 }
 
 /**
- * @summary Queries IP Address Manager (IPAM) scopes.
+ * @summary Queries IPAM scopes.
  *
  * @param request ListIpamScopesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2207,7 +2286,7 @@ ListIpamScopesResponse Client::listIpamScopesWithOptions(const ListIpamScopesReq
 }
 
 /**
- * @summary Queries IP Address Manager (IPAM) scopes.
+ * @summary Queries IPAM scopes.
  *
  * @param request ListIpamScopesRequest
  * @return ListIpamScopesResponse
@@ -2218,7 +2297,7 @@ ListIpamScopesResponse Client::listIpamScopes(const ListIpamScopesRequest &reque
 }
 
 /**
- * @summary Queries IP Address Managers (IPAMs).
+ * @summary Queries one or more IPAMs.
  *
  * @param request ListIpamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2289,7 +2368,7 @@ ListIpamsResponse Client::listIpamsWithOptions(const ListIpamsRequest &request, 
 }
 
 /**
- * @summary Queries IP Address Managers (IPAMs).
+ * @summary Queries one or more IPAMs.
  *
  * @param request ListIpamsRequest
  * @return ListIpamsResponse
@@ -2300,13 +2379,13 @@ ListIpamsResponse Client::listIpams(const ListIpamsRequest &request) {
 }
 
 /**
- * @summary Queries a list of resource tags.
+ * @summary Queries the tags that are associated with resources.
  *
- * @description ### [](#)Usage notes
- * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
- * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
- * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
- * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+ * @description ### Usage notes
+ * - You must specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in a request to identify the resources to query.
+ * - **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. An error is returned if you specify only **Tag.N.Value**.
+ * - If you specify both **Tag.N** and **ResourceId.N**, the query returns only the resources that are specified by **ResourceId.N** and are associated with all the specified tag key-value pairs.
+ * - If you specify multiple tag key-value pairs, the query returns only resources that are associated with all the specified key-value pairs.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2373,13 +2452,13 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries a list of resource tags.
+ * @summary Queries the tags that are associated with resources.
  *
- * @description ### [](#)Usage notes
- * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
- * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
- * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
- * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+ * @description ### Usage notes
+ * - You must specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in a request to identify the resources to query.
+ * - **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. An error is returned if you specify only **Tag.N.Value**.
+ * - If you specify both **Tag.N** and **ResourceId.N**, the query returns only the resources that are specified by **ResourceId.N** and are associated with all the specified tag key-value pairs.
+ * - If you specify multiple tag key-value pairs, the query returns only resources that are associated with all the specified key-value pairs.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2390,7 +2469,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Activates IP Address Manager (IPAM).
+ * @summary Activates the IP Address Management (IPAM) service.
  *
  * @param request OpenVpcIpamServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2441,7 +2520,7 @@ OpenVpcIpamServiceResponse Client::openVpcIpamServiceWithOptions(const OpenVpcIp
 }
 
 /**
- * @summary Activates IP Address Manager (IPAM).
+ * @summary Activates the IP Address Management (IPAM) service.
  *
  * @param request OpenVpcIpamServiceRequest
  * @return OpenVpcIpamServiceResponse
@@ -2452,7 +2531,9 @@ OpenVpcIpamServiceResponse Client::openVpcIpamService(const OpenVpcIpamServiceRe
 }
 
 /**
- * @summary 移除ipam可信服务纳管成员
+ * @summary Removes members from the IPAM trusted service.
+ *
+ * @description - If the delegated IPAM administrator removes the last member, the IPAM trusted service is disabled for the resource directory.
  *
  * @param request RemoveIpamMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2511,7 +2592,9 @@ RemoveIpamMembersResponse Client::removeIpamMembersWithOptions(const RemoveIpamM
 }
 
 /**
- * @summary 移除ipam可信服务纳管成员
+ * @summary Removes members from the IPAM trusted service.
+ *
+ * @description - If the delegated IPAM administrator removes the last member, the IPAM trusted service is disabled for the resource directory.
  *
  * @param request RemoveIpamMembersRequest
  * @return RemoveIpamMembersResponse
@@ -2678,7 +2761,9 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Modifies an IPAM instance.
+ * @summary Modifies an IP Address Management (IPAM) instance.
+ *
+ * @description - The managed region of an IPAM instance cannot be removed.
  *
  * @param request UpdateIpamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2753,7 +2838,9 @@ UpdateIpamResponse Client::updateIpamWithOptions(const UpdateIpamRequest &reques
 }
 
 /**
- * @summary Modifies an IPAM instance.
+ * @summary Modifies an IP Address Management (IPAM) instance.
+ *
+ * @description - The managed region of an IPAM instance cannot be removed.
  *
  * @param request UpdateIpamRequest
  * @return UpdateIpamResponse
@@ -2764,7 +2851,7 @@ UpdateIpamResponse Client::updateIpam(const UpdateIpamRequest &request) {
 }
 
 /**
- * @summary Modifies the basic information about an IP Address Manager (IPAM) pool.
+ * @summary Updates the basic information of an IPAM pool.
  *
  * @param request UpdateIpamPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2851,7 +2938,7 @@ UpdateIpamPoolResponse Client::updateIpamPoolWithOptions(const UpdateIpamPoolReq
 }
 
 /**
- * @summary Modifies the basic information about an IP Address Manager (IPAM) pool.
+ * @summary Updates the basic information of an IPAM pool.
  *
  * @param request UpdateIpamPoolRequest
  * @return UpdateIpamPoolResponse
@@ -2862,7 +2949,7 @@ UpdateIpamPoolResponse Client::updateIpamPool(const UpdateIpamPoolRequest &reque
 }
 
 /**
- * @summary Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
+ * @summary Updates a CIDR allocation from an IPAM address pool.
  *
  * @param request UpdateIpamPoolAllocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2913,7 +3000,7 @@ UpdateIpamPoolAllocationResponse Client::updateIpamPoolAllocationWithOptions(con
 }
 
 /**
- * @summary Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
+ * @summary Updates a CIDR allocation from an IPAM address pool.
  *
  * @param request UpdateIpamPoolAllocationRequest
  * @return UpdateIpamPoolAllocationResponse
@@ -2926,8 +3013,8 @@ UpdateIpamPoolAllocationResponse Client::updateIpamPoolAllocation(const UpdateIp
 /**
  * @summary Modifies a resource discovery instance.
  *
- * @description *   You can add or remove effective regions only for custom resource discovery instances.
- * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
+ * @description - You can add or remove operating regions only for custom resource discovery instances.
+ * - When you remove an operating region from a resource discovery instance, you cannot remove the managed region of the resource discovery instance.
  *
  * @param request UpdateIpamResourceDiscoveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3004,8 +3091,8 @@ UpdateIpamResourceDiscoveryResponse Client::updateIpamResourceDiscoveryWithOptio
 /**
  * @summary Modifies a resource discovery instance.
  *
- * @description *   You can add or remove effective regions only for custom resource discovery instances.
- * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
+ * @description - You can add or remove operating regions only for custom resource discovery instances.
+ * - When you remove an operating region from a resource discovery instance, you cannot remove the managed region of the resource discovery instance.
  *
  * @param request UpdateIpamResourceDiscoveryRequest
  * @return UpdateIpamResourceDiscoveryResponse
@@ -3016,7 +3103,7 @@ UpdateIpamResourceDiscoveryResponse Client::updateIpamResourceDiscovery(const Up
 }
 
 /**
- * @summary Modifies the basic information about an IP Address Manager (IPAM) scope.
+ * @summary Updates the basic information of an IPAM scope.
  *
  * @param request UpdateIpamScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3083,7 +3170,7 @@ UpdateIpamScopeResponse Client::updateIpamScopeWithOptions(const UpdateIpamScope
 }
 
 /**
- * @summary Modifies the basic information about an IP Address Manager (IPAM) scope.
+ * @summary Updates the basic information of an IPAM scope.
  *
  * @param request UpdateIpamScopeRequest
  * @return UpdateIpamScopeResponse

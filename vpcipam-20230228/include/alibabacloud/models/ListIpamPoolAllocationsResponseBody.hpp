@@ -183,34 +183,39 @@ namespace Models
       shared_ptr<string> cidr_ {};
       // The time when the instance was created.
       shared_ptr<string> creationTime_ {};
-      // The description of the allocation.
+      // The description of the IPAM pool CIDR block allocation.
       shared_ptr<string> ipamPoolAllocationDescription_ {};
-      // The ID of the instance to which CIDR blocks are allocated from the IPAM pool.
+      // The instance ID of the IPAM pool CIDR block allocation.
       shared_ptr<string> ipamPoolAllocationId_ {};
-      // The name of the allocation.
+      // The name of the IPAM pool CIDR block allocation.
       shared_ptr<string> ipamPoolAllocationName_ {};
-      // The ID of the IPAM pool.
+      // The instance ID of the IPAM pool.
       shared_ptr<string> ipamPoolId_ {};
-      // The region ID of the resource.
+      // The region of the IPAM pool that contains the CIDR block allocation.
+      // 
+      // > If the IPAM pool has a specific region, this parameter specifies that region. If the IPAM pool does not have a specific region, this parameter specifies the managed region of IPAM.
       shared_ptr<string> regionId_ {};
       // The ID of the resource to which the CIDR block is allocated.
       shared_ptr<string> resourceId_ {};
       // The ID of the Alibaba Cloud account to which the resource belongs.
       shared_ptr<int64_t> resourceOwnerId_ {};
-      // The effective region ID of the resource.
+      // The ID of the region where the resource is deployed.
       shared_ptr<string> resourceRegionId_ {};
       // The type of the resource to which the CIDR block is allocated. Valid values:
       // 
-      // *   **VPC**
-      // *   **IpamPool**
-      // *   **Custom**
+      // - **VPC**: The resource is a VPC.
+      // 
+      // - **IpamPool**: The resource is a child IPAM pool.
+      // 
+      // - **Custom**: The resource is a custom reserved CIDR block.
       shared_ptr<string> resourceType_ {};
       // The source CIDR block.
       shared_ptr<string> sourceCidr_ {};
       // The status of the instance. Valid values:
       // 
-      // *   **Created**
-      // *   **Deleted**
+      // - **Created**: The instance is created.
+      // 
+      // - **Deleted**: The instance is deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -261,20 +266,21 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The number of entries returned for the current query.
     shared_ptr<int64_t> count_ {};
-    // The IDs of the instances to which CIDR blocks are allocated from the IPAM pool.
+    // A list of IPAM pool CIDR block allocations.
     shared_ptr<vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations>> ipamPoolAllocations_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no next page exists.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

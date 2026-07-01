@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OverlapDetail, overlapDetail_);
         DARABONBA_PTR_TO_JSON(OverlapStatus, overlapStatus_);
         DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
         DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
         DARABONBA_PTR_TO_JSON(ResourceRegionId, resourceRegionId_);
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -77,6 +78,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OverlapDetail, overlapDetail_);
         DARABONBA_PTR_FROM_JSON(OverlapStatus, overlapStatus_);
         DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
         DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
         DARABONBA_PTR_FROM_JSON(ResourceRegionId, resourceRegionId_);
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -142,11 +144,11 @@ namespace Models
 
 
       protected:
-        // The CIDR that overlaps with the current resource.
+        // The CIDR block of the resource that overlaps with the current resource.
         shared_ptr<string> overlapResourceCidr_ {};
-        // Instance ID that overlaps with the current resource.
+        // The instance ID of the resource that overlaps with the current resource.
         shared_ptr<string> overlapResourceId_ {};
-        // The region of instance that overlaps with the current resource.
+        // The region of the instance that overlaps with the current resource.
         shared_ptr<string> overlapResourceRegion_ {};
       };
 
@@ -197,16 +199,19 @@ namespace Models
 
 
       protected:
+        // The number of available IP addresses.
         shared_ptr<string> freeIpCount_ {};
+        // The total number of IP addresses.
         shared_ptr<string> totalIpCount_ {};
+        // The number of allocated IP addresses.
         shared_ptr<string> usedIpCount_ {};
       };
 
       virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->cidr_ == nullptr && this->complianceStatus_ == nullptr && this->ipCountDetail_ == nullptr && this->ipUsage_ == nullptr && this->ipamAllocationId_ == nullptr
         && this->ipamId_ == nullptr && this->ipamPoolId_ == nullptr && this->ipamScopeId_ == nullptr && this->managementStatus_ == nullptr && this->overlapDetail_ == nullptr
-        && this->overlapStatus_ == nullptr && this->resourceId_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceRegionId_ == nullptr && this->resourceType_ == nullptr
-        && this->sourceCidr_ == nullptr && this->status_ == nullptr && this->vpcId_ == nullptr; };
+        && this->overlapStatus_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceRegionId_ == nullptr
+        && this->resourceType_ == nullptr && this->sourceCidr_ == nullptr && this->status_ == nullptr && this->vpcId_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -302,6 +307,13 @@ namespace Models
       inline IpamResourceCidrs& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
+      // resourceName Field Functions 
+      bool hasResourceName() const { return this->resourceName_ != nullptr;};
+      void deleteResourceName() { this->resourceName_ = nullptr;};
+      inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+      inline IpamResourceCidrs& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
+
+
       // resourceOwnerId Field Functions 
       bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
       void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
@@ -345,61 +357,64 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
       // The CIDR block of the resource.
       shared_ptr<string> cidr_ {};
       // The compliance status of the resource.
       // 
-      // *   **Compliant**
-      // *   **Noncompliant**
-      // *   **Ignored** Ignored resources are not monitored.
-      // *   **Unmanaged**: The resource does not have a CIDR block allocated from the IPAM pool. IPAM does not monitor whether the CIDR block of the resource meets the allocation rules of the IP address pool.
+      // - **Compliant**: The CIDR block of the managed resource complies with the allocation rules of the IPAM pool.
+      // - **Noncompliant**: The CIDR block of the managed resource does not comply with one or more allocation rules of the IPAM pool.
+      // - **Ignored**: The resource has been excluded from monitoring. Ignored resources are not evaluated for overlap or allocation rule compliance.
+      // - **Unmanaged**: The resource does not have a CIDR block allocated from an IPAM pool. IPAM does not monitor whether the CIDR block of the resource complies with the allocation rules of the pool, but monitors the CIDR block for overlap.
       shared_ptr<string> complianceStatus_ {};
+      // The details of the resource IP address count.
       shared_ptr<IpamResourceCidrs::IpCountDetail> ipCountDetail_ {};
-      // The IP usage that is displayed in decimal form.
+      // The IP utilization rate, expressed as a decimal.
       shared_ptr<string> ipUsage_ {};
-      // The ID of the instance to which CIDR blocks are allocated from the IPAM pool.
+      // The instance ID of the IPAM pool CIDR allocation.
       shared_ptr<string> ipamAllocationId_ {};
-      // The ID of the IPAM.
+      // The instance ID of the IPAM.
       shared_ptr<string> ipamId_ {};
-      // The ID of the IPAM pool.
+      // The instance ID of the IPAM pool.
       shared_ptr<string> ipamPoolId_ {};
-      // The ID of the IPAM scope.
+      // The instance ID of the IPAM scope.
       shared_ptr<string> ipamScopeId_ {};
       // The management status of the resource.
       // 
-      // *   **Managed**: The resource has a CIDR block allocated from an IPAM pool. IPAM is monitoring whether the allocated CIDR block overlaps with other CIDR blocks and whether the allocated CIDR block meets the allocation rules.
-      // *   **Unmanaged**: The resource does not have a CIDR block allocated from the IPAM pool. IPAM is monitoring whether the resource has CIDR blocks that meet the allocation rules. Monitor whether CIDR blocks overlap with each other.
-      // *   **Ignored**: The resource is not monitored. Ignored resources are not monitored. If you ignore a resource, CIDR blocks allocated to the resource are returned to the IPAM pool and will not be automatically allocated to the resource (if automatic allocation rules are specified).
+      // - **Managed**: The resource has a CIDR block allocated from an IPAM pool. IPAM monitors the resource for potential CIDR overlap and compliance with pool allocation rules.
+      // - **Unmanaged**: The resource does not have a CIDR block allocated from an IPAM pool. IPAM monitors the resource for potential CIDRs that comply with pool allocation rules and monitors CIDRs for overlap.
+      // - **Ignored**: The resource has been excluded from monitoring. Ignored resources are not evaluated for overlap or allocation rule compliance. When a resource is ignored, any space allocated to it from an IPAM pool is returned to the pool, and the resource is not re-imported through automatic import (if an automatic import allocation rule is configured for the pool).
       shared_ptr<string> managementStatus_ {};
-      // List of resources that overlap with the current resource.
+      // The list of resources that overlap with the current resource.
       shared_ptr<vector<IpamResourceCidrs::OverlapDetail>> overlapDetail_ {};
-      // The overlapping status of the resource.
+      // The overlap status of the resource.
       // 
-      // *   **Nonoverlapping**
-      // *   **Overlapping**
-      // *   **Ignored** Ignored resources are not monitored.
+      // - **Nonoverlapping**: The CIDR block of the resource does not overlap with other CIDR blocks within the same scope.
+      // - **Overlapping**: The CIDR block of the resource overlaps with another CIDR block within the same scope.
+      // - **Ignored**: The resource has been excluded from monitoring. Ignored resources are not evaluated for overlap or allocation rule compliance.
       shared_ptr<string> overlapStatus_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The ID of the Alibaba Cloud account to which the resource belongs.
+      // The resource name.
+      shared_ptr<string> resourceName_ {};
+      // The Alibaba Cloud account ID of the resource ownership.
       shared_ptr<int64_t> resourceOwnerId_ {};
-      // The effective region ID of the resource.
+      // The ID of the region where the resource takes effect.
       shared_ptr<string> resourceRegionId_ {};
-      // The type of resource. Valid values:
+      // The resource type. Valid values:
       // 
-      // *   **VPC**
-      // *   **VSwitch**
+      // - **VPC**: The resource type is VPC.
+      // - **VSwitch**: The resource type is vSwitch.
       shared_ptr<string> resourceType_ {};
       // The source CIDR block.
       shared_ptr<string> sourceCidr_ {};
       // The status of the resource in the IPAM pool. Valid values:
       // 
-      // *   **Created**
-      // *   **Deleted**
+      // - **Created**: created.
+      // - **Deleted**: deleted.
       shared_ptr<string> status_ {};
-      // The VPC ID.
+      // The instance ID of the VPC-connected instance to which the resource belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -450,20 +465,19 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The number of entries returned per page.
     shared_ptr<int64_t> count_ {};
-    // The list of resources in the IPAM pool.
+    // The list of resource information.
     shared_ptr<vector<ListIpamResourceCidrsResponseBody::IpamResourceCidrs>> ipamResourceCidrs_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no more results exist.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries returned under the current query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

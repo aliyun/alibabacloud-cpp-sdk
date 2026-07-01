@@ -100,13 +100,13 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify at most 20 tag keys. It cannot be an empty string.
+      // The tag key. You can specify up to 20 tag keys. The key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag key must start with a letter but cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // The key can be up to 64 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). The key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify at most 20 tag values. It can be an empty string.
+      // The tag value. You can specify up to 20 tag values. The value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -239,30 +239,47 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> ipVersion_ {};
-    // The IDs of IPAM pools. Valid values of N: 1 to 100. A maximum of 100 IPAM pools can be queried at a time.
-    shared_ptr<vector<string>> ipamPoolIds_ {};
-    // The name of the IPAM pool. You can enter at most 20 names.
+    // The IP version. Valid values:
     // 
-    // It must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+    // - **IPv4**
+    // 
+    // - **IPv6**
+    shared_ptr<string> ipVersion_ {};
+    // A list of IPAM pool IDs. You can specify up to 100 IDs.
+    shared_ptr<vector<string>> ipamPoolIds_ {};
+    // The name of the IPAM pool.
+    // 
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> ipamPoolName_ {};
     // The ID of the IPAM scope.
     shared_ptr<string> ipamScopeId_ {};
-    shared_ptr<string> ipv6Isp_ {};
-    // Whether it is a shared pool.
-    shared_ptr<bool> isShared_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
-    shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The line type of the IPv6 CIDR block. This parameter is valid only for public IPv6 address pools. Valid values:
     // 
-    // *   If NextToken is empty, no next page exists.
-    // *   You must specify the token that is obtained from the previous query as the value of NextToken.
+    // - **BGP** (default): Alibaba Cloud BGP IPv6.
+    // 
+    // - **ChinaMobile**
+    // 
+    // - **ChinaUnicom**
+    // 
+    // - **ChinaTelecom**
+    // 
+    // > If your account is whitelisted for single-line bandwidth, you can set this parameter to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
+    shared_ptr<string> ipv6Isp_ {};
+    // Specifies whether the address pool is a shared pool.
+    shared_ptr<bool> isShared_ {};
+    // The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+    shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Valid values:
+    // 
+    // - You do not need to specify this parameter for the first call.
+    // 
+    // - Set this parameter to the value of NextToken that was returned in the previous call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The effective region of the IPAM pool.
+    // The region where the IPAM pool is available.
     shared_ptr<string> poolRegionId_ {};
-    // The ID of the region where the IPAM instance is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The ID of the managed region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -272,7 +289,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the source IPAM pool.
     shared_ptr<string> sourceIpamPoolId_ {};
-    // The tag information.
+    // The tags.
     shared_ptr<vector<ListIpamPoolsRequest::Tags>> tags_ {};
   };
 

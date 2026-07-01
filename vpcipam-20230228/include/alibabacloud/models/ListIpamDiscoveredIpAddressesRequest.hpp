@@ -103,15 +103,37 @@ namespace Models
 
 
   protected:
+    // The CIDR block to search for used IP addresses in a VPC or vSwitch. To query a specific IP address, use a /32 prefix length.
+    // 
+    // > Only IPv4 CIDR blocks are supported.
     shared_ptr<string> cidr_ {};
+    // The IP protocol version. Valid value:
+    // 
+    // - **IPv4**
     shared_ptr<string> ipVersion_ {};
+    // The ID of the resource discovery instance.
+    // 
     // This parameter is required.
     shared_ptr<string> ipamResourceDiscoveryId_ {};
+    // The maximum number of entries to return per page. Valid values: 1 to 200. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. Valid values:
+    // 
+    // - Do not specify this parameter for your first request.
+    // 
+    // - If a next page exists, set this parameter to the value of **NextToken** returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The ID of the region where the resource discovery instance is hosted.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of a discovered VSwitch.
+    // 
+    // > You must specify at least one of VpcId and VSwitchId.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of a discovered VPC.
+    // 
+    // > You must specify at least one of VpcId and VSwitchId.
     shared_ptr<string> vpcId_ {};
   };
 

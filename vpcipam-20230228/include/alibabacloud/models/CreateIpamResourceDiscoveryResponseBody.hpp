@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance for resource discovery.
+    // The ID of the resource discovery instance.
     shared_ptr<string> ipamResourceDiscoveryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

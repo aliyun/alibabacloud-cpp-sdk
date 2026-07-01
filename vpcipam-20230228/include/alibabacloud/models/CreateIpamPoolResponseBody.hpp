@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the IPAM pool.
+    // The instance ID of the IPAM address pool.
     shared_ptr<string> ipamPoolId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

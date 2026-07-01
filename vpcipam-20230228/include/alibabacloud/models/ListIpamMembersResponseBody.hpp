@@ -96,9 +96,25 @@ namespace Models
 
 
     protected:
+      // The time when the member was added.
       shared_ptr<string> creationTime_ {};
+      // The member ID.
+      // 
+      // - **Folder ID**: The ID of the folder.
+      // 
+      // - **Account UID**: The UID of the member account in the resource directory.
       shared_ptr<string> memberId_ {};
+      // The type of the member. Valid values:
+      // 
+      // - **Folder**: The member is a folder.
+      // 
+      // - **Account**: The member is a member account in the resource directory.
       shared_ptr<string> memberType_ {};
+      // The status of the member managed by the IPAM trusted service. Valid values:
+      // 
+      // - **Created**: The member is managed.
+      // 
+      // - **Deleted**: The member is removed.
       shared_ptr<string> status_ {};
     };
 
@@ -149,11 +165,21 @@ namespace Models
 
 
   protected:
+    // The number of entries returned on the current page.
     shared_ptr<int64_t> count_ {};
+    // The maximum number of entries returned on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // A list of members managed by the IPAM trusted service.
     shared_ptr<vector<ListIpamMembersResponseBody::MemberInfos>> memberInfos_ {};
+    // The token that is used to retrieve the next page of results. Valid values:
+    // 
+    // - If **NextToken** is empty, no more results are available.
+    // 
+    // - If **NextToken** has a value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -124,12 +124,21 @@ namespace Models
 
 
     protected:
+      // The IP address in use.
       shared_ptr<string> ipAddress_ {};
+      // The IP version. Valid value:
+      // 
+      // - **IPv4**: Indicates the IPv4 protocol.
       shared_ptr<string> ipVersion_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The ID of the region in which the resource resides.
       shared_ptr<string> resourceRegionId_ {};
+      // The cloud service to which the resource belongs.
       shared_ptr<string> resourceServiceType_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -180,11 +189,21 @@ namespace Models
 
 
   protected:
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> count_ {};
+    // Details of the used IP addresses.
     shared_ptr<vector<ListIpamDiscoveredIpAddressesResponseBody::IpamDiscoveredIpAddresses>> ipamDiscoveredIpAddresses_ {};
+    // The maximum number of entries to return per page. Valid values: 1 to 200. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Use this token in a subsequent request to retrieve the next page of results. Valid values:
+    // 
+    // - Empty: All results have been returned.
+    // 
+    // - If **NextToken** has a value, it is the token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

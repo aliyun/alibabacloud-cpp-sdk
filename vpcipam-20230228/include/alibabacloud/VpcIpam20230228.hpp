@@ -21,7 +21,18 @@ namespace VpcIpam20230228
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加ipam可信服务纳管成员
+       * @summary Adds members to an IP Address Manager (IPAM).
+       *
+       * @description - Only the delegated administrator of an IPAM instance in a resource directory can perform multi-account management.
+       * - An IPAM delegated administrator can use an IPAM instance in only one region for multi-account management. A maximum of 1,000 member accounts can be added.
+       *   >Notice: 
+       *   If you add a folder as a member, the system counts all member accounts of the resource directory that are in the folder.
+       *   
+       * - Members can be of the Folder or Account type.
+       *   - Folder: The delegated IPAM administrator can view IP usage in the IPAM effective region for all resource directory member accounts in the folder.
+       *   - Account: The delegated IPAM administrator can view IP usage in the IPAM effective region for the specified resource directory member account.
+       * - A managed member cannot share its resource discovery with the IPAM delegated administrator. The IPAM delegated administrator cannot add a member if that member has already shared its resource discovery.
+       * - Adding the first member enables the IPAM trusted service for the resource directory.
        *
        * @param request AddIpamMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +41,18 @@ namespace VpcIpam20230228
       Models::AddIpamMembersResponse addIpamMembersWithOptions(const Models::AddIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加ipam可信服务纳管成员
+       * @summary Adds members to an IP Address Manager (IPAM).
+       *
+       * @description - Only the delegated administrator of an IPAM instance in a resource directory can perform multi-account management.
+       * - An IPAM delegated administrator can use an IPAM instance in only one region for multi-account management. A maximum of 1,000 member accounts can be added.
+       *   >Notice: 
+       *   If you add a folder as a member, the system counts all member accounts of the resource directory that are in the folder.
+       *   
+       * - Members can be of the Folder or Account type.
+       *   - Folder: The delegated IPAM administrator can view IP usage in the IPAM effective region for all resource directory member accounts in the folder.
+       *   - Account: The delegated IPAM administrator can view IP usage in the IPAM effective region for the specified resource directory member account.
+       * - A managed member cannot share its resource discovery with the IPAM delegated administrator. The IPAM delegated administrator cannot add a member if that member has already shared its resource discovery.
+       * - Adding the first member enables the IPAM trusted service for the resource directory.
        *
        * @param request AddIpamMembersRequest
        * @return AddIpamMembersResponse
@@ -38,15 +60,15 @@ namespace VpcIpam20230228
       Models::AddIpamMembersResponse addIpamMembers(const Models::AddIpamMembersRequest &request);
 
       /**
-       * @summary Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+       * @summary Provisions a CIDR block for an IPAM pool.
        *
-       * @description *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
-       * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
-       * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
-       * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
-       * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
-       * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
-       * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
+       * @description - Before provisioning a CIDR block, make sure that you have created an IPAM pool. You can call **CreateIpamPool** to create an IPAM pool.
+       * - If the parent pool does not have a provisioned CIDR block, the subpool does not support CIDR block provisioning.
+       * - If the parent pool has a provisioned CIDR block, the subpool can have a provisioned CIDR block, and the provisioned CIDR block must be a subset of the parent pool\\"s provisioned CIDR block.
+       * - If the parent pool has a provisioned CIDR block and also has CIDR allocations, the CIDR block provisioned for the subpool must not conflict with the existing CIDR allocations.
+       * - The request to provision a CIDR block for an IPAM pool must be initiated from the IPAM hosted region.
+       * - The CIDR block provisioned for an IPAM pool must not conflict with CIDR blocks provisioned for other pools within the same scope.
+       * - The number of CIDR blocks that can be provisioned for a pool is limited. The default maximum for a public IPv6 top-level pool is 1. The default maximum for other types of pools is 50.
        *
        * @param request AddIpamPoolCidrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -55,15 +77,15 @@ namespace VpcIpam20230228
       Models::AddIpamPoolCidrResponse addIpamPoolCidrWithOptions(const Models::AddIpamPoolCidrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+       * @summary Provisions a CIDR block for an IPAM pool.
        *
-       * @description *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
-       * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
-       * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
-       * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
-       * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
-       * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
-       * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
+       * @description - Before provisioning a CIDR block, make sure that you have created an IPAM pool. You can call **CreateIpamPool** to create an IPAM pool.
+       * - If the parent pool does not have a provisioned CIDR block, the subpool does not support CIDR block provisioning.
+       * - If the parent pool has a provisioned CIDR block, the subpool can have a provisioned CIDR block, and the provisioned CIDR block must be a subset of the parent pool\\"s provisioned CIDR block.
+       * - If the parent pool has a provisioned CIDR block and also has CIDR allocations, the CIDR block provisioned for the subpool must not conflict with the existing CIDR allocations.
+       * - The request to provision a CIDR block for an IPAM pool must be initiated from the IPAM hosted region.
+       * - The CIDR block provisioned for an IPAM pool must not conflict with CIDR blocks provisioned for other pools within the same scope.
+       * - The number of CIDR blocks that can be provisioned for a pool is limited. The default maximum for a public IPv6 top-level pool is 1. The default maximum for other types of pools is 50.
        *
        * @param request AddIpamPoolCidrRequest
        * @return AddIpamPoolCidrResponse
@@ -71,9 +93,9 @@ namespace VpcIpam20230228
       Models::AddIpamPoolCidrResponse addIpamPoolCidr(const Models::AddIpamPoolCidrRequest &request);
 
       /**
-       * @summary Associates resource discovery with an IPAM instance.
+       * @summary Associates a resource discovery with an IPAM instance.
        *
-       * @description *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
+       * @description - You can associate a resource discovery instance with an IPAM instance only once.
        *
        * @param request AssociateIpamResourceDiscoveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -82,9 +104,9 @@ namespace VpcIpam20230228
       Models::AssociateIpamResourceDiscoveryResponse associateIpamResourceDiscoveryWithOptions(const Models::AssociateIpamResourceDiscoveryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates resource discovery with an IPAM instance.
+       * @summary Associates a resource discovery with an IPAM instance.
        *
-       * @description *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
+       * @description - You can associate a resource discovery instance with an IPAM instance only once.
        *
        * @param request AssociateIpamResourceDiscoveryRequest
        * @return AssociateIpamResourceDiscoveryResponse
@@ -138,9 +160,9 @@ namespace VpcIpam20230228
       Models::CreateIpamResponse createIpam(const Models::CreateIpamRequest &request);
 
       /**
-       * @summary Creates an IP Address Manager (IPAM) pool.
+       * @summary Create an IPAM address pool.
        *
-       * @description The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
+       * @description - The default maximum number of public IPv6 top-level pools per ISP type per region is 1.
        *
        * @param request CreateIpamPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,9 +171,9 @@ namespace VpcIpam20230228
       Models::CreateIpamPoolResponse createIpamPoolWithOptions(const Models::CreateIpamPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an IP Address Manager (IPAM) pool.
+       * @summary Create an IPAM address pool.
        *
-       * @description The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
+       * @description - The default maximum number of public IPv6 top-level pools per ISP type per region is 1.
        *
        * @param request CreateIpamPoolRequest
        * @return CreateIpamPoolResponse
@@ -159,12 +181,12 @@ namespace VpcIpam20230228
       Models::CreateIpamPoolResponse createIpamPool(const Models::CreateIpamPoolRequest &request);
 
       /**
-       * @summary Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+       * @summary Creates a custom reserved CIDR block from an IPAM pool.
        *
-       * @description *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
-       * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
-       * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
-       * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+       * @description - Before you create a custom reserved CIDR block, ensure that you have created an IPAM pool and added a CIDR block to it. You can call the **CreateIpamPool** operation to create an IPAM pool and the **AddIpamPoolCidr** operation to add a CIDR block to the pool.
+       * - When you specify the Cidr or CidrMask parameter to create a custom reserved CIDR block, the mask must be within the range specified for the IPAM pool.
+       * - If an IPAM pool has a region attribute, the request to create a custom reserved CIDR block must be initiated from the region where the pool is located.
+       * - The custom reserved CIDR block must not conflict with existing CIDR block allocations in the IPAM pool.
        *
        * @param request CreateIpamPoolAllocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -173,12 +195,12 @@ namespace VpcIpam20230228
       Models::CreateIpamPoolAllocationResponse createIpamPoolAllocationWithOptions(const Models::CreateIpamPoolAllocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+       * @summary Creates a custom reserved CIDR block from an IPAM pool.
        *
-       * @description *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
-       * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
-       * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
-       * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+       * @description - Before you create a custom reserved CIDR block, ensure that you have created an IPAM pool and added a CIDR block to it. You can call the **CreateIpamPool** operation to create an IPAM pool and the **AddIpamPoolCidr** operation to add a CIDR block to the pool.
+       * - When you specify the Cidr or CidrMask parameter to create a custom reserved CIDR block, the mask must be within the range specified for the IPAM pool.
+       * - If an IPAM pool has a region attribute, the request to create a custom reserved CIDR block must be initiated from the region where the pool is located.
+       * - The custom reserved CIDR block must not conflict with existing CIDR block allocations in the IPAM pool.
        *
        * @param request CreateIpamPoolAllocationRequest
        * @return CreateIpamPoolAllocationResponse
@@ -186,10 +208,10 @@ namespace VpcIpam20230228
       Models::CreateIpamPoolAllocationResponse createIpamPoolAllocation(const Models::CreateIpamPoolAllocationRequest &request);
 
       /**
-       * @summary Creates a custom resource discovery instance.
+       * @summary Creates a resource discovery instance of a custom type.
        *
-       * @description *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
-       * *   You can create only custom resource discovery instances.
+       * @description - Each Alibaba Cloud account can have only one resource discovery instance in each region.
+       * - This operation creates only resource discovery instances of a custom type.
        *
        * @param request CreateIpamResourceDiscoveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -198,10 +220,10 @@ namespace VpcIpam20230228
       Models::CreateIpamResourceDiscoveryResponse createIpamResourceDiscoveryWithOptions(const Models::CreateIpamResourceDiscoveryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom resource discovery instance.
+       * @summary Creates a resource discovery instance of a custom type.
        *
-       * @description *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
-       * *   You can create only custom resource discovery instances.
+       * @description - Each Alibaba Cloud account can have only one resource discovery instance in each region.
+       * - This operation creates only resource discovery instances of a custom type.
        *
        * @param request CreateIpamResourceDiscoveryRequest
        * @return CreateIpamResourceDiscoveryResponse
@@ -209,7 +231,7 @@ namespace VpcIpam20230228
       Models::CreateIpamResourceDiscoveryResponse createIpamResourceDiscovery(const Models::CreateIpamResourceDiscoveryRequest &request);
 
       /**
-       * @summary Creates a public scope and private scope to respectively manage public and private IP addresses.
+       * @summary Creates scopes for IPAM to manage private and public IP addresses.
        *
        * @param request CreateIpamScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -218,7 +240,7 @@ namespace VpcIpam20230228
       Models::CreateIpamScopeResponse createIpamScopeWithOptions(const Models::CreateIpamScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a public scope and private scope to respectively manage public and private IP addresses.
+       * @summary Creates scopes for IPAM to manage private and public IP addresses.
        *
        * @param request CreateIpamScopeRequest
        * @return CreateIpamScopeResponse
@@ -226,11 +248,13 @@ namespace VpcIpam20230228
       Models::CreateIpamScopeResponse createIpamScope(const Models::CreateIpamScopeRequest &request);
 
       /**
-       * @summary Deletes an IP Address Manager (IPAM).
+       * @summary Deletes an IPAM instance.
        *
-       * @description ## [](#)Prerequisites
-       * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
-       * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+       * @description ## Prerequisites
+       * - Before you delete an IPAM instance, ensure that all IPAM pools in the instance are deleted. You can call the **DeleteIpamPool** operation to delete the IPAM pools.
+       * - Before you delete an IPAM instance, ensure that all custom IPAM scopes in the instance are deleted. You can call the **DeleteIpamScope** operation to delete the IPAM scopes.
+       * - Before you delete an IPAM instance, ensure that the default resource discovery instance is not shared.
+       * - Before you delete an IPAM instance, ensure that no shared resource discovery instances are associated with the IPAM instance.
        *
        * @param request DeleteIpamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -239,11 +263,13 @@ namespace VpcIpam20230228
       Models::DeleteIpamResponse deleteIpamWithOptions(const Models::DeleteIpamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an IP Address Manager (IPAM).
+       * @summary Deletes an IPAM instance.
        *
-       * @description ## [](#)Prerequisites
-       * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
-       * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+       * @description ## Prerequisites
+       * - Before you delete an IPAM instance, ensure that all IPAM pools in the instance are deleted. You can call the **DeleteIpamPool** operation to delete the IPAM pools.
+       * - Before you delete an IPAM instance, ensure that all custom IPAM scopes in the instance are deleted. You can call the **DeleteIpamScope** operation to delete the IPAM scopes.
+       * - Before you delete an IPAM instance, ensure that the default resource discovery instance is not shared.
+       * - Before you delete an IPAM instance, ensure that no shared resource discovery instances are associated with the IPAM instance.
        *
        * @param request DeleteIpamRequest
        * @return DeleteIpamResponse
@@ -251,12 +277,13 @@ namespace VpcIpam20230228
       Models::DeleteIpamResponse deleteIpam(const Models::DeleteIpamRequest &request);
 
       /**
-       * @summary Deletes an IP Address Manager (IPAM) scope.
+       * @summary Deletes an IPAM pool instance.
        *
-       * @description ### [](#)Usage notes
-       * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
-       * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
-       * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+       * @description ### Usage notes
+       * - Before deleting a parent pool, make sure that all subpools under the parent pool have been deleted.
+       * - When a parent pool has an effective region configured and has addresses that have already been allocated, the parent pool cannot be deleted.
+       * - When a subpool has an effective region configured and has addresses that have already been allocated, the subpool cannot be deleted.
+       * - When a pool has a sharing relationship, the pool cannot be deleted.
        *
        * @param request DeleteIpamPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -265,12 +292,13 @@ namespace VpcIpam20230228
       Models::DeleteIpamPoolResponse deleteIpamPoolWithOptions(const Models::DeleteIpamPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an IP Address Manager (IPAM) scope.
+       * @summary Deletes an IPAM pool instance.
        *
-       * @description ### [](#)Usage notes
-       * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
-       * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
-       * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+       * @description ### Usage notes
+       * - Before deleting a parent pool, make sure that all subpools under the parent pool have been deleted.
+       * - When a parent pool has an effective region configured and has addresses that have already been allocated, the parent pool cannot be deleted.
+       * - When a subpool has an effective region configured and has addresses that have already been allocated, the subpool cannot be deleted.
+       * - When a pool has a sharing relationship, the pool cannot be deleted.
        *
        * @param request DeleteIpamPoolRequest
        * @return DeleteIpamPoolResponse
@@ -278,7 +306,7 @@ namespace VpcIpam20230228
       Models::DeleteIpamPoolResponse deleteIpamPool(const Models::DeleteIpamPoolRequest &request);
 
       /**
-       * @summary Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+       * @summary Releases a CIDR allocation from an IP Address Management (IPAM) address pool. Supported allocation types include virtual private cloud (VPC) and custom allocation.
        *
        * @param request DeleteIpamPoolAllocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -287,7 +315,7 @@ namespace VpcIpam20230228
       Models::DeleteIpamPoolAllocationResponse deleteIpamPoolAllocationWithOptions(const Models::DeleteIpamPoolAllocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+       * @summary Releases a CIDR allocation from an IP Address Management (IPAM) address pool. Supported allocation types include virtual private cloud (VPC) and custom allocation.
        *
        * @param request DeleteIpamPoolAllocationRequest
        * @return DeleteIpamPoolAllocationResponse
@@ -295,12 +323,12 @@ namespace VpcIpam20230228
       Models::DeleteIpamPoolAllocationResponse deleteIpamPoolAllocation(const Models::DeleteIpamPoolAllocationRequest &request);
 
       /**
-       * @summary Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+       * @summary Deletes a provisioned CIDR block from an IP Address Manager (IPAM) pool.
        *
-       * @description *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
-       * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
-       * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
-       * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+       * @description - If CIDR blocks are provisioned in both a parent pool and its sub-pools, delete the CIDR blocks from the sub-pools before you delete the CIDR block from the parent pool.
+       * - If a CIDR block is provisioned only in a parent pool, you can delete the CIDR block directly from the parent pool.
+       * - If allocations exist from the provisioned CIDR block, delete the allocations before you delete the CIDR block.
+       * - Requests to delete a provisioned CIDR block from an IPAM pool must be sent from the region where the IPAM is deployed.
        *
        * @param request DeleteIpamPoolCidrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -309,12 +337,12 @@ namespace VpcIpam20230228
       Models::DeleteIpamPoolCidrResponse deleteIpamPoolCidrWithOptions(const Models::DeleteIpamPoolCidrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+       * @summary Deletes a provisioned CIDR block from an IP Address Manager (IPAM) pool.
        *
-       * @description *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
-       * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
-       * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
-       * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+       * @description - If CIDR blocks are provisioned in both a parent pool and its sub-pools, delete the CIDR blocks from the sub-pools before you delete the CIDR block from the parent pool.
+       * - If a CIDR block is provisioned only in a parent pool, you can delete the CIDR block directly from the parent pool.
+       * - If allocations exist from the provisioned CIDR block, delete the allocations before you delete the CIDR block.
+       * - Requests to delete a provisioned CIDR block from an IPAM pool must be sent from the region where the IPAM is deployed.
        *
        * @param request DeleteIpamPoolCidrRequest
        * @return DeleteIpamPoolCidrResponse
@@ -322,9 +350,9 @@ namespace VpcIpam20230228
       Models::DeleteIpamPoolCidrResponse deleteIpamPoolCidr(const Models::DeleteIpamPoolCidrRequest &request);
 
       /**
-       * @summary Deletes a custom resource discovery instance.
+       * @summary Deletes a resource discovery instance.
        *
-       * @description *   If a resource discovery instance is shared, it cannot be deleted.
+       * @description - A resource discovery instance cannot be deleted if it is shared.
        *
        * @param request DeleteIpamResourceDiscoveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -333,9 +361,9 @@ namespace VpcIpam20230228
       Models::DeleteIpamResourceDiscoveryResponse deleteIpamResourceDiscoveryWithOptions(const Models::DeleteIpamResourceDiscoveryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom resource discovery instance.
+       * @summary Deletes a resource discovery instance.
        *
-       * @description *   If a resource discovery instance is shared, it cannot be deleted.
+       * @description - A resource discovery instance cannot be deleted if it is shared.
        *
        * @param request DeleteIpamResourceDiscoveryRequest
        * @return DeleteIpamResourceDiscoveryResponse
@@ -343,11 +371,11 @@ namespace VpcIpam20230228
       Models::DeleteIpamResourceDiscoveryResponse deleteIpamResourceDiscovery(const Models::DeleteIpamResourceDiscoveryRequest &request);
 
       /**
-       * @summary Deletes an IP Address Manager (IPAM) scope.
+       * @summary Deletes an IPAM scope.
        *
-       * @description ### [](#)Usage notes
-       * *   You cannot delete the private scope and public scope created by the system.
-       * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+       * @description ### Usage notes
+       * - You cannot delete the two default IPAM scopes that the system automatically creates.
+       * - Before you delete a custom IPAM scope, ensure that all IPAM pools in the scope are deleted. You can call the **DeleteIpamPool** operation to delete an IPAM pool.
        *
        * @param request DeleteIpamScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -356,11 +384,11 @@ namespace VpcIpam20230228
       Models::DeleteIpamScopeResponse deleteIpamScopeWithOptions(const Models::DeleteIpamScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an IP Address Manager (IPAM) scope.
+       * @summary Deletes an IPAM scope.
        *
-       * @description ### [](#)Usage notes
-       * *   You cannot delete the private scope and public scope created by the system.
-       * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+       * @description ### Usage notes
+       * - You cannot delete the two default IPAM scopes that the system automatically creates.
+       * - Before you delete a custom IPAM scope, ensure that all IPAM pools in the scope are deleted. You can call the **DeleteIpamPool** operation to delete an IPAM pool.
        *
        * @param request DeleteIpamScopeRequest
        * @return DeleteIpamScopeResponse
@@ -368,7 +396,7 @@ namespace VpcIpam20230228
       Models::DeleteIpamScopeResponse deleteIpamScope(const Models::DeleteIpamScopeRequest &request);
 
       /**
-       * @summary Disassociates resource discovery and IPAM instances.
+       * @summary Disassociates a resource discovery from an IP Address Manager (IPAM) instance.
        *
        * @param request DissociateIpamResourceDiscoveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +405,7 @@ namespace VpcIpam20230228
       Models::DissociateIpamResourceDiscoveryResponse dissociateIpamResourceDiscoveryWithOptions(const Models::DissociateIpamResourceDiscoveryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates resource discovery and IPAM instances.
+       * @summary Disassociates a resource discovery from an IP Address Manager (IPAM) instance.
        *
        * @param request DissociateIpamResourceDiscoveryRequest
        * @return DissociateIpamResourceDiscoveryResponse
@@ -385,7 +413,7 @@ namespace VpcIpam20230228
       Models::DissociateIpamResourceDiscoveryResponse dissociateIpamResourceDiscovery(const Models::DissociateIpamResourceDiscoveryRequest &request);
 
       /**
-       * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+       * @summary Queries a specified CIDR block allocation in an IPAM pool.
        *
        * @param request GetIpamPoolAllocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -394,7 +422,7 @@ namespace VpcIpam20230228
       Models::GetIpamPoolAllocationResponse getIpamPoolAllocationWithOptions(const Models::GetIpamPoolAllocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+       * @summary Queries a specified CIDR block allocation in an IPAM pool.
        *
        * @param request GetIpamPoolAllocationRequest
        * @return GetIpamPoolAllocationResponse
@@ -402,7 +430,7 @@ namespace VpcIpam20230228
       Models::GetIpamPoolAllocationResponse getIpamPoolAllocation(const Models::GetIpamPoolAllocationRequest &request);
 
       /**
-       * @summary Gets the available CIDR blocks of the IPAM pool.
+       * @summary Retrieves an available CIDR block from an IPAM pool.
        *
        * @param request GetIpamPoolNextAvailableCidrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +439,7 @@ namespace VpcIpam20230228
       Models::GetIpamPoolNextAvailableCidrResponse getIpamPoolNextAvailableCidrWithOptions(const Models::GetIpamPoolNextAvailableCidrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the available CIDR blocks of the IPAM pool.
+       * @summary Retrieves an available CIDR block from an IPAM pool.
        *
        * @param request GetIpamPoolNextAvailableCidrRequest
        * @return GetIpamPoolNextAvailableCidrResponse
@@ -419,7 +447,7 @@ namespace VpcIpam20230228
       Models::GetIpamPoolNextAvailableCidrResponse getIpamPoolNextAvailableCidr(const Models::GetIpamPoolNextAvailableCidrRequest &request);
 
       /**
-       * @summary Queries whether IP Address Manager (IPAM) is activated.
+       * @summary Retrieves the status of the IPAM service.
        *
        * @param request GetVpcIpamServiceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -428,7 +456,7 @@ namespace VpcIpam20230228
       Models::GetVpcIpamServiceStatusResponse getVpcIpamServiceStatusWithOptions(const Models::GetVpcIpamServiceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether IP Address Manager (IPAM) is activated.
+       * @summary Retrieves the status of the IPAM service.
        *
        * @param request GetVpcIpamServiceStatusRequest
        * @return GetVpcIpamServiceStatusResponse
@@ -436,7 +464,15 @@ namespace VpcIpam20230228
       Models::GetVpcIpamServiceStatusResponse getVpcIpamServiceStatus(const Models::GetVpcIpamServiceStatusRequest &request);
 
       /**
-       * @summary 查询VPC或VSwitch下已使用IP信息。
+       * @summary Lists the IP addresses used by discovered resources in a VPC or vSwitch.
+       *
+       * @description Supported query combinations:
+       * - `VpcId` only
+       * - `VSwitchId` only
+       * - `VpcId` + `VSwitchId`
+       * - `VpcId` + `CidrBlock`
+       * - `VSwitchId` + `CidrBlock`
+       * - `VpcId` + `VSwitchId` + `CidrBlock`
        *
        * @param request ListIpamDiscoveredIpAddressesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -445,7 +481,15 @@ namespace VpcIpam20230228
       Models::ListIpamDiscoveredIpAddressesResponse listIpamDiscoveredIpAddressesWithOptions(const Models::ListIpamDiscoveredIpAddressesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询VPC或VSwitch下已使用IP信息。
+       * @summary Lists the IP addresses used by discovered resources in a VPC or vSwitch.
+       *
+       * @description Supported query combinations:
+       * - `VpcId` only
+       * - `VSwitchId` only
+       * - `VpcId` + `VSwitchId`
+       * - `VpcId` + `CidrBlock`
+       * - `VSwitchId` + `CidrBlock`
+       * - `VpcId` + `VSwitchId` + `CidrBlock`
        *
        * @param request ListIpamDiscoveredIpAddressesRequest
        * @return ListIpamDiscoveredIpAddressesResponse
@@ -453,7 +497,7 @@ namespace VpcIpam20230228
       Models::ListIpamDiscoveredIpAddressesResponse listIpamDiscoveredIpAddresses(const Models::ListIpamDiscoveredIpAddressesRequest &request);
 
       /**
-       * @summary Queries discovered resources.
+       * @summary Queries resource information under a resource discovery.
        *
        * @param request ListIpamDiscoveredResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -462,7 +506,7 @@ namespace VpcIpam20230228
       Models::ListIpamDiscoveredResourceResponse listIpamDiscoveredResourceWithOptions(const Models::ListIpamDiscoveredResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries discovered resources.
+       * @summary Queries resource information under a resource discovery.
        *
        * @param request ListIpamDiscoveredResourceRequest
        * @return ListIpamDiscoveredResourceResponse
@@ -470,7 +514,7 @@ namespace VpcIpam20230228
       Models::ListIpamDiscoveredResourceResponse listIpamDiscoveredResource(const Models::ListIpamDiscoveredResourceRequest &request);
 
       /**
-       * @summary 查询ipam可信服务纳管成员
+       * @summary Lists the members managed by the IPAM trusted service.
        *
        * @param request ListIpamMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -479,7 +523,7 @@ namespace VpcIpam20230228
       Models::ListIpamMembersResponse listIpamMembersWithOptions(const Models::ListIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询ipam可信服务纳管成员
+       * @summary Lists the members managed by the IPAM trusted service.
        *
        * @param request ListIpamMembersRequest
        * @return ListIpamMembersResponse
@@ -487,7 +531,7 @@ namespace VpcIpam20230228
       Models::ListIpamMembersResponse listIpamMembers(const Models::ListIpamMembersRequest &request);
 
       /**
-       * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+       * @summary Queries CIDR block allocations in an IPAM pool.
        *
        * @param request ListIpamPoolAllocationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -496,7 +540,7 @@ namespace VpcIpam20230228
       Models::ListIpamPoolAllocationsResponse listIpamPoolAllocationsWithOptions(const Models::ListIpamPoolAllocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+       * @summary Queries CIDR block allocations in an IPAM pool.
        *
        * @param request ListIpamPoolAllocationsRequest
        * @return ListIpamPoolAllocationsResponse
@@ -504,7 +548,7 @@ namespace VpcIpam20230228
       Models::ListIpamPoolAllocationsResponse listIpamPoolAllocations(const Models::ListIpamPoolAllocationsRequest &request);
 
       /**
-       * @summary Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+       * @summary Queries the provisioned CIDR blocks of an IPAM pool.
        *
        * @param request ListIpamPoolCidrsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -513,7 +557,7 @@ namespace VpcIpam20230228
       Models::ListIpamPoolCidrsResponse listIpamPoolCidrsWithOptions(const Models::ListIpamPoolCidrsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+       * @summary Queries the provisioned CIDR blocks of an IPAM pool.
        *
        * @param request ListIpamPoolCidrsRequest
        * @return ListIpamPoolCidrsResponse
@@ -521,7 +565,7 @@ namespace VpcIpam20230228
       Models::ListIpamPoolCidrsResponse listIpamPoolCidrs(const Models::ListIpamPoolCidrsRequest &request);
 
       /**
-       * @summary Queries IP Address Manager (IPAM) pools.
+       * @summary Queries IPAM pools.
        *
        * @param request ListIpamPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +574,7 @@ namespace VpcIpam20230228
       Models::ListIpamPoolsResponse listIpamPoolsWithOptions(const Models::ListIpamPoolsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries IP Address Manager (IPAM) pools.
+       * @summary Queries IPAM pools.
        *
        * @param request ListIpamPoolsRequest
        * @return ListIpamPoolsResponse
@@ -538,7 +582,7 @@ namespace VpcIpam20230228
       Models::ListIpamPoolsResponse listIpamPools(const Models::ListIpamPoolsRequest &request);
 
       /**
-       * @summary Queries resources in an IP Address Manager (IPAM) pool.
+       * @summary Queries resources within an IPAM scope.
        *
        * @param request ListIpamResourceCidrsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -547,7 +591,7 @@ namespace VpcIpam20230228
       Models::ListIpamResourceCidrsResponse listIpamResourceCidrsWithOptions(const Models::ListIpamResourceCidrsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resources in an IP Address Manager (IPAM) pool.
+       * @summary Queries resources within an IPAM scope.
        *
        * @param request ListIpamResourceCidrsRequest
        * @return ListIpamResourceCidrsResponse
@@ -555,7 +599,7 @@ namespace VpcIpam20230228
       Models::ListIpamResourceCidrsResponse listIpamResourceCidrs(const Models::ListIpamResourceCidrsRequest &request);
 
       /**
-       * @summary Queries IPAM resource discovery instances.
+       * @summary Retrieves a list of IPAM resource discovery instances.
        *
        * @param request ListIpamResourceDiscoveriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -564,7 +608,7 @@ namespace VpcIpam20230228
       Models::ListIpamResourceDiscoveriesResponse listIpamResourceDiscoveriesWithOptions(const Models::ListIpamResourceDiscoveriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries IPAM resource discovery instances.
+       * @summary Retrieves a list of IPAM resource discovery instances.
        *
        * @param request ListIpamResourceDiscoveriesRequest
        * @return ListIpamResourceDiscoveriesResponse
@@ -572,7 +616,7 @@ namespace VpcIpam20230228
       Models::ListIpamResourceDiscoveriesResponse listIpamResourceDiscoveries(const Models::ListIpamResourceDiscoveriesRequest &request);
 
       /**
-       * @summary Queries the association between resource discovery and IPAM.
+       * @summary Lists the associations between resource discoveries and IP Address Managers (IPAMs).
        *
        * @param request ListIpamResourceDiscoveryAssociationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -581,7 +625,7 @@ namespace VpcIpam20230228
       Models::ListIpamResourceDiscoveryAssociationsResponse listIpamResourceDiscoveryAssociationsWithOptions(const Models::ListIpamResourceDiscoveryAssociationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the association between resource discovery and IPAM.
+       * @summary Lists the associations between resource discoveries and IP Address Managers (IPAMs).
        *
        * @param request ListIpamResourceDiscoveryAssociationsRequest
        * @return ListIpamResourceDiscoveryAssociationsResponse
@@ -589,7 +633,7 @@ namespace VpcIpam20230228
       Models::ListIpamResourceDiscoveryAssociationsResponse listIpamResourceDiscoveryAssociations(const Models::ListIpamResourceDiscoveryAssociationsRequest &request);
 
       /**
-       * @summary Queries IP Address Manager (IPAM) scopes.
+       * @summary Queries IPAM scopes.
        *
        * @param request ListIpamScopesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -598,7 +642,7 @@ namespace VpcIpam20230228
       Models::ListIpamScopesResponse listIpamScopesWithOptions(const Models::ListIpamScopesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries IP Address Manager (IPAM) scopes.
+       * @summary Queries IPAM scopes.
        *
        * @param request ListIpamScopesRequest
        * @return ListIpamScopesResponse
@@ -606,7 +650,7 @@ namespace VpcIpam20230228
       Models::ListIpamScopesResponse listIpamScopes(const Models::ListIpamScopesRequest &request);
 
       /**
-       * @summary Queries IP Address Managers (IPAMs).
+       * @summary Queries one or more IPAMs.
        *
        * @param request ListIpamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -615,7 +659,7 @@ namespace VpcIpam20230228
       Models::ListIpamsResponse listIpamsWithOptions(const Models::ListIpamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries IP Address Managers (IPAMs).
+       * @summary Queries one or more IPAMs.
        *
        * @param request ListIpamsRequest
        * @return ListIpamsResponse
@@ -623,13 +667,13 @@ namespace VpcIpam20230228
       Models::ListIpamsResponse listIpams(const Models::ListIpamsRequest &request);
 
       /**
-       * @summary Queries a list of resource tags.
+       * @summary Queries the tags that are associated with resources.
        *
-       * @description ### [](#)Usage notes
-       * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-       * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-       * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-       * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+       * @description ### Usage notes
+       * - You must specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in a request to identify the resources to query.
+       * - **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. An error is returned if you specify only **Tag.N.Value**.
+       * - If you specify both **Tag.N** and **ResourceId.N**, the query returns only the resources that are specified by **ResourceId.N** and are associated with all the specified tag key-value pairs.
+       * - If you specify multiple tag key-value pairs, the query returns only resources that are associated with all the specified key-value pairs.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -638,13 +682,13 @@ namespace VpcIpam20230228
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of resource tags.
+       * @summary Queries the tags that are associated with resources.
        *
-       * @description ### [](#)Usage notes
-       * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-       * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-       * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-       * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+       * @description ### Usage notes
+       * - You must specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in a request to identify the resources to query.
+       * - **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. An error is returned if you specify only **Tag.N.Value**.
+       * - If you specify both **Tag.N** and **ResourceId.N**, the query returns only the resources that are specified by **ResourceId.N** and are associated with all the specified tag key-value pairs.
+       * - If you specify multiple tag key-value pairs, the query returns only resources that are associated with all the specified key-value pairs.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -652,7 +696,7 @@ namespace VpcIpam20230228
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Activates IP Address Manager (IPAM).
+       * @summary Activates the IP Address Management (IPAM) service.
        *
        * @param request OpenVpcIpamServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +705,7 @@ namespace VpcIpam20230228
       Models::OpenVpcIpamServiceResponse openVpcIpamServiceWithOptions(const Models::OpenVpcIpamServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Activates IP Address Manager (IPAM).
+       * @summary Activates the IP Address Management (IPAM) service.
        *
        * @param request OpenVpcIpamServiceRequest
        * @return OpenVpcIpamServiceResponse
@@ -669,7 +713,9 @@ namespace VpcIpam20230228
       Models::OpenVpcIpamServiceResponse openVpcIpamService(const Models::OpenVpcIpamServiceRequest &request);
 
       /**
-       * @summary 移除ipam可信服务纳管成员
+       * @summary Removes members from the IPAM trusted service.
+       *
+       * @description - If the delegated IPAM administrator removes the last member, the IPAM trusted service is disabled for the resource directory.
        *
        * @param request RemoveIpamMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -678,7 +724,9 @@ namespace VpcIpam20230228
       Models::RemoveIpamMembersResponse removeIpamMembersWithOptions(const Models::RemoveIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除ipam可信服务纳管成员
+       * @summary Removes members from the IPAM trusted service.
+       *
+       * @description - If the delegated IPAM administrator removes the last member, the IPAM trusted service is disabled for the resource directory.
        *
        * @param request RemoveIpamMembersRequest
        * @return RemoveIpamMembersResponse
@@ -732,7 +780,9 @@ namespace VpcIpam20230228
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Modifies an IPAM instance.
+       * @summary Modifies an IP Address Management (IPAM) instance.
+       *
+       * @description - The managed region of an IPAM instance cannot be removed.
        *
        * @param request UpdateIpamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -741,7 +791,9 @@ namespace VpcIpam20230228
       Models::UpdateIpamResponse updateIpamWithOptions(const Models::UpdateIpamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an IPAM instance.
+       * @summary Modifies an IP Address Management (IPAM) instance.
+       *
+       * @description - The managed region of an IPAM instance cannot be removed.
        *
        * @param request UpdateIpamRequest
        * @return UpdateIpamResponse
@@ -749,7 +801,7 @@ namespace VpcIpam20230228
       Models::UpdateIpamResponse updateIpam(const Models::UpdateIpamRequest &request);
 
       /**
-       * @summary Modifies the basic information about an IP Address Manager (IPAM) pool.
+       * @summary Updates the basic information of an IPAM pool.
        *
        * @param request UpdateIpamPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -758,7 +810,7 @@ namespace VpcIpam20230228
       Models::UpdateIpamPoolResponse updateIpamPoolWithOptions(const Models::UpdateIpamPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information about an IP Address Manager (IPAM) pool.
+       * @summary Updates the basic information of an IPAM pool.
        *
        * @param request UpdateIpamPoolRequest
        * @return UpdateIpamPoolResponse
@@ -766,7 +818,7 @@ namespace VpcIpam20230228
       Models::UpdateIpamPoolResponse updateIpamPool(const Models::UpdateIpamPoolRequest &request);
 
       /**
-       * @summary Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
+       * @summary Updates a CIDR allocation from an IPAM address pool.
        *
        * @param request UpdateIpamPoolAllocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -775,7 +827,7 @@ namespace VpcIpam20230228
       Models::UpdateIpamPoolAllocationResponse updateIpamPoolAllocationWithOptions(const Models::UpdateIpamPoolAllocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
+       * @summary Updates a CIDR allocation from an IPAM address pool.
        *
        * @param request UpdateIpamPoolAllocationRequest
        * @return UpdateIpamPoolAllocationResponse
@@ -785,8 +837,8 @@ namespace VpcIpam20230228
       /**
        * @summary Modifies a resource discovery instance.
        *
-       * @description *   You can add or remove effective regions only for custom resource discovery instances.
-       * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
+       * @description - You can add or remove operating regions only for custom resource discovery instances.
+       * - When you remove an operating region from a resource discovery instance, you cannot remove the managed region of the resource discovery instance.
        *
        * @param request UpdateIpamResourceDiscoveryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -797,8 +849,8 @@ namespace VpcIpam20230228
       /**
        * @summary Modifies a resource discovery instance.
        *
-       * @description *   You can add or remove effective regions only for custom resource discovery instances.
-       * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
+       * @description - You can add or remove operating regions only for custom resource discovery instances.
+       * - When you remove an operating region from a resource discovery instance, you cannot remove the managed region of the resource discovery instance.
        *
        * @param request UpdateIpamResourceDiscoveryRequest
        * @return UpdateIpamResourceDiscoveryResponse
@@ -806,7 +858,7 @@ namespace VpcIpam20230228
       Models::UpdateIpamResourceDiscoveryResponse updateIpamResourceDiscovery(const Models::UpdateIpamResourceDiscoveryRequest &request);
 
       /**
-       * @summary Modifies the basic information about an IP Address Manager (IPAM) scope.
+       * @summary Updates the basic information of an IPAM scope.
        *
        * @param request UpdateIpamScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -815,7 +867,7 @@ namespace VpcIpam20230228
       Models::UpdateIpamScopeResponse updateIpamScopeWithOptions(const Models::UpdateIpamScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information about an IP Address Manager (IPAM) scope.
+       * @summary Updates the basic information of an IPAM scope.
        *
        * @param request UpdateIpamScopeRequest
        * @return UpdateIpamScopeResponse

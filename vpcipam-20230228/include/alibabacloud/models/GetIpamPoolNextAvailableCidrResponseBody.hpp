@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Available CIDR.
+    // The available CIDR block.
     shared_ptr<string> cidrBlock_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -218,39 +218,45 @@ namespace Models
 
 
     protected:
-      // The time when the resource was discovered.
+      // The time when the resource discovery was created.
       shared_ptr<string> createTime_ {};
       // The description of the resource discovery.
       shared_ptr<string> ipamResourceDiscoveryDescription_ {};
-      // The ID of resource discovery instance.
+      // The ID of the resource discovery instance.
       shared_ptr<string> ipamResourceDiscoveryId_ {};
       // The name of the resource discovery.
       shared_ptr<string> ipamResourceDiscoveryName_ {};
       // The status of the resource discovery instance. Valid values:
       // 
-      // *   **Creating**
-      // *   **Created**
-      // *   **Modifying**
-      // *   **Deleting**
-      // *   **Deleted**
+      // - **Creating**: The instance is being created.
+      // 
+      // - **Created**: The instance is created.
+      // 
+      // - **Modifying**: The instance is being modified.
+      // 
+      // - **Deleting**: The instance is being deleted.
+      // 
+      // - **Deleted**: The instance is deleted.
       shared_ptr<string> ipamResourceDiscoveryStatus_ {};
-      // The list of resource discovery regions.
+      // The list of operating regions of the resource discovery.
       shared_ptr<vector<string>> operatingRegionList_ {};
-      // The Alibaba Cloud account that owns the resource discovery.
+      // The Alibaba Cloud account of the owner of the resource discovery instance.
       shared_ptr<int64_t> ownerId_ {};
-      // The region ID of the queried resource discovery instance.
+      // The ID of the region where the resource discovery instance is located.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group that resource discovery belongs.
+      // The ID of the resource group to which the resource discovery belongs.
       shared_ptr<string> resourceGroupId_ {};
       // The sharing status of the resource.
       // 
-      // *   If the value is empty, the resource is as an average instance.
-      // *   If the value is Shared, the resource discovery comes from a shared source.
-      // *   If the value is Sharing, the resource discovery is being shared.
+      // - If this parameter is empty, the resource discovery is a regular instance.
+      // 
+      // - If this parameter is set to Shared, the resource discovery is a shared resource.
+      // 
+      // - If this parameter is set to Sharing, the resource discovery is being shared.
       shared_ptr<string> shareType_ {};
-      // The tag list.
+      // The list of tags.
       shared_ptr<vector<IpamResourceDiscoveries::Tags>> tags_ {};
-      // The type of resource discovery.
+      // The type of the resource discovery.
       shared_ptr<string> type_ {};
     };
 
@@ -301,20 +307,21 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries on each page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> count_ {};
     // The list of resource discovery instances.
     shared_ptr<vector<ListIpamResourceDiscoveriesResponseBody::IpamResourceDiscoveries>> ipamResourceDiscoveries_ {};
-    // The maximum number of entries on each page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries returned on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next page of results. Valid values:
     // 
-    // *   If **NextToken** is empty, there is no next page.
-    // *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no more results are available.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

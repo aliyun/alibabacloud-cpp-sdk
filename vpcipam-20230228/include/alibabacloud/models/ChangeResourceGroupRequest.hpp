@@ -109,25 +109,25 @@ namespace Models
     shared_ptr<string> newResourceGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the IPAM instance is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The ID of the hosted region. Call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to get the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the IPAM resource.
+    // The ID of the resource whose resource group you want to change.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Resource type, with values:
+    // The resource type. Valid values:
     // 
-    // - Ipam:IPAM instance
+    // - Ipam: an IPAM instance
     // 
-    // - IpamScope:IPAM scope
+    // - IpamScope: an IPAM scope
     // 
-    // - IpamPool:IPAM address pool
+    // - IpamPool: an IPAM pool
     // 
-    // - IpamResourceDiscovery:IPAM resource discovery
+    // - IpamResourceDiscovery: an IPAM resource discovery
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

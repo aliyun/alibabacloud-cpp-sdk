@@ -103,34 +103,39 @@ namespace Models
 
 
   protected:
-    // Enter a CIDR block to reserve a custom CIDR block.
+    // The CIDR block to allocate from the IPAM pool.
     // 
-    // **Usage notes** Specify at least one of **Cidr** and **CidrMask** .
+    // > You must specify either the **Cidr** or **CidrMask** parameter.
     shared_ptr<string> cidr_ {};
-    // Enter a mask to reserve a custom CIDR block.
+    // The mask of the CIDR block to allocate from the IPAM pool.
     // 
-    // **Usage notes** Specify at least one of **Cidr** and **CidrMask** .
+    // > You must specify either the **Cidr** or **CidrMask** parameter.
     shared_ptr<int32_t> cidrMask_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. Generate a value on your client to make sure that the value is unique among different requests. The token can contain only ASCII characters.
     // 
-    // **Usage notes** If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the request as the ClientToken. The RequestId may be different for each request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: Sends a check request. The custom reserved CIDR block is not created. The system checks for required parameters, request format, and service limits. If the check fails, an error is returned. If the check passes, the DryRunOperation error code is returned.
+    // 
+    // - **false** (default): Sends a normal request. After the request passes the check, a 2xx HTTP status code is returned and the custom reserved CIDR block is created.
     shared_ptr<bool> dryRun_ {};
-    // The description of the allocation.
+    // The description of the custom reserved CIDR block.
+    // 
+    // The description must be 1 to 256 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The default value is an empty string.
     shared_ptr<string> ipamPoolAllocationDescription_ {};
-    // The name of the allocation.
+    // The name of the custom reserved CIDR block.
+    // 
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> ipamPoolAllocationName_ {};
     // The ID of the IPAM pool.
     // 
     // This parameter is required.
     shared_ptr<string> ipamPoolId_ {};
-    // The region ID of the custom CIDR block that you want to reserve.
+    // The ID of the region where you want to create the custom reserved CIDR block.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

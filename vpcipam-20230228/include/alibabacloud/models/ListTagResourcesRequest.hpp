@@ -86,17 +86,17 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with a `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length. It must start with a letter or a Chinese character and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       // 
-      // >  You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value**.
+      // > You must specify **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
       shared_ptr<string> key_ {};
-      // The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+      // The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with a `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       // 
-      // >  You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value**.
+      // > You must specify **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
       shared_ptr<string> value_ {};
     };
 
@@ -178,12 +178,13 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+    // The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
+    // - You do not need to specify this parameter for the first query.
+    // 
+    // - For a subsequent query, set this parameter to the NextToken value returned from the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -197,13 +198,15 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The resource type. Valid values:
     // 
-    // *   **IPAM**
-    // *   **IPAMSCOPE**
-    // *   **IPAMPOOL**
+    // - **IPAM**: IPAM
+    // 
+    // - **IPAMSCOPE**: IPAM scope
+    // 
+    // - **IPAMPOOL**: IPAM address pool
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag list.
+    // The tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

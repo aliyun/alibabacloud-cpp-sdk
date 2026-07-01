@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether IPAM is activated.
+    // Indicates whether the IPAM service is enabled.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The service is enabled.
+    // 
+    // - **false**: The service is not enabled.
     shared_ptr<bool> enabled_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -112,36 +112,34 @@ namespace Models
 
 
   protected:
-    // The ID of the IPAM pool.
+    // The instance ID of the IPAM pool.
     // 
-    // >  You must specify at least one of **IpamScopeId** and **IpamPoolId**.
+    // > **IpamPoolId** cannot be the instance ID of a shared IPAM pool.
     shared_ptr<string> ipamPoolId_ {};
-    // The ID of the IPAM scope.
-    // 
-    // >  You must specify at least one of **IpamScopeId** and **IpamPoolId**.
+    // The instance ID of the IPAM scope.
     shared_ptr<string> ipamScopeId_ {};
-    // The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The pagination token. Valid values:
     // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+    // - If this is the first request or no more results exist, leave this parameter empty.
+    // - If more results exist, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the IPAM instance is hosted.
+    // The ID of the region where IPAM is hosted.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource ID.
     shared_ptr<string> resourceId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of resource. Valid values:
+    // The resource type. Valid values:
     // 
-    // *   **VPC**
-    // *   **VSwitch**
+    // - **VPC**: The resource type is VPC.
+    // - **VSwitch**: The resource type is vSwitch.
     shared_ptr<string> resourceType_ {};
-    // The VPC ID.
+    // The instance ID of the VPC-connected instance to which the resource belongs.
     shared_ptr<string> vpcId_ {};
   };
 

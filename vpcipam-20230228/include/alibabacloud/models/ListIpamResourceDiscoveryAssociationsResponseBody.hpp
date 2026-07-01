@@ -114,29 +114,35 @@ namespace Models
 
 
     protected:
-      // The ID of the IPAM.
+      // The ID of the IPAM instance.
       shared_ptr<string> ipamId_ {};
-      // The ID of resource discovery instance.
+      // The ID of the resource discovery instance.
       shared_ptr<string> ipamResourceDiscoveryId_ {};
-      // The ID of the Alibaba Cloud account to which the resource discovery belongs.
+      // The ID of the Alibaba Cloud account that owns the resource discovery instance.
       shared_ptr<string> ipamResourceDiscoveryOwnerId_ {};
       // The status of the resource discovery instance. Valid values:
       // 
-      // *   **Creating**
-      // *   **Created**
-      // *   **Modifying**
-      // *   **Deleting**
-      // *   **Deleted**
+      // - **Creating**
+      // 
+      // - **Created**
+      // 
+      // - **Modifying**
+      // 
+      // - **Deleting**
+      // 
+      // - **Deleted**
       shared_ptr<string> ipamResourceDiscoveryStatus_ {};
-      // The type of resource discovery. Valid values:
+      // The type of the resource discovery. Valid values:
       // 
-      // *   **system**: default resource discovery created by the system.
-      // *   **custom**: custom resource discovery created by users.
+      // - **system**: a default resource discovery that is automatically created by the system.
+      // 
+      // - **custom**: a custom resource discovery that is created by a user.
       shared_ptr<string> ipamResourceDiscoveryType_ {};
-      // The status of the associations. Valid values:
+      // The association status. Valid values:
       // 
-      // *   **Created**
-      // *   **Deleted**
+      // - **Created**
+      // 
+      // - **Deleted**
       shared_ptr<string> status_ {};
     };
 
@@ -187,20 +193,21 @@ namespace Models
 
 
   protected:
-    // The number of entries on each page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> count_ {};
-    // The list of associations.
+    // A list of association details.
     shared_ptr<vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations>> ipamResourceDiscoveryAssociations_ {};
-    // The maximum number of entries on each page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries returned per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token to use to retrieve the next page of results. This value is empty when there are no more results to return.
     // 
-    // *   If **NextToken** is empty, there is no next page.
-    // *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no subsequent query is needed.
+    // 
+    // - If **NextToken** is not empty, its value is the token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

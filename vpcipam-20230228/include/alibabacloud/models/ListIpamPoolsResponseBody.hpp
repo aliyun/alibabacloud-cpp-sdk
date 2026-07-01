@@ -337,31 +337,27 @@ namespace Models
 
 
     protected:
-      // The default network mask assigned to the IPAM pool.
-      // 
-      // An IPv4 mask must be **0 to 32** bits in length.
+      // The default subnet mask for the IPAM pool.
       shared_ptr<int32_t> allocationDefaultCidrMask_ {};
-      // The maximum network mask assigned to the IPAM pool.
-      // 
-      // An IPv4 mask must be **0 to 32** bits in length.
+      // The maximum subnet mask for the IPAM pool.
       shared_ptr<int32_t> allocationMaxCidrMask_ {};
-      // The minimum network mask assigned to the IPAM pool.
-      // 
-      // An IPv4 mask must be **0 to 32** bits in length.
+      // The minimum subnet mask for the IPAM pool.
       shared_ptr<int32_t> allocationMinCidrMask_ {};
-      // Whether the pool has the auto-import feature enabled.
+      // Indicates whether auto import is enabled for the address pool.
       shared_ptr<bool> autoImport_ {};
+      // The CIDR blocks that are provisioned for the address pool.
       shared_ptr<vector<string>> cidrs_ {};
       // The time when the IPAM pool was created.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the pool is a subpool. Valid values:
+      // Indicates whether the IPAM pool has sub-pools. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> hasSubPool_ {};
-      // The IP version. Only **IPv4** may be returned.
+      // The IP version.
       shared_ptr<string> ipVersion_ {};
-      // The ID of the IPAM.
+      // The ID of the IPAM instance.
       shared_ptr<string> ipamId_ {};
       // The description of the IPAM pool.
       shared_ptr<string> ipamPoolDescription_ {};
@@ -369,39 +365,45 @@ namespace Models
       shared_ptr<string> ipamPoolId_ {};
       // The name of the IPAM pool.
       shared_ptr<string> ipamPoolName_ {};
-      // The ID of the region where the IPAM to which the IPAM pool belongs is hosted.
+      // The managed region of the IPAM instance to which the IPAM pool belongs.
       shared_ptr<string> ipamRegionId_ {};
       // The ID of the IPAM scope.
       shared_ptr<string> ipamScopeId_ {};
       // The type of the IPAM scope. Valid values:
       // 
-      // *   **public**
-      // *   **private**
+      // - **public**: the public network.
+      // 
+      // - **private**: the private network.
       shared_ptr<string> ipamScopeType_ {};
+      // The line type of the IPv6 CIDR block.
       shared_ptr<string> ipv6Isp_ {};
-      // Whether it is a shared pool.
+      // Indicates whether the address pool is a shared pool.
       shared_ptr<bool> isShared_ {};
-      // The Alibaba Cloud account of the owner for the IPAM pool.
+      // The Alibaba Cloud account ID of the owner of the IPAM pool.
       shared_ptr<int64_t> ownerId_ {};
-      // The depth of the IPAM pool. Valid values: **0 to 10**.
+      // The depth of the IPAM pool. Valid values: 0 to **10**.
       shared_ptr<int32_t> poolDepth_ {};
-      // The effective region of the IPAM pool. The ID of the effective region for the IPAM pool.
+      // The ID of the region where the IPAM pool is available.
       shared_ptr<string> poolRegionId_ {};
-      // The ID of the region where the operation is called.
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
+      // The ID of the resource group to which the IPAM pool belongs.
       shared_ptr<string> resourceGroupId_ {};
       // The ID of the source IPAM pool.
       shared_ptr<string> sourceIpamPoolId_ {};
       // The status of the IPAM pool. Valid values:
       // 
-      // *   **Creating**
-      // *   **Created**: indicates that the creation is complete.
-      // *   **Modifying**
-      // *   **Deleting**
-      // *   **Deleted**
+      // - **Creating**
+      // 
+      // - **Created**
+      // 
+      // - **Modifying**
+      // 
+      // - **Deleting**
+      // 
+      // - **Deleted**
       shared_ptr<string> status_ {};
-      // The tag list.
+      // The tags.
       shared_ptr<vector<IpamPools::Tags>> tags_ {};
     };
 
@@ -452,16 +454,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The number of entries returned on the current page.
     shared_ptr<int64_t> count_ {};
-    // The IPAM pools.
+    // A list of IPAM pools.
     shared_ptr<vector<ListIpamPoolsResponseBody::IpamPools>> ipamPools_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries returned on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no next page exists.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -89,12 +89,13 @@ namespace Models
     protected:
       // The provisioned CIDR block.
       shared_ptr<string> cidr_ {};
-      // The ID of the IPAM pool.
+      // The instance ID of the IPAM pool.
       shared_ptr<string> ipamPoolId_ {};
-      // The status of the CIDR block provisioned to the IPAM pool. Valid values:
+      // The instance status of the provisioned CIDR block of the IPAM pool. Valid values:
       // 
-      // *   **Created**
-      // *   **Deleted**
+      // - **Created**: The CIDR block is created.
+      // 
+      // - **Deleted**: The CIDR block is deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -145,20 +146,21 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The number of entries returned on the current page.
     shared_ptr<int64_t> count_ {};
-    // The IDs of IPAM pools.
+    // A list of provisioned CIDR blocks of the IPAM pool.
     shared_ptr<vector<ListIpamPoolCidrsResponseBody::IpamPoolCidrs>> ipamPoolCidrs_ {};
-    // The number of entries per page.
+    // The maximum number of entries returned per page.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token that is used to retrieve the next page of results.
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If this parameter is empty, no more results are to be returned.
+    // 
+    // - If a value is returned, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

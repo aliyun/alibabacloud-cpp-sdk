@@ -92,11 +92,11 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can specify at most 20 tag keys. It cannot be an empty string.
+      // The tag key. You can specify up to 20 tag keys. The key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag key must start with a letter but cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // A tag key can be up to 64 characters in length. It must start with a letter or a Chinese character and can contain digits, periods (.), underscores (_), and hyphens (-). The key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can specify at most 20 tag values. The tag value cannot be an empty string.
+      // The tag value. You can specify up to 20 tag values. The value can be an empty string.
       // 
       // A tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
@@ -202,38 +202,41 @@ namespace Models
 
 
   protected:
-    // The IDs of resource discovery instances. Valid values of N: 1 to 100. A maximum of 100 resource discoveries can be queried at a time.
+    // The IDs of the resource discovery instances. You can query up to 100 instances at a time.
     shared_ptr<vector<string>> ipamResourceDiscoveryIds_ {};
     // The name of the resource discovery.
     // 
-    // The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+    // The name must be 1 to 128 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> ipamResourceDiscoveryName_ {};
-    // Whether it is a shared resource discovery.
+    // Specifies whether the resource discovery is shared.
     shared_ptr<bool> isShared_ {};
-    // The maximum number of entries on each page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next page of results. Valid values:
     // 
-    // *   If **NextToken** is empty, there is no next page.
-    // *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no more results are available.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where you want to query resource discovery. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
+    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to get the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group that resource discovery belongs.
+    // The ID of the resource group to which the resource discovery belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag.
+    // The list of tags.
     shared_ptr<vector<ListIpamResourceDiscoveriesRequest::Tags>> tags_ {};
-    // The type of resource discovery.
+    // The type of the resource discovery.
     // 
-    // > Supported types:
-    // > - system: default resource discovery created by the system.
-    // > - custom: custom resource discovery created by users.
+    // > The following types are supported:
+    // >
+    // > - system: a default resource discovery created by the system.
+    // >
+    // > - custom: a custom resource discovery created by a user.
     shared_ptr<string> type_ {};
   };
 

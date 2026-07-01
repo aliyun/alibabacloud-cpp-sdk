@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The custom reserved CIDR block.
+    // The allocated CIDR block.
     shared_ptr<string> cidr_ {};
     // The ID of the custom reserved CIDR block.
     shared_ptr<string> ipamPoolAllocationId_ {};

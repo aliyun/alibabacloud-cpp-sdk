@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(IpUsage, ipUsage_);
         DARABONBA_PTR_TO_JSON(IpamResourceDiscoveryId, ipamResourceDiscoveryId_);
         DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
         DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
         DARABONBA_PTR_TO_JSON(ResourceRegionId, resourceRegionId_);
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(IpUsage, ipUsage_);
         DARABONBA_PTR_FROM_JSON(IpamResourceDiscoveryId, ipamResourceDiscoveryId_);
         DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
         DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
         DARABONBA_PTR_FROM_JSON(ResourceRegionId, resourceRegionId_);
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -128,15 +130,18 @@ namespace Models
 
 
       protected:
+        // The number of available IP addresses.
         shared_ptr<string> freeIpCount_ {};
+        // The total number of IP addresses.
         shared_ptr<string> totalIpCount_ {};
+        // The number of allocated IP addresses.
         shared_ptr<string> usedIpCount_ {};
       };
 
       virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->cidr_ == nullptr && this->discoveryTime_ == nullptr && this->ipCountDetail_ == nullptr && this->ipUsage_ == nullptr && this->ipamResourceDiscoveryId_ == nullptr
-        && this->resourceId_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceRegionId_ == nullptr && this->resourceType_ == nullptr && this->sourceCidr_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceRegionId_ == nullptr && this->resourceType_ == nullptr
+        && this->sourceCidr_ == nullptr && this->vpcId_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -188,6 +193,13 @@ namespace Models
       inline IpamDiscoveredResources& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
+      // resourceName Field Functions 
+      bool hasResourceName() const { return this->resourceName_ != nullptr;};
+      void deleteResourceName() { this->resourceName_ = nullptr;};
+      inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+      inline IpamDiscoveredResources& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
+
+
       // resourceOwnerId Field Functions 
       bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
       void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
@@ -224,33 +236,37 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
       // The CIDR block of the resource.
       shared_ptr<string> cidr_ {};
       // The time when the resource was discovered.
       // 
-      // >  If the resource has not been modified since it was created, the discovery time remains unchanged.
+      // > If the resource has not been modified since it was created, the discovery time remains unchanged.
       shared_ptr<string> discoveryTime_ {};
+      // The details of the resource IP address count.
       shared_ptr<IpamDiscoveredResources::IpCountDetail> ipCountDetail_ {};
-      // The IP usage in decimal form.
+      // The IP utilization rate, in decimal format.
       shared_ptr<string> ipUsage_ {};
-      // The ID of resource discovery instance.
+      // The resource discovery instance ID.
       shared_ptr<string> ipamResourceDiscoveryId_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The ID of the Alibaba Cloud account to which the resource belongs.
+      // The resource name.
+      shared_ptr<string> resourceName_ {};
+      // The Alibaba Cloud account ID of the resource ownership.
       shared_ptr<int64_t> resourceOwnerId_ {};
-      // The ID of the region to which the resource belongs.
+      // The region ID of the resource ownership.
       shared_ptr<string> resourceRegionId_ {};
       // The resource type. Valid values:
       // 
-      // *   **VPC**
-      // *   **VSwitch**
+      // - **VPC**: VPC.
+      // 
+      // - **VSwitch**: vSwitch.
       shared_ptr<string> resourceType_ {};
       // The source CIDR block.
       shared_ptr<string> sourceCidr_ {};
-      // The ID of the VPC to which the resource belongs.
+      // The instance ID of the VPC-connected instance to which the resource belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -301,20 +317,19 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries on each page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> count_ {};
-    // The list of resources.
+    // The resources.
     shared_ptr<vector<ListIpamDiscoveredResourceResponseBody::IpamDiscoveredResources>> ipamDiscoveredResources_ {};
-    // The maximum number of entries on each page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, there is no next page.
-    // *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** has a return value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

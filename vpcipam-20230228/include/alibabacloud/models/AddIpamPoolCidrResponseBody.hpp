@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The successfully provisioned CIDR block.
+    // The CIDR block that is successfully provisioned for the IPAM pool.
     shared_ptr<string> cidr_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -256,9 +256,9 @@ namespace Models
     protected:
       // The time when the IPAM was created.
       shared_ptr<string> createTime_ {};
-      // Default resource discovery association ID.
+      // The ID of the default resource discovery association.
       shared_ptr<string> defaultResourceDiscoveryAssociationId_ {};
-      // Default resource discovery instance ID.
+      // The ID of the default resource discovery.
       shared_ptr<string> defaultResourceDiscoveryId_ {};
       // The description of the IPAM.
       shared_ptr<string> ipamDescription_ {};
@@ -268,28 +268,31 @@ namespace Models
       shared_ptr<string> ipamName_ {};
       // The status of the IPAM. Valid values:
       // 
-      // *   **Creating**
-      // *   **Created**
-      // *   **Deleting**
-      // *   **Deleted**
+      // - **Creating**: The IPAM is being created.
+      // 
+      // - **Created**: The IPAM is created.
+      // 
+      // - **Deleting**: The IPAM is being deleted.
+      // 
+      // - **Deleted**: The IPAM is deleted.
       shared_ptr<string> ipamStatus_ {};
-      // The effective regions of the IPAM.
+      // The list of operating regions of the IPAM.
       shared_ptr<vector<string>> operatingRegionList_ {};
-      // The Alibaba Cloud account that owns the IPAM.
+      // The ID of the Alibaba Cloud account to which the IPAM belongs.
       shared_ptr<int64_t> ownerId_ {};
-      // The default private scope created by the system after the IPAM is created.
+      // The ID of the default private scope that is automatically created when you create the IPAM.
       shared_ptr<string> privateDefaultScopeId_ {};
-      // The default public scope created by the system after the IPAM is created.
+      // The ID of the default public scope that is automatically created when you create the IPAM.
       shared_ptr<string> publicDefaultScopeId_ {};
-      // The region ID of the IPAM.
+      // The ID of the region where the IPAM is created.
       shared_ptr<string> regionId_ {};
-      // Number of resource discovery associations.
+      // The number of resource discovery associations.
       shared_ptr<int32_t> resourceDiscoveryAssociationCount_ {};
-      // The resource group ID of the IPAM.
+      // The ID of the resource group to which the IPAM belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The number of IPAM scopes. Value: **2 to 5**.
+      // The number of scopes in the IPAM. Valid values: 2 to **5**.
       shared_ptr<int32_t> scopeCount_ {};
-      // The tag list.
+      // The tags.
       shared_ptr<vector<Ipams::Tags>> tags_ {};
     };
 
@@ -340,20 +343,21 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The number of entries returned on the current page.
     shared_ptr<int64_t> count_ {};
-    // The IPAMs.
+    // A list of IPAM instances.
     shared_ptr<vector<ListIpamsResponseBody::Ipams>> ipams_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries returned per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no next page exists.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

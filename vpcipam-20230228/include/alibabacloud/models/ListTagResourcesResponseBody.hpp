@@ -94,9 +94,11 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The resource type. Valid values:
       // 
-      // *   **IPAM**
-      // *   **IPAMSCOPE**
-      // *   **IPAMPOOL**
+      // - **IPAM**: IPAM
+      // 
+      // - **IPAMSCOPE**: IPAM scope
+      // 
+      // - **IPAMPOOL**: IPAM address pool
       shared_ptr<string> resourceType_ {};
       // The tag key.
       shared_ptr<string> tagKey_ {};
@@ -130,14 +132,15 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token that is used for the next query. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no more results are returned.
+    // 
+    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources to which the tags are added.
+    // The details of the resources and their tags.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 
