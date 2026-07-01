@@ -93,12 +93,12 @@ namespace Models
 
 
       protected:
-        // The mobile phone number.
+        // 查询的手机号码。
         shared_ptr<string> mobile_ {};
-        // Indicates whether the mobile phone number supports card messages. Valid values:
+        // 是否支持卡片短信。取值：
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**：支持。
+        // - **false**：不支持。
         shared_ptr<bool> support_ {};
       };
 
@@ -113,7 +113,7 @@ namespace Models
 
 
     protected:
-      // The list of returned results.
+      // 查询值。
       shared_ptr<vector<Data::QueryResult>> queryResult_ {};
     };
 
@@ -150,19 +150,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // 请求状态码。
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - 返回OK代表请求成功。
+    // - 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
-    // The data returned.
+    // 返回数据。
     shared_ptr<QueryMobilesCardSupportResponseBody::Data> data_ {};
-    // The request ID.
+    // 阿里云为该请求生成的唯一标识符。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // 调用接口是否成功。取值：
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**：调用成功。
+    // 
+    // - **false**：调用失败。
     shared_ptr<bool> success_ {};
   };
 

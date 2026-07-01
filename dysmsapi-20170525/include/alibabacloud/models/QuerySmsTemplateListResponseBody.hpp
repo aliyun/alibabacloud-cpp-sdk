@@ -128,11 +128,11 @@ namespace Models
 
 
       protected:
-        // The time when the message template was rejected. Format: yyyy-MM-dd HH:mm:ss.
+        // The time when the template was rejected. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> rejectDate_ {};
-        // The reason why the message template was rejected.
+        // The reason why the template was rejected.
         shared_ptr<string> rejectInfo_ {};
-        // The remarks about the rejection.
+        // The detailed reason why the template was rejected.
         shared_ptr<string> rejectSubInfo_ {};
       };
 
@@ -219,48 +219,42 @@ namespace Models
 
 
     protected:
-      // The approval status of the message template. Valid values:
+      // The template approval status. Valid values:
       // 
-      // *   **AUDIT_STATE_INIT**: The message template is pending approval.
-      // *   **AUDIT_STATE_PASS**: The message template is approved.
-      // *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
-      // *   **AUDIT_STATE_CANCEL** or **AUDIT_SATE_CANCEL**: The approval is canceled.
+      // - **AUDIT_STATE_INIT**: under review.
+      // - **AUDIT_STATE_PASS**: approved.
+      // - **AUDIT_STATE_NOT_PASS**: rejected. View the rejection reason in the Reason response parameter.
+      // - **AUDIT_SATE_CANCEL**: review canceled.
       shared_ptr<string> auditStatus_ {};
-      // The time when the message template was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the template was created. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> createDate_ {};
       // The ticket ID.
+      // 
+      // Reviewers use this parameter when querying approval information. You must provide this ticket ID when you request expedited approval.
       shared_ptr<string> orderId_ {};
-      // The type of the message template. We recommend that you specify this parameter. Valid values:
+      // The template type (for external use). Valid values:
       // 
-      // *   **0**: verification code
-      // *   **1**: notification message
-      // *   **2**: promotional message
-      // *   **3**: message sent to countries or regions outside the Chinese mainland
-      // *   **7**: digital message
-      // 
-      // > The template type is the same as the value of the TemplateType parameter in the AddSmsTemplate and ModifySmsTemplate operations.
+      // - **0**: verification code message.
+      // - **1**: notification message.
+      // - **2**: promotional message.
+      // - **3**: international or Hong Kong, Macao, and Taiwan message.
       shared_ptr<int32_t> outerTemplateType_ {};
-      // The approval remarks.
-      // 
-      // *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
-      // *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
+      // The approval result.
       shared_ptr<SmsTemplateList::Reason> reason_ {};
+      // The name of the associated signature.
       shared_ptr<string> signatureName_ {};
-      // The code of the message template.
-      // 
-      // You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the template code on the **Templates** tab. You can also call the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation to obtain the template code.
+      // The code of the SMS template.
       shared_ptr<string> templateCode_ {};
-      // The content of the message template.
+      // The template content.
       shared_ptr<string> templateContent_ {};
-      // The name of the message template.
+      // The name of the SMS template.
       shared_ptr<string> templateName_ {};
-      // The type of the message template. Valid values:
+      // The template type. Valid values:
       // 
-      // *   **0**: notification message
-      // *   **1**: promotional message
-      // *   **2**: verification code
-      // *   **6**: message sent to countries or regions outside the Chinese mainland
-      // *   **7**: digital message
+      // - **0**: notification message.
+      // - **1**: promotional message.
+      // - **2**: verification code message.
+      // - **6**: international or Hong Kong, Macao, and Taiwan message.
       shared_ptr<int32_t> templateType_ {};
       shared_ptr<string> trafficDriving_ {};
     };
@@ -322,20 +316,20 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - The value OK indicates that the request was successful.
+    // - For information about other status codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The page number. Default value: **1**.
+    // The current page number. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // The number of templates per page. Valid values: **1 to 50**.
+    // The number of templates displayed per page. Valid values: **1 to 50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request. The unique identifier generated by Alibaba Cloud for the request can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // The queried message templates.
+    // The result list.
     shared_ptr<vector<QuerySmsTemplateListResponseBody::SmsTemplateList>> smsTemplateList_ {};
-    // The total number of templates.
+    // The total number of templates returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

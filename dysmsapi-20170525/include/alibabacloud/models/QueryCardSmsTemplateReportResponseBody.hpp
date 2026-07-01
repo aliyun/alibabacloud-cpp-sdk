@@ -66,7 +66,7 @@ namespace Models
 
 
     protected:
-      // The details of the data returned.
+      // The list of returned data.
       shared_ptr<vector<Darabonba::Json>> model_ {};
     };
 
@@ -103,19 +103,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The request status code.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - The value OK indicates that the request was successful.
+    // 
+    // - For information about other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryCardSmsTemplateReportResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

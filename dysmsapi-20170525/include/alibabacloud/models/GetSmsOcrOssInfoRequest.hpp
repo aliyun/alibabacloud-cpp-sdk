@@ -69,7 +69,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // OCR任务类型
+    // The OCR task type. Valid values:
+    // - ICP_DOMAIN: ICP filing screenshot for domain-type links.
     shared_ptr<string> taskType_ {};
   };
 

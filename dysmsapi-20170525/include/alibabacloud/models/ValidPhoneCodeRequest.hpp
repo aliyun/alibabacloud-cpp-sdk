@@ -75,12 +75,12 @@ namespace Models
 
 
   protected:
-    // 验证码
+    // The verification code.
     // 
     // This parameter is required.
     shared_ptr<string> certifyCode_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // 手机号
+    // The phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNo_ {};

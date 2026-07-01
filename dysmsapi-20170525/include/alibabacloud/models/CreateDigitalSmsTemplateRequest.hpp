@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The file content, converted to a Base64 string. The file must be UTF-8 encoded before the Base64 conversion.
       shared_ptr<string> fileContents_ {};
+      // The file name without the extension.
       shared_ptr<string> fileName_ {};
+      // The file size, in bytes.
       shared_ptr<int32_t> fileSize_ {};
+      // The file suffix. Supported formats are `txt` for text; `gif`, `jpg`, and `png` for images; `mp3` for audio; and `mp4` for video. You can upload only one video file per template.
       shared_ptr<string> fileSuffix_ {};
     };
 
@@ -160,13 +164,20 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The application description. Describe your business use case for the template.
+    // 
     // This parameter is required.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The signature.
     shared_ptr<string> signName_ {};
+    // An array of objects that define the template content.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateDigitalSmsTemplateRequest::TemplateContents>> templateContents_ {};
+    // The template name. The name can contain up to 20 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
   };

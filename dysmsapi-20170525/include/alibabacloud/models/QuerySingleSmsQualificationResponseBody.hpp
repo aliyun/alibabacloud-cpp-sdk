@@ -145,8 +145,9 @@ namespace Models
 
 
       protected:
+        // The file path parameter of the additional materials.
         shared_ptr<string> licensePic_ {};
-        // 文件的完整路径
+        // The full URL of the additional materials file.
         shared_ptr<string> picUrl_ {};
       };
 
@@ -197,9 +198,16 @@ namespace Models
 
 
       protected:
+        // The file path parameter of the business license.
         shared_ptr<string> licensePic_ {};
-        // 文件的完整路径
+        // The full URL of the business license file.
         shared_ptr<string> picUrl_ {};
+        // The type of business license. Valid values:
+        // 
+        // - socialCreditLicense: Unified social credit code certificate.
+        // - businessLicense: Business license.
+        // - signLegalLicense: Legal person certificate of a public institution.
+        // - otherLicense: Other types of license certificates.
         shared_ptr<string> type_ {};
       };
 
@@ -389,52 +397,86 @@ namespace Models
 
 
     protected:
-      // 经办人身份证有效期
+      // The validity period of the administrator\\"s certificate. Format: YYYY-MM-DD~YYYY-MM-DD.
       shared_ptr<string> adminIDCardExpDate_ {};
-      // 经办人身份证国徽面，产品需求，要求身份证可以分正反面上传
+      // The full URL of the photo of the front side of the administrator\\"s certificate (national emblem side of the ID card).
       shared_ptr<string> adminIDCardFrontFace_ {};
-      // 经办人身份证号码
+      // The certificate number of the administrator.
       shared_ptr<string> adminIDCardNo_ {};
-      // 经办人身份证图片地址，正反面合一
+      // The full URL of the photo of the back side of the administrator\\"s certificate (portrait side of the ID card).
       shared_ptr<string> adminIDCardPic_ {};
-      // 管理员身份证类型
+      // The type of the administrator\\"s certificate. Valid values:
+      // 
+      // - identityCard: ID card.
+      // - passport: Passport.
+      // - homeReturnPermit: Home return permit for Hong Kong and Macao residents.
+      // - TaiwanCompatriotPermit: Mainland travel permit for Taiwan residents.
+      // - residencePermit: Residence permit for residents of Hong Kong, Macao, and Taiwan.
+      // - other: Other.
       shared_ptr<string> adminIDCardType_ {};
-      // 经办人姓名
+      // The name of the administrator.
       shared_ptr<string> adminName_ {};
-      // 经办人手机号码
+      // The mobile phone number of the administrator.
       shared_ptr<string> adminPhoneNo_ {};
-      // 证件信息
+      // The business license information of the enterprise.
       shared_ptr<vector<Data::BusinessLicensePics>> businessLicensePics_ {};
-      // 行业类型，在当前模式下是可以用产品线code来区分
+      // The industry type.
       shared_ptr<string> businessType_ {};
-      // 公司名称
+      // The name of the enterprise.
       shared_ptr<string> companyName_ {};
-      // 企业类型, COMPANY:公司，政府或者事业单位:NON_PROFIT_ORGANIZATION
+      // The type of enterprise. Valid values:
+      // 
+      // - COMPANY: Enterprise.
+      // - NON_PROFIT_ORGANIZATION: Government agency or public institution.
       shared_ptr<string> companyType_ {};
+      // The validity period of the business license. Format: YYYY-MM-DD~YYYY-MM-DD.
       shared_ptr<string> effTimeStr_ {};
-      // 法人身份证号码
+      // The certificate number of the legal representative.
       shared_ptr<string> legalPersonIDCardNo_ {};
-      // 法人身份证类型
+      // The type of the legal representative\\"s certificate. Valid values:
+      // 
+      // - identityCard: ID card.
+      // - passport: Passport.
+      // - homeReturnPermit: Home return permit for Hong Kong and Macao residents.
+      // - TaiwanCompatriotPermit: Mainland travel permit for Taiwan residents.
+      // - residencePermit: Residence permit for residents of Hong Kong, Macao, and Taiwan.
+      // - other: Other.
       shared_ptr<string> legalPersonIDCardType_ {};
-      // 法人身份证有效期
+      // The validity period of the legal representative\\"s certificate. Format: YYYY-MM-DD~YYYY-MM-DD.
       shared_ptr<string> legalPersonIdCardEffTime_ {};
-      // 法人姓名
+      // The name of the legal representative.
       shared_ptr<string> legalPersonName_ {};
-      // 社会统一信用代码
+      // The unified social credit code.
       shared_ptr<string> organizationCode_ {};
-      // 更多资料
+      // Additional materials.
       shared_ptr<vector<Data::OtherFiles>> otherFiles_ {};
+      // The qualification ID.
       shared_ptr<int64_t> qualificationGroupId_ {};
-      // 资质名称
+      // The qualification name.
       shared_ptr<string> qualificationName_ {};
-      // 备注
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // 当前审核状态
+      // The review status. Valid values:
+      // 
+      // - INT: Under review.
+      // - FAILED: Review failed.
+      // - PASSED: Review passed.
+      // - NOT_FINISH: Materials to be supplemented.
+      // - CANCELED: Cancelled.
+      // 
+      // > This API does not return review remarks. To query review remarks (`AuditRemark`), use [QuerySmsQualificationRecord](~~QuerySmsQualificationRecord~~).
       shared_ptr<string> state_ {};
-      // 是否自用
+      // The purpose of the qualification application. Valid values:
+      // 
+      // - **true**: For self-use.
+      // - **false**: For other use.
       shared_ptr<bool> useBySelf_ {};
+      // Qualification authorization. Indicates whether to allow this qualification to be shared with other cloud communication products (such as Domestic Voice and Domestic Number Privacy Protection). The qualification can be shared and reused only when you apply for a **self-use qualification** and the qualification information **matches the enterprise information authenticated under the current Alibaba Cloud account**. Other cases are invalid. Valid values:
+      // 
+      // - true: Agree. Your qualification information can be invoked in the "qualification authentication step" of other cloud communication products, eliminating duplicate authentication steps.
+      // - false: Disagree.
       shared_ptr<bool> whetherShare_ {};
-      // 乾坤袋工单ID
+      // The review ticket ID.
       shared_ptr<int64_t> workOrderId_ {};
     };
 
@@ -485,11 +527,23 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This parameter is returned only when the RAM check fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - The value OK indicates that the request was successful.
+    // - For other error codes, see the error code list in this chapter or the product [error code list](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
+    // The details of a single qualification.
     shared_ptr<QuerySingleSmsQualificationResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The ID of this API call request, which is the unique identifier generated by Alibaba Cloud for this request. It can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

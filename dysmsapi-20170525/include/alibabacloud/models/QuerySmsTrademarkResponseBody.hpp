@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // 申请人名称
+      // The applicant name.
       shared_ptr<string> trademarkApplicantName_ {};
-      // 专用权生失效日期
+      // The validity period of the trademark.
       shared_ptr<string> trademarkEffExpDate_ {};
-      // 商标材料id
+      // The trademark ID.
       shared_ptr<int64_t> trademarkId_ {};
-      // 商标名称
+      // The name of the trademark.
       shared_ptr<string> trademarkName_ {};
-      // 商标截图Osskey（给签名传工单用）
+      // The Object Storage Service (OSS) file key for the trademark image.
       shared_ptr<string> trademarkPic_ {};
-      // 商标截图url地址
+      // The URL of the trademark screenshot.
       shared_ptr<string> trademarkPicUrl_ {};
-      // 商标注册号
+      // The trademark registration number.
       shared_ptr<string> trademarkRegistrationNumber_ {};
     };
 
@@ -187,11 +187,25 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
+    // A list of trademark details.
     shared_ptr<vector<QuerySmsTrademarkResponseBody::Data>> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // 
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

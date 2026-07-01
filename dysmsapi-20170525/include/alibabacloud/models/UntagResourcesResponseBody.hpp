@@ -57,15 +57,16 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The request status code. Valid values:
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - OK: The request was successful.
+    // - For other error codes, see [Error code list](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // The execution result of deleting the tag. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: success.
+    // 
+    // - **false**: failure.
     shared_ptr<string> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

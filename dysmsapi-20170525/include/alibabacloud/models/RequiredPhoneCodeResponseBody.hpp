@@ -84,11 +84,24 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - OK indicates that the request was successful.
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
+    // This field is not returned and can be ignored.
     shared_ptr<string> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation call is successful. Valid values:
+    // 
+    // - **true**: The call is successful.
+    // 
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

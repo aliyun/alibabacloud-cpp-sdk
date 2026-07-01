@@ -128,26 +128,29 @@ namespace Models
 
 
     protected:
-      // The time when the short URL was created.
+      // The creation date and time of the short link.
       shared_ptr<string> createDate_ {};
-      // The time when the short URL expires.
+      // The expiration date and time of the short link.
       shared_ptr<string> expireDate_ {};
-      // The PV.
+      // The page view (PV) count for the short link.
       shared_ptr<string> pageViewCount_ {};
-      // The short URL.
+      // The generated short link.
       shared_ptr<string> shortUrl_ {};
-      // The service name of the short URL.
+      // The name of the service that generated the short link.
       shared_ptr<string> shortUrlName_ {};
-      // The status of the short URL. Valid values:
+      // The short link status. Valid values:
       // 
-      // *   **expired**
-      // *   **effective**
-      // *   **audit**
-      // *   **reject**
+      // - **expired**: The short link has expired.
+      // 
+      // - **effective**: The short link is active.
+      // 
+      // - **audit**: The short link is under review.
+      // 
+      // - **reject**: The short link was rejected.
       shared_ptr<string> shortUrlStatus_ {};
-      // The source address.
+      // The source URL.
       shared_ptr<string> sourceUrl_ {};
-      // The UV.
+      // The unique visitor (UV) count for the short link.
       shared_ptr<string> uniqueVisitorCount_ {};
     };
 
@@ -184,14 +187,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The request status code.
     // 
-    // *   If OK is returned, the request is successful.
-    // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - A successful request returns `OK`.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The details of the short URL.
+    // The details of the short link.
     shared_ptr<QueryShortUrlResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -86,11 +86,47 @@ namespace Models
 
 
   protected:
+    // Details of the access denial. This parameter is returned only if Resource Access Management (RAM) authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request. A value of `OK` indicates that the request was successful. Other values indicate error codes.
     shared_ptr<string> code_ {};
+    // - `gmtModified`: The time when the signature was last modified.
+    // 
+    // - `creator`: The ID of the user who created the signature.
+    // 
+    // - `signName`: The name of the digital SMS signature.
+    // 
+    // - `qualificationId`: The ID of the qualification. You can create qualifications in the console or by calling an API operation.
+    // 
+    // - `signIndustry`: The industry type. Valid values: `0` (General) and `1` (E-commerce).
+    // 
+    // - `signVersion`: The version of the signature. This value is updated for each new version. The current version is 1.
+    // 
+    // - `telecomRegisterStatus`: The filing status with China Telecom. Valid values: `0` (Filing Failed), `3` (Filing Successful), `-1` (Filing in Progress), and `-2` (Not Filed).
+    // 
+    // - `signCode`: The code of the digital SMS signature.
+    // 
+    // - `gmtCreate`: The time when the signature was created.
+    // 
+    // - `signId`: The ID of the signature. This is a unique identifier.
+    // 
+    // - `mobileRegisterStatus`: The filing status with China Mobile.
+    // 
+    // - `SignSource`: The source of the signature. Valid values:
+    // 
+    // - `mobileAvailableStatus`: The availability status with China Mobile. Valid values: `0` (Unavailable) and `1` (Available). We recommend that you select an available signature when you create a template or send a digital SMS message.
+    // 
+    // - `unicomRegisterStatus`: The filing status with China Unicom. Valid values: `0` (Filing Failed), `3` (Filing Successful), `-1` (Filing in Progress), and `-2` (Not Filed).
+    // 
+    // - `unicomAvailableStatus`: The availability status with China Unicom. Valid values: `0` (Unavailable) and `1` (Available). We recommend that you select an available signature when you create a template or send a digital SMS message.
+    // 
+    // - `telecomAvailableStatus`: The availability status with China Telecom. Valid values: `0` (Unavailable) and `1` (Available). We recommend that you select an available signature when you create a template or send a digital SMS message.
     Darabonba::Json data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

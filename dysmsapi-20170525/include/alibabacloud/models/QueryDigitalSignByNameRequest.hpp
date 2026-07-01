@@ -69,6 +69,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name of the digital SMS signature. The signature must belong to your Alibaba Cloud account.
     shared_ptr<string> signName_ {};
   };
 

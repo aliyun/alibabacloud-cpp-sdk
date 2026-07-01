@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // app-icp备案实体id列表
+    // A list of icp record entity IDs.
     // 
     // This parameter is required.
     shared_ptr<string> appIcpRecordIdListShrink_ {};

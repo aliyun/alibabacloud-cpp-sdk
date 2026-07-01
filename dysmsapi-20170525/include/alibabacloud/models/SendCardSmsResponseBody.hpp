@@ -109,23 +109,21 @@ namespace Models
 
 
     protected:
-      // The ID of the card message.
+      // 卡片短信发送ID。
       shared_ptr<string> bizCardId_ {};
-      // The ID of the digital message.
+      // 数字短信发送ID。
       shared_ptr<string> bizDigitalId_ {};
-      // The ID of the text message.
+      // 文本短信发送ID。
       shared_ptr<string> bizSmsId_ {};
-      // The review status of the card message template.
-      // 
-      // *   **0**: pending approval
-      // *   **1**: approved
-      // *   **2**: rejected
-      // 
-      // > Unapproved card messages are rolled back.
+      // 卡片短信模板审核状态。取值：
+      // - **0**：审核中。
+      // - **1**：审核通过。
+      // - **2**：审核不通过。
+      // >  审核不通过的短信可通过**FallbackType**字段设置回落流程。
       shared_ptr<int32_t> cardTmpState_ {};
-      // The mobile phone number from which the card message is sent.
+      // 接收卡片短信的手机号。
       shared_ptr<string> mediaMobiles_ {};
-      // The mobile phone number whose card message is rolled back.
+      // 回落的手机号。
       shared_ptr<string> notMediaMobiles_ {};
     };
 
@@ -162,19 +160,19 @@ namespace Models
 
 
   protected:
-    // The response code.
-    // 
-    // *   If OK is returned, the request is successful.
-    // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // 请求状态码。
+    // * 返回OK代表请求成功。
+    // * 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
-    // The data returned.
+    // 返回数据。
     shared_ptr<SendCardSmsResponseBody::Data> data_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // 调用接口是否成功。取值：
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**：调用成功。
+    // 
+    // - **false**：调用失败。
     shared_ptr<bool> success_ {};
   };
 

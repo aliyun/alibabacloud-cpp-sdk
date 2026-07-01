@@ -76,9 +76,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The current page number. Default value: **1**.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of templates per page. Valid values: **1 to 50**.
+    // The number of templates displayed per page. Valid values: **1 to 50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

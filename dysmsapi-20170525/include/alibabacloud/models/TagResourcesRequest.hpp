@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The array of tag keys. Valid values of N: 1 to 20.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The array of tag values. Valid values of N: 1 to 20.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -153,21 +153,21 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the cloud service. Set the value to **dysms**.
+    // The product name. Default value: **dysms**.
     shared_ptr<string> prodCode_ {};
-    // The region ID. Set the value to **cn-hangzhou**.
+    // The region ID. Default value: **cn-hangzhou**. For more region IDs, see [Endpoints](https://help.aliyun.com/document_detail/419270.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The code of the message template.
+    // The SMS template codes. The number of codes cannot exceed 20.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **TEMPLATE**.
+    // The resource type. Default value: **TEMPLATE**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag.
+    // The tags. You can add up to 20 tags at a time.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

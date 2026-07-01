@@ -109,23 +109,21 @@ namespace Models
 
 
     protected:
-      // The ID of the card message.
+      // The ID of the card SMS sending task.
       shared_ptr<string> bizCardId_ {};
-      // The ID of the digital message.
+      // The ID of the digital SMS sending task.
       shared_ptr<string> bizDigitalId_ {};
-      // The ID of the text message.
+      // The ID of the text SMS sending task.
       shared_ptr<string> bizSmsId_ {};
-      // The review status of the card message template.
-      // 
-      // *   **0**: pending approval
-      // *   **1**: approved
-      // *   **2**: rejected
-      // 
-      // > Unapproved card messages are rolled back.
+      // The review status of the card SMS template. Valid values:
+      // - **0**: Under review.
+      // - **1**: Approved.
+      // - **2**: Rejected.
+      // > For SMS messages that are rejected, you can configure the fallback process by using the **FallbackType** parameter.
       shared_ptr<int32_t> cardTmpState_ {};
-      // The mobile phone number from which the card message is sent.
+      // The mobile phone numbers that receive the card SMS messages.
       shared_ptr<string> mediaMobiles_ {};
-      // The mobile phone number whose card message is rolled back.
+      // The fallback phone numbers.
       shared_ptr<string> notMediaMobiles_ {};
     };
 
@@ -162,19 +160,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
-    // 
-    // *   The value OK indicates that the request was successful.
-    // *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+    // The request status code.
+    // * If **OK** is returned, the request is successful.
+    // * For information about other error codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<SendBatchCardSmsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the call is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The call is successful.
+    // 
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

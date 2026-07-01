@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery receipt. You can use one of the following methods to query the delivery status of a message based on the ID.
+    // The delivery receipt ID.
     // 
-    // *   Call the [QuerySendDetails](https://help.aliyun.com/document_detail/102352.html) operation.
-    // *   Log on to the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview). In the left-side navigation pane, choose **Analytics** > **Delivery Report**.
+    // - You can use this ID to query the delivery status by calling the [QuerySendDetails](https://help.aliyun.com/document_detail/102352.html) operation.
+    // 
+    // - Log on to the [Short Message Service console](https://dysms.console.aliyun.com/dysms.htm#/overview) and go to **Statistics** > **Delivery Logs** to view delivery details.
     shared_ptr<string> bizId_ {};
-    // The response code.
+    // The request status code.
     // 
-    // *   If OK is returned, the request is successful.
-    // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - A value of `OK` indicates a successful request.
+    // 
+    // - For a list of other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The returned message.
+    // The description of the request status.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

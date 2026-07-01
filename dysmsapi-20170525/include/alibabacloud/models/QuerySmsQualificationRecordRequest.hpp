@@ -130,22 +130,33 @@ namespace Models
 
 
   protected:
-    // 公司名
+    // The company name.
     shared_ptr<string> companyName_ {};
-    // 法人姓名
+    // The name of the legal representative.
     shared_ptr<string> legalPersonName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page. Valid values: **1 to 50**.
     shared_ptr<int64_t> pageSize_ {};
-    // 资质组名称
+    // The qualification name.
     shared_ptr<string> qualificationGroupName_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 审核状态。INT:审核中FAILED:审核失败,PASSED:审核通过,NOT_FINISH:资料待补充,CANCELED:已撤回
+    // The review status. Valid values:
+    // 
+    // - INIT: Under review.
+    // - NOT_PASS: Review rejected. 
+    // - PASS: Review approved.
+    // - NOT_FINISH: Additional information required.
+    // - CANCEL: Withdrawn.
     shared_ptr<string> state_ {};
-    // 是否自用
+    // The purpose of the qualification application. Valid values:
+    // 
+    // - **true**: For self-use.
+    // - **false**: For use by others.
     shared_ptr<bool> useBySelf_ {};
-    // 工单ID
+    // The review ticket ID.
     shared_ptr<int64_t> workOrderId_ {};
   };
 

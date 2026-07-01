@@ -82,13 +82,13 @@ namespace Models
 
 
     protected:
-      // The time when the short URL expires.
+      // The expiration time of the short URL.
       // 
-      // > The value of **ExpireDate** is on the hour.
+      // > The value of **ExpireDate** is always on the hour.
       shared_ptr<string> expireDate_ {};
-      // The short URL.
+      // The generated short URL.
       shared_ptr<string> shortUrl_ {};
-      // The source URL.
+      // The source URL that was shortened.
       shared_ptr<string> sourceUrl_ {};
     };
 
@@ -125,14 +125,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code of the request.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - A value of `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error Code List](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
     // The details of the short URL.
     shared_ptr<AddShortUrlResponseBody::Data> data_ {};
-    // The returned message.
+    // The message that describes the status.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

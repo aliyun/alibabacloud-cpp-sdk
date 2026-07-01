@@ -176,25 +176,34 @@ namespace Models
 
 
       protected:
-        // 审核备注
+        // 审核备注。
         shared_ptr<string> auditRemark_ {};
-        // 审核时间
+        // 审核时间。
         shared_ptr<string> auditTime_ {};
-        // 公司名称或实人认证姓名
+        // 企业名称。
         shared_ptr<string> companyName_ {};
-        // 创建时间
+        // 资质创建时间。
         shared_ptr<string> createDate_ {};
-        // 资质组ID
+        // 资质ID。
         shared_ptr<int64_t> groupId_ {};
-        // 法人名称
+        // 法人姓名。
         shared_ptr<string> legalPersonName_ {};
-        // 资质组名称
+        // 资质名称。
         shared_ptr<string> qualificationGroupName_ {};
-        // 审核状态名
+        // 审核状态。取值：
+        // 
+        // - INIT：审核中。
+        // - NOT_PASS：审核不通过。 
+        // - PASS：审核通过。
+        // - NOT_FINISH：资料待补充。
+        // - CANCEL：已撤回。
         shared_ptr<string> stateName_ {};
-        // 是否自用
+        // 资质申请用途，取值：
+        // 
+        // - **true**：自用。
+        // - **false**：他用。
         shared_ptr<string> useBySelf_ {};
-        // 工单ID
+        // 审核工单ID。
         shared_ptr<int64_t> workOrderId_ {};
       };
 
@@ -231,9 +240,13 @@ namespace Models
 
 
     protected:
+      // 满足过滤条件的数据列表。
       shared_ptr<vector<Data::List>> list_ {};
+      // 当前页码。
       shared_ptr<int64_t> pageNo_ {};
+      // 每页数据条数。
       shared_ptr<int64_t> pageSize_ {};
+      // 总条数。
       shared_ptr<int64_t> total_ {};
     };
 
@@ -284,11 +297,23 @@ namespace Models
 
 
   protected:
+    // 访问被拒绝详细信息。
     shared_ptr<string> accessDeniedDetail_ {};
+    // 请求状态码。
+    // 
+    // * 返回OK代表请求成功。
+    // * 其他错误码，请参见本章节的错误码列表或产品[API错误码](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
+    // 资质审核列表
     shared_ptr<QuerySmsQualificationRecordResponseBody::Data> data_ {};
+    // 状态码的描述。
     shared_ptr<string> message_ {};
+    // 请求ID。
     shared_ptr<string> requestId_ {};
+    // 调用接口是否成功。取值：
+    // 
+    // - **true**：调用成功。
+    // - **false**：调用失败。
     shared_ptr<bool> success_ {};
   };
 

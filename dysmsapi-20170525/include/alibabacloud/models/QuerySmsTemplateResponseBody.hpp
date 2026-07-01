@@ -121,41 +121,49 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the request.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - OK indicates that the request was successful.
+    // 
+    // - For a list of other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The time when the message template was created.
+    // The time when the template was created.
     shared_ptr<string> createDate_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // The approval remarks.
+    // The review notes for the template.
     // 
-    // *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
-    // *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
+    // - If the review status is **Approved** or **Reviewing**, the message "No review remarks" is returned.
+    // 
+    // - If the review status is **Rejected**, the reason for the rejection is returned.
     shared_ptr<string> reason_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The code of the message template.
+    // The template code.
     shared_ptr<string> templateCode_ {};
-    // The content of the message template.
+    // The template content.
     shared_ptr<string> templateContent_ {};
-    // The name of the message template.
+    // The template name.
     shared_ptr<string> templateName_ {};
-    // The approval status of the message template. Valid values:
+    // The review status of the template. Valid values:
     // 
-    // *   **0**: The message template is pending approval.
-    // *   **1**: The message template is approved.
-    // *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
-    // *   **10**: The approval is canceled.
+    // - **0**: Reviewing.
+    // 
+    // - **1**: Approved.
+    // 
+    // - **2**: Rejected. The reason for the rejection is returned in the response. For more information, see [Suggestions for handling a failed review](https://help.aliyun.com/document_detail/65990.html). You can then call the [ModifySmsTemplate](https://help.aliyun.com/document_detail/419287.html) API or modify the template on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+    // 
+    // - **10**: Canceled.
     shared_ptr<int32_t> templateStatus_ {};
-    // The type of the message. Valid values:
+    // The message type. Valid values:
     // 
-    // *   **0**: verification code
-    // *   **1**: notification message
-    // *   **2**: promotional message
-    // *   **3**: message sent to countries or regions outside the Chinese mainland
+    // - **0**: Verification code.
+    // 
+    // - **1**: Message notification.
+    // 
+    // - **2**: Promotional message.
+    // 
+    // - **3**: International message.
     shared_ptr<int32_t> templateType_ {};
   };
 

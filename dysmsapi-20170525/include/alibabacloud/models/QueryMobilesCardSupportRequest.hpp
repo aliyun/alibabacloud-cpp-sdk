@@ -60,14 +60,17 @@ namespace Models
 
 
   protected:
+    // The encryption method for the phone number. Valid values:
+    // - SHA1: SHA1 encryption.
+    // - NORMAL: no encryption. The phone number is transmitted in plaintext.
     shared_ptr<string> encryptType_ {};
-    // The list of mobile phone numbers.
+    // The list of phone numbers.
     // 
     // This parameter is required.
     shared_ptr<vector<Darabonba::Json>> mobiles_ {};
-    // The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+    // The code of the card SMS template. To view the code, log on to the console and choose **Domestic Messages** > [Template Management](https://dysms.console.aliyun.com/domestic/text/template).
     // 
-    // > Make sure that the message template has been approved.
+    // >The template must be added and approved.
     // 
     // This parameter is required.
     shared_ptr<string> templateCode_ {};

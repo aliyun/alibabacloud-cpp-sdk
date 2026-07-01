@@ -126,11 +126,11 @@ namespace Models
 
 
       protected:
-        // The time when the signature was rejected. Format: yyyy-MM-dd HH:mm:ss.
+        // The time when the signature was rejected. The format is yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> rejectDate_ {};
-        // The reason why the signature was rejected.
+        // The reason for the rejection.
         shared_ptr<string> rejectInfo_ {};
-        // The remarks about the rejection.
+        // The remarks for the rejection.
         shared_ptr<string> rejectSubInfo_ {};
       };
 
@@ -210,32 +210,45 @@ namespace Models
 
 
     protected:
+      // The APP-ICP filing entity ID.
       shared_ptr<int64_t> appIcpRecordId_ {};
-      // The approval status of the signature. Valid values:
+      // The audit status of the signature. Valid values:
       // 
-      // *   **AUDIT_STATE_INIT**: The signature is pending approval.
-      // *   **AUDIT_STATE_PASS**: The signature is approved.
-      // *   **AUDIT_STATE_NOT_PASS**: The signature is rejected. You can view the reason in the Reason response parameter.
-      // *   **AUDIT_STATE_CANCEL**: The approval is canceled.
+      // - **AUDIT_STATE_INIT**: under review.
+      // 
+      // - **AUDIT_STATE_PASS**: approved.
+      // 
+      // - **AUDIT_STATE_NOT_PASS**: rejected. You can view the rejection reason in the Reason response parameter.
+      // 
+      // - **AUDIT_STATE_CANCEL**: review canceled.
       shared_ptr<string> auditStatus_ {};
+      // The ID of the letter of authorization.
       shared_ptr<int64_t> authorizationLetterId_ {};
-      // The type of the signature scenario. The return value ends with "type". Valid values:
+      // The scenario type of the signature. Valid values:
       // 
-      // *   Verification code type
-      // *   General-purpose type
+      // - Verification code.
+      // 
+      // - General-purpose.
       shared_ptr<string> businessType_ {};
-      // The time when the signature was created. Format: yyyy-MM-dd HH:mm:ss.
+      // The time when the SMS signature was created. The format is yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> createDate_ {};
-      // The ticket ID.
-      shared_ptr<string> orderId_ {};
-      // The approval remarks.
+      // The order ID.
       // 
-      // *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
-      // *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the signature is rejected is returned.
+      // This parameter is used by auditors when querying the audit. You must provide this order ID if you need to expedite the audit.
+      shared_ptr<string> orderId_ {};
+      // The audit remarks.
+      // 
+      // - If the audit status is **approved** or **under review**, the Reason parameter is displayed as "No audit remarks".
+      // 
+      // - If the audit status is **rejected**, the Reason parameter displays the specific reason for the rejection.
       shared_ptr<SmsSignList::Reason> reason_ {};
-      // The name of the signature.
+      // The signature name.
       shared_ptr<string> signName_ {};
+      // The trademark entity ID.
       shared_ptr<int64_t> trademarkId_ {};
+      // The audit status of the letter of authorization. Valid values:
+      // - true: approved.
+      // - false: not approved (includes all statuses other than approved).
       shared_ptr<bool> authorizationLetterAuditPass_ {};
     };
 
@@ -294,20 +307,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The HTTP status code. Valid values:
+    //  
+    // - OK: The request was successful.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // The number of signatures per page. Valid values: **1 to 50**.
+    // The number of signatures to return on each page. Default value: **10**. Valid values: **1 to 50**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried message signatures.
+    // The list of returned results.
     shared_ptr<vector<QuerySmsSignListResponseBody::SmsSignList>> smsSignList_ {};
     // The total number of signatures.
     shared_ptr<int64_t> totalCount_ {};

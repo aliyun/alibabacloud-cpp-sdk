@@ -17,7 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppIcpLicenseNumber, appIcpLicenseNumber_);
       DARABONBA_PTR_TO_JSON(AppIcpRecordPic, appIcpRecordPic_);
       DARABONBA_PTR_TO_JSON(AppPrincipalUnitName, appPrincipalUnitName_);
+      DARABONBA_PTR_TO_JSON(AppRuntimePic, appRuntimePic_);
       DARABONBA_PTR_TO_JSON(AppServiceName, appServiceName_);
+      DARABONBA_PTR_TO_JSON(AppStoreDownloadPic, appStoreDownloadPic_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -28,7 +30,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppIcpLicenseNumber, appIcpLicenseNumber_);
       DARABONBA_PTR_FROM_JSON(AppIcpRecordPic, appIcpRecordPic_);
       DARABONBA_PTR_FROM_JSON(AppPrincipalUnitName, appPrincipalUnitName_);
+      DARABONBA_PTR_FROM_JSON(AppRuntimePic, appRuntimePic_);
       DARABONBA_PTR_FROM_JSON(AppServiceName, appServiceName_);
+      DARABONBA_PTR_FROM_JSON(AppStoreDownloadPic, appStoreDownloadPic_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -46,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appApprovalDate_ == nullptr
-        && this->appIcpLicenseNumber_ == nullptr && this->appIcpRecordPic_ == nullptr && this->appPrincipalUnitName_ == nullptr && this->appServiceName_ == nullptr && this->domain_ == nullptr
-        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->appIcpLicenseNumber_ == nullptr && this->appIcpRecordPic_ == nullptr && this->appPrincipalUnitName_ == nullptr && this->appRuntimePic_ == nullptr && this->appServiceName_ == nullptr
+        && this->appStoreDownloadPic_ == nullptr && this->domain_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // appApprovalDate Field Functions 
     bool hasAppApprovalDate() const { return this->appApprovalDate_ != nullptr;};
     void deleteAppApprovalDate() { this->appApprovalDate_ = nullptr;};
@@ -76,11 +80,25 @@ namespace Models
     inline CreateSmsAppIcpRecordRequest& setAppPrincipalUnitName(string appPrincipalUnitName) { DARABONBA_PTR_SET_VALUE(appPrincipalUnitName_, appPrincipalUnitName) };
 
 
+    // appRuntimePic Field Functions 
+    bool hasAppRuntimePic() const { return this->appRuntimePic_ != nullptr;};
+    void deleteAppRuntimePic() { this->appRuntimePic_ = nullptr;};
+    inline string getAppRuntimePic() const { DARABONBA_PTR_GET_DEFAULT(appRuntimePic_, "") };
+    inline CreateSmsAppIcpRecordRequest& setAppRuntimePic(string appRuntimePic) { DARABONBA_PTR_SET_VALUE(appRuntimePic_, appRuntimePic) };
+
+
     // appServiceName Field Functions 
     bool hasAppServiceName() const { return this->appServiceName_ != nullptr;};
     void deleteAppServiceName() { this->appServiceName_ = nullptr;};
     inline string getAppServiceName() const { DARABONBA_PTR_GET_DEFAULT(appServiceName_, "") };
     inline CreateSmsAppIcpRecordRequest& setAppServiceName(string appServiceName) { DARABONBA_PTR_SET_VALUE(appServiceName_, appServiceName) };
+
+
+    // appStoreDownloadPic Field Functions 
+    bool hasAppStoreDownloadPic() const { return this->appStoreDownloadPic_ != nullptr;};
+    void deleteAppStoreDownloadPic() { this->appStoreDownloadPic_ = nullptr;};
+    inline string getAppStoreDownloadPic() const { DARABONBA_PTR_GET_DEFAULT(appStoreDownloadPic_, "") };
+    inline CreateSmsAppIcpRecordRequest& setAppStoreDownloadPic(string appStoreDownloadPic) { DARABONBA_PTR_SET_VALUE(appStoreDownloadPic_, appStoreDownloadPic) };
 
 
     // domain Field Functions 
@@ -112,27 +130,53 @@ namespace Models
 
 
   protected:
-    // 审核通过日期，示例2025-09-01
+    // The ICP filing approval date.
     // 
     // This parameter is required.
     shared_ptr<string> appApprovalDate_ {};
-    // ICP备案/许可证号
+    // The ICP record/license number. The number must not exceed 15 characters.
     // 
     // This parameter is required.
     shared_ptr<string> appIcpLicenseNumber_ {};
-    // app-icp备案详情截图osskey
+    // The fileKey for the screenshot of your app\\"s ICP filing details.
+    // 
+    // 1. To look up your ICP filing, go to the [MIIT service platform](https://beian.miit.gov.cn/#/Integrated/recordQuery), search for your filing, and open its details page.
+    // 
+    // 2. The ICP filing screenshot must be uploaded to OSS and meet the following requirements:
+    // 
+    // - The filename cannot contain Chinese characters or special characters.
+    // 
+    // - The file must be an image in `jpg`, `png`, `gif`, or `jpeg` format. The file size cannot exceed 5 MB.
+    // 
+    // - The screenshot must show the full URL.
+    // 
+    // - For **Record Type**, select "APP".
+    // 
+    // - The **principal unit name** must be identical to the company or institution name on the qualification documents associated with the signature.
+    // 
+    // - The screenshot must clearly show the complete ICP record/license number.
+    // 
+    // - The **service name** must be identical to the **signature name**.
+    // 
+    // 3. To obtain the fileKey, see [Upload files through OSS](https://help.aliyun.com/document_detail/2833114.html).
     // 
     // This parameter is required.
     shared_ptr<string> appIcpRecordPic_ {};
-    // 主办单位名称
+    // The principal unit name from your ICP filing. The name must not exceed 50 characters.
     // 
     // This parameter is required.
     shared_ptr<string> appPrincipalUnitName_ {};
-    // app服务名称
+    // APP实际运行截图osskey
+    shared_ptr<string> appRuntimePic_ {};
+    // The service name from your ICP filing. The name must not exceed 15 characters.
     // 
     // This parameter is required.
     shared_ptr<string> appServiceName_ {};
-    // APP应用商店链接
+    // APP应用商店下载截图osskey
+    shared_ptr<string> appStoreDownloadPic_ {};
+    // The app store link.
+    // 
+    // > - The link must start with `http://` or `https://`.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};

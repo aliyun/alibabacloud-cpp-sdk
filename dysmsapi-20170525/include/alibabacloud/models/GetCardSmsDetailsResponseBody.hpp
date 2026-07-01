@@ -183,27 +183,36 @@ namespace Models
 
 
       protected:
-        // Error code for sending
+        // The sending error code.
         shared_ptr<string> errCode_ {};
-        // Customer-transmitted outId
+        // The outId passed by the customer.
         shared_ptr<string> outId_ {};
-        // Phone number that received the SMS
+        // The phone number that received the SMS.
         shared_ptr<string> phoneNumber_ {};
-        // Receive date
+        // The receive time.
         shared_ptr<string> receiveDate_ {};
-        // Receive SMS type
+        // The SMS receive type.
         shared_ptr<string> receiveType_ {};
-        // Render date
+        // The render time.
         shared_ptr<string> renderDate_ {};
-        // Render status. 0: Not rendered; 1: Rendered successfully; 3: Not rendered
+        // The parsing status. Valid values:
+        // 
+        // - 0: not parsed.
+        // - 1: parsed successfully.
+        // - 3: not parsed.
         shared_ptr<int64_t> renderStatus_ {};
-        // Time when the SMS was sent
+        // The SMS sending time.
         shared_ptr<string> sendDate_ {};
-        // Sending status. 1: Sending; 2: Send failed; 3: Sent successfully; 4: Addressing failed
+        // The sending status. Valid values:
+        // 
+        // - 1: sending.
+        // - 2: sending failed.
+        // - 3: sending succeeded.
+        // - 4: addressing failed.
         shared_ptr<int64_t> sendStatus_ {};
-        // SMS content. Only applicable for text messages.
+        // The SMS content. Only text SMS has a value.
         shared_ptr<string> smsContent_ {};
-        // Template code
+        // The template code.
         shared_ptr<string> templateCode_ {};
       };
 
@@ -240,13 +249,13 @@ namespace Models
 
 
     protected:
-      // Current page number
+      // The page number.
       shared_ptr<int64_t> currentPage_ {};
-      // Page size
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // List of card SMS sending records
+      // The list of card SMS sending records.
       shared_ptr<vector<CardSendDetailDTO::Records>> records_ {};
-      // Total count
+      // The total count.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -290,18 +299,21 @@ namespace Models
 
 
   protected:
-    // Access denied detail; this field is returned only if the RAM check fails.
+    // The access denied details. This parameter is returned only when the RAM check fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Card SMS sending result
+    // The card SMS sending result.
     shared_ptr<GetCardSmsDetailsResponseBody::CardSendDetailDTO> cardSendDetailDTO_ {};
-    // Request status code.
-    // * OK indicates a successful request.
-    // * For other error codes, see [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
+    // The request status code.
+    // * OK indicates that the request was successful.
+    // * For other error codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // Description of the status code.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // Indicates whether the API call was successful. Values:
-    // - **true** - **false**
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

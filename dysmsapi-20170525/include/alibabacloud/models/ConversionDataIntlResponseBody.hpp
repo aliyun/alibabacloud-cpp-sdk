@@ -57,11 +57,15 @@ namespace Models
 
 
   protected:
-    // The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
+    // 状态码。取值：
+    // 
+    // - OK：代表请求成功。
+    // 
+    // - 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
-    // The returned message.
+    // 状态码的描述。
     shared_ptr<string> message_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
   };
 

@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+    // The end time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+    // The start time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startDate_ {};
-    // The array of message templates.
+    // The card SMS object.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> templateCodes_ {};

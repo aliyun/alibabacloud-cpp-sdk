@@ -78,7 +78,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of signatures per page. Valid values: **1 to 50**.
+    // The number of signatures to return on each page. Default value: **10**. Valid values: **1 to 50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

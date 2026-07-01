@@ -97,9 +97,13 @@ namespace Models
 
 
     protected:
+      // This field is not used. You can ignore it.
       Darabonba::Json data_ {};
+      // The status code of the request.
       shared_ptr<string> errCode_ {};
+      // The description of the status code.
       shared_ptr<string> errMessage_ {};
+      // Indicates whether the call was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -150,11 +154,25 @@ namespace Models
 
 
   protected:
+    // Details of the access denial. This field is returned only if RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - A value of `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see the error code list in this topic or the [API Error Codes](https://help.aliyun.com/document_detail/101346.html) topic.
     shared_ptr<string> code_ {};
+    // The returned data structure.
     shared_ptr<ChangeSignatureQualificationResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID. Alibaba Cloud generates this unique identifier to help you troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

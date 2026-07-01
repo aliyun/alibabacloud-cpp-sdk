@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The HTTP status code.
     // 
-    // *   If OK is returned, the request is successful.
-    // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // * The value OK indicates that the request was successful.
+    // * For information about other return values, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The signature.
+    // The name of the deleted signature.
     shared_ptr<string> signName_ {};
   };
 

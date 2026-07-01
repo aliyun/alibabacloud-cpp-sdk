@@ -100,21 +100,20 @@ namespace Models
 
 
     protected:
-      // The mobile phone numbers that support card messages.
+      // 支持卡片短信的手机号码。
       shared_ptr<string> cardPhoneNumbers_ {};
-      // The signatures must correspond to the mobile numbers and short URLs in sequence.
+      // 用于申请卡片短信短链的短信签名，在发送时签名、接收号码、卡片短信短链要一一对应。
       shared_ptr<string> cardSignNames_ {};
-      // The short URLs.
+      // 卡片短信短链。
       shared_ptr<string> cardSmsLinks_ {};
-      // The review status of the card message template.
+      // 卡片短信模板审核状态。取值：
+      // - **0**：审核中。
+      // - **1**：审核通过。
+      // - **2**：审核不通过。
       // 
-      // *   **0**: pending approval
-      // *   **1**: approved
-      // *   **2**: rejected
-      // 
-      // > Unapproved card messages are rolled back.
+      // > 未审核通过的短信走回落流程。
       shared_ptr<int32_t> cardTmpState_ {};
-      // The mobile phone numbers that do not support card messages.
+      // 不支持卡片短信的手机号。
       shared_ptr<string> notMediaMobiles_ {};
     };
 
@@ -151,19 +150,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
-    // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // 请求状态码。取值：
+    // - OK：代表请求成功。
+    // - 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
-    // The data returned.
+    // 返回数据。
     shared_ptr<GetCardSmsLinkResponseBody::Data> data_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // 接口调用是否成功。取值：
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**：调用成功。
+    // - **false**：调用失败。
     shared_ptr<bool> success_ {};
   };
 

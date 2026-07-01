@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The download URL of the resource.
+      // 资源下载地址。
       shared_ptr<string> resUrlDownload_ {};
-      // The resource ID.
+      // 资源ID。
       shared_ptr<int64_t> resourceId_ {};
     };
 
@@ -112,19 +112,20 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // 请求状态码。
     // 
-    // *   If OK is returned, the request is successful.
-    // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - 返回OK代表请求成功。
+    // - 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
-    // The data returned.
+    // 返回数据。
     shared_ptr<GetMediaResourceIdResponseBody::Data> data_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // 调用接口是否成功。取值：
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**：调用成功。
+    // 
+    // - **false**：调用失败。
     shared_ptr<bool> success_ {};
   };
 

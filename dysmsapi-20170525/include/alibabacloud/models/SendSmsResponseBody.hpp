@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery receipt.
+    // The delivery receipt ID.
     // 
-    // You can call the [QuerySendDetails](~~QuerySendDetails~~) operation to query the delivery status based on the receipt ID.
+    // Use this ID to query the delivery status by calling the [QuerySendDetails](~~QuerySendDetails~~) API.
     shared_ptr<string> bizId_ {};
-    // The HTTP status code.
+    // The request status code.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - A value of `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The Request ID.
     shared_ptr<string> requestId_ {};
   };
 

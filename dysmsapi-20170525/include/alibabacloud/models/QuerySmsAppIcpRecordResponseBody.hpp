@@ -49,7 +49,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AppIcpRecordPic, appIcpRecordPic_);
         DARABONBA_PTR_TO_JSON(AppIcpRecordPicUrl, appIcpRecordPicUrl_);
         DARABONBA_PTR_TO_JSON(AppPrincipalUnitName, appPrincipalUnitName_);
+        DARABONBA_PTR_TO_JSON(AppRuntimePic, appRuntimePic_);
+        DARABONBA_PTR_TO_JSON(AppRuntimePicUrl, appRuntimePicUrl_);
         DARABONBA_PTR_TO_JSON(AppServiceName, appServiceName_);
+        DARABONBA_PTR_TO_JSON(AppStoreDownloadPic, appStoreDownloadPic_);
+        DARABONBA_PTR_TO_JSON(AppStoreDownloadPicUrl, appStoreDownloadPicUrl_);
         DARABONBA_PTR_TO_JSON(Domain, domain_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -59,7 +63,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AppIcpRecordPic, appIcpRecordPic_);
         DARABONBA_PTR_FROM_JSON(AppIcpRecordPicUrl, appIcpRecordPicUrl_);
         DARABONBA_PTR_FROM_JSON(AppPrincipalUnitName, appPrincipalUnitName_);
+        DARABONBA_PTR_FROM_JSON(AppRuntimePic, appRuntimePic_);
+        DARABONBA_PTR_FROM_JSON(AppRuntimePicUrl, appRuntimePicUrl_);
         DARABONBA_PTR_FROM_JSON(AppServiceName, appServiceName_);
+        DARABONBA_PTR_FROM_JSON(AppStoreDownloadPic, appStoreDownloadPic_);
+        DARABONBA_PTR_FROM_JSON(AppStoreDownloadPicUrl, appStoreDownloadPicUrl_);
         DARABONBA_PTR_FROM_JSON(Domain, domain_);
       };
       Data() = default ;
@@ -75,7 +83,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appApprovalDate_ == nullptr
         && this->appIcpLicenseNumber_ == nullptr && this->appIcpRecordId_ == nullptr && this->appIcpRecordPic_ == nullptr && this->appIcpRecordPicUrl_ == nullptr && this->appPrincipalUnitName_ == nullptr
-        && this->appServiceName_ == nullptr && this->domain_ == nullptr; };
+        && this->appRuntimePic_ == nullptr && this->appRuntimePicUrl_ == nullptr && this->appServiceName_ == nullptr && this->appStoreDownloadPic_ == nullptr && this->appStoreDownloadPicUrl_ == nullptr
+        && this->domain_ == nullptr; };
       // appApprovalDate Field Functions 
       bool hasAppApprovalDate() const { return this->appApprovalDate_ != nullptr;};
       void deleteAppApprovalDate() { this->appApprovalDate_ = nullptr;};
@@ -118,11 +127,39 @@ namespace Models
       inline Data& setAppPrincipalUnitName(string appPrincipalUnitName) { DARABONBA_PTR_SET_VALUE(appPrincipalUnitName_, appPrincipalUnitName) };
 
 
+      // appRuntimePic Field Functions 
+      bool hasAppRuntimePic() const { return this->appRuntimePic_ != nullptr;};
+      void deleteAppRuntimePic() { this->appRuntimePic_ = nullptr;};
+      inline string getAppRuntimePic() const { DARABONBA_PTR_GET_DEFAULT(appRuntimePic_, "") };
+      inline Data& setAppRuntimePic(string appRuntimePic) { DARABONBA_PTR_SET_VALUE(appRuntimePic_, appRuntimePic) };
+
+
+      // appRuntimePicUrl Field Functions 
+      bool hasAppRuntimePicUrl() const { return this->appRuntimePicUrl_ != nullptr;};
+      void deleteAppRuntimePicUrl() { this->appRuntimePicUrl_ = nullptr;};
+      inline string getAppRuntimePicUrl() const { DARABONBA_PTR_GET_DEFAULT(appRuntimePicUrl_, "") };
+      inline Data& setAppRuntimePicUrl(string appRuntimePicUrl) { DARABONBA_PTR_SET_VALUE(appRuntimePicUrl_, appRuntimePicUrl) };
+
+
       // appServiceName Field Functions 
       bool hasAppServiceName() const { return this->appServiceName_ != nullptr;};
       void deleteAppServiceName() { this->appServiceName_ = nullptr;};
       inline string getAppServiceName() const { DARABONBA_PTR_GET_DEFAULT(appServiceName_, "") };
       inline Data& setAppServiceName(string appServiceName) { DARABONBA_PTR_SET_VALUE(appServiceName_, appServiceName) };
+
+
+      // appStoreDownloadPic Field Functions 
+      bool hasAppStoreDownloadPic() const { return this->appStoreDownloadPic_ != nullptr;};
+      void deleteAppStoreDownloadPic() { this->appStoreDownloadPic_ = nullptr;};
+      inline string getAppStoreDownloadPic() const { DARABONBA_PTR_GET_DEFAULT(appStoreDownloadPic_, "") };
+      inline Data& setAppStoreDownloadPic(string appStoreDownloadPic) { DARABONBA_PTR_SET_VALUE(appStoreDownloadPic_, appStoreDownloadPic) };
+
+
+      // appStoreDownloadPicUrl Field Functions 
+      bool hasAppStoreDownloadPicUrl() const { return this->appStoreDownloadPicUrl_ != nullptr;};
+      void deleteAppStoreDownloadPicUrl() { this->appStoreDownloadPicUrl_ = nullptr;};
+      inline string getAppStoreDownloadPicUrl() const { DARABONBA_PTR_GET_DEFAULT(appStoreDownloadPicUrl_, "") };
+      inline Data& setAppStoreDownloadPicUrl(string appStoreDownloadPicUrl) { DARABONBA_PTR_SET_VALUE(appStoreDownloadPicUrl_, appStoreDownloadPicUrl) };
 
 
       // domain Field Functions 
@@ -133,21 +170,29 @@ namespace Models
 
 
     protected:
-      // 审核通过日期，示例2025-09-01
+      // The approval date.
       shared_ptr<string> appApprovalDate_ {};
-      // ICP备案/许可证号
+      // The icp filing/license number.
       shared_ptr<string> appIcpLicenseNumber_ {};
-      // app-icp备案材料id
+      // The ID of the APP-ICP record material.
       shared_ptr<int64_t> appIcpRecordId_ {};
-      // app-icp备案截图图片Osskey（给签名传工单用）
+      // The OSS fileKey for the APP-ICP record screenshot.
       shared_ptr<string> appIcpRecordPic_ {};
-      // app-icp备案截图url地址
+      // The URL of the APP-ICP record screenshot.
       shared_ptr<string> appIcpRecordPicUrl_ {};
-      // 主办单位名称
+      // The hosting unit name.
       shared_ptr<string> appPrincipalUnitName_ {};
-      // app服务名称
+      // APP实际运行截图Osskey
+      shared_ptr<string> appRuntimePic_ {};
+      // APP实际运行截图url地址
+      shared_ptr<string> appRuntimePicUrl_ {};
+      // The app service name.
       shared_ptr<string> appServiceName_ {};
-      // APP应用商店链接
+      // APP应用商店下载截图Osskey
+      shared_ptr<string> appStoreDownloadPic_ {};
+      // APP应用商店下载截图url地址
+      shared_ptr<string> appStoreDownloadPicUrl_ {};
+      // The app store link.
       shared_ptr<string> domain_ {};
     };
 
@@ -198,11 +243,25 @@ namespace Models
 
 
   protected:
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - OK indicates a successful request.
+    // 
+    // - For other error codes, see the [error code list](https://help.aliyun.com/document_detail/101346.htm).
     shared_ptr<string> code_ {};
+    // A list of APP-ICP record entity details.
     shared_ptr<vector<QuerySmsAppIcpRecordResponseBody::Data>> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Specifies whether the API call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

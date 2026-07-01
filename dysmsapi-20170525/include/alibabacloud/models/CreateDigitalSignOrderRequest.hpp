@@ -151,18 +151,66 @@ namespace Models
 
 
   protected:
+    // Reserved for future use.
     shared_ptr<string> extendMessage_ {};
+    // The qualification information. This object is required when you create a signature, or when you update a signature\\"s qualification information.
+    // 
+    // - qualificationCompanyName: Company name. The name can be up to 150 characters long. It cannot consist of only digits or contain symbols other than the middle dot (·), Chinese brackets (【】), Chinese parentheses (（）), English parentheses (()), and spaces.
+    // 
+    // - `qualificationOrganizationCode`: The 18-character Unified Social Credit Identifier (USCI). It must be an 18-digit code or a code that consists of 18 uppercase or lowercase letters and digits.
+    // 
+    // - `qualificationAdminName`: The name of the agent or legal representative. The name must be in Chinese.
+    // 
+    // - `qualificationAdminIDCard`: The 18-digit ID card number of the agent. Only PRC ID cards are supported.
+    // 
+    // - `qualificationLegalPersonName`: The name of the legal representative or agent.
+    // 
+    // - `qualificationLegalPersonIDCard`: The 18-digit ID card number of the legal representative. Only PRC ID cards are supported.
     Darabonba::Json orderContext_ {};
+    // The operation to perform on the signature. Valid values:
+    // 
+    // - `UPDATE_DIGITALSMS_SIGN`: Update a signature.
+    // 
+    // - `DELETE_DIGITALSMS_SIGN`: Delete a signature.
+    // 
+    // - `CREATE_DIGITALSMS_SIGN`: Create a signature.
     shared_ptr<string> orderType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the qualification.
     shared_ptr<int64_t> qualificationId_ {};
+    // The version of the qualification.
     shared_ptr<int64_t> qualificationVersion_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The unique ID of the signature.
     shared_ptr<int64_t> signId_ {};
+    // The industry type. This parameter is required when you create or update a signature. It is optional when you delete a signature. Valid values:
+    // 
+    // - `0`: General (GENERAL)
+    // 
+    // - `1`: E-commerce and retail (ECOMMERCE)
     shared_ptr<int64_t> signIndustry_ {};
+    // The signature name. This parameter is required for creating, updating, and deleting signatures.
+    // 
+    // 1. The name must be 2 to 16 characters in length.
+    // 
+    // 2. The name can contain Chinese characters, letters, and digits.
+    // 
+    // - Special characters are not allowed, including $, &, %, #, @, !, ^, \\*, (, ), _, +, -, =, {, }, [, ], |, ;, :, \\", ", <, >, ,, ., /, ?, \\~, and .
+    // 
+    // - The name cannot be only letters.
+    // 
+    // - The name cannot be only digits. Spaces are not allowed.
+    // 
+    // - Emojis are not allowed.
     shared_ptr<string> signName_ {};
+    // The signature source. This parameter is required when you create or update a signature. It is optional when you delete a signature. Valid values:
+    // 
+    // - `0`: Enterprises and public institutions
+    // 
+    // - `2`: App
     shared_ptr<int64_t> signSource_ {};
+    // The ID of the user who submits the order.
     shared_ptr<string> submitter_ {};
   };
 

@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // 业务，非空
+    // The business type. When applying for a qualification or creating an authorization letter file, enter **dysms**.
     // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};

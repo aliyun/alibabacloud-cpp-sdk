@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // 请求状态码。
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+    // * 返回OK代表请求成功。
+    // * 其他错误码，请参见[API错误码](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
-    // The returned message.
+    // 状态码的描述。
     shared_ptr<string> message_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // The signature.
+    // 签名名称。
     shared_ptr<string> signName_ {};
   };
 

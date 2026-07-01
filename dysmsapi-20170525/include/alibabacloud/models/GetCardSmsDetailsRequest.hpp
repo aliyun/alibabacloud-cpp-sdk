@@ -121,28 +121,28 @@ namespace Models
 
 
   protected:
-    // Card SMS sending ID, which is the BizCardId field in the response when calling SendCardSms or SendBatchCardSms.
+    // The card SMS sending ID. When you send a card SMS by calling the [SendCardSms](https://help.aliyun.com/document_detail/434120.html) or [SendBatchCardSms](https://help.aliyun.com/document_detail/434119.html) operation, obtain the BizCardId field from the response.
     shared_ptr<string> bizCardId_ {};
-    // Digital SMS sending ID, which is the BizDigitalId field in the response when calling SendCardSms or SendBatchCardSms.
+    // The digital SMS sending ID. When you send a card SMS by calling the [SendCardSms](https://help.aliyun.com/document_detail/434120.html) or [SendBatchCardSms](https://help.aliyun.com/document_detail/434119.html) operation, obtain the BizDigitalId field from the response.
     shared_ptr<string> bizDigitId_ {};
-    // Text SMS sending ID, which is the BizSmsId field in the response when calling SendCardSms or SendBatchCardSms.
+    // The text SMS sending ID. When you send a card SMS by calling the [SendCardSms](https://help.aliyun.com/document_detail/434120.html) or [SendBatchCardSms](https://help.aliyun.com/document_detail/434119.html) operation, obtain the BizSmsId field from the response.
     shared_ptr<string> bizSmsId_ {};
-    // For paginated viewing of sending records, specify the current page number of the sending records.
+    // The current page number when you paginate sending records.
     shared_ptr<int64_t> currentPage_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // For paginated viewing of sending records, specify the number of card SMS records to display per page.
+    // The number of card SMS records to display on each page when you paginate sending records.
     // 
-    // The value range is 1~50.
+    // Valid values: 1 to 50.
     shared_ptr<int64_t> pageSize_ {};
-    // Domestic phone number that received the SMS. Format: 11-digit phone number, for example, 1390000****.
+    // The domestic mobile phone number that received the SMS. Format: an 11-digit mobile phone number. For example, 1390000****.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Card SMS sending date, supports querying records from the last 30 days.
+    // The card SMS sending date. Records from the last 30 days can be queried.
     // 
-    // Format: yyyyMMdd, for example, 20240112.
+    // Format: yyyyMMdd. For example, 20240112.
     // 
     // This parameter is required.
     shared_ptr<string> sendDate_ {};

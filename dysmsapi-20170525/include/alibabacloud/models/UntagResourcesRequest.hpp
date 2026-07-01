@@ -117,27 +117,28 @@ namespace Models
 
 
   protected:
-    // Specifies whether to delete all tags from the message template. Valid values:
+    // Specifies whether to delete all tags under the template. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: yes.
+    // - **false**: no.
     shared_ptr<bool> all_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the cloud service. Set the value to **dysms**.
+    // The product name. Default value: **dysms**.
     shared_ptr<string> prodCode_ {};
-    // The region. Set the value to cn-hangzhou.
+    // The region ID. Set the value to cn-hangzhou by default.
+    // For more region IDs, see [Service endpoints](https://help.aliyun.com/document_detail/419270.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The array of message template codes. You can specify 1 to 20 message templates.
+    // The SMS template code. The number of codes cannot exceed 20.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to TEMPLATE.
+    // The resource type. Set the value to TEMPLATE by default.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The array of tag keys. You can specify 1 to 20 tag keys.
+    // The tag key. You can add no more than 20 tags at a time.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

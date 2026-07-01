@@ -102,6 +102,7 @@ namespace Models
 
 
     protected:
+      // Additional material file. Only png, jpg, jpeg, doc, docx, and pdf formats are supported, and the file must not exceed 5 MB. Please provide the path of the file uploaded to OSS. The file name to be uploaded must not contain Chinese characters or special characters. For upload operations, see [Upload Files via OSS](https://help.aliyun.com/document_detail/2833114.html).
       shared_ptr<string> licensePic_ {};
     };
 
@@ -143,9 +144,19 @@ namespace Models
 
 
     protected:
-      // 证件图片标识的osskey
+      // Business license image. Only jpg, png, gif, and jpeg image formats are supported, and the image must not exceed 5 MB. Please provide the path of the file uploaded to OSS. The file name to be uploaded must not contain Chinese characters or special characters. For upload operations, see [Upload Files via OSS](https://help.aliyun.com/document_detail/2833114.html).
+      // 
+      // >Notice: 
+      // No stamp is required for color originals of the certificate. If you upload a photocopy or black-and-white photo, you must affix the enterprise red seal to the photocopy and take a photo to upload.
       shared_ptr<string> licensePic_ {};
-      // 企业证件类型，businessLicense:营业执照;organizationCodeLicense:组织机构代码证;taxRegistrationLicense:税务登记证;socialCreditLicense:社会信用代码证书;newStyleBusinessLicense:三证合一;signLegalLicense:签名归属方的事业单位法人证书;otherLicense:其他类型执照证书
+      // Business license type. Valid values:
+      // 
+      // - socialCreditLicense: Social credit code certificate.
+      // - businessLicense: Enterprise business license.
+      // - signLegalLicense: Public institution legal person certificate.
+      // - otherLicense: Other.
+      // 
+      // Choose one to upload. The certificate must contain: enterprise name, unified social credit code, and certificate validity period.
       shared_ptr<string> type_ {};
     };
 
@@ -321,52 +332,84 @@ namespace Models
 
 
   protected:
-    // 经办人身份证有效期，格式示例2023-01-01~2033-01-01
+    // Validity period of the administrator ID card. Format: YYYY-MM-DD~YYYY-MM-DD.
+    // > When the certificate validity period is long-term, the end date can be set to 2099-12-31.
     shared_ptr<string> adminIDCardExpDate_ {};
-    // 经办人身份证照片国徽面
+    // Photo of the front of the administrator\\"s ID card (national emblem side). Only jpg, png, gif, and jpeg image formats are supported, and the image must not exceed 5 MB. Please provide the path of the file uploaded to OSS. The file name to be uploaded must not contain Chinese characters or special characters. For upload operations, see [Upload Files via OSS](https://help.aliyun.com/document_detail/2833114.html).
+    // 
+    // >Notice: 
+    // No stamp is required for color originals of the certificate. If you upload a photocopy or black-and-white photo, you must affix the enterprise red seal to the photocopy and take a photo to upload.
     shared_ptr<string> adminIDCardFrontFace_ {};
-    // 经办人身份证号码
+    // Administrator\\"s ID number.
     shared_ptr<string> adminIDCardNo_ {};
-    // 经办人身份证照片人像面
+    // Photo of the back of the administrator\\"s ID card (portrait side). Only jpg, png, gif, and jpeg image formats are supported, and the image must not exceed 5 MB. Please provide the path of the file uploaded to OSS. The file name to be uploaded must not contain Chinese characters or special characters. For upload operations, see [Upload Files via OSS](https://help.aliyun.com/document_detail/2833114.html).
+    // 
+    // >Notice: 
+    //  No stamp is required for color originals of the certificate. If you upload a photocopy or black-and-white photo, you must affix the enterprise red seal to the photocopy and take a photo to upload.
     shared_ptr<string> adminIDCardPic_ {};
-    // 管理员身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+    // Administrator ID card type. Valid values:
+    // 
+    // - identityCard: ID card.
+    // - passport: Passport.
+    // - homeReturnPermit: Mainland Travel Permit for Hong Kong and Macao Residents.
+    // - TaiwanCompatriotPermit: Mainland Travel Permit for Taiwan Residents.
+    // - residencePermit: Residence Permit for Hong Kong, Macao, and Taiwan Residents.
+    // - other: Other.
     shared_ptr<string> adminIDCardType_ {};
-    // 经办人姓名
+    // Administrator name.
+    // 
+    // > The administrator (also known as the operator) refers to the person who logs in to the Alibaba Cloud account and manages the SMS service. Generally, this is the operations personnel who manages qualifications, signatures, and templates and sends SMS messages under this Alibaba Cloud account, and whose phone number can receive verification codes. The administrator is not necessarily the administrator of this Alibaba Cloud account. The administrator can be the same person as the enterprise\\"s legal representative.
     shared_ptr<string> adminName_ {};
-    // 经办人手机号码
+    // Administrator\\"s mobile phone number. Format: +/+86/0086/86 prefix or a phone number without any prefix, for example, 1390000****.
     // 
     // This parameter is required.
     shared_ptr<string> adminPhoneNo_ {};
-    // 企业证件信息
+    // Enterprise business license information. This parameter is required when the purpose of the qualification to be modified is for use by others.
     shared_ptr<vector<UpdateSmsQualificationRequest::BusinessLicensePics>> businessLicensePics_ {};
-    // 企业营业时间开始和结束字符串，格式示例2023-01-01~2033-01-01
+    // Validity period of the business license. Format: YYYY-MM-DD~YYYY-MM-DD.
+    // > When the certificate validity period is long-term, the end date can be set to 2099-12-31.
     shared_ptr<string> bussinessLicenseExpDate_ {};
-    // 手机号验证码
+    // Phone verification code. Please call the [RequiredPhoneCode](~~RequiredPhoneCode~~) API and pass in the **administrator\\"s phone number**, then enter the SMS verification code you receive here.
+    // 
+    // > You can use [ValidPhoneCode](~~ValidPhoneCode~~) to verify whether the SMS verification code is correct before passing it in.
     // 
     // This parameter is required.
     shared_ptr<string> certifyCode_ {};
-    // 公司名称
+    // Enterprise name. Supported symbols are only the middle dot `·`, the Chinese symbols `【】（）`, the English symbols `()`, and the `space`. Other symbols or pure numbers are not allowed. The length must not exceed 150 characters.
     shared_ptr<string> companyName_ {};
-    // 法人身份证号码
+    // Legal person\\"s ID number.
     shared_ptr<string> legalPersonIDCardNo_ {};
-    // 法人身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+    // Legal person ID card type. Valid values:
+    // 
+    // - identityCard: ID card.
+    // - passport: Passport.
+    // - homeReturnPermit: Mainland Travel Permit for Hong Kong and Macao Residents.
+    // - TaiwanCompatriotPermit: Mainland Travel Permit for Taiwan Residents.
+    // - residencePermit: Residence Permit for Hong Kong, Macao, and Taiwan Residents.
+    // - other: Other.
     shared_ptr<string> legalPersonIDCardType_ {};
-    // 法人身份证照片人像面
+    // Photo of the back of the legal representative\\"s ID card (portrait side). Only jpg, png, gif, and jpeg image formats are supported, and the image must not exceed 5 MB. Please provide the path of the file uploaded to OSS. The file name to be uploaded must not contain Chinese characters or special characters. For upload operations, see [Upload Files via OSS](https://help.aliyun.com/document_detail/2833114.html).
+    // > The system will use the legal person name and ID number you provide for verification. If the verification fails, you need to upload a photo of the legal representative\\"s ID card.
     shared_ptr<string> legalPersonIdCardBackSide_ {};
-    // 法人身份证有效期，格式示例2023-01-01~2033-01-01
+    // Validity period of the legal person ID card. Format: YYYY-MM-DD~YYYY-MM-DD.
+    // > When the certificate validity period is long-term, the end date can be set to 2099-12-31.
     shared_ptr<string> legalPersonIdCardEffTime_ {};
-    // 法人身份照片证国徽面
+    // Photo of the front of the legal representative\\"s ID card (national emblem side). Only jpg, png, gif, and jpeg image formats are supported, and the image must not exceed 5 MB. Please provide the path of the file uploaded to OSS. The file name to be uploaded must not contain Chinese characters or special characters. For upload operations, see [Upload Files via OSS](https://help.aliyun.com/document_detail/2833114.html).
+    // > The system will use the legal person name and ID number you provide for verification. If the verification fails, you need to upload a photo of the legal representative\\"s ID card.
     shared_ptr<string> legalPersonIdCardFrontSide_ {};
-    // 法人姓名
+    // Name of the legal representative.
+    // 
+    // > - If there is no legal representative information on the organization\\"s certificate, but there is information about a person in charge / chief representative or similar, please prepare the ID card photo of the corresponding person in charge or chief representative listed on the certificate.
+    // > - If there is no legal representative information on the organization\\"s certificate, and there is no information about any person in charge, please prepare the name and ID card photo of the main business contact person.
     shared_ptr<string> legalPersonName_ {};
-    // 工单ID
+    // The review order ID. You can obtain the qualifications and their corresponding review order IDs under the current account by calling [Query Qualification List](~~QuerySmsQualificationRecord~~).
     // 
     // This parameter is required.
     shared_ptr<int64_t> orderId_ {};
-    // 更多资料
+    // Additional materials. If you have other supporting or supplementary materials, photos, etc., you can upload them here.
     shared_ptr<vector<UpdateSmsQualificationRequest::OtherFiles>> otherFiles_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // 资质组ID
+    // The qualification ID, that is, the ID returned when you [apply for SMS qualification](~~SubmitSmsQualification~~). You can obtain the qualification IDs under the current account by calling [Query Qualification List](~~QuerySmsQualificationRecord~~).
     // 
     // This parameter is required.
     shared_ptr<int64_t> qualificationGroupId_ {};

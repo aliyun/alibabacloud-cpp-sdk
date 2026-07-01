@@ -128,21 +128,21 @@ namespace Models
 
 
     protected:
-      // The AccessKey ID.
+      // 签名使用的AccessKey ID。
       shared_ptr<string> accessKeyId_ {};
-      // The ID of the Alibaba Cloud account.
+      // 阿里云账号ID。
       shared_ptr<string> aliUid_ {};
-      // The name of the OSS bucket.
+      // OSS文件保存桶名称。
       shared_ptr<string> bucket_ {};
-      // The timeout period.
+      // 超时时间戳。单位：秒。
       shared_ptr<string> expireTime_ {};
-      // The hostname.
+      // 访问地址。
       shared_ptr<string> host_ {};
-      // The signature policy.
+      // 签名策略。
       shared_ptr<string> policy_ {};
-      // The signature.
+      // 短信签名。
       shared_ptr<string> signature_ {};
-      // The path of the policy.
+      // 策略路径。
       shared_ptr<string> startPath_ {};
     };
 
@@ -179,19 +179,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // 请求状态码。
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - OK：代表请求成功。
+    // - 其他错误码，请参见[API错误码](https://help.aliyun.com/document_detail/101346.html)。
     shared_ptr<string> code_ {};
-    // The data returned.
+    // 返回数据。
     shared_ptr<GetOSSInfoForCardTemplateResponseBody::Data> data_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // 调用接口是否成功。取值：
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**：调用成功。
+    // 
+    // - **false**：调用失败。
     shared_ptr<bool> success_ {};
   };
 

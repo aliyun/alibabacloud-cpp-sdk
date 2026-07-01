@@ -69,7 +69,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 商标实体id列表
+    // A list of trademark IDs.
     // 
     // This parameter is required.
     shared_ptr<string> trademarkIdListShrink_ {};

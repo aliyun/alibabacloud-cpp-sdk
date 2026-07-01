@@ -63,11 +63,9 @@ namespace Models
 
 
     protected:
-      // The code of the message template.
+      // The code for the card SMS template. You can view the **Template Code** on the **Card SMS** > [template management](https://dysms.console.aliyun.com/domestic/card) page in the console.
       // 
-      // You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview).
-      // 
-      // > Make sure that the message template has been approved.
+      // > The card SMS template must be approved before it can be used.
       shared_ptr<string> templateCode_ {};
     };
 
@@ -104,19 +102,21 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The request status code. Valid values:
     // 
-    // *   If OK is returned, the request is successful.
-    // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - OK: The request was successful.
+    // 
+    // - For a list of other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The data returned by the operation.
     shared_ptr<CreateCardSmsTemplateResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // 签名使用的 AccessKey ID。
       shared_ptr<string> accessKeyId_ {};
+      // bucket名称。
       shared_ptr<string> bucket_ {};
+      // 过期时间戳，单位：秒。
       shared_ptr<string> expireTime_ {};
+      // Host 地址。
       shared_ptr<string> host_ {};
+      // 签名策略。
       shared_ptr<string> policy_ {};
+      // 根据 AccessKey Secret 和 Policy 计算出的签名信息。调用 OSS API 时，OSS 验证该签名信息，从而确认请求的合法性。
       shared_ptr<string> signature_ {};
+      // 策略路径。
       shared_ptr<string> startPath_ {};
     };
 
@@ -179,11 +186,25 @@ namespace Models
 
 
   protected:
+    // 访问被拒绝详细信息，只有 RAM 校验失败才会返回此字段。
     shared_ptr<string> accessDeniedDetail_ {};
+    // 请求状态码。
+    // 
+    // - 返回 OK 代表请求成功。
+    // 
+    // - 其他错误码，请参见 [API 错误码](https://www.alibabacloud.com/help/en/sms/developer-reference/api-error-codes)。
     shared_ptr<string> code_ {};
+    // 状态码的描述。
     shared_ptr<string> message_ {};
+    // OSS配置信息。
     shared_ptr<GetSmsOcrOssInfoResponseBody::Model> model_ {};
+    // 本次调用请求的 ID，是由阿里云为该请求生成的唯一标识符，可用于排查和定位问题。
     shared_ptr<string> requestId_ {};
+    // 调用接口是否成功。取值：
+    // 
+    // - true：调用成功。
+    // 
+    // - false：调用失败。
     shared_ptr<bool> success_ {};
   };
 

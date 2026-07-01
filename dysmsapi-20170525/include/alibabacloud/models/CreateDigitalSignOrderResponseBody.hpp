@@ -86,11 +86,33 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This parameter is returned only if the RAM user is not authorized.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
+    // 
+    // - If the request is successful, `OK` is returned.
+    // 
+    // - For more information about other error codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
+    // The returned data.
+    // 
+    // - `signName`: The name of the signature.
+    // 
+    // - `signOrderId`: The ID of the signature order.
+    // 
+    // - `signCode`: The code of the signature.
+    // 
+    // - `signId`: The ID of the signature.
     Darabonba::Json data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

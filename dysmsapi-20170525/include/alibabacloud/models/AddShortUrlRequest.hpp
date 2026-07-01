@@ -84,18 +84,22 @@ namespace Models
 
 
   protected:
-    // The validity period of the short URL. Unit: days. The maximum validity period is 90 days.
+    // The validity period of the short URL, in days. The maximum value is 90.
     // 
     // This parameter is required.
     shared_ptr<string> effectiveDays_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The service name of the short URL. The name cannot exceed 13 characters in length.
+    // The name of the short URL. Maximum length: 13 characters.
     // 
     // This parameter is required.
     shared_ptr<string> shortUrlName_ {};
-    // The source URL. The URL cannot exceed 1,000 characters in length.
+    // The URL that you want to shorten. Maximum length: 1,000 characters.
+    // 
+    // >Notice: 
+    // 
+    // Short Message Service does not currently support this API operation.
     // 
     // This parameter is required.
     shared_ptr<string> sourceUrl_ {};

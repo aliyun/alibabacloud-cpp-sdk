@@ -122,15 +122,15 @@ namespace Models
 
 
       protected:
-        // The number of messages without a delivery receipt.
+        // The number of messages with no delivery receipts.
         shared_ptr<int64_t> noRespondedCount_ {};
-        // The number of messages with a delivery receipt that indicates a failure.
+        // The number of messages with failed delivery receipts.
         shared_ptr<int64_t> respondedFailCount_ {};
-        // The number of messages with a delivery receipt that indicates a success.
+        // The number of messages with successful delivery receipts.
         shared_ptr<int64_t> respondedSuccessCount_ {};
-        // The date when the message is sent. Format: yyyyMMdd. Example: 20181225.
+        // The date the messages were sent. Format: yyyyMMdd.
         shared_ptr<string> sendDate_ {};
-        // The number of delivered messages.
+        // The number of successfully sent messages (billable message count).
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -153,7 +153,7 @@ namespace Models
 
 
     protected:
-      // The details of the data returned.
+      // A list of delivery statistics.
       shared_ptr<vector<Data::TargetList>> targetList_ {};
       // The total number of entries returned.
       shared_ptr<int64_t> totalSize_ {};
@@ -192,14 +192,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The response code. Valid values:
     // 
-    // *   If OK is returned, the request is successful.
-    // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+    // - OK: The request was successful.
+    // 
+    // - For other values, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
     shared_ptr<string> code_ {};
     // The data returned.
     shared_ptr<QuerySendStatisticsResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

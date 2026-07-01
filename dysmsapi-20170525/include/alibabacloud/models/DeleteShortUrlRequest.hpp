@@ -69,7 +69,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source address. The address can be up to 1,000 characters in length.
+    // The source URL. The URL must not exceed 1,000 characters.
+    // 
+    // >Notice: 
+    // 
+    // Short Message Service does not currently support this API operation.
     // 
     // This parameter is required.
     shared_ptr<string> sourceUrl_ {};

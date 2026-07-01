@@ -84,16 +84,16 @@ namespace Models
 
 
   protected:
-    // 授权委托书id
+    // The ID of the authorization letter.
     shared_ptr<int64_t> authorizationLetterId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // 资质id
+    // The ID of the qualification, which is returned when you apply for it. You can also find this ID on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page in the console for messages to the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<int64_t> qualificationId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 签名
+    // The signature.
     // 
     // This parameter is required.
     shared_ptr<string> signatureName_ {};
