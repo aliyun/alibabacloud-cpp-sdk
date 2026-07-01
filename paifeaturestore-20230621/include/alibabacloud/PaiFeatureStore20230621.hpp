@@ -163,7 +163,7 @@ namespace PaiFeatureStore20230621
       Models::CreateLabelTableResponse createLabelTable(const string &InstanceId, const Models::CreateLabelTableRequest &request);
 
       /**
-       * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
+       * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields to generate the training dataset table required for model training and to specify the feature set used for model inference.
        *
        * @param request CreateModelFeatureRequest
        * @param headers map
@@ -173,7 +173,7 @@ namespace PaiFeatureStore20230621
       Models::CreateModelFeatureResponse createModelFeatureWithOptions(const string &InstanceId, const Models::CreateModelFeatureRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
+       * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields to generate the training dataset table required for model training and to specify the feature set used for model inference.
        *
        * @param request CreateModelFeatureRequest
        * @return CreateModelFeatureResponse
@@ -459,7 +459,7 @@ namespace PaiFeatureStore20230621
       Models::GetLabelTableResponse getLabelTable(const string &InstanceId, const string &LabelTableId);
 
       /**
-       * @summary Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
+       * @summary Gets detailed information about a model feature, including the selected feature list, lineage relations, and training set export script.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -468,7 +468,7 @@ namespace PaiFeatureStore20230621
       Models::GetModelFeatureResponse getModelFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
+       * @summary Gets detailed information about a model feature, including the selected feature list, lineage relations, and training set export script.
        *
        * @return GetModelFeatureResponse
        */
@@ -995,7 +995,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateLabelTableResponse updateLabelTable(const string &InstanceId, const string &LabelTableId, const Models::UpdateLabelTableRequest &request);
 
       /**
-       * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
+       * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update performs a full replacement. The specified Features overwrite the existing values.
        *
        * @param request UpdateModelFeatureRequest
        * @param headers map
@@ -1005,7 +1005,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateModelFeatureResponse updateModelFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const Models::UpdateModelFeatureRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
+       * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update performs a full replacement. The specified Features overwrite the existing values.
        *
        * @param request UpdateModelFeatureRequest
        * @return UpdateModelFeatureResponse

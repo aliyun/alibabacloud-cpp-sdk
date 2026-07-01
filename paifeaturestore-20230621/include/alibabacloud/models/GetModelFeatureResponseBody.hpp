@@ -126,11 +126,11 @@ namespace Models
 
 
       protected:
-        // The source ID of the link.
+        // Source ID of the link.
         shared_ptr<string> from_ {};
-        // The dependency field of the link.
+        // Link dependency field.
         shared_ptr<string> link_ {};
-        // The destination ID of the link.
+        // Target ID of the link.
         shared_ptr<string> to_ {};
       };
 
@@ -181,15 +181,17 @@ namespace Models
 
 
       protected:
-        // The domain type. Valid values:
+        // Domain type.
         // 
-        // - FeatureEntity: feature entity.
-        // - FeatureView: feature view.
-        // - ModelFeature: model feature.
+        // ● FeatureEntity - Feature entity
+        // 
+        // ● FeatureView - Feature view
+        // 
+        // ● ModelFeature - Model feature
         shared_ptr<string> domainType_ {};
-        // Domain ID。
+        // Domain ID.
         shared_ptr<string> id_ {};
-        // The domain name.
+        // Domain name.
         shared_ptr<string> name_ {};
       };
 
@@ -214,9 +216,9 @@ namespace Models
 
 
     protected:
-      // The domain list.
+      // Domain list.
       shared_ptr<vector<Relations::Domains>> domains_ {};
-      // The feature relationship link list.
+      // Feature relation link information list.
       shared_ptr<vector<Relations::Links>> links_ {};
     };
 
@@ -294,24 +296,30 @@ namespace Models
 
 
     protected:
-      // The feature alias.
+      // Feature alias.
       shared_ptr<string> aliasName_ {};
-      // The feature view ID.
+      // Feature view ID.
       shared_ptr<string> featureViewId_ {};
-      // The feature view name.
+      // Feature view name.
       shared_ptr<string> featureViewName_ {};
-      // The feature name.
+      // Feature name.
       shared_ptr<string> name_ {};
       shared_ptr<string> prefixName_ {};
-      // The feature type. Valid values:
+      // Feature type.
       // 
-      // - INT32
-      // - INT64
-      // - FLOAT
-      // - DOUBLE
-      // - STRING
-      // - BOOLEAN
-      // - TIMESTAMP.
+      // ● INT32
+      // 
+      // ● INT64
+      // 
+      // ● FLOAT
+      // 
+      // ● DOUBLE
+      // 
+      // ● STRING
+      // 
+      // ● BOOLEAN
+      // 
+      // ● TIMESTAMP
       shared_ptr<string> type_ {};
     };
 
@@ -429,35 +437,35 @@ namespace Models
 
 
   protected:
-    // The script for exporting the training sample table.
+    // Script for exporting the training set table.
     shared_ptr<string> exportTrainingSetTableScript_ {};
-    // The feature list.
+    // Feature list.
     shared_ptr<vector<GetModelFeatureResponseBody::Features>> features_ {};
-    // The creation time.
+    // Creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The update time.
+    // Update time.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The priority level of the label table. Default value: 0. Set to 1 to prioritize the label table. Set to 2 to prioritize the feature view.
+    // Label table priority. The default value is 0. Set to 1 to give priority to the label table, or set to 2 to give priority to the feature view.
     shared_ptr<int64_t> labelPriorityLevel_ {};
-    // The label table ID.
+    // Label table ID.
     shared_ptr<string> labelTableId_ {};
-    // The label table name.
+    // Label table name.
     shared_ptr<string> labelTableName_ {};
-    // The model feature name.
+    // Model feature name.
     shared_ptr<string> name_ {};
-    // The Alibaba Cloud account ID of the creator.
+    // Alibaba Cloud account ID of the creator.
     shared_ptr<string> owner_ {};
-    // The project ID.
+    // Project ID.
     shared_ptr<string> projectId_ {};
-    // The project name.
+    // Project name.
     shared_ptr<string> projectName_ {};
-    // The feature relationships.
+    // Feature relations.
     shared_ptr<GetModelFeatureResponseBody::Relations> relations_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the exported training set FG table.
+    // Name of the exported training set FG table.
     shared_ptr<string> trainingSetFGTable_ {};
-    // The name of the exported training set table.
+    // Name of the exported training set table.
     shared_ptr<string> trainingSetTable_ {};
   };
 

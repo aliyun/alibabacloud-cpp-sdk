@@ -103,7 +103,7 @@ namespace Models
     protected:
       // The feature alias.
       shared_ptr<string> aliasName_ {};
-      // The feature view ID. You can call the ListFeatureViews operation to query the feature view ID.
+      // The feature view ID. You can call the ListFeatureViews operation to obtain the feature view ID.
       // 
       // This parameter is required.
       shared_ptr<string> featureViewId_ {};
@@ -164,7 +164,7 @@ namespace Models
     // The list of features.
     shared_ptr<vector<UpdateModelFeatureRequest::Features>> features_ {};
     shared_ptr<int64_t> labelPriorityLevel_ {};
-    // The label table ID. You can call the ListLabelTables operation to query the label table ID.
+    // The label table ID. You can call the ListLabelTables operation to obtain the label table ID.
     shared_ptr<string> labelTableId_ {};
     shared_ptr<vector<string>> sequenceFeatureViewIds_ {};
   };

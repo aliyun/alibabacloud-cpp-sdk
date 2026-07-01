@@ -105,7 +105,7 @@ namespace Models
 
 
     protected:
-      // The alias of the feature.
+      // The feature alias.
       shared_ptr<string> aliasName_ {};
       // The feature view ID. You can call the ListFeatureViews operation to obtain the feature view ID.
       // 
@@ -118,13 +118,19 @@ namespace Models
       shared_ptr<string> prefixName_ {};
       // The feature type. Valid values:
       // 
-      // - INT32
-      // - INT64
-      // - FLOAT
-      // - DOUBLE
-      // - STRING
-      // - BOOLEAN
-      // - TIMESTAMP.
+      // ● INT32
+      // 
+      // ● INT64
+      // 
+      // ● FLOAT
+      // 
+      // ● DOUBLE
+      // 
+      // ● STRING
+      // 
+      // ● BOOLEAN
+      // 
+      // ● TIMESTAMP.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};

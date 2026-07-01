@@ -58,12 +58,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Fields& obj) { 
         DARABONBA_PTR_TO_JSON(Attributes, attributes_);
+        DARABONBA_PTR_TO_JSON(Dimension, dimension_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Transform, transform_);
         DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Fields& obj) { 
         DARABONBA_PTR_FROM_JSON(Attributes, attributes_);
+        DARABONBA_PTR_FROM_JSON(Dimension, dimension_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Transform, transform_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -192,7 +194,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->attributes_ == nullptr
-        && this->name_ == nullptr && this->transform_ == nullptr && this->type_ == nullptr; };
+        && this->dimension_ == nullptr && this->name_ == nullptr && this->transform_ == nullptr && this->type_ == nullptr; };
       // attributes Field Functions 
       bool hasAttributes() const { return this->attributes_ != nullptr;};
       void deleteAttributes() { this->attributes_ = nullptr;};
@@ -200,6 +202,13 @@ namespace Models
       inline vector<string> getAttributes() { DARABONBA_PTR_GET(attributes_, vector<string>) };
       inline Fields& setAttributes(const vector<string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
       inline Fields& setAttributes(vector<string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
+      // dimension Field Functions 
+      bool hasDimension() const { return this->dimension_ != nullptr;};
+      void deleteDimension() { this->dimension_ = nullptr;};
+      inline int32_t getDimension() const { DARABONBA_PTR_GET_DEFAULT(dimension_, 0) };
+      inline Fields& setDimension(int32_t dimension) { DARABONBA_PTR_SET_VALUE(dimension_, dimension) };
 
 
       // name Field Functions 
@@ -234,6 +243,7 @@ namespace Models
       // 
       // - `EventTime`: event time.
       shared_ptr<vector<string>> attributes_ {};
+      shared_ptr<int32_t> dimension_ {};
       // The name of the field.
       shared_ptr<string> name_ {};
       // The feature generation configurations.
