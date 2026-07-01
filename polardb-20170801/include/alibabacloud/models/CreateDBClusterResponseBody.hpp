@@ -13,12 +13,16 @@ namespace Models
   class CreateDBClusterResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDBClusterResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AgenticDbClusterDescription, agenticDbClusterDescription_);
+      DARABONBA_PTR_TO_JSON(AgenticDbClusterId, agenticDbClusterId_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDBClusterResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgenticDbClusterDescription, agenticDbClusterDescription_);
+      DARABONBA_PTR_FROM_JSON(AgenticDbClusterId, agenticDbClusterId_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -35,8 +39,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->orderId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr; };
+    virtual bool empty() const override { return this->agenticDbClusterDescription_ == nullptr
+        && this->agenticDbClusterId_ == nullptr && this->DBClusterId_ == nullptr && this->orderId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr; };
+    // agenticDbClusterDescription Field Functions 
+    bool hasAgenticDbClusterDescription() const { return this->agenticDbClusterDescription_ != nullptr;};
+    void deleteAgenticDbClusterDescription() { this->agenticDbClusterDescription_ = nullptr;};
+    inline string getAgenticDbClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(agenticDbClusterDescription_, "") };
+    inline CreateDBClusterResponseBody& setAgenticDbClusterDescription(string agenticDbClusterDescription) { DARABONBA_PTR_SET_VALUE(agenticDbClusterDescription_, agenticDbClusterDescription) };
+
+
+    // agenticDbClusterId Field Functions 
+    bool hasAgenticDbClusterId() const { return this->agenticDbClusterId_ != nullptr;};
+    void deleteAgenticDbClusterId() { this->agenticDbClusterId_ = nullptr;};
+    inline string getAgenticDbClusterId() const { DARABONBA_PTR_GET_DEFAULT(agenticDbClusterId_, "") };
+    inline CreateDBClusterResponseBody& setAgenticDbClusterId(string agenticDbClusterId) { DARABONBA_PTR_SET_VALUE(agenticDbClusterId_, agenticDbClusterId) };
+
+
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -66,6 +84,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> agenticDbClusterDescription_ {};
+    shared_ptr<string> agenticDbClusterId_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The order ID.

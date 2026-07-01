@@ -108,13 +108,13 @@ namespace Models
 
 
     protected:
-      // The key of a tag used for filtering. You can specify up to 20 tags. The `n` in `Tag.n.Key` indicates the tag number and must be a consecutive integer starting from 1.
+      // The tag key. You can use tags to filter the cluster list. You can specify up to 20 tag pairs. The number n for each tag pair must be unique and must be a consecutive integer that starts from 1. The Tag.n.Key parameter is paired with the Tag.n.Value parameter.
       // 
-      // > The tag key cannot exceed 128 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      // > The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value that corresponds to the tag key.
       // 
-      // > The tag value cannot exceed 128 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      // > The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -275,27 +275,23 @@ namespace Models
   protected:
     // The database endpoint.
     shared_ptr<string> connectionString_ {};
-    // The cluster description. Fuzzy search is supported.
+    // The cluster description. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
-    // The IDs of one or more clusters. Separate multiple IDs with a comma.
+    // The cluster ID. Separate multiple cluster IDs with commas (,).
     shared_ptr<string> DBClusterIds_ {};
-    // The cluster status. For more information, see [Cluster state table](https://help.aliyun.com/document_detail/99286.html).
+    // The cluster status. For valid values, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
     shared_ptr<string> DBClusterStatus_ {};
-    // The IDs of one or more nodes. Separate multiple IDs with a comma.
+    // The node ID. You can specify multiple node IDs, separated by commas (,).
     shared_ptr<string> DBNodeIds_ {};
-    // The database engine. Valid values:
-    // 
-    // - **MySQL**
-    // 
-    // - **PostgreSQL**
-    // 
-    // - **Oracle**
+    // The database type. Valid values:
+    // * **MySQL**
+    // * **PostgreSQL**
+    // * **Oracle**
     shared_ptr<string> DBType_ {};
-    // The database version.
+    // The database engine version.
     shared_ptr<string> DBVersion_ {};
-    // The query mode. Set the value to Simple to return only the basic metadata of clusters.
-    // 
-    // > If you do not specify this parameter, the operation returns detailed information about the clusters.
+    // The query mode for the list. Set the value to Simple to use the simple mode, which returns only basic metadata of clusters.
+    // > If you do not specify this parameter, the detailed mode is used by default, which returns detailed information about clusters.
     shared_ptr<string> describeType_ {};
     // Specifies whether the cluster has expired. Valid values:
     // 
@@ -305,25 +301,23 @@ namespace Models
     shared_ptr<bool> expired_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be an integer that is greater than 0. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
-    // 
+    // The number of entries per page. Valid values: **30**, **50**, and **100**.
+    //                               
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The billing method. Valid values:
+    // The billing method. Valid values: 
     // 
-    // - **Postpaid**: pay-as-you-go
-    // 
-    // - **Prepaid**: subscription
+    // - **Postpaid**: pay-as-you-go.
+    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
-    // Filters the query to return only clusters created within the specified number of days. Valid values: 0 to 15.
+    // Filters clusters created within the last N days. Valid values: 0 to 15.
     shared_ptr<int32_t> recentCreationInterval_ {};
-    // Filters the query to return only clusters that will expire within the specified number of days. Valid values: 0 to 15.
+    // Filters clusters that expire within the next N days. Valid values: 0 to 15.
     shared_ptr<int32_t> recentExpirationInterval_ {};
     // The region ID.
-    // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -331,7 +325,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags used to filter clusters.
+    // The tags.
     shared_ptr<vector<DescribeDBClustersRequest::Tag>> tag_ {};
   };
 

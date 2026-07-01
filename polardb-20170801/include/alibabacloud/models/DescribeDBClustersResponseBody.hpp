@@ -62,6 +62,8 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const DBCluster& obj) { 
           DARABONBA_PTR_TO_JSON(AiType, aiType_);
           DARABONBA_PTR_TO_JSON(Category, category_);
+          DARABONBA_PTR_TO_JSON(ConnectionResourceQuota, connectionResourceQuota_);
+          DARABONBA_PTR_TO_JSON(ConnectionResourceUsed, connectionResourceUsed_);
           DARABONBA_PTR_TO_JSON(CpuCores, cpuCores_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
@@ -100,6 +102,8 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, DBCluster& obj) { 
           DARABONBA_PTR_FROM_JSON(AiType, aiType_);
           DARABONBA_PTR_FROM_JSON(Category, category_);
+          DARABONBA_PTR_FROM_JSON(ConnectionResourceQuota, connectionResourceQuota_);
+          DARABONBA_PTR_FROM_JSON(ConnectionResourceUsed, connectionResourceUsed_);
           DARABONBA_PTR_FROM_JSON(CpuCores, cpuCores_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
@@ -358,13 +362,14 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->aiType_ == nullptr
-        && this->category_ == nullptr && this->cpuCores_ == nullptr && this->createTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr
-        && this->DBClusterNetworkType_ == nullptr && this->DBClusterStatus_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeNumber_ == nullptr && this->DBNodes_ == nullptr
-        && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->deletionLock_ == nullptr && this->engine_ == nullptr && this->expireTime_ == nullptr
-        && this->expired_ == nullptr && this->hotStandbyCluster_ == nullptr && this->lockMode_ == nullptr && this->memorySize_ == nullptr && this->payType_ == nullptr
-        && this->regionId_ == nullptr && this->remoteMemorySize_ == nullptr && this->resourceGroupId_ == nullptr && this->searchStorageUsed_ == nullptr && this->serverlessType_ == nullptr
-        && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->strictConsistency_ == nullptr
-        && this->subCategory_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->category_ == nullptr && this->connectionResourceQuota_ == nullptr && this->connectionResourceUsed_ == nullptr && this->cpuCores_ == nullptr && this->createTime_ == nullptr
+        && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterNetworkType_ == nullptr && this->DBClusterStatus_ == nullptr && this->DBNodeClass_ == nullptr
+        && this->DBNodeNumber_ == nullptr && this->DBNodes_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->deletionLock_ == nullptr
+        && this->engine_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->hotStandbyCluster_ == nullptr && this->lockMode_ == nullptr
+        && this->memorySize_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->remoteMemorySize_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->searchStorageUsed_ == nullptr && this->serverlessType_ == nullptr && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr
+        && this->storageUsed_ == nullptr && this->strictConsistency_ == nullptr && this->subCategory_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchId_ == nullptr && this->zoneId_ == nullptr; };
         // aiType Field Functions 
         bool hasAiType() const { return this->aiType_ != nullptr;};
         void deleteAiType() { this->aiType_ = nullptr;};
@@ -377,6 +382,20 @@ namespace Models
         void deleteCategory() { this->category_ = nullptr;};
         inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
         inline DBCluster& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+        // connectionResourceQuota Field Functions 
+        bool hasConnectionResourceQuota() const { return this->connectionResourceQuota_ != nullptr;};
+        void deleteConnectionResourceQuota() { this->connectionResourceQuota_ = nullptr;};
+        inline int64_t getConnectionResourceQuota() const { DARABONBA_PTR_GET_DEFAULT(connectionResourceQuota_, 0L) };
+        inline DBCluster& setConnectionResourceQuota(int64_t connectionResourceQuota) { DARABONBA_PTR_SET_VALUE(connectionResourceQuota_, connectionResourceQuota) };
+
+
+        // connectionResourceUsed Field Functions 
+        bool hasConnectionResourceUsed() const { return this->connectionResourceUsed_ != nullptr;};
+        void deleteConnectionResourceUsed() { this->connectionResourceUsed_ = nullptr;};
+        inline int64_t getConnectionResourceUsed() const { DARABONBA_PTR_GET_DEFAULT(connectionResourceUsed_, 0L) };
+        inline DBCluster& setConnectionResourceUsed(int64_t connectionResourceUsed) { DARABONBA_PTR_SET_VALUE(connectionResourceUsed_, connectionResourceUsed) };
 
 
         // cpuCores Field Functions 
@@ -624,6 +643,8 @@ namespace Models
       protected:
         shared_ptr<string> aiType_ {};
         shared_ptr<string> category_ {};
+        shared_ptr<int64_t> connectionResourceQuota_ {};
+        shared_ptr<int64_t> connectionResourceUsed_ {};
         shared_ptr<string> cpuCores_ {};
         shared_ptr<string> createTime_ {};
         shared_ptr<string> DBClusterDescription_ {};
@@ -714,11 +735,10 @@ namespace Models
 
 
   protected:
-    // The details of the clusters.
     shared_ptr<DescribeDBClustersResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of clusters returned on the current page.
+    // The number of clusters on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

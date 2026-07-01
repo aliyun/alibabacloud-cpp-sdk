@@ -2481,6 +2481,192 @@ CreateActivationCodeResponse Client::createActivationCode(const CreateActivation
 }
 
 /**
+ * @summary Creates an AgenticDB branch.
+ *
+ * @param request CreateAgenticDBBranchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgenticDBBranchResponse
+ */
+CreateAgenticDBBranchResponse Client::createAgenticDBBranchWithOptions(const CreateAgenticDBBranchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchName()) {
+    query["BranchName"] = request.getBranchName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasParentBranchId()) {
+    query["ParentBranchId"] = request.getParentBranchId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAgenticDBBranch"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgenticDBBranchResponse>();
+}
+
+/**
+ * @summary Creates an AgenticDB branch.
+ *
+ * @param request CreateAgenticDBBranchRequest
+ * @return CreateAgenticDBBranchResponse
+ */
+CreateAgenticDBBranchResponse Client::createAgenticDBBranch(const CreateAgenticDBBranchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgenticDBBranchWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an AgenticDB project.
+ *
+ * @param request CreateAgenticDBProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgenticDBProjectResponse
+ */
+CreateAgenticDBProjectResponse Client::createAgenticDBProjectWithOptions(const CreateAgenticDBProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDefaultBranchName()) {
+    query["DefaultBranchName"] = request.getDefaultBranchName();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAgenticDBProject"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgenticDBProjectResponse>();
+}
+
+/**
+ * @summary Creates an AgenticDB project.
+ *
+ * @param request CreateAgenticDBProjectRequest
+ * @return CreateAgenticDBProjectResponse
+ */
+CreateAgenticDBProjectResponse Client::createAgenticDBProject(const CreateAgenticDBProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgenticDBProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建 AgenticDB 租户 API Key
+ *
+ * @param request CreateAgenticDBTenantApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgenticDBTenantApiKeyResponse
+ */
+CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKeyWithOptions(const CreateAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpireTime()) {
+    query["ExpireTime"] = request.getExpireTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantName()) {
+    query["TenantName"] = request.getTenantName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAgenticDBTenantApiKey"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgenticDBTenantApiKeyResponse>();
+}
+
+/**
+ * @summary 创建 AgenticDB 租户 API Key
+ *
+ * @param request CreateAgenticDBTenantApiKeyRequest
+ * @return CreateAgenticDBTenantApiKeyResponse
+ */
+CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKey(const CreateAgenticDBTenantApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgenticDBTenantApiKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an application attached to a PolarDB instance.
  *
  * @param tmpReq CreateApplicationRequest
@@ -3441,7 +3627,7 @@ CreateCronJobPolicyServerlessResponse Client::createCronJobPolicyServerless(cons
 }
 
 /**
- * @summary Creates a db cluster.
+ * @summary Creates a PolarDB cluster.
  *
  * @param request CreateDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3450,6 +3636,18 @@ CreateCronJobPolicyServerlessResponse Client::createCronJobPolicyServerless(cons
 CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgenticDbClusterDescription()) {
+    query["AgenticDbClusterDescription"] = request.getAgenticDbClusterDescription();
+  }
+
+  if (!!request.hasAgenticDbClusterId()) {
+    query["AgenticDbClusterId"] = request.getAgenticDbClusterId();
+  }
+
+  if (!!request.hasAgenticDbType()) {
+    query["AgenticDbType"] = request.getAgenticDbType();
+  }
+
   if (!!request.hasAllowShutDown()) {
     query["AllowShutDown"] = request.getAllowShutDown();
   }
@@ -3720,7 +3918,7 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
 }
 
 /**
- * @summary Creates a db cluster.
+ * @summary Creates a PolarDB cluster.
  *
  * @param request CreateDBClusterRequest
  * @return CreateDBClusterResponse
@@ -6110,6 +6308,222 @@ DeleteAccountZonalResponse Client::deleteAccountZonalWithOptions(const DeleteAcc
 DeleteAccountZonalResponse Client::deleteAccountZonal(const DeleteAccountZonalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAccountZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an AgenticDB branch.
+ *
+ * @param request DeleteAgenticDBBranchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgenticDBBranchResponse
+ */
+DeleteAgenticDBBranchResponse Client::deleteAgenticDBBranchWithOptions(const DeleteAgenticDBBranchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgenticDBBranch"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgenticDBBranchResponse>();
+}
+
+/**
+ * @summary Deletes an AgenticDB branch.
+ *
+ * @param request DeleteAgenticDBBranchRequest
+ * @return DeleteAgenticDBBranchResponse
+ */
+DeleteAgenticDBBranchResponse Client::deleteAgenticDBBranch(const DeleteAgenticDBBranchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgenticDBBranchWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an AgenticDB compute cluster.
+ *
+ * @param request DeleteAgenticDBComputeClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgenticDBComputeClusterResponse
+ */
+DeleteAgenticDBComputeClusterResponse Client::deleteAgenticDBComputeClusterWithOptions(const DeleteAgenticDBComputeClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComputeClusterId()) {
+    query["ComputeClusterId"] = request.getComputeClusterId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgenticDBComputeCluster"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgenticDBComputeClusterResponse>();
+}
+
+/**
+ * @summary Deletes an AgenticDB compute cluster.
+ *
+ * @param request DeleteAgenticDBComputeClusterRequest
+ * @return DeleteAgenticDBComputeClusterResponse
+ */
+DeleteAgenticDBComputeClusterResponse Client::deleteAgenticDBComputeCluster(const DeleteAgenticDBComputeClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgenticDBComputeClusterWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an AgenticDB project.
+ *
+ * @param request DeleteAgenticDBProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgenticDBProjectResponse
+ */
+DeleteAgenticDBProjectResponse Client::deleteAgenticDBProjectWithOptions(const DeleteAgenticDBProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgenticDBProject"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgenticDBProjectResponse>();
+}
+
+/**
+ * @summary Deletes an AgenticDB project.
+ *
+ * @param request DeleteAgenticDBProjectRequest
+ * @return DeleteAgenticDBProjectResponse
+ */
+DeleteAgenticDBProjectResponse Client::deleteAgenticDBProject(const DeleteAgenticDBProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgenticDBProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an API key for an AgenticDB tenant.
+ *
+ * @param request DeleteAgenticDBTenantApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgenticDBTenantApiKeyResponse
+ */
+DeleteAgenticDBTenantApiKeyResponse Client::deleteAgenticDBTenantApiKeyWithOptions(const DeleteAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["ApiKeyId"] = request.getApiKeyId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgenticDBTenantApiKey"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgenticDBTenantApiKeyResponse>();
+}
+
+/**
+ * @summary Deletes an API key for an AgenticDB tenant.
+ *
+ * @param request DeleteAgenticDBTenantApiKeyRequest
+ * @return DeleteAgenticDBTenantApiKeyResponse
+ */
+DeleteAgenticDBTenantApiKeyResponse Client::deleteAgenticDBTenantApiKey(const DeleteAgenticDBTenantApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgenticDBTenantApiKeyWithOptions(request, runtime);
 }
 
 /**
@@ -9349,6 +9763,588 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasks(const 
 }
 
 /**
+ * @summary Queries the details of an AgenticDB branch.
+ *
+ * @param request DescribeAgenticDBBranchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBBranchResponse
+ */
+DescribeAgenticDBBranchResponse Client::describeAgenticDBBranchWithOptions(const DescribeAgenticDBBranchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBBranch"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBBranchResponse>();
+}
+
+/**
+ * @summary Queries the details of an AgenticDB branch.
+ *
+ * @param request DescribeAgenticDBBranchRequest
+ * @return DescribeAgenticDBBranchResponse
+ */
+DescribeAgenticDBBranchResponse Client::describeAgenticDBBranch(const DescribeAgenticDBBranchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBBranchWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the connection information of an AgenticDB branch.
+ *
+ * @param request DescribeAgenticDBBranchEndpointsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBBranchEndpointsResponse
+ */
+DescribeAgenticDBBranchEndpointsResponse Client::describeAgenticDBBranchEndpointsWithOptions(const DescribeAgenticDBBranchEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBBranchEndpoints"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBBranchEndpointsResponse>();
+}
+
+/**
+ * @summary Queries the connection information of an AgenticDB branch.
+ *
+ * @param request DescribeAgenticDBBranchEndpointsRequest
+ * @return DescribeAgenticDBBranchEndpointsResponse
+ */
+DescribeAgenticDBBranchEndpointsResponse Client::describeAgenticDBBranchEndpoints(const DescribeAgenticDBBranchEndpointsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBBranchEndpointsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the branch lineage of an AgenticDB cluster.
+ *
+ * @param request DescribeAgenticDBBranchLineageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBBranchLineageResponse
+ */
+DescribeAgenticDBBranchLineageResponse Client::describeAgenticDBBranchLineageWithOptions(const DescribeAgenticDBBranchLineageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasIncludeDestroying()) {
+    query["IncludeDestroying"] = request.getIncludeDestroying();
+  }
+
+  if (!!request.hasMaxViewDepth()) {
+    query["MaxViewDepth"] = request.getMaxViewDepth();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBBranchLineage"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBBranchLineageResponse>();
+}
+
+/**
+ * @summary Queries the branch lineage of an AgenticDB cluster.
+ *
+ * @param request DescribeAgenticDBBranchLineageRequest
+ * @return DescribeAgenticDBBranchLineageResponse
+ */
+DescribeAgenticDBBranchLineageResponse Client::describeAgenticDBBranchLineage(const DescribeAgenticDBBranchLineageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBBranchLineageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of AgenticDB branches.
+ *
+ * @param request DescribeAgenticDBBranchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBBranchesResponse
+ */
+DescribeAgenticDBBranchesResponse Client::describeAgenticDBBranchesWithOptions(const DescribeAgenticDBBranchesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchName()) {
+    query["BranchName"] = request.getBranchName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBBranches"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBBranchesResponse>();
+}
+
+/**
+ * @summary Queries the list of AgenticDB branches.
+ *
+ * @param request DescribeAgenticDBBranchesRequest
+ * @return DescribeAgenticDBBranchesResponse
+ */
+DescribeAgenticDBBranchesResponse Client::describeAgenticDBBranches(const DescribeAgenticDBBranchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBBranchesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of Agentic Database clusters.
+ *
+ * @description ## Operation description
+ * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+ * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+ *
+ * @param request DescribeAgenticDBClustersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBClustersResponse
+ */
+DescribeAgenticDBClustersResponse Client::describeAgenticDBClustersWithOptions(const DescribeAgenticDBClustersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgenticDbClusterIds()) {
+    query["AgenticDbClusterIds"] = request.getAgenticDbClusterIds();
+  }
+
+  if (!!request.hasDBClusterDescription()) {
+    query["DBClusterDescription"] = request.getDBClusterDescription();
+  }
+
+  if (!!request.hasDBClusterIds()) {
+    query["DBClusterIds"] = request.getDBClusterIds();
+  }
+
+  if (!!request.hasDBClusterStatus()) {
+    query["DBClusterStatus"] = request.getDBClusterStatus();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBClusters"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBClustersResponse>();
+}
+
+/**
+ * @summary Queries the list of Agentic Database clusters.
+ *
+ * @description ## Operation description
+ * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+ * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+ *
+ * @param request DescribeAgenticDBClustersRequest
+ * @return DescribeAgenticDBClustersResponse
+ */
+DescribeAgenticDBClustersResponse Client::describeAgenticDBClusters(const DescribeAgenticDBClustersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBClustersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询 AgenticDB 计算实例列表
+ *
+ * @param request DescribeAgenticDBComputeClustersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBComputeClustersResponse
+ */
+DescribeAgenticDBComputeClustersResponse Client::describeAgenticDBComputeClustersWithOptions(const DescribeAgenticDBComputeClustersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComputeClusterId()) {
+    query["ComputeClusterId"] = request.getComputeClusterId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBComputeClusters"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBComputeClustersResponse>();
+}
+
+/**
+ * @summary 查询 AgenticDB 计算实例列表
+ *
+ * @param request DescribeAgenticDBComputeClustersRequest
+ * @return DescribeAgenticDBComputeClustersResponse
+ */
+DescribeAgenticDBComputeClustersResponse Client::describeAgenticDBComputeClusters(const DescribeAgenticDBComputeClustersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBComputeClustersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询 AgenticDB 项目详情
+ *
+ * @param request DescribeAgenticDBProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBProjectResponse
+ */
+DescribeAgenticDBProjectResponse Client::describeAgenticDBProjectWithOptions(const DescribeAgenticDBProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBProject"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBProjectResponse>();
+}
+
+/**
+ * @summary 查询 AgenticDB 项目详情
+ *
+ * @param request DescribeAgenticDBProjectRequest
+ * @return DescribeAgenticDBProjectResponse
+ */
+DescribeAgenticDBProjectResponse Client::describeAgenticDBProject(const DescribeAgenticDBProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询 AgenticDB 项目列表
+ *
+ * @param request DescribeAgenticDBProjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBProjectsResponse
+ */
+DescribeAgenticDBProjectsResponse Client::describeAgenticDBProjectsWithOptions(const DescribeAgenticDBProjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBProjects"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBProjectsResponse>();
+}
+
+/**
+ * @summary 查询 AgenticDB 项目列表
+ *
+ * @param request DescribeAgenticDBProjectsRequest
+ * @return DescribeAgenticDBProjectsResponse
+ */
+DescribeAgenticDBProjectsResponse Client::describeAgenticDBProjects(const DescribeAgenticDBProjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of API keys for an AgenticDB tenant.
+ *
+ * @param request DescribeAgenticDBTenantApiKeysRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBTenantApiKeysResponse
+ */
+DescribeAgenticDBTenantApiKeysResponse Client::describeAgenticDBTenantApiKeysWithOptions(const DescribeAgenticDBTenantApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantName()) {
+    query["TenantName"] = request.getTenantName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBTenantApiKeys"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBTenantApiKeysResponse>();
+}
+
+/**
+ * @summary Queries the list of API keys for an AgenticDB tenant.
+ *
+ * @param request DescribeAgenticDBTenantApiKeysRequest
+ * @return DescribeAgenticDBTenantApiKeysResponse
+ */
+DescribeAgenticDBTenantApiKeysResponse Client::describeAgenticDBTenantApiKeys(const DescribeAgenticDBTenantApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBTenantApiKeysWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a specified API key.
  *
  * @param request DescribeApikeyAttributeRequest
@@ -11237,7 +12233,7 @@ DescribeDBClusterAccessWhitelistResponse Client::describeDBClusterAccessWhitelis
 }
 
 /**
- * @summary Queries the attributes of a specified cluster.
+ * @summary Queries the attribute information of a cluster.
  *
  * @param request DescribeDBClusterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11288,7 +12284,7 @@ DescribeDBClusterAttributeResponse Client::describeDBClusterAttributeWithOptions
 }
 
 /**
- * @summary Queries the attributes of a specified cluster.
+ * @summary Queries the attribute information of a cluster.
  *
  * @param request DescribeDBClusterAttributeRequest
  * @return DescribeDBClusterAttributeResponse
@@ -12403,7 +13399,7 @@ DescribeDBClusterVersionZonalResponse Client::describeDBClusterVersionZonal(cons
 }
 
 /**
- * @summary Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+ * @summary Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
  *
  * @param request DescribeDBClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12514,7 +13510,7 @@ DescribeDBClustersResponse Client::describeDBClustersWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+ * @summary Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
  *
  * @param request DescribeDBClustersRequest
  * @return DescribeDBClustersResponse
@@ -21502,7 +22498,7 @@ ModifyCronJobPolicyServerlessResponse Client::modifyCronJobPolicyServerless(cons
 }
 
 /**
- * @summary Modify the feature configuration of a PolarDB MySQL cluster.
+ * @summary Modifies the feature configurations of a PolarDB for MySQL cluster.
  *
  * @param request ModifyDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21513,6 +22509,10 @@ ModifyDBClusterResponse Client::modifyDBClusterWithOptions(const ModifyDBCluster
   json query = {};
   if (!!request.hasCompressStorage()) {
     query["CompressStorage"] = request.getCompressStorage();
+  }
+
+  if (!!request.hasConnectionResourceQuota()) {
+    query["ConnectionResourceQuota"] = request.getConnectionResourceQuota();
   }
 
   if (!!request.hasDBClusterId()) {
@@ -21593,7 +22593,7 @@ ModifyDBClusterResponse Client::modifyDBClusterWithOptions(const ModifyDBCluster
 }
 
 /**
- * @summary Modify the feature configuration of a PolarDB MySQL cluster.
+ * @summary Modifies the feature configurations of a PolarDB for MySQL cluster.
  *
  * @param request ModifyDBClusterRequest
  * @return ModifyDBClusterResponse
@@ -26062,6 +27062,60 @@ ResetAccountZonalResponse Client::resetAccountZonal(const ResetAccountZonalReque
 }
 
 /**
+ * @summary Resets the API key of an AgenticDB tenant.
+ *
+ * @param request ResetAgenticDBTenantApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetAgenticDBTenantApiKeyResponse
+ */
+ResetAgenticDBTenantApiKeyResponse Client::resetAgenticDBTenantApiKeyWithOptions(const ResetAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["ApiKeyId"] = request.getApiKeyId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetAgenticDBTenantApiKey"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetAgenticDBTenantApiKeyResponse>();
+}
+
+/**
+ * @summary Resets the API key of an AgenticDB tenant.
+ *
+ * @param request ResetAgenticDBTenantApiKeyRequest
+ * @return ResetAgenticDBTenantApiKeyResponse
+ */
+ResetAgenticDBTenantApiKeyResponse Client::resetAgenticDBTenantApiKey(const ResetAgenticDBTenantApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetAgenticDBTenantApiKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Resets an api key.
  *
  * @param request ResetConsumerApiKeyRequest
@@ -28241,6 +29295,52 @@ UpgradePolarClawSkillsResponse Client::upgradePolarClawSkillsWithOptions(const U
 UpgradePolarClawSkillsResponse Client::upgradePolarClawSkills(const UpgradePolarClawSkillsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradePolarClawSkillsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 校验 AgenticDB 租户 API Key
+ *
+ * @param request VerifyAgenticDBTenantApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyAgenticDBTenantApiKeyResponse
+ */
+VerifyAgenticDBTenantApiKeyResponse Client::verifyAgenticDBTenantApiKeyWithOptions(const VerifyAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyAgenticDBTenantApiKey"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyAgenticDBTenantApiKeyResponse>();
+}
+
+/**
+ * @summary 校验 AgenticDB 租户 API Key
+ *
+ * @param request VerifyAgenticDBTenantApiKeyRequest
+ * @return VerifyAgenticDBTenantApiKeyResponse
+ */
+VerifyAgenticDBTenantApiKeyResponse Client::verifyAgenticDBTenantApiKey(const VerifyAgenticDBTenantApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return verifyAgenticDBTenantApiKeyWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Polardb20170801

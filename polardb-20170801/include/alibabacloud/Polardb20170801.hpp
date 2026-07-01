@@ -687,6 +687,57 @@ namespace Polardb20170801
       Models::CreateActivationCodeResponse createActivationCode(const Models::CreateActivationCodeRequest &request);
 
       /**
+       * @summary Creates an AgenticDB branch.
+       *
+       * @param request CreateAgenticDBBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgenticDBBranchResponse
+       */
+      Models::CreateAgenticDBBranchResponse createAgenticDBBranchWithOptions(const Models::CreateAgenticDBBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an AgenticDB branch.
+       *
+       * @param request CreateAgenticDBBranchRequest
+       * @return CreateAgenticDBBranchResponse
+       */
+      Models::CreateAgenticDBBranchResponse createAgenticDBBranch(const Models::CreateAgenticDBBranchRequest &request);
+
+      /**
+       * @summary Creates an AgenticDB project.
+       *
+       * @param request CreateAgenticDBProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgenticDBProjectResponse
+       */
+      Models::CreateAgenticDBProjectResponse createAgenticDBProjectWithOptions(const Models::CreateAgenticDBProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an AgenticDB project.
+       *
+       * @param request CreateAgenticDBProjectRequest
+       * @return CreateAgenticDBProjectResponse
+       */
+      Models::CreateAgenticDBProjectResponse createAgenticDBProject(const Models::CreateAgenticDBProjectRequest &request);
+
+      /**
+       * @summary 创建 AgenticDB 租户 API Key
+       *
+       * @param request CreateAgenticDBTenantApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgenticDBTenantApiKeyResponse
+       */
+      Models::CreateAgenticDBTenantApiKeyResponse createAgenticDBTenantApiKeyWithOptions(const Models::CreateAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 AgenticDB 租户 API Key
+       *
+       * @param request CreateAgenticDBTenantApiKeyRequest
+       * @return CreateAgenticDBTenantApiKeyResponse
+       */
+      Models::CreateAgenticDBTenantApiKeyResponse createAgenticDBTenantApiKey(const Models::CreateAgenticDBTenantApiKeyRequest &request);
+
+      /**
        * @summary Creates an application attached to a PolarDB instance.
        *
        * @param tmpReq CreateApplicationRequest
@@ -903,7 +954,7 @@ namespace Polardb20170801
       Models::CreateCronJobPolicyServerlessResponse createCronJobPolicyServerless(const Models::CreateCronJobPolicyServerlessRequest &request);
 
       /**
-       * @summary Creates a db cluster.
+       * @summary Creates a PolarDB cluster.
        *
        * @param request CreateDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -912,7 +963,7 @@ namespace Polardb20170801
       Models::CreateDBClusterResponse createDBClusterWithOptions(const Models::CreateDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a db cluster.
+       * @summary Creates a PolarDB cluster.
        *
        * @param request CreateDBClusterRequest
        * @return CreateDBClusterResponse
@@ -1502,6 +1553,74 @@ namespace Polardb20170801
        * @return DeleteAccountZonalResponse
        */
       Models::DeleteAccountZonalResponse deleteAccountZonal(const Models::DeleteAccountZonalRequest &request);
+
+      /**
+       * @summary Deletes an AgenticDB branch.
+       *
+       * @param request DeleteAgenticDBBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgenticDBBranchResponse
+       */
+      Models::DeleteAgenticDBBranchResponse deleteAgenticDBBranchWithOptions(const Models::DeleteAgenticDBBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an AgenticDB branch.
+       *
+       * @param request DeleteAgenticDBBranchRequest
+       * @return DeleteAgenticDBBranchResponse
+       */
+      Models::DeleteAgenticDBBranchResponse deleteAgenticDBBranch(const Models::DeleteAgenticDBBranchRequest &request);
+
+      /**
+       * @summary Deletes an AgenticDB compute cluster.
+       *
+       * @param request DeleteAgenticDBComputeClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgenticDBComputeClusterResponse
+       */
+      Models::DeleteAgenticDBComputeClusterResponse deleteAgenticDBComputeClusterWithOptions(const Models::DeleteAgenticDBComputeClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an AgenticDB compute cluster.
+       *
+       * @param request DeleteAgenticDBComputeClusterRequest
+       * @return DeleteAgenticDBComputeClusterResponse
+       */
+      Models::DeleteAgenticDBComputeClusterResponse deleteAgenticDBComputeCluster(const Models::DeleteAgenticDBComputeClusterRequest &request);
+
+      /**
+       * @summary Deletes an AgenticDB project.
+       *
+       * @param request DeleteAgenticDBProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgenticDBProjectResponse
+       */
+      Models::DeleteAgenticDBProjectResponse deleteAgenticDBProjectWithOptions(const Models::DeleteAgenticDBProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an AgenticDB project.
+       *
+       * @param request DeleteAgenticDBProjectRequest
+       * @return DeleteAgenticDBProjectResponse
+       */
+      Models::DeleteAgenticDBProjectResponse deleteAgenticDBProject(const Models::DeleteAgenticDBProjectRequest &request);
+
+      /**
+       * @summary Deletes an API key for an AgenticDB tenant.
+       *
+       * @param request DeleteAgenticDBTenantApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgenticDBTenantApiKeyResponse
+       */
+      Models::DeleteAgenticDBTenantApiKeyResponse deleteAgenticDBTenantApiKeyWithOptions(const Models::DeleteAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an API key for an AgenticDB tenant.
+       *
+       * @param request DeleteAgenticDBTenantApiKeyRequest
+       * @return DeleteAgenticDBTenantApiKeyResponse
+       */
+      Models::DeleteAgenticDBTenantApiKeyResponse deleteAgenticDBTenantApiKey(const Models::DeleteAgenticDBTenantApiKeyRequest &request);
 
       /**
        * @summary Deletes the specified PolarDB application. This operation does not delete the associated PolarDB instance.
@@ -2475,6 +2594,167 @@ namespace Polardb20170801
       Models::DescribeActiveOperationTasksResponse describeActiveOperationTasks(const Models::DescribeActiveOperationTasksRequest &request);
 
       /**
+       * @summary Queries the details of an AgenticDB branch.
+       *
+       * @param request DescribeAgenticDBBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBBranchResponse
+       */
+      Models::DescribeAgenticDBBranchResponse describeAgenticDBBranchWithOptions(const Models::DescribeAgenticDBBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an AgenticDB branch.
+       *
+       * @param request DescribeAgenticDBBranchRequest
+       * @return DescribeAgenticDBBranchResponse
+       */
+      Models::DescribeAgenticDBBranchResponse describeAgenticDBBranch(const Models::DescribeAgenticDBBranchRequest &request);
+
+      /**
+       * @summary Queries the connection information of an AgenticDB branch.
+       *
+       * @param request DescribeAgenticDBBranchEndpointsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBBranchEndpointsResponse
+       */
+      Models::DescribeAgenticDBBranchEndpointsResponse describeAgenticDBBranchEndpointsWithOptions(const Models::DescribeAgenticDBBranchEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the connection information of an AgenticDB branch.
+       *
+       * @param request DescribeAgenticDBBranchEndpointsRequest
+       * @return DescribeAgenticDBBranchEndpointsResponse
+       */
+      Models::DescribeAgenticDBBranchEndpointsResponse describeAgenticDBBranchEndpoints(const Models::DescribeAgenticDBBranchEndpointsRequest &request);
+
+      /**
+       * @summary Queries the branch lineage of an AgenticDB cluster.
+       *
+       * @param request DescribeAgenticDBBranchLineageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBBranchLineageResponse
+       */
+      Models::DescribeAgenticDBBranchLineageResponse describeAgenticDBBranchLineageWithOptions(const Models::DescribeAgenticDBBranchLineageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the branch lineage of an AgenticDB cluster.
+       *
+       * @param request DescribeAgenticDBBranchLineageRequest
+       * @return DescribeAgenticDBBranchLineageResponse
+       */
+      Models::DescribeAgenticDBBranchLineageResponse describeAgenticDBBranchLineage(const Models::DescribeAgenticDBBranchLineageRequest &request);
+
+      /**
+       * @summary Queries the list of AgenticDB branches.
+       *
+       * @param request DescribeAgenticDBBranchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBBranchesResponse
+       */
+      Models::DescribeAgenticDBBranchesResponse describeAgenticDBBranchesWithOptions(const Models::DescribeAgenticDBBranchesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of AgenticDB branches.
+       *
+       * @param request DescribeAgenticDBBranchesRequest
+       * @return DescribeAgenticDBBranchesResponse
+       */
+      Models::DescribeAgenticDBBranchesResponse describeAgenticDBBranches(const Models::DescribeAgenticDBBranchesRequest &request);
+
+      /**
+       * @summary Queries the list of Agentic Database clusters.
+       *
+       * @description ## Operation description
+       * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+       * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+       *
+       * @param request DescribeAgenticDBClustersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBClustersResponse
+       */
+      Models::DescribeAgenticDBClustersResponse describeAgenticDBClustersWithOptions(const Models::DescribeAgenticDBClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of Agentic Database clusters.
+       *
+       * @description ## Operation description
+       * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+       * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+       *
+       * @param request DescribeAgenticDBClustersRequest
+       * @return DescribeAgenticDBClustersResponse
+       */
+      Models::DescribeAgenticDBClustersResponse describeAgenticDBClusters(const Models::DescribeAgenticDBClustersRequest &request);
+
+      /**
+       * @summary 查询 AgenticDB 计算实例列表
+       *
+       * @param request DescribeAgenticDBComputeClustersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBComputeClustersResponse
+       */
+      Models::DescribeAgenticDBComputeClustersResponse describeAgenticDBComputeClustersWithOptions(const Models::DescribeAgenticDBComputeClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 AgenticDB 计算实例列表
+       *
+       * @param request DescribeAgenticDBComputeClustersRequest
+       * @return DescribeAgenticDBComputeClustersResponse
+       */
+      Models::DescribeAgenticDBComputeClustersResponse describeAgenticDBComputeClusters(const Models::DescribeAgenticDBComputeClustersRequest &request);
+
+      /**
+       * @summary 查询 AgenticDB 项目详情
+       *
+       * @param request DescribeAgenticDBProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBProjectResponse
+       */
+      Models::DescribeAgenticDBProjectResponse describeAgenticDBProjectWithOptions(const Models::DescribeAgenticDBProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 AgenticDB 项目详情
+       *
+       * @param request DescribeAgenticDBProjectRequest
+       * @return DescribeAgenticDBProjectResponse
+       */
+      Models::DescribeAgenticDBProjectResponse describeAgenticDBProject(const Models::DescribeAgenticDBProjectRequest &request);
+
+      /**
+       * @summary 查询 AgenticDB 项目列表
+       *
+       * @param request DescribeAgenticDBProjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBProjectsResponse
+       */
+      Models::DescribeAgenticDBProjectsResponse describeAgenticDBProjectsWithOptions(const Models::DescribeAgenticDBProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 AgenticDB 项目列表
+       *
+       * @param request DescribeAgenticDBProjectsRequest
+       * @return DescribeAgenticDBProjectsResponse
+       */
+      Models::DescribeAgenticDBProjectsResponse describeAgenticDBProjects(const Models::DescribeAgenticDBProjectsRequest &request);
+
+      /**
+       * @summary Queries the list of API keys for an AgenticDB tenant.
+       *
+       * @param request DescribeAgenticDBTenantApiKeysRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBTenantApiKeysResponse
+       */
+      Models::DescribeAgenticDBTenantApiKeysResponse describeAgenticDBTenantApiKeysWithOptions(const Models::DescribeAgenticDBTenantApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of API keys for an AgenticDB tenant.
+       *
+       * @param request DescribeAgenticDBTenantApiKeysRequest
+       * @return DescribeAgenticDBTenantApiKeysResponse
+       */
+      Models::DescribeAgenticDBTenantApiKeysResponse describeAgenticDBTenantApiKeys(const Models::DescribeAgenticDBTenantApiKeysRequest &request);
+
+      /**
        * @summary Queries the details of a specified API key.
        *
        * @param request DescribeApikeyAttributeRequest
@@ -2989,7 +3269,7 @@ namespace Polardb20170801
       Models::DescribeDBClusterAccessWhitelistResponse describeDBClusterAccessWhitelist(const Models::DescribeDBClusterAccessWhitelistRequest &request);
 
       /**
-       * @summary Queries the attributes of a specified cluster.
+       * @summary Queries the attribute information of a cluster.
        *
        * @param request DescribeDBClusterAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2998,7 +3278,7 @@ namespace Polardb20170801
       Models::DescribeDBClusterAttributeResponse describeDBClusterAttributeWithOptions(const Models::DescribeDBClusterAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attributes of a specified cluster.
+       * @summary Queries the attribute information of a cluster.
        *
        * @param request DescribeDBClusterAttributeRequest
        * @return DescribeDBClusterAttributeResponse
@@ -3341,7 +3621,7 @@ namespace Polardb20170801
       Models::DescribeDBClusterVersionZonalResponse describeDBClusterVersionZonal(const Models::DescribeDBClusterVersionZonalRequest &request);
 
       /**
-       * @summary Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+       * @summary Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
        *
        * @param request DescribeDBClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3350,7 +3630,7 @@ namespace Polardb20170801
       Models::DescribeDBClustersResponse describeDBClustersWithOptions(const Models::DescribeDBClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+       * @summary Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
        *
        * @param request DescribeDBClustersRequest
        * @return DescribeDBClustersResponse
@@ -5775,7 +6055,7 @@ namespace Polardb20170801
       Models::ModifyCronJobPolicyServerlessResponse modifyCronJobPolicyServerless(const Models::ModifyCronJobPolicyServerlessRequest &request);
 
       /**
-       * @summary Modify the feature configuration of a PolarDB MySQL cluster.
+       * @summary Modifies the feature configurations of a PolarDB for MySQL cluster.
        *
        * @param request ModifyDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5784,7 +6064,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterResponse modifyDBClusterWithOptions(const Models::ModifyDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the feature configuration of a PolarDB MySQL cluster.
+       * @summary Modifies the feature configurations of a PolarDB for MySQL cluster.
        *
        * @param request ModifyDBClusterRequest
        * @return ModifyDBClusterResponse
@@ -6918,6 +7198,23 @@ namespace Polardb20170801
       Models::ResetAccountZonalResponse resetAccountZonal(const Models::ResetAccountZonalRequest &request);
 
       /**
+       * @summary Resets the API key of an AgenticDB tenant.
+       *
+       * @param request ResetAgenticDBTenantApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetAgenticDBTenantApiKeyResponse
+       */
+      Models::ResetAgenticDBTenantApiKeyResponse resetAgenticDBTenantApiKeyWithOptions(const Models::ResetAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resets the API key of an AgenticDB tenant.
+       *
+       * @param request ResetAgenticDBTenantApiKeyRequest
+       * @return ResetAgenticDBTenantApiKeyResponse
+       */
+      Models::ResetAgenticDBTenantApiKeyResponse resetAgenticDBTenantApiKey(const Models::ResetAgenticDBTenantApiKeyRequest &request);
+
+      /**
        * @summary Resets an api key.
        *
        * @param request ResetConsumerApiKeyRequest
@@ -7473,6 +7770,23 @@ namespace Polardb20170801
        * @return UpgradePolarClawSkillsResponse
        */
       Models::UpgradePolarClawSkillsResponse upgradePolarClawSkills(const Models::UpgradePolarClawSkillsRequest &request);
+
+      /**
+       * @summary 校验 AgenticDB 租户 API Key
+       *
+       * @param request VerifyAgenticDBTenantApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VerifyAgenticDBTenantApiKeyResponse
+       */
+      Models::VerifyAgenticDBTenantApiKeyResponse verifyAgenticDBTenantApiKeyWithOptions(const Models::VerifyAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 校验 AgenticDB 租户 API Key
+       *
+       * @param request VerifyAgenticDBTenantApiKeyRequest
+       * @return VerifyAgenticDBTenantApiKeyResponse
+       */
+      Models::VerifyAgenticDBTenantApiKeyResponse verifyAgenticDBTenantApiKey(const Models::VerifyAgenticDBTenantApiKeyRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Polardb20170801

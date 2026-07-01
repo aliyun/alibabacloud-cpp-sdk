@@ -14,6 +14,9 @@ namespace Models
   class CreateDBClusterRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDBClusterRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgenticDbClusterDescription, agenticDbClusterDescription_);
+      DARABONBA_PTR_TO_JSON(AgenticDbClusterId, agenticDbClusterId_);
+      DARABONBA_PTR_TO_JSON(AgenticDbType, agenticDbType_);
       DARABONBA_PTR_TO_JSON(AllowShutDown, allowShutDown_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
@@ -79,6 +82,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDBClusterRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgenticDbClusterDescription, agenticDbClusterDescription_);
+      DARABONBA_PTR_FROM_JSON(AgenticDbClusterId, agenticDbClusterId_);
+      DARABONBA_PTR_FROM_JSON(AgenticDbType, agenticDbType_);
       DARABONBA_PTR_FROM_JSON(AllowShutDown, allowShutDown_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
@@ -192,30 +198,51 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key. To add multiple tags to the cluster at a time, click **Add** to add tag keys.
       // 
-      // > You can add up to 20 tags at a time. The Nth tag is a key-value pair, where `Tag.N.Key` is the key and `Tag.N.Value` is the value.
+      // > You can add up to 20 tag pairs at a time. `Tag.N.Key` corresponds to `Tag.N.Value`.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value. To add multiple tags to the cluster at a time, click **Add** to add tag values.
       // 
-      // > You can add up to 20 tags at a time. The Nth tag is a key-value pair, where `Tag.N.Key` is the key and `Tag.N.Value` is the value.
+      // > You can add up to 20 tag pairs at a time. `Tag.N.Value` corresponds to `Tag.N.Key`.
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->allowShutDown_ == nullptr
-        && this->architecture_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->backupRetentionPolicyOnClusterDeletion_ == nullptr && this->burstingEnabled_ == nullptr
-        && this->clientToken_ == nullptr && this->cloneDataPoint_ == nullptr && this->cloudProvider_ == nullptr && this->clusterNetworkType_ == nullptr && this->creationCategory_ == nullptr
-        && this->creationOption_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBMinorVersion_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeNum_ == nullptr
-        && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->defaultTimeZone_ == nullptr && this->ensRegionId_ == nullptr && this->GDNId_ == nullptr
-        && this->hotStandbyCluster_ == nullptr && this->loosePolarLogBin_ == nullptr && this->looseXEngine_ == nullptr && this->looseXEngineUseMemoryPct_ == nullptr && this->lowerCaseTableNames_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parameterGroupId_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
-        && this->promotionCode_ == nullptr && this->provisionedIops_ == nullptr && this->proxyClass_ == nullptr && this->proxyType_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr
-        && this->scaleRoNumMax_ == nullptr && this->scaleRoNumMin_ == nullptr && this->securityIPList_ == nullptr && this->serverlessType_ == nullptr && this->sourceResourceId_ == nullptr
-        && this->sourceUid_ == nullptr && this->standbyAZ_ == nullptr && this->storageAutoScale_ == nullptr && this->storageEncryption_ == nullptr && this->storageEncryptionKey_ == nullptr
-        && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUpperBound_ == nullptr && this->strictConsistency_ == nullptr
-        && this->TDEStatus_ == nullptr && this->tag_ == nullptr && this->targetMinorVersion_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr
-        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->agenticDbClusterDescription_ == nullptr
+        && this->agenticDbClusterId_ == nullptr && this->agenticDbType_ == nullptr && this->allowShutDown_ == nullptr && this->architecture_ == nullptr && this->autoRenew_ == nullptr
+        && this->autoUseCoupon_ == nullptr && this->backupRetentionPolicyOnClusterDeletion_ == nullptr && this->burstingEnabled_ == nullptr && this->clientToken_ == nullptr && this->cloneDataPoint_ == nullptr
+        && this->cloudProvider_ == nullptr && this->clusterNetworkType_ == nullptr && this->creationCategory_ == nullptr && this->creationOption_ == nullptr && this->DBClusterDescription_ == nullptr
+        && this->DBMinorVersion_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeNum_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr
+        && this->defaultTimeZone_ == nullptr && this->ensRegionId_ == nullptr && this->GDNId_ == nullptr && this->hotStandbyCluster_ == nullptr && this->loosePolarLogBin_ == nullptr
+        && this->looseXEngine_ == nullptr && this->looseXEngineUseMemoryPct_ == nullptr && this->lowerCaseTableNames_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->parameterGroupId_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->promotionCode_ == nullptr && this->provisionedIops_ == nullptr
+        && this->proxyClass_ == nullptr && this->proxyType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->scaleRoNumMax_ == nullptr && this->scaleRoNumMin_ == nullptr
+        && this->securityIPList_ == nullptr && this->serverlessType_ == nullptr && this->sourceResourceId_ == nullptr && this->sourceUid_ == nullptr && this->standbyAZ_ == nullptr
+        && this->storageAutoScale_ == nullptr && this->storageEncryption_ == nullptr && this->storageEncryptionKey_ == nullptr && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr
+        && this->storageType_ == nullptr && this->storageUpperBound_ == nullptr && this->strictConsistency_ == nullptr && this->TDEStatus_ == nullptr && this->tag_ == nullptr
+        && this->targetMinorVersion_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+    // agenticDbClusterDescription Field Functions 
+    bool hasAgenticDbClusterDescription() const { return this->agenticDbClusterDescription_ != nullptr;};
+    void deleteAgenticDbClusterDescription() { this->agenticDbClusterDescription_ = nullptr;};
+    inline string getAgenticDbClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(agenticDbClusterDescription_, "") };
+    inline CreateDBClusterRequest& setAgenticDbClusterDescription(string agenticDbClusterDescription) { DARABONBA_PTR_SET_VALUE(agenticDbClusterDescription_, agenticDbClusterDescription) };
+
+
+    // agenticDbClusterId Field Functions 
+    bool hasAgenticDbClusterId() const { return this->agenticDbClusterId_ != nullptr;};
+    void deleteAgenticDbClusterId() { this->agenticDbClusterId_ = nullptr;};
+    inline string getAgenticDbClusterId() const { DARABONBA_PTR_GET_DEFAULT(agenticDbClusterId_, "") };
+    inline CreateDBClusterRequest& setAgenticDbClusterId(string agenticDbClusterId) { DARABONBA_PTR_SET_VALUE(agenticDbClusterId_, agenticDbClusterId) };
+
+
+    // agenticDbType Field Functions 
+    bool hasAgenticDbType() const { return this->agenticDbType_ != nullptr;};
+    void deleteAgenticDbType() { this->agenticDbType_ = nullptr;};
+    inline string getAgenticDbType() const { DARABONBA_PTR_GET_DEFAULT(agenticDbType_, "") };
+    inline CreateDBClusterRequest& setAgenticDbType(string agenticDbType) { DARABONBA_PTR_SET_VALUE(agenticDbType_, agenticDbType) };
+
+
     // allowShutDown Field Functions 
     bool hasAllowShutDown() const { return this->allowShutDown_ != nullptr;};
     void deleteAllowShutDown() { this->allowShutDown_ = nullptr;};
@@ -660,333 +687,249 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable pause on inactivity. Valid values:
+    shared_ptr<string> agenticDbClusterDescription_ {};
+    shared_ptr<string> agenticDbClusterId_ {};
+    shared_ptr<string> agenticDbType_ {};
+    // Specifies whether to enable No-activity Suspension. Valid values:
     // 
-    // - **true**: enables pause on inactivity.
+    // - **true**: Enabled.
     // 
-    // - **false** (default): disables pause on inactivity.
-    // 
-    // > This parameter is supported only for serverless clusters.
+    // - **false**: Disabled. This is the default value.
+    // > Only serverless clusters support this parameter.
     shared_ptr<string> allowShutDown_ {};
     // The CPU architecture. Valid values:
-    // 
     // - X86
-    // 
     // - ARM
     shared_ptr<string> architecture_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // - **true**: enables auto-renewal.
-    // 
-    // - **false**: disables auto-renewal.
+    // - **true**: Auto-renewal is enabled.
+    // - **false**: Auto-renewal is disabled.
     // 
     // Default value: **false**.
     // 
     // > This parameter takes effect only when **PayType** is set to **Prepaid**.
     shared_ptr<bool> autoRenew_ {};
-    // Specifies whether to automatically use a coupon. Valid values:
-    // 
-    // - true (default): Automatically uses a coupon.
-    // 
-    // - false: does not use a coupon.
+    // Specifies whether to automatically use coupons. Valid values:
+    // * true (default): Coupons are used.
+    // * false: Coupons are not used.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The backup retention policy to apply when the cluster is deleted. Valid values:
+    // The data retention policy applied when the cluster is deleted. Valid values:
+    // * **ALL**: All backups are retained for long-term retention (LTR).
+    // * **LATEST**: The last backup is retained for long-term retention (LTR). An automatic backup is performed before deletion.
+    // * **NONE**: No backups are retained when the cluster is deleted.
     // 
-    // - **ALL**: retains all backup sets.
-    // 
-    // - **LATEST**: retains only the last backup set. An automatic backup is performed before the cluster is deleted.
-    // 
-    // - **NONE**: does not retain backup sets.
-    // 
-    // Default value: **NONE**.
-    // 
-    // > - This parameter is valid only if **DBType** is set to **MySQL**.
-    // >
-    // > - Serverless clusters do not support this parameter.
+    // Default value: **NONE**, which means no backups are retained when the cluster is deleted.
+    // >* This parameter takes effect only when **DBType** is set to **MySQL**.
+    // >* Serverless clusters do not support this parameter.
     shared_ptr<string> backupRetentionPolicyOnClusterDeletion_ {};
-    // Specifies whether to enable the performance burst feature for the ESSD AutoPL cloud disk. Valid values:
+    // Specifies whether to enable I/O performance burst for the ESSD AutoPL cloud disk. Valid values:
     // 
-    // - **true**: enables the performance burst feature.
+    // - **true**: Enabled.
+    // - **false**: Disabled. This is the default value.
     // 
-    // - **false** (default): disables the performance burst feature.
-    // 
-    // > This parameter is supported only when **StorageType** is set to ESSDAUTOPL.
+    // > This parameter is supported only when StorageType is set to ESSDAUTOPL.
     shared_ptr<string> burstingEnabled_ {};
-    // A client-generated token that ensures the idempotence of the request. This token must be unique across all requests and is case-sensitive. It can contain up to 64 ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. The value is generated by the client and must be unique among different requests. It is case-sensitive and cannot exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
-    // The point in time for the clone. Valid values:
+    // The point in time at which data is cloned. Valid values: 
     // 
-    // - **LATEST**: The latest point in time.
+    // -  **LATEST**: The latest point in time.
+    // - **BackupID**: A historical backup set ID. Specify the actual backup set ID.
+    // - **Timestamp**: A historical point in time. Specify the actual time in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
     // 
-    // - **BackupID**: The ID of a historical backup set.
+    //  Default value: **LATEST**.
     // 
-    // - **Timestamp**: A specific point in time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
-    // 
-    // Default value: **LATEST**.
-    // 
-    // > If you set **CreationOption** to **CloneFromRDS**, you can set this parameter only to **LATEST**.
+    // > If **CreationOption** is set to **CloneFromRDS**, this parameter can only be set to **LATEST**.
     shared_ptr<string> cloneDataPoint_ {};
     // The cloud service provider of the instance.
     shared_ptr<string> cloudProvider_ {};
-    // The network type of the cluster. Only **VPC** is supported.
+    // The network type of the cluster. Only Virtual Private Cloud (VPC) is supported. Set the value to **VPC**.
     shared_ptr<string> clusterNetworkType_ {};
     // The edition of the cluster. Valid values:
+    // * **Normal**: Cluster Edition. This is the default value.
+    // * **Basic**: Single Node Edition.
+    // * **ArchiveNormal**: X-Engine Edition.
+    // * **NormalMultimaster**: Multi-master Cluster Edition.
+    // * **SENormal**: Standard Edition.
     // 
-    // - **Normal**: Cluster Edition (default)
+    // > * **MySQL** **5.6**, **5.7**, **8.0**, **PostgreSQL** **14**, and **Oracle syntax-compatible 2.0** support **Basic**.
+    // > * **MySQL** **8.0** supports **ArchiveNormal** and **NormalMultimaster**.
+    // > * **MySQL** **5.6**, **5.7**, **8.0**, and **PostgreSQL** **14** support **SENormal**.
     // 
-    // - **Basic**: Single-node Edition
-    // 
-    // - **ArchiveNormal**: X-Engine Edition
-    // 
-    // - **NormalMultimaster**: Multi-master Cluster Edition
-    // 
-    // - **SENormal**: Standard Edition
-    // 
-    // > * The **Basic** edition is supported for PolarDB for MySQL **5.6**, **5.7**, and **8.0**; PolarDB for PostgreSQL **14**; and PolarDB for PostgreSQL (compatible with Oracle) **2.0**.
-    // >
-    // > * The **ArchiveNormal** and **NormalMultimaster** editions are supported for PolarDB for MySQL **8.0**.
-    // >
-    // > * The **SENormal** edition is supported for PolarDB for MySQL **5.6**, **5.7**, and **8.0** and PolarDB for PostgreSQL **14**.
-    // 
-    // For more information about product editions, see [Editions](https://help.aliyun.com/document_detail/183258.html).
+    // For more information about editions, see [Product editions](https://help.aliyun.com/document_detail/183258.html).
     shared_ptr<string> creationCategory_ {};
-    // The method to create the cluster. Valid values:
+    // The method used to create the cluster. Valid values: 
     // 
-    // - **Normal**: Creates a new PolarDB cluster. For more information, see the following topics:
+    // * **Normal**: Creates a new PolarDB cluster. For console operations, see the following topics:
     // 
-    //   - [Create a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/58769.html)
+    //     * [Create a PolarDB for MySQL database cluster](https://help.aliyun.com/document_detail/58769.html)
+    //     * [Create a PolarDB for PostgreSQL database cluster](https://help.aliyun.com/document_detail/118063.html)
+    //     * [Create a PolarDB for PostgreSQL (Compatible with Oracle) database cluster](https://help.aliyun.com/document_detail/118182.html)
     // 
-    //   - [Create a PolarDB for PostgreSQL cluster](https://help.aliyun.com/document_detail/118063.html)
+    // * **CloneFromPolarDB**: Clones data from an existing PolarDB cluster to a new PolarDB cluster. For console operations, see the following topics:
     // 
-    //   - [Create a PolarDB for PostgreSQL (compatible with Oracle) cluster](https://help.aliyun.com/document_detail/118182.html)
+    //     * [Clone a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/87966.html)
+    //     * [Clone a PolarDB for PostgreSQL cluster](https://help.aliyun.com/document_detail/118108.html)
+    //     * [Clone a PolarDB for PostgreSQL (Compatible with Oracle) cluster](https://help.aliyun.com/document_detail/118221.html)
     // 
-    // - **CloneFromPolarDB**: Clones data from an existing PolarDB cluster. For more information, see the following topics:
+    // * **RecoverFromRecyclebin**: Recovers data from a released PolarDB cluster to a new PolarDB cluster. For console operations, see the following topics:
     // 
-    //   - [Clone a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/87966.html)
+    //     * [Restore a released PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/164880.html)
+    //     * [Restore a released PolarDB for PostgreSQL cluster](https://help.aliyun.com/document_detail/432844.html)
+    //     * [Restore a released PolarDB for PostgreSQL (Compatible with Oracle) cluster](https://help.aliyun.com/document_detail/424632.html)
     // 
-    //   - [Clone a PolarDB for PostgreSQL cluster](https://help.aliyun.com/document_detail/118108.html)
+    // * **CloneFromRDS**: Clones data from an existing ApsaraDB RDS instance to a new PolarDB cluster. For console operations, see [Clone an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/121812.html).
     // 
-    //   - [Clone a PolarDB for PostgreSQL (compatible with Oracle) cluster](https://help.aliyun.com/document_detail/118221.html)
+    // * **MigrationFromRDS**: Migrates data from an existing ApsaraDB RDS instance to a new PolarDB cluster. The created PolarDB cluster is in read-only pattern and has binary logging enabled by default. For console operations, see [Upgrade an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/121582.html).
     // 
-    // - **RecoverFromRecyclebin**: Restores a PolarDB cluster from the recycle bin. For more information, see the following topics:
+    // * **CreateGdnStandby**: Creates a secondary cluster. For console operations, see [Add a secondary cluster](https://help.aliyun.com/document_detail/160381.html).
     // 
-    //   - [Restore a released PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/164880.html)
-    // 
-    //   - [Restore a released PolarDB for PostgreSQL cluster](https://help.aliyun.com/document_detail/432844.html)
-    // 
-    //   - [Restore a released PolarDB for PostgreSQL (compatible with Oracle) cluster](https://help.aliyun.com/document_detail/424632.html)
-    // 
-    // - **CloneFromRDS**: Clones data from an existing ApsaraDB RDS instance to a new PolarDB cluster. For more information, see [One-click cloning from ApsaraDB RDS for MySQL to PolarDB for MySQL](https://help.aliyun.com/document_detail/121812.html).
-    // 
-    // - **MigrationFromRDS**: Migrates data from an existing ApsaraDB RDS instance. The created PolarDB cluster is in read-only mode and has binary logging enabled by default. For more information, see [One-click upgrade from ApsaraDB RDS for MySQL to PolarDB for MySQL](https://help.aliyun.com/document_detail/121582.html).
-    // 
-    // - **CreateGdnStandby**: Creates a secondary cluster in a Global Database Network (GDN). For more information, see [Add a secondary cluster](https://help.aliyun.com/document_detail/160381.html).
-    // 
-    // - **UpgradeFromPolarDB**: Upgrades the major version of a PolarDB cluster. For more information, see [Perform a major version upgrade](https://help.aliyun.com/document_detail/459712.html).
+    // * **UpgradeFromPolarDB**: Performs instance migration from PolarDB. For console operations, see [Major engine version upgrade](https://help.aliyun.com/document_detail/459712.html).
     // 
     // Default value: **Normal**.
     // 
-    // > If **DBType** is set to **MySQL** and **DBVersion** is set to **8.0**, you can set this parameter to **CreateGdnStandby**.
+    // > When **DBType** is set to **MySQL** and **DBVersion** is set to **8.0**, you can set this parameter to **CreateGdnStandby**.
     shared_ptr<string> creationOption_ {};
-    // The description of the cluster. The description must meet the following requirements:
-    // 
-    // - It cannot start with `http://` or `https://`.
-    // 
-    // - It must be 2 to 256 characters in length.
+    // The name of the cluster. The name must meet the following requirements:
+    // * It cannot start with `http://` or `https://`.
+    // * It must be 2 to 256 characters in length.
     shared_ptr<string> DBClusterDescription_ {};
-    // The minor version of the database engine. Valid values:
+    // The minor engine version. Valid values:
     // 
     // - **8.0.2**
     // 
     // - **8.0.1**
     // 
-    // > This parameter is valid only if **DBType** is set to **MySQL** and **DBVersion** is set to **8.0**.
+    // > This parameter takes effect only when **DBType** is set to **MySQL** and **DBVersion** is set to **8.0**.
     shared_ptr<string> DBMinorVersion_ {};
     // The node specification. For more information, see the following topics:
     // 
-    // - PolarDB for MySQL: [Compute node specifications](https://help.aliyun.com/document_detail/102542.html)
+    // - PolarDB for MySQL: [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+    // - PolarDB for PostgreSQL (Compatible with Oracle): [Compute node specifications](https://help.aliyun.com/document_detail/207921.html).
+    // - PolarDB for PostgreSQL: [Compute node specifications](https://help.aliyun.com/document_detail/209380.html).
     // 
-    // - PolarDB for PostgreSQL (compatible with Oracle): [Compute node specifications](https://help.aliyun.com/document_detail/207921.html)
-    // 
-    // - PolarDB for PostgreSQL: [Compute node specifications](https://help.aliyun.com/document_detail/209380.html)
-    // 
-    // > * To create a PolarDB for MySQL Cluster Edition serverless cluster, set this parameter to **polar.mysql.sl.small**.
-    // >
-    // > * To create a PolarDB for MySQL Standard Edition serverless cluster, set this parameter to **polar.mysql.sl.small.c**.
-    // >
-    // > * To create a PolarDB for PostgreSQL Cluster Edition serverless cluster, set this parameter to **polar.pg.sl.small**.
-    // >
-    // > * To create a PolarDB for PostgreSQL Standard Edition serverless cluster, set this parameter to **polar.pg.sl.small.c**.
-    // >
-    // > * To create a PolarDB for PostgreSQL (compatible with Oracle) serverless cluster, set this parameter to **polar.o.sl.small**.
+    // >  - To create a serverless cluster for PolarDB for MySQL Cluster Edition, set this parameter to **polar.mysql.sl.small**.
+    // > - To create a serverless cluster for PolarDB for MySQL Standard Edition, set this parameter to **polar.mysql.sl.small.c**.
+    // > - To create a serverless cluster for PolarDB for PostgreSQL Cluster Edition, set this parameter to **polar.pg.sl.small**.
+    // > - To create a serverless cluster for PolarDB for PostgreSQL Standard Edition, set this parameter to **polar.pg.sl.small.c**.
+    // > - To create a serverless cluster for PolarDB for PostgreSQL (Compatible with Oracle), set this parameter to **polar.o.sl.small**.
     shared_ptr<string> DBNodeClass_ {};
-    // The number of nodes for a Standard Edition or Enterprise Edition cluster. Valid values:
-    // 
-    // - Standard Edition: 1 to 8. A cluster of this edition includes one read/write node and up to seven read-only nodes.
-    // 
-    // - Enterprise Edition: 1 to 16. A cluster of this edition includes one read/write node and up to 15 read-only nodes.
-    // 
-    // > * By default, an Enterprise Edition cluster has two nodes and a Standard Edition cluster has one node.
-    // >
-    // > * This parameter is supported only for PolarDB for MySQL.
-    // >
-    // > * You cannot change the number of nodes in a Multi-master Cluster Edition cluster.
+    // The number of nodes for Standard Edition and Enterprise Edition. Valid values:
+    // - Standard Edition: 1 to 8 (supports 1 read/write node and 7 read-only nodes).
+    // - Enterprise Edition: 1 to 16 (supports 1 read/write node and 15 read-only nodes).
+    // > - Enterprise Edition has 2 nodes by default. Standard Edition has 1 node by default.
+    // > - Only PolarDB for MySQL supports this parameter.
+    // > - Changing the number of nodes for Multi-master Cluster Edition clusters is not supported.
     shared_ptr<int32_t> DBNodeNum_ {};
-    // The database engine. Valid values:
+    // The database engine type. Valid values: 
     // 
     // - **MySQL**
-    // 
     // - **PostgreSQL**
-    // 
     // - **Oracle**
     // 
     // This parameter is required.
     shared_ptr<string> DBType_ {};
-    // The version of the database engine.
-    // 
-    // - Valid values for MySQL:
-    // 
-    //   - **5.6**
-    // 
-    //   - **5.7**
-    // 
-    //   - **8.0**
-    // 
-    // - Valid values for PostgreSQL:
-    // 
-    //   - **11**
-    // 
-    //   - **14**
-    // 
-    //   - **15**<props="china">
-    // 
-    // > If you create a serverless cluster for PolarDB for PostgreSQL, you must set this parameter to `14`.
-    // 
-    // \\* Valid values for Oracle:
-    // \\* **11**
-    // \\* **14**
+    // The database engine version.
+    // * Valid values for MySQL: 
+    //     * **5.6**
+    //     * **5.7**
+    //     * **8.0**
+    // * Valid values for PostgreSQL:
+    //     * **11**
+    //     * **14**
+    //     * **15**
+    //     <props="china">
+    //       
+    //       > To create a serverless cluster for PolarDB for PostgreSQL, only version 14 is supported. 
+    //     
+    //     
+    // * Valid values for Oracle:
+    //     * **11**
+    //     * **14**
     // 
     // This parameter is required.
     shared_ptr<string> DBVersion_ {};
-    // Cluster time zone (UTC). The value can be any full-hour offset from **-12:00 to +13:00**, such as **00:00**. The default value is **SYSTEM**, which uses the region\\"s time zone.
-    // 
-    // > This parameter takes effect only when **DBType** is **MySQL**.
+    // The default time zone of the cluster (UTC). The value can be any time frame within the range of **-12:00 to +13:00**, such as **00:00**. Default value: **SYSTEM**, which indicates that the default time zone is the same as the time zone of the region.
+    // > This parameter takes effect only when **DBType** is set to **MySQL**.
     shared_ptr<string> defaultTimeZone_ {};
-    // The ID of the Edge Node Service (ENS) node. This parameter is required if you want to create an ENS database instance.
+    // The ENS node ID required when creating an ENS database.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the Global Database Network (GDN).
+    // The ID of the global database network (GDN).
     // 
-    // > This parameter is required if **CreationOption** is set to **CreateGdnStandby**.
+    // > This parameter is required when **CreationOption** is set to **CreateGdnStandby**.
     shared_ptr<string> GDNId_ {};
-    // Specifies whether to enable the hot standby cluster feature. Valid values:
+    // Specifies whether to enable the hot standby cluster. Valid values:
     // 
-    // - **ON** (default): enables a hot standby storage cluster.
-    // 
-    // - **OFF**: disables the hot standby cluster feature.
-    // 
-    // - **STANDBY**: enables a hot standby cluster.
-    // 
-    // - **EQUAL**: enables hot standby for both storage and computing resources.
-    // 
-    // - **3AZ**: enables multi-AZ strong consistency.
-    // 
-    // > The value **STANDBY** is valid only for PolarDB for PostgreSQL.
+    // - **ON** (default): Enables the hot standby storage cluster.
+    // - **OFF**: Disables the hot standby cluster.
+    // - **STANDBY**: Enables the hot standby cluster.
+    // - **EQUAL**: Enables both the hot standby storage cluster and the hot standby compute cluster.
+    // - **3AZ**: Enables multi-zone strong data consistency.
+    // > **STANDBY** takes effect only for PolarDB for PostgreSQL.
     shared_ptr<string> hotStandbyCluster_ {};
-    // Specifies whether to enable binary logging. Valid values:
+    // Specifies whether to enable the binary logging feature. Valid values:
     // 
-    // - **ON**: enables binary logging.
-    // 
-    // - **OFF**: disables binary logging.
-    // 
-    // > This parameter is valid only if **DBType** is set to **MySQL**.
+    // - **ON**: Binary logging is enabled for the cluster.
+    // - **OFF**: Binary logging is disabled for the cluster.
+    // > This parameter takes effect only when **DBType** is set to **MySQL**.
     shared_ptr<string> loosePolarLogBin_ {};
     // Specifies whether to enable the X-Engine storage engine. Valid values:
     // 
-    // - **ON**: enables the X-Engine storage engine.
-    // 
-    // - **OFF**: disables the X-Engine storage engine.
-    // 
-    // > This parameter is valid only if the **CreationOption** parameter is not set to **CreateGdnStandby**, **DBType** is set to **MySQL**, and **DBVersion** is set to **8.0**. To enable the X-Engine storage engine, the node must have at least 8 GB of memory.
+    // - **ON**: The X-Engine engine is enabled for the cluster.
+    // - **OFF**: The X-Engine engine is disabled for the cluster.
+    // > This parameter takes effect only when **CreationOption** is not set to **CreateGdnStandby**, **DBType** is set to **MySQL**, and **DBVersion** is set to **8.0**. The memory specification of nodes with X-Engine enabled must be 8 GB or more.
     shared_ptr<string> looseXEngine_ {};
     // The percentage of memory allocated to the X-Engine storage engine. Valid values: integers from 10 to 90.
-    // 
-    // > This parameter is valid only if **LooseXEngine** is set to **ON**.
+    // > This parameter takes effect only when **LooseXEngine** is set to **ON**.
     shared_ptr<string> looseXEngineUseMemoryPct_ {};
-    // The time zone of the cluster. The value must be a UTC offset in the `±HH:mm` format. Valid values: from **-12:00** to **+13:00** on the hour. For example, **00:00**. The default value **SYSTEM** indicates that the cluster uses the time zone of its region.
+    // Specifies whether table names are case-sensitive. Valid values:
+    // * **1**: Table names are case-insensitive.
+    // * **0**: Table names are case-sensitive.
     // 
-    // - **1**: Case-insensitive
-    // 
-    // - **0**: Case-sensitive
-    // 
-    // The default value is **1**.
-    // 
-    // > This parameter is valid only if **DBType** is set to **MySQL**.
+    // Default value: **1**.
+    // > This parameter takes effect only when **DBType** is set to **MySQL**.
     shared_ptr<string> lowerCaseTableNames_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The ID of the parameter template.
     // 
-    // > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the parameter templates in a specific region, including the IDs of the parameter templates.
+    // > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the parameter template list in the specified region, including the parameter template ID.
     shared_ptr<string> parameterGroupId_ {};
-    // The billing method. Valid values:
+    // The billing method. Valid values: 
     // 
     // - **Postpaid**: pay-as-you-go.
-    // 
     // - **Prepaid**: subscription.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. This parameter is required if you set the **PayType** parameter to **Prepaid**. Valid values:
+    // This parameter is required when **PayType** is set to **Prepaid**. Pass this parameter to specify whether the upfront cluster uses a yearly or monthly billing cycle. 
     // 
-    // - **Year**: The subscription duration is measured in years.
-    // 
-    // - **Month**: The subscription duration is measured in months.
+    // - **Year**: The subscription period is measured in years.
+    // - **Month**: The subscription period is measured in months.
     shared_ptr<string> period_ {};
-    // The promotion code. If you do not specify this parameter, the default coupon is used.
+    // The coupon code. If not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
-    // <props="china">
-    // 
-    // The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
-    // 
-    // 
-    // 
-    // <props="china">
-    // 
-    // Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
-    // 
-    // 
-    // 
-    // <props="china">
-    // 
-    // > This parameter is supported only when **StorageType** is set to ESSDAUTOPL.
+    // <p id="p_wyg_t4a_glm" props="china" icmsditafragmentmagic=1>The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}.</p>
+    // <p id="p_6de_jxy_k2g" props="china" icmsditafragmentmagic=1>Baseline performance = min{1,800 + 50 × capacity, 50,000}.</p>
+    // <note id="note_7kj_j0o_rgs" props="china" icmsditafragmentmagic=1>This parameter is supported only when StorageType is set to ESSDAUTOPL.</note>
     shared_ptr<int64_t> provisionedIops_ {};
-    // The specification of the database proxy for a Standard Edition cluster. Valid values:
+    // The specification of the database proxy for Standard Edition. Valid values:
     // 
-    // - **polar.maxscale.g2.medium.c**: 2 cores
-    // 
-    // - **polar.maxscale.g2.large.c**: 4 cores
-    // 
-    // - **polar.maxscale.g2.xlarge.c**: 8 cores
-    // 
-    // - **polar.maxscale.g2.2xlarge.c**: 16 cores
-    // 
-    // - **polar.maxscale.g2.3xlarge.c**: 24 cores
-    // 
-    // - **polar.maxscale.g2.4xlarge.c**: 32 cores
-    // 
-    // - **polar.maxscale.g2.8xlarge.c**: 64 cores
+    // - **polar.maxscale.g2.medium.c**: 2 cores.
+    // - **polar.maxscale.g2.large.c**: 4 cores.
+    // - **polar.maxscale.g2.xlarge.c**: 8 cores.
+    // - **polar.maxscale.g2.2xlarge.c**: 16 cores.
+    // - **polar.maxscale.g2.3xlarge.c**: 24 cores.
+    // - **polar.maxscale.g2.4xlarge.c**: 32 cores.
+    // - **polar.maxscale.g2.8xlarge.c**: 64 cores.
     shared_ptr<string> proxyClass_ {};
     // The type of the database proxy. Valid values:
-    // 
-    // - **EXCLUSIVE**: Enterprise Dedicated
-    // 
-    // - **GENERAL**: Enterprise General-purpose
-    // 
-    // > The proxy type must be consistent with the type that corresponds to the node specification of the cluster:
-    // >
-    // > - If the node specification is general-purpose, the proxy type must be Enterprise General-purpose.
-    // >
-    // > - If the node specification is dedicated, the proxy type must be Enterprise Dedicated.
+    // - **EXCLUSIVE**: Dedicated Enterprise Edition.
+    // - **GENERAL**: Standard Enterprise Edition.
+    // > The proxy type must match the type that corresponds to the node specifications of the cluster:
+    // > - If the node specifications are General-purpose, set the proxy type to Standard Enterprise Edition.
+    // > - If the node specifications are Dedicated, set the proxy type to Dedicated Enterprise Edition.
     shared_ptr<string> proxyType_ {};
     // The region ID.
     // 
@@ -994,141 +937,115 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The maximum number of PCUs for a single-node serverless cluster to scale up to. Valid values: 1 to 32.
-    // 
-    // > This parameter is supported only for serverless clusters.
+    // The maximum scaling limit for a single node. Valid values: 1 PCU to 32 PCU.
+    // > Only serverless clusters support this parameter.
     shared_ptr<string> scaleMax_ {};
-    // The minimum number of PolarDB compute units (PCUs) for a single-node serverless cluster to scale down to. Valid values: 1 to 31.
+    // The minimum scaling limit for a single node. Valid values: 1 PCU to 31 PCU.
     // 
-    // > This parameter is supported only for serverless clusters.
+    // > Only serverless clusters support this parameter.
     shared_ptr<string> scaleMin_ {};
-    // The maximum number of read-only nodes that the serverless cluster scales up to. Valid values: 0 to 15.
-    // 
-    // > This parameter is supported only for serverless clusters.
+    // The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+    // > Only serverless clusters support this parameter.
     shared_ptr<string> scaleRoNumMax_ {};
-    // The minimum number of read-only nodes that the serverless cluster scales down to. Valid values: 0 to 15.
-    // 
-    // > This parameter is supported only for serverless clusters.
+    // The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
+    // > Only serverless clusters support this parameter.
     shared_ptr<string> scaleRoNumMin_ {};
-    // The IP whitelist of the PolarDB cluster.
-    // 
-    // > You can specify multiple IP addresses in the IP whitelist. Separate the IP addresses with commas (,).
+    // The IP addresses in the whitelist of the PolarDB cluster.
+    // > You can specify multiple IP addresses. Separate multiple IP addresses with commas (,).
     shared_ptr<string> securityIPList_ {};
-    // The type of the serverless cluster. Set the value to **AgileServerless**.
-    // 
-    // > This parameter is supported only for serverless clusters.
+    // The serverless type. Set the value to **AgileServerless** (agile).
+    // > Only serverless clusters support this parameter.
     shared_ptr<string> serverlessType_ {};
-    // The ID of the source ApsaraDB RDS instance or source PolarDB cluster. This parameter is required only if **CreationOption** is set to **MigrationFromRDS**, **CloneFromRDS**, **CloneFromPolarDB**, or **RecoverFromRecyclebin**.
+    // Instance ID of the source ApsaraDB RDS instance or the source PolarDB cluster. This parameter is required only when **CreationOption** is set to **MigrationFromRDS**, **CloneFromRDS**, **CloneFromPolarDB**, or **RecoverFromRecyclebin**.
+    // * If **CreationOption** is set to **MigrationFromRDS** or **CloneFromRDS**, set this parameter to instance ID of the source ApsaraDB RDS instance. The source ApsaraDB RDS instance must run RDS MySQL 5.6, 5.7, or 8.0 on RDS High-availability Edition.
     // 
-    // - If **CreationOption** is set to **MigrationFromRDS** or **CloneFromRDS**, specify the ID of the source ApsaraDB RDS instance. The source ApsaraDB RDS instance must be ApsaraDB RDS for MySQL 5.6, 5.7, or 8.0 High-availability Edition.
-    // 
-    // - If **CreationOption** is set to **CloneFromPolarDB**, specify the ID of the source PolarDB cluster. The new cluster must use the same database engine as the source cluster. For example, if the source cluster runs MySQL 8.0, you must set **DBType** to **MySQL** and **DBVersion** to **8.0** for the new cluster.
-    // 
-    // - If **CreationOption** is set to **RecoverFromRecyclebin**, specify the ID of the released source PolarDB cluster. The restored cluster must use the same database engine as the source cluster. For example, if the source cluster runs MySQL 8.0, you must set **DBType** to **MySQL** and **DBVersion** to **8.0** for the restored cluster.
+    // * If **CreationOption** is set to **CloneFromPolarDB**, set this parameter to instance ID of the source PolarDB cluster. The cloned cluster and the source cluster have the same DBType by default. For example, if the source cluster runs MySQL 8.0, set **DBType** to **MySQL** and **DBVersion** to **8.0** for the cloned cluster.
+    // * If **CreationOption** is set to **RecoverFromRecyclebin**, set this parameter to instance ID of the released source PolarDB cluster. The recovered cluster and the source cluster must have the same DBType. For example, if the source cluster runs MySQL 8.0, set **DBType** to **MySQL** and **DBVersion** to **8.0** for the recovered cluster.
     shared_ptr<string> sourceResourceId_ {};
-    // The UID of the source backup set owner in cross-account backup and restoration scenarios.
+    // The UID of the account that owns the source backup set in cross-account backup restoration scenarios.
     shared_ptr<int64_t> sourceUid_ {};
-    // The zone for the hot standby cluster.
+    // The zone of the hot standby cluster.
     // 
-    // > This parameter is valid only when the hot standby cluster feature or multi-AZ strong consistency is enabled.
+    // > This parameter takes effect only when the hot standby cluster or multi-zone strong data consistency is enabled.
     shared_ptr<string> standbyAZ_ {};
-    // Specifies whether to enable automatic storage scaling for a Standard Edition cluster. Valid values:
+    // Specifies whether to enable automatic storage scaling for Standard Edition clusters. Valid values:
     // 
-    // - Enable: enables automatic storage scaling.
-    // 
-    // - Disable: disables automatic storage scaling.
+    // - Enable: Automatic storage scaling is enabled.
+    // - Disable: Automatic storage scaling is shutdown.
     shared_ptr<string> storageAutoScale_ {};
     // Specifies whether to enable cloud disk encryption. Valid values:
     // 
-    // - **true**: enables cloud disk encryption.
+    // - **true**: Cloud disk encryption is enabled.
+    // - **false**: Cloud disk encryption is disabled. This is the default value.
+    // > This parameter takes effect only when **DBType** is set to **MySQL**.
     // 
-    // - **false** (default): disables cloud disk encryption.
-    // 
-    // > This parameter is valid only if **DBType** is set to **MySQL**.
-    // 
-    // > This parameter is valid only if **StorageType** is set to a Standard Edition storage type.
+    // > This parameter takes effect only when **StorageType** is set to a Standard Edition storage type.
     shared_ptr<bool> storageEncryption_ {};
-    // The ID of a custom key from Key Management Service (KMS) for cloud disk encryption. The key must be in the same region as the cluster. If you specify this parameter, cloud disk encryption is automatically enabled and cannot be disabled. If this parameter is empty, the default service key is used.
+    // The ID of the custom encryption key for cloud disk encryption in the same region as the instance. Specifying this parameter automatically enables cloud disk encryption, which cannot be disabled after it is enabled. Leave this parameter empty to use the default service key for cloud disk encryption.
     // 
-    // You can view the key ID or create a new key in the Key Management Service (KMS) console.
+    // You can view the key ID in the Key Management Service (KMS) console or create a new key.
     // 
-    // > This parameter is valid only if **DBType** is set to **MySQL**.
+    // > This parameter takes effect only when **DBType** is set to **MySQL**.
     // 
-    // > This parameter is valid only if **StorageType** is set to a Standard Edition storage type.
+    // > This parameter takes effect only when **StorageType** is set to a Standard Edition storage type.
     shared_ptr<string> storageEncryptionKey_ {};
-    // The billing method for storage. Valid values:
+    // The billing type for storage. Valid values:
     // 
-    // - Postpaid: pay-by-capacity (a pay-as-you-go method).
-    // 
-    // - Prepaid: pay-by-space (a subscription method).
+    // - Postpaid: pay-by-capacity (pay-as-you-go).
+    // - Prepaid: pay-by-space (subscription).
     shared_ptr<string> storagePayType_ {};
-    // The storage space for a pay-by-space (subscription) cluster. Unit: GB.
-    // 
-    // > - Valid values for a PolarDB for MySQL Enterprise Edition cluster: 10 to 50000.
-    // >
-    // > - Valid values for a PolarDB for MySQL Standard Edition cluster: 20 to 64000.
-    // >
-    // > - If the storage type of a Standard Edition cluster is ESSD AutoPL, the storage space must be a multiple of 10 between 40 and 64000.
+    // The storage space for subscription billing (pay-by-space). Unit: GB.
+    // > - Valid values for PolarDB for MySQL Enterprise Edition: 10 to 50000.
+    // > - Valid values for PolarDB for MySQL Standard Edition: 20 to 64000.
+    // > - When the Standard Edition storage type is ESSDAUTOPL, valid values are 40 to 64000 with a minimum step of 10. Only values such as 40, 50, 60, and so on are accepted.
     shared_ptr<int64_t> storageSpace_ {};
-    // Valid values for Enterprise Edition:
-    // 
+    // Valid values for Enterprise Edition storage type:
     // - **PSL5**
-    // 
     // - **PSL4**
     // 
-    // Valid values for Standard Edition:
-    // 
+    // Valid values for Standard Edition storage type:
     // - **ESSDPL0**
-    // 
     // - **ESSDPL1**
-    // 
     // - **ESSDPL2**
-    // 
     // - **ESSDPL3**
-    // 
     // - **ESSDAUTOPL**
     shared_ptr<string> storageType_ {};
-    // The maximum storage capacity for a Standard Edition cluster when automatic storage scaling is enabled. Unit: GB.
+    // Sets the upper limit for automatic storage scaling of Standard Edition clusters. Unit: GB.
     // 
     // > The maximum value is 32000.
     shared_ptr<int64_t> storageUpperBound_ {};
-    // Specifies whether to enable multi-AZ strong consistency for the cluster. Valid values:
+    // Specifies whether multi-zone strong data consistency is enabled for the cluster. Valid values:
     // 
-    // - **ON**: enables multi-AZ strong consistency. This feature is applicable to Standard Edition clusters that are deployed across three zones.
+    // - **ON**: Multi-zone strong data consistency is enabled. This value applies to the Standard Edition 3AZ scenario.
     // 
-    // - **OFF**: disables multi-AZ strong consistency.
+    // - **OFF**: Multi-zone strong data consistency is disabled.
     shared_ptr<string> strictConsistency_ {};
-    // Specifies whether to enable transparent data encryption (TDE). Valid values:
+    // Specifies whether to enable Transparent Data Encryption (TDE). Valid values:
     // 
-    // - **true**: enables TDE.
+    // - **true**: TDE is enabled.
+    // - **false**: TDE is disabled. This is the default value.
     // 
-    // - **false** (default): disables TDE.
-    // 
-    // > * This parameter is valid only when **DBType** is set to **PostgreSQL** or **Oracle**.
-    // >
+    // > * This parameter takes effect only when **DBType** is set to **PostgreSQL** or **Oracle**.
     // > * You can call the [ModifyDBClusterTDE](https://help.aliyun.com/document_detail/167982.html) operation to enable TDE for a PolarDB for MySQL cluster.
-    // >
     // > * TDE cannot be disabled after it is enabled.
     shared_ptr<bool> TDEStatus_ {};
-    // The tags to add to the cluster.
+    // The list of tags.
     shared_ptr<vector<CreateDBClusterRequest::Tag>> tag_ {};
     // The target minor engine version.
     shared_ptr<string> targetMinorVersion_ {};
-    // The subscription duration. This parameter is required if you set the **PayType** parameter to **Prepaid**.
-    // 
-    // - If **Period** is set to **Month**, **UsedTime** must be an integer from `[1-9]`.
-    // 
-    // - If **Period** is set to **Year**, **UsedTime** must be an integer from `[1-3]`.
+    // This parameter is required when **PayType** is set to **Prepaid**.
+    // - When **Period** is set to **Month**, the valid values of **UsedTime** are integers in the range of `[1-9]`.
+    // - When **Period** is set to **Year**, the valid values of **UsedTime** are integers in the range of `[1-3]`.
     shared_ptr<string> usedTime_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
-    // The ID of the VSwitch.
+    // The vSwitch ID.
     // 
-    // > If you specify the VPCId parameter, you must also specify this parameter.
+    // > If you specify VPCId, you must also specify VSwitchId.
     shared_ptr<string> vSwitchId_ {};
     // The zone ID.
     // 

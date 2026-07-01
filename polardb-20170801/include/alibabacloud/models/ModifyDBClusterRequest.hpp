@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBClusterRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CompressStorage, compressStorage_);
+      DARABONBA_PTR_TO_JSON(ConnectionResourceQuota, connectionResourceQuota_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBNodeCrashList, DBNodeCrashList_);
       DARABONBA_PTR_TO_JSON(DataSyncMode, dataSyncMode_);
@@ -32,6 +33,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBClusterRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CompressStorage, compressStorage_);
+      DARABONBA_PTR_FROM_JSON(ConnectionResourceQuota, connectionResourceQuota_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBNodeCrashList, DBNodeCrashList_);
       DARABONBA_PTR_FROM_JSON(DataSyncMode, dataSyncMode_);
@@ -60,14 +62,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->compressStorage_ == nullptr
-        && this->DBClusterId_ == nullptr && this->DBNodeCrashList_ == nullptr && this->dataSyncMode_ == nullptr && this->faultInjectionType_ == nullptr && this->faultSimulateMode_ == nullptr
-        && this->imciAutoIndex_ == nullptr && this->modifyRowCompression_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->standbyHAMode_ == nullptr && this->storageAutoScale_ == nullptr && this->storageUpperBound_ == nullptr && this->tableMeta_ == nullptr; };
+        && this->connectionResourceQuota_ == nullptr && this->DBClusterId_ == nullptr && this->DBNodeCrashList_ == nullptr && this->dataSyncMode_ == nullptr && this->faultInjectionType_ == nullptr
+        && this->faultSimulateMode_ == nullptr && this->imciAutoIndex_ == nullptr && this->modifyRowCompression_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->standbyHAMode_ == nullptr && this->storageAutoScale_ == nullptr && this->storageUpperBound_ == nullptr
+        && this->tableMeta_ == nullptr; };
     // compressStorage Field Functions 
     bool hasCompressStorage() const { return this->compressStorage_ != nullptr;};
     void deleteCompressStorage() { this->compressStorage_ = nullptr;};
     inline string getCompressStorage() const { DARABONBA_PTR_GET_DEFAULT(compressStorage_, "") };
     inline ModifyDBClusterRequest& setCompressStorage(string compressStorage) { DARABONBA_PTR_SET_VALUE(compressStorage_, compressStorage) };
+
+
+    // connectionResourceQuota Field Functions 
+    bool hasConnectionResourceQuota() const { return this->connectionResourceQuota_ != nullptr;};
+    void deleteConnectionResourceQuota() { this->connectionResourceQuota_ = nullptr;};
+    inline int64_t getConnectionResourceQuota() const { DARABONBA_PTR_GET_DEFAULT(connectionResourceQuota_, 0L) };
+    inline ModifyDBClusterRequest& setConnectionResourceQuota(int64_t connectionResourceQuota) { DARABONBA_PTR_SET_VALUE(connectionResourceQuota_, connectionResourceQuota) };
 
 
     // DBClusterId Field Functions 
@@ -178,72 +188,73 @@ namespace Models
   protected:
     // Enables storage compression. Set the value to **ON**.
     shared_ptr<string> compressStorage_ {};
+    shared_ptr<int64_t> connectionResourceQuota_ {};
     // The cluster ID.
-    // 
-    // > You can call the DescribeDBClusters operation to query the details of all clusters in a specific region, including their cluster IDs.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query information about all clusters in the specified region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The names of the nodes to target in the fault simulation.
-    // 
-    // > For a node-level simulation, you can specify only a single node. For a zone-level simulation, you can leave this parameter empty or specify all nodes.
+    // The list of node instance names for the disaster recovery drill.
+    // > Node-level drills support only a single node. For zone-level drills, you can leave this parameter empty or specify all nodes.
     shared_ptr<string> DBNodeCrashList_ {};
-    // The cross-zone data replication method for the cluster. Valid values:
+    // The cross-zone data replication mode of the cluster. Valid values:
     // 
-    // - **AsyncSync**: asynchronous.
-    // 
-    // - **SemiSync**: semi-synchronous.
+    // - **AsyncSync**: asynchronous
+    // - **SemiSync**: semi-synchronous
     shared_ptr<string> dataSyncMode_ {};
     // The fault injection method. Valid values:
     // 
-    // - `0`: instance-level fault injection based on Crash SQL.
+    // - 0: instance fault injection based on `Crash SQL`
     shared_ptr<string> faultInjectionType_ {};
-    // The fault simulation scope for the cluster. Valid values:
-    // 
-    // - `0` or `FaultInjection`: primary zone-level fault simulation.
-    // 
-    // - `1`: node-level fault simulation.
-    // 
-    // > * In a **primary zone-level fault simulation**, all compute nodes in the primary zone become unavailable. The disaster recovery failover in this scenario is lossy.
-    // >
-    // > * In a **node-level fault simulation**, you can simulate a fault on only a single compute node. You must specify the target compute node by using the `DBNodeCrashList` parameter.
+    // The dimension of the disaster recovery drill for the cluster. Valid values:
+    // - `0` or `FaultInjection`: primary zone-level disaster recovery drill.
+    // - `1`: node-level disaster recovery drill.
+    // > - In the **primary zone-level disaster recovery drill** scenario, all compute nodes in the primary zone become unavailable. The failover in this scenario causes service interruptions.
+    // > - In the **node-level disaster recovery drill** scenario, only a single compute node is supported for the drill. Specify the desired compute node name by using `DBNodeCrashList`.
     shared_ptr<string> faultSimulateMode_ {};
-    // Controls the automatic columnar index feature. Valid values:
+    // The automatic IMCI-based query acceleration feature. Valid values:
+    // - `ON`: enabled.
+    // - `OFF`: disabled.
     // 
-    // - `ON`: enables the feature.
-    // 
-    // - `OFF`: disables the feature.
-    // 
-    // > * This feature is available only for PolarDB for MySQL clusters.
-    // >
-    // > * For cluster version limits, see [Automatic indexing (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
+    // > - Only PolarDB for MySQL clusters are supported.
+    // > - For cluster version requirements, see [Automatic acceleration (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
     shared_ptr<string> imciAutoIndex_ {};
-    // Enables or disables row-level compression.
+    // Modifies the row compression settings.
     shared_ptr<string> modifyRowCompression_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The automatic cross-zone failover mode for the cluster. Valid values:
+    // The cross-zone automatic switchover mode of the cluster. Valid values:
     // 
-    // - **ON**: enables automatic cross-zone failover.
-    // 
-    // - **OFF**: disables automatic cross-zone failover.
+    // - **ON**: enables cross-zone automatic switchover.
+    // - **OFF**: disables cross-zone automatic switchover.
     shared_ptr<string> standbyHAMode_ {};
-    // Enables or disables automatic storage scaling for a standard cluster. Valid values:
+    // Specifies whether to enable automatic storage scaling for the Standard Edition cluster. Valid values:
     // 
     // - Enable: enables automatic storage scaling.
-    // 
     // - Disable: disables automatic storage scaling.
     shared_ptr<string> storageAutoScale_ {};
-    // The upper limit for automatic storage scaling on a standard cluster. Unit: GB.
+    // The upper limit for automatic storage scaling of the Standard Edition cluster. Unit: GB.
     // 
     // > The maximum value is 32000.
     shared_ptr<int64_t> storageUpperBound_ {};
-    // A JSON string that specifies information about the destination databases and tables to be restored. All values in the database and table information must be strings.
-    // Example: `[ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]`.
-    // 
-    // > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to query for restorable databases and tables. Use the returned information to populate the fields in the example JSON.
+    // The JSON string that contains the information about the databases and tables to be restored. The values of the database and table information are strings.
+    // Example: `[
+    //    {
+    //        "tables":[
+    //            {
+    //                "name":"testtb",
+    //                "type":"table",
+    //                "newname":"testtb_restore"
+    //            }
+    //        ],
+    //        "name":"testdb",
+    //        "type":"db",
+    //        "newname":"testdb_restore"
+    //    }
+    // ]`.
+    // > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to query the names of databases and tables that can be restored, and then specify the information in the corresponding fields in the preceding example.
     shared_ptr<string> tableMeta_ {};
   };
 
