@@ -98,40 +98,47 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   AliyunConsole
-    // *   WebSDK
-    // *   OpenAPI
+    // - AliyunConsole
+    // 
+    // - WebSDK
+    // 
+    // - OpenAPI
     shared_ptr<string> createSource_ {};
     // The search keyword. You can use the template ID or title as the keyword to search for templates.
     shared_ptr<string> keyword_ {};
-    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
     // The sorting parameter. By default, the query results are sorted by creation time in descending order.
     // 
     // Valid values:
     // 
-    // *   CreationTime:Asc: sorted by creation time in ascending order.
-    // *   CreationTime:Desc: sorted by creation time in descending order.
+    // - CreationTime:Asc: sorted by creation time in ascending order.
+    // 
+    // - CreationTime:Desc: sorted by creation time in descending order.
     shared_ptr<string> sortType_ {};
     // The template state.
     // 
     // Valid values:
     // 
-    // *   UploadFailed: Failed to upload the video.
-    // *   ProcessFailed: Failed to process the advanced template.
-    // *   Available: The template is available.
-    // *   Uploading: The video is being uploaded.
-    // *   Created: The template is created but not ready for use.
-    // *   Processing: The advanced template is being processed.
+    // - UploadFailed: Failed to upload the video.
+    // 
+    // - ProcessFailed: Failed to process the advanced template.
+    // 
+    // - Available: The template is available.
+    // 
+    // - Uploading: The video is being uploaded.
+    // 
+    // - Created: The template is created but not ready for use.
+    // 
+    // - Processing: The advanced template is being processed.
     shared_ptr<string> status_ {};
     // The template type.
     // 
     // Valid values:
     // 
-    // *   Timeline
-    // *   VETemplate
+    // - Timeline
+    // 
+    // - VETemplate
     shared_ptr<string> type_ {};
   };
 

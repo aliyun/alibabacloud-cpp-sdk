@@ -96,8 +96,9 @@ namespace Models
   protected:
     // The category of the template. Valid values:
     // 
-    // *   system
-    // *   customized
+    // - system
+    // 
+    // - customized
     shared_ptr<string> category_ {};
     // The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
     shared_ptr<string> keyWord_ {};
@@ -107,20 +108,25 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
     // 
-    // *   asc
-    // *   desc
+    // - asc
+    // 
+    // - desc
     shared_ptr<string> sortBy_ {};
     // The type of the template. Valid values:
     // 
-    // *   normal
-    // *   narrow-band
-    // *   audio-only
-    // *   origin
+    // - normal
+    // 
+    // - narrow-band
+    // 
+    // - audio-only
+    // 
+    // - origin
     shared_ptr<string> type_ {};
     // The video codec. Valid values:
     // 
-    // *   H.264
-    // *   H.265
+    // - H.264
+    // 
+    // - H.265
     shared_ptr<string> videoCodec_ {};
   };
 

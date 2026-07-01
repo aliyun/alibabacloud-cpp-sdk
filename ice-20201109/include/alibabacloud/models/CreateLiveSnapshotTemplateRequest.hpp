@@ -68,28 +68,35 @@ namespace Models
   protected:
     // The naming format of the snapshot captured in overwrite mode.
     // 
-    // *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
-    // *   It cannot exceed 255 characters in length.
-    // *   The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
-    // *   Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
-    // *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+    // - The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+    // 
+    // - It cannot exceed 255 characters in length.
+    // 
+    // - The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
+    // 
+    // - Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
+    // 
+    // - You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
     shared_ptr<string> overwriteFormat_ {};
     // The naming format of the snapshot captured in time series mode.
     // 
-    // *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
-    // *   It cannot exceed 255 characters in length.
-    // *   The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
-    // *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+    // - The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+    // 
+    // - It cannot exceed 255 characters in length.
+    // 
+    // - The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
+    // 
+    // - You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
     shared_ptr<string> sequenceFormat_ {};
     // The name of the template.
     // 
-    // *   It cannot exceed 128 characters in length.
+    // - It cannot exceed 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
     // The interval between two adjacent snapshots. Unit: seconds.
     // 
-    // *   Valid values: [5,3600].
+    // - Valid values: [5,3600].
     // 
     // This parameter is required.
     shared_ptr<int32_t> timeInterval_ {};

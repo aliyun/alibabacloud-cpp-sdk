@@ -103,18 +103,23 @@ namespace Models
       shared_ptr<string> description_ {};
       // The model of the media fingerprint library. Valid values:
       // 
-      // *   **Video**
-      // *   **Audio**
-      // *   **Image**
-      // *   **Text** (supported only in the China (Shanghai) region)
+      // - **Video**
+      // 
+      // - **Audio**
+      // 
+      // - **Image**
+      // 
+      // - **Text** (supported only in the China (Shanghai) region)
       shared_ptr<string> model_ {};
       // The name of the media fingerprint library.
       shared_ptr<string> name_ {};
-      // The state of the media fingerprint library. Default value: **offline**. ****Valid values:
+      // The state of the media fingerprint library. Default value: **offline**. \\*\\*\\*\\*Valid values:
       // 
-      // *   **offline**: The media fingerprint library is offline.
-      // *   **active**: The media fingerprint library is online.
-      // *   **deleted**: The media fingerprint library is deleted.
+      // - **offline**: The media fingerprint library is offline.
+      // 
+      // - **active**: The media fingerprint library is online.
+      // 
+      // - **deleted**: The media fingerprint library is deleted.
       shared_ptr<string> status_ {};
     };
 

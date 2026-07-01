@@ -104,8 +104,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The sorting method of the results. Valid values:
     // 
-    // *   CreationTime:Desc (default): sorts results in reverse chronological order.
-    // *   CreationTime:Asc: sorts results in chronological order.
+    // - CreationTime:Desc (default): sorts results in reverse chronological order.
+    // 
+    // - CreationTime:Asc: sorts results in chronological order.
     shared_ptr<string> sortBy_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
@@ -113,17 +114,27 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   PrepareFail: The file is abnormal.
-    // *   UploadFail: The video failed to be uploaded.
-    // *   UploadSucc: The video is uploaded.
-    // *   Transcoding: The video is being transcoded.
-    // *   TranscodeFail: The video failed to be transcoded.
-    // *   ProduceFail: The video failed to be produced.
-    // *   Normal: The video is normal.
-    // *   Uploading: The video is being uploaded.
-    // *   Preparing: The file is being generated.
-    // *   Blocked: The video is blocked.
-    // *   checking: The video is being reviewed.
+    // - PrepareFail: The file is abnormal.
+    // 
+    // - UploadFail: The video failed to be uploaded.
+    // 
+    // - UploadSucc: The video is uploaded.
+    // 
+    // - Transcoding: The video is being transcoded.
+    // 
+    // - TranscodeFail: The video failed to be transcoded.
+    // 
+    // - ProduceFail: The video failed to be produced.
+    // 
+    // - Normal: The video is normal.
+    // 
+    // - Uploading: The video is being uploaded.
+    // 
+    // - Preparing: The file is being generated.
+    // 
+    // - Blocked: The video is blocked.
+    // 
+    // - checking: The video is being reviewed.
     shared_ptr<string> status_ {};
   };
 

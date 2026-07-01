@@ -94,13 +94,15 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The status of the authorization code. Valid values:
     // 
-    // *   `1`: Activated
-    // *   `2`: Inactive
+    // - `1`: Activated
+    // 
+    // - `2`: Inactive
     shared_ptr<int32_t> status_ {};
     // The type of license. Valid values:
     // 
-    // *   `1`: Audio call
-    // *   `2`: Vision call
+    // - `1`: Audio call
+    // 
+    // - `2`: Vision call
     shared_ptr<int32_t> type_ {};
   };
 

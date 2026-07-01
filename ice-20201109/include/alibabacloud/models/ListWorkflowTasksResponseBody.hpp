@@ -157,8 +157,9 @@ namespace Models
         shared_ptr<string> createTime_ {};
         // The source of the media file. Valid values:
         // 
-        // *   OSS: an OSS object.
-        // *   Media: a media asset.
+        // - OSS: an OSS object.
+        // 
+        // - Media: a media asset.
         shared_ptr<string> mediaType_ {};
         // The last modification time of the workflow template.
         shared_ptr<string> modifiedTime_ {};
@@ -235,11 +236,15 @@ namespace Models
       // 
       // **Valid values**:
       // 
-      // *   Init: Initializing
-      // *   Failed
-      // *   Canceled
-      // *   Processing
-      // *   Succeed
+      // - Init: Initializing
+      // 
+      // - Failed
+      // 
+      // - Canceled
+      // 
+      // - Processing
+      // 
+      // - Succeed
       shared_ptr<string> status_ {};
       // The ID of the workflow task.
       shared_ptr<string> taskId_ {};

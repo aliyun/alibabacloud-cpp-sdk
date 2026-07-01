@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The template subtype.
     shared_ptr<int32_t> subtype_ {};
-    // The template ID.
+    // The ID of the custom template.
     shared_ptr<string> templateId_ {};
-    // The ID of the template type that is used to query the default template. This parameter is required if TemplateId is not specified.
+    // The ID of the template type. This parameter is required if you omit `TemplateId` to get a default template.
     shared_ptr<int32_t> type_ {};
   };
 

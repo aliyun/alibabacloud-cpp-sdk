@@ -279,49 +279,49 @@ namespace Models
 
 
       protected:
-        // The service to which the media asset belongs.
+        // The business associated with the media asset.
         shared_ptr<string> biz_ {};
-        // The business type.
+        // The business type of the media asset.
         shared_ptr<string> businessType_ {};
         // The category ID.
         shared_ptr<int64_t> cateId_ {};
-        // The category name.
+        // The name of the category.
         shared_ptr<string> cateName_ {};
-        // The category.
+        // The category of the media asset.
         shared_ptr<string> category_ {};
-        // The URL of the thumbnail.
+        // The cover image URL.
         shared_ptr<string> coverURL_ {};
-        // The time when the media asset was created.
+        // The time when the media asset was created. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
         shared_ptr<string> createTime_ {};
-        // The time when the media asset was deleted.
+        // The time when the media asset was deleted. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
         shared_ptr<string> deletedTime_ {};
-        // The content description.
+        // The description of the media asset.
         shared_ptr<string> description_ {};
-        // The input URL of the media asset in another service.
+        // The media asset URL.
         shared_ptr<string> inputURL_ {};
-        // The ID of the media asset.
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The tags.
+        // A comma-separated list of tags for the media asset.
         shared_ptr<string> mediaTags_ {};
-        // The type of the media asset.
+        // The media asset type.
         shared_ptr<string> mediaType_ {};
-        // The time when the media asset was last modified.
+        // The time when the media asset was last modified. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
         shared_ptr<string> modifiedTime_ {};
-        // The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). The ID is unique among users.
+        // A custom, user-unique ID. It must be 6 to 64 characters long and can only contain letters, digits, hyphens (-), and underscores (_).
         shared_ptr<string> referenceId_ {};
-        // The snapshots.
+        // A list of snapshot URLs.
         shared_ptr<string> snapshots_ {};
-        // The source.
+        // The source of the media asset.
         shared_ptr<string> source_ {};
-        // The sprite.
+        // The details of the generated sprite images.
         shared_ptr<string> spriteImages_ {};
-        // The resource status.
+        // The status of the media asset.
         shared_ptr<string> status_ {};
-        // The title.
+        // The title of the media asset.
         shared_ptr<string> title_ {};
         // The upload source of the media asset.
         shared_ptr<string> uploadSource_ {};
-        // The user data.
+        // Custom user data.
         shared_ptr<string> userData_ {};
       };
 
@@ -590,9 +590,9 @@ namespace Models
 
 
         protected:
-          // The average video frame rate.
+          // The average frame rate.
           shared_ptr<string> avgFPS_ {};
-          // The bitrate.
+          // The bitrate, in kbit/s.
           shared_ptr<string> bitrate_ {};
           // The full name of the codec.
           shared_ptr<string> codecLongName_ {};
@@ -606,37 +606,37 @@ namespace Models
           shared_ptr<string> codecTimeBase_ {};
           // The display aspect ratio (DAR).
           shared_ptr<string> dar_ {};
-          // The duration.
+          // The duration, in seconds.
           shared_ptr<string> duration_ {};
           // The video frame rate.
           shared_ptr<string> fps_ {};
-          // Indicates whether the video track contains bidirectional frames (B-frames).
+          // Specifies whether B-frames exist.
           shared_ptr<string> hasBFrames_ {};
-          // The height.
+          // The video height in pixels.
           shared_ptr<string> height_ {};
-          // The sequence number of the video track.
+          // The index of the video stream.
           shared_ptr<string> index_ {};
           // The language.
           shared_ptr<string> lang_ {};
-          // The codec level.
+          // The encoding level.
           shared_ptr<string> level_ {};
-          // The total number of frames.
+          // The total number of video frames.
           shared_ptr<string> nbFrames_ {};
-          // The number of frames.
+          // The total number of frames.
           shared_ptr<string> numFrames_ {};
           // The pixel format.
           shared_ptr<string> pixFmt_ {};
-          // The codec profile.
+          // The encoding profile.
           shared_ptr<string> profile_ {};
-          // The rotation angle.
+          // The rotation angle of the video.
           shared_ptr<string> rotate_ {};
           // The sample aspect ratio (SAR).
           shared_ptr<string> sar_ {};
-          // The start time.
+          // The start time, in seconds.
           shared_ptr<string> startTime_ {};
           // The time base.
           shared_ptr<string> timebase_ {};
-          // The width.
+          // The video width in pixels.
           shared_ptr<string> width_ {};
         };
 
@@ -763,11 +763,11 @@ namespace Models
           shared_ptr<string> codecTimeBase_ {};
           // The duration.
           shared_ptr<string> duration_ {};
-          // The sequence number of the subtitle track.
+          // The index of the subtitle stream.
           shared_ptr<string> index_ {};
           // The language.
           shared_ptr<string> lang_ {};
-          // The start time.
+          // The start time, in seconds.
           shared_ptr<string> startTime_ {};
           // The time base.
           shared_ptr<string> timebase_ {};
@@ -912,31 +912,31 @@ namespace Models
 
 
         protected:
-          // The bitrate.
+          // The file bitrate in kbit/s.
           shared_ptr<string> bitrate_ {};
-          // The time when the file was created.
+          // The time when the file was created. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
           shared_ptr<string> createTime_ {};
-          // The duration.
+          // The file duration in seconds.
           shared_ptr<string> duration_ {};
-          // The file name.
+          // The name of the file.
           shared_ptr<string> fileName_ {};
-          // The file size. Unit: bytes.
+          // The file size in bytes.
           shared_ptr<string> fileSize_ {};
-          // The file status.
+          // The status of the file.
           shared_ptr<string> fileStatus_ {};
-          // The file type.
+          // The type of the file.
           shared_ptr<string> fileType_ {};
-          // The OSS URL of the file.
+          // The file\\"s OSS URL.
           shared_ptr<string> fileUrl_ {};
           // The container format.
           shared_ptr<string> formatName_ {};
-          // The height.
+          // The video height in pixels.
           shared_ptr<string> height_ {};
-          // The time when the file was last modified.
+          // The time when the file was last modified. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
           shared_ptr<string> modifiedTime_ {};
-          // The region in which the file is stored.
+          // The Region where the file is stored.
           shared_ptr<string> region_ {};
-          // The width.
+          // The video width in pixels.
           shared_ptr<string> width_ {};
         };
 
@@ -1125,11 +1125,11 @@ namespace Models
 
 
         protected:
-          // The bitrate.
+          // The bitrate, in kbit/s.
           shared_ptr<string> bitrate_ {};
-          // The output layout of sound channels.
+          // The channel layout.
           shared_ptr<string> channelLayout_ {};
-          // The number of sound channels.
+          // The number of audio channels.
           shared_ptr<string> channels_ {};
           // The full name of the codec.
           shared_ptr<string> codecLongName_ {};
@@ -1141,23 +1141,23 @@ namespace Models
           shared_ptr<string> codecTagString_ {};
           // The time base of the codec.
           shared_ptr<string> codecTimeBase_ {};
-          // The duration.
+          // The duration, in seconds.
           shared_ptr<string> duration_ {};
           // The audio frame rate.
           shared_ptr<string> fps_ {};
-          // The sequence number of the audio track.
+          // The index of the audio stream.
           shared_ptr<string> index_ {};
           // The language.
           shared_ptr<string> lang_ {};
-          // The number of frames.
+          // The total number of audio frames.
           shared_ptr<string> numFrames_ {};
-          // The codec profile.
+          // The encoding profile.
           shared_ptr<string> profile_ {};
-          // The sampling format.
+          // The sample format.
           shared_ptr<string> sampleFmt_ {};
-          // The sampling rate.
+          // The sample rate, in Hz.
           shared_ptr<string> sampleRate_ {};
-          // The start time.
+          // The start time, in seconds.
           shared_ptr<string> startTime_ {};
           // The time base.
           shared_ptr<string> timebase_ {};
@@ -1202,13 +1202,13 @@ namespace Models
 
 
       protected:
-        // The information about the audio tracks. A media asset may have multiple audio tracks.
+        // A list of audio stream information. A media asset may contain multiple audio streams.
         shared_ptr<vector<FileInfoList::AudioStreamInfoList>> audioStreamInfoList_ {};
-        // The basic information about the file, including the duration and size.
+        // The basic information about the file, such as the duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
-        // The information about the subtitle tracks. A media asset may have multiple subtitle tracks.
+        // A list of subtitle stream information. A media asset may contain multiple subtitle streams.
         shared_ptr<vector<FileInfoList::SubtitleStreamInfoList>> subtitleStreamInfoList_ {};
-        // The information about the video tracks. A media asset may have multiple video tracks.
+        // A list of video stream information. A media asset may contain multiple video streams.
         shared_ptr<vector<FileInfoList::VideoStreamInfoList>> videoStreamInfoList_ {};
       };
 
@@ -1304,11 +1304,19 @@ namespace Models
 
 
           protected:
-            // The result data. The value is a JSON string. For information about the data structures of different data types<props="china">, see [Description of the Results parameter](https://help.aliyun.com/zh/ims/developer-reference/api-ice-2020-11-09-querysmarttagjob?spm=a2c4g.11186623.0.0.521d48b7KfapOL#api-detail-40).
+            // The detailed analysis result is a JSON string. For the data structure of each Type, see [Result parameter description](~~478787#api-detail-40~~).
             shared_ptr<string> data_ {};
-            // The tagging type. Valid values:
+            // The tag identification type. Valid values:
             // 
-            // *   NLP: natural language processing (NLP)-based tagging
+            // - NLP: The result from Natural Language Processing (NLP).
+            // 
+            // - TextLabel: A text tag.
+            // 
+            // - VideoLabel: A video tag.
+            // 
+            // - ASR: The raw result from Automatic Speech Recognition (ASR).
+            // 
+            // - OCR: The raw result from Optical Character Recognition (OCR).
             shared_ptr<string> type_ {};
           };
 
@@ -1345,17 +1353,19 @@ namespace Models
 
 
         protected:
-          // The ID of the AI task.
+          // The AI job ID.
           shared_ptr<string> aiJobId_ {};
-          // The URL of the tagging result.
+          // The tag result URL.
           shared_ptr<string> resultUrl_ {};
-          // The recognized tags.
+          // A list of tag recognition results.
           shared_ptr<vector<StandardSmartTagJob::Results>> results_ {};
-          // The analysis status. Valid values:
+          // The AI analysis status:
           // 
-          // *   Analyzing
-          // *   AnalyzeSuccess
-          // *   AnalyzeFailed
+          // - **Analyzing**: The analysis is in progress.
+          // 
+          // - **AnalyzeSuccess**: The analysis is successful.
+          // 
+          // - **AnalyzeFailed**: The analysis failed.
           shared_ptr<string> status_ {};
         };
 
@@ -1408,35 +1418,49 @@ namespace Models
       protected:
         // The AI category. Valid values:
         // 
-        // *   Life
-        // *   Good-looking
-        // *   Cute pets
-        // *   News
-        // *   Ads
-        // *   Environmental resources
-        // *   Automobile
+        // - Lifestyle
+        // 
+        // - Appearance
+        // 
+        // - Pets
+        // 
+        // - News
+        // 
+        // - Advertisement
+        // 
+        // - Environment
+        // 
+        // - Automobile
         shared_ptr<string> aiCategory_ {};
-        // The ID of the AI task.
+        // The AI job ID.
         shared_ptr<string> aiJobId_ {};
-        // The analysis result.
+        // The raw AI analysis result.
         shared_ptr<string> result_ {};
-        // The storage type. This parameter indicates the library in which the analysis data is stored. Valid values:
+        // The save type. Specifies whether to save the results to the search index after the AI analysis is complete. Valid values:
         // 
-        // *   TEXT: the text library.
+        // - TEXT: The text index.
         shared_ptr<string> saveType_ {};
-        // The information about the tagging job.
+        // The tag job.
         shared_ptr<AiRoughData::StandardSmartTagJob> standardSmartTagJob_ {};
-        // The analysis status. Valid values:
+        // The status of the AI analysis:
         // 
-        // *   Analyzing
-        // *   AnalyzeSuccess
-        // *   AnalyzeFailed
-        // *   Saving
-        // *   SaveSuccess
-        // *   SaveFailed
-        // *   Deleting
-        // *   DeleteSuccess
-        // *   DeleteFailed
+        // - Analyzing: The analysis is in progress.
+        // 
+        // - AnalyzeSuccess: The analysis is successful.
+        // 
+        // - AnalyzeFailed: The analysis failed.
+        // 
+        // - Saving: The data is being saved.
+        // 
+        // - SaveSuccess: The data is saved.
+        // 
+        // - SaveFailed: The data failed to save.
+        // 
+        // - Deleting: The data is being deleted.
+        // 
+        // - DeleteSuccess: The data is deleted.
+        // 
+        // - DeleteFailed: The data failed to delete.
         shared_ptr<string> status_ {};
       };
 
@@ -1477,13 +1501,13 @@ namespace Models
 
 
     protected:
-      // The original AI analysis data.
+      // The raw data from the AI analysis.
       shared_ptr<MediaInfo::AiRoughData> aiRoughData_ {};
-      // The file information.
+      // A list of file information objects.
       shared_ptr<vector<MediaInfo::FileInfoList>> fileInfoList_ {};
-      // The basic information about the media asset.
+      // Basic information about the media asset.
       shared_ptr<MediaInfo::MediaBasicInfo> mediaBasicInfo_ {};
-      // The ID of the media asset.
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -1506,7 +1530,7 @@ namespace Models
 
 
   protected:
-    // The information about the media asset.
+    // Information about the media asset.
     shared_ptr<GetMediaInfoResponseBody::MediaInfo> mediaInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

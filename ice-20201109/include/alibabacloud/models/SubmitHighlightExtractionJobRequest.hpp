@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The client token used to ensure the idempotency of the request.
+    // A client token provided by the caller to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The input configuration.
+    // The input configuration. For more information, see [InputConfig Parameter Description](~~2869391#e72301e3a74mk~~).
     shared_ptr<string> inputConfig_ {};
-    // The output configuration.
+    // The output configuration. For more information, see [OutputConfig Parameter Description](~~2869391#cd08cbc516voq~~).
     shared_ptr<string> outputConfig_ {};
-    // The user-defined data, including the business and callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
+    // The user data and callback configuration. For details on the structure, see [UserData Configuration](~~357745#section-urj-v3f-0s1~~).
     shared_ptr<string> userData_ {};
   };
 

@@ -162,6 +162,7 @@ namespace Models
     shared_ptr<string> ipBlacklist_ {};
     // The IP address whitelist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,). You must configure AuthorizationCode, IpWhitelist, or both.
     shared_ptr<string> ipWhitelist_ {};
+    // Live stream encapsulation configuration
     shared_ptr<string> livePackagingConfigShrink_ {};
     // The playlist name. Default value: manifest.
     shared_ptr<string> manifestName_ {};

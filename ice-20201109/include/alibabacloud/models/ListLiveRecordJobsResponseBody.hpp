@@ -174,8 +174,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   vod
-        // *   oss
+        // - vod
+        // 
+        // - oss
         shared_ptr<string> type_ {};
       };
 

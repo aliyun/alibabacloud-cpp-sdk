@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The name of the search library.
     shared_ptr<string> searchLibName_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<string> success_ {};
   };
 

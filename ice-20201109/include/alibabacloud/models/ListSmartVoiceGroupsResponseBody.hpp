@@ -155,28 +155,22 @@ namespace Models
 
 
       protected:
-        // The speaker description.
+        // The description of the voice.
         shared_ptr<string> desc_ {};
-        // The speaker name.
+        // The name of the voice.
         shared_ptr<string> name_ {};
-        // The remarks of the speaker.
+        // Notes for the voice.
         shared_ptr<string> remark_ {};
+        // The sample rates supported by the voice.
         shared_ptr<string> supportSampleRate_ {};
-        // The tag of the speaker type.
+        // The tag for the voice category.
         shared_ptr<string> tag_ {};
-        // The speaker ID.
+        // The voice ID.
         shared_ptr<string> voice_ {};
         shared_ptr<string> voiceSource_ {};
-        // The speaker type.
-        // 
-        // Valid values:
-        // 
-        // *   Male
-        // *   Female
-        // *   Boy
-        // *   Girl
+        // The voice type.
         shared_ptr<string> voiceType_ {};
-        // The URL of the sample audio file.
+        // The URL of the sample audio.
         shared_ptr<string> voiceUrl_ {};
       };
 
@@ -199,9 +193,9 @@ namespace Models
 
 
     protected:
-      // The name of the speaker group.
+      // The name of the voice group.
       shared_ptr<string> type_ {};
-      // The speakers.
+      // The voice list.
       shared_ptr<vector<VoiceGroups::VoiceList>> voiceList_ {};
     };
 
@@ -226,7 +220,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried speaker groups.
+    // An array of voice groups.
     shared_ptr<vector<ListSmartVoiceGroupsResponseBody::VoiceGroups>> voiceGroups_ {};
   };
 

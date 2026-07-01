@@ -94,18 +94,21 @@ namespace Models
 
 
   protected:
-    // The job description, which can up to 128 bytes in length.
+    // The job description. The maximum length is 128 bytes.
     shared_ptr<string> description_ {};
-    // The speech duration.
+    // The duration of the segment to transcribe.
     shared_ptr<string> duration_ {};
+    // The configuration for speech-to-text conversion:
+    // 
+    // - HotwordLibraryIdList: A list of custom vocabulary IDs. Only one custom vocabulary ID is currently supported. Future releases will support multiple IDs.
     shared_ptr<string> editingConfig_ {};
-    // The input file. You can specify an Object Storage Service (OSS) URL or the ID of a media asset in the media asset library.
+    // The input configuration. Specify either an OSS URL or a media ID from the media library.
     shared_ptr<string> inputFile_ {};
-    // The start time of the speech to recognize.
+    // The start time of the segment to be transcribed from the media file.
     shared_ptr<string> startTime_ {};
-    // The job title, which can be up to 128 bytes in length.
+    // The job title. The maximum length is 128 bytes.
     shared_ptr<string> title_ {};
-    // The user-defined data in the JSON format. You can specify your business information, such as the business environment and job information.
+    // User-defined settings in JSON format. Use this to pass business-related data, such as the operating environment or other job details.
     shared_ptr<string> userData_ {};
   };
 

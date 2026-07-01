@@ -103,19 +103,29 @@ namespace Models
 
 
   protected:
-    // The ID of the AI agent.
+    // The AI agent ID.
     // 
     // This parameter is required.
     shared_ptr<string> AIAgentId_ {};
+    // The agent template configuration. The configuration you provide merges with the agent template configuration in the console. If you omit this parameter, the agent uses the default configuration from the console.
+    // 
+    // > Compatibility with `TemplateConfig`: Fields in `AgentConfig` take precedence. If a field is specified in `TemplateConfig` but not in `AgentConfig`, the system uses the value from `TemplateConfig`. We recommend using `AgentConfig` instead of `TemplateConfig`.
     shared_ptr<string> agentConfigShrink_ {};
+    // The chat synchronization configuration.
     shared_ptr<string> chatSyncConfigShrink_ {};
-    // The time when the token expires. Unit: seconds. Default value: 3600. Valid values: 0 to 604800.
+    // Optional. The expiration time of the token in seconds. Default value: 3600. Value range: 0 to 604800.
     shared_ptr<int64_t> expire_ {};
+    // A unique identifier for the session. If not provided, a new session is created.
     shared_ptr<string> sessionId_ {};
-    // The template configurations of the AI agent. The specified configurations are merged with the template configurations that are specified in the console. If you do not specify this parameter, the system uses the default configurations for an AI agent created in the console.
+    // - This configuration merges with the agent template configuration in the console.
+    // 
+    // - If you omit this parameter, the agent uses the default configuration from the console.
+    // 
+    // > The agent template configuration. This parameter is deprecated. Use the AgentConfig parameter instead.
     shared_ptr<string> templateConfigShrink_ {};
+    // User data.
     shared_ptr<string> userData_ {};
-    // The username of the AI agent in the channel. If you do not specify this parameter, the system automatically generates a username. The value can be up to 64 characters in length.
+    // The username in the channel. If you do not specify a username, one is automatically generated. The username can be up to 64 characters in length.
     shared_ptr<string> userId_ {};
   };
 

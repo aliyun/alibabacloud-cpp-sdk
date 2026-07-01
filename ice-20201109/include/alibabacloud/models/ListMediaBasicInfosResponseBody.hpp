@@ -283,45 +283,45 @@ namespace Models
 
 
       protected:
-        // The service to which the media asset belongs.
+        // The associated business.
         shared_ptr<string> biz_ {};
-        // The business type of the media asset.
+        // The business type.
         shared_ptr<string> businessType_ {};
         // The category ID.
         shared_ptr<int64_t> cateId_ {};
         // The category of the media asset.
         shared_ptr<string> category_ {};
-        // The thumbnail URL of the media asset.
+        // The cover URL.
         shared_ptr<string> coverURL_ {};
-        // The time when the media asset was created.
+        // The time the media asset was created.
         shared_ptr<string> createTime_ {};
-        // The time when the media asset was deleted.
+        // The time the media asset was deleted.
         shared_ptr<string> deletedTime_ {};
         // The description of the media asset.
         shared_ptr<string> description_ {};
-        // The URL of the media asset in another service.
+        // The source URL of the media asset.
         shared_ptr<string> inputURL_ {};
-        // The ID of the media asset.
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The tags of the media asset.
+        // Tags associated with the media asset.
         shared_ptr<string> mediaTags_ {};
-        // The type of the media asset.
+        // The media type.
         shared_ptr<string> mediaType_ {};
-        // The time when the media asset was last modified.
+        // The time the media asset was last modified.
         shared_ptr<string> modifiedTime_ {};
-        // The custom ID of the media asset. The ID is a string that contains 6 to 64 characters. Only letters, digits, hyphens (-), and underscores (_) are supported. The ID is unique among users.
+        // A user-defined ID that must be unique within your account. The ID must be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_).
         shared_ptr<string> referenceId_ {};
-        // The snapshots of the media asset.
+        // Information about the snapshots.
         shared_ptr<string> snapshots_ {};
         // The source of the media asset.
         shared_ptr<string> source_ {};
-        // The sprite.
+        // Information about the image sprites.
         shared_ptr<string> spriteImages_ {};
         // The status of the media asset.
         shared_ptr<string> status_ {};
         // The title of the media asset.
         shared_ptr<string> title_ {};
-        // The transcoding status of the media asset.
+        // The transcoding status.
         shared_ptr<string> transcodeStatus_ {};
         // The upload source of the media asset.
         shared_ptr<string> uploadSource_ {};
@@ -487,31 +487,31 @@ namespace Models
 
 
         protected:
-          // The bitrate.
+          // The bitrate of the file, in Kbit/s.
           shared_ptr<string> bitrate_ {};
-          // The time when the file was created.
+          // The time the file was created.
           shared_ptr<string> createTime_ {};
-          // The duration.
+          // The duration of the file, in seconds.
           shared_ptr<string> duration_ {};
-          // The file name.
+          // The name of the file.
           shared_ptr<string> fileName_ {};
-          // The file size. Unit: bytes.
+          // The size of the file, in bytes.
           shared_ptr<string> fileSize_ {};
-          // The file status.
+          // The status of the file.
           shared_ptr<string> fileStatus_ {};
-          // The file type.
+          // The type of the file.
           shared_ptr<string> fileType_ {};
-          // The OSS URL of the file.
+          // The Object Storage Service (OSS) URL of the file.
           shared_ptr<string> fileUrl_ {};
           // The container format.
           shared_ptr<string> formatName_ {};
-          // The height.
+          // The height of the video, in pixels.
           shared_ptr<string> height_ {};
-          // The time when the file was last modified.
+          // The time the file was last modified.
           shared_ptr<string> modifiedTime_ {};
-          // The region in which the file resides.
+          // The region where the file is stored.
           shared_ptr<string> region_ {};
-          // The width.
+          // The width of the video, in pixels.
           shared_ptr<string> width_ {};
         };
 
@@ -526,7 +526,7 @@ namespace Models
 
 
       protected:
-        // The basic information of the file, including the duration and size.
+        // Basic information about the file, such as its duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
@@ -558,11 +558,11 @@ namespace Models
 
 
     protected:
-      // FileInfos
+      // A list of file information objects.
       shared_ptr<vector<MediaInfos::FileInfoList>> fileInfoList_ {};
-      // BasicInfo
+      // The basic information about the media asset.
       shared_ptr<MediaInfos::MediaBasicInfo> mediaBasicInfo_ {};
-      // The ID of the media asset.
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -606,15 +606,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned in the query.
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The media assets that meet the specified conditions.
+    // The list of matching media assets.
     shared_ptr<vector<ListMediaBasicInfosResponseBody::MediaInfos>> mediaInfos_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token for retrieving the next page of results. If this parameter is not returned, all results have been retrieved.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of matching entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

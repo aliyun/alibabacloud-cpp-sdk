@@ -65,9 +65,11 @@ namespace Models
     shared_ptr<int32_t> priority_ {};
     // The type of the MPS queue. Valid values:
     // 
-    // 1.  Standard: standard MPS queue.
-    // 2.  Boost: MPS queue with transcoding speed boosted.
-    // 3.  NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+    // 1. Standard: standard MPS queue.
+    // 
+    // 2. Boost: MPS queue with transcoding speed boosted.
+    // 
+    // 3. NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
     // 
     // This parameter is required.
     shared_ptr<string> speed_ {};

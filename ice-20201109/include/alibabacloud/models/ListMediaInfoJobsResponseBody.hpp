@@ -397,9 +397,11 @@ namespace Models
           shared_ptr<string> fps_ {};
           // Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
           // 
-          // *   0: The stream contains no B-frames.
-          // *   1: The stream contains one B-frame.
-          // *   2: The stream contains multiple consecutive B-frames.
+          // - 0: The stream contains no B-frames.
+          // 
+          // - 1: The stream contains one B-frame.
+          // 
+          // - 2: The stream contains multiple consecutive B-frames.
           shared_ptr<string> hasBFrames_ {};
           // The height.
           shared_ptr<string> height_ {};
@@ -417,8 +419,9 @@ namespace Models
           shared_ptr<string> profile_ {};
           // The rotation angle of the video image.
           // 
-          // *   Valid values: 0, 90, 180, and 270.
-          // *   Default value: 0.
+          // - Valid values: 0, 90, 180, and 270.
+          // 
+          // - Default value: 0.
           shared_ptr<string> rotate_ {};
           // The aspect ratio of the area from which the sampling points are collected.
           shared_ptr<string> sar_ {};
@@ -853,13 +856,15 @@ namespace Models
       protected:
         // The media object.
         // 
-        // *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-        // *   If Type is set to Media, the ID of a media asset is returned.
+        // - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+        // 
+        // - If Type is set to Media, the ID of a media asset is returned.
         shared_ptr<string> media_ {};
         // The type of the media object. Valid values:
         // 
-        // *   OSS: an Object Storage Service (OSS) object.
-        // *   Media: a media asset.
+        // - OSS: an Object Storage Service (OSS) object.
+        // 
+        // - Media: a media asset.
         shared_ptr<string> type_ {};
       };
 
@@ -985,9 +990,11 @@ namespace Models
       shared_ptr<Jobs::ScheduleConfig> scheduleConfig_ {};
       // The state of the job. Valid values:
       // 
-      // *   Init: The job is submitted.
-      // *   Success: The job is successful.
-      // *   Fail: The job failed.
+      // - Init: The job is submitted.
+      // 
+      // - Success: The job is successful.
+      // 
+      // - Fail: The job failed.
       shared_ptr<string> status_ {};
       // The job submission information.
       Darabonba::Json submitResultJson_ {};
@@ -995,9 +1002,11 @@ namespace Models
       shared_ptr<string> submitTime_ {};
       // The source of the job. Valid values:
       // 
-      // *   API
-      // *   WorkFlow
-      // *   Console
+      // - API
+      // 
+      // - WorkFlow
+      // 
+      // - Console
       shared_ptr<string> triggerSource_ {};
       // The user data.
       shared_ptr<string> userData_ {};

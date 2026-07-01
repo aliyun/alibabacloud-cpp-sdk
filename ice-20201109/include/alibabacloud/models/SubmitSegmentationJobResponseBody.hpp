@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The ID of the segmentation job.
     shared_ptr<string> jobId_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

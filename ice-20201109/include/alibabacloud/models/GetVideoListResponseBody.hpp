@@ -223,17 +223,27 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   PrepareFail: The file is abnormal.
-      // *   UploadFail: The video failed to be uploaded.
-      // *   UploadSucc: The video is uploaded.
-      // *   Transcoding: The video is being transcoded.
-      // *   TranscodeFail: The video failed to be transcoded.
-      // *   ProduceFail: The video failed to be produced.
-      // *   Normal: The video is normal.
-      // *   Uploading: The video is being uploaded.
-      // *   Preparing: The file is being generated.
-      // *   Blocked: The video is blocked.
-      // *   checking: The video is being reviewed.
+      // - PrepareFail: The file is abnormal.
+      // 
+      // - UploadFail: The video failed to be uploaded.
+      // 
+      // - UploadSucc: The video is uploaded.
+      // 
+      // - Transcoding: The video is being transcoded.
+      // 
+      // - TranscodeFail: The video failed to be transcoded.
+      // 
+      // - ProduceFail: The video failed to be produced.
+      // 
+      // - Normal: The video is normal.
+      // 
+      // - Uploading: The video is being uploaded.
+      // 
+      // - Preparing: The file is being generated.
+      // 
+      // - Blocked: The video is blocked.
+      // 
+      // - checking: The video is being reviewed.
       shared_ptr<string> status_ {};
       // The storage address.
       shared_ptr<string> storageLocation_ {};
@@ -291,8 +301,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
     // The total number of audio and video files that meet the conditions.
     shared_ptr<int64_t> total_ {};

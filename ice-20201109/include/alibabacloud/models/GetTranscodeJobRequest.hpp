@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // Job ID
     shared_ptr<string> parentJobId_ {};
   };
 

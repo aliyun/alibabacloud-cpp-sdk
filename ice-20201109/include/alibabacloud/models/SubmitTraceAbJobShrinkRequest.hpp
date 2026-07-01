@@ -94,25 +94,27 @@ namespace Models
 
 
   protected:
-    // The key that is encoded by using the Base64 algorithm.
+    // The Base64-encoded encryption key.
     shared_ptr<string> cipherBase64ed_ {};
-    // The source video file for A/B watermarking.
+    // The input video for the A/B stream forensic watermarking job.
     // 
-    // > OSS object or media asset must reside in the same region as the IMS service region. This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
+    // > - The Object Storage Service (OSS) file or media asset must be in the same region where Intelligent Media Services (IMS) is deployed.
+    // >
+    // > - This operation supports only videos that are three minutes or longer. Using a shorter video may cause the API call to fail or produce no output.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
-    // The watermark level, which specifies the channel to embed watermarks. Valid values: 0 specifies the 0u channel, 1 specifies the 1uv channel, and 2 specifies the 2yuv channel.
+    // The watermark level, which specifies the embedding channel. Valid values: `0` (U channel), `1` (UV channels), and `2` (YUV channels).
     shared_ptr<int64_t> level_ {};
-    // The output directory path.
+    // The output location for the A/B stream job. This must be an OSS directory.
     // 
     // This parameter is required.
     shared_ptr<string> outputShrink_ {};
-    // The start point of watermark embedding. Unit: seconds.
+    // The start time for watermark embedding, in seconds.
     shared_ptr<int64_t> startTime_ {};
-    // The duration of the watermark embedding. Unit: seconds.
+    // The total duration for watermark embedding, in seconds.
     shared_ptr<int64_t> totalTime_ {};
-    // The custom data, which can be up to 1,024 bytes in size.
+    // User data to include in the request. The maximum length is 1,024 bytes.
     shared_ptr<string> userData_ {};
   };
 

@@ -142,8 +142,9 @@ namespace Models
         shared_ptr<string> bitrate_ {};
         // The encoding type. Valid values:
         // 
-        // *   H.264
-        // *   H.265
+        // - H.264
+        // 
+        // - H.265
         shared_ptr<string> codec_ {};
         // The frame rate of the output video. Unit: frames per second (FPS). Valid values: 1 to 60.
         shared_ptr<string> fps_ {};
@@ -232,15 +233,19 @@ namespace Models
         shared_ptr<string> channels_ {};
         // The audio codec. Valid values:
         // 
-        // *   AAC
-        // *   MP3
+        // - AAC
+        // 
+        // - MP3
         shared_ptr<string> codec_ {};
         // The audio codec profile. Valid values when the Codec parameter is set to AAC:
         // 
-        // *   aac_low
-        // *   aac_he
-        // *   aac_he_v2
-        // *   aac_ld
+        // - aac_low
+        // 
+        // - aac_he
+        // 
+        // - aac_he_v2
+        // 
+        // - aac_ld
         shared_ptr<string> profile_ {};
         // The audio sampling rate. Valid values: 22050 to 96000.
         // 
@@ -309,10 +314,13 @@ namespace Models
     shared_ptr<CreateLiveTranscodeTemplateRequest::TemplateConfig> templateConfig_ {};
     // The type of the template. Valid values:
     // 
-    // *   normal
-    // *   narrow-band
-    // *   audio-only
-    // *   origin
+    // - normal
+    // 
+    // - narrow-band
+    // 
+    // - audio-only
+    // 
+    // - origin
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -86,8 +86,9 @@ namespace Models
   protected:
     // Specifies whether to ignore source locations marked as deleted. A value of true means ignoring source locations marked as deleted.
     shared_ptr<bool> filterState_ {};
-    // *   The page number.
-    // *   Default value: 1.
+    // - The page number.
+    // 
+    // - Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 20. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};

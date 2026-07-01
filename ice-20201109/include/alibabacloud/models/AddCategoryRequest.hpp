@@ -59,8 +59,9 @@ namespace Models
   protected:
     // The category name.
     // 
-    // *   The value can be up to 64 bytes in length.
-    // *   The value must be encoded in UTF-8.
+    // - The value can be up to 64 bytes in length.
+    // 
+    // - The value must be encoded in UTF-8.
     // 
     // This parameter is required.
     shared_ptr<string> cateName_ {};
@@ -68,8 +69,9 @@ namespace Models
     shared_ptr<int64_t> parentId_ {};
     // The type of the category. Valid values:
     // 
-    // *   default: audio, video, and image files. This is the default value.
-    // *   material: short video materials.
+    // - default: audio, video, and image files. This is the default value.
+    // 
+    // - material: short video materials.
     shared_ptr<string> type_ {};
   };
 

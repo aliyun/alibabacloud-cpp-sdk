@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the task.
+    // The ID of the highlight compilation job.
     shared_ptr<string> jobId_ {};
-    // The request ID.
+    // A unique ID for the request.
     shared_ptr<string> requestId_ {};
   };
 

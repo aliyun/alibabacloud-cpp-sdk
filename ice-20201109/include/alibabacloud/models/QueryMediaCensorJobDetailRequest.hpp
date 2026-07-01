@@ -100,8 +100,9 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The number of entries per page.
     // 
-    // *   Default value: **30**.
-    // *   Valid values: **1 to 300**.
+    // - Default value: **30**.
+    // 
+    // - Valid values: **1 to 300**.
     shared_ptr<int64_t> maximumPageSize_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextPageToken_ {};

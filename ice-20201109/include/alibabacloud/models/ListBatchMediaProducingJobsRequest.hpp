@@ -111,8 +111,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Script: script-based editing job that mixes media assets.
-    // *   Smart_Mix: intelligent editing job that mixes media assets.
+    // - Script: script-based editing job that mixes media assets.
+    // 
+    // - Smart_Mix: intelligent editing job that mixes media assets.
     shared_ptr<string> jobType_ {};
     // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
@@ -120,8 +121,9 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The sorting parameter. Valid values:
     // 
-    // *   desc (default): sorted by creation time in descending order.
-    // *   asc: sorted by creation time in ascending order.
+    // - desc (default): sorted by creation time in descending order.
+    // 
+    // - asc: sorted by creation time in ascending order.
     // 
     // <!---->
     shared_ptr<string> sortBy_ {};
@@ -131,10 +133,13 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Finished
-    // *   Init
-    // *   Failed
-    // *   Processing
+    // - Finished
+    // 
+    // - Init
+    // 
+    // - Failed
+    // 
+    // - Processing
     shared_ptr<string> status_ {};
   };
 

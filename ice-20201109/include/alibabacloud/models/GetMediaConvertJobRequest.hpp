@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the transcoding task.
+    // The ID of the media transcoding job.
     shared_ptr<string> jobId_ {};
   };
 

@@ -283,9 +283,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   init: The job is not started.
-    // *   paused: The job is paused.
-    // *   started: The job is in progress.
+    // - init: The job is not started.
+    // 
+    // - paused: The job is paused.
+    // 
+    // - started: The job is in progress.
     shared_ptr<string> status_ {};
     // The input information.
     shared_ptr<GetLiveSnapshotJobResponseBody::StreamInput> streamInput_ {};

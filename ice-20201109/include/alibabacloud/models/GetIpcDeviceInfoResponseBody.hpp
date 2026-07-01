@@ -81,8 +81,17 @@ namespace Models
 
 
     protected:
+      // Capability. Valid values:
+      // 
+      // - understand: understanding
+      // 
+      // - understand-reid: understanding with reid
+      // 
+      // - search: search
       shared_ptr<string> capability_ {};
+      // Device ID.
       shared_ptr<string> deviceId_ {};
+      // Expiration Time. UTC time in the format yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> expireTime_ {};
     };
 
@@ -112,8 +121,11 @@ namespace Models
 
 
   protected:
+    // List of device identity information.
     shared_ptr<vector<GetIpcDeviceInfoResponseBody::DeviceInfos>> deviceInfos_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

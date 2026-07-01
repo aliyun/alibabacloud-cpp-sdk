@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the media editing and production job.
+    // The ID of the media production job.
     shared_ptr<string> jobId_ {};
   };
 

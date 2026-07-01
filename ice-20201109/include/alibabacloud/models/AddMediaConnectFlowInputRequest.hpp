@@ -140,48 +140,33 @@ namespace Models
 
 
   protected:
-    // The IP address whitelist in CIDR format. Separate multiple CIDR blocks with commas (,).
+    // IP address whitelist in CIDR notation. Separate multiple CIDR blocks with commas.
     shared_ptr<string> cidrs_ {};
-    // The flow ID.
+    // Flow instance ID
     // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
-    // The source URL. This parameter is required when the source type is RTMP-PULL or SRT-Listener.
+    // Input URL. Required only when the input type is RTMP-PULL or SRT-Listener.
     shared_ptr<string> inputFromUrl_ {};
-    // The source name.
+    // Input name
     // 
     // This parameter is required.
     shared_ptr<string> inputName_ {};
-    // The source type.
-    // 
-    // Valid values:
-    // 
-    // *   RTMP-PUSH
-    // *   SRT-Caller
-    // *   RTMP-PULL
-    // *   SRT-Listener
-    // *   Flow
+    // Input type
     // 
     // This parameter is required.
     shared_ptr<string> inputProtocol_ {};
-    // The maximum bitrate. Unit: bit/s.
+    // Maximum bitrate in bits per second (bps)
     shared_ptr<int32_t> maxBitrate_ {};
-    // The ID of the source flow. This parameter is required when the source type is Flow.
+    // Upstream Flow ID. Required only when the input type is Flow.
     shared_ptr<string> pairFlowId_ {};
-    // The output of the source flow. This parameter is required when the source type is Flow.
+    // Upstream Flow output name. Required only when the input type is Flow.
     shared_ptr<string> pairOutputName_ {};
-    // The latency for the SRT stream. This parameter is required the source type is SRT-Listener or SRT-Caller.
+    // SRT latency in milliseconds. Required only when the input type is SRT-Listener or SRT-Caller.
     shared_ptr<int32_t> srtLatency_ {};
-    // The SRT key. This parameter is required when the source type is SRT-Listener or SRT-Caller.
+    // SRT encryption key. Required only when the input type is SRT-Listener or SRT-Caller.
     shared_ptr<string> srtPassphrase_ {};
-    // The encryption key length. This parameter is required when the source type is SRT-Listener or SRT-Caller.
-    // 
-    // Valid values:
-    // 
-    // *   0
-    // *   16
-    // *   24
-    // *   32
+    // SRT encryption key length in bytes. Required only when the input type is SRT-Listener or SRT-Caller.
     shared_ptr<string> srtPbkeyLen_ {};
     shared_ptr<string> withInternalVip_ {};
   };

@@ -142,11 +142,14 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> asrMaxSilence_ {};
+      // Specifies whether to allow voice interrupt.
       shared_ptr<bool> enableVoiceInterrupt_ {};
+      // The greeting the AI agent speaks when a user joins the call.
       shared_ptr<string> greeting_ {};
       shared_ptr<bool> useVoiceprint_ {};
       shared_ptr<int32_t> userOfflineTimeout_ {};
       shared_ptr<int32_t> userOnlineTimeout_ {};
+      // The voice\\"s unique identifier.
       shared_ptr<string> voiceId_ {};
       shared_ptr<string> voiceprintId_ {};
       shared_ptr<int64_t> volume_ {};
@@ -199,14 +202,24 @@ namespace Models
 
 
   protected:
+    // The authentication token required to join the RTC call. You must generate this token using your RTC AppKey.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The RTC channel\\"s unique identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // Specifies advanced call configurations that override the agent\\"s default configurations. If you omit this parameter, the agent uses its default configurations.
     shared_ptr<StartRtcRobotInstanceRequest::Config> config_ {};
+    // The AI agent\\"s unique identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> robotId_ {};
+    // User-defined information.
     shared_ptr<string> userData_ {};
+    // The AI agent\\"s unique identifier within the channel.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

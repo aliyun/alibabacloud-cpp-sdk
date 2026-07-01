@@ -106,6 +106,7 @@ namespace Models
 
 
         protected:
+          // The content of the dynamic metadata.
           shared_ptr<string> data_ {};
         };
 
@@ -120,6 +121,13 @@ namespace Models
 
 
       protected:
+        // The type of dynamic metadata. Valid values:
+        // 
+        // - `"ai"`: Standardized data derived from raw AI results.
+        // 
+        // - `"user-defined"`: The user-defined metadata.
+        // 
+        // - `"system"`: The system-generated data.
         shared_ptr<MediaDynamicInfo::DynamicMetaData> dynamicMetaData_ {};
       };
 
@@ -317,52 +325,53 @@ namespace Models
 
 
       protected:
+        // The business associated with the media asset.
         shared_ptr<string> biz_ {};
         // The business type of the media asset.
         shared_ptr<string> businessType_ {};
-        // The category of the media asset.
+        // The category.
         shared_ptr<string> category_ {};
-        // The thumbnail URL of the media asset.
+        // The cover URL.
         shared_ptr<string> coverURL_ {};
-        // The time when the media asset was created.
+        // The time the media asset was created.
         shared_ptr<string> createTime_ {};
-        // The time when the media asset was deleted.
+        // The time the media asset was deleted.
         shared_ptr<string> deletedTime_ {};
-        // The description of the media asset.
+        // The description.
         shared_ptr<string> description_ {};
-        // The URL of the media asset in another service.
+        // The URL of the media asset in its source system.
         shared_ptr<string> inputURL_ {};
-        // MediaId
+        // The media ID.
         shared_ptr<string> mediaId_ {};
-        // The tags of the media asset.
+        // The tags.
         shared_ptr<string> mediaTags_ {};
-        // The type of the media asset. Valid values:
+        // The media type. Valid values:
         // 
-        // \\- image
+        // - `Image`
         // 
-        // \\- video
+        // - `Video`
         // 
-        // \\- audio
+        // - `Audio`
         // 
-        // \\- text
+        // - `Text`
         shared_ptr<string> mediaType_ {};
-        // The time when the media asset was last modified.
+        // The time the media asset was last modified.
         shared_ptr<string> modifiedTime_ {};
-        // The snapshots of the media asset.
+        // The snapshots.
         shared_ptr<string> snapshots_ {};
-        // The source of the media asset. Valid values:
+        // The source. Valid values:
         // 
-        // \\- oss
+        // - `OSS`
         // 
-        // \\- vod
+        // - `VOD`
         shared_ptr<string> source_ {};
-        // The sprite.
+        // The sprite images.
         shared_ptr<string> spriteImages_ {};
         // The status of the media asset.
         shared_ptr<string> status_ {};
-        // The title of the media asset.
+        // The title.
         shared_ptr<string> title_ {};
-        // The transcoding status of the media asset.
+        // The transcoding status.
         shared_ptr<string> transcodeStatus_ {};
         // The user data.
         shared_ptr<string> userData_ {};
@@ -633,29 +642,53 @@ namespace Models
 
 
         protected:
+          // The average frame rate.
           shared_ptr<string> avgFPS_ {};
+          // The bitrate.
           shared_ptr<string> bitrate_ {};
+          // The full name of the codec.
           shared_ptr<string> codecLongName_ {};
+          // The short name of the codec.
           shared_ptr<string> codecName_ {};
+          // The codec tag.
           shared_ptr<string> codecTag_ {};
+          // The codec tag string.
           shared_ptr<string> codecTagString_ {};
+          // The time base of the codec.
           shared_ptr<string> codecTimeBase_ {};
+          // The display aspect ratio (DAR).
           shared_ptr<string> dar_ {};
+          // The duration.
           shared_ptr<string> duration_ {};
+          // The frame rate.
           shared_ptr<string> fps_ {};
+          // Indicates whether B-frames exist.
           shared_ptr<string> hasBFrames_ {};
+          // The height of the video.
           shared_ptr<string> height_ {};
+          // The index of the stream.
           shared_ptr<string> index_ {};
+          // The language.
           shared_ptr<string> lang_ {};
+          // The level.
           shared_ptr<string> level_ {};
+          // This parameter is an alias for `NumFrames`.
           shared_ptr<string> nbFrames_ {};
+          // The total number of frames.
           shared_ptr<string> numFrames_ {};
+          // The pixel format.
           shared_ptr<string> pixFmt_ {};
+          // The profile.
           shared_ptr<string> profile_ {};
+          // The rotation angle.
           shared_ptr<string> rotate_ {};
+          // The sample aspect ratio (SAR).
           shared_ptr<string> sar_ {};
+          // The start time.
           shared_ptr<string> startTime_ {};
+          // The time base.
           shared_ptr<string> timebase_ {};
+          // The width of the video.
           shared_ptr<string> width_ {};
         };
 
@@ -770,15 +803,25 @@ namespace Models
 
 
         protected:
+          // The full name of the codec.
           shared_ptr<string> codecLongName_ {};
+          // The short name of the codec.
           shared_ptr<string> codecName_ {};
+          // The codec tag.
           shared_ptr<string> codecTag_ {};
+          // The codec tag string.
           shared_ptr<string> codecTagString_ {};
+          // The time base of the codec.
           shared_ptr<string> codecTimeBase_ {};
+          // The duration.
           shared_ptr<string> duration_ {};
+          // The index of the stream.
           shared_ptr<string> index_ {};
+          // The language.
           shared_ptr<string> lang_ {};
+          // The start time.
           shared_ptr<string> startTime_ {};
+          // The time base.
           shared_ptr<string> timebase_ {};
         };
 
@@ -908,19 +951,19 @@ namespace Models
           shared_ptr<string> duration_ {};
           // The file name.
           shared_ptr<string> fileName_ {};
-          // The file size. Unit: bytes.
+          // The file size, in bytes.
           shared_ptr<string> fileSize_ {};
           // The file status.
           shared_ptr<string> fileStatus_ {};
           // The file type.
           shared_ptr<string> fileType_ {};
-          // The Object Storage Service (OSS) URL of the file.
+          // The OSS URL of the file.
           shared_ptr<string> fileUrl_ {};
           // The container format.
           shared_ptr<string> formatName_ {};
           // The height.
           shared_ptr<string> height_ {};
-          // The region in which the file resides.
+          // The region where the file is stored.
           shared_ptr<string> region_ {};
           // The width.
           shared_ptr<string> width_ {};
@@ -1111,23 +1154,41 @@ namespace Models
 
 
         protected:
+          // The bitrate.
           shared_ptr<string> bitrate_ {};
+          // The channel layout.
           shared_ptr<string> channelLayout_ {};
+          // The number of audio channels.
           shared_ptr<string> channels_ {};
+          // The full name of the codec.
           shared_ptr<string> codecLongName_ {};
+          // The short name of the codec.
           shared_ptr<string> codecName_ {};
+          // The codec tag.
           shared_ptr<string> codecTag_ {};
+          // The codec tag string.
           shared_ptr<string> codecTagString_ {};
+          // The time base of the codec.
           shared_ptr<string> codecTimeBase_ {};
+          // The duration.
           shared_ptr<string> duration_ {};
+          // The frame rate.
           shared_ptr<string> fps_ {};
+          // The index of the stream.
           shared_ptr<string> index_ {};
+          // The language.
           shared_ptr<string> lang_ {};
+          // The total number of frames.
           shared_ptr<string> numFrames_ {};
+          // The profile.
           shared_ptr<string> profile_ {};
+          // The sample format.
           shared_ptr<string> sampleFmt_ {};
+          // The sample rate.
           shared_ptr<string> sampleRate_ {};
+          // The start time.
           shared_ptr<string> startTime_ {};
+          // The time base.
           shared_ptr<string> timebase_ {};
         };
 
@@ -1170,10 +1231,13 @@ namespace Models
 
 
       protected:
+        // The audio streams.
         shared_ptr<vector<FileInfoList::AudioStreamInfoList>> audioStreamInfoList_ {};
-        // The basic information of the file, including the duration and size.
+        // The basic information about the file, such as the duration and file size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
+        // The subtitle streams.
         shared_ptr<vector<FileInfoList::SubtitleStreamInfoList>> subtitleStreamInfoList_ {};
+        // The video streams.
         shared_ptr<vector<FileInfoList::VideoStreamInfoList>> videoStreamInfoList_ {};
       };
 
@@ -1214,12 +1278,13 @@ namespace Models
 
 
     protected:
-      // FileInfos
+      // A list of basic file information.
       shared_ptr<vector<MediaInfos::FileInfoList>> fileInfoList_ {};
-      // The basic information of the media asset.
+      // The basic information about the media asset.
       shared_ptr<MediaInfos::MediaBasicInfo> mediaBasicInfo_ {};
+      // The dynamic information about the media asset.
       shared_ptr<MediaInfos::MediaDynamicInfo> mediaDynamicInfo_ {};
-      // The ID of the media asset.
+      // The media ID.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -1251,8 +1316,9 @@ namespace Models
 
 
   protected:
+    // A list of media IDs for which information could not be retrieved.
     shared_ptr<vector<string>> ignoredList_ {};
-    // The queried media assets.
+    // A list of media assets.
     shared_ptr<vector<BatchGetMediaInfosResponseBody::MediaInfos>> mediaInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

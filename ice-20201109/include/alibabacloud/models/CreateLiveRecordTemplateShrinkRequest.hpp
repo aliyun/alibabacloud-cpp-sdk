@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the template.
+    // The name of the Live Record Template.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

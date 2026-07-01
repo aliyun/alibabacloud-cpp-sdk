@@ -77,12 +77,13 @@ namespace Models
   protected:
     // The snapshot callback URL.
     // 
-    // *   It cannot exceed 255 characters in length.
-    // *   Both HTTP and HTTPS URLs are supported.
+    // - It cannot exceed 255 characters in length.
+    // 
+    // - Both HTTP and HTTPS URLs are supported.
     shared_ptr<string> callbackUrl_ {};
     // The name of the job.
     // 
-    // *   It cannot exceed 128 characters in length.
+    // - It cannot exceed 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};

@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The user\\"s nickname.
       shared_ptr<string> nickname_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
+      // The user name.
       shared_ptr<string> userName_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The user information.
     shared_ptr<CreateYikeUserResponseBody::UserInfo> userInfo_ {};
   };
 

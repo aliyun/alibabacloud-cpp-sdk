@@ -94,12 +94,22 @@ namespace Models
 
 
   protected:
+    // The duration of the call, in seconds.
     shared_ptr<int32_t> callDuration_ {};
+    // The time the call ended, in ISO 8601 format.
     shared_ptr<string> callEndTime_ {};
+    // The time the call started, in ISO 8601 format.
     shared_ptr<string> callStartTime_ {};
+    // The number of the called party.
     shared_ptr<string> calleeNumber_ {};
+    // The number of the calling party.
     shared_ptr<string> callerNumber_ {};
+    // Indicates which party ended the call.
+    // 0: The agent ended the call.
+    // 1: The user ended the call.
+    // 2: The system ended the call for a transfer.
     shared_ptr<int32_t> hangupRole_ {};
+    // The status of the call.
     shared_ptr<string> status_ {};
   };
 

@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The media asset ID of the output file.
+    // The media ID.
     shared_ptr<string> mediaId_ {};
-    // The ID of the editing project.
+    // The project ID.
     shared_ptr<string> projectId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+    // The VOD media ID. Returned if the output destination is VOD.
     shared_ptr<string> vodMediaId_ {};
   };
 

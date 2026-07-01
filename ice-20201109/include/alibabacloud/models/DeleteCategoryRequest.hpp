@@ -40,9 +40,11 @@ namespace Models
   protected:
     // The category ID. You can use one of the following methods to obtain the ID:
     // 
-    // *   Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
-    // *   View the value of CateId returned by the AddCategory operation that you called to create a category.
-    // *   View the value of CateId returned by the GetCategories operation that you called to query a category.
+    // - Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+    // 
+    // - View the value of CateId returned by the AddCategory operation that you called to create a category.
+    // 
+    // - View the value of CateId returned by the GetCategories operation that you called to query a category.
     // 
     // This parameter is required.
     shared_ptr<int64_t> cateId_ {};

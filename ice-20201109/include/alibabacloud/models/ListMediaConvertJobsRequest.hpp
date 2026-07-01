@@ -94,24 +94,27 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end of the time range to filter jobs by creation time. The time must be in the `yyyy-MM-ddTHH:mm:ssZ` ISO 8601 format.
     shared_ptr<string> endOfCreateTime_ {};
-    // The task ID.
+    // Filters the results by job ID.
     shared_ptr<string> jobId_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+    // The token for the next page of results. Leave this empty for the first request. To retrieve the next page, pass the `NextPageToken` value from the previous response.
     shared_ptr<string> nextPageToken_ {};
-    // The sorting order. Valid values: CreateTimeDesc: sorts by create time in descending order. CreateTimeAsc: sorts by create time in ascending order.
+    // The sort order for the results. Valid values: `CreateTimeDesc` (descending by creation time) and `CreateTimeAsc` (ascending by creation time).
     shared_ptr<string> orderBy_ {};
-    // The number of entries per page. Valid values: 0 to 100. Default value: 20.
+    // The page size. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start of the time range to filter jobs by creation time. The time must be in the `yyyy-MM-ddTHH:mm:ssZ` ISO 8601 format.
     shared_ptr<string> startOfCreateTime_ {};
-    // The task status.
+    // The status of the job. Valid values:
     // 
-    // *   Inited: submitted
-    // *   Running
-    // *   Complete
-    // *   Error
+    // - `Inited`: The job has been submitted.
+    // 
+    // - `Running`: The job is running.
+    // 
+    // - `Complete`: The job is complete.
+    // 
+    // - `Error`: The job failed due to an error.
     shared_ptr<string> status_ {};
   };
 

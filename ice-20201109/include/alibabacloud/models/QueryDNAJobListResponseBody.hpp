@@ -113,7 +113,7 @@ namespace Models
       protected:
         // The input file. The file can be an OSS object or a media asset. The path of an OSS object can be in one of the following formats:
         // 
-        // 1\\. oss://bucket/object
+        // 1\\. oss\\://bucket/object
         // 
         // 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
         // 
@@ -121,8 +121,9 @@ namespace Models
         shared_ptr<string> media_ {};
         // The type of the input file. Valid values:
         // 
-        // 1.  OSS: Object Storage Service (OSS) object.
-        // 2.  Media: media asset.
+        // 1. OSS: Object Storage Service (OSS) object.
+        // 
+        // 2. Media: media asset.
         shared_ptr<string> type_ {};
       };
 
@@ -239,10 +240,13 @@ namespace Models
       shared_ptr<string> primaryKey_ {};
       // The job state. Valid values:
       // 
-      // *   **Queuing**: The job is waiting in the queue.
-      // *   **Analysing**: The job is in progress.
-      // *   **Success**: The job is successful.
-      // *   **Fail**: The job failed.
+      // - **Queuing**: The job is waiting in the queue.
+      // 
+      // - **Analysing**: The job is in progress.
+      // 
+      // - **Success**: The job is successful.
+      // 
+      // - **Fail**: The job failed.
       shared_ptr<string> status_ {};
       // The user-defined data.
       shared_ptr<string> userData_ {};

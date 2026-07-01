@@ -105,14 +105,19 @@ namespace Models
   protected:
     // The type of recognition algorithm. Valid values:
     // 
-    // *   landmark
-    // *   object
-    // *   logo
-    // *   face
-    // *   label
+    // - landmark
+    // 
+    // - object
+    // 
+    // - logo
+    // 
+    // - face
+    // 
+    // - label
     // 
     // This parameter is required.
     shared_ptr<string> algorithm_ {};
+    // Library ID. If provided, the query returns only this specific library. A list of IDs separated by commas (",") is also supported.
     shared_ptr<string> libId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

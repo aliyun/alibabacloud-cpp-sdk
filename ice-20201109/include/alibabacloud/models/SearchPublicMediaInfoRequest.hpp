@@ -103,13 +103,37 @@ namespace Models
 
 
   protected:
+    // Indicates whether the User has purchased a resource plan that includes this media asset.
     shared_ptr<bool> authorized_ {};
+    // Dynamic metadata search matching conditions.
     shared_ptr<string> dynamicMetaDataMatchFields_ {};
+    // Entity ID, used to identify different types of public copyright media assets. Valid values:
+    // 
+    // - Copyright_Music: Public copyright music
     shared_ptr<string> entityId_ {};
+    // Indicates whether the User has collected this media asset.
     shared_ptr<bool> favorite_ {};
+    // IMS media asset IDs.
+    // 
+    // - Separate multiple IDs with commas.
     shared_ptr<string> mediaIds_ {};
+    // Page number.
     shared_ptr<int32_t> pageNo_ {};
+    // Number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Result sorting method: :. Valid values:
+    // 
+    // field:
+    // 
+    // - "UsageCount": usage
+    // 
+    // - "UnitPrice": unit price
+    // 
+    // order:
+    // 
+    // - "Desc": descending
+    // 
+    // - "Asc": ascending
     shared_ptr<string> sortBy_ {};
   };
 

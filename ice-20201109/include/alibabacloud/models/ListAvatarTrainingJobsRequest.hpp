@@ -57,15 +57,19 @@ namespace Models
 
 
   protected:
-    // *   The page number.
-    // *   Default value: 1.
+    // - The page number.
+    // 
+    // - Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // *   The number of entries per page.
-    // *   Default value: 10.
-    // *   Valid values: 1 to 100.
+    // - The number of entries per page.
+    // 
+    // - Default value: 10.
+    // 
+    // - Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // *   The job state.
-    // *   Valid values: Init, Queuing, Training, Success, and Fail.
+    // - The job state.
+    // 
+    // - Valid values: Init, Queuing, Training, Success, and Fail.
     shared_ptr<string> status_ {};
   };
 

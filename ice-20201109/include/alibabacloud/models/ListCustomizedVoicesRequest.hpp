@@ -61,12 +61,13 @@ namespace Models
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 10. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // *   The voice type. Valid values:
+    // - The voice type. Valid values:
     // 
-    //     *   Basic
-    //     *   Standard
+    //   - Basic
     // 
-    // *   If you do not specify this parameter, the default value Basic is used.
+    //   - Standard
+    // 
+    // - If you do not specify this parameter, the default value Basic is used.
     shared_ptr<string> type_ {};
   };
 

@@ -132,9 +132,11 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The usage scenario of the hotword library. Valid values:
     // 
-    // *   ASR: Automatic Speech Recognition
-    // *   StructuredMediaAssets: structured media analysis
-    // *   VideoTranslation: Video translation. This field cannot be modified after the hotword library is created.
+    // - ASR: Automatic Speech Recognition
+    // 
+    // - StructuredMediaAssets: structured media analysis
+    // 
+    // - VideoTranslation: Video translation. This field cannot be modified after the hotword library is created.
     shared_ptr<string> usageScenario_ {};
   };
 

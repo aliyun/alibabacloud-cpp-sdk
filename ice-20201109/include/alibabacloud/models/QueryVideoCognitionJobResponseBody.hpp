@@ -155,7 +155,9 @@ namespace Models
 
 
     protected:
+      // The URL of the input file.
       shared_ptr<string> media_ {};
+      // The type of the input file. Valid value: OSS.
       shared_ptr<string> type_ {};
     };
 
@@ -216,20 +218,26 @@ namespace Models
 
 
   protected:
+    // The input file.
     shared_ptr<QueryVideoCognitionJobResponseBody::Input> input_ {};
-    // The status of the task. Valid values:
+    // The job status. Valid values:
     // 
-    // *   **Success**
-    // *   **Fail**
-    // *   **Processing**
-    // *   **Submitted**
+    // - **Success**: The job succeeded.
+    // 
+    // - **Fail**: The job failed.
+    // 
+    // - **Processing**: The job is in progress.
+    // 
+    // - **Submitted**: The job has been submitted and is awaiting processing.
     shared_ptr<string> jobStatus_ {};
+    // The request parameters.
     shared_ptr<string> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<QueryVideoCognitionJobResponseBody::Results> results_ {};
+    // The template ID.
     shared_ptr<string> templateId_ {};
-    // The user-defined data.
+    // The user data.
     shared_ptr<string> userData_ {};
   };
 

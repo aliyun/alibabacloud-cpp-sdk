@@ -121,7 +121,7 @@ namespace Models
 
 
       protected:
-        // DASH清单播放端点前缀
+        // DASH manifest playback endpoint prefix
         shared_ptr<string> dashPrefix_ {};
         // The prefix of the playback endpoint for HLS manifests.
         shared_ptr<string> hlsPrefix_ {};

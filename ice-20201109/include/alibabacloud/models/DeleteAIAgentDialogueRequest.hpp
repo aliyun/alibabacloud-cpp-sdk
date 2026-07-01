@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the dialog that you want to delete.
+    // The ID of the dialogue to delete.
     // 
     // This parameter is required.
     shared_ptr<string> dialogueId_ {};
+    // The ID of the node to delete.
     shared_ptr<string> nodeId_ {};
     // The session ID.
     // 

@@ -66,6 +66,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to skip verification of the input path supported by the pipeline. This parameter takes effect only when the pipeline input is an OSS file. We recommend that you do not skip this verification to avoid faults caused by incorrect paths. If this parameter is not specified, verification is performed by default. Valid values:
+    // 
+    // - **true**: Skip verification
+    // 
+    // - **false**: Do not skip verification
     shared_ptr<bool> skipInputVerification_ {};
     // The workflow input. Only media assets are supported.
     shared_ptr<string> taskInput_ {};

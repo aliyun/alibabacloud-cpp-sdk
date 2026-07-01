@@ -172,8 +172,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Script: script-based editing job that mixes media assets.
-      // *   Smart_Mix: intelligent editing job that mixes media assets.
+      // - Script: script-based editing job that mixes media assets.
+      // 
+      // - Smart_Mix: intelligent editing job that mixes media assets.
       shared_ptr<string> jobType_ {};
       // The time when the job was last modified.
       shared_ptr<string> modifiedTime_ {};
@@ -183,10 +184,13 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Finished
-      // *   Init
-      // *   Failed
-      // *   Processing
+      // - Finished
+      // 
+      // - Init
+      // 
+      // - Failed
+      // 
+      // - Processing
       shared_ptr<string> status_ {};
       // The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
       shared_ptr<string> userData_ {};

@@ -113,9 +113,9 @@ namespace Models
 
 
       protected:
-        // The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+        // The pipeline ID.
         shared_ptr<string> pipelineId_ {};
-        // The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+        // The job priority. Higher values indicate higher priority. Valid values range from 1 to 10.
         shared_ptr<int32_t> priority_ {};
       };
 
@@ -375,35 +375,37 @@ namespace Models
         protected:
           // The average frame rate.
           shared_ptr<string> avgFps_ {};
-          // The bitrate.
+          // The bitrate of the stream, in Kbit/s.
           shared_ptr<string> bitRate_ {};
-          // The name of the encoding format.
+          // The full name of the codec.
           shared_ptr<string> codecLongName_ {};
-          // The encoding format.
+          // The stream\\"s codec.
           shared_ptr<string> codecName_ {};
-          // The tag of the encoding format.
+          // The codec tag.
           shared_ptr<string> codecTag_ {};
-          // The tag string of the encoding format.
+          // The codec tag string.
           shared_ptr<string> codecTagString_ {};
-          // The time base of the encoder.
+          // The time base of the codec.
           shared_ptr<string> codecTimeBase_ {};
-          // The display aspect ratio.
+          // The display aspect ratio (DAR).
           shared_ptr<string> dar_ {};
-          // The duration of the file.
+          // The duration of the stream, in seconds.
           shared_ptr<string> duration_ {};
           // The frame rate.
           shared_ptr<string> fps_ {};
-          // Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+          // Indicates whether the stream contains B-frames. Valid values:
           // 
-          // *   0: The stream contains no B-frames.
-          // *   1: The stream contains one B-frame.
-          // *   2: The stream contains multiple consecutive B-frames.
+          // - `0`: The stream does not contain B-frames.
+          // 
+          // - `1`: The stream contains one B-frame.
+          // 
+          // - `2`: The stream contains two or more consecutive B-frames.
           shared_ptr<string> hasBFrames_ {};
-          // The height of the output video.
+          // The height of the video, in pixels.
           shared_ptr<string> height_ {};
-          // The sequence number of the stream.
+          // The stream index.
           shared_ptr<string> index_ {};
-          // The language of the stream.
+          // The stream\\"s language.
           shared_ptr<string> lang_ {};
           // The codec level.
           shared_ptr<string> level_ {};
@@ -411,17 +413,17 @@ namespace Models
           shared_ptr<string> numFrames_ {};
           // The pixel format.
           shared_ptr<string> pixFmt_ {};
-          // The encoder profile.
+          // The codec profile.
           shared_ptr<string> profile_ {};
-          // The rotation angle of the video image.
+          // The rotation angle of the video, in degrees.
           shared_ptr<string> rotate_ {};
-          // The aspect ratio of the area from which the sampling points are collected.
+          // The sample aspect ratio (SAR).
           shared_ptr<string> sar_ {};
-          // The start time of the stream.
+          // The start time of the stream, in seconds.
           shared_ptr<string> startTime_ {};
-          // The time base.
+          // The stream\\"s time base.
           shared_ptr<string> timeBase_ {};
-          // The width of the output video.
+          // The width of the video, in pixels.
           shared_ptr<string> width_ {};
         };
 
@@ -555,15 +557,15 @@ namespace Models
 
 
         protected:
-          // The video bitrate.
+          // The video bitrate, in Kbit/s.
           shared_ptr<string> bitrate_ {};
-          // The duration of the video.
+          // The duration of the video, in seconds.
           shared_ptr<string> duration_ {};
           // The file name.
           shared_ptr<string> fileName_ {};
-          // The file size.
+          // The file size, in bytes.
           shared_ptr<string> fileSize_ {};
-          // The state of the file.
+          // The file status.
           shared_ptr<string> fileStatus_ {};
           // The file type.
           shared_ptr<string> fileType_ {};
@@ -571,13 +573,13 @@ namespace Models
           shared_ptr<string> fileUrl_ {};
           // The name of the video format.
           shared_ptr<string> formatName_ {};
-          // The height of the output video.
+          // The height of the video, in pixels.
           shared_ptr<string> height_ {};
-          // The ID of the media asset.
+          // The media ID.
           shared_ptr<string> mediaId_ {};
-          // The region in which the file resides.
+          // The region where the file is stored.
           shared_ptr<string> region_ {};
-          // The width of the output video.
+          // The width of the video, in pixels.
           shared_ptr<string> width_ {};
         };
 
@@ -738,35 +740,35 @@ namespace Models
 
 
         protected:
-          // The bitrate.
+          // The bitrate of the stream.
           shared_ptr<string> bitrate_ {};
-          // The sound channel layout.
+          // The channel layout.
           shared_ptr<string> channelLayout_ {};
-          // The number of sound channels.
+          // The number of audio channels.
           shared_ptr<string> channels_ {};
-          // The name of the encoding format.
+          // The full name of the codec.
           shared_ptr<string> codecLongName_ {};
-          // The encoding format.
+          // The stream\\"s codec.
           shared_ptr<string> codecName_ {};
-          // The encoder tag.
+          // The codec tag.
           shared_ptr<string> codecTag_ {};
-          // The name of the encoder tag.
+          // The codec tag string.
           shared_ptr<string> codecTagString_ {};
-          // The time base of the encoder.
+          // The time base of the codec.
           shared_ptr<string> codecTimeBase_ {};
-          // The duration of the stream. Unit: seconds.
+          // The duration of the stream, in seconds.
           shared_ptr<string> duration_ {};
-          // The sequence number of the stream.
+          // The stream index.
           shared_ptr<string> index_ {};
-          // The language of the stream.
+          // The stream\\"s language.
           shared_ptr<string> lang_ {};
           // The sample format.
           shared_ptr<string> sampleFmt_ {};
-          // The sampling rate. Unit: Hz.
+          // The sample rate, in Hz.
           shared_ptr<string> sampleRate_ {};
-          // The start time of the stream.
+          // The start time of the stream, in seconds.
           shared_ptr<string> startTime_ {};
-          // The time base.
+          // The stream\\"s time base.
           shared_ptr<string> timebase_ {};
         };
 
@@ -800,11 +802,11 @@ namespace Models
 
 
       protected:
-        // The information about the audio stream.
+        // A list of audio stream details.
         shared_ptr<vector<MediaInfoProperty::AudioStreamInfoList>> audioStreamInfoList_ {};
-        // The basic file information.
+        // Basic information about the file.
         shared_ptr<MediaInfoProperty::FileBasicInfo> fileBasicInfo_ {};
-        // The information about the video stream.
+        // A list of video stream details.
         shared_ptr<vector<MediaInfoProperty::VideoStreamInfoList>> videoStreamInfoList_ {};
       };
 
@@ -846,9 +848,17 @@ namespace Models
 
 
       protected:
-        // The media object. If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported. If Type is set to Media, set this parameter to the ID of a media asset.
+        // The value of the media object. This value depends on the `Type` parameter.
+        // 
+        // - If `Type` is `OSS`, this parameter is the URL of the media file. Both the `oss://` and HTTPS protocols are supported.
+        // 
+        // - If `Type` is `Media`, this parameter is the media ID.
         shared_ptr<string> media_ {};
-        // The type of the media object. Valid values: OSS and Media. A value of OSS indicates an OSS object. A value of Media indicates a media asset.
+        // The type of input media. Valid values:
+        // 
+        // - `OSS`: An Object Storage Service (OSS) file.
+        // 
+        // - `Media`: A media ID.
         shared_ptr<string> type_ {};
       };
 
@@ -956,29 +966,41 @@ namespace Models
 
 
     protected:
-      // Indicates whether asynchronous processing was performed.
+      // Indicates whether to process the job asynchronously.
       shared_ptr<bool> async_ {};
-      // The time when the job was complete.
+      // The time when the job was completed.
       shared_ptr<string> finishTime_ {};
-      // The input of the job.
+      // The job input.
       shared_ptr<MediaInfoJob::Input> input_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The details of the media information.
+      // Details of the media information.
       shared_ptr<MediaInfoJob::MediaInfoProperty> mediaInfoProperty_ {};
       // The job name.
       shared_ptr<string> name_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The scheduling information.
+      // The scheduling configuration.
       shared_ptr<MediaInfoJob::ScheduleConfig> scheduleConfig_ {};
-      // The state of the job. Valid values: Init (the job is submitted), Success (the job is successful), and Fail (the job failed).
+      // The job status. Valid values:
+      // 
+      // - `Init`: Submitted.
+      // 
+      // - `Success`: Successful.
+      // 
+      // - `Fail`: Failed.
       shared_ptr<string> status_ {};
-      // The job submission information.
+      // The job submission details.
       Darabonba::Json submitResultJson_ {};
       // The time when the job was submitted.
       shared_ptr<string> submitTime_ {};
-      // The source of the job. Valid values: API, WorkFlow, and Console.
+      // The source of the job. Valid values:
+      // 
+      // - `API`: The job was submitted by calling an API operation.
+      // 
+      // - `WorkFlow`: The job was triggered by a workflow.
+      // 
+      // - `Console`: The job was submitted in the console.
       shared_ptr<string> triggerSource_ {};
       // The user data.
       shared_ptr<string> userData_ {};
@@ -1003,7 +1025,7 @@ namespace Models
 
 
   protected:
-    // MediaInfoJobDTO
+    // The media information job.
     shared_ptr<SubmitMediaInfoJobResponseBody::MediaInfoJob> mediaInfoJob_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

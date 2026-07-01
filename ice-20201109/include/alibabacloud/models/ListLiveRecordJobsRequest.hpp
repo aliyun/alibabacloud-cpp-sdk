@@ -108,8 +108,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   asc: sorts the query results in ascending order.
-    // *   desc: sorts the query results in descending order.
+    // - asc: sorts the query results in ascending order.
+    // 
+    // - desc: sorts the query results in descending order.
     shared_ptr<string> sortBy_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
@@ -119,9 +120,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   paused: The job is paused.
-    // *   initial: The job is not started.
-    // *   started: The job is in progress.
+    // - paused: The job is paused.
+    // 
+    // - initial: The job is not started.
+    // 
+    // - started: The job is in progress.
     shared_ptr<string> status_ {};
   };
 

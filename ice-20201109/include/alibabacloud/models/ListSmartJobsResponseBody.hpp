@@ -274,18 +274,23 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Finished: The job is complete.
-      // *   Failed: The job failed.
-      // *   Executing: The job is in progress.
-      // *   Created: The job is created.
+      // - Finished: The job is complete.
+      // 
+      // - Failed: The job failed.
+      // 
+      // - Executing: The job is in progress.
+      // 
+      // - Created: The job is created.
       shared_ptr<string> jobState_ {};
       // The job type.
       // 
       // Valid values:
       // 
-      // *   ASR: ASR job.
-      // *   DynamicChart: dynamic chart job.
-      // *   TextToSpeech: intelligent audio production job.
+      // - ASR: ASR job.
+      // 
+      // - DynamicChart: dynamic chart job.
+      // 
+      // - TextToSpeech: intelligent audio production job.
       shared_ptr<string> jobType_ {};
       // The time when the job was last modified.
       shared_ptr<string> modifiedTime_ {};

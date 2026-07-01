@@ -94,25 +94,27 @@ namespace Models
 
 
   protected:
-    // The ID of the AI agent.
+    // The ID of the AI Agent.
     // 
     // This parameter is required.
     shared_ptr<string> AIAgentId_ {};
     shared_ptr<string> audioOssPath_ {};
-    // The URL for receiving callback notifications. By default, this parameter is left empty.
+    // The callback URL for receiving event notifications. This is not set by default.
     shared_ptr<string> callbackUrl_ {};
     shared_ptr<bool> enableAudioRecording_ {};
-    // Specifies whether to enable event notifications.
+    // Specifies whether to enable or disable event notifications.
     // 
     // This parameter is required.
     shared_ptr<bool> enableNotify_ {};
-    // The event types. If you do not specify this parameter, all event types are selected.
+    // The event types. If you do not specify this parameter, all event types are subscribed to by default. Valid values:
     // 
-    // *   agent_start
-    // *   agent_stop
-    // *   error
+    // - agent_start
+    // 
+    // - agent_stop
+    // 
+    // - error
     shared_ptr<string> eventTypes_ {};
-    // The authentication token for callback. The token is carried in the Authorization header of a callback request. By default, this parameter is left empty.
+    // An authentication token for event callbacks. The service includes this token in the `Authorization` header of each callback request.
     shared_ptr<string> token_ {};
   };
 

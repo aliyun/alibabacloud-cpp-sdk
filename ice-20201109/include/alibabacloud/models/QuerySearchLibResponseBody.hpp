@@ -89,8 +89,27 @@ namespace Models
 
 
     protected:
+      // The readiness status of the index. Valid values:
+      // 
+      // - Initializing: The index is being initialized.
+      // 
+      // - Normal: The index is ready.
+      // 
+      // - Fail: The index failed to be created.
       shared_ptr<string> indexReadiness_ {};
+      // The status of the index. Valid values:
+      // 
+      // - Active: The index is active.
+      // 
+      // - Deactive: The index is inactive.
       shared_ptr<string> indexStatus_ {};
+      // The index type. Valid values:
+      // 
+      // - mm: Large language model (LLM).
+      // 
+      // - face: Face recognition.
+      // 
+      // - aiLabel: Smart tagging.
       shared_ptr<string> indexType_ {};
     };
 
@@ -149,26 +168,23 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
+    // The index information.
     shared_ptr<vector<QuerySearchLibResponseBody::IndexInfo>> indexInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The search library configuration.
     shared_ptr<string> searchLibConfig_ {};
     // The name of the search library.
     shared_ptr<string> searchLibName_ {};
     // The status of the search library.
-    // 
-    // Valid values:
-    // 
-    // *   normal
-    // *   deleting
-    // *   deleteFail
     shared_ptr<string> status_ {};
-    // Indicates whether the call was successful. Valid values:
+    // Indicates whether the call was successful.
     // 
-    // *   true
-    // *   false
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<string> success_ {};
   };
 

@@ -125,10 +125,16 @@ namespace Models
 
 
     protected:
+      // The voiceprint registration mode. Default: `Explicit`.
+      // 
+      // | Value      | Description                                                                                                         |
+      // | ---------- | ------------------------------------------------------------------------------------------------------------------- |
+      // | `Explicit` | In `Explicit` mode, the user must register their voiceprint in advance by using the voiceprint registration API.    |
+      // | `Implicit` | In `Implicit` mode, the system automatically collects user speech during the conversation to register a voiceprint. |
       shared_ptr<string> registrationMode_ {};
-      // Specifies whether to enable voiceprint recognition. Default value: false. You must specify a valid voiceprint ID when you enable voiceprint recognition.
+      // Specifies whether to enable voiceprint recognition. Default: `false`. If set to `true`, you must also provide a valid `VoiceprintId`.
       shared_ptr<bool> useVoiceprint_ {};
-      // The unique ID of the voiceprint. Default value: None.[](~~2964738~~)
+      // The unique identifier for the voiceprint. This is not set by default. The ID must correspond to a voiceprint registered using the voiceprint registration API. For more information, see [Register a voiceprint](https://help.aliyun.com/document_detail/2964738.html).
       shared_ptr<string> voiceprintId_ {};
     };
 
@@ -199,9 +205,9 @@ namespace Models
 
 
       protected:
-        // The delay in milliseconds before a still frame detection event is triggered. The callback is sent only after the video has been static for this duration. If not set, the value from the console configuration is used. Valid values: [200,5000].
+        // The duration in milliseconds that a frame must remain still before a notification is sent. If not specified, the setting from the console is used. Range: 200–5000.
         shared_ptr<int32_t> callbackDelay_ {};
-        // Enables or disables still frame detection. Default value: false.
+        // Specifies whether to enable still frame detection. Default: `false`.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -233,7 +239,7 @@ namespace Models
 
 
       protected:
-        // Enables or disables the feature. Default value: false.
+        // Specifies whether to enable people counting. Default: `false`.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -265,7 +271,7 @@ namespace Models
 
 
       protected:
-        // Enables or disables this feature. Default value: false.
+        // Specifies whether to enable look-away detection. Default: `false`.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -307,9 +313,9 @@ namespace Models
 
 
       protected:
-        // The delay in milliseconds before an invalid frame detection event is triggered. The callback is sent only after the frame has been considered invalid for this duration. If not set, the value from the console configuration is used. Valid values: [200, 5000].
+        // The duration in milliseconds that an invalid frame must persist before a notification is sent. If not specified, the setting from the console is used. Range: 200–5000.
         shared_ptr<int32_t> callbackDelay_ {};
-        // Enables or disables invalid frame detection.
+        // Specifies whether to enable invalid frame detection.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -341,7 +347,7 @@ namespace Models
 
 
       protected:
-        // Enables or disables head motion detection. Default value: false.
+        // Specifies whether to enable head motion detection. Default: `false`.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -373,7 +379,7 @@ namespace Models
 
 
       protected:
-        // Enables or disables device identification. Default value: false.
+        // Specifies whether to enable device identification. Default: `false`.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -438,13 +444,13 @@ namespace Models
       shared_ptr<VcrConfig::Equipment> equipment_ {};
       // Configuration for head motion detection.
       shared_ptr<VcrConfig::HeadMotion> headMotion_ {};
-      // Configuration for detecting invalid frames.
+      // Configuration for invalid frame detection.
       shared_ptr<VcrConfig::InvalidFrameMotion> invalidFrameMotion_ {};
-      // Configuration for detecting if the user is looking away from the screen.
+      // Configuration for look-away detection.
       shared_ptr<VcrConfig::LookAway> lookAway_ {};
       // Configuration for the people counting feature.
       shared_ptr<VcrConfig::PeopleCount> peopleCount_ {};
-      // Configuration for detecting still frames.
+      // Configuration for still frame detection.
       shared_ptr<VcrConfig::StillFrameMotion> stillFrameMotion_ {};
     };
 
@@ -506,20 +512,31 @@ namespace Models
 
 
     protected:
+      // Controls the agent\\"s response speed after detecting a user pause. This parameter applies only in `Semantic` mode. A higher setting results in a faster response but increases the risk of interrupting the user:
+      // 
+      // - `Low`: Waits patiently with a maximum wait time of 6 seconds, reducing the risk of interruption.
+      // 
+      // - `Medium`: A balanced wait time (up to 4 seconds), suitable for most scenarios.
+      // 
+      // - `High`: Responds quickly (up to 2 seconds), which improves speed but may increase the risk of incorrect turn-taking.
+      // 
+      // This field is empty by default.
       shared_ptr<string> eagerness_ {};
-      // The mode of turn detection.
+      // The conversational turn detection mode.
       // 
-      // *   Normal: uses simple pause detection.
-      // *   Semantic: uses AI to analyze context.
+      // - `Normal` (Default): The agent relies on pauses to detect the end of a user\\"s turn.
+      // 
+      // - `Semantic`: The agent uses AI to analyze conversational context to determine if the user has finished speaking.
       shared_ptr<string> mode_ {};
-      // Specifies how long to wait after a user stops speaking for the agent to decide if the turn is over. Unit: milliseconds. Default value: -1.
+      // The pause detection time in AI mode, in milliseconds. Default: -1.
       // 
-      // *   \\-1: AI decides an appropriate wait time automatically.
-      // *   0 to 10000: A custom wait time. Recommended: 0 to 1500 ms.
+      // - -1: The AI automatically determines a suitable wait time.
       // 
-      // >  In Normal mode, this field is ignored.
+      // - 0–10000: A custom wait time. A range of 0–1500 ms is recommended.
+      // 
+      // > This parameter has no effect in `Normal` mode.
       shared_ptr<int32_t> semanticWaitDuration_ {};
-      // Keywords that signify the end of the user\\"s turn.
+      // A list of keywords used to determine the end of a user\\"s conversational turn.
       shared_ptr<vector<string>> turnEndWords_ {};
     };
 
@@ -601,13 +618,14 @@ namespace Models
 
 
       protected:
-        // The target pronunciation. The value supports up to 10 Chinese characters. Other characters, including spaces, are not supported.
+        // The replacement pronunciation. It must be 1 to 9 Chinese characters long and cannot contain spaces.
         shared_ptr<string> pronunciation_ {};
-        // The type of rule. Valid value:
+        // The type of pronunciation rule.
+        // Valid value:
         // 
-        // *   replacement: replaces every occurrence of Word value with Pronunciation value.
+        // - `replacement`: Replaces the specified `Word` with the `Pronunciation`.
         shared_ptr<string> type_ {};
-        // The word to be replaced. The value supports up to 10 Chinese characters. Other characters, including spaces, are not supported.
+        // The word to be replaced. It must be 1 to 9 Chinese characters long and cannot contain spaces.
         shared_ptr<string> word_ {};
       };
 
@@ -668,55 +686,94 @@ namespace Models
 
 
     protected:
-      // Applies only to MiniMax models. Seven types of emotions are supported:
+      // This parameter applies only to the Minimax provider. Supported emotions include:
       // 
-      // *   happy
-      // *   sad
-      // *   angry
-      // *   fearful
-      // *   disgusted
-      // *   surprised
-      // *   calm
+      // - `happy`
+      // 
+      // - `sad`
+      // 
+      // - `angry`
+      // 
+      // - `fearful`
+      // 
+      // - `disgusted`
+      // 
+      // - `surprised`
+      // 
+      // - `calm`
       shared_ptr<string> emotion_ {};
-      // Applies only to MiniMax models. By default, this parameter is left empty. This enhances speech recognition accuracy for specific languages and dialects. If the language type is unknown, set it to auto to have the model automatically detect it. Valid values:
+      // This parameter is for the minimax provider only. It enhances recognition for specific low-resource languages and dialects. If the language is unknown, set this to `auto` for automatic detection. By default, this parameter is not set. Supported values include:
       // 
-      // **Supported languages**
+      // <details>
       // 
-      // *   Chinese
-      // *   Chinese,Yue
-      // *   English
-      // *   Arabic
-      // *   Russian
-      // *   Spanish
-      // *   French
-      // *   Portuguese
-      // *   German
-      // *   Turkish
-      // *   Dutch
-      // *   Ukrainian
-      // *   Vietnamese
-      // *   Indonesian
-      // *   Japanese
-      // *   Italian
-      // *   Korean
-      // *   Thai
-      // *   Polish
-      // *   Romanian
-      // *   Greek
-      // *   Czech
-      // *   Finnish
-      // *   Hindi
-      // *   auto
+      // <summary>
+      // 
+      // Supported languages
+      // 
+      // </summary>
+      // 
+      // - Chinese
+      // 
+      // - Chinese,Yue: Cantonese
+      // 
+      // - English
+      // 
+      // - Arabic
+      // 
+      // - Russian
+      // 
+      // - Spanish
+      // 
+      // - French
+      // 
+      // - Portuguese
+      // 
+      // - German
+      // 
+      // - Turkish
+      // 
+      // - Dutch
+      // 
+      // - Ukrainian
+      // 
+      // - Vietnamese
+      // 
+      // - Indonesian
+      // 
+      // - Japanese
+      // 
+      // - Italian
+      // 
+      // - Korean
+      // 
+      // - Thai
+      // 
+      // - Polish
+      // 
+      // - Romanian
+      // 
+      // - Greek
+      // 
+      // - Czech
+      // 
+      // - Finnish
+      // 
+      // - Hindi
+      // 
+      // - auto
+      // 
+      // </details>
       shared_ptr<string> languageId_ {};
-      // Applies only to MiniMax models. Valid values: speech-01-turbo and speech-02-turbo
+      // This parameter applies only to the Minimax provider. Valid values:
+      // `speech-01-turbo`, `speech-02-turbo`
       shared_ptr<string> modelId_ {};
-      // The pronunciation rules, executed in order. Maximum of 20 rules.
+      // A list of TTS pronunciation rules, executed in order. You can specify a maximum of 20 rules.
       shared_ptr<vector<TtsConfig::PronunciationRules>> pronunciationRules_ {};
-      // Supports all platforms. For CosyVoice, the default value is 1.0. Valid values: 0.5 to 2.0. For MiniMax, the default value is 1.0. Valid values: 0.5 to 2.0.
+      // The speech rate, where a value of 1.0 is normal speed. The supported range can vary by provider. For CosyVoice, the range is 0.5 to 2.0 (default: 1.0). For Minimax, the range is 0.5 to 2.0 (default: 1.0).
       shared_ptr<double> speechRate_ {};
-      // The voice ID. Changes take effect on the next sentence. If not set, the system uses the default voice ID specified in the agent template. This parameter takes effect only for the preset TTS model. Max length: 64 characters. Refer to [Intelligent voice samples](https://help.aliyun.com/document_detail/449563.html) for options.
+      // The ID of the preset TTS voice. Changes apply to the next utterance. If omitted, the voice from the AI agent template is used. The ID can be a maximum of 64 characters. For available voices, see [Intelligent Voice Samples](https://help.aliyun.com/document_detail/449563.html).
       shared_ptr<string> voiceId_ {};
-      // Available voices.
+      // A list of available voices.
       shared_ptr<vector<string>> voiceIdList_ {};
     };
 
@@ -795,16 +852,21 @@ namespace Models
 
 
       protected:
-        // The actual text content of the message for that role.
+        // The text content of the message from this role.
         shared_ptr<string> content_ {};
         // The role of the participant in the conversation. Valid values:
         // 
-        // *   user
-        // *   assistant
-        // *   system
-        // *   function
-        // *   plugin
-        // *   tool
+        // - `user`
+        // 
+        // - `assistant`
+        // 
+        // - `system`
+        // 
+        // - `function`
+        // 
+        // - `plugin`
+        // 
+        // - `tool`
         shared_ptr<string> role_ {};
       };
 
@@ -846,9 +908,9 @@ namespace Models
 
 
       protected:
-        // The name of the built-in agent capability. Only hangup is supported.
+        // The name of a built-in function provided by the AI agent system. Currently, only `hangup` is supported.
         shared_ptr<string> function_ {};
-        // The corresponding user-defined function name in your LLM. When the LLM calls this function, it will trigger the mapped agent capability.[](~~2839094~~)
+        // The name of the custom LLM function that maps to the agent\\"s built-in function. For details on the custom LLM protocol, see [LLM Standard Interface](https://help.aliyun.com/document_detail/2839094.html).
         shared_ptr<string> matchFunction_ {};
       };
 
@@ -930,24 +992,36 @@ namespace Models
 
 
     protected:
-      // Alibaba Cloud Model Studio Application Center parameters in a JSON format. Reference: [Model Studio Application Center Parameter](https://help.aliyun.com/document_detail/2858132.html)
+      // Parameters for Alibaba Cloud Model Studio, provided as a JSON string. For the parameter format, see
+      // [Alibaba Cloud Model Studio Parameters](https://help.aliyun.com/document_detail/2858132.html)
       shared_ptr<string> bailianAppParams_ {};
-      // Maps agent capabilities to LLM functions. Only supports function calling with custom LLMs that adhere to the OpenAI protocol.
+      // Maps built-in agent functions to custom LLM functions. Currently, this only supports function calling for custom, OpenAI-compatible LLMs.
       shared_ptr<vector<LlmConfig::FunctionMap>> functionMap_ {};
+      // Specifies whether the LLM message history is synchronized with the content played by the TTS. Default: `false`. When enabled, the saved LLM messages match the content actually played by the TTS.
+      // 
+      // > When a user interrupts the agent, the `<ims_agent_interrupted>` tag is inserted into the message history at the point of interruption. This affects the next message sent to the LLM. For example:
+      // 
+      // ```
+      // [
+      //   {"role": "user", "content": "Tell me a story."},
+      //   {"role": "assistant", "content": "Okay, I can tell you a story about the Three Kingdoms. Would you<ims_agent_interrupted> like that?"},
+      //   {"role": "user", "content": "Tell me a different one."}
+      // ]
+      // ```
       shared_ptr<bool> historySyncWithTTS_ {};
-      // If true, the service sends the complete result from the LLM to the client in a single response after the generation process is finished.
+      // When set to `true`, the agent sends the entire LLM response in a single message after it is fully generated, rather than streaming it. This setting does not affect the streaming of subtitles.
       shared_ptr<bool> llmCompleteReply_ {};
-      // The LLM/MLLM conversation history context.
+      // The conversation history context for the LLM/MLLM.
       shared_ptr<vector<LlmConfig::LlmHistory>> llmHistory_ {};
-      // The maximum number of conversational turns to retain in the history. Default value: 10.
+      // The maximum number of recent conversational turns to include in the LLM/MLLM context. Default: 10.
       shared_ptr<int32_t> llmHistoryLimit_ {};
-      // The system prompt for the LLM.
+      // The system prompt for the LLM after the call starts.
       shared_ptr<string> llmSystemPrompt_ {};
-      // Additional query parameters to be sent to the OpenAI-protocol LLM, formatted as a URL query string (key=value pairs separated by &). All values must be strings.
+      // Additional query parameters for an OpenAI-compatible LLM. Parameters must be provided as a URL query string (e.g., `key1=value1&key2=value2`). All values must be strings.
       shared_ptr<string> openAIExtraQuery_ {};
-      // The maximum time (in milliseconds) to buffer text before it is forcibly sent to the client. Valid values: [1000,10000]. A value of 0 or an empty string (default) disables this limit.
+      // The maximum delay in milliseconds before buffered text is sent to the TTS engine, even if `OutputMinLength` is not met. Range: 1000–10000. A value of `0` or omitting this parameter disables the delay limit. Default: Not set.
       shared_ptr<int32_t> outputMaxDelay_ {};
-      // The minimum number of characters that must be buffered before a text chunk is sent. Valid values: [0, 100]. A value of 0 or an empty string (default) disables this limit.
+      // The minimum number of characters in a text chunk before it is sent to the TTS engine. Shorter chunks are buffered. Range: 0–100. A value of `0` or omitting this parameter disables buffering. Default: Not set.
       shared_ptr<int32_t> outputMinLength_ {};
     };
 
@@ -1009,11 +1083,21 @@ namespace Models
 
 
     protected:
-      // Specifies whether to allow the user to interrupt the agent by speaking. Default value: true.
+      // Specifies whether to enable speech interruption. Default: `true`.
       shared_ptr<bool> enableVoiceInterrupt_ {};
-      // Words or phrases that will trigger an interruption.
+      // A list of specific words or phrases that trigger an interruption.
       shared_ptr<vector<string>> interruptWords_ {};
+      // Specifies whether to include the interrupt words in the text sent to the LLM. Default: `false` (words are discarded).
+      // 
+      // > For example, if "hold on" is an interrupt word and the user says "hold on, what is the weather like today?", setting this to `false` results in only "what is the weather like today?" being sent to the LLM.
       shared_ptr<bool> keepInterruptWordsForLLM_ {};
+      // Specifies how to handle user speech that occurs during a non-interruptible section of the agent\\"s utterance.
+      // 
+      // - `cache`: Caches the user\\"s speech and processes it in the next conversational turn.
+      // 
+      // - `discard`: Discards the user\\"s speech.
+      // 
+      // Default: `cache`.
       shared_ptr<string> noInterruptMode_ {};
     };
 
@@ -1080,7 +1164,9 @@ namespace Models
 
 
       protected:
+        // 本短语的触发概率，范围 0.0–1.0，必填。
         shared_ptr<double> probability_ {};
+        // 短语文本，长度 ≤ 20 字符，支持多语言。必填。
         shared_ptr<string> text_ {};
       };
 
@@ -1117,9 +1203,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable this back-channeling rule. This is a required field.
       shared_ptr<bool> enabled_ {};
+      // The trigger probability. Range: 0.0–1.0. This is a required field.
       shared_ptr<double> probability_ {};
+      // The trigger for the back-channeling. Valid value:
+      // 
+      // - `pause_detected`: Triggered when a short pause in speech is detected.
       shared_ptr<string> triggerStage_ {};
+      // A collection of acknowledgment phrases. You can specify a maximum of 10 phrases. Each phrase must be 20 characters or less, and the sum of their probabilities must be 1.0.
       shared_ptr<vector<BackChannelingConfigs::Words>> words_ {};
     };
 
@@ -1186,7 +1278,9 @@ namespace Models
 
 
       protected:
+        // 本短语的触发概率，范围 0.0–1.0，必填。
         shared_ptr<double> probability_ {};
+        // 短语文本，长度 ≤ 20 字符，支持多语言。必填。
         shared_ptr<string> text_ {};
       };
 
@@ -1223,9 +1317,15 @@ namespace Models
 
 
     protected:
+      // 是否启用附和功能。必填，取值 true/false。
       shared_ptr<bool> enabled_ {};
+      // 功能触发概率。范围 0.0–1.0。必填。
       shared_ptr<double> probability_ {};
+      // 附和触发的时机。可选值：
+      // 
+      // - pause_detected（检测到说话短暂停顿）
       shared_ptr<string> triggerStage_ {};
+      // 附和短语集合。最大 10 条，每条短语长度 ≤ 20 字符，概率总和为 1.0。
       shared_ptr<vector<BackChannelingConfig::Words>> words_ {};
     };
 
@@ -1345,7 +1445,9 @@ namespace Models
 
 
         protected:
+          // The probability of this message being selected. Range: 0–1, corresponding to 0%–100%.
           shared_ptr<double> probability_ {};
+          // The text of the prompt message, up to 100 characters.
           shared_ptr<string> text_ {};
         };
 
@@ -1382,9 +1484,13 @@ namespace Models
 
 
       protected:
+        // A farewell message played before hanging up due to user inactivity.
         shared_ptr<string> hangupEndWord_ {};
+        // The maximum number of times the prompt can be repeated. Range: 0–10. This is a required field. If the limit is exceeded, the call is terminated.
         shared_ptr<int32_t> maxRepeats_ {};
+        // A collection of prompt messages. A maximum of 10 messages are supported, each up to 100 characters. The sum of all probabilities must be 100%.
         shared_ptr<vector<UserIdle::Messages>> messages_ {};
+        // The silence duration threshold in milliseconds. If the user is silent for longer than this period, a prompt is triggered. Range: 5000–600000. This is a required field.
         shared_ptr<int32_t> waitTime_ {};
       };
 
@@ -1449,7 +1555,9 @@ namespace Models
 
 
         protected:
+          // The probability of this message being selected. Range: 0–1, corresponding to 0%–100%.
           shared_ptr<double> probability_ {};
+          // The text of the prompt message, up to 100 characters.
           shared_ptr<string> text_ {};
         };
 
@@ -1479,8 +1587,11 @@ namespace Models
 
 
       protected:
+        // A collection of prompt messages. A maximum of 10 messages are supported, each up to 100 characters. The sum of all probabilities must be 100%.
         shared_ptr<vector<LlmPending::Messages>> messages_ {};
+        // The mode for handling LLM latency prompts. `random`: Plays a random message from the list. `sequence`: Plays messages in order. This is a required field.
         shared_ptr<string> mode_ {};
+        // The wait time threshold for LLM responses. If the threshold is exceeded, a prompt is played. This is a required field. Unit: ms. Range: 500–10000. Set this value based on the actual performance of your LLM.
         shared_ptr<int32_t> waitTime_ {};
       };
 
@@ -1505,7 +1616,9 @@ namespace Models
 
 
     protected:
+      // Configuration for prompts to play during LLM response latency.
       shared_ptr<AutoSpeechConfig::LlmPending> llmPending_ {};
+      // Configuration for prompts to play when the user is silent for an extended period.
       shared_ptr<AutoSpeechConfig::UserIdle> userIdle_ {};
     };
 
@@ -1585,23 +1698,33 @@ namespace Models
 
 
     protected:
-      // Hotwords for ASR to improve recognition accuracy. Maximum of 128 hotwords.
+      // A list of hotwords to improve ASR accuracy. You can specify a maximum of 128 hotwords.
       shared_ptr<vector<string>> asrHotWords_ {};
-      // The language ID for ASR. Valid values:
+      // The language for ASR. Valid values:
       // 
-      // *   zh_mandarin: Chinese
-      // *   en: English
-      // *   zh_en: Chinese and English
-      // *   es: Spanish
-      // *   jp: Japanese
+      // - `zh_mandarin`: Chinese (Mandarin)
+      // 
+      // - `en`: English
+      // 
+      // - `zh_en`: Chinese-English mixed
+      // 
+      // - `es`: Spanish
+      // 
+      // - `jp`: Japanese
       shared_ptr<string> asrLanguageId_ {};
-      // The silence threshold for sentence segmentation. A pause longer than this value is considered a sentence break. Unit: milliseconds. Default value: 400. Valid values: 200 to 1200.
+      // The maximum duration of silence in milliseconds before the ASR engine finalizes an utterance. A pause longer than this value signals a sentence break. Range: 200–1200. Default: 400.
       shared_ptr<int32_t> asrMaxSilence_ {};
-      // Passthrough parameters for ASR.
+      // Passthrough parameters for proprietary ASR integrations.
       shared_ptr<string> customParams_ {};
-      // The minimum duration for voice activity detection, in milliseconds. This parameter controls the sensitivity of interruptions, preventing the agent from cutting off user speech too early during short pauses. 0: Disables this feature. Valid values: 200 to 2000. Recommended: 200 to 500 ms, which typically corresponds to the length of 1 to 4 words. By default, this parameter is left empty, which indicates the feature is disabled.
+      // The minimum duration in milliseconds of continuous user speech required to trigger an interruption. This controls interruption sensitivity. A value of 0 disables this feature. Range: 200–2000. A common range is 200–500 ms, which typically corresponds to 1 to 4 Chinese characters. If omitted, this feature is disabled.
       shared_ptr<int32_t> vadDuration_ {};
-      // The voice activity detection (VAD) threshold for interruption. A higher value makes it harder to trigger interruptions. Valid values: 0 to 10. Default value: 1. The value of 0 specifies to disable the VAD feature.
+      // The Voice Activity Detection (VAD) threshold for interruptions. Range: 0–11. Default: 11.
+      // 
+      // - `0`: Disables VAD.
+      // 
+      // - `1`–`10`: Sets the interruption sensitivity. A higher value makes the agent harder to interrupt.
+      // 
+      // - `11`: An enhanced mode with lower audio distortion and stronger noise resistance.
       shared_ptr<int32_t> vadLevel_ {};
     };
 
@@ -1643,9 +1766,9 @@ namespace Models
 
 
     protected:
-      // The ID of the ambient sound. This ID can be obtained from the advanced settings section of the agent configuration in the console.
+      // The ID of the ambient sound resource. You can obtain this ID from the advanced settings of the agent configuration in the console.
       shared_ptr<string> resourceId_ {};
-      // The volume of the ambient sound. Valid values: [0, 100]. A value of 0 disables the ambient sound.
+      // The volume of the ambient sound. Range: 0–100. A value of 0 disables the sound.
       shared_ptr<int32_t> volume_ {};
     };
 
@@ -1855,61 +1978,69 @@ namespace Models
 
 
   protected:
-    // Configuration for the ambient sound played during the call.
+    // Configuration for ambient sound during the call.
     shared_ptr<AIAgentConfig::AmbientSoundConfig> ambientSoundConfig_ {};
-    // The configuration for Automatic Speech Recognition (ASR).
+    // Configuration for automatic speech recognition (ASR).
     shared_ptr<AIAgentConfig::AsrConfig> asrConfig_ {};
+    // Configuration for the agent\\"s automatic speech, including prompts for LLM latency and long periods of user silence.
     shared_ptr<AIAgentConfig::AutoSpeechConfig> autoSpeechConfig_ {};
-    // The avatar configuration. Only effective if the workflow includes an avatar node.
+    // Configuration for the avatar. This takes effect only if the workflow includes an avatar node.
     shared_ptr<AIAgentConfig::AvatarConfig> avatarConfig_ {};
-    // The URL for the agent\\"s profile image in audio-only calls. Default value: None.
+    // The URL of the avatar to display during voice calls. If omitted, no avatar is displayed.
     shared_ptr<string> avatarUrl_ {};
-    // The type of the avatar URL. Default value: None.
+    // The type of the avatar URL. By default, this parameter is not set.
     shared_ptr<string> avatarUrlType_ {};
+    // >Notice: 
+    // 
+    // 已废弃，请使用 BackChannelingConfigs
     shared_ptr<vector<AIAgentConfig::BackChannelingConfig>> backChannelingConfig_ {};
+    // Configuration for back-channeling. When enabled, the system plays short, responsive phrases at specific trigger points.
     shared_ptr<vector<AIAgentConfig::BackChannelingConfigs>> backChannelingConfigs_ {};
-    // If enabled, the system intelligently merges short, interim segments into a single sentence. Default value: true.
+    // Specifies whether to enable intelligent segmentation. When enabled, short user utterances are merged into a single sentence. Default: `true`.
     shared_ptr<bool> enableIntelligentSegment_ {};
-    // Specifies whether to enable the push-to-talk mode. Default value: false.
+    // Specifies whether to enable push-to-talk mode. Default: `false`.
     shared_ptr<bool> enablePushToTalk_ {};
-    // The parameters for experimental features. Contact support for details.
+    // Parameters for experimental features. Contact support for assistance.
     shared_ptr<string> experimentalConfig_ {};
-    // Specifies whether to enable graceful shutdown. Default value: false.
+    // Specifies whether to enable graceful shutdown. Default: `false`.
     // 
-    // If enabled, when the agent is stopped, it will finish its current sentence before disconnecting (up to 10 seconds).
+    // If enabled, the AI agent completes its current utterance before disconnecting when the task is stopped. The agent will not speak for more than 10 seconds.
     shared_ptr<bool> gracefulShutdown_ {};
-    // The welcome message that the agent says upon joining. Changes take effect in the next session. Default value: None.
+    // The welcome message the AI agent plays when joining the session. Changes apply to subsequent sessions. If omitted, no welcome message is played.
     shared_ptr<string> greeting_ {};
-    // The configuration for the speech interruption strategy.
+    // Configuration for the speech interruption policy.
     shared_ptr<AIAgentConfig::InterruptConfig> interruptConfig_ {};
-    // The configuration for the large language model (LLM).
+    // Configuration for the large language model (LLM).
     shared_ptr<AIAgentConfig::LlmConfig> llmConfig_ {};
-    // The maximum time the agent will wait for interaction before it hangs up. Unit: seconds. Default value: 600.
+    // The maximum idle duration in seconds before the AI agent disconnects. If the agent receives no user interaction within this period, it ends the task. Default: 600.
     shared_ptr<int32_t> maxIdleTime_ {};
-    // The configuration for Text-to-Speech (TTS).
+    // Configuration for text-to-speech (TTS).
     shared_ptr<AIAgentConfig::TtsConfig> ttsConfig_ {};
-    // The configuration for detecting the end of a user\\"s conversational turn.
+    // Configuration for conversational turn detection.
     shared_ptr<AIAgentConfig::TurnDetectionConfig> turnDetectionConfig_ {};
-    // The timeout period for the agent to close the task after the user has left the channel. Unit: seconds. Default value: 5.
+    // The duration in seconds the AI agent waits before terminating the task after a user leaves the session. Default: 5.
     shared_ptr<int32_t> userOfflineTimeout_ {};
-    // The timeout period for the agent to close the task if no user joins the channel. Unit: seconds. Default value: 60.
+    // The duration in seconds the AI agent waits for a user to join. If the user does not join within this time, the agent terminates the task. Default: 60.
     shared_ptr<int32_t> userOnlineTimeout_ {};
-    // Configuration for video content recognition. When enabled, the system sends callbacks to the client with details about content identified.
+    // Configuration for video content recognition. This enables the system to send callbacks to the client about events detected in the video stream.
     shared_ptr<AIAgentConfig::VcrConfig> vcrConfig_ {};
-    // The configuration for voiceprint recognition.
+    // Configuration for voiceprint recognition.
     shared_ptr<AIAgentConfig::VoiceprintConfig> voiceprintConfig_ {};
-    // The agent\\"s speaking volume.
+    // The speaking volume of the AI agent.
     // 
-    // *   If this parameter is not specified, the adaptive volume mode is used by default.
-    // *   To specify this parameter, enter a value between 0 and 400. Output volume = Workflow output volume × Volume/100. Example:
+    // - If not set, the adaptive volume mode recommended by Alibaba Cloud is used by default.
     // 
-    // 1.  If Volume is set to 0, the output is muted.
-    // 2.  If Volume is set to 100, the output volume is the original volume.
-    // 3.  If Volume is set to 200, the output volume is 2 times the original volume.
+    // - If set, the value must be in the range of 0 to 400. The final output volume is calculated as: `(Workflow volume) * (volume / 100)`. For example:
+    // 
+    // 1. If `volume` is 0, the output volume is 0.
+    // 
+    // 2. If `volume` is 100, the output volume is the same as the original volume.
+    // 
+    // 3. If `volume` is 200, the output volume is twice the original volume.
     shared_ptr<int64_t> volume_ {};
-    // A command given to the agent before the call starts. The agent will respond to this query immediately after the call begins.
+    // A user-provided command that the AI agent responds to immediately after the call starts.
     shared_ptr<string> wakeUpQuery_ {};
-    // The parameters to override the workflow configuration. Default value: None.
+    // A JSON string containing parameters to override the default workflow configuration.
     shared_ptr<string> workflowOverrideParams_ {};
   };
 

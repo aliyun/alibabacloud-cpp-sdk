@@ -74,8 +74,9 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The sorting order of the packaging groups based on the time when they were created. Valid values:
     // 
-    // *   desc (default): descending order.
-    // *   asc: ascending order.
+    // - desc (default): descending order.
+    // 
+    // - asc: ascending order.
     shared_ptr<string> sortBy_ {};
   };
 

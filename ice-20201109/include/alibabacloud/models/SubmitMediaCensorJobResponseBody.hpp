@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the content moderation job. We recommend that you save this ID for subsequent calls of other operations.
+    // The ID of the video censor job. We recommend saving this ID for subsequent API calls.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

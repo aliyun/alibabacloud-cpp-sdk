@@ -84,7 +84,7 @@ namespace Models
       shared_ptr<string> media_ {};
       // The type of the input file. Valid values:
       // 
-      // *   OSS: an OSS object.
+      // - OSS: an OSS object.
       shared_ptr<string> type_ {};
     };
 

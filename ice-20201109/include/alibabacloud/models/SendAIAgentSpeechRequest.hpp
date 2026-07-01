@@ -68,10 +68,23 @@ namespace Models
   protected:
     // Specifies whether the broadcast can interrupt the ongoing speech. Default value: true
     shared_ptr<bool> enableInterrupt_ {};
+    // Agent instance ID.
+    // 
+    // > The InstanceId is the unique ID returned after successfully starting an agent instance. For details about starting an agent instance, see [StartAIAgentInstance](https://help.aliyun.com/document_detail/2846201.html) and [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The text content to be played back. The supported input format varies based on the Type parameter. The length cannot exceed 1024 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> text_ {};
+    // Input type. Valid values:
+    // 
+    // - Text: Input is plain text.
+    // 
+    // - AudioUrl: Input is an audio URL.
+    // 
+    // Default value: Text.
     shared_ptr<string> type_ {};
   };
 

@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The ID of the live editing job.
     shared_ptr<string> jobId_ {};
-    // The media asset ID of the output file.
+    // The ID of the output media asset.
     shared_ptr<string> mediaId_ {};
     // The URL of the output file.
     shared_ptr<string> mediaURL_ {};
     // The ID of the live editing project.
     shared_ptr<string> projectId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+    // The ID of the VOD media asset. This parameter is returned only if the output destination is VOD.
     shared_ptr<string> vodMediaId_ {};
   };
 

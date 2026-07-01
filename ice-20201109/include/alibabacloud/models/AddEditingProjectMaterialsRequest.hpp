@@ -50,11 +50,15 @@ namespace Models
   protected:
     // The material ID. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs. The following material types are supported:
     // 
-    // *   video
-    // *   audio
-    // *   image
-    // *   liveStream
-    // *   editingProject
+    // - video
+    // 
+    // - audio
+    // 
+    // - image
+    // 
+    // - liveStream
+    // 
+    // - editingProject
     // 
     // This parameter is required.
     shared_ptr<string> materialMaps_ {};

@@ -119,17 +119,18 @@ namespace Models
 
 
     protected:
-      // The time when the flow was created.
+      // The creation time of the MediaConnect Flow instance.
       shared_ptr<string> createTime_ {};
+      // Indicates whether Input Failover is enabled for the flow. Valid values: `yes` and `no`.
       shared_ptr<string> flowFailover_ {};
-      // The flow ID.
+      // The ID of the MediaConnect Flow instance.
       shared_ptr<string> flowId_ {};
-      // The flow name.
+      // The name of the MediaConnect Flow instance.
       shared_ptr<string> flowName_ {};
       shared_ptr<string> flowRegion_ {};
-      // The state of the flow.
+      // The status of the MediaConnect Flow instance.
       shared_ptr<string> flowStatus_ {};
-      // The time when the flow is started.
+      // The start time of the MediaConnect Flow instance.
       shared_ptr<string> startTime_ {};
     };
 
@@ -168,11 +169,11 @@ namespace Models
   protected:
     // The response body.
     shared_ptr<GetMediaConnectFlowResponseBody::Content> content_ {};
-    // The call description.
+    // The description of the API call.
     shared_ptr<string> description_ {};
-    // The ID of the request.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The returned code. A value of 0 indicates the call is successful.
+    // The return code. A value of 0 indicates success.
     shared_ptr<int32_t> retcode_ {};
   };
 

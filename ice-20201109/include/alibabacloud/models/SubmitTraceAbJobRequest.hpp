@@ -79,20 +79,22 @@ namespace Models
 
 
     protected:
-      // The output file. The file can be an OSS object or a media asset. OSS URL formats:
+      // The output path. Specify an OSS directory URL or a media asset ID. If you specify an OSS URL, use one of the following formats for the output directory:
       // 
-      // 1\\. oss://bucket/dir/
+      // 1\\. `oss://<bucket>/<dir>/`
       // 
-      // 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/dir/
+      // 2\\. `http(s)://<bucket>.oss-[regionId].aliyuncs.com/<dir>/`
       // 
-      // In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and dir specifies the object path in OSS.
+      // In these formats, `<bucket>` is the name of the OSS bucket, which must be in the same region as your project, and `<dir>` is the output directory path.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the output file. Valid values:
+      // The type of the output object.
+      // Valid values:
       // 
-      // *   OSS: an OSS object.
-      // *   Media: a media asset.
+      // - `OSS`: An OSS object.
+      // 
+      // - `Media`: A media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -136,20 +138,22 @@ namespace Models
 
 
     protected:
-      // The source file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
+      // The location of the input file. This can be an OSS URL or a media asset ID.
+      // The supported OSS URL formats are:
       // 
-      // 1\\. oss://bucket/object
+      // 1\\. `oss://<bucket>/<object>`
       // 
-      // 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+      // 2\\. `http(s)://<bucket>.oss-[regionId].aliyuncs.com/<object>`
       // 
-      // where bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object path in OSS.
+      // In these formats, `<bucket>` is the name of the OSS bucket, which must be in the same region as your project, and `<object>` is the path to the file.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the source file. Valid values:
+      // The type of the input file. Valid values:
       // 
-      // 1.  OSS: an OSS object.
-      // 2.  Media: a media asset.
+      // 1. `OSS`: The file is specified by an OSS URL.
+      // 
+      // 2. `Media`: The file is specified by a media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -212,25 +216,27 @@ namespace Models
 
 
   protected:
-    // The key that is encoded by using the Base64 algorithm.
+    // The Base64-encoded encryption key.
     shared_ptr<string> cipherBase64ed_ {};
-    // The source video file for A/B watermarking.
+    // The input video for the A/B stream forensic watermarking job.
     // 
-    // > OSS object or media asset must reside in the same region as the IMS service region. This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
+    // > - The Object Storage Service (OSS) file or media asset must be in the same region where Intelligent Media Services (IMS) is deployed.
+    // >
+    // > - This operation supports only videos that are three minutes or longer. Using a shorter video may cause the API call to fail or produce no output.
     // 
     // This parameter is required.
     shared_ptr<SubmitTraceAbJobRequest::Input> input_ {};
-    // The watermark level, which specifies the channel to embed watermarks. Valid values: 0 specifies the 0u channel, 1 specifies the 1uv channel, and 2 specifies the 2yuv channel.
+    // The watermark level, which specifies the embedding channel. Valid values: `0` (U channel), `1` (UV channels), and `2` (YUV channels).
     shared_ptr<int64_t> level_ {};
-    // The output directory path.
+    // The output location for the A/B stream job. This must be an OSS directory.
     // 
     // This parameter is required.
     shared_ptr<SubmitTraceAbJobRequest::Output> output_ {};
-    // The start point of watermark embedding. Unit: seconds.
+    // The start time for watermark embedding, in seconds.
     shared_ptr<int64_t> startTime_ {};
-    // The duration of the watermark embedding. Unit: seconds.
+    // The total duration for watermark embedding, in seconds.
     shared_ptr<int64_t> totalTime_ {};
-    // The custom data, which can be up to 1,024 bytes in size.
+    // User data to include in the request. The maximum length is 1,024 bytes.
     shared_ptr<string> userData_ {};
   };
 

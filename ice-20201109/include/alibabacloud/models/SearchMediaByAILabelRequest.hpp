@@ -149,23 +149,41 @@ namespace Models
 
 
   protected:
+    // Custom filters. A JSON string. The following backing fields are supported: intField1 (integer type), strField1 and strField2 (string type). For the same field, only one matching method can be specified. Filters on different fields are combined with a logical AND relationship.
+    // 
+    // - Exact match, for example: {"intField1":12,"strField1":"abc"}
+    // 
+    // - Multi-value match, for example: {"intField1":[12,13],"strField1":["abc","cd"]}
+    // 
+    // - Range match, for example: {"intField1":{"gte":12,"lte":13}}
     shared_ptr<string> customFilters_ {};
+    // Matching pattern. The default value is fuzzy for Fuzzy Matching. Valid values:
+    // 
+    // - fuzzy: Fuzzy Matching
+    // 
+    // - precise: Precise matching. This pattern applies only to newly added media assets.
     shared_ptr<string> matchingMode_ {};
     // The ID of the media asset. This parameter is required if you want to query media asset clips.
     shared_ptr<string> mediaId_ {};
     // The type of the media assets. Valid values:
     // 
-    // *   image
-    // *   video
-    // *   audio
+    // - image
+    // 
+    // - video
+    // 
+    // - audio
     shared_ptr<string> mediaType_ {};
     // The type of query. Valid values:
     // 
-    // *   PersonName: queries media assets based on character names.
-    // *   Ocr: queries media assets based on subtitles.
-    // *   AiCategory: queries media assets based on AI categories.
-    // *   FullSearch (default): queries all media assets.
+    // - PersonName: queries media assets based on character names.
+    // 
+    // - Ocr: queries media assets based on subtitles.
+    // 
+    // - AiCategory: queries media assets based on AI categories.
+    // 
+    // - FullSearch (default): queries all media assets.
     shared_ptr<string> multimodalSearchType_ {};
+    // Namespace.
     shared_ptr<string> namespace_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
@@ -175,16 +193,21 @@ namespace Models
     shared_ptr<string> searchLibName_ {};
     // The sorting method of the results. Valid values:
     // 
-    // *   CreationTime:Desc (default): sorts results in reverse chronological order.
-    // *   CreationTime:Asc: sorts results in chronological order.
+    // - CreationTime:Desc (default): sorts results in reverse chronological order.
+    // 
+    // - CreationTime:Asc: sorts results in chronological order.
     shared_ptr<string> sortBy_ {};
     // Specifies whether to query media asset clips. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> specificSearch_ {};
     // The content that you want to query.
     shared_ptr<string> text_ {};
+    // Creation time, in milliseconds UNIX timestamp. Use gte for greater than or equal to, and lte for less than or equal to.
+    // 
+    // - Example range: {"gte":1761205662998,"lte":1771205662998}
     shared_ptr<string> utcCreate_ {};
   };
 

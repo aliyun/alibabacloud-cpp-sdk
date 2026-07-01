@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The application\\"s runtime parameters, serialized as a JSON string.
     shared_ptr<string> appParams_ {};
   };
 

@@ -84,23 +84,23 @@ namespace Models
 
 
   protected:
-    // The snapshot input.
+    // The input for the snapshot job.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
-    // The name of the job.
+    // The name of the snapshot job.
     shared_ptr<string> name_ {};
-    // The snapshot output.
+    // The output destination for the snapshot job.
     // 
     // This parameter is required.
     shared_ptr<string> outputShrink_ {};
-    // The scheduling settings.
+    // The scheduling configuration.
     shared_ptr<string> scheduleConfigShrink_ {};
     // The snapshot template configuration.
     // 
     // This parameter is required.
     shared_ptr<string> templateConfigShrink_ {};
-    // The user-defined data.
+    // Custom user data, passed as a JSON-formatted string.
     shared_ptr<string> userData_ {};
   };
 

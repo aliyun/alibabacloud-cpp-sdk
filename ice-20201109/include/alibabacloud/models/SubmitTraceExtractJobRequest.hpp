@@ -71,20 +71,21 @@ namespace Models
 
 
     protected:
-      // The specific information for the source file, which can be an OSS URL or a media asset ID. OSS URL formats:
+      // The input source. Specify an OSS object URL or a media asset ID.
       // 
-      // 1\\. oss://bucket/object
+      // An OSS object URL can be in one of the following formats:
       // 
-      // 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+      // 1\\. oss\\://bucket/object
       // 
-      // where bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object path in OSS.
+      // In these formats, `bucket` is the name of an OSS bucket in the same region as your IMS service, and `object` is the path of the OSS object.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the source file. Valid values:
+      // The input type. Valid values:
       // 
-      // *   OSS: an OSS object.
-      // *   Media: a media asset.
+      // - OSS: An OSS object URL.
+      // 
+      // - Media: A media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -116,20 +117,21 @@ namespace Models
 
 
   protected:
-    // The source video file from which to extract the watermark.
+    // The input video from which to extract the watermark.
     // 
-    // > The OSS object or media asset must reside in the same region as the IMS service region.
+    // > - The OSS object or media asset must be in the same region as your IMS service.
     // 
     // This parameter is required.
     shared_ptr<SubmitTraceExtractJobRequest::Input> input_ {};
-    // Additional parameters for the watermark job, provided as a JSON string. Supported parameter:
+    // Extraction job parameters, specified as a JSON string. The following parameters are supported:
     // 
-    // *   m3u8Type: The extraction algorithm type. Defaults to v1.
+    // - `m3u8Type`: The algorithm type. The default value is `v1`.
     // 
-    //     *   v1: Extracts from an M3U8 with absolute paths.
-    //     *   v2: Extracts from an M3U8 with relative paths.
+    //   - `v1`: Extracts an m3u8 playlist with absolute paths.
+    // 
+    //   - `v2`: Extracts an m3u8 playlist with relative paths.
     shared_ptr<string> params_ {};
-    // The custom data, which can be up to 1,024 bytes in size.
+    // The user-defined data. Maximum length: 1,024 bytes.
     shared_ptr<string> userData_ {};
   };
 

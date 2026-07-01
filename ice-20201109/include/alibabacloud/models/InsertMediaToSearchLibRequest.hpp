@@ -94,14 +94,15 @@ namespace Models
 
 
   protected:
+    // Image set information. Supports only the IPCamera scenario, and MediaType must be video.
     shared_ptr<string> imagesInput_ {};
     // The URL of the video, audio, or image file that you want to import to the search library.
     // 
     // Note: Make sure that you specify a correct file name and the bucket in which the file resides is in the same region where this operation is called. Otherwise, the file cannot be found or the operation may fail.
     // 
-    // Specify an Object Storage Service (OSS) URL in the following format: oss://[Bucket name]/[File path]. For example, you can specify oss://[example-bucket-****]/[object_path-****].
+    // Specify an Object Storage Service (OSS) URL in the following format: oss\\://[Bucket name]/[File path]. For example, you can specify oss\\://[example-bucket-****]/[object_path-****].
     // 
-    // Specify an HTTP URL in the following format: public endpoint. For example, you can specify http://example-test-\\*\\*\\*\\*.mp4.
+    // Specify an HTTP URL in the following format: public endpoint. For example, you can specify http\\://example-test-\\*\\*\\*\\*.mp4.
     // 
     // This parameter is required.
     shared_ptr<string> input_ {};
@@ -109,12 +110,15 @@ namespace Models
     shared_ptr<string> mediaId_ {};
     // The type of the media asset. Valid values:
     // 
-    // *   video (default)
-    // *   image
-    // *   audio
+    // - video (default)
+    // 
+    // - image
+    // 
+    // - audio
     shared_ptr<string> mediaType_ {};
     // The message body.
     shared_ptr<string> msgBody_ {};
+    // Namespace.
     shared_ptr<string> namespace_ {};
     // The name of the search library. Default value: ims-default-search-lib.
     shared_ptr<string> searchLibName_ {};

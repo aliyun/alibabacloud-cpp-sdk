@@ -63,8 +63,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The type of the human voice cloning job. Valid values:
     // 
-    // *   Basic
-    // *   Standard
+    // - Basic
+    // 
+    // - Standard
     // 
     // > : If you do not specify this parameter, the default value Basic is used.
     shared_ptr<string> type_ {};

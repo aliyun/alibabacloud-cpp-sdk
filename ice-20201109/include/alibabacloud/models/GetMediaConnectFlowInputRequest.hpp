@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The flow ID.
+    // The ID of the Flow instance.
     // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};

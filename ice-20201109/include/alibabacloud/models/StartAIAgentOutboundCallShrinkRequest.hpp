@@ -94,15 +94,25 @@ namespace Models
 
 
   protected:
+    // The AI agent ID configured in the [IMS console](https://ims.console.aliyun.com/ai/robot/list).
+    // 
     // This parameter is required.
     shared_ptr<string> AIAgentId_ {};
+    // The called number.
+    // 
     // This parameter is required.
     shared_ptr<string> calledNumber_ {};
+    // The caller number. Only numbers from mainland China are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> callerNumber_ {};
+    // The AI agent outbound call configuration.
     shared_ptr<string> configShrink_ {};
+    // A reserved parameter.
     shared_ptr<string> imsAIAgentFreeObCall_ {};
+    // A unique identifier for the session. You can use this ID to store, query, and synchronize chat history across multiple calls. This parameter is optional.
     shared_ptr<string> sessionId_ {};
+    // The user-defined data.
     shared_ptr<string> userData_ {};
   };
 

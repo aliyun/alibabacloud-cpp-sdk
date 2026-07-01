@@ -148,16 +148,19 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Active
-        // *   Inactive
+        // - Active
+        // 
+        // - Inactive
         shared_ptr<string> status_ {};
         // The workflow type.
         // 
         // Valid values:
         // 
-        // *   Customize: custom workflow.
-        // *   System: system workflow.
-        // *   Common: user-created workflow.
+        // - Customize: custom workflow.
+        // 
+        // - System: system workflow.
+        // 
+        // - Common: user-created workflow.
         shared_ptr<string> type_ {};
         // The workflow ID.
         shared_ptr<string> workflowId_ {};
@@ -235,11 +238,15 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Init: The task is being initialized.
-      // *   Failed: The task failed.
-      // *   Canceled: The task is canceled.
-      // *   Processing: The task is in progress.
-      // *   Succeed: The task is successful.
+      // - Init: The task is being initialized.
+      // 
+      // - Failed: The task failed.
+      // 
+      // - Canceled: The task is canceled.
+      // 
+      // - Processing: The task is in progress.
+      // 
+      // - Succeed: The task is successful.
       shared_ptr<string> status_ {};
       // The ID of the workflow task.
       shared_ptr<string> taskId_ {};

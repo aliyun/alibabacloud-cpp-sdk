@@ -90,8 +90,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The start mode of the transcoding job.
     // 
-    // *   0: The transcoding job immediately starts.
-    // *   1: The transcoding job starts at the scheduled time.
+    // - 0: The transcoding job immediately starts.
+    // 
+    // - 1: The transcoding job starts at the scheduled time.
     // 
     // This parameter is required.
     shared_ptr<int32_t> startMode_ {};

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The input of the job.
+    // The job input.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
-    // The name of the job.
+    // The job name.
     shared_ptr<string> name_ {};
-    // The output of the job.
+    // The job output.
     // 
     // This parameter is required.
     shared_ptr<string> outputShrink_ {};
-    // The scheduling settings.
+    // The scheduling configuration.
     shared_ptr<string> scheduleConfigShrink_ {};
     // The snapshot template configuration.
     // 

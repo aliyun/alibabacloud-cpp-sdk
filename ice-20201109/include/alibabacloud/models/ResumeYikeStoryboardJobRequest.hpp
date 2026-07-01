@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the storyboard job.
     shared_ptr<string> jobId_ {};
   };
 

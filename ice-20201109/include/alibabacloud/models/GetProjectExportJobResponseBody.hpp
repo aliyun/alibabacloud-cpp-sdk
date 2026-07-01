@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETPROJECTEXPORTJOBRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETPROJECTEXPORTJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -67,11 +68,15 @@ namespace Models
       class ExportResult : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ExportResult& obj) { 
+          DARABONBA_PTR_TO_JSON(AudioUrl, audioUrl_);
           DARABONBA_PTR_TO_JSON(ProjectUrl, projectUrl_);
+          DARABONBA_PTR_TO_JSON(SrtList, srtList_);
           DARABONBA_PTR_TO_JSON(Timeline, timeline_);
         };
         friend void from_json(const Darabonba::Json& j, ExportResult& obj) { 
+          DARABONBA_PTR_FROM_JSON(AudioUrl, audioUrl_);
           DARABONBA_PTR_FROM_JSON(ProjectUrl, projectUrl_);
+          DARABONBA_PTR_FROM_JSON(SrtList, srtList_);
           DARABONBA_PTR_FROM_JSON(Timeline, timeline_);
         };
         ExportResult() = default ;
@@ -85,13 +90,71 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->projectUrl_ == nullptr
-        && this->timeline_ == nullptr; };
+        class SrtList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SrtList& obj) { 
+            DARABONBA_PTR_TO_JSON(SrtUrl, srtUrl_);
+            DARABONBA_PTR_TO_JSON(Tag, tag_);
+          };
+          friend void from_json(const Darabonba::Json& j, SrtList& obj) { 
+            DARABONBA_PTR_FROM_JSON(SrtUrl, srtUrl_);
+            DARABONBA_PTR_FROM_JSON(Tag, tag_);
+          };
+          SrtList() = default ;
+          SrtList(const SrtList &) = default ;
+          SrtList(SrtList &&) = default ;
+          SrtList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SrtList() = default ;
+          SrtList& operator=(const SrtList &) = default ;
+          SrtList& operator=(SrtList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->srtUrl_ == nullptr
+        && this->tag_ == nullptr; };
+          // srtUrl Field Functions 
+          bool hasSrtUrl() const { return this->srtUrl_ != nullptr;};
+          void deleteSrtUrl() { this->srtUrl_ = nullptr;};
+          inline string getSrtUrl() const { DARABONBA_PTR_GET_DEFAULT(srtUrl_, "") };
+          inline SrtList& setSrtUrl(string srtUrl) { DARABONBA_PTR_SET_VALUE(srtUrl_, srtUrl) };
+
+
+          // tag Field Functions 
+          bool hasTag() const { return this->tag_ != nullptr;};
+          void deleteTag() { this->tag_ = nullptr;};
+          inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+          inline SrtList& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+
+
+        protected:
+          shared_ptr<string> srtUrl_ {};
+          shared_ptr<string> tag_ {};
+        };
+
+        virtual bool empty() const override { return this->audioUrl_ == nullptr
+        && this->projectUrl_ == nullptr && this->srtList_ == nullptr && this->timeline_ == nullptr; };
+        // audioUrl Field Functions 
+        bool hasAudioUrl() const { return this->audioUrl_ != nullptr;};
+        void deleteAudioUrl() { this->audioUrl_ = nullptr;};
+        inline string getAudioUrl() const { DARABONBA_PTR_GET_DEFAULT(audioUrl_, "") };
+        inline ExportResult& setAudioUrl(string audioUrl) { DARABONBA_PTR_SET_VALUE(audioUrl_, audioUrl) };
+
+
         // projectUrl Field Functions 
         bool hasProjectUrl() const { return this->projectUrl_ != nullptr;};
         void deleteProjectUrl() { this->projectUrl_ = nullptr;};
         inline string getProjectUrl() const { DARABONBA_PTR_GET_DEFAULT(projectUrl_, "") };
         inline ExportResult& setProjectUrl(string projectUrl) { DARABONBA_PTR_SET_VALUE(projectUrl_, projectUrl) };
+
+
+        // srtList Field Functions 
+        bool hasSrtList() const { return this->srtList_ != nullptr;};
+        void deleteSrtList() { this->srtList_ = nullptr;};
+        inline const vector<ExportResult::SrtList> & getSrtList() const { DARABONBA_PTR_GET_CONST(srtList_, vector<ExportResult::SrtList>) };
+        inline vector<ExportResult::SrtList> getSrtList() { DARABONBA_PTR_GET(srtList_, vector<ExportResult::SrtList>) };
+        inline ExportResult& setSrtList(const vector<ExportResult::SrtList> & srtList) { DARABONBA_PTR_SET_VALUE(srtList_, srtList) };
+        inline ExportResult& setSrtList(vector<ExportResult::SrtList> && srtList) { DARABONBA_PTR_SET_RVALUE(srtList_, srtList) };
 
 
         // timeline Field Functions 
@@ -102,9 +165,11 @@ namespace Models
 
 
       protected:
-        // The URL of the exported project, which is typically a signed OSS URL. This field is returned when ExportType is AdobePremierePro.
+        shared_ptr<string> audioUrl_ {};
+        // The file URL of the exported project, which is typically an authenticated OSS URL. This field is returned when the export type is AdobePremierePro.
         shared_ptr<string> projectUrl_ {};
-        // The timeline of the online editing job. This field is returned when ExportType is BaseTimeline. For data structure, see [Timeline](https://help.aliyun.com/document_detail/198823.html).
+        shared_ptr<vector<ExportResult::SrtList>> srtList_ {};
+        // The online editing timeline. This field is returned when the export type is BaseTimeline. For more information about the structure, see [Timeline configuration](https://help.aliyun.com/document_detail/198823.html).
         shared_ptr<string> timeline_ {};
       };
 
@@ -170,31 +235,30 @@ namespace Models
 
 
     protected:
-      // The error code for the failed export task.
-      // >Notice: Use the error code for troubleshooting.
+      // The error code of the project export task.
+      // >Notice: Check this field when the task fails.
       shared_ptr<string> code_ {};
-      // The exported data.
+      // The export result.
       shared_ptr<ProjectExportJob::ExportResult> exportResult_ {};
-      // The export type. Valid values:
-      // 
-      // *   **BaseTimeline**: exports the timeline.
-      // *   **AdobePremierePro**: exports an Adobe Premiere Pro project.
+      // The type of the project export. Valid values:
+      // - **BaseTimeline**: timeline.
+      // - **AdobePremierePro**: Adobe Premiere Pro project.
       shared_ptr<string> exportType_ {};
       // The ID of the project export task.
       shared_ptr<string> jobId_ {};
-      // The error message for the failed export task.
-      // >Notice: Use the error message for troubleshooting.
+      // The error message of the project export task.
+      // 
+      // >Notice: Check this field when the task fails.
       shared_ptr<string> message_ {};
       // The ID of the online editing project.
       shared_ptr<string> projectId_ {};
       // The status of the project export task. Valid values:
-      // 
-      // - Init: Initializing
-      // - Processing
-      // - Success
-      // - Failed
+      // - **Init**: initial state.
+      // - **Processing**: processing.
+      // - **Success**: succeeded.
+      // - **Failed**: failed.
       shared_ptr<string> status_ {};
-      // The user-defined data in the JSON format.
+      // The custom settings in JSON format.
       shared_ptr<string> userData_ {};
     };
 
@@ -219,7 +283,7 @@ namespace Models
   protected:
     // The project export task.
     shared_ptr<GetProjectExportJobResponseBody::ProjectExportJob> projectExportJob_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

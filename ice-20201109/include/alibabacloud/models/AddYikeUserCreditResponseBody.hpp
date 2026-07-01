@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The error code returned if the operation fails. The following value is supported:
+    // 
+    // - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: The credit balance of the main account is insufficient.
     shared_ptr<string> errorCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> result_ {};
   };
 

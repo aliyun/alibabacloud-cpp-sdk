@@ -138,20 +138,23 @@ namespace Models
 
 
         protected:
-          // The length of the clip.
+          // The duration of the video segment to be processed.
           // 
-          // *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
-          // *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+          // - Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+          // 
+          // - Valid range: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
           shared_ptr<string> duration_ {};
-          // The length of the ending part of the original clip to be cropped out. If you specify this parameter, the Duration parameter becomes invalid.
+          // The end time of the video segment to be processed. If this parameter is set, the `Duration` parameter is ignored.
           // 
-          // *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
-          // *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+          // - Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+          // 
+          // - Valid range: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
           shared_ptr<string> end_ {};
-          // The start point of the clip.
+          // The start time of the video segment to be processed.
           // 
-          // *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
-          // *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+          // - Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+          // 
+          // - Valid range: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
           shared_ptr<string> seek_ {};
         };
 
@@ -210,32 +213,35 @@ namespace Models
 
 
       protected:
-        // The format of the animated image. Valid values:
+        // The animated image format. Valid values:
         // 
-        // *   **gif**
-        // *   **webp**
+        // - `gif`
+        // 
+        // - `webp`
         shared_ptr<string> format_ {};
-        // The frame rate. Valid values: [1,60].
+        // The frame rate. Valid range: [1, 60].
         shared_ptr<int32_t> fps_ {};
-        // The height of the animated image. Valid values: [128,4096].
+        // The height of the output animated image. Valid range: [128, 4096].
         shared_ptr<int32_t> height_ {};
-        // Specifies whether to enable the auto-rotate screen feature. Valid values:
+        // Specifies whether to enable adaptive orientation based on the long and short edges of the video. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Enables adaptive orientation.
+        // 
+        // - **false**: Disables adaptive orientation.
         // 
         // Default value: **true**.
         // 
-        // >  If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode.
+        // > When enabled, this mode sets the output width to the source video\\"s long edge and the output height to its short edge. For a portrait video, its height is treated as the long edge and its width as the short edge.
         shared_ptr<bool> longShortMode_ {};
         // The scan mode. Valid values:
         // 
-        // *   **interlaced**
-        // *   **progressive** This is the default value.
+        // - **interlaced**: Interlaced scanning.
+        // 
+        // - **progressive**: Progressive scanning. This is the default value.
         shared_ptr<string> scanMode_ {};
-        // The timeline parameters.
+        // Specifies the time range of the video to process for the animated image.
         shared_ptr<OverwriteParams::TimeSpan> timeSpan_ {};
-        // The width of the animated image. Valid values: [128,4096].
+        // The width of the output animated image. Valid range: [128, 4096].
         shared_ptr<int32_t> width_ {};
       };
 
@@ -258,7 +264,7 @@ namespace Models
 
 
     protected:
-      // The parameters that are used to overwrite the corresponding parameters.
+      // The overwrite parameters.
       shared_ptr<TemplateConfig::OverwriteParams> overwriteParams_ {};
       // The template ID.
       // 
@@ -304,9 +310,9 @@ namespace Models
 
 
     protected:
-      // The ID of the MPS queue to which the job was submitted.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
-      // The priority. Valid values: 1 to 10. Default value: 6. A greater value specifies a higher priority.
+      // The priority of the job. Valid range: [1, 10]. A higher value indicates a higher priority. Default value: 6.
       shared_ptr<int32_t> priority_ {};
     };
 
@@ -348,21 +354,23 @@ namespace Models
 
 
     protected:
-      // The output file. The file can be an OSS object or a media asset. The URL of an OSS object can be in one of the following formats:
+      // The destination OSS URL for the output file. This parameter is required when `Type` is set to `OSS`. The URL must be in one of the following formats:
       // 
-      // *   oss://bucket/object
-      // *   http(s)://bucket.oss-[regionId].aliyuncs.com/object
+      // - `oss://bucket/object`
       // 
-      // In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+      // - `http(s)://bucket.oss-[regionId].aliyuncs.com/object`
       // 
-      // >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the IMS console.
+      // In these formats, `bucket` is the name of an OSS bucket in the same region as the current project, and `object` is the file path.
+      // 
+      // > The specified OSS bucket must be registered in IMS [storage management](https://help.aliyun.com/document_detail/609918.html).
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the output file. Valid values:
+      // The type of the job output. Valid values:
       // 
-      // 1.  OSS: an OSS object.
-      // 2.  Media: a media asset.
+      // - `OSS`: The output is an OSS file.
+      // 
+      // - `Media`: The output is a new media asset.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -406,21 +414,29 @@ namespace Models
 
 
     protected:
-      // The input file. If Type is set to OSS, set this parameter to the URL of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. The URL of an OSS object can be in one of the following formats:
+      // The input media resource.
       // 
-      // 1.  oss://bucket/object
-      // 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+      // - If `Type` is set to `OSS`, specify the OSS URL of the input file.
       // 
-      // In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+      // - If `Type` is set to `Media`, specify the media asset ID.
       // 
-      // >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
+      // An OSS URL must be in one of the following formats:
+      // 
+      // 1. `oss://bucket/object`
+      // 
+      // 2. `http(s)://bucket.oss-[RegionId].aliyuncs.com/object`
+      // 
+      // In these formats, `bucket` is the name of an OSS bucket in the same region as the current project, and `object` is the file path.
+      // 
+      // > The specified OSS bucket must be registered in IMS [storage management](https://help.aliyun.com/document_detail/609918.html).
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the input file. Valid values:
+      // The type of the job input. Valid values:
       // 
-      // 1.  OSS: an Object Storage Service (OSS) object.
-      // 2.  Media: a media asset.
+      // - `OSS`: An Object Storage Service (OSS) file URL.
+      // 
+      // - `Media`: A media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -479,17 +495,17 @@ namespace Models
 
 
   protected:
-    // The input of the job.
+    // The job input.
     // 
     // This parameter is required.
     shared_ptr<SubmitDynamicImageJobRequest::Input> input_ {};
-    // The name of the job.
+    // The job name.
     shared_ptr<string> name_ {};
-    // The output of the job.
+    // The job output.
     // 
     // This parameter is required.
     shared_ptr<SubmitDynamicImageJobRequest::Output> output_ {};
-    // The scheduling settings.
+    // The scheduling configuration.
     shared_ptr<SubmitDynamicImageJobRequest::ScheduleConfig> scheduleConfig_ {};
     // The snapshot template configuration.
     // 

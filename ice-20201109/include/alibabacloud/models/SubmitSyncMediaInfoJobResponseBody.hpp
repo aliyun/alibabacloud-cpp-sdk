@@ -395,9 +395,11 @@ namespace Models
           shared_ptr<string> fps_ {};
           // Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
           // 
-          // *   0: The stream contains no B-frames.
-          // *   1: The stream contains one B-frame.
-          // *   2: The stream contains multiple consecutive B-frames.
+          // - 0: The stream contains no B-frames.
+          // 
+          // - 1: The stream contains one B-frame.
+          // 
+          // - 2: The stream contains multiple consecutive B-frames.
           shared_ptr<string> hasBFrames_ {};
           // The height of the output video.
           shared_ptr<string> height_ {};
@@ -565,7 +567,7 @@ namespace Models
           shared_ptr<string> fileSize_ {};
           // The state of the file. Valid values:
           // 
-          // *   Normal
+          // - Normal
           shared_ptr<string> fileStatus_ {};
           // The file type.
           shared_ptr<string> fileType_ {};
@@ -852,8 +854,9 @@ namespace Models
         shared_ptr<string> media_ {};
         // The type of the media object. Valid values:
         // 
-        // *   OSS: an OSS object.
-        // *   Media: a media asset.
+        // - OSS: an OSS object.
+        // 
+        // - Media: a media asset.
         shared_ptr<string> type_ {};
       };
 

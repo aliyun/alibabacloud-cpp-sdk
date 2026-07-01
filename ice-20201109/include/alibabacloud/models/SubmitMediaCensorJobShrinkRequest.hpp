@@ -121,36 +121,37 @@ namespace Models
 
 
   protected:
-    // The live comments of the video.
+    // The video barrages (on-screen comments).
     // 
-    // >  If this parameter is specified, the system checks the live comments specified by this parameter instead of the live comments of the input file specified by Media.
+    // > If specified, it overrides the barrages specified in the Media object.
     shared_ptr<string> barrages_ {};
-    // The Object Storage Service (OSS) objects that are used as the thumbnails. Specify the thumbnails in a JSON array. A maximum of five thumbnails are supported.
+    // The Object Storage Service (OSS) files for the cover images, specified as a JSON array. You can specify up to five cover images.
     // 
-    // >  If this parameter is specified, the system checks the thumbnails specified by this parameter instead of the thumbnails of the input file specified by **Media**.
+    // > If specified, this parameter overrides the cover image information in the **Media** object.
     shared_ptr<string> coverImages_ {};
-    // The video description, which can be up to 128 bytes in length.
+    // The video description. The maximum length is 128 bytes.
     // 
-    // >  If this parameter is specified, the system checks the description specified by this parameter instead of the description of the input file specified by Media.
+    // > If specified, this parameter overrides the description specified in the Media object.
     shared_ptr<string> description_ {};
-    // The information about the file to be moderated.
+    // The input file to censor.
     shared_ptr<string> inputShrink_ {};
-    // The callback URL. Simple Message Queue (SMQ, formerly MNS) and HTTP callbacks are supported.
+    // The callback path. Both Message Service (MNS) and HTTP callbacks are supported.
     shared_ptr<string> notifyUrl_ {};
-    // The output snapshots. The moderation job generates output snapshots and the result JSON file in the path corresponding to the input file.
+    // The output location for screenshots. The censor job generates screenshots and a result JSON file in the OSS location specified by this parameter.
     // 
-    // *   File name format of output snapshots: oss://bucket/snapshot-{Count}.jpg. In the path, bucket indicates an OSS bucket that resides in the same region as the current project, and {Count} is the sequence number of the snapshot.
-    // *   The detailed moderation results are stored in the {jobId}.output file in the same OSS folder as the output snapshots. For more information about the parameters in the output file, see [Output parameters of media moderation jobs](https://help.aliyun.com/document_detail/609211.html).
+    // - Example format: `oss://bucket/snapshot-{Count}.jpg`, where `bucket` is the name of an OSS bucket in the same region as the project, and `{Count}` is a placeholder for the screenshot sequence number.
+    // 
+    // - The detailed censor results are saved to a file named `{jobId}.output` in the same OSS folder as the value of `Output`. For information about the fields in the output file, see [Media censor result file fields](https://help.aliyun.com/document_detail/609211.html).
     shared_ptr<string> output_ {};
-    // The scheduling configurations.
+    // The scheduling configuration.
     shared_ptr<string> scheduleConfigShrink_ {};
-    // The template ID. If this parameter is not specified, the default template is used for moderation.
+    // The template ID. If this parameter is left empty, the service uses the default template for the censor job.
     shared_ptr<string> templateId_ {};
-    // The video title, which can be up to 64 bytes in length.
+    // The video title. The maximum length is 64 bytes.
     // 
-    // >  If this parameter is specified, the system checks the title specified by this parameter instead of the title of the input file specified by Media.
+    // > If specified, this parameter overrides the title specified in the Media object.
     shared_ptr<string> title_ {};
-    // The user-defined data, which can be up to 128 bytes in length.
+    // The user-defined data. The maximum length is 128 bytes.
     shared_ptr<string> userData_ {};
   };
 

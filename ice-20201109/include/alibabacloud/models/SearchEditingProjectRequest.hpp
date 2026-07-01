@@ -114,17 +114,19 @@ namespace Models
   protected:
     // The source of the project.
     // 
-    // \\-OpenAPI
+    // -OpenAPI
     // 
-    // \\-AliyunConsole
+    // -AliyunConsole
     // 
-    // \\-WebSDK
+    // -WebSDK
     // 
     // Valid values:
     // 
-    // *   AliyunConsole: The project is created in the Alibaba Cloud console.
-    // *   WebSDK: The project is created by using the SDK for Web.
-    // *   OpenAPI: The project is created by calling API operations.
+    // - AliyunConsole: The project is created in the Alibaba Cloud console.
+    // 
+    // - WebSDK: The project is created by using the SDK for Web.
+    // 
+    // - OpenAPI: The project is created by calling API operations.
     shared_ptr<string> createSource_ {};
     // The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
@@ -134,8 +136,9 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The type of the editing project. Default value: EditingProject. Valid values:
     // 
-    // *   EditingProject: a regular editing project.
-    // *   LiveEditingProject: a live stream editing project.
+    // - EditingProject: a regular editing project.
+    // 
+    // - LiveEditingProject: a live stream editing project.
     shared_ptr<string> projectType_ {};
     // The sorting rule of results. Valid values:
     // 
@@ -149,25 +152,27 @@ namespace Models
     // 
     // Valid values:
     // 
-    // \\-Draft
+    // -Draft
     // 
-    // \\-Producing
+    // -Producing
     // 
-    // \\-Produced
+    // -Produced
     // 
-    // \\-ProduceFailed
+    // -ProduceFailed
     shared_ptr<string> status_ {};
     // The template type. Valid values:
     // 
-    // \\-Timeline
+    // -Timeline
     // 
-    // \\-VETemplate
+    // -VETemplate
     // 
     // Valid values:
     // 
-    // *   Timeline: regular template.
-    // *   VETemplate: advanced template.
-    // *   None: No template is used.
+    // - Timeline: regular template.
+    // 
+    // - VETemplate: advanced template.
+    // 
+    // - None: No template is used.
     shared_ptr<string> templateType_ {};
   };
 

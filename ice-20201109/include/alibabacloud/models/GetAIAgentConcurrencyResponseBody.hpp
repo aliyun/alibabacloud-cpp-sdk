@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of active concurrent calls.
     shared_ptr<int32_t> activeCount_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

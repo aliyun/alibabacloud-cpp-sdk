@@ -88,8 +88,9 @@ namespace Models
     shared_ptr<string> keyword_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value:
     // 
-    // *   If you do not specify this parameter or if you set a value smaller than 10, the default value is 10.
-    // *   If you set a value greater than 100, the default value is 100.
+    // - If you do not specify this parameter or if you set a value smaller than 10, the default value is 10.
+    // 
+    // - If you set a value greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};

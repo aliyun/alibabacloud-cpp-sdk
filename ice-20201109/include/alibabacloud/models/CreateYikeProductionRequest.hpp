@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The title of the Yike production.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

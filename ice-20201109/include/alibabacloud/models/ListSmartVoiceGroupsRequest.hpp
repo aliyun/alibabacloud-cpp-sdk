@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The voice type. If you do not specify this parameter, the operation returns voices from the small model by default. Set this parameter to `CosyVoice` to retrieve voices from the Cosyvoice large model.
     shared_ptr<string> voiceType_ {};
   };
 

@@ -220,11 +220,15 @@ namespace Models
       shared_ptr<string> businessConfig_ {};
       // The business status of the project. This parameter can be ignored for general editing projects. Valid values:
       // 
-      // *   Reserving
-      // *   ReservationCanceled
-      // *   BroadCasting
-      // *   LoadingFailed
-      // *   LiveFinished
+      // - Reserving
+      // 
+      // - ReservationCanceled
+      // 
+      // - BroadCasting
+      // 
+      // - LoadingFailed
+      // 
+      // - LiveFinished
       shared_ptr<string> businessStatus_ {};
       // The template material parameters.
       shared_ptr<string> clipsParam_ {};
@@ -296,7 +300,7 @@ namespace Models
       // 
       // \\- VETemplate
       shared_ptr<string> templateType_ {};
-      // The timeline of the online editing project, in the JSON format.<props="china">For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662).  If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
+      // The timeline of the online editing project, in the JSON format.<props="china">For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662). If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
       shared_ptr<string> timeline_ {};
       // The title of the online editing project.
       shared_ptr<string> title_ {};

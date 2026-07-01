@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> mediaId_ {};
     // The queried marks.
     // 
-    // *   The value is in the JSONArray format.
+    // - The value is in the JSONArray format.
     shared_ptr<string> mediaMarks_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

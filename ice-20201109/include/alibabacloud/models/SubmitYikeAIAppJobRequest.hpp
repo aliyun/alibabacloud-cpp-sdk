@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The AI application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The AI application runtime parameters, as a JSON string.
     shared_ptr<string> appParams_ {};
+    // The ID of the folder. If provided, the output is saved to this folder.
     shared_ptr<string> folderId_ {};
+    // The ID of the project. If provided, the output is saved to this project.
     shared_ptr<string> productionId_ {};
   };
 

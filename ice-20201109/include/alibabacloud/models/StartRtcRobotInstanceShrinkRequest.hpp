@@ -84,14 +84,24 @@ namespace Models
 
 
   protected:
+    // The authentication token required to join the RTC call. You must generate this token using your RTC AppKey.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The RTC channel\\"s unique identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // Specifies advanced call configurations that override the agent\\"s default configurations. If you omit this parameter, the agent uses its default configurations.
     shared_ptr<string> configShrink_ {};
+    // The AI agent\\"s unique identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> robotId_ {};
+    // User-defined information.
     shared_ptr<string> userData_ {};
+    // The AI agent\\"s unique identifier within the channel.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

@@ -84,19 +84,17 @@ namespace Models
 
 
   protected:
-    // The task description. Max length: 128 bytes.
+    // The description of the job. The description can be up to 128 bytes in length.
     shared_ptr<string> description_ {};
-    // The avatar configurations, including the avatar ID, voice, and speech rate.
+    // The configurations for the avatar job, such as the avatar ID, voice, and speech rate.
     shared_ptr<string> editingConfig_ {};
-    // The input configurations of the video rendering task for an avatar. You can specify text, the Object Storage Service (OSS) URL of an audio file, or the ID of a media asset. The audio file must be in the MP3 or WAV format.
-    // 
-    // >Notice: The text must be at least five characters in length.
+    // Input can be text, an audio file from Object Storage Service (OSS), or a [media asset](). Only MP3 and WAV audio formats are supported.>Notice:  The value of the `Text` parameter must contain at least five characters.
     shared_ptr<string> inputConfig_ {};
-    // The output configurations, including the destination URL for the rendered video.
+    // Specifies the output configuration, including the destination URL for the rendered video.
     shared_ptr<string> outputConfig_ {};
-    // The task name. Max length: 128 bytes.
+    // The title of the job. The title can be up to 128 bytes in length.
     shared_ptr<string> title_ {};
-    // A user-defined JSON string for passing custom business information, such as environment details or task metadata.
+    // A user-defined JSON string for passing custom business information, such as environment details or job metadata.
     shared_ptr<string> userData_ {};
   };
 

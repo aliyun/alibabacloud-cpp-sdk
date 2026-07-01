@@ -266,54 +266,49 @@ namespace Models
 
 
     protected:
+      // The IP address whitelist for the backup input.
       shared_ptr<string> backupCidrs_ {};
+      // The time when the backup input was created.
       shared_ptr<string> backupCreateTime_ {};
       shared_ptr<string> backupInnerInputUrl_ {};
+      // The name of the backup input.
       shared_ptr<string> backupInputName_ {};
+      // The status of the backup input. It indicates whether the backup stream is being pushed.
       shared_ptr<string> backupInputStatus_ {};
+      // The URL of the backup input.
       shared_ptr<string> backupInputUrl_ {};
+      // The bitrate of the backup input.
       shared_ptr<int32_t> backupMaxBitrate_ {};
+      // The SRT latency for the backup input.
       shared_ptr<int32_t> backupSrtLatency_ {};
+      // The SRT encryption key for the backup input.
       shared_ptr<string> backupSrtPassphrase_ {};
+      // The SRT encryption key length for the backup input.
       shared_ptr<int32_t> backupSrtPbkeyLen_ {};
-      // The IP address whitelist in CIDR format. CIDR blocks are separated with commas (,).
+      // The IP address whitelist in CIDR format. Separate multiple IP address segments with commas.
       shared_ptr<string> cidrs_ {};
-      // The time when the flow was created.
+      // The time when the input was created.
       shared_ptr<string> createTime_ {};
       shared_ptr<string> innerInputUrl_ {};
-      // The source name.
+      // The input name.
       shared_ptr<string> inputName_ {};
-      // The source type.
-      // 
-      // Valid values:
-      // 
-      // *   RTMP-PUSH
-      // *   SRT-Caller
-      // *   RTMP-PULL
-      // *   SRT-Listener
-      // *   Flow
+      // The input type.
       shared_ptr<string> inputProtocol_ {};
+      // The input status. It indicates whether the primary stream is being pushed.
       shared_ptr<string> inputStatus_ {};
-      // The source URL.
+      // The input URL.
       shared_ptr<string> inputUrl_ {};
-      // The maximum bitrate. Unit: bit/s.
+      // The input bitrate, in bps.
       shared_ptr<int32_t> maxBitrate_ {};
-      // The ID of the source flow. This parameter is returned when the source type is Flow.
+      // The ID of the peer Flow instance. This parameter is required only if the output type is Flow.
       shared_ptr<string> pairFlowId_ {};
-      // The output of the source flow. This parameter is returned when the source type is Flow.
+      // The output name of the peer Flow. This parameter is required only when the input type is Flow.
       shared_ptr<string> pairOutputName_ {};
-      // The latency for the SRT stream. Unit: milliseconds. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
+      // The SRT latency in milliseconds (ms). This parameter is required only when the input type is SRT-Listener or SRT-Caller.
       shared_ptr<int32_t> srtLatency_ {};
-      // The SRT key. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
+      // The SRT encryption key. This parameter is required only when the input type is SRT-Listener or SRT-Caller.
       shared_ptr<string> srtPassphrase_ {};
-      // The encryption key length. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
-      // 
-      // Valid values:
-      // 
-      // *   0
-      // *   16
-      // *   24
-      // *   32
+      // The SRT encryption key length. This parameter is required only when the input type is SRT-Listener or SRT-Caller.
       shared_ptr<int32_t> srtPbkeyLen_ {};
     };
 
@@ -352,11 +347,11 @@ namespace Models
   protected:
     // The response body.
     shared_ptr<GetMediaConnectFlowInputResponseBody::Content> content_ {};
-    // The call description.
+    // The description of the API call.
     shared_ptr<string> description_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned error code. A value of 0 indicates the call is successful.
+    // The error code returned. A value of 0 indicates success.
     shared_ptr<int32_t> retCode_ {};
   };
 

@@ -144,11 +144,15 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   RTMP-PUSH
-    // *   SRT-Caller
-    // *   RTMP-PULL
-    // *   SRT-Listener
-    // *   Flow
+    // - RTMP-PUSH
+    // 
+    // - SRT-Caller
+    // 
+    // - RTMP-PULL
+    // 
+    // - SRT-Listener
+    // 
+    // - Flow
     // 
     // This parameter is required.
     shared_ptr<string> outputProtocol_ {};

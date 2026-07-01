@@ -132,15 +132,17 @@ namespace Models
   protected:
     // The end of the time range to query.
     // 
-    // *   Specify the time in the ISO 8601 standard. The time must be in UTC.
-    // *   Format: yyyy-MM-ddTHH:mm:ssZ.
+    // - Specify the time in the ISO 8601 standard. The time must be in UTC.
+    // 
+    // - Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endOfJobCreatedTimeRange_ {};
     // The IDs of the content moderation jobs. You can obtain the ID of a content moderation job from the response parameters of the SubmitMediaCensorJob operation. Separate multiple IDs with commas (,).
     shared_ptr<string> jobIds_ {};
     // The number of entries per page.
     // 
-    // *   Default value: **30**.
-    // *   Valid values: **1 to 300**.
+    // - Default value: **30**.
+    // 
+    // - Valid values: **1 to 300**.
     shared_ptr<int64_t> maximumPageSize_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextPageToken_ {};
@@ -152,16 +154,21 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The beginning of the time range to query.
     // 
-    // *   Specify the time in the ISO 8601 standard. The time must be in UTC.
-    // *   Format: yyyy-MM-ddTHH:mm:ssZ.
+    // - Specify the time in the ISO 8601 standard. The time must be in UTC.
+    // 
+    // - Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startOfJobCreatedTimeRange_ {};
     // The state of the jobs that you want to query. Valid values:
     // 
-    // *   **All**: all jobs.
-    // *   **Queuing**: the jobs that are waiting in the queue.
-    // *   **Analysing**: the jobs that are in progress.
-    // *   **Fail**: failed jobs.
-    // *   **Success**: successful jobs.
+    // - **All**: all jobs.
+    // 
+    // - **Queuing**: the jobs that are waiting in the queue.
+    // 
+    // - **Analysing**: the jobs that are in progress.
+    // 
+    // - **Fail**: failed jobs.
+    // 
+    // - **Success**: successful jobs.
     shared_ptr<string> state_ {};
   };
 

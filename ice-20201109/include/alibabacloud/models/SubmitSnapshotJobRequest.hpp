@@ -183,19 +183,19 @@ namespace Models
 
 
         protected:
-          // The height of a single snapshot before tiling. The default value is the height of the output snapshot.
+          // The height of each tile. Default: the height of the output snapshot.
           shared_ptr<int32_t> cellHeight_ {};
-          // The width of a single snapshot before tiling. The default value is the width of the output snapshot.
+          // The width of each tile. Default: the width of the output snapshot.
           shared_ptr<int32_t> cellWidth_ {};
           // The background color.
           shared_ptr<string> color_ {};
-          // The number of columns that the image sprite contains.
+          // The number of columns in the sprite grid.
           shared_ptr<int32_t> columns_ {};
-          // The number of rows that the image sprite contains.
+          // The number of rows in the sprite grid.
           shared_ptr<int32_t> lines_ {};
-          // The width of the frame. Default value: 0. Unit: pixels.
+          // The margin around the sprite, in pixels. Default value: 0.
           shared_ptr<int32_t> margin_ {};
-          // The spacing between two adjacent snapshots. Default value: 0. Unit: pixels.
+          // The padding between tiles, in pixels. Default value: 0.
           shared_ptr<int32_t> padding_ {};
         };
 
@@ -282,27 +282,27 @@ namespace Models
 
 
       protected:
-        // The threshold that is used to filter out black frames for the first snapshot to be captured. This feature is available if you request the system to capture multiple snapshots.
+        // The threshold for detecting and filtering black content in the first frame. This applies only to multi-frame snapshots.
         shared_ptr<int32_t> blackLevel_ {};
-        // The number of snapshots.
+        // The number of snapshots to capture.
         shared_ptr<int64_t> count_ {};
-        // The type of the frame.
+        // The frame type.
         shared_ptr<string> frameType_ {};
-        // The height of a captured snapshot.
+        // The output image height.
         shared_ptr<int32_t> height_ {};
-        // The interval at which snapshots are captured.
+        // The interval between snapshots.
         shared_ptr<int64_t> interval_ {};
-        // The WebVTT snapshot configuration that specifies whether to merge the output snapshots.
+        // Specifies whether to stitch snapshots into a single sprite. This applies only to WebVTT snapshots.
         shared_ptr<bool> isSptFrag_ {};
-        // The color value threshold that determines whether a pixel is black.
+        // The threshold for determining whether a pixel is black.
         shared_ptr<int32_t> pixelBlackThreshold_ {};
-        // The configuration of the sprite snapshot.
+        // The sprite configuration.
         shared_ptr<OverwriteParams::SpriteSnapshotConfig> spriteSnapshotConfig_ {};
-        // The point in time at which the system starts to capture snapshots in the input video.
+        // The start time for capturing snapshots.
         shared_ptr<int64_t> time_ {};
-        // The snapshot type. Valid values:
+        // The snapshot type.
         shared_ptr<string> type_ {};
-        // The width of a captured snapshot.
+        // The output image width.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -325,9 +325,9 @@ namespace Models
 
 
     protected:
-      // The parameters that are used to overwrite the corresponding parameters.
+      // Parameters used to override settings in the specified template.
       shared_ptr<TemplateConfig::OverwriteParams> overwriteParams_ {};
-      // The template ID.
+      // The snapshot template ID.
       // 
       // This parameter is required.
       shared_ptr<string> templateId_ {};
@@ -361,7 +361,7 @@ namespace Models
 
 
     protected:
-      // The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
     };
 
@@ -403,21 +403,35 @@ namespace Models
 
 
     protected:
-      // The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+      // The output media asset.
       // 
-      // 1.  oss://bucket/object
-      // 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+      // - If `Type` is `OSS`, specify the OSS URL for the output file.
       // 
-      // In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
+      // - If `Type` is `Media`, specify the ID of the output media asset.
       // 
-      // >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the IMS console.
+      // The OSS URL must be in one of the following formats:
+      // 
+      // 1. `oss://bucket/object`
+      // 
+      // 2. `http(s)://bucket.oss-[RegionId].aliyuncs.com/object`
+      // 
+      // In these formats, `bucket` is the name of an OSS bucket located in the same region as the current project, and `object` is the file path.
+      // 
+      // - When capturing multiple static snapshots, the `object` must contain the `{Count}` placeholder.
+      // 
+      // - When capturing a sprite, the `object` must contain the `{TileCount}` placeholder.
+      // 
+      // - For WebVTT snapshots, the filename in the `object` path must end with `.vtt`.
+      // 
+      // > The OSS bucket specified in the URL must be added to IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before use.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the output file. Valid values:
+      // The type of the output. Valid values:
       // 
-      // 1.  OSS: an OSS object.
-      // 2.  Media: a media asset.
+      // - `OSS`: an OSS file URL.
+      // 
+      // - `Media`: a media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -461,19 +475,28 @@ namespace Models
 
 
     protected:
-      // The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+      // The input media asset.
       // 
-      // 1.  oss://bucket/object
-      // 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+      // - If `Type` is `OSS`, specify the OSS URL of the input file.
       // 
-      // >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
+      // - If `Type` is `Media`, specify the ID of the media asset.
+      // 
+      // The OSS URL must be in one of the following formats:
+      // 
+      // 1. `oss://bucket/object`
+      // 
+      // 2. `http(s)://bucket.oss-[RegionId].aliyuncs.com/object`
+      //    <br>In these formats, `bucket` is the name of an OSS bucket located in the same region as the current project, and `object` is the file path.<br>
+      // 
+      // > The OSS bucket specified in the URL must be added to IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before use.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the input file. Valid values:
+      // The type of the input. Valid values:
       // 
-      // 1.  OSS: an Object Storage Service (OSS) object.
-      // 2.  Media: a media asset.
+      // - `OSS`: an OSS file URL.
+      // 
+      // - `Media`: a media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -532,23 +555,23 @@ namespace Models
 
 
   protected:
-    // The snapshot input.
+    // The input for the snapshot job.
     // 
     // This parameter is required.
     shared_ptr<SubmitSnapshotJobRequest::Input> input_ {};
-    // The name of the job.
+    // The name of the snapshot job.
     shared_ptr<string> name_ {};
-    // The snapshot output.
+    // The output destination for the snapshot job.
     // 
     // This parameter is required.
     shared_ptr<SubmitSnapshotJobRequest::Output> output_ {};
-    // The scheduling settings.
+    // The scheduling configuration.
     shared_ptr<SubmitSnapshotJobRequest::ScheduleConfig> scheduleConfig_ {};
     // The snapshot template configuration.
     // 
     // This parameter is required.
     shared_ptr<SubmitSnapshotJobRequest::TemplateConfig> templateConfig_ {};
-    // The user-defined data.
+    // Custom user data, passed as a JSON-formatted string.
     shared_ptr<string> userData_ {};
   };
 

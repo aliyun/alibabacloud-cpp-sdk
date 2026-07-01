@@ -143,19 +143,23 @@ namespace Models
         shared_ptr<string> demoAudioMediaId_ {};
         // The gender. Valid values:
         // 
-        // *   female
-        // *   male
+        // - female
+        // 
+        // - male
         shared_ptr<string> gender_ {};
         // The scenario. Valid values:
         // 
-        // *   story
-        // *   interaction
-        // *   navigation
-        shared_ptr<string> scenario_ {};
-        // *   The voice type. Valid values:
+        // - story
         // 
-        //     *   Basic
-        //     *   Standard
+        // - interaction
+        // 
+        // - navigation
+        shared_ptr<string> scenario_ {};
+        // - The voice type. Valid values:
+        // 
+        //   - Basic
+        // 
+        //   - Standard
         shared_ptr<string> type_ {};
         // The voice description.
         shared_ptr<string> voiceDesc_ {};
@@ -222,8 +226,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

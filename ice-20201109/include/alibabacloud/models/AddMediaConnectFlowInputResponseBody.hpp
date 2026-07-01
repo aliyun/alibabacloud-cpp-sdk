@@ -74,7 +74,7 @@ namespace Models
 
     protected:
       shared_ptr<string> innerInputUrl_ {};
-      // The source URL.
+      // Input URL
       shared_ptr<string> inputUrl_ {};
     };
 
@@ -111,13 +111,13 @@ namespace Models
 
 
   protected:
-    // The response body.
+    // Response body
     shared_ptr<AddMediaConnectFlowInputResponseBody::Content> content_ {};
-    // The call description.
+    // API call description
     shared_ptr<string> description_ {};
-    // The ID of the request.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The returned error code. A value of 0 indicates the call is successful.
+    // Error code. A value of 0 indicates success.
     shared_ptr<int32_t> retCode_ {};
   };
 

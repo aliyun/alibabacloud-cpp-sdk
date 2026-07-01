@@ -87,32 +87,23 @@ namespace Models
 
 
   protected:
-    // The page number. Valid values: [1,n). Default value: 1.
+    // The page number. The value must be greater than or equal to 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+    // The search keyword. You can perform a fuzzy search by template ID or template name.
     // 
-    // *   It cannot exceed 128 characters in length.
+    // - Maximum length: 128 characters.
     shared_ptr<string> searchKeyWord_ {};
-    // The sorting order. By default, the query results are sorted by creation time in descending order.
-    // 
-    // Valid values:
-    // 
-    // *   asc: sorts the query results by creation time in ascending order.
-    // *   desc: sorts the query results by creation time in descending order.
+    // The sorting method. By default, results are sorted by creation time in descending order.
     shared_ptr<string> sortBy_ {};
     // The template IDs.
     // 
-    // *   If you specify the SearchKeyWord parameter, this condition does not take effect.
-    // *   The maximum length of the array is 200.
+    // - This parameter does not take effect if `SearchKeyWord` is specified.
+    // 
+    // - You can specify a maximum of 200 template IDs.
     shared_ptr<vector<string>> templateIds_ {};
-    // The type of the template. By default, all types are queried.
-    // 
-    // Valid values:
-    // 
-    // *   system
-    // *   custom
+    // The type of the template. By default, templates of all types are queried.
     shared_ptr<string> type_ {};
   };
 

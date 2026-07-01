@@ -99,7 +99,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> AIAgentId_ {};
     // The mode of message sending. Valid values:
+    // 
     // - online
+    // 
     // - offline
     // 
     // Default value: offline.
@@ -121,6 +123,7 @@ namespace Models
     // The type of the message. Valid values:
     // 
     // - announcement: notification.
+    // 
     // - custom: custom message.
     // 
     // This parameter is required.

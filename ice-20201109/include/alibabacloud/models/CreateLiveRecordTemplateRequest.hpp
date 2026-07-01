@@ -97,37 +97,37 @@ namespace Models
 
 
     protected:
-      // The duration of the recording cycle. Unit: seconds. If you do not specify this parameter, the default value 6 hours is used.
+      // The duration of a recording cycle in seconds. If you omit this parameter, it defaults to 6 hours.
       // 
-      // > 
+      // > - If a stream interruption during a recording cycle lasts less than 3 minutes, the recording continues in the same Recording File.
       // 
-      // *   If a live stream is interrupted during a recording cycle but is resumed within 3 minutes, the stream is recorded in the same recording before and after the interruption.
-      // 
-      // *   If a live stream is interrupted for more than 3 minutes, a new recording is generated. To change the default stream interruption time, submit a ticket.
+      // - A Recording File is finalized only after a stream interruption lasts for more than 3 minutes. To change this default 3-minute threshold, submit a ticket.
       shared_ptr<int32_t> cycleDuration_ {};
-      // The format.
+      // The recording format.
       // 
-      // >  If you set this parameter to m3u8, you must also specify the SliceOssObjectPrefix and SliceDuration parameters.
+      // > If you set this parameter to `m3u8`, you must also specify the `SliceOssObjectPrefix` and `SliceDuration` parameters.
       // 
       // This parameter is required.
       shared_ptr<string> format_ {};
-      // The name of the recording file that is stored in Object Storage Service (OSS).
+      // The name of the Recording File stored in Object Storage Service (OSS).
       // 
-      // *   The name must be less than 256 bytes in length and can contain the {JobId}, {Sequence}, {StartTime}, {EndTime}, {EscapedStartTime}, and {EscapedEndTime} variables.
-      // *   The name must contain the {StartTime} and {EndTime} variables or the {EscapedStartTime} and {EscapedEndTime} variables.
+      // - The file name must be less than 256 bytes and supports the following variables: {JobId}, {Sequence}, {StartTime}, {EndTime}, {EscapedStartTime}, and {EscapedEndTime}.
+      // 
+      // - The value must include either the {StartTime} or {EscapedStartTime} variable and either the {EndTime} or {EscapedEndTime} variable.
       shared_ptr<string> ossObjectPrefix_ {};
-      // The duration of a single segment. Unit: seconds.
+      // The duration of each slice in seconds.
       // 
-      // >  This parameter takes effect only if you set Format to m3u8.
+      // > This parameter is valid only when `Format` is set to `m3u8`.
       // 
-      // If you do not specify this parameter, the default value 30 seconds is used. Valid values: 5 to 30.
+      // The default value is 30. The value must be an integer from 5 to 30.
       shared_ptr<int32_t> sliceDuration_ {};
-      // The name of the TS segment.
+      // The name of the TS slice.
       // 
-      // >  This parameter is required only if you set Format to m3u8.
+      // > This parameter is required only when `Format` is set to `m3u8`.
       // 
-      // *   By default, the duration of a segment is 30 seconds. The segment name must be less than 256 bytes in length and can contain the {JobId}, {UnixTimestamp}, and {Sequence} variables.
-      // *   The segment name must contain the {UnixTimestamp} and {Sequence} variables.
+      // - The file name must be less than 256 bytes and supports the following variables: {JobId}, {UnixTimestamp}, and {Sequence}.
+      // 
+      // - The value must include the {UnixTimestamp} and {Sequence} variables.
       shared_ptr<string> sliceOssObjectPrefix_ {};
     };
 
@@ -150,7 +150,7 @@ namespace Models
 
 
   protected:
-    // The name of the template.
+    // The name of the Live Record Template.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // IMS media asset ID.
+    // 
+    // - Separate multiple IDs with commas.
     shared_ptr<string> mediaIds_ {};
   };
 

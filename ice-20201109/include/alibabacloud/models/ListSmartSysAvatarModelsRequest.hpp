@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page. Default value: 10. Valid values: 1 to 100.
+    // The number of items to return on each page. The default value is 10. The maximum value is 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The SDK version.
     shared_ptr<string> sdkVersion_ {};
   };
 

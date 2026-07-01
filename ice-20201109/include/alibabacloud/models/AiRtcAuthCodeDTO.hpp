@@ -112,15 +112,29 @@ namespace Models
 
 
   protected:
+    // Activation time.
     shared_ptr<string> activatedTime_ {};
+    // Authorization code.
     shared_ptr<string> authCode_ {};
+    // Creation time.
     shared_ptr<string> creationTime_ {};
+    // Device ID.
     shared_ptr<string> deviceId_ {};
     // license。
     shared_ptr<string> license_ {};
+    // Batch ID.
     shared_ptr<string> licenseItemId_ {};
+    // Update time.
     shared_ptr<string> modificationTime_ {};
+    // Status:
+    // 
+    // - 1 - Activated
+    // - 2 - Not activated
     shared_ptr<int32_t> status_ {};
+    // Type:
+    // 
+    // - 1 - Voice call
+    // - 2 - Visual understanding
     shared_ptr<int32_t> type_ {};
   };
 

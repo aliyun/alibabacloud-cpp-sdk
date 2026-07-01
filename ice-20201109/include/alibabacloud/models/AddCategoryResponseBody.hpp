@@ -106,8 +106,9 @@ namespace Models
       shared_ptr<int64_t> parentId_ {};
       // The type of the category. Valid values:
       // 
-      // *   **default**: audio, video, and image files. This is the default value.
-      // *   **material**: short video materials.
+      // - **default**: audio, video, and image files. This is the default value.
+      // 
+      // - **material**: short video materials.
       shared_ptr<string> type_ {};
     };
 

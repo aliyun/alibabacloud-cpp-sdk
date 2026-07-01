@@ -87,8 +87,9 @@ namespace Models
     shared_ptr<string> programName_ {};
     // The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
     // 
-    // *   asc: ascending order.
-    // *   desc: descending order.
+    // - asc: ascending order.
+    // 
+    // - desc: descending order.
     shared_ptr<string> sortBy_ {};
   };
 

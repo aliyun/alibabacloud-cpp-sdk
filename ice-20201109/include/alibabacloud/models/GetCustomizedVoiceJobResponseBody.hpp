@@ -167,8 +167,9 @@ namespace Models
         shared_ptr<string> createTime_ {};
         // The gender. Valid values:
         // 
-        // *   female
-        // *   male
+        // - female
+        // 
+        // - male
         shared_ptr<string> gender_ {};
         // The ID of the human voice cloning job.
         shared_ptr<string> jobId_ {};
@@ -176,23 +177,31 @@ namespace Models
         shared_ptr<string> message_ {};
         // The scenario. Valid values:
         // 
-        // *   story
-        // *   interaction
-        // *   navigation
+        // - story
+        // 
+        // - interaction
+        // 
+        // - navigation
         shared_ptr<string> scenario_ {};
         // The job state. Valid values:
         // 
-        // *   Initialization
-        // *   AudioDetecting
-        // *   PreTraining
-        // *   Training
-        // *   Success
-        // *   Fail
+        // - Initialization
+        // 
+        // - AudioDetecting
+        // 
+        // - PreTraining
+        // 
+        // - Training
+        // 
+        // - Success
+        // 
+        // - Fail
         shared_ptr<string> status_ {};
         // The type of the human voice cloning job. Valid values:
         // 
-        // *   Basic
-        // *   Standard
+        // - Basic
+        // 
+        // - Standard
         shared_ptr<string> type_ {};
         // The voice description.
         shared_ptr<string> voiceDesc_ {};
@@ -249,8 +258,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

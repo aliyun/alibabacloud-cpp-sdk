@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token from a previous response. Use this to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of results to return on each page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

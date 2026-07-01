@@ -90,9 +90,19 @@ namespace Models
 
 
     protected:
+      // Capability. Valid values:
+      // 
+      // - understand: understanding
+      // 
+      // - understand-reid: understanding with reid
+      // 
+      // - search: search
       shared_ptr<string> capability_ {};
+      // Consumed quota.
       shared_ptr<int64_t> consumedQuota_ {};
+      // Corresponding time. UTC time in the format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> dateTime_ {};
+      // Maximum available quota.
       shared_ptr<int64_t> maxQuota_ {};
     };
 
@@ -122,8 +132,11 @@ namespace Models
 
 
   protected:
+    // List of IPC usage information.
     shared_ptr<vector<QueryIpcQuotaResponseBody::IpcQuotaInfos>> ipcQuotaInfos_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<string> total_ {};
   };
 

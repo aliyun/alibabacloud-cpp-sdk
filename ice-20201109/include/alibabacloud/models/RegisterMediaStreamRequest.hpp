@@ -72,10 +72,13 @@ namespace Models
     // 
     // http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
     // 
-    // oss://example-bucket/example.mp4: In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+    // oss\\://example-bucket/example.mp4: In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
     shared_ptr<string> inputURL_ {};
     // The ID of the media asset.
     shared_ptr<string> mediaId_ {};
+    // Custom stream tags used to identify transcoding streams.
+    // 
+    // After the media stream is registered, you can invoke [GetPlayInfo](https://help.aliyun.com/zh/ims/developer-reference/api-ice-2020-11-09-getplayinfo?spm=a2c4g.11186623.help-menu-193643.d_5_0_3_1_4.56dc5a11JzNEVj) to retrieve this tag value.
     shared_ptr<string> streamTags_ {};
     // The user data.
     shared_ptr<string> userData_ {};

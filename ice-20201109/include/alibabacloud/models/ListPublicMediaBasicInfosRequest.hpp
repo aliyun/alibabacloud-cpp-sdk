@@ -96,9 +96,11 @@ namespace Models
   protected:
     // The business type of the media asset. Valid values:
     // 
-    // *   sticker
-    // *   bgm
-    // *   bgi
+    // - sticker
+    // 
+    // - bgm
+    // 
+    // - bgi
     shared_ptr<string> businessType_ {};
     // Specifies whether to return the basic information of the media asset.
     shared_ptr<bool> includeFileBasicInfo_ {};
@@ -108,31 +110,45 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The media tag. All media assets that contain the specified media tag are returned. Valid values:
     // 
-    // *   Sticker tags:
+    // - Sticker tags:
     // 
-    //     *   sticker-atmosphere
-    //     *   sticker-bubble
-    //     *   sticker-cute
-    //     *   sticker-daily
-    //     *   sticker-expression
-    //     *   sticker-gif
+    //   - sticker-atmosphere
     // 
-    // *   Background music (BGM) tags:
+    //   - sticker-bubble
     // 
-    //     *   bgm-romantic
-    //     *   bgm-cuisine
-    //     *   bgm-chinese-style
-    //     *   bgm-upbeat
-    //     *   bgm-dynamic
-    //     *   bgm-relaxing
-    //     *   bgm-quirky
-    //     *   bgm-beauty
+    //   - sticker-cute
     // 
-    // *   Background image (BGI) tags:
+    //   - sticker-daily
     // 
-    //     *   bgi-grad
-    //     *   bgi-solid
-    //     *   bgi-pic
+    //   - sticker-expression
+    // 
+    //   - sticker-gif
+    // 
+    // - Background music (BGM) tags:
+    // 
+    //   - bgm-romantic
+    // 
+    //   - bgm-cuisine
+    // 
+    //   - bgm-chinese-style
+    // 
+    //   - bgm-upbeat
+    // 
+    //   - bgm-dynamic
+    // 
+    //   - bgm-relaxing
+    // 
+    //   - bgm-quirky
+    // 
+    //   - bgm-beauty
+    // 
+    // - Background image (BGI) tags:
+    // 
+    //   - bgi-grad
+    // 
+    //   - bgi-solid
+    // 
+    //   - bgi-pic
     shared_ptr<string> mediaTagId_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};

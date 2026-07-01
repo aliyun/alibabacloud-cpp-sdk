@@ -94,16 +94,19 @@ namespace Models
 
 
   protected:
-    // The description of the media fingerprint library.
+    // The description of the DNA database.
     shared_ptr<string> description_ {};
-    // The model of the media fingerprint library. Valid values:
+    // The DNA database model. Valid values:
     // 
-    // *   **Video**
-    // *   **Audio**
-    // *   **Image**
-    // *   **Text** (supported only in the China (Shanghai) region)
+    // - **Video**: For video content.
+    // 
+    // - **Audio**: For audio content.
+    // 
+    // - **Image**: For image content. (Deprecated)
+    // 
+    // - **Text**: For text content. Supported only in the China (Shanghai) region. (Deprecated)
     shared_ptr<string> model_ {};
-    // The name of the media fingerprint library.
+    // The name of the DNA database.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

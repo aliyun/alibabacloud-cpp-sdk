@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // *   The ID of the digital human.
+    // - The ID of the digital human.
     // 
     // This parameter is required.
     shared_ptr<string> avatarId_ {};

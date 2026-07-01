@@ -230,37 +230,28 @@ namespace Models
 
 
     protected:
-      // The time when the template was created.
+      // The time when the template was created, in UTC and formatted as YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       shared_ptr<CustomTemplateList::FrontendHint> frontendHint_ {};
-      // Indicates whether the template is the default template.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Whether the template is a default template.
       shared_ptr<bool> isDefault_ {};
-      // The time when the template was last modified.
+      // The time when the template was last modified, in UTC and formatted as YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> modifiedTime_ {};
-      // The template state.
-      // 
-      // Valid values:
-      // 
-      // *   Normal
+      // The template status.
       shared_ptr<string> status_ {};
-      // The subtype ID of the template.
+      // The template subtype ID.
       shared_ptr<int32_t> subtype_ {};
-      // The subtype name of the template.
+      // The template subtype name.
       shared_ptr<string> subtypeName_ {};
-      // The template parameters.
+      // The template configuration, as a JSON string.
       shared_ptr<string> templateConfig_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The type ID of the template.
+      // The template type ID.
       shared_ptr<int32_t> type_ {};
-      // The type name of the template.
+      // The template type name.
       shared_ptr<string> typeName_ {};
     };
 
@@ -290,9 +281,9 @@ namespace Models
 
 
   protected:
-    // The queried templates.
+    // An array of custom template objects.
     shared_ptr<vector<ListCustomTemplatesResponseBody::CustomTemplateList>> customTemplateList_ {};
-    // The request ID.
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
     // The total number of templates.
     shared_ptr<int32_t> total_ {};

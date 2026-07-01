@@ -441,15 +441,15 @@ namespace Models
           shared_ptr<string> fileSize_ {};
           // The file status.
           // 
-          // \\-Uploading
+          // -Uploading
           // 
-          // \\-Normal
+          // -Normal
           // 
-          // \\-UploadFail
+          // -UploadFail
           // 
-          // \\-Disable
+          // -Disable
           // 
-          // \\-Deleted
+          // -Deleted
           shared_ptr<string> fileStatus_ {};
           // The file type.
           shared_ptr<string> fileType_ {};

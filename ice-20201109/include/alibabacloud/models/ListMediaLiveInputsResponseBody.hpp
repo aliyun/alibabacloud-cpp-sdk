@@ -190,9 +190,13 @@ namespace Models
         shared_ptr<string> monitorUrl_ {};
         // The source URL where the stream is pulled from. This parameter is returned for PULL inputs.
         shared_ptr<string> sourceUrl_ {};
+        // Latency of the SRT stream, in milliseconds (ms).
         shared_ptr<int32_t> srtLatency_ {};
+        // The maximum bitrate of the SRT stream, in bps.
         shared_ptr<int32_t> srtMaxBitrate_ {};
+        // SRT encryption configuration—the password for the SRT stream.
         shared_ptr<string> srtPassphrase_ {};
+        // Encryption configuration for SRT. Specifies the key length for the SRT stream.
         shared_ptr<int32_t> srtPbKeyLen_ {};
         // The name of the pushed stream. This parameter is returned for PUSH inputs.
         shared_ptr<string> streamName_ {};

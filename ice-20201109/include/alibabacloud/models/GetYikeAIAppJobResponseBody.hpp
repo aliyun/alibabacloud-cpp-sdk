@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
+        // The OSS URL of the output file.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -151,7 +153,9 @@ namespace Models
 
 
       protected:
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
+        // The OSS URL of the output file.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -193,7 +197,9 @@ namespace Models
 
 
       protected:
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
+        // The OSS URL of the output file.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -227,8 +233,11 @@ namespace Models
 
 
     protected:
+      // The audio results.
       shared_ptr<vector<Result::AudioResult>> audioResult_ {};
+      // The image results.
       shared_ptr<vector<Result::ImageResult>> imageResult_ {};
+      // The video results.
       shared_ptr<vector<Result::VideoResult>> videoResult_ {};
     };
 
@@ -308,15 +317,35 @@ namespace Models
 
 
   protected:
+    // The Yike AI App ID.
     shared_ptr<string> appId_ {};
+    // The input parameters for the Yike AI App, provided as a JSON string.
     shared_ptr<string> appParams_ {};
+    // The UTC time when the job finished, in `yyyy-MM-ddTHH:mm:ssZ` format.
     shared_ptr<string> executionFinishTime_ {};
+    // The UTC time when the job started, in `yyyy-MM-ddTHH:mm:ssZ` format.
     shared_ptr<string> executionStartTime_ {};
+    // The folder ID.
     shared_ptr<string> folderId_ {};
+    // The job ID.
     shared_ptr<string> jobId_ {};
+    // The project ID.
     shared_ptr<string> productionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The job results.
     shared_ptr<GetYikeAIAppJobResponseBody::Result> result_ {};
+    // The status of the job. Valid values:
+    // 
+    // - `Created`: The job is created.
+    // 
+    // - `Queuing`: The job is queued for processing.
+    // 
+    // - `Executing`: The job is running.
+    // 
+    // - `Finished`: The job completed successfully.
+    // 
+    // - `Failed`: The job failed.
     shared_ptr<string> status_ {};
   };
 

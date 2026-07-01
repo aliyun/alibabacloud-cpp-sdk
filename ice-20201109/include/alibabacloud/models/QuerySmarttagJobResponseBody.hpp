@@ -230,18 +230,21 @@ namespace Models
 
 
   protected:
-    // The status of the job. Valid values:
+    // The job status. Valid values:
     // 
-    // *   **Success**: The job was successful.
-    // *   **Fail**: The job failed.
-    // *   **Processing**: The job is in progress.
-    // *   **Submitted**: The job is submitted and waiting to be processed.
+    // - **Success**: The job was successful.
+    // 
+    // - **Fail**: The job failed.
+    // 
+    // - **Processing**: The job is in progress.
+    // 
+    // - **Submitted**: The job is queued for processing.
     shared_ptr<string> jobStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<QuerySmarttagJobResponseBody::Results> results_ {};
     shared_ptr<QuerySmarttagJobResponseBody::Usages> usages_ {};
-    // The content of callback messages that are sent to Simple Message Queue (SMQ) when the information of the smart tagging job changes. For more information about the parameters contained in the callback message, see the "Callback parameters" section of this topic.
+    // The custom data passed through the MNS callback. For details on the message format, see the callback message format definitions below.
     shared_ptr<string> userData_ {};
   };
 

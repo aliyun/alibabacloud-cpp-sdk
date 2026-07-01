@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of Media Asset IDs that were not added to your Favorites. This happens if a Media Asset does not exist or is already in your Favorites.
     shared_ptr<vector<string>> ignoredList_ {};
+    // The Request ID.
     shared_ptr<string> requestId_ {};
   };
 

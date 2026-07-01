@@ -94,17 +94,27 @@ namespace Models
 
 
   protected:
-    // The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
+    // The agent ID configured in the [IMS console](https://ims.console.aliyun.com/ai/robot/list).
     // 
     // This parameter is required.
     shared_ptr<string> AIAgentId_ {};
+    // The agent template configuration. Values you provide merge with the template configuration set in the console. If you omit this parameter, the agent uses its default configuration from the console.
+    // 
+    // > This field is compatible with TemplateConfig. Fields in AgentConfig take precedence. If TemplateConfig contains fields not defined in AgentConfig, those fields are used. Use AgentConfig instead of TemplateConfig.
     shared_ptr<string> agentConfigShrink_ {};
-    // 同步聊天记录配置。
+    // The chat history synchronization configuration.
     shared_ptr<string> chatSyncConfigShrink_ {};
+    // The configuration required for the agent at runtime.
+    // 
     // This parameter is required.
     shared_ptr<string> runtimeConfigShrink_ {};
+    // A unique identifier for the chat session. This parameter is optional.
     shared_ptr<string> sessionId_ {};
+    // The agent template configuration. Values you provide merge with the template configuration set in the console. If you omit this parameter, the agent uses its default configuration from the console.
+    // 
+    // > The agent template configuration. This field is deprecated. See the AgentConfig field.
     shared_ptr<string> templateConfigShrink_ {};
+    // User-defined data.
     shared_ptr<string> userData_ {};
   };
 

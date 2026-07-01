@@ -127,19 +127,19 @@ namespace Models
 
 
     protected:
-      // The ID of the digital human. The ID is required to submit a separate digital human rendering job or use the digital human image in an intelligent timeline.
+      // The digital avatar ID. Use this ID when you submit a rendering job or use the digital avatar in an intelligent timeline.
       shared_ptr<string> avatarId_ {};
-      // The name of the digital human.
+      // The digital avatar name.
       shared_ptr<string> avatarName_ {};
       // The video bitrate.
       shared_ptr<int32_t> bitrate_ {};
-      // The sample thumbnail URL of the digital human.
+      // The URL of the sample cover for the digital avatar.
       shared_ptr<string> coverUrl_ {};
       // The video height.
       shared_ptr<int32_t> height_ {};
       // Indicates whether portrait mask rendering is supported.
       shared_ptr<bool> outputMask_ {};
-      // The sample video URL of the digital human.
+      // The URL of the sample video for the digital avatar.
       shared_ptr<string> videoUrl_ {};
       // The video width.
       shared_ptr<int32_t> width_ {};
@@ -173,9 +173,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried digital humans.
+    // A list of system digital avatars.
     shared_ptr<vector<ListSmartSysAvatarModelsResponseBody::SmartSysAvatarModelList>> smartSysAvatarModelList_ {};
-    // The total number of system digital human images returned.
+    // The total number of system digital avatars.
     shared_ptr<int32_t> totalCount_ {};
   };
 

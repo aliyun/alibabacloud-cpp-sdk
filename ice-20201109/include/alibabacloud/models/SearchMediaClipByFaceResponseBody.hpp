@@ -237,6 +237,7 @@ namespace Models
       protected:
         // The end time of the clip. Unit: seconds. The value is of the Float type.
         shared_ptr<float> endTime_ {};
+        // Expression.
         shared_ptr<string> expression_ {};
         // The start time of the clip. Unit: seconds. The value is of the Float type.
         shared_ptr<float> startTime_ {};

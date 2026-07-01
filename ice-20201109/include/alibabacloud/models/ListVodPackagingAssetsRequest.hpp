@@ -85,8 +85,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The sorting order of the assets based on the time when they were ingested. Valid values:
     // 
-    // *   desc (default): descending order.
-    // *   asc: ascending order.
+    // - desc (default): descending order.
+    // 
+    // - asc: ascending order.
     shared_ptr<string> sortBy_ {};
   };
 

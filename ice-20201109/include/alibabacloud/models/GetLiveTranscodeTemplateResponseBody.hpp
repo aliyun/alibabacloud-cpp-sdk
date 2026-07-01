@@ -334,8 +334,9 @@ namespace Models
     protected:
       // The category of the template. Valid values:
       // 
-      // *   system
-      // *   customized
+      // - system
+      // 
+      // - customized
       shared_ptr<string> category_ {};
       // The time when the template was created.
       shared_ptr<string> createTime_ {};

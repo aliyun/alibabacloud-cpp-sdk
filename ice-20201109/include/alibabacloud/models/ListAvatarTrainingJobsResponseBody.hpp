@@ -183,16 +183,19 @@ namespace Models
         shared_ptr<string> avatarName_ {};
         // The type of the digital human.
         shared_ptr<string> avatarType_ {};
-        // *   The time when the job was created.
-        // *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // - The time when the job was created.
+        // 
+        // - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // *   The time when the first training was initiated.
-        // *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // - The time when the first training was initiated.
+        // 
+        // - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> firstTrainingTime_ {};
         // The ID of the digital human training job.
         shared_ptr<string> jobId_ {};
-        // *   The time when the last training was initiated.
-        // *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // - The time when the last training was initiated.
+        // 
+        // - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> lastTrainingTime_ {};
         // The status description.
         shared_ptr<string> message_ {};
@@ -259,8 +262,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

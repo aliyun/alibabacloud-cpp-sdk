@@ -115,20 +115,27 @@ namespace Models
     shared_ptr<string> relatedMediaids_ {};
     // The source from which the template is modified. Default value: OpenAPI. Valid values:
     // 
-    // *   AliyunConsole
-    // *   OpenAPI
-    // *   WebSDK
+    // - AliyunConsole
+    // 
+    // - OpenAPI
+    // 
+    // - WebSDK
     shared_ptr<string> source_ {};
     // The template state. Valid values:
     // 
-    // *   Available: The template is available.
-    // *   Created: The template is created but not ready for use.
-    // *   Uploading: The video is being uploaded.
-    // *   Processing: The advanced template is being processed.
-    // *   UploadFailed: Failed to upload the video.
-    // *   ProcessFailed: Failed to process the advanced template.
+    // - Available: The template is available.
     // 
-    // >  After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
+    // - Created: The template is created but not ready for use.
+    // 
+    // - Uploading: The video is being uploaded.
+    // 
+    // - Processing: The advanced template is being processed.
+    // 
+    // - UploadFailed: Failed to upload the video.
+    // 
+    // - ProcessFailed: Failed to process the advanced template.
+    // 
+    // > After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
     shared_ptr<string> status_ {};
     // The ID of the online editing template. You can obtain the template ID in the [Intelligent Media Services (IMS) console](https://ice.console.aliyun.com/production/template/list/common) or the response parameters of the [AddTemplate](https://help.aliyun.com/document_detail/441161.html) operation.
     shared_ptr<string> templateId_ {};

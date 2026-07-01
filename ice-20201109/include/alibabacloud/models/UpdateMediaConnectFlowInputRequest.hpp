@@ -111,6 +111,7 @@ namespace Models
     shared_ptr<string> flowId_ {};
     // The source URL. You can modify this parameter only when the source type is RTMP-PULL or SRT-Listener.
     shared_ptr<string> inputFromUrl_ {};
+    // Input name. This parameter is required only when primary/standby input is enabled for the instance.
     shared_ptr<string> inputName_ {};
     // The maximum bitrate. Unit: bit/s.
     shared_ptr<int32_t> maxBitrate_ {};

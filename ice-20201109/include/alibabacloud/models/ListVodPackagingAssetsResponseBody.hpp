@@ -220,8 +220,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The sorting order of the assets based on the time when they were ingested. Valid values:
     // 
-    // *   desc: descending order.
-    // *   asc: ascending order.
+    // - desc: descending order.
+    // 
+    // - asc: ascending order.
     shared_ptr<string> sortBy_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

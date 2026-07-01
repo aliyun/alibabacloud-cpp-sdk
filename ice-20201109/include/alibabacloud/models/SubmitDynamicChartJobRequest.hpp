@@ -149,43 +149,37 @@ namespace Models
 
 
   protected:
-    // The axis configurations. If XAxisFontInterval is set to 0 or left empty, the system automatically determines an optimal interval.
+    // The axis style settings. If `XAxisFontInterval` is not specified or is set to 0, the system automatically calculates the interval.
     shared_ptr<string> axisParams_ {};
-    // The chart background.
+    // The settings for the chart background. You can specify a Background Color or a Background Image.
     shared_ptr<string> background_ {};
-    // The chart configurations.
+    // The overall configuration for the chart\\"s appearance and timing.
     shared_ptr<string> chartConfig_ {};
-    // The chart title.
+    // The chart title settings.
     shared_ptr<string> chartTitle_ {};
-    // The chart type.
-    // 
-    // Valid values:
-    // 
-    // *   Line: line chart
-    // *   Histogram: bar chart
-    // *   Pie: pie chart
+    // The chart type to generate.
     // 
     // This parameter is required.
     shared_ptr<string> chartType_ {};
-    // The data source.
+    // The data source label settings.
     shared_ptr<string> dataSource_ {};
     // The job description.
     shared_ptr<string> description_ {};
-    // The input data for the chart.
+    // The input data configuration, which specifies the Excel file location.
     // 
     // This parameter is required.
     shared_ptr<string> input_ {};
-    // The output configurations.
+    // The output video configuration.
     // 
     // This parameter is required.
     shared_ptr<string> outputConfig_ {};
-    // The subtitle.
+    // The subtitle settings.
     shared_ptr<string> subtitle_ {};
     // The job title.
     shared_ptr<string> title_ {};
-    // Unit
+    // The data unit label settings.
     shared_ptr<string> unit_ {};
-    // The custom data in JSON format.
+    // The custom user data in JSON format.
     shared_ptr<string> userData_ {};
   };
 

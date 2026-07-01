@@ -72,6 +72,7 @@ namespace Models
     shared_ptr<string> mediaId_ {};
     // The message body.
     shared_ptr<string> msgBody_ {};
+    // Namespace.
     shared_ptr<string> namespace_ {};
     // The name of the search library. Default value: ims-default-search-lib.
     shared_ptr<string> searchLibName_ {};

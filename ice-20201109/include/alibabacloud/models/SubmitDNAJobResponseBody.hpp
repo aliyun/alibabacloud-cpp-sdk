@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the media fingerprint analysis job. We recommend that you save this ID for subsequent calls of other operations.
+    // The ID of the DNA job. Save this ID for subsequent API calls.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

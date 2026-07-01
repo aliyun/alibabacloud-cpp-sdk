@@ -57,8 +57,27 @@ namespace Models
 
 
   protected:
+    // The capability. Valid values:
+    // 
+    // - understand: Image understanding. Supports the analysis of 300 images per day.
+    // 
+    // - understand-reid: Image understanding with person re-identification (ReID). Supports the analysis of 300 images per day.
+    // 
+    // - search: Search. Supports 75 searches per day.
+    // 
+    // - understand-search: Image understanding and search. Supports the analysis of 300 images and 75 searches per day.
+    // 
+    // - understand-reid-search: Image understanding with ReID and search. Supports the analysis of 300 images and 75 searches per day.
     shared_ptr<string> capability_ {};
+    // The device ID.
     shared_ptr<string> deviceId_ {};
+    // The subscription period. Valid values:
+    // 
+    // - month: A monthly subscription, calculated as 30 days.
+    // 
+    // - quarter: A quarterly subscription, calculated as 90 days.
+    // 
+    // - year: An annual subscription, calculated as 365 days.
     shared_ptr<string> period_ {};
   };
 

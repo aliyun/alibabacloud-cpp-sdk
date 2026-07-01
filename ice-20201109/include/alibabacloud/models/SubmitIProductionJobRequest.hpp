@@ -83,9 +83,9 @@ namespace Models
 
 
     protected:
-      // The ID of the ApsaraVideo Media Processing (MPS) queue.
+      // The ID of the pipeline.
       shared_ptr<string> pipelineId_ {};
-      // The priority of the job. Valid values: 1 to 10. A smaller value indicates a higher priority.
+      // The job priority, which can be an integer from 1 to 10. A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
     };
 
@@ -145,19 +145,17 @@ namespace Models
 
 
     protected:
+      // The service to which the media asset belongs.
       shared_ptr<string> biz_ {};
-      // The output file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
-      // 
-      // 1.  oss://bucket/object
-      // 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
-      // 
       // This parameter is required.
       shared_ptr<string> media_ {};
+      // If `Type` is set to `Media`, you can use this parameter to specify the OSS URL for the output file. The bucket must be registered in either IMS or VOD.
       shared_ptr<string> outputUrl_ {};
-      // The media type. Valid values:
+      // The type of the output media. Valid values:
       // 
-      // *   OSS: OSS object
-      // *   Media: media asset
+      // - `OSS`: An OSS file path.
+      // 
+      // - `Media`: A media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -201,17 +199,21 @@ namespace Models
 
 
     protected:
-      // The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
+      // The OSS URL of the input file or the ID of the input media asset.
+      // The OSS URL can be in one of the following formats:
       // 
-      // 1.  oss://bucket/object
-      // 2.  http(s)://bucket.oss-[regionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+      // 1. `oss://<bucket>/<object>`
+      // 
+      // 2. `http(s)://<bucket>.oss-<regionId>.aliyuncs.com/<object>`
+      //    In these formats, `<bucket>` is the name of an OSS bucket in the same region as your project, and `<object>` is the file path.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The media type. Valid values:
+      // The type of input media. Valid values:
       // 
-      // *   OSS: OSS object
-      // *   Media: media asset
+      // - `OSS`: An OSS file path.
+      // 
+      // - `Media`: A media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -290,42 +292,67 @@ namespace Models
 
 
   protected:
-    // The name of the algorithm that you want to use for the job. Valid values:
+    // The name of the algorithm function. Valid values:
     // 
-    // *   **Cover**: This algorithm intelligently generates a thumbnail image for a video.
-    // *   **VideoClip**: This algorithm intelligently generates a summary for a video.
-    // *   **VideoDelogo**: This algorithm removes logos from a video.
-    // *   **VideoDetext**: This algorithm removes captions from a video.
-    // *   **CaptionExtraction**: This algorithm extracts captions from a video and generates the caption file.
-    // *   **VideoGreenScreenMatting**: This algorithm performs green-screen image matting on a video and generates a new video.
-    // *   **FaceBeauty**: This algorithm performs video retouching.
-    // *   **VideoH2V**: This algorithm transforms a video from the landscape mode to the portrait mode.
-    // *   **MusicSegmentDetect**: This algorithm detects the chorus of a song.
-    // *   **AudioBeatDetection**: This algorithm detects rhythms.
-    // *   **AudioQualityAssessment**: This algorithm assesses the audio quality.
-    // *   **SpeechDenoise**: This algorithm performs noise reduction.
-    // *   **AudioMixing**: This algorithm mixes audio streams.
+    // - **Cover**: Generates a smart cover.
+    // 
+    // - **VideoClip**: Creates a video summary.
+    // 
+    // - **VideoDelogo**: Removes logos from a video.
+    // 
+    // - **VideoDetext**: Removes text from a video.
+    // 
+    // - **CaptionExtraction**: Extracts captions from a video.
+    // 
+    // - **VideoGreenScreenMatting**: Performs green screen keying for a video.
+    // 
+    // - **FaceBeauty**: Applies beauty filters to faces in a video.
+    // 
+    // - **VideoH2V**: Converts a horizontal video to a vertical video.
+    // 
+    // - **MusicSegmentDetect**: Detects chorus segments in music.
+    // 
+    // - **AudioBeatDetection**: Detects the beat of an audio track.
+    // 
+    // - **AudioQualityAssessment**: Assesses audio quality.
+    // 
+    // - **SpeechDenoise**: Reduces noise in speech audio.
+    // 
+    // - **AudioMixing**: Mixes audio tracks.
+    // 
+    // - **MusicDemix**: Separates vocals from accompaniment in music.
     // 
     // This parameter is required.
     shared_ptr<string> functionName_ {};
-    // The input file. The file can be an Object Storage Service (OSS) object or a media asset.
+    // The input media asset. You can specify an OSS file or a media asset ID.
+    // 
+    // The requirements for input files vary by algorithm function. For more information, see the supplementary instructions.
     // 
     // This parameter is required.
     shared_ptr<SubmitIProductionJobRequest::Input> input_ {};
-    // The algorithm-specific parameters. The parameters are specified as JSON objects and vary based on the algorithm. For more information, see the "Parameters of JobParams" section of this topic.
+    // The algorithm job parameters, specified as a JSON-formatted string. The content of the JSON object varies by algorithm function. For more information, see the supplementary instructions.
     shared_ptr<string> jobParams_ {};
+    // The ID of the algorithm model. If you do not specify this parameter, the system uses the default model for the selected function. We recommend leaving this parameter empty unless you need to use a specific alternative model.
+    // 
+    // The following function offers an alternative model:
+    // 
+    // - `VideoDetext`
+    // 
+    //   - Set `ModelId` to `algo-video-detext-new` to use an advanced subtitle removal algorithm. This model provides higher quality results but is slower and more expensive than the default model.
     shared_ptr<string> modelId_ {};
-    // The name of the intelligent production job. The name can be up to 100 characters in length.
+    // The name of the job, which can be up to 100 characters long.
     shared_ptr<string> name_ {};
-    // The output file. The file can be an OSS object or a media asset.
+    // The output destination. You can specify an OSS file path or a media asset ID.
+    // 
+    // The output files vary by algorithm function. For more information, see the supplementary instructions.
     // 
     // This parameter is required.
     shared_ptr<SubmitIProductionJobRequest::Output> output_ {};
-    // The scheduling configuration.
+    // The configuration for job scheduling.
     shared_ptr<SubmitIProductionJobRequest::ScheduleConfig> scheduleConfig_ {};
-    // The template ID.
+    // The ID of the template.
     shared_ptr<string> templateId_ {};
-    // The user-defined data that is returned in the response. The value can be up to 1,024 bytes in length.
+    // Custom user data. The system passes this data through and returns it as-is in the callback or response. The length cannot exceed 256 characters.
     shared_ptr<string> userData_ {};
   };
 

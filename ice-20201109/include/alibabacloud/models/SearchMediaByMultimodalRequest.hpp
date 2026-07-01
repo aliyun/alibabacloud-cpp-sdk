@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // Custom filters. A JSON string. Supported backing fields include integer field intField1 and string fields strField1 and strField2. Only one matching condition can be applied per field, and filters across different fields are combined with a logical AND relationship.
+    // 
+    // - Exact match example: {"intField1":12,"strField1":"abc"}
+    // 
+    // - Multi-value match example: {"intField1":[12,13],"strField1":["abc","cd"]}
+    // 
+    // - Range match example: {"intField1":{"gte":12,"lte":13}}
     shared_ptr<string> customFilters_ {};
     // The type of the media assets.
     // 
     // Valid values:
     // 
-    // *   image
-    // *   video (default)
+    // - image
+    // 
+    // - video (default)
     shared_ptr<string> mediaType_ {};
+    // Namespace.
     shared_ptr<string> namespace_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
@@ -120,6 +129,9 @@ namespace Models
     shared_ptr<string> searchLibName_ {};
     // The content that you want to query. You can describe the content in natural language.
     shared_ptr<string> text_ {};
+    // Creation time, in milliseconds UNIX timestamp. gte indicates greater than or equal to, and lte indicates less than or equal to.
+    // 
+    // - Range example: {"gte":1761205662998,"lte":1771205662998}
     shared_ptr<string> utcCreate_ {};
   };
 

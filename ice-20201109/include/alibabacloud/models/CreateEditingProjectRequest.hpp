@@ -143,8 +143,9 @@ namespace Models
     shared_ptr<string> templateId_ {};
     // The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline. Valid values:
     // 
-    // *   Timeline: a regular template.
-    // *   VETemplate: an advanced template.
+    // - Timeline: a regular template.
+    // 
+    // - VETemplate: an advanced template.
     shared_ptr<string> templateType_ {};
     // The timeline of the online editing project, in the JSON format.
     shared_ptr<string> timeline_ {};

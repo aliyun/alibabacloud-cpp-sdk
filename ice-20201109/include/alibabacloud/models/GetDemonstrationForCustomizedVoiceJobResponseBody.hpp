@@ -104,11 +104,11 @@ namespace Models
         shared_ptr<int32_t> audioId_ {};
         // The URL of the sample audio.
         // 
-        // *   The value is an Object Storage Service (OSS) URL.
+        // - The value is an Object Storage Service (OSS) URL.
         // 
-        //     **
+        //   \\*\\*
         // 
-        //     **Note**: The URL expires in 12 hours.
+        //   **Note**: The URL expires in 12 hours.
         shared_ptr<string> demoAudio_ {};
         // The text content to be read.
         shared_ptr<string> text_ {};
@@ -161,8 +161,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

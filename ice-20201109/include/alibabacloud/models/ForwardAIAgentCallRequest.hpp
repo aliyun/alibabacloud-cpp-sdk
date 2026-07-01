@@ -75,10 +75,28 @@ namespace Models
 
 
   protected:
+    // The target phone number for call transfer.
     shared_ptr<string> calledNumber_ {};
+    // The caller phone number for the transferred call. Optional.
+    // 
+    // >Notice: 
+    // 
+    // By default, the CallerNumber is the agent\\"s phone number after the call starts:
+    // 1\\. For inbound lines, the agent number is the agent’s seat number.
+    // 2\\. For outbound lines, the agent number is the original caller number.
+    // 
+    // 
+    // 
+    // 
+    // >Warning: 
+    // 
+    // Alibaba Cloud lines do not support this parameter.
     shared_ptr<string> callerNumber_ {};
+    // Abnormal prompt text played when the transfer fails. Default is empty.
     shared_ptr<string> errorPrompt_ {};
+    // Current call instance ID, used only in inbound call transfer scenarios.
     shared_ptr<string> instanceId_ {};
+    // Prompt message played before initiating the transfer. If empty, the system skips the prompt and plays the ringing tone directly. Default is empty.
     shared_ptr<string> transferPrompt_ {};
   };
 

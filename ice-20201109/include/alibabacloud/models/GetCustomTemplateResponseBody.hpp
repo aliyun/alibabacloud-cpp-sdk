@@ -119,6 +119,7 @@ namespace Models
 
 
         protected:
+          // The bitrate control type.
           shared_ptr<string> bitrateControlType_ {};
         };
 
@@ -133,6 +134,7 @@ namespace Models
 
 
       protected:
+        // Hint for transcoding templates.
         shared_ptr<FrontendHint::TranscodeTemplateHint> transcodeTemplateHint_ {};
       };
 
@@ -229,26 +231,27 @@ namespace Models
     protected:
       // The time when the template was created.
       shared_ptr<string> createTime_ {};
+      // Reserved for frontend display.
       shared_ptr<CustomTemplate::FrontendHint> frontendHint_ {};
-      // Indicates whether the template is the default template.
+      // Indicates whether the template is a default template.
       shared_ptr<bool> isDefault_ {};
       // The time when the template was last modified.
       shared_ptr<string> modifiedTime_ {};
-      // The template state.
+      // The status of the template.
       shared_ptr<string> status_ {};
-      // The subtype ID of the template.
+      // The ID of the template subtype.
       shared_ptr<int32_t> subtype_ {};
-      // The subtype name of the template.
+      // The name of the template subtype.
       shared_ptr<string> subtypeName_ {};
-      // The template parameters.
+      // The template configuration, in a JSON string.
       shared_ptr<string> templateConfig_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The type ID of the template.
+      // The ID of the template type.
       shared_ptr<int32_t> type_ {};
-      // The type name of the template.
+      // The name of the template type.
       shared_ptr<string> typeName_ {};
     };
 
@@ -271,7 +274,7 @@ namespace Models
 
 
   protected:
-    // The template information.
+    // The template details.
     shared_ptr<GetCustomTemplateResponseBody::CustomTemplate> customTemplate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

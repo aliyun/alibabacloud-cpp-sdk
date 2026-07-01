@@ -88,8 +88,11 @@ namespace Models
 
 
     protected:
+      // Specifies whether to allow voice interruption.
       shared_ptr<bool> enableVoiceInterrupt_ {};
+      // The welcome message.
       shared_ptr<string> greeting_ {};
+      // The voice ID.
       shared_ptr<string> voiceId_ {};
     };
 
@@ -148,13 +151,23 @@ namespace Models
 
 
   protected:
+    // The authentication token for the RTC Channel.
     shared_ptr<string> authToken_ {};
+    // The channel ID.
     shared_ptr<string> channelId_ {};
+    // The advanced configurations of the AI agent.
     shared_ptr<DescribeRtcRobotInstanceResponseBody::Config> config_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the instance. Valid values:
+    // 
+    // - `Executing`: The instance is running.
+    // 
+    // - `Finished`: The instance has stopped.
     shared_ptr<string> status_ {};
+    // The custom user data.
     shared_ptr<string> userData_ {};
+    // The ID of the AI agent in the channel.
     shared_ptr<string> userId_ {};
   };
 

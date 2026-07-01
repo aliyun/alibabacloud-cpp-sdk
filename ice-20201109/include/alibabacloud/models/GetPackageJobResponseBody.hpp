@@ -121,13 +121,15 @@ namespace Models
       protected:
         // The media object.
         // 
-        // *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-        // *   If Type is set to Media, the ID of a media asset is returned.
+        // - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+        // 
+        // - If Type is set to Media, the ID of a media asset is returned.
         shared_ptr<string> media_ {};
         // The type of the media object. Valid values:
         // 
-        // *   OSS: an OSS object.
-        // *   Media: a media asset.
+        // - OSS: an OSS object.
+        // 
+        // - Media: a media asset.
         shared_ptr<string> type_ {};
       };
 
@@ -190,13 +192,15 @@ namespace Models
         protected:
           // The media object.
           // 
-          // *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-          // *   If Type is set to Media, the ID of a media asset is returned.
+          // - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+          // 
+          // - If Type is set to Media, the ID of a media asset is returned.
           shared_ptr<string> media_ {};
           // The type of the media object. Valid values:
           // 
-          // *   OSS: an Object Storage Service (OSS) object.
-          // *   Media: a media asset.
+          // - OSS: an Object Storage Service (OSS) object.
+          // 
+          // - Media: a media asset.
           shared_ptr<string> type_ {};
         };
 
@@ -366,9 +370,11 @@ namespace Models
       shared_ptr<string> submitTime_ {};
       // The source of the job. Valid values:
       // 
-      // *   API
-      // *   WorkFlow
-      // *   Console
+      // - API
+      // 
+      // - WorkFlow
+      // 
+      // - Console
       shared_ptr<string> triggerSource_ {};
       // The user-defined data.
       shared_ptr<string> userData_ {};

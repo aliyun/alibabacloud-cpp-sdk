@@ -142,33 +142,41 @@ namespace Models
   protected:
     // Specifies whether to append tags. Default value: false. Valid values:
     // 
-    // *   true: updates the MediaTags parameter by appending new tags.
-    // *   false: updates the MediaTags parameter by overwriting existing tags with new tags.
+    // - true: updates the MediaTags parameter by appending new tags.
+    // 
+    // - false: updates the MediaTags parameter by overwriting existing tags with new tags.
     shared_ptr<bool> appendTags_ {};
     // The business type. Valid values:
     // 
-    // *   subtitles
-    // *   watermark
-    // *   opening
-    // *   ending
-    // *   general
+    // - subtitles
+    // 
+    // - watermark
+    // 
+    // - opening
+    // 
+    // - ending
+    // 
+    // - general
     shared_ptr<string> businessType_ {};
     // The category ID.
     shared_ptr<int64_t> cateId_ {};
     // The category.
     // 
-    // *   The value can be up to 64 bytes in length.
-    // *   The value must be encoded in UTF-8.
+    // - The value can be up to 64 bytes in length.
+    // 
+    // - The value must be encoded in UTF-8.
     shared_ptr<string> category_ {};
     // The URL of the thumbnail.
     // 
-    // *   The value can be up to 128 bytes in length.
-    // *   The value must be encoded in UTF-8.
+    // - The value can be up to 128 bytes in length.
+    // 
+    // - The value must be encoded in UTF-8.
     shared_ptr<string> coverURL_ {};
     // The content description.
     // 
-    // *   The value can be up to 1,024 bytes in length.
-    // *   The value must be encoded in UTF-8.
+    // - The value can be up to 1,024 bytes in length.
+    // 
+    // - The value must be encoded in UTF-8.
     shared_ptr<string> description_ {};
     // The input URL of the media asset in another service. The URL must be bound to the ID of the media asset in IMS. The URL cannot be modified once registered.
     // 
@@ -176,23 +184,27 @@ namespace Models
     // 
     // 1\\. http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
     // 
-    // 2\\. oss://example-bucket/example.mp4. This format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
+    // 2\\. oss\\://example-bucket/example.mp4. This format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
     shared_ptr<string> inputURL_ {};
     // The ID of the media asset. If this parameter is left empty, you must specify the input URL of the media asset, which has been registered in the IMS content library.
     shared_ptr<string> mediaId_ {};
     // The tags.
     // 
-    // *   Up to 16 tags are supported.
-    // *   Separate multiple tags with commas (,).
-    // *   Each tag can be up to 32 bytes in length.
-    // *   The value must be encoded in UTF-8.
+    // - Up to 16 tags are supported.
+    // 
+    // - Separate multiple tags with commas (,).
+    // 
+    // - Each tag can be up to 32 bytes in length.
+    // 
+    // - The value must be encoded in UTF-8.
     shared_ptr<string> mediaTags_ {};
     // The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). Make sure that the ID is unique among users.
     shared_ptr<string> referenceId_ {};
     // The title.
     // 
-    // *   The value can be up to 128 bytes in length.
-    // *   The value must be encoded in UTF-8.
+    // - The value can be up to 128 bytes in length.
+    // 
+    // - The value must be encoded in UTF-8.
     shared_ptr<string> title_ {};
     // The user data. It can be up to 1,024 bytes in size.
     shared_ptr<string> userData_ {};

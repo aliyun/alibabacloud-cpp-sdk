@@ -123,13 +123,17 @@ namespace Models
     // The criteria by which the sorting is performed. Valid values:
     // 
     // - FirstFrameDuration
+    // 
     // - PlayDuration
+    // 
     // - VideoDuration
+    // 
     // - StuckDuration
     shared_ptr<string> orderName_ {};
     // The sort order. Valid values:
     // 
     // - DESC: descending order.
+    // 
     // - ASC: ascending order.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
@@ -140,14 +144,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The playback type. Valid value: 
+    // The playback type. Valid value:
     // 
     // - vod
     shared_ptr<string> playType_ {};
     // The playback status. Valid values:
     // 
     // - complete
+    // 
     // - playing
+    // 
     // - unusual: A playback error occurs.
     shared_ptr<string> status_ {};
     // The TraceId of the player.

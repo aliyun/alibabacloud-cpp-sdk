@@ -98,19 +98,25 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Finished: The job is complete.
-    // *   Failed: The job failed.
-    // *   Executing: The job is in progress.
-    // *   Created: The job is created.
+    // - Finished: The job is complete.
+    // 
+    // - Failed: The job failed.
+    // 
+    // - Executing: The job is in progress.
+    // 
+    // - Created: The job is created.
     shared_ptr<string> jobState_ {};
     // The job type.
     // 
     // Valid values:
     // 
-    // *   ASR: automatic speech recognition(job) job.
-    // *   DynamicChart: dynamic chart job.
-    // *   VideoTranslation: video translation job.
-    // *   TextToSpeech: intelligent audio production job.
+    // - ASR: automatic speech recognition(job) job.
+    // 
+    // - DynamicChart: dynamic chart job.
+    // 
+    // - VideoTranslation: video translation job.
+    // 
+    // - TextToSpeech: intelligent audio production job.
     shared_ptr<string> jobType_ {};
     // The maximum number of entries to return.
     // 
@@ -126,8 +132,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   CreationTime:Asc: sorted by creation time in ascending order.
-    // *   CreationTime:Desc: sorted by creation time in descending order.
+    // - CreationTime:Asc: sorted by creation time in ascending order.
+    // 
+    // - CreationTime:Desc: sorted by creation time in descending order.
     shared_ptr<string> sortBy_ {};
   };
 

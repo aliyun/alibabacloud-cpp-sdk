@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The creation time of the voiceprint.
+      // The time the voiceprint was created. The time is in UTC and formatted according to the ISO 8601 standard.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time of the voiceprint.
+      // The time the voiceprint was last modified. The time is in UTC and formatted according to the ISO 8601 standard.
       shared_ptr<string> gmtModified_ {};
-      // The unique identifier for the voiceprint.
+      // The unique voiceprint ID.
       shared_ptr<string> voiceprintId_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of voiceprints that match the query criteria.
+    // The total number of matching voiceprints.
     shared_ptr<int32_t> totalCount_ {};
-    // The voiceprints.
+    // A list of voiceprint objects.
     shared_ptr<vector<ListAIAgentVoiceprintsResponseBody::Voiceprints>> voiceprints_ {};
   };
 

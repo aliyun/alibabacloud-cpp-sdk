@@ -48,14 +48,15 @@ namespace Models
 
 
   protected:
-    // The ID of the smart tagging job that you want to query. You can obtain the job ID from the response parameters of the SubmitSmarttagJob operation.
+    // The ID of the smart tagging job. You can obtain this ID from the response to the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) call.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
-    // The extra parameters that you want to query in the request. The value is a JSON string. Example: {"labelResultType":"auto"}. The value of labelResultType is of the STRING type. Valid values:
+    // Additional request parameters, formatted as a JSON string. For example: `{"labelResultType":"auto"}`. The `labelResultType` parameter supports the following values:
     // 
-    // *   auto: machine tagging
-    // *   hmi: tagging by human and machine
+    // - `auto`: machine-generated tagging results
+    // 
+    // - `hmi`: human-in-the-loop tagging results
     shared_ptr<string> params_ {};
   };
 

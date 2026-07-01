@@ -105,20 +105,15 @@ namespace Models
 
 
     protected:
-      // The time when the job was created.
+      // The time when the template was created. The time format is UTC.
       shared_ptr<string> createTime_ {};
-      // The template ID.
+      // The ID of the template.
       shared_ptr<string> templateId_ {};
-      // The template name.
+      // The name of the template.
       shared_ptr<string> templateName_ {};
-      // The interval between two adjacent snapshots. Unit: seconds.
+      // The snapshot interval in seconds.
       shared_ptr<int32_t> timeInterval_ {};
       // The type of the template.
-      // 
-      // Valid values:
-      // 
-      // *   system
-      // *   custom
       shared_ptr<string> type_ {};
     };
 
@@ -169,17 +164,17 @@ namespace Models
 
 
   protected:
-    // The number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The sorting order of the results by creation time.
+    // The sort order.
     shared_ptr<string> sortBy_ {};
-    // The list of the templates.
+    // The list of templates.
     shared_ptr<vector<ListLiveSnapshotTemplatesResponseBody::TemplateList>> templateList_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

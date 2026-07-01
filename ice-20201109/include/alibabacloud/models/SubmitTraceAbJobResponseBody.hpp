@@ -75,7 +75,7 @@ namespace Models
     protected:
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The media ID.
+      // The ID of the media asset created for tracing.
       shared_ptr<string> traceMediaId_ {};
     };
 
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // Contains the IDs for the submitted job and the output media asset.
     shared_ptr<SubmitTraceAbJobResponseBody::Data> data_ {};
-    // The message returned.
+    // The response message. A value of `ok` indicates a successful request.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The unique identifier for the request. If you encounter an issue, provide this ID for technical support.
     shared_ptr<string> requestId_ {};
-    // The status code.
+    // The HTTP status code. A value of `200` indicates success.
     shared_ptr<int64_t> statusCode_ {};
   };
 

@@ -94,38 +94,29 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end of the time range to query. Specify the time in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`. The time must be in UTC.
     // 
-    // *   By default, EndTime is seven days later than StartTime.
-    // *   The time range specified by the StartTime and EndTime parameters cannot exceed 30 days.
+    // - If this parameter is not specified, the default is the current time.
+    // 
+    // -
     shared_ptr<string> endTime_ {};
-    // The page number. Valid values: [1,n). Default value: 1.
+    // The page number to return. The value must be an integer greater than or equal to 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The number of jobs to return on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The search keyword. You can use the job ID or name as the keyword to search for jobs. If you search for jobs by name, fuzzy match is supported.
+    // The search keyword. You can search by Job ID or Job Name. Fuzzy search is supported for Job Name.
     // 
-    // *   It cannot exceed 128 characters in length.
+    // - The maximum length is 128 characters.
     shared_ptr<string> searchKeyWord_ {};
-    // The sorting order. By default, the query results are sorted by creation time in descending order.
-    // 
-    // Valid values:
-    // 
-    // *   asc: sorts the query results by creation time in ascending order.
-    // *   desc: sorts the query results by creation time in descending order.
+    // The sort order. The results are sorted by `CreateTime`. Default: `desc` (Descending).
     shared_ptr<string> sortBy_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start of the time range to query. Specify the time in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`. The time must be in UTC.
     // 
-    // *   The default value is seven days ago.
-    // *   The time range specified by the StartTime and EndTime parameters cannot exceed 30 days.
+    // - If this parameter is not specified, the default is 7 days ago.
+    // 
+    // - The interval between `StartTime` and `EndTime` cannot exceed 30 days.
     shared_ptr<string> startTime_ {};
-    // The job state filter. By default, all jobs are queried.
-    // 
-    // Valid values:
-    // 
-    // *   init: The job is not started.
-    // *   paused: The job is paused.
-    // *   started: The job is in progress.
+    // The job status to filter by. If omitted, jobs of all statuses are returned.
     shared_ptr<string> status_ {};
   };
 

@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number to return. Must be 1 or greater.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Value values: [1,100].
+    // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The registration mode for the voiceprint. The default value is `Explicit`.
     shared_ptr<string> registrationMode_ {};
-    // A unique identifier for the voiceprint. This parameter is optional. If provided, only the information for that ID is returned. If not specified, all voiceprints under the account are returned.
+    // The unique voiceprint ID. If specified, this operation returns the details of a single voiceprint. If omitted, it returns a paginated list of all voiceprints under your account.
     shared_ptr<string> voiceprintId_ {};
   };
 

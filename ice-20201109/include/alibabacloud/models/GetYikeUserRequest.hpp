@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The user name of the sub-account.
     shared_ptr<string> userName_ {};
   };
 

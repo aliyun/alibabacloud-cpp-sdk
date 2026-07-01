@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // Controls whether voice interrupt is enabled. This change takes effect immediately.
       shared_ptr<bool> enableVoiceInterrupt_ {};
+      // The greeting message. The greeting is not updated if it has already been played.
       shared_ptr<string> greeting_ {};
+      // The ID of the voice. The new voice takes effect on the AI Agent\\"s next utterance.
       shared_ptr<string> voiceId_ {};
     };
 
@@ -102,7 +105,10 @@ namespace Models
 
 
   protected:
+    // The configuration for the AI Agent instance.
     shared_ptr<UpdateRtcRobotInstanceRequest::Config> config_ {};
+    // The ID of the AI Agent instance to update.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

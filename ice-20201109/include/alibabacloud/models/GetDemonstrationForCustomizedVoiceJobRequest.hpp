@@ -42,9 +42,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   **story**
-    // *   **interaction**
-    // *   **navigation**
+    // - **story**
+    // 
+    // - **interaction**
+    // 
+    // - **navigation**
     // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};

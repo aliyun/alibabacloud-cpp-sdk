@@ -78,8 +78,31 @@ namespace Models
 
 
     protected:
+      // Specifies if Intelligent Content Analysis starts automatically after a Media Asset is registered.
+      // 
+      // Valid values:
+      // 
+      // - `true`: Enabled.
+      // 
+      // - `false`: Disabled. (default)
       shared_ptr<bool> auto_ {};
+      // The repository type for saving analysis results. This parameter is valid only when `Auto` is set to `true`. The default is an empty string.
+      // 
+      // - `TEXT`: Label
+      // 
+      // - `FACE`: Face
+      // 
+      // - `DNA`: Image DNA
+      // 
+      // You can specify multiple values, separated by commas (,). If this parameter is left empty, the analysis results are not saved to any search repository and cannot be used for content search.
       shared_ptr<string> saveType_ {};
+      // The ID of the Intelligent Content Analysis template. Each template includes the following AI capabilities:
+      // 
+      // - `S00000101-100040`: Text Recognition
+      // 
+      // - `S00000101-100060`: Video Classification and Face Recognition
+      // 
+      // - `S00000101-100070`: Text Recognition, Video Classification, and Face Recognition
       shared_ptr<string> templateId_ {};
     };
 
@@ -102,7 +125,9 @@ namespace Models
 
 
   protected:
+    // The configuration for Intelligent Content Analysis.
     shared_ptr<GetContentAnalyzeConfigResponseBody::ContentAnalyzeConfig> contentAnalyzeConfig_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

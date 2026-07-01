@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the quick video production job.
+    // The ID of the batch job for one-click smart video creation.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

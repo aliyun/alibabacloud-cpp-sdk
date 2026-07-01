@@ -94,16 +94,17 @@ namespace Models
 
 
   protected:
-    // The username of the AI agent in the Alibaba Real-Time Communication (ARTC) channel.
+    // The name of the agent in the Alibaba Real-time Communication (ARTC) channel.
     shared_ptr<string> AIAgentUserId_ {};
+    // The user ID of the avatar in the channel.
     shared_ptr<string> avatarUserId_ {};
-    // The ARTC channel ID.
+    // The ID of the ARTC channel.
     shared_ptr<string> channelId_ {};
-    // The ID of the AI agent.
+    // The ID of the generated agent instance.
     shared_ptr<string> instanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ARTC token of the client.
+    // The client-side ARTC token.
     shared_ptr<string> token_ {};
     // The username in the ARTC channel.
     shared_ptr<string> userId_ {};

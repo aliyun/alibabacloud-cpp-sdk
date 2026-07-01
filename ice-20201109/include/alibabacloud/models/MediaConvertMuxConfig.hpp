@@ -41,6 +41,9 @@ namespace Models
 
 
   protected:
+    // Shard configuration field. For more information, see Segment details.
+    // 
+    // This field takes effect only when Container is set to m3u8, hls-fmp4, mpd, or cmaf.
     shared_ptr<MediaConvertSegment> segment_ {};
   };
 

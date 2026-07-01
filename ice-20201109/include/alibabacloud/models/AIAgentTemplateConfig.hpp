@@ -143,7 +143,21 @@ namespace Models
 
 
       protected:
+        // The text content of the message.
         shared_ptr<string> content_ {};
+        // The role of the conversation participant. Valid values:
+        // 
+        // - `user`: The user.
+        // 
+        // - `assistant`: The AI assistant.
+        // 
+        // - `system`: The system.
+        // 
+        // - `function`: A function call.
+        // 
+        // - `plugin`: A plugin.
+        // 
+        // - `tool`: A tool.
         shared_ptr<string> role_ {};
       };
 
@@ -352,53 +366,87 @@ namespace Models
 
 
     protected:
+      // A list of hot words to improve ASR accuracy. A maximum of 128 words is supported.
       shared_ptr<vector<string>> asrHotWords_ {};
+      // The language ID for Automatic Speech Recognition (ASR).
+      // Possible values:
+      // 
+      // - `zh_mandarin`: Chinese
+      // 
+      // - `en`: English
+      // 
+      // - `zh_en`: Chinese-English
+      // 
+      // - `es`: Spanish
+      // 
+      // - `jp`: Japanese
       shared_ptr<string> asrLanguageId_ {};
-      // The threshold used to determine the end of a sentence. If the duration of silence exceeds this threshold, the system determines that a sentence ends. Unit: milliseconds. Default value: 400. Valid values: 200 to 1200.
+      // The maximum duration of silence in milliseconds before a sentence break is detected. Range: 200 to 1,200. Default: 400.
       shared_ptr<int32_t> asrMaxSilence_ {};
+      // The URL of the agent\\"s avatar for voice chat. Default: none.
       shared_ptr<string> avatarUrl_ {};
+      // The type of the agent\\"s avatar URL. Default: none.
       shared_ptr<string> avatarUrlType_ {};
-      // The parameters of the application center of Alibaba Cloud Model Studio. For more information about the parameter format, see [Parameters of the application center of Alibaba Cloud Model Studio](https://help.aliyun.com/document_detail/2858132.html).
+      // Parameters for Alibaba Cloud Bailian. For details, see [Bailian App Params](https://help.aliyun.com/document_detail/2858132.html).
       shared_ptr<string> bailianAppParams_ {};
       shared_ptr<bool> charBreak_ {};
+      // Specifies whether to enable intelligent segmentation. If enabled, this feature intelligently merges pauses in a user\\"s speech into a single, complete sentence. Default: `true`.
       shared_ptr<bool> enableIntelligentSegment_ {};
-      // Specifies whether to enable the intercom mode. Default value: false.
+      // Specifies whether to enable Push-to-Talk mode. Default: `false`.
       shared_ptr<bool> enablePushToTalk_ {};
-      // Specifies whether the intelligent agent can be interrupted by voice. Default value: true.
+      // Specifies whether to enable voice interruption. Default: `true`.
       shared_ptr<bool> enableVoiceInterrupt_ {};
-      // Specifies whether the intelligent agent supports graceful shutdown. Default value: false.
+      // Specifies whether to enable graceful shutdown. Default: `false`.
       // 
-      // *   Graceful shutdown: When the intelligent agent is stopped, it completes its current sentence before stopping. However, the intelligent agent can speak for 10 seconds at most.
+      // - If enabled, the agent finishes its current speech (up to 10 seconds) before stopping.
       shared_ptr<bool> gracefulShutdown_ {};
-      // The greetings spoken by the intelligent agent when it joins the meeting. If you do not specify this parameter, the system uses the default greetings specified in the template of the intelligent agent. The value can be up to 128 characters in length.
+      // The greeting message delivered when a user joins the session. If this parameter is omitted, the greeting configured in the agent template is used. Maximum length: 128 characters.
       shared_ptr<string> greeting_ {};
+      // A list of specific words or phrases that trigger a conversation interruption.
       shared_ptr<vector<string>> interruptWords_ {};
+      // The LLM/MLLM conversation history.
       shared_ptr<vector<VoiceChat::LlmHistory>> llmHistory_ {};
+      // The maximum number of conversation turns to retain in the LLM/MLLM history. Default: 10.
       shared_ptr<int32_t> llmHistoryLimit_ {};
+      // The system prompt for the LLM, applied when the call starts.
       shared_ptr<string> llmSystemPrompt_ {};
+      // The maximum idle time in seconds with no interaction before the agent goes offline. Default: 600.
       shared_ptr<int32_t> maxIdleTime_ {};
-      // Specifies whether to enable voiceprint recognition. Default value: false.
+      // Specifies whether to use voiceprint recognition. Default: `false`.
       shared_ptr<bool> useVoiceprint_ {};
-      // The timeout period after the user leaves the meeting. Unit: seconds. Default value: 5.
+      // The time in seconds that the agent waits after a user leaves before closing the task. Default: 5.
       shared_ptr<int32_t> userOfflineTimeout_ {};
-      // The timeout period before the user joins the meeting. Unit: seconds. Default value: 60.
+      // The time in seconds that the agent waits for a user to join before closing the task. Default: 60.
       shared_ptr<int32_t> userOnlineTimeout_ {};
+      // The interruption sensitivity threshold. A higher value makes it more difficult to interrupt the agent. Range: 0 to 11. Default: 11.
+      // 
+      // - `0`: Disables Voice Activity Detection (VAD).
+      // 
+      // - `1` to `10`: A higher value makes it more difficult to interrupt the agent.
+      // 
+      // - `11`: Offers lower audio distortion and stronger resistance to interference.
       shared_ptr<int32_t> vadLevel_ {};
-      // The voice ID of the intelligent agent. The modification takes effect in the next sentence. If you do not specify this parameter, the system uses the default voice ID specified in the template of the intelligent agent. This parameter takes effect only for the preset TTS model. The ID can be up to 64 characters in length. For more information about the available voices, visit [https://help.aliyun.com/zh/ims/developer-reference/smart-voice-effect-example](url).
+      // The ID of the Text-to-Speech (TTS) voice. Changes take effect on the next utterance. If omitted, the default voice from the agent template is used. This parameter applies only to preset TTS voices. Maximum length: 64 characters. For available values, see [Intelligent voice effect samples](https://help.aliyun.com/document_detail/449563.html).
       shared_ptr<string> voiceId_ {};
+      // A list of available voices.
       shared_ptr<vector<string>> voiceIdList_ {};
-      // The unique ID of the voiceprint. This parameter is empty by default.
+      // The unique ID for voiceprint recognition. Default: not specified.
       shared_ptr<string> voiceprintId_ {};
-      // The speech volume of the intelligent agent.
+      // The speaking volume of the agent.
       // 
-      // *   If this parameter is not specified, the adaptive volume mode recommended by Alibaba Cloud is used by default.
-      // *   To specify this parameter, enter a value between 0 and 400. The output volume is calculated by using the following formula: Output volume = Voice output volume specified in the workflow × Volume/100. Example:
+      // - If omitted, the system uses adaptive volume mode.
       // 
-      // 1.  If Volume is set to 0, the output volume is 0.
-      // 2.  If Volume is set to 100, the output volume is the voice output volume specified in the workflow.
-      // 3.  If Volume is set to 200, the output volume is twice the voice output volume specified in the workflow.
+      // - If specified, the valid range is 0 to 400. The output volume is calculated as: `Output Volume in Workflow` \\* (`volume`/100). For example:
+      // 
+      // 1. If `volume` is `0`, the output is silent.
+      // 
+      // 2. If `volume` is `100`, the output volume is the original volume.
+      // 
+      // 3. If `volume` is `200`, the output volume is twice the original volume.
       shared_ptr<int64_t> volume_ {};
+      // An initial user query that the agent addresses immediately when the call starts.
       shared_ptr<string> wakeUpQuery_ {};
+      // Workflow override parameters. Default: empty.
       shared_ptr<string> workflowOverrideParams_ {};
     };
 
@@ -507,7 +555,21 @@ namespace Models
 
 
       protected:
+        // The text content of the message.
         shared_ptr<string> content_ {};
+        // The role of the conversation participant. Valid values:
+        // 
+        // - `user`: The user.
+        // 
+        // - `assistant`: The AI assistant.
+        // 
+        // - `system`: The system.
+        // 
+        // - `function`: A function call.
+        // 
+        // - `plugin`: A plugin.
+        // 
+        // - `tool`: A tool.
         shared_ptr<string> role_ {};
       };
 
@@ -701,55 +763,82 @@ namespace Models
 
 
     protected:
+      // A list of hot words to improve ASR accuracy. A maximum of 128 words is supported.
       shared_ptr<vector<string>> asrHotWords_ {};
+      // The language ID for Automatic Speech Recognition (ASR). Possible values:
+      // 
+      // - `zh_mandarin`: Chinese
+      // 
+      // - `en`: English
+      // 
+      // - `zh_en`: Chinese-English
+      // 
+      // - `es`: Spanish
+      // 
+      // - `jp`: Japanese
       shared_ptr<string> asrLanguageId_ {};
-      // The threshold used to determine the end of a sentence. If the duration of silence exceeds this threshold, the system determines that a sentence ends. Unit: milliseconds. Default value: 400. Valid values: 200 to 1200.
+      // The maximum duration of silence in milliseconds before a sentence break is detected. Range: 200 to 1,200. Default: 400.
       shared_ptr<int32_t> asrMaxSilence_ {};
-      // The parameters of the application center of Alibaba Cloud Model Studio. For more information about the parameter format, see [Parameters of the application center of Alibaba Cloud Model Studio](https://help.aliyun.com/document_detail/2858132.html).
+      // Parameters for Alibaba Cloud Bailian. For details, see [Bailian App Params](https://help.aliyun.com/document_detail/2858132.html).
       shared_ptr<string> bailianAppParams_ {};
       shared_ptr<bool> charBreak_ {};
-      // Specifies whether to enable intelligent sentence segmentation. This feature intelligently combines the segments of a speech into a single sentence if brief pauses occur when users are speaking. Default value: true.
+      // Specifies whether to enable intelligent segmentation. If enabled, this feature intelligently merges pauses in a user\\"s speech into a single, complete sentence. Default: `true`.
       shared_ptr<bool> enableIntelligentSegment_ {};
-      // Specifies whether to enable the intercom mode. Default value: false.
+      // Specifies whether to enable Push-to-Talk mode. Default: `false`.
       shared_ptr<bool> enablePushToTalk_ {};
-      // Specifies whether the intelligent agent can be interrupted by voice. Default value: true.
+      // Specifies whether to enable voice interruption. Default: `true`.
       shared_ptr<bool> enableVoiceInterrupt_ {};
-      // Specifies whether the intelligent agent supports graceful shutdown. Default value: false.
+      // Specifies whether to enable graceful shutdown. Default: `false`.
       // 
-      // Graceful shutdown: When the intelligent agent is stopped, it completes its current sentence before stopping. However, the intelligent agent can speak for 10 seconds at most.
+      // - If enabled, the agent finishes its current speech (up to 10 seconds) before stopping.
       shared_ptr<bool> gracefulShutdown_ {};
-      // The greetings spoken by the intelligent agent when it joins the meeting. If you do not specify this parameter, the system uses the default greetings specified in the template of the intelligent agent. The value can be up to 128 characters in length.
+      // The greeting message delivered when a user joins the session. If this parameter is omitted, the greeting configured in the agent template is used. Maximum length: 128 characters.
       shared_ptr<string> greeting_ {};
+      // A list of specific words or phrases that trigger a conversation interruption.
       shared_ptr<vector<string>> interruptWords_ {};
+      // The LLM/MLLM conversation history.
       shared_ptr<vector<VisionChat::LlmHistory>> llmHistory_ {};
+      // The maximum number of conversation turns to retain in the LLM/MLLM history. Default: 10.
       shared_ptr<int32_t> llmHistoryLimit_ {};
+      // The system prompt for the LLM, applied when the call starts.
       shared_ptr<string> llmSystemPrompt_ {};
+      // The maximum idle time in seconds with no interaction before the agent goes offline. Default: 600.
       shared_ptr<int32_t> maxIdleTime_ {};
-      // Specifies whether to enable voiceprint recognition. Default value: false.
+      // Specifies whether to use voiceprint recognition. Default: `false`.
       shared_ptr<bool> useVoiceprint_ {};
-      // The timeout period after the user leaves the meeting. Unit: seconds. Default value: 5.
+      // The time in seconds that the agent waits after a user leaves before closing the task. Default: 5.
       shared_ptr<int32_t> userOfflineTimeout_ {};
-      // The timeout period before the user joins the meeting. Unit: seconds. Default value: 60.
+      // The time in seconds that the agent waits for a user to join before closing the task. Default: 60.
       shared_ptr<int32_t> userOnlineTimeout_ {};
+      // The interruption sensitivity threshold. A higher value makes it more difficult to interrupt the agent. Range: 0 to 11. Default: 11.
+      // 
+      // - `0`: Disables VAD.
+      // 
+      // - `1` to `10`: A higher value makes it more difficult to interrupt the agent.
+      // 
+      // - `11`: Offers lower audio distortion and stronger resistance to interference.
       shared_ptr<int32_t> vadLevel_ {};
-      // The voice ID of the intelligent agent. The modification takes effect in the next sentence. If you do not specify this parameter, the system uses the default voice ID specified in the template of the intelligent agent. This parameter takes effect only for the preset TTS model. The ID can be up to 64 characters in length. For more information about the available voices, visit [https://help.aliyun.com/zh/ims/developer-reference/smart-voice-effect-example](url).
+      // The ID of the Text-to-Speech (TTS) voice. Changes take effect on the next utterance. If omitted, the default voice from the agent template is used. This parameter applies only to preset TTS voices. Maximum length: 64 characters. For available values, see [Intelligent voice effect samples](https://help.aliyun.com/document_detail/449563.html).
       shared_ptr<string> voiceId_ {};
+      // A list of available voices.
       shared_ptr<vector<string>> voiceIdList_ {};
-      // The unique ID of the voiceprint. This parameter is empty by default.
+      // The unique ID for voiceprint recognition. Default: not specified.
       shared_ptr<string> voiceprintId_ {};
-      // The speech volume of the intelligent agent.
+      // The speaking volume of the agent.
       // 
-      // If this parameter is not specified, the adaptive volume mode recommended by Alibaba Cloud is used by default.
+      // - If omitted, the system uses adaptive volume mode.
       // 
-      // To specify this parameter, enter a value between 0 and 400. The output volume is calculated by using the following formula: Output volume = Voice output volume specified in the workflow × Volume/100. Example:
+      // - If specified, the valid range is 0 to 400. The output volume is calculated as: `Output Volume in Workflow` \\* (`volume`/100). For example:
       // 
-      // If Volume is set to 0, the output volume is 0.
+      // 1. If `volume` is `0`, the output is silent.
       // 
-      // If Volume is set to 100, the output volume is the voice output volume specified in the workflow.
+      // 2. If `volume` is `100`, the output volume is the original volume.
       // 
-      // If Volume is set to 200, the output volume is twice the voice output volume specified in the workflow.
+      // 3. If `volume` is `200`, the output volume is twice the original volume.
       shared_ptr<int64_t> volume_ {};
+      // An initial user query that the agent addresses immediately when the call starts.
       shared_ptr<string> wakeUpQuery_ {};
+      // Workflow override parameters. Default: empty.
       shared_ptr<string> workflowOverrideParams_ {};
     };
 
@@ -860,7 +949,21 @@ namespace Models
 
 
       protected:
+        // The text content of the message.
         shared_ptr<string> content_ {};
+        // The role of the conversation participant. Valid values:
+        // 
+        // - `user`: The user.
+        // 
+        // - `assistant`: The AI assistant.
+        // 
+        // - `system`: The system.
+        // 
+        // - `function`: A function call.
+        // 
+        // - `plugin`: A plugin.
+        // 
+        // - `tool`: A tool.
         shared_ptr<string> role_ {};
       };
 
@@ -1061,53 +1164,84 @@ namespace Models
 
 
     protected:
+      // A list of hot words to improve ASR accuracy. A maximum of 128 words is supported.
       shared_ptr<vector<string>> asrHotWords_ {};
+      // The language ID for Automatic Speech Recognition (ASR). Possible values:
+      // 
+      // - `zh_mandarin`: Chinese
+      // 
+      // - `en`: English
+      // 
+      // - `zh_en`: Chinese-English
+      // 
+      // - `es`: Spanish
+      // 
+      // - `jp`: Japanese
       shared_ptr<string> asrLanguageId_ {};
-      // The threshold used to determine the end of a sentence. If the duration of silence exceeds this threshold, the system determines that a sentence ends. Unit: milliseconds. Default value: 400. Valid values: 200 to 1200.
+      // The maximum duration of silence in milliseconds before a sentence break is detected. Range: 200 to 1,200. Default: 400.
       shared_ptr<int32_t> asrMaxSilence_ {};
-      // The ID of the avatar.
+      // The ID of the avatar model.
       shared_ptr<string> avatarId_ {};
-      // The parameters of the application center of Alibaba Cloud Model Studio. For more information about the parameter format, see [Parameters of the application center of Alibaba Cloud Model Studio](https://help.aliyun.com/document_detail/2858132.html).
+      // Parameters for Alibaba Cloud Bailian. For details, see [Bailian App Params](https://help.aliyun.com/document_detail/2858132.html).
       shared_ptr<string> bailianAppParams_ {};
       shared_ptr<bool> charBreak_ {};
+      // Specifies whether to enable intelligent segmentation. If enabled, this feature intelligently merges pauses in a user\\"s speech into a single, complete sentence. Default: `true`.
       shared_ptr<bool> enableIntelligentSegment_ {};
-      // Specifies whether to enable the intercom mode. Default value: false.
+      // Specifies whether to enable Push-to-Talk mode. Default: `false`.
       shared_ptr<bool> enablePushToTalk_ {};
-      // Specifies whether the intelligent agent can be interrupted by voice. Default value: true.
+      // Specifies whether to enable voice interruption. Default: `true`.
       shared_ptr<bool> enableVoiceInterrupt_ {};
-      // Specifies whether the intelligent agent supports graceful shutdown. Default value: false.
+      // Specifies whether to enable graceful shutdown. Default: `false`.
       // 
-      // *   Graceful shutdown: When the intelligent agent is stopped, it completes its current sentence before stopping. However, the intelligent agent can speak for 10 seconds at most.
+      // - If enabled, the agent finishes its current speech (up to 10 seconds) before stopping.
       shared_ptr<bool> gracefulShutdown_ {};
-      // The greetings spoken by the intelligent agent when it joins the meeting. If you do not specify this parameter, the system uses the default greetings specified in the template of the intelligent agent. The greetings can be up to 128 characters in length.
+      // The greeting message delivered when a user joins the session. If this parameter is omitted, the greeting configured in the agent template is used. Maximum length: 128 characters.
       shared_ptr<string> greeting_ {};
+      // A list of specific words or phrases that trigger a conversation interruption.
       shared_ptr<vector<string>> interruptWords_ {};
+      // The LLM/MLLM conversation history.
       shared_ptr<vector<AvatarChat3D::LlmHistory>> llmHistory_ {};
+      // The maximum number of conversation turns to retain in the LLM/MLLM history. Default: 10.
       shared_ptr<int32_t> llmHistoryLimit_ {};
+      // The system prompt for the LLM, applied when the call starts.
       shared_ptr<string> llmSystemPrompt_ {};
+      // The maximum idle time in seconds with no interaction before the agent goes offline. Default: 600.
       shared_ptr<int32_t> maxIdleTime_ {};
-      // Specifies whether to enable voiceprint recognition. Default value: false.
+      // Specifies whether to use voiceprint recognition. Default: `false`.
       shared_ptr<bool> useVoiceprint_ {};
-      // The timeout period after the user leaves the meeting. Unit: seconds. Default value: 5.
+      // The time in seconds that the agent waits after a user leaves before closing the task. Default: 5.
       shared_ptr<int32_t> userOfflineTimeout_ {};
-      // The timeout period before the user joins the meeting. Unit: seconds. Default value: 60.
+      // The time in seconds that the agent waits for a user to join before closing the task. Default: 60.
       shared_ptr<int32_t> userOnlineTimeout_ {};
+      // The interruption sensitivity threshold. A higher value makes it more difficult to interrupt the agent. Range: 0 to 11. Default: 11.
+      // 
+      // - `0`: Disables VAD.
+      // 
+      // - `1` to `10`: A higher value makes it more difficult to interrupt the agent.
+      // 
+      // - `11`: Offers lower audio distortion and stronger resistance to interference.
       shared_ptr<int32_t> vadLevel_ {};
-      // The voice ID of the intelligent agent. The modification takes effect in the next sentence. If you do not specify this parameter, the system uses the default voice ID specified in the template of the intelligent agent. This parameter takes effect only for the preset TTS model. The ID can be up to 64 characters in length. For more information about the available voices, visit [https://help.aliyun.com/zh/ims/developer-reference/smart-voice-effect-example](url).
+      // The ID of the Text-to-Speech (TTS) voice. Changes take effect on the next utterance. If omitted, the default voice from the agent template is used. This parameter applies only to preset TTS voices. Maximum length: 64 characters. For available values, see [Intelligent voice effect samples](https://help.aliyun.com/document_detail/449563.html).
       shared_ptr<string> voiceId_ {};
+      // A list of available voices.
       shared_ptr<vector<string>> voiceIdList_ {};
-      // The unique ID of the voiceprint. This parameter is empty by default.
+      // The unique ID for voiceprint recognition. Default: not specified.
       shared_ptr<string> voiceprintId_ {};
-      // The speech volume of the intelligent agent.
+      // The speaking volume of the agent.
       // 
-      // *   If this parameter is not specified, the adaptive volume mode recommended by Alibaba Cloud is used by default.
-      // *   To specify this parameter, enter a value between 0 and 400. The output volume is calculated by using the following formula: Output volume = Voice output volume specified in the workflow × Volume/100. Example:
+      // - If omitted, the system uses adaptive volume mode.
       // 
-      // 1.  If Volume is set to 0, the output volume is 0.
-      // 2.  If Volume is set to 100, the output volume is the voice output volume specified in the workflow.
-      // 3.  If Volume is set to 200, the output volume is twice the voice output volume specified in the workflow.
+      // - If specified, the valid range is 0 to 400. The output volume is calculated as: `Output Volume in Workflow` \\* (`volume`/100). For example:
+      // 
+      // 1. If `volume` is `0`, the output is silent.
+      // 
+      // 2. If `volume` is `100`, the output volume is the original volume.
+      // 
+      // 3. If `volume` is `200`, the output volume is twice the original volume.
       shared_ptr<int64_t> volume_ {};
+      // An initial user query that the agent addresses immediately when the call starts.
       shared_ptr<string> wakeUpQuery_ {};
+      // Workflow override parameters. Default: empty.
       shared_ptr<string> workflowOverrideParams_ {};
     };
 
@@ -1141,11 +1275,11 @@ namespace Models
 
 
   protected:
-    // The parameters of the 3D avatar.
+    // 3D avatar parameters.
     shared_ptr<AIAgentTemplateConfig::AvatarChat3D> avatarChat3D_ {};
-    // The parameters of the visual intelligent agent.
+    // Vision agent parameters.
     shared_ptr<AIAgentTemplateConfig::VisionChat> visionChat_ {};
-    // The voice call parameters.
+    // Voice chat parameters.
     shared_ptr<AIAgentTemplateConfig::VoiceChat> voiceChat_ {};
   };
 

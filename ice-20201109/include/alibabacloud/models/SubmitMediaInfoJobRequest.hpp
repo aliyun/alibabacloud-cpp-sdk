@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
-      // The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+      // The job priority. A higher value means a higher priority. Valid values range from 1 to 10.
       shared_ptr<int32_t> priority_ {};
     };
 
@@ -117,17 +117,21 @@ namespace Models
 
 
     protected:
-      // The media object.
+      // The source of the input media:
       // 
-      // *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+      // - If `Type` is `OSS`, set this parameter to the URL of the input file. You can use OSS (`oss://`), HTTP, or HTTPS URLs.
       // 
-      // >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
+      // > You must first add the OSS bucket specified in the URL to Intelligent Media Management Service (IMS) by using [Storage Management](https://help.aliyun.com/document_detail/609918.html).
       // 
-      // *   If Type is set to Media, set this parameter to the ID of a media asset.
+      // - If `Type` is `Media`, set this parameter to the media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The type of the media object. Valid values: OSS and Media. A value of OSS indicates an Object Storage Service (OSS) object. A value of Media indicates a media asset.
+      // The type of the input media.
+      // 
+      // - `OSS`: The input is an OSS file.
+      // 
+      // - `Media`: The input is a media asset ID.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -168,15 +172,15 @@ namespace Models
 
 
   protected:
-    // The input of the job.
+    // The input for the job.
     // 
     // This parameter is required.
     shared_ptr<SubmitMediaInfoJobRequest::Input> input_ {};
     // The job name.
     shared_ptr<string> name_ {};
-    // The scheduling parameters.
+    // The scheduling settings.
     shared_ptr<SubmitMediaInfoJobRequest::ScheduleConfig> scheduleConfig_ {};
-    // The user data.
+    // The custom user data.
     shared_ptr<string> userData_ {};
   };
 

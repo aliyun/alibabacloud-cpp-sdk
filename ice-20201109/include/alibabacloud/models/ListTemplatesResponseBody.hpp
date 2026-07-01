@@ -183,9 +183,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   AliyunConsole
-      // *   WebSDK
-      // *   OpenAPI
+      // - AliyunConsole
+      // 
+      // - WebSDK
+      // 
+      // - OpenAPI
       shared_ptr<string> createSource_ {};
       // The time when the template was created.
       shared_ptr<string> creationTime_ {};
@@ -193,9 +195,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   AliyunConsole
-      // *   WebSDK
-      // *   OpenAPI
+      // - AliyunConsole
+      // 
+      // - WebSDK
+      // 
+      // - OpenAPI
       shared_ptr<string> modifiedSource_ {};
       // The time when the template was last modified.
       shared_ptr<string> modifiedTime_ {};
@@ -207,21 +211,29 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   PrepareFail
-      // *   Init
-      // *   Normal
-      // *   Preparing
+      // - PrepareFail
+      // 
+      // - Init
+      // 
+      // - Normal
+      // 
+      // - Preparing
       shared_ptr<string> previewMediaStatus_ {};
       // The template state.
       // 
       // Valid values:
       // 
-      // *   UploadFailed: Failed to upload the video.
-      // *   ProcessFailed: Failed to process the advanced template.
-      // *   Available: The template is available.
-      // *   Uploading: The video is being uploaded.
-      // *   Created: The template is created but not ready for use.
-      // *   Processing: The advanced template is being processed.
+      // - UploadFailed: Failed to upload the video.
+      // 
+      // - ProcessFailed: Failed to process the advanced template.
+      // 
+      // - Available: The template is available.
+      // 
+      // - Uploading: The video is being uploaded.
+      // 
+      // - Created: The template is created but not ready for use.
+      // 
+      // - Processing: The advanced template is being processed.
       shared_ptr<string> status_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
@@ -229,8 +241,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Timeline: regular template.
-      // *   VETemplate: advanced template.
+      // - Timeline: regular template.
+      // 
+      // - VETemplate: advanced template.
       shared_ptr<string> type_ {};
     };
 

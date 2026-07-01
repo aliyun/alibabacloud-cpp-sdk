@@ -52,9 +52,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   stop
-    // *   restart
-    // *   start
+    // - stop
+    // 
+    // - restart
+    // 
+    // - start
     // 
     // This parameter is required.
     shared_ptr<string> command_ {};

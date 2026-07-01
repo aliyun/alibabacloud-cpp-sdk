@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The workspace title.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The maximum number of users in the workspace.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> userCountLimit_ {};
   };

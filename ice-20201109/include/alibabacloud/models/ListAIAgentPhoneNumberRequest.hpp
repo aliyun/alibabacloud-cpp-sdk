@@ -66,9 +66,21 @@ namespace Models
 
 
   protected:
+    // Phone number. Specify Number to directly query the corresponding phone number.
     shared_ptr<string> number_ {};
+    // Page number. Default Value is 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // Page size, indicating the number of records displayed per page. Default Value is 50, with a maximum value of 100.
     shared_ptr<int64_t> pageSize_ {};
+    // Status of the target phone number to query.
+    // 
+    // - 1: "Activation in progress".
+    // 
+    // - 2: "Normal".
+    // 
+    // - 3: "Deactivation in progress".
+    // 
+    // - 4: "Deactivated".
     shared_ptr<int32_t> status_ {};
   };
 

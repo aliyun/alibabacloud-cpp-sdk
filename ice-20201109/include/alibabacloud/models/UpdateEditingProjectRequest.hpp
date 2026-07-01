@@ -103,26 +103,27 @@ namespace Models
 
 
   protected:
-    // The business status of the project. This parameter can be ignored for general editing projects. Valid values:
+    // The business status of the project. You can typically ignore this parameter for standard cloud editing projects. Use this parameter to modify the project\\"s reservation status:
     // 
-    // *   Reserving
-    // *   ReservationCanceled
+    // - `Reserving`: The project is being reserved.
+    // 
+    // - `ReservationCanceled`: The reservation for the project is canceled.
     shared_ptr<string> businessStatus_ {};
-    // The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified.
+    // The clip parameters for the template, in JSON format. This parameter is required if you specify `TemplateId`.<props="china"> For more information about the format, see [Create and use a standard template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
     shared_ptr<string> clipsParam_ {};
-    // The thumbnail URL of the online editing project.
+    // The project cover.
     shared_ptr<string> coverURL_ {};
-    // The description of the online editing project.
+    // The project description.
     shared_ptr<string> description_ {};
-    // The ID of the online editing project.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
-    // The template ID. This parameter is used to quickly build a timeline with ease. Note: Only one of ProjectId, Timeline, and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.
+    // The template ID. Use this parameter to quickly build a timeline.>Notice: You can specify only one of `ProjectId`, `Timeline`, and `TemplateId`. If you specify `TemplateId`, `ClipsParam` is required.
     shared_ptr<string> templateId_ {};
-    // The timeline of the online editing project, in the JSON format.
+    // The project timeline, in JSON format.
     shared_ptr<string> timeline_ {};
-    // The title of the online editing project.
+    // The project title.
     shared_ptr<string> title_ {};
   };
 

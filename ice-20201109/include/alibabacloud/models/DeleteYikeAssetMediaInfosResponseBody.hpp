@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of the IDs or InputUrl values of media assets that could not be deleted.
     shared_ptr<vector<string>> ignoredList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

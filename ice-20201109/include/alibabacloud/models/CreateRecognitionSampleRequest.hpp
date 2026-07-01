@@ -114,11 +114,15 @@ namespace Models
   protected:
     // The type of recognition this sample is for.
     // 
-    // *   landmark
-    // *   object
-    // *   logo
-    // *   face
-    // *   label
+    // - landmark
+    // 
+    // - object
+    // 
+    // - logo
+    // 
+    // - face
+    // 
+    // - label
     // 
     // This parameter is required.
     shared_ptr<string> algorithm_ {};

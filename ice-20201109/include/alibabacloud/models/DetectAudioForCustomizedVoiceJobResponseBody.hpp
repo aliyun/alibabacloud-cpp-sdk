@@ -73,8 +73,9 @@ namespace Models
     protected:
       // Indicates whether the audio file passes the check. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> pass_ {};
       // The reason returned if the audio file failed to pass the check.
       shared_ptr<string> reason_ {};

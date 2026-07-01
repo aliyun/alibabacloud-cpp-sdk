@@ -117,8 +117,9 @@ namespace Models
         shared_ptr<string> media_ {};
         // The type of the output file. Valid values:
         // 
-        // *   OSS: an OSS object.
-        // *   Media: a media asset.
+        // - OSS: an OSS object.
+        // 
+        // - Media: a media asset.
         shared_ptr<string> type_ {};
       };
 
@@ -164,8 +165,9 @@ namespace Models
         shared_ptr<string> media_ {};
         // The type of the input file. Valid values:
         // 
-        // 1.  OSS: an Object Storage Service (OSS) object.
-        // 2.  Media: a media asset.
+        // 1. OSS: an Object Storage Service (OSS) object.
+        // 
+        // 2. Media: a media asset.
         shared_ptr<string> type_ {};
       };
 

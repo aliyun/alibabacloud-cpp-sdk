@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // Return code.
     shared_ptr<string> code_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the invocation succeeded. Valid values:
+    // 
+    // - true: Invocation succeeded
+    // 
+    // - false: Failed to invoke
     shared_ptr<string> success_ {};
   };
 

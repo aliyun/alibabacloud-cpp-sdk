@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to include the full algorithm results in the response.
+    // A container for parameters that determine which algorithm results to include in the response.
     shared_ptr<string> includeResultsShrink_ {};
-    // The ID of the task to query. It is returned when you call the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) operation.
+    // The ID of the intelligent tagging job. You can obtain this ID from the response of the [SubmitIntelligentTaggingJob](https://help.aliyun.com/document_detail/478786.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
-    // Additional request parameters, provided as a JSON string.
+    // Additional request parameters, specified as a JSON string.
     shared_ptr<string> params_ {};
   };
 

@@ -75,14 +75,30 @@ namespace Models
 
 
   protected:
+    // The user\\"s nickname.
+    // 
     // This parameter is required.
     shared_ptr<string> nickname_ {};
+    // The user\\"s password.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // The IDs of productions to add the user to. You can specify multiple IDs separated by commas.
+    // 
+    // > - A user can be added to multiple productions.
+    // 
     // This parameter is required.
     shared_ptr<string> productionIds_ {};
+    // The user name prefix for the sub-account. The prefix must meet the following requirements:
+    // 
+    // - The prefix can be up to 50 characters long and must be unique within the workspace.
+    // 
+    // - The system automatically generates a user login name in the format: {UserNamePrefix}.{WorkspaceCode}@{AlibabaCloudUID}.yikeai.
+    // 
     // This parameter is required.
     shared_ptr<string> userNamePrefix_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

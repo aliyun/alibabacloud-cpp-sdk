@@ -98,14 +98,17 @@ namespace Models
     shared_ptr<string> code_ {};
     // The state of the index. Valid values:
     // 
-    // *   active: the index is enabled.
-    // *   Deactive: the index is not enabled.
+    // - active: the index is enabled.
+    // 
+    // - Deactive: the index is not enabled.
     shared_ptr<string> indexStatus_ {};
     // The category of the index. Valid values:
     // 
-    // *   mm: large visual model.
-    // *   face: face recognition.
-    // *   aiLabel: smart tagging.
+    // - mm: large visual model.
+    // 
+    // - face: face recognition.
+    // 
+    // - aiLabel: smart tagging.
     shared_ptr<string> indexType_ {};
     // The total number of media assets.
     shared_ptr<string> mediaTotal_ {};
@@ -115,8 +118,9 @@ namespace Models
     shared_ptr<string> searchLibName_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
   };
 

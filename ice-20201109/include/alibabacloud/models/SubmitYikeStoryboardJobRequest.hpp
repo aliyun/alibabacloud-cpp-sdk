@@ -158,19 +158,39 @@ namespace Models
 
 
   protected:
+    // The aspect ratio of the output video.
     shared_ptr<string> aspectRatio_ {};
+    // The storyboard generation execution mode.
+    // 
+    // - `FullPipeline`: Executes the full generation pipeline, including both storyboard creation and shot video generation.
+    // 
+    // - `StoryboardOnly`: Generates only the storyboard.
     shared_ptr<string> execMode_ {};
+    // The OSS address of the file.
     shared_ptr<string> fileURL_ {};
+    // Parameters for the model, in JSON format.
     shared_ptr<string> modelParams_ {};
+    // The narration voice ID.
     shared_ptr<string> narrationVoiceId_ {};
+    // The resolution of the output video.
     shared_ptr<string> resolution_ {};
+    // The storyboard shot generation mode.
     shared_ptr<string> shotPromptMode_ {};
+    // The shot split mode.
     shared_ptr<string> shotSplitMode_ {};
+    // Specifies whether to skip a failed shot. The default value is `true`.
     shared_ptr<bool> skipFailureShot_ {};
+    // The source type.
     shared_ptr<string> sourceType_ {};
+    // The storyboard style ID.
     shared_ptr<string> styleId_ {};
+    // The job title. It must be a UTF-8 encoded string of up to 128 bytes. If you do not specify a title, the system generates a default one based on the date.
     shared_ptr<string> title_ {};
+    // Custom settings in JSON format. This parameter can contain the following field:
+    // 
+    // - The `NotifyAddress` field specifies the callback URL that is invoked when the job is complete. Both MNS and HTTP callbacks are supported.
     shared_ptr<string> userData_ {};
+    // The video model.
     shared_ptr<string> videoModel_ {};
   };
 

@@ -57,14 +57,21 @@ namespace Models
 
 
   protected:
-    // The additional information that you want to query about the media assets. By default, only BasicInfo is returned. The following additional information can be queried:
+    // The types of additional media asset information to return. If this parameter is not specified, only basic information is returned. Valid values are:
     // 
-    // \\- FileInfo
+    // -FileInfo
     // 
-    // \\- DynamicMetaData
+    // -DynamicMetaData
     shared_ptr<string> additionType_ {};
+    // The authentication timeout, in seconds.
+    // 
+    // - Minimum value: **1**.
+    // 
+    // - Maximum value: 86400.
+    // 
+    // - Default value: 3600.
     shared_ptr<int64_t> authTimeout_ {};
-    // The IDs of the media assets that you want to query. Separate the IDs with commas (,).
+    // A comma-separated list of media asset IDs to query.
     shared_ptr<string> mediaIds_ {};
   };
 

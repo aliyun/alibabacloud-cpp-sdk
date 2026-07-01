@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the storyboard job. This ID is returned in the response when you submit the job.
     shared_ptr<string> jobId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

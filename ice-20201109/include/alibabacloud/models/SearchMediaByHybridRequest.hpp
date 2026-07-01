@@ -112,11 +112,20 @@ namespace Models
 
 
   protected:
+    // Custom filters. A JSON string. Supported backing fields include integer field intField1 and string fields strField1 and strField2. Only one matching condition can be applied per field, and filters across different fields are combined with a logical AND relationship.
+    // 
+    // - Exact match example: {"intField1":12,"strField1":"abc"}
+    // 
+    // - Multi-value example: {"intField1":[12,13],"strField1":["abc","cd"]}
+    // 
+    // - Range example: {"intField1":{"gte":12,"lte":13}}
     shared_ptr<string> customFilters_ {};
     // The ID of the media asset. If provided, the details of the media asset are returned.
     shared_ptr<string> mediaId_ {};
     // The type of media assets. Valid values:
+    // 
     // - image
+    // 
     // - video
     shared_ptr<string> mediaType_ {};
     // The namespace.
@@ -129,6 +138,9 @@ namespace Models
     shared_ptr<string> searchLibName_ {};
     // The natural language search query.
     shared_ptr<string> text_ {};
+    // Creation time, in milliseconds UNIX timestamp. gte means greater than or equal to, and lte means less than or equal to.
+    // 
+    // - Range example: {"gte":1761205662998,"lte":1771205662998}
     shared_ptr<string> utcCreate_ {};
   };
 

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The configuration for the AI Agent instance.
     shared_ptr<string> configShrink_ {};
+    // The ID of the AI Agent instance to update.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

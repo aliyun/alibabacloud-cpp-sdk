@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The production ID.
     shared_ptr<string> productionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

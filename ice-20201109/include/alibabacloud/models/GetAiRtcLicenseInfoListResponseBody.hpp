@@ -98,19 +98,19 @@ namespace Models
 
 
   protected:
-    // The error code returned.
+    // The error code.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // An array of AiRtcLicenseInfoDTO objects, each representing a license batch.
+    // The list of license batch details.
     shared_ptr<vector<AiRtcLicenseInfoDTO>> licenseInfoList_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

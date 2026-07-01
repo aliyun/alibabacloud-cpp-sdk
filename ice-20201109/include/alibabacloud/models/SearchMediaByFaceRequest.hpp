@@ -121,6 +121,13 @@ namespace Models
 
 
   protected:
+    // Custom filters. A JSON string. The following backing fields are supported: intField1 (integer type), strField1 and strField2 (string type). For the same field, only one matching mode can be specified. Filters across different fields are combined with a logical AND relationship.
+    // 
+    // - Exact match, for example: {"intField1":12,"strField1":"abc"}
+    // 
+    // - Multi-value match, for example: {"intField1":[12,13],"strField1":["abc","cd"]}
+    // 
+    // - Range match, for example: {"intField1":{"gte":12,"lte":13}}
     shared_ptr<string> customFilters_ {};
     // The ID of the entity.
     shared_ptr<string> entityId_ {};
@@ -130,9 +137,11 @@ namespace Models
     shared_ptr<string> faceSearchToken_ {};
     // The type of the media asset. Valid values:
     // 
-    // *   image
-    // *   video
+    // - image
+    // 
+    // - video
     shared_ptr<string> mediaType_ {};
+    // Namespace.
     shared_ptr<string> namespace_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
@@ -144,6 +153,9 @@ namespace Models
     shared_ptr<string> personImageUrl_ {};
     // The name of the search library.
     shared_ptr<string> searchLibName_ {};
+    // Creation time, in milliseconds UNIX timestamp. Use gte for greater than or equal to, and lte for less than or equal to.
+    // 
+    // - Example range: {"gte":1761205662998,"lte":1771205662998}
     shared_ptr<string> utcCreate_ {};
   };
 

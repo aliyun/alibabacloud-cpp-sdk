@@ -89,8 +89,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   asc
-    // *   desc
+    // - asc
+    // 
+    // - desc
     shared_ptr<string> sortBy_ {};
   };
 

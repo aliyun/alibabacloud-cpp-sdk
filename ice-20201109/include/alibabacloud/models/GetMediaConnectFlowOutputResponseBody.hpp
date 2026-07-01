@@ -169,6 +169,7 @@ namespace Models
       shared_ptr<string> cidrs_ {};
       // The time when the flow was created.
       shared_ptr<string> createTime_ {};
+      // Indicates whether the output is disabled. Valid values: yes or no.
       shared_ptr<string> forbid_ {};
       // The output name.
       shared_ptr<string> outputName_ {};
@@ -176,11 +177,15 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   RTMP-PUSH
-      // *   SRT-Caller
-      // *   RTMP-PULL
-      // *   SRT-Listener
-      // *   Flow
+      // - RTMP-PUSH
+      // 
+      // - SRT-Caller
+      // 
+      // - RTMP-PULL
+      // 
+      // - SRT-Listener
+      // 
+      // - Flow
       shared_ptr<string> outputProtocol_ {};
       // The output URL.
       shared_ptr<string> outputUrl_ {};
@@ -198,10 +203,13 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   0
-      // *   16
-      // *   24
-      // *   32
+      // - 0
+      // 
+      // - 16
+      // 
+      // - 24
+      // 
+      // - 32
       shared_ptr<int32_t> srtPbkeyLen_ {};
     };
 

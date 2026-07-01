@@ -102,8 +102,9 @@ namespace Models
     shared_ptr<string> nextPageToken_ {};
     // The order that you use to sort the query results. Valid values:
     // 
-    // *   CreateTimeDesc: sorts the query results by creation time in descending order.
-    // *   CreateTimeAsc: sorts the query results by creation time in ascending order.
+    // - CreateTimeDesc: sorts the query results by creation time in descending order.
+    // 
+    // - CreateTimeAsc: sorts the query results by creation time in ascending order.
     shared_ptr<string> orderBy_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
@@ -111,9 +112,11 @@ namespace Models
     shared_ptr<string> startOfCreateTime_ {};
     // The state of the job. Valid values:
     // 
-    // *   Init: The job is submitted.
-    // *   Success: The job is successful.
-    // *   Fail: The job failed.
+    // - Init: The job is submitted.
+    // 
+    // - Success: The job is successful.
+    // 
+    // - Fail: The job failed.
     shared_ptr<string> status_ {};
   };
 

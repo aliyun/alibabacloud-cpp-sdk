@@ -76,7 +76,17 @@ namespace Models
 
 
     protected:
+      // Phone number.
       shared_ptr<string> phoneNumber_ {};
+      // Phone number status.
+      // 
+      // - 1: "Activation in progress".
+      // 
+      // - 2: "Normal".
+      // 
+      // - 3: "Deactivation in progress".
+      // 
+      // - 4: "Deactivated".
       shared_ptr<int32_t> status_ {};
     };
 
@@ -120,10 +130,15 @@ namespace Models
 
 
   protected:
+    // Array of returned Data.
     shared_ptr<vector<ListAIAgentPhoneNumberResponseBody::Data>> data_ {};
+    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of records returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of phone numbers found in the query.
     shared_ptr<int32_t> totalNumber_ {};
   };
 

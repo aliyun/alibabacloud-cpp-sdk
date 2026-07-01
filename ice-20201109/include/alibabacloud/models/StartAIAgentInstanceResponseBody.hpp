@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique ID of the agent instance.
     shared_ptr<string> instanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

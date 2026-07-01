@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The input of the job.
+    // The input for the job.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
     // The job name.
     shared_ptr<string> name_ {};
-    // The scheduling parameters.
+    // The scheduling settings.
     shared_ptr<string> scheduleConfigShrink_ {};
-    // The user data.
+    // The custom user data.
     shared_ptr<string> userData_ {};
   };
 

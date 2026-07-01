@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The purchase status.
     shared_ptr<string> purchaseStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

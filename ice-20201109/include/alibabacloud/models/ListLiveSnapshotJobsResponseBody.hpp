@@ -120,11 +120,11 @@ namespace Models
 
 
       protected:
-        // The bucket of the output endpoint. If the storage type is set to oss, the OSS bucket is returned.
+        // The name of the OSS Bucket.
         shared_ptr<string> bucket_ {};
-        // The output endpoint. If the storage type is set to oss, the Object Storage Service (OSS) domain name is returned.
+        // The domain name of the OSS endpoint.
         shared_ptr<string> endpoint_ {};
-        // The storage type. The value can only be oss.
+        // The storage type. Only Object Storage Service (OSS) is supported.
         shared_ptr<string> storageType_ {};
       };
 
@@ -190,27 +190,21 @@ namespace Models
 
 
     protected:
-      // The time when the template was created.
+      // The creation time of the job.
       shared_ptr<string> createTime_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The name of the job.
+      // The job name.
       shared_ptr<string> jobName_ {};
-      // The output information.
+      // Details of the snapshot output.
       shared_ptr<JobList::SnapshotOutput> snapshotOutput_ {};
-      // The state of the job.
-      // 
-      // Valid values:
-      // 
-      // *   init: The job is not started.
-      // *   paused: The job is paused.
-      // *   started: The job is in progress.
+      // The job status.
       shared_ptr<string> status_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The interval between two adjacent snapshots. Unit: seconds.
+      // The interval between snapshots, in seconds.
       shared_ptr<int32_t> timeInterval_ {};
     };
 
@@ -265,13 +259,13 @@ namespace Models
     shared_ptr<vector<ListLiveSnapshotJobsResponseBody::JobList>> jobList_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of jobs to return per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sorting order of the jobs by creation time.
+    // The sort order for the job list. For example, "desc" indicates descending order.
     shared_ptr<string> sortBy_ {};
-    // The total number of entries returned.
+    // The total number of jobs found.
     shared_ptr<int64_t> totalCount_ {};
   };
 

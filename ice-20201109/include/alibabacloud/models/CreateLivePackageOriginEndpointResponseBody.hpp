@@ -202,6 +202,7 @@ namespace Models
       shared_ptr<string> ipWhitelist_ {};
       // The time when the endpoint was last modified.
       shared_ptr<string> lastModified_ {};
+      // Live packaging configuration
       shared_ptr<LivePackagingConfig> livePackagingConfig_ {};
       // The playlist name.
       shared_ptr<string> manifestName_ {};

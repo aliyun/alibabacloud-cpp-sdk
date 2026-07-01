@@ -163,7 +163,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The upload URL of the source file.
       // 
-      // >  A maximum of 100 URLs can be returned.
+      // > A maximum of 100 URLs can be returned.
       shared_ptr<string> uploadURL_ {};
       // The user data. The value is a JSON string.
       shared_ptr<string> userData_ {};

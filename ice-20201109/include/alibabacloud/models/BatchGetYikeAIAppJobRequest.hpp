@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // A list of job IDs, separated by commas.
     shared_ptr<string> jobIds_ {};
   };
 

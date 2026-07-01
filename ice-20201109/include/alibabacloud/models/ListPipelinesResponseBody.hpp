@@ -132,8 +132,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Active
-      // *   Paused
+      // - Active
+      // 
+      // - Paused
       shared_ptr<string> status_ {};
     };
 

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the AI agent.
+    // 
     // This parameter is required.
     shared_ptr<string> AIAgentId_ {};
   };

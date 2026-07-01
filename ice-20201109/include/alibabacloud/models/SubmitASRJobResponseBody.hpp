@@ -57,16 +57,19 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // The ID of the intelligent job.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The job state. Valid values:
+    // The job status. Valid values:
     // 
-    // *   Created
-    // *   Executing
-    // *   Finished
-    // *   Failed
+    // - Created
+    // 
+    // - Executing
+    // 
+    // - Finished
+    // 
+    // - Failed
     shared_ptr<string> state_ {};
   };
 

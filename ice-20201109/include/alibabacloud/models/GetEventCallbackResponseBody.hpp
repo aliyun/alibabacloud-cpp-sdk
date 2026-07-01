@@ -98,15 +98,17 @@ namespace Models
     shared_ptr<string> authKey_ {};
     // Specifies whether callback authentication is enabled. This parameter is returned only for **HTTP** callbacks. Valid values:
     // 
-    // *   **on**
-    // *   **off**
+    // - **on**
+    // 
+    // - **off**
     shared_ptr<string> authSwitch_ {};
     // The name of the Simple Message Queue (SMQ) queue to which callback messages are sent.
     shared_ptr<string> callbackQueueName_ {};
     // The callback method. Valid values:
     // 
-    // *   **HTTP**
-    // *   **MNS**
+    // - **HTTP**
+    // 
+    // - **MNS**
     shared_ptr<string> callbackType_ {};
     // The callback URL to which event notifications are sent.
     shared_ptr<string> callbackURL_ {};

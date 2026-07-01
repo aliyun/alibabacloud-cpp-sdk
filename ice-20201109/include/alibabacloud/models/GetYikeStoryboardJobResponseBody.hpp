@@ -111,11 +111,17 @@ namespace Models
 
 
     protected:
+      // A list of IDs for storyboards that encountered an exception.
       shared_ptr<string> exceptionStoryboardIds_ {};
+      // A list of shots that failed to generate.
       shared_ptr<string> failureShotList_ {};
+      // The downloadable OSS URL.
       shared_ptr<string> outputUrl_ {};
+      // Detailed information about each storyboard in the job.
       shared_ptr<string> storyboardInfoList_ {};
+      // A comma-separated list of successful storyboard IDs.
       shared_ptr<string> successStoryboardIds_ {};
+      // A list of IDs for successful storyboards.
       shared_ptr<string> successStoryboardList_ {};
     };
 
@@ -239,16 +245,31 @@ namespace Models
 
 
     protected:
+      // The aspect ratio of the video.
       shared_ptr<string> aspectRatio_ {};
+      // The OSS URL of the file.
       shared_ptr<string> fileURL_ {};
+      // The model parameters.
       shared_ptr<string> modelParams_ {};
+      // The narration voice.
       shared_ptr<string> narrationVoiceId_ {};
+      // The resolution of the generated video.
       shared_ptr<string> resolution_ {};
+      // The shot generation mode.
       shared_ptr<string> shotPromptMode_ {};
+      // The shot splitting mode.
       shared_ptr<string> shotSplitMode_ {};
+      // The source type.
       shared_ptr<string> sourceType_ {};
+      // The style ID.
       shared_ptr<string> styleId_ {};
+      // The job title.
+      // 
+      // \\- Maximum length: 128 bytes.
+      // 
+      // \\- UTF-8 encoding.
       shared_ptr<string> title_ {};
+      // The video model.
       shared_ptr<string> videoModel_ {};
     };
 
@@ -294,10 +315,21 @@ namespace Models
 
 
   protected:
+    // The storyboard job ID. You can obtain this ID from the response parameters of the [SubmitStoryboardJob](https://help.aliyun.com/document_detail/461964.html) operation.
     shared_ptr<string> jobId_ {};
+    // A JSON object that contains the parameters for the job. The structure of this object varies based on the AI algorithm.
     shared_ptr<GetYikeStoryboardJobResponseBody::JobParams> jobParams_ {};
+    // The job result.
     shared_ptr<GetYikeStoryboardJobResponseBody::JobResult> jobResult_ {};
+    // The job status. Valid values:
+    // 
+    // - **Succeeded**: The job completed successfully.
+    // 
+    // - **Failed**: The job failed to complete.
+    // 
+    // - **Running**: The job is in progress.
     shared_ptr<string> jobStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

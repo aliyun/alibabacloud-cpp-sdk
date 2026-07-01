@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The ID of the video translation job.
+      // The video translation job ID.
       shared_ptr<string> jobId_ {};
     };
 
@@ -99,8 +99,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

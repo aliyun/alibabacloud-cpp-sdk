@@ -100,11 +100,11 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<SubmitCopyrightExtractJobResponseBody::Data> data_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The status code.
     shared_ptr<int64_t> statusCode_ {};

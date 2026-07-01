@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The amount of credit to deduct. The value must be greater than 0 and cannot exceed the credit balance of the sub-account.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> credit_ {};
+    // The user ID of the sub-account.
+    // 
     // This parameter is required.
     shared_ptr<string> yikeUserId_ {};
   };

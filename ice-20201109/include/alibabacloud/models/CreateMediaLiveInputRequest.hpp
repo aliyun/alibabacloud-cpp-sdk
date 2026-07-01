@@ -135,9 +135,15 @@ namespace Models
       shared_ptr<string> flowOutputName_ {};
       // The source URL from which the stream is pulled. This parameter is required for PULL inputs.
       shared_ptr<string> sourceUrl_ {};
+      // The latency of the SRT stream, in milliseconds (ms). Valid values: [100, 10000]. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
       shared_ptr<int32_t> srtLatency_ {};
+      // The maximum bitrate of the SRT stream, in bits per second (bps). Valid values: [100, 100000000]. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
       shared_ptr<int32_t> srtMaxBitrate_ {};
+      // The SRT encryption configuration. The password for the SRT stream consists of 10 to 79 visible ASCII characters. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
+      // 
+      // If the encryption configuration is not empty, all SRT clients must use the correct password to publish or playback; otherwise, the SRT connection will be denied.
       shared_ptr<string> srtPassphrase_ {};
+      // The SRT encryption configuration. The key length for the SRT stream. Valid values: 0, 16, 24, 32. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
       shared_ptr<int32_t> srtPbKeyLen_ {};
       // The name of the pushed stream. This parameter is required for PUSH inputs. It can be up to 255 characters in length.
       shared_ptr<string> streamName_ {};

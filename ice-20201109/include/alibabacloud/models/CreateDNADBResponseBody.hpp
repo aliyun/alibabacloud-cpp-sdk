@@ -96,15 +96,15 @@ namespace Models
 
 
     protected:
-      // The ID of the media fingerprint library. We recommend that you save this ID for subsequent calls of other operations.
+      // The DNA database ID. Save this ID for use in subsequent API calls.
       shared_ptr<string> DBId_ {};
-      // The description of the media fingerprint library.
+      // The description of the DNA database.
       shared_ptr<string> description_ {};
-      // The model of the media fingerprint library.
+      // The DNA database model.
       shared_ptr<string> model_ {};
-      // The name of the media fingerprint library.
+      // The name of the DNA database.
       shared_ptr<string> name_ {};
-      // The state of the media fingerprint library. After a media fingerprint library is created, it enters the offline state. After the media fingerprint library is processed at the backend, it enters the active state.
+      // After you create the database, its status is `offline` by default. The status automatically changes to `active` after the backend completes processing.
       shared_ptr<string> status_ {};
     };
 
@@ -127,7 +127,7 @@ namespace Models
 
 
   protected:
-    // The details of the media fingerprint library.
+    // The details of the DNA database.
     shared_ptr<CreateDNADBResponseBody::DBInfo> DBInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

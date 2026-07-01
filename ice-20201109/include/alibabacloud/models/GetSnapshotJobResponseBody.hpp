@@ -192,8 +192,9 @@ namespace Models
       protected:
         // The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
         // 
-        // 1.  oss://bucket/object
-        // 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+        // 1. oss\\://bucket/object
+        // 
+        // 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
         // 
         // In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
         shared_ptr<string> media_ {};
@@ -201,8 +202,9 @@ namespace Models
         shared_ptr<Output::OssFile> ossFile_ {};
         // The type of the output file. Valid values:
         // 
-        // 1.  OSS: an OSS object.
-        // 2.  Media: a media asset.
+        // 1. OSS: an OSS object.
+        // 
+        // 2. Media: a media asset.
         shared_ptr<string> type_ {};
       };
 
@@ -312,15 +314,17 @@ namespace Models
       protected:
         // The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
         // 
-        // 1.  oss://bucket/object
-        // 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+        // 1. oss\\://bucket/object
+        // 
+        // 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
         shared_ptr<string> media_ {};
         // The three key elements of OSS.
         shared_ptr<Input::OssFile> ossFile_ {};
         // The type of the input file. Valid values:
         // 
-        // 1.  OSS: an Object Storage Service (OSS) object.
-        // 2.  Media: a media asset.
+        // 1. OSS: an Object Storage Service (OSS) object.
+        // 
+        // 2. Media: a media asset.
         shared_ptr<string> type_ {};
       };
 
@@ -495,9 +499,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Init: The job is submitted.
-      // *   Success: The job is successful.
-      // *   Fail: The job failed.
+      // - Init: The job is submitted.
+      // 
+      // - Success: The job is successful.
+      // 
+      // - Fail: The job failed.
       shared_ptr<string> status_ {};
       // The time when the job was submitted.
       shared_ptr<string> submitTime_ {};
@@ -509,17 +515,21 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Console
-      // *   Workflow
-      // *   API
+      // - Console
+      // 
+      // - Workflow
+      // 
+      // - API
       shared_ptr<string> triggerSource_ {};
       // Snapshot types
       // 
       // Valid values:
       // 
-      // *   WebVtt
-      // *   Sprite
-      // *   Normal
+      // - WebVtt
+      // 
+      // - Sprite
+      // 
+      // - Normal
       shared_ptr<string> type_ {};
       // The user-defined parameters.
       shared_ptr<string> userData_ {};

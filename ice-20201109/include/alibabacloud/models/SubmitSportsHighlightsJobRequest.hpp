@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A client-generated token to ensure request idempotency.
     shared_ptr<string> clientToken_ {};
-    // The input configurations.
+    // The input configuration. For more information, see [input configuration parameters](~~2843158#5cbc796a9cuu8~~).
     shared_ptr<string> inputConfig_ {};
-    // The output configurations.
+    // The output configuration. For more information, see [output configuration parameters](~~2843158#b7dad99fe5q0r~~).
     shared_ptr<string> outputConfig_ {};
-    // The user-defined data.
+    // The user data, containing business and callback configurations. For more information about the structure, see [user data configuration](https://help.aliyun.com/document_detail/357745.html).
     shared_ptr<string> userData_ {};
   };
 

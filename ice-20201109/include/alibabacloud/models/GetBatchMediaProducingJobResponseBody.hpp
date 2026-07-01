@@ -170,6 +170,7 @@ namespace Models
 
 
       protected:
+        // The duration of the output video, in seconds (s).
         shared_ptr<float> duration_ {};
         // The error code that is returned if the subjob failed. This parameter is not returned if the subjob is successful.
         shared_ptr<string> errorCode_ {};
@@ -314,12 +315,39 @@ namespace Models
       // 
       // ErrorMessage: the error message of the main job.
       shared_ptr<string> extend_ {};
+      // Additional input.
+      // 
+      // - When JobType is Smart_Mix_Timeline_Organize or Screen_Media_Highlights_Timeline_Organize, the additional input is the material selection result.
+      // 
+      // - When JobType is Scene_Batch_Editing, the additional input is a list of video editing project IDs.
       shared_ptr<string> extendInput_ {};
+      // Additional outputs.
+      // 
+      // - When JobType is Smart_Mix_Media_Select or Screen_Media_Highlights_Media_Select, material selection results are additionally returned.
       shared_ptr<string> extendOutput_ {};
       // The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
       shared_ptr<string> inputConfig_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
+      // Task Type:
+      // 
+      // - Script (Script-based automated video editing)
+      // 
+      // - Smart_Mix (Intelligent text-to-media matching for video editing)
+      // 
+      // - Sports_Highlights (Sporting event highlights compilation)
+      // 
+      // - Screen_Media_Highlights (High-energy multi-media mashup editing)
+      // 
+      // - Smart_Mix_Media_Select (Intelligent matching – Material selection)
+      // 
+      // - Smart_Mix_Timeline_Organize (Intelligent matching – Timeline orchestration)
+      // 
+      // - Screen_Media_Highlights_Media_Select (High-energy mashup – Material selection)
+      // 
+      // - Screen_Media_Highlights_Timeline_Organize (High-energy mashup – Timeline orchestration)
+      // 
+      // - Scene_Batch_Editing (Batch synthesis across multiple timelines)
       shared_ptr<string> jobType_ {};
       // The time when the job was last modified.
       // 

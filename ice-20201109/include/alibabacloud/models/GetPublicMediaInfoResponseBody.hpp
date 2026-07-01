@@ -214,21 +214,35 @@ namespace Models
 
 
       protected:
+        // Media asset business type
         shared_ptr<string> businessType_ {};
+        // categorization
         shared_ptr<string> category_ {};
+        // thumbnail URL
         shared_ptr<string> coverURL_ {};
+        // Media asset creation time
         shared_ptr<string> createTime_ {};
+        // Media asset deletion time
         shared_ptr<string> deletedTime_ {};
+        // Content description
         shared_ptr<string> description_ {};
         // MediaId
         shared_ptr<string> mediaId_ {};
+        // label
         shared_ptr<string> mediaTags_ {};
+        // media asset Type
         shared_ptr<string> mediaType_ {};
+        // Updated At
         shared_ptr<string> modifiedTime_ {};
+        // Source
         shared_ptr<string> source_ {};
+        // sprite
         shared_ptr<string> spriteImages_ {};
+        // Resource status
         shared_ptr<string> status_ {};
+        // title
         shared_ptr<string> title_ {};
+        // User Data
         shared_ptr<string> userData_ {};
       };
 
@@ -497,29 +511,53 @@ namespace Models
 
 
         protected:
+          // average frame rate
           shared_ptr<string> avgFPS_ {};
+          // bitrate
           shared_ptr<string> bitrate_ {};
+          // Long name of the encoding format
           shared_ptr<string> codecLongName_ {};
+          // Encoding format short name
           shared_ptr<string> codecName_ {};
+          // Encoding format tag
           shared_ptr<string> codecTag_ {};
+          // Encoding format mark text
           shared_ptr<string> codecTagString_ {};
+          // Codec time base
           shared_ptr<string> codecTimeBase_ {};
+          // Encoded display aspect ratio
           shared_ptr<string> dar_ {};
+          // Duration
           shared_ptr<string> duration_ {};
+          // video frame rate
           shared_ptr<string> fps_ {};
+          // Whether B-frames are present
           shared_ptr<string> hasBFrames_ {};
+          // Height
           shared_ptr<string> height_ {};
+          // Video stream ordinal number
           shared_ptr<string> index_ {};
+          // Language
           shared_ptr<string> lang_ {};
+          // Encoding Level
           shared_ptr<string> level_ {};
+          // total number of frames
           shared_ptr<string> nbFrames_ {};
+          // Total number of frames
           shared_ptr<string> numFrames_ {};
+          // Pixel format
           shared_ptr<string> pixFmt_ {};
+          // codec profile
           shared_ptr<string> profile_ {};
+          // rotate
           shared_ptr<string> rotate_ {};
+          // Sample Aspect Ratio (SAR)
           shared_ptr<string> sar_ {};
+          // start time
           shared_ptr<string> startTime_ {};
+          // time base
           shared_ptr<string> timebase_ {};
+          // Width
           shared_ptr<string> width_ {};
         };
 
@@ -634,15 +672,25 @@ namespace Models
 
 
         protected:
+          // Long name of encoding format
           shared_ptr<string> codecLongName_ {};
+          // Brief name of encoding format
           shared_ptr<string> codecName_ {};
+          // Encoding format tag
           shared_ptr<string> codecTag_ {};
+          // Encoding format mark text
           shared_ptr<string> codecTagString_ {};
+          // Codec time base
           shared_ptr<string> codecTimeBase_ {};
+          // Duration
           shared_ptr<string> duration_ {};
+          // Caption stream ordinal number
           shared_ptr<string> index_ {};
+          // Language
           shared_ptr<string> lang_ {};
+          // Start time
           shared_ptr<string> startTime_ {};
+          // Time base
           shared_ptr<string> timebase_ {};
         };
 
@@ -766,16 +814,27 @@ namespace Models
 
 
         protected:
+          // Bitrate
           shared_ptr<string> bitrate_ {};
+          // Duration
           shared_ptr<string> duration_ {};
+          // File name
           shared_ptr<string> fileName_ {};
+          // File Size (bytes)
           shared_ptr<string> fileSize_ {};
+          // File status
           shared_ptr<string> fileStatus_ {};
+          // File type
           shared_ptr<string> fileType_ {};
+          // Preview or sample playback URL for the copyrighted media asset.
           shared_ptr<string> fileUrl_ {};
+          // Container format
           shared_ptr<string> formatName_ {};
+          // Height
           shared_ptr<string> height_ {};
+          // File storage area
           shared_ptr<string> region_ {};
+          // Width
           shared_ptr<string> width_ {};
         };
 
@@ -964,23 +1023,41 @@ namespace Models
 
 
         protected:
+          // bitrate
           shared_ptr<string> bitrate_ {};
+          // Sound channel output layout
           shared_ptr<string> channelLayout_ {};
+          // the number of sound channels
           shared_ptr<string> channels_ {};
+          // Long name of the encoding format
           shared_ptr<string> codecLongName_ {};
+          // short name of the encoding format
           shared_ptr<string> codecName_ {};
+          // Encoding format tag
           shared_ptr<string> codecTag_ {};
+          // Encoding format tag text
           shared_ptr<string> codecTagString_ {};
+          // Codec time base
           shared_ptr<string> codecTimeBase_ {};
+          // Duration
           shared_ptr<string> duration_ {};
+          // Audio frame rate
           shared_ptr<string> fps_ {};
+          // Audio stream ordinal number
           shared_ptr<string> index_ {};
+          // Language
           shared_ptr<string> lang_ {};
+          // Total number of frames
           shared_ptr<string> numFrames_ {};
+          // codec profile
           shared_ptr<string> profile_ {};
+          // Sampling format
           shared_ptr<string> sampleFmt_ {};
+          // Sample rate
           shared_ptr<string> sampleRate_ {};
+          // Start time
           shared_ptr<string> startTime_ {};
+          // Timebase
           shared_ptr<string> timebase_ {};
         };
 
@@ -1023,9 +1100,13 @@ namespace Models
 
 
       protected:
+        // Audio stream information. A media asset may contain multiple audio streams.
         shared_ptr<vector<FileInfoList::AudioStreamInfoList>> audioStreamInfoList_ {};
+        // Basic file information, including duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
+        // Caption stream information. A media asset may have multiple caption streams.
         shared_ptr<vector<FileInfoList::SubtitleStreamInfoList>> subtitleStreamInfoList_ {};
+        // Video stream information; a media asset may contain multiple video streams.
         shared_ptr<vector<FileInfoList::VideoStreamInfoList>> videoStreamInfoList_ {};
       };
 
@@ -1067,7 +1148,15 @@ namespace Models
 
 
       protected:
+        // Metadata in JSON format
         shared_ptr<string> data_ {};
+        // Type. Valid values:
+        // 
+        // - "ai": AI data processed from raw AI results
+        // 
+        // - "user-defined": User-defined metadata
+        // 
+        // - "system": System-provided
         shared_ptr<string> type_ {};
       };
 
@@ -1108,11 +1197,13 @@ namespace Models
 
 
     protected:
+      // Public media asset dynamic metadata
       shared_ptr<MediaInfo::DynamicMetaData> dynamicMetaData_ {};
       // FileInfos
       shared_ptr<vector<MediaInfo::FileInfoList>> fileInfoList_ {};
       // BasicInfo
       shared_ptr<MediaInfo::MediaBasicInfo> mediaBasicInfo_ {};
+      // Media asset ID
       shared_ptr<string> mediaId_ {};
     };
 
@@ -1135,6 +1226,7 @@ namespace Models
 
 
   protected:
+    // Media asset information
     shared_ptr<GetPublicMediaInfoResponseBody::MediaInfo> mediaInfo_ {};
     // RequestId
     shared_ptr<string> requestId_ {};

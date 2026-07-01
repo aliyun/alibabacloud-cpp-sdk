@@ -98,15 +98,19 @@ namespace Models
       shared_ptr<string> gmtSubmit_ {};
       // The index type. Valid values:
       // 
-      // *   mm: large visual model.
-      // *   face: face recognition.
-      // *   aiLabel: smart tagging.
+      // - mm: large visual model.
+      // 
+      // - face: face recognition.
+      // 
+      // - aiLabel: smart tagging.
       shared_ptr<string> indexType_ {};
       // The job status. Valid values:
       // 
-      // *   Running
-      // *   Success
-      // *   Fail
+      // - Running
+      // 
+      // - Success
+      // 
+      // - Fail
       shared_ptr<string> status_ {};
     };
 
@@ -151,8 +155,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
   };
 

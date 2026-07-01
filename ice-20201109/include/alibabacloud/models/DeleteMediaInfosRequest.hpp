@@ -63,13 +63,14 @@ namespace Models
     shared_ptr<bool> deletePhysicalFiles_ {};
     // The URL of the media asset that you want to delete. The file corresponding to the URL must be registered with IMS. Separate multiple URLs with commas (,). The following two formats are supported:
     // 
-    // 1.  http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?
-    // 2.  OSS://example-bucket/example.mp4?\\
-    //     In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+    // 1. http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?
+    // 
+    // 2. OSS://example-bucket/example.mp4?<br>
+    //    In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
     shared_ptr<string> inputURLs_ {};
     // The ID of the media asset that you want to delete from Intelligent Media Services (IMS).
     // 
-    // *   Separate multiple IDs with commas (,).
+    // - Separate multiple IDs with commas (,).
     // 
     // If you leave MediaIds empty, you must specify InputURLs.
     shared_ptr<string> mediaIds_ {};

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier for the submitted job.
     shared_ptr<string> jobId_ {};
+    // A unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

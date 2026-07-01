@@ -132,8 +132,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   system
-    // *   custom
+    // - system
+    // 
+    // - custom
     shared_ptr<string> type_ {};
   };
 

@@ -95,16 +95,22 @@ namespace Models
 
   protected:
     shared_ptr<string> audioOssPath_ {};
+    // The URL where event callbacks are sent.
     shared_ptr<string> callbackUrl_ {};
     shared_ptr<bool> enableAudioRecording_ {};
+    // Indicates whether notifications are enabled.
     shared_ptr<bool> enableNotify_ {};
-    // The event types. If this parameter is empty, all event types are selected.
+    // The event types. If you do not specify this parameter, all event types are selected by default.
     // 
-    // *   agent_start: The agent is started.
-    // *   agent_stop: The agent is stopped.
-    // *   error: An error occurred.
+    // - `agent_start`: The agent is ready.
+    // 
+    // - `agent_stop`: The agent is stopped.
+    // 
+    // - `error`: The task encountered an error.
     shared_ptr<string> eventTypes_ {};
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // The authentication token used to verify the callback. This token is included in the `Authorization` field of the request header for each event callback.
     shared_ptr<string> token_ {};
   };
 

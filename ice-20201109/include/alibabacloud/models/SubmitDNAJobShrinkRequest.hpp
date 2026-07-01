@@ -130,21 +130,21 @@ namespace Models
 
 
   protected:
-    // The configurations of the media fingerprint analysis job. The value is a JSON object. If you specify this parameter, the template parameters are overwritten.
+    // The DNA configuration in JSON format. If specified, these settings override the corresponding template parameters.
     shared_ptr<string> config_ {};
-    // The ID of the media fingerprint library. If you do not specify this parameter, the default media fingerprint library is used. For more information about how to create a media fingerprint library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
+    // The DNA library ID. To create a DNA library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
     // 
     // This parameter is required.
     shared_ptr<string> DBId_ {};
-    // The input file for media fingerprint analysis.
+    // The input DNA file.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the ApsaraVideo Media Processing (MPS) queue to which the media fingerprint analysis job is submitted.
+    // The pipeline ID.
     shared_ptr<string> pipelineId_ {};
-    // The primary key of the video. You must make sure that each primary key is unique.
+    // The unique primary key for the video. You are responsible for ensuring its uniqueness.
     // 
     // This parameter is required.
     shared_ptr<string> primaryKey_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The template ID.
     shared_ptr<string> templateId_ {};
-    // The user-defined data. The data can be up to 128 bytes in length.
+    // The user-defined data. The maximum length is 128 bytes.
     shared_ptr<string> userData_ {};
   };
 

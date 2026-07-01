@@ -223,8 +223,9 @@ namespace Models
       shared_ptr<string> projectId_ {};
       // The type of the editing project. Valid values:
       // 
-      // *   EditingProject: a regular editing project.
-      // *   LiveEditingProject: a live stream editing project.
+      // - EditingProject: a regular editing project.
+      // 
+      // - LiveEditingProject: a live stream editing project.
       shared_ptr<string> projectType_ {};
       // The status of the online editing project. Valid values:
       // 
@@ -240,8 +241,9 @@ namespace Models
       shared_ptr<string> status_ {};
       // The template type. Valid values:
       // 
-      // *   Timeline: a regular template.
-      // *   VETemplate: an advanced template.
+      // - Timeline: a regular template.
+      // 
+      // - VETemplate: an advanced template.
       shared_ptr<string> templateType_ {};
       // The title of the online editing project.
       shared_ptr<string> title_ {};

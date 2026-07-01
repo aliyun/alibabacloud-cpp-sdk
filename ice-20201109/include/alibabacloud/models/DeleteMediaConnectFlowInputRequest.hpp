@@ -52,6 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
+    // Input name. Required when primary/standby input is enabled for the instance.
     shared_ptr<string> inputName_ {};
   };
 

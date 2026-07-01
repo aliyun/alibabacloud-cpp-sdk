@@ -136,10 +136,15 @@ namespace Models
 
 
       protected:
+        // The format of the attachment, such as mp3, wav, or pdf.
         shared_ptr<string> format_ {};
+        // The unique identifier of the attachment.
         shared_ptr<string> id_ {};
+        // The file name of the attachment.
         shared_ptr<string> name_ {};
+        // The attachment type, represented by a numeric value. The meaning of this value is defined by your business logic.
         shared_ptr<int32_t> type_ {};
+        // The URL of the attachment.
         shared_ptr<string> url_ {};
       };
 
@@ -226,43 +231,51 @@ namespace Models
 
 
     protected:
+      // A list of file attachments referenced in the dialogue.
       shared_ptr<vector<Dialogues::AttachedFileList>> attachedFileList_ {};
-      // The unique ID of the dialog.
+      // The unique ID of the dialogue.
       shared_ptr<string> dialogueId_ {};
+      // A JSON-formatted string for extended information. Use this field to store custom data, such as sentiment labels or intent recognition results.
       shared_ptr<string> extend_ {};
+      // The ID of the workflow node that generated the dialogue entry, which you can use for tracing.
       shared_ptr<string> nodeId_ {};
-      // The speaker. Valid values: 
+      // The producer of this message.
       // 
-      // - user
-      // - agent
+      // - user: A message from the user.
+      // 
+      // - agent: A message from the agent.
       shared_ptr<string> producer_ {};
-      // The reasoning trace.
+      // The agent\\"s reasoning text, which can reveal its thought process.
       shared_ptr<string> reasoningText_ {};
-      // The ID of the conversational turn.
+      // The ID of the dialogue round.
       shared_ptr<string> roundId_ {};
-      // The source of the message. Valid values:
+      // The source channel of the message. Valid values:
       // 
-      // chat: messaging conversations.
+      // chat: The message is from a text chat.
       // 
-      // call: voice calls.
+      // call: The message is from a voice call.
       shared_ptr<string> source_ {};
-      // The specific content.
+      // The text content of the dialogue entry.
       shared_ptr<string> text_ {};
-      // The UNIX timestamp, measured in milliseconds, which indicates the time when the message was generated.
+      // The Unix timestamp (in milliseconds) when the dialogue entry was created.
       shared_ptr<int64_t> time_ {};
-      // The message type. Valid values:
+      // The type of the message. Valid values include:
       // 
-      // Voice calls:
+      // For a call:
       // 
-      // 1.  greeting: the welcome message.
-      // 2.  normal: the voice response.
-      // 3.  speech: the proactive message.
+      // 1. greeting: A welcome message.
       // 
-      // Messaging conversations:
+      // 2. normal: A standard voice response.
       // 
-      // 1.  normal: the text reply.
-      // 2.  announcement: the proactive text message.
-      // 3.  custom: the custom message.
+      // 3. speech: A proactive voice broadcast.
+      // 
+      // For a chat:
+      // 
+      // 1. normal: A standard text response.
+      // 
+      // 2. announcement: A proactive text push.
+      // 
+      // 3. custom: A custom message.
       shared_ptr<string> type_ {};
     };
 
@@ -285,7 +298,7 @@ namespace Models
 
 
   protected:
-    // The dialog records.
+    // A list of dialogues.
     shared_ptr<vector<ListAIAgentDialoguesResponseBody::Dialogues>> dialogues_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -57,14 +57,17 @@ namespace Models
 
 
   protected:
-    // *   The type of the digital human.
-    // *   2DAvatar
+    // - The type of the digital human.
+    // 
+    // - 2DAvatar
     shared_ptr<string> avatarType_ {};
-    // *   The page number.
-    // *   Default value: 1.
+    // - The page number.
+    // 
+    // - Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // *   The number of entries per page.
-    // *   Default value: 10.
+    // - The number of entries per page.
+    // 
+    // - Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

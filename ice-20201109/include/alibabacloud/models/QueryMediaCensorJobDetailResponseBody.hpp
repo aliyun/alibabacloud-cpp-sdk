@@ -157,7 +157,7 @@ namespace Models
           shared_ptr<string> location_ {};
           // The OSS object that is generated as the output snapshot.
           // 
-          // >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+          // > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
           shared_ptr<string> object_ {};
         };
 
@@ -193,8 +193,9 @@ namespace Models
         shared_ptr<VideoCensorConfig::OutputFile> outputFile_ {};
         // Indicates whether the video content needs to be moderated. Default value: **true**. Valid values:
         // 
-        // *   **true**: The video content needs to be moderated.
-        // *   **false**: The video content does not need to be moderated.
+        // - **true**: The video content needs to be moderated.
+        // 
+        // - **false**: The video content does not need to be moderated.
         shared_ptr<string> videoCensor_ {};
       };
 
@@ -590,13 +591,19 @@ namespace Models
       protected:
         // The label of the moderation result. Valid values:
         // 
-        // *   **normal**: normal content.
-        // *   **spam**: spam.
-        // *   **ad**: ads.
-        // *   **abuse**: abuse content.
-        // *   **flood**: excessive junk content.
-        // *   **contraband**: prohibited content.
-        // *   **meaningless**: meaningless content.
+        // - **normal**: normal content.
+        // 
+        // - **spam**: spam.
+        // 
+        // - **ad**: ads.
+        // 
+        // - **abuse**: abuse content.
+        // 
+        // - **flood**: excessive junk content.
+        // 
+        // - **contraband**: prohibited content.
+        // 
+        // - **meaningless**: meaningless content.
         shared_ptr<string> label_ {};
         // The score.
         shared_ptr<string> rate_ {};
@@ -604,9 +611,11 @@ namespace Models
         shared_ptr<string> scene_ {};
         // The recommended subsequent operation. Valid values:
         // 
-        // *   **pass**: The content passes the moderation.
-        // *   **review**: The content needs to be manually reviewed.
-        // *   **block**: The content needs to be blocked.
+        // - **pass**: The content passes the moderation.
+        // 
+        // - **review**: The content needs to be manually reviewed.
+        // 
+        // - **block**: The content needs to be blocked.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -723,13 +732,19 @@ namespace Models
       protected:
         // The label of the moderation result. Valid values:
         // 
-        // *   **normal**: normal content.
-        // *   **spam**: spam.
-        // *   **ad**: ads.
-        // *   **abuse**: abuse content.
-        // *   **flood**: excessive junk content.
-        // *   **contraband**: prohibited content.
-        // *   **meaningless**: meaningless content.
+        // - **normal**: normal content.
+        // 
+        // - **spam**: spam.
+        // 
+        // - **ad**: ads.
+        // 
+        // - **abuse**: abuse content.
+        // 
+        // - **flood**: excessive junk content.
+        // 
+        // - **contraband**: prohibited content.
+        // 
+        // - **meaningless**: meaningless content.
         shared_ptr<string> label_ {};
         // The score.
         shared_ptr<string> rate_ {};
@@ -737,9 +752,11 @@ namespace Models
         shared_ptr<string> scene_ {};
         // The recommended subsequent operation. Valid values:
         // 
-        // *   **pass**: The content passes the moderation.
-        // *   **review**: The content needs to be manually reviewed.
-        // *   **block**: The content needs to be blocked.
+        // - **pass**: The content passes the moderation.
+        // 
+        // - **review**: The content needs to be manually reviewed.
+        // 
+        // - **block**: The content needs to be blocked.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -993,13 +1010,19 @@ namespace Models
       protected:
         // The label of the moderation result. Valid values:
         // 
-        // *   **normal**: normal content.
-        // *   **spam**: spam.
-        // *   **ad**: ads.
-        // *   **abuse**: abuse content.
-        // *   **flood**: excessive junk content.
-        // *   **contraband**: prohibited content.
-        // *   **meaningless**: meaningless content.
+        // - **normal**: normal content.
+        // 
+        // - **spam**: spam.
+        // 
+        // - **ad**: ads.
+        // 
+        // - **abuse**: abuse content.
+        // 
+        // - **flood**: excessive junk content.
+        // 
+        // - **contraband**: prohibited content.
+        // 
+        // - **meaningless**: meaningless content.
         shared_ptr<string> label_ {};
         // The score.
         shared_ptr<string> rate_ {};
@@ -1007,9 +1030,11 @@ namespace Models
         shared_ptr<string> scene_ {};
         // The recommended subsequent operation. Valid values:
         // 
-        // *   **pass**: The content passes the moderation.
-        // *   **review**: The content needs to be manually reviewed.
-        // *   **block**: The content needs to be blocked.
+        // - **pass**: The content passes the moderation.
+        // 
+        // - **review**: The content needs to be manually reviewed.
+        // 
+        // - **block**: The content needs to be blocked.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -1167,11 +1192,13 @@ namespace Models
       shared_ptr<string> state_ {};
       // The overall result of the content moderation job. Valid values:
       // 
-      // *   **pass**: The content passes the moderation.
-      // *   **review**: The content needs to be manually reviewed.
-      // *   **block**: The content needs to be blocked.
+      // - **pass**: The content passes the moderation.
       // 
-      // >  If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
+      // - **review**: The content needs to be manually reviewed.
+      // 
+      // - **block**: The content needs to be blocked.
+      // 
+      // > If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
       shared_ptr<string> suggestion_ {};
       // The moderation results of titles.
       shared_ptr<MediaCensorJobDetail::TitleCensorResult> titleCensorResult_ {};

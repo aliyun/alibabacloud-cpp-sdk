@@ -165,8 +165,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   vod
-        // *   oss
+        // - vod
+        // 
+        // - oss
         shared_ptr<string> type_ {};
       };
 
@@ -257,9 +258,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   paused: The job is paused.
-      // *   initial: The job is not started.
-      // *   started: The job is in progress.
+      // - paused: The job is paused.
+      // 
+      // - initial: The job is not started.
+      // 
+      // - started: The job is in progress.
       shared_ptr<string> status_ {};
       // The URL of the live stream.
       shared_ptr<RecordJob::StreamInput> streamInput_ {};

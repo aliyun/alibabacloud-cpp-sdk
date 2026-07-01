@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The [smart job]() ID.
     shared_ptr<string> jobId_ {};
-    // The media asset ID of the output file.
+    // The ID of the output video\\"s [media asset]().
     shared_ptr<string> mediaId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

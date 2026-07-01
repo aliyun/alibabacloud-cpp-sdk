@@ -128,7 +128,9 @@ namespace Models
 
 
         protected:
+          // The ID of the media asset.
           shared_ptr<string> mediaId_ {};
+          // The output URL.
           shared_ptr<string> outputUrl_ {};
         };
 
@@ -170,7 +172,9 @@ namespace Models
 
 
         protected:
+          // The ID of the media asset.
           shared_ptr<string> mediaId_ {};
+          // The output URL.
           shared_ptr<string> outputUrl_ {};
         };
 
@@ -212,7 +216,9 @@ namespace Models
 
 
         protected:
+          // The ID of the media asset.
           shared_ptr<string> mediaId_ {};
+          // The output URL.
           shared_ptr<string> outputUrl_ {};
         };
 
@@ -246,8 +252,11 @@ namespace Models
 
 
       protected:
+        // The audio result.
         shared_ptr<vector<Result::AudioResult>> audioResult_ {};
+        // The image result.
         shared_ptr<vector<Result::ImageResult>> imageResult_ {};
+        // The video result.
         shared_ptr<vector<Result::VideoResult>> videoResult_ {};
       };
 
@@ -320,14 +329,33 @@ namespace Models
 
 
     protected:
+      // The ID of the application.
       shared_ptr<string> appId_ {};
+      // The AI application\\"s input parameters, formatted as a JSON-serialized string.
       shared_ptr<string> appInputConfig_ {};
+      // The time the job execution finished. The time is in UTC and formatted as `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> executionFinishTime_ {};
+      // The time the job execution started. The time is in UTC and formatted as `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> executionStartTime_ {};
+      // The ID of the folder.
       shared_ptr<string> folderId_ {};
+      // The ID of the job.
       shared_ptr<string> jobId_ {};
+      // The ID of the project.
       shared_ptr<string> productionId_ {};
+      // The execution result of the job.
       shared_ptr<JobList::Result> result_ {};
+      // The status of the job. Valid values are:
+      // 
+      // - `Created`: The job has been created.
+      // 
+      // - `Queuing`: The job is in the queue.
+      // 
+      // - `Executing`: The job is executing.
+      // 
+      // - `Finished`: The job completed successfully.
+      // 
+      // - `Failed`: The job failed to complete.
       shared_ptr<string> status_ {};
     };
 
@@ -350,7 +378,9 @@ namespace Models
 
 
   protected:
+    // The list of jobs. Each object mirrors the details returned by the `GetYikeAIAppJob` operation.
     shared_ptr<vector<BatchGetYikeAIAppJobResponseBody::JobList>> jobList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

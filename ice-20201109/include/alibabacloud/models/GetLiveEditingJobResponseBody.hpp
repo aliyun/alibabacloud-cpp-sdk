@@ -170,7 +170,7 @@ namespace Models
         shared_ptr<int32_t> height_ {};
         // The URL of the output file.
         shared_ptr<string> mediaURL_ {};
-        // If OutputMediaTarget is set to vod-media, this parameter indicates the storage location of the media asset in ApsaraVideo VOD. The storage location is the path of the file in ApsaraVideo VOD, excluding the prefix http://. Example: outin-xxxxxx.oss-cn-shanghai.aliyuncs.com.
+        // If OutputMediaTarget is set to vod-media, this parameter indicates the storage location of the media asset in ApsaraVideo VOD. The storage location is the path of the file in ApsaraVideo VOD, excluding the prefix http\\://. Example: outin-xxxxxx.oss-cn-shanghai.aliyuncs.com.
         shared_ptr<string> storageLocation_ {};
         // The ID of the VOD transcoding template group. If VOD transcoding is not required, set the value to VOD_NO_TRANSCODE.
         shared_ptr<string> vodTemplateGroupId_ {};

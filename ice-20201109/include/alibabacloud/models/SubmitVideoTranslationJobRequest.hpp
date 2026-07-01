@@ -140,29 +140,32 @@ namespace Models
 
 
   protected:
-    // *   The client token.
+    // A client-generated token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // *   The job description.
+    // The job description.
     shared_ptr<string> description_ {};
-    // *   The configuration parameters of the video translation job.
-    // *   The value must be in the JSON format.
+    // Configuration parameters for the video translation job, specified as a JSON string.
     shared_ptr<string> editingConfig_ {};
-    // *   The input parameters of the video translation job.
-    // *   A video translation job takes a video or subtitle file as the input.
-    // *   The value must be in the JSON format.
+    // The input parameters for the video translation job.
+    // 
+    // - The input can be a video or a subtitle file.
+    // 
+    // - The value must be a JSON string.
     shared_ptr<string> inputConfig_ {};
-    // *   The output parameters of the video translation job.
-    // *   A video translation job can generate a video or subtitle file as the output.
+    // Output parameters for the video translation job. The output can be a video or a subtitle file.
     shared_ptr<string> outputConfig_ {};
     shared_ptr<string> signature_ {};
+    // The system automatically populates this parameter. You do not need to set it.
     shared_ptr<string> signatureMehtod_ {};
     shared_ptr<string> signatureNonce_ {};
+    // The system automatically populates this parameter. You do not need to set it.
     shared_ptr<string> signatureType_ {};
     shared_ptr<string> signatureVersion_ {};
-    // *   The job title.
+    // The job title.
     shared_ptr<string> title_ {};
-    // *   The user-defined data.
-    // *   The data must be in the JSON format, and can be up to 512 characters in length.
+    // User data for the job, provided as a JSON string. The string can be up to 512 bytes long.
+    // 
+    // - Use this parameter to [configure a custom callback URL](https://help.aliyun.com/document_detail/451631.html).
     shared_ptr<string> userData_ {};
   };
 

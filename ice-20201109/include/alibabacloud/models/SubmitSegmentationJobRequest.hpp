@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A client token to ensure request idempotence.
     shared_ptr<string> clientToken_ {};
-    // The input configuration. For detailed parameters, see [InputConfig](~~2874121#cc59ad3082jbx~~).
+    // The input configuration. For more information, see [InputConfig](~~2874121#cc59ad3082jbx~~).
     shared_ptr<string> inputConfig_ {};
-    // The task parameters. For details, see [JobParams](~~2874121#a60357f2d5iix~~).
+    // The job parameters. For more information, see [JobParams](~~2874121#a60357f2d5iix~~).
     shared_ptr<string> jobParams_ {};
-    // The output configuration. For detailed parameters, see [OutputConfig](~~2874121#cef23186a8d6w~~).
+    // The output configuration. For more information, see [OutputConfig](~~2874121#cef23186a8d6w~~).
     shared_ptr<string> outputConfig_ {};
-    // The user-defined data in the JSON format, which can be up to 512 bytes in length.
+    // Custom user data in JSON format, with a maximum length of 512 bytes.
     shared_ptr<string> userData_ {};
   };
 

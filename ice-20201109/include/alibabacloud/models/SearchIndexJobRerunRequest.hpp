@@ -70,14 +70,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> mediaIds_ {};
+    // Namespace.
     shared_ptr<string> namespace_ {};
     // The search library.
     shared_ptr<string> searchLibName_ {};
     // The type of the job. Separate multiple types with commas (,).
     // 
-    // *   aiLabel: smart tagging.
-    // *   face: face recognition.
-    // *   mm: large visual model.
+    // - aiLabel: smart tagging.
+    // 
+    // - face: face recognition.
+    // 
+    // - mm: large visual model.
     shared_ptr<string> task_ {};
   };
 

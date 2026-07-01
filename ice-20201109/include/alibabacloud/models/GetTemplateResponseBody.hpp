@@ -181,29 +181,35 @@ namespace Models
     protected:
       // The clip parameters for submitting a video production job. You can replace mediaId and text with real values to submit a job. References:
       // 
-      // *   [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html)
-      // *   [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html)
+      // - [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html)
+      // 
+      // - [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html)
       shared_ptr<string> clipsParam_ {};
       // The template configurations.
       // 
-      // *   For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
-      // *   For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+      // - For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
+      // 
+      // - For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
       shared_ptr<string> config_ {};
       // The thumbnail URL.
       shared_ptr<string> coverURL_ {};
       // The source from which the template was created. Valid values:
       // 
-      // *   AliyunConsole
-      // *   OpenAPI
-      // *   WebSDK
+      // - AliyunConsole
+      // 
+      // - OpenAPI
+      // 
+      // - WebSDK
       shared_ptr<string> createSource_ {};
       // The time when the template was created.
       shared_ptr<string> creationTime_ {};
       // The source from which the template was modified. Valid values:
       // 
-      // *   AliyunConsole
-      // *   OpenAPI
-      // *   WebSDK
+      // - AliyunConsole
+      // 
+      // - OpenAPI
+      // 
+      // - WebSDK
       shared_ptr<string> modifiedSource_ {};
       // The time when the template was last modified.
       shared_ptr<string> modifiedTime_ {};
@@ -213,28 +219,37 @@ namespace Models
       shared_ptr<string> previewMedia_ {};
       // The state of the preview media asset. Valid values:
       // 
-      // *   Init: the initial state, which indicates that the source file is not ready.
-      // *   Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
-      // *   PrepareFail: The source file failed to be prepared. For example, the information about the source file failed to be obtained.
-      // *   Normal: The source file is ready.
+      // - Init: the initial state, which indicates that the source file is not ready.
+      // 
+      // - Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+      // 
+      // - PrepareFail: The source file failed to be prepared. For example, the information about the source file failed to be obtained.
+      // 
+      // - Normal: The source file is ready.
       shared_ptr<string> previewMediaStatus_ {};
       // The IDs of the materials associated with the template for use by the regular template editor.
       shared_ptr<string> relatedMediaids_ {};
       // The template state. Valid values:
       // 
-      // *   Available
-      // *   Created
-      // *   Uploading
-      // *   Processing
-      // *   UploadFailed
-      // *   ProcessFailed
+      // - Available
+      // 
+      // - Created
+      // 
+      // - Uploading
+      // 
+      // - Processing
+      // 
+      // - UploadFailed
+      // 
+      // - ProcessFailed
       shared_ptr<string> status_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
       // The template type. Valid values:
       // 
-      // *   Timeline
-      // *   VETemplate
+      // - Timeline
+      // 
+      // - VETemplate
       shared_ptr<string> type_ {};
     };
 

@@ -94,38 +94,49 @@ namespace Models
 
 
   protected:
-    // *   The description of the digital human.
-    // *   The description can be up to 1,000 characters in length.
+    // - The description of the digital human.
+    // 
+    // - The description can be up to 1,000 characters in length.
     shared_ptr<string> avatarDescription_ {};
-    // *   The name of the digital human.
-    // *   The name can be up to seven characters in length.
+    // - The name of the digital human.
+    // 
+    // - The name can be up to seven characters in length.
     shared_ptr<string> avatarName_ {};
     // The ID of the digital human training job.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
-    // *   The media asset ID of the portrait image.
-    // *   The value must be 32 characters in length.
+    // - The media asset ID of the portrait image.
+    // 
+    // - The value must be 32 characters in length.
     shared_ptr<string> portrait_ {};
-    // *   The thumbnail URL.
-    // *   After the digital human is trained, the thumbnail is uploaded to this URL.
-    // *   The URL must be a valid public Object Storage Service (OSS) URL.
-    // *   The URL can be up to 512 characters in length.
-    // *   The URL cannot be updated after the digital human is trained.
+    // - The thumbnail URL.
+    // 
+    // - After the digital human is trained, the thumbnail is uploaded to this URL.
+    // 
+    // - The URL must be a valid public Object Storage Service (OSS) URL.
+    // 
+    // - The URL can be up to 512 characters in length.
+    // 
+    // - The URL cannot be updated after the digital human is trained.
     shared_ptr<string> thumbnail_ {};
-    // *   Indicates whether the input video supports alpha channels.
+    // - Indicates whether the input video supports alpha channels.
     // 
-    // *   You can modify this parameter only if the job is in the Init or Fail state.
+    // - You can modify this parameter only if the job is in the Init or Fail state.
     // 
-    //     **
+    //   \\*\\*
     // 
-    //     **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
+    //   **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
     shared_ptr<bool> transparent_ {};
-    // *   The ID of the video used for training.
-    // *   The value must be 32 characters in length.
-    // *   Supported formats: MP4, MOV, and WebM.
-    // *   The duration of the video must be 5 to 15 minutes.
-    // *   The resolution of the video must be 1920×1080 or 1080×1920.
+    // - The ID of the video used for training.
+    // 
+    // - The value must be 32 characters in length.
+    // 
+    // - Supported formats: MP4, MOV, and WebM.
+    // 
+    // - The duration of the video must be 5 to 15 minutes.
+    // 
+    // - The resolution of the video must be 1920×1080 or 1080×1920.
     shared_ptr<string> video_ {};
   };
 

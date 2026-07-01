@@ -152,8 +152,9 @@ namespace Models
     shared_ptr<vector<GetStreamTagListResponseBody::StreamTagList>> streamTagList_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
     // The total number of entries that are returned.
     shared_ptr<int64_t> total_ {};

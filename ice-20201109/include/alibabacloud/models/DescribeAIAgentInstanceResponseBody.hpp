@@ -154,20 +154,25 @@ namespace Models
 
 
     protected:
+      // The configuration of the AI agent.
       shared_ptr<AIAgentConfig> agentConfig_ {};
+      // Information about the call.
       shared_ptr<AIAgentCallInfo> callInfo_ {};
-      // The URL of the call log file.
+      // The URL of the call log.
       shared_ptr<string> callLogUrl_ {};
+      // The creation time (UTC).
       shared_ptr<string> gmtCreate_ {};
+      // The modification time (UTC).
       shared_ptr<string> gmtModified_ {};
-      // The runtime configurations of the AI agent.
+      // The runtime configuration of the AI agent.
       shared_ptr<AIAgentRuntimeConfig> runtimeConfig_ {};
+      // The session ID for the conversation. This parameter is empty by default.
       shared_ptr<string> sessionId_ {};
-      // The state of the AI agent. Valid values: Finished and Executing.
+      // The status of the AI agent instance, such as `Finished` or `Executing`.
       shared_ptr<string> status_ {};
-      // The template configurations of the AI agent.
+      // The AI agent template configuration.
       shared_ptr<AIAgentTemplateConfig> templateConfig_ {};
-      // The custom information.
+      // The user data.
       shared_ptr<string> userData_ {};
     };
 
@@ -190,7 +195,7 @@ namespace Models
 
 
   protected:
-    // The information about the AI agent.
+    // Information about the AI agent instance.
     shared_ptr<DescribeAIAgentInstanceResponseBody::Instance> instance_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

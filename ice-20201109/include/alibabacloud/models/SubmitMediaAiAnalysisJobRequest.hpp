@@ -61,6 +61,7 @@ namespace Models
     shared_ptr<string> analysisParams_ {};
     // The media asset that you want to analyze. You can specify an Object Storage Service (OSS) URL, a media asset ID, or an external URL.
     shared_ptr<string> input_ {};
+    // Custom settings in JSON format, with a maximum length of 512 bytes. Supports [custom webhook address configuration](https://help.aliyun.com/document_detail/451631.html).
     shared_ptr<string> userData_ {};
   };
 

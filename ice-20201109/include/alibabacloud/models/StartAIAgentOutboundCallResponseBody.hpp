@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The call instance ID.
     shared_ptr<string> instanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

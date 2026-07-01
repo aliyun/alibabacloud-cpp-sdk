@@ -88,15 +88,17 @@ namespace Models
     shared_ptr<string> authKey_ {};
     // Specifies whether to enable callback authentication. This parameter takes effect only if you set CallbackType to **HTTP**. Valid values:
     // 
-    // *   **on**
-    // *   **off**
+    // - **on**
+    // 
+    // - **off**
     shared_ptr<string> authSwitch_ {};
     // The name of the Simple Message Queue (SMQ) queue in the region. The name must start with ice-callback-.
     shared_ptr<string> callbackQueueName_ {};
     // The callback method. Valid values:
     // 
-    // *   **HTTP**
-    // *   **MNS**
+    // - **HTTP**
+    // 
+    // - **MNS**
     shared_ptr<string> callbackType_ {};
     // The callback URL. This parameter is required if you set CallbackType to **HTTP**. The callback URL cannot exceed 256 bytes in length. You can specify only one callback URL.
     shared_ptr<string> callbackURL_ {};

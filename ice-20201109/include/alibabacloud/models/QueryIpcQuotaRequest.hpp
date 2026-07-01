@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // Capability. Default value is understand. Valid values:
+    // 
+    // - understand: understanding
+    // 
+    // - understand-reid: understanding with reid
+    // 
+    // - search: search
     shared_ptr<string> capability_ {};
+    // End time. UTC time in the format: yyyy-MM-ddTHH:mm:ssZ. The difference between EndTime and StartTime must not exceed 180 days.
     shared_ptr<string> endTime_ {};
+    // Page number for paging. Default Value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // Page size, which specifies the number of entries displayed per page. Default value is 10, and the maximum value is 50.
     shared_ptr<int32_t> pageSize_ {};
+    // Start Time. UTC time in the format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

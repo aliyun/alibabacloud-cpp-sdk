@@ -281,9 +281,11 @@ namespace Models
       shared_ptr<int32_t> startMode_ {};
       // The state of the job.
       // 
-      // *   0: The job is not started.
-      // *   1: The job is in progress.
-      // *   2: The job is stopped.
+      // - 0: The job is not started.
+      // 
+      // - 1: The job is in progress.
+      // 
+      // - 2: The job is stopped.
       shared_ptr<int32_t> status_ {};
       // The information about the input stream.
       shared_ptr<Job::StreamInput> streamInput_ {};

@@ -113,8 +113,9 @@ namespace Models
         shared_ptr<string> media_ {};
         // The type of the output file. Valid values:
         // 
-        // *   OSS: an OSS object.
-        // *   Media: a media asset.
+        // - OSS: an OSS object.
+        // 
+        // - Media: a media asset.
         shared_ptr<string> type_ {};
       };
 

@@ -61,13 +61,13 @@ namespace Models
 
 
   protected:
-    // The tasks.
+    // A list of media convert jobs.
     shared_ptr<vector<MediaConvertJobWithoutDetail>> jobs_ {};
-    // Indicates the read position returned by the current call. An empty value means all data has been read.
+    // The token to retrieve the next page of results. This value is empty when there are no more results to return.
     // 
     // This parameter is required.
     shared_ptr<string> nextPageToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

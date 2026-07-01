@@ -94,35 +94,45 @@ namespace Models
 
 
   protected:
-    // *   The description of the digital human.
-    // *   The description can be up to 1,000 characters in length.
+    // - The description of the digital human.
+    // 
+    // - The description can be up to 1,000 characters in length.
     shared_ptr<string> avatarDescription_ {};
-    // *   The name of the digital human.
-    // *   The name can be up to seven characters in length.
+    // - The name of the digital human.
+    // 
+    // - The name can be up to seven characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> avatarName_ {};
     // The type of the digital human.
     shared_ptr<string> avatarType_ {};
-    // *   The media asset ID of the portrait image.
-    // *   The value must be 32 characters in length.
+    // - The media asset ID of the portrait image.
+    // 
+    // - The value must be 32 characters in length.
     shared_ptr<string> portrait_ {};
-    // *   The thumbnail URL.
-    // *   After the digital human is trained, the thumbnail is uploaded to this URL.
-    // *   The URL must be a valid public Object Storage Service (OSS) URL.
-    // *   The URL can be up to 512 characters in length.
+    // - The thumbnail URL.
+    // 
+    // - After the digital human is trained, the thumbnail is uploaded to this URL.
+    // 
+    // - The URL must be a valid public Object Storage Service (OSS) URL.
+    // 
+    // - The URL can be up to 512 characters in length.
     shared_ptr<string> thumbnail_ {};
-    // *   Specifies whether the training video supports alpha channels.
+    // - Specifies whether the training video supports alpha channels.
     // 
-    //     **
+    //   \\*\\*
     // 
-    //     **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
+    //   **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
     shared_ptr<bool> transparent_ {};
-    // *   The ID of the video used for training.
-    // *   The value must be 32 characters in length.
-    // *   Supported formats: MP4, MOV, and WebM.
-    // *   The duration of the video must be 5 to 15 minutes.
-    // *   The resolution of the video must be 1920×1080 or 1080×1920.
+    // - The ID of the video used for training.
+    // 
+    // - The value must be 32 characters in length.
+    // 
+    // - Supported formats: MP4, MOV, and WebM.
+    // 
+    // - The duration of the video must be 5 to 15 minutes.
+    // 
+    // - The resolution of the video must be 1920×1080 or 1080×1920.
     shared_ptr<string> video_ {};
   };
 

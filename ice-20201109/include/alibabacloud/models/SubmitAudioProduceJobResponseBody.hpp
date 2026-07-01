@@ -68,16 +68,19 @@ namespace Models
   protected:
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The ID of the media asset.
+    // The media ID.
     shared_ptr<string> mediaId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The job state. Valid values:
+    // The job status.
     // 
-    // *   Created
-    // *   Executing
-    // *   Finished
-    // *   Failed
+    // - Created
+    // 
+    // - Executing
+    // 
+    // - Finished
+    // 
+    // - Failed
     shared_ptr<string> state_ {};
   };
 

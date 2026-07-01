@@ -84,23 +84,25 @@ namespace Models
 
 
   protected:
-    // The ID of the batch.
+    // The License Item ID.
     shared_ptr<string> licenseItemId_ {};
-    // Specifies whether to include the total count of records in the response. Defaults to `true`.
+    // Specifies whether to return the total count. Default value: `true`.
     shared_ptr<bool> needTotalCount_ {};
     // The page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The status of the batch. Valid values:
+    // The status of the license batch. Valid values:
     // 
-    // *   `1`: Active
-    // *   `2`: Expired
+    // - `1`: Normal
+    // 
+    // - `2`: Expired
     shared_ptr<int32_t> status_ {};
-    // The type of license. Valid values:
+    // The license type. Valid values:
     // 
-    // *   `1`: Audio call
-    // *   `2`: Vision call
+    // - `1`: voice call
+    // 
+    // - `2`: visual understanding
     shared_ptr<int32_t> type_ {};
   };
 

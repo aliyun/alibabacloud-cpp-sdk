@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The registration mode. The default is `Explicit`.
     shared_ptr<string> registrationMode_ {};
-    // The unique identifier for the voiceprint.
+    // The unique identifier of the voiceprint to clear.
     shared_ptr<string> voiceprintId_ {};
   };
 

@@ -74,6 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> msgBody_ {};
+    // The namespace.
     shared_ptr<string> namespace_ {};
     // The name of the search library. Default value: ims-default-search-lib.
     shared_ptr<string> searchLibName_ {};

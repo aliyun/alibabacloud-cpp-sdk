@@ -123,19 +123,23 @@ namespace Models
   protected:
     // The type of recognition algorithm. Valid values:
     // 
-    // *   landmark
-    // *   object
-    // *   logo
-    // *   face
+    // - landmark
+    // 
+    // - object
+    // 
+    // - logo
+    // 
+    // - face
     // 
     // This parameter is required.
     shared_ptr<string> algorithm_ {};
-    // The ID of the entity.
+    // The entity ID. If you set this parameter to ANY, the system queries by EntityName.
     // 
     // This parameter is required.
     shared_ptr<string> entityId_ {};
+    // The entity name.
     shared_ptr<string> entityName_ {};
-    // The ID of the recognition library.
+    // The library ID. If you specify this parameter, the system performs an exact match. You can specify multiple library IDs. Separate them with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> libId_ {};

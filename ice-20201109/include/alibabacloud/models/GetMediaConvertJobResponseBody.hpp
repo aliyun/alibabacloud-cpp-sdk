@@ -144,12 +144,13 @@ namespace Models
 
 
       protected:
-        // The inputs of the transcoding task.
+        // The job inputs.
         shared_ptr<vector<MediaConvertInput>> inputs_ {};
+        // The job name.
         shared_ptr<string> jobName_ {};
-        // The output group configurations.
+        // The job output group configurations.
         shared_ptr<vector<MediaConvertOutputGroup>> outputGroups_ {};
-        // The output configurations.
+        // The job output configurations.
         shared_ptr<vector<MediaConvertOutput>> outputs_ {};
       };
 
@@ -262,34 +263,41 @@ namespace Models
 
 
     protected:
-      // The idempotency key of the request for creating the transcoding task.
+      // The idempotency parameter for the job creation request.
       shared_ptr<string> clientToken_ {};
-      // The error code returned when the transcoding task failed.
+      // The error code if the job fails.
       shared_ptr<string> code_ {};
-      // The configurations of the transcoding task.
+      // The job configuration.
       shared_ptr<Job::Config> config_ {};
+      // The time when the job was created, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> createTime_ {};
+      // The time when the job finished, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> finishTime_ {};
-      // The ID of the transcoding task, which is a 32-bit string.
+      // The job ID. This is a 32-character string.
       shared_ptr<string> jobId_ {};
-      // The error message returned when the transcoding task failed.
+      // The error message detailing the failure.
       shared_ptr<string> message_ {};
-      // The details of the transcoded outputs, each corresponding to an output configuration.
+      // The execution results of the outputs specified in the job configuration.
       shared_ptr<vector<MediaConvertOutputDetail>> outputDetails_ {};
-      // The details of the output groups, each corresponding to an output group configuration.
+      // The execution results of the output groups specified in the job configuration.
       shared_ptr<vector<MediaConvertOutputGroupDetail>> outputGroupDetails_ {};
+      // The completion percentage.
       shared_ptr<int32_t> percent_ {};
-      // The ID of the queue.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
-      // The ID of the request for creating the transcoding task.
+      // The ID of the job creation request.
       shared_ptr<string> requestId_ {};
-      // The status of the transcoding task. Valid values:
+      // The job state. Valid values:
       // 
-      // *   Inited: The task is initialized.
-      // *   Running
-      // *   Success
-      // *   Failed
-      // *   Cancelled
+      // - Inited: The job is initialized.
+      // 
+      // - Running: The job is in progress.
+      // 
+      // - Complete: The job finished successfully.
+      // 
+      // - Error: The job failed.
+      // 
+      // - Cancelled: The job was cancelled.
       shared_ptr<string> state_ {};
       // The user data.
       shared_ptr<string> userData_ {};
@@ -314,9 +322,9 @@ namespace Models
 
 
   protected:
-    // The transcoding task.
+    // The media transcoding job.
     shared_ptr<GetMediaConvertJobResponseBody::Job> job_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

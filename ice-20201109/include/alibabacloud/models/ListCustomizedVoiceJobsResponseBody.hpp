@@ -175,13 +175,15 @@ namespace Models
 
 
       protected:
-        // *   The time when the job was created.
-        // *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // - The time when the job was created.
+        // 
+        // - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
         // The gender. Valid values:
         // 
-        // *   female
-        // *   male
+        // - female
+        // 
+        // - male
         shared_ptr<string> gender_ {};
         // The time when the job was created.
         shared_ptr<string> gmtCreate_ {};
@@ -191,33 +193,41 @@ namespace Models
         shared_ptr<string> message_ {};
         // The scenario. Valid values:
         // 
-        // *   story
-        // *   interaction
-        // *   navigation
+        // - story
+        // 
+        // - interaction
+        // 
+        // - navigation
         shared_ptr<string> scenario_ {};
         // The job state. Valid values:
         // 
-        // *   Initialization
-        // *   AudioDetecting
-        // *   PreTraining
-        // *   Training
-        // *   Success
-        // *   Fail
-        shared_ptr<string> status_ {};
-        // *   The voice type. Valid values:
+        // - Initialization
         // 
-        //     *   Basic
-        //     *   Standard
+        // - AudioDetecting
+        // 
+        // - PreTraining
+        // 
+        // - Training
+        // 
+        // - Success
+        // 
+        // - Fail
+        shared_ptr<string> status_ {};
+        // - The voice type. Valid values:
+        // 
+        //   - Basic
+        // 
+        //   - Standard
         shared_ptr<string> type_ {};
         // The voice description.
         // 
-        // *   The description can be up to 256 characters in length.
+        // - The description can be up to 256 characters in length.
         shared_ptr<string> voiceDesc_ {};
         // The voice ID.
         shared_ptr<string> voiceId_ {};
         // The voice name.
         // 
-        // *   The name can be up to 32 characters in length.
+        // - The name can be up to 32 characters in length.
         shared_ptr<string> voiceName_ {};
       };
 

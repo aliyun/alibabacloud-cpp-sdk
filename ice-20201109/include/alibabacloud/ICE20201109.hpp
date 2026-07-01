@@ -24,7 +24,7 @@ namespace ICE20201109
        * @summary Activates a specified license using the batch ID, authorization code, and device SN.
        *
        * @description ## [](#)Usage notes
-       * This API is used to activate a specific license for Real-time Conversational AI by providing a batch ID (`LicenseItemId`), authorization code (`AuthCode`), and device ID (`DeviceId`). Upon successful activation, the API returns a response containing the request ID, an error code, the request status, the HTTP status code, and the activated license information.
+       * Activate a specific license for Real-time Conversational AI by providing a batch ID (`LicenseItemId`), authorization code (`AuthCode`), and device ID (`DeviceId`). Upon successful activation, the API returns a response containing the request ID, an error code, the request status, the HTTP status code, and the activated license information.
        * **Note**: Ensure that the provided batch ID, authorization code, and device ID are correct. Incorrect information may cause the activation to fail.
        *
        * @param request ActiveAiRtcLicenseRequest
@@ -37,7 +37,7 @@ namespace ICE20201109
        * @summary Activates a specified license using the batch ID, authorization code, and device SN.
        *
        * @description ## [](#)Usage notes
-       * This API is used to activate a specific license for Real-time Conversational AI by providing a batch ID (`LicenseItemId`), authorization code (`AuthCode`), and device ID (`DeviceId`). Upon successful activation, the API returns a response containing the request ID, an error code, the request status, the HTTP status code, and the activated license information.
+       * Activate a specific license for Real-time Conversational AI by providing a batch ID (`LicenseItemId`), authorization code (`AuthCode`), and device ID (`DeviceId`). Upon successful activation, the API returns a response containing the request ID, an error code, the request status, the HTTP status code, and the activated license information.
        * **Note**: Ensure that the provided batch ID, authorization code, and device ID are correct. Incorrect information may cause the activation to fail.
        *
        * @param request ActiveAiRtcLicenseRequest
@@ -101,7 +101,7 @@ namespace ICE20201109
       Models::AddEditingProjectMaterialsResponse addEditingProjectMaterials(const Models::AddEditingProjectMaterialsRequest &request);
 
       /**
-       * @summary 收藏公共媒资
+       * @summary Adds one or more public Media Assets to your Favorites list by their media IDs.
        *
        * @param request AddFavoritePublicMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -110,7 +110,7 @@ namespace ICE20201109
       Models::AddFavoritePublicMediaResponse addFavoritePublicMediaWithOptions(const Models::AddFavoritePublicMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 收藏公共媒资
+       * @summary Adds one or more public Media Assets to your Favorites list by their media IDs.
        *
        * @param request AddFavoritePublicMediaRequest
        * @return AddFavoritePublicMediaResponse
@@ -118,16 +118,16 @@ namespace ICE20201109
       Models::AddFavoritePublicMediaResponse addFavoritePublicMedia(const Models::AddFavoritePublicMediaRequest &request);
 
       /**
-       * @summary Creates a source for a MediaConnect flow.
+       * @summary Adds an input to a MediaConnect Flow instance.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   A flow can have only one source.
-       * ### [](#)Source type
-       * *   RTMP-PUSH: An input that you can push to the returned URL over the RTMP protocol.
-       * *   RTMP-PULL: An input that the MediaConnect flow pulls from the specified server over the RTMP protocol.
-       * *   SRT-Listener: An input that you can push to the returned URL over the SRT protocol.
-       * *   SRT-Caller: An input that the MediaConnect flow pulls from the specified server over the SRT protocol.
-       * *   Flow: An input that uses the output of another upstream flow. You must specify an upstream flow and its output. The output type of the upstream flow must be SRT-Listener or RTMP-PULL. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
+       * @description - If the specified flow instance ID does not exist, the API returns an error.
+       * - By default, a flow instance supports only one input. After you enable dual-stream disaster recovery, you can add a second input.
+       * ### Input type descriptions
+       * - RTMP-PUSH: Creates an RTMP listener input. You can push your stream to the URL returned by the API using the RTMP protocol.
+       * - RTMP-PULL: Creates an RTMP origin fetch input. The flow instance pulls an RTMP live stream from your specified origin server.
+       * - SRT-Listener: Creates an SRT listener input. You can push your stream to the URL returned by the API using the SRT protocol.
+       * - SRT-Caller: Creates an SRT origin fetch input. The flow instance pulls an SRT live stream from your specified origin server.
+       * - Flow: Uses the output of another upstream flow instance as the input. You must specify both the upstream flow instance ID and the output name. The output of the upstream flow instance must be of the SRT-Listener or RTMP-PULL type. When flow instances cascade, they use a leased line by default. This supports cross-region distribution across multiple flow instances.
        *
        * @param request AddMediaConnectFlowInputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,16 +136,16 @@ namespace ICE20201109
       Models::AddMediaConnectFlowInputResponse addMediaConnectFlowInputWithOptions(const Models::AddMediaConnectFlowInputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a source for a MediaConnect flow.
+       * @summary Adds an input to a MediaConnect Flow instance.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   A flow can have only one source.
-       * ### [](#)Source type
-       * *   RTMP-PUSH: An input that you can push to the returned URL over the RTMP protocol.
-       * *   RTMP-PULL: An input that the MediaConnect flow pulls from the specified server over the RTMP protocol.
-       * *   SRT-Listener: An input that you can push to the returned URL over the SRT protocol.
-       * *   SRT-Caller: An input that the MediaConnect flow pulls from the specified server over the SRT protocol.
-       * *   Flow: An input that uses the output of another upstream flow. You must specify an upstream flow and its output. The output type of the upstream flow must be SRT-Listener or RTMP-PULL. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
+       * @description - If the specified flow instance ID does not exist, the API returns an error.
+       * - By default, a flow instance supports only one input. After you enable dual-stream disaster recovery, you can add a second input.
+       * ### Input type descriptions
+       * - RTMP-PUSH: Creates an RTMP listener input. You can push your stream to the URL returned by the API using the RTMP protocol.
+       * - RTMP-PULL: Creates an RTMP origin fetch input. The flow instance pulls an RTMP live stream from your specified origin server.
+       * - SRT-Listener: Creates an SRT listener input. You can push your stream to the URL returned by the API using the SRT protocol.
+       * - SRT-Caller: Creates an SRT origin fetch input. The flow instance pulls an SRT live stream from your specified origin server.
+       * - Flow: Uses the output of another upstream flow instance as the input. You must specify both the upstream flow instance ID and the output name. The output of the upstream flow instance must be of the SRT-Listener or RTMP-PULL type. When flow instances cascade, they use a leased line by default. This supports cross-region distribution across multiple flow instances.
        *
        * @param request AddMediaConnectFlowInputRequest
        * @return AddMediaConnectFlowInputResponse
@@ -155,16 +155,16 @@ namespace ICE20201109
       /**
        * @summary Creates an output for a MediaConnect flow.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   A flow can have a maximum of four outputs.
-       * *   The output names in the same flow cannot be duplicated.
-       * *   You can set an upper limit on the number of concurrent viewers for each output. If this limit is exceeded, any new playback requests will fail. Each output supports up to five streams.
+       * @description - When the specified flow ID is not available, an error code is returned.
+       * - A flow can have a maximum of four outputs.
+       * - The output names in the same flow cannot be duplicated.
+       * - You can set an upper limit on the number of concurrent viewers for each output. If this limit is exceeded, any new playback requests will fail. Each output supports up to five streams.
        * ### [](#)Output types
-       * *   RTMP-PUSH: An output that the MediaConnect flow pushes to the server you specified over the RTMP protocol.
-       * *   RTMP-PULL: An output that you can pull using the returned streaming URL over the RTMP protocol.
-       * *   SRT-Caller: An output that the MediaConnect flow pushes to the server you specified over the SRT protocol.
-       * *   SRT-Listener: An output that you can pull using the returned streaming URL over the SRT protocol.
-       * *   Flow: An output that is pushed to the source URL of another MediaConnect flow. The source type of the destination flow must be SRT-Listener or RTMP-PUSH. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
+       * - RTMP-PUSH: An output that the MediaConnect flow pushes to the server you specified over the RTMP protocol.
+       * - RTMP-PULL: An output that you can pull using the returned streaming URL over the RTMP protocol.
+       * - SRT-Caller: An output that the MediaConnect flow pushes to the server you specified over the SRT protocol.
+       * - SRT-Listener: An output that you can pull using the returned streaming URL over the SRT protocol.
+       * - Flow: An output that is pushed to the source URL of another MediaConnect flow. The source type of the destination flow must be SRT-Listener or RTMP-PUSH. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
        *
        * @param request AddMediaConnectFlowOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -175,16 +175,16 @@ namespace ICE20201109
       /**
        * @summary Creates an output for a MediaConnect flow.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   A flow can have a maximum of four outputs.
-       * *   The output names in the same flow cannot be duplicated.
-       * *   You can set an upper limit on the number of concurrent viewers for each output. If this limit is exceeded, any new playback requests will fail. Each output supports up to five streams.
+       * @description - When the specified flow ID is not available, an error code is returned.
+       * - A flow can have a maximum of four outputs.
+       * - The output names in the same flow cannot be duplicated.
+       * - You can set an upper limit on the number of concurrent viewers for each output. If this limit is exceeded, any new playback requests will fail. Each output supports up to five streams.
        * ### [](#)Output types
-       * *   RTMP-PUSH: An output that the MediaConnect flow pushes to the server you specified over the RTMP protocol.
-       * *   RTMP-PULL: An output that you can pull using the returned streaming URL over the RTMP protocol.
-       * *   SRT-Caller: An output that the MediaConnect flow pushes to the server you specified over the SRT protocol.
-       * *   SRT-Listener: An output that you can pull using the returned streaming URL over the SRT protocol.
-       * *   Flow: An output that is pushed to the source URL of another MediaConnect flow. The source type of the destination flow must be SRT-Listener or RTMP-PUSH. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
+       * - RTMP-PUSH: An output that the MediaConnect flow pushes to the server you specified over the RTMP protocol.
+       * - RTMP-PULL: An output that you can pull using the returned streaming URL over the RTMP protocol.
+       * - SRT-Caller: An output that the MediaConnect flow pushes to the server you specified over the SRT protocol.
+       * - SRT-Listener: An output that you can pull using the returned streaming URL over the SRT protocol.
+       * - Flow: An output that is pushed to the source URL of another MediaConnect flow. The source type of the destination flow must be SRT-Listener or RTMP-PUSH. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
        *
        * @param request AddMediaConnectFlowOutputRequest
        * @return AddMediaConnectFlowOutputResponse
@@ -211,6 +211,8 @@ namespace ICE20201109
       /**
        * @summary Adds tags for a specific live stream media asset.
        *
+       * @description Tagging media assets created for live streams.
+       *
        * @param request AddStreamTagToSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddStreamTagToSearchLibResponse
@@ -220,6 +222,8 @@ namespace ICE20201109
       /**
        * @summary Adds tags for a specific live stream media asset.
        *
+       * @description Tagging media assets created for live streams.
+       *
        * @param request AddStreamTagToSearchLibRequest
        * @return AddStreamTagToSearchLibResponse
        */
@@ -228,9 +232,9 @@ namespace ICE20201109
       /**
        * @summary Creates a template.
        *
-       * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-       * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
+       * @description - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
        *
        * @param request AddTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -241,9 +245,9 @@ namespace ICE20201109
       /**
        * @summary Creates a template.
        *
-       * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-       * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
+       * @description - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
        *
        * @param request AddTemplateRequest
        * @return AddTemplateResponse
@@ -251,7 +255,7 @@ namespace ICE20201109
       Models::AddTemplateResponse addTemplate(const Models::AddTemplateRequest &request);
 
       /**
-       * @summary Allocates points to a user.
+       * @summary Adds credits to a user account.
        *
        * @param request AddYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -260,7 +264,7 @@ namespace ICE20201109
       Models::AddYikeUserCreditResponse addYikeUserCreditWithOptions(const Models::AddYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Allocates points to a user.
+       * @summary Adds credits to a user account.
        *
        * @param request AddYikeUserCreditRequest
        * @return AddYikeUserCreditResponse
@@ -319,7 +323,7 @@ namespace ICE20201109
       Models::BatchCreateVodPackagingAssetResponse batchCreateVodPackagingAsset(const Models::BatchCreateVodPackagingAssetRequest &request);
 
       /**
-       * @summary Queries the information about multiple media assets at a time based on media asset IDs.
+       * @summary Retrieves information for multiple media assets in a single request by providing their `mediaId` values.
        *
        * @param request BatchGetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -328,7 +332,7 @@ namespace ICE20201109
       Models::BatchGetMediaInfosResponse batchGetMediaInfosWithOptions(const Models::BatchGetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about multiple media assets at a time based on media asset IDs.
+       * @summary Retrieves information for multiple media assets in a single request by providing their `mediaId` values.
        *
        * @param request BatchGetMediaInfosRequest
        * @return BatchGetMediaInfosResponse
@@ -336,7 +340,7 @@ namespace ICE20201109
       Models::BatchGetMediaInfosResponse batchGetMediaInfos(const Models::BatchGetMediaInfosRequest &request);
 
       /**
-       * @summary Retrieves information about multiple AI application jobs in WonderClip.
+       * @summary Retrieves a batch of Yike AI Application Generation Tasks.
        *
        * @param request BatchGetYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -345,7 +349,7 @@ namespace ICE20201109
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJobWithOptions(const Models::BatchGetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about multiple AI application jobs in WonderClip.
+       * @summary Retrieves a batch of Yike AI Application Generation Tasks.
        *
        * @param request BatchGetYikeAIAppJobRequest
        * @return BatchGetYikeAIAppJobResponse
@@ -353,7 +357,7 @@ namespace ICE20201109
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJob(const Models::BatchGetYikeAIAppJobRequest &request);
 
       /**
-       * @summary Retrieves information about multiple media assets.
+       * @summary Retrieves multiple media assets.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -362,7 +366,7 @@ namespace ICE20201109
       Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfosWithOptions(const Models::BatchGetYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about multiple media assets.
+       * @summary Retrieves multiple media assets.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @return BatchGetYikeAssetMediaInfosResponse
@@ -372,8 +376,8 @@ namespace ICE20201109
       /**
        * @summary Cancels a media fingerprint analysis job.
        *
-       * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
-       * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+       * @description - You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+       * - We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
        *
        * @param request CancelDNAJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -384,8 +388,8 @@ namespace ICE20201109
       /**
        * @summary Cancels a media fingerprint analysis job.
        *
-       * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
-       * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+       * @description - You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+       * - We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
        *
        * @param request CancelDNAJobRequest
        * @return CancelDNAJobResponse
@@ -393,7 +397,7 @@ namespace ICE20201109
       Models::CancelDNAJobResponse cancelDNAJob(const Models::CancelDNAJobRequest &request);
 
       /**
-       * @summary 取消收藏公共媒资
+       * @summary Removes all specified media assets from favorites based on the input mediaId list.
        *
        * @param request CancelFavoritePublicMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -402,7 +406,7 @@ namespace ICE20201109
       Models::CancelFavoritePublicMediaResponse cancelFavoritePublicMediaWithOptions(const Models::CancelFavoritePublicMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消收藏公共媒资
+       * @summary Removes all specified media assets from favorites based on the input mediaId list.
        *
        * @param request CancelFavoritePublicMediaRequest
        * @return CancelFavoritePublicMediaResponse
@@ -410,7 +414,7 @@ namespace ICE20201109
       Models::CancelFavoritePublicMediaResponse cancelFavoritePublicMedia(const Models::CancelFavoritePublicMediaRequest &request);
 
       /**
-       * @summary Cancels an intelligent production job.
+       * @summary Invoke CancelIProductionJob to cancel an Intelligent Production job.
        *
        * @param request CancelIProductionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -419,7 +423,7 @@ namespace ICE20201109
       Models::CancelIProductionJobResponse cancelIProductionJobWithOptions(const Models::CancelIProductionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels an intelligent production job.
+       * @summary Invoke CancelIProductionJob to cancel an Intelligent Production job.
        *
        * @param request CancelIProductionJobRequest
        * @return CancelIProductionJobResponse
@@ -427,10 +431,7 @@ namespace ICE20201109
       Models::CancelIProductionJobResponse cancelIProductionJob(const Models::CancelIProductionJobRequest &request);
 
       /**
-       * @summary Deletes a voiceprint based on its ID.
-       *
-       * @description ## [](#)
-       * ``````````
+       * @summary Clears the voiceprint associated with a voiceprint ID.
        *
        * @param request ClearAIAgentVoiceprintRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -439,10 +440,7 @@ namespace ICE20201109
       Models::ClearAIAgentVoiceprintResponse clearAIAgentVoiceprintWithOptions(const Models::ClearAIAgentVoiceprintRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a voiceprint based on its ID.
-       *
-       * @description ## [](#)
-       * ``````````
+       * @summary Clears the voiceprint associated with a voiceprint ID.
        *
        * @param request ClearAIAgentVoiceprintRequest
        * @return ClearAIAgentVoiceprintResponse
@@ -452,7 +450,7 @@ namespace ICE20201109
       /**
        * @summary Disables Source Failover for a MediaConnect flow.
        *
-       * @description *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
+       * @description - If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
        *
        * @param request CloseMediaConnectFlowFailoverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -463,7 +461,7 @@ namespace ICE20201109
       /**
        * @summary Disables Source Failover for a MediaConnect flow.
        *
-       * @description *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
+       * @description - If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
        *
        * @param request CloseMediaConnectFlowFailoverRequest
        * @return CloseMediaConnectFlowFailoverResponse
@@ -507,6 +505,8 @@ namespace ICE20201109
       /**
        * @summary Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
        *
+       * @description This API is only used to initialize trainingTaskrelatedInformation,And will not submit training,To officially submit training, you need toCall [SubmitAvatarTrainingJob](https://help.aliyun.com/document_detail/2526196.html) API.
+       *
        * @param request CreateAvatarTrainingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAvatarTrainingJobResponse
@@ -515,6 +515,8 @@ namespace ICE20201109
 
       /**
        * @summary Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
+       *
+       * @description This API is only used to initialize trainingTaskrelatedInformation,And will not submit training,To officially submit training, you need toCall [SubmitAvatarTrainingJob](https://help.aliyun.com/document_detail/2526196.html) API.
        *
        * @param request CreateAvatarTrainingJobRequest
        * @return CreateAvatarTrainingJobResponse
@@ -556,7 +558,11 @@ namespace ICE20201109
       Models::CreateCustomTemplateResponse createCustomTemplate(const Models::CreateCustomTemplateRequest &request);
 
       /**
-       * @summary Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
+       * @summary Creates a voice cloning job and initializes its basic information.
+       *
+       * @description <props="china">
+       * - Billing for voice cloning is based on customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
+       * - Call this operation to achieve entertainment-grade results. You need to record 20 predefined scripts. The system then extracts key voiceprint features to perform voice cloning quickly and cost-effectively.
        *
        * @param request CreateCustomizedVoiceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -565,7 +571,11 @@ namespace ICE20201109
       Models::CreateCustomizedVoiceJobResponse createCustomizedVoiceJobWithOptions(const Models::CreateCustomizedVoiceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
+       * @summary Creates a voice cloning job and initializes its basic information.
+       *
+       * @description <props="china">
+       * - Billing for voice cloning is based on customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
+       * - Call this operation to achieve entertainment-grade results. You need to record 20 predefined scripts. The system then extracts key voiceprint features to perform voice cloning quickly and cost-effectively.
        *
        * @param request CreateCustomizedVoiceJobRequest
        * @return CreateCustomizedVoiceJobResponse
@@ -573,9 +583,9 @@ namespace ICE20201109
       Models::CreateCustomizedVoiceJobResponse createCustomizedVoiceJob(const Models::CreateCustomizedVoiceJobRequest &request);
 
       /**
-       * @summary Creates media fingerprint libraries.
+       * @summary Use the CreateDNADB operation to create a DNA database.
        *
-       * @description *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
+       * @description By default, each user can create up to five DNA databases. To increase this limit, please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.645019b6Btnu4q). You can use the DeleteDNADB operation to delete DNA databases that you no longer need.
        *
        * @param request CreateDNADBRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -584,9 +594,9 @@ namespace ICE20201109
       Models::CreateDNADBResponse createDNADBWithOptions(const Models::CreateDNADBRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates media fingerprint libraries.
+       * @summary Use the CreateDNADB operation to create a DNA database.
        *
-       * @description *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
+       * @description By default, each user can create up to five DNA databases. To increase this limit, please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.645019b6Btnu4q). You can use the DeleteDNADB operation to delete DNA databases that you no longer need.
        *
        * @param request CreateDNADBRequest
        * @return CreateDNADBResponse
@@ -595,6 +605,9 @@ namespace ICE20201109
 
       /**
        * @summary Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
+       *
+       * @description - Billing is based on the duration of the edited video,For more informationPlease referSee[VideoEditing](https://help.aliyun.com/document_detail/2840899.html)<props="china"> and [LiveEditing](https://help.aliyun.com/document_detail/2840900.html) .If processing fails,No charge.
+       * - After creating the editing project,You canCall[SubmitMediaProducingJob - SubmitEditingCompositing jobAPI](https://help.aliyun.com/document_detail/441147.html)Submit mediaEditingSynthesisTask.Call[SubmitLiveEditingJob - Submit liveEditingTask](https://help.aliyun.com/document_detail/441148.html)Submit liveEditingTask.
        *
        * @param request CreateEditingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -605,6 +618,9 @@ namespace ICE20201109
       /**
        * @summary Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
        *
+       * @description - Billing is based on the duration of the edited video,For more informationPlease referSee[VideoEditing](https://help.aliyun.com/document_detail/2840899.html)<props="china"> and [LiveEditing](https://help.aliyun.com/document_detail/2840900.html) .If processing fails,No charge.
+       * - After creating the editing project,You canCall[SubmitMediaProducingJob - SubmitEditingCompositing jobAPI](https://help.aliyun.com/document_detail/441147.html)Submit mediaEditingSynthesisTask.Call[SubmitLiveEditingJob - Submit liveEditingTask](https://help.aliyun.com/document_detail/441148.html)Submit liveEditingTask.
+       *
        * @param request CreateEditingProjectRequest
        * @return CreateEditingProjectResponse
        */
@@ -612,6 +628,8 @@ namespace ICE20201109
 
       /**
        * @summary Creates a hotword library.
+       *
+       * @description Call CreateHotwordLibrary API to create hotword library.
        *
        * @param tmpReq CreateHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -622,13 +640,17 @@ namespace ICE20201109
       /**
        * @summary Creates a hotword library.
        *
+       * @description Call CreateHotwordLibrary API to create hotword library.
+       *
        * @param request CreateHotwordLibraryRequest
        * @return CreateHotwordLibraryResponse
        */
       Models::CreateHotwordLibraryResponse createHotwordLibrary(const Models::CreateHotwordLibraryRequest &request);
 
       /**
-       * @summary Creates an IPC order. The purchased capacity is shared at the account level.
+       * @summary Creates an IPC order with shared capacity at the account level.
+       *
+       * @description Before you call this operation, make sure you understand the [billing and pricing for the IPC product](https://help.aliyun.com/document_detail/3004591.html).
        *
        * @param request CreateIpcOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +659,9 @@ namespace ICE20201109
       Models::CreateIpcOrderResponse createIpcOrderWithOptions(const Models::CreateIpcOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an IPC order. The purchased capacity is shared at the account level.
+       * @summary Creates an IPC order with shared capacity at the account level.
+       *
+       * @description Before you call this operation, make sure you understand the [billing and pricing for the IPC product](https://help.aliyun.com/document_detail/3004591.html).
        *
        * @param request CreateIpcOrderRequest
        * @return CreateIpcOrderResponse
@@ -650,10 +674,10 @@ namespace ICE20201109
        * @description ## [](#)Usage notes
        * After you call this operation to create a live package channel, the system will automatically generate the ingest endpoint URL, and username and password required for authentication.
        * ### [](#)Precautions
-       * *   Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
-       * *   Only `HLS` is supported.
-       * *   The segment duration must be from 1 to 30 seconds.
-       * *   The number of M3U8 segments must be from 2 to 100.
+       * - Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
+       * - Only `HLS` is supported.
+       * - The segment duration must be from 1 to 30 seconds.
+       * - The number of M3U8 segments must be from 2 to 100.
        * If the request succeeds, the system will return the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
        *
        * @param request CreateLivePackageChannelRequest
@@ -668,10 +692,10 @@ namespace ICE20201109
        * @description ## [](#)Usage notes
        * After you call this operation to create a live package channel, the system will automatically generate the ingest endpoint URL, and username and password required for authentication.
        * ### [](#)Precautions
-       * *   Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
-       * *   Only `HLS` is supported.
-       * *   The segment duration must be from 1 to 30 seconds.
-       * *   The number of M3U8 segments must be from 2 to 100.
+       * - Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
+       * - Only `HLS` is supported.
+       * - The segment duration must be from 1 to 30 seconds.
+       * - The number of M3U8 segments must be from 2 to 100.
        * If the request succeeds, the system will return the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
        *
        * @param request CreateLivePackageChannelRequest
@@ -701,10 +725,9 @@ namespace ICE20201109
       Models::CreateLivePackageChannelGroupResponse createLivePackageChannelGroup(const Models::CreateLivePackageChannelGroupRequest &request);
 
       /**
-       * @summary Creates an origin endpoint for a live package channel to deliver live streams in HLS format.
+       * @summary [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_description]Endpoint playback URL
        *
-       * @description ## [](#)Usage notes
-       * This API operation is mainly used to configure origin settings, security policies including the IP address blacklist and whitelist and authorization code, and time shifting settings for channels. Before you create an origin endpoint, you must create a live package channel group and channel. After you create the endpoint, the endpoint URL and other configuration details are returned.
+       * @description [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_title]Endpoint URL
        *
        * @param tmpReq CreateLivePackageOriginEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -713,10 +736,9 @@ namespace ICE20201109
       Models::CreateLivePackageOriginEndpointResponse createLivePackageOriginEndpointWithOptions(const Models::CreateLivePackageOriginEndpointRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an origin endpoint for a live package channel to deliver live streams in HLS format.
+       * @summary [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_description]Endpoint playback URL
        *
-       * @description ## [](#)Usage notes
-       * This API operation is mainly used to configure origin settings, security policies including the IP address blacklist and whitelist and authorization code, and time shifting settings for channels. Before you create an origin endpoint, you must create a live package channel group and channel. After you create the endpoint, the endpoint URL and other configuration details are returned.
+       * @description [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_title]Endpoint URL
        *
        * @param request CreateLivePackageOriginEndpointRequest
        * @return CreateLivePackageOriginEndpointResponse
@@ -724,9 +746,9 @@ namespace ICE20201109
       Models::CreateLivePackageOriginEndpointResponse createLivePackageOriginEndpoint(const Models::CreateLivePackageOriginEndpointRequest &request);
 
       /**
-       * @summary Creates a live stream recording template to submit live stream recording jobs.
+       * @summary Use this operation to create a Live Record Template. You can use the template to submit Live Recording Jobs.
        *
-       * @description You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
+       * @description Live recording requires a Live Record Template. You can use a template to configure settings such as the recording format (for example, M3U8, MP4, or FLV) and the duration of Recording Files.
        *
        * @param tmpReq CreateLiveRecordTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -735,9 +757,9 @@ namespace ICE20201109
       Models::CreateLiveRecordTemplateResponse createLiveRecordTemplateWithOptions(const Models::CreateLiveRecordTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a live stream recording template to submit live stream recording jobs.
+       * @summary Use this operation to create a Live Record Template. You can use the template to submit Live Recording Jobs.
        *
-       * @description You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
+       * @description Live recording requires a Live Record Template. You can use a template to configure settings such as the recording format (for example, M3U8, MP4, or FLV) and the duration of Recording Files.
        *
        * @param request CreateLiveRecordTemplateRequest
        * @return CreateLiveRecordTemplateResponse
@@ -764,6 +786,8 @@ namespace ICE20201109
       /**
        * @summary Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
        *
+       * @description Only Shanghai region supports real-time media transcoding.
+       *
        * @param tmpReq CreateLiveTranscodeTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateLiveTranscodeTemplateResponse
@@ -773,6 +797,8 @@ namespace ICE20201109
       /**
        * @summary Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
        *
+       * @description Only Shanghai region supports real-time media transcoding.
+       *
        * @param request CreateLiveTranscodeTemplateRequest
        * @return CreateLiveTranscodeTemplateResponse
        */
@@ -781,8 +807,8 @@ namespace ICE20201109
       /**
        * @summary Creates a MediaConnect flow.
        *
-       * @description *   The flow names cannot be duplicated in the same region.
-       * *   Take note of the returned flow ID. You may reference it in other API operations.
+       * @description - The flow names cannot be duplicated in the same region.
+       * - Take note of the returned flow ID. You may reference it in other API operations.
        *
        * @param request CreateMediaConnectFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -793,8 +819,8 @@ namespace ICE20201109
       /**
        * @summary Creates a MediaConnect flow.
        *
-       * @description *   The flow names cannot be duplicated in the same region.
-       * *   Take note of the returned flow ID. You may reference it in other API operations.
+       * @description - The flow names cannot be duplicated in the same region.
+       * - Take note of the returned flow ID. You may reference it in other API operations.
        *
        * @param request CreateMediaConnectFlowRequest
        * @return CreateMediaConnectFlowResponse
@@ -825,10 +851,11 @@ namespace ICE20201109
       Models::CreateMediaLiveChannelResponse createMediaLiveChannel(const Models::CreateMediaLiveChannelRequest &request);
 
       /**
-       * @summary Creates a MediaLive input.
+       * @summary Create a live media input.
        *
-       * @description ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - Create a live media input.
+       * ## Queries per second (QPS) limit
+       * The queries per second (QPS) limit for this API is 50 requests per second per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param tmpReq CreateMediaLiveInputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -837,10 +864,11 @@ namespace ICE20201109
       Models::CreateMediaLiveInputResponse createMediaLiveInputWithOptions(const Models::CreateMediaLiveInputRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a MediaLive input.
+       * @summary Create a live media input.
        *
-       * @description ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - Create a live media input.
+       * ## Queries per second (QPS) limit
+       * The queries per second (QPS) limit for this API is 50 requests per second per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param request CreateMediaLiveInputRequest
        * @return CreateMediaLiveInputResponse
@@ -907,8 +935,8 @@ namespace ICE20201109
       /**
        * @summary Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -919,8 +947,8 @@ namespace ICE20201109
       /**
        * @summary Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionEntityRequest
        * @return CreateRecognitionEntityResponse
@@ -930,9 +958,9 @@ namespace ICE20201109
       /**
        * @summary Creates a custom library to store the entity information for recognition.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -943,9 +971,9 @@ namespace ICE20201109
       /**
        * @summary Creates a custom library to store the entity information for recognition.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionLibRequest
        * @return CreateRecognitionLibResponse
@@ -955,8 +983,8 @@ namespace ICE20201109
       /**
        * @summary Adds a sample image or a text label to a specific entity within a recognition library.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -967,8 +995,8 @@ namespace ICE20201109
       /**
        * @summary Adds a sample image or a text label to a specific entity within a recognition library.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionSampleRequest
        * @return CreateRecognitionSampleResponse
@@ -976,9 +1004,10 @@ namespace ICE20201109
       Models::CreateRecognitionSampleResponse createRecognitionSample(const Models::CreateRecognitionSampleRequest &request);
 
       /**
-       * @summary Creates a search index in a search library. Each search library can contain multiple indexes.
+       * @summary You can create a search index under a search library. A search library can contain multiple search indexes of different types.
        *
-       * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+       * @description <props="china">
+       * Before using this API, ensure that you fully understand the [Intelligent Search billing](https://help.aliyun.com/document_detail/2840897.html) method and pricing.
        *
        * @param request CreateSearchIndexRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -987,9 +1016,10 @@ namespace ICE20201109
       Models::CreateSearchIndexResponse createSearchIndexWithOptions(const Models::CreateSearchIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a search index in a search library. Each search library can contain multiple indexes.
+       * @summary You can create a search index under a search library. A search library can contain multiple search indexes of different types.
        *
-       * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+       * @description <props="china">
+       * Before using this API, ensure that you fully understand the [Intelligent Search billing](https://help.aliyun.com/document_detail/2840897.html) method and pricing.
        *
        * @param request CreateSearchIndexRequest
        * @return CreateSearchIndexResponse
@@ -1065,15 +1095,16 @@ namespace ICE20201109
       Models::CreateStreamToSearchLibResponse createStreamToSearchLib(const Models::CreateStreamToSearchLibRequest &request);
 
       /**
-       * @summary Obtains the upload URL and credential of a media asset and creates information about the media asset.
+       * @summary This operation retrieves an upload address and upload credential for audio, video, image, and auxiliary media assets, and creates the corresponding media asset.
        *
-       * @description *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
-       * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
-       * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
-       * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
-       * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
-       * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * @description ### Overview
+       * - Obtaining an upload address and upload credential is a prerequisite for all uploads in Intelligent Media Service.
+       * - If an upload credential expires (the default validity is 3,000 seconds), call the `RefreshUploadMedia` operation to get a new one.
+       * - After an upload is complete, you can confirm its success by either configuring a callback for event notifications or calling the `GetMediaInfo` operation to check the media asset\\"s status.
+       * - Use the returned `MediaId` for media asset lifecycle management or media processing.
+       * ### Limitations
+       * - This operation supports uploads only to VOD storage, not to your own Object Storage Service (OSS) buckets. If you use your own OSS buckets, first upload the files by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS files in your media library.
+       * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
        *
        * @param request CreateUploadMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1082,15 +1113,16 @@ namespace ICE20201109
       Models::CreateUploadMediaResponse createUploadMediaWithOptions(const Models::CreateUploadMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the upload URL and credential of a media asset and creates information about the media asset.
+       * @summary This operation retrieves an upload address and upload credential for audio, video, image, and auxiliary media assets, and creates the corresponding media asset.
        *
-       * @description *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
-       * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
-       * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
-       * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
-       * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
-       * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * @description ### Overview
+       * - Obtaining an upload address and upload credential is a prerequisite for all uploads in Intelligent Media Service.
+       * - If an upload credential expires (the default validity is 3,000 seconds), call the `RefreshUploadMedia` operation to get a new one.
+       * - After an upload is complete, you can confirm its success by either configuring a callback for event notifications or calling the `GetMediaInfo` operation to check the media asset\\"s status.
+       * - Use the returned `MediaId` for media asset lifecycle management or media processing.
+       * ### Limitations
+       * - This operation supports uploads only to VOD storage, not to your own Object Storage Service (OSS) buckets. If you use your own OSS buckets, first upload the files by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS files in your media library.
+       * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
        *
        * @param request CreateUploadMediaRequest
        * @return CreateUploadMediaResponse
@@ -1100,9 +1132,9 @@ namespace ICE20201109
       /**
        * @summary Obtains the upload URL and credential of a media stream.
        *
-       * @description *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
-       * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * @description - Upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+       * - Upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+       * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
        *
        * @param request CreateUploadStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1113,9 +1145,9 @@ namespace ICE20201109
       /**
        * @summary Obtains the upload URL and credential of a media stream.
        *
-       * @description *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
-       * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * @description - Upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+       * - Upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+       * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
        *
        * @param request CreateUploadStreamRequest
        * @return CreateUploadStreamResponse
@@ -1174,7 +1206,7 @@ namespace ICE20201109
       Models::CreateVodPackagingGroupResponse createVodPackagingGroup(const Models::CreateVodPackagingGroupRequest &request);
 
       /**
-       * @summary Obtains the upload credential for a WonderClip media asset.
+       * @summary Obtains an upload credential for a Yike media asset.
        *
        * @param request CreateYikeAssetUploadRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1183,7 +1215,7 @@ namespace ICE20201109
       Models::CreateYikeAssetUploadResponse createYikeAssetUploadWithOptions(const Models::CreateYikeAssetUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the upload credential for a WonderClip media asset.
+       * @summary Obtains an upload credential for a Yike media asset.
        *
        * @param request CreateYikeAssetUploadRequest
        * @return CreateYikeAssetUploadResponse
@@ -1191,7 +1223,7 @@ namespace ICE20201109
       Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
 
       /**
-       * @summary Creates a WonderClip project.
+       * @summary Creates a Yike production.
        *
        * @param request CreateYikeProductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1200,7 +1232,7 @@ namespace ICE20201109
       Models::CreateYikeProductionResponse createYikeProductionWithOptions(const Models::CreateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a WonderClip project.
+       * @summary Creates a Yike production.
        *
        * @param request CreateYikeProductionRequest
        * @return CreateYikeProductionResponse
@@ -1208,7 +1240,7 @@ namespace ICE20201109
       Models::CreateYikeProductionResponse createYikeProduction(const Models::CreateYikeProductionRequest &request);
 
       /**
-       * @summary Creates a sub-account in WonderClip.
+       * @summary Creates a Yike user.
        *
        * @param request CreateYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1249,7 @@ namespace ICE20201109
       Models::CreateYikeUserResponse createYikeUserWithOptions(const Models::CreateYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a sub-account in WonderClip.
+       * @summary Creates a Yike user.
        *
        * @param request CreateYikeUserRequest
        * @return CreateYikeUserResponse
@@ -1225,7 +1257,7 @@ namespace ICE20201109
       Models::CreateYikeUserResponse createYikeUser(const Models::CreateYikeUserRequest &request);
 
       /**
-       * @summary Creates a workspace in WonderClip.
+       * @summary Creates a workspace.
        *
        * @param request CreateYikeWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1234,7 +1266,7 @@ namespace ICE20201109
       Models::CreateYikeWorkspaceResponse createYikeWorkspaceWithOptions(const Models::CreateYikeWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workspace in WonderClip.
+       * @summary Creates a workspace.
        *
        * @param request CreateYikeWorkspaceRequest
        * @return CreateYikeWorkspaceResponse
@@ -1453,9 +1485,9 @@ namespace ICE20201109
        * @summary Deletes a specified hotword library based on the ID.
        *
        * @description ## [](#)
-       * *   You can call this operation to delete a specified hotword library.
-       * *   The delete operation is irreversible.
-       * *   You can create up to 100 hotword libraries in an account.
+       * - Delete a specified hotword library.
+       * - The delete operation is irreversible.
+       * - You can create up to 100 hotword libraries in an account.
        *
        * @param request DeleteHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1467,9 +1499,9 @@ namespace ICE20201109
        * @summary Deletes a specified hotword library based on the ID.
        *
        * @description ## [](#)
-       * *   You can call this operation to delete a specified hotword library.
-       * *   The delete operation is irreversible.
-       * *   You can create up to 100 hotword libraries in an account.
+       * - Delete a specified hotword library.
+       * - The delete operation is irreversible.
+       * - You can create up to 100 hotword libraries in an account.
        *
        * @param request DeleteHotwordLibraryRequest
        * @return DeleteHotwordLibraryResponse
@@ -1580,7 +1612,7 @@ namespace ICE20201109
       Models::DeleteLiveRecordTemplateResponse deleteLiveRecordTemplate(const Models::DeleteLiveRecordTemplateRequest &request);
 
       /**
-       * @summary Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
+       * @summary Deletes live snapshot files. You can delete only the records, or both the records and the original Object Storage Service (OSS) files.
        *
        * @param tmpReq DeleteLiveSnapshotFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1589,7 +1621,7 @@ namespace ICE20201109
       Models::DeleteLiveSnapshotFilesResponse deleteLiveSnapshotFilesWithOptions(const Models::DeleteLiveSnapshotFilesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
+       * @summary Deletes live snapshot files. You can delete only the records, or both the records and the original Object Storage Service (OSS) files.
        *
        * @param request DeleteLiveSnapshotFilesRequest
        * @return DeleteLiveSnapshotFilesResponse
@@ -1614,7 +1646,7 @@ namespace ICE20201109
       Models::DeleteLiveSnapshotTemplateResponse deleteLiveSnapshotTemplate(const Models::DeleteLiveSnapshotTemplateRequest &request);
 
       /**
-       * @summary 删除指定转码任务
+       * @summary Delete the specified real-time transcoding job.
        *
        * @param request DeleteLiveTranscodeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1623,7 +1655,7 @@ namespace ICE20201109
       Models::DeleteLiveTranscodeJobResponse deleteLiveTranscodeJobWithOptions(const Models::DeleteLiveTranscodeJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定转码任务
+       * @summary Delete the specified real-time transcoding job.
        *
        * @param request DeleteLiveTranscodeJobRequest
        * @return DeleteLiveTranscodeJobResponse
@@ -1650,9 +1682,9 @@ namespace ICE20201109
       /**
        * @summary Deletes a MediaConnect flow.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   When a flow is deleted, its source and outputs are also deleted.
-       * *   When a flow is in the online state, it cannot be deleted.
+       * @description - When the specified flow ID is not available, an error code is returned.
+       * - When a flow is deleted, its source and outputs are also deleted.
+       * - When a flow is in the online state, it cannot be deleted.
        *
        * @param request DeleteMediaConnectFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1663,9 +1695,9 @@ namespace ICE20201109
       /**
        * @summary Deletes a MediaConnect flow.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   When a flow is deleted, its source and outputs are also deleted.
-       * *   When a flow is in the online state, it cannot be deleted.
+       * @description - When the specified flow ID is not available, an error code is returned.
+       * - When a flow is deleted, its source and outputs are also deleted.
+       * - When a flow is in the online state, it cannot be deleted.
        *
        * @param request DeleteMediaConnectFlowRequest
        * @return DeleteMediaConnectFlowResponse
@@ -1673,11 +1705,11 @@ namespace ICE20201109
       Models::DeleteMediaConnectFlowResponse deleteMediaConnectFlow(const Models::DeleteMediaConnectFlowRequest &request);
 
       /**
-       * @summary Deletes the source of a MediaConnect flow.
+       * @summary Delete the input of a specific MediaConnect instance
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   When a flow is in the online state, its source cannot be deleted.
-       * *   You can delete the source only after all outputs of the flow have been deleted.
+       * @description - If the provided Flow instance ID does not exist, the interface will return an error.
+       * - When the Flow instance status is online, the input cannot be deleted.
+       * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
        *
        * @param request DeleteMediaConnectFlowInputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1686,11 +1718,11 @@ namespace ICE20201109
       Models::DeleteMediaConnectFlowInputResponse deleteMediaConnectFlowInputWithOptions(const Models::DeleteMediaConnectFlowInputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the source of a MediaConnect flow.
+       * @summary Delete the input of a specific MediaConnect instance
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   When a flow is in the online state, its source cannot be deleted.
-       * *   You can delete the source only after all outputs of the flow have been deleted.
+       * @description - If the provided Flow instance ID does not exist, the interface will return an error.
+       * - When the Flow instance status is online, the input cannot be deleted.
+       * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
        *
        * @param request DeleteMediaConnectFlowInputRequest
        * @return DeleteMediaConnectFlowInputResponse
@@ -1700,8 +1732,8 @@ namespace ICE20201109
       /**
        * @summary Deletes an output of a MediaConnect flow.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   When a flow is in the online state, its outputs cannot be deleted.
+       * @description - When the specified flow ID is not available, an error code is returned.
+       * - When a flow is in the online state, its outputs cannot be deleted.
        *
        * @param request DeleteMediaConnectFlowOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1712,8 +1744,8 @@ namespace ICE20201109
       /**
        * @summary Deletes an output of a MediaConnect flow.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   When a flow is in the online state, its outputs cannot be deleted.
+       * @description - When the specified flow ID is not available, an error code is returned.
+       * - When a flow is in the online state, its outputs cannot be deleted.
        *
        * @param request DeleteMediaConnectFlowOutputRequest
        * @return DeleteMediaConnectFlowOutputResponse
@@ -1721,7 +1753,7 @@ namespace ICE20201109
       Models::DeleteMediaConnectFlowOutputResponse deleteMediaConnectFlowOutput(const Models::DeleteMediaConnectFlowOutputRequest &request);
 
       /**
-       * @summary Deletes a specific media asset from a search library.
+       * @summary Delete the specified media asset from the search library.
        *
        * @param request DeleteMediaFromSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1730,7 +1762,7 @@ namespace ICE20201109
       Models::DeleteMediaFromSearchLibResponse deleteMediaFromSearchLibWithOptions(const Models::DeleteMediaFromSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specific media asset from a search library.
+       * @summary Delete the specified media asset from the search library.
        *
        * @param request DeleteMediaFromSearchLibRequest
        * @return DeleteMediaFromSearchLibResponse
@@ -1757,7 +1789,7 @@ namespace ICE20201109
       /**
        * @summary Deletes a MediaLive channel.
        *
-       * @description *  You can only delete a channel that is not running.
+       * @description - You can only delete a channel that is not running.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -1770,7 +1802,7 @@ namespace ICE20201109
       /**
        * @summary Deletes a MediaLive channel.
        *
-       * @description *  You can only delete a channel that is not running.
+       * @description - You can only delete a channel that is not running.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -1782,7 +1814,7 @@ namespace ICE20201109
       /**
        * @summary Deletes a MediaLive input.
        *
-       * @description *   You can delete an input only when it is not associated with a MediaLive channel.
+       * @description - You can delete an input only when it is not associated with a MediaLive channel.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -1795,7 +1827,7 @@ namespace ICE20201109
       /**
        * @summary Deletes a MediaLive input.
        *
-       * @description *   You can delete an input only when it is not associated with a MediaLive channel.
+       * @description - You can delete an input only when it is not associated with a MediaLive channel.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -1807,7 +1839,7 @@ namespace ICE20201109
       /**
        * @summary Deletes a security group in MediaLive.
        *
-       * @description *   You can only delete a security group not associated with an input.
+       * @description - You can only delete a security group not associated with an input.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -1820,7 +1852,7 @@ namespace ICE20201109
       /**
        * @summary Deletes a security group in MediaLive.
        *
-       * @description *   You can only delete a security group not associated with an input.
+       * @description - You can only delete a security group not associated with an input.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -1866,7 +1898,7 @@ namespace ICE20201109
       /**
        * @summary Deletes media streams such as video streams and audio streams.
        *
-       * @description You can call this operation to delete multiple media streams at a time.
+       * @description Delete multiple media streams at a time.
        *
        * @param request DeletePlayInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1877,7 +1909,7 @@ namespace ICE20201109
       /**
        * @summary Deletes media streams such as video streams and audio streams.
        *
-       * @description You can call this operation to delete multiple media streams at a time.
+       * @description Delete multiple media streams at a time.
        *
        * @param request DeletePlayInfoRequest
        * @return DeletePlayInfoResponse
@@ -1904,8 +1936,8 @@ namespace ICE20201109
       /**
        * @summary Deletes an entity from the specified custom recognition library.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1916,8 +1948,8 @@ namespace ICE20201109
       /**
        * @summary Deletes an entity from the specified custom recognition library.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionEntityRequest
        * @return DeleteRecognitionEntityResponse
@@ -1927,8 +1959,8 @@ namespace ICE20201109
       /**
        * @summary Deletes a custom recognition library, including all entities and samples within it.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1939,8 +1971,8 @@ namespace ICE20201109
       /**
        * @summary Deletes a custom recognition library, including all entities and samples within it.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionLibRequest
        * @return DeleteRecognitionLibResponse
@@ -1950,8 +1982,8 @@ namespace ICE20201109
       /**
        * @summary Deletes a sample for a custom entity.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1962,8 +1994,8 @@ namespace ICE20201109
       /**
        * @summary Deletes a sample for a custom entity.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Callable up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionSampleRequest
        * @return DeleteRecognitionSampleResponse
@@ -2025,8 +2057,8 @@ namespace ICE20201109
        * @summary Deletes templates.
        *
        * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-       * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request DeleteTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2038,8 +2070,8 @@ namespace ICE20201109
        * @summary Deletes templates.
        *
        * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-       * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request DeleteTemplateRequest
        * @return DeleteTemplateResponse
@@ -2098,7 +2130,7 @@ namespace ICE20201109
       Models::DeleteVodPackagingGroupResponse deleteVodPackagingGroup(const Models::DeleteVodPackagingGroupRequest &request);
 
       /**
-       * @summary Deletes media asset information.
+       * @summary Deletes one or more media assets.
        *
        * @param request DeleteYikeAssetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2107,7 +2139,7 @@ namespace ICE20201109
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfosWithOptions(const Models::DeleteYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes media asset information.
+       * @summary Deletes one or more media assets.
        *
        * @param request DeleteYikeAssetMediaInfosRequest
        * @return DeleteYikeAssetMediaInfosResponse
@@ -2115,11 +2147,10 @@ namespace ICE20201109
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfos(const Models::DeleteYikeAssetMediaInfosRequest &request);
 
       /**
-       * @summary Queries the information about an AI agent.
+       * @summary Retrieves information about a specified AI agent instance.
        *
-       * @description ## [](#)Request description
-       * *   **Feature**: You can call this operation to query the information about an AI agent.
-       * *   **Scenario**: If you need to monitor or analyze the performance of an AI agent in a call or debug the agent configurations, you can call this operation to obtain required data.
+       * @description - **Description**: Retrieves detailed information for a specific AI agent instance.
+       * - **Use cases**: Use this operation to monitor or analyze the performance of an AI agent during a call, or to debug its configuration.
        *
        * @param request DescribeAIAgentInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2128,11 +2159,10 @@ namespace ICE20201109
       Models::DescribeAIAgentInstanceResponse describeAIAgentInstanceWithOptions(const Models::DescribeAIAgentInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an AI agent.
+       * @summary Retrieves information about a specified AI agent instance.
        *
-       * @description ## [](#)Request description
-       * *   **Feature**: You can call this operation to query the information about an AI agent.
-       * *   **Scenario**: If you need to monitor or analyze the performance of an AI agent in a call or debug the agent configurations, you can call this operation to obtain required data.
+       * @description - **Description**: Retrieves detailed information for a specific AI agent instance.
+       * - **Use cases**: Use this operation to monitor or analyze the performance of an AI agent during a call, or to debug its configuration.
        *
        * @param request DescribeAIAgentInstanceRequest
        * @return DescribeAIAgentInstanceResponse
@@ -2225,9 +2255,9 @@ namespace ICE20201109
       Models::DescribeMeterImsSummaryResponse describeMeterImsSummary(const Models::DescribeMeterImsSummaryRequest &request);
 
       /**
-       * @summary Queries the event callback configurations of an AI agent.
+       * @summary Retrieves the event callback configuration for a specified AIAgent.
        *
-       * @description You can call this operation to query the detailed callback configurations of an AI agent.
+       * @description Retrieves the event callback configuration for a specified AIAgent.
        *
        * @param request DescribeNotifyConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2236,9 +2266,9 @@ namespace ICE20201109
       Models::DescribeNotifyConfigResponse describeNotifyConfigWithOptions(const Models::DescribeNotifyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the event callback configurations of an AI agent.
+       * @summary Retrieves the event callback configuration for a specified AIAgent.
        *
-       * @description You can call this operation to query the detailed callback configurations of an AI agent.
+       * @description Retrieves the event callback configuration for a specified AIAgent.
        *
        * @param request DescribeNotifyConfigRequest
        * @return DescribeNotifyConfigResponse
@@ -2263,7 +2293,7 @@ namespace ICE20201109
       Models::DescribePlayListResponse describePlayList(const Models::DescribePlayListRequest &request);
 
       /**
-       * @summary Queries the information about an AI agent for real-time communication (RTC).
+       * @summary Retrieves information about an RTC Robot Instance.
        *
        * @param request DescribeRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2272,7 +2302,7 @@ namespace ICE20201109
       Models::DescribeRtcRobotInstanceResponse describeRtcRobotInstanceWithOptions(const Models::DescribeRtcRobotInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an AI agent for real-time communication (RTC).
+       * @summary Retrieves information about an RTC Robot Instance.
        *
        * @param request DescribeRtcRobotInstanceRequest
        * @return DescribeRtcRobotInstanceResponse
@@ -2348,7 +2378,7 @@ namespace ICE20201109
       Models::ForbidMediaConnectFlowOutputResponse forbidMediaConnectFlowOutput(const Models::ForbidMediaConnectFlowOutputRequest &request);
 
       /**
-       * @summary Forwards an active call to a specified target phone number.
+       * @summary Transfer the call to the target phone number.
        *
        * @param request ForwardAIAgentCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2357,7 +2387,7 @@ namespace ICE20201109
       Models::ForwardAIAgentCallResponse forwardAIAgentCallWithOptions(const Models::ForwardAIAgentCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Forwards an active call to a specified target phone number.
+       * @summary Transfer the call to the target phone number.
        *
        * @param request ForwardAIAgentCallRequest
        * @return ForwardAIAgentCallResponse
@@ -2365,11 +2395,11 @@ namespace ICE20201109
       Models::ForwardAIAgentCallResponse forwardAIAgentCall(const Models::ForwardAIAgentCallRequest &request);
 
       /**
-       * @summary Creates an AI agent. This operation returns the channel in which the AI agent resides, the username of the AI agent in the channel, and the token that you can use to join the channel.
+       * @summary Creates an agent instance and returns the channel, username, and token to join the channel.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to create an AI agent based on the provided ID. You can join the channel based on the returned information and talk to the agent.
-       * **Note:** Make sure that the provided AI agent ID is valid and configure optional parameters based on your business requirements.
+       * @description This API creates an agent instance using the specified AI agent ID (AIAgentId). You can use the information in the response to join the corresponding channel and start a session with the agent.
+       * >Notice: 
+       * Ensure that the specified AI agent ID is valid and configure optional parameters as needed.
        *
        * @param tmpReq GenerateAIAgentCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2378,11 +2408,11 @@ namespace ICE20201109
       Models::GenerateAIAgentCallResponse generateAIAgentCallWithOptions(const Models::GenerateAIAgentCallRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an AI agent. This operation returns the channel in which the AI agent resides, the username of the AI agent in the channel, and the token that you can use to join the channel.
+       * @summary Creates an agent instance and returns the channel, username, and token to join the channel.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to create an AI agent based on the provided ID. You can join the channel based on the returned information and talk to the agent.
-       * **Note:** Make sure that the provided AI agent ID is valid and configure optional parameters based on your business requirements.
+       * @description This API creates an agent instance using the specified AI agent ID (AIAgentId). You can use the information in the response to join the corresponding channel and start a session with the agent.
+       * >Notice: 
+       * Ensure that the specified AI agent ID is valid and configure optional parameters as needed.
        *
        * @param request GenerateAIAgentCallRequest
        * @return GenerateAIAgentCallResponse
@@ -2392,6 +2422,9 @@ namespace ICE20201109
       /**
        * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
        *
+       * @description ## Prerequisites
+       * You must [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c63.p38356.0.0.583760760aj80E) to create a custom KMS key before you can call this operation.
+       *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenerateKMSDataKeyResponse
        */
@@ -2399,6 +2432,9 @@ namespace ICE20201109
 
       /**
        * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
+       *
+       * @description ## Prerequisites
+       * You must [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c63.p38356.0.0.583760760aj80E) to create a custom KMS key before you can call this operation.
        *
        * @return GenerateKMSDataKeyResponse
        */
@@ -2422,7 +2458,7 @@ namespace ICE20201109
       Models::GenerateMessageChatTokenResponse generateMessageChatToken(const Models::GenerateMessageChatTokenRequest &request);
 
       /**
-       * @summary Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
+       * @summary Retrieves the current number of active concurrent calls for a specified AI agent. This is a lightweight query operation that returns only the number of currently active instances. It does not return instance details or historical peak values.
        *
        * @param request GetAIAgentConcurrencyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2431,7 +2467,7 @@ namespace ICE20201109
       Models::GetAIAgentConcurrencyResponse getAIAgentConcurrencyWithOptions(const Models::GetAIAgentConcurrencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
+       * @summary Retrieves the current number of active concurrent calls for a specified AI agent. This is a lightweight query operation that returns only the number of currently active instances. It does not return instance details or historical peak values.
        *
        * @param request GetAIAgentConcurrencyRequest
        * @return GetAIAgentConcurrencyResponse
@@ -2476,10 +2512,10 @@ namespace ICE20201109
        * @summary Retrieves a list of Real-time Conversational AI authentication codes and their status for a specified batch.
        *
        * @description ## [](#)Usage notes
-       * *   This API retrieves a list of authorization codes for a specific batch ID. You can filter the results by status and type.
-       * *   Pagination is supported via the `PageNo` and `PageSize` parameters.
-       * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records.
-       * *   `LicenseItemId` is a required parameter that specifies the batch to query.
+       * - This API retrieves a list of authorization codes for a specific batch ID. You can filter the results by status and type.
+       * - Pagination is supported via the `PageNo` and `PageSize` parameters.
+       * - By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records.
+       * - `LicenseItemId` is a required parameter that specifies the batch to query.
        *
        * @param request GetAiRtcAuthCodeListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2491,10 +2527,10 @@ namespace ICE20201109
        * @summary Retrieves a list of Real-time Conversational AI authentication codes and their status for a specified batch.
        *
        * @description ## [](#)Usage notes
-       * *   This API retrieves a list of authorization codes for a specific batch ID. You can filter the results by status and type.
-       * *   Pagination is supported via the `PageNo` and `PageSize` parameters.
-       * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records.
-       * *   `LicenseItemId` is a required parameter that specifies the batch to query.
+       * - This API retrieves a list of authorization codes for a specific batch ID. You can filter the results by status and type.
+       * - Pagination is supported via the `PageNo` and `PageSize` parameters.
+       * - By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records.
+       * - `LicenseItemId` is a required parameter that specifies the batch to query.
        *
        * @param request GetAiRtcAuthCodeListRequest
        * @return GetAiRtcAuthCodeListResponse
@@ -2502,12 +2538,12 @@ namespace ICE20201109
       Models::GetAiRtcAuthCodeListResponse getAiRtcAuthCodeList(const Models::GetAiRtcAuthCodeListRequest &request);
 
       /**
-       * @summary Retrieves a list of license batches for Real-time Conversational AI based on specified filter criteria.
+       * @summary Retrieves details for AI Real-Time Communication license batches that match specified filter criteria.
        *
-       * @description ## [](#)Usage notes
-       * *   This API allows you to retrieve a list of license batches for Real-time Conversational AI using filters such as Batch ID, status, and type.
-       * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records. Set it to `false` if you do not need this total.
-       * *   If no filter criteria are provided, the API returns information for all license batches.
+       * @description ## Description
+       * - Retrieve AI Real-Time Communication license batches based on filter criteria such as License Item ID, Status, and Type.
+       * - The `NeedTotalCount` parameter defaults to `true`. When set to true, the response includes the total count of matching entries. To exclude the total count, set this parameter to `false`.
+       * - If you do not specify any filter criteria, the operation returns the details for all license batches by default.
        *
        * @param request GetAiRtcLicenseInfoListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2516,12 +2552,12 @@ namespace ICE20201109
       Models::GetAiRtcLicenseInfoListResponse getAiRtcLicenseInfoListWithOptions(const Models::GetAiRtcLicenseInfoListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of license batches for Real-time Conversational AI based on specified filter criteria.
+       * @summary Retrieves details for AI Real-Time Communication license batches that match specified filter criteria.
        *
-       * @description ## [](#)Usage notes
-       * *   This API allows you to retrieve a list of license batches for Real-time Conversational AI using filters such as Batch ID, status, and type.
-       * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records. Set it to `false` if you do not need this total.
-       * *   If no filter criteria are provided, the API returns information for all license batches.
+       * @description ## Description
+       * - Retrieve AI Real-Time Communication license batches based on filter criteria such as License Item ID, Status, and Type.
+       * - The `NeedTotalCount` parameter defaults to `true`. When set to true, the response includes the total count of matching entries. To exclude the total count, set this parameter to `false`.
+       * - If you do not specify any filter criteria, the operation returns the details for all license batches by default.
        *
        * @param request GetAiRtcLicenseInfoListRequest
        * @return GetAiRtcLicenseInfoListResponse
@@ -2563,7 +2599,7 @@ namespace ICE20201109
       Models::GetAvatarTrainingJobResponse getAvatarTrainingJob(const Models::GetAvatarTrainingJobRequest &request);
 
       /**
-       * @summary Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
+       * @summary Obtain detailed information about batch Intelligent One-Click Video Editing jobs, including the input parameters, job status, and the IDs and URLs of the generated media assets. This API supports querying job data from the past year only.
        *
        * @param request GetBatchMediaProducingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2572,7 +2608,7 @@ namespace ICE20201109
       Models::GetBatchMediaProducingJobResponse getBatchMediaProducingJobWithOptions(const Models::GetBatchMediaProducingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
+       * @summary Obtain detailed information about batch Intelligent One-Click Video Editing jobs, including the input parameters, job status, and the IDs and URLs of the generated media assets. This API supports querying job data from the past year only.
        *
        * @param request GetBatchMediaProducingJobRequest
        * @return GetBatchMediaProducingJobResponse
@@ -2582,7 +2618,7 @@ namespace ICE20201109
       /**
        * @summary Queries the information about a category and its subcategories.
        *
-       * @description You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
+       * @description Query the information about a category and its subcategories based on the category ID and category type.
        *
        * @param request GetCategoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2593,7 +2629,7 @@ namespace ICE20201109
       /**
        * @summary Queries the information about a category and its subcategories.
        *
-       * @description You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
+       * @description Query the information about a category and its subcategories based on the category ID and category type.
        *
        * @param request GetCategoriesRequest
        * @return GetCategoriesResponse
@@ -2601,7 +2637,7 @@ namespace ICE20201109
       Models::GetCategoriesResponse getCategories(const Models::GetCategoriesRequest &request);
 
       /**
-       * @summary Queries information about a channel in MediaWeaver.
+       * @summary Gets information about a channel in MediaWeaver.
        *
        * @param request GetChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2610,7 +2646,7 @@ namespace ICE20201109
       Models::GetChannelResponse getChannelWithOptions(const Models::GetChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a channel in MediaWeaver.
+       * @summary Gets information about a channel in MediaWeaver.
        *
        * @param request GetChannelRequest
        * @return GetChannelResponse
@@ -2618,7 +2654,7 @@ namespace ICE20201109
       Models::GetChannelResponse getChannel(const Models::GetChannelRequest &request);
 
       /**
-       * @summary 获取内容分析搜索配置
+       * @summary Retrieves the configuration for Intelligent Content Analysis.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetContentAnalyzeConfigResponse
@@ -2626,43 +2662,43 @@ namespace ICE20201109
       Models::GetContentAnalyzeConfigResponse getContentAnalyzeConfigWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取内容分析搜索配置
+       * @summary Retrieves the configuration for Intelligent Content Analysis.
        *
        * @return GetContentAnalyzeConfigResponse
        */
       Models::GetContentAnalyzeConfigResponse getContentAnalyzeConfig();
 
       /**
-       * @summary Queries the information about a custom template.
+       * @summary Gets details of a custom media processing template.
        *
-       * @description You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
-       * Template types:
-       * 1.  1: transcoding template.
-       * 2.  2: snapshot template.
-       * 3.  3: animated image template.
-       * 4.  4\\. image watermark template.
-       * 5.  5: text watermark template.
-       * 6.  6: subtitle template.
-       * 7.  7: AI-assisted content moderation template.
-       * 8.  8: AI-assisted intelligent thumbnail template.
-       * 9.  9: AI-assisted intelligent erasure template.
-       * Subtypes of transcoding templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (AudioTranscode): audio transcoding template.
-       * 3.  3 (Remux): container format conversion template.
-       * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
-       * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
-       * Subtypes of snapshot templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (Sprite): sprite template.
-       * 3.  3 (WebVtt): WebVTT template.
-       * Subtypes of AI-assisted content moderation templates:
-       * 1.  1 (Video): video moderation template.
-       * 2.  2 (Audio): audio moderation template.
-       * 3.  3 (Image): image moderation template.
-       * Subtypes of AI-assisted intelligent erasure templates:
-       * 1.  1 (VideoDelogo): logo erasure template.
-       * 2.  2 (VideoDetext): subtitle erasure template.
+       * @description This operation gets the details of a custom template by its ID or the details of a default template. If you provide a `TemplateId`, the operation ignores other parameters and returns the details for that template. If you omit `TemplateId`, you must specify the `Type` parameter to get the corresponding default template.
+       * Template type (`Type`):
+       * 1. 1: transcoding template
+       * 2. 2: snapshot template
+       * 3. 3: Animated GIF template
+       * 4. 4: Image watermark template
+       * 5. 5: Text watermark template
+       * 6. 6: Subtitle template
+       * 7. 7: AI content moderation template
+       * 8. 8: AI smart cover template
+       * 9. 9: AI smart erase template
+       * Transcoding template subtype (`Subtype`):
+       * 1. 1: Normal (Normal)
+       * 2. 2: Audio transcoding (AudioTranscode)
+       * 3. 3: remuxing (Remux)
+       * 4. 4: Narrowband HD 1.0 (NarrowBandV1)
+       * 5. 5: Narrowband HD 2.0 (NarrowBandV2)
+       * Snapshot template subtype (`Subtype`):
+       * 1. 1: Static screenshot (Normal)
+       * 2. 2: sprite (Sprite)
+       * 3. 3: WebVTT screenshot (WebVtt)
+       * AI content moderation template subtype (`Subtype`):
+       * 1. 1: Video moderation (Video)
+       * 2. 2: Audio moderation (Audio)
+       * 3. 3: Image moderation (Image)
+       * AI smart erase template subtype (`Subtype`):
+       * 1. 1: Logo removal (VideoDelogo)
+       * 2. 2: Subtitle removal (VideoDetext)
        *
        * @param request GetCustomTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2671,36 +2707,36 @@ namespace ICE20201109
       Models::GetCustomTemplateResponse getCustomTemplateWithOptions(const Models::GetCustomTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a custom template.
+       * @summary Gets details of a custom media processing template.
        *
-       * @description You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
-       * Template types:
-       * 1.  1: transcoding template.
-       * 2.  2: snapshot template.
-       * 3.  3: animated image template.
-       * 4.  4\\. image watermark template.
-       * 5.  5: text watermark template.
-       * 6.  6: subtitle template.
-       * 7.  7: AI-assisted content moderation template.
-       * 8.  8: AI-assisted intelligent thumbnail template.
-       * 9.  9: AI-assisted intelligent erasure template.
-       * Subtypes of transcoding templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (AudioTranscode): audio transcoding template.
-       * 3.  3 (Remux): container format conversion template.
-       * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
-       * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
-       * Subtypes of snapshot templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (Sprite): sprite template.
-       * 3.  3 (WebVtt): WebVTT template.
-       * Subtypes of AI-assisted content moderation templates:
-       * 1.  1 (Video): video moderation template.
-       * 2.  2 (Audio): audio moderation template.
-       * 3.  3 (Image): image moderation template.
-       * Subtypes of AI-assisted intelligent erasure templates:
-       * 1.  1 (VideoDelogo): logo erasure template.
-       * 2.  2 (VideoDetext): subtitle erasure template.
+       * @description This operation gets the details of a custom template by its ID or the details of a default template. If you provide a `TemplateId`, the operation ignores other parameters and returns the details for that template. If you omit `TemplateId`, you must specify the `Type` parameter to get the corresponding default template.
+       * Template type (`Type`):
+       * 1. 1: transcoding template
+       * 2. 2: snapshot template
+       * 3. 3: Animated GIF template
+       * 4. 4: Image watermark template
+       * 5. 5: Text watermark template
+       * 6. 6: Subtitle template
+       * 7. 7: AI content moderation template
+       * 8. 8: AI smart cover template
+       * 9. 9: AI smart erase template
+       * Transcoding template subtype (`Subtype`):
+       * 1. 1: Normal (Normal)
+       * 2. 2: Audio transcoding (AudioTranscode)
+       * 3. 3: remuxing (Remux)
+       * 4. 4: Narrowband HD 1.0 (NarrowBandV1)
+       * 5. 5: Narrowband HD 2.0 (NarrowBandV2)
+       * Snapshot template subtype (`Subtype`):
+       * 1. 1: Static screenshot (Normal)
+       * 2. 2: sprite (Sprite)
+       * 3. 3: WebVTT screenshot (WebVtt)
+       * AI content moderation template subtype (`Subtype`):
+       * 1. 1: Video moderation (Video)
+       * 2. 2: Audio moderation (Audio)
+       * 3. 3: Image moderation (Image)
+       * AI smart erase template subtype (`Subtype`):
+       * 1. 1: Logo removal (VideoDelogo)
+       * 2. 2: Subtitle removal (VideoDetext)
        *
        * @param request GetCustomTemplateRequest
        * @return GetCustomTemplateResponse
@@ -2742,7 +2778,7 @@ namespace ICE20201109
       Models::GetCustomizedVoiceJobResponse getCustomizedVoiceJob(const Models::GetCustomizedVoiceJobRequest &request);
 
       /**
-       * @summary 获取用户默认存储地址
+       * @summary This topic describes the API request parameters and sample for obtaining the default storage configuration.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDefaultStorageLocationResponse
@@ -2750,7 +2786,7 @@ namespace ICE20201109
       Models::GetDefaultStorageLocationResponse getDefaultStorageLocationWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户默认存储地址
+       * @summary This topic describes the API request parameters and sample for obtaining the default storage configuration.
        *
        * @return GetDefaultStorageLocationResponse
        */
@@ -2808,7 +2844,7 @@ namespace ICE20201109
       Models::GetEditingProjectResponse getEditingProject(const Models::GetEditingProjectRequest &request);
 
       /**
-       * @summary Queries all materials associated with an online editing project.
+       * @summary Retrieve all media assets bound to the current editing project.
        *
        * @param request GetEditingProjectMaterialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2817,7 +2853,7 @@ namespace ICE20201109
       Models::GetEditingProjectMaterialsResponse getEditingProjectMaterialsWithOptions(const Models::GetEditingProjectMaterialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all materials associated with an online editing project.
+       * @summary Retrieve all media assets bound to the current editing project.
        *
        * @param request GetEditingProjectMaterialsRequest
        * @return GetEditingProjectMaterialsResponse
@@ -2842,8 +2878,8 @@ namespace ICE20201109
       /**
        * @summary Queries the information about a specified hotword library based on the ID.
        *
-       * @description ## [](#)
-       * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
+       * @description ##
+       * Retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
        *
        * @param request GetHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2854,8 +2890,8 @@ namespace ICE20201109
       /**
        * @summary Queries the information about a specified hotword library based on the ID.
        *
-       * @description ## [](#)
-       * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
+       * @description ##
+       * Retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
        *
        * @param request GetHotwordLibraryRequest
        * @return GetHotwordLibraryResponse
@@ -2863,7 +2899,7 @@ namespace ICE20201109
       Models::GetHotwordLibraryResponse getHotwordLibrary(const Models::GetHotwordLibraryRequest &request);
 
       /**
-       * @summary Retrieves information about IPC devices.
+       * @summary Obtain IPC device information.
        *
        * @param request GetIpcDeviceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2872,7 +2908,7 @@ namespace ICE20201109
       Models::GetIpcDeviceInfoResponse getIpcDeviceInfoWithOptions(const Models::GetIpcDeviceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about IPC devices.
+       * @summary Obtain IPC device information.
        *
        * @param request GetIpcDeviceInfoRequest
        * @return GetIpcDeviceInfoResponse
@@ -2897,7 +2933,7 @@ namespace ICE20201109
       Models::GetLiveEditingIndexFileResponse getLiveEditingIndexFile(const Models::GetLiveEditingIndexFileRequest &request);
 
       /**
-       * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
+       * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. Query only live editing jobs created within the past year.
        *
        * @param request GetLiveEditingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2906,7 +2942,7 @@ namespace ICE20201109
       Models::GetLiveEditingJobResponse getLiveEditingJobWithOptions(const Models::GetLiveEditingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
+       * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. Query only live editing jobs created within the past year.
        *
        * @param request GetLiveEditingJobRequest
        * @return GetLiveEditingJobResponse
@@ -2914,7 +2950,7 @@ namespace ICE20201109
       Models::GetLiveEditingJobResponse getLiveEditingJob(const Models::GetLiveEditingJobRequest &request);
 
       /**
-       * @summary Queries the details of a live package channel.
+       * @summary Gets details about a live package channel.
        *
        * @description ## [](#)Usage notes
        * This API operation allows you to query the details of a live package channel, including the creation time, description, ingest endpoint, protocol, number of segments, and segment duration.
@@ -2926,7 +2962,7 @@ namespace ICE20201109
       Models::GetLivePackageChannelResponse getLivePackageChannelWithOptions(const Models::GetLivePackageChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a live package channel.
+       * @summary Gets details about a live package channel.
        *
        * @description ## [](#)Usage notes
        * This API operation allows you to query the details of a live package channel, including the creation time, description, ingest endpoint, protocol, number of segments, and segment duration.
@@ -2937,10 +2973,10 @@ namespace ICE20201109
       Models::GetLivePackageChannelResponse getLivePackageChannel(const Models::GetLivePackageChannelRequest &request);
 
       /**
-       * @summary Queries the details of a live package channel group by name.
+       * @summary Gets details about a live package channel group by name.
        *
        * @description ## [](#)Usage notes
-       * You can call this API operation to query the details of a specific channel group, including its name, description, origin domain, and creation and last modification timestamps.
+       * Gets details about a specific channel group, including its name, description, origin domain, and creation and last modification timestamps.
        *
        * @param request GetLivePackageChannelGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2949,10 +2985,10 @@ namespace ICE20201109
       Models::GetLivePackageChannelGroupResponse getLivePackageChannelGroupWithOptions(const Models::GetLivePackageChannelGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a live package channel group by name.
+       * @summary Gets details about a live package channel group by name.
        *
        * @description ## [](#)Usage notes
-       * You can call this API operation to query the details of a specific channel group, including its name, description, origin domain, and creation and last modification timestamps.
+       * Gets details about a specific channel group, including its name, description, origin domain, and creation and last modification timestamps.
        *
        * @param request GetLivePackageChannelGroupRequest
        * @return GetLivePackageChannelGroupResponse
@@ -2960,9 +2996,9 @@ namespace ICE20201109
       Models::GetLivePackageChannelGroupResponse getLivePackageChannelGroup(const Models::GetLivePackageChannelGroupRequest &request);
 
       /**
-       * @summary Queries origin endpoints associated with a live package channel.
+       * @summary Query the real-time stream packaging origin configuration details of a specified channel.
        *
-       * @description ## [](#)Usage notes
+       * @description ## Request Description
        *
        * @param request GetLivePackageOriginEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2971,9 +3007,9 @@ namespace ICE20201109
       Models::GetLivePackageOriginEndpointResponse getLivePackageOriginEndpointWithOptions(const Models::GetLivePackageOriginEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries origin endpoints associated with a live package channel.
+       * @summary Query the real-time stream packaging origin configuration details of a specified channel.
        *
-       * @description ## [](#)Usage notes
+       * @description ## Request Description
        *
        * @param request GetLivePackageOriginEndpointRequest
        * @return GetLivePackageOriginEndpointResponse
@@ -3098,10 +3134,10 @@ namespace ICE20201109
       Models::GetMediaConnectAvailableRegionResponse getMediaConnectAvailableRegion();
 
       /**
-       * @summary Obtains information about a specific MediaConnect flow.
+       * @summary Retrieves the details of a MediaConnect Flow instance.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   The returned StartTime is valid only when the flow is in the online state.
+       * @description - This operation returns an error if the specified `FlowId` does not exist.
+       * - The `StartTime` in the response is valid only when the flow status is `online`.
        *
        * @param request GetMediaConnectFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3110,10 +3146,10 @@ namespace ICE20201109
       Models::GetMediaConnectFlowResponse getMediaConnectFlowWithOptions(const Models::GetMediaConnectFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains information about a specific MediaConnect flow.
+       * @summary Retrieves the details of a MediaConnect Flow instance.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
-       * *   The returned StartTime is valid only when the flow is in the online state.
+       * @description - This operation returns an error if the specified `FlowId` does not exist.
+       * - The `StartTime` in the response is valid only when the flow status is `online`.
        *
        * @param request GetMediaConnectFlowRequest
        * @return GetMediaConnectFlowResponse
@@ -3138,9 +3174,9 @@ namespace ICE20201109
       Models::GetMediaConnectFlowAllOutputNameResponse getMediaConnectFlowAllOutputName(const Models::GetMediaConnectFlowAllOutputNameRequest &request);
 
       /**
-       * @summary Obtains information about the source of a MediaConnect flow.
+       * @summary Retrieves the input information of a MediaConnect instance.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
+       * @description - If the specified Flow instance ID does not exist, the API returns an error.
        *
        * @param request GetMediaConnectFlowInputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3149,9 +3185,9 @@ namespace ICE20201109
       Models::GetMediaConnectFlowInputResponse getMediaConnectFlowInputWithOptions(const Models::GetMediaConnectFlowInputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains information about the source of a MediaConnect flow.
+       * @summary Retrieves the input information of a MediaConnect instance.
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
+       * @description - If the specified Flow instance ID does not exist, the API returns an error.
        *
        * @param request GetMediaConnectFlowInputRequest
        * @return GetMediaConnectFlowInputResponse
@@ -3159,9 +3195,9 @@ namespace ICE20201109
       Models::GetMediaConnectFlowInputResponse getMediaConnectFlowInput(const Models::GetMediaConnectFlowInputRequest &request);
 
       /**
-       * @summary Obtains information about an output of a MediaConnect flow.
+       * @summary Retrieve detailed information of a specific output based on outputName
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
+       * @description - When the provided Flow instance ID does not exist, the interface will return an error.
        *
        * @param request GetMediaConnectFlowOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3170,9 +3206,9 @@ namespace ICE20201109
       Models::GetMediaConnectFlowOutputResponse getMediaConnectFlowOutputWithOptions(const Models::GetMediaConnectFlowOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains information about an output of a MediaConnect flow.
+       * @summary Retrieve detailed information of a specific output based on outputName
        *
-       * @description *   When the specified flow ID is not available, an error code is returned.
+       * @description - When the provided Flow instance ID does not exist, the interface will return an error.
        *
        * @param request GetMediaConnectFlowOutputRequest
        * @return GetMediaConnectFlowOutputResponse
@@ -3180,7 +3216,7 @@ namespace ICE20201109
       Models::GetMediaConnectFlowOutputResponse getMediaConnectFlowOutput(const Models::GetMediaConnectFlowOutputRequest &request);
 
       /**
-       * @summary Obtains the details of a transcoding task.
+       * @summary MediaConvert task details
        *
        * @param request GetMediaConvertJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3189,7 +3225,7 @@ namespace ICE20201109
       Models::GetMediaConvertJobResponse getMediaConvertJobWithOptions(const Models::GetMediaConvertJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a transcoding task.
+       * @summary MediaConvert task details
        *
        * @param request GetMediaConvertJobRequest
        * @return GetMediaConvertJobResponse
@@ -3197,9 +3233,9 @@ namespace ICE20201109
       Models::GetMediaConvertJobResponse getMediaConvertJob(const Models::GetMediaConvertJobRequest &request);
 
       /**
-       * @summary Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+       * @summary Retrieves media asset information using an Intelligent Media Services (IMS) `mediaId` or an `InputURL`.
        *
-       * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
+       * @description `MediaId` takes precedence. If `MediaId` is empty, `InputURL` must not be null.
        *
        * @param request GetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3208,9 +3244,9 @@ namespace ICE20201109
       Models::GetMediaInfoResponse getMediaInfoWithOptions(const Models::GetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+       * @summary Retrieves media asset information using an Intelligent Media Services (IMS) `mediaId` or an `InputURL`.
        *
-       * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
+       * @description `MediaId` takes precedence. If `MediaId` is empty, `InputURL` must not be null.
        *
        * @param request GetMediaInfoRequest
        * @return GetMediaInfoResponse
@@ -3258,10 +3294,11 @@ namespace ICE20201109
       Models::GetMediaLiveChannelResponse getMediaLiveChannel(const Models::GetMediaLiveChannelRequest &request);
 
       /**
-       * @summary Queries the details of a MediaLive input.
+       * @summary Query the details of a media live input.
        *
-       * @description ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - Query the details of a media live input.
+       * ## Queries per second (QPS) limit
+       * The queries per second (QPS) limit for this API is 50 requests per second per user. If this limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request GetMediaLiveInputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3270,10 +3307,11 @@ namespace ICE20201109
       Models::GetMediaLiveInputResponse getMediaLiveInputWithOptions(const Models::GetMediaLiveInputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a MediaLive input.
+       * @summary Query the details of a media live input.
        *
-       * @description ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - Query the details of a media live input.
+       * ## Queries per second (QPS) limit
+       * The queries per second (QPS) limit for this API is 50 requests per second per user. If this limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request GetMediaLiveInputRequest
        * @return GetMediaLiveInputResponse
@@ -3281,7 +3319,7 @@ namespace ICE20201109
       Models::GetMediaLiveInputResponse getMediaLiveInput(const Models::GetMediaLiveInputRequest &request);
 
       /**
-       * @summary Queries the details of a security group in MediaLive.
+       * @summary Gets details about a security group in MediaLive.
        *
        * @description ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -3293,7 +3331,7 @@ namespace ICE20201109
       Models::GetMediaLiveInputSecurityGroupResponse getMediaLiveInputSecurityGroupWithOptions(const Models::GetMediaLiveInputSecurityGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a security group in MediaLive.
+       * @summary Gets details about a security group in MediaLive.
        *
        * @description ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -3321,7 +3359,10 @@ namespace ICE20201109
       Models::GetMediaMarksResponse getMediaMarks(const Models::GetMediaMarksRequest &request);
 
       /**
-       * @summary Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
+       * @summary Retrieves details for an editing and composition job, such as its task status, timeline, template, and data.
+       *
+       * @description ### Limitations
+       * This API can only retrieve editing job data from the past year.
        *
        * @param request GetMediaProducingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3330,7 +3371,10 @@ namespace ICE20201109
       Models::GetMediaProducingJobResponse getMediaProducingJobWithOptions(const Models::GetMediaProducingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
+       * @summary Retrieves details for an editing and composition job, such as its task status, timeline, template, and data.
+       *
+       * @description ### Limitations
+       * This API can only retrieve editing job data from the past year.
        *
        * @param request GetMediaProducingJobRequest
        * @return GetMediaProducingJobResponse
@@ -3372,9 +3416,7 @@ namespace ICE20201109
       Models::GetPipelineResponse getPipeline(const Models::GetPipelineRequest &request);
 
       /**
-       * @summary Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
-       *
-       * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
+       * @summary This API retrieves the playback URL for a media file (video or audio) using a given audio/video ID. Use this URL for audio/video playback after integrating the Alibaba Cloud Player SDK (for URL-based playback) or a third-party player.
        *
        * @param request GetPlayInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3383,9 +3425,7 @@ namespace ICE20201109
       Models::GetPlayInfoResponse getPlayInfoWithOptions(const Models::GetPlayInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
-       *
-       * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
+       * @summary This API retrieves the playback URL for a media file (video or audio) using a given audio/video ID. Use this URL for audio/video playback after integrating the Alibaba Cloud Player SDK (for URL-based playback) or a third-party player.
        *
        * @param request GetPlayInfoRequest
        * @return GetPlayInfoResponse
@@ -3410,7 +3450,7 @@ namespace ICE20201109
       Models::GetProgramResponse getProgram(const Models::GetProgramRequest &request);
 
       /**
-       * @summary Queries the information of a project export task.
+       * @summary Queries the information about a project export task.
        *
        * @param request GetProjectExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3419,7 +3459,7 @@ namespace ICE20201109
       Models::GetProjectExportJobResponse getProjectExportJobWithOptions(const Models::GetProjectExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a project export task.
+       * @summary Queries the information about a project export task.
        *
        * @param request GetProjectExportJobRequest
        * @return GetProjectExportJobResponse
@@ -3427,7 +3467,7 @@ namespace ICE20201109
       Models::GetProjectExportJobResponse getProjectExportJob(const Models::GetProjectExportJobRequest &request);
 
       /**
-       * @summary 获取公共媒资内容信息
+       * @summary Obtain and return media asset information based on the mediaId of an ICE public copyright media asset. The URL returned by the API is a preview or audition address for the copyright media asset. The official material will be used during synthesis.
        *
        * @param request GetPublicMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3436,7 +3476,7 @@ namespace ICE20201109
       Models::GetPublicMediaInfoResponse getPublicMediaInfoWithOptions(const Models::GetPublicMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取公共媒资内容信息
+       * @summary Obtain and return media asset information based on the mediaId of an ICE public copyright media asset. The URL returned by the API is a preview or audition address for the copyright media asset. The official material will be used during synthesis.
        *
        * @param request GetPublicMediaInfoRequest
        * @return GetPublicMediaInfoResponse
@@ -3444,7 +3484,7 @@ namespace ICE20201109
       Models::GetPublicMediaInfoResponse getPublicMediaInfo(const Models::GetPublicMediaInfoRequest &request);
 
       /**
-       * @summary Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
+       * @summary Retrieves the information and execution result for a smart task by task ID. This API only supports querying editing tasks from the past year.
        *
        * @param request GetSmartHandleJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3453,7 +3493,7 @@ namespace ICE20201109
       Models::GetSmartHandleJobResponse getSmartHandleJobWithOptions(const Models::GetSmartHandleJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
+       * @summary Retrieves the information and execution result for a smart task by task ID. This API only supports querying editing tasks from the past year.
        *
        * @param request GetSmartHandleJobRequest
        * @return GetSmartHandleJobResponse
@@ -3580,11 +3620,11 @@ namespace ICE20201109
       Models::GetSystemTemplateResponse getSystemTemplate(const Models::GetSystemTemplateRequest &request);
 
       /**
-       * @summary Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+       * @summary Queries the information about a template based on the template ID. Query the information about an advanced template if the template is in the Available state.
        *
        * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-       * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request GetTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3593,11 +3633,11 @@ namespace ICE20201109
       Models::GetTemplateResponse getTemplateWithOptions(const Models::GetTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+       * @summary Queries the information about a template based on the template ID. Query the information about an advanced template if the template is in the Available state.
        *
        * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-       * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request GetTemplateRequest
        * @return GetTemplateResponse
@@ -3622,7 +3662,7 @@ namespace ICE20201109
       Models::GetTemplateMaterialsResponse getTemplateMaterials(const Models::GetTemplateMaterialsRequest &request);
 
       /**
-       * @summary Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
+       * @summary Obtain the replaceable material parameter information of a template, including the parameter name, default material value, and material thumbnail. Currently, only advanced templates are supported.
        *
        * @param request GetTemplateParamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3631,7 +3671,7 @@ namespace ICE20201109
       Models::GetTemplateParamsResponse getTemplateParamsWithOptions(const Models::GetTemplateParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
+       * @summary Obtain the replaceable material parameter information of a template, including the parameter name, default material value, and material thumbnail. Currently, only advanced templates are supported.
        *
        * @param request GetTemplateParamsRequest
        * @return GetTemplateParamsResponse
@@ -3639,7 +3679,10 @@ namespace ICE20201109
       Models::GetTemplateParamsResponse getTemplateParams(const Models::GetTemplateParamsRequest &request);
 
       /**
-       * @summary Queries the information about a transcoding job.
+       * @summary Queries the details of a single transcoding job.
+       *
+       * @description <props="intl">
+       * This API is deprecated. Call [GetMediaConvertJob – Query media transcoding jobs](https://help.aliyun.com/document_detail/2867675.html) instead.
        *
        * @param request GetTranscodeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3648,7 +3691,10 @@ namespace ICE20201109
       Models::GetTranscodeJobResponse getTranscodeJobWithOptions(const Models::GetTranscodeJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a transcoding job.
+       * @summary Queries the details of a single transcoding job.
+       *
+       * @description <props="intl">
+       * This API is deprecated. Call [GetMediaConvertJob – Query media transcoding jobs](https://help.aliyun.com/document_detail/2867675.html) instead.
        *
        * @param request GetTranscodeJobRequest
        * @return GetTranscodeJobResponse
@@ -3658,7 +3704,7 @@ namespace ICE20201109
       /**
        * @summary Queries the information about URL-based upload jobs.
        *
-       * @description You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+       * @description Query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
        * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
        *
        * @param request GetUrlUploadInfosRequest
@@ -3670,7 +3716,7 @@ namespace ICE20201109
       /**
        * @summary Queries the information about URL-based upload jobs.
        *
-       * @description You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+       * @description Query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
        * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
        *
        * @param request GetUrlUploadInfosRequest
@@ -3679,9 +3725,9 @@ namespace ICE20201109
       Models::GetUrlUploadInfosResponse getUrlUploadInfos(const Models::GetUrlUploadInfosRequest &request);
 
       /**
-       * @summary Queries information about video and audio files.
+       * @summary Gets information about video and audio files.
        *
-       * @description You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
+       * @description Get information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
        *
        * @param request GetVideoListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3690,9 +3736,9 @@ namespace ICE20201109
       Models::GetVideoListResponse getVideoListWithOptions(const Models::GetVideoListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about video and audio files.
+       * @summary Gets information about video and audio files.
        *
-       * @description You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
+       * @description Get information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
        *
        * @param request GetVideoListRequest
        * @return GetVideoListResponse
@@ -3768,7 +3814,7 @@ namespace ICE20201109
       Models::GetWorkflowTaskResponse getWorkflowTask(const Models::GetWorkflowTaskRequest &request);
 
       /**
-       * @summary Retrieves information about an AI application job in WonderClip.
+       * @summary Retrieves the details of a Yike AI App job.
        *
        * @param request GetYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3777,7 +3823,7 @@ namespace ICE20201109
       Models::GetYikeAIAppJobResponse getYikeAIAppJobWithOptions(const Models::GetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about an AI application job in WonderClip.
+       * @summary Retrieves the details of a Yike AI App job.
        *
        * @param request GetYikeAIAppJobRequest
        * @return GetYikeAIAppJobResponse
@@ -3785,7 +3831,7 @@ namespace ICE20201109
       Models::GetYikeAIAppJobResponse getYikeAIAppJob(const Models::GetYikeAIAppJobRequest &request);
 
       /**
-       * @summary Retrieves information about the media asset.
+       * @summary Gets media asset information.
        *
        * @param request GetYikeAssetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3794,7 +3840,7 @@ namespace ICE20201109
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfoWithOptions(const Models::GetYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about the media asset.
+       * @summary Gets media asset information.
        *
        * @param request GetYikeAssetMediaInfoRequest
        * @return GetYikeAssetMediaInfoResponse
@@ -3802,7 +3848,7 @@ namespace ICE20201109
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
 
       /**
-       * @summary Retrieves storyboard jobs in WonderClip.
+       * @summary Retrieves the details of a Yike storyboard job.
        *
        * @param request GetYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3811,7 +3857,7 @@ namespace ICE20201109
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJobWithOptions(const Models::GetYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves storyboard jobs in WonderClip.
+       * @summary Retrieves the details of a Yike storyboard job.
        *
        * @param request GetYikeStoryboardJobRequest
        * @return GetYikeStoryboardJobResponse
@@ -3819,7 +3865,7 @@ namespace ICE20201109
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
 
       /**
-       * @summary Retrieves information about a WonderClip sub-account.
+       * @summary Gets information about a Yike sub-account.
        *
        * @param request GetYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3828,7 +3874,7 @@ namespace ICE20201109
       Models::GetYikeUserResponse getYikeUserWithOptions(const Models::GetYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a WonderClip sub-account.
+       * @summary Gets information about a Yike sub-account.
        *
        * @param request GetYikeUserRequest
        * @return GetYikeUserResponse
@@ -3836,7 +3882,7 @@ namespace ICE20201109
       Models::GetYikeUserResponse getYikeUser(const Models::GetYikeUserRequest &request);
 
       /**
-       * @summary Queries the point balance of a WonderClip user.
+       * @summary Retrieves the credit balance for a Yike user.
        *
        * @param request GetYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3845,7 +3891,7 @@ namespace ICE20201109
       Models::GetYikeUserCreditResponse getYikeUserCreditWithOptions(const Models::GetYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the point balance of a WonderClip user.
+       * @summary Retrieves the credit balance for a Yike user.
        *
        * @param request GetYikeUserCreditRequest
        * @return GetYikeUserCreditResponse
@@ -3853,7 +3899,10 @@ namespace ICE20201109
       Models::GetYikeUserCreditResponse getYikeUserCredit(const Models::GetYikeUserCreditRequest &request);
 
       /**
-       * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
+       * @summary Insert a media asset into the search library.
+       *
+       * @description ### Prerequisites
+       * Before inserting a media asset into the search library, you must call the [CreateSearchLib](https://help.aliyun.com/document_detail/2584454.html) API to create the search library.
        *
        * @param request InsertMediaToSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3862,7 +3911,10 @@ namespace ICE20201109
       Models::InsertMediaToSearchLibResponse insertMediaToSearchLibWithOptions(const Models::InsertMediaToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
+       * @summary Insert a media asset into the search library.
+       *
+       * @description ### Prerequisites
+       * Before inserting a media asset into the search library, you must call the [CreateSearchLib](https://help.aliyun.com/document_detail/2584454.html) API to create the search library.
        *
        * @param request InsertMediaToSearchLibRequest
        * @return InsertMediaToSearchLibResponse
@@ -3870,7 +3922,7 @@ namespace ICE20201109
       Models::InsertMediaToSearchLibResponse insertMediaToSearchLib(const Models::InsertMediaToSearchLibRequest &request);
 
       /**
-       * @summary Lists the dialog records of an AI agent.
+       * @summary Returns the session history.
        *
        * @param request ListAIAgentDialoguesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3879,7 +3931,7 @@ namespace ICE20201109
       Models::ListAIAgentDialoguesResponse listAIAgentDialoguesWithOptions(const Models::ListAIAgentDialoguesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the dialog records of an AI agent.
+       * @summary Returns the session history.
        *
        * @param request ListAIAgentDialoguesRequest
        * @return ListAIAgentDialoguesResponse
@@ -3887,12 +3939,11 @@ namespace ICE20201109
       Models::ListAIAgentDialoguesResponse listAIAgentDialogues(const Models::ListAIAgentDialoguesRequest &request);
 
       /**
-       * @summary Queries a list of AI agents.
+       * @summary List AI agent instances. You can retrieve all instances or filter them by specified conditions.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to query a list of AI agents based on the `AIAgentId`. The optional parameters include `StartTime`, `EndTime`, `PageSize`, and `PageNumber`. The returned result includes the status, runtime configurations, template configurations, custom information, and the URL of call log file for each AI agent.
-       * **Note**:
-       * *   The default value of `PageSize` is 10, and the default value of `PageNumber` is 1.
+       * @description This operation lists AI agent instances. Filter results by agent ID (`AIAgentId`). Optionally, specify a time range (`StartTime` and `EndTime`), the number of results per page (`PageSize`), and the page number (`PageNumber`). The response includes each instance’s status, runtime configuration, template configuration, user-defined data, and a download link for the conversation call log.
+       * >Notice: 
+       * Default pagination values: PageSize is 10. PageNumber is 1.
        *
        * @param request ListAIAgentInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3901,12 +3952,11 @@ namespace ICE20201109
       Models::ListAIAgentInstanceResponse listAIAgentInstanceWithOptions(const Models::ListAIAgentInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of AI agents.
+       * @summary List AI agent instances. You can retrieve all instances or filter them by specified conditions.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to query a list of AI agents based on the `AIAgentId`. The optional parameters include `StartTime`, `EndTime`, `PageSize`, and `PageNumber`. The returned result includes the status, runtime configurations, template configurations, custom information, and the URL of call log file for each AI agent.
-       * **Note**:
-       * *   The default value of `PageSize` is 10, and the default value of `PageNumber` is 1.
+       * @description This operation lists AI agent instances. Filter results by agent ID (`AIAgentId`). Optionally, specify a time range (`StartTime` and `EndTime`), the number of results per page (`PageSize`), and the page number (`PageNumber`). The response includes each instance’s status, runtime configuration, template configuration, user-defined data, and a download link for the conversation call log.
+       * >Notice: 
+       * Default pagination values: PageSize is 10. PageNumber is 1.
        *
        * @param request ListAIAgentInstanceRequest
        * @return ListAIAgentInstanceResponse
@@ -3914,7 +3964,9 @@ namespace ICE20201109
       Models::ListAIAgentInstanceResponse listAIAgentInstance(const Models::ListAIAgentInstanceRequest &request);
 
       /**
-       * @summary Lists available phone numbers.
+       * @summary List user phone resources API.
+       *
+       * @description This API allows a User to query phone resources based on the number of records per page (`PageSize`) and the current page number (`PageNumber`). The Return Result includes phone numbers and their corresponding status.
        *
        * @param request ListAIAgentPhoneNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3923,7 +3975,9 @@ namespace ICE20201109
       Models::ListAIAgentPhoneNumberResponse listAIAgentPhoneNumberWithOptions(const Models::ListAIAgentPhoneNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists available phone numbers.
+       * @summary List user phone resources API.
+       *
+       * @description This API allows a User to query phone resources based on the number of records per page (`PageSize`) and the current page number (`PageNumber`). The Return Result includes phone numbers and their corresponding status.
        *
        * @param request ListAIAgentPhoneNumberRequest
        * @return ListAIAgentPhoneNumberResponse
@@ -3931,7 +3985,7 @@ namespace ICE20201109
       Models::ListAIAgentPhoneNumberResponse listAIAgentPhoneNumber(const Models::ListAIAgentPhoneNumberRequest &request);
 
       /**
-       * @summary Lists the registered voiceprints.
+       * @summary Retrieves a list of AI agent voiceprints.
        *
        * @param request ListAIAgentVoiceprintsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3940,7 +3994,7 @@ namespace ICE20201109
       Models::ListAIAgentVoiceprintsResponse listAIAgentVoiceprintsWithOptions(const Models::ListAIAgentVoiceprintsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the registered voiceprints.
+       * @summary Retrieves a list of AI agent voiceprints.
        *
        * @param request ListAIAgentVoiceprintsRequest
        * @return ListAIAgentVoiceprintsResponse
@@ -4084,7 +4138,7 @@ namespace ICE20201109
       Models::ListChannelsResponse listChannels(const Models::ListChannelsRequest &request);
 
       /**
-       * @summary Queries a list of custom templates.
+       * @summary Retrieves a list of user-defined Video on Demand (VOD) media processing templates.
        *
        * @param request ListCustomTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4093,7 +4147,7 @@ namespace ICE20201109
       Models::ListCustomTemplatesResponse listCustomTemplatesWithOptions(const Models::ListCustomTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of custom templates.
+       * @summary Retrieves a list of user-defined Video on Demand (VOD) media processing templates.
        *
        * @param request ListCustomTemplatesRequest
        * @return ListCustomTemplatesResponse
@@ -4152,9 +4206,9 @@ namespace ICE20201109
       Models::ListDNADBResponse listDNADB(const Models::ListDNADBRequest &request);
 
       /**
-       * @summary Queries a list of files in a media fingerprint library.
+       * @summary Lists files in a media fingerprint library.
        *
-       * @description You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
+       * @description Queries files in a media fingerprint library based on the library ID. The queried results can be paginated.
        *
        * @param request ListDNAFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4163,9 +4217,9 @@ namespace ICE20201109
       Models::ListDNAFilesResponse listDNAFilesWithOptions(const Models::ListDNAFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of files in a media fingerprint library.
+       * @summary Lists files in a media fingerprint library.
        *
-       * @description You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
+       * @description Queries files in a media fingerprint library based on the library ID. The queried results can be paginated.
        *
        * @param request ListDNAFilesRequest
        * @return ListDNAFilesResponse
@@ -4210,11 +4264,11 @@ namespace ICE20201109
        * @summary Queries hotword libraries that meet specific search conditions.
        *
        * @description ## [](#)
-       * *   You can call this operation to get information about all hotword libraries that you created.
-       * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
-       * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
-       * *   The maximum number of entries returned for each request is 100. Default value: 10.
-       * *   Use `NextToken` for pagination.
+       * - Get information about all hotword libraries that you created.
+       * - The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+       * - By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+       * - The maximum number of entries returned for each request is 100. Default value: 10.
+       * - Use `NextToken` for pagination.
        *
        * @param request ListHotwordLibrariesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4226,11 +4280,11 @@ namespace ICE20201109
        * @summary Queries hotword libraries that meet specific search conditions.
        *
        * @description ## [](#)
-       * *   You can call this operation to get information about all hotword libraries that you created.
-       * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
-       * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
-       * *   The maximum number of entries returned for each request is 100. Default value: 10.
-       * *   Use `NextToken` for pagination.
+       * - Get information about all hotword libraries that you created.
+       * - The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+       * - By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+       * - The maximum number of entries returned for each request is 100. Default value: 10.
+       * - Use `NextToken` for pagination.
        *
        * @param request ListHotwordLibrariesRequest
        * @return ListHotwordLibrariesResponse
@@ -4263,10 +4317,10 @@ namespace ICE20201109
        *
        * @description ## [](#)Usage notes
        * This API operation allows you to query live package channels by **GroupName** and **Keyword**. Keyword is optional. You can sort the channels by creation time in ascending or descending order and paginate the results. This facilitates the management of channels and retrieval of channel information.
-       * *   **GroupName** is required to specify the channel group to which the channel belongs.
-       * *   **Keyword** supports fuzzy match of channel names or descriptions, which helps quickly filter desired channels.
-       * *   **PageNo** and **PageSize** can help control the paging of returned results to facilitate batch processing of data.
-       * *   **SortBy** allows you to customize how the results are sorted. By default, the results are sorted in descending order.
+       * - **GroupName** is required to specify the channel group to which the channel belongs.
+       * - **Keyword** supports fuzzy match of channel names or descriptions, which helps quickly filter desired channels.
+       * - **PageNo** and **PageSize** can help control the paging of returned results to facilitate batch processing of data.
+       * - **SortBy** allows you to customize how the results are sorted. By default, the results are sorted in descending order.
        * **RequestId** in the response is used for subsequent troubleshooting. **TotalCount** indicates the total number of channels that meet the conditions.
        *
        * @param request ListLivePackageChannelsRequest
@@ -4280,10 +4334,10 @@ namespace ICE20201109
        *
        * @description ## [](#)Usage notes
        * This API operation allows you to query live package channels by **GroupName** and **Keyword**. Keyword is optional. You can sort the channels by creation time in ascending or descending order and paginate the results. This facilitates the management of channels and retrieval of channel information.
-       * *   **GroupName** is required to specify the channel group to which the channel belongs.
-       * *   **Keyword** supports fuzzy match of channel names or descriptions, which helps quickly filter desired channels.
-       * *   **PageNo** and **PageSize** can help control the paging of returned results to facilitate batch processing of data.
-       * *   **SortBy** allows you to customize how the results are sorted. By default, the results are sorted in descending order.
+       * - **GroupName** is required to specify the channel group to which the channel belongs.
+       * - **Keyword** supports fuzzy match of channel names or descriptions, which helps quickly filter desired channels.
+       * - **PageNo** and **PageSize** can help control the paging of returned results to facilitate batch processing of data.
+       * - **SortBy** allows you to customize how the results are sorted. By default, the results are sorted in descending order.
        * **RequestId** in the response is used for subsequent troubleshooting. **TotalCount** indicates the total number of channels that meet the conditions.
        *
        * @param request ListLivePackageChannelsRequest
@@ -4349,7 +4403,7 @@ namespace ICE20201109
       Models::ListLiveRecordJobsResponse listLiveRecordJobs(const Models::ListLiveRecordJobsRequest &request);
 
       /**
-       * @summary Queries a list of live stream recording templates.
+       * @summary Call `ListLiveRecordTemplates` to retrieve a list of your real-time recording templates.
        *
        * @param request ListLiveRecordTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4358,7 +4412,7 @@ namespace ICE20201109
       Models::ListLiveRecordTemplatesResponse listLiveRecordTemplatesWithOptions(const Models::ListLiveRecordTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of live stream recording templates.
+       * @summary Call `ListLiveRecordTemplates` to retrieve a list of your real-time recording templates.
        *
        * @param request ListLiveRecordTemplatesRequest
        * @return ListLiveRecordTemplatesResponse
@@ -4383,7 +4437,7 @@ namespace ICE20201109
       Models::ListLiveSnapshotFilesResponse listLiveSnapshotFiles(const Models::ListLiveSnapshotFilesRequest &request);
 
       /**
-       * @summary Queries a list of live stream snapshot jobs by page.
+       * @summary Retrieves a paginated list of live snapshot jobs.
        *
        * @param request ListLiveSnapshotJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4392,7 +4446,7 @@ namespace ICE20201109
       Models::ListLiveSnapshotJobsResponse listLiveSnapshotJobsWithOptions(const Models::ListLiveSnapshotJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of live stream snapshot jobs by page.
+       * @summary Retrieves a paginated list of live snapshot jobs.
        *
        * @param request ListLiveSnapshotJobsRequest
        * @return ListLiveSnapshotJobsResponse
@@ -4400,7 +4454,7 @@ namespace ICE20201109
       Models::ListLiveSnapshotJobsResponse listLiveSnapshotJobs(const Models::ListLiveSnapshotJobsRequest &request);
 
       /**
-       * @summary Queries a list of live stream snapshot templates by page.
+       * @summary Returns a paginated list of Live Snapshot templates.
        *
        * @param request ListLiveSnapshotTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4409,7 +4463,7 @@ namespace ICE20201109
       Models::ListLiveSnapshotTemplatesResponse listLiveSnapshotTemplatesWithOptions(const Models::ListLiveSnapshotTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of live stream snapshot templates by page.
+       * @summary Returns a paginated list of Live Snapshot templates.
        *
        * @param request ListLiveSnapshotTemplatesRequest
        * @return ListLiveSnapshotTemplatesResponse
@@ -4451,9 +4505,12 @@ namespace ICE20201109
       Models::ListLiveTranscodeTemplatesResponse listLiveTranscodeTemplates(const Models::ListLiveTranscodeTemplatesRequest &request);
 
       /**
-       * @summary Queries the basic information of all media assets that meet the specified conditions.
+       * @summary Returns basic information about media assets that match the specified parameters.
        *
-       * @description If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
+       * @description - If the `includeFileBasicInfo` field is set to true, the response also includes basic source file information, such as its duration and file size.
+       * - Returns a maximum of 100 matching media assets.
+       * - The query returns only media assets that exactly match all specified non-empty fields. The fields that support exact matching are media type, source, business type, category, and resource status.
+       * - If the result set is too large for a single response, use the returned `nextToken` to retrieve the next page of results.
        *
        * @param request ListMediaBasicInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4462,9 +4519,12 @@ namespace ICE20201109
       Models::ListMediaBasicInfosResponse listMediaBasicInfosWithOptions(const Models::ListMediaBasicInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information of all media assets that meet the specified conditions.
+       * @summary Returns basic information about media assets that match the specified parameters.
        *
-       * @description If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
+       * @description - If the `includeFileBasicInfo` field is set to true, the response also includes basic source file information, such as its duration and file size.
+       * - Returns a maximum of 100 matching media assets.
+       * - The query returns only media assets that exactly match all specified non-empty fields. The fields that support exact matching are media type, source, business type, category, and resource status.
+       * - If the result set is too large for a single response, use the returned `nextToken` to retrieve the next page of results.
        *
        * @param request ListMediaBasicInfosRequest
        * @return ListMediaBasicInfosResponse
@@ -4472,7 +4532,7 @@ namespace ICE20201109
       Models::ListMediaBasicInfosResponse listMediaBasicInfos(const Models::ListMediaBasicInfosRequest &request);
 
       /**
-       * @summary Retrieves MediaConvert tasks.
+       * @summary This operation lists media convert jobs.
        *
        * @param request ListMediaConvertJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4481,7 +4541,7 @@ namespace ICE20201109
       Models::ListMediaConvertJobsResponse listMediaConvertJobsWithOptions(const Models::ListMediaConvertJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves MediaConvert tasks.
+       * @summary This operation lists media convert jobs.
        *
        * @param request ListMediaConvertJobsRequest
        * @return ListMediaConvertJobsResponse
@@ -4552,10 +4612,11 @@ namespace ICE20201109
       Models::ListMediaLiveInputSecurityGroupsResponse listMediaLiveInputSecurityGroups(const Models::ListMediaLiveInputSecurityGroupsRequest &request);
 
       /**
-       * @summary Queries MediaLive inputs.
+       * @summary Query the list of media live inputs.
        *
-       * @description ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - You can invoke this API to query the list of media live inputs.
+       * ## QPS Limit
+       * The queries per second (QPS) limit for this API is 50 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request ListMediaLiveInputsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4564,10 +4625,11 @@ namespace ICE20201109
       Models::ListMediaLiveInputsResponse listMediaLiveInputsWithOptions(const Models::ListMediaLiveInputsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries MediaLive inputs.
+       * @summary Query the list of media live inputs.
        *
-       * @description ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - You can invoke this API to query the list of media live inputs.
+       * ## QPS Limit
+       * The queries per second (QPS) limit for this API is 50 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request ListMediaLiveInputsRequest
        * @return ListMediaLiveInputsResponse
@@ -4677,10 +4739,10 @@ namespace ICE20201109
       Models::ListPublicMediaBasicInfosResponse listPublicMediaBasicInfos(const Models::ListPublicMediaBasicInfosRequest &request);
 
       /**
-       * @summary Retrieves all entities in a specified recognition library. Pagination is supported.
+       * @summary Lists entities in a specified recognition library. Pagination is supported.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Supports up to 50 calls per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request ListRecognitionEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4689,10 +4751,10 @@ namespace ICE20201109
       Models::ListRecognitionEntitiesResponse listRecognitionEntitiesWithOptions(const Models::ListRecognitionEntitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves all entities in a specified recognition library. Pagination is supported.
+       * @summary Lists entities in a specified recognition library. Pagination is supported.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - Supports up to 50 calls per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request ListRecognitionEntitiesRequest
        * @return ListRecognitionEntitiesResponse
@@ -4700,10 +4762,10 @@ namespace ICE20201109
       Models::ListRecognitionEntitiesResponse listRecognitionEntities(const Models::ListRecognitionEntitiesRequest &request);
 
       /**
-       * @summary Retrieves all custom recognition libraries. Pagination is supported.
+       * @summary Perform a paged query to retrieve information about all Custom detection libraries under the current User.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This API currently supports the following Regions: China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen). Other Regions are not supported at this time.
+       * - The queries per second (QPS) limit for this API is 50 per User. If this limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
        *
        * @param request ListRecognitionLibsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4712,10 +4774,10 @@ namespace ICE20201109
       Models::ListRecognitionLibsResponse listRecognitionLibsWithOptions(const Models::ListRecognitionLibsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves all custom recognition libraries. Pagination is supported.
+       * @summary Perform a paged query to retrieve information about all Custom detection libraries under the current User.
        *
-       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
-       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
+       * @description - This API currently supports the following Regions: China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen). Other Regions are not supported at this time.
+       * - The queries per second (QPS) limit for this API is 50 per User. If this limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
        *
        * @param request ListRecognitionLibsRequest
        * @return ListRecognitionLibsResponse
@@ -4725,6 +4787,9 @@ namespace ICE20201109
       /**
        * @summary Retrieves all samples of a custom entity. Pagination is supported.
        *
+       * @description - This API is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions.
+       *
        * @param request ListRecognitionSamplesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRecognitionSamplesResponse
@@ -4733,6 +4798,9 @@ namespace ICE20201109
 
       /**
        * @summary Retrieves all samples of a custom entity. Pagination is supported.
+       *
+       * @description - This API is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * - You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions.
        *
        * @param request ListRecognitionSamplesRequest
        * @return ListRecognitionSamplesResponse
@@ -4757,7 +4825,7 @@ namespace ICE20201109
       Models::ListSchedulesResponse listSchedules(const Models::ListSchedulesRequest &request);
 
       /**
-       * @summary Queries the information about search libraries.
+       * @summary Retrieves a list of search libraries.
        *
        * @param request ListSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4766,7 +4834,7 @@ namespace ICE20201109
       Models::ListSearchLibResponse listSearchLibWithOptions(const Models::ListSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about search libraries.
+       * @summary Retrieves a list of search libraries.
        *
        * @param request ListSearchLibRequest
        * @return ListSearchLibResponse
@@ -4791,7 +4859,7 @@ namespace ICE20201109
       Models::ListSmartJobsResponse listSmartJobs(const Models::ListSmartJobsRequest &request);
 
       /**
-       * @summary Queries a list of system digital humans. This operation supports paged queries.
+       * @summary Retrieves a paginated list of system digital avatars.
        *
        * @param request ListSmartSysAvatarModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4800,7 +4868,7 @@ namespace ICE20201109
       Models::ListSmartSysAvatarModelsResponse listSmartSysAvatarModelsWithOptions(const Models::ListSmartSysAvatarModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of system digital humans. This operation supports paged queries.
+       * @summary Retrieves a paginated list of system digital avatars.
        *
        * @param request ListSmartSysAvatarModelsRequest
        * @return ListSmartSysAvatarModelsResponse
@@ -4808,7 +4876,7 @@ namespace ICE20201109
       Models::ListSmartSysAvatarModelsResponse listSmartSysAvatarModels(const Models::ListSmartSysAvatarModelsRequest &request);
 
       /**
-       * @summary Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
+       * @summary Retrieves a list of available smart voices, including their names, genders, and sample audio. The voices are grouped by scenario.
        *
        * @param request ListSmartVoiceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4817,7 +4885,7 @@ namespace ICE20201109
       Models::ListSmartVoiceGroupsResponse listSmartVoiceGroupsWithOptions(const Models::ListSmartVoiceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
+       * @summary Retrieves a list of available smart voices, including their names, genders, and sample audio. The voices are grouped by scenario.
        *
        * @param request ListSmartVoiceGroupsRequest
        * @return ListSmartVoiceGroupsResponse
@@ -4879,32 +4947,32 @@ namespace ICE20201109
        * @summary Queries a list of system templates.
        *
        * @description Template types:
-       * 1.  1: transcoding template.
-       * 2.  2: snapshot template.
-       * 3.  3: animated image template.
-       * 4.  4\\. image watermark template.
-       * 5.  5: text watermark template.
-       * 6.  6: subtitle template.
-       * 7.  7: AI-assisted content moderation template.
-       * 8.  8: AI-assisted intelligent thumbnail template.
-       * 9.  9: AI-assisted intelligent erasure template.
+       * 1. 1: transcoding template.
+       * 2. 2: snapshot template.
+       * 3. 3: animated image template.
+       * 4. 4\\. image watermark template.
+       * 5. 5: text watermark template.
+       * 6. 6: subtitle template.
+       * 7. 7: AI-assisted content moderation template.
+       * 8. 8: AI-assisted intelligent thumbnail template.
+       * 9. 9: AI-assisted intelligent erasure template.
        * Subtypes of transcoding templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (AudioTranscode): audio transcoding template.
-       * 3.  3 (Remux): container format conversion template.
-       * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
-       * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+       * 1. 1 (Normal): regular template.
+       * 2. 2 (AudioTranscode): audio transcoding template.
+       * 3. 3 (Remux): container format conversion template.
+       * 4. 4 (NarrowBandV1): Narrowband HD 1.0 template.
+       * 5. 5 (NarrowBandV2): Narrowband HD 2.0 template.
        * Subtypes of snapshot templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (Sprite): sprite template.
-       * 3.  3 (WebVtt): WebVTT template.
+       * 1. 1 (Normal): regular template.
+       * 2. 2 (Sprite): sprite template.
+       * 3. 3 (WebVtt): WebVTT template.
        * Subtypes of AI-assisted content moderation templates:
-       * 1.  1 (Video): video moderation template.
-       * 2.  2 (Audio): audio moderation template.
-       * 3.  3 (Image): image moderation template.
+       * 1. 1 (Video): video moderation template.
+       * 2. 2 (Audio): audio moderation template.
+       * 3. 3 (Image): image moderation template.
        * Subtypes of AI-assisted intelligent erasure templates:
-       * 1.  1 (VideoDelogo): logo erasure template.
-       * 2.  2 (VideoDetext): subtitle erasure template.
+       * 1. 1 (VideoDelogo): logo erasure template.
+       * 2. 2 (VideoDetext): subtitle erasure template.
        *
        * @param request ListSystemTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4916,32 +4984,32 @@ namespace ICE20201109
        * @summary Queries a list of system templates.
        *
        * @description Template types:
-       * 1.  1: transcoding template.
-       * 2.  2: snapshot template.
-       * 3.  3: animated image template.
-       * 4.  4\\. image watermark template.
-       * 5.  5: text watermark template.
-       * 6.  6: subtitle template.
-       * 7.  7: AI-assisted content moderation template.
-       * 8.  8: AI-assisted intelligent thumbnail template.
-       * 9.  9: AI-assisted intelligent erasure template.
+       * 1. 1: transcoding template.
+       * 2. 2: snapshot template.
+       * 3. 3: animated image template.
+       * 4. 4\\. image watermark template.
+       * 5. 5: text watermark template.
+       * 6. 6: subtitle template.
+       * 7. 7: AI-assisted content moderation template.
+       * 8. 8: AI-assisted intelligent thumbnail template.
+       * 9. 9: AI-assisted intelligent erasure template.
        * Subtypes of transcoding templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (AudioTranscode): audio transcoding template.
-       * 3.  3 (Remux): container format conversion template.
-       * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
-       * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+       * 1. 1 (Normal): regular template.
+       * 2. 2 (AudioTranscode): audio transcoding template.
+       * 3. 3 (Remux): container format conversion template.
+       * 4. 4 (NarrowBandV1): Narrowband HD 1.0 template.
+       * 5. 5 (NarrowBandV2): Narrowband HD 2.0 template.
        * Subtypes of snapshot templates:
-       * 1.  1 (Normal): regular template.
-       * 2.  2 (Sprite): sprite template.
-       * 3.  3 (WebVtt): WebVTT template.
+       * 1. 1 (Normal): regular template.
+       * 2. 2 (Sprite): sprite template.
+       * 3. 3 (WebVtt): WebVTT template.
        * Subtypes of AI-assisted content moderation templates:
-       * 1.  1 (Video): video moderation template.
-       * 2.  2 (Audio): audio moderation template.
-       * 3.  3 (Image): image moderation template.
+       * 1. 1 (Video): video moderation template.
+       * 2. 2 (Audio): audio moderation template.
+       * 3. 3 (Image): image moderation template.
        * Subtypes of AI-assisted intelligent erasure templates:
-       * 1.  1 (VideoDelogo): logo erasure template.
-       * 2.  2 (VideoDetext): subtitle erasure template.
+       * 1. 1 (VideoDelogo): logo erasure template.
+       * 2. 2 (VideoDetext): subtitle erasure template.
        *
        * @param request ListSystemTemplatesRequest
        * @return ListSystemTemplatesResponse
@@ -4952,8 +5020,8 @@ namespace ICE20201109
        * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
        *
        * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-       * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request ListTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4965,8 +5033,8 @@ namespace ICE20201109
        * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
        *
        * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-       * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request ListTemplatesRequest
        * @return ListTemplatesResponse
@@ -4974,7 +5042,7 @@ namespace ICE20201109
       Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
-       * @summary Queries a list of transcoding jobs.
+       * @summary Lists the transcoding jobs for a media file.
        *
        * @param request ListTranscodeJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4983,7 +5051,7 @@ namespace ICE20201109
       Models::ListTranscodeJobsResponse listTranscodeJobsWithOptions(const Models::ListTranscodeJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of transcoding jobs.
+       * @summary Lists the transcoding jobs for a media file.
        *
        * @param request ListTranscodeJobsRequest
        * @return ListTranscodeJobsResponse
@@ -5063,7 +5131,7 @@ namespace ICE20201109
       Models::ListWorkflowTasksResponse listWorkflowTasks(const Models::ListWorkflowTasksRequest &request);
 
       /**
-       * @summary Retrieves a list of WonderClip folders.
+       * @summary Retrieves a list of Yike folders.
        *
        * @param request ListYikeAssetFoldersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5072,7 +5140,7 @@ namespace ICE20201109
       Models::ListYikeAssetFoldersResponse listYikeAssetFoldersWithOptions(const Models::ListYikeAssetFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of WonderClip folders.
+       * @summary Retrieves a list of Yike folders.
        *
        * @param request ListYikeAssetFoldersRequest
        * @return ListYikeAssetFoldersResponse
@@ -5080,7 +5148,7 @@ namespace ICE20201109
       Models::ListYikeAssetFoldersResponse listYikeAssetFolders(const Models::ListYikeAssetFoldersRequest &request);
 
       /**
-       * @summary Retrieves a list of WonderClip projects.
+       * @summary Queries the list of Yike projects.
        *
        * @param request ListYikeProductionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5089,7 +5157,7 @@ namespace ICE20201109
       Models::ListYikeProductionsResponse listYikeProductionsWithOptions(const Models::ListYikeProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of WonderClip projects.
+       * @summary Queries the list of Yike projects.
        *
        * @param request ListYikeProductionsRequest
        * @return ListYikeProductionsResponse
@@ -5099,8 +5167,8 @@ namespace ICE20201109
       /**
        * @summary Enables Source Failover for a MediaConnect flow.
        *
-       * @description *   Before this operation, you must add a source to the flow.
-       * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
+       * @description - Before this operation, you must add a source to the flow.
+       * - After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
        *
        * @param request OpenMediaConnectFlowFailoverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5111,8 +5179,8 @@ namespace ICE20201109
       /**
        * @summary Enables Source Failover for a MediaConnect flow.
        *
-       * @description *   Before this operation, you must add a source to the flow.
-       * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
+       * @description - Before this operation, you must add a source to the flow.
+       * - After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
        *
        * @param request OpenMediaConnectFlowFailoverRequest
        * @return OpenMediaConnectFlowFailoverResponse
@@ -5120,7 +5188,7 @@ namespace ICE20201109
       Models::OpenMediaConnectFlowFailoverResponse openMediaConnectFlowFailover(const Models::OpenMediaConnectFlowFailoverRequest &request);
 
       /**
-       * @summary Validates the parameters of an AI application.
+       * @summary Validates the parameters of an application.
        *
        * @param request PrecheckYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5129,7 +5197,7 @@ namespace ICE20201109
       Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJobWithOptions(const Models::PrecheckYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Validates the parameters of an AI application.
+       * @summary Validates the parameters of an application.
        *
        * @param request PrecheckYikeAIAppJobRequest
        * @return PrecheckYikeAIAppJobResponse
@@ -5156,7 +5224,7 @@ namespace ICE20201109
       /**
        * @summary Queries copyright watermarking jobs.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryCopyrightJobListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5167,7 +5235,7 @@ namespace ICE20201109
       /**
        * @summary Queries copyright watermarking jobs.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryCopyrightJobListRequest
        * @return QueryCopyrightJobListResponse
@@ -5192,7 +5260,7 @@ namespace ICE20201109
       Models::QueryDNAJobListResponse queryDNAJobList(const Models::QueryDNAJobListRequest &request);
 
       /**
-       * @summary Queries the status and result of an intelligent production job.
+       * @summary Call `QueryIProductionJob` to get the status and result of an intelligent production job.
        *
        * @param request QueryIProductionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5201,7 +5269,7 @@ namespace ICE20201109
       Models::QueryIProductionJobResponse queryIProductionJobWithOptions(const Models::QueryIProductionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status and result of an intelligent production job.
+       * @summary Call `QueryIProductionJob` to get the status and result of an intelligent production job.
        *
        * @param request QueryIProductionJobRequest
        * @return QueryIProductionJobResponse
@@ -5209,7 +5277,7 @@ namespace ICE20201109
       Models::QueryIProductionJobResponse queryIProductionJob(const Models::QueryIProductionJobRequest &request);
 
       /**
-       * @summary Queries the usage for the IPC service.
+       * @summary Query IPC usage.
        *
        * @param request QueryIpcQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5218,7 +5286,7 @@ namespace ICE20201109
       Models::QueryIpcQuotaResponse queryIpcQuotaWithOptions(const Models::QueryIpcQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the usage for the IPC service.
+       * @summary Query IPC usage.
        *
        * @param request QueryIpcQuotaRequest
        * @return QueryIpcQuotaResponse
@@ -5228,7 +5296,7 @@ namespace ICE20201109
       /**
        * @summary Queries the information about a content moderation job.
        *
-       * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+       * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. Call this operation again to query the remaining moderation results of the video.
        *
        * @param request QueryMediaCensorJobDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5239,7 +5307,7 @@ namespace ICE20201109
       /**
        * @summary Queries the information about a content moderation job.
        *
-       * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+       * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. Call this operation again to query the remaining moderation results of the video.
        *
        * @param request QueryMediaCensorJobDetailRequest
        * @return QueryMediaCensorJobDetailResponse
@@ -5249,7 +5317,7 @@ namespace ICE20201109
       /**
        * @summary Queries a list of content moderation jobs.
        *
-       * @description You can call this operation to query only the content moderation jobs within the most recent three months.
+       * @description Query only the content moderation jobs within the most recent three months.
        *
        * @param request QueryMediaCensorJobListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5260,7 +5328,7 @@ namespace ICE20201109
       /**
        * @summary Queries a list of content moderation jobs.
        *
-       * @description You can call this operation to query only the content moderation jobs within the most recent three months.
+       * @description Query only the content moderation jobs within the most recent three months.
        *
        * @param request QueryMediaCensorJobListRequest
        * @return QueryMediaCensorJobListResponse
@@ -5285,7 +5353,7 @@ namespace ICE20201109
       Models::QueryMediaIndexJobResponse queryMediaIndexJob(const Models::QueryMediaIndexJobRequest &request);
 
       /**
-       * @summary Queries the details of a search index.
+       * @summary Gets details about a search index.
        *
        * @param request QuerySearchIndexRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5294,7 +5362,7 @@ namespace ICE20201109
       Models::QuerySearchIndexResponse querySearchIndexWithOptions(const Models::QuerySearchIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a search index.
+       * @summary Gets details about a search index.
        *
        * @param request QuerySearchIndexRequest
        * @return QuerySearchIndexResponse
@@ -5302,7 +5370,7 @@ namespace ICE20201109
       Models::QuerySearchIndexResponse querySearchIndex(const Models::QuerySearchIndexRequest &request);
 
       /**
-       * @summary Queries the information about a search library.
+       * @summary Gets information about a search library.
        *
        * @param request QuerySearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5311,7 +5379,7 @@ namespace ICE20201109
       Models::QuerySearchLibResponse querySearchLibWithOptions(const Models::QuerySearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a search library.
+       * @summary Gets information about a search library.
        *
        * @param request QuerySearchLibRequest
        * @return QuerySearchLibResponse
@@ -5319,7 +5387,7 @@ namespace ICE20201109
       Models::QuerySearchLibResponse querySearchLib(const Models::QuerySearchLibRequest &request);
 
       /**
-       * @summary Queries the information about a smart tagging job.
+       * @summary Querying a smart tag task.
        *
        * @param request QuerySmarttagJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5328,7 +5396,7 @@ namespace ICE20201109
       Models::QuerySmarttagJobResponse querySmarttagJobWithOptions(const Models::QuerySmarttagJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a smart tagging job.
+       * @summary Querying a smart tag task.
        *
        * @param request QuerySmarttagJobRequest
        * @return QuerySmarttagJobResponse
@@ -5338,7 +5406,7 @@ namespace ICE20201109
       /**
        * @summary Queries A/B watermarking jobs.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryTraceAbJobListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5349,7 +5417,7 @@ namespace ICE20201109
       /**
        * @summary Queries A/B watermarking jobs.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryTraceAbJobListRequest
        * @return QueryTraceAbJobListResponse
@@ -5380,8 +5448,8 @@ namespace ICE20201109
       /**
        * @summary Queries jobs for generating M3U8 files containing specific trace watermark information.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
-       * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
+       * @description - This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * - The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
        *
        * @param request QueryTraceM3u8JobListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5392,8 +5460,8 @@ namespace ICE20201109
       /**
        * @summary Queries jobs for generating M3U8 files containing specific trace watermark information.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
-       * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
+       * @description - This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * - The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
        *
        * @param request QueryTraceM3u8JobListRequest
        * @return QueryTraceM3u8JobListResponse
@@ -5401,7 +5469,7 @@ namespace ICE20201109
       Models::QueryTraceM3u8JobListResponse queryTraceM3u8JobList(const Models::QueryTraceM3u8JobListRequest &request);
 
       /**
-       * @summary Retrieves the results of an AI analysis and processing task.
+       * @summary Querying video understanding task results
        *
        * @param tmpReq QueryVideoCognitionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5410,7 +5478,7 @@ namespace ICE20201109
       Models::QueryVideoCognitionJobResponse queryVideoCognitionJobWithOptions(const Models::QueryVideoCognitionJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the results of an AI analysis and processing task.
+       * @summary Querying video understanding task results
        *
        * @param request QueryVideoCognitionJobRequest
        * @return QueryVideoCognitionJobResponse
@@ -5419,8 +5487,6 @@ namespace ICE20201109
 
       /**
        * @summary Obtain a new upload credential for a media asset after its upload credential expires.
-       *
-       * @description You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
        *
        * @param request RefreshUploadMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5431,8 +5497,6 @@ namespace ICE20201109
       /**
        * @summary Obtain a new upload credential for a media asset after its upload credential expires.
        *
-       * @description You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
-       *
        * @param request RefreshUploadMediaRequest
        * @return RefreshUploadMediaResponse
        */
@@ -5441,7 +5505,7 @@ namespace ICE20201109
       /**
        * @summary Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
        *
-       * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
+       * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the [GetMediaInfo](https://help.aliyun.com/document_detail/441155.html) operation at this time, you may fail to obtain the information about the media asset.
        *
        * @param request RegisterMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5452,7 +5516,7 @@ namespace ICE20201109
       /**
        * @summary Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
        *
-       * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
+       * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the [GetMediaInfo](https://help.aliyun.com/document_detail/441155.html) operation at this time, you may fail to obtain the information about the media asset.
        *
        * @param request RegisterMediaInfoRequest
        * @return RegisterMediaInfoResponse
@@ -5460,9 +5524,7 @@ namespace ICE20201109
       Models::RegisterMediaInfoResponse registerMediaInfo(const Models::RegisterMediaInfoRequest &request);
 
       /**
-       * @summary Registers a media stream.
-       *
-       * @description You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
+       * @summary Registers a media stream file stored in OSS with the media service and attaches the media stream to a specified MediaId.
        *
        * @param request RegisterMediaStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5471,9 +5533,7 @@ namespace ICE20201109
       Models::RegisterMediaStreamResponse registerMediaStreamWithOptions(const Models::RegisterMediaStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers a media stream.
-       *
-       * @description You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
+       * @summary Registers a media stream file stored in OSS with the media service and attaches the media stream to a specified MediaId.
        *
        * @param request RegisterMediaStreamRequest
        * @return RegisterMediaStreamResponse
@@ -5481,7 +5541,7 @@ namespace ICE20201109
       Models::RegisterMediaStreamResponse registerMediaStream(const Models::RegisterMediaStreamRequest &request);
 
       /**
-       * @summary Registers a media asset.
+       * @summary Registers a media asset in the asset library.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5490,7 +5550,7 @@ namespace ICE20201109
       Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfoWithOptions(const Models::RegisterYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers a media asset.
+       * @summary Registers a media asset in the asset library.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @return RegisterYikeAssetMediaInfoResponse
@@ -5515,7 +5575,7 @@ namespace ICE20201109
       Models::ResumeMediaConnectFlowOutputResponse resumeMediaConnectFlowOutput(const Models::ResumeMediaConnectFlowOutputRequest &request);
 
       /**
-       * @summary Resumes a storyboard job in WonderClip.
+       * @summary Resumes a storyboard job.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5524,7 +5584,7 @@ namespace ICE20201109
       Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJobWithOptions(const Models::ResumeYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes a storyboard job in WonderClip.
+       * @summary Resumes a storyboard job.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @return ResumeYikeStoryboardJobResponse
@@ -5549,7 +5609,7 @@ namespace ICE20201109
       Models::SearchEditingProjectResponse searchEditingProject(const Models::SearchEditingProjectRequest &request);
 
       /**
-       * @summary Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
+       * @summary Rerun the search index jobs for the specified media assets in batch. You can rerun index jobs for up to 20 media assets per request.
        *
        * @param request SearchIndexJobRerunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5558,7 +5618,7 @@ namespace ICE20201109
       Models::SearchIndexJobRerunResponse searchIndexJobRerunWithOptions(const Models::SearchIndexJobRerunRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
+       * @summary Rerun the search index jobs for the specified media assets in batch. You can rerun index jobs for up to 20 media assets per request.
        *
        * @param request SearchIndexJobRerunRequest
        * @return SearchIndexJobRerunResponse
@@ -5566,9 +5626,9 @@ namespace ICE20201109
       Models::SearchIndexJobRerunResponse searchIndexJobRerun(const Models::SearchIndexJobRerunRequest &request);
 
       /**
-       * @summary Queries information about media assets based on the request parameters.
+       * @summary Returns media assets that match the specified conditions.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description If you have any questions about the multi-modal search feature, join our DingTalk group (ID: 30415005038) for assistance.
        *
        * @param request SearchMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5577,9 +5637,9 @@ namespace ICE20201109
       Models::SearchMediaResponse searchMediaWithOptions(const Models::SearchMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about media assets based on the request parameters.
+       * @summary Returns media assets that match the specified conditions.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description If you have any questions about the multi-modal search feature, join our DingTalk group (ID: 30415005038) for assistance.
        *
        * @param request SearchMediaRequest
        * @return SearchMediaResponse
@@ -5587,9 +5647,9 @@ namespace ICE20201109
       Models::SearchMediaResponse searchMedia(const Models::SearchMediaRequest &request);
 
       /**
-       * @summary Queries media assets based on character names, subtitles, or AI categories.
+       * @summary You can perform multimodal search based on person names, captions, and AI categorization.
        *
-       * @description You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
+       * @description You can perform multimodal search based on person names, captions, and AI categorization. Coarse search supports returning results at the media asset granularity, while fine search supports returning hit segment information within media assets.
        *
        * @param request SearchMediaByAILabelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5598,9 +5658,9 @@ namespace ICE20201109
       Models::SearchMediaByAILabelResponse searchMediaByAILabelWithOptions(const Models::SearchMediaByAILabelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries media assets based on character names, subtitles, or AI categories.
+       * @summary You can perform multimodal search based on person names, captions, and AI categorization.
        *
-       * @description You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
+       * @description You can perform multimodal search based on person names, captions, and AI categorization. Coarse search supports returning results at the media asset granularity, while fine search supports returning hit segment information within media assets.
        *
        * @param request SearchMediaByAILabelRequest
        * @return SearchMediaByAILabelResponse
@@ -5608,9 +5668,9 @@ namespace ICE20201109
       Models::SearchMediaByAILabelResponse searchMediaByAILabel(const Models::SearchMediaByAILabelRequest &request);
 
       /**
-       * @summary Queries the information about media assets that are related to a specific face.
+       * @summary Search media assets by face image (coarse search). Input a face image to retrieve information about media assets containing the person in the image.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description For questions about using or troubleshooting the Intelligent Media Asset Search feature of Alibaba Cloud Intelligent Media Services, search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
        *
        * @param request SearchMediaByFaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5619,9 +5679,9 @@ namespace ICE20201109
       Models::SearchMediaByFaceResponse searchMediaByFaceWithOptions(const Models::SearchMediaByFaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about media assets that are related to a specific face.
+       * @summary Search media assets by face image (coarse search). Input a face image to retrieve information about media assets containing the person in the image.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description For questions about using or troubleshooting the Intelligent Media Asset Search feature of Alibaba Cloud Intelligent Media Services, search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
        *
        * @param request SearchMediaByFaceRequest
        * @return SearchMediaByFaceResponse
@@ -5629,7 +5689,9 @@ namespace ICE20201109
       Models::SearchMediaByFaceResponse searchMediaByFace(const Models::SearchMediaByFaceRequest &request);
 
       /**
-       * @summary Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
+       * @summary Hybrid media asset search. Combines the text search capability of DataQ - Smart Tag Service and the LLM-based search capability to perform multi-channel recall, allowing users to search using natural language descriptions.
+       *
+       * @description For questions about or assistance with the Intelligent Media Services intelligent media asset search feature on Alibaba Cloud, please search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer support DingTalk group to contact us.
        *
        * @param request SearchMediaByHybridRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5638,7 +5700,9 @@ namespace ICE20201109
       Models::SearchMediaByHybridResponse searchMediaByHybridWithOptions(const Models::SearchMediaByHybridRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
+       * @summary Hybrid media asset search. Combines the text search capability of DataQ - Smart Tag Service and the LLM-based search capability to perform multi-channel recall, allowing users to search using natural language descriptions.
+       *
+       * @description For questions about or assistance with the Intelligent Media Services intelligent media asset search feature on Alibaba Cloud, please search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer support DingTalk group to contact us.
        *
        * @param request SearchMediaByHybridRequest
        * @return SearchMediaByHybridResponse
@@ -5646,9 +5710,9 @@ namespace ICE20201109
       Models::SearchMediaByHybridResponse searchMediaByHybrid(const Models::SearchMediaByHybridRequest &request);
 
       /**
-       * @summary Queries media assets by using the large visual model. You can use natural language for the query.
+       * @summary LLM search. You can use natural language descriptions to perform searches.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description For questions about the Intelligent Media Services intelligent media asset search feature or related issues, search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer support DingTalk group to contact us.
        *
        * @param request SearchMediaByMultimodalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5657,9 +5721,9 @@ namespace ICE20201109
       Models::SearchMediaByMultimodalResponse searchMediaByMultimodalWithOptions(const Models::SearchMediaByMultimodalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries media assets by using the large visual model. You can use natural language for the query.
+       * @summary LLM search. You can use natural language descriptions to perform searches.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description For questions about the Intelligent Media Services intelligent media asset search feature or related issues, search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer support DingTalk group to contact us.
        *
        * @param request SearchMediaByMultimodalRequest
        * @return SearchMediaByMultimodalResponse
@@ -5667,9 +5731,9 @@ namespace ICE20201109
       Models::SearchMediaByMultimodalResponse searchMediaByMultimodal(const Models::SearchMediaByMultimodalRequest &request);
 
       /**
-       * @summary Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
+       * @summary The API for searching media asset segments by face image (fine search) returns information about relevant character segments in the media asset where the face appears, based on coarse search results.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description For questions about using or troubleshooting the Intelligent Media Search feature of Alibaba Cloud Intelligent Media Services, please search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
        *
        * @param request SearchMediaClipByFaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5678,9 +5742,9 @@ namespace ICE20201109
       Models::SearchMediaClipByFaceResponse searchMediaClipByFaceWithOptions(const Models::SearchMediaClipByFaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
+       * @summary The API for searching media asset segments by face image (fine search) returns information about relevant character segments in the media asset where the face appears, based on coarse search results.
        *
-       * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+       * @description For questions about using or troubleshooting the Intelligent Media Search feature of Alibaba Cloud Intelligent Media Services, please search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
        *
        * @param request SearchMediaClipByFaceRequest
        * @return SearchMediaClipByFaceResponse
@@ -5688,7 +5752,7 @@ namespace ICE20201109
       Models::SearchMediaClipByFaceResponse searchMediaClipByFace(const Models::SearchMediaClipByFaceRequest &request);
 
       /**
-       * @summary 搜索公共媒资信息
+       * @summary Search for media assets that meet the conditions based on the parameters provided by the User.
        *
        * @param request SearchPublicMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5697,7 +5761,7 @@ namespace ICE20201109
       Models::SearchPublicMediaInfoResponse searchPublicMediaInfoWithOptions(const Models::SearchPublicMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 搜索公共媒资信息
+       * @summary Search for media assets that meet the conditions based on the parameters provided by the User.
        *
        * @param request SearchPublicMediaInfoRequest
        * @return SearchPublicMediaInfoResponse
@@ -5722,13 +5786,13 @@ namespace ICE20201109
       Models::SendAIAgentDataChannelMessageResponse sendAIAgentDataChannelMessage(const Models::SendAIAgentDataChannelMessageRequest &request);
 
       /**
-       * @summary Instructs an AI agent to immediately broadcast a text message and supports interruption settings.
+       * @summary Instructs a specified agent instance to immediately play back a text message, with support for interrupt settings.
        *
-       * @description You can call this operation to instruct an AI agent to broadcast the content that you specify. You can determine whether this broadcast can immediately interrupt the ongoing speech. The interruption is allowed by default.
-       * **Note**
-       * *   Make sure that the `InstanceId` is valid and corresponds to an existing AI agent.
-       * *   The content of `Text` must comply with the specifications and does not contain sensitive or inappropriate information.
-       * *   If you do not want the new broadcast to interrupt the ongoing speech, you must set `EnableInterrupt` to `false`.
+       * @description You can use this API to immediately instruct an AI agent instance to perform voice playback by passing in the specified text content. You can optionally allow this playback to interrupt any currently playing audio. By default, interruption is allowed.
+       * **Note:**
+       * - The `InstanceId` must be valid and correspond to an existing agent instance.
+       * - The `Text` content must comply with specifications and must not contain sensitive or inappropriate information.
+       * - If you do not want the new playback to interrupt the current audio, you must explicitly set `EnableInterrupt` to `false`.
        *
        * @param request SendAIAgentSpeechRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5737,13 +5801,13 @@ namespace ICE20201109
       Models::SendAIAgentSpeechResponse sendAIAgentSpeechWithOptions(const Models::SendAIAgentSpeechRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Instructs an AI agent to immediately broadcast a text message and supports interruption settings.
+       * @summary Instructs a specified agent instance to immediately play back a text message, with support for interrupt settings.
        *
-       * @description You can call this operation to instruct an AI agent to broadcast the content that you specify. You can determine whether this broadcast can immediately interrupt the ongoing speech. The interruption is allowed by default.
-       * **Note**
-       * *   Make sure that the `InstanceId` is valid and corresponds to an existing AI agent.
-       * *   The content of `Text` must comply with the specifications and does not contain sensitive or inappropriate information.
-       * *   If you do not want the new broadcast to interrupt the ongoing speech, you must set `EnableInterrupt` to `false`.
+       * @description You can use this API to immediately instruct an AI agent instance to perform voice playback by passing in the specified text content. You can optionally allow this playback to interrupt any currently playing audio. By default, interruption is allowed.
+       * **Note:**
+       * - The `InstanceId` must be valid and correspond to an existing agent instance.
+       * - The `Text` content must comply with specifications and must not contain sensitive or inappropriate information.
+       * - If you do not want the new playback to interrupt the current audio, you must explicitly set `EnableInterrupt` to `false`.
        *
        * @param request SendAIAgentSpeechRequest
        * @return SendAIAgentSpeechResponse
@@ -5836,7 +5900,7 @@ namespace ICE20201109
       Models::SetAIAgentVoiceprintResponse setAIAgentVoiceprint(const Models::SetAIAgentVoiceprintRequest &request);
 
       /**
-       * @summary 设置内容分析搜索配置
+       * @summary Configures settings for Intelligent Content Analysis.
        *
        * @param request SetContentAnalyzeConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5845,7 +5909,7 @@ namespace ICE20201109
       Models::SetContentAnalyzeConfigResponse setContentAnalyzeConfigWithOptions(const Models::SetContentAnalyzeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置内容分析搜索配置
+       * @summary Configures settings for Intelligent Content Analysis.
        *
        * @param request SetContentAnalyzeConfigRequest
        * @return SetContentAnalyzeConfigResponse
@@ -5870,7 +5934,13 @@ namespace ICE20201109
       Models::SetDefaultCustomTemplateResponse setDefaultCustomTemplate(const Models::SetDefaultCustomTemplateRequest &request);
 
       /**
-       * @summary 设置默认存储路径
+       * @summary Set the default storage path for temporary files. The default storage address is used by the ICE online editor and the integrated web SDK to store temporary files generated during video editing, such as audio files generated by Intelligent configurations. Setting a default storage address avoids inconveniencing users who would otherwise need to specify storage paths for various temporary resources during editing. If you integrate ICE editing capabilities through an API, you can flexibly specify the path in the API request, and this default path will not take effect.
+       *
+       * @description - Intelligent Media Services supports storage in either Object Storage Service or ApsaraVideo VOD. Activate the corresponding service based on your required storage type. The differences between the two are as follows:
+       * - **ApsaraVideo VOD storage**: ApsaraVideo VOD provides an all-in-one audio and video solution, including video storage, media asset management, and CDN-based playback. When storing media assets in ApsaraVideo VOD, Intelligent Media Services enhances VOD capabilities, enabling rapid development and publishing of video applications using VOD-provided APIs.
+       * - **Object Storage**: Object Storage Service (OSS) is Alibaba Cloud’s secure, low-cost, highly durable, and scalable cloud storage service. You can leverage the combined capabilities of Intelligent Media Services and OSS to develop audio and video applications for diverse scenarios.
+       * - You can also configure the storage address in the console. For details, see [Configure Storage Address](https://help.aliyun.com/document_detail/609918.html).
+       * - Storage fees are billed through OSS or ApsaraVideo VOD based on your configured storage address. For details, see [Media Asset Storage Billing](https://help.aliyun.com/document_detail/440701.html).
        *
        * @param request SetDefaultStorageLocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5879,7 +5949,13 @@ namespace ICE20201109
       Models::SetDefaultStorageLocationResponse setDefaultStorageLocationWithOptions(const Models::SetDefaultStorageLocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置默认存储路径
+       * @summary Set the default storage path for temporary files. The default storage address is used by the ICE online editor and the integrated web SDK to store temporary files generated during video editing, such as audio files generated by Intelligent configurations. Setting a default storage address avoids inconveniencing users who would otherwise need to specify storage paths for various temporary resources during editing. If you integrate ICE editing capabilities through an API, you can flexibly specify the path in the API request, and this default path will not take effect.
+       *
+       * @description - Intelligent Media Services supports storage in either Object Storage Service or ApsaraVideo VOD. Activate the corresponding service based on your required storage type. The differences between the two are as follows:
+       * - **ApsaraVideo VOD storage**: ApsaraVideo VOD provides an all-in-one audio and video solution, including video storage, media asset management, and CDN-based playback. When storing media assets in ApsaraVideo VOD, Intelligent Media Services enhances VOD capabilities, enabling rapid development and publishing of video applications using VOD-provided APIs.
+       * - **Object Storage**: Object Storage Service (OSS) is Alibaba Cloud’s secure, low-cost, highly durable, and scalable cloud storage service. You can leverage the combined capabilities of Intelligent Media Services and OSS to develop audio and video applications for diverse scenarios.
+       * - You can also configure the storage address in the console. For details, see [Configure Storage Address](https://help.aliyun.com/document_detail/609918.html).
+       * - Storage fees are billed through OSS or ApsaraVideo VOD based on your configured storage address. For details, see [Media Asset Storage Billing](https://help.aliyun.com/document_detail/440701.html).
        *
        * @param request SetDefaultStorageLocationRequest
        * @return SetDefaultStorageLocationResponse
@@ -5904,10 +5980,10 @@ namespace ICE20201109
       Models::SetEventCallbackResponse setEventCallback(const Models::SetEventCallbackRequest &request);
 
       /**
-       * @summary Enables or disables event notifications for an AI agent and configures the callback URL and event types.
+       * @summary Enables or disables event notifications for an AI Agent and sets the Callback URL and the Event Types to subscribe to.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to configure event notifications for an AI agent. You can configure `EnableNotify` to enable or disable event notifications, configure `CallbackUrl` to specify a callback URL, and configure `EventTypes` to specify event types. You can also configure `Token` to specify an authentication token for enhanced security. The system returns a unique `RequestId` for subsequent tracing after a successful request.
+       * @description ## Description
+       * This operation configures event notification settings for an AI Agent instance. You can enable or disable event notifications, specify the Callback URL, and define the Event Types to subscribe to. You can also provide an Authentication Token for enhanced security. A successful request returns a unique Request ID for tracking and troubleshooting.
        *
        * @param request SetNotifyConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5916,10 +5992,10 @@ namespace ICE20201109
       Models::SetNotifyConfigResponse setNotifyConfigWithOptions(const Models::SetNotifyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables event notifications for an AI agent and configures the callback URL and event types.
+       * @summary Enables or disables event notifications for an AI Agent and sets the Callback URL and the Event Types to subscribe to.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to configure event notifications for an AI agent. You can configure `EnableNotify` to enable or disable event notifications, configure `CallbackUrl` to specify a callback URL, and configure `EventTypes` to specify event types. You can also configure `Token` to specify an authentication token for enhanced security. The system returns a unique `RequestId` for subsequent tracing after a successful request.
+       * @description ## Description
+       * This operation configures event notification settings for an AI Agent instance. You can enable or disable event notifications, specify the Callback URL, and define the Event Types to subscribe to. You can also provide an Authentication Token for enhanced security. A successful request returns a unique Request ID for tracking and troubleshooting.
        *
        * @param request SetNotifyConfigRequest
        * @return SetNotifyConfigResponse
@@ -5927,7 +6003,7 @@ namespace ICE20201109
       Models::SetNotifyConfigResponse setNotifyConfig(const Models::SetNotifyConfigRequest &request);
 
       /**
-       * @summary Sets the user role.
+       * @summary Sets a user role.
        *
        * @param request SetYikeUserRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5936,7 +6012,7 @@ namespace ICE20201109
       Models::SetYikeUserRoleResponse setYikeUserRoleWithOptions(const Models::SetYikeUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the user role.
+       * @summary Sets a user role.
        *
        * @param request SetYikeUserRoleRequest
        * @return SetYikeUserRoleResponse
@@ -5944,9 +6020,9 @@ namespace ICE20201109
       Models::SetYikeUserRoleResponse setYikeUserRole(const Models::SetYikeUserRoleRequest &request);
 
       /**
-       * @summary Starts an AI agent that is configured in the Intelligent Media Services (IMS) console.
+       * @summary Start an AI agent instance configured in IMS.
        *
-       * @description You can call this operation to start an AI agent instance for a conversation. ````````When the AI agent is started, the system returns a unique `InstanceId` for subsequent tracking and operations.
+       * @description You can use this API to start a configured AI agent instance and join it to a chat. Specify the agent ID (`AIAgentId`), runtime configuration (`RuntimeConfig`), and optionally a template configuration (`TemplateConfig`) and user-defined data (`UserData`). After the agent instance starts successfully, the API returns a unique `InstanceId` for tracking or further operations.
        *
        * @param tmpReq StartAIAgentInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5955,9 +6031,9 @@ namespace ICE20201109
       Models::StartAIAgentInstanceResponse startAIAgentInstanceWithOptions(const Models::StartAIAgentInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts an AI agent that is configured in the Intelligent Media Services (IMS) console.
+       * @summary Start an AI agent instance configured in IMS.
        *
-       * @description You can call this operation to start an AI agent instance for a conversation. ````````When the AI agent is started, the system returns a unique `InstanceId` for subsequent tracking and operations.
+       * @description You can use this API to start a configured AI agent instance and join it to a chat. Specify the agent ID (`AIAgentId`), runtime configuration (`RuntimeConfig`), and optionally a template configuration (`TemplateConfig`) and user-defined data (`UserData`). After the agent instance starts successfully, the API returns a unique `InstanceId` for tracking or further operations.
        *
        * @param request StartAIAgentInstanceRequest
        * @return StartAIAgentInstanceResponse
@@ -5965,7 +6041,9 @@ namespace ICE20201109
       Models::StartAIAgentInstanceResponse startAIAgentInstance(const Models::StartAIAgentInstanceRequest &request);
 
       /**
-       * @summary Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
+       * @summary Initiates an AI agent outbound call from a specific caller number to a called number and returns the call\\"s InstanceId.
+       *
+       * @description Use this API to start a configured AI agent instance and place an outbound call to a specified called number. Upon successful startup, the API returns a unique `InstanceId` for tracking or subsequent operations. Each caller number supports **up to 15 concurrent calls**.
        *
        * @param tmpReq StartAIAgentOutboundCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5974,7 +6052,9 @@ namespace ICE20201109
       Models::StartAIAgentOutboundCallResponse startAIAgentOutboundCallWithOptions(const Models::StartAIAgentOutboundCallRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
+       * @summary Initiates an AI agent outbound call from a specific caller number to a called number and returns the call\\"s InstanceId.
+       *
+       * @description Use this API to start a configured AI agent instance and place an outbound call to a specified called number. Upon successful startup, the API returns a unique `InstanceId` for tracking or subsequent operations. Each caller number supports **up to 15 concurrent calls**.
        *
        * @param request StartAIAgentOutboundCallRequest
        * @return StartAIAgentOutboundCallResponse
@@ -5984,7 +6064,7 @@ namespace ICE20201109
       /**
        * @summary Initiates a workflow task for automated media processing based on a workflow template.
        *
-       * @description *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+       * @description - You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
        *
        * @param request StartAIWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5995,7 +6075,7 @@ namespace ICE20201109
       /**
        * @summary Initiates a workflow task for automated media processing based on a workflow template.
        *
-       * @description *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+       * @description - You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
        *
        * @param request StartAIWorkflowRequest
        * @return StartAIWorkflowResponse
@@ -6022,7 +6102,7 @@ namespace ICE20201109
       /**
        * @summary Starts a MediaLive channel.
        *
-       * @description *   You can call this operation only when the channel is idle. You cannot start a channel repeatedly.
+       * @description - Starts a channel only when the channel is idle. You cannot start a channel repeatedly.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -6035,7 +6115,7 @@ namespace ICE20201109
       /**
        * @summary Starts a MediaLive channel.
        *
-       * @description *   You can call this operation only when the channel is idle. You cannot start a channel repeatedly.
+       * @description - Starts a channel only when the channel is idle. You cannot start a channel repeatedly.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -6045,7 +6125,7 @@ namespace ICE20201109
       Models::StartMediaLiveChannelResponse startMediaLiveChannel(const Models::StartMediaLiveChannelRequest &request);
 
       /**
-       * @summary Starts an AI agent and joins a real-time communication (RTC) call.
+       * @summary Starts an RTC interactive AI agent instance and joins an RTC call.
        *
        * @param tmpReq StartRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6054,7 +6134,7 @@ namespace ICE20201109
       Models::StartRtcRobotInstanceResponse startRtcRobotInstanceWithOptions(const Models::StartRtcRobotInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts an AI agent and joins a real-time communication (RTC) call.
+       * @summary Starts an RTC interactive AI agent instance and joins an RTC call.
        *
        * @param request StartRtcRobotInstanceRequest
        * @return StartRtcRobotInstanceResponse
@@ -6062,10 +6142,10 @@ namespace ICE20201109
       Models::StartRtcRobotInstanceResponse startRtcRobotInstance(const Models::StartRtcRobotInstanceRequest &request);
 
       /**
-       * @summary Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
+       * @summary By invoking the StartWorkflow API, you can submit a media workflow template task to implement an automated media processing flow based on the workflow template.
        *
-       * @description *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
-       * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
+       * @description - Currently, only media assets from Intelligent Media Services or ApsaraVideo VOD are supported as workflow inputs.
+       * - When submitting a flow task, you must specify a workflow template. You can create a workflow template in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) or use a system preset workflow template.
        *
        * @param request StartWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6074,10 +6154,10 @@ namespace ICE20201109
       Models::StartWorkflowResponse startWorkflowWithOptions(const Models::StartWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
+       * @summary By invoking the StartWorkflow API, you can submit a media workflow template task to implement an automated media processing flow based on the workflow template.
        *
-       * @description *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
-       * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
+       * @description - Currently, only media assets from Intelligent Media Services or ApsaraVideo VOD are supported as workflow inputs.
+       * - When submitting a flow task, you must specify a workflow template. You can create a workflow template in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) or use a system preset workflow template.
        *
        * @param request StartWorkflowRequest
        * @return StartWorkflowResponse
@@ -6085,11 +6165,11 @@ namespace ICE20201109
       Models::StartWorkflowResponse startWorkflow(const Models::StartWorkflowRequest &request);
 
       /**
-       * @summary Stops an AI agent instance.
+       * @summary Stop an agent instance.
        *
-       * @description *   When you no longer need an AI agent to participate in a conversation or task, you can call this operation to stop the running agent and release relevant resources.****
-       * *   You must specify the unique ID of the AI agent that you want to stop by using InstanceId.****
-       * *   ****
+       * @description - **Feature description**: Stops and terminates a running agent instance and release the associated resources.
+       * - **Parameter notes**: You must provide the unique ID (InstanceId) of the instance to be stopped as a query parameter.
+       * - **Common scenarios**: When an agent is no longer needed for a call or job, you can invoke this API to end its execution.
        *
        * @param request StopAIAgentInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6098,11 +6178,11 @@ namespace ICE20201109
       Models::StopAIAgentInstanceResponse stopAIAgentInstanceWithOptions(const Models::StopAIAgentInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops an AI agent instance.
+       * @summary Stop an agent instance.
        *
-       * @description *   When you no longer need an AI agent to participate in a conversation or task, you can call this operation to stop the running agent and release relevant resources.****
-       * *   You must specify the unique ID of the AI agent that you want to stop by using InstanceId.****
-       * *   ****
+       * @description - **Feature description**: Stops and terminates a running agent instance and release the associated resources.
+       * - **Parameter notes**: You must provide the unique ID (InstanceId) of the instance to be stopped as a query parameter.
+       * - **Common scenarios**: When an agent is no longer needed for a call or job, you can invoke this API to end its execution.
        *
        * @param request StopAIAgentInstanceRequest
        * @return StopAIAgentInstanceResponse
@@ -6171,7 +6251,7 @@ namespace ICE20201109
       Models::StopMediaLiveChannelResponse stopMediaLiveChannel(const Models::StopMediaLiveChannelRequest &request);
 
       /**
-       * @summary Stops an AI agent for real-time communication (RTC).
+       * @summary Stop an RTC interactive AI agent instance.
        *
        * @param request StopRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6180,7 +6260,7 @@ namespace ICE20201109
       Models::StopRtcRobotInstanceResponse stopRtcRobotInstanceWithOptions(const Models::StopRtcRobotInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops an AI agent for real-time communication (RTC).
+       * @summary Stop an RTC interactive AI agent instance.
        *
        * @param request StopRtcRobotInstanceRequest
        * @return StopRtcRobotInstanceResponse
@@ -6188,7 +6268,7 @@ namespace ICE20201109
       Models::StopRtcRobotInstanceResponse stopRtcRobotInstance(const Models::StopRtcRobotInstanceRequest &request);
 
       /**
-       * @summary Reclaims points from a user.
+       * @summary Deducts credits from a sub-account.
        *
        * @param request SubYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6197,7 +6277,7 @@ namespace ICE20201109
       Models::SubYikeUserCreditResponse subYikeUserCreditWithOptions(const Models::SubYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reclaims points from a user.
+       * @summary Deducts credits from a sub-account.
        *
        * @param request SubYikeUserCreditRequest
        * @return SubYikeUserCreditResponse
@@ -6226,7 +6306,9 @@ namespace ICE20201109
       Models::SubmitAIAgentVideoAuditTaskResponse submitAIAgentVideoAuditTask(const Models::SubmitAIAgentVideoAuditTaskRequest &request);
 
       /**
-       * @summary Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
+       * @summary Transcribes speech from a media file and returns the text with corresponding start and end timestamps.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API returns a job ID and processes the job in the background. The results are sent through a callback notification, or you can query the job status by calling the [GetSmartTaskResult](https://help.aliyun.com/document_detail/441172.html) operation.
        *
        * @param request SubmitASRJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6235,7 +6317,9 @@ namespace ICE20201109
       Models::SubmitASRJobResponse submitASRJobWithOptions(const Models::SubmitASRJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
+       * @summary Transcribes speech from a media file and returns the text with corresponding start and end timestamps.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API returns a job ID and processes the job in the background. The results are sent through a callback notification, or you can query the job status by calling the [GetSmartTaskResult](https://help.aliyun.com/document_detail/441172.html) operation.
        *
        * @param request SubmitASRJobRequest
        * @return SubmitASRJobResponse
@@ -6243,7 +6327,9 @@ namespace ICE20201109
       Models::SubmitASRJobResponse submitASRJob(const Models::SubmitASRJobRequest &request);
 
       /**
-       * @summary Submits an audio production job that converts text into an audio file.
+       * @summary This API converts text into a high-quality audio file of speech.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, you receive a job ID, and the job is processed in the background. You can get the result through a callback notification or by querying the job status with the [GetSmartJobResult API](https://help.aliyun.com/document_detail/441172.html).
        *
        * @param request SubmitAudioProduceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6252,7 +6338,9 @@ namespace ICE20201109
       Models::SubmitAudioProduceJobResponse submitAudioProduceJobWithOptions(const Models::SubmitAudioProduceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an audio production job that converts text into an audio file.
+       * @summary This API converts text into a high-quality audio file of speech.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, you receive a job ID, and the job is processed in the background. You can get the result through a callback notification or by querying the job status with the [GetSmartJobResult API](https://help.aliyun.com/document_detail/441172.html).
        *
        * @param request SubmitAudioProduceJobRequest
        * @return SubmitAudioProduceJobResponse
@@ -6260,7 +6348,9 @@ namespace ICE20201109
       Models::SubmitAudioProduceJobResponse submitAudioProduceJob(const Models::SubmitAudioProduceJobRequest &request);
 
       /**
-       * @summary Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
+       * @summary Use this operation to submit a new avatar training job or to resubmit a failed job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you call this operation, it returns a JobId and queues the training job for background processing. The initial response confirms the job submission, not its completion. The final result is sent via a callback notification, or you can check the job\\"s status by [querying the details of an avatar training job](https://help.aliyun.com/document_detail/2526661.html).
        *
        * @param request SubmitAvatarTrainingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6269,7 +6359,9 @@ namespace ICE20201109
       Models::SubmitAvatarTrainingJobResponse submitAvatarTrainingJobWithOptions(const Models::SubmitAvatarTrainingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
+       * @summary Use this operation to submit a new avatar training job or to resubmit a failed job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you call this operation, it returns a JobId and queues the training job for background processing. The initial response confirms the job submission, not its completion. The final result is sent via a callback notification, or you can check the job\\"s status by [querying the details of an avatar training job](https://help.aliyun.com/document_detail/2526661.html).
        *
        * @param request SubmitAvatarTrainingJobRequest
        * @return SubmitAvatarTrainingJobResponse
@@ -6277,11 +6369,12 @@ namespace ICE20201109
       Models::SubmitAvatarTrainingJobResponse submitAvatarTrainingJob(const Models::SubmitAvatarTrainingJobRequest &request);
 
       /**
-       * @summary Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+       * @summary Renders an avatar video from text or an audio file.
        *
-       * @description - The input supports only text or a human voice audio file in MP3 or WAV format.
-       * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
-       * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API returns a job ID and queues the job for background processing. The service delivers the final result through a [callback notification](https://help.aliyun.com/document_detail/3027141.html). You can also query the job status by calling the [GetSmartJobResult](https://help.aliyun.com/document_detail/441172.html) operation.
+       * - The input can be text or an audio file in MP3 or WAV format.
+       * - The output supports both MP4 and WebM formats. When the output format is MP4, the job produces a video of the avatar against a green screen and a separate [alpha mask video]() for post-production. We recommend this option. When the output format is WebM, the job produces a single video with a transparent [alpha channel](), which is suitable for front-end display. Rendering in WebM format is slower due to encoding complexity.
+       * - The output includes [sentence-level timestamps]() for the generated speech, useful for subsequent video editing.
        *
        * @param request SubmitAvatarVideoJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6290,11 +6383,12 @@ namespace ICE20201109
       Models::SubmitAvatarVideoJobResponse submitAvatarVideoJobWithOptions(const Models::SubmitAvatarVideoJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+       * @summary Renders an avatar video from text or an audio file.
        *
-       * @description - The input supports only text or a human voice audio file in MP3 or WAV format.
-       * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
-       * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API returns a job ID and queues the job for background processing. The service delivers the final result through a [callback notification](https://help.aliyun.com/document_detail/3027141.html). You can also query the job status by calling the [GetSmartJobResult](https://help.aliyun.com/document_detail/441172.html) operation.
+       * - The input can be text or an audio file in MP3 or WAV format.
+       * - The output supports both MP4 and WebM formats. When the output format is MP4, the job produces a video of the avatar against a green screen and a separate [alpha mask video]() for post-production. We recommend this option. When the output format is WebM, the job produces a single video with a transparent [alpha channel](), which is suitable for front-end display. Rendering in WebM format is slower due to encoding complexity.
+       * - The output includes [sentence-level timestamps]() for the generated speech, useful for subsequent video editing.
        *
        * @param request SubmitAvatarVideoJobRequest
        * @return SubmitAvatarVideoJobResponse
@@ -6302,7 +6396,16 @@ namespace ICE20201109
       Models::SubmitAvatarVideoJobResponse submitAvatarVideoJob(const Models::SubmitAvatarVideoJobRequest &request);
 
       /**
-       * @summary Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
+       * @summary Intelligently edits and combines multiple video, audio, and image media assets to create videos in batches with a single API call.
+       *
+       * @description <props="china">
+       * - To use the one-click smart video creation feature, you must first subscribe to the IMS Subscription Service. For more information, see [Subscription Billing](~~439260#3285adfad70dw~~).
+       * <props="china">
+       * - For more information about billing for one-click smart video creation, see [One-click Video Creation](https://help.aliyun.com/document_detail/2840901.html).
+       * - The one-click smart video creation feature is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a job ID and queues the job for asynchronous processing. The system delivers the final result through a callback. You can also query the job status by calling the [Get Batch Media Production Job Information](https://help.aliyun.com/document_detail/2693269.html) operation.
+       * - The one-click smart video creation feature offers multiple solutions, including Script-based Automated Video Creation, AI-powered Image-Text Matching Video Creation (General), AI-powered Image-Text Matching Video Creation (Highlights), Sports Highlight Video Creation, and High-Energy Montage Video Creation. For more information about these features, see [One-click Video Creation](https://help.aliyun.com/document_detail/2689046.html).
+       * - Script-based Automated Video Creation and AI-powered Image-Text Matching Video Creation share the same API for submitting jobs. To learn how to differentiate between them using parameters, see [Parameter Differences for One-click Video Creation](https://help.aliyun.com/document_detail/2846101.html).
+       * - After you submit a batch job for one-click smart video creation, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve a list of all matching jobs. Call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to get detailed information about a job, including its status, the generated media asset ID, and the media asset URL.
        *
        * @param request SubmitBatchMediaProducingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6311,7 +6414,16 @@ namespace ICE20201109
       Models::SubmitBatchMediaProducingJobResponse submitBatchMediaProducingJobWithOptions(const Models::SubmitBatchMediaProducingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
+       * @summary Intelligently edits and combines multiple video, audio, and image media assets to create videos in batches with a single API call.
+       *
+       * @description <props="china">
+       * - To use the one-click smart video creation feature, you must first subscribe to the IMS Subscription Service. For more information, see [Subscription Billing](~~439260#3285adfad70dw~~).
+       * <props="china">
+       * - For more information about billing for one-click smart video creation, see [One-click Video Creation](https://help.aliyun.com/document_detail/2840901.html).
+       * - The one-click smart video creation feature is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a job ID and queues the job for asynchronous processing. The system delivers the final result through a callback. You can also query the job status by calling the [Get Batch Media Production Job Information](https://help.aliyun.com/document_detail/2693269.html) operation.
+       * - The one-click smart video creation feature offers multiple solutions, including Script-based Automated Video Creation, AI-powered Image-Text Matching Video Creation (General), AI-powered Image-Text Matching Video Creation (Highlights), Sports Highlight Video Creation, and High-Energy Montage Video Creation. For more information about these features, see [One-click Video Creation](https://help.aliyun.com/document_detail/2689046.html).
+       * - Script-based Automated Video Creation and AI-powered Image-Text Matching Video Creation share the same API for submitting jobs. To learn how to differentiate between them using parameters, see [Parameter Differences for One-click Video Creation](https://help.aliyun.com/document_detail/2846101.html).
+       * - After you submit a batch job for one-click smart video creation, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve a list of all matching jobs. Call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to get detailed information about a job, including its status, the generated media asset ID, and the media asset URL.
        *
        * @param request SubmitBatchMediaProducingJobRequest
        * @return SubmitBatchMediaProducingJobResponse
@@ -6319,9 +6431,10 @@ namespace ICE20201109
       Models::SubmitBatchMediaProducingJobResponse submitBatchMediaProducingJob(const Models::SubmitBatchMediaProducingJobRequest &request);
 
       /**
-       * @summary Submits a job that extracts a copyright watermark.
+       * @summary Submits a copyright watermark extraction job.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - The digital watermark APIs are available only in the China (Shanghai) and China (Beijing) regions.
+       * - This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the service returns a job ID. The service then queues the job for asynchronous processing. You can get the final results through a [callback notification](https://help.aliyun.com/document_detail/3027141.html) or query the job status by calling the [QueryCopyrightExtractJob](https://help.aliyun.com/document_detail/2862132.html) operation.
        *
        * @param tmpReq SubmitCopyrightExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6330,9 +6443,10 @@ namespace ICE20201109
       Models::SubmitCopyrightExtractJobResponse submitCopyrightExtractJobWithOptions(const Models::SubmitCopyrightExtractJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a job that extracts a copyright watermark.
+       * @summary Submits a copyright watermark extraction job.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - The digital watermark APIs are available only in the China (Shanghai) and China (Beijing) regions.
+       * - This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the service returns a job ID. The service then queues the job for asynchronous processing. You can get the final results through a [callback notification](https://help.aliyun.com/document_detail/3027141.html) or query the job status by calling the [QueryCopyrightExtractJob](https://help.aliyun.com/document_detail/2862132.html) operation.
        *
        * @param request SubmitCopyrightExtractJobRequest
        * @return SubmitCopyrightExtractJobResponse
@@ -6340,11 +6454,12 @@ namespace ICE20201109
       Models::SubmitCopyrightExtractJobResponse submitCopyrightExtractJob(const Models::SubmitCopyrightExtractJobRequest &request);
 
       /**
-       * @summary Submits a job for adding a copyright watermark to a video.
+       * @summary Submits a video copyright watermark job.
        *
-       * @description *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
-       * *   Each API call supports processing only one video.
-       * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - By default, this operation supports only videos 3 minutes or longer. Submitting a job for a shorter video may fail or produce no output. To watermark shorter videos, use the `Params` parameter.
+       * - You can submit a watermark job for only one video per API call.
+       * - Currently, digital watermark-related APIs are available only in the China (Shanghai) and China (Beijing) regions.
+       * - This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and queues the job for background processing. Results are delivered via callback notification. Alternatively, you can call the [Query Video Copyright Job List](https://help.aliyun.com/document_detail/2862135.html) operation to check the job status.
        *
        * @param tmpReq SubmitCopyrightJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6353,11 +6468,12 @@ namespace ICE20201109
       Models::SubmitCopyrightJobResponse submitCopyrightJobWithOptions(const Models::SubmitCopyrightJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a job for adding a copyright watermark to a video.
+       * @summary Submits a video copyright watermark job.
        *
-       * @description *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
-       * *   Each API call supports processing only one video.
-       * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
+       * @description - By default, this operation supports only videos 3 minutes or longer. Submitting a job for a shorter video may fail or produce no output. To watermark shorter videos, use the `Params` parameter.
+       * - You can submit a watermark job for only one video per API call.
+       * - Currently, digital watermark-related APIs are available only in the China (Shanghai) and China (Beijing) regions.
+       * - This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and queues the job for background processing. Results are delivered via callback notification. Alternatively, you can call the [Query Video Copyright Job List](https://help.aliyun.com/document_detail/2862135.html) operation to check the job status.
        *
        * @param request SubmitCopyrightJobRequest
        * @return SubmitCopyrightJobResponse
@@ -6365,7 +6481,13 @@ namespace ICE20201109
       Models::SubmitCopyrightJobResponse submitCopyrightJob(const Models::SubmitCopyrightJobRequest &request);
 
       /**
-       * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+       * @summary Submits a basic voice cloning job.
+       *
+       * @description <props="china">
+       * - Billing for voice cloning is based on customization and usage. For more information, see [voice cloning pricing](~~2399891#section-gy3-80e-clt~~).
+       * - When you submit a voice cloning job, the `VoiceId` must match the one provided during audio detection. The service uses this parameter to locate the staged audio for training.
+       * - While the job is training, you can call the [GetCustomizedVoiceJob - Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation to query the job status.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After a job is submitted, the API immediately returns a `JobId` and queues the job for background processing. The result is delivered via a callback. Alternatively, you can poll for the job status by using the [Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation.
        *
        * @param request SubmitCustomizedVoiceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6374,7 +6496,13 @@ namespace ICE20201109
       Models::SubmitCustomizedVoiceJobResponse submitCustomizedVoiceJobWithOptions(const Models::SubmitCustomizedVoiceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+       * @summary Submits a basic voice cloning job.
+       *
+       * @description <props="china">
+       * - Billing for voice cloning is based on customization and usage. For more information, see [voice cloning pricing](~~2399891#section-gy3-80e-clt~~).
+       * - When you submit a voice cloning job, the `VoiceId` must match the one provided during audio detection. The service uses this parameter to locate the staged audio for training.
+       * - While the job is training, you can call the [GetCustomizedVoiceJob - Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation to query the job status.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After a job is submitted, the API immediately returns a `JobId` and queues the job for background processing. The result is delivered via a callback. Alternatively, you can poll for the job status by using the [Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation.
        *
        * @param request SubmitCustomizedVoiceJobRequest
        * @return SubmitCustomizedVoiceJobResponse
@@ -6382,11 +6510,11 @@ namespace ICE20201109
       Models::SubmitCustomizedVoiceJobResponse submitCustomizedVoiceJob(const Models::SubmitCustomizedVoiceJobRequest &request);
 
       /**
-       * @summary Submits a media fingerprint analysis job.
+       * @summary Submits a DNA job.
        *
-       * @description *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
-       * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
-       * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and queues the job for asynchronous execution in the background. You receive the final result in a [callback notification](https://help.aliyun.com/document_detail/3027141.html). You can also call the [ListDNAJobs](https://help.aliyun.com/document_detail/479279.html) operation to query the job status.
+       * - This operation is available in the following regions: China (Beijing), China (Hangzhou), and China (Shanghai).
+       * - Text-based DNA jobs are currently supported only in the China (Shanghai) region.
        *
        * @param tmpReq SubmitDNAJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6395,11 +6523,11 @@ namespace ICE20201109
       Models::SubmitDNAJobResponse submitDNAJobWithOptions(const Models::SubmitDNAJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a media fingerprint analysis job.
+       * @summary Submits a DNA job.
        *
-       * @description *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
-       * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
-       * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and queues the job for asynchronous execution in the background. You receive the final result in a [callback notification](https://help.aliyun.com/document_detail/3027141.html). You can also call the [ListDNAJobs](https://help.aliyun.com/document_detail/479279.html) operation to query the job status.
+       * - This operation is available in the following regions: China (Beijing), China (Hangzhou), and China (Shanghai).
+       * - Text-based DNA jobs are currently supported only in the China (Shanghai) region.
        *
        * @param request SubmitDNAJobRequest
        * @return SubmitDNAJobResponse
@@ -6407,22 +6535,22 @@ namespace ICE20201109
       Models::SubmitDNAJobResponse submitDNAJob(const Models::SubmitDNAJobRequest &request);
 
       /**
-       * @summary Generates animated charts based on Excel datasheets, such as line, pie, and bar charts. You can modify the line color and font.
+       * @summary Submits a job to generate a dynamic chart video, such as a Line Chart, Pie Chart, or Bar Chart, from Excel data. You can customize chart elements like line colors and fonts.
        *
-       * @description This feature is available only in the China (Shanghai) region.
-       * *   You can add a title, subtitle, data source, and unit to a chart and specify the font and font size. For supported fonts, see [Fonts](https://help.aliyun.com/document_detail/449567.html).
-       * *   This feature provides five styles of animated charts: normal, mystery, lively, business, and green.
-       * *   You can set the background color or image.
-       * *   You can set the animation duration, size, and bitrate.
-       * Examples
-       * *   Line chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.mp4)
-       * *   Bar chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.mp4)
-       * *   Pie chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.mp4)
-       * *   Normal: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Normal.mp4)
-       * *   Mystery: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Mystery.mp4)
-       * *   Lively: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Lively.mp4)
-       * *   Business: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Business.mp4)
-       * *   Green: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Green.mp4)
+       * @description This operation generates a dynamic chart video from Excel data. This feature is available only in the Shanghai Region.
+       * - Customize text elements including the Chart Title, Subtitle, Data Source, and Unit. You can also specify the Font and Font Size. For supported fonts, see the [Font List](https://help.aliyun.com/document_detail/449567.html).
+       * - Supports five built-in styles: Normal, Mystery, Lively, Business, and Green.
+       * - Set a custom Background Color or Background Image.
+       * - Configure output video properties such as Video Duration, Dimensions, and Bitrate.
+       * Examples:
+       * - Line Chart: [Excel Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.xlsx), [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.mp4).
+       * - Bar Chart: [Excel Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.xlsx), [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.mp4).
+       * - Pie Chart: [Excel Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.xlsx), [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.mp4).
+       * - Normal style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Normal.mp4).
+       * - Mystery style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Mystery.mp4).
+       * - Lively style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Lively.mp4).
+       * - Business style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Business.mp4).
+       * - Green style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Green.mp4).
        *
        * @param request SubmitDynamicChartJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6431,22 +6559,22 @@ namespace ICE20201109
       Models::SubmitDynamicChartJobResponse submitDynamicChartJobWithOptions(const Models::SubmitDynamicChartJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates animated charts based on Excel datasheets, such as line, pie, and bar charts. You can modify the line color and font.
+       * @summary Submits a job to generate a dynamic chart video, such as a Line Chart, Pie Chart, or Bar Chart, from Excel data. You can customize chart elements like line colors and fonts.
        *
-       * @description This feature is available only in the China (Shanghai) region.
-       * *   You can add a title, subtitle, data source, and unit to a chart and specify the font and font size. For supported fonts, see [Fonts](https://help.aliyun.com/document_detail/449567.html).
-       * *   This feature provides five styles of animated charts: normal, mystery, lively, business, and green.
-       * *   You can set the background color or image.
-       * *   You can set the animation duration, size, and bitrate.
-       * Examples
-       * *   Line chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.mp4)
-       * *   Bar chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.mp4)
-       * *   Pie chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.mp4)
-       * *   Normal: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Normal.mp4)
-       * *   Mystery: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Mystery.mp4)
-       * *   Lively: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Lively.mp4)
-       * *   Business: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Business.mp4)
-       * *   Green: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Green.mp4)
+       * @description This operation generates a dynamic chart video from Excel data. This feature is available only in the Shanghai Region.
+       * - Customize text elements including the Chart Title, Subtitle, Data Source, and Unit. You can also specify the Font and Font Size. For supported fonts, see the [Font List](https://help.aliyun.com/document_detail/449567.html).
+       * - Supports five built-in styles: Normal, Mystery, Lively, Business, and Green.
+       * - Set a custom Background Color or Background Image.
+       * - Configure output video properties such as Video Duration, Dimensions, and Bitrate.
+       * Examples:
+       * - Line Chart: [Excel Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.xlsx), [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.mp4).
+       * - Bar Chart: [Excel Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.xlsx), [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.mp4).
+       * - Pie Chart: [Excel Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.xlsx), [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.mp4).
+       * - Normal style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Normal.mp4).
+       * - Mystery style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Mystery.mp4).
+       * - Lively style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Lively.mp4).
+       * - Business style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Business.mp4).
+       * - Green style: [Result Sample](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Green.mp4).
        *
        * @param request SubmitDynamicChartJobRequest
        * @return SubmitDynamicChartJobResponse
@@ -6454,7 +6582,9 @@ namespace ICE20201109
       Models::SubmitDynamicChartJobResponse submitDynamicChartJob(const Models::SubmitDynamicChartJobRequest &request);
 
       /**
-       * @summary Submits an image animation job.
+       * @summary Use this API to submit a task to generate a dynamic image.
+       *
+       * @description This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, you will immediately receive a task ID while the task is queued for asynchronous execution in the background. The final result is sent via a callback notification, or you can poll the task status by [querying the dynamic image task details](https://help.aliyun.com/document_detail/441199.html).
        *
        * @param tmpReq SubmitDynamicImageJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6463,7 +6593,9 @@ namespace ICE20201109
       Models::SubmitDynamicImageJobResponse submitDynamicImageJobWithOptions(const Models::SubmitDynamicImageJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an image animation job.
+       * @summary Use this API to submit a task to generate a dynamic image.
+       *
+       * @description This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, you will immediately receive a task ID while the task is queued for asynchronous execution in the background. The final result is sent via a callback notification, or you can poll the task status by [querying the dynamic image task details](https://help.aliyun.com/document_detail/441199.html).
        *
        * @param request SubmitDynamicImageJobRequest
        * @return SubmitDynamicImageJobResponse
@@ -6471,7 +6603,9 @@ namespace ICE20201109
       Models::SubmitDynamicImageJobResponse submitDynamicImageJob(const Models::SubmitDynamicImageJobRequest &request);
 
       /**
-       * @summary Submits a highlight extraction task.
+       * @summary Submits a highlight extraction job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the API returns a job ID. The system then queues the job for background processing and sends the final result via a callback notification. You can also query the job status by calling the [Get Smart Task Result](https://help.aliyun.com/document_detail/441172.html) operation.
        *
        * @param request SubmitHighlightExtractionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6480,7 +6614,9 @@ namespace ICE20201109
       Models::SubmitHighlightExtractionJobResponse submitHighlightExtractionJobWithOptions(const Models::SubmitHighlightExtractionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a highlight extraction task.
+       * @summary Submits a highlight extraction job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the API returns a job ID. The system then queues the job for background processing and sends the final result via a callback notification. You can also query the job status by calling the [Get Smart Task Result](https://help.aliyun.com/document_detail/441172.html) operation.
        *
        * @param request SubmitHighlightExtractionJobRequest
        * @return SubmitHighlightExtractionJobResponse
@@ -6488,7 +6624,9 @@ namespace ICE20201109
       Models::SubmitHighlightExtractionJobResponse submitHighlightExtractionJob(const Models::SubmitHighlightExtractionJobRequest &request);
 
       /**
-       * @summary Submits an intelligent production job.
+       * @summary Use the `SubmitIProductionJob` operation to submit an intelligent production job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, the API returns a task ID and queues the task for asynchronous processing. The final result is delivered via a callback. You can also query the task status by calling [QuerySmartProductionTask](https://help.aliyun.com/document_detail/441215.html).
        *
        * @param tmpReq SubmitIProductionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6497,7 +6635,9 @@ namespace ICE20201109
       Models::SubmitIProductionJobResponse submitIProductionJobWithOptions(const Models::SubmitIProductionJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an intelligent production job.
+       * @summary Use the `SubmitIProductionJob` operation to submit an intelligent production job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, the API returns a task ID and queues the task for asynchronous processing. The final result is delivered via a callback. You can also query the task status by calling [QuerySmartProductionTask](https://help.aliyun.com/document_detail/441215.html).
        *
        * @param request SubmitIProductionJobRequest
        * @return SubmitIProductionJobResponse
@@ -6505,9 +6645,10 @@ namespace ICE20201109
       Models::SubmitIProductionJobResponse submitIProductionJob(const Models::SubmitIProductionJobRequest &request);
 
       /**
-       * @summary Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
+       * @summary Live editing creates an output file by combining one or more segments from live streams. After you submit a live editing job, it is processed asynchronously. You can then call the GetLiveEditingJob operation with the returned JobId to query the job status, or call the GetMediaInfo operation with the MediaId to get details of the generated media asset.
        *
-       * @description Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a JobId before the job is complete. The job is then queued for asynchronous processing. You will receive a [callback notification](https://help.aliyun.com/document_detail/441150.html) when the job completes. Alternatively, you can query the job status by calling the [GetLiveEditingJob](https://help.aliyun.com/document_detail/441150.html) operation.
+       * - You can edit live streams that are recorded to either OSS or VOD. When editing multiple live streams together, all streams must be recorded to the same service, either all to OSS or all to VOD.
        *
        * @param request SubmitLiveEditingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6516,9 +6657,10 @@ namespace ICE20201109
       Models::SubmitLiveEditingJobResponse submitLiveEditingJobWithOptions(const Models::SubmitLiveEditingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
+       * @summary Live editing creates an output file by combining one or more segments from live streams. After you submit a live editing job, it is processed asynchronously. You can then call the GetLiveEditingJob operation with the returned JobId to query the job status, or call the GetMediaInfo operation with the MediaId to get details of the generated media asset.
        *
-       * @description Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a JobId before the job is complete. The job is then queued for asynchronous processing. You will receive a [callback notification](https://help.aliyun.com/document_detail/441150.html) when the job completes. Alternatively, you can query the job status by calling the [GetLiveEditingJob](https://help.aliyun.com/document_detail/441150.html) operation.
+       * - You can edit live streams that are recorded to either OSS or VOD. When editing multiple live streams together, all streams must be recorded to the same service, either all to OSS or all to VOD.
        *
        * @param request SubmitLiveEditingJobRequest
        * @return SubmitLiveEditingJobResponse
@@ -6528,7 +6670,7 @@ namespace ICE20201109
       /**
        * @summary Submits a live stream recording job.
        *
-       * @description You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+       * @description Record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
        * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
        * If the preset recording template does not meet your requirements, you can create a custom recording template.
        *
@@ -6541,7 +6683,7 @@ namespace ICE20201109
       /**
        * @summary Submits a live stream recording job.
        *
-       * @description You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+       * @description Record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
        * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
        * If the preset recording template does not meet your requirements, you can create a custom recording template.
        *
@@ -6570,8 +6712,8 @@ namespace ICE20201109
       /**
        * @summary Submits a live stream transcoding job.
        *
-       * @description *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
-       * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
+       * @description - When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+       * - When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
        *
        * @param tmpReq SubmitLiveTranscodeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6582,8 +6724,8 @@ namespace ICE20201109
       /**
        * @summary Submits a live stream transcoding job.
        *
-       * @description *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
-       * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
+       * @description - When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+       * - When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
        *
        * @param request SubmitLiveTranscodeJobRequest
        * @return SubmitLiveTranscodeJobResponse
@@ -6591,7 +6733,7 @@ namespace ICE20201109
       Models::SubmitLiveTranscodeJobResponse submitLiveTranscodeJob(const Models::SubmitLiveTranscodeJobRequest &request);
 
       /**
-       * @summary Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
+       * @summary Perform structured analysis on media assets to enable speaker analysis, video translation, paragraph summarization, and other analyses on videos.
        *
        * @param request SubmitMediaAiAnalysisJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6600,7 +6742,7 @@ namespace ICE20201109
       Models::SubmitMediaAiAnalysisJobResponse submitMediaAiAnalysisJobWithOptions(const Models::SubmitMediaAiAnalysisJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
+       * @summary Perform structured analysis on media assets to enable speaker analysis, video translation, paragraph summarization, and other analyses on videos.
        *
        * @param request SubmitMediaAiAnalysisJobRequest
        * @return SubmitMediaAiAnalysisJobResponse
@@ -6608,9 +6750,9 @@ namespace ICE20201109
       Models::SubmitMediaAiAnalysisJobResponse submitMediaAiAnalysisJob(const Models::SubmitMediaAiAnalysisJobRequest &request);
 
       /**
-       * @summary Submits a content moderation job.
+       * @summary Submits a media file to Intelligent Media Services for a censor job. This API automates the scanning of video, audio, or image content to detect potentially non-compliant, sensitive, or inappropriate material.
        *
-       * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the service returns a job ID and processes the job in the background. You receive the final result through a callback notification. You can also check the job status by calling the [QueryMediaCensorJob](https://help.aliyun.com/document_detail/444847.html) API.
        *
        * @param tmpReq SubmitMediaCensorJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6619,9 +6761,9 @@ namespace ICE20201109
       Models::SubmitMediaCensorJobResponse submitMediaCensorJobWithOptions(const Models::SubmitMediaCensorJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a content moderation job.
+       * @summary Submits a media file to Intelligent Media Services for a censor job. This API automates the scanning of video, audio, or image content to detect potentially non-compliant, sensitive, or inappropriate material.
        *
-       * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the service returns a job ID and processes the job in the background. You receive the final result through a callback notification. You can also check the job status by calling the [QueryMediaCensorJob](https://help.aliyun.com/document_detail/444847.html) API.
        *
        * @param request SubmitMediaCensorJobRequest
        * @return SubmitMediaCensorJobResponse
@@ -6629,7 +6771,9 @@ namespace ICE20201109
       Models::SubmitMediaCensorJobResponse submitMediaCensorJob(const Models::SubmitMediaCensorJobRequest &request);
 
       /**
-       * @summary Submits a transcoding task.
+       * @summary Submit a media processing job
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, the API returns a task ID and queues the task for asynchronous processing. You will receive the final result via a callback notification, or you can poll for the task status by calling the [Query Media Transcoding Task](https://help.aliyun.com/document_detail/2867675.html) operation.
        *
        * @param request SubmitMediaConvertJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6638,7 +6782,9 @@ namespace ICE20201109
       Models::SubmitMediaConvertJobResponse submitMediaConvertJobWithOptions(const Models::SubmitMediaConvertJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a transcoding task.
+       * @summary Submit a media processing job
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, the API returns a task ID and queues the task for asynchronous processing. You will receive the final result via a callback notification, or you can poll for the task status by calling the [Query Media Transcoding Task](https://help.aliyun.com/document_detail/2867675.html) operation.
        *
        * @param request SubmitMediaConvertJobRequest
        * @return SubmitMediaConvertJobResponse
@@ -6646,9 +6792,10 @@ namespace ICE20201109
       Models::SubmitMediaConvertJobResponse submitMediaConvertJob(const Models::SubmitMediaConvertJobRequest &request);
 
       /**
-       * @summary Submits a media information analysis job in asynchronous mode.
+       * @summary Creates an asynchronous job to retrieve media information.
        *
-       * @description You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, the API returns a task ID and queues the task for background processing. You can retrieve the final result via a callback or by [querying media information tasks](https://help.aliyun.com/document_detail/441200.html).
+       * - Use this API to perform media analysis on input files. It is ideal for use cases that are not time-sensitive or that require high concurrency.
        *
        * @param tmpReq SubmitMediaInfoJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6657,9 +6804,10 @@ namespace ICE20201109
       Models::SubmitMediaInfoJobResponse submitMediaInfoJobWithOptions(const Models::SubmitMediaInfoJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a media information analysis job in asynchronous mode.
+       * @summary Creates an asynchronous job to retrieve media information.
        *
-       * @description You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+       * @description - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, the API returns a task ID and queues the task for background processing. You can retrieve the final result via a callback or by [querying media information tasks](https://help.aliyun.com/document_detail/441200.html).
+       * - Use this API to perform media analysis on input files. It is ideal for use cases that are not time-sensitive or that require high concurrency.
        *
        * @param request SubmitMediaInfoJobRequest
        * @return SubmitMediaInfoJobResponse
@@ -6667,22 +6815,27 @@ namespace ICE20201109
       Models::SubmitMediaInfoJobResponse submitMediaInfoJob(const Models::SubmitMediaInfoJobRequest &request);
 
       /**
-       * @summary Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+       * @summary The `SubmitMediaProducingJob` API submits a media production job. This job provides automated processing for post-production tasks, such as editing and composing video and audio assets.
        *
-       * @description *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
-       * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
-       * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
-       * ## [](#)Limits
-       * *   The throttling threshold of this operation is 30 queries per second (QPS).
-       *     **
-       *     **Note** If the threshold is exceeded, a "Throttling.User" error is returned when you submit an editing job. For more information about how to resolve this issue, see the [FAQ](https://help.aliyun.com/document_detail/453484.html).
-       * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
-       * *   The total size of material files cannot exceed 1 TB.
-       * *   The OSS buckets in which the materials reside and where the output media assets are stored must be in the same region as the region in which Intelligent Media Services (IMS) is activated.
-       * *   An output video must meet the following requirements:
-       *     *   Both the width and height must be at least 128 pixels.
-       *     *   Both the width and height cannot exceed 4,096 pixels.
-       *     *   The shorter side of the video cannot exceed 2,160 pixels.
+       * @description - **Billing: Video editing is charged based on the duration of the output video. For more information, see [video editing](https://help.aliyun.com/document_detail/2840899.html). Failed jobs incur no charges.**
+       * - Flexible editing capabilities: Use this operation to arrange and design assets. It supports complex video editing through flexible [timeline](https://help.aliyun.com/document_detail/198823.html) configurations.
+       * - Asset reference rules: Assets referenced in the timeline can be media assets from your asset library or OSS objects. External URLs and CDN URLs are not supported. If an asset is an OSS object, MediaUrl must be an OSS URL, for example: https\\://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
+       * - Asynchronous job execution: This operation creates an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a task ID and queues the job for background processing. The job is not yet complete at this stage. The system delivers the final result via a callback notification. You can also query the job status by [querying the editing and compositing job](https://help.aliyun.com/document_detail/441149.html).
+       * - Job status query:
+       *   1. Call [Query an editing and compositing job](https://help.aliyun.com/document_detail/441149.html) and pass the JobId to query the job status and result.
+       *   2. When you submit an editing and compositing job, you can include a callback URL in the **UserData** parameter of your request. When the job completes or fails, the system sends a notification to this callback URL. You can use the callback data to retrieve the job status.
+       * - Media asset registration and analysis: After video compositing completes, the system automatically registers a new media asset, which is initially in an analyzing state. After the analysis is complete, you can use the MediaId to retrieve the duration and resolution of the output video.
+       * ## Limitations
+       * - The throttling limit for this operation is 30 QPS. Submitted jobs are queued and processed asynchronously.
+       *   > If you exceed this limit, you may encounter a "Throttling.User" error. For more information, see ["Throttling.User" error when submitting editing jobs](https://help.aliyun.com/document_detail/453484.html).
+       * - When you submit a large number of jobs (for example, 1,000 or 10,000), the system scales out automatically, but you may experience queueing delays.
+       * - The maximum number of tracks is 100 for each type: video, image, and subtitle.
+       * - While there is no limit on the number of assets, their total size must not exceed 1 TB.
+       * - The region of the input or output OSS bucket must match the IMS region.
+       * - When the output is a video, the following resolution limits apply:
+       *   - Both the width and height must be at least 128 px.
+       *   - Neither the width nor the height can exceed 4096 px.
+       *   - The shorter side cannot exceed 2160 px.
        *
        * @param request SubmitMediaProducingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6691,22 +6844,27 @@ namespace ICE20201109
       Models::SubmitMediaProducingJobResponse submitMediaProducingJobWithOptions(const Models::SubmitMediaProducingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+       * @summary The `SubmitMediaProducingJob` API submits a media production job. This job provides automated processing for post-production tasks, such as editing and composing video and audio assets.
        *
-       * @description *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
-       * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
-       * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
-       * ## [](#)Limits
-       * *   The throttling threshold of this operation is 30 queries per second (QPS).
-       *     **
-       *     **Note** If the threshold is exceeded, a "Throttling.User" error is returned when you submit an editing job. For more information about how to resolve this issue, see the [FAQ](https://help.aliyun.com/document_detail/453484.html).
-       * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
-       * *   The total size of material files cannot exceed 1 TB.
-       * *   The OSS buckets in which the materials reside and where the output media assets are stored must be in the same region as the region in which Intelligent Media Services (IMS) is activated.
-       * *   An output video must meet the following requirements:
-       *     *   Both the width and height must be at least 128 pixels.
-       *     *   Both the width and height cannot exceed 4,096 pixels.
-       *     *   The shorter side of the video cannot exceed 2,160 pixels.
+       * @description - **Billing: Video editing is charged based on the duration of the output video. For more information, see [video editing](https://help.aliyun.com/document_detail/2840899.html). Failed jobs incur no charges.**
+       * - Flexible editing capabilities: Use this operation to arrange and design assets. It supports complex video editing through flexible [timeline](https://help.aliyun.com/document_detail/198823.html) configurations.
+       * - Asset reference rules: Assets referenced in the timeline can be media assets from your asset library or OSS objects. External URLs and CDN URLs are not supported. If an asset is an OSS object, MediaUrl must be an OSS URL, for example: https\\://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
+       * - Asynchronous job execution: This operation creates an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a task ID and queues the job for background processing. The job is not yet complete at this stage. The system delivers the final result via a callback notification. You can also query the job status by [querying the editing and compositing job](https://help.aliyun.com/document_detail/441149.html).
+       * - Job status query:
+       *   1. Call [Query an editing and compositing job](https://help.aliyun.com/document_detail/441149.html) and pass the JobId to query the job status and result.
+       *   2. When you submit an editing and compositing job, you can include a callback URL in the **UserData** parameter of your request. When the job completes or fails, the system sends a notification to this callback URL. You can use the callback data to retrieve the job status.
+       * - Media asset registration and analysis: After video compositing completes, the system automatically registers a new media asset, which is initially in an analyzing state. After the analysis is complete, you can use the MediaId to retrieve the duration and resolution of the output video.
+       * ## Limitations
+       * - The throttling limit for this operation is 30 QPS. Submitted jobs are queued and processed asynchronously.
+       *   > If you exceed this limit, you may encounter a "Throttling.User" error. For more information, see ["Throttling.User" error when submitting editing jobs](https://help.aliyun.com/document_detail/453484.html).
+       * - When you submit a large number of jobs (for example, 1,000 or 10,000), the system scales out automatically, but you may experience queueing delays.
+       * - The maximum number of tracks is 100 for each type: video, image, and subtitle.
+       * - While there is no limit on the number of assets, their total size must not exceed 1 TB.
+       * - The region of the input or output OSS bucket must match the IMS region.
+       * - When the output is a video, the following resolution limits apply:
+       *   - Both the width and height must be at least 128 px.
+       *   - Neither the width nor the height can exceed 4096 px.
+       *   - The shorter side cannot exceed 2160 px.
        *
        * @param request SubmitMediaProducingJobRequest
        * @return SubmitMediaProducingJobResponse
@@ -6750,7 +6908,7 @@ namespace ICE20201109
       /**
        * @summary Submits a batch job to render multiple videos by providing a list of editing project IDs.
        *
-       * @description *   After submitting a job, you can call ListBatchMediaProducingJob to retrieve all matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call GetBatchMediaProducingJob.
+       * @description - After submitting a job, you can call ListBatchMediaProducingJob to retrieve all matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call GetBatchMediaProducingJob.
        *
        * @param request SubmitSceneBatchEditingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6761,7 +6919,7 @@ namespace ICE20201109
       /**
        * @summary Submits a batch job to render multiple videos by providing a list of editing project IDs.
        *
-       * @description *   After submitting a job, you can call ListBatchMediaProducingJob to retrieve all matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call GetBatchMediaProducingJob.
+       * @description - After submitting a job, you can call ListBatchMediaProducingJob to retrieve all matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call GetBatchMediaProducingJob.
        *
        * @param request SubmitSceneBatchEditingJobRequest
        * @return SubmitSceneBatchEditingJobResponse
@@ -6771,8 +6929,8 @@ namespace ICE20201109
       /**
        * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
        *
-       * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
-       * - The feature is in public preview and charges no fees.
+       * @description - After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+       * * The feature is in public preview and charges no fees.
        *
        * @param request SubmitSceneMediaSelectionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6783,8 +6941,8 @@ namespace ICE20201109
       /**
        * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
        *
-       * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
-       * - The feature is in public preview and charges no fees.
+       * @description - After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+       * * The feature is in public preview and charges no fees.
        *
        * @param request SubmitSceneMediaSelectionJobRequest
        * @return SubmitSceneMediaSelectionJobResponse
@@ -6794,8 +6952,8 @@ namespace ICE20201109
       /**
        * @summary Arranges media assets, including videos, images, background music, and voiceovers, into a complete timeline based on media selection results, and creates an editing project for preview. Two scenarios are supported: image-text matching and highlight mashup.
        *
-       * @description *   After submitting a job, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
-       * - The feature is in public preview and does not charge fees.
+       * @description - After submitting a job, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
+       * * The feature is in public preview and does not charge fees.
        *
        * @param request SubmitSceneTimelineOrganizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6806,8 +6964,8 @@ namespace ICE20201109
       /**
        * @summary Arranges media assets, including videos, images, background music, and voiceovers, into a complete timeline based on media selection results, and creates an editing project for preview. Two scenarios are supported: image-text matching and highlight mashup.
        *
-       * @description *   After submitting a job, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
-       * - The feature is in public preview and does not charge fees.
+       * @description - After submitting a job, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
+       * * The feature is in public preview and does not charge fees.
        *
        * @param request SubmitSceneTimelineOrganizationJobRequest
        * @return SubmitSceneTimelineOrganizationJobResponse
@@ -6815,7 +6973,9 @@ namespace ICE20201109
       Models::SubmitSceneTimelineOrganizationJobResponse submitSceneTimelineOrganizationJob(const Models::SubmitSceneTimelineOrganizationJobRequest &request);
 
       /**
-       * @summary Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.
+       * @summary Analyzes media assets, such as short-form dramas, to automatically identify highlight clips and generate a highlight compilation.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and queues the job for asynchronous processing. Once the job is complete, the system sends the final result through a callback notification.
        *
        * @param request SubmitScreenMediaHighlightsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6824,7 +6984,9 @@ namespace ICE20201109
       Models::SubmitScreenMediaHighlightsJobResponse submitScreenMediaHighlightsJobWithOptions(const Models::SubmitScreenMediaHighlightsJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.
+       * @summary Analyzes media assets, such as short-form dramas, to automatically identify highlight clips and generate a highlight compilation.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and queues the job for asynchronous processing. Once the job is complete, the system sends the final result through a callback notification.
        *
        * @param request SubmitScreenMediaHighlightsJobRequest
        * @return SubmitScreenMediaHighlightsJobResponse
@@ -6832,7 +6994,9 @@ namespace ICE20201109
       Models::SubmitScreenMediaHighlightsJobResponse submitScreenMediaHighlightsJob(const Models::SubmitScreenMediaHighlightsJobRequest &request);
 
       /**
-       * @summary Splits a long video into multiple video clips and outputs as video files or media assets.
+       * @summary Submits a job to segment a long video into multiple video segments. The output can be multiple video files or a new media asset.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and processes the job in the background. You can get the results through a [callback notification](https://help.aliyun.com/document_detail/3027141.html) or by calling the [Get smart task results](https://help.aliyun.com/document_detail/441172.html) operation.
        *
        * @param request SubmitSegmentationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6841,7 +7005,9 @@ namespace ICE20201109
       Models::SubmitSegmentationJobResponse submitSegmentationJobWithOptions(const Models::SubmitSegmentationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Splits a long video into multiple video clips and outputs as video files or media assets.
+       * @summary Submits a job to segment a long video into multiple video segments. The output can be multiple video files or a new media asset.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and processes the job in the background. You can get the results through a [callback notification](https://help.aliyun.com/document_detail/3027141.html) or by calling the [Get smart task results](https://help.aliyun.com/document_detail/441172.html) operation.
        *
        * @param request SubmitSegmentationJobRequest
        * @return SubmitSegmentationJobResponse
@@ -6851,7 +7017,12 @@ namespace ICE20201109
       /**
        * @summary Submits a smart tagging job.
        *
-       * @description Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+       * @description ### Prerequisites
+       * Before submitting a smart tagging job, you must configure the analysis types in a template. For more information, see [CreateCustomTemplate](https://help.aliyun.com/document_detail/441184.html).
+       * ### Limitations
+       * - The smart tagging feature is available only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+       * - The default concurrency for the smart tagging pipeline is 2. To request a higher concurrency limit, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.645019b6Btnu4q).
+       * - Smart tagging jobs and their results are retained for 180 days, after which they are automatically deleted.
        *
        * @param tmpReq SubmitSmarttagJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6862,7 +7033,12 @@ namespace ICE20201109
       /**
        * @summary Submits a smart tagging job.
        *
-       * @description Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+       * @description ### Prerequisites
+       * Before submitting a smart tagging job, you must configure the analysis types in a template. For more information, see [CreateCustomTemplate](https://help.aliyun.com/document_detail/441184.html).
+       * ### Limitations
+       * - The smart tagging feature is available only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+       * - The default concurrency for the smart tagging pipeline is 2. To request a higher concurrency limit, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.645019b6Btnu4q).
+       * - Smart tagging jobs and their results are retained for 180 days, after which they are automatically deleted.
        *
        * @param request SubmitSmarttagJobRequest
        * @return SubmitSmarttagJobResponse
@@ -6870,7 +7046,9 @@ namespace ICE20201109
       Models::SubmitSmarttagJobResponse submitSmarttagJob(const Models::SubmitSmarttagJobRequest &request);
 
       /**
-       * @summary Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
+       * @summary This API submits a snapshot job. Specify a media file by its ID or URL, a time point, and the desired format. The API then generates the snapshot and saves it to the specified location.
+       *
+       * @description This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). Submitting a task returns a task ID and queues it for asynchronous processing. A callback delivers the final result. Alternatively, you can check the task status by [querying screenshot task details](https://help.aliyun.com/document_detail/441203.html).
        *
        * @param tmpReq SubmitSnapshotJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6879,7 +7057,9 @@ namespace ICE20201109
       Models::SubmitSnapshotJobResponse submitSnapshotJobWithOptions(const Models::SubmitSnapshotJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
+       * @summary This API submits a snapshot job. Specify a media file by its ID or URL, a time point, and the desired format. The API then generates the snapshot and saves it to the specified location.
+       *
+       * @description This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). Submitting a task returns a task ID and queues it for asynchronous processing. A callback delivers the final result. Alternatively, you can check the task status by [querying screenshot task details](https://help.aliyun.com/document_detail/441203.html).
        *
        * @param request SubmitSnapshotJobRequest
        * @return SubmitSnapshotJobResponse
@@ -6887,7 +7067,9 @@ namespace ICE20201109
       Models::SubmitSnapshotJobResponse submitSnapshotJob(const Models::SubmitSnapshotJobRequest &request);
 
       /**
-       * @summary Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
+       * @summary Starts a job to generate a highlight video from sports footage with commentary.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API immediately returns a job ID. The job is then queued for asynchronous processing. A callback delivers the final result.
        *
        * @param request SubmitSportsHighlightsJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6896,7 +7078,9 @@ namespace ICE20201109
       Models::SubmitSportsHighlightsJobResponse submitSportsHighlightsJobWithOptions(const Models::SubmitSportsHighlightsJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
+       * @summary Starts a job to generate a highlight video from sports footage with commentary.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API immediately returns a job ID. The job is then queued for asynchronous processing. A callback delivers the final result.
        *
        * @param request SubmitSportsHighlightsJobRequest
        * @return SubmitSportsHighlightsJobResponse
@@ -6923,7 +7107,7 @@ namespace ICE20201109
       /**
        * @summary Submits a media file in synchronous mode for media information analysis.
        *
-       * @description You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+       * @description Analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
        *
        * @param tmpReq SubmitSyncMediaInfoJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6934,7 +7118,7 @@ namespace ICE20201109
       /**
        * @summary Submits a media file in synchronous mode for media information analysis.
        *
-       * @description You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+       * @description Analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
        *
        * @param request SubmitSyncMediaInfoJobRequest
        * @return SubmitSyncMediaInfoJobResponse
@@ -6942,7 +7126,11 @@ namespace ICE20201109
       Models::SubmitSyncMediaInfoJobResponse submitSyncMediaInfoJob(const Models::SubmitSyncMediaInfoJobRequest &request);
 
       /**
-       * @summary Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
+       * @summary Generates marketing copy based on the provided keywords, text length, and number of copy variations. Due to the complexities of the Chinese language, the length of the output text may differ from the requested length. After submitting the job, call the `GetSmartHandleJob` operation with the returned job ID to query the job status and retrieve the results.
+       *
+       * @description - Before you call this operation, you must purchase the enterprise subscription service to obtain the required permissions<props="china">. For more information, see [subscription billing](~~439260#3285adfad70dw~~).
+       * - This operation is billed based on the number of tokens in the generated content. The number of tokens is positively correlated with the number of characters in the generated text. For more information, see [smart video creation](https://help.aliyun.com/document_detail/2840901.html). No charges are incurred for failed jobs.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a job ID. The job is then queued for background processing. The service delivers results via a callback. You can also call [GetSmartHandleJob](https://help.aliyun.com/document_detail/441172.html) to actively poll for the job status.
        *
        * @param request SubmitTextGenerateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6951,7 +7139,11 @@ namespace ICE20201109
       Models::SubmitTextGenerateJobResponse submitTextGenerateJobWithOptions(const Models::SubmitTextGenerateJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
+       * @summary Generates marketing copy based on the provided keywords, text length, and number of copy variations. Due to the complexities of the Chinese language, the length of the output text may differ from the requested length. After submitting the job, call the `GetSmartHandleJob` operation with the returned job ID to query the job status and retrieve the results.
+       *
+       * @description - Before you call this operation, you must purchase the enterprise subscription service to obtain the required permissions<props="china">. For more information, see [subscription billing](~~439260#3285adfad70dw~~).
+       * - This operation is billed based on the number of tokens in the generated content. The number of tokens is positively correlated with the number of characters in the generated text. For more information, see [smart video creation](https://help.aliyun.com/document_detail/2840901.html). No charges are incurred for failed jobs.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a job ID. The job is then queued for background processing. The service delivers results via a callback. You can also call [GetSmartHandleJob](https://help.aliyun.com/document_detail/441172.html) to actively poll for the job status.
        *
        * @param request SubmitTextGenerateJobRequest
        * @return SubmitTextGenerateJobResponse
@@ -6959,9 +7151,10 @@ namespace ICE20201109
       Models::SubmitTextGenerateJobResponse submitTextGenerateJob(const Models::SubmitTextGenerateJobRequest &request);
 
       /**
-       * @summary Submits an A/B watermarking job.
+       * @summary Submits a job to generate A/B stream variants of a video for forensic watermarking.
        *
-       * @description *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
+       * @description - This operation supports only videos that are three minutes or longer. Submitting a job for a shorter video may cause the API call to fail or produce no output.
+       * - This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and processes the job asynchronously. You can obtain the processing result through a callback or by [querying the list of A/B stream forensic watermarking jobs](https://help.aliyun.com/document_detail/2862133.html).
        *
        * @param tmpReq SubmitTraceAbJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6970,9 +7163,10 @@ namespace ICE20201109
       Models::SubmitTraceAbJobResponse submitTraceAbJobWithOptions(const Models::SubmitTraceAbJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an A/B watermarking job.
+       * @summary Submits a job to generate A/B stream variants of a video for forensic watermarking.
        *
-       * @description *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
+       * @description - This operation supports only videos that are three minutes or longer. Submitting a job for a shorter video may cause the API call to fail or produce no output.
+       * - This is an [asynchronous interface](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID and processes the job asynchronously. You can obtain the processing result through a callback or by [querying the list of A/B stream forensic watermarking jobs](https://help.aliyun.com/document_detail/2862133.html).
        *
        * @param request SubmitTraceAbJobRequest
        * @return SubmitTraceAbJobResponse
@@ -6980,10 +7174,11 @@ namespace ICE20201109
       Models::SubmitTraceAbJobResponse submitTraceAbJob(const Models::SubmitTraceAbJobRequest &request);
 
       /**
-       * @summary Submits a job to extract the trace watermark.
+       * @summary Submits a trace watermark extraction job.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
-       * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
+       * @description - The digital watermarking APIs are available only in the China (Shanghai) and China (Beijing) regions.
+       * - Trace watermark extraction is supported only for videos that are 3 minutes or longer. Jobs for shorter videos will fail.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, a job ID is returned. The job is not immediately complete and is queued for asynchronous processing. You can get the final result through a callback notification or check the job status by calling the [GetTraceExtractJob](https://help.aliyun.com/document_detail/2862130.html) operation.
        *
        * @param tmpReq SubmitTraceExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6992,10 +7187,11 @@ namespace ICE20201109
       Models::SubmitTraceExtractJobResponse submitTraceExtractJobWithOptions(const Models::SubmitTraceExtractJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a job to extract the trace watermark.
+       * @summary Submits a trace watermark extraction job.
        *
-       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
-       * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
+       * @description - The digital watermarking APIs are available only in the China (Shanghai) and China (Beijing) regions.
+       * - Trace watermark extraction is supported only for videos that are 3 minutes or longer. Jobs for shorter videos will fail.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, a job ID is returned. The job is not immediately complete and is queued for asynchronous processing. You can get the final result through a callback notification or check the job status by calling the [GetTraceExtractJob](https://help.aliyun.com/document_detail/2862130.html) operation.
        *
        * @param request SubmitTraceExtractJobRequest
        * @return SubmitTraceExtractJobResponse
@@ -7003,11 +7199,12 @@ namespace ICE20201109
       Models::SubmitTraceExtractJobResponse submitTraceExtractJob(const Models::SubmitTraceExtractJobRequest &request);
 
       /**
-       * @summary Submits a job that generates an M3U8 file containing specific trace watermark information.
+       * @summary Submits a job to process an M3U8 file for video watermarking for tracing.
        *
-       * @description *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
-       * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
-       * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
+       * @description - You must first obtain a media ID by submitting a job for an A/B stream with video watermarking for tracing. This operation uses the returned media ID for processing.
+       * - Currently, digital watermarking-related operations are supported only in the China (Shanghai) and China (Beijing) regions.
+       * - This is an [asynchronous call](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a task ID and processes the job in the background. The initial response does not mean the job is complete. You can get the final result through a [callback notification](https://help.aliyun.com/document_detail/2862136.html) or by calling the [QueryTraceM3u8JobList](https://help.aliyun.com/document_detail/2862136.html) operation to check the job\\"s status.
+       * - The signature for an M3U8 file generated by a video watermarking for tracing job is valid for 24 hours after job completion. You must query and use the watermarking information within this period. If the signature expires, you can no longer retrieve the watermarking information. To regain access, you must submit a new job.
        *
        * @param tmpReq SubmitTraceM3u8JobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7016,11 +7213,12 @@ namespace ICE20201109
       Models::SubmitTraceM3u8JobResponse submitTraceM3u8JobWithOptions(const Models::SubmitTraceM3u8JobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a job that generates an M3U8 file containing specific trace watermark information.
+       * @summary Submits a job to process an M3U8 file for video watermarking for tracing.
        *
-       * @description *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
-       * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
-       * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
+       * @description - You must first obtain a media ID by submitting a job for an A/B stream with video watermarking for tracing. This operation uses the returned media ID for processing.
+       * - Currently, digital watermarking-related operations are supported only in the China (Shanghai) and China (Beijing) regions.
+       * - This is an [asynchronous call](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a task ID and processes the job in the background. The initial response does not mean the job is complete. You can get the final result through a [callback notification](https://help.aliyun.com/document_detail/2862136.html) or by calling the [QueryTraceM3u8JobList](https://help.aliyun.com/document_detail/2862136.html) operation to check the job\\"s status.
+       * - The signature for an M3U8 file generated by a video watermarking for tracing job is valid for 24 hours after job completion. You must query and use the watermarking information within this period. If the signature expires, you can no longer retrieve the watermarking information. To regain access, you must submit a new job.
        *
        * @param request SubmitTraceM3u8JobRequest
        * @return SubmitTraceM3u8JobResponse
@@ -7028,7 +7226,10 @@ namespace ICE20201109
       Models::SubmitTraceM3u8JobResponse submitTraceM3u8Job(const Models::SubmitTraceM3u8JobRequest &request);
 
       /**
-       * @summary Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
+       * @summary Call the SubmitTranscodeJob operation to submit a video or audio transcoding job to Intelligent Media Services. In the request, you must specify the source file to transcode, the output format, and related parameters.
+       *
+       * @description - This operation will be discontinued on December 31, 2025. Use [SubmitMediaConvertJob](https://help.aliyun.com/document_detail/2867673.html) instead.
+       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID. The job is not completed immediately but is queued for asynchronous execution in the background. You will receive the final result through a callback notification. You can also call [QueryTranscodeJob](https://help.aliyun.com/document_detail/441206.html) to query the job status.
        *
        * @param tmpReq SubmitTranscodeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7037,7 +7238,10 @@ namespace ICE20201109
       Models::SubmitTranscodeJobResponse submitTranscodeJobWithOptions(const Models::SubmitTranscodeJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
+       * @summary Call the SubmitTranscodeJob operation to submit a video or audio transcoding job to Intelligent Media Services. In the request, you must specify the source file to transcode, the output format, and related parameters.
+       *
+       * @description - This operation will be discontinued on December 31, 2025. Use [SubmitMediaConvertJob](https://help.aliyun.com/document_detail/2867673.html) instead.
+       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID. The job is not completed immediately but is queued for asynchronous execution in the background. You will receive the final result through a callback notification. You can also call [QueryTranscodeJob](https://help.aliyun.com/document_detail/441206.html) to query the job status.
        *
        * @param request SubmitTranscodeJobRequest
        * @return SubmitTranscodeJobResponse
@@ -7045,7 +7249,9 @@ namespace ICE20201109
       Models::SubmitTranscodeJobResponse submitTranscodeJob(const Models::SubmitTranscodeJobRequest &request);
 
       /**
-       * @summary Submits a video for AI analysis and processing.
+       * @summary Submits a video cognition job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the service returns a job ID and queues it for processing. The final results are delivered via a callback notification. You can also check the job status by calling the [QueryIntelligentContentUnderstandingTask](https://help.aliyun.com/document_detail/2975154.html) operation.
        *
        * @param tmpReq SubmitVideoCognitionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7054,7 +7260,9 @@ namespace ICE20201109
       Models::SubmitVideoCognitionJobResponse submitVideoCognitionJobWithOptions(const Models::SubmitVideoCognitionJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video for AI analysis and processing.
+       * @summary Submits a video cognition job.
+       *
+       * @description This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the service returns a job ID and queues it for processing. The final results are delivered via a callback notification. You can also check the job status by calling the [QueryIntelligentContentUnderstandingTask](https://help.aliyun.com/document_detail/2975154.html) operation.
        *
        * @param request SubmitVideoCognitionJobRequest
        * @return SubmitVideoCognitionJobResponse
@@ -7062,9 +7270,17 @@ namespace ICE20201109
       Models::SubmitVideoCognitionJobResponse submitVideoCognitionJob(const Models::SubmitVideoCognitionJobRequest &request);
 
       /**
-       * @summary Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
+       * @summary Call this operation to submit a video translation job. This service can translate subtitles and spoken content, and generate lip-sync for the translated audio.
        *
-       * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
+       * @description - The region in each media asset\\"s OSS URL must match the region of the API endpoint you call.
+       * - This operation supports up to 30 requests per second (QPS). If you submit a large number of jobs, they are automatically queued and processed with dynamic scaling. Job concurrency is unlimited.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a job ID and queues the job for background processing. The final result is delivered through a callback. You can also poll for the job status by calling the [GetAIJobResult](https://help.aliyun.com/document_detail/441172.html) operation.
+       * >Notice: 
+       * For detailed parameter descriptions and examples, see
+       * <props="china">
+       * [Introduction and Examples of Video Translation Parameters](https://help.aliyun.com/zh/ims/use-cases/introduction-and-examples-of-video-translation-parameters)
+       * <props="intl">
+       * [Introduction and Examples of Video Translation Parameters](https://help.aliyun.com/document_detail/2852702.html)
        *
        * @param request SubmitVideoTranslationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7073,9 +7289,17 @@ namespace ICE20201109
       Models::SubmitVideoTranslationJobResponse submitVideoTranslationJobWithOptions(const Models::SubmitVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
+       * @summary Call this operation to submit a video translation job. This service can translate subtitles and spoken content, and generate lip-sync for the translated audio.
        *
-       * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
+       * @description - The region in each media asset\\"s OSS URL must match the region of the API endpoint you call.
+       * - This operation supports up to 30 requests per second (QPS). If you submit a large number of jobs, they are automatically queued and processed with dynamic scaling. Job concurrency is unlimited.
+       * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a job ID and queues the job for background processing. The final result is delivered through a callback. You can also poll for the job status by calling the [GetAIJobResult](https://help.aliyun.com/document_detail/441172.html) operation.
+       * >Notice: 
+       * For detailed parameter descriptions and examples, see
+       * <props="china">
+       * [Introduction and Examples of Video Translation Parameters](https://help.aliyun.com/zh/ims/use-cases/introduction-and-examples-of-video-translation-parameters)
+       * <props="intl">
+       * [Introduction and Examples of Video Translation Parameters](https://help.aliyun.com/document_detail/2852702.html)
        *
        * @param request SubmitVideoTranslationJobRequest
        * @return SubmitVideoTranslationJobResponse
@@ -7083,7 +7307,7 @@ namespace ICE20201109
       Models::SubmitVideoTranslationJobResponse submitVideoTranslationJob(const Models::SubmitVideoTranslationJobRequest &request);
 
       /**
-       * @summary Submits a storyboard job in WonderClip.
+       * @summary Submits a Yike AI application job.
        *
        * @param request SubmitYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7092,7 +7316,7 @@ namespace ICE20201109
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJobWithOptions(const Models::SubmitYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a storyboard job in WonderClip.
+       * @summary Submits a Yike AI application job.
        *
        * @param request SubmitYikeAIAppJobRequest
        * @return SubmitYikeAIAppJobResponse
@@ -7100,7 +7324,7 @@ namespace ICE20201109
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
 
       /**
-       * @summary Submits a storyboard job in WonderClip.
+       * @summary Submits a Yike AI application job.
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7109,7 +7333,7 @@ namespace ICE20201109
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJobWithOptions(const Models::SubmitYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a storyboard job in WonderClip.
+       * @summary Submits a Yike AI application job.
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @return SubmitYikeStoryboardJobResponse
@@ -7134,10 +7358,9 @@ namespace ICE20201109
       Models::TakeoverAIAgentCallResponse takeoverAIAgentCall(const Models::TakeoverAIAgentCallRequest &request);
 
       /**
-       * @summary Updates the configurations of an AI agent.
+       * @summary Modifies the configuration of a specified AI agent instance.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to update the configurations of an AI agent, such as the tone, by specifying the agent ID and configurations.
+       * @description This operation updates the configuration of an AI agent instance, such as its voice.
        *
        * @param tmpReq UpdateAIAgentInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7146,10 +7369,9 @@ namespace ICE20201109
       Models::UpdateAIAgentInstanceResponse updateAIAgentInstanceWithOptions(const Models::UpdateAIAgentInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of an AI agent.
+       * @summary Modifies the configuration of a specified AI agent instance.
        *
-       * @description ## [](#)Request description
-       * You can call this operation to update the configurations of an AI agent, such as the tone, by specifying the agent ID and configurations.
+       * @description This operation updates the configuration of an AI agent instance, such as its voice.
        *
        * @param request UpdateAIAgentInstanceRequest
        * @return UpdateAIAgentInstanceResponse
@@ -7263,7 +7485,7 @@ namespace ICE20201109
       Models::UpdateCustomizedVoiceResponse updateCustomizedVoice(const Models::UpdateCustomizedVoiceRequest &request);
 
       /**
-       * @summary Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
+       * @summary Updates the title, timeline, cover, and other properties of a cloud editing project.
        *
        * @param request UpdateEditingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7272,7 +7494,7 @@ namespace ICE20201109
       Models::UpdateEditingProjectResponse updateEditingProjectWithOptions(const Models::UpdateEditingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
+       * @summary Updates the title, timeline, cover, and other properties of a cloud editing project.
        *
        * @param request UpdateEditingProjectRequest
        * @return UpdateEditingProjectResponse
@@ -7283,11 +7505,11 @@ namespace ICE20201109
        * @summary Modifies a specified hotword library, including its name, description, and hotword list.
        *
        * @description ## [](#)
-       * *   You can call this operation to modify a specified hotword library.
-       * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
-       * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
-       * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
-       * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
+       * - Modify a specified hotword library.
+       * - The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+       * - You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+       * - Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+       * - A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
        *
        * @param tmpReq UpdateHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7299,11 +7521,11 @@ namespace ICE20201109
        * @summary Modifies a specified hotword library, including its name, description, and hotword list.
        *
        * @description ## [](#)
-       * *   You can call this operation to modify a specified hotword library.
-       * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
-       * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
-       * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
-       * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
+       * - Modify a specified hotword library.
+       * - The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+       * - You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+       * - Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+       * - A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
        *
        * @param request UpdateHotwordLibraryRequest
        * @return UpdateHotwordLibraryResponse
@@ -7380,10 +7602,10 @@ namespace ICE20201109
       Models::UpdateLivePackageChannelGroupResponse updateLivePackageChannelGroup(const Models::UpdateLivePackageChannelGroupRequest &request);
 
       /**
-       * @summary Updates the origin endpoint settings including the protocol, time shifting, and access control settings.
+       * @summary Update the real-time packaging origin endpoint configuration of a channel group, supporting protocol, time-shift settings, and access control.
        *
-       * @description ## [](#)Usage notes
-       * You can call this operation to modify the origin protocol, set the number of days that time-shifted content is available, define playlist names, and configure the IP address blacklist and whitelist, allowing for fine-grained control over streaming media distribution. Some parameters are required. You must configure IpWhitelist, AuthorizationCode, or both.
+       * @description ## Request Description
+       * Modify the origin endpoint configuration for the real-time packaging service under a specified channel group. You can use this API to adjust the origin protocol policy, set the time-shift duration in days, define the playlist name, and configure IP blacklists and whitelists to achieve fine-grained management of real-time streaming media delivery. Note that some parameters are required, and you must provide either an IP whitelist or an origin request header (at least one of them).
        *
        * @param tmpReq UpdateLivePackageOriginEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7392,10 +7614,10 @@ namespace ICE20201109
       Models::UpdateLivePackageOriginEndpointResponse updateLivePackageOriginEndpointWithOptions(const Models::UpdateLivePackageOriginEndpointRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the origin endpoint settings including the protocol, time shifting, and access control settings.
+       * @summary Update the real-time packaging origin endpoint configuration of a channel group, supporting protocol, time-shift settings, and access control.
        *
-       * @description ## [](#)Usage notes
-       * You can call this operation to modify the origin protocol, set the number of days that time-shifted content is available, define playlist names, and configure the IP address blacklist and whitelist, allowing for fine-grained control over streaming media distribution. Some parameters are required. You must configure IpWhitelist, AuthorizationCode, or both.
+       * @description ## Request Description
+       * Modify the origin endpoint configuration for the real-time packaging service under a specified channel group. You can use this API to adjust the origin protocol policy, set the time-shift duration in days, define the playlist name, and configure IP blacklists and whitelists to achieve fine-grained management of real-time streaming media delivery. Note that some parameters are required, and you must provide either an IP whitelist or an origin request header (at least one of them).
        *
        * @param request UpdateLivePackageOriginEndpointRequest
        * @return UpdateLivePackageOriginEndpointResponse
@@ -7443,8 +7665,8 @@ namespace ICE20201109
       /**
        * @summary Updates the information about a live stream transcoding job.
        *
-       * @description *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
-       * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
+       * @description - For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+       * - For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
        *
        * @param tmpReq UpdateLiveTranscodeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7455,8 +7677,8 @@ namespace ICE20201109
       /**
        * @summary Updates the information about a live stream transcoding job.
        *
-       * @description *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
-       * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
+       * @description - For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+       * - For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
        *
        * @param request UpdateLiveTranscodeJobRequest
        * @return UpdateLiveTranscodeJobResponse
@@ -7481,10 +7703,10 @@ namespace ICE20201109
       Models::UpdateLiveTranscodeTemplateResponse updateLiveTranscodeTemplate(const Models::UpdateLiveTranscodeTemplateRequest &request);
 
       /**
-       * @summary Modifies the source of a MediaConnect flow.
+       * @summary Modify the input information of a specific MediaConnect flow
        *
-       * @description *   You can modify the source only when the flow is in the offline state.
-       * *   The source type cannot be modified.
+       * @description - The input can only be modified when the Flow instance status is offline.
+       * - The input type cannot be modified.
        *
        * @param request UpdateMediaConnectFlowInputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7493,10 +7715,10 @@ namespace ICE20201109
       Models::UpdateMediaConnectFlowInputResponse updateMediaConnectFlowInputWithOptions(const Models::UpdateMediaConnectFlowInputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the source of a MediaConnect flow.
+       * @summary Modify the input information of a specific MediaConnect flow
        *
-       * @description *   You can modify the source only when the flow is in the offline state.
-       * *   The source type cannot be modified.
+       * @description - The input can only be modified when the Flow instance status is offline.
+       * - The input type cannot be modified.
        *
        * @param request UpdateMediaConnectFlowInputRequest
        * @return UpdateMediaConnectFlowInputResponse
@@ -7506,8 +7728,8 @@ namespace ICE20201109
       /**
        * @summary Modifies an output of a MediaConnect flow.
        *
-       * @description *   You can modify an output only when the flow is in the offline state.
-       * *   The output type cannot be modified.
+       * @description - You can modify an output only when the flow is in the offline state.
+       * - The output type cannot be modified.
        *
        * @param request UpdateMediaConnectFlowOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7518,8 +7740,8 @@ namespace ICE20201109
       /**
        * @summary Modifies an output of a MediaConnect flow.
        *
-       * @description *   You can modify an output only when the flow is in the offline state.
-       * *   The output type cannot be modified.
+       * @description - You can modify an output only when the flow is in the offline state.
+       * - The output type cannot be modified.
        *
        * @param request UpdateMediaConnectFlowOutputRequest
        * @return UpdateMediaConnectFlowOutputResponse
@@ -7567,7 +7789,7 @@ namespace ICE20201109
       /**
        * @summary Modifies a MediaLive channel.
        *
-       * @description *   You can modify a MediaLive channel only when it is not running.
+       * @description - You can modify a MediaLive channel only when it is not running.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -7580,7 +7802,7 @@ namespace ICE20201109
       /**
        * @summary Modifies a MediaLive channel.
        *
-       * @description *   You can modify a MediaLive channel only when it is not running.
+       * @description - You can modify a MediaLive channel only when it is not running.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -7590,11 +7812,12 @@ namespace ICE20201109
       Models::UpdateMediaLiveChannelResponse updateMediaLiveChannel(const Models::UpdateMediaLiveChannelRequest &request);
 
       /**
-       * @summary Modifies an input of MediaLive.
+       * @summary Update a media live input.
        *
-       * @description *   You can modify an input only when it is not associated with a MediaLive channel.
-       * ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - Invoke this API to update a media live input.
+       * - You can update an input only when it is not attached to any media live channel. Inputs that are already attached to a channel cannot be updated.
+       * ## Queries per second (QPS) limit
+       * The QPS limit for this API is 50 queries per second per user. If the limit is exceeded, Rate Limiting will be applied to your API calls, which may impact your business. Make sure to call this API appropriately.
        *
        * @param tmpReq UpdateMediaLiveInputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7603,11 +7826,12 @@ namespace ICE20201109
       Models::UpdateMediaLiveInputResponse updateMediaLiveInputWithOptions(const Models::UpdateMediaLiveInputRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an input of MediaLive.
+       * @summary Update a media live input.
        *
-       * @description *   You can modify an input only when it is not associated with a MediaLive channel.
-       * ## QPS limit
-       * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+       * @description - Invoke this API to update a media live input.
+       * - You can update an input only when it is not attached to any media live channel. Inputs that are already attached to a channel cannot be updated.
+       * ## Queries per second (QPS) limit
+       * The QPS limit for this API is 50 queries per second per user. If the limit is exceeded, Rate Limiting will be applied to your API calls, which may impact your business. Make sure to call this API appropriately.
        *
        * @param request UpdateMediaLiveInputRequest
        * @return UpdateMediaLiveInputResponse
@@ -7617,7 +7841,7 @@ namespace ICE20201109
       /**
        * @summary Modifies a security group created in MediaLive.
        *
-       * @description *   You can modify a security group only when it is not associated with a MediaLive input.
+       * @description - You can modify a security group only when it is not associated with a MediaLive input.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -7630,7 +7854,7 @@ namespace ICE20201109
       /**
        * @summary Modifies a security group created in MediaLive.
        *
-       * @description *   You can modify a security group only when it is not associated with a MediaLive input.
+       * @description - You can modify a security group only when it is not associated with a MediaLive input.
        * ## QPS limit
        * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -7657,7 +7881,7 @@ namespace ICE20201109
       Models::UpdateMediaMarksResponse updateMediaMarks(const Models::UpdateMediaMarksRequest &request);
 
       /**
-       * @summary Updates the media asset information in a search library.
+       * @summary Update media asset information in the search library.
        *
        * @param request UpdateMediaToSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7666,7 +7890,7 @@ namespace ICE20201109
       Models::UpdateMediaToSearchLibResponse updateMediaToSearchLibWithOptions(const Models::UpdateMediaToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the media asset information in a search library.
+       * @summary Update media asset information in the search library.
        *
        * @param request UpdateMediaToSearchLibRequest
        * @return UpdateMediaToSearchLibResponse
@@ -7708,7 +7932,7 @@ namespace ICE20201109
       Models::UpdateProgramResponse updateProgram(const Models::UpdateProgramRequest &request);
 
       /**
-       * @summary Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
+       * @summary Updates the configuration of an RTC AI Agent instance, such as its voice and greeting.
        *
        * @param tmpReq UpdateRtcRobotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7717,7 +7941,7 @@ namespace ICE20201109
       Models::UpdateRtcRobotInstanceResponse updateRtcRobotInstanceWithOptions(const Models::UpdateRtcRobotInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
+       * @summary Updates the configuration of an RTC AI Agent instance, such as its voice and greeting.
        *
        * @param request UpdateRtcRobotInstanceRequest
        * @return UpdateRtcRobotInstanceResponse
@@ -7761,8 +7985,8 @@ namespace ICE20201109
       /**
        * @summary Modifies an online editing template. You can modify the template title and template configurations.
        *
-       * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * @description - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request UpdateTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7773,8 +7997,8 @@ namespace ICE20201109
       /**
        * @summary Modifies an online editing template. You can modify the template title and template configurations.
        *
-       * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-       * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+       * @description - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+       * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
        *
        * @param request UpdateTemplateRequest
        * @return UpdateTemplateResponse
@@ -7782,14 +8006,15 @@ namespace ICE20201109
       Models::UpdateTemplateResponse updateTemplate(const Models::UpdateTemplateRequest &request);
 
       /**
-       * @summary Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
+       * @summary The UploadMediaByURL API uploads audio or video files from source URLs. It supports batch uploads and is ideal for uploading files from a public URL instead of a local server or device.
        *
-       * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
-       * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
-       * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
-       * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-       * *   You can call this operation to upload only audio and video files.
+       * @description ### Description
+       * - If a callback is configured, the service sends an event notification when the URL upload is complete. You can query the upload status by calling the API to retrieve URL upload information.
+       * - After you successfully submit an upload job, the system creates an asynchronous task in the cloud and queues it for execution. After the upload is complete, you can use the URL and media ID from the event notification (message callback) to update your records.
+       * ### Limitations
+       * - This API supports uploading files to VOD storage only and does not support uploading to your own Object Storage Service (OSS) buckets. To use your own OSS storage, you must first pull the files to a local device, upload them to OSS by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) API to register the OSS object with the media asset library.
+       * - This API is currently available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * - This API supports uploading audio and video files only.
        *
        * @param request UploadMediaByURLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7798,14 +8023,15 @@ namespace ICE20201109
       Models::UploadMediaByURLResponse uploadMediaByURLWithOptions(const Models::UploadMediaByURLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
+       * @summary The UploadMediaByURL API uploads audio or video files from source URLs. It supports batch uploads and is ideal for uploading files from a public URL instead of a local server or device.
        *
-       * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
-       * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
-       * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
-       * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-       * *   You can call this operation to upload only audio and video files.
+       * @description ### Description
+       * - If a callback is configured, the service sends an event notification when the URL upload is complete. You can query the upload status by calling the API to retrieve URL upload information.
+       * - After you successfully submit an upload job, the system creates an asynchronous task in the cloud and queues it for execution. After the upload is complete, you can use the URL and media ID from the event notification (message callback) to update your records.
+       * ### Limitations
+       * - This API supports uploading files to VOD storage only and does not support uploading to your own Object Storage Service (OSS) buckets. To use your own OSS storage, you must first pull the files to a local device, upload them to OSS by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) API to register the OSS object with the media asset library.
+       * - This API is currently available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * - This API supports uploading audio and video files only.
        *
        * @param request UploadMediaByURLRequest
        * @return UploadMediaByURLResponse
@@ -7815,9 +8041,9 @@ namespace ICE20201109
       /**
        * @summary Uploads a media stream file based on the URL of the source file.
        *
-       * @description *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
-       * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * @description - Pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+       * - Upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+       * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
        *
        * @param request UploadStreamByURLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7828,9 +8054,9 @@ namespace ICE20201109
       /**
        * @summary Uploads a media stream file based on the URL of the source file.
        *
-       * @description *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
-       * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
-       * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+       * @description - Pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+       * - Upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+       * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
        *
        * @param request UploadStreamByURLRequest
        * @return UploadStreamByURLResponse

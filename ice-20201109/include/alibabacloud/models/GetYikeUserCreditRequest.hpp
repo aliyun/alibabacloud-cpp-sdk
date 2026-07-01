@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The user ID of the Yike sub-account.
+    // 
     // This parameter is required.
     shared_ptr<string> yikeUserId_ {};
   };

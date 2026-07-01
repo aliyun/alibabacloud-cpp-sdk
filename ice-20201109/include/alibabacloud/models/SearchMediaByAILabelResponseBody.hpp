@@ -721,18 +721,29 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   PrepareFail
-      // *   UploadFail
-      // *   Init
-      // *   UploadSucc
-      // *   Transcoding
-      // *   TranscodeFail
-      // *   Deleted
-      // *   Normal
-      // *   Uploading
-      // *   Preparing
-      // *   Blocked
-      // *   Checking
+      // - PrepareFail
+      // 
+      // - UploadFail
+      // 
+      // - Init
+      // 
+      // - UploadSucc
+      // 
+      // - Transcoding
+      // 
+      // - TranscodeFail
+      // 
+      // - Deleted
+      // 
+      // - Normal
+      // 
+      // - Uploading
+      // 
+      // - Preparing
+      // 
+      // - Blocked
+      // 
+      // - Checking
       shared_ptr<string> status_ {};
       // The storage address.
       shared_ptr<string> storageLocation_ {};

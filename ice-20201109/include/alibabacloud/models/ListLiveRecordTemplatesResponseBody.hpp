@@ -134,15 +134,15 @@ namespace Models
 
 
       protected:
-        // The duration of the recording cycle. Unit: seconds.
+        // The duration of the recording cycle, in seconds.
         shared_ptr<int32_t> cycleDuration_ {};
-        // The output file format.
+        // The recording file format.
         shared_ptr<string> format_ {};
-        // The name of the recording file that is stored in Object Storage Service (OSS).
+        // The object prefix for the recording file stored in Object Storage Service (OSS).
         shared_ptr<string> ossObjectPrefix_ {};
-        // The duration of a single segment. Unit: seconds.
+        // The duration of each slice, in seconds.
         shared_ptr<int32_t> sliceDuration_ {};
-        // The name of the TS segment.
+        // The object prefix for the Transport Stream (TS) slice.
         shared_ptr<string> sliceOssObjectPrefix_ {};
       };
 
@@ -193,11 +193,11 @@ namespace Models
 
 
     protected:
-      // The time when the job was created.
+      // The time the template was created.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> createTime_ {};
-      // The time when the template was last modified.
+      // The time the template was last modified.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> lastModified_ {};
@@ -207,7 +207,7 @@ namespace Models
       shared_ptr<vector<RecordTemplateList::RecordFormatList>> recordFormatList_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
-      // The type of the template.
+      // The template type.
       shared_ptr<string> type_ {};
     };
 
@@ -260,20 +260,15 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of templates per page.
     shared_ptr<int64_t> pageSize_ {};
     // The list of recording templates.
     shared_ptr<vector<ListLiveRecordTemplatesResponseBody::RecordTemplateList>> recordTemplateList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sorting order. By default, the query results are sorted by creation time in descending order.
-    // 
-    // Valid values:
-    // 
-    // *   asc: sorts the query results in ascending order.
-    // *   desc: sorts the query results in descending order.
+    // The sort order. By default, templates are sorted by creation time in descending order.
     shared_ptr<string> sortBy_ {};
-    // The total number of entries returned.
+    // The total number of templates.
     shared_ptr<int64_t> totalCount_ {};
   };
 

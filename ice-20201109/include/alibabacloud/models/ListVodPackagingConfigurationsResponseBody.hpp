@@ -98,8 +98,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The sorting order of the packaging configurations based on the time when they were created. Valid values:
     // 
-    // *   desc: descending order.
-    // *   asc: ascending order.
+    // - desc: descending order.
+    // 
+    // - asc: ascending order.
     shared_ptr<string> sortBy_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

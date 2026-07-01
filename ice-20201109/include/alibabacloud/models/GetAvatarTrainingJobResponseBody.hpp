@@ -199,20 +199,23 @@ namespace Models
         shared_ptr<string> avatarName_ {};
         // The type of the digital human.
         shared_ptr<string> avatarType_ {};
-        // *   The time when the first training was initiated.
-        // *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // - The time when the first training was initiated.
+        // 
+        // - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> firstTrainingTime_ {};
         // The ID of the digital human training job.
         shared_ptr<string> jobId_ {};
-        // *   The time when the last training was initiated.
-        // *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // - The time when the last training was initiated.
+        // 
+        // - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> lastTrainingTime_ {};
         // The status description.
         shared_ptr<string> message_ {};
         // The media asset ID of the portrait image.
         shared_ptr<string> portrait_ {};
-        // *   The state of the digital human training job.
-        // *   Valid values: Init, Queuing, Training, Success, and Fail.
+        // - The state of the digital human training job.
+        // 
+        // - Valid values: Init, Queuing, Training, Success, and Fail.
         shared_ptr<string> status_ {};
         // The thumbnail URL.
         shared_ptr<string> thumbnail_ {};

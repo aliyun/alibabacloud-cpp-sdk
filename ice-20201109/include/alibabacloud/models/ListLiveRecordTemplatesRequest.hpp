@@ -87,26 +87,17 @@ namespace Models
 
 
   protected:
-    // The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+    // The keyword to search for templates by ID or name. Fuzzy matching is supported for template names.
     shared_ptr<string> keyword_ {};
     // The page number. Minimum value: 1. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The number of entries to return on each page. Value range: 1–100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The sorting order. By default, the query results are sorted by creation time in descending order.
-    // 
-    // Valid values:
-    // 
-    // *   asc: sorts the query results in ascending order.
-    // *   desc: sorts the query results in descending order.
+    // The sort order. The default sort is descending by creation time.
     shared_ptr<string> sortBy_ {};
+    // The template IDs to retrieve.
     shared_ptr<vector<string>> templateIds_ {};
-    // The type of the template.
-    // 
-    // Valid values:
-    // 
-    // *   system
-    // *   custom
+    // The template type.
     shared_ptr<string> type_ {};
   };
 

@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // OSS bucket name
     shared_ptr<string> bucket_ {};
+    // Path
     shared_ptr<string> path_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Bucket status:
+    // 
+    // - Normal: The bucket is in normal status.
+    // 
+    // - notExist: The bucket does not exist.
     shared_ptr<string> status_ {};
+    // Storage class
     shared_ptr<string> storageType_ {};
   };
 

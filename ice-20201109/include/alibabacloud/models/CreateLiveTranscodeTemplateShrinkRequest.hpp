@@ -65,10 +65,13 @@ namespace Models
     shared_ptr<string> templateConfigShrink_ {};
     // The type of the template. Valid values:
     // 
-    // *   normal
-    // *   narrow-band
-    // *   audio-only
-    // *   origin
+    // - normal
+    // 
+    // - narrow-band
+    // 
+    // - audio-only
+    // 
+    // - origin
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

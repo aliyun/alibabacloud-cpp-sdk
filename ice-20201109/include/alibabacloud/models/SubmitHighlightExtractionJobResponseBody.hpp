@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the highlight extraction task.
+    // The ID of the highlight extraction job.
     shared_ptr<string> jobId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

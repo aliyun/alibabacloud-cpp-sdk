@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The idempotency key that is used to ensure repeated requests have the same effect as a single request.
+    // A unique client token that ensures request idempotency.
     shared_ptr<string> clientToken_ {};
-    // The configurations of the transcoding task.
+    // The transcoding job configuration. For more information, see [MediaConvertJobConfig](https://help.aliyun.com/document_detail/2999539.html).
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The ID of the queue.
+    // The ID of the pipeline for the transcoding job.
     shared_ptr<string> pipelineId_ {};
-    // The user data.
+    // Custom data to pass with the job.
     shared_ptr<string> userData_ {};
   };
 

@@ -171,9 +171,11 @@ namespace Models
         shared_ptr<string> name_ {};
         // Workflow template status. Valid values:
         // 
-        // *   Draft
-        // *   Published
-        // *   Editing
+        // - Draft
+        // 
+        // - Published
+        // 
+        // - Editing
         shared_ptr<string> status_ {};
         // The scenario type of the template.
         shared_ptr<string> type_ {};
@@ -273,11 +275,15 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   running
-      // *   stopped
-      // *   failed
-      // *   partial-succeeded
-      // *   succeeded
+      // - running
+      // 
+      // - stopped
+      // 
+      // - failed
+      // 
+      // - partial-succeeded
+      // 
+      // - succeeded
       shared_ptr<string> status_ {};
       // The ID of the workflow task.
       shared_ptr<string> taskId_ {};

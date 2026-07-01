@@ -127,9 +127,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   LiveEditingJob: live editing job.
-    // *   EditingJob: regular template-based editing job
-    // *   VETemplateJob: advanced template-based editing job.
+    // - LiveEditingJob: live editing job.
+    // 
+    // - EditingJob: regular template-based editing job
+    // 
+    // - VETemplateJob: advanced template-based editing job.
     shared_ptr<string> jobType_ {};
     // The search keyword. For example, you can use a job ID as the keyword to search for jobs.
     shared_ptr<string> keyword_ {};
@@ -147,8 +149,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   CreationTime:Asc: sorted by creation time in ascending order.
-    // *   CreationTime:Desc: sorted by creation time in descending order.
+    // - CreationTime:Asc: sorted by creation time in ascending order.
+    // 
+    // - CreationTime:Desc: sorted by creation time in descending order.
     shared_ptr<string> sortBy_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
@@ -156,10 +159,13 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Init: The job is initialized.
-    // *   Failed: The job failed.
-    // *   Success: The job is successful.
-    // *   Processing: The job is in progress.
+    // - Init: The job is initialized.
+    // 
+    // - Failed: The job failed.
+    // 
+    // - Success: The job is successful.
+    // 
+    // - Processing: The job is in progress.
     shared_ptr<string> status_ {};
   };
 
