@@ -2524,6 +2524,68 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodes(const DescribeCl
 }
 
 /**
+ * @summary Queries all change records of credits.
+ *
+ * @param request DescribeCreditDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCreditDetailResponse
+ */
+DescribeCreditDetailResponse Client::describeCreditDetailWithOptions(const DescribeCreditDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasPackageIds()) {
+    query["PackageIds"] = request.getPackageIds();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCreditDetail"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCreditDetailResponse>();
+}
+
+/**
+ * @summary Queries all change records of credits.
+ *
+ * @param request DescribeCreditDetailRequest
+ * @return DescribeCreditDetailResponse
+ */
+DescribeCreditDetailResponse Client::describeCreditDetail(const DescribeCreditDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCreditDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of one or more credit packages.
  *
  * @param request DescribeCreditPackageRequest

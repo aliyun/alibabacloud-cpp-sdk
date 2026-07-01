@@ -114,6 +114,9 @@
 #include <alibabacloud/models/DescribeCloudPhoneNodesRequest.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponse.hpp>
+#include <alibabacloud/models/DescribeCreditDetailRequest.hpp>
+#include <alibabacloud/models/DescribeCreditDetailResponseBody.hpp>
+#include <alibabacloud/models/DescribeCreditDetailResponse.hpp>
 #include <alibabacloud/models/DescribeCreditPackageRequest.hpp>
 #include <alibabacloud/models/DescribeCreditPackageResponseBody.hpp>
 #include <alibabacloud/models/DescribeCreditPackageResponse.hpp>

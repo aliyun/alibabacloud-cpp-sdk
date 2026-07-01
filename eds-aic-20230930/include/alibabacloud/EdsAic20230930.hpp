@@ -752,6 +752,23 @@ namespace EdsAic20230930
       Models::DescribeCloudPhoneNodesResponse describeCloudPhoneNodes(const Models::DescribeCloudPhoneNodesRequest &request);
 
       /**
+       * @summary Queries all change records of credits.
+       *
+       * @param request DescribeCreditDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCreditDetailResponse
+       */
+      Models::DescribeCreditDetailResponse describeCreditDetailWithOptions(const Models::DescribeCreditDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries all change records of credits.
+       *
+       * @param request DescribeCreditDetailRequest
+       * @return DescribeCreditDetailResponse
+       */
+      Models::DescribeCreditDetailResponse describeCreditDetail(const Models::DescribeCreditDetailRequest &request);
+
+      /**
        * @summary Retrieves the details of one or more credit packages.
        *
        * @param request DescribeCreditPackageRequest
