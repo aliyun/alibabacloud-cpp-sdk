@@ -252,7 +252,7 @@ namespace QuickbiPublic20220101
       /**
        * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
        *
-       * @summary Batch add Feishu users.
+       * @summary Adds Lark users in batches.
        *
        * @param request BatchAddFeishuUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +263,7 @@ namespace QuickbiPublic20220101
       /**
        * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
        *
-       * @summary Batch add Feishu users.
+       * @summary Adds Lark users in batches.
        *
        * @param request BatchAddFeishuUsersRequest
        * @return BatchAddFeishuUsersResponse
@@ -407,7 +407,7 @@ namespace QuickbiPublic20220101
       Models::ClearDynamicTagCacheResponse clearDynamicTagCache(const Models::ClearDynamicTagCacheRequest &request);
 
       /**
-       * @summary Creates a dataset from a custom SQL statement.
+       * @summary Creates a dataset based on a custom SQL statement.
        *
        * @param request CreateCubeBySqlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -416,7 +416,7 @@ namespace QuickbiPublic20220101
       Models::CreateCubeBySqlResponse createCubeBySqlWithOptions(const Models::CreateCubeBySqlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a dataset from a custom SQL statement.
+       * @summary Creates a dataset based on a custom SQL statement.
        *
        * @param request CreateCubeBySqlRequest
        * @return CreateCubeBySqlResponse
@@ -441,9 +441,9 @@ namespace QuickbiPublic20220101
       Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
-       * @summary Generate a ticket for third-party embedding.
+       * @summary Generates a ticket required for embedded report access.
        *
-       * @description For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+       * @description For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
        *
        * @param request CreateTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -452,9 +452,9 @@ namespace QuickbiPublic20220101
       Models::CreateTicketResponse createTicketWithOptions(const Models::CreateTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generate a ticket for third-party embedding.
+       * @summary Generates a ticket required for embedded report access.
        *
-       * @description For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+       * @description For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
        *
        * @param request CreateTicketRequest
        * @return CreateTicketResponse
@@ -579,6 +579,23 @@ namespace QuickbiPublic20220101
        * @return DelayTicketExpireTimeResponse
        */
       Models::DelayTicketExpireTimeResponse delayTicketExpireTime(const Models::DelayTicketExpireTimeRequest &request);
+
+      /**
+       * @summary Deletes the collaborative authorization record of a specified user.
+       *
+       * @param request DeleteAuthorizationByUserIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAuthorizationByUserIdResponse
+       */
+      Models::DeleteAuthorizationByUserIdResponse deleteAuthorizationByUserIdWithOptions(const Models::DeleteAuthorizationByUserIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the collaborative authorization record of a specified user.
+       *
+       * @param request DeleteAuthorizationByUserIdRequest
+       * @return DeleteAuthorizationByUserIdResponse
+       */
+      Models::DeleteAuthorizationByUserIdResponse deleteAuthorizationByUserId(const Models::DeleteAuthorizationByUserIdRequest &request);
 
       /**
        * @summary Deletes specified users from a row-level permission rule.
@@ -825,6 +842,23 @@ namespace QuickbiPublic20220101
        * @return GetWorksEmbedListResponse
        */
       Models::GetWorksEmbedListResponse getWorksEmbedList(const Models::GetWorksEmbedListRequest &request);
+
+      /**
+       * @summary Configures the IP address whitelist for data security.
+       *
+       * @param request IpWhiteListConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IpWhiteListConfigResponse
+       */
+      Models::IpWhiteListConfigResponse ipWhiteListConfigWithOptions(const Models::IpWhiteListConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Configures the IP address whitelist for data security.
+       *
+       * @param request IpWhiteListConfigRequest
+       * @return IpWhiteListConfigResponse
+       */
+      Models::IpWhiteListConfigResponse ipWhiteListConfig(const Models::IpWhiteListConfigRequest &request);
 
       /**
        * @summary Retrieves information about acceleration tasks in a workspace.
@@ -1805,7 +1839,7 @@ namespace QuickbiPublic20220101
       Models::QueryTicketInfoResponse queryTicketInfo(const Models::QueryTicketInfoRequest &request);
 
       /**
-       * @summary 根据绑定的第三方账号ID查询UserId
+       * @summary Queries a UserId by the bound third-party account ID.
        *
        * @param request QueryUserByMobileAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1814,7 +1848,7 @@ namespace QuickbiPublic20220101
       Models::QueryUserByMobileAccountResponse queryUserByMobileAccountWithOptions(const Models::QueryUserByMobileAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据绑定的第三方账号ID查询UserId
+       * @summary Queries a UserId by the bound third-party account ID.
        *
        * @param request QueryUserByMobileAccountRequest
        * @return QueryUserByMobileAccountResponse
@@ -2214,7 +2248,24 @@ namespace QuickbiPublic20220101
       Models::SmartqQueryAbilityResponse smartqQueryAbility(const Models::SmartqQueryAbilityRequest &request);
 
       /**
-       * @summary Updates a dataset that is based on a custom SQL statement.
+       * @summary Migrates a user group.
+       *
+       * @param request TransferUsergroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TransferUsergroupResponse
+       */
+      Models::TransferUsergroupResponse transferUsergroupWithOptions(const Models::TransferUsergroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Migrates a user group.
+       *
+       * @param request TransferUsergroupRequest
+       * @return TransferUsergroupResponse
+       */
+      Models::TransferUsergroupResponse transferUsergroup(const Models::TransferUsergroupRequest &request);
+
+      /**
+       * @summary Updates a custom SQL dataset.
        *
        * @param request UpdateCubeBySqlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2223,7 +2274,7 @@ namespace QuickbiPublic20220101
       Models::UpdateCubeBySqlResponse updateCubeBySqlWithOptions(const Models::UpdateCubeBySqlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a dataset that is based on a custom SQL statement.
+       * @summary Updates a custom SQL dataset.
        *
        * @param request UpdateCubeBySqlRequest
        * @return UpdateCubeBySqlResponse

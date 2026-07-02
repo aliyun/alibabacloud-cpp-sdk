@@ -17,7 +17,19 @@ namespace QuickbiPublic20220101
 {
 
 AlibabaCloud::QuickbiPublic20220101::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-east-1" , "quickbi-public.us-east-1.aliyuncs.com"},
+    {"me-central-1" , "quickbi-public.me-central-1.aliyuncs.com"},
+    {"eu-central-1" , "quickbi-public.eu-central-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "quickbi-public.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-hongkong" , "quickbi-public.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "quickbi-public.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-5" , "quickbi-public.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "quickbi-public.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "quickbi-public.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "quickbi-public.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("quickbi-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -718,7 +730,7 @@ AuthorizeMenuResponse Client::authorizeMenu(const AuthorizeMenuRequest &request)
 /**
  * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
  *
- * @summary Batch add Feishu users.
+ * @summary Adds Lark users in batches.
  *
  * @param request BatchAddFeishuUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -767,7 +779,7 @@ BatchAddFeishuUsersResponse Client::batchAddFeishuUsersWithOptions(const BatchAd
 /**
  * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
  *
- * @summary Batch add Feishu users.
+ * @summary Adds Lark users in batches.
  *
  * @param request BatchAddFeishuUsersRequest
  * @return BatchAddFeishuUsersResponse
@@ -1150,7 +1162,7 @@ ClearDynamicTagCacheResponse Client::clearDynamicTagCache(const ClearDynamicTagC
 }
 
 /**
- * @summary Creates a dataset from a custom SQL statement.
+ * @summary Creates a dataset based on a custom SQL statement.
  *
  * @param request CreateCubeBySqlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1179,9 +1191,15 @@ CreateCubeBySqlResponse Client::createCubeBySqlWithOptions(const CreateCubeBySql
     query["WorkspaceId"] = request.getWorkspaceId();
   }
 
+  json body = {};
+  if (!!request.hasPlaceholders()) {
+    body["Placeholders"] = request.getPlaceholders();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateCubeBySql"},
     {"version" , "2022-01-01"},
@@ -1197,7 +1215,7 @@ CreateCubeBySqlResponse Client::createCubeBySqlWithOptions(const CreateCubeBySql
 }
 
 /**
- * @summary Creates a dataset from a custom SQL statement.
+ * @summary Creates a dataset based on a custom SQL statement.
  *
  * @param request CreateCubeBySqlRequest
  * @return CreateCubeBySqlResponse
@@ -1270,9 +1288,9 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
- * @summary Generate a ticket for third-party embedding.
+ * @summary Generates a ticket required for embedded report access.
  *
- * @description For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+ * @description For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
  *
  * @param request CreateTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1297,10 +1315,6 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
     query["ExpireTime"] = request.getExpireTime();
   }
 
-  if (!!request.hasGlobalParam()) {
-    query["GlobalParam"] = request.getGlobalParam();
-  }
-
   if (!!request.hasTicketNum()) {
     query["TicketNum"] = request.getTicketNum();
   }
@@ -1317,9 +1331,15 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
     query["WorksId"] = request.getWorksId();
   }
 
+  json body = {};
+  if (!!request.hasGlobalParam()) {
+    body["GlobalParam"] = request.getGlobalParam();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateTicket"},
     {"version" , "2022-01-01"},
@@ -1335,9 +1355,9 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
 }
 
 /**
- * @summary Generate a ticket for third-party embedding.
+ * @summary Generates a ticket required for embedded report access.
  *
- * @description For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+ * @description For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
  *
  * @param request CreateTicketRequest
  * @return CreateTicketResponse
@@ -1727,6 +1747,56 @@ DelayTicketExpireTimeResponse Client::delayTicketExpireTimeWithOptions(const Del
 DelayTicketExpireTimeResponse Client::delayTicketExpireTime(const DelayTicketExpireTimeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return delayTicketExpireTimeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the collaborative authorization record of a specified user.
+ *
+ * @param request DeleteAuthorizationByUserIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAuthorizationByUserIdResponse
+ */
+DeleteAuthorizationByUserIdResponse Client::deleteAuthorizationByUserIdWithOptions(const DeleteAuthorizationByUserIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQbiUserId()) {
+    query["QbiUserId"] = request.getQbiUserId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAuthorizationByUserId"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAuthorizationByUserIdResponse>();
+}
+
+/**
+ * @summary Deletes the collaborative authorization record of a specified user.
+ *
+ * @param request DeleteAuthorizationByUserIdRequest
+ * @return DeleteAuthorizationByUserIdResponse
+ */
+DeleteAuthorizationByUserIdResponse Client::deleteAuthorizationByUserId(const DeleteAuthorizationByUserIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAuthorizationByUserIdWithOptions(request, runtime);
 }
 
 /**
@@ -2375,6 +2445,52 @@ GetWorksEmbedListResponse Client::getWorksEmbedListWithOptions(const GetWorksEmb
 GetWorksEmbedListResponse Client::getWorksEmbedList(const GetWorksEmbedListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWorksEmbedListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Configures the IP address whitelist for data security.
+ *
+ * @param request IpWhiteListConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IpWhiteListConfigResponse
+ */
+IpWhiteListConfigResponse Client::ipWhiteListConfigWithOptions(const IpWhiteListConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIpWhiteList()) {
+    query["IpWhiteList"] = request.getIpWhiteList();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.getOperation();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "IpWhiteListConfig"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IpWhiteListConfigResponse>();
+}
+
+/**
+ * @summary Configures the IP address whitelist for data security.
+ *
+ * @param request IpWhiteListConfigRequest
+ * @return IpWhiteListConfigResponse
+ */
+IpWhiteListConfigResponse Client::ipWhiteListConfig(const IpWhiteListConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return ipWhiteListConfigWithOptions(request, runtime);
 }
 
 /**
@@ -5035,7 +5151,7 @@ QueryTicketInfoResponse Client::queryTicketInfo(const QueryTicketInfoRequest &re
 }
 
 /**
- * @summary 根据绑定的第三方账号ID查询UserId
+ * @summary Queries a UserId by the bound third-party account ID.
  *
  * @param request QueryUserByMobileAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5070,7 +5186,7 @@ QueryUserByMobileAccountResponse Client::queryUserByMobileAccountWithOptions(con
 }
 
 /**
- * @summary 根据绑定的第三方账号ID查询UserId
+ * @summary Queries a UserId by the bound third-party account ID.
  *
  * @param request QueryUserByMobileAccountRequest
  * @return QueryUserByMobileAccountResponse
@@ -6123,7 +6239,53 @@ SmartqQueryAbilityResponse Client::smartqQueryAbility(const SmartqQueryAbilityRe
 }
 
 /**
- * @summary Updates a dataset that is based on a custom SQL statement.
+ * @summary Migrates a user group.
+ *
+ * @param request TransferUsergroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TransferUsergroupResponse
+ */
+TransferUsergroupResponse Client::transferUsergroupWithOptions(const TransferUsergroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasParentUserGroupId()) {
+    query["ParentUserGroupId"] = request.getParentUserGroupId();
+  }
+
+  if (!!request.hasUserGroupId()) {
+    query["UserGroupId"] = request.getUserGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TransferUsergroup"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TransferUsergroupResponse>();
+}
+
+/**
+ * @summary Migrates a user group.
+ *
+ * @param request TransferUsergroupRequest
+ * @return TransferUsergroupResponse
+ */
+TransferUsergroupResponse Client::transferUsergroup(const TransferUsergroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return transferUsergroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a custom SQL dataset.
  *
  * @param request UpdateCubeBySqlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6142,6 +6304,10 @@ UpdateCubeBySqlResponse Client::updateCubeBySqlWithOptions(const UpdateCubeBySql
 
   if (!!request.hasDsId()) {
     query["DsId"] = request.getDsId();
+  }
+
+  if (!!request.hasPlaceholders()) {
+    query["Placeholders"] = request.getPlaceholders();
   }
 
   if (!!request.hasUserId()) {
@@ -6170,7 +6336,7 @@ UpdateCubeBySqlResponse Client::updateCubeBySqlWithOptions(const UpdateCubeBySql
 }
 
 /**
- * @summary Updates a dataset that is based on a custom SQL statement.
+ * @summary Updates a custom SQL dataset.
  *
  * @param request UpdateCubeBySqlRequest
  * @return UpdateCubeBySqlResponse

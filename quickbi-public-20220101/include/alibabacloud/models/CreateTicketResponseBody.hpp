@@ -57,15 +57,13 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The generated ticket value.
     shared_ptr<string> result_ {};
-    // Indicates whether the request was successful. Value range:
-    // 
-    // - true: Request succeeded
-    // 
-    // - false: Request failed
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

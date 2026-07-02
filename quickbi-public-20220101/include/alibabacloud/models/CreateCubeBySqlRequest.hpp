@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Caption, caption_);
       DARABONBA_PTR_TO_JSON(CustomSql, customSql_);
       DARABONBA_PTR_TO_JSON(DsId, dsId_);
+      DARABONBA_PTR_TO_JSON(Placeholders, placeholders_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Caption, caption_);
       DARABONBA_PTR_FROM_JSON(CustomSql, customSql_);
       DARABONBA_PTR_FROM_JSON(DsId, dsId_);
+      DARABONBA_PTR_FROM_JSON(Placeholders, placeholders_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caption_ == nullptr
-        && this->customSql_ == nullptr && this->dsId_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->customSql_ == nullptr && this->dsId_ == nullptr && this->placeholders_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
     // caption Field Functions 
     bool hasCaption() const { return this->caption_ != nullptr;};
     void deleteCaption() { this->caption_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteDsId() { this->dsId_ = nullptr;};
     inline string getDsId() const { DARABONBA_PTR_GET_DEFAULT(dsId_, "") };
     inline CreateCubeBySqlRequest& setDsId(string dsId) { DARABONBA_PTR_SET_VALUE(dsId_, dsId) };
+
+
+    // placeholders Field Functions 
+    bool hasPlaceholders() const { return this->placeholders_ != nullptr;};
+    void deletePlaceholders() { this->placeholders_ = nullptr;};
+    inline string getPlaceholders() const { DARABONBA_PTR_GET_DEFAULT(placeholders_, "") };
+    inline CreateCubeBySqlRequest& setPlaceholders(string placeholders) { DARABONBA_PTR_SET_VALUE(placeholders_, placeholders) };
 
 
     // userId Field Functions 
@@ -83,15 +92,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> customSql_ {};
-    // The ID of the data source.
+    // The data source ID.
     // 
     // This parameter is required.
     shared_ptr<string> dsId_ {};
-    // The ID of a Quick BI user with permissions to create datasets. This is not your Alibaba Cloud account ID. Call the [QueryUserInfoByAccount](https://next.api.aliyun.com/api/quickbi-public/2022-01-01/QueryUserInfoByAccount?spm=api-workbench.api_explorer.0.0.672f50daGq9ooV\\&params=%7B%7D\\&tab=DOC\\&sdkStyle=old\\&RegionId=cn-hangzhou) operation to obtain the user ID.
+    // The placeholder parameters. For more information, see the supplementary description below.
+    shared_ptr<string> placeholders_ {};
+    // The Quick BI UserId of a user who has permissions to create datasets. This is not your Alibaba Cloud account ID. You can call the [QueryUserInfoByAccount](https://next.api.aliyun.com/api/quickbi-public/2022-01-01/QueryUserInfoByAccount?spm=api-workbench.api_explorer.0.0.672f50daGq9ooV&params=%7B%7D&tab=DOC&sdkStyle=old&RegionId=cn-hangzhou) operation to obtain the UserId.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

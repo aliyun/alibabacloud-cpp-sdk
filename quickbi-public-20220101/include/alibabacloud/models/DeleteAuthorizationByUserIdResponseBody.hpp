@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATECUBEBYSQLRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREATECUBEBYSQLRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETEAUTHORIZATIONBYUSERIDRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DELETEAUTHORIZATIONBYUSERIDRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,25 +10,25 @@ namespace QuickbiPublic20220101
 {
 namespace Models
 {
-  class CreateCubeBySqlResponseBody : public Darabonba::Model {
+  class DeleteAuthorizationByUserIdResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateCubeBySqlResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteAuthorizationByUserIdResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateCubeBySqlResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteAuthorizationByUserIdResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    CreateCubeBySqlResponseBody() = default ;
-    CreateCubeBySqlResponseBody(const CreateCubeBySqlResponseBody &) = default ;
-    CreateCubeBySqlResponseBody(CreateCubeBySqlResponseBody &&) = default ;
-    CreateCubeBySqlResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateCubeBySqlResponseBody() = default ;
-    CreateCubeBySqlResponseBody& operator=(const CreateCubeBySqlResponseBody &) = default ;
-    CreateCubeBySqlResponseBody& operator=(CreateCubeBySqlResponseBody &&) = default ;
+    DeleteAuthorizationByUserIdResponseBody() = default ;
+    DeleteAuthorizationByUserIdResponseBody(const DeleteAuthorizationByUserIdResponseBody &) = default ;
+    DeleteAuthorizationByUserIdResponseBody(DeleteAuthorizationByUserIdResponseBody &&) = default ;
+    DeleteAuthorizationByUserIdResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteAuthorizationByUserIdResponseBody() = default ;
+    DeleteAuthorizationByUserIdResponseBody& operator=(const DeleteAuthorizationByUserIdResponseBody &) = default ;
+    DeleteAuthorizationByUserIdResponseBody& operator=(DeleteAuthorizationByUserIdResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,35 +39,29 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CreateCubeBySqlResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DeleteAuthorizationByUserIdResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
-    inline CreateCubeBySqlResponseBody& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
+    inline DeleteAuthorizationByUserIdResponseBody& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline CreateCubeBySqlResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline DeleteAuthorizationByUserIdResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The execution result of the operation. Valid values:
-    // 
-    // - true: The request was successful.
-    // - false: The request failed.
-    shared_ptr<string> result_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Indicates whether the deletion was successful.
+    shared_ptr<bool> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

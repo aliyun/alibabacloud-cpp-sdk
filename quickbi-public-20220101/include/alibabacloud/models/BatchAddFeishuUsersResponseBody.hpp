@@ -123,11 +123,11 @@ namespace Models
 
 
         protected:
-          // Error code.
+          // The error code.
           shared_ptr<string> code_ {};
-          // Description of the error code.
+          // The error code description.
           shared_ptr<string> codeDesc_ {};
-          // Incorrect input value.
+          // The invalid input value.
           shared_ptr<string> input_ {};
         };
 
@@ -142,7 +142,7 @@ namespace Models
 
 
       protected:
-        // Reasons for errors.
+        // The error causes.
         shared_ptr<vector<FailResults::FailInfos>> failInfos_ {};
       };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
     protected:
-      // Number of failed validations.
+      // The number of users that failed validation.
       shared_ptr<int32_t> failCount_ {};
-      // Details of the failures.
+      // The details of the failures.
       shared_ptr<vector<Result::FailResults>> failResults_ {};
-      // Count of successes.
+      // The number of users that were added.
       shared_ptr<int32_t> okCount_ {};
     };
 
@@ -206,17 +206,18 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result of adding members to the user group. Possible values:
+    // The result of adding user group members. Valid values:
     // 
-    // - true: Addition successful
-    // - false: Addition failed
+    // - true: The users were added.
+    // 
+    // - false: The users failed to be added.
     shared_ptr<BatchAddFeishuUsersResponseBody::Result> result_ {};
-    // Whether the request was successful. Possible values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - true: Request successful
-    // - false: Request failed
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

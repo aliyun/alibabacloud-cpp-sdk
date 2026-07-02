@@ -98,6 +98,9 @@
 #include <alibabacloud/models/DelayTicketExpireTimeRequest.hpp>
 #include <alibabacloud/models/DelayTicketExpireTimeResponseBody.hpp>
 #include <alibabacloud/models/DelayTicketExpireTimeResponse.hpp>
+#include <alibabacloud/models/DeleteAuthorizationByUserIdRequest.hpp>
+#include <alibabacloud/models/DeleteAuthorizationByUserIdResponseBody.hpp>
+#include <alibabacloud/models/DeleteAuthorizationByUserIdResponse.hpp>
 #include <alibabacloud/models/DeleteDataLevelPermissionRuleUsersRequest.hpp>
 #include <alibabacloud/models/DeleteDataLevelPermissionRuleUsersResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataLevelPermissionRuleUsersResponse.hpp>
@@ -140,6 +143,9 @@
 #include <alibabacloud/models/GetWorksEmbedListRequest.hpp>
 #include <alibabacloud/models/GetWorksEmbedListResponseBody.hpp>
 #include <alibabacloud/models/GetWorksEmbedListResponse.hpp>
+#include <alibabacloud/models/IpWhiteListConfigRequest.hpp>
+#include <alibabacloud/models/IpWhiteListConfigResponseBody.hpp>
+#include <alibabacloud/models/IpWhiteListConfigResponse.hpp>
 #include <alibabacloud/models/ListAccelerationOfWorkspaceRequest.hpp>
 #include <alibabacloud/models/ListAccelerationOfWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/ListAccelerationOfWorkspaceResponse.hpp>
@@ -368,6 +374,9 @@
 #include <alibabacloud/models/SmartqQueryAbilityRequest.hpp>
 #include <alibabacloud/models/SmartqQueryAbilityResponseBody.hpp>
 #include <alibabacloud/models/SmartqQueryAbilityResponse.hpp>
+#include <alibabacloud/models/TransferUsergroupRequest.hpp>
+#include <alibabacloud/models/TransferUsergroupResponseBody.hpp>
+#include <alibabacloud/models/TransferUsergroupResponse.hpp>
 #include <alibabacloud/models/UpdateCubeBySqlRequest.hpp>
 #include <alibabacloud/models/UpdateCubeBySqlResponseBody.hpp>
 #include <alibabacloud/models/UpdateCubeBySqlResponse.hpp>
