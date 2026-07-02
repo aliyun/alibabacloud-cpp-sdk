@@ -123,6 +123,9 @@
 #include <alibabacloud/models/InstallAgentForClusterRequest.hpp>
 #include <alibabacloud/models/InstallAgentForClusterResponseBody.hpp>
 #include <alibabacloud/models/InstallAgentForClusterResponse.hpp>
+#include <alibabacloud/models/InstallAgentWithTypeRequest.hpp>
+#include <alibabacloud/models/InstallAgentWithTypeResponseBody.hpp>
+#include <alibabacloud/models/InstallAgentWithTypeResponse.hpp>
 #include <alibabacloud/models/InvokeAnomalyDiagnosisRequest.hpp>
 #include <alibabacloud/models/InvokeAnomalyDiagnosisResponseBody.hpp>
 #include <alibabacloud/models/InvokeAnomalyDiagnosisResponse.hpp>

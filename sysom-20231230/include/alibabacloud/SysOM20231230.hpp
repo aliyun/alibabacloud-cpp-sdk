@@ -837,6 +837,28 @@ namespace SysOM20231230
       Models::InstallAgentForClusterResponse installAgentForCluster(const Models::InstallAgentForClusterRequest &request);
 
       /**
+       * @summary 在指定的实例上安装 Agent
+       *
+       * @description 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       *
+       * @param request InstallAgentWithTypeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallAgentWithTypeResponse
+       */
+      Models::InstallAgentWithTypeResponse installAgentWithTypeWithOptions(const Models::InstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 在指定的实例上安装 Agent
+       *
+       * @description 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       *
+       * @param request InstallAgentWithTypeRequest
+       * @return InstallAgentWithTypeResponse
+       */
+      Models::InstallAgentWithTypeResponse installAgentWithType(const Models::InstallAgentWithTypeRequest &request);
+
+      /**
        * @summary Initiates an anomaly diagnostics task.
        *
        * @param request InvokeAnomalyDiagnosisRequest

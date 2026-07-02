@@ -2364,6 +2364,71 @@ InstallAgentForClusterResponse Client::installAgentForCluster(const InstallAgent
 }
 
 /**
+ * @summary 在指定的实例上安装 Agent
+ *
+ * @description 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+ *
+ * @param request InstallAgentWithTypeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallAgentWithTypeResponse
+ */
+InstallAgentWithTypeResponse Client::installAgentWithTypeWithOptions(const InstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAgentVersion()) {
+    body["agentVersion"] = request.getAgentVersion();
+  }
+
+  if (!!request.hasConfigId()) {
+    body["configId"] = request.getConfigId();
+  }
+
+  if (!!request.hasInstanceType()) {
+    body["instanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasInstances()) {
+    body["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InstallAgentWithType"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/installAgent")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallAgentWithTypeResponse>();
+}
+
+/**
+ * @summary 在指定的实例上安装 Agent
+ *
+ * @description 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+ *
+ * @param request InstallAgentWithTypeRequest
+ * @return InstallAgentWithTypeResponse
+ */
+InstallAgentWithTypeResponse Client::installAgentWithType(const InstallAgentWithTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return installAgentWithTypeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Initiates an anomaly diagnostics task.
  *
  * @param request InvokeAnomalyDiagnosisRequest
