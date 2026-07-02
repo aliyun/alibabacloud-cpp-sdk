@@ -104,9 +104,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to enable TLS (SSL) encryption. Valid values:
     // 
-    // *   **Disable**: disables SSL encryption.
-    // *   **Enable**: enables SSL encryption.
-    // *   **Update**: updates the SSL certificate.
+    // - **Disable**: disables SSL encryption.
+    // 
+    // - **Enable**: enables SSL encryption.
+    // 
+    // - **Update**: updates the SSL certificate.
     // 
     // This parameter is required.
     shared_ptr<string> SSLEnabled_ {};

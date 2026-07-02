@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The error code that is returned if the request failed.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error ID.
+    // The IDs of the events that failed to be processed.
     shared_ptr<string> errorEventId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of successful records.
+    // The number of events that were successfully processed.
     shared_ptr<int32_t> successCount_ {};
-    // The ID of the successful event.
+    // The IDs of the events that were successfully processed.
     shared_ptr<string> successEventId_ {};
   };
 

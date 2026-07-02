@@ -35,6 +35,9 @@
 #include <alibabacloud/models/CreateInstanceRequest.hpp>
 #include <alibabacloud/models/CreateInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceResponse.hpp>
+#include <alibabacloud/models/CreateInstanceMultiVIPRequest.hpp>
+#include <alibabacloud/models/CreateInstanceMultiVIPResponseBody.hpp>
+#include <alibabacloud/models/CreateInstanceMultiVIPResponse.hpp>
 #include <alibabacloud/models/CreateInstancesRequest.hpp>
 #include <alibabacloud/models/CreateInstancesResponseBody.hpp>
 #include <alibabacloud/models/CreateInstancesResponse.hpp>
@@ -176,6 +179,9 @@
 #include <alibabacloud/models/DescribeInstanceConfigRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceConfigResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceMultiVIPRequest.hpp>
+#include <alibabacloud/models/DescribeInstanceMultiVIPResponseBody.hpp>
+#include <alibabacloud/models/DescribeInstanceMultiVIPResponse.hpp>
 #include <alibabacloud/models/DescribeInstanceSSLRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceSSLResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceSSLResponse.hpp>

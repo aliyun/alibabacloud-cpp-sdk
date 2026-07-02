@@ -313,6 +313,8 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the secondary zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) API to query it.
+    // > The values passed for this parameter and the ZoneId parameter must be different.
     shared_ptr<string> secondaryZoneId_ {};
     shared_ptr<string> securityToken_ {};
     // The number of data shards in the cloud-native cluster instance.

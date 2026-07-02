@@ -89,6 +89,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Port, port_);
           DARABONBA_PTR_TO_JSON(PrivateIp, privateIp_);
           DARABONBA_PTR_TO_JSON(QPS, QPS_);
+          DARABONBA_PTR_TO_JSON(QuotaCount, quotaCount_);
           DARABONBA_PTR_TO_JSON(ReadOnlyCount, readOnlyCount_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
           DARABONBA_PTR_TO_JSON(ReplacateId, replacateId_);
@@ -100,6 +101,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SlaveReadOnlyCount, slaveReadOnlyCount_);
           DARABONBA_PTR_TO_JSON(SlaveReplicaCount, slaveReplicaCount_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
+          DARABONBA_PTR_TO_JSON(UsedCount, usedCount_);
           DARABONBA_PTR_TO_JSON(UserName, userName_);
           DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -136,6 +138,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Port, port_);
           DARABONBA_PTR_FROM_JSON(PrivateIp, privateIp_);
           DARABONBA_PTR_FROM_JSON(QPS, QPS_);
+          DARABONBA_PTR_FROM_JSON(QuotaCount, quotaCount_);
           DARABONBA_PTR_FROM_JSON(ReadOnlyCount, readOnlyCount_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
           DARABONBA_PTR_FROM_JSON(ReplacateId, replacateId_);
@@ -147,6 +150,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SlaveReadOnlyCount, slaveReadOnlyCount_);
           DARABONBA_PTR_FROM_JSON(SlaveReplicaCount, slaveReplicaCount_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
+          DARABONBA_PTR_FROM_JSON(UsedCount, usedCount_);
           DARABONBA_PTR_FROM_JSON(UserName, userName_);
           DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -245,10 +249,11 @@ namespace Models
         && this->destroyTime_ == nullptr && this->editionType_ == nullptr && this->endTime_ == nullptr && this->engineVersion_ == nullptr && this->globalInstanceId_ == nullptr
         && this->hasRenewChangeOrder_ == nullptr && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceStatus_ == nullptr
         && this->instanceType_ == nullptr && this->isRds_ == nullptr && this->networkType_ == nullptr && this->nodeType_ == nullptr && this->packageType_ == nullptr
-        && this->port_ == nullptr && this->privateIp_ == nullptr && this->QPS_ == nullptr && this->readOnlyCount_ == nullptr && this->regionId_ == nullptr
-        && this->replacateId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr && this->secondaryZoneId_ == nullptr && this->shardClass_ == nullptr
-        && this->shardCount_ == nullptr && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->tags_ == nullptr && this->userName_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->port_ == nullptr && this->privateIp_ == nullptr && this->QPS_ == nullptr && this->quotaCount_ == nullptr && this->readOnlyCount_ == nullptr
+        && this->regionId_ == nullptr && this->replacateId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr && this->secondaryZoneId_ == nullptr
+        && this->shardClass_ == nullptr && this->shardCount_ == nullptr && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->tags_ == nullptr
+        && this->usedCount_ == nullptr && this->userName_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->workspaceId_ == nullptr
+        && this->zoneId_ == nullptr; };
         // architectureType Field Functions 
         bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
         void deleteArchitectureType() { this->architectureType_ = nullptr;};
@@ -452,6 +457,13 @@ namespace Models
         inline KVStoreInstance& setQPS(int64_t QPS) { DARABONBA_PTR_SET_VALUE(QPS_, QPS) };
 
 
+        // quotaCount Field Functions 
+        bool hasQuotaCount() const { return this->quotaCount_ != nullptr;};
+        void deleteQuotaCount() { this->quotaCount_ = nullptr;};
+        inline int64_t getQuotaCount() const { DARABONBA_PTR_GET_DEFAULT(quotaCount_, 0L) };
+        inline KVStoreInstance& setQuotaCount(int64_t quotaCount) { DARABONBA_PTR_SET_VALUE(quotaCount_, quotaCount) };
+
+
         // readOnlyCount Field Functions 
         bool hasReadOnlyCount() const { return this->readOnlyCount_ != nullptr;};
         void deleteReadOnlyCount() { this->readOnlyCount_ = nullptr;};
@@ -531,6 +543,13 @@ namespace Models
         inline KVStoreInstance& setTags(KVStoreInstance::Tags && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+        // usedCount Field Functions 
+        bool hasUsedCount() const { return this->usedCount_ != nullptr;};
+        void deleteUsedCount() { this->usedCount_ = nullptr;};
+        inline int64_t getUsedCount() const { DARABONBA_PTR_GET_DEFAULT(usedCount_, 0L) };
+        inline KVStoreInstance& setUsedCount(int64_t usedCount) { DARABONBA_PTR_SET_VALUE(usedCount_, usedCount) };
+
+
         // userName Field Functions 
         bool hasUserName() const { return this->userName_ != nullptr;};
         void deleteUserName() { this->userName_ = nullptr;};
@@ -596,6 +615,7 @@ namespace Models
         shared_ptr<int64_t> port_ {};
         shared_ptr<string> privateIp_ {};
         shared_ptr<int64_t> QPS_ {};
+        shared_ptr<int64_t> quotaCount_ {};
         shared_ptr<string> readOnlyCount_ {};
         shared_ptr<string> regionId_ {};
         shared_ptr<string> replacateId_ {};
@@ -607,6 +627,7 @@ namespace Models
         shared_ptr<int32_t> slaveReadOnlyCount_ {};
         shared_ptr<int32_t> slaveReplicaCount_ {};
         shared_ptr<KVStoreInstance::Tags> tags_ {};
+        shared_ptr<int64_t> usedCount_ {};
         shared_ptr<string> userName_ {};
         shared_ptr<string> vSwitchId_ {};
         shared_ptr<string> vpcId_ {};
@@ -669,11 +690,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
-    // The page number of the returned page.
+    // The page number of the instance list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};

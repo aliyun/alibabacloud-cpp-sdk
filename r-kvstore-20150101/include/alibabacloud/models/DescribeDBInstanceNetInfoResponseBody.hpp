@@ -239,11 +239,13 @@ namespace Models
   protected:
     // The network type. Valid values:
     // 
-    // *   **CLASSIC**: The instance runs in a classic network.
-    // *   **VPC**: The instance runs in a virtual private cloud (VPC).
+    // - **CLASSIC**: Classic Network.
+    // 
+    // - **VPC**: VPC.
     shared_ptr<string> instanceNetworkType_ {};
+    // Details about the instance\\"s network connections.
     shared_ptr<DescribeDBInstanceNetInfoResponseBody::NetInfoItems> netInfoItems_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

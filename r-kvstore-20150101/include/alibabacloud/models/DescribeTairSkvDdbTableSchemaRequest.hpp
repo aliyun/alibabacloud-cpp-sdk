@@ -94,7 +94,10 @@ namespace Models
 
 
   protected:
+    // The ID of the backup file.
     shared_ptr<string> backupId_ {};
+    // The ID of the instance to query.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};

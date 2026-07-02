@@ -108,13 +108,11 @@ namespace Models
 
 
     protected:
-      // The tag key.
-      // 
-      // >  A maximum of five key-value pairs can be specified at a time.
+      // The key of the tag. The key and value of a tag form a key-value pair.
+      // > You can specify up to 5 key-value pairs of tags in a single request.
       shared_ptr<string> key_ {};
-      // The value of tag N of the instance.
-      // 
-      // >  **N** specifies the value of the nth tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+      // The value of the tag.
+      // > **N** specifies the sequence number of the tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
       shared_ptr<string> value_ {};
     };
 
@@ -273,62 +271,53 @@ namespace Models
 
 
   protected:
-    // The billing method of the simple application servers. Valid values:
-    // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid**: pay-as-you-go
+    // The billing method of the instance. Valid values:
+    // - **PrePaid**: subscription.
+    // - **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // Specifies whether the instance has expired. Valid values:
+    // The expiration status of the instance. Valid values:
     // 
-    // *   **true**: The instance has expired.
-    // *   **false**: The instance has not expired.
+    // * **true**: expired.
+    // * **false**: not expired.
     shared_ptr<string> expired_ {};
     // The instance type.
     shared_ptr<string> instanceClass_ {};
     // The IDs of the instances that you want to query.
-    // 
-    // >  If you want to specify multiple instance IDs, separate the instance IDs with commas (,). You can specify a maximum of 30 instance IDs in a single request.
+    // > To specify multiple instance IDs, separate them with commas (,). You can specify up to 30 instance IDs in a single request.
     shared_ptr<string> instanceIds_ {};
-    // The state of the instance. Valid values:
+    // The instance status. Valid values:
+    // * **Normal**: Normal.
+    // * **Creating**: The instance is being created.
     // 
-    // *   **Normal**: The instance is normal.
-    // *   **Creating**: The instance is being created.
-    // 
-    // >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+    // > For more information about instance statuses, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
     shared_ptr<string> instanceStatus_ {};
-    // The network type of the instance. Default value: VPC. Valid values:
-    // 
-    // *   **VPC** (default)
-    // 
-    // Valid values:
-    // 
-    // *   CLASSIC
-    // *   VPC
+    // The network type. Valid values:
+    // * **VPC**: virtual private cloud (VPC). This is the default value.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the instance list. Start value: 1. Default value: 1.
+    // The page number. The value starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The private IP address of the instance. This parameter is deprecated.
+    // The private IP address in the VPC. This parameter is deprecated.
     shared_ptr<string> privateIp_ {};
-    // The ID of the region where the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can leave this parameter empty.
+    // The resource group ID. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The keyword that you want to use for fuzzy match. The keyword can be a part of an instance name or an instance ID.
+    // The keyword used for fuzzy search by instance name or instance ID.
     shared_ptr<string> searchKey_ {};
     shared_ptr<string> securityToken_ {};
-    // Details of the tags.
+    // The tags of the instance.
     shared_ptr<vector<DescribeTairKVCacheInferInstancesRequest::Tag>> tag_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

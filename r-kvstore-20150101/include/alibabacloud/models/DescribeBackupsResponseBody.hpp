@@ -347,19 +347,19 @@ namespace Models
 
 
     protected:
-      // This parameter is no longer used. Ignore this parameter.
+      // This parameter is deprecated.
       shared_ptr<string> authAction_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // This parameter is deprecated.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // This parameter is deprecated.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // This parameter is deprecated.
       shared_ptr<string> authPrincipalType_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // This parameter is deprecated.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // This parameter is deprecated.
       shared_ptr<string> noPermissionType_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // This parameter is deprecated.
       shared_ptr<string> policyType_ {};
     };
 
@@ -434,26 +434,29 @@ namespace Models
 
 
   protected:
-    // The following parameters are no longer used. Ignore the parameters.
+    // This parameter is deprecated.
     shared_ptr<DescribeBackupsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // Details about the backup sets.
     shared_ptr<DescribeBackupsResponseBody::Backups> backups_ {};
-    // This parameter does not take effect. Ignore this parameter.
+    // <props="china">The free backup quota for the instance, in bytes. The free quota is equal to the default memory size of the instance type. For more information, see [Changes to the free backup quota policy](https://help.aliyun.com/document_detail/2664017.html).
+    // Full backups and log backups share this free quota. When the instance type is changed, the free quota also changes.
+    // <props="intl">This parameter is not in effect. Ignore this parameter.
     shared_ptr<int64_t> freeSize_ {};
-    // The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
+    // The total size of full backups for the instance, in bytes. Full backups are generated from scheduled daily backups, manual backups, or cache analysis.
     // 
-    // >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid full backups of the instance.
+    // > This value represents the total size of all valid full backups for the instance, regardless of the backup sets returned in this request.
     shared_ptr<int64_t> fullStorageSize_ {};
-    // The size of the log backup file of the instance. Unit: bytes. This value is valid only when flashback is enabled.
+    // The total size of log backups for the instance, in bytes. This parameter is returned only if flashback is enabled.
     // 
-    // >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid log backups of the instance.
+    // > This value represents the total size of all valid log backups for the instance, regardless of the backup sets returned in this request.
     shared_ptr<int64_t> logStorageSize_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of backup files that were returned.
+    // The total number of backup sets.
     shared_ptr<int32_t> totalCount_ {};
   };
 

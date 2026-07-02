@@ -121,29 +121,32 @@ namespace Models
 
 
   protected:
-    // The interval between two O\\&M tasks.
+    // The days of the cycle.
     // 
-    // *   If the CycleType parameter is set to Month, the CycleTime parameter returns a string of numbers ranging from 1 to 28, which indicates the specific days of the month. The numbers are separated with commas (,). The CycleTime parameter returns 0 when the configurations do not take effect.
-    // *   If the CycleType parameter is set to Week, the CycleTime parameter returns a string of numbers ranging from 1 to 7, which indicates the specific days of the week. The numbers are separated with commas (,). The CycleTime parameter returns 0 when the configurations do not take effect.
+    // - If `CycleType` is `Month`, specify the days of the month (1 to 28). Separate multiple days with a comma (,).
+    // 
+    // - If `CycleType` is `Week`, specify the days of the week (1 to 7). Separate multiple days with a comma (,).
     shared_ptr<string> cycleTime_ {};
-    // The unit of the billing cycle. Valid values:
+    // The cycle type of the maintenance window. Valid values:
     // 
-    // *   Month
-    // *   Week
+    // - `Month`
+    // 
+    // - `Week`
     shared_ptr<string> cycleType_ {};
-    // The end time of the O\\&M window. The time follows the ISO 8601 standard in the HH:mm:ssZ format. The time is displayed in UTC.
+    // The end time of the maintenance window, specified in *HH:mm:ss*Z format (UTC time).
     shared_ptr<string> maintainEndTime_ {};
-    // The start time of the O\\&M window. The time follows the ISO 8601 standard in the *HH:mm:ss* Z format. The time is displayed in UTC.
+    // The start time of the maintenance window, specified in *HH:mm:ss*Z format (UTC time).
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // Specifies whether the configurations take effect. Valid values:
+    // Specifies whether the configuration is enabled. Valid values:
     // 
-    // *   1: The configurations take effect.
-    // *   2: The configurations do not take effect.
+    // - 1: enabled
+    // 
+    // - 2: disabled
     shared_ptr<int32_t> status_ {};
   };
 

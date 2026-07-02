@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The account name.
     shared_ptr<string> accountName_ {};
     // The name of the account.
     shared_ptr<string> acountName_ {};

@@ -765,7 +765,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceAttributeResponseBody::Instances> instances_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

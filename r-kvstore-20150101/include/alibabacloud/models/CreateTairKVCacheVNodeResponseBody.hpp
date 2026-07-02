@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The ID of the Tair VNode instance.
+    // The instance ID of the virtual node.
     shared_ptr<string> instanceId_ {};
-    // The ID of the VNode.
+    // The ID of the virtual node.
     shared_ptr<string> nodeId_ {};
     // The order ID.
     shared_ptr<int64_t> orderId_ {};
-    // The ID of the region where the instance resides.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the VCluster.
+    // The ID of the virtual cluster.
     shared_ptr<string> VClusterId_ {};
-    // The ID of the VCluster instance.
+    // The instance ID of the virtual cluster.
     shared_ptr<string> vkName_ {};
-    // The zone ID of the instance.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

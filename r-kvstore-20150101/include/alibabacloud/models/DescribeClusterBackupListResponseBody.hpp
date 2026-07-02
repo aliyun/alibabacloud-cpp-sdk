@@ -393,6 +393,7 @@ namespace Models
       // *   RUNNING
       // *   Failed
       shared_ptr<string> clusterBackupStatus_ {};
+      // The time-to-live (TTL) of the backup set, in the format yyyy-MM-ddTHH:mmZ (UTC time).
       shared_ptr<string> expectExpireTime_ {};
       // Indicates whether the backup set is valid. A value of 0 indicates that shard-level backups failed or have not been completed.
       shared_ptr<int32_t> isAvail_ {};

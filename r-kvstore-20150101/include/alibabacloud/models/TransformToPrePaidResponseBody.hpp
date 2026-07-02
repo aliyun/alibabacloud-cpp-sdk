@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The time when the instance expires after the billing method of the instance is changed from pay-as-you-go to subscription.
+    // The expiration time of the instance\\"s new subscription.
     shared_ptr<string> endTime_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

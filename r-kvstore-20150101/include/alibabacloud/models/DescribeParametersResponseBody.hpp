@@ -311,11 +311,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeParametersResponseBody::ConfigParameters> configParameters_ {};
-    // The database engine that the instance runs.
+    // The database type.
     shared_ptr<string> engine_ {};
-    // The database engine version of the instance.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeParametersResponseBody::RunningParameters> runningParameters_ {};
   };

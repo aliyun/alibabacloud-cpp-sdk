@@ -33,6 +33,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceEndpointType, instanceEndpointType_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_TO_JSON(MaintainEndTime, maintainEndTime_);
+      DARABONBA_PTR_TO_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ParamGroupId, paramGroupId_);
@@ -82,6 +84,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceEndpointType, instanceEndpointType_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_FROM_JSON(MaintainEndTime, maintainEndTime_);
+      DARABONBA_PTR_FROM_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ParamGroupId, paramGroupId_);
@@ -160,13 +164,13 @@ namespace Models
 
 
     protected:
-      // The tag key. A tag is a key-value pair.
+      // The key of the tag.
       // 
-      // >  A maximum of five key-value pairs can be specified at a time.
+      // > A single request can contain up to five key-value pairs.
       shared_ptr<string> key_ {};
       // The value of the tag.
       // 
-      // >  **N** specifies the value of the nth tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+      // > **N** specifies the Nth tag in the request. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
       shared_ptr<string> value_ {};
     };
 
@@ -174,13 +178,13 @@ namespace Models
         && this->autoRenew_ == nullptr && this->autoRenewPeriod_ == nullptr && this->autoUseCoupon_ == nullptr && this->backupId_ == nullptr && this->businessInfo_ == nullptr
         && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->clusterBackupId_ == nullptr && this->connectionStringPrefix_ == nullptr && this->couponNo_ == nullptr
         && this->dryRun_ == nullptr && this->engineVersion_ == nullptr && this->globalInstanceId_ == nullptr && this->globalSecurityGroupIds_ == nullptr && this->instanceClass_ == nullptr
-        && this->instanceEndpointType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->paramGroupId_ == nullptr && this->password_ == nullptr && this->period_ == nullptr && this->port_ == nullptr && this->privateIpAddress_ == nullptr
-        && this->readOnlyCount_ == nullptr && this->recoverConfigMode_ == nullptr && this->regionId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->restoreTime_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr
-        && this->shardCount_ == nullptr && this->shardType_ == nullptr && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->srcDBInstanceId_ == nullptr
-        && this->storage_ == nullptr && this->storageType_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->instanceEndpointType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->paramGroupId_ == nullptr && this->password_ == nullptr && this->period_ == nullptr
+        && this->port_ == nullptr && this->privateIpAddress_ == nullptr && this->readOnlyCount_ == nullptr && this->recoverConfigMode_ == nullptr && this->regionId_ == nullptr
+        && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->restoreTime_ == nullptr
+        && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr && this->shardCount_ == nullptr && this->shardType_ == nullptr && this->slaveReadOnlyCount_ == nullptr
+        && this->slaveReplicaCount_ == nullptr && this->srcDBInstanceId_ == nullptr && this->storage_ == nullptr && this->storageType_ == nullptr && this->tag_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -312,6 +316,20 @@ namespace Models
     void deleteInstanceType() { this->instanceType_ = nullptr;};
     inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline CreateTairInstanceRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+    // maintainEndTime Field Functions 
+    bool hasMaintainEndTime() const { return this->maintainEndTime_ != nullptr;};
+    void deleteMaintainEndTime() { this->maintainEndTime_ = nullptr;};
+    inline string getMaintainEndTime() const { DARABONBA_PTR_GET_DEFAULT(maintainEndTime_, "") };
+    inline CreateTairInstanceRequest& setMaintainEndTime(string maintainEndTime) { DARABONBA_PTR_SET_VALUE(maintainEndTime_, maintainEndTime) };
+
+
+    // maintainStartTime Field Functions 
+    bool hasMaintainStartTime() const { return this->maintainStartTime_ != nullptr;};
+    void deleteMaintainStartTime() { this->maintainStartTime_ = nullptr;};
+    inline string getMaintainStartTime() const { DARABONBA_PTR_GET_DEFAULT(maintainStartTime_, "") };
+    inline CreateTairInstanceRequest& setMaintainStartTime(string maintainStartTime) { DARABONBA_PTR_SET_VALUE(maintainStartTime_, maintainStartTime) };
 
 
     // ownerAccount Field Functions 
@@ -517,197 +535,228 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // *   **true**: enables auto-renewal.
-    // *   **false** (default): disables auto-renewal.
-    shared_ptr<string> autoRenew_ {};
-    // The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+    // - **true**: Enable auto-renewal.
     // 
-    // >  This parameter is required if the **AutoRenew** parameter is set to **true**.
+    // - **false** (default): Disable auto-renewal.
+    shared_ptr<string> autoRenew_ {};
+    // The auto-renewal duration. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+    // 
+    // > This parameter is required only when the **AutoRenew** parameter is set to **true**.
     shared_ptr<string> autoRenewPeriod_ {};
     // Specifies whether to use a coupon. Valid values:
     // 
-    // *   **true**: uses a coupon.
-    // *   **false** (default): does not use a coupon.
-    shared_ptr<string> autoUseCoupon_ {};
-    // You can set the BackupId parameter to the backup set ID of the source instance. The system uses the data stored in the backup set to create an instance. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation to query the backup set ID. If the source instance is a cluster instance, set the BackupId parameter to the backup set IDs of all shards of the source instance, separated by commas (,). Example: "10\\*\\*,11\\*\\*,15\\*\\*".
+    // - **true**: Use a coupon.
     // 
-    // >  If your instance is a cloud-native cluster instance, we recommend that you use [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) to query the backup set ID of the cluster instance, such as cb-xx. Then, set the ClusterBackupId request parameter to the backup set ID to clone the cluster instance. This eliminates the need to specify the backup set ID of each shard.
+    // - **false** (default): Do not use a coupon.
+    shared_ptr<string> autoUseCoupon_ {};
+    // The ID of the backup set from the source instance. The system creates a new instance based on the data in this backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation to query the backup set ID. If the source instance is a cluster instance, you must specify the backup ID for each shard, separated by commas, for example, "10\\*\\*,11\\*\\*,15\\*\\*".
+    // 
+    // > If your instance is a cloud-native cluster instance, we recommend that you call the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation to query the cluster backup ID, such as `cb-xx`. Then, specify the cluster backup ID for the `ClusterBackupId` parameter to clone the cluster instance. This avoids the need to specify the backup ID of each shard.
     shared_ptr<string> backupId_ {};
-    // The ID of the promotional event or the business information.
+    // The business information. This can be the ID of a promotion or a business context.
     shared_ptr<string> businessInfo_ {};
     // The billing method of the instance. Valid values:
     // 
-    // *   **PrePaid** (default): subscription
-    // *   **PostPaid**: pay-as-you-go
+    // - **PrePaid** (default): The subscription billing method.
+    // 
+    // - **PostPaid**: The pay-as-you-go billing method.
     shared_ptr<string> chargeType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests and is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client-generated token that ensures the idempotence of the request. The token must be unique among different requests. It is case-sensitive and cannot exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
-    // This parameter is supported for specific new cluster instances. You can query the backup set ID by calling the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
+    // The ID of the cluster backup set. Some instances that use the cluster architecture support cluster backup sets. You can call the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation to query for cluster backup set IDs.
     // 
-    // *   If this parameter is supported, you can specify the backup set ID. In this case, you do not need to specify the **BackupId** parameter.
-    // *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets in all shards of the source instance, separated by commas (,). Example: "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22".
+    // - If this feature is supported, you can specify this parameter and leave the **BackupId** parameter empty.
+    // 
+    // - If this feature is not supported, you must specify the backup ID of each shard of the source instance for the `BackupId` parameter. Separate the backup IDs with commas, for example, "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22".
     shared_ptr<string> clusterBackupId_ {};
-    // The prefix of the endpoint. The prefix must be 8 to 40 characters in length and can contain lowercase letters and digits. It must start with a lowercase letter.
+    // The prefix of the connection string. It must start with a lowercase letter, consist of lowercase letters and digits, and be 8 to 40 characters in length.
     // 
-    // >  The endpoint must be in the \\<prefix>.redis.rds.aliyuncs.com format.
+    // > The full connection string is in the format of `<prefix>-<instance ID>.redis.rds.aliyuncs.com`.
     shared_ptr<string> connectionStringPrefix_ {};
     // The coupon code.
     shared_ptr<string> couponNo_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a precheck for this request. Valid values:
     // 
-    // *   **true**: performs a dry run and does not create the instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails the dry run, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-    // *   **false** (false): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
+    // - **true**: Performs a precheck and does not create the instance. The system checks the request parameters, request format, service limits, and available inventory. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): Sends a normal request and creates the instance after the request passes the precheck.
     shared_ptr<bool> dryRun_ {};
-    // The database engine version. Default value: **1.0**. The parameter value varies based on the Tair instance series.
+    // The database version. Default value: **1.0**. The valid values depend on the Tair instance series:
     // 
-    // *   To create a Tair DRAM-based instance (Tair_rdb) that is compatible with Redis 5.0, 6.0, or 7.0, set this parameter to **5.0**, **6.0**, or **7.0**.
-    // *   To create a Tair persistent memory-optimized instance (tair_scm) that is compatible with Redis 6.0, set this parameter to **1.0**.
-    // *   To create a Tair ESSD-based instance (tair_essd) that is compatible with Redis 6.0, set this parameter to **1.0**. To create a Tair SSD-based instance that is compatible with Redis 6.0, set this parameter to **2.0**.
+    // - **tair_rdb**: Tair memory-enhanced instances are compatible with Redis 5.0, Redis 6.0, and Redis 7.0. Set the value to **5.0**, **6.0**, or **7.0**.
+    // 
+    // - **tair_scm**: Tair persistent memory-optimized instances are compatible with Redis 6.0. Set the value to **1.0**.
+    // 
+    // - **tair_essd**: Tair disk-based instances (ESSD/SSD) are compatible with Redis 6.0. Set the value to **1.0** to create an ESSD-based instance or **2.0** to create an SSD-based instance.
     shared_ptr<string> engineVersion_ {};
-    // Specifies whether to use the created instance as a child instance of a distributed instance.
+    // Specifies whether to create the instance as a child instance in a distributed instance. By using this parameter, you can create a distributed instance.
     // 
-    // *   If you want the created instance to be used as the first child instance, enter **true**.
-    // *   If you want the created instance to be used as the second or third child instance, enter the ID of the distributed instance, such as gr-bp14rkqrhac\\*\\*\\*\\*.
-    // *   If you do not want the created instance to be used as a distributed instance, leave the parameter empty.
+    // - To create the first child instance, set this parameter to **true**.
     // 
-    // >  If you want the created instance to be used as a distributed instance, the created instance must be a Tair DRAM-based instance.
+    // - To create the second or third child instance, specify the ID of the distributed instance, such as `gr-bp14rkqrhac****`.
+    // 
+    // - If you do not want to create a distributed instance, do not specify this parameter.
+    // 
+    // > To be created as a child instance of a distributed instance, the new instance must be a Tair memory-enhanced instance.
     shared_ptr<string> globalInstanceId_ {};
-    // The global IP whitelist templates of the instance. Separate multiple IP whitelist templates with commas (,). Each IP whitelist template must be unique.
+    // The IDs of the global IP whitelist templates for the instance. To specify multiple template IDs, separate them with commas. The IDs cannot be repeated.
     shared_ptr<string> globalSecurityGroupIds_ {};
-    // The instance series. For more information, see the following topics:
+    // The instance type. For more information, see the following topics:
     // 
-    // *   [DRAM-based instances](https://help.aliyun.com/document_detail/2527112.html)
-    // *   [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/2527110.html)
-    // *   [ESSD/SSD-based instances](https://help.aliyun.com/document_detail/2527111.html)
+    // - [Memory-enhanced instance types](https://help.aliyun.com/document_detail/2527112.html)
+    // 
+    // - [Persistent memory-optimized instance types](https://help.aliyun.com/document_detail/2527110.html)
+    // 
+    // - [Disk-based instance types](https://help.aliyun.com/document_detail/2527111.html)
     // 
     // This parameter is required.
     shared_ptr<string> instanceClass_ {};
+    // The type of connection string to use when creating a cloud-native, dual-zone instance with the read/write splitting architecture. If you do not specify this parameter, the default value `AzIndependentEndpoint` is used.
+    // 
+    // - **AzIndependentEndpoint** (**default**): Zone-specific connection string. The primary and secondary zones each provide an independent connection string, allowing clients to connect to the nearest zone.
+    // 
+    // - **UnifiedEndpoint**: Unified connection string. A single connection string is provided to access nodes in both the primary and secondary zones, but this may cause cross-zone access.
+    // 
+    // >Notice: 
+    // 
+    // This parameter applies only to cloud-native, dual-zone instances with the read/write splitting architecture. Other instance types support only zone-specific connection strings.
+    // 
+    // 
+    // 
+    // >Notice: 
+    // 
+    // The `UnifiedEndpoint` option is available only to users on a whitelist. If a non-whitelisted user specifies this value, the request fails. To request access, submit a ticket.
     shared_ptr<string> instanceEndpointType_ {};
     // The name of the instance. The name must meet the following requirements:
     // 
-    // *   The name must be 2 to 80 characters in length.
-    // *   The name must start with a letter and cannot contain spaces or special characters. Special characters include `@ / : = " < > { [ ] }`
-    shared_ptr<string> instanceName_ {};
-    // The instance series. Valid values:
+    // - It must be 2 to 80 characters in length.
     // 
-    // *   **tair_rdb**: Tair DRAM-based instance
-    // *   **tair_scm**: Tair persistent memory-optimized instance
-    // *   **tair_essd**: Tair ESSD/SSD-based instance
+    // - It must start with an uppercase or lowercase letter or a Chinese character. It cannot contain spaces or the following special characters: `@/:=”<>{[]}`.
+    shared_ptr<string> instanceName_ {};
+    // The Tair instance series, which determines the storage medium. Valid values:
+    // 
+    // - **tair_rdb**: memory-enhanced
+    // 
+    // - **tair_scm**: persistent memory-optimized
+    // 
+    // - **tair_essd**: disk-based
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
+    // The end time of the maintenance window. Specify the time in the *HH:mm*Z format (UTC). For example, to end the maintenance at 02:00 (UTC+8), set this parameter to `18:00Z`.
+    // 
+    // > The maintenance window must be at least one hour long.
+    // 
+    // > If this parameter is not specified, the maintenance window ends at 22:00 UTC (06:00 UTC+8) by default.
+    shared_ptr<string> maintainEndTime_ {};
+    // The start time of the maintenance window. Specify the time in the *HH:mm*Z format (UTC). For example, to start the maintenance at 01:00 (UTC+8), set this parameter to `17:00Z`.
+    // 
+    // > If this parameter is not specified, the maintenance window starts at 18:00 UTC (02:00 UTC+8) by default.
+    shared_ptr<string> maintainStartTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the parameter template. The instance is created based on the parameters in the parameter template. The ID must be unique.
+    // The ID of the parameter template. The instance is created by using the parameters defined in this template.
     shared_ptr<string> paramGroupId_ {};
-    // The password that is used to connect to the instance. The password must meet the following requirements:
+    // The password of the instance. The password must meet the following requirements:
     // 
-    // *   The password must be 8 to 32 characters in length.
-    // *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+    // - It must be 8 to 32 characters in length.
+    // 
+    // - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The supported special characters are `!@#$%^&*()_+-=`.
     shared_ptr<string> password_ {};
-    // The subscription duration. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**,**36**, and **60**. Unit: month.
+    // The subscription duration, in months. Valid values: **1**, **2**, **3**, **4**, **5**, **6**, 7, 8, 9, 12, 24, 36, and 60.
     // 
-    // >  This parameter is required only if the **ChargeType** parameter is set to **PrePaid**.
+    // > This parameter is required only when you set the `ChargeType` parameter to `PrePaid`.
     shared_ptr<int32_t> period_ {};
-    // The service port number of the instance. Valid values: 1024 to 65535. Default value: 6379.
+    // The service port of the instance. Valid values: 1 to 65535. Default value: 6379.
     shared_ptr<int32_t> port_ {};
-    // The internal IP address of the instance.
+    // The private IP address of the instance.
     // 
-    // >  The IP address must be within the CIDR block of the vSwitch to which you want the instance to connect. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation of VPC to query the CIDR block information.
+    // > The IP address must be within the CIDR block of the vSwitch to which the instance belongs. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query the CIDR block information.
     shared_ptr<string> privateIpAddress_ {};
-    // The number of read replicas in the primary zone. This parameter applies only to cloud-native read/write splitting instances. Valid values: 1 to 9.
+    // The number of read-only nodes in the primary zone. This parameter is applicable only to cloud-native instances that use the read/write splitting architecture.
     // 
-    // >  The sum of the values of this parameter and the SlaveReadOnlyCount parameter cannot exceed 9.
+    // - If the instance uses the standard architecture, the valid values are 1 to 9.
+    // 
+    // - If the instance uses the cluster architecture, specify the number of read-only nodes per shard. The valid values are 1 to 4.
+    // 
+    // > If you create a multi-zone instance, you can use this parameter and the `SlaveReadOnlyCount` parameter to customize the number of read-only nodes in the primary and secondary zones.
+    // >
+    // > - If the instance uses the standard architecture, the sum of `ReadOnlyCount` and `SlaveReadOnlyCount` cannot exceed 9.
+    // >
+    // > - If the instance uses the cluster architecture, the sum of `ReadOnlyCount` and `SlaveReadOnlyCount` cannot exceed 4.
     shared_ptr<int32_t> readOnlyCount_ {};
-    // Specifies whether to restore the account, kernel parameter, and whitelist information from the original backup set when you create an instance from the specified backup set. For example, if you want to restore the account information, set the parameter to `{"account":true}`.
+    // When creating an instance from a backup set, specifies whether to restore configurations such as account information (`account`), kernel parameters (`config`), and whitelists (`whitelist`) from the source backup set. To restore a specific configuration, specify its keyword. To restore multiple configurations, separate the keywords with commas.
     // 
-    // This parameter is empty by default, which indicates that the account, kernel parameter, and whitelist information is not restored from the original backup set.
+    // If this parameter is not specified, no configurations are restored from the source backup set.
     // 
-    // >  This parameter applies only to cloud-native cluster instances. The account, kernel parameter, and whitelist information must be stored in the original backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation to check whether the RecoverConfigMode configurations in the specified backup set contain the preceding information.
+    // > This parameter applies only to cloud-native instances, and the source backup set must contain the specified configuration information. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation and check the `RecoverConfigMode` parameter in the response to check if the backup set contains the information.
     shared_ptr<string> recoverConfigMode_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+    // The ID of the region where you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The number of replica nodes in the primary zone. This parameter applies only to cloud-native multi-replica cluster instances. Valid values: 1 to 4.
+    // The number of replica nodes in the primary zone. This parameter is applicable only to cloud-native, multi-replica cluster instances. You can use this parameter to customize the number of replica nodes. Valid values: 1 to 4.
     // 
-    // > 
-    // 
-    // *   The sum of the values of this parameter and the SlaveReplicaCount parameter cannot exceed 4.
-    // 
-    // *   You can specify only one of the ReplicaCount and ReadOnlyCount parameters.
-    // 
-    // *   Master-replica instances do not support multiple replicas.
+    // > If you create a multi-zone instance, you can use this parameter and the `SlaveReplicaCount` parameter to customize the number of replica nodes in the primary and secondary zones. The sum of `ReplicaCount` and `SlaveReplicaCount` cannot exceed 4.
     shared_ptr<int32_t> replicaCount_ {};
-    // The ID of the resource group that you want to manage.
+    // The ID of the resource group to which the instance belongs.
     // 
-    // > 
-    // 
-    // *   You can query resource group IDs in the console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View the basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
-    // 
-    // *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
+    // > - You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the Resource Management console to query the IDs of resource groups. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // >
+    // > - Before you change the resource group of an instance, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // If data flashback is enabled for the source instance, you can use this parameter to specify a point in time within the backup retention period of the source instance. The system uses the backup data of the source instance at the point in time to create an instance. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // If point-in-time recovery (PITR) is enabled for the source instance, you can specify a point in time within the backup retention period. The system creates a new instance by using the backup data of the source instance at that point in time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
     shared_ptr<string> restoreTime_ {};
-    // The ID of the secondary zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the ID of the secondary zone.
+    // The ID of the secondary zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query available zones.
     // 
-    // >  You cannot specify multiple zone IDs or set this parameter to a value that is the same as that of the ZoneId parameter.
+    // > The value of this parameter cannot be the same as the value of the `ZoneId` parameter. You cannot specify a multi-zone ID.
     shared_ptr<string> secondaryZoneId_ {};
     shared_ptr<string> securityToken_ {};
-    // The number of data nodes in the instance. Valid values:
+    // The number of shards in the instance. Valid values:
     // 
-    // *   **1** (default): You can create a [standard instance](https://help.aliyun.com/document_detail/52228.html) that contains only one data node.
-    // *   **2** to **32**: You can create a [cluster instance](https://help.aliyun.com/document_detail/52228.html) that contains the specified number of data nodes.
+    // - **1** (default): Creates a standard architecture instance with a single shard.
     // 
-    // >  When the **InstanceType** parameter is set to **tair_rdb** or **tair_scm**, this parameter can be set to a value in the range of **2** to **32**. Only DRAM-based and persistent memory-optimized instances support the cluster architecture.
+    // - From **2** to **32**: Creates a cluster architecture instance with the specified number of shards.
+    // 
+    // > You can specify a value from **2** to **32** for this parameter only when you set the **InstanceType** parameter to `tair_rdb` or `tair_scm`. Only memory-enhanced and persistent memory-optimized instances support the cluster architecture.
     shared_ptr<int32_t> shardCount_ {};
-    // The shard type of the instance. Valid values:
+    // The architecture type of the instance. Valid values:
     // 
-    // *   **MASTER_SLAVE** (default): runs in a master-replica architecture that provides high availability.
-    // *   **STAND_ALONE**: runs in a standalone architecture. If the only node fails, the system creates a new instance and switches the workloads to the new instance. This may cause data loss. You can set the ShardType parameter to this value only if the instance uses the **single-zone** deployment mode. If you set the ShardType parameter to this value, you cannot create cluster or read/write splitting instances.
+    // - **MASTER_SLAVE** (default): The primary/replica architecture, which provides high availability.
+    // 
+    // - **STAND_ALONE**: single-replica. This architecture uses a single node. If the node fails, data is lost, and the system automatically creates a new, empty instance. This architecture is supported only for **single-zone** deployments and does not support cluster or read/write splitting architectures.
     shared_ptr<string> shardType_ {};
-    // The number of read replicas in the secondary zone when you create a multi-zone read/write splitting instance. The sum of the values of this parameter and the ReadOnlyCount parameter cannot exceed 9.
-    // 
-    // > When you create a multi-zone read/write splitting instance, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
+    // The number of read-only nodes in the secondary zone.
     shared_ptr<int32_t> slaveReadOnlyCount_ {};
-    // The number of replica nodes in the secondary zone when you create a cloud-native multi-replica cluster instance deployed across multiple zones. The sum of the values of this parameter and the ReplicaCount parameter cannot exceed 4.
-    // 
-    // >  When you create a cloud-native multi-replica cluster instance deployed across multiple zones, you must specify both SlaveReplicaCount and SecondaryZoneId.
+    // The number of replica nodes in the secondary zone.
     shared_ptr<int32_t> slaveReplicaCount_ {};
-    // If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
+    // To create an instance from a backup set of an existing instance, specify the ID of the source instance.
     // 
-    // >  After you specify the SrcDBInstanceId parameter, use the **BackupId**, **ClusterBackupId** (recommended for cloud-native cluster instances), or **RestoreTime** parameter to specify the backup set or the specific point in time that you want to use to create an instance. The SrcDBInstanceId parameter must be used in combination with one of the preceding three parameters.
+    // > You must also specify the backup data by using one of the following parameters: **BackupId**, **ClusterBackupId**, or **RestoreTime**. We recommend that you use `ClusterBackupId` for cloud-native instances that use a cluster architecture.
     shared_ptr<string> srcDBInstanceId_ {};
-    // The storage capacity of the ESSD/SSD-based instance. The valid values vary based on the instance type. For more information, see [ESSD/SSD-based instances](https://help.aliyun.com/document_detail/2527111.html).
+    // The storage space of the disk-based instance. The valid values of this parameter vary based on the instance type. For more information, see [Disk-based instance types](https://help.aliyun.com/document_detail/2527111.html).
     // 
-    // >  This parameter is required only when you set the **InstanceType** parameter to **tair_essd** to create an ESSD-based instance. If you create a Tair **SSD**-based instance, the Storage parameter is automatically specified based on predefined specifications. You do not need to specify this parameter.
+    // > This parameter is required only when you set the **InstanceType** parameter to `tair_essd` to create a Tair instance that uses an ESSD. For Tair instances that use standard `SSD`s, the storage capacity is determined by the instance type and you do not need to specify this parameter.
     shared_ptr<int32_t> storage_ {};
     // The storage type. Valid values: **essd_pl1**, **essd_pl2**, and **essd_pl3**.
     // 
-    // >  This parameter is required only when you set the **InstanceType** parameter to **tair_essd** to create an ESSD-based instance.
-    // 
-    // Enumerated values:
-    // 
-    // *   essd_pl0
-    // *   essd_pl1
-    // *   essd_pl2
-    // *   essd_pl3
+    // > This parameter is required only when you set the **InstanceType** parameter to `tair_essd` to create a Tair instance that uses an Enhanced SSD (ESSD).
     shared_ptr<string> storageType_ {};
-    // Details of the tags.
+    // The tags of the instance.
     shared_ptr<vector<CreateTairInstanceRequest::Tag>> tag_ {};
-    // The ID of the vSwitch that belongs to the VPC. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query vSwitch IDs.
+    // The ID of the vSwitch in the specified VPC. You can call the VPC API operation [DescribeVSwitches](https://help.aliyun.com/document_detail/35739.html) to obtain the vSwitch ID.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query VPC IDs.
+    // The ID of the Virtual Private Cloud (VPC) where you want to create the instance. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query available VPCs.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The ID of the primary zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent zone list.
+    // The ID of the primary zone where you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query available zones.
     // 
-    // >  You can also set the SecondaryZoneId parameter to specify the secondary zone. The primary and secondary nodes will then be deployed in the specified primary and secondary zones to implement the master-replica zone-disaster recovery architecture. For example, you can set the ZoneId parameter to cn-hangzhou-h and the SecondaryZoneId parameter to cn-hangzhou-g.
+    // > You can also specify a secondary zone by using the `SecondaryZoneId` parameter. This deploys the primary and replica nodes in different zones within the same region for a high-availability primary/replica architecture. For example, you can set `ZoneId` to `cn-hangzhou-h` and `SecondaryZoneId` to `cn-hangzhou-g`.
     shared_ptr<string> zoneId_ {};
   };
 

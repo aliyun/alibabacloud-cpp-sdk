@@ -167,32 +167,33 @@ namespace Models
 
 
   protected:
-    // The maximum bandwidth of the instance. Unit: Mbit/s.
+    // The maximum bandwidth in MB/s.
     shared_ptr<int64_t> bandwidth_ {};
-    // The billing method of the instance. Valid values:
+    // The charge type. Valid values:
     // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid**: pay-as-you-go
+    // - **PrePaid**: prepaid.
+    // 
+    // - **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The detailed configurations of the instance. The value is a JSON string. For more information about the parameters, see [Configure parameters](https://help.aliyun.com/document_detail/43885.html).
+    // The detailed configuration of the instance, returned as a JSON string. For parameter details, see [Configuration parameters](https://help.aliyun.com/document_detail/43885.html).
     shared_ptr<string> config_ {};
-    // The internal endpoint of the instance.
+    // The internal connection address.
     shared_ptr<string> connectionDomain_ {};
-    // The maximum number of connections to the instance.
+    // The maximum number of connections.
     shared_ptr<int64_t> connections_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The instance name.
     // 
-    // >  This parameter is returned only if the **InstanceName** parameter is specified in the request.
+    // > This parameter is returned only when the **InstanceName** parameter is specified in the request.
     shared_ptr<string> instanceName_ {};
-    // The current status of the instance. The value is **Creating**.
+    // The instance status. The value is always **Creating**.
     shared_ptr<string> instanceStatus_ {};
     // The order ID.
     shared_ptr<int64_t> orderId_ {};
-    // The service port number of the instance.
+    // The instance port.
     shared_ptr<int32_t> port_ {};
-    // The maximum number of read and write operations that can be processed by the instance per second. The value is a theoretical value.
+    // The theoretical maximum number of read and write operations per second (QPS) for the instance.
     shared_ptr<int64_t> QPS_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -200,7 +201,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The zone ID.
+    // The availability zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

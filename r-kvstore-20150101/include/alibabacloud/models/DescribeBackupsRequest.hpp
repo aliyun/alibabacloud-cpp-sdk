@@ -151,33 +151,34 @@ namespace Models
   protected:
     // The ID of the backup file.
     shared_ptr<int64_t> backupId_ {};
-    // The backup task ID, returned by CreateBackup. If CreateBackup returns multiple BackupJobIds, you need to use this interface to query each of them separately.
+    // The ID of the backup job returned by the `CreateBackup` operation. If `CreateBackup` returns multiple backup job IDs, call this operation for each ID.
     shared_ptr<int64_t> backupJobId_ {};
-    // The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+    // The end time for the query. The end time must be later than the start time. Specify the time in UTC using the *yyyy-MM-dd*T*HH:mm*Z format.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The ID of the instance whose backup files you want to query.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to enable append-only files (AOFs) persistence. Valid values:
+    // Specifies whether to enable AOF persistence. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: Disabled.
     // 
-    // >  The default value is **0**.
+    // - **1**: Enabled.
+    // 
+    // > The default value is **0**.
     shared_ptr<string> needAof_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be an integer that is greater than **0**. Default value: **1**.
+    // The page number to return. The value must be greater than **0**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page. Valid values: 30, 50, 100, 200, and 300.
+    // The maximum number of entries to return per page. Valid values: `30`, `50`, `100`, `200`, and `300`.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The start time for the query. Specify the time in UTC using the *yyyy-MM-dd*T*HH:mm*Z format.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

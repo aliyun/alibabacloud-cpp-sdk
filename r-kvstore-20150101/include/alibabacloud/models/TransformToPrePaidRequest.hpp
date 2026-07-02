@@ -130,28 +130,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto-renewal. Default value: false. Valid values:
+    // Specifies whether to enable auto-payment. Valid values:
     // 
-    // *   **true**: enables auto-renewal.
-    // *   **false**: disables auto-renewal. In this case, you can renew your instance in the console. For more information, see [Manually renew an instance](https://help.aliyun.com/document_detail/26352.html).
+    // - **true**: Automatically completes the payment.
+    // 
+    // - **false** (default): An order is generated, but is not automatically paid. You must then log on to the console to pay for the *order*. For more information, see [Manually renew an instance](https://help.aliyun.com/document_detail/26352.html).
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // * *true*: enables auto-renewal.
-    // * *false* (default): disables auto-renewal.
-    shared_ptr<string> autoRenew_ {};
-    // The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+    // - **true**: Auto-renewal is enabled.
     // 
-    // >  This parameter is required if the **AutoRenew** parameter is set to **true**.
+    // - **false**: Auto-renewal is disabled.
+    shared_ptr<string> autoRenew_ {};
+    // The auto-renewal period. Unit: months. Valid values: **1**, **2**, **3**, **6**, and **12**.
+    // 
+    // > This parameter is required if **AutoRenew** is set to **true**.
     shared_ptr<int64_t> autoRenewPeriod_ {};
+    // The coupon code.
     shared_ptr<string> couponNo_ {};
-    // The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
+    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration of the instance. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+    // The subscription duration. Unit: months. Valid values: **1**, **2**, **3**, **4**, **5**, **6**, **7**, **8**, **9**, **12**, **24**, and **36**.
     // 
     // This parameter is required.
     shared_ptr<int64_t> period_ {};

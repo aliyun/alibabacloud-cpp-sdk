@@ -21,12 +21,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(IsAcrossZone, isAcrossZone_);
+      DARABONBA_PTR_TO_JSON(IzNo, izNo_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(SecondaryIzNo, secondaryIzNo_);
       DARABONBA_PTR_TO_JSON(ShardCount, shardCount_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, TransformToEcsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
@@ -37,12 +41,16 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(IsAcrossZone, isAcrossZone_);
+      DARABONBA_PTR_FROM_JSON(IzNo, izNo_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(SecondaryIzNo, secondaryIzNo_);
       DARABONBA_PTR_FROM_JSON(ShardCount, shardCount_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
     TransformToEcsRequest() = default ;
     TransformToEcsRequest(const TransformToEcsRequest &) = default ;
@@ -57,8 +65,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->chargeType_ == nullptr && this->dryRun_ == nullptr && this->effectiveTime_ == nullptr && this->engineVersion_ == nullptr
-        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->period_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->shardCount_ == nullptr; };
+        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->isAcrossZone_ == nullptr && this->izNo_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->period_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->secondaryIzNo_ == nullptr
+        && this->shardCount_ == nullptr && this->vSwitchId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -115,6 +124,20 @@ namespace Models
     inline TransformToEcsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // isAcrossZone Field Functions 
+    bool hasIsAcrossZone() const { return this->isAcrossZone_ != nullptr;};
+    void deleteIsAcrossZone() { this->isAcrossZone_ = nullptr;};
+    inline bool getIsAcrossZone() const { DARABONBA_PTR_GET_DEFAULT(isAcrossZone_, false) };
+    inline TransformToEcsRequest& setIsAcrossZone(bool isAcrossZone) { DARABONBA_PTR_SET_VALUE(isAcrossZone_, isAcrossZone) };
+
+
+    // izNo Field Functions 
+    bool hasIzNo() const { return this->izNo_ != nullptr;};
+    void deleteIzNo() { this->izNo_ = nullptr;};
+    inline string getIzNo() const { DARABONBA_PTR_GET_DEFAULT(izNo_, "") };
+    inline TransformToEcsRequest& setIzNo(string izNo) { DARABONBA_PTR_SET_VALUE(izNo_, izNo) };
+
+
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
@@ -150,6 +173,13 @@ namespace Models
     inline TransformToEcsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // secondaryIzNo Field Functions 
+    bool hasSecondaryIzNo() const { return this->secondaryIzNo_ != nullptr;};
+    void deleteSecondaryIzNo() { this->secondaryIzNo_ = nullptr;};
+    inline string getSecondaryIzNo() const { DARABONBA_PTR_GET_DEFAULT(secondaryIzNo_, "") };
+    inline TransformToEcsRequest& setSecondaryIzNo(string secondaryIzNo) { DARABONBA_PTR_SET_VALUE(secondaryIzNo_, secondaryIzNo) };
+
+
     // shardCount Field Functions 
     bool hasShardCount() const { return this->shardCount_ != nullptr;};
     void deleteShardCount() { this->shardCount_ = nullptr;};
@@ -157,55 +187,78 @@ namespace Models
     inline TransformToEcsRequest& setShardCount(int64_t shardCount) { DARABONBA_PTR_SET_VALUE(shardCount_, shardCount) };
 
 
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline TransformToEcsRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
   protected:
-    // Specifies whether to enable the auto-renewal feature. Valid values:
+    // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   **true**: enables auto-renewal.
-    // *   **false**: does not enable auto-renewal.
+    // - **true**: enables auto-renewal.
+    // 
+    // - **false**: disables auto-renewal.
     shared_ptr<string> autoRenew_ {};
-    // The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+    // The auto-renewal cycle. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
     // 
-    // > This parameter is required if the **AutoRenew** parameter is set to **true**.
+    // > This parameter is required if you set **AutoRenew** to **true**.
     shared_ptr<int64_t> autoRenewPeriod_ {};
-    // The new billing method. Valid values:
+    // The billing method of the target instance. Valid values:
     // 
-    // *   **PostPaid:** pay-as-you-go
-    // *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
+    // - **PostPaid**: pay-as-you-go
+    // 
+    // - **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
     shared_ptr<string> chargeType_ {};
-    // Specifies whether to perform a precheck before the system creates the instance. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: The system performs a dry run and does not create the cloud-native instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-    // *   **false**: performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+    // - **true**: performs a dry run to check the request. The check items include the required parameters, request format, service limits, and available resources. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): sends a normal request and creates an instance after the request passes the check.
     shared_ptr<bool> dryRun_ {};
-    // The time when a database switchover is performed after data is migrated. Valid values:
+    // The time when to switch the database after data migration. Valid values:
     // 
-    // *   **Immediately**: A database switchover is performed immediately after data is migrated.
-    // *   **MaintainTime**: A database switchover is performed during the maintenance window.
+    // - **Immediately**: The database is immediately switched after the migration is complete.
     // 
-    // > Default value: Immediately.
+    // - **MaintainTime**: The database is switched within the maintenance window.
+    // 
+    // > Default value: **Immediately**.
     shared_ptr<string> effectiveTime_ {};
-    // The database engine version of the instance. Valid values: **5.0**, **6.0**, and **7.0**.
+    // The Redis-compatible version of the instance. Valid values: **5.0**, **6.0**, and **7.0**.
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // The instance specification of the cloud-native instance. For more information, see [Overview](https://help.aliyun.com/document_detail/26350.html).
+    // The instance type of the target cloud-native instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26350.html).
+    // 
+    // > If you want to convert a cluster instance, you must specify the corresponding cloud-native cluster instance type that includes .with.proxy in its name and specify the ShardCount parameter.
+    // >
+    // > - For a cluster instance, you must provide the corresponding cloud-native cluster specification that includes `.proxy`. You must also specify the number of shards by using the `ShardCount` parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceClass_ {};
-    // The ID of the instance that you want to convert.
+    // The ID of the classic instance that you want to convert.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to deploy the instance across availability zones. This feature is supported only for cluster instances.
+    shared_ptr<bool> isAcrossZone_ {};
+    // The ID of the availability zone.
+    shared_ptr<string> izNo_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration of the instance. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, **36**.
+    // The subscription duration. Unit: month. Valid values: **1**, **2**, **3**, **4**, **5**, 6, 7, 8, 9, 12, 24, and 36.
     // 
-    // > This parameter is available and required only if the **ChargeType** parameter is set to **PrePaid**.
+    // > This parameter is available and required only if you set the **ChargeType** parameter to **PrePaid**.
     shared_ptr<int64_t> period_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the secondary availability zone.
+    shared_ptr<string> secondaryIzNo_ {};
     // The number of data shards in the cloud-native cluster instance.
     shared_ptr<int64_t> shardCount_ {};
+    // The ID of the vSwitch.
+    shared_ptr<string> vSwitchId_ {};
   };
 
   } // namespace Models

@@ -99,17 +99,17 @@ namespace Models
 
 
     protected:
-      // The IDs of the instances that are associated with the IP whitelist template.
+      // An array of instance IDs that are associated with the global IP whitelist template.
       shared_ptr<vector<string>> DBInstances_ {};
-      // The IP address in the IP whitelist template.
+      // The IP addresses in the global IP whitelist template.
       // 
-      // >  Multiple IP addresses are separated by commas (,).
+      // > Separate multiple IP addresses with a comma.
       shared_ptr<string> GIpList_ {};
-      // The name of the IP whitelist template.
+      // The name of the global IP whitelist template.
       shared_ptr<string> globalIgName_ {};
-      // The ID of the IP whitelist template.
+      // The ID of the global IP whitelist template.
       shared_ptr<string> globalSecurityGroupId_ {};
-      // The region ID.
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
     };
 
@@ -132,9 +132,9 @@ namespace Models
 
 
   protected:
-    // The information about the IP whitelist template.
+    // An array of global IP whitelist templates.
     shared_ptr<vector<DescribeGlobalSecurityIPGroupResponseBody::GlobalSecurityIPGroup>> globalSecurityIPGroup_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -167,24 +167,41 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token is case-sensitive and can contain up to 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The instance name. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot contain the following characters: @/:="<>{} and spaces.
     shared_ptr<string> instanceName_ {};
+    // The instance type. Set the value to tair_skv_ddb_ws.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The password of the instance. The password must meet the following requirements:
+    // * The password is 8 to 32 characters in length.
+    // * The password contains at least three of the following character types: uppercase letters, lowercase letters, special characters, and digits. Supported special characters are `!@#$%^&*()_+-=`.
     shared_ptr<string> password_ {};
+    // The service port of the instance. Valid values: 1 to 65535. Default value: 443.
     shared_ptr<int32_t> port_ {};
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/61012.htm) to query available regions. Use this parameter to specify the region in which to create the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The ID of the vSwitch.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the virtual private cloud (VPC).
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query available zones.
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

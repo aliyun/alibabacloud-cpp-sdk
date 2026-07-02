@@ -20,8 +20,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
+      DARABONBA_PTR_TO_JSON(SourceNodeId, sourceNodeId_);
       DARABONBA_PTR_TO_JSON(SwitchMode, switchMode_);
       DARABONBA_PTR_TO_JSON(SwitchType, switchType_);
+      DARABONBA_PTR_TO_JSON(TargetNodeId, targetNodeId_);
+      DARABONBA_PTR_TO_JSON(TargetShardName, targetShardName_);
     };
     friend void from_json(const Darabonba::Json& j, SwitchInstanceHARequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -31,8 +34,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
+      DARABONBA_PTR_FROM_JSON(SourceNodeId, sourceNodeId_);
       DARABONBA_PTR_FROM_JSON(SwitchMode, switchMode_);
       DARABONBA_PTR_FROM_JSON(SwitchType, switchType_);
+      DARABONBA_PTR_FROM_JSON(TargetNodeId, targetNodeId_);
+      DARABONBA_PTR_FROM_JSON(TargetShardName, targetShardName_);
     };
     SwitchInstanceHARequest() = default ;
     SwitchInstanceHARequest(const SwitchInstanceHARequest &) = default ;
@@ -47,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
         && this->nodeId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->securityToken_ == nullptr && this->switchMode_ == nullptr && this->switchType_ == nullptr; };
+        && this->securityToken_ == nullptr && this->sourceNodeId_ == nullptr && this->switchMode_ == nullptr && this->switchType_ == nullptr && this->targetNodeId_ == nullptr
+        && this->targetShardName_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -97,6 +104,13 @@ namespace Models
     inline SwitchInstanceHARequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
+    // sourceNodeId Field Functions 
+    bool hasSourceNodeId() const { return this->sourceNodeId_ != nullptr;};
+    void deleteSourceNodeId() { this->sourceNodeId_ = nullptr;};
+    inline string getSourceNodeId() const { DARABONBA_PTR_GET_DEFAULT(sourceNodeId_, "") };
+    inline SwitchInstanceHARequest& setSourceNodeId(string sourceNodeId) { DARABONBA_PTR_SET_VALUE(sourceNodeId_, sourceNodeId) };
+
+
     // switchMode Field Functions 
     bool hasSwitchMode() const { return this->switchMode_ != nullptr;};
     void deleteSwitchMode() { this->switchMode_ = nullptr;};
@@ -111,34 +125,51 @@ namespace Models
     inline SwitchInstanceHARequest& setSwitchType(string switchType) { DARABONBA_PTR_SET_VALUE(switchType_, switchType) };
 
 
+    // targetNodeId Field Functions 
+    bool hasTargetNodeId() const { return this->targetNodeId_ != nullptr;};
+    void deleteTargetNodeId() { this->targetNodeId_ = nullptr;};
+    inline string getTargetNodeId() const { DARABONBA_PTR_GET_DEFAULT(targetNodeId_, "") };
+    inline SwitchInstanceHARequest& setTargetNodeId(string targetNodeId) { DARABONBA_PTR_SET_VALUE(targetNodeId_, targetNodeId) };
+
+
+    // targetShardName Field Functions 
+    bool hasTargetShardName() const { return this->targetShardName_ != nullptr;};
+    void deleteTargetShardName() { this->targetShardName_ = nullptr;};
+    inline string getTargetShardName() const { DARABONBA_PTR_GET_DEFAULT(targetShardName_, "") };
+    inline SwitchInstanceHARequest& setTargetShardName(string targetShardName) { DARABONBA_PTR_SET_VALUE(targetShardName_, targetShardName) };
+
+
   protected:
-    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of the instance.
+    // The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the data shard. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to obtain the value of the CustinsId parameter. Separate multiple data shard IDs with commas (,). `all` indicates that all data shards are specified.
-    // 
-    // > This parameter is available and required only for read/write splitting and cluster instances.
+    // The ID of the data shard node. You can call [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) to obtain the CustinsId parameter. Separate multiple data shard node IDs with commas (,). To specify all nodes, enter `all`.
+    // > This parameter is available and required only when the instance uses the cluster or read/write splitting architecture.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The time when to perform the switchover. Default value: 0. Valid values:
+    // The node ID of the original MASTER node in the shard.
+    shared_ptr<string> sourceNodeId_ {};
+    // The execution time. Valid values:
+    // * **0**: immediately. This is the default value.
+    // * **1**: during the maintenance window.
     // 
-    // *   **0**: immediately performs the switchover.
-    // *   **1**: performs the switchover during the maintenance window.
-    // 
-    // > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of a Tair (Redis OSS-compatible) instance.
+    // > You can call [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) to modify the maintenance window of the instance.
     shared_ptr<int32_t> switchMode_ {};
-    // The switching mode. Valid values:
+    // The switchover mode. Valid values:
+    // * **ReliabilityPriority (default)**: Reliability is prioritized. The primary/secondary switchover is performed only when primary/secondary synchronization has no latency, which prevents data loss. In scenarios with heavy write workloads and persistent synchronization latency, this mode may cause the primary/secondary switchover to fail.
+    // * **AvailablePriority**: Availability is prioritized. The primary/secondary switchover is performed immediately regardless of primary/secondary latency, which may cause minor data loss.
     // 
-    // *   **AvailablePriority**: immediately performs a switchover by prioritizing availability. No latency of data synchronization between the master and replica nodes is considered. This may cause data loss.
-    // *   **ReliabilityPriority**: performs a switchover by prioritizing reliability. Make sure that no latency of data synchronization between the master and replica nodes exists. This ensures data integrity. This mode may cause switchover failures in scenarios where a large volume of data is written and data synchronization latency consistently exists.
-    // 
-    // >  You must evaluate the requirements for data and services based on your business scenarios and then select a switching mode.
+    // > Evaluate your business requirements for data integrity and service availability before selecting a switchover mode.
     shared_ptr<string> switchType_ {};
+    // The node ID of the target MASTER node after the switchover.
+    shared_ptr<string> targetNodeId_ {};
+    // The shard name of the instance.
+    shared_ptr<string> targetShardName_ {};
   };
 
   } // namespace Models

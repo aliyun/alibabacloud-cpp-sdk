@@ -167,20 +167,38 @@ namespace Models
 
 
   protected:
+    // The bandwidth limit of the instance. Unit: MB/s.
     shared_ptr<int64_t> bandwidth_ {};
+    // The billing method. Valid values:
+    // 
+    // * `PrePaid`: subscription.
+    // * `PostPaid`: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
+    // The detailed configuration of the instance.
     shared_ptr<string> config_ {};
+    // The internal endpoint of the Redis instance.
     shared_ptr<string> connectionDomain_ {};
+    // The maximum number of connections supported by the instance.
     shared_ptr<int64_t> connections_ {};
+    // The globally unique instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The current status of the instance. The return value is fixed as Creating.
     shared_ptr<string> instanceStatus_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The Redis service port.
     shared_ptr<int32_t> port_ {};
+    // The queries per second (QPS). This value is the theoretical value for the current instance specification.
     shared_ptr<int64_t> QPS_ {};
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the task flow that is executed for the creation.
     shared_ptr<string> taskId_ {};
+    // The zone ID of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

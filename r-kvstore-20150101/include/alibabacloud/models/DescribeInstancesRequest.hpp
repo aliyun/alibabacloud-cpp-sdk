@@ -120,11 +120,10 @@ namespace Models
 
 
     protected:
-      // The tag key. A tag is a key-value pair.
-      // 
-      // >  A maximum of five key-value pairs can be specified at a time.
+      // The key of the tag. The tag key and value together form a key-value pair.
+      // > A maximum of 5 tag key-value pairs can be specified at a time.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the tag. The tag value and key together form a key-value pair.
       shared_ptr<string> value_ {};
     };
 
@@ -327,100 +326,86 @@ namespace Models
 
 
   protected:
-    // The architecture of the instance. Valid values:
-    // 
-    // *   **cluster**: cluster architecture
-    // *   **standard**: standard architecture
-    // *   **rwsplit**: read/write splitting architecture
+    // The architecture type. Valid values:
+    // * **cluster**: cluster.
+    // * **standard**: standard.
+    // * **rwsplit**: read/write splitting.
     shared_ptr<string> architectureType_ {};
-    // The billing method of the instance. Valid values:
-    // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid**: pay-as-you-go
+    // The billing method. Valid values:
+    // * **PrePaid**: subscription.
+    // * **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
     // The edition of the instance. Valid values:
-    // 
-    // *   **Community**: Redis Open-Source Edition
-    // *   **Enterprise**: Tair (Enterprise Edition)
+    // * **Community**: ApsaraDB for Redis Community Edition.
+    // * **Enterprise**: Tair Enhanced Edition.
     shared_ptr<string> editionType_ {};
-    // The database engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
-    // 
-    // Enumerated values:
-    // 
-    // *   1.0
-    // *   2.8
-    // *   4.0
-    // *   5.0
-    // *   6.0
-    // *   7.0
+    // The Redis-compatible engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
     shared_ptr<string> engineVersion_ {};
-    // Specifies whether the instance has expired. Valid values:
+    // The expiration status of the instance. Valid values:
     // 
-    // *   **true**: The instance has expired.
-    // *   **false**: The instance has not expired.
+    // * **true**: expired.
+    // * **false**: not expired.
     shared_ptr<string> expired_ {};
-    // Specifies whether to return the child instances of distributed instances. Valid values:
-    // 
-    // *   **true**: Only child instances are returned.
-    // *   **false**: Child instances are not returned.
+    // Specifies whether to filter child instances of distributed instances from the returned instance list. Valid values:
+    // * **true**: returns only child instance information.
+    // * **false**: does not return child instance information.
     shared_ptr<bool> globalInstance_ {};
-    // The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
+    // The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
     shared_ptr<string> instanceClass_ {};
-    // The IDs of the instances that you want to query.
-    // 
-    // >  If you want to specify multiple instance IDs, separate the instance IDs with commas (,). You can specify a maximum of 30 instance IDs in a single request.
+    // The IDs of the instances to query.
+    // > To specify multiple instance IDs, separate them with commas (,). A maximum of 30 instance IDs can be specified in a single request.
     shared_ptr<string> instanceIds_ {};
-    // The state of the instance. Valid values:
+    // The status of the instance. Valid values:
+    // * **Normal**: normal.
+    // * **Creating**: being created.
+    // * **Changing**: being changed.
+    // * **Inactive**: disabled.
+    // * **Flushing**: being flushed.
+    // * **Released**: released.
+    // * **Transforming**: being transformed.
+    // * **Migrating**: being migrated.
+    // * **BackupRecovering**: being restored from a backup.
+    // * **MinorVersionUpgrading**: minor version being upgraded.
+    // * **NetworkModifying**: network type being changed.
+    // * **SSLModifying**: SSL being changed.
+    // * **MajorVersionUpgrading**: major version being upgraded. The instance can be accessed normally.
     // 
-    // *   **Normal**: The instance is normal.
-    // *   **Creating**: The instance is being created.
-    // *   **Changing**: The configurations of the instance are being changed.
-    // *   **Inactive**: The instance is disabled.
-    // *   **Flushing**: The instance is being released.
-    // *   **Released**: The instance is released.
-    // *   **Transforming**: The billing method of the instance is being changed.
-    // *   **Unavailable**: The instance is suspended.
-    // *   **Error**: The instance failed to be created.
-    // *   **Migrating**: The instance is being migrated.
-    // *   **BackupRecovering**: The instance is being restored from a backup.
-    // *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-    // *   **NetworkModifying**: The network type of the instance is being changed.
-    // *   **SSLModifying**: The SSL certificate of the instance is being changed.
-    // *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
-    // 
-    // > For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+    // > For more information about instance statuses, see [Instance statuses and impacts](https://help.aliyun.com/document_detail/200740.html).
     shared_ptr<string> instanceStatus_ {};
-    // The database engine. Valid values:
-    // 
-    // *   **Tair**: Tair (Enterprise Edition)
-    // *   **Redis**: Redis Open-Source Edition
-    // *   **Memcache**
+    // The category of the instance. Valid values:
+    // * **Tair**: Tair (Enhanced Edition)
+    // * **Redis**: ApsaraDB for Redis Community Edition
+    // * **Memcache**
     shared_ptr<string> instanceType_ {};
-    // The network type. Valid values:
-    // 
-    // *   **CLASSIC**
-    // *   **VPC**
+    // The network type of the instance. Valid values:
+    // * **CLASSIC**: classic network.
+    // * **VPC**: virtual private cloud (VPC).
     shared_ptr<string> networkType_ {};
+    // The node type. Valid values:
+    // * **MASTER_SLAVE**: high availability (dual-replica)
+    // * **STAND_ALONE**: single replica
+    // * **double**: dual-replica
+    // * **single**: single replica
+    // > For cloud-native instances, select **MASTER_SLAVE** or **STAND_ALONE**. For classic instances, select **double** or **single**.
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number of the instance list. Pages start from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **30**.
+    // The maximum number of entries per page. Maximum value: **50**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The private IP address of the instance.
+    // The private IP address of the VPC.
     shared_ptr<string> privateIp_ {};
     // The region ID of the instance.
     // 
-    // > When you call this operation and specify the **Tag** parameter, you must also specify this parameter.
+    // > When calling this API, if the **Tag** parameter is specified, this parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs.
-    // 
-    // > You can query resource group IDs by using the Tair (Redis OSS-compatible) console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the resource group.
+    // > You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) API or use the console to obtain the list of resource group IDs. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The keyword used for fuzzy search. The keyword can be based on an instance name or an instance ID.
+    // The keyword used for fuzzy search by instance name or instance ID.
     shared_ptr<string> searchKey_ {};
     shared_ptr<string> securityToken_ {};
     // The tags of the instance.
@@ -429,7 +414,7 @@ namespace Models
     shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
-    // The zone ID of the instance.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -144,12 +144,12 @@ namespace RKvstore20150101
       Models::CheckCloudResourceAuthorizedResponse checkCloudResourceAuthorized(const Models::CheckCloudResourceAuthorizedRequest &request);
 
       /**
-       * @summary Creates an account that has specific permissions for a Tair (Redis OSS-compatible) instance.
+       * @summary Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
        *
-       * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
-       * *   The instance must be in the running state.
-       * *   You can create up to 18 accounts for an instance.
-       * >  For more information about how to create an account in the console, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+       * @description * This API supports only instances compatible with Redis 4.0 or later versions.  
+       * * The instance must be in the running status to use this API.  
+       * * You can create up to 18 accounts for an instance.  
+       * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
        *
        * @param request CreateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -158,12 +158,12 @@ namespace RKvstore20150101
       Models::CreateAccountResponse createAccountWithOptions(const Models::CreateAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an account that has specific permissions for a Tair (Redis OSS-compatible) instance.
+       * @summary Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
        *
-       * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
-       * *   The instance must be in the running state.
-       * *   You can create up to 18 accounts for an instance.
-       * >  For more information about how to create an account in the console, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+       * @description * This API supports only instances compatible with Redis 4.0 or later versions.  
+       * * The instance must be in the running status to use this API.  
+       * * You can create up to 18 accounts for an instance.  
+       * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
        *
        * @param request CreateAccountRequest
        * @return CreateAccountResponse
@@ -171,9 +171,9 @@ namespace RKvstore20150101
       Models::CreateAccountResponse createAccount(const Models::CreateAccountRequest &request);
 
       /**
-       * @summary Backs up a Tair (Redis OSS-compatible) instance.
+       * @summary Create a data backup for an ApsaraDB Tair (Redis OSS-compatible) instance.
        *
-       * @description You can also back up an instance in the Tair (Redis OSS-compatible) console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+       * @description For the corresponding console operation of this API, see [backup and recovery](https://help.aliyun.com/document_detail/43886.html).
        *
        * @param request CreateBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -182,9 +182,9 @@ namespace RKvstore20150101
       Models::CreateBackupResponse createBackupWithOptions(const Models::CreateBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Backs up a Tair (Redis OSS-compatible) instance.
+       * @summary Create a data backup for an ApsaraDB Tair (Redis OSS-compatible) instance.
        *
-       * @description You can also back up an instance in the Tair (Redis OSS-compatible) console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+       * @description For the corresponding console operation of this API, see [backup and recovery](https://help.aliyun.com/document_detail/43886.html).
        *
        * @param request CreateBackupRequest
        * @return CreateBackupResponse
@@ -213,12 +213,12 @@ namespace RKvstore20150101
       Models::CreateCacheAnalysisTaskResponse createCacheAnalysisTask(const Models::CreateCacheAnalysisTaskRequest &request);
 
       /**
-       * @summary Converts an existing Tair DRAM-based classic instance to the first child instance of a distributed instance.
+       * @summary Converts an existing classic Tair memory-enhanced instance into the first sub-instance of a distributed instance.
        *
-       * @description You can call this operation to convert an existing instance to the first child instance of a distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
-       * *   The instance that you want to convert must be a Tair [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses the classic deployment mode.
-       * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
-       * >  You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+       * @description This operation converts an existing instance into the first sub-instance of a distributed instance. The conversion also creates the distributed instance. The source instance must meet the following requirements:
+       * - The source instance must be a classic Tair [memory-enhanced](https://help.aliyun.com/document_detail/126164.html) instance.
+       * - If the source instance uses the cluster architecture, you must disable the direct connection mode. For more information, see [ReleasePublicConnection](https://help.aliyun.com/document_detail/150047.html).
+       * > Alternatively, you can call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create a new instance to use as the first sub-instance. This action also creates the distributed instance.
        *
        * @param request CreateGlobalDistributeCacheRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -227,12 +227,12 @@ namespace RKvstore20150101
       Models::CreateGlobalDistributeCacheResponse createGlobalDistributeCacheWithOptions(const Models::CreateGlobalDistributeCacheRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Converts an existing Tair DRAM-based classic instance to the first child instance of a distributed instance.
+       * @summary Converts an existing classic Tair memory-enhanced instance into the first sub-instance of a distributed instance.
        *
-       * @description You can call this operation to convert an existing instance to the first child instance of a distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
-       * *   The instance that you want to convert must be a Tair [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses the classic deployment mode.
-       * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
-       * >  You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+       * @description This operation converts an existing instance into the first sub-instance of a distributed instance. The conversion also creates the distributed instance. The source instance must meet the following requirements:
+       * - The source instance must be a classic Tair [memory-enhanced](https://help.aliyun.com/document_detail/126164.html) instance.
+       * - If the source instance uses the cluster architecture, you must disable the direct connection mode. For more information, see [ReleasePublicConnection](https://help.aliyun.com/document_detail/150047.html).
+       * > Alternatively, you can call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create a new instance to use as the first sub-instance. This action also creates the distributed instance.
        *
        * @param request CreateGlobalDistributeCacheRequest
        * @return CreateGlobalDistributeCacheResponse
@@ -257,11 +257,11 @@ namespace RKvstore20150101
       Models::CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroup(const Models::CreateGlobalSecurityIPGroupRequest &request);
 
       /**
-       * @summary Creates a Tair (Redis OSS-compatible) instance. If you want to create a Tair (Enterprise Edition) cloud-native instance, you can call the CreateTairInstance operation.
+       * @summary Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
-       * You can call this operation to create a Tair (Redis OSS-compatible) instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
-       * > For more information about how to create an instance that meets your requirements in the Tair (Redis OSS-compatible) console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
+       * @description Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
+       * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
+       * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
        *
        * @param request CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -270,11 +270,11 @@ namespace RKvstore20150101
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Tair (Redis OSS-compatible) instance. If you want to create a Tair (Enterprise Edition) cloud-native instance, you can call the CreateTairInstance operation.
+       * @summary Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
-       * You can call this operation to create a Tair (Redis OSS-compatible) instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
-       * > For more information about how to create an instance that meets your requirements in the Tair (Redis OSS-compatible) console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
+       * @description Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
+       * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
+       * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -282,12 +282,30 @@ namespace RKvstore20150101
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary Creates multiple Tair (Redis OSS-compatible) instances at a time.
+       * @summary 创建实例多VIP
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
-       * >  You can call this operation to create classic Redis Open-Source Edition instances or classic Tair DRAM-based instances. We recommend that you use an API operation for creating a single instance:
-       * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates a Redis Open-Source instance or a classic Tair DRAM-based instance.
-       * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair (Enterprise Edition) instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+       * @param request CreateInstanceMultiVIPRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInstanceMultiVIPResponse
+       */
+      Models::CreateInstanceMultiVIPResponse createInstanceMultiVIPWithOptions(const Models::CreateInstanceMultiVIPRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建实例多VIP
+       *
+       * @param request CreateInstanceMultiVIPRequest
+       * @return CreateInstanceMultiVIPResponse
+       */
+      Models::CreateInstanceMultiVIPResponse createInstanceMultiVIP(const Models::CreateInstanceMultiVIPRequest &request);
+
+      /**
+       * @summary Creates classic edition instances of ApsaraDB for Tair (Redis-compatible) in a batch.
+       *
+       * @description Before calling this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis-compatible).
+       * \\> This API supports only creating Classic Edition instances.
+       * To create a single instance, use one of the following APIs:
+       * \\> - [CreateInstance](https://help.aliyun.com/document_detail/473757.html): Creates open source Redis instances or DRAM-based Classic Edition instances of Tair.
+       * \\> - [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): Creates Cloud-native Edition instances of Tair, including DRAM-based, persistent memory-optimized, and ESSD-based instances.
        *
        * @param request CreateInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -296,12 +314,13 @@ namespace RKvstore20150101
       Models::CreateInstancesResponse createInstancesWithOptions(const Models::CreateInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates multiple Tair (Redis OSS-compatible) instances at a time.
+       * @summary Creates classic edition instances of ApsaraDB for Tair (Redis-compatible) in a batch.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
-       * >  You can call this operation to create classic Redis Open-Source Edition instances or classic Tair DRAM-based instances. We recommend that you use an API operation for creating a single instance:
-       * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates a Redis Open-Source instance or a classic Tair DRAM-based instance.
-       * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair (Enterprise Edition) instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+       * @description Before calling this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis-compatible).
+       * \\> This API supports only creating Classic Edition instances.
+       * To create a single instance, use one of the following APIs:
+       * \\> - [CreateInstance](https://help.aliyun.com/document_detail/473757.html): Creates open source Redis instances or DRAM-based Classic Edition instances of Tair.
+       * \\> - [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): Creates Cloud-native Edition instances of Tair, including DRAM-based, persistent memory-optimized, and ESSD-based instances.
        *
        * @param request CreateInstancesRequest
        * @return CreateInstancesResponse
@@ -310,6 +329,8 @@ namespace RKvstore20150101
 
       /**
        * @summary Creates a parameter template.
+       *
+       * @description 参数模板仅适用于云原生部署模式实例（原云盘实例）。
        *
        * @param request CreateParameterGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -320,13 +341,15 @@ namespace RKvstore20150101
       /**
        * @summary Creates a parameter template.
        *
+       * @description 参数模板仅适用于云原生部署模式实例（原云盘实例）。
+       *
        * @param request CreateParameterGroupRequest
        * @return CreateParameterGroupResponse
        */
       Models::CreateParameterGroupResponse createParameterGroup(const Models::CreateParameterGroupRequest &request);
 
       /**
-       * @summary Creates a TairCustom instance.
+       * @summary 创建TairCustom实例
        *
        * @param request CreateTCInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -335,7 +358,7 @@ namespace RKvstore20150101
       Models::CreateTCInstanceResponse createTCInstanceWithOptions(const Models::CreateTCInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a TairCustom instance.
+       * @summary 创建TairCustom实例
        *
        * @param request CreateTCInstanceRequest
        * @return CreateTCInstanceResponse
@@ -343,13 +366,13 @@ namespace RKvstore20150101
       Models::CreateTCInstanceResponse createTCInstance(const Models::CreateTCInstanceRequest &request);
 
       /**
-       * @summary Creates a Tair (Enterprise Edition) cloud-native instance.
+       * @summary Create a cloud-native Tair Enterprise Edition instance.
        *
-       * @description For information about instance selection, see [Instructions for selecting an appropriate Tair (Redis OSS-compatible) instance](https://help.aliyun.com/document_detail/223808.html).
-       * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
-       * > 
-       * *   For information about how to create an instance in the console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
-       * *   To create other types of instances, such as Redis Open-Source Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
+       * @description For information about instance selection, see [ApsaraDB for Tair (Redis-compatible) instance selection guide](https://help.aliyun.com/document_detail/223808.html).
+       * Before you call this API, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) for ApsaraDB for Tair (Redis-compatible).
+       * > - To create an instance in the console, see [Create a Tair instance](https://help.aliyun.com/document_detail/26351.html).
+       * >
+       * > - To create other instance types, such as open-source or [Tair memory-enhanced](https://help.aliyun.com/document_detail/126164.html) classic edition, call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) API.
        *
        * @param request CreateTairInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -358,13 +381,13 @@ namespace RKvstore20150101
       Models::CreateTairInstanceResponse createTairInstanceWithOptions(const Models::CreateTairInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Tair (Enterprise Edition) cloud-native instance.
+       * @summary Create a cloud-native Tair Enterprise Edition instance.
        *
-       * @description For information about instance selection, see [Instructions for selecting an appropriate Tair (Redis OSS-compatible) instance](https://help.aliyun.com/document_detail/223808.html).
-       * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
-       * > 
-       * *   For information about how to create an instance in the console, see [Step 1: Create an instance](https://help.aliyun.com/document_detail/26351.html).
-       * *   To create other types of instances, such as Redis Open-Source Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
+       * @description For information about instance selection, see [ApsaraDB for Tair (Redis-compatible) instance selection guide](https://help.aliyun.com/document_detail/223808.html).
+       * Before you call this API, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) for ApsaraDB for Tair (Redis-compatible).
+       * > - To create an instance in the console, see [Create a Tair instance](https://help.aliyun.com/document_detail/26351.html).
+       * >
+       * > - To create other instance types, such as open-source or [Tair memory-enhanced](https://help.aliyun.com/document_detail/126164.html) classic edition, call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) API.
        *
        * @param request CreateTairInstanceRequest
        * @return CreateTairInstanceResponse
@@ -372,7 +395,7 @@ namespace RKvstore20150101
       Models::CreateTairInstanceResponse createTairInstance(const Models::CreateTairInstanceRequest &request);
 
       /**
-       * @summary Creates a Tair VNode instance.
+       * @summary Create a Tair VNode instance
        *
        * @param request CreateTairKVCacheVNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -381,7 +404,7 @@ namespace RKvstore20150101
       Models::CreateTairKVCacheVNodeResponse createTairKVCacheVNodeWithOptions(const Models::CreateTairKVCacheVNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Tair VNode instance.
+       * @summary Create a Tair VNode instance
        *
        * @param request CreateTairKVCacheVNodeRequest
        * @return CreateTairKVCacheVNodeResponse
@@ -389,7 +412,10 @@ namespace RKvstore20150101
       Models::CreateTairKVCacheVNodeResponse createTairKVCacheVNode(const Models::CreateTairKVCacheVNodeRequest &request);
 
       /**
-       * @summary 创建Tair Serverless 类型实例的Workspace
+       * @summary Creates a Tair Serverless KV table instance.
+       *
+       * @description ## Operation description
+       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
        *
        * @param request CreateTairSkvDdbTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -398,7 +424,10 @@ namespace RKvstore20150101
       Models::CreateTairSkvDdbTableResponse createTairSkvDdbTableWithOptions(const Models::CreateTairSkvDdbTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Tair Serverless 类型实例的Workspace
+       * @summary Creates a Tair Serverless KV table instance.
+       *
+       * @description ## Operation description
+       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
        *
        * @param request CreateTairSkvDdbTableRequest
        * @return CreateTairSkvDdbTableResponse
@@ -406,7 +435,11 @@ namespace RKvstore20150101
       Models::CreateTairSkvDdbTableResponse createTairSkvDdbTable(const Models::CreateTairSkvDdbTableRequest &request);
 
       /**
-       * @summary 创建Tair Serverless 类型实例的Workspace
+       * @summary Creates a Tair Serverless KV workspace instance.
+       *
+       * @description ## Operation description
+       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+       * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
        *
        * @param request CreateTairSkvDdbWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -415,7 +448,11 @@ namespace RKvstore20150101
       Models::CreateTairSkvDdbWorkspaceResponse createTairSkvDdbWorkspaceWithOptions(const Models::CreateTairSkvDdbWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Tair Serverless 类型实例的Workspace
+       * @summary Creates a Tair Serverless KV workspace instance.
+       *
+       * @description ## Operation description
+       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+       * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
        *
        * @param request CreateTairSkvDdbWorkspaceRequest
        * @return CreateTairSkvDdbWorkspaceResponse
@@ -446,7 +483,9 @@ namespace RKvstore20150101
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
-       * @summary Deletes a specified backup set. However, you can delete only backup sets that are manually backed up.
+       * @summary Delete the specified backup set. Only manual backup sets can be deleted.
+       *
+       * @description * This operation supports only cloud-native instances.
        *
        * @param request DeleteBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +494,9 @@ namespace RKvstore20150101
       Models::DeleteBackupResponse deleteBackupWithOptions(const Models::DeleteBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified backup set. However, you can delete only backup sets that are manually backed up.
+       * @summary Delete the specified backup set. Only manual backup sets can be deleted.
+       *
+       * @description * This operation supports only cloud-native instances.
        *
        * @param request DeleteBackupRequest
        * @return DeleteBackupResponse
@@ -532,11 +573,6 @@ namespace RKvstore20150101
       /**
        * @summary Removes one or more data shards from a Tair (Redis OSS-compatible) cluster instance.
        *
-       * @description You can also remove data shards from an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the number of shards for an instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
-       * Before you call this operation, make sure that the instance meets the following requirements:
-       * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
-       * *   The instance has more than one data shard.
-       *
        * @param request DeleteShardingNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteShardingNodeResponse
@@ -546,20 +582,13 @@ namespace RKvstore20150101
       /**
        * @summary Removes one or more data shards from a Tair (Redis OSS-compatible) cluster instance.
        *
-       * @description You can also remove data shards from an instance in the Tair (Redis OSS-compatible) console. For more information, see [Adjust the number of shards for an instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
-       * Before you call this operation, make sure that the instance meets the following requirements:
-       * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
-       * *   The instance has more than one data shard.
-       *
        * @param request DeleteShardingNodeRequest
        * @return DeleteShardingNodeResponse
        */
       Models::DeleteShardingNodeResponse deleteShardingNode(const Models::DeleteShardingNodeRequest &request);
 
       /**
-       * @summary Queries a specified account of a Tair (Redis OSS-compatible) instance.
-       *
-       * @description >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
+       * @summary Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
        *
        * @param request DescribeAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -568,9 +597,7 @@ namespace RKvstore20150101
       Models::DescribeAccountsResponse describeAccountsWithOptions(const Models::DescribeAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a specified account of a Tair (Redis OSS-compatible) instance.
-       *
-       * @description >  Only Tair (Redis OSS-compatible) instances of Redis 4.0 or later are supported.
+       * @summary Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
        *
        * @param request DescribeAccountsRequest
        * @return DescribeAccountsResponse
@@ -743,7 +770,9 @@ namespace RKvstore20150101
       Models::DescribeBackupTasksResponse describeBackupTasks(const Models::DescribeBackupTasksRequest &request);
 
       /**
-       * @summary Queries the backup files of the Tair (Redis OSS-compatible) instance.
+       * @summary Queries information about backup files for a Redis-compatible ApsaraDB for Tair instance.
+       *
+       * @description This operation does not apply to cloud-native cluster instances. Instead, use the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
        *
        * @param request DescribeBackupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -752,7 +781,9 @@ namespace RKvstore20150101
       Models::DescribeBackupsResponse describeBackupsWithOptions(const Models::DescribeBackupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the backup files of the Tair (Redis OSS-compatible) instance.
+       * @summary Queries information about backup files for a Redis-compatible ApsaraDB for Tair instance.
+       *
+       * @description This operation does not apply to cloud-native cluster instances. Instead, use the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
        *
        * @param request DescribeBackupsRequest
        * @return DescribeBackupsResponse
@@ -814,9 +845,9 @@ namespace RKvstore20150101
       Models::DescribeCacheAnalysisReportListResponse describeCacheAnalysisReportList(const Models::DescribeCacheAnalysisReportListRequest &request);
 
       /**
-       * @summary Queries the backup sets of a Tair (Redis OSS-compatible) cluster instance.
+       * @summary Queries the backup list of a Tair (Redis OSS-compatible) cluster instance.
        *
-       * @description This operation is applicable only to cloud-native instances.
+       * @description This API is applicable only to cloud-native instances.
        *
        * @param request DescribeClusterBackupListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -825,9 +856,9 @@ namespace RKvstore20150101
       Models::DescribeClusterBackupListResponse describeClusterBackupListWithOptions(const Models::DescribeClusterBackupListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the backup sets of a Tair (Redis OSS-compatible) cluster instance.
+       * @summary Queries the backup list of a Tair (Redis OSS-compatible) cluster instance.
        *
-       * @description This operation is applicable only to cloud-native instances.
+       * @description This API is applicable only to cloud-native instances.
        *
        * @param request DescribeClusterBackupListRequest
        * @return DescribeClusterBackupListResponse
@@ -873,7 +904,7 @@ namespace RKvstore20150101
       Models::DescribeDBInstanceMonitorResponse describeDBInstanceMonitor(const Models::DescribeDBInstanceMonitorRequest &request);
 
       /**
-       * @summary Queries the network information of a Tair (Redis OSS-compatible) instance.
+       * @summary Queries the network information of an ApsaraDB for Tair instance.
        *
        * @param request DescribeDBInstanceNetInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -882,7 +913,7 @@ namespace RKvstore20150101
       Models::DescribeDBInstanceNetInfoResponse describeDBInstanceNetInfoWithOptions(const Models::DescribeDBInstanceNetInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the network information of a Tair (Redis OSS-compatible) instance.
+       * @summary Queries the network information of an ApsaraDB for Tair instance.
        *
        * @param request DescribeDBInstanceNetInfoRequest
        * @return DescribeDBInstanceNetInfoResponse
@@ -1109,9 +1140,9 @@ namespace RKvstore20150101
       Models::DescribeHistoryEventsStatResponse describeHistoryEventsStat(const Models::DescribeHistoryEventsStatRequest &request);
 
       /**
-       * @summary Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
+       * @summary View performance monitoring data for an ApsaraDB for Tair (Redis-compatible) instance.
        *
-       * @description You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+       * @description For the console equivalent, see [performance monitoring](https://help.aliyun.com/document_detail/43887.html).
        *
        * @param request DescribeHistoryMonitorValuesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1120,9 +1151,9 @@ namespace RKvstore20150101
       Models::DescribeHistoryMonitorValuesResponse describeHistoryMonitorValuesWithOptions(const Models::DescribeHistoryMonitorValuesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the performance monitoring data of a Tair (Redis OSS-compatible) instance.
+       * @summary View performance monitoring data for an ApsaraDB for Tair (Redis-compatible) instance.
        *
-       * @description You can also query the performance monitoring data of an instance in the Tair console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+       * @description For the console equivalent, see [performance monitoring](https://help.aliyun.com/document_detail/43887.html).
        *
        * @param request DescribeHistoryMonitorValuesRequest
        * @return DescribeHistoryMonitorValuesResponse
@@ -1164,7 +1195,7 @@ namespace RKvstore20150101
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
 
       /**
-       * @summary Queries the attribute of Tair (Redis OSS-compatible) instances.
+       * @summary Retrieves the details of a Tair (Redis-compatible) instance.
        *
        * @param request DescribeInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1173,7 +1204,7 @@ namespace RKvstore20150101
       Models::DescribeInstanceAttributeResponse describeInstanceAttributeWithOptions(const Models::DescribeInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attribute of Tair (Redis OSS-compatible) instances.
+       * @summary Retrieves the details of a Tair (Redis-compatible) instance.
        *
        * @param request DescribeInstanceAttributeRequest
        * @return DescribeInstanceAttributeResponse
@@ -1198,10 +1229,7 @@ namespace RKvstore20150101
       Models::DescribeInstanceAutoRenewalAttributeResponse describeInstanceAutoRenewalAttribute(const Models::DescribeInstanceAutoRenewalAttributeRequest &request);
 
       /**
-       * @summary Queries the default parameter configurations of a Tair (Redis OSS-compatible) instance.
-       *
-       * @description This operation is available only for instances that use cloud disks.
-       * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+       * @summary Queries some of the default configuration parameters for a Tair (Redis-compatible) instance.
        *
        * @param request DescribeInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1210,15 +1238,33 @@ namespace RKvstore20150101
       Models::DescribeInstanceConfigResponse describeInstanceConfigWithOptions(const Models::DescribeInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the default parameter configurations of a Tair (Redis OSS-compatible) instance.
-       *
-       * @description This operation is available only for instances that use cloud disks.
-       * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+       * @summary Queries some of the default configuration parameters for a Tair (Redis-compatible) instance.
        *
        * @param request DescribeInstanceConfigRequest
        * @return DescribeInstanceConfigResponse
        */
       Models::DescribeInstanceConfigResponse describeInstanceConfig(const Models::DescribeInstanceConfigRequest &request);
+
+      /**
+       * @summary 查询实例的多 VIP 信息
+       *
+       * @description 关于多LB，详情参见
+       *
+       * @param request DescribeInstanceMultiVIPRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstanceMultiVIPResponse
+       */
+      Models::DescribeInstanceMultiVIPResponse describeInstanceMultiVIPWithOptions(const Models::DescribeInstanceMultiVIPRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例的多 VIP 信息
+       *
+       * @description 关于多LB，详情参见
+       *
+       * @param request DescribeInstanceMultiVIPRequest
+       * @return DescribeInstanceMultiVIPResponse
+       */
+      Models::DescribeInstanceMultiVIPResponse describeInstanceMultiVIP(const Models::DescribeInstanceMultiVIPRequest &request);
 
       /**
        * @summary Queries whether TLS (SSL) encryption is enabled for a Tair (Redis OSS-compatible) instance.
@@ -1273,7 +1319,7 @@ namespace RKvstore20150101
       Models::DescribeInstanceTDEStatusResponse describeInstanceTDEStatus(const Models::DescribeInstanceTDEStatusRequest &request);
 
       /**
-       * @summary Queries the information about one or more Tair (Redis OSS-compatible) instances.
+       * @summary Queries information about one or more ApsaraDB for Redis (Tair-compatible) instances.
        *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1282,7 +1328,7 @@ namespace RKvstore20150101
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about one or more Tair (Redis OSS-compatible) instances.
+       * @summary Queries information about one or more ApsaraDB for Redis (Tair-compatible) instances.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -1313,9 +1359,9 @@ namespace RKvstore20150101
       Models::DescribeInstancesOverviewResponse describeInstancesOverview(const Models::DescribeInstancesOverviewRequest &request);
 
       /**
-       * @summary Queries the current bandwidth of a Tair (Redis OSS-compatible) instance.
+       * @summary Describes the current bandwidth of a Tair (Redis-compatible) instance.
        *
-       * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
+       * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase additional bandwidth for an instance.
        *
        * @param request DescribeIntranetAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1324,9 +1370,9 @@ namespace RKvstore20150101
       Models::DescribeIntranetAttributeResponse describeIntranetAttributeWithOptions(const Models::DescribeIntranetAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the current bandwidth of a Tair (Redis OSS-compatible) instance.
+       * @summary Describes the current bandwidth of a Tair (Redis-compatible) instance.
        *
-       * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
+       * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase additional bandwidth for an instance.
        *
        * @param request DescribeIntranetAttributeRequest
        * @return DescribeIntranetAttributeResponse
@@ -1334,9 +1380,9 @@ namespace RKvstore20150101
       Models::DescribeIntranetAttributeResponse describeIntranetAttribute(const Models::DescribeIntranetAttributeRequest &request);
 
       /**
-       * @summary Queries the logical topology of a Tair (Redis OSS-compatible) instance.
+       * @summary Queries the logical topology structure of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
-       * @description This parameter is supported only for cluster and read/write splitting instances.
+       * @description This operation is supported only for cluster and read/write splitting instances.
        *
        * @param request DescribeLogicInstanceTopologyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1345,9 +1391,9 @@ namespace RKvstore20150101
       Models::DescribeLogicInstanceTopologyResponse describeLogicInstanceTopologyWithOptions(const Models::DescribeLogicInstanceTopologyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the logical topology of a Tair (Redis OSS-compatible) instance.
+       * @summary Queries the logical topology structure of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
-       * @description This parameter is supported only for cluster and read/write splitting instances.
+       * @description This operation is supported only for cluster and read/write splitting instances.
        *
        * @param request DescribeLogicInstanceTopologyRequest
        * @return DescribeLogicInstanceTopologyResponse
@@ -1484,10 +1530,7 @@ namespace RKvstore20150101
       Models::DescribeParameterTemplatesResponse describeParameterTemplates(const Models::DescribeParameterTemplatesRequest &request);
 
       /**
-       * @summary Queries the configuration parameters and running parameters of a Tair (Redis OSS-compatible) instance.
-       *
-       * @description This operation is applicable only to classic instances.
-       * >  If the instance is deployed in cloud-native mode, you can use the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the configuration and operational parameters of the instance.
+       * @summary Queries the configuration parameters and running parameters of a Tair (Redis® OSS-Compatible) instance.
        *
        * @param request DescribeParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1496,10 +1539,7 @@ namespace RKvstore20150101
       Models::DescribeParametersResponse describeParametersWithOptions(const Models::DescribeParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration parameters and running parameters of a Tair (Redis OSS-compatible) instance.
-       *
-       * @description This operation is applicable only to classic instances.
-       * >  If the instance is deployed in cloud-native mode, you can use the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the configuration and operational parameters of the instance.
+       * @summary Queries the configuration parameters and running parameters of a Tair (Redis® OSS-Compatible) instance.
        *
        * @param request DescribeParametersRequest
        * @return DescribeParametersResponse
@@ -1507,7 +1547,7 @@ namespace RKvstore20150101
       Models::DescribeParametersResponse describeParameters(const Models::DescribeParametersRequest &request);
 
       /**
-       * @summary Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
+       * @summary Query the fees incurred by operations such as creation, configuration upgrade, or renewal of ApsaraDB for Tair (Redis OSS-compatible) instances.
        *
        * @param request DescribePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1516,7 +1556,7 @@ namespace RKvstore20150101
       Models::DescribePriceResponse describePriceWithOptions(const Models::DescribePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fees that you must pay when you create, upgrade, or renew a Tair (Redis OSS-compatible) instance.
+       * @summary Query the fees incurred by operations such as creation, configuration upgrade, or renewal of ApsaraDB for Tair (Redis OSS-compatible) instances.
        *
        * @param request DescribePriceRequest
        * @return DescribePriceResponse
@@ -1674,7 +1714,7 @@ namespace RKvstore20150101
       Models::DescribeTagsResponse describeTags(const Models::DescribeTagsRequest &request);
 
       /**
-       * @summary Queries the details of a TairKVCache instance.
+       * @summary 查看TairCustom实例
        *
        * @param request DescribeTairKVCacheCustomInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1683,7 +1723,7 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheCustomInstanceAttributeResponse describeTairKVCacheCustomInstanceAttributeWithOptions(const Models::DescribeTairKVCacheCustomInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a TairKVCache instance.
+       * @summary 查看TairCustom实例
        *
        * @param request DescribeTairKVCacheCustomInstanceAttributeRequest
        * @return DescribeTairKVCacheCustomInstanceAttributeResponse
@@ -1691,7 +1731,7 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheCustomInstanceAttributeResponse describeTairKVCacheCustomInstanceAttribute(const Models::DescribeTairKVCacheCustomInstanceAttributeRequest &request);
 
       /**
-       * @summary Queries the monitoring data of a Tair-KVCache instance.
+       * @summary 查询TairCustom主机监控
        *
        * @param request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1700,7 +1740,7 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse describeTairKVCacheCustomInstanceHistoryMonitorValuesWithOptions(const Models::DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monitoring data of a Tair-KVCache instance.
+       * @summary 查询TairCustom主机监控
        *
        * @param request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
        * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
@@ -1708,7 +1748,7 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse describeTairKVCacheCustomInstanceHistoryMonitorValues(const Models::DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest &request);
 
       /**
-       * @summary Queries Tair-KVCache instances.
+       * @summary 查看TairCustom实例
        *
        * @param request DescribeTairKVCacheCustomInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1717,7 +1757,7 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheCustomInstancesResponse describeTairKVCacheCustomInstancesWithOptions(const Models::DescribeTairKVCacheCustomInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Tair-KVCache instances.
+       * @summary 查看TairCustom实例
        *
        * @param request DescribeTairKVCacheCustomInstancesRequest
        * @return DescribeTairKVCacheCustomInstancesResponse
@@ -1742,9 +1782,9 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheInferInstanceAttributeResponse describeTairKVCacheInferInstanceAttribute(const Models::DescribeTairKVCacheInferInstanceAttributeRequest &request);
 
       /**
-       * @summary Queries the information of one or more Tair (Redis OSS-compatible) KVCache instances.
+       * @summary Queries information about one or more Tair KVCache instances.
        *
-       * @description You can call this operation to query the following Tair (Redis OSS-compatible) KVCache instances: inference operator instances, virtual cluster instances, and cache service instances.
+       * @description This operation supports querying Tair KVCache inference operator instances, virtual cluster instances, and cache service instances.
        *
        * @param request DescribeTairKVCacheInferInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1753,9 +1793,9 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheInferInstancesResponse describeTairKVCacheInferInstancesWithOptions(const Models::DescribeTairKVCacheInferInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of one or more Tair (Redis OSS-compatible) KVCache instances.
+       * @summary Queries information about one or more Tair KVCache instances.
        *
-       * @description You can call this operation to query the following Tair (Redis OSS-compatible) KVCache instances: inference operator instances, virtual cluster instances, and cache service instances.
+       * @description This operation supports querying Tair KVCache inference operator instances, virtual cluster instances, and cache service instances.
        *
        * @param request DescribeTairKVCacheInferInstancesRequest
        * @return DescribeTairKVCacheInferInstancesResponse
@@ -1763,7 +1803,11 @@ namespace RKvstore20150101
       Models::DescribeTairKVCacheInferInstancesResponse describeTairKVCacheInferInstances(const Models::DescribeTairKVCacheInferInstancesRequest &request);
 
       /**
-       * @summary 查询Tair Serverless KV DDB实例的table
+       * @summary Queries all Tair Serverless KV table instances in a specified workspace.
+       *
+       * @description ## Operation description
+       * - You must specify the InstanceId parameter when you call this operation.
+       * - The response includes basic information about each table, such as the table ID, name, bandwidth, and maximum number of connections.
        *
        * @param request DescribeTairSkvDdbTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1772,7 +1816,11 @@ namespace RKvstore20150101
       Models::DescribeTairSkvDdbTableResponse describeTairSkvDdbTableWithOptions(const Models::DescribeTairSkvDdbTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Tair Serverless KV DDB实例的table
+       * @summary Queries all Tair Serverless KV table instances in a specified workspace.
+       *
+       * @description ## Operation description
+       * - You must specify the InstanceId parameter when you call this operation.
+       * - The response includes basic information about each table, such as the table ID, name, bandwidth, and maximum number of connections.
        *
        * @param request DescribeTairSkvDdbTableRequest
        * @return DescribeTairSkvDdbTableResponse
@@ -1780,7 +1828,14 @@ namespace RKvstore20150101
       Models::DescribeTairSkvDdbTableResponse describeTairSkvDdbTable(const Models::DescribeTairSkvDdbTableRequest &request);
 
       /**
-       * @summary 查询Tair Serverless KV DDB实例的table schema
+       * @summary Retrieves the table schema and configuration information of a specified instance.
+       *
+       * @description ## Operation description
+       * - This operation queries the table schema and configuration information of a Tair Serverless KV table instance.
+       * - You must specify the InstanceId parameter. Set this parameter to the instance ID of the instance that you want to query.
+       * - The BackupId parameter specifies the backup set of the table to query.
+       * - The response packet includes the time-to-live (TTL) specifications and detailed table schema definition.
+       * To invoke this operation, see the request parameters below.
        *
        * @param request DescribeTairSkvDdbTableSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1789,7 +1844,14 @@ namespace RKvstore20150101
       Models::DescribeTairSkvDdbTableSchemaResponse describeTairSkvDdbTableSchemaWithOptions(const Models::DescribeTairSkvDdbTableSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Tair Serverless KV DDB实例的table schema
+       * @summary Retrieves the table schema and configuration information of a specified instance.
+       *
+       * @description ## Operation description
+       * - This operation queries the table schema and configuration information of a Tair Serverless KV table instance.
+       * - You must specify the InstanceId parameter. Set this parameter to the instance ID of the instance that you want to query.
+       * - The BackupId parameter specifies the backup set of the table to query.
+       * - The response packet includes the time-to-live (TTL) specifications and detailed table schema definition.
+       * To invoke this operation, see the request parameters below.
        *
        * @param request DescribeTairSkvDdbTableSchemaRequest
        * @return DescribeTairSkvDdbTableSchemaResponse
@@ -1858,10 +1920,10 @@ namespace RKvstore20150101
       Models::DestroyInstanceResponse destroyInstance(const Models::DestroyInstanceRequest &request);
 
       /**
-       * @summary Adjusts the bandwidth of a Tair (Redis OSS-compatible) instance. Only the pay-as-you-go billing method is supported for bandwidth adjustment. You need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
+       * @summary This operation adjusts the bandwidth for an ApsaraDB for Redis instance that uses the pay-as-you-go billing method. You need to specify only the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
        *
-       * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
-       * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to query the current bandwidth of each data node in an instance.
+       * @description If auto scaling of bandwidth is enabled when you call this operation, the auto scaling feature takes precedence. When the bandwidth scales back, it reverts to the default bandwidth of the instance type. For more information about the feature\\"s limitations, billing details, and FAQ, see [Adjust instance bandwidth](https://help.aliyun.com/document_detail/102588.html).
+       * > Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to query the current bandwidth for each data node of the instance.
        *
        * @param request EnableAdditionalBandwidthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1870,10 +1932,10 @@ namespace RKvstore20150101
       Models::EnableAdditionalBandwidthResponse enableAdditionalBandwidthWithOptions(const Models::EnableAdditionalBandwidthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adjusts the bandwidth of a Tair (Redis OSS-compatible) instance. Only the pay-as-you-go billing method is supported for bandwidth adjustment. You need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
+       * @summary This operation adjusts the bandwidth for an ApsaraDB for Redis instance that uses the pay-as-you-go billing method. You need to specify only the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
        *
-       * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
-       * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to query the current bandwidth of each data node in an instance.
+       * @description If auto scaling of bandwidth is enabled when you call this operation, the auto scaling feature takes precedence. When the bandwidth scales back, it reverts to the default bandwidth of the instance type. For more information about the feature\\"s limitations, billing details, and FAQ, see [Adjust instance bandwidth](https://help.aliyun.com/document_detail/102588.html).
+       * > Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) operation to query the current bandwidth for each data node of the instance.
        *
        * @param request EnableAdditionalBandwidthRequest
        * @return EnableAdditionalBandwidthResponse
@@ -1906,6 +1968,9 @@ namespace RKvstore20150101
       /**
        * @summary Clears the data of a Tair (Redis OSS-compatible) instance. The cleared data cannot be restored.
        *
+       * @description 该API对应的控制台操作请参见[清除数据](https://help.aliyun.com/document_detail/43881.html)。
+       * > 调用此API删除数据前请妥善备份数据或确认数据无需备份。
+       *
        * @param request FlushInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return FlushInstanceResponse
@@ -1914,6 +1979,9 @@ namespace RKvstore20150101
 
       /**
        * @summary Clears the data of a Tair (Redis OSS-compatible) instance. The cleared data cannot be restored.
+       *
+       * @description 该API对应的控制台操作请参见[清除数据](https://help.aliyun.com/document_detail/43881.html)。
+       * > 调用此API删除数据前请妥善备份数据或确认数据无需备份。
        *
        * @param request FlushInstanceRequest
        * @return FlushInstanceResponse
@@ -2030,6 +2098,10 @@ namespace RKvstore20150101
       /**
        * @summary Simulates database node failures.
        *
+       * @description - 调用本接口时，指定的节点会关闭。实例会自动触发主备切换，将备节点提升为主节点。
+       * - 模拟故障的节点会在稍后自动恢复。
+       * - 单节点（单副本）不支持调用本接口。
+       *
        * @param request MasterNodeShutDownFailOverRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return MasterNodeShutDownFailOverResponse
@@ -2038,6 +2110,10 @@ namespace RKvstore20150101
 
       /**
        * @summary Simulates database node failures.
+       *
+       * @description - 调用本接口时，指定的节点会关闭。实例会自动触发主备切换，将备节点提升为主节点。
+       * - 模拟故障的节点会在稍后自动恢复。
+       * - 单节点（单副本）不支持调用本接口。
        *
        * @param request MasterNodeShutDownFailOverRequest
        * @return MasterNodeShutDownFailOverResponse
@@ -2264,7 +2340,7 @@ namespace RKvstore20150101
       Models::ModifyDBInstanceConnectionStringResponse modifyDBInstanceConnectionString(const Models::ModifyDBInstanceConnectionStringRequest &request);
 
       /**
-       * @summary Modifies the monitoring granularity of a Tair (Redis OSS-compatible) instance.
+       * @summary Modifies the monitoring granularity for a Tair instance.
        *
        * @param request ModifyDBInstanceMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2273,7 +2349,7 @@ namespace RKvstore20150101
       Models::ModifyDBInstanceMonitorResponse modifyDBInstanceMonitorWithOptions(const Models::ModifyDBInstanceMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the monitoring granularity of a Tair (Redis OSS-compatible) instance.
+       * @summary Modifies the monitoring granularity for a Tair instance.
        *
        * @param request ModifyDBInstanceMonitorRequest
        * @return ModifyDBInstanceMonitorResponse
@@ -2281,7 +2357,7 @@ namespace RKvstore20150101
       Models::ModifyDBInstanceMonitorResponse modifyDBInstanceMonitor(const Models::ModifyDBInstanceMonitorRequest &request);
 
       /**
-       * @summary 事件中心修改事件信息
+       * @summary Modify event information in Event Center
        *
        * @param request ModifyEventInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2290,7 +2366,7 @@ namespace RKvstore20150101
       Models::ModifyEventInfoResponse modifyEventInfoWithOptions(const Models::ModifyEventInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 事件中心修改事件信息
+       * @summary Modify event information in Event Center
        *
        * @param request ModifyEventInfoRequest
        * @return ModifyEventInfoResponse
@@ -2414,7 +2490,7 @@ namespace RKvstore20150101
       Models::ModifyInstanceBandwidthResponse modifyInstanceBandwidth(const Models::ModifyInstanceBandwidthRequest &request);
 
       /**
-       * @summary Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
+       * @summary Modifies the parameter settings of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
        * @param request ModifyInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2423,7 +2499,7 @@ namespace RKvstore20150101
       Models::ModifyInstanceConfigResponse modifyInstanceConfigWithOptions(const Models::ModifyInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the parameter settings of a Tair (Redis OSS-compatible) instance.
+       * @summary Modifies the parameter settings of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
        * @param request ModifyInstanceConfigRequest
        * @return ModifyInstanceConfigResponse
@@ -2543,7 +2619,7 @@ namespace RKvstore20150101
        * @summary Enables Transport Layer Security (TLS) for a Tair (Redis OSS-compatible) instance.
        *
        * @description You can also configure SSL encryption in the console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
-       * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the required parameter.
+       * > To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the required parameter.
        *
        * @param request ModifyInstanceSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2555,7 +2631,7 @@ namespace RKvstore20150101
        * @summary Enables Transport Layer Security (TLS) for a Tair (Redis OSS-compatible) instance.
        *
        * @description You can also configure SSL encryption in the console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
-       * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the required parameter.
+       * > To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the required parameter.
        *
        * @param request ModifyInstanceSSLRequest
        * @return ModifyInstanceSSLResponse
@@ -2733,7 +2809,7 @@ namespace RKvstore20150101
       Models::ModifySecurityIpsResponse modifySecurityIps(const Models::ModifySecurityIpsRequest &request);
 
       /**
-       * @summary Modifies the basic parameters of a Tair-KVCache instance.
+       * @summary 修改TairCustom实例基本参数
        *
        * @param request ModifyTairKVCacheCustomInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2742,7 +2818,7 @@ namespace RKvstore20150101
       Models::ModifyTairKVCacheCustomInstanceAttributeResponse modifyTairKVCacheCustomInstanceAttributeWithOptions(const Models::ModifyTairKVCacheCustomInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic parameters of a Tair-KVCache instance.
+       * @summary 修改TairCustom实例基本参数
        *
        * @param request ModifyTairKVCacheCustomInstanceAttributeRequest
        * @return ModifyTairKVCacheCustomInstanceAttributeResponse
@@ -2914,7 +2990,7 @@ namespace RKvstore20150101
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
-       * @summary Modifies the basic parameters of a Tair-KVCache instance.
+       * @summary 重置TairCustom上主机密码
        *
        * @param request ResetTairKVCacheCustomInstancePasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2923,7 +2999,7 @@ namespace RKvstore20150101
       Models::ResetTairKVCacheCustomInstancePasswordResponse resetTairKVCacheCustomInstancePasswordWithOptions(const Models::ResetTairKVCacheCustomInstancePasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic parameters of a Tair-KVCache instance.
+       * @summary 重置TairCustom上主机密码
        *
        * @param request ResetTairKVCacheCustomInstancePasswordRequest
        * @return ResetTairKVCacheCustomInstancePasswordResponse
@@ -2931,7 +3007,7 @@ namespace RKvstore20150101
       Models::ResetTairKVCacheCustomInstancePasswordResponse resetTairKVCacheCustomInstancePassword(const Models::ResetTairKVCacheCustomInstancePasswordRequest &request);
 
       /**
-       * @summary Modifies the disk size of a Tair-KVCache instance.
+       * @summary 变配TairCustom的主机的磁盘
        *
        * @param request ResizeTairKVCacheCustomInstanceDiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2940,7 +3016,7 @@ namespace RKvstore20150101
       Models::ResizeTairKVCacheCustomInstanceDiskResponse resizeTairKVCacheCustomInstanceDiskWithOptions(const Models::ResizeTairKVCacheCustomInstanceDiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the disk size of a Tair-KVCache instance.
+       * @summary 变配TairCustom的主机的磁盘
        *
        * @param request ResizeTairKVCacheCustomInstanceDiskRequest
        * @return ResizeTairKVCacheCustomInstanceDiskResponse
@@ -2965,7 +3041,7 @@ namespace RKvstore20150101
       Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary Restarts a Tair-KVCache instance.
+       * @summary 重启TairCustom的主机
        *
        * @param request RestartTairKVCacheCustomInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2974,7 +3050,7 @@ namespace RKvstore20150101
       Models::RestartTairKVCacheCustomInstanceResponse restartTairKVCacheCustomInstanceWithOptions(const Models::RestartTairKVCacheCustomInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts a Tair-KVCache instance.
+       * @summary 重启TairCustom的主机
        *
        * @param request RestartTairKVCacheCustomInstanceRequest
        * @return RestartTairKVCacheCustomInstanceResponse
@@ -2982,10 +3058,10 @@ namespace RKvstore20150101
       Models::RestartTairKVCacheCustomInstanceResponse restartTairKVCacheCustomInstance(const Models::RestartTairKVCacheCustomInstanceRequest &request);
 
       /**
-       * @summary Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
+       * @summary Restores data from a specified backup file to a Tair (Redis-compatible) instance.
        *
-       * @description *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
-       * *   For other types of instances, we recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore the backup data to a new instance.
+       * @description - For Tair memory-enhanced enterprise edition instances that use the classic architecture, you can restore specified keys to a point in time with precision to the second for granular data recovery.
+       * - For all other instance types, use the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore backup data to a new instance.
        *
        * @param request RestoreInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2994,10 +3070,10 @@ namespace RKvstore20150101
       Models::RestoreInstanceResponse restoreInstanceWithOptions(const Models::RestoreInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores the data in a backup file to a specified Tair (Redis OSS-compatible) instance.
+       * @summary Restores data from a specified backup file to a Tair (Redis-compatible) instance.
        *
-       * @description *   If your instance is a [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) or a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/183956.html) and has the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature enabled, you can call this operation to restore the entire instance or specific keys to a specific point in time accurate to the second. This way, you can achieve more fine-grained data restoration.
-       * *   For other types of instances, we recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore the backup data to a new instance.
+       * @description - For Tair memory-enhanced enterprise edition instances that use the classic architecture, you can restore specified keys to a point in time with precision to the second for granular data recovery.
+       * - For all other instance types, use the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore backup data to a new instance.
        *
        * @param request RestoreInstanceRequest
        * @return RestoreInstanceResponse
@@ -3005,7 +3081,7 @@ namespace RKvstore20150101
       Models::RestoreInstanceResponse restoreInstance(const Models::RestoreInstanceRequest &request);
 
       /**
-       * @summary Starts a Tair-KVCache instance.
+       * @summary 启动TairCustom的主机
        *
        * @param request StartTairKVCacheCustomInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3014,7 +3090,7 @@ namespace RKvstore20150101
       Models::StartTairKVCacheCustomInstanceResponse startTairKVCacheCustomInstanceWithOptions(const Models::StartTairKVCacheCustomInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a Tair-KVCache instance.
+       * @summary 启动TairCustom的主机
        *
        * @param request StartTairKVCacheCustomInstanceRequest
        * @return StartTairKVCacheCustomInstanceResponse
@@ -3022,7 +3098,7 @@ namespace RKvstore20150101
       Models::StartTairKVCacheCustomInstanceResponse startTairKVCacheCustomInstance(const Models::StartTairKVCacheCustomInstanceRequest &request);
 
       /**
-       * @summary Stops a Tair-KVCache instance.
+       * @summary 停止TairCustom的主机
        *
        * @param request StopTairKVCacheCustomInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3031,7 +3107,7 @@ namespace RKvstore20150101
       Models::StopTairKVCacheCustomInstanceResponse stopTairKVCacheCustomInstanceWithOptions(const Models::StopTairKVCacheCustomInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a Tair-KVCache instance.
+       * @summary 停止TairCustom的主机
        *
        * @param request StopTairKVCacheCustomInstanceRequest
        * @return StopTairKVCacheCustomInstanceResponse
@@ -3039,13 +3115,13 @@ namespace RKvstore20150101
       Models::StopTairKVCacheCustomInstanceResponse stopTairKVCacheCustomInstance(const Models::StopTairKVCacheCustomInstanceRequest &request);
 
       /**
-       * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+       * @summary Performs a primary/secondary switchover (switches node roles). This operation can be used for disaster recovery drills and nearest access for applications in multi-zone deployment scenarios.
        *
-       * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
-       * The instance must be a Redis Open-Source Edition instance or Tair (Enterprise Edition) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
-       * A call to this operation has the following impacts on your instance:
-       * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
-       * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+       * @description > For more information about nearest access for applications in multi-zone deployment scenarios, see [Scenario examples](https://help.aliyun.com/document_detail/164222.html).
+       * When you call this operation, the instance must be of the high-availability or dual-replica type.
+       * Calling this operation has the following impacts:
+       * * After a node role switchover is triggered, the data node being switched enters a read-only state for a few seconds and experiences a transient connection. Make sure that your application has a reconnection mechanism.
+       * * While the instance is in the switching state, you cannot perform instance-level operations such as configuration changes or zone migration.
        *
        * @param request SwitchInstanceHARequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3054,13 +3130,13 @@ namespace RKvstore20150101
       Models::SwitchInstanceHAResponse switchInstanceHAWithOptions(const Models::SwitchInstanceHARequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+       * @summary Performs a primary/secondary switchover (switches node roles). This operation can be used for disaster recovery drills and nearest access for applications in multi-zone deployment scenarios.
        *
-       * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
-       * The instance must be a Redis Open-Source Edition instance or Tair (Enterprise Edition) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
-       * A call to this operation has the following impacts on your instance:
-       * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
-       * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+       * @description > For more information about nearest access for applications in multi-zone deployment scenarios, see [Scenario examples](https://help.aliyun.com/document_detail/164222.html).
+       * When you call this operation, the instance must be of the high-availability or dual-replica type.
+       * Calling this operation has the following impacts:
+       * * After a node role switchover is triggered, the data node being switched enters a read-only state for a few seconds and experiences a transient connection. Make sure that your application has a reconnection mechanism.
+       * * While the instance is in the switching state, you cannot perform instance-level operations such as configuration changes or zone migration.
        *
        * @param request SwitchInstanceHARequest
        * @return SwitchInstanceHAResponse
@@ -3097,6 +3173,9 @@ namespace RKvstore20150101
       /**
        * @summary Switches an instance from the current zone to the specified zone in the event of a fault.
        *
+       * @description - 本接口仅适用于多（双）可用区集群架构实例。
+       * - 模拟故障的节点会在稍后自动恢复。但主节点位于备可用区、备节点位于主可用区，此时可能产生实例与其他业务跨机房访问的情况。如需解决该问题，您可以在控制台服务可用性页面手动切换可用区。
+       *
        * @param request SwitchInstanceZoneFailOverRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SwitchInstanceZoneFailOverResponse
@@ -3105,6 +3184,9 @@ namespace RKvstore20150101
 
       /**
        * @summary Switches an instance from the current zone to the specified zone in the event of a fault.
+       *
+       * @description - 本接口仅适用于多（双）可用区集群架构实例。
+       * - 模拟故障的节点会在稍后自动恢复。但主节点位于备可用区、备节点位于主可用区，此时可能产生实例与其他业务跨机房访问的情况。如需解决该问题，您可以在控制台服务可用性页面手动切换可用区。
        *
        * @param request SwitchInstanceZoneFailOverRequest
        * @return SwitchInstanceZoneFailOverResponse
@@ -3131,6 +3213,9 @@ namespace RKvstore20150101
       /**
        * @summary Disables configuration changes for a Tair (Redis OSS-compatible) instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to configuration changes.
        *
+       * @description - 本接口仅适用于经典版实例。
+       * - 数据迁移或同步任务完成后，您可以再次调用本接口，解除变配限制。
+       *
        * @param request SyncDtsStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SyncDtsStatusResponse
@@ -3139,6 +3224,9 @@ namespace RKvstore20150101
 
       /**
        * @summary Disables configuration changes for a Tair (Redis OSS-compatible) instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to configuration changes.
+       *
+       * @description - 本接口仅适用于经典版实例。
+       * - 数据迁移或同步任务完成后，您可以再次调用本接口，解除变配限制。
        *
        * @param request SyncDtsStatusRequest
        * @return SyncDtsStatusResponse
@@ -3179,11 +3267,11 @@ namespace RKvstore20150101
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Changes the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+       * @summary Changes the billing method for a Tair instance between subscription and pay-as-you-go.
        *
-       * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
-       * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
-       * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+       * @description Before you call this operation, ensure you understand the billing implications and usage notes. For more information, see:
+       * - [Change a pay-as-you-go instance to subscription](https://help.aliyun.com/document_detail/54542.html).
+       * - [Change a subscription instance to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
        *
        * @param request TransformInstanceChargeTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3192,11 +3280,11 @@ namespace RKvstore20150101
       Models::TransformInstanceChargeTypeResponse transformInstanceChargeTypeWithOptions(const Models::TransformInstanceChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+       * @summary Changes the billing method for a Tair instance between subscription and pay-as-you-go.
        *
-       * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
-       * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
-       * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+       * @description Before you call this operation, ensure you understand the billing implications and usage notes. For more information, see:
+       * - [Change a pay-as-you-go instance to subscription](https://help.aliyun.com/document_detail/54542.html).
+       * - [Change a subscription instance to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
        *
        * @param request TransformInstanceChargeTypeRequest
        * @return TransformInstanceChargeTypeResponse
@@ -3204,7 +3292,7 @@ namespace RKvstore20150101
       Models::TransformInstanceChargeTypeResponse transformInstanceChargeType(const Models::TransformInstanceChargeTypeRequest &request);
 
       /**
-       * @summary Converts an instance use local disks to a cloud-native instance.
+       * @summary Converts an instance that uses local disk to a cloud-native instance.
        *
        * @param request TransformToEcsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3213,7 +3301,7 @@ namespace RKvstore20150101
       Models::TransformToEcsResponse transformToEcsWithOptions(const Models::TransformToEcsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Converts an instance use local disks to a cloud-native instance.
+       * @summary Converts an instance that uses local disk to a cloud-native instance.
        *
        * @param request TransformToEcsRequest
        * @return TransformToEcsResponse
@@ -3221,10 +3309,9 @@ namespace RKvstore20150101
       Models::TransformToEcsResponse transformToEcs(const Models::TransformToEcsRequest &request);
 
       /**
-       * @summary Changes a pay-as-you-go Tair (Redis OSS-compatible) instance to a subscription instance.
+       * @summary Converts a pay-as-you-go ApsaraDB for Tair (Redis-compatible) instance to the subscription billing method.
        *
-       * @description For more information about how to change the billing method in the Tair (Redis OSS-compatible) console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
-       * >  You cannot change the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go.
+       * @description To perform the equivalent operation in the console, see [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
        *
        * @param request TransformToPrePaidRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3233,10 +3320,9 @@ namespace RKvstore20150101
       Models::TransformToPrePaidResponse transformToPrePaidWithOptions(const Models::TransformToPrePaidRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes a pay-as-you-go Tair (Redis OSS-compatible) instance to a subscription instance.
+       * @summary Converts a pay-as-you-go ApsaraDB for Tair (Redis-compatible) instance to the subscription billing method.
        *
-       * @description For more information about how to change the billing method in the Tair (Redis OSS-compatible) console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
-       * >  You cannot change the billing method of a Tair (Redis OSS-compatible) instance from subscription to pay-as-you-go.
+       * @description To perform the equivalent operation in the console, see [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
        *
        * @param request TransformToPrePaidRequest
        * @return TransformToPrePaidResponse

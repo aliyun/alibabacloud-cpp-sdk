@@ -103,23 +103,24 @@ namespace Models
 
 
   protected:
-    // The time when you want to perform the conversion. Valid values:
+    // Specifies when to perform the operation. Valid values:
     // 
-    // *   **Immediately**: immediately performs the conversion.
-    // *   **MaintainTime** (default): performs the conversion during the maintenance window.
+    // - **Immediately**: Performs the operation immediately.
     // 
-    // >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of an instance.
+    // - **MaintainTime**: Performs the operation during the maintenance window. This is the default value.
+    // 
+    // > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to change the maintenance window of the instance.
     shared_ptr<string> effectiveTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The ID of the resource group.
     // 
-    // >  You do not need to specify system parameters.
+    // > This is a system parameter. You do not need to specify it.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The ID of the existing instance.
+    // The ID of the source instance.
     // 
     // This parameter is required.
     shared_ptr<string> seedSubInstanceId_ {};
