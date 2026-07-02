@@ -457,6 +457,100 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfos(const Delete
 }
 
 /**
+ * @summary 查询图片生成任务
+ *
+ * @description ## 请求说明
+ * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request GetImageGenerationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetImageGenerationJobResponse
+ */
+GetImageGenerationJobResponse Client::getImageGenerationJobWithOptions(const GetImageGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetImageGenerationJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetImageGenerationJobResponse>();
+}
+
+/**
+ * @summary 查询图片生成任务
+ *
+ * @description ## 请求说明
+ * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request GetImageGenerationJobRequest
+ * @return GetImageGenerationJobResponse
+ */
+GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenerationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getImageGenerationJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询视频生成任务
+ *
+ * @param request GetVideoGenerationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoGenerationJobResponse
+ */
+GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const GetVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVideoGenerationJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoGenerationJobResponse>();
+}
+
+/**
+ * @summary 查询视频生成任务
+ *
+ * @param request GetVideoGenerationJobRequest
+ * @return GetVideoGenerationJobResponse
+ */
+GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenerationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVideoGenerationJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of an AI application task.
  *
  * @param request GetYikeAIAppJobRequest
@@ -1269,6 +1363,178 @@ SubYikeUserCreditResponse Client::subYikeUserCredit(const SubYikeUserCreditReque
 }
 
 /**
+ * @summary 提交图像生成接口
+ *
+ * @description ## 请求说明
+ * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request SubmitImageGenerationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitImageGenerationJobResponse
+ */
+SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(const SubmitImageGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAspectRatio()) {
+    query["AspectRatio"] = request.getAspectRatio();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInput()) {
+    query["Input"] = request.getInput();
+  }
+
+  if (!!request.hasJobParameters()) {
+    query["JobParameters"] = request.getJobParameters();
+  }
+
+  if (!!request.hasJobType()) {
+    query["JobType"] = request.getJobType();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasN()) {
+    query["N"] = request.getN();
+  }
+
+  if (!!request.hasResolution()) {
+    query["Resolution"] = request.getResolution();
+  }
+
+  if (!!request.hasScene()) {
+    query["Scene"] = request.getScene();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitImageGenerationJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitImageGenerationJobResponse>();
+}
+
+/**
+ * @summary 提交图像生成接口
+ *
+ * @description ## 请求说明
+ * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request SubmitImageGenerationJobRequest
+ * @return SubmitImageGenerationJobResponse
+ */
+SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitImageGenerationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitImageGenerationJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交视频生成接口
+ *
+ * @description ## 请求说明
+ * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request SubmitVideoGenerationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoGenerationJobResponse
+ */
+SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(const SubmitVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAspectRatio()) {
+    query["AspectRatio"] = request.getAspectRatio();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDuration()) {
+    query["Duration"] = request.getDuration();
+  }
+
+  if (!!request.hasInput()) {
+    query["Input"] = request.getInput();
+  }
+
+  if (!!request.hasJobParameters()) {
+    query["JobParameters"] = request.getJobParameters();
+  }
+
+  if (!!request.hasJobType()) {
+    query["JobType"] = request.getJobType();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasN()) {
+    query["N"] = request.getN();
+  }
+
+  if (!!request.hasResolution()) {
+    query["Resolution"] = request.getResolution();
+  }
+
+  if (!!request.hasScene()) {
+    query["Scene"] = request.getScene();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoGenerationJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoGenerationJobResponse>();
+}
+
+/**
+ * @summary 提交视频生成接口
+ *
+ * @description ## 请求说明
+ * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request SubmitVideoGenerationJobRequest
+ * @return SubmitVideoGenerationJobResponse
+ */
+SubmitVideoGenerationJobResponse Client::submitVideoGenerationJob(const SubmitVideoGenerationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoGenerationJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits an AI application task to Yike AI.
  *
  * @param request SubmitYikeAIAppJobRequest
@@ -1575,7 +1841,7 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJob(const SubmitYike
 }
 
 /**
- * @summary 提交一刻数字人口播视频生成任务
+ * @summary Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
  *
  * @param request SubmitYikeVideoCloneJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1610,7 +1876,7 @@ SubmitYikeVideoCloneJobResponse Client::submitYikeVideoCloneJobWithOptions(const
 }
 
 /**
- * @summary 提交一刻数字人口播视频生成任务
+ * @summary Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
  *
  * @param request SubmitYikeVideoCloneJobRequest
  * @return SubmitYikeVideoCloneJobResponse

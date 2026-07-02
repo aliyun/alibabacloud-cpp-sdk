@@ -174,6 +174,46 @@ namespace Yike20260319
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfos(const Models::DeleteYikeAssetMediaInfosRequest &request);
 
       /**
+       * @summary 查询图片生成任务
+       *
+       * @description ## 请求说明
+       * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       *
+       * @param request GetImageGenerationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetImageGenerationJobResponse
+       */
+      Models::GetImageGenerationJobResponse getImageGenerationJobWithOptions(const Models::GetImageGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询图片生成任务
+       *
+       * @description ## 请求说明
+       * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       *
+       * @param request GetImageGenerationJobRequest
+       * @return GetImageGenerationJobResponse
+       */
+      Models::GetImageGenerationJobResponse getImageGenerationJob(const Models::GetImageGenerationJobRequest &request);
+
+      /**
+       * @summary 查询视频生成任务
+       *
+       * @param request GetVideoGenerationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVideoGenerationJobResponse
+       */
+      Models::GetVideoGenerationJobResponse getVideoGenerationJobWithOptions(const Models::GetVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询视频生成任务
+       *
+       * @param request GetVideoGenerationJobRequest
+       * @return GetVideoGenerationJobResponse
+       */
+      Models::GetVideoGenerationJobResponse getVideoGenerationJob(const Models::GetVideoGenerationJobRequest &request);
+
+      /**
        * @summary Retrieves the details of an AI application task.
        *
        * @param request GetYikeAIAppJobRequest
@@ -480,6 +520,52 @@ namespace Yike20260319
       Models::SubYikeUserCreditResponse subYikeUserCredit(const Models::SubYikeUserCreditRequest &request);
 
       /**
+       * @summary 提交图像生成接口
+       *
+       * @description ## 请求说明
+       * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       *
+       * @param request SubmitImageGenerationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitImageGenerationJobResponse
+       */
+      Models::SubmitImageGenerationJobResponse submitImageGenerationJobWithOptions(const Models::SubmitImageGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交图像生成接口
+       *
+       * @description ## 请求说明
+       * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       *
+       * @param request SubmitImageGenerationJobRequest
+       * @return SubmitImageGenerationJobResponse
+       */
+      Models::SubmitImageGenerationJobResponse submitImageGenerationJob(const Models::SubmitImageGenerationJobRequest &request);
+
+      /**
+       * @summary 提交视频生成接口
+       *
+       * @description ## 请求说明
+       * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       *
+       * @param request SubmitVideoGenerationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitVideoGenerationJobResponse
+       */
+      Models::SubmitVideoGenerationJobResponse submitVideoGenerationJobWithOptions(const Models::SubmitVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交视频生成接口
+       *
+       * @description ## 请求说明
+       * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       *
+       * @param request SubmitVideoGenerationJobRequest
+       * @return SubmitVideoGenerationJobResponse
+       */
+      Models::SubmitVideoGenerationJobResponse submitVideoGenerationJob(const Models::SubmitVideoGenerationJobRequest &request);
+
+      /**
        * @summary Submits an AI application task to Yike AI.
        *
        * @param request SubmitYikeAIAppJobRequest
@@ -575,7 +661,7 @@ namespace Yike20260319
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJob(const Models::SubmitYikeStoryboardJobRequest &request);
 
       /**
-       * @summary 提交一刻数字人口播视频生成任务
+       * @summary Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
        *
        * @param request SubmitYikeVideoCloneJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -584,7 +670,7 @@ namespace Yike20260319
       Models::SubmitYikeVideoCloneJobResponse submitYikeVideoCloneJobWithOptions(const Models::SubmitYikeVideoCloneJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻数字人口播视频生成任务
+       * @summary Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
        *
        * @param request SubmitYikeVideoCloneJobRequest
        * @return SubmitYikeVideoCloneJobResponse

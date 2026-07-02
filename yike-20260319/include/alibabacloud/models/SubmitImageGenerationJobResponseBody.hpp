@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SUBMITYIKEVIDEOCLONEJOBRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_SUBMITYIKEVIDEOCLONEJOBRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_SUBMITIMAGEGENERATIONJOBRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_SUBMITIMAGEGENERATIONJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Yike20260319
 {
 namespace Models
 {
-  class SubmitYikeVideoCloneJobResponseBody : public Darabonba::Model {
+  class SubmitImageGenerationJobResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SubmitYikeVideoCloneJobResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const SubmitImageGenerationJobResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, SubmitYikeVideoCloneJobResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, SubmitImageGenerationJobResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    SubmitYikeVideoCloneJobResponseBody() = default ;
-    SubmitYikeVideoCloneJobResponseBody(const SubmitYikeVideoCloneJobResponseBody &) = default ;
-    SubmitYikeVideoCloneJobResponseBody(SubmitYikeVideoCloneJobResponseBody &&) = default ;
-    SubmitYikeVideoCloneJobResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SubmitYikeVideoCloneJobResponseBody() = default ;
-    SubmitYikeVideoCloneJobResponseBody& operator=(const SubmitYikeVideoCloneJobResponseBody &) = default ;
-    SubmitYikeVideoCloneJobResponseBody& operator=(SubmitYikeVideoCloneJobResponseBody &&) = default ;
+    SubmitImageGenerationJobResponseBody() = default ;
+    SubmitImageGenerationJobResponseBody(const SubmitImageGenerationJobResponseBody &) = default ;
+    SubmitImageGenerationJobResponseBody(SubmitImageGenerationJobResponseBody &&) = default ;
+    SubmitImageGenerationJobResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SubmitImageGenerationJobResponseBody() = default ;
+    SubmitImageGenerationJobResponseBody& operator=(const SubmitImageGenerationJobResponseBody &) = default ;
+    SubmitImageGenerationJobResponseBody& operator=(SubmitImageGenerationJobResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,18 @@ namespace Models
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
     inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
-    inline SubmitYikeVideoCloneJobResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+    inline SubmitImageGenerationJobResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline SubmitYikeVideoCloneJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline SubmitImageGenerationJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The task ID.
     shared_ptr<string> jobId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

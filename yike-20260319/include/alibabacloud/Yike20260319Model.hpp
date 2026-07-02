@@ -30,6 +30,12 @@
 #include <alibabacloud/models/DeleteYikeAssetMediaInfosRequest.hpp>
 #include <alibabacloud/models/DeleteYikeAssetMediaInfosResponseBody.hpp>
 #include <alibabacloud/models/DeleteYikeAssetMediaInfosResponse.hpp>
+#include <alibabacloud/models/GetImageGenerationJobRequest.hpp>
+#include <alibabacloud/models/GetImageGenerationJobResponseBody.hpp>
+#include <alibabacloud/models/GetImageGenerationJobResponse.hpp>
+#include <alibabacloud/models/GetVideoGenerationJobRequest.hpp>
+#include <alibabacloud/models/GetVideoGenerationJobResponseBody.hpp>
+#include <alibabacloud/models/GetVideoGenerationJobResponse.hpp>
 #include <alibabacloud/models/GetYikeAIAppJobRequest.hpp>
 #include <alibabacloud/models/GetYikeAIAppJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAIAppJobResponse.hpp>
@@ -84,6 +90,12 @@
 #include <alibabacloud/models/SubYikeUserCreditRequest.hpp>
 #include <alibabacloud/models/SubYikeUserCreditResponseBody.hpp>
 #include <alibabacloud/models/SubYikeUserCreditResponse.hpp>
+#include <alibabacloud/models/SubmitImageGenerationJobRequest.hpp>
+#include <alibabacloud/models/SubmitImageGenerationJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitImageGenerationJobResponse.hpp>
+#include <alibabacloud/models/SubmitVideoGenerationJobRequest.hpp>
+#include <alibabacloud/models/SubmitVideoGenerationJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitVideoGenerationJobResponse.hpp>
 #include <alibabacloud/models/SubmitYikeAIAppJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeAIAppJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeAIAppJobResponse.hpp>
