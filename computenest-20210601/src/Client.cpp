@@ -18,6 +18,10 @@ namespace ComputeNest20210601
 
 AlibabaCloud::ComputeNest20210601::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-hangzhou" , "computenest.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-1" , "computenest.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("computenest", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -566,8 +570,8 @@ CreateServiceUsageResponse Client::createServiceUsage(const CreateServiceUsageRe
 /**
  * @summary Creates a Skill.
  *
- * @description ### Prerequisites
- * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -582,6 +586,10 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &req
 
   if (!!request.hasSkillDescription()) {
     query["SkillDescription"] = request.getSkillDescription();
+  }
+
+  if (!!request.hasSkillDisplayName()) {
+    query["SkillDisplayName"] = request.getSkillDisplayName();
   }
 
   if (!!request.hasSkillLabels()) {
@@ -630,8 +638,8 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &req
 /**
  * @summary Creates a Skill.
  *
- * @description ### Prerequisites
- * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillRequest
  * @return CreateSkillResponse
@@ -1114,7 +1122,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Check for missing access policies before you create a service instance.
+ * @summary Queries the missing access policies before creating a service instance.
  *
  * @param tmpReq GenerateServicePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1175,7 +1183,7 @@ GenerateServicePolicyResponse Client::generateServicePolicyWithOptions(const Gen
 }
 
 /**
- * @summary Check for missing access policies before you create a service instance.
+ * @summary Queries the missing access policies before creating a service instance.
  *
  * @param request GenerateServicePolicyRequest
  * @return GenerateServicePolicyResponse
@@ -1732,8 +1740,8 @@ GetServiceTemplateParameterConstraintsResponse Client::getServiceTemplateParamet
 /**
  * @summary Queries the details of a Skill.
  *
- * @description ### Prerequisites
- * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request GetSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1766,8 +1774,8 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
 /**
  * @summary Queries the details of a Skill.
  *
- * @description ### Prerequisites
- * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request GetSkillRequest
  * @return GetSkillResponse
@@ -2067,10 +2075,10 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
- * @summary Lists public skills.
+ * @summary Queries the list of public skills.
  *
- * @description ### Prerequisites
- * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
+ * @description ### Before you begin
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListPublicSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2113,10 +2121,10 @@ ListPublicSkillsResponse Client::listPublicSkillsWithOptions(const ListPublicSki
 }
 
 /**
- * @summary Lists public skills.
+ * @summary Queries the list of public skills.
  *
- * @description ### Prerequisites
- * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
+ * @description ### Before you begin
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListPublicSkillsRequest
  * @return ListPublicSkillsResponse
@@ -2773,10 +2781,10 @@ ListSkillSpacesResponse Client::listSkillSpaces(const ListSkillSpacesRequest &re
 }
 
 /**
- * @summary Retrieves a list of Skills.
+ * @summary Queries a list of skills.
  *
- * @description ### Prerequisites
- * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2819,10 +2827,10 @@ ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &reques
 }
 
 /**
- * @summary Retrieves a list of Skills.
+ * @summary Queries a list of skills.
  *
- * @description ### Prerequisites
- * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillsRequest
  * @return ListSkillsResponse
@@ -3631,8 +3639,8 @@ UpdateServiceUsageResponse Client::updateServiceUsage(const UpdateServiceUsageRe
 /**
  * @summary Updates a skill.
  *
- * @description ### Prerequisites
- * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
  *
  * @param request UpdateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3647,6 +3655,10 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &req
 
   if (!!request.hasSkillDescription()) {
     query["SkillDescription"] = request.getSkillDescription();
+  }
+
+  if (!!request.hasSkillDisplayName()) {
+    query["SkillDisplayName"] = request.getSkillDisplayName();
   }
 
   if (!!request.hasSkillId()) {
@@ -3695,8 +3707,8 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &req
 /**
  * @summary Updates a skill.
  *
- * @description ### Prerequisites
- * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
  *
  * @param request UpdateSkillRequest
  * @return UpdateSkillResponse

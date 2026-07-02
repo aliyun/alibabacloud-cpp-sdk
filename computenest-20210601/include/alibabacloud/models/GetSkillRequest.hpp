@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Skill.
+    // The unique ID of the Skill.
     // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};

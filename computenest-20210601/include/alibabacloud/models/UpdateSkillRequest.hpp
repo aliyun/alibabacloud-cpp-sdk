@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(OssUrl, ossUrl_);
       DARABONBA_PTR_TO_JSON(SkillDescription, skillDescription_);
+      DARABONBA_PTR_TO_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_TO_JSON(SkillId, skillId_);
       DARABONBA_PTR_TO_JSON(SkillLabels, skillLabels_);
       DARABONBA_PTR_TO_JSON(SkillName, skillName_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(OssUrl, ossUrl_);
       DARABONBA_PTR_FROM_JSON(SkillDescription, skillDescription_);
+      DARABONBA_PTR_FROM_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
       DARABONBA_PTR_FROM_JSON(SkillLabels, skillLabels_);
       DARABONBA_PTR_FROM_JSON(SkillName, skillName_);
@@ -45,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->ossUrl_ == nullptr && this->skillDescription_ == nullptr && this->skillId_ == nullptr && this->skillLabels_ == nullptr && this->skillName_ == nullptr
-        && this->sourceSkillId_ == nullptr && this->sourceType_ == nullptr; };
+        && this->ossUrl_ == nullptr && this->skillDescription_ == nullptr && this->skillDisplayName_ == nullptr && this->skillId_ == nullptr && this->skillLabels_ == nullptr
+        && this->skillName_ == nullptr && this->sourceSkillId_ == nullptr && this->sourceType_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -66,6 +68,13 @@ namespace Models
     void deleteSkillDescription() { this->skillDescription_ = nullptr;};
     inline string getSkillDescription() const { DARABONBA_PTR_GET_DEFAULT(skillDescription_, "") };
     inline UpdateSkillRequest& setSkillDescription(string skillDescription) { DARABONBA_PTR_SET_VALUE(skillDescription_, skillDescription) };
+
+
+    // skillDisplayName Field Functions 
+    bool hasSkillDisplayName() const { return this->skillDisplayName_ != nullptr;};
+    void deleteSkillDisplayName() { this->skillDisplayName_ = nullptr;};
+    inline string getSkillDisplayName() const { DARABONBA_PTR_GET_DEFAULT(skillDisplayName_, "") };
+    inline UpdateSkillRequest& setSkillDisplayName(string skillDisplayName) { DARABONBA_PTR_SET_VALUE(skillDisplayName_, skillDisplayName) };
 
 
     // skillId Field Functions 
@@ -106,25 +115,24 @@ namespace Models
 
 
   protected:
-    // A unique, client-generated token to ensure request idempotence. **ClientToken** can contain only ASCII characters and must not exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // This parameter is required if `SourceType` is set to `UPLOAD`. It specifies the Object Storage Service (OSS) URL of the compressed skill package to upload.
+    // Required when SourceType is set to UPLOAD. The OSS URL of the skill package to upload.
     shared_ptr<string> ossUrl_ {};
-    // The skill description.
+    // The description of the skill.
     shared_ptr<string> skillDescription_ {};
+    shared_ptr<string> skillDisplayName_ {};
     // The ID of the skill to update.
     // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};
-    // An array of skill labels.
+    // The labels of the skill.
     shared_ptr<vector<string>> skillLabels_ {};
-    // The skill name.
+    // The name of the skill.
     shared_ptr<string> skillName_ {};
-    // This parameter is required if `SourceType` is set to `COPY`. It specifies the ID of the public skill.
+    // Required when SourceType is set to COPY. The ID of the public skill.
     shared_ptr<string> sourceSkillId_ {};
-    // The source type for the skill update.
-    // 
-    // This parameter is required.
+    // The source type for updating the skill.
     shared_ptr<string> sourceType_ {};
   };
 

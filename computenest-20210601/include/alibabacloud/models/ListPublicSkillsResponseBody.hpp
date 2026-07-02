@@ -43,7 +43,9 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Skills& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
+        DARABONBA_PTR_TO_JSON(Locales, locales_);
         DARABONBA_PTR_TO_JSON(SkillDescription, skillDescription_);
+        DARABONBA_PTR_TO_JSON(SkillDisplayName, skillDisplayName_);
         DARABONBA_PTR_TO_JSON(SkillId, skillId_);
         DARABONBA_PTR_TO_JSON(SkillLabels, skillLabels_);
         DARABONBA_PTR_TO_JSON(SkillName, skillName_);
@@ -53,7 +55,9 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Skills& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
+        DARABONBA_PTR_FROM_JSON(Locales, locales_);
         DARABONBA_PTR_FROM_JSON(SkillDescription, skillDescription_);
+        DARABONBA_PTR_FROM_JSON(SkillDisplayName, skillDisplayName_);
         DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
         DARABONBA_PTR_FROM_JSON(SkillLabels, skillLabels_);
         DARABONBA_PTR_FROM_JSON(SkillName, skillName_);
@@ -71,9 +75,61 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Locales : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Locales& obj) { 
+          DARABONBA_PTR_TO_JSON(EnValue, enValue_);
+          DARABONBA_PTR_TO_JSON(OriginalValue, originalValue_);
+          DARABONBA_PTR_TO_JSON(ZhValue, zhValue_);
+        };
+        friend void from_json(const Darabonba::Json& j, Locales& obj) { 
+          DARABONBA_PTR_FROM_JSON(EnValue, enValue_);
+          DARABONBA_PTR_FROM_JSON(OriginalValue, originalValue_);
+          DARABONBA_PTR_FROM_JSON(ZhValue, zhValue_);
+        };
+        Locales() = default ;
+        Locales(const Locales &) = default ;
+        Locales(Locales &&) = default ;
+        Locales(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Locales() = default ;
+        Locales& operator=(const Locales &) = default ;
+        Locales& operator=(Locales &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enValue_ == nullptr
+        && this->originalValue_ == nullptr && this->zhValue_ == nullptr; };
+        // enValue Field Functions 
+        bool hasEnValue() const { return this->enValue_ != nullptr;};
+        void deleteEnValue() { this->enValue_ = nullptr;};
+        inline string getEnValue() const { DARABONBA_PTR_GET_DEFAULT(enValue_, "") };
+        inline Locales& setEnValue(string enValue) { DARABONBA_PTR_SET_VALUE(enValue_, enValue) };
+
+
+        // originalValue Field Functions 
+        bool hasOriginalValue() const { return this->originalValue_ != nullptr;};
+        void deleteOriginalValue() { this->originalValue_ = nullptr;};
+        inline string getOriginalValue() const { DARABONBA_PTR_GET_DEFAULT(originalValue_, "") };
+        inline Locales& setOriginalValue(string originalValue) { DARABONBA_PTR_SET_VALUE(originalValue_, originalValue) };
+
+
+        // zhValue Field Functions 
+        bool hasZhValue() const { return this->zhValue_ != nullptr;};
+        void deleteZhValue() { this->zhValue_ = nullptr;};
+        inline string getZhValue() const { DARABONBA_PTR_GET_DEFAULT(zhValue_, "") };
+        inline Locales& setZhValue(string zhValue) { DARABONBA_PTR_SET_VALUE(zhValue_, zhValue) };
+
+
+      protected:
+        shared_ptr<string> enValue_ {};
+        shared_ptr<string> originalValue_ {};
+        shared_ptr<string> zhValue_ {};
+      };
+
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->downloadUrl_ == nullptr && this->skillDescription_ == nullptr && this->skillId_ == nullptr && this->skillLabels_ == nullptr && this->skillName_ == nullptr
-        && this->skillSpaceId_ == nullptr && this->updateTime_ == nullptr; };
+        && this->downloadUrl_ == nullptr && this->locales_ == nullptr && this->skillDescription_ == nullptr && this->skillDisplayName_ == nullptr && this->skillId_ == nullptr
+        && this->skillLabels_ == nullptr && this->skillName_ == nullptr && this->skillSpaceId_ == nullptr && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -88,11 +144,27 @@ namespace Models
       inline Skills& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
 
 
+      // locales Field Functions 
+      bool hasLocales() const { return this->locales_ != nullptr;};
+      void deleteLocales() { this->locales_ = nullptr;};
+      inline const vector<Skills::Locales> & getLocales() const { DARABONBA_PTR_GET_CONST(locales_, vector<Skills::Locales>) };
+      inline vector<Skills::Locales> getLocales() { DARABONBA_PTR_GET(locales_, vector<Skills::Locales>) };
+      inline Skills& setLocales(const vector<Skills::Locales> & locales) { DARABONBA_PTR_SET_VALUE(locales_, locales) };
+      inline Skills& setLocales(vector<Skills::Locales> && locales) { DARABONBA_PTR_SET_RVALUE(locales_, locales) };
+
+
       // skillDescription Field Functions 
       bool hasSkillDescription() const { return this->skillDescription_ != nullptr;};
       void deleteSkillDescription() { this->skillDescription_ = nullptr;};
       inline string getSkillDescription() const { DARABONBA_PTR_GET_DEFAULT(skillDescription_, "") };
       inline Skills& setSkillDescription(string skillDescription) { DARABONBA_PTR_SET_VALUE(skillDescription_, skillDescription) };
+
+
+      // skillDisplayName Field Functions 
+      bool hasSkillDisplayName() const { return this->skillDisplayName_ != nullptr;};
+      void deleteSkillDisplayName() { this->skillDisplayName_ = nullptr;};
+      inline string getSkillDisplayName() const { DARABONBA_PTR_GET_DEFAULT(skillDisplayName_, "") };
+      inline Skills& setSkillDisplayName(string skillDisplayName) { DARABONBA_PTR_SET_VALUE(skillDisplayName_, skillDisplayName) };
 
 
       // skillId Field Functions 
@@ -133,21 +205,23 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the skill was created.
       shared_ptr<string> createTime_ {};
-      // The download link for the skill package.
+      // The download URL of the skill package.
       shared_ptr<string> downloadUrl_ {};
-      // The description of the skill.
+      shared_ptr<vector<Skills::Locales>> locales_ {};
+      // The skill description.
       shared_ptr<string> skillDescription_ {};
-      // The ID of the skill.
+      shared_ptr<string> skillDisplayName_ {};
+      // Skill ID
       shared_ptr<string> skillId_ {};
-      // The labels attached to the skill.
+      // The skill label set.
       shared_ptr<vector<string>> skillLabels_ {};
-      // The name of the skill.
+      // The skill name.
       shared_ptr<string> skillName_ {};
-      // The ID of the skill space.
+      // The ID of the SkillSpace to which the skill belongs.
       shared_ptr<string> skillSpaceId_ {};
-      // The update time.
+      // The time when the skill was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -191,13 +265,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The list of public skills.
+    // The list of skills.
     shared_ptr<vector<ListPublicSkillsResponseBody::Skills>> skills_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

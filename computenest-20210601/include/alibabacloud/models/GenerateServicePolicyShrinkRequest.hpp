@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The types of operations for which to generate policy information.
+    // The operation types for which policy information needs to be generated.
     shared_ptr<vector<string>> operationTypes_ {};
     shared_ptr<string> parametersShrink_ {};
     // The region ID.
@@ -112,11 +112,11 @@ namespace Models
     shared_ptr<string> serviceVersion_ {};
     // The template name.
     shared_ptr<string> templateName_ {};
-    // The trial type. The default value is NotTrial. Valid values:
+    // The trial type. Default value: NotTrial. Valid values:
     // 
-    // - Trial: The service supports trial use.
+    // - Trial: Trial is supported.
     // 
-    // - NotTrial: The service does not support trial use.
+    // - NotTrial: Trial is not supported.
     shared_ptr<string> trialType_ {};
   };
 

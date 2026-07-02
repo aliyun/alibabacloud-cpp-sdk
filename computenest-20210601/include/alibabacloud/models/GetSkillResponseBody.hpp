@@ -15,8 +15,10 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetSkillResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(Locales, locales_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SkillDescription, skillDescription_);
+      DARABONBA_PTR_TO_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_TO_JSON(SkillId, skillId_);
       DARABONBA_PTR_TO_JSON(SkillLabels, skillLabels_);
       DARABONBA_PTR_TO_JSON(SkillName, skillName_);
@@ -25,8 +27,10 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetSkillResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(Locales, locales_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SkillDescription, skillDescription_);
+      DARABONBA_PTR_FROM_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
       DARABONBA_PTR_FROM_JSON(SkillLabels, skillLabels_);
       DARABONBA_PTR_FROM_JSON(SkillName, skillName_);
@@ -44,14 +48,75 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Locales : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Locales& obj) { 
+        DARABONBA_PTR_TO_JSON(EnValue, enValue_);
+        DARABONBA_PTR_TO_JSON(OriginalValue, originalValue_);
+        DARABONBA_PTR_TO_JSON(ZhValue, zhValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Locales& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnValue, enValue_);
+        DARABONBA_PTR_FROM_JSON(OriginalValue, originalValue_);
+        DARABONBA_PTR_FROM_JSON(ZhValue, zhValue_);
+      };
+      Locales() = default ;
+      Locales(const Locales &) = default ;
+      Locales(Locales &&) = default ;
+      Locales(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Locales() = default ;
+      Locales& operator=(const Locales &) = default ;
+      Locales& operator=(Locales &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->enValue_ == nullptr
+        && this->originalValue_ == nullptr && this->zhValue_ == nullptr; };
+      // enValue Field Functions 
+      bool hasEnValue() const { return this->enValue_ != nullptr;};
+      void deleteEnValue() { this->enValue_ = nullptr;};
+      inline string getEnValue() const { DARABONBA_PTR_GET_DEFAULT(enValue_, "") };
+      inline Locales& setEnValue(string enValue) { DARABONBA_PTR_SET_VALUE(enValue_, enValue) };
+
+
+      // originalValue Field Functions 
+      bool hasOriginalValue() const { return this->originalValue_ != nullptr;};
+      void deleteOriginalValue() { this->originalValue_ = nullptr;};
+      inline string getOriginalValue() const { DARABONBA_PTR_GET_DEFAULT(originalValue_, "") };
+      inline Locales& setOriginalValue(string originalValue) { DARABONBA_PTR_SET_VALUE(originalValue_, originalValue) };
+
+
+      // zhValue Field Functions 
+      bool hasZhValue() const { return this->zhValue_ != nullptr;};
+      void deleteZhValue() { this->zhValue_ = nullptr;};
+      inline string getZhValue() const { DARABONBA_PTR_GET_DEFAULT(zhValue_, "") };
+      inline Locales& setZhValue(string zhValue) { DARABONBA_PTR_SET_VALUE(zhValue_, zhValue) };
+
+
+    protected:
+      shared_ptr<string> enValue_ {};
+      shared_ptr<string> originalValue_ {};
+      shared_ptr<string> zhValue_ {};
+    };
+
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->requestId_ == nullptr && this->skillDescription_ == nullptr && this->skillId_ == nullptr && this->skillLabels_ == nullptr && this->skillName_ == nullptr
-        && this->skillSpaceId_ == nullptr && this->updateTime_ == nullptr; };
+        && this->locales_ == nullptr && this->requestId_ == nullptr && this->skillDescription_ == nullptr && this->skillDisplayName_ == nullptr && this->skillId_ == nullptr
+        && this->skillLabels_ == nullptr && this->skillName_ == nullptr && this->skillSpaceId_ == nullptr && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetSkillResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // locales Field Functions 
+    bool hasLocales() const { return this->locales_ != nullptr;};
+    void deleteLocales() { this->locales_ = nullptr;};
+    inline const vector<GetSkillResponseBody::Locales> & getLocales() const { DARABONBA_PTR_GET_CONST(locales_, vector<GetSkillResponseBody::Locales>) };
+    inline vector<GetSkillResponseBody::Locales> getLocales() { DARABONBA_PTR_GET(locales_, vector<GetSkillResponseBody::Locales>) };
+    inline GetSkillResponseBody& setLocales(const vector<GetSkillResponseBody::Locales> & locales) { DARABONBA_PTR_SET_VALUE(locales_, locales) };
+    inline GetSkillResponseBody& setLocales(vector<GetSkillResponseBody::Locales> && locales) { DARABONBA_PTR_SET_RVALUE(locales_, locales) };
 
 
     // requestId Field Functions 
@@ -66,6 +131,13 @@ namespace Models
     void deleteSkillDescription() { this->skillDescription_ = nullptr;};
     inline string getSkillDescription() const { DARABONBA_PTR_GET_DEFAULT(skillDescription_, "") };
     inline GetSkillResponseBody& setSkillDescription(string skillDescription) { DARABONBA_PTR_SET_VALUE(skillDescription_, skillDescription) };
+
+
+    // skillDisplayName Field Functions 
+    bool hasSkillDisplayName() const { return this->skillDisplayName_ != nullptr;};
+    void deleteSkillDisplayName() { this->skillDisplayName_ = nullptr;};
+    inline string getSkillDisplayName() const { DARABONBA_PTR_GET_DEFAULT(skillDisplayName_, "") };
+    inline GetSkillResponseBody& setSkillDisplayName(string skillDisplayName) { DARABONBA_PTR_SET_VALUE(skillDisplayName_, skillDisplayName) };
 
 
     // skillId Field Functions 
@@ -106,21 +178,23 @@ namespace Models
 
 
   protected:
-    // The time the Skill was created.
+    // The time when the Skill was created.
     shared_ptr<string> createTime_ {};
-    // The request ID.
+    shared_ptr<vector<GetSkillResponseBody::Locales>> locales_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The description of the Skill.
+    // The Skill description.
     shared_ptr<string> skillDescription_ {};
-    // The ID of the Skill.
+    shared_ptr<string> skillDisplayName_ {};
+    // Skill ID
     shared_ptr<string> skillId_ {};
-    // The labels of the Skill.
+    // The Skill labels.
     shared_ptr<vector<string>> skillLabels_ {};
-    // The name of the Skill.
+    // The Skill name.
     shared_ptr<string> skillName_ {};
     // The ID of the SkillSpace to which the Skill belongs.
     shared_ptr<string> skillSpaceId_ {};
-    // The time the Skill was last updated.
+    // The time when the Skill was last updated.
     shared_ptr<string> updateTime_ {};
   };
 
