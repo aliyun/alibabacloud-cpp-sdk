@@ -280,63 +280,60 @@ namespace Models
 
 
   protected:
-    // Controls whether data plane calls can create, stop, or delete the sandbox.
+    // Whether to allow data channel to call create/stop/delete sandbox APIs
     shared_ptr<bool> allowAnonymousManage_ {};
-    // The Application Real-Time Monitoring Service (ARMS) configuration.
+    // ARMS configuration
     shared_ptr<ArmsConfiguration> armsConfiguration_ {};
-    // The container configuration. You can only use images based on the Browser or Code Interpreter base images.
+    // Container configuration, only images based on Browser/Code Interpreter base images are allowed
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
-    // The number of CPU cores.
+    // CPU resource configuration (unit: cores)
     // 
     // This parameter is required.
     shared_ptr<float> cpu_ {};
-    // The credential configuration.
+    // Credential configuration
     shared_ptr<CredentialConfiguration> credentialConfiguration_ {};
-    // The template description.
+    // Template description
     shared_ptr<string> description_ {};
-    // The disk size in MB.
+    // Disk size
     shared_ptr<int32_t> diskSize_ {};
-    // Controls whether to enable the Sandbox Agent.
+    // Sandbox Agent switch
     shared_ptr<bool> enableAgent_ {};
-    // Specifies whether to enable the pre-stop hook.
     shared_ptr<bool> enablePreStop_ {};
-    // The environment variables for the sandbox.
+    // Environment variables
     shared_ptr<map<string, string>> environmentVariables_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the execution role.
+    // Execution role ARN
     shared_ptr<string> executionRoleArn_ {};
-    // The log configuration.
+    // Log configuration
     shared_ptr<LogConfiguration> logConfiguration_ {};
-    // The memory size in MB.
+    // Memory resource configuration (unit: MB)
     // 
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
-    // The Network Attached Storage (NAS) mount configuration.
+    // NAS mount configuration
     shared_ptr<NASConfig> nasConfig_ {};
-    // The network configuration.
+    // Network configuration
     // 
     // This parameter is required.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
-    // A list of Object Storage Service (OSS) configurations.
+    // OSS configuration
     shared_ptr<vector<OssConfiguration>> ossConfiguration_ {};
-    // The timeout for the pre-stop hook, in seconds. This parameter applies only when `enablePreStop` is set to `true`.
     shared_ptr<int32_t> preStopTimeoutInSeconds_ {};
-    // The duration in seconds that a sandbox can be idle before it is automatically stopped.
+    // Sandbox idle timeout (in seconds)
     shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
-    // The maximum time-to-live (TTL) in seconds for the sandbox. The sandbox is terminated after this duration, regardless of activity.
+    // Sandbox time-to-live (in seconds)
     shared_ptr<int32_t> sandboxTTLInSeconds_ {};
-    // The scaling configuration.
+    // Scaling configuration
     shared_ptr<ScalingConfig> scalingConfig_ {};
-    // The template configuration. This is a flexible object whose structure varies depending on the `templateType`.
+    // Template configuration (flexible object structure that varies depending on templateType)
     Darabonba::Json templateConfiguration_ {};
-    // A unique name for the template within your account.
+    // Template name (must be unique within the account)
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
-    // The template type.
+    // Template type
     // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};
-    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

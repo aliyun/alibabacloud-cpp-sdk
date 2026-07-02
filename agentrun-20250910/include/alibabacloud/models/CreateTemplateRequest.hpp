@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Contains the parameters for creating the template.
+    // CreateTemplate request parameters
     // 
     // This parameter is required.
     shared_ptr<CreateTemplateInput> body_ {};

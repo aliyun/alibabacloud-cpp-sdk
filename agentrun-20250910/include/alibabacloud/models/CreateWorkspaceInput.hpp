@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateWorkspaceInput& obj) { 
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(enablePresetModel, enablePresetModel_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkspaceInput& obj) { 
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(enablePresetModel, enablePresetModel_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->name_ == nullptr && this->resourceGroupId_ == nullptr; };
+        && this->enablePresetModel_ == nullptr && this->name_ == nullptr && this->resourceGroupId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateWorkspaceInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // enablePresetModel Field Functions 
+    bool hasEnablePresetModel() const { return this->enablePresetModel_ != nullptr;};
+    void deleteEnablePresetModel() { this->enablePresetModel_ = nullptr;};
+    inline bool getEnablePresetModel() const { DARABONBA_PTR_GET_DEFAULT(enablePresetModel_, false) };
+    inline CreateWorkspaceInput& setEnablePresetModel(bool enablePresetModel) { DARABONBA_PTR_SET_VALUE(enablePresetModel_, enablePresetModel) };
 
 
     // name Field Functions 
@@ -58,6 +67,7 @@ namespace Models
 
   protected:
     shared_ptr<string> description_ {};
+    shared_ptr<bool> enablePresetModel_ {};
     shared_ptr<string> name_ {};
     shared_ptr<string> resourceGroupId_ {};
   };

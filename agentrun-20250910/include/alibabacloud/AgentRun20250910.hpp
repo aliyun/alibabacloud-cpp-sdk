@@ -363,7 +363,7 @@ namespace AgentRun20250910
       /**
        * @summary Creates a template.
        *
-       * @description Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
+       * @description Creates a new template for subsequently creating sandboxes. A template defines the runtime environment, resource configuration, and other settings for sandboxes.
        *
        * @param request CreateTemplateRequest
        * @param headers map
@@ -375,7 +375,7 @@ namespace AgentRun20250910
       /**
        * @summary Creates a template.
        *
-       * @description Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
+       * @description Creates a new template for subsequently creating sandboxes. A template defines the runtime environment, resource configuration, and other settings for sandboxes.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
