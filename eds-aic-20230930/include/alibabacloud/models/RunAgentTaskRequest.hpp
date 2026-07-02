@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(MaxSteps, maxSteps_);
       DARABONBA_PTR_TO_JSON(ScheduleId, scheduleId_);
+      DARABONBA_PTR_TO_JSON(Targets, targets_);
       DARABONBA_PTR_TO_JSON(TaskConfigId, taskConfigId_);
       DARABONBA_PTR_TO_JSON(TimeoutSeconds, timeoutSeconds_);
       DARABONBA_PTR_TO_JSON(UserPrompt, userPrompt_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(MaxSteps, maxSteps_);
       DARABONBA_PTR_FROM_JSON(ScheduleId, scheduleId_);
+      DARABONBA_PTR_FROM_JSON(Targets, targets_);
       DARABONBA_PTR_FROM_JSON(TaskConfigId, taskConfigId_);
       DARABONBA_PTR_FROM_JSON(TimeoutSeconds, timeoutSeconds_);
       DARABONBA_PTR_FROM_JSON(UserPrompt, userPrompt_);
@@ -42,9 +44,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Targets : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Targets& obj) { 
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Targets& obj) { 
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
+      };
+      Targets() = default ;
+      Targets(const Targets &) = default ;
+      Targets(Targets &&) = default ;
+      Targets(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Targets() = default ;
+      Targets& operator=(const Targets &) = default ;
+      Targets& operator=(Targets &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->sessionId_ == nullptr; };
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Targets& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // sessionId Field Functions 
+      bool hasSessionId() const { return this->sessionId_ != nullptr;};
+      void deleteSessionId() { this->sessionId_ = nullptr;};
+      inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+      inline Targets& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
+    protected:
+      shared_ptr<string> instanceId_ {};
+      shared_ptr<string> sessionId_ {};
+    };
+
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && this->instanceIds_ == nullptr && this->maxSteps_ == nullptr && this->scheduleId_ == nullptr && this->taskConfigId_ == nullptr && this->timeoutSeconds_ == nullptr
-        && this->userPrompt_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->maxSteps_ == nullptr && this->scheduleId_ == nullptr && this->targets_ == nullptr && this->taskConfigId_ == nullptr
+        && this->timeoutSeconds_ == nullptr && this->userPrompt_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -75,6 +119,15 @@ namespace Models
     inline RunAgentTaskRequest& setScheduleId(string scheduleId) { DARABONBA_PTR_SET_VALUE(scheduleId_, scheduleId) };
 
 
+    // targets Field Functions 
+    bool hasTargets() const { return this->targets_ != nullptr;};
+    void deleteTargets() { this->targets_ = nullptr;};
+    inline const vector<RunAgentTaskRequest::Targets> & getTargets() const { DARABONBA_PTR_GET_CONST(targets_, vector<RunAgentTaskRequest::Targets>) };
+    inline vector<RunAgentTaskRequest::Targets> getTargets() { DARABONBA_PTR_GET(targets_, vector<RunAgentTaskRequest::Targets>) };
+    inline RunAgentTaskRequest& setTargets(const vector<RunAgentTaskRequest::Targets> & targets) { DARABONBA_PTR_SET_VALUE(targets_, targets) };
+    inline RunAgentTaskRequest& setTargets(vector<RunAgentTaskRequest::Targets> && targets) { DARABONBA_PTR_SET_RVALUE(targets_, targets) };
+
+
     // taskConfigId Field Functions 
     bool hasTaskConfigId() const { return this->taskConfigId_ != nullptr;};
     void deleteTaskConfigId() { this->taskConfigId_ = nullptr;};
@@ -100,12 +153,11 @@ namespace Models
     // The region ID of the Mobile node.
     shared_ptr<string> bizRegionId_ {};
     // The list of Mobile node IDs. A maximum of 100 nodes are supported per request.
-    // 
-    // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
     // The maximum number of execution steps for the task to prevent infinite loops. Valid values: 30 to 1000. Default value: 1000.
     shared_ptr<int32_t> maxSteps_ {};
     shared_ptr<string> scheduleId_ {};
+    shared_ptr<vector<RunAgentTaskRequest::Targets>> targets_ {};
     shared_ptr<string> taskConfigId_ {};
     // The task timeout period in seconds. Valid values: 300 to 3600. Default value: 3600.
     shared_ptr<int32_t> timeoutSeconds_ {};

@@ -5783,6 +5783,10 @@ RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &
     query["ScheduleId"] = request.getScheduleId();
   }
 
+  if (!!request.hasTargets()) {
+    query["Targets"] = request.getTargets();
+  }
+
   if (!!request.hasTaskConfigId()) {
     query["TaskConfigId"] = request.getTaskConfigId();
   }

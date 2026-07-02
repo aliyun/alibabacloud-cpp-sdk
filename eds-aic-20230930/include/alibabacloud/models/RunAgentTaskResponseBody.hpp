@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CurrentStatus, currentStatus_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(RunningAt, runningAt_);
+        DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
         DARABONBA_PTR_TO_JSON(UserPrompt, userPrompt_);
       };
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CurrentStatus, currentStatus_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(RunningAt, runningAt_);
+        DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
         DARABONBA_PTR_FROM_JSON(UserPrompt, userPrompt_);
       };
@@ -66,7 +68,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->currentStatus_ == nullptr
-        && this->instanceId_ == nullptr && this->runningAt_ == nullptr && this->taskId_ == nullptr && this->userPrompt_ == nullptr; };
+        && this->instanceId_ == nullptr && this->runningAt_ == nullptr && this->sessionId_ == nullptr && this->taskId_ == nullptr && this->userPrompt_ == nullptr; };
       // currentStatus Field Functions 
       bool hasCurrentStatus() const { return this->currentStatus_ != nullptr;};
       void deleteCurrentStatus() { this->currentStatus_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
       void deleteRunningAt() { this->runningAt_ = nullptr;};
       inline string getRunningAt() const { DARABONBA_PTR_GET_DEFAULT(runningAt_, "") };
       inline Tasks& setRunningAt(string runningAt) { DARABONBA_PTR_SET_VALUE(runningAt_, runningAt) };
+
+
+      // sessionId Field Functions 
+      bool hasSessionId() const { return this->sessionId_ != nullptr;};
+      void deleteSessionId() { this->sessionId_ = nullptr;};
+      inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+      inline Tasks& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
       // taskId Field Functions 
@@ -115,6 +124,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The time when the task was created, in ISO 8601 format.
       shared_ptr<string> runningAt_ {};
+      shared_ptr<string> sessionId_ {};
       // The task ID, which is globally unique.
       shared_ptr<string> taskId_ {};
       // The user instruction in natural language. The Agent performs operations based on this instruction.
