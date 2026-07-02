@@ -276,82 +276,59 @@ namespace Models
   protected:
     // The age.
     shared_ptr<int64_t> age_ {};
-    // The standard deviation of the age.
+    // The age standard deviation.
     shared_ptr<float> ageSD_ {};
-    // The face attractiveness. A high score indicates strong attractiveness. Valid values: 0 to 1.
+    // The face attractiveness score. A higher score indicates greater attractiveness. Valid values: 0 to 1.
     shared_ptr<float> attractive_ {};
-    // Specifies whether the figure has a beard. Valid values:
-    // 
-    // *   beard
-    // *   none
+    // Indicates whether the person has a beard.
     shared_ptr<string> beard_ {};
-    // The confidence level of detecting whether the figure has a beard. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The confidence score for whether the person has a beard. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> beardConfidence_ {};
     // The face boundary information.
     shared_ptr<Boundary> boundary_ {};
-    // The emotion. Valid values:
-    // 
-    // *   happiness
-    // *   none
+    // The emotion.
     shared_ptr<string> emotion_ {};
-    // The confidence level of the emotion. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The emotion confidence score. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> emotionConfidence_ {};
-    // The face quality.
+    // The face quality score, which evaluates whether the image quality is suitable for face recognition. A higher score indicates better quality. Valid values: 0 to 1.
     shared_ptr<float> faceQuality_ {};
-    // The confidence level of the face clustering task. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The clustering confidence score. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> figureClusterConfidence_ {};
-    // The ID of the face clustering task. The following IDs of special face clustering tasks are reserved:
+    // The figure cluster ID. The following reserved special cluster ID names are included:
     // 
-    // *   figure-cluster-id-independent: the ID of a face clustering task in which faces do not belong to any face group. After images are added to a dataset, the faces may be categorized into different face groups when you perform face clustering.
-    // *   figure-cluster-id-unavailable: the ID of a face clustering task in which face clustering is not performed after images are added to a dataset.
+    // - figure-cluster-id-independent: The face does not currently belong to any suitable group. After new images are added to the dataset and face clustering is performed, the face may be assigned to a group.
+    // 
+    // - figure-cluster-id-unavailable: The face has not been clustered yet. This means that after new images were added to the dataset, face clustering has not been performed.
     shared_ptr<string> figureClusterId_ {};
-    // The confidence level of the figure. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The confidence score of the figure object. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> figureConfidence_ {};
-    // The figure ID.
+    // The ID of the figure object.
     shared_ptr<string> figureId_ {};
     // The figure type.
-    // 
-    // Set this parameter to face.
     shared_ptr<string> figureType_ {};
-    // The gender. Valid values:
-    // 
-    // *   female
-    // *   male
+    // The gender.
     shared_ptr<string> gender_ {};
-    // The confidence level of the gender. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The gender confidence score. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> genderConfidence_ {};
-    // Specifies whether the figure wears glasses. Valid values:
-    // 
-    // *   glasses
-    // *   sunglasses
-    // *   none
+    // Indicates whether the person is wearing glasses.
     shared_ptr<string> glasses_ {};
-    // The confidence level of detecting whether the figure wears glasses. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The confidence score for whether the person is wearing glasses. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> glassesConfidence_ {};
-    // Specifies whether the figure wears a hat. Valid values:
-    // 
-    // *   hat
-    // *   none
+    // Indicates whether the person is wearing a hat.
     shared_ptr<string> hat_ {};
-    // The confidence level of detecting whether the figure wears a hat.
+    // The confidence score for whether the person is wearing a hat. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> hatConfidence_ {};
-    // The head orientation.
+    // The head pose information.
     shared_ptr<HeadPose> headPose_ {};
-    // Specifies whether the figure wears a mask. Valid values:
-    // 
-    // *   mask
-    // *   none
+    // Indicates whether the person is wearing a mask.
     shared_ptr<string> mask_ {};
-    // The confidence level of detecting whether the figure wears a mask. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The confidence score for whether the person is wearing a mask. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> maskConfidence_ {};
-    // Specifies whether the mouth is open. Valid values:
-    // 
-    // *   open
-    // *   close
+    // Indicates whether the mouth is open.
     shared_ptr<string> mouth_ {};
-    // The confidence level of detecting whether the mouth is open. Valid values: 0 to 1. The value 0 indicates the lowest confidence level. The value 1 indicates the highest confidence level.
+    // The confidence score for whether the mouth is open. Valid values: 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> mouthConfidence_ {};
-    // The clarity.
+    // The sharpness score. A higher score indicates a clearer face. Valid values: 0 to 1.
     shared_ptr<float> sharpness_ {};
   };
 

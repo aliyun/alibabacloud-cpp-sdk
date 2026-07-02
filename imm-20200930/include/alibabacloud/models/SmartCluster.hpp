@@ -164,30 +164,33 @@ namespace Models
 
 
   protected:
+    // The category of the grouping.
     shared_ptr<string> clusterType_ {};
-    // The creation time.
+    // The time when the grouping was created.
     shared_ptr<string> createTime_ {};
     // The dataset name.
     shared_ptr<string> datasetName_ {};
-    // The group description.
+    // The description of the grouping.
     shared_ptr<string> description_ {};
-    // The group name.
+    // The grouping name.
     shared_ptr<string> name_ {};
-    // The smart cluster ID.
+    // The intelligent grouping ID.
     shared_ptr<string> objectId_ {};
-    // The group status. Valid values are `Succeeded`, `Failed`, and `Running`.
+    // The status of the grouping.
     shared_ptr<string> objectStatus_ {};
-    // The group type. The value is always `smart-cluster`.
+    // The grouping type.
     shared_ptr<string> objectType_ {};
     // The user ID.
     shared_ptr<string> ownerId_ {};
     // The project name.
     shared_ptr<string> projectName_ {};
+    // The reason why the grouping failed.
     shared_ptr<string> reason_ {};
-    // The clustering rule.
+    // The grouping rule. This parameter is deprecated. Use the Rules parameter instead.
     shared_ptr<SmartClusterRule> rule_ {};
+    // The list of grouping rules.
     shared_ptr<vector<SmartClusterRule>> rules_ {};
-    // The update time.
+    // The time when the grouping was last updated.
     shared_ptr<string> updateTime_ {};
   };
 

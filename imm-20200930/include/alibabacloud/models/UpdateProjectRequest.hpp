@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEPROJECTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEPROJECTREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DatasetConfig.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -15,7 +14,6 @@ namespace Models
   class UpdateProjectRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateProjectRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -29,7 +27,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateProjectRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -97,19 +94,9 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->datasetConfig_ == nullptr
-        && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr
-        && this->description_ == nullptr && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tag_ == nullptr
-        && this->templateId_ == nullptr; };
-    // datasetConfig Field Functions 
-    bool hasDatasetConfig() const { return this->datasetConfig_ != nullptr;};
-    void deleteDatasetConfig() { this->datasetConfig_ = nullptr;};
-    inline const DatasetConfig & getDatasetConfig() const { DARABONBA_PTR_GET_CONST(datasetConfig_, DatasetConfig) };
-    inline DatasetConfig getDatasetConfig() { DARABONBA_PTR_GET(datasetConfig_, DatasetConfig) };
-    inline UpdateProjectRequest& setDatasetConfig(const DatasetConfig & datasetConfig) { DARABONBA_PTR_SET_VALUE(datasetConfig_, datasetConfig) };
-    inline UpdateProjectRequest& setDatasetConfig(DatasetConfig && datasetConfig) { DARABONBA_PTR_SET_RVALUE(datasetConfig_, datasetConfig) };
-
-
+    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
+        && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->description_ == nullptr
+        && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tag_ == nullptr && this->templateId_ == nullptr; };
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};
@@ -190,7 +177,6 @@ namespace Models
 
 
   protected:
-    shared_ptr<DatasetConfig> datasetConfig_ {};
     // The maximum number of bindings for each dataset. Valid values: 1 to 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
     // The maximum number of metadata entities in each dataset.
@@ -207,7 +193,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The maximum number of datasets in the project. Valid values: 1 to 1000000000.
     shared_ptr<int64_t> projectMaxDatasetCount_ {};
-    // The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+    // The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

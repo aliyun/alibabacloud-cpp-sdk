@@ -60,14 +60,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to generate a summary for each chapter. This setting applies only if the service can identify chapters.
-    // 
-    // **Default value**: `false`.
+    // Specifies whether to extract the chapter-level summary of the article.
     shared_ptr<bool> chapterSummarize_ {};
+    // The chapter-level summary options for the article.
     shared_ptr<DocumentChapterSummarizeOption> chapterSummarizeOption_ {};
-    // Specifies whether to generate a summary for the entire document.
-    // 
-    // **Default value**: `false`.
+    // Specifies whether to extract the article summary.
     shared_ptr<bool> summarize_ {};
   };
 

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEDATASETREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEDATASETREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DatasetConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/WorkflowParameter.hpp>
 using namespace std;
@@ -16,7 +15,6 @@ namespace Models
   class UpdateDatasetRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateDatasetRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -29,7 +27,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkflowParameters, workflowParameters_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateDatasetRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -52,18 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetConfig_ == nullptr
-        && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr
-        && this->datasetName_ == nullptr && this->description_ == nullptr && this->projectName_ == nullptr && this->templateId_ == nullptr && this->workflowParameters_ == nullptr; };
-    // datasetConfig Field Functions 
-    bool hasDatasetConfig() const { return this->datasetConfig_ != nullptr;};
-    void deleteDatasetConfig() { this->datasetConfig_ = nullptr;};
-    inline const DatasetConfig & getDatasetConfig() const { DARABONBA_PTR_GET_CONST(datasetConfig_, DatasetConfig) };
-    inline DatasetConfig getDatasetConfig() { DARABONBA_PTR_GET(datasetConfig_, DatasetConfig) };
-    inline UpdateDatasetRequest& setDatasetConfig(const DatasetConfig & datasetConfig) { DARABONBA_PTR_SET_VALUE(datasetConfig_, datasetConfig) };
-    inline UpdateDatasetRequest& setDatasetConfig(DatasetConfig && datasetConfig) { DARABONBA_PTR_SET_RVALUE(datasetConfig_, datasetConfig) };
-
-
+    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
+        && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->datasetName_ == nullptr
+        && this->description_ == nullptr && this->projectName_ == nullptr && this->templateId_ == nullptr && this->workflowParameters_ == nullptr; };
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};
@@ -137,27 +125,23 @@ namespace Models
 
 
   protected:
-    // The dataset configuration.
-    shared_ptr<DatasetConfig> datasetConfig_ {};
-    // The maximum number of bindings for the dataset. Valid values: 1 to 10.
+    // The maximum number of bindings for each dataset. Valid values: 1 to 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
-    // The maximum number of metadata entities, such as data files, file relationships, and cluster groups, in the dataset. The maximum value is 2^63 - 1.
-    // 
-    // > This parameter is reserved and not enforced in practice.
+    // The maximum number of metadata entities (including data files, file relationships, and clustering groups) in each dataset. The maximum value is 2^63-1.
+    // >This is a reserved parameter and is not enforced during use.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
-    // The maximum number of files in the dataset. Valid values: 1 to 100000000.
+    // The maximum number of files in each dataset. Valid values: 1 to 100000000.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships in the dataset. The maximum value is 2^63 - 1.
-    // 
-    // > This parameter is reserved and not enforced in practice.
+    // The maximum number of metadata relationships in each dataset. The maximum value is 2^63-1.
+    // >This is a reserved parameter and is not enforced during use.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum total size of all files in the dataset, in bytes. If this limit is exceeded, you can no longer add new index entries. The maximum value is 2^63 - 1.
+    // The maximum total file size in each dataset. After this limit is exceeded, no more indexes can be added. The maximum value is 2^63-1. Unit: bytes.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
     // The dataset name. For information about how to obtain the dataset name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // The dataset description.
+    // The description of the dataset.
     shared_ptr<string> description_ {};
     // The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
@@ -165,7 +149,7 @@ namespace Models
     shared_ptr<string> projectName_ {};
     // The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
     shared_ptr<string> templateId_ {};
-    // This parameter is invalid.
+    // Invalid parameter.
     shared_ptr<vector<WorkflowParameter>> workflowParameters_ {};
   };
 

@@ -64,8 +64,9 @@ namespace Models
 
   protected:
     shared_ptr<ImageInsightsConfig> image_ {};
-    // The language of the source content.
+    // The language.
     shared_ptr<string> language_ {};
+    // The video content-aware configuration.
     shared_ptr<VideoInsightsConfig> video_ {};
   };
 

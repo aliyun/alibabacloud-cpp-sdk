@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The URL of the captured slide image, which is stored in an Object Storage Service (OSS) bucket.
+    // The image path of the PPT frame capture.
     shared_ptr<string> imagePath_ {};
-    // The zero-based index of the slide in the sequence of detected slides.
+    // The index of the PPT frame capture.
     shared_ptr<int64_t> PPTShotIndex_ {};
-    // The start time of the slide, in milliseconds, from the beginning of the video.
+    // The time in the video.
     shared_ptr<int64_t> startTime_ {};
   };
 

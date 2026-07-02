@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to extract content from the presentation slides. Set this parameter to `true` to enable extraction.
+    // Specifies whether to fetch.
     shared_ptr<bool> extract_ {};
   };
 

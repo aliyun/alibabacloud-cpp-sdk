@@ -45,6 +45,8 @@
 #include <alibabacloud/models/InputOSS.hpp>
 #include <alibabacloud/models/Input.hpp>
 #include <alibabacloud/models/DataIngestion.hpp>
+#include <alibabacloud/models/WorkflowParameter.hpp>
+#include <alibabacloud/models/Dataset.hpp>
 #include <alibabacloud/models/ImageInsightsCaptionConfig.hpp>
 #include <alibabacloud/models/ImageInsightsConfig.hpp>
 #include <alibabacloud/models/PersonReferenceConfig.hpp>
@@ -63,8 +65,6 @@
 #include <alibabacloud/models/FigureClusterConfig.hpp>
 #include <alibabacloud/models/SmartClusterConfig.hpp>
 #include <alibabacloud/models/DatasetConfig.hpp>
-#include <alibabacloud/models/WorkflowParameter.hpp>
-#include <alibabacloud/models/Dataset.hpp>
 #include <alibabacloud/models/DatasetTaskStatus.hpp>
 #include <alibabacloud/models/DocumentChapterSummarizeOption.hpp>
 #include <alibabacloud/models/DocumentChapterSummary.hpp>

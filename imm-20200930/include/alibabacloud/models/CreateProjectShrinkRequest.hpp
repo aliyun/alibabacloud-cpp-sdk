@@ -13,7 +13,6 @@ namespace Models
   class CreateProjectShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateProjectShrinkRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfigShrink_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -27,7 +26,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateProjectShrinkRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfigShrink_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -51,17 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetConfigShrink_ == nullptr
-        && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr
-        && this->description_ == nullptr && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tagShrink_ == nullptr
-        && this->templateId_ == nullptr; };
-    // datasetConfigShrink Field Functions 
-    bool hasDatasetConfigShrink() const { return this->datasetConfigShrink_ != nullptr;};
-    void deleteDatasetConfigShrink() { this->datasetConfigShrink_ = nullptr;};
-    inline string getDatasetConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(datasetConfigShrink_, "") };
-    inline CreateProjectShrinkRequest& setDatasetConfigShrink(string datasetConfigShrink) { DARABONBA_PTR_SET_VALUE(datasetConfigShrink_, datasetConfigShrink) };
-
-
+    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
+        && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->description_ == nullptr
+        && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tagShrink_ == nullptr && this->templateId_ == nullptr; };
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};
@@ -140,24 +130,23 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> datasetConfigShrink_ {};
-    // The maximum number of bindings for each dataset. Valid values: 1 to 10. Default value: 10.
+    // The maximum number of bindings per dataset. Valid values: 1 to 10. Default value: 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
-    // The maximum number of metadata entities in each dataset. Default value: 10000000000.
+    // The maximum number of metadata entities per dataset. Default value: 10000000000.
     // >This parameter is reserved for future use and is not enforced.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
-    // The maximum number of files in each dataset. Valid values: 1 to 100000000. Default value: 10000000000.
+    // The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 10000000000.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships in each dataset. Default value: 100000000000.
+    // The maximum number of metadata relationships per dataset. Default value: 100000000000.
     // >This parameter is reserved for future use and is not enforced.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum total file size in each dataset. After the limit is exceeded, no more indexes can be added. Unit: bytes. Default value: 90000000000000000.
+    // The maximum total file size per dataset. After this limit is reached, no more indexes can be added. Unit: bytes. Default value: 90000000000000000.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
     // The project description. The description can be 1 to 256 characters in length. Default value: empty.
     shared_ptr<string> description_ {};
     // The maximum number of datasets in the project. Valid values: 1 to 1000000000. Default value: 1000000000.
     shared_ptr<int64_t> projectMaxDatasetCount_ {};
-    // The project name. The naming rules are as follows:
+    // The project name. The following naming rules apply:
     // 
     // - The name must be 1 to 128 characters in length.
     // 

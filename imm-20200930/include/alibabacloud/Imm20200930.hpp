@@ -450,12 +450,12 @@ namespace Imm20200930
       Models::CreateCustomizedStoryResponse createCustomizedStory(const Models::CreateCustomizedStoryRequest &request);
 
       /**
-       * @summary Create a dataset.
+       * @summary Creates a dataset.
        *
-       * @description - **You must understand the billing methods and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management before using this API.**
-       * - Dataset names must be unique within a project.
-       * - The number of datasets you can create is limited. You can query this limit using [GetProject](https://help.aliyun.com/document_detail/478155.html).
-       * - After creating a dataset, you can use [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) to index object metadata. This enables diverse [data retrieval and statistics](https://help.aliyun.com/document_detail/478175.html) and intelligent management.
+       * @description - **Before you use this operation, make sure that you fully understand the billing of Intelligent Media Management (IMM) and its [pricing](https://help.aliyun.com/document_detail/477042.html)**.
+       * - Dataset names must be unique within the same project.
+       * - The number of datasets that can be created is limited. You can call [GetProjcet](https://help.aliyun.com/document_detail/478155.html) to query this limit.
+       * - After you create a dataset, you can call [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) to create file metadata indexes for diversified [data retrieval, statistics](https://help.aliyun.com/document_detail/478175.html), and intelligent management.
        *
        * @param tmpReq CreateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -464,12 +464,12 @@ namespace Imm20200930
       Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a dataset.
+       * @summary Creates a dataset.
        *
-       * @description - **You must understand the billing methods and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management before using this API.**
-       * - Dataset names must be unique within a project.
-       * - The number of datasets you can create is limited. You can query this limit using [GetProject](https://help.aliyun.com/document_detail/478155.html).
-       * - After creating a dataset, you can use [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) to index object metadata. This enables diverse [data retrieval and statistics](https://help.aliyun.com/document_detail/478175.html) and intelligent management.
+       * @description - **Before you use this operation, make sure that you fully understand the billing of Intelligent Media Management (IMM) and its [pricing](https://help.aliyun.com/document_detail/477042.html)**.
+       * - Dataset names must be unique within the same project.
+       * - The number of datasets that can be created is limited. You can call [GetProjcet](https://help.aliyun.com/document_detail/478155.html) to query this limit.
+       * - After you create a dataset, you can call [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) to create file metadata indexes for diversified [data retrieval, statistics](https://help.aliyun.com/document_detail/478175.html), and intelligent management.
        *
        * @param request CreateDatasetRequest
        * @return CreateDatasetResponse
@@ -938,7 +938,7 @@ namespace Imm20200930
        *     + [Create a dataset](https://help.aliyun.com/document_detail/478160.html)
        *     + [Create a trigger](https://help.aliyun.com/document_detail/479912.html)
        *     + [Create a batch task](https://help.aliyun.com/document_detail/606694.html)
-       *     + [Create a binding task](https://help.aliyun.com/document_detail/478202.html).
+       *     + [Create a binding task](https://help.aliyun.com/document_detail/478202.html)
        *
        * @param tmpReq CreateProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -955,7 +955,7 @@ namespace Imm20200930
        *     + [Create a dataset](https://help.aliyun.com/document_detail/478160.html)
        *     + [Create a trigger](https://help.aliyun.com/document_detail/479912.html)
        *     + [Create a batch task](https://help.aliyun.com/document_detail/606694.html)
-       *     + [Create a binding task](https://help.aliyun.com/document_detail/478202.html).
+       *     + [Create a binding task](https://help.aliyun.com/document_detail/478202.html)
        *
        * @param request CreateProjectRequest
        * @return CreateProjectResponse
@@ -1947,9 +1947,9 @@ namespace Imm20200930
       Models::GetOSSBucketAttachmentResponse getOSSBucketAttachment(const Models::GetOSSBucketAttachmentRequest &request);
 
       /**
-       * @summary Queries information about a specified project, including basic information and statistics related to datasets and files.
+       * @summary Queries information about a specified project, including basic information and statistics information related to datasets and files.
        *
-       * @description Querying project information supports real-time retrieval of file statistics. Enable this feature through parameter settings. For details, see the request parameters section.
+       * @description Querying project information supports real-time retrieval of file statistics information. You can enable this feature through parameter settings. For details, see the request parameters section.
        * >Notice: Only files in datasets created before December 20, 2025 can be counted.
        *
        * @param request GetProjectRequest
@@ -1959,9 +1959,9 @@ namespace Imm20200930
       Models::GetProjectResponse getProjectWithOptions(const Models::GetProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a specified project, including basic information and statistics related to datasets and files.
+       * @summary Queries information about a specified project, including basic information and statistics information related to datasets and files.
        *
-       * @description Querying project information supports real-time retrieval of file statistics. Enable this feature through parameter settings. For details, see the request parameters section.
+       * @description Querying project information supports real-time retrieval of file statistics information. You can enable this feature through parameter settings. For details, see the request parameters section.
        * >Notice: Only files in datasets created before December 20, 2025 can be counted.
        *
        * @param request GetProjectRequest
@@ -2804,11 +2804,11 @@ namespace Imm20200930
       Models::UpdateBatchResponse updateBatch(const Models::UpdateBatchRequest &request);
 
       /**
-       * @summary Updates information for a dataset.
+       * @summary Updates the information of a dataset.
        *
-       * @description - **Before calling this operation, review** the billing model and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
-       * - The dataset must exist before you can update it.
-       * - You only need to specify the parameters that you want to update. Unspecified parameters remain unchanged.
+       * @description - **Before you use this operation, make sure that you fully understand the billing of Intelligent Media Management (IMM) and its [pricing](https://help.aliyun.com/document_detail/477042.html)**.
+       * - Before you update dataset information, make sure that the dataset has been created. To create a dataset, refer to the request parameter descriptions.
+       * - When you update dataset information, specify only the fields that you want to update. Fields that are not specified remain unchanged.
        * - After a dataset is updated, the changes may take up to 5 minutes to take effect.
        *
        * @param tmpReq UpdateDatasetRequest
@@ -2818,11 +2818,11 @@ namespace Imm20200930
       Models::UpdateDatasetResponse updateDatasetWithOptions(const Models::UpdateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates information for a dataset.
+       * @summary Updates the information of a dataset.
        *
-       * @description - **Before calling this operation, review** the billing model and [pricing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
-       * - The dataset must exist before you can update it.
-       * - You only need to specify the parameters that you want to update. Unspecified parameters remain unchanged.
+       * @description - **Before you use this operation, make sure that you fully understand the billing of Intelligent Media Management (IMM) and its [pricing](https://help.aliyun.com/document_detail/477042.html)**.
+       * - Before you update dataset information, make sure that the dataset has been created. To create a dataset, refer to the request parameter descriptions.
+       * - When you update dataset information, specify only the fields that you want to update. Fields that are not specified remain unchanged.
        * - After a dataset is updated, the changes may take up to 5 minutes to take effect.
        *
        * @param request UpdateDatasetRequest

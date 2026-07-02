@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of keywords to return.
+    // The number of keywords. Valid values: 0 to 10.
     shared_ptr<int32_t> count_ {};
-    // Whether to extract keywords from the document.
+    // Specifies whether to extract keywords.
     shared_ptr<bool> extract_ {};
   };
 

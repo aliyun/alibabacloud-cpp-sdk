@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DATASET_HPP_
 #define ALIBABACLOUD_MODELS_DATASET_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DatasetConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/WorkflowParameter.hpp>
 using namespace std;
@@ -18,7 +17,6 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const Dataset& obj) { 
       DARABONBA_PTR_TO_JSON(BindCount, bindCount_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
-      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -36,7 +34,6 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, Dataset& obj) { 
       DARABONBA_PTR_FROM_JSON(BindCount, bindCount_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
-      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -63,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindCount_ == nullptr
-        && this->createTime_ == nullptr && this->datasetConfig_ == nullptr && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr
-        && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->fileCount_ == nullptr
-        && this->projectName_ == nullptr && this->templateId_ == nullptr && this->totalFileSize_ == nullptr && this->updateTime_ == nullptr && this->workflowParameters_ == nullptr; };
+        && this->createTime_ == nullptr && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr
+        && this->datasetMaxTotalFileSize_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->fileCount_ == nullptr && this->projectName_ == nullptr
+        && this->templateId_ == nullptr && this->totalFileSize_ == nullptr && this->updateTime_ == nullptr && this->workflowParameters_ == nullptr; };
     // bindCount Field Functions 
     bool hasBindCount() const { return this->bindCount_ != nullptr;};
     void deleteBindCount() { this->bindCount_ = nullptr;};
@@ -78,15 +75,6 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline Dataset& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
-
-
-    // datasetConfig Field Functions 
-    bool hasDatasetConfig() const { return this->datasetConfig_ != nullptr;};
-    void deleteDatasetConfig() { this->datasetConfig_ = nullptr;};
-    inline const DatasetConfig & getDatasetConfig() const { DARABONBA_PTR_GET_CONST(datasetConfig_, DatasetConfig) };
-    inline DatasetConfig getDatasetConfig() { DARABONBA_PTR_GET(datasetConfig_, DatasetConfig) };
-    inline Dataset& setDatasetConfig(const DatasetConfig & datasetConfig) { DARABONBA_PTR_SET_VALUE(datasetConfig_, datasetConfig) };
-    inline Dataset& setDatasetConfig(DatasetConfig && datasetConfig) { DARABONBA_PTR_SET_RVALUE(datasetConfig_, datasetConfig) };
 
 
     // datasetMaxBindCount Field Functions 
@@ -183,39 +171,37 @@ namespace Models
 
 
   protected:
-    // Number of OSS buckets currently attached to the dataset.
+    // The number of OSS buckets currently bound to the dataset.
     shared_ptr<int64_t> bindCount_ {};
-    // Timestamp of dataset creation in RFC3339Nano format.
+    // The timestamp when the dataset was created, in RFC3339Nano format.
     shared_ptr<string> createTime_ {};
-    // Dataset configuration.
-    shared_ptr<DatasetConfig> datasetConfig_ {};
-    // Maximum number of bindings per dataset.
+    // The maximum number of bindings allowed for each dataset.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
-    // Maximum number of metadata entities in the dataset.
+    // The maximum number of metadata entities allowed in the dataset.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
-    // Maximum number of files in the dataset.
+    // The maximum number of files allowed in the dataset.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // Maximum number of metadata relations in the dataset.
+    // The maximum number of metadata relationships allowed in the dataset.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // Maximum total file size in the dataset, in bytes.
+    // The maximum total file size allowed in the dataset, in bytes.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
-    // Dataset name.
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
-    // Dataset description.
+    // The description of the dataset.
     shared_ptr<string> description_ {};
-    // Current number of files in the dataset.
+    // The current number of files in the dataset.
     shared_ptr<int64_t> fileCount_ {};
-    // Project name.
+    // The project name.
     shared_ptr<string> projectName_ {};
-    // Workflow template ID.
+    // The workflow template ID.
     shared_ptr<string> templateId_ {};
-    // Total file size in the dataset, in bytes.
+    // The total file size in the dataset, in bytes.
     shared_ptr<int64_t> totalFileSize_ {};
-    // Timestamp of the last dataset update in RFC3339Nano format.
+    // The timestamp when the dataset was last modified, in RFC3339Nano format.
     // 
-    // > If the dataset has never been updated since creation, the update timestamp equals the creation timestamp.
+    // >If the dataset has not been updated since it was created, this timestamp is the same as the creation timestamp.
     shared_ptr<string> updateTime_ {};
-    // Custom parameters.
+    // The custom parameters.
     shared_ptr<vector<WorkflowParameter>> workflowParameters_ {};
   };
 

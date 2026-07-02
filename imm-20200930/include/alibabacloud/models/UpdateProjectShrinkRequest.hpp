@@ -13,7 +13,6 @@ namespace Models
   class UpdateProjectShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateProjectShrinkRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfigShrink_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -27,7 +26,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateProjectShrinkRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfigShrink_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -51,17 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetConfigShrink_ == nullptr
-        && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr
-        && this->description_ == nullptr && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tagShrink_ == nullptr
-        && this->templateId_ == nullptr; };
-    // datasetConfigShrink Field Functions 
-    bool hasDatasetConfigShrink() const { return this->datasetConfigShrink_ != nullptr;};
-    void deleteDatasetConfigShrink() { this->datasetConfigShrink_ = nullptr;};
-    inline string getDatasetConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(datasetConfigShrink_, "") };
-    inline UpdateProjectShrinkRequest& setDatasetConfigShrink(string datasetConfigShrink) { DARABONBA_PTR_SET_VALUE(datasetConfigShrink_, datasetConfigShrink) };
-
-
+    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
+        && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->description_ == nullptr
+        && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tagShrink_ == nullptr && this->templateId_ == nullptr; };
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};
@@ -140,7 +130,6 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> datasetConfigShrink_ {};
     // The maximum number of bindings for each dataset. Valid values: 1 to 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
     // The maximum number of metadata entities in each dataset.
@@ -157,7 +146,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The maximum number of datasets in the project. Valid values: 1 to 1000000000.
     shared_ptr<int64_t> projectMaxDatasetCount_ {};
-    // The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+    // The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

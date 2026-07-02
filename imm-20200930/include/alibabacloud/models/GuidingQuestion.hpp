@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The answer to the question.
+    // The answer.
     shared_ptr<string> answer_ {};
-    // The guiding question.
+    // The question.
     shared_ptr<string> question_ {};
   };
 

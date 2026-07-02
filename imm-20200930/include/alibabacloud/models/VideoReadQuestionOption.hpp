@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Specifies the maximum number of answers to return when `Extract` is `true`. If omitted, the service returns all detected answers.
+    // The number of keywords. Valid values: 0 to 10.
     shared_ptr<int32_t> count_ {};
-    // Specifies whether to extract answer segments from the video. When `true`, the service identifies and returns these segments. The default is `false`.
+    // Specifies whether to fetch.
     shared_ptr<bool> extract_ {};
   };
 

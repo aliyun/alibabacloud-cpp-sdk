@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The guide result.
     shared_ptr<vector<Summary>> description_ {};
+    // The section heading included in the guide result.
     shared_ptr<vector<string>> titleID_ {};
   };
 

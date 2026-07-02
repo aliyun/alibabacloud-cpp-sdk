@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Whether to enable the document narration feature. Set to `true` to enable narration. Defaults to `false`.
+    // Specifies whether to fetch.
     shared_ptr<bool> narrate_ {};
   };
 

@@ -106,20 +106,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether to generate summaries for each chapter. Set to `true` to enable this feature. Use `ChapterSummaryOption` to configure detailed options. Defaults to `false`.
+    // Specifies whether to retrieve chapter-by-chapter summaries of the document.
     shared_ptr<bool> chapterSummary_ {};
+    // The options for retrieving chapter-by-chapter summaries of the document.
     shared_ptr<DocumentChapterSummarizeOption> chapterSummaryOption_ {};
-    // Specifies whether to analyze each image within the document. Set to `true` to enable this feature. Defaults to `false`.
+    // Specifies whether to retrieve images extracted from the document, such as pictures, tables, and formulas.
     shared_ptr<bool> images_ {};
-    // Specifies whether to extract keywords from the document. Set to `true` to enable this feature. Defaults to `false`.
+    // Specifies whether to retrieve keywords.
     shared_ptr<bool> keyword_ {};
-    // Specifies whether to analyze the document layout. Set to `true` to enable this feature. Defaults to `false`.
+    // Specifies whether to retrieve the layout.jsonl file.
     shared_ptr<bool> layouts_ {};
-    // Specifies whether to identify the narrator in the document. Set to `true` to enable this feature. Defaults to `false`.
+    // Specifies whether to retrieve the document reading guide results.
     shared_ptr<bool> narrator_ {};
-    // Specifies whether to generate questions based on the document content. Set to `true` to enable this feature. Defaults to `false`.
+    // Specifies whether to retrieve the generated questions and corresponding answers.
     shared_ptr<bool> question_ {};
-    // Specifies whether to generate a summary for the document. Set to `true` to enable this feature. Defaults to `false`.
+    // Specifies whether to retrieve the full-text summary.
     shared_ptr<bool> summary_ {};
   };
 

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEDATASETREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEDATASETREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DatasetConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/WorkflowParameter.hpp>
 using namespace std;
@@ -16,7 +15,6 @@ namespace Models
   class CreateDatasetRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDatasetRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -29,7 +27,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkflowParameters, workflowParameters_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDatasetRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -52,18 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetConfig_ == nullptr
-        && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr
-        && this->datasetName_ == nullptr && this->description_ == nullptr && this->projectName_ == nullptr && this->templateId_ == nullptr && this->workflowParameters_ == nullptr; };
-    // datasetConfig Field Functions 
-    bool hasDatasetConfig() const { return this->datasetConfig_ != nullptr;};
-    void deleteDatasetConfig() { this->datasetConfig_ = nullptr;};
-    inline const DatasetConfig & getDatasetConfig() const { DARABONBA_PTR_GET_CONST(datasetConfig_, DatasetConfig) };
-    inline DatasetConfig getDatasetConfig() { DARABONBA_PTR_GET(datasetConfig_, DatasetConfig) };
-    inline CreateDatasetRequest& setDatasetConfig(const DatasetConfig & datasetConfig) { DARABONBA_PTR_SET_VALUE(datasetConfig_, datasetConfig) };
-    inline CreateDatasetRequest& setDatasetConfig(DatasetConfig && datasetConfig) { DARABONBA_PTR_SET_RVALUE(datasetConfig_, datasetConfig) };
-
-
+    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
+        && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->datasetName_ == nullptr
+        && this->description_ == nullptr && this->projectName_ == nullptr && this->templateId_ == nullptr && this->workflowParameters_ == nullptr; };
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};
@@ -137,35 +125,30 @@ namespace Models
 
 
   protected:
-    // The dataset configuration.
-    shared_ptr<DatasetConfig> datasetConfig_ {};
-    // The maximum number of bindings for each dataset. Valid values: 1 to 10. The default value is 10.
+    // The maximum number of bindings per dataset. Valid values: 1 to 10. Default value: 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
-    // The maximum number of metadata entities in each dataset. The default value is 10,000,000,000.
+    // The maximum number of metadata entities per dataset. Default value: 10000000000.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
-    // The maximum number of files in each dataset. Valid values: 1 to 100,000,000. The default value is 100,000,000.
+    // The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 100000000.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships in each dataset. The default value is 100,000,000,000.
+    // The maximum number of metadata relationships per dataset. Default value: 100000000000.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum total size of files in each dataset. You cannot add more indexes after exceeding this limit. The default value is 90,000,000,000,000,000 bytes.
+    // The maximum total file size per dataset, in bytes. After this limit is exceeded, no more indexes can be added. Default value: 90000000000000000.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
-    // The dataset name. It must be unique within the same project. Naming conventions are as follows:
-    // 
-    // - Length: 1 to 128 characters.
-    // 
-    // - Only English letters, digits, hyphens (-), and underscores (_) are allowed.
-    // 
-    // - Must start with an English letter or an underscore (_).
+    // The dataset name. The name must be unique within the same project. The following naming rules apply:
+    // - The name must be 1 to 128 characters in length.
+    // - The name can contain only letters, digits, hyphens (-), and underscores (_).
+    // - The name must start with a letter or an underscore (_).
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // The description of the dataset. Length: 1 to 256 English or Chinese characters. The default value is empty.
+    // The description of the dataset. The description can be 1 to 256 characters in length. Default value: empty.
     shared_ptr<string> description_ {};
-    // The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
+    // The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The workflow template ID. For more information, see [Workflow Templates and Operators](https://help.aliyun.com/document_detail/466304.html). The default value is empty.
+    // The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html). Default value: empty.
     shared_ptr<string> templateId_ {};
     // Invalid parameter.
     shared_ptr<vector<WorkflowParameter>> workflowParameters_ {};

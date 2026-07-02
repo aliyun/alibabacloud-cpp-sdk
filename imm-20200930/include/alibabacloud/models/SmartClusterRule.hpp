@@ -71,11 +71,13 @@ namespace Models
 
 
   protected:
+    // The array of URIs for the reference files.
     shared_ptr<vector<string>> baseURIs_ {};
-    // An array of keywords for clustering.
+    // The keywords.
     shared_ptr<vector<string>> keywords_ {};
+    // The rule type.
     shared_ptr<string> ruleType_ {};
-    // The sensitivity for clustering, ranging from 0.0 to 1.0.
+    // The sensitivity.
     shared_ptr<float> sensitivity_ {};
   };
 
