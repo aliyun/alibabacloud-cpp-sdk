@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTTENANTCONFIGRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTTENANTCONFIGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,9 +36,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const TenantConfigModel& obj) { 
         DARABONBA_PTR_TO_JSON(AppInstanceGroupExpireRemind, appInstanceGroupExpireRemind_);
+        DARABONBA_PTR_TO_JSON(MultiSessionSupportType, multiSessionSupportType_);
+        DARABONBA_PTR_TO_JSON(MultiSessionSupportedRegions, multiSessionSupportedRegions_);
       };
       friend void from_json(const Darabonba::Json& j, TenantConfigModel& obj) { 
         DARABONBA_PTR_FROM_JSON(AppInstanceGroupExpireRemind, appInstanceGroupExpireRemind_);
+        DARABONBA_PTR_FROM_JSON(MultiSessionSupportType, multiSessionSupportType_);
+        DARABONBA_PTR_FROM_JSON(MultiSessionSupportedRegions, multiSessionSupportedRegions_);
       };
       TenantConfigModel() = default ;
       TenantConfigModel(const TenantConfigModel &) = default ;
@@ -50,7 +55,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->appInstanceGroupExpireRemind_ == nullptr; };
+      virtual bool empty() const override { return this->appInstanceGroupExpireRemind_ == nullptr
+        && this->multiSessionSupportType_ == nullptr && this->multiSessionSupportedRegions_ == nullptr; };
       // appInstanceGroupExpireRemind Field Functions 
       bool hasAppInstanceGroupExpireRemind() const { return this->appInstanceGroupExpireRemind_ != nullptr;};
       void deleteAppInstanceGroupExpireRemind() { this->appInstanceGroupExpireRemind_ = nullptr;};
@@ -58,9 +64,30 @@ namespace Models
       inline TenantConfigModel& setAppInstanceGroupExpireRemind(bool appInstanceGroupExpireRemind) { DARABONBA_PTR_SET_VALUE(appInstanceGroupExpireRemind_, appInstanceGroupExpireRemind) };
 
 
+      // multiSessionSupportType Field Functions 
+      bool hasMultiSessionSupportType() const { return this->multiSessionSupportType_ != nullptr;};
+      void deleteMultiSessionSupportType() { this->multiSessionSupportType_ = nullptr;};
+      inline string getMultiSessionSupportType() const { DARABONBA_PTR_GET_DEFAULT(multiSessionSupportType_, "") };
+      inline TenantConfigModel& setMultiSessionSupportType(string multiSessionSupportType) { DARABONBA_PTR_SET_VALUE(multiSessionSupportType_, multiSessionSupportType) };
+
+
+      // multiSessionSupportedRegions Field Functions 
+      bool hasMultiSessionSupportedRegions() const { return this->multiSessionSupportedRegions_ != nullptr;};
+      void deleteMultiSessionSupportedRegions() { this->multiSessionSupportedRegions_ = nullptr;};
+      inline const vector<string> & getMultiSessionSupportedRegions() const { DARABONBA_PTR_GET_CONST(multiSessionSupportedRegions_, vector<string>) };
+      inline vector<string> getMultiSessionSupportedRegions() { DARABONBA_PTR_GET(multiSessionSupportedRegions_, vector<string>) };
+      inline TenantConfigModel& setMultiSessionSupportedRegions(const vector<string> & multiSessionSupportedRegions) { DARABONBA_PTR_SET_VALUE(multiSessionSupportedRegions_, multiSessionSupportedRegions) };
+      inline TenantConfigModel& setMultiSessionSupportedRegions(vector<string> && multiSessionSupportedRegions) { DARABONBA_PTR_SET_RVALUE(multiSessionSupportedRegions_, multiSessionSupportedRegions) };
+
+
     protected:
-      // Indicates whether resource expiration reminders are enabled.
+      // Indicates whether resource expiration reminders are enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // - false: Not enabled.
       shared_ptr<bool> appInstanceGroupExpireRemind_ {};
+      shared_ptr<string> multiSessionSupportType_ {};
+      shared_ptr<vector<string>> multiSessionSupportedRegions_ {};
     };
 
     virtual bool empty() const override { return this->requestId_ == nullptr

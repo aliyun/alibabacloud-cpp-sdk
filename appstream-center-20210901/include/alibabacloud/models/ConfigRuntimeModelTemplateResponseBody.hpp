@@ -99,11 +99,11 @@ namespace Models
 
 
     protected:
-      // The error code returned if the execution fails.
+      // The error code returned when the execution fails.
       shared_ptr<string> code_ {};
-      // The HTTP status code returned if the execution fails.
+      // The HTTP status code returned when the execution fails.
       shared_ptr<int32_t> httpStatusCode_ {};
-      // The error message returned if the execution fails.
+      // The error message returned when the execution fails.
       shared_ptr<string> message_ {};
       // The Agent runtime ID. The ID mapping is as follows:
       // 

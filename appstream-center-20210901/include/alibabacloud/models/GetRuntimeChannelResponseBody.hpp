@@ -136,19 +136,23 @@ namespace Models
 
 
     protected:
-      // The channel avatar URL.
+      // The URL of the channel avatar.
       shared_ptr<string> avatarUrl_ {};
-      // The channel type. Valid values: System: a system-supported channel. Custom: a custom channel.
+      // The channel type. Valid values:
+      // - System: a channel supported by the system.
+      // - Custom: a custom channel.
       shared_ptr<string> channelType_ {};
       // The channel code.
       shared_ptr<string> code_ {};
       // The channel configuration JSON string.
       // 
-      // Currently, only the simple configuration mode is supported. You must pass in AppKey and AppSecret.
+      // Currently, only the simple configuration mode is supported. You must pass the AppKey and AppSecret parameters.
       shared_ptr<string> config_ {};
-      // The configuration mode. Valid values: Simple: simple configuration mode. Custom: custom configuration mode.
+      // The configuration mode. Valid values:
+      // - Simple: simple configuration mode.
+      // - Custom: custom configuration mode.
       shared_ptr<string> configMode_ {};
-      // The QR code configuration notification page URL. This parameter is returned only for the ENTERPRISE or ENTERPRISE_JVS platform.
+      // The URL of the QR code configuration notification page. This parameter is returned only for the ENTERPRISE or ENTERPRISE_JVS platform.
       shared_ptr<string> qrCodeNotifyUrl_ {};
       // The QR code configuration status. This parameter is returned only when the status is not in a final state.
       shared_ptr<string> qrCodeStatus_ {};

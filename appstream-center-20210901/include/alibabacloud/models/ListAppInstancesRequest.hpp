@@ -116,7 +116,7 @@ namespace Models
     shared_ptr<string> appInstanceGroupId_ {};
     // The application instance ID.
     shared_ptr<string> appInstanceId_ {};
-    // The list of application instance IDs. A maximum of 100 IDs can be specified.
+    // The list of application instance IDs. Maximum length: 100.
     shared_ptr<vector<string>> appInstanceIdList_ {};
     // Specifies whether to query information about deleted instances. If this parameter is set to true, the AppInstanceIdList parameter is required. Otherwise, a parameter error is returned.
     shared_ptr<bool> includeDeleted_ {};
@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The list of application instance statuses.
     shared_ptr<vector<string>> status_ {};
-    // The list of user IDs. A maximum of 100 IDs can be specified.
+    // The list of user IDs. Maximum length: 100.
     shared_ptr<vector<string>> userIdList_ {};
   };
 

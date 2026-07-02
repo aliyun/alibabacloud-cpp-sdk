@@ -117,7 +117,7 @@ namespace Models
 
 
       protected:
-        // The ID of the end user bound to the instance.
+        // The end user ID bound to the instance.
         shared_ptr<string> endUserId_ {};
         // The usage duration of the instance. Unit: seconds.
         shared_ptr<int64_t> usageDuration_ {};
@@ -223,18 +223,18 @@ namespace Models
       // The billing method of the instance. Valid values:
       // - **PrePaid**: subscription.
       // - **PostPaid**: pay-as-you-go.
-      // > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
+      // > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> chargeType_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
       // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to mixed mode pattern (`Mixed`). Otherwise, this value is empty.
+      // The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to the mixed pattern (`Mixed`). Otherwise, this value is empty.
       shared_ptr<string> mainEthPublicIp_ {};
       shared_ptr<string> networkInterfaceId_ {};
       shared_ptr<string> networkInterfaceIp_ {};
       // The ID of the node on which the instance runs.
-      // > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
+      // > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> nodeId_ {};
       // The session connection status. This value is returned only when the instance status is running (`RUNNING`). Otherwise, this value is empty.
       shared_ptr<string> sessionStatus_ {};
