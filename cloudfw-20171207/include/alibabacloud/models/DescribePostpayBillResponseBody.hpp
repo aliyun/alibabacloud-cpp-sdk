@@ -189,16 +189,16 @@ namespace Models
       shared_ptr<int64_t> internetInstanceCnt_ {};
       // The Internet traffic, in GB.
       shared_ptr<float> internetTraffic_ {};
-      // Indicates whether the bill is waived. A value of 0 indicates that the bill is not waived. Any value greater than 0 indicates that the bill is waived. If the bill is waived, it will not be issued.
-      // > This field is meaningful only when you query hourly data.
+      // Indicates whether a deduction is applied. A value of 0 indicates that no deduction is applied. Any value greater than 0 indicates that a deduction is applied. If a deduction is applied, the bill is not generated.
+      // > This field is meaningful only when you query data at the hourly level.
       shared_ptr<int32_t> isDerated_ {};
-      // The log service usage duration, in TB*h.
+      // The log service usage duration, in TB × hours.
       shared_ptr<int64_t> logStorage_ {};
       // The number of NAT instances.
       shared_ptr<int64_t> natInstanceCnt_ {};
       // The NAT traffic, in GB.
       shared_ptr<float> natTraffic_ {};
-      // The data leak detection usage duration, in hours.
+      // The sensitive data leak detection usage duration, in hours.
       shared_ptr<int64_t> sdl_ {};
       // The sensitive data detection traffic, in GB.
       shared_ptr<float> sdlTraffic_ {};

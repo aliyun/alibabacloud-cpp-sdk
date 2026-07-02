@@ -90,12 +90,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The time interval for querying data. This is an enumerated value. Valid values:
+    // The time interval for querying data. This is an enumeration value. Valid values:
     // 
-    // - 3600: queries hourly data.
-    // - 86400: queries daily data.
+    // - 3600: queries data at the hourly level.
+    // - 86400: queries data at the daily level.
     shared_ptr<int32_t> interval_ {};
-    // The language. This is an enumerated value.
+    // The language. This is an enumeration value.
     // Default value: zh.
     // Valid values: en.
     shared_ptr<string> lang_ {};

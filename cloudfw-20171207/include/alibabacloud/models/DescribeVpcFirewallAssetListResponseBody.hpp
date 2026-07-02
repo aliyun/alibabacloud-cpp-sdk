@@ -172,13 +172,13 @@ namespace Models
       shared_ptr<string> assetInstanceId_ {};
       // The name of the asset instance.
       shared_ptr<string> assetInstanceName_ {};
-      // The inbound traffic. Unit: bytes.
+      // The inbound traffic, in bytes.
       shared_ptr<int64_t> inBytes_ {};
       // The number of IPS hits.
       shared_ptr<int64_t> ipsHitCnt_ {};
-      // The outbound traffic. Unit: bytes.
+      // The outbound traffic, in bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The list of ports.
+      // The port list.
       shared_ptr<vector<string>> portList_ {};
       // The region.
       shared_ptr<string> regionNo_ {};

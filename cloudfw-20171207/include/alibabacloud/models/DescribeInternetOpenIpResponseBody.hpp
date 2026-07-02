@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The current page number in the paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in the paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -317,15 +317,11 @@ namespace Models
 
 
     protected:
-      // The reason why no intelligent policy is recommended. Valid values:
-      // 
-      // - No intelligent policy is recommended.
-      // 
-      // - This feature is available only to specific users.
-      // 
-      // - The policy configuration has been modified. No intelligent policy is recommended.
-      // 
-      // - An intelligent policy has been configured. No new intelligent policy is recommended.
+      // The reason why no intelligent policies recommendation is available. Valid values:
+      // - No intelligent policies recommendation is available.
+      // - This feature is currently available only to selected users.
+      // - The policy configuration has been modified. No intelligent policies recommendation is available.
+      // - Intelligent policies have been configured. No new intelligent policies recommendation is available.
       shared_ptr<string> aclRecommendDetail_ {};
       // The instance ID.
       shared_ptr<string> assetsInstanceId_ {};
@@ -335,51 +331,46 @@ namespace Models
       shared_ptr<string> assetsType_ {};
       // The total number of port details.
       shared_ptr<int32_t> detailNum_ {};
-      // Indicates whether an access control list (ACL) is recommended. Valid values:
+      // Indicates whether a recommended ACL exists. Valid values:
       // 
-      // - **true**: yes
-      // 
-      // - **false**: no
+      // - **true**: A recommended ACL exists.
+      // - **false**: No recommended ACL exists.
       shared_ptr<bool> hasAclRecommend_ {};
-      // The inbound network throughput, which indicates the total number of bytes received. Unit: bytes.
+      // The inbound network throughput (total bytes sent). Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // The UID of the Cloud Firewall member account.
+      // The UID of the Cloud Firewall member account. For more information about member accounts, see multi-account management.
       shared_ptr<int64_t> memberUid_ {};
-      // The outbound network throughput, which indicates the total number of bytes sent. Unit: bytes.
+      // The outbound network throughput (total bytes sent). Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The list of ports.
+      // The port list.
       shared_ptr<vector<string>> portList_ {};
       // The public IP address of the instance.
       shared_ptr<string> publicIp_ {};
       // The region ID of the instance.
       shared_ptr<string> regionNo_ {};
       // The risk level. Valid values:
-      // 
-      // - **3**: high
-      // 
-      // - **2**: medium
-      // 
-      // - **1**: low
-      // 
-      // - **0**: none
+      // - **3**: high risk
+      // - **2**: medium risk
+      // - **1**: low risk
+      // - **0**: no risk.
       shared_ptr<int32_t> riskLevel_ {};
-      // The reason for the risk.
+      // The risk reason.
       shared_ptr<string> riskReason_ {};
-      // The list of applications.
+      // The application list.
       shared_ptr<vector<string>> serviceNameList_ {};
       // The number of source IP addresses.
       shared_ptr<int64_t> srcIpCnt_ {};
       // The total traffic. Unit: bytes.
       shared_ptr<int64_t> totalBytes_ {};
-      // The total response traffic in the last 7 days.
+      // The total reply traffic over the last 7 days.
       shared_ptr<int64_t> totalReplyBytes_ {};
-      // For details about the traffic, see the TotalBytes field.
+      // For specific traffic information, refer to the TotalBytes field.
       shared_ptr<string> trafficPercent1Day_ {};
-      // For details about the traffic, see the TotalBytes field.
+      // For specific traffic information, refer to the TotalBytes field.
       shared_ptr<string> trafficPercent30Day_ {};
-      // For details about the traffic, see the TotalBytes field.
+      // For specific traffic information, refer to the TotalBytes field.
       shared_ptr<string> trafficPercent7Day_ {};
-      // The reason why the protocol is not identified when the protocol is Unknown.
+      // The reason why the protocol could not be identified when the identified protocol is Unknown.
       shared_ptr<vector<string>> unknownReason_ {};
     };
 
@@ -411,11 +402,11 @@ namespace Models
 
 
   protected:
-    // The list of returned data.
+    // The data list.
     shared_ptr<vector<DescribeInternetOpenIpResponseBody::DataList>> dataList_ {};
-    // The pagination information.
+    // The paging information for the paged query.
     shared_ptr<DescribeInternetOpenIpResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -160,7 +160,7 @@ namespace Models
 
 
       protected:
-        // The risk classification ID.
+        // The risk category ID.
         shared_ptr<string> classId_ {};
         // The risk level.
         shared_ptr<int32_t> riskLevel_ {};
@@ -331,17 +331,17 @@ namespace Models
       shared_ptr<string> aclCoverage_ {};
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The first access time, as a Unix timestamp in seconds.
+      // The time of the first access. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> firstTime_ {};
       // The inbound traffic (response traffic), in bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // The IPS hit count.
+      // The number of IPS hits.
       shared_ptr<int64_t> ipsHitCnt_ {};
-      // The last access time, as a Unix timestamp in seconds.
+      // The time of the most recent access. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> lastTime_ {};
-      // The NAT Gateway ID.
+      // The NAT gateway ID.
       shared_ptr<string> natGatewayId_ {};
-      // The NAT Gateway name.
+      // The NAT gateway name.
       shared_ptr<string> natGatewayName_ {};
       // The outbound traffic (request traffic), in bytes.
       shared_ptr<int64_t> outBytes_ {};
@@ -351,23 +351,23 @@ namespace Models
       shared_ptr<string> publicIP_ {};
       // The region ID.
       shared_ptr<string> regionNo_ {};
-      // The asset instance ID.
+      // The ID of the asset instance.
       shared_ptr<string> resourceInstanceId_ {};
-      // The asset instance name.
+      // The name of the asset instance.
       shared_ptr<string> resourceInstanceName_ {};
-      // The type of the asset\\"s public IP address.
+      // The type of the public IP address of the asset.
       shared_ptr<string> resourceType_ {};
-      // The ACL rule ID.
+      // The ID of the ACL rule.
       shared_ptr<string> ruleId_ {};
-      // The rule name.
+      // The name of the rule.
       shared_ptr<string> ruleName_ {};
-      // The session count.
+      // The number of access sessions.
       shared_ptr<int64_t> sessionCount_ {};
-      // The list of tags.
+      // The list of tag names.
       shared_ptr<vector<AssetList::TagList>> tagList_ {};
-      // The total traffic, in bytes.
+      // The total traffic.
       shared_ptr<string> totalBytes_ {};
-      // The VPC ID.
+      // The instance ID of the VPC.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -412,7 +412,7 @@ namespace Models
     shared_ptr<vector<DescribeOutgoingDomainDetailResponseBody::AssetList>> assetList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -168,7 +168,7 @@ namespace Models
 
 
   protected:
-    // The document list.
+    // The list of documents.
     shared_ptr<vector<DescribePageDocumentsResponseBody::Docs>> docs_ {};
     // The image URL.
     shared_ptr<string> imageUrl_ {};

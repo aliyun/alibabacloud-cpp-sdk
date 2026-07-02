@@ -68,11 +68,9 @@ namespace Models
   protected:
     // The end time. Specify a UNIX timestamp in seconds.
     shared_ptr<string> endTime_ {};
-    // The language of the response. Valid values:
-    // - **en**: English
-    // - **zh**: Chinese.
+    // The language type of the received message.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
     // The start time. Specify a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};

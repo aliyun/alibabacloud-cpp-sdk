@@ -450,7 +450,7 @@ namespace Models
     shared_ptr<string> isp_ {};
     // The language type of the received message. Valid values:
     // - **zh** (default): Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The region of the source or destination IP address.
     shared_ptr<string> location_ {};
@@ -486,7 +486,7 @@ namespace Models
     shared_ptr<string> srcVpcId_ {};
     // The region of the source VPC asset.
     shared_ptr<string> srcVpcRegionNo_ {};
-    // The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. We recommend that a single query does not exceed one day.
+    // The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. A single query should not exceed one day.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -484,11 +484,11 @@ namespace Cloudfw20171207
       Models::CreateTrFirewallV2RoutePolicyResponse createTrFirewallV2RoutePolicy(const Models::CreateTrFirewallV2RoutePolicyRequest &request);
 
       /**
-       * @summary Creates a VPC border firewall (protects mutual access traffic between network instances within a Cloud Enterprise Network (CEN) and a specified VPC).
+       * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
        *
-       * @description This operation is generally used to create a VPC border firewall for VPC instances within a Cloud Enterprise Network (CEN). The VPC border firewall can protect mutual access traffic between network instances within the CEN (network instances include VPCs, VBRs, and CCNs) and a specified VPC. It does not support protecting mutual access traffic between VBR and VBR, CCN and CCN, or VBR and CCN. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+       * @description This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
        * ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation as needed.
+       * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
        *
        * @param request CreateVpcFirewallCenConfigureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -497,11 +497,11 @@ namespace Cloudfw20171207
       Models::CreateVpcFirewallCenConfigureResponse createVpcFirewallCenConfigureWithOptions(const Models::CreateVpcFirewallCenConfigureRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a VPC border firewall (protects mutual access traffic between network instances within a Cloud Enterprise Network (CEN) and a specified VPC).
+       * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
        *
-       * @description This operation is generally used to create a VPC border firewall for VPC instances within a Cloud Enterprise Network (CEN). The VPC border firewall can protect mutual access traffic between network instances within the CEN (network instances include VPCs, VBRs, and CCNs) and a specified VPC. It does not support protecting mutual access traffic between VBR and VBR, CCN and CCN, or VBR and CCN. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+       * @description This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
        * ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation as needed.
+       * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
        *
        * @param request CreateVpcFirewallCenConfigureRequest
        * @return CreateVpcFirewallCenConfigureResponse
@@ -1394,7 +1394,7 @@ namespace Cloudfw20171207
        * @summary Retrieves the total number of access control policy configurations.
        *
        * @description ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request DescribeAclRuleCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1406,7 +1406,7 @@ namespace Cloudfw20171207
        * @summary Retrieves the total number of access control policy configurations.
        *
        * @description ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request DescribeAclRuleCountRequest
        * @return DescribeAclRuleCountResponse
@@ -1843,6 +1843,23 @@ namespace Cloudfw20171207
       Models::DescribeFirewallDropStatisticsResponse describeFirewallDropStatistics();
 
       /**
+       * @summary Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+       *
+       * @param request DescribeFirewallDropTrendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFirewallDropTrendResponse
+       */
+      Models::DescribeFirewallDropTrendResponse describeFirewallDropTrendWithOptions(const Models::DescribeFirewallDropTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+       *
+       * @param request DescribeFirewallDropTrendRequest
+       * @return DescribeFirewallDropTrendResponse
+       */
+      Models::DescribeFirewallDropTrendResponse describeFirewallDropTrend(const Models::DescribeFirewallDropTrendRequest &request);
+
+      /**
        * @summary Retrieves the details of a firewall task.
        *
        * @description ### QPS limit
@@ -1864,6 +1881,23 @@ namespace Cloudfw20171207
        * @return DescribeFirewallTaskResponse
        */
       Models::DescribeFirewallTaskResponse describeFirewallTask(const Models::DescribeFirewallTaskRequest &request);
+
+      /**
+       * @summary 获取总流量趋势
+       *
+       * @param request DescribeFirewallTrafficTrendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFirewallTrafficTrendResponse
+       */
+      Models::DescribeFirewallTrafficTrendResponse describeFirewallTrafficTrendWithOptions(const Models::DescribeFirewallTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取总流量趋势
+       *
+       * @param request DescribeFirewallTrafficTrendRequest
+       * @return DescribeFirewallTrafficTrendResponse
+       */
+      Models::DescribeFirewallTrafficTrendResponse describeFirewallTrafficTrend(const Models::DescribeFirewallTrafficTrendRequest &request);
 
       /**
        * @summary Queries the vSwitches that are created by Cloud Firewall.
@@ -2022,7 +2056,7 @@ namespace Cloudfw20171207
       Models::DescribeInternetOpenDetailResponse describeInternetOpenDetail(const Models::DescribeInternetOpenDetailRequest &request);
 
       /**
-       * @summary Describes a Cloud Firewall access control policy group.
+       * @summary Queries the details of an access control policy group in Cloud Firewall.
        *
        * @param request DescribeInternetOpenIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2031,7 +2065,7 @@ namespace Cloudfw20171207
       Models::DescribeInternetOpenIpResponse describeInternetOpenIpWithOptions(const Models::DescribeInternetOpenIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Describes a Cloud Firewall access control policy group.
+       * @summary Queries the details of an access control policy group in Cloud Firewall.
        *
        * @param request DescribeInternetOpenIpRequest
        * @return DescribeInternetOpenIpResponse
@@ -2711,7 +2745,7 @@ namespace Cloudfw20171207
       Models::DescribeOutgoingDomainResponse describeOutgoingDomain(const Models::DescribeOutgoingDomainRequest &request);
 
       /**
-       * @summary Retrieves details about an outbound domain.
+       * @summary Retrieves the details of an outbound domain.
        *
        * @param request DescribeOutgoingDomainDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2720,7 +2754,7 @@ namespace Cloudfw20171207
       Models::DescribeOutgoingDomainDetailResponse describeOutgoingDomainDetailWithOptions(const Models::DescribeOutgoingDomainDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details about an outbound domain.
+       * @summary Retrieves the details of an outbound domain.
        *
        * @param request DescribeOutgoingDomainDetailRequest
        * @return DescribeOutgoingDomainDetailResponse
@@ -2804,10 +2838,10 @@ namespace Cloudfw20171207
       /**
        * @deprecated OpenAPI DescribePageDocuments is deprecated
        *
-       * @summary Queries the FAQ of a page.
+       * @summary Queries the FAQ for a page.
        *
        * @description ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribePageDocumentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2818,10 +2852,10 @@ namespace Cloudfw20171207
       /**
        * @deprecated OpenAPI DescribePageDocuments is deprecated
        *
-       * @summary Queries the FAQ of a page.
+       * @summary Queries the FAQ for a page.
        *
        * @description ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribePageDocumentsRequest
        * @return DescribePageDocumentsResponse
@@ -3027,9 +3061,9 @@ namespace Cloudfw20171207
       Models::DescribePrefixListsResponse describePrefixLists(const Models::DescribePrefixListsRequest &request);
 
       /**
-       * @summary 查询包年包月2.0账单概览
+       * @summary Queries the billing overview of a subscription 2.0 instance.
        *
-       * @description 统计范围为该用户当前云防火墙实例，包括自购买之日起的所有数据。
+       * @description The statistics cover the current Cloud Firewall instance of the user, including all data since the purchase date.
        *
        * @param request DescribePrepayBillTotalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3038,9 +3072,9 @@ namespace Cloudfw20171207
       Models::DescribePrepayBillTotalResponse describePrepayBillTotalWithOptions(const Models::DescribePrepayBillTotalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询包年包月2.0账单概览
+       * @summary Queries the billing overview of a subscription 2.0 instance.
        *
-       * @description 统计范围为该用户当前云防火墙实例，包括自购买之日起的所有数据。
+       * @description The statistics cover the current Cloud Firewall instance of the user, including all data since the purchase date.
        *
        * @param request DescribePrepayBillTotalRequest
        * @return DescribePrepayBillTotalResponse
@@ -3127,7 +3161,7 @@ namespace Cloudfw20171207
        * @summary Retrieves region information.
        *
        * @description ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeRegionInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3139,7 +3173,7 @@ namespace Cloudfw20171207
        * @summary Retrieves region information.
        *
        * @description ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeRegionInfoRequest
        * @return DescribeRegionInfoResponse
@@ -3151,7 +3185,7 @@ namespace Cloudfw20171207
        *
        * @description This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
        * ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request DescribeRegionResourceTypeAutoEnableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3164,7 +3198,7 @@ namespace Cloudfw20171207
        *
        * @description This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
        * ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request DescribeRegionResourceTypeAutoEnableRequest
        * @return DescribeRegionResourceTypeAutoEnableResponse
@@ -3174,9 +3208,9 @@ namespace Cloudfw20171207
       /**
        * @summary Queries the default traffic redirection for an asset type.
        *
-       * @description This operation is used to obtain DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be obtained.
+       * @description This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
        * ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a proper frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeResourceTypeAutoEnableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3187,9 +3221,9 @@ namespace Cloudfw20171207
       /**
        * @summary Queries the default traffic redirection for an asset type.
        *
-       * @description This operation is used to obtain DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be obtained.
+       * @description This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
        * ## QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a proper frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeResourceTypeAutoEnableRequest
        * @return DescribeResourceTypeAutoEnableResponse
@@ -3400,6 +3434,29 @@ namespace Cloudfw20171207
        * @return DescribeSdlEventStatisticResponse
        */
       Models::DescribeSdlEventStatisticResponse describeSdlEventStatistic(const Models::DescribeSdlEventStatisticRequest &request);
+
+      /**
+       * @summary Retrieves the packet payload of a sensitive data leak event.
+       *
+       * @description ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+       *
+       * @param request DescribeSdlLastPayloadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSdlLastPayloadResponse
+       */
+      Models::DescribeSdlLastPayloadResponse describeSdlLastPayloadWithOptions(const Models::DescribeSdlLastPayloadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the packet payload of a sensitive data leak event.
+       *
+       * @description ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+       *
+       * @param request DescribeSdlLastPayloadRequest
+       * @return DescribeSdlLastPayloadResponse
+       */
+      Models::DescribeSdlLastPayloadResponse describeSdlLastPayload(const Models::DescribeSdlLastPayloadRequest &request);
 
       /**
        * @summary Retrieves the details of sensitive data.

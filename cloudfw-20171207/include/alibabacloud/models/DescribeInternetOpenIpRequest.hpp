@@ -159,15 +159,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
-    // The end time when the public IP address was exposed. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the public IP address exposure. Specify the value as a UNIX timestamp in seconds.
     shared_ptr<string> endTime_ {};
-    // The language of the response message.
+    // The language of the content within the response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page for a paged query.
+    // The number of entries per page for a paged query.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
@@ -177,19 +176,15 @@ namespace Models
     shared_ptr<string> publicIp_ {};
     // The region ID of the instance.
     shared_ptr<string> regionNo_ {};
-    // The risk level. If you leave this parameter empty, all risk levels are queried. Valid values:
-    // 
-    // - **3**: high
-    // 
-    // - **2**: medium
-    // 
-    // - **1**: low
-    // 
-    // - **0**: none
+    // The risk level. If this parameter is not specified, all risk levels are returned. Valid values:
+    // - **3**: high risk
+    // - **2**: medium risk
+    // - **1**: low risk
+    // - **0**: no risk.
     shared_ptr<string> riskLevel_ {};
-    // The name of the application to query.
+    // The application name to query.
     shared_ptr<string> serviceName_ {};
-    // The start time when the public IP address was exposed. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the public IP address exposure. Specify the value as a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
   };
 

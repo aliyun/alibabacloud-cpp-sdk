@@ -179,41 +179,41 @@ namespace Models
 
 
   protected:
-    // The policy coverage status to filter by.
+    // The policy coverage status.
     shared_ptr<string> aclCoverage_ {};
-    // The page number to return.
+    // The page number.
     shared_ptr<string> currentPage_ {};
-    // The domain name to query.
+    // The domain name.
     shared_ptr<string> domain_ {};
-    // A list of domain names to query.
+    // The list of domain names.
     shared_ptr<vector<string>> domainList_ {};
     // The end of the time range to query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The IP address type. Set to `NatPrivate` to query details for outbound connections that originate from a private IP address via a NAT Gateway.
+    // Specifies whether to query NAT private network outbound connections.
     shared_ptr<string> IPType_ {};
-    // The language of the response.
+    // The language type.
     shared_ptr<string> lang_ {};
-    // The ID of the NAT Gateway.
+    // The ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The number of entries to return per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The private IP address to query.
+    // The private IP address.
     shared_ptr<string> privateIP_ {};
-    // The public IP address to query.
+    // The public IP address.
     shared_ptr<string> publicIP_ {};
-    // The field to sort the results by.
+    // The field by which to sort the results.
     shared_ptr<string> sort_ {};
-    // The source IP address.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The start of the time range to query. The value is a UNIX timestamp in seconds.
+    // The beginning of the time range to query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The tag ID to filter by.
+    // The tag ID.
     shared_ptr<string> tagId_ {};
   };
 

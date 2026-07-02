@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<int32_t> internetInAclCount_ {};
     // The number of outbound access control policies that are created for the Internet firewall.
     shared_ptr<int32_t> internetOutAclCount_ {};
-    // The number of inbound access control policies for the NAT firewall.>Notice: This field is deprecated..
+    // The number of inbound access control policies for the NAT firewall.>Notice: This field is deprecated.
     shared_ptr<int32_t> natInAclCount_ {};
     // The number of internal-to-external access control policies for the NAT firewall.
     shared_ptr<int32_t> natOutAclCount_ {};
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of access control policies.
     shared_ptr<int32_t> totalAclCount_ {};
-    // The number of access control policies for the VPC firewall.
+    // The number of access control policies for VPC firewalls.
     shared_ptr<int32_t> vpcAclCount_ {};
   };
 

@@ -251,7 +251,7 @@ namespace Models
     // - 1: Enable strict mode.
     // - 0: Disable strict mode.
     shared_ptr<int32_t> strictMode_ {};
-    // The instance ID of the VPC.
+    // The VPC-connected instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

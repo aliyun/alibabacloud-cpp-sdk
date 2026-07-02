@@ -263,9 +263,15 @@
 #include <alibabacloud/models/DescribeDownloadTaskTypeResponse.hpp>
 #include <alibabacloud/models/DescribeFirewallDropStatisticsResponseBody.hpp>
 #include <alibabacloud/models/DescribeFirewallDropStatisticsResponse.hpp>
+#include <alibabacloud/models/DescribeFirewallDropTrendRequest.hpp>
+#include <alibabacloud/models/DescribeFirewallDropTrendResponseBody.hpp>
+#include <alibabacloud/models/DescribeFirewallDropTrendResponse.hpp>
 #include <alibabacloud/models/DescribeFirewallTaskRequest.hpp>
 #include <alibabacloud/models/DescribeFirewallTaskResponseBody.hpp>
 #include <alibabacloud/models/DescribeFirewallTaskResponse.hpp>
+#include <alibabacloud/models/DescribeFirewallTrafficTrendRequest.hpp>
+#include <alibabacloud/models/DescribeFirewallTrafficTrendResponseBody.hpp>
+#include <alibabacloud/models/DescribeFirewallTrafficTrendResponse.hpp>
 #include <alibabacloud/models/DescribeFirewallVSwitchRequest.hpp>
 #include <alibabacloud/models/DescribeFirewallVSwitchResponseBody.hpp>
 #include <alibabacloud/models/DescribeFirewallVSwitchResponse.hpp>
@@ -511,6 +517,9 @@
 #include <alibabacloud/models/DescribeSdlEventStatisticRequest.hpp>
 #include <alibabacloud/models/DescribeSdlEventStatisticResponseBody.hpp>
 #include <alibabacloud/models/DescribeSdlEventStatisticResponse.hpp>
+#include <alibabacloud/models/DescribeSdlLastPayloadRequest.hpp>
+#include <alibabacloud/models/DescribeSdlLastPayloadResponseBody.hpp>
+#include <alibabacloud/models/DescribeSdlLastPayloadResponse.hpp>
 #include <alibabacloud/models/DescribeSdlStatisticRequest.hpp>
 #include <alibabacloud/models/DescribeSdlStatisticResponseBody.hpp>
 #include <alibabacloud/models/DescribeSdlStatisticResponse.hpp>

@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The IP address of the asset.
     shared_ptr<string> assetIP_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
     // The traffic direction.
     shared_ptr<string> direction_ {};
@@ -207,7 +207,7 @@ namespace Models
     shared_ptr<string> ecsInstanceId_ {};
     // The name of the asset instance.
     shared_ptr<string> ecsInstanceName_ {};
-    // The end time. The value is a UNIX timestamp. Unit: seconds.
+    // The end time. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -221,7 +221,7 @@ namespace Models
     shared_ptr<string> order_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The instance ID of the peer VPC.
+    // The instance ID of the peer VPC instance.
     shared_ptr<string> peerVpcId_ {};
     // The port number.
     shared_ptr<string> port_ {};
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<string> riskLevel_ {};
     // The sort method.
     shared_ptr<string> sort_ {};
-    // The start time. The value is a UNIX timestamp. Unit: seconds.
+    // The start time. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

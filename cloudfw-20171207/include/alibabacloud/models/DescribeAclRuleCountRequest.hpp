@@ -51,7 +51,7 @@ namespace Models
     // The language type. Valid values:
     // 
     // - **zh** (default): Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};

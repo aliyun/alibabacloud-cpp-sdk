@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The number of blocked requests.
+      // The number of interceptions.
       shared_ptr<int32_t> count_ {};
       // The timestamp.
       shared_ptr<int64_t> time_ {};

@@ -363,7 +363,7 @@ namespace Models
       protected:
         // The region ID.
         shared_ptr<string> regionNo_ {};
-        // The VPC instance ID.
+        // The VPC-connected instance ID.
         shared_ptr<string> vpcId_ {};
         // The VPC instance name.
         shared_ptr<string> vpcName_ {};
@@ -730,7 +730,7 @@ namespace Models
 
 
     protected:
-      // The policy ID of the ACL pre-match. If this parameter is empty, all policies are included.
+      // The policy ID of the ACL pre-match. If this parameter is not specified, all policies are included.
       shared_ptr<string> aclPreRuleId_ {};
       // The policy name of the ACL pre-match.
       shared_ptr<string> aclPreRuleName_ {};
@@ -740,7 +740,7 @@ namespace Models
       // 
       // **domain_unknown**: domain name not identified
       // 
-      // **normal**: normal.
+      // **normal**: normal
       shared_ptr<string> aclPreState_ {};
       // The application identification status. Valid values:
       // 
@@ -758,7 +758,7 @@ namespace Models
       // 
       // **unknown_strict**: strict mode, identification failed
       // 
-      // **success**: identification succeeded.
+      // **success**: identification succeeded
       shared_ptr<string> appDpiState_ {};
       // The application ID.
       shared_ptr<int32_t> appId_ {};
@@ -792,9 +792,9 @@ namespace Models
       shared_ptr<DataList::DstVpc> dstVpc_ {};
       // The end time of the data. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The additional extension data.
+      // Other extended data.
       shared_ptr<string> ext_ {};
-      // The inbound traffic in bytes.
+      // The inbound traffic.
       shared_ptr<string> inBytes_ {};
       // The number of inbound packets.
       shared_ptr<string> inPackets_ {};
@@ -808,7 +808,7 @@ namespace Models
       shared_ptr<string> location_ {};
       // The UID of the Cloud Firewall member accounts.
       shared_ptr<string> memberUid_ {};
-      // The outbound traffic in bytes.
+      // The outbound traffic.
       shared_ptr<string> outBytes_ {};
       // The number of outbound packets.
       shared_ptr<string> outPackets_ {};
@@ -842,7 +842,7 @@ namespace Models
       shared_ptr<vector<DataList::Rules>> rules_ {};
       // The source IP address.
       shared_ptr<string> srcIP_ {};
-      // The source port.
+      // The port of the data source.
       shared_ptr<int32_t> srcPort_ {};
       // The private source IP address.
       shared_ptr<string> srcPrivateIP_ {};

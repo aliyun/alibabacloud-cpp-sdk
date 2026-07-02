@@ -96,9 +96,9 @@ namespace Models
       shared_ptr<int32_t> ipNumSpec_ {};
       // The number of public IP addresses with protection enabled.
       shared_ptr<int32_t> ipNumUsed_ {};
-      // The quota for sensitive data IP addresses.
+      // The quota for IP addresses with sensitive data protection.
       shared_ptr<int64_t> sensitiveDataIpNumSpec_ {};
-      // The number of sensitive data IP addresses with protection enabled.
+      // The number of IP addresses with sensitive data protection enabled.
       shared_ptr<int64_t> sensitiveDataIpNumUsed_ {};
     };
 
@@ -291,15 +291,15 @@ namespace Models
 
 
     protected:
-      // The region-specific statistics for the Internet firewall.
+      // The region-specific statistics of Internet firewall instances.
       shared_ptr<vector<GeneralInstanceSpecStatistic::CfwGeneralInstanceRegionStatistic>> cfwGeneralInstanceRegionStatistic_ {};
-      // The region-specific statistics for all Internet firewall instances.
+      // The full region-specific statistics of Internet firewall instances.
       shared_ptr<vector<GeneralInstanceSpecStatistic::CfwTotalGeneralInstanceRegionStatistic>> cfwTotalGeneralInstanceRegionStatistic_ {};
       // The total number of instances for the Internet firewall.
       shared_ptr<int32_t> totalCfwGeneralInstanceCnt_ {};
       // The number of instances with the Internet firewall enabled.
       shared_ptr<int32_t> totalCfwGeneralInstanceUsedCnt_ {};
-      // The total quota.
+      // The total quota of general instances.
       shared_ptr<int32_t> totalGeneralInstanceUsedCnt_ {};
       // The total number of instances for the NAT firewall.
       shared_ptr<int32_t> totalNatGeneralInstanceCnt_ {};
@@ -346,11 +346,11 @@ namespace Models
   protected:
     // Indicates whether automatic traffic redirection is enabled. Valid values:- **true**: Enabled.- **false**: Disabled.
     shared_ptr<bool> autoResourceEnable_ {};
-    // The general instance specifications for version 2.0.
+    // The general instance specifications for the 2.0 billing model.
     shared_ptr<DescribeAssetStatisticResponseBody::GeneralInstanceSpecStatistic> generalInstanceSpecStatistic_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The consumed quota statistics information.
+    // The quota usage statistics information.
     shared_ptr<DescribeAssetStatisticResponseBody::ResourceSpecStatistic> resourceSpecStatistic_ {};
   };
 
