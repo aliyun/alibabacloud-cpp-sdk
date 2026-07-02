@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Page number for paging
+    // The page number of the query.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

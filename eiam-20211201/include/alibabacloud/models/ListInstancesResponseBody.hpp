@@ -138,10 +138,15 @@ namespace Models
 
 
       protected:
+        // The instance ID of the backup instance.
         shared_ptr<string> backupInstanceId_ {};
+        // The region ID of the backup instance.
         shared_ptr<string> backupInstanceRegionId_ {};
+        // The instance ID of the primary instance.
         shared_ptr<string> primaryInstanceId_ {};
+        // The region ID of the primary instance.
         shared_ptr<string> primaryInstanceRegionId_ {};
+        // The time when the disaster recovery data replication was created, in UNIX timestamp format. Unit: milliseconds.
         shared_ptr<int64_t> replicationCreateTime_ {};
       };
 
@@ -185,9 +190,9 @@ namespace Models
       protected:
         // The endpoint address of the instance.
         shared_ptr<string> endpoint_ {};
-        // The status of the instance endpoint. Valid values:
+        // The endpoint status. Valid values:
         // - resolved: Resolved.
-        // - unresolved: Unresolved.
+        // - unresolved: Not resolved.
         shared_ptr<string> status_ {};
       };
 
@@ -276,19 +281,23 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
+      // The instance creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // Indicates whether cross-region replication is enabled. Valid values: enabled or disabled.
       shared_ptr<string> crossRegionReplication_ {};
+      // The cross-region replication role. Valid values: primary (primary instance) or backup (backup instance).
       shared_ptr<string> crossRegionReplicationRole_ {};
       // The default endpoint of the instance.
       shared_ptr<Instances::DefaultEndpoint> defaultEndpoint_ {};
-      // The description of the instance.
+      // The instance description.
       shared_ptr<string> description_ {};
+      // The instance failover activation status. Valid values: active (activated) or inactive (not activated).
       shared_ptr<string> instanceFailoverStatus_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The service code of the Alibaba Cloud service that manages the instance.
       shared_ptr<string> managedServiceCode_ {};
+      // The replication configuration. This parameter is returned only when CrossRegionReplication is set to enabled.
       shared_ptr<Instances::ReplicationConfiguration> replicationConfiguration_ {};
       // Indicates whether the instance is managed by an Alibaba Cloud service.
       shared_ptr<bool> serviceManaged_ {};
@@ -328,7 +337,7 @@ namespace Models
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

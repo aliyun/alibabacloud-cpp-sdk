@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the identity provider (IdP).
+    // The identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};

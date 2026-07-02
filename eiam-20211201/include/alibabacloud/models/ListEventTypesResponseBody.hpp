@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // Event type
+      // The event type.
       shared_ptr<string> eventType_ {};
     };
 
@@ -92,11 +92,11 @@ namespace Models
 
 
   protected:
-    // List of event types
+    // The list of event types.
     shared_ptr<vector<ListEventTypesResponseBody::EventTypes>> eventTypes_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of items in the list
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

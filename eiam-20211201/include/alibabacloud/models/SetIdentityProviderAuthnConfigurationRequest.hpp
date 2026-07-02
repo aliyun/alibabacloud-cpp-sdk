@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to automatically update passwords.
+      // Indicates whether automatic password update is supported.
       shared_ptr<string> autoUpdatePasswordStatus_ {};
-      // User Login Identifier
+      // The user login identifier.
       shared_ptr<string> userLoginIdentifier_ {};
-      // User ObjectClass
+      // The user ObjectClass.
       shared_ptr<string> userObjectClass_ {};
     };
 
@@ -174,19 +174,19 @@ namespace Models
 
 
       protected:
-        // Type of expression.
+        // The type of the expression.
         // 
         // This parameter is required.
         shared_ptr<string> expressionMappingType_ {};
-        // Expression for mapping attribute value.
+        // The value expression of the mapping attribute.
         // 
         // This parameter is required.
         shared_ptr<string> sourceValueExpression_ {};
-        // Target attribute name for mapping.
+        // The name of the mapping target attribute.
         // 
         // This parameter is required.
         shared_ptr<string> targetField_ {};
-        // Target attribute name for mapping.
+        // The description of the mapping target attribute.
         shared_ptr<string> targetFieldDescription_ {};
       };
 
@@ -218,9 +218,9 @@ namespace Models
     protected:
       // Rules for automatic account matching.
       shared_ptr<vector<BindingConfig::AutoMatchUserProfileExpressions>> autoMatchUserProfileExpressions_ {};
-      // Automatic account matching status.
+      // Indicates whether automatic account matching is enabled.
       shared_ptr<string> autoMatchUserStatus_ {};
-      // Specifies whether the manual account binding feature is enabled.
+      // Indicates whether the manual account binding feature is enabled.
       shared_ptr<string> mappingBindingStatus_ {};
     };
 
@@ -252,7 +252,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable automatic account updates.
+      // Indicates whether automatic account update is enabled.
       shared_ptr<string> autoUpdateUserStatus_ {};
     };
 
@@ -296,9 +296,9 @@ namespace Models
 
 
     protected:
-      // Automatic account creation status.
+      // Indicates whether automatic account creation is enabled.
       shared_ptr<string> autoCreateUserStatus_ {};
-      // Organization ID
+      // The organizational unit IDs.
       shared_ptr<vector<string>> targetOrganizationalUnitIds_ {};
     };
 
@@ -355,21 +355,21 @@ namespace Models
 
 
   protected:
-    // Automatic Account Creation Rule Configuration.
+    // Automatic account creation rule configuration.
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::AutoCreateUserConfig> autoCreateUserConfig_ {};
-    // Automatic Account Update Configuration
+    // Automatic account update configuration.
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::AutoUpdateUserConfig> autoUpdateUserConfig_ {};
-    // Account Binding Rule Configuration
+    // Account binding rule configuration.
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::BindingConfig> bindingConfig_ {};
-    // Identity Provider ID
+    // Identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // Instance ID
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // AD/LDAP Authentication Configuration
+    // AD/LDAP authentication configuration.
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::LdapAuthnConfig> ldapAuthnConfig_ {};
   };
 

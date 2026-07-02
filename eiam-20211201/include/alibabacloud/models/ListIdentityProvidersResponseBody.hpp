@@ -237,11 +237,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether advanced configuration is enabled. Valid values:
+      // Whether the advanced configuration is enabled. Valid values:
       // 
-      // - disabled: The feature is disabled.
+      // - Disabled: disabled
       // 
-      // - enabled: The feature is enabled.
+      // - Enabled: enabled
       shared_ptr<string> advancedStatus_ {};
       // The authentication source product, such as Okta, Google, or Azure AD.
       // Valid values:
@@ -262,27 +262,27 @@ namespace Models
       // 
       // - Alibaba Cloud SASE: urn:alibaba:idaas:idp:alibaba:sase
       shared_ptr<string> authnSourceSupplier_ {};
-      // The authentication method type. Valid values:
+      // The authentication source type, OIDC or SAML. Valid values:
       // 
       // - OIDC: urn:alibaba:idaas:authntype:oidc
       // 
       // - SAML: urn:alibaba:idaas:authntype:saml2
       shared_ptr<string> authnSourceType_ {};
-      // Indicates whether the identity provider supports authentication. Valid values:
+      // Whether the corresponding IdP supports authentication. Valid values:
       // 
-      // - disabled: Authentication is disabled.
+      // - Disabled: disabled
       // 
-      // - enabled: Authentication is enabled.
+      // - Enabled: enabled
       shared_ptr<string> authnStatus_ {};
-      // The time when the identity provider was created. This is a UNIX timestamp. Unit: milliseconds.
+      // The creation time, in Unix timestamp format, measured in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the identity provider.
+      // Description of the identity provider.
       shared_ptr<string> description_ {};
-      // The external ID of the identity provider.
+      // External ID of the identity provider.
       shared_ptr<string> identityProviderExternalId_ {};
-      // The identity provider ID.
+      // Identity provider ID.
       shared_ptr<string> identityProviderId_ {};
-      // The name of the identity provider.
+      // Name of the identity provider.
       shared_ptr<string> identityProviderName_ {};
       // The synchronization type of the identity provider.
       // 
@@ -300,39 +300,39 @@ namespace Models
       // 
       // - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
       // 
-      // - Custom OIDC for SASE: urn:alibaba:idaas:idp:alibaba:sase
+      // - SASE Customized OIDC: urn:alibaba:idaas:idp:alibaba:sase
       shared_ptr<string> identityProviderType_ {};
-      // The incremental callback status. This indicates whether to process incremental callback data from the identity provider. Valid values:
+      // The incremental callback status, indicating whether incremental callback data from the IdP is processed. Valid values:
       // 
-      // - disabled: The feature is disabled.
+      // - Disabled: disabled
       // 
-      // - enabled: The feature is enabled.
+      // - Enabled: enabled
       shared_ptr<string> incrementalCallbackStatus_ {};
-      // The instance ID.
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
-      // The result of the last status check. A sync task can be triggered only when the status check of the identity provider returns \\`success\\`.
+      // The last status check result. Before synchronization, a sync task can only be triggered when the identity provider status check result is success.
       shared_ptr<string> lastStatusCheckJobResult_ {};
-      // The reason why the identity provider is locked.
+      // The lock reason.
       shared_ptr<string> lockReason_ {};
-      // The URL of the custom logo for the identity provider.
+      // The custom logo URL of the identity provider.
       shared_ptr<string> logoUrl_ {};
-      // The periodic check status. This indicates whether to periodically check for data inconsistencies between IDaaS and the identity provider.
+      // The periodic sync status, indicating whether the data differences between EIAM and the identity provider are periodically checked.
       shared_ptr<string> periodicSyncStatus_ {};
-      // Indicates whether inbound synchronization is enabled. Valid values:
+      // Whether the inbound sync feature is supported. Valid values:
       // 
-      // - disabled: The feature is disabled.
+      // - Disabled: disabled
       // 
-      // - enabled: The feature is enabled.
+      // - Enabled: enabled
       shared_ptr<string> udPullStatus_ {};
       // The target node for synchronization.
       shared_ptr<string> udPullTargetScope_ {};
-      // Indicates whether outbound synchronization is enabled. Valid values:
+      // Whether the outbound sync feature is enabled. Valid values:
       // 
-      // - disabled: The feature is disabled.
+      // - Disabled: disabled
       // 
-      // - enabled: The feature is enabled.
+      // - Enabled: enabled
       shared_ptr<string> udPushStatus_ {};
-      // The time when the identity provider was last updated. This is a UNIX timestamp. Unit: milliseconds.
+      // The update time, in Unix timestamp format, measured in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -362,11 +362,11 @@ namespace Models
 
 
   protected:
-    // The list of identity providers.
+    // List of identity provider information.
     shared_ptr<vector<ListIdentityProvidersResponseBody::IdentityProviders>> identityProviders_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // Total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

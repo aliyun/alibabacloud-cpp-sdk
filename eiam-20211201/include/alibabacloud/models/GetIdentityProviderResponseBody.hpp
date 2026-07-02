@@ -170,15 +170,15 @@ namespace Models
 
 
       protected:
-        // The ID of your custom application in WeCom.
+        // The ID of the WeCom self-built application.
         shared_ptr<string> agentId_ {};
-        // The authorized callback domain.
+        // The authorization callback domain.
         shared_ptr<string> authorizeCallbackDomain_ {};
-        // The corporate ID of your custom application in WeCom.
+        // The CorpId of the WeCom self-built application.
         shared_ptr<string> corpId_ {};
-        // The secret of your custom application in WeCom.
+        // The CorpSecret of the WeCom self-built application.
         shared_ptr<string> corpSecret_ {};
-        // The trusted domain.
+        // The trusted domain name.
         shared_ptr<string> trustableDomain_ {};
       };
 
@@ -243,9 +243,9 @@ namespace Models
 
 
         protected:
-          // The list of source nodes for synchronization.
+          // The list of synchronization source nodes.
           shared_ptr<vector<string>> sourceScopes_ {};
-          // The target node for synchronization.
+          // The synchronization target node.
           shared_ptr<string> targetScope_ {};
         };
 
@@ -268,7 +268,7 @@ namespace Models
 
 
       protected:
-        // This parameter is reserved for future use.
+        // This field is not in use. Ignore it.
         shared_ptr<string> incrementalCallbackStatus_ {};
         // The list of synchronization scope configurations.
         shared_ptr<vector<UdPushConfig::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
@@ -337,9 +337,9 @@ namespace Models
 
 
         protected:
-          // The list of source nodes for synchronization.
+          // The list of synchronization source nodes.
           shared_ptr<vector<string>> sourceScopes_ {};
-          // The target node for synchronization.
+          // The synchronization target node.
           shared_ptr<string> targetScope_ {};
         };
 
@@ -369,17 +369,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether group synchronization is enabled. Valid values:
+        // Specifies whether group synchronization is enabled. Valid values:
         // 
-        // - `disabled`
+        // - disabled: Disabled.
         // 
-        // - `enabled`
+        // - enabled: Enabled.
         shared_ptr<string> groupSyncStatus_ {};
-        // Indicates whether to process incremental callback data from the identity provider. Valid values:
+        // The incremental callback status. Specifies whether to process incremental callback data from the IdP. Valid values:
         // 
-        // - `disabled`
+        // - disabled: Disabled.
         // 
-        // - `enabled`
+        // - enabled: Enabled.
         shared_ptr<string> incrementalCallbackStatus_ {};
         // The synchronization scope configuration.
         shared_ptr<UdPullConfig::UdSyncScopeConfig> udSyncScopeConfig_ {};
@@ -477,9 +477,9 @@ namespace Models
 
 
           protected:
-            // Certificate expiration on or before
+            // The latest validity date of the certificate.
             shared_ptr<int64_t> notAfter_ {};
-            // Certificate not valid before
+            // The earliest validity date of the certificate.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -502,9 +502,9 @@ namespace Models
 
 
         protected:
-          // The metadata of the certificate.
+          // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The content of the certificate.
+          // The certificate content.
           shared_ptr<string> content_ {};
         };
 
@@ -570,17 +570,17 @@ namespace Models
 
 
       protected:
-        // Binding Type
+        // The binding type.
         shared_ptr<string> bindingMethod_ {};
-        // The list of signing certificates for the SAML identity provider.
+        // The list of IdP signing certificates.
         shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
-        // The entity ID of the SAML identity provider.
+        // The EntityId of the IdP.
         shared_ptr<string> idPEntityId_ {};
-        // The single sign-on (SSO) URL of the SAML identity provider.
+        // The logon URL of the IdP.
         shared_ptr<string> idPSsoUrl_ {};
-        // Maximum clock skew
+        // The maximum clock skew.
         shared_ptr<int64_t> maxClockSkew_ {};
-        // Is request signing required?
+        // Specifies whether the request must be signed.
         shared_ptr<bool> requireRequestSigned_ {};
         shared_ptr<bool> wantAssertionsSigned_ {};
         shared_ptr<bool> wantResponseSigned_ {};
@@ -682,13 +682,13 @@ namespace Models
         protected:
           // The OIDC authorization endpoint.
           shared_ptr<string> authorizationEndpoint_ {};
-          // The OIDC issuer.
+          // The OIDC issuer information.
           shared_ptr<string> issuer_ {};
           // The OIDC JWKS URI.
           shared_ptr<string> jwksUri_ {};
           // The OIDC token endpoint.
           shared_ptr<string> tokenEndpoint_ {};
-          // The OIDC userinfo endpoint.
+          // The OIDC user information endpoint.
           shared_ptr<string> userinfoEndpoint_ {};
         };
 
@@ -802,17 +802,17 @@ namespace Models
         shared_ptr<OidcConfig::AuthnParam> authnParam_ {};
         // The OIDC endpoint configuration.
         shared_ptr<OidcConfig::EndpointConfig> endpointConfig_ {};
-        // The list of OIDC authorization scopes.
+        // The list of OIDC grant scopes.
         shared_ptr<vector<string>> grantScopes_ {};
         // The OIDC grant type.
         shared_ptr<string> grantType_ {};
-        // The algorithm for Proof Key for Code Exchange (PKCE). Valid values:
+        // The PKCE algorithm. Valid values:
         // 
-        // - SHA256: `S256`
+        // - S256: SHA-256.
         // 
-        // - Plaintext: `plain`
+        // - plain: Plaintext.
         shared_ptr<string> pkceChallengeMethod_ {};
-        // Indicates whether to use PKCE in the authorization code grant type.
+        // Specifies whether to use PKCE in the AuthorizationCode grant mode.
         shared_ptr<bool> pkceRequired_ {};
       };
 
@@ -911,29 +911,29 @@ namespace Models
 
 
       protected:
-        // The password of the AD/LDAP administrator.
+        // The AD/LDAP administrator password.
         shared_ptr<string> administratorPassword_ {};
-        // The username of the AD/LDAP administrator.
+        // The AD/LDAP administrator account.
         shared_ptr<string> administratorUsername_ {};
-        // Indicates whether to verify the certificate fingerprint. Valid values:
+        // Specifies whether to verify the certificate fingerprint. Valid values:
         // 
-        // - `disabled`
+        // - disabled: Disabled.
         // 
-        // - `enabled`
+        // - enabled: Enabled.
         shared_ptr<string> certificateFingerprintStatus_ {};
         // The list of certificate fingerprints.
         shared_ptr<vector<string>> certificateFingerprints_ {};
-        // The communication protocol for AD/LDAP.
+        // The communication protocol of AD/LDAP.
         shared_ptr<string> ldapProtocol_ {};
-        // The address of the AD/LDAP server.
+        // The AD/LDAP server address.
         shared_ptr<string> ldapServerHost_ {};
-        // The port of the AD/LDAP server.
+        // The AD/LDAP server address.
         shared_ptr<int32_t> ldapServerPort_ {};
-        // Indicates whether StartTLS is enabled. Valid values:
+        // Specifies whether StartTLS is enabled. Valid values:
         // 
-        // - `disabled`
+        // - disabled: Disabled.
         // 
-        // - `enabled`
+        // - enabled: Enabled.
         shared_ptr<string> startTlsStatus_ {};
       };
 
@@ -1002,15 +1002,15 @@ namespace Models
 
 
       protected:
-        // The App ID of your custom application in Lark.
+        // The AppId of the Lark self-built application.
         shared_ptr<string> appId_ {};
-        // The App Secret of your custom application in Lark.
+        // The AppSecret of the Lark self-built application.
         shared_ptr<string> appSecret_ {};
-        // The encryption key for your custom application in Lark.
+        // The EncryptKey of the Lark self-built application.
         shared_ptr<string> encryptKey_ {};
-        // The enterprise code for Lark.
+        // The Lark enterprise number.
         shared_ptr<string> enterpriseNumber_ {};
-        // The Verification Token of your custom application in Lark.
+        // The VerificationToken of the Lark self-built application.
         shared_ptr<string> verificationToken_ {};
       };
 
@@ -1061,11 +1061,11 @@ namespace Models
 
 
       protected:
-        // SAML ACS address
+        // The SAML Assertion Consumer Service (ACS) endpoint.
         shared_ptr<string> samlAcsEndpoint_ {};
-        // SAML EntityId
+        // The SAML EntityId.
         shared_ptr<string> samlEntityId_ {};
-        // SAML metadata address
+        // The SAML metadata endpoint.
         shared_ptr<string> samlMetaEndpoint_ {};
       };
 
@@ -1132,9 +1132,9 @@ namespace Models
 
 
         protected:
-          // The user name in DingTalk.
+          // The DingTalk username.
           shared_ptr<string> name_ {};
-          // The user ID in DingTalk.
+          // The DingTalk user ID.
           shared_ptr<string> userId_ {};
         };
 
@@ -1176,9 +1176,9 @@ namespace Models
 
 
         protected:
-          // The department ID in DingTalk.
+          // The DingTalk department ID.
           shared_ptr<string> deptId_ {};
-          // The department name in DingTalk.
+          // The DingTalk department name.
           shared_ptr<string> deptName_ {};
         };
 
@@ -1219,11 +1219,11 @@ namespace Models
       protected:
         // The authorized DingTalk departments.
         shared_ptr<vector<DingtalkProvisioningConfig::AuthedDepartmentIds>> authedDepartmentIds_ {};
-        // The list of authorized DingTalk user accounts.
+        // The list of authorized DingTalk accounts.
         shared_ptr<vector<DingtalkProvisioningConfig::AuthedUsers>> authedUsers_ {};
-        // The corporate ID in DingTalk.
+        // The DingTalk enterprise CorpId.
         shared_ptr<string> corpId_ {};
-        // The corporate name in DingTalk.
+        // The DingTalk enterprise name.
         shared_ptr<string> corpName_ {};
       };
 
@@ -1311,23 +1311,23 @@ namespace Models
 
 
       protected:
-        // The AppKey of your first-party application in DingTalk.
+        // The AppKey of the DingTalk first-party application.
         shared_ptr<string> appKey_ {};
-        // The AppSecret of your first-party application in DingTalk.
+        // The AppSecret of the DingTalk first-party application.
         shared_ptr<string> appSecret_ {};
-        // The corporate ID of your first-party application in DingTalk.
+        // The CorpId of the DingTalk first-party application.
         shared_ptr<string> corpId_ {};
-        // The version of DingTalk QR code login.
+        // The DingTalk QR code logon version.
         shared_ptr<string> dingtalkLoginVersion_ {};
-        // The DingTalk edition. Valid values:
+        // The DingTalk version. Valid values:
         // 
-        // - Standard DingTalk: `public_dingtalk`
+        // - public_dingtalk: Standard DingTalk.
         // 
-        // - Exclusive DingTalk: `private_dingtalk`
+        // - private_dingtalk: Dedicated DingTalk.
         shared_ptr<string> dingtalkVersion_ {};
-        // The encryption key for your first-party application in DingTalk.
+        // The EncryptKey of the DingTalk application.
         shared_ptr<string> encryptKey_ {};
-        // The verification token for your first-party application in DingTalk.
+        // The VerificationToken of the DingTalk application.
         shared_ptr<string> verificationToken_ {};
       };
 
@@ -1555,113 +1555,113 @@ namespace Models
 
 
     protected:
-      // The status of the advanced configuration. Valid values:
+      // The advanced configuration status. Valid values:
       // 
-      // - `disabled`
+      // - disabled: Disabled.
       // 
-      // - `enabled`
+      // - enabled: Enabled.
       shared_ptr<string> advancedStatus_ {};
       // The authentication source product, such as Okta, Google, or Azure AD. Valid values:
       // 
-      // - DingTalk: `urn:alibaba:idaas:idp:alibaba:dingtalk`
+      // - urn:alibaba:idaas:idp:alibaba:dingtalk: DingTalk.
       // 
-      // - LDAP: `urn:alibaba:idaas:idp:unknown:ldap`
+      // - urn:alibaba:idaas:idp:unknown:ldap: LDAP.
       // 
-      // - Alibaba Cloud IDaaS: `urn:alibaba:idaas:idp:alibaba:idaas`
+      // - urn:alibaba:idaas:idp:alibaba:idaas: Alibaba Cloud IDaaS.
       // 
-      // - WeCom: `urn:alibaba:idaas:idp:tencent:wecom`
+      // - urn:alibaba:idaas:idp:tencent:wecom: WeCom.
       // 
-      // - Lark: `urn:alibaba:idaas:idp:bytedance:lark`
+      // - urn:alibaba:idaas:idp:bytedance:lark: Lark.
       // 
-      // - Active Directory: `urn:alibaba:idaas:idp:microsoft:ad`
+      // - urn:alibaba:idaas:idp:microsoft:ad: Active Directory.
       // 
-      // - Azure Active Directory: `urn:alibaba:idaas:idp:microsoft:aad`
+      // - urn:alibaba:idaas:idp:microsoft:aad: Azure Active Directory.
       // 
-      // - Alibaba Cloud SASE: `urn:alibaba:idaas:idp:alibaba:sase`
+      // - urn:alibaba:idaas:idp:alibaba:sase: Alibaba Cloud SASE.
       shared_ptr<string> authnSourceSupplier_ {};
-      // The authentication protocol. Valid values:
+      // The authentication method type, such as OIDC or SAML. Valid values:
       // 
-      // - OIDC: `urn:alibaba:idaas:authntype:oidc`
+      // - urn:alibaba:idaas:authntype:oidc: OIDC.
       // 
-      // - SAML: `urn:alibaba:idaas:authntype:saml2`
+      // - urn:alibaba:idaas:authntype:saml2: SAML.
       shared_ptr<string> authnSourceType_ {};
-      // Indicates whether the identity provider supports authentication. Valid values:
+      // Specifies whether the corresponding IdP supports authentication. Valid values:
       // 
-      // - `disabled`
+      // - disabled: Disabled.
       // 
-      // - `enabled`
+      // - enabled: Enabled.
       shared_ptr<string> authnStatus_ {};
-      // The time when the identity provider was created, represented as a Unix timestamp in milliseconds.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the identity provider.
       shared_ptr<string> description_ {};
-      // The basic configuration for DingTalk.
+      // The DingTalk basic configuration.
       shared_ptr<IdentityProviderDetail::DingtalkAppConfig> dingtalkAppConfig_ {};
-      // The DingTalk provisioning configuration. This parameter is returned only for DingTalk identity providers.
+      // The DingTalk synchronization configuration. This value is returned only for DingTalk identity providers.
       shared_ptr<IdentityProviderDetail::DingtalkProvisioningConfig> dingtalkProvisioningConfig_ {};
-      // Endpoint metadata
+      // The endpoint metadata.
       shared_ptr<IdentityProviderDetail::EndpointMetadata> endpointMetadata_ {};
       // The external ID of the identity provider.
       shared_ptr<string> identityProviderExternalId_ {};
       // The identity provider ID.
       shared_ptr<string> identityProviderId_ {};
-      // The identity provider name.
+      // The name of the identity provider.
       shared_ptr<string> identityProviderName_ {};
-      // The provisioning type of the identity provider.
+      // The synchronization type of the identity provider. Valid values:
       // 
-      // - Inbound DingTalk: `urn:alibaba:idaas:idp:alibaba:dingtalk:pull`
+      // - urn:alibaba:idaas:idp:alibaba:dingtalk:pull: Inbound DingTalk.
       // 
-      // - Outbound DingTalk: `urn:alibaba:idaas:idp:alibaba:dingtalk:push`
+      // - urn:alibaba:idaas:idp:alibaba:dingtalk:push: Outbound DingTalk.
       // 
-      // - Inbound WeCom: `urn:alibaba:idaas:idp:tencent:wecom:pull`
+      // - urn:alibaba:idaas:idp:tencent:wecom:pull: Inbound WeCom.
       // 
-      // - Inbound Lark: `urn:alibaba:idaas:idp:bytedance:lark:pull`
+      // - urn:alibaba:idaas:idp:bytedance:lark:pull: Inbound Lark.
       // 
-      // - Inbound AD: `urn:alibaba:idaas:idp:microsoft:ad:pull`
+      // - urn:alibaba:idaas:idp:microsoft:ad:pull: Inbound AD.
       // 
-      // - Inbound LDAP: `urn:alibaba:idaas:idp:unknown:ldap:pull`
+      // - urn:alibaba:idaas:idp:unknown:ldap:pull: Inbound LDAP.
       // 
-      // - Standard OIDC: `urn:alibaba:idaas:idp:standard:oidc`
+      // - urn:alibaba:idaas:idp:standard:oidc: Standard OIDC.
       // 
-      // - Customized OIDC for SASE: `urn:alibaba:idaas:idp:alibaba:sase`
+      // - urn:alibaba:idaas:idp:alibaba:sase: SASE custom OIDC.
       shared_ptr<string> identityProviderType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The configuration for Lark.
+      // The Lark configuration.
       shared_ptr<IdentityProviderDetail::LarkConfig> larkConfig_ {};
       // The result of the last status check.
       shared_ptr<string> lastStatusCheckJobResult_ {};
-      // The information about the AD/LDAP identity provider.
+      // The AD/LDAP identity provider configuration.
       shared_ptr<IdentityProviderDetail::LdapConfig> ldapConfig_ {};
       // The lock reason.
       shared_ptr<string> lockReason_ {};
-      // The URL of the custom logo for the identity provider.
+      // The custom logo URL of the identity provider.
       shared_ptr<string> logoUrl_ {};
-      // The network access endpoint ID.
+      // The network endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The OIDC identity provider configuration.
+      // The OIDC IdP configuration.
       shared_ptr<IdentityProviderDetail::OidcConfig> oidcConfig_ {};
-      // The SAML identity provider configuration.
+      // The SAML IdP configuration.
       shared_ptr<IdentityProviderDetail::SamlConfig> samlConfig_ {};
       // The inbound synchronization configuration.
       shared_ptr<IdentityProviderDetail::UdPullConfig> udPullConfig_ {};
-      // Indicates whether inbound synchronization is supported. Valid values:
+      // Specifies whether the inbound synchronization feature is supported. Valid values:
       // 
-      // - `disabled`
+      // - disabled: Disabled.
       // 
-      // - `enabled`
+      // - enabled: Enabled.
       shared_ptr<string> udPullStatus_ {};
       // The outbound synchronization configuration.
       shared_ptr<IdentityProviderDetail::UdPushConfig> udPushConfig_ {};
-      // Indicates whether outbound synchronization is enabled. Valid values:
+      // Specifies whether the outbound synchronization feature is enabled. Valid values:
       // 
-      // - `disabled`
+      // - disabled: Disabled.
       // 
-      // - `enabled`
+      // - enabled: Enabled.
       shared_ptr<string> udPushStatus_ {};
-      // The last update time, represented as a Unix timestamp in milliseconds.
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The configuration information for WeCom.
+      // The WeCom configuration.
       shared_ptr<IdentityProviderDetail::WeComConfig> weComConfig_ {};
     };
 
@@ -1684,9 +1684,9 @@ namespace Models
 
 
   protected:
-    // The information about the identity provider.
+    // The identity provider information.
     shared_ptr<GetIdentityProviderResponseBody::IdentityProviderDetail> identityProviderDetail_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

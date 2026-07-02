@@ -121,13 +121,13 @@ namespace Models
       shared_ptr<string> authorizationType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the scope permission.
+      // The scope permission ID.
       shared_ptr<string> resourceServerScopeId_ {};
-      // The name of the scope permission.
+      // The scope permission name.
       shared_ptr<string> resourceServerScopeName_ {};
-      // The type of the scope permission.
+      // The scope permission type.
       shared_ptr<string> resourceServerScopeType_ {};
-      // The value of the scope permission.
+      // The scope permission value.
       shared_ptr<string> resourceServerScopeValue_ {};
     };
 
@@ -152,7 +152,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the scope permission of the resource server.
+    // The scope permission information under the ResourceServer.
     shared_ptr<GetResourceServerScopeResponseBody::ResourceServerScope> resourceServerScope_ {};
   };
 

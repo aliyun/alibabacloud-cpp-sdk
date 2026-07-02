@@ -78,19 +78,19 @@ namespace Models
 
 
   protected:
-    // A list of application IDs. You can specify up to 100 application IDs in a single operation.
+    // The list of application IDs. A maximum of 100 application IDs are supported in a single operation.
     shared_ptr<vector<string>> applicationIds_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The organization ID.
+    // The organizational unit ID.
     // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitId_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
   };
 

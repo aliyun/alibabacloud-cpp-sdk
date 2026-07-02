@@ -179,57 +179,50 @@ namespace Models
 
 
   protected:
-    // The prefix of the display name. The query is performed based on the prefix.
+    // The display name prefix. A left-match query is used.
     shared_ptr<string> displayNameStartsWith_ {};
-    // The email address of the user.
+    // The email address of the account.
     shared_ptr<string> email_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The ID of the organizational unit.
+    // The organizational unit ID.
     shared_ptr<string> organizationalUnitId_ {};
-    // The page number. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. The default value is 20. The maximum value is 100.
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The mobile number of the user.
+    // The phone number of the account.
     shared_ptr<string> phoneNumber_ {};
-    // The country calling code. For example, the country calling code of China is `86`. Do not add `00` or `+` to the country calling code.
+    // The phone region code. Example: The region code for the Chinese mainland is 86, without the 00 or + prefix.
     shared_ptr<string> phoneRegion_ {};
-    // The status of the user. Valid values:
-    // 
-    // - `enabled`: The user is enabled.
-    // 
-    // - `disabled`: The user is disabled.
+    // The account status. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     shared_ptr<string> status_ {};
-    // The external ID of the user. The external ID can be used to associate the user with a user in an external system.
+    // The external ID, which is used to associate external data with IDaaS accounts.
     // 
-    // > The external ID must be unique within the same source type and source ID.
+    // Note: The external ID must be unique within the same source type and source ID.
     shared_ptr<string> userExternalId_ {};
-    // The list of user IDs.
+    // The list of account IDs.
     shared_ptr<vector<string>> userIds_ {};
-    // The source ID of the user.
+    // The source ID of the account.
     // 
-    // If the user is created in EIAM, the value of this parameter is the ID of the EIAM instance. If the user is imported from an external system, the value of this parameter is the enterprise ID of the user in the external system. For example, if the user is imported from DingTalk, the value of this parameter is the `corpId` of the enterprise in DingTalk.
+    // For self-built accounts, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the respective source. For example, for a DingTalk source, the value corresponds to the corpId of the DingTalk enterprise.
     shared_ptr<string> userSourceId_ {};
-    // The source type of the user. Valid values:
-    // 
-    // - `build_in`: The user is created in EIAM.
-    // 
-    // - `ding_talk`: The user is imported from DingTalk.
-    // 
-    // - `ad`: The user is imported from Active Directory (AD).
-    // 
-    // - `ldap`: The user is imported from a Lightweight Directory Access Protocol (LDAP) directory.
-    // 
-    // - `we_com`: The user is imported from WeCom.
+    // The source type of the account. Valid values:
+    // - build_in: self-built.
+    // - ding_talk: imported from DingTalk.
+    // - ad: imported from AD.
+    // - ldap: imported from LDAP.
+    // - we_com: imported from WeCom.
     shared_ptr<string> userSourceType_ {};
-    // The prefix of the username. The query is performed based on the prefix.
+    // The username prefix. A left-match query is used.
     shared_ptr<string> usernameStartsWith_ {};
   };
 

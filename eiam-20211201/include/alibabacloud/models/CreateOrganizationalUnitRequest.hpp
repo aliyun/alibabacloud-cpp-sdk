@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The description of the organization. The value can be up to 256 characters in length.
+    // The description. The maximum length is 256 characters.
     shared_ptr<string> description_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The external ID of the organization, which can be used to associate the organization with an external system. By default, the external ID is the organization ID. The value can be up to 64 characters in length.
+    // External ID of the organization, which is used for association with an external system. The default value is the organization ID. The maximum length is 64 characters.
     shared_ptr<string> organizationalUnitExternalId_ {};
-    // The name of the organization. The name can be up to 64 characters in length.
+    // Organization name. The maximum length is 64 characters.
     // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitName_ {};
-    // The parent organization ID.
+    // Parent organization ID.
     // 
     // This parameter is required.
     shared_ptr<string> parentId_ {};

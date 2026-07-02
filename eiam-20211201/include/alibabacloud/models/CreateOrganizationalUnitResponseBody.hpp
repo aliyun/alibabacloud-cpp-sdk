@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The organization ID.
+    // Organization ID.
     shared_ptr<string> organizationalUnitId_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

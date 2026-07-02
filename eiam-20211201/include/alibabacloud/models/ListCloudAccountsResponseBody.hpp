@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CloudAccountId, cloudAccountId_);
         DARABONBA_PTR_TO_JSON(CloudAccountName, cloudAccountName_);
         DARABONBA_PTR_TO_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+        DARABONBA_PTR_TO_JSON(CloudAccountSite, cloudAccountSite_);
         DARABONBA_PTR_TO_JSON(CloudAccountVendorType, cloudAccountVendorType_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CloudAccountId, cloudAccountId_);
         DARABONBA_PTR_FROM_JSON(CloudAccountName, cloudAccountName_);
         DARABONBA_PTR_FROM_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+        DARABONBA_PTR_FROM_JSON(CloudAccountSite, cloudAccountSite_);
         DARABONBA_PTR_FROM_JSON(CloudAccountVendorType, cloudAccountVendorType_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -170,21 +172,20 @@ namespace Models
 
 
       protected:
-        // The reason for the error. This field is returned when the health check status is unhealthy.
+        // The error reason. This field is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountHealthCheckResult::ErrorReason> errorReason_ {};
-        // The time of the last health check. This is a UNIX timestamp in milliseconds.
+        // The time of the last health check. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
-        // The result of the health check. Valid values:
-        // 
-        // - success: The check was successful.
-        // 
-        // - failed: The check failed.
+        // The health check result of the cloud account. Valid values:
+        // - success: Succeeded.
+        // - failed: Failed.
         shared_ptr<string> result_ {};
       };
 
       virtual bool empty() const override { return this->cloudAccountExternalId_ == nullptr
         && this->cloudAccountHealth_ == nullptr && this->cloudAccountHealthCheckResult_ == nullptr && this->cloudAccountId_ == nullptr && this->cloudAccountName_ == nullptr && this->cloudAccountProviderName_ == nullptr
-        && this->cloudAccountVendorType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->updateTime_ == nullptr; };
+        && this->cloudAccountSite_ == nullptr && this->cloudAccountVendorType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
+        && this->updateTime_ == nullptr; };
       // cloudAccountExternalId Field Functions 
       bool hasCloudAccountExternalId() const { return this->cloudAccountExternalId_ != nullptr;};
       void deleteCloudAccountExternalId() { this->cloudAccountExternalId_ = nullptr;};
@@ -229,6 +230,13 @@ namespace Models
       inline CloudAccounts& setCloudAccountProviderName(string cloudAccountProviderName) { DARABONBA_PTR_SET_VALUE(cloudAccountProviderName_, cloudAccountProviderName) };
 
 
+      // cloudAccountSite Field Functions 
+      bool hasCloudAccountSite() const { return this->cloudAccountSite_ != nullptr;};
+      void deleteCloudAccountSite() { this->cloudAccountSite_ = nullptr;};
+      inline string getCloudAccountSite() const { DARABONBA_PTR_GET_DEFAULT(cloudAccountSite_, "") };
+      inline CloudAccounts& setCloudAccountSite(string cloudAccountSite) { DARABONBA_PTR_SET_VALUE(cloudAccountSite_, cloudAccountSite) };
+
+
       // cloudAccountVendorType Field Functions 
       bool hasCloudAccountVendorType() const { return this->cloudAccountVendorType_ != nullptr;};
       void deleteCloudAccountVendorType() { this->cloudAccountVendorType_ = nullptr;};
@@ -265,35 +273,33 @@ namespace Models
 
 
     protected:
-      // The external unique ID of the Alibaba Cloud account.
+      // The external unique identifier of the cloud account.
       shared_ptr<string> cloudAccountExternalId_ {};
-      // The health check status of the Alibaba Cloud account. Valid values:
-      // 
-      // - healthy: The account is healthy.
-      // 
-      // - unhealthy: The account is unhealthy.
-      // 
-      // - unknown: The status is unknown.
+      // The health status of the cloud account. Valid values:
+      // - healthy: Healthy.
+      // - unhealthy: Unhealthy.
+      // - unknown: Unknown.
       shared_ptr<string> cloudAccountHealth_ {};
-      // The result of the health check for the Alibaba Cloud account.
+      // The health check result of the cloud account.
       shared_ptr<CloudAccounts::CloudAccountHealthCheckResult> cloudAccountHealthCheckResult_ {};
-      // The ID of the Alibaba Cloud account.
+      // The cloud account ID.
       shared_ptr<string> cloudAccountId_ {};
-      // The name of the Alibaba Cloud account.
+      // The cloud account name.
       shared_ptr<string> cloudAccountName_ {};
-      // The name of the identity provider.
+      // The identity provider name.
       shared_ptr<string> cloudAccountProviderName_ {};
-      // The type of the Alibaba Cloud account. Valid values:
+      shared_ptr<string> cloudAccountSite_ {};
+      // The cloud account type. Valid values:
       // 
-      // - alibaba_cloud: Alibaba Cloud
+      // - alibaba_cloud: Alibaba Cloud.
       shared_ptr<string> cloudAccountVendorType_ {};
-      // The time when the account was created. This is a UNIX timestamp in milliseconds.
+      // The time when the cloud account was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the Alibaba Cloud account.
+      // The description of the cloud account.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the account was last updated. This is a UNIX timestamp in milliseconds.
+      // The time when the cloud account was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -337,15 +343,15 @@ namespace Models
 
 
   protected:
-    // The list of Alibaba Cloud accounts.
+    // The list of cloud accounts.
     shared_ptr<vector<ListCloudAccountsResponseBody::CloudAccounts>> cloudAccounts_ {};
-    // The number of entries returned per page.
+    // The number of rows per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned from this call.
+    // The token returned for the current call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

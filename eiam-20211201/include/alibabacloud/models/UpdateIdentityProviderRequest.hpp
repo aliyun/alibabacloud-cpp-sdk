@@ -108,13 +108,13 @@ namespace Models
 
 
     protected:
-      // The agent ID of the custom application in WeCom.
+      // AgentId of the WeCom self-built application.
       shared_ptr<string> agentId_ {};
-      // The authorized callback domain.
+      // Authorization callback domain.
       shared_ptr<string> authorizeCallbackDomain_ {};
-      // The CorpSecret of the custom application in WeCom.
+      // CorpSecret of the WeCom self-built application.
       shared_ptr<string> corpSecret_ {};
-      // The trusted domain.
+      // Trusted domain.
       shared_ptr<string> trustableDomain_ {};
     };
 
@@ -179,7 +179,6 @@ namespace Models
 
 
       protected:
-        // The content of the signing certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -245,21 +244,13 @@ namespace Models
 
 
     protected:
-      // The SAML binding method for the SSO request. Valid values are `HTTP-POST` and `HTTP-REDIRECT`.
       shared_ptr<string> bindingMethod_ {};
-      // The signing certificates from the SAML identity provider.
       shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
-      // The entity ID of the SAML identity provider.
       shared_ptr<string> idPEntityId_ {};
-      // The single sign-on (SSO) URL of the SAML identity provider.
       shared_ptr<string> idPSsoUrl_ {};
-      // The maximum allowed clock skew, in seconds.
       shared_ptr<int64_t> maxClockSkew_ {};
-      // Specifies whether the SAML authentication request must be signed.
       shared_ptr<bool> requireRequestSigned_ {};
-      // Specifies whether the assertions in the SAML response must be signed.
       shared_ptr<bool> wantAssertionsSigned_ {};
-      // Specifies whether the SAML response must be signed.
       shared_ptr<bool> wantResponseSigned_ {};
     };
 
@@ -357,15 +348,15 @@ namespace Models
 
 
       protected:
-        // The OIDC authorization endpoint.
+        // OIDC authorization endpoint.
         shared_ptr<string> authorizationEndpoint_ {};
-        // The OIDC issuer.
+        // OIDC issuer information.
         shared_ptr<string> issuer_ {};
-        // The JSON Web Key Set (JWKS) URI.
+        // OIDC JWKS URI.
         shared_ptr<string> jwksUri_ {};
-        // The OIDC token endpoint.
+        // OIDC token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
-        // The OIDC userinfo endpoint.
+        // OIDC UserInfo endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -407,13 +398,13 @@ namespace Models
 
 
       protected:
-        // The OIDC client authentication method. Valid values:
+        // OIDC authentication method. Valid values:
         // 
-        // - `client_secret_basic`
+        // - client_secret_basic
         // 
-        // - `client_secret_post`
+        // - client_secret_post
         shared_ptr<string> authnMethod_ {};
-        // The OIDC client secret.
+        // OIDC client secret.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -468,21 +459,20 @@ namespace Models
 
 
     protected:
-      // The OIDC client authentication configuration.
+      // OIDC client authentication configuration.
       shared_ptr<OidcConfig::AuthnParam> authnParam_ {};
-      // The OIDC endpoint configuration.
+      // OIDC endpoint configuration.
       shared_ptr<OidcConfig::EndpointConfig> endpointConfig_ {};
-      // The OIDC authorization scopes.
+      // OIDC grant scopes list.
       shared_ptr<vector<string>> grantScopes_ {};
-      // The OIDC grant type.
+      // OIDC grant type.
       shared_ptr<string> grantType_ {};
-      // The Proof Key for Code Exchange (PKCE) method. Valid values:
+      // PKCE algorithm.
+      // - SHA256: S256
       // 
-      // - `S256`: The SHA-256 algorithm.
-      // 
-      // - `plain`: The plaintext format.
+      // - Plain text: plain
       shared_ptr<string> pkceChallengeMethod_ {};
-      // Specifies whether PKCE is required for the authorization code grant type.
+      // Whether to use PKCE in AuthorizationCode grant mode.
       shared_ptr<bool> pkceRequired_ {};
     };
 
@@ -581,29 +571,28 @@ namespace Models
 
 
     protected:
-      // The password for the administrator account.
+      // Administrator password.
       shared_ptr<string> administratorPassword_ {};
-      // The administrator account.
+      // Administrator username.
       shared_ptr<string> administratorUsername_ {};
-      // Specifies whether to enable certificate fingerprint verification. Valid values:
+      // Whether to verify the fingerprint certificate. Valid values:
       // 
-      // - `disabled`: Verification is disabled.
+      // - Disabled: disabled
       // 
-      // - `enabled`: Verification is enabled.
+      // - Enabled: enabled
       shared_ptr<string> certificateFingerprintStatus_ {};
-      // The list of certificate fingerprints.
+      // Certificate fingerprint list.
       shared_ptr<vector<string>> certificateFingerprints_ {};
-      // The communication protocol.
+      // Communication protocol.
       shared_ptr<string> ldapProtocol_ {};
-      // The server address.
+      // Server address.
       shared_ptr<string> ldapServerHost_ {};
-      // The port number.
+      // Port number.
       shared_ptr<int32_t> ldapServerPort_ {};
-      // Specifies whether to enable StartTLS. Valid values:
+      // Whether StartTLS is enabled. Valid values:
+      // - Disabled: disabled
       // 
-      // - `disabled`: StartTLS is disabled.
-      // 
-      // - `enabled`: StartTLS is enabled.
+      // - Enabled: enabled
       shared_ptr<string> startTlsStatus_ {};
     };
 
@@ -663,13 +652,13 @@ namespace Models
 
 
     protected:
-      // The application ID of the custom application in Lark.
+      // Lark application AppId.
       shared_ptr<string> appId_ {};
-      // The application secret of the custom application in Lark.
+      // Lark application AppSecret.
       shared_ptr<string> appSecret_ {};
-      // The EncryptKey of the custom application in Lark.
+      // EncryptKey of the Lark self-built application.
       shared_ptr<string> encryptKey_ {};
-      // The verification token of the custom application in Lark.
+      // VerificationToken of the Lark self-built application.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -738,15 +727,15 @@ namespace Models
 
 
     protected:
-      // The AppKey of the DingTalk application.
+      // AppKey of the DingTalk first-party application.
       shared_ptr<string> appKey_ {};
-      // The AppSecret of the DingTalk application.
+      // AppSecret of the DingTalk first-party application.
       shared_ptr<string> appSecret_ {};
-      // The version of the DingTalk QR code login.
+      // DingTalk QR code login version.
       shared_ptr<string> dingtalkLoginVersion_ {};
-      // The EncryptKey of the DingTalk application.
+      // EncryptKey of the DingTalk application.
       shared_ptr<string> encryptKey_ {};
-      // The verification token of the DingTalk application.
+      // VerificationToken of the DingTalk application.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -851,33 +840,32 @@ namespace Models
 
 
   protected:
-    // A client-generated token to ensure request idempotence. This value must be unique across requests.
+    // The client token that is used to ensure the idempotency of the request. The value of this parameter is generated by the client to ensure uniqueness among different requests.
     shared_ptr<string> clientToken_ {};
-    // The configuration for the DingTalk identity provider.
+    // DingTalk configuration basic information.
     shared_ptr<UpdateIdentityProviderRequest::DingtalkAppConfig> dingtalkAppConfig_ {};
-    // The ID of the identity provider.
+    // Identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // The name of the identity provider.
+    // Identity provider name.
     shared_ptr<string> identityProviderName_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The configuration for the Lark identity provider.
+    // Lark configuration information.
     shared_ptr<UpdateIdentityProviderRequest::LarkConfig> larkConfig_ {};
-    // The configuration for the Active Directory (AD) or Lightweight Directory Access Protocol (LDAP) identity provider.
+    // AD/LDAP basic information.
     shared_ptr<UpdateIdentityProviderRequest::LdapConfig> ldapConfig_ {};
-    // The URL of the application logo.
+    // Application logo URL.
     shared_ptr<string> logoUrl_ {};
-    // The ID of the network access endpoint.
+    // Network access endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // The OpenID Connect (OIDC) configuration.
+    // OIDC-related configuration.
     shared_ptr<UpdateIdentityProviderRequest::OidcConfig> oidcConfig_ {};
-    // The configuration for the SAML identity provider.
     shared_ptr<UpdateIdentityProviderRequest::SamlConfig> samlConfig_ {};
-    // The configuration for the WeCom identity provider.
+    // WeCom basic information.
     shared_ptr<UpdateIdentityProviderRequest::WeComConfig> weComConfig_ {};
   };
 

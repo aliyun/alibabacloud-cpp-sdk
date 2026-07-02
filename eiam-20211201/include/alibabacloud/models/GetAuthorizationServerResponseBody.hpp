@@ -110,7 +110,9 @@ namespace Models
 
 
       protected:
+        // The token endpoint of the authorization server.
         shared_ptr<string> oauth2TokenEndpoint_ {};
+        // The JWKS endpoint of the authorization server.
         shared_ptr<string> oidcJwksEndpoint_ {};
       };
 
@@ -205,28 +207,29 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 授权服务器ID
+      // The authorization server ID.
       shared_ptr<string> authorizationServerId_ {};
-      // IDaaS EIAM 授权服务器名称
+      // The name of the authorization server.
       shared_ptr<string> authorizationServerName_ {};
-      // IDaaS EIAM 授权服务器创建时间
+      // The time when the authorization server was created.
       shared_ptr<int64_t> createTime_ {};
-      // 创建类型：system_init-系统默认创建，jwt_credential_provider-JWT凭据提供商创建，user_custom-用户创建
+      // The creation type.
       shared_ptr<string> creationType_ {};
-      // 授权服务器描述
+      // The description of the authorization server.
       shared_ptr<string> description_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // IDaaS EIAM 授权token颁发者
+      // The issuer of the authorization token.
       shared_ptr<string> issuer_ {};
-      // Issuer使用的域名，可为初始化域名或已添加的自定义域名
+      // The domain name used by the issuer.
       shared_ptr<string> issuerDomain_ {};
-      // Issuer模式：dynamic-动态基于请求域名，static-使用固定域名
+      // The issuer mode.
       shared_ptr<string> issuerMode_ {};
-      // IDaaS EIAM 授权服务器最近更新时间
+      // The time when the authorization server was last updated.
       shared_ptr<int64_t> lastUpdateTime_ {};
+      // The endpoint configuration of the authorization server.
       shared_ptr<AuthorizationServer::ProtocolEndpoint> protocolEndpoint_ {};
-      // IDaaS EIAM 授权服务器状态，enabled启用，disabled禁用
+      // The status of the authorization server.
       shared_ptr<string> status_ {};
     };
 
@@ -249,7 +252,9 @@ namespace Models
 
 
   protected:
+    // The authorization server.
     shared_ptr<GetAuthorizationServerResponseBody::AuthorizationServer> authorizationServer_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

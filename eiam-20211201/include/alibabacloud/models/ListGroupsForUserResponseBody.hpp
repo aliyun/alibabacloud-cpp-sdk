@@ -81,11 +81,23 @@ namespace Models
 
 
     protected:
-      // The group ID.
+      // The account group ID.
       shared_ptr<string> groupId_ {};
-      // Account membership source ID
+      // The source ID of the group member relationship.
+      // 
+      // For the build_in type, this defaults to the instance ID. For other types, this corresponds to the enterprise ID of the respective source. For example, for a DingTalk source, this corresponds to the corpId of the DingTalk enterprise.
       shared_ptr<string> groupMemberRelationSourceId_ {};
-      // Account membership source type
+      // The source type of the group member relationship. Valid values:
+      // 
+      // build_in: built-in.
+      // 
+      // ding_talk: imported from DingTalk.
+      // 
+      // ad: imported from AD.
+      // 
+      // ldap: imported from LDAP.
+      // 
+      // we_com: imported from WeCom.
       shared_ptr<string> groupMemberRelationSourceType_ {};
     };
 
@@ -115,11 +127,11 @@ namespace Models
 
 
   protected:
-    // The queried account groups.
+    // The list of account groups.
     shared_ptr<vector<ListGroupsForUserResponseBody::Groups>> groups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned. The maximum number of entries returned at a time depends on the value of PageSize.
+    // The total number of matching records. The maximum number of records returned per page is determined by PageSize.
     shared_ptr<int64_t> totalCount_ {};
   };
 

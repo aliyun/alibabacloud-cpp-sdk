@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CloudAccountName, cloudAccountName_);
         DARABONBA_PTR_TO_JSON(CloudAccountProviderConfig, cloudAccountProviderConfig_);
         DARABONBA_PTR_TO_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+        DARABONBA_PTR_TO_JSON(CloudAccountSite, cloudAccountSite_);
         DARABONBA_PTR_TO_JSON(CloudAccountVendorType, cloudAccountVendorType_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -55,6 +56,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CloudAccountName, cloudAccountName_);
         DARABONBA_PTR_FROM_JSON(CloudAccountProviderConfig, cloudAccountProviderConfig_);
         DARABONBA_PTR_FROM_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+        DARABONBA_PTR_FROM_JSON(CloudAccountSite, cloudAccountSite_);
         DARABONBA_PTR_FROM_JSON(CloudAccountVendorType, cloudAccountVendorType_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -128,13 +130,13 @@ namespace Models
 
 
       protected:
-        // The audience identity.
+        // The audience identifier.
         shared_ptr<string> audience_ {};
-        // The ID of the authorization server.
+        // The authorization server ID.
         shared_ptr<string> authorizationServerId_ {};
-        // The issuer.
+        // Issuer。
         shared_ptr<string> issuer_ {};
-        // The public key endpoint for signature verification.
+        // The signature verification public key endpoint.
         shared_ptr<string> oidcJwksEndpoint_ {};
       };
 
@@ -201,7 +203,7 @@ namespace Models
         protected:
           // The error code.
           shared_ptr<string> errorCode_ {};
-          // The description of the error.
+          // The error description.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -231,22 +233,21 @@ namespace Models
 
 
       protected:
-        // The reason for the fault. This field returns a value when the health check status is unhealthy.
+        // The error reason. This field is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountHealthCheckResult::ErrorReason> errorReason_ {};
-        // The time of the last check. The value is a UNIX timestamp in milliseconds.
+        // The time of the last health check. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
-        // The result of the health check for the cloud account. Valid values:
+        // The health check result of the cloud account. Valid values:
         // 
-        // - success: The health check was successful.
-        // 
-        // - failed: The health check failed.
+        // - success: Succeeded.
+        // - failed: Failed.
         shared_ptr<string> result_ {};
       };
 
       virtual bool empty() const override { return this->cloudAccountExternalId_ == nullptr
         && this->cloudAccountHealth_ == nullptr && this->cloudAccountHealthCheckResult_ == nullptr && this->cloudAccountId_ == nullptr && this->cloudAccountName_ == nullptr && this->cloudAccountProviderConfig_ == nullptr
-        && this->cloudAccountProviderName_ == nullptr && this->cloudAccountVendorType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->cloudAccountProviderName_ == nullptr && this->cloudAccountSite_ == nullptr && this->cloudAccountVendorType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
+        && this->instanceId_ == nullptr && this->updateTime_ == nullptr; };
       // cloudAccountExternalId Field Functions 
       bool hasCloudAccountExternalId() const { return this->cloudAccountExternalId_ != nullptr;};
       void deleteCloudAccountExternalId() { this->cloudAccountExternalId_ = nullptr;};
@@ -300,6 +301,13 @@ namespace Models
       inline CloudAccount& setCloudAccountProviderName(string cloudAccountProviderName) { DARABONBA_PTR_SET_VALUE(cloudAccountProviderName_, cloudAccountProviderName) };
 
 
+      // cloudAccountSite Field Functions 
+      bool hasCloudAccountSite() const { return this->cloudAccountSite_ != nullptr;};
+      void deleteCloudAccountSite() { this->cloudAccountSite_ = nullptr;};
+      inline string getCloudAccountSite() const { DARABONBA_PTR_GET_DEFAULT(cloudAccountSite_, "") };
+      inline CloudAccount& setCloudAccountSite(string cloudAccountSite) { DARABONBA_PTR_SET_VALUE(cloudAccountSite_, cloudAccountSite) };
+
+
       // cloudAccountVendorType Field Functions 
       bool hasCloudAccountVendorType() const { return this->cloudAccountVendorType_ != nullptr;};
       void deleteCloudAccountVendorType() { this->cloudAccountVendorType_ = nullptr;};
@@ -336,37 +344,35 @@ namespace Models
 
 
     protected:
-      // The unique external ID of the Alibaba Cloud account.
+      // The external unique identifier of the cloud account.
       shared_ptr<string> cloudAccountExternalId_ {};
-      // The health status of the Alibaba Cloud account. Valid values:
-      // 
+      // The health status of the cloud account. Valid values:
       // - healthy: Healthy.
-      // 
       // - unhealthy: Unhealthy.
-      // 
       // - unknown: Unknown.
       shared_ptr<string> cloudAccountHealth_ {};
-      // The health check result for the cloud account.
+      // The health check result of the cloud account.
       shared_ptr<CloudAccount::CloudAccountHealthCheckResult> cloudAccountHealthCheckResult_ {};
-      // The ID of the Alibaba Cloud account.
+      // The cloud account ID.
       shared_ptr<string> cloudAccountId_ {};
-      // The name of the Alibaba Cloud account.
+      // The cloud account name.
       shared_ptr<string> cloudAccountName_ {};
-      // The configuration of the identity provider.
+      // The identity provider configuration.
       shared_ptr<CloudAccount::CloudAccountProviderConfig> cloudAccountProviderConfig_ {};
-      // The name of the identity provider.
+      // The identity provider name.
       shared_ptr<string> cloudAccountProviderName_ {};
-      // The type of the Alibaba Cloud account. The valid value is:
+      shared_ptr<string> cloudAccountSite_ {};
+      // The cloud account type. Valid values:
       // 
-      // - alibaba_cloud: Alibaba Cloud
+      // - alibaba_cloud: Alibaba Cloud.
       shared_ptr<string> cloudAccountVendorType_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the Alibaba Cloud account.
+      // The cloud account description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time of the last update. The value is a UNIX timestamp in milliseconds.
+      // The most recent update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -389,7 +395,7 @@ namespace Models
 
 
   protected:
-    // The details of the Alibaba Cloud account.
+    // The cloud account details.
     shared_ptr<GetCloudAccountResponseBody::CloudAccount> cloudAccount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

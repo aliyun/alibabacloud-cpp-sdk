@@ -64,7 +64,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of organization IDs. The list can contain up to 100 IDs.
+    // The list of organization IDs. The list can contain up to 100 elements.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> organizationalUnitIds_ {};

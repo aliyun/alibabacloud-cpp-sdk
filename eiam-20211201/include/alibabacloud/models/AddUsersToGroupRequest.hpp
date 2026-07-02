@@ -68,7 +68,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The account IDs.
+    // The list of account IDs. The list can contain up to 100 elements.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> userIds_ {};

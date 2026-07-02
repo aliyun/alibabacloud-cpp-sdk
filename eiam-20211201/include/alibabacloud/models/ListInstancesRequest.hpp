@@ -87,11 +87,12 @@ namespace Models
 
 
   protected:
+    // The cross-region replication status.
     shared_ptr<string> crossRegionReplication_ {};
     // The license edition. Valid values:
     // - free: Free Edition.
     // - trial: Trial Edition.
-    // - scalability: Capability Expansion Edition.
+    // - scalability: Scalability Edition.
     // - standard: Standard Edition.
     // - enterprise: Enterprise Edition.
     shared_ptr<string> edition_ {};

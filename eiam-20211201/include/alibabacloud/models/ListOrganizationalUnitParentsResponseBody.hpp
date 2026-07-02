@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The organizational unit ID.
+      // The organization ID.
       shared_ptr<string> organizationalUnitId_ {};
-      // The parent organizational unit ID.
+      // The parent organization ID.
       shared_ptr<string> parentId_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The list of parent organizational units.
+    // The list of parent organizations.
     shared_ptr<vector<ListOrganizationalUnitParentsResponseBody::Parents>> parents_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

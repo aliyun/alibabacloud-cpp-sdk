@@ -136,23 +136,24 @@ namespace Models
 
 
     protected:
-      // The time at which the group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // Group creation time in Unix timestamp format, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the group.
+      // Group description.
       shared_ptr<string> description_ {};
-      // The external ID of the group, which can be used to associate the group with an external system. By default, the external ID is the group ID.
+      // Group external ID, used for association with external systems. Defaults to the account group ID.
       shared_ptr<string> groupExternalId_ {};
-      // The group ID.
+      // Group ID.
       shared_ptr<string> groupId_ {};
-      // The name of the group.
+      // Group name.
       shared_ptr<string> groupName_ {};
-      // The source ID of the group. If the group was imported from other services, this value indicates the external source ID. By default, the source ID is the instance ID.
+      // Group source ID. If created by importing from other sources, this is the external source ID. Defaults to the instance ID.
       shared_ptr<string> groupSourceId_ {};
-      // The source type of the group. Only build_in may be returned, which indicates that the group was created in IDaaS.
+      // Group source type. Currently, only self-built is supported. Valid values:
+      // - build_in: self-built.
       shared_ptr<string> groupSourceType_ {};
-      // The instance ID.
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time at which the group was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // Group last update time in Unix timestamp format, in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -182,11 +183,11 @@ namespace Models
 
 
   protected:
-    // The queried account groups.
+    // Account group list.
     shared_ptr<vector<ListGroupsResponseBody::Groups>> groups_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned. The maximum number of entries returned at a time depends on the value of PageSize.
+    // Total number of matched entries. The maximum number of entries returned in a single request is determined by pageSize.
     shared_ptr<int64_t> totalCount_ {};
   };
 

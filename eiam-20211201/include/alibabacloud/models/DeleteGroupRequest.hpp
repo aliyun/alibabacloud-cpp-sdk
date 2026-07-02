@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The group ID.
+    // Group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

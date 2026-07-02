@@ -97,21 +97,21 @@ namespace Models
 
 
   protected:
-    // The external ID of the group.
+    // Group external ID.
     shared_ptr<string> groupExternalId_ {};
-    // The group IDs.
+    // Group ID list.
     shared_ptr<vector<string>> groupIds_ {};
-    // The name of the group. If you specify this parameter, the query is based on an exact match.
+    // Group name. The query uses exact matching.
     shared_ptr<string> groupName_ {};
-    // The prefix of the group name. If you specify this parameter, the query follows the leftmost matching principle.
+    // Group name prefix. The query uses prefix matching.
     shared_ptr<string> groupNameStartsWith_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // Page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
   };
 

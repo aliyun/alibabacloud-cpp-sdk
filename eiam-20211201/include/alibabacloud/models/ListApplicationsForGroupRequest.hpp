@@ -78,19 +78,19 @@ namespace Models
 
 
   protected:
-    // The list of application IDs. A maximum of 100 application IDs are supported.
+    // Application ID list. A maximum of 100 application IDs are supported.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The group ID.
+    // Group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number.
+    // Page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
   };
 

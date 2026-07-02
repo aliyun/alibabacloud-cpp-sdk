@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the scope permission.
+    // The scope permission ID.
     // 
     // This parameter is required.
     shared_ptr<string> resourceServerScopeId_ {};

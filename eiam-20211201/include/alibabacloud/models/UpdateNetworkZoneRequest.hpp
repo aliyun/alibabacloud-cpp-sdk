@@ -113,11 +113,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneId_ {};
-    // The name of the network zone.
+    // The network zone name.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneName_ {};
-    // The ID of the virtual private cloud (VPC).
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

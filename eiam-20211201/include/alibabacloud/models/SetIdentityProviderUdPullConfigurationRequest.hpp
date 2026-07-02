@@ -139,11 +139,11 @@ namespace Models
 
 
     protected:
-      // The threshold for the number of groups to be deleted. If the number of groups to be deleted exceeds this value, the synchronization task is stopped.
+      // The threshold for the number of deleted groups. If the number of deleted groups exceeds this value, the synchronization task is terminated.
       shared_ptr<int32_t> groupDeletedThreshold_ {};
-      // The threshold for the number of organizational units to be deleted. If the number of organizational units to be deleted exceeds this value, the synchronization task is stopped.
+      // The threshold for the number of deleted organizational units. If the number of deleted organizational units exceeds this value, the synchronization task is terminated.
       shared_ptr<int32_t> organizationalUnitDeletedThreshold_ {};
-      // The threshold for the number of users to be deleted. If the number of users to be deleted exceeds this value, the synchronization task is stopped.
+      // The threshold for the number of deleted accounts. If the number of deleted users exceeds this value, the synchronization task is terminated.
       shared_ptr<int32_t> userDeletedThreshold_ {};
     };
 
@@ -198,9 +198,9 @@ namespace Models
     protected:
       // The cron expression. This parameter is required when periodicSyncType is set to cron.
       shared_ptr<string> periodicSyncCron_ {};
-      // The time points for synchronization. This parameter is required when periodicSyncType is set to time. For example, if you set this parameter to [3, 5], the synchronization is performed from 03:00 to 04:00 and from 05:00 to 06:00.
+      // The execution time points. This parameter is required when periodicSyncType is set to time. For example, [3, 5] indicates that the task runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
       shared_ptr<vector<int32_t>> periodicSyncTimes_ {};
-      // The type.
+      // The type of periodic synchronization.
       shared_ptr<string> periodicSyncType_ {};
     };
 
@@ -280,15 +280,15 @@ namespace Models
     protected:
       // The group member identifier.
       shared_ptr<string> groupMemberAttributeName_ {};
-      // The group objectClass.
+      // The group ObjectClass.
       shared_ptr<string> groupObjectClass_ {};
-      // The custom group filter.
+      // The custom filter for groups.
       shared_ptr<string> groupObjectClassCustomFilter_ {};
-      // The organizational unit objectClass.
+      // The organizational unit ObjectClass.
       shared_ptr<string> organizationUnitObjectClass_ {};
-      // The user objectClass.
+      // The user ObjectClass.
       shared_ptr<string> userObjectClass_ {};
-      // The custom user filter.
+      // The custom filter for users.
       shared_ptr<string> userObjectClassCustomFilter_ {};
     };
 
@@ -368,20 +368,19 @@ namespace Models
 
   protected:
     // The group synchronization status. Valid values:
+    // - disabled: Disabled.
     // 
-    // - disabled: The feature is disabled.
-    // 
-    // - enabled: The feature is enabled.
+    // - enabled: Enabled.
     shared_ptr<string> groupSyncStatus_ {};
     // The identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // The status of incremental callback. This parameter specifies whether to process incremental callback data from the IdP. Valid values:
+    // Specifies whether to process incremental callback data from the IdP. Valid values:
     // 
-    // - disabled: The feature is disabled.
+    // - disabled: Disabled.
     // 
-    // - enabled: The feature is enabled.
+    // - enabled: Enabled.
     // 
     // This parameter is required.
     shared_ptr<string> incrementalCallbackStatus_ {};
@@ -389,19 +388,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The configurations of LDAP synchronization.
+    // The LDAP synchronization configuration.
     shared_ptr<SetIdentityProviderUdPullConfigurationRequest::LdapUdPullConfig> ldapUdPullConfig_ {};
-    // The scheduled synchronization configuration.
+    // The periodic synchronization configuration.
     shared_ptr<SetIdentityProviderUdPullConfigurationRequest::PeriodicSyncConfig> periodicSyncConfig_ {};
-    // The status of scheduled check. This parameter specifies whether to periodically check for data inconsistencies between IDaaS and the IdP. Valid values:
+    // Specifies whether to periodically verify data differences between IDaaS and the identity provider. Valid values:
     // 
-    // - disabled: The feature is disabled.
+    // - disabled: Disabled.
     // 
-    // - enabled: The feature is enabled.
+    // - enabled: Enabled.
     shared_ptr<string> periodicSyncStatus_ {};
     // The inbound synchronization protection rule.
     shared_ptr<SetIdentityProviderUdPullConfigurationRequest::PullProtectedRule> pullProtectedRule_ {};
-    // The inbound synchronization configuration.
+    // The inbound synchronization scope configuration.
     shared_ptr<SetIdentityProviderUdPullConfigurationRequest::UdSyncScopeConfig> udSyncScopeConfig_ {};
   };
 

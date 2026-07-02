@@ -70,9 +70,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The page size. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     // The account ID.
     // 
