@@ -575,6 +575,23 @@ namespace Yike20260319
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJob(const Models::SubmitYikeStoryboardJobRequest &request);
 
       /**
+       * @summary 提交一刻数字人口播视频生成任务
+       *
+       * @param request SubmitYikeVideoCloneJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitYikeVideoCloneJobResponse
+       */
+      Models::SubmitYikeVideoCloneJobResponse submitYikeVideoCloneJobWithOptions(const Models::SubmitYikeVideoCloneJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交一刻数字人口播视频生成任务
+       *
+       * @param request SubmitYikeVideoCloneJobRequest
+       * @return SubmitYikeVideoCloneJobResponse
+       */
+      Models::SubmitYikeVideoCloneJobResponse submitYikeVideoCloneJob(const Models::SubmitYikeVideoCloneJobRequest &request);
+
+      /**
        * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
        *
        * @param request SubmitYikeVoiceNarratorJobRequest

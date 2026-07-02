@@ -1575,6 +1575,52 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJob(const SubmitYike
 }
 
 /**
+ * @summary 提交一刻数字人口播视频生成任务
+ *
+ * @param request SubmitYikeVideoCloneJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitYikeVideoCloneJobResponse
+ */
+SubmitYikeVideoCloneJobResponse Client::submitYikeVideoCloneJobWithOptions(const SubmitYikeVideoCloneJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobParams()) {
+    body["JobParams"] = request.getJobParams();
+  }
+
+  if (!!request.hasUserData()) {
+    body["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitYikeVideoCloneJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitYikeVideoCloneJobResponse>();
+}
+
+/**
+ * @summary 提交一刻数字人口播视频生成任务
+ *
+ * @param request SubmitYikeVideoCloneJobRequest
+ * @return SubmitYikeVideoCloneJobResponse
+ */
+SubmitYikeVideoCloneJobResponse Client::submitYikeVideoCloneJob(const SubmitYikeVideoCloneJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitYikeVideoCloneJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
  *
  * @param request SubmitYikeVoiceNarratorJobRequest

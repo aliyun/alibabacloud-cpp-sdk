@@ -99,6 +99,9 @@
 #include <alibabacloud/models/SubmitYikeStoryboardJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeStoryboardJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeStoryboardJobResponse.hpp>
+#include <alibabacloud/models/SubmitYikeVideoCloneJobRequest.hpp>
+#include <alibabacloud/models/SubmitYikeVideoCloneJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitYikeVideoCloneJobResponse.hpp>
 #include <alibabacloud/models/SubmitYikeVoiceNarratorJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeVoiceNarratorJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeVoiceNarratorJobResponse.hpp>
