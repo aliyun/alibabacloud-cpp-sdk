@@ -623,11 +623,11 @@ DeleteRuleResponse Client::deleteRule(const DeleteRuleRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of audit alert logs.
+ * @summary Queries the list of audit alert logs.
  *
- * @description This operation queries a list of data audit alert logs, allowing you to search for and handle alerts.
+ * @description This operation is used to query the list of data audit alert logs, which facilitates alerting search and alerting handling.
  * ## QPS limit
- * The QPS limit for a single user is 10. If you exceed this limit, the system throttles your API calls. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request DescribeAuditLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -728,10 +728,6 @@ DescribeAuditLogsResponse Client::describeAuditLogsWithOptions(const DescribeAud
     query["RuleCategory"] = request.getRuleCategory();
   }
 
-  if (!!request.hasRuleID()) {
-    query["RuleID"] = request.getRuleID();
-  }
-
   if (!!request.hasRuleId()) {
     query["RuleId"] = request.getRuleId();
   }
@@ -770,11 +766,11 @@ DescribeAuditLogsResponse Client::describeAuditLogsWithOptions(const DescribeAud
 }
 
 /**
- * @summary Retrieves a list of audit alert logs.
+ * @summary Queries the list of audit alert logs.
  *
- * @description This operation queries a list of data audit alert logs, allowing you to search for and handle alerts.
+ * @description This operation is used to query the list of data audit alert logs, which facilitates alerting search and alerting handling.
  * ## QPS limit
- * The QPS limit for a single user is 10. If you exceed this limit, the system throttles your API calls. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request DescribeAuditLogsRequest
  * @return DescribeAuditLogsResponse

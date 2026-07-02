@@ -394,100 +394,90 @@ namespace Models
       shared_ptr<string> clientIp_ {};
       // The client port.
       shared_ptr<string> clientPort_ {};
-      // The user agent of the client.
+      // The client type.
       shared_ptr<string> clientUa_ {};
-      // The name of the column.
+      // The column name.
       shared_ptr<string> columnName_ {};
-      // The time when the alert was generated. This value is a UNIX timestamp in milliseconds.
+      // The alert time, in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
       // The SQL result set.
       shared_ptr<string> dataSet_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> databaseName_ {};
-      // The type of the database.
+      // The database type.
       shared_ptr<string> dbType_ {};
       // The number of affected rows.
       shared_ptr<int64_t> effectRow_ {};
-      // The execution status. Valid values: 0 (failed) and 1 (successful).
+      // The execution status. Valid values:
+      // - 0: failed.
+      // - 1: succeeded.
       shared_ptr<int32_t> executeStatus_ {};
-      // The execution duration in milliseconds.
+      // The execution duration, in milliseconds.
       shared_ptr<int64_t> executeTime_ {};
-      // Indicates whether the operation is whitelisted.
+      // Indicates whether the entry is whitelisted.
       shared_ptr<bool> inWhiteList_ {};
-      // The audit status of the instance.
+      // The instance audit status.
       shared_ptr<string> instanceAuditStatus_ {};
-      // The description of the data asset.
+      // The description of the data asset instance.
       shared_ptr<string> instanceDescription_ {};
-      // The name of the data asset.
+      // The name of the asset instance.
       shared_ptr<string> instanceName_ {};
       // The network type. Valid values:
       // 
-      // **default**: a non-Alibaba Cloud service. This is the default value.
+      // **default** (default): non-Alibaba Cloud service
       // 
-      // **aliyun**: an Alibaba Cloud service.
+      // **aliyun**: Alibaba Cloud service
       shared_ptr<string> ipType_ {};
       // The data source.
       shared_ptr<string> logSource_ {};
-      // The time when the operation was logged. This value is a UNIX timestamp in milliseconds.
+      // The log execution time.
       shared_ptr<int64_t> logTime_ {};
-      // The ID of the member.
+      // The UID of the member accounts.
       shared_ptr<string> memberAccount_ {};
       // The raw log content.
       shared_ptr<string> message_ {};
-      // The sensitive data detection rule that was matched.
+      // The sensitive data model that was matched.
       shared_ptr<string> modelName_ {};
       // The operation type.
       shared_ptr<string> operateType_ {};
       // The key of the OSS object.
       shared_ptr<string> ossObjectKey_ {};
-      // The name of the MaxCompute package.
+      // The MaxCompute package name.
       shared_ptr<string> packageName_ {};
-      // The code of the Alibaba Cloud service. Examples: **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The name of the product to which the column data in the data asset table belongs. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and more.
       shared_ptr<string> productCode_ {};
-      // The ID of the Alibaba Cloud service that contains the data asset. Valid values:
-      // 
-      // - **1**: MaxCompute
-      // 
-      // - **2**: OSS
-      // 
-      // - **3**: ADS
-      // 
-      // - **4**: OTS
-      // 
-      // - **5**: RDS
-      // 
-      // - **6**: SELF_DB
+      // The ID that corresponds to the product name to which the data asset belongs. Valid values:
+      // - **1**: MaxCompute.
+      // - **2**: OSS.
+      // - **3**: ADS.
+      // - **4**: OTS.
+      // - **5**: RDS.
+      // - **6**: SELF_DB.
       shared_ptr<int64_t> productId_ {};
       shared_ptr<string> ramConsoleLink_ {};
-      // The type of the rule.
+      // The rule type.
       shared_ptr<string> ruleCategory_ {};
-      // The ID of the audit rule.
+      // The audit policy ID.
       shared_ptr<string> ruleId_ {};
-      // The name of the audit rule.
+      // The name of the audit policy.
       shared_ptr<string> ruleName_ {};
       // The SQL statement in the alert log.
       shared_ptr<string> sqlText_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tableName_ {};
-      // The ID of the user.
+      // The user UID.
       shared_ptr<string> userId_ {};
-      // The name of the user.
+      // The username.
       shared_ptr<string> userName_ {};
       // The risk level. Valid values:
-      // 
-      // - **1**: Low
-      // 
-      // - **2**: Medium
-      // 
-      // - **3**: High
+      // - **1**: Low.
+      // - **2**: Medium.
+      // - **3**: High.
       shared_ptr<string> warnLevel_ {};
       // The name of the risk level. Valid values:
-      // 
-      // - Low
-      // 
-      // - Medium
-      // 
-      // - High
+      // - Low.
+      // - Medium.
+      // - High.
       shared_ptr<string> warnLevelName_ {};
     };
 
@@ -540,11 +530,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> asyncRequestId_ {};
-    // The current page number. Default value: 1.
+    // The page number in a paged query. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // An array of alert logs.
+    // The list of alert logs.
     shared_ptr<vector<DescribeAuditLogsResponseBody::Items>> items_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

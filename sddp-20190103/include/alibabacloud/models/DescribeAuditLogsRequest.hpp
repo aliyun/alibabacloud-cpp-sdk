@@ -36,7 +36,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProductId, productId_);
       DARABONBA_PTR_TO_JSON(RuleAggQuery, ruleAggQuery_);
       DARABONBA_PTR_TO_JSON(RuleCategory, ruleCategory_);
-      DARABONBA_PTR_TO_JSON(RuleID, ruleID_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
       DARABONBA_PTR_TO_JSON(SqlText, sqlText_);
@@ -67,7 +66,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProductId, productId_);
       DARABONBA_PTR_FROM_JSON(RuleAggQuery, ruleAggQuery_);
       DARABONBA_PTR_FROM_JSON(RuleCategory, ruleCategory_);
-      DARABONBA_PTR_FROM_JSON(RuleID, ruleID_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
       DARABONBA_PTR_FROM_JSON(SqlText, sqlText_);
@@ -90,8 +88,8 @@ namespace Models
         && this->endTime_ == nullptr && this->executeTimeRange_ == nullptr && this->instanceName_ == nullptr && this->ipType_ == nullptr && this->lang_ == nullptr
         && this->loadWhiteList_ == nullptr && this->logQueryOpJson_ == nullptr && this->logSource_ == nullptr && this->memberAccount_ == nullptr && this->message_ == nullptr
         && this->operateType_ == nullptr && this->ossObjectKey_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr
-        && this->ruleAggQuery_ == nullptr && this->ruleCategory_ == nullptr && this->ruleID_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
-        && this->sqlText_ == nullptr && this->startTime_ == nullptr && this->userName_ == nullptr; };
+        && this->ruleAggQuery_ == nullptr && this->ruleCategory_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr
+        && this->startTime_ == nullptr && this->userName_ == nullptr; };
     // asyncRequestId Field Functions 
     bool hasAsyncRequestId() const { return this->asyncRequestId_ != nullptr;};
     void deleteAsyncRequestId() { this->asyncRequestId_ = nullptr;};
@@ -253,13 +251,6 @@ namespace Models
     inline DescribeAuditLogsRequest& setRuleCategory(string ruleCategory) { DARABONBA_PTR_SET_VALUE(ruleCategory_, ruleCategory) };
 
 
-    // ruleID Field Functions 
-    bool hasRuleID() const { return this->ruleID_ != nullptr;};
-    void deleteRuleID() { this->ruleID_ = nullptr;};
-    inline string getRuleID() const { DARABONBA_PTR_GET_DEFAULT(ruleID_, "") };
-    inline DescribeAuditLogsRequest& setRuleID(string ruleID) { DARABONBA_PTR_SET_VALUE(ruleID_, ruleID) };
-
-
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
@@ -298,41 +289,39 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> asyncRequestId_ {};
-    // The client IP address.
+    // The IP address of the request client.
     shared_ptr<string> clientIp_ {};
     // The client type.
     shared_ptr<string> clientUa_ {};
-    // The page number to return. Default value: 1.
+    // The page number in a paged query. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // The database name.
     shared_ptr<string> databaseName_ {};
     // The range of affected rows.
     shared_ptr<string> effectRowRange_ {};
-    // The end time for querying alert logs, provided as a UNIX timestamp in milliseconds.
+    // The end time of the alert log. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The execution time range.
+    // The range of execution time.
     shared_ptr<string> executeTimeRange_ {};
-    // The name of the data asset instance.
+    // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
     // The network type. Valid values:
     // 
-    // - **default**: The IP address is from outside of Alibaba Cloud. This is the default value.
+    // - **default** (default): non-Alibaba Cloud service
     // 
-    // - **aliyun**: The IP address is from within Alibaba Cloud.
+    // - **aliyun**: Alibaba Cloud service
     shared_ptr<string> ipType_ {};
-    // Specifies the language of the request and response. Default value: **zh_cn**. Valid values:
-    // 
+    // The language of the request and response. Default value: **zh_cn**. Valid values:
     // - **zh_cn**: Chinese.
-    // 
     // - **en_us**: English.
     shared_ptr<string> lang_ {};
-    // Specifies whether to retrieve the whitelist status.
+    // Specifies whether to load the whitelist status.
     shared_ptr<bool> loadWhiteList_ {};
-    // A JSON string that specifies which query conditions to include or exclude.
+    // The JSON string that specifies whether the query conditions are included.
     shared_ptr<string> logQueryOpJson_ {};
     // The data source.
     shared_ptr<string> logSource_ {};
-    // The UID of the member account.
+    // The UID of the member accounts.
     shared_ptr<string> memberAccount_ {};
     // The message content.
     shared_ptr<string> message_ {};
@@ -340,49 +329,35 @@ namespace Models
     shared_ptr<string> operateType_ {};
     // The key of the OSS object.
     shared_ptr<string> ossObjectKey_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The service to which the data asset belongs. Valid values include **MaxCompute, OSS, AnalyticDB for MySQL, TableStore, and RDS**.
+    // The name of the product to which the data asset belongs. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and more.
     shared_ptr<string> productCode_ {};
-    // The ID of the service to which the data object belongs. Valid values:
-    // 
+    // The ID that corresponds to the product name to which the data object belongs. Valid values:
     // - **1**: MaxCompute
-    // 
     // - **2**: OSS
-    // 
-    // - **3**: AnalyticDB for MySQL
-    // 
+    // - **3**: ADB-MYSQL
     // - **4**: TableStore
-    // 
     // - **5**: RDS
-    // 
     // - **6**: SELF_DB
-    // 
     // - **7**: PolarDB-X
-    // 
     // - **8**: PolarDB
-    // 
-    // - **9**: AnalyticDB for PostgreSQL
-    // 
+    // - **9**: ADB-PG
     // - **10**: OceanBase
-    // 
     // - **11**: MongoDB
-    // 
     // - **25**: Redis
     shared_ptr<int64_t> productId_ {};
     // Specifies whether to perform an aggregate query.
     shared_ptr<bool> ruleAggQuery_ {};
     // The rule type.
     shared_ptr<string> ruleCategory_ {};
-    // The ID of the audit rule.
-    shared_ptr<string> ruleID_ {};
-    // The ID of the audit rule.
+    // The ID of the audit policy.
     shared_ptr<string> ruleId_ {};
-    // The name of the audit rule.
+    // The name of the audit policy.
     shared_ptr<string> ruleName_ {};
-    // The SQL statement.
+    // The content of the SQL statement.
     shared_ptr<string> sqlText_ {};
-    // The start time for querying alert logs, provided as a UNIX timestamp in milliseconds.
+    // The start time of the alert log, in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The username.
     shared_ptr<string> userName_ {};
