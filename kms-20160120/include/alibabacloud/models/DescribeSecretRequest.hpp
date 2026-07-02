@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fetchTags_ == nullptr
-        && return this->secretName_ == nullptr; };
+        && this->secretName_ == nullptr; };
     // fetchTags Field Functions 
     bool hasFetchTags() const { return this->fetchTags_ != nullptr;};
     void deleteFetchTags() { this->fetchTags_ = nullptr;};
-    inline string fetchTags() const { DARABONBA_PTR_GET_DEFAULT(fetchTags_, "") };
+    inline string getFetchTags() const { DARABONBA_PTR_GET_DEFAULT(fetchTags_, "") };
     inline DescribeSecretRequest& setFetchTags(string fetchTags) { DARABONBA_PTR_SET_VALUE(fetchTags_, fetchTags) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline DescribeSecretRequest& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // 
     // *   true: The resource tags are returned.
     // *   false: The resource tags are not returned. This is the default value.
-    std::shared_ptr<string> fetchTags_ = nullptr;
+    shared_ptr<string> fetchTags_ {};
     // The name of the secret.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretName_ = nullptr;
+    shared_ptr<string> secretName_ {};
   };
 
   } // namespace Models

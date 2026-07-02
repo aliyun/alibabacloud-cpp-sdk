@@ -38,62 +38,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->secretData_ == nullptr
-        && return this->secretDataType_ == nullptr && return this->secretName_ == nullptr && return this->versionId_ == nullptr && return this->versionStages_ == nullptr; };
+        && this->secretDataType_ == nullptr && this->secretName_ == nullptr && this->versionId_ == nullptr && this->versionStages_ == nullptr; };
     // secretData Field Functions 
     bool hasSecretData() const { return this->secretData_ != nullptr;};
     void deleteSecretData() { this->secretData_ = nullptr;};
-    inline string secretData() const { DARABONBA_PTR_GET_DEFAULT(secretData_, "") };
+    inline string getSecretData() const { DARABONBA_PTR_GET_DEFAULT(secretData_, "") };
     inline PutSecretValueRequest& setSecretData(string secretData) { DARABONBA_PTR_SET_VALUE(secretData_, secretData) };
 
 
     // secretDataType Field Functions 
     bool hasSecretDataType() const { return this->secretDataType_ != nullptr;};
     void deleteSecretDataType() { this->secretDataType_ = nullptr;};
-    inline string secretDataType() const { DARABONBA_PTR_GET_DEFAULT(secretDataType_, "") };
+    inline string getSecretDataType() const { DARABONBA_PTR_GET_DEFAULT(secretDataType_, "") };
     inline PutSecretValueRequest& setSecretDataType(string secretDataType) { DARABONBA_PTR_SET_VALUE(secretDataType_, secretDataType) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline PutSecretValueRequest& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline PutSecretValueRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
     // versionStages Field Functions 
     bool hasVersionStages() const { return this->versionStages_ != nullptr;};
     void deleteVersionStages() { this->versionStages_ = nullptr;};
-    inline string versionStages() const { DARABONBA_PTR_GET_DEFAULT(versionStages_, "") };
+    inline string getVersionStages() const { DARABONBA_PTR_GET_DEFAULT(versionStages_, "") };
     inline PutSecretValueRequest& setVersionStages(string versionStages) { DARABONBA_PTR_SET_VALUE(versionStages_, versionStages) };
 
 
   protected:
-    // The secret value. The value is encrypted and then stored in the new version.
+    // The secret value. The value is encrypted and stored in the specified new version.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretData_ = nullptr;
+    shared_ptr<string> secretData_ {};
     // The type of the secret value. Valid values:
     // 
-    // *   text: This is the default value.
-    // *   binary
-    std::shared_ptr<string> secretDataType_ = nullptr;
-    // The name of the secret.
+    // - text (default)
+    // 
+    // - binary
+    shared_ptr<string> secretDataType_ {};
+    // The name or Alibaba Cloud Resource Name (ARN) of the secret.
+    // 
+    // > When you access a secret in another Alibaba Cloud account, you must specify the ARN of the secret. The ARN of a secret is in the format of `acs:kms:${region}:${account}:secret/${secret-name}`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretName_ = nullptr;
-    // The new version of the secret value. Version numbers must be unique in each secret.
+    shared_ptr<string> secretName_ {};
+    // The version number of the secret. The value must be unique in the secret.
     // 
     // This parameter is required.
-    std::shared_ptr<string> versionId_ = nullptr;
-    // The stage labels that are used to mark the new version. If you do not specify this parameter, Secrets Manager marks the new version with ACSCurrent.
-    std::shared_ptr<string> versionStages_ = nullptr;
+    shared_ptr<string> versionId_ {};
+    // The stage labels that are used to mark the new version. If you do not specify this parameter, KMS marks the new version with ACSCurrent.
+    shared_ptr<string> versionStages_ {};
   };
 
   } // namespace Models

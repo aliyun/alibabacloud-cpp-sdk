@@ -32,25 +32,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forceDeleteWithoutBackup_ == nullptr
-        && return this->kmsInstanceId_ == nullptr; };
+        && this->kmsInstanceId_ == nullptr; };
     // forceDeleteWithoutBackup Field Functions 
     bool hasForceDeleteWithoutBackup() const { return this->forceDeleteWithoutBackup_ != nullptr;};
     void deleteForceDeleteWithoutBackup() { this->forceDeleteWithoutBackup_ = nullptr;};
-    inline string forceDeleteWithoutBackup() const { DARABONBA_PTR_GET_DEFAULT(forceDeleteWithoutBackup_, "") };
+    inline string getForceDeleteWithoutBackup() const { DARABONBA_PTR_GET_DEFAULT(forceDeleteWithoutBackup_, "") };
     inline ReleaseKmsInstanceRequest& setForceDeleteWithoutBackup(string forceDeleteWithoutBackup) { DARABONBA_PTR_SET_VALUE(forceDeleteWithoutBackup_, forceDeleteWithoutBackup) };
 
 
     // kmsInstanceId Field Functions 
     bool hasKmsInstanceId() const { return this->kmsInstanceId_ != nullptr;};
     void deleteKmsInstanceId() { this->kmsInstanceId_ = nullptr;};
-    inline string kmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
+    inline string getKmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
     inline ReleaseKmsInstanceRequest& setKmsInstanceId(string kmsInstanceId) { DARABONBA_PTR_SET_VALUE(kmsInstanceId_, kmsInstanceId) };
 
 
   protected:
-    std::shared_ptr<string> forceDeleteWithoutBackup_ = nullptr;
+    // Specifies whether to forcibly release the KMS instance if it has not been backed up.
+    // 
+    // - true: forcibly releases the instance.
+    // 
+    // - false (default): does not release the instance.
+    shared_ptr<string> forceDeleteWithoutBackup_ {};
+    // The ID of the KMS instance.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> kmsInstanceId_ = nullptr;
+    shared_ptr<string> kmsInstanceId_ {};
   };
 
   } // namespace Models

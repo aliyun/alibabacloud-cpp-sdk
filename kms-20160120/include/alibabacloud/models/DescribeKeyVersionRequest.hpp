@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyId_ == nullptr
-        && return this->keyVersionId_ == nullptr; };
+        && this->keyVersionId_ == nullptr; };
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline DescribeKeyVersionRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // keyVersionId Field Functions 
     bool hasKeyVersionId() const { return this->keyVersionId_ != nullptr;};
     void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
-    inline string keyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
+    inline string getKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
     inline DescribeKeyVersionRequest& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
 
 
@@ -53,13 +53,13 @@ namespace Models
     // You can also set this parameter to an alias that is bound to the CMK. For more information, see [Alias overview](https://help.aliyun.com/document_detail/68522.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
+    shared_ptr<string> keyId_ {};
     // The globally unique ID of the CMK version.
     // 
     // You can call the [ListKeyVersions](https://help.aliyun.com/document_detail/133966.html) operation to query the versions of the CMK.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyVersionId_ = nullptr;
+    shared_ptr<string> keyVersionId_ {};
   };
 
   } // namespace Models

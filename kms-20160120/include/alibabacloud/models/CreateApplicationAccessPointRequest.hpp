@@ -36,50 +36,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authenticationMethod_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->policies_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->policies_ == nullptr; };
     // authenticationMethod Field Functions 
     bool hasAuthenticationMethod() const { return this->authenticationMethod_ != nullptr;};
     void deleteAuthenticationMethod() { this->authenticationMethod_ = nullptr;};
-    inline string authenticationMethod() const { DARABONBA_PTR_GET_DEFAULT(authenticationMethod_, "") };
+    inline string getAuthenticationMethod() const { DARABONBA_PTR_GET_DEFAULT(authenticationMethod_, "") };
     inline CreateApplicationAccessPointRequest& setAuthenticationMethod(string authenticationMethod) { DARABONBA_PTR_SET_VALUE(authenticationMethod_, authenticationMethod) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateApplicationAccessPointRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateApplicationAccessPointRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policies Field Functions 
     bool hasPolicies() const { return this->policies_ != nullptr;};
     void deletePolicies() { this->policies_ = nullptr;};
-    inline string policies() const { DARABONBA_PTR_GET_DEFAULT(policies_, "") };
+    inline string getPolicies() const { DARABONBA_PTR_GET_DEFAULT(policies_, "") };
     inline CreateApplicationAccessPointRequest& setPolicies(string policies) { DARABONBA_PTR_SET_VALUE(policies_, policies) };
 
 
   protected:
     // The authentication method. Currently, only ClientKey is supported.
-    std::shared_ptr<string> authenticationMethod_ = nullptr;
+    shared_ptr<string> authenticationMethod_ {};
     // The description of the AAP.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the AAP.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The permission policy.
     // 
     // > You can bind up to three permission policies to each AAP.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policies_ = nullptr;
+    shared_ptr<string> policies_ {};
   };
 
   } // namespace Models

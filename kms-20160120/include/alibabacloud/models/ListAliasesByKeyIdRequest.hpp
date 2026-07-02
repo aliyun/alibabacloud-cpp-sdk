@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline ListAliasesByKeyIdRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListAliasesByKeyIdRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListAliasesByKeyIdRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -60,19 +60,19 @@ namespace Models
     // The globally unique ID of the CMK.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
+    shared_ptr<string> keyId_ {};
     // The number of the page to return.
     // 
     // Valid values: an integer that is greater than 0.
     // 
     // Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
     // 
     // Valid values: 0 to 101.
     // 
     // Default value: 10
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

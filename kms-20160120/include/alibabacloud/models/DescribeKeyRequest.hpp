@@ -33,7 +33,7 @@ namespace Models
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline DescribeKeyRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // You can also set this parameter to an alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
+    shared_ptr<string> keyId_ {};
   };
 
   } // namespace Models

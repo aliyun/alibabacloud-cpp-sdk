@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arn_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->requestId_ == nullptr && return this->sourcePrivateIp_ == nullptr && return this->type_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->sourcePrivateIp_ == nullptr && this->type_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
-    inline string arn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
+    inline string getArn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
     inline CreateNetworkRuleResponseBody& setArn(string arn) { DARABONBA_PTR_SET_VALUE(arn_, arn) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateNetworkRuleResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateNetworkRuleResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateNetworkRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sourcePrivateIp Field Functions 
     bool hasSourcePrivateIp() const { return this->sourcePrivateIp_ != nullptr;};
     void deleteSourcePrivateIp() { this->sourcePrivateIp_ = nullptr;};
-    inline string sourcePrivateIp() const { DARABONBA_PTR_GET_DEFAULT(sourcePrivateIp_, "") };
+    inline string getSourcePrivateIp() const { DARABONBA_PTR_GET_DEFAULT(sourcePrivateIp_, "") };
     inline CreateNetworkRuleResponseBody& setSourcePrivateIp(string sourcePrivateIp) { DARABONBA_PTR_SET_VALUE(sourcePrivateIp_, sourcePrivateIp) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateNetworkRuleResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The ARN of the access control rule.
-    std::shared_ptr<string> arn_ = nullptr;
+    shared_ptr<string> arn_ {};
     // The description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the access control rule.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The private IP address or private CIDR block.
-    std::shared_ptr<string> sourcePrivateIp_ = nullptr;
+    shared_ptr<string> sourcePrivateIp_ {};
     // The network type.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

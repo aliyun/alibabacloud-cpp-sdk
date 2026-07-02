@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GenerateDataKeyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CiphertextBlob, ciphertextBlob_);
+      DARABONBA_PTR_TO_JSON(CiphertextForRecipient, ciphertextForRecipient_);
       DARABONBA_PTR_TO_JSON(KeyId, keyId_);
       DARABONBA_PTR_TO_JSON(KeyVersionId, keyVersionId_);
       DARABONBA_PTR_TO_JSON(Plaintext, plaintext_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GenerateDataKeyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CiphertextBlob, ciphertextBlob_);
+      DARABONBA_PTR_FROM_JSON(CiphertextForRecipient, ciphertextForRecipient_);
       DARABONBA_PTR_FROM_JSON(KeyId, keyId_);
       DARABONBA_PTR_FROM_JSON(KeyVersionId, keyVersionId_);
       DARABONBA_PTR_FROM_JSON(Plaintext, plaintext_);
@@ -38,55 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ciphertextBlob_ == nullptr
-        && return this->keyId_ == nullptr && return this->keyVersionId_ == nullptr && return this->plaintext_ == nullptr && return this->requestId_ == nullptr; };
+        && this->ciphertextForRecipient_ == nullptr && this->keyId_ == nullptr && this->keyVersionId_ == nullptr && this->plaintext_ == nullptr && this->requestId_ == nullptr; };
     // ciphertextBlob Field Functions 
     bool hasCiphertextBlob() const { return this->ciphertextBlob_ != nullptr;};
     void deleteCiphertextBlob() { this->ciphertextBlob_ = nullptr;};
-    inline string ciphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
+    inline string getCiphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
     inline GenerateDataKeyResponseBody& setCiphertextBlob(string ciphertextBlob) { DARABONBA_PTR_SET_VALUE(ciphertextBlob_, ciphertextBlob) };
+
+
+    // ciphertextForRecipient Field Functions 
+    bool hasCiphertextForRecipient() const { return this->ciphertextForRecipient_ != nullptr;};
+    void deleteCiphertextForRecipient() { this->ciphertextForRecipient_ = nullptr;};
+    inline string getCiphertextForRecipient() const { DARABONBA_PTR_GET_DEFAULT(ciphertextForRecipient_, "") };
+    inline GenerateDataKeyResponseBody& setCiphertextForRecipient(string ciphertextForRecipient) { DARABONBA_PTR_SET_VALUE(ciphertextForRecipient_, ciphertextForRecipient) };
 
 
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline GenerateDataKeyResponseBody& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // keyVersionId Field Functions 
     bool hasKeyVersionId() const { return this->keyVersionId_ != nullptr;};
     void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
-    inline string keyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
+    inline string getKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
     inline GenerateDataKeyResponseBody& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
 
 
     // plaintext Field Functions 
     bool hasPlaintext() const { return this->plaintext_ != nullptr;};
     void deletePlaintext() { this->plaintext_ = nullptr;};
-    inline string plaintext() const { DARABONBA_PTR_GET_DEFAULT(plaintext_, "") };
+    inline string getPlaintext() const { DARABONBA_PTR_GET_DEFAULT(plaintext_, "") };
     inline GenerateDataKeyResponseBody& setPlaintext(string plaintext) { DARABONBA_PTR_SET_VALUE(plaintext_, plaintext) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateDataKeyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The ciphertext of the data key that is encrypted by using the primary version of the specified CMK.
-    std::shared_ptr<string> ciphertextBlob_ = nullptr;
-    // The ID of the CMK. The ID must be globally unique.
-    // 
-    // >  If you set the KeyId parameter in the request to an alias of the CMK, the ID of the CMK to which the alias is bound is returned.
-    std::shared_ptr<string> keyId_ = nullptr;
-    // The ID of the CMK version. The ID must be globally unique.
-    std::shared_ptr<string> keyVersionId_ = nullptr;
-    // The Base64 encoded plaintext of the data key.
-    std::shared_ptr<string> plaintext_ = nullptr;
-    // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    // The ciphertext of the data key encrypted by the primary version of the specified key.
+    shared_ptr<string> ciphertextBlob_ {};
+    shared_ptr<string> ciphertextForRecipient_ {};
+    // The ID of the key. If you use a key alias or key ARN in the KeyId parameter of the request, the key ID is also returned in the response.
+    shared_ptr<string> keyId_ {};
+    // The globally unique identifier of the key version.
+    shared_ptr<string> keyVersionId_ {};
+    // The Base64-encoded plaintext of the data key.
+    shared_ptr<string> plaintext_ {};
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use the request ID to troubleshoot and locate issues.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

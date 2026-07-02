@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->keyId_ == nullptr; };
+        && this->keyId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateKeyDescriptionRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline UpdateKeyDescriptionRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The description of the CMK. This description includes the purpose of the CMK, such as the types of data that you want to protect and applications that can use the CMK.
     // 
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the CMK. The ID must be globally unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
+    shared_ptr<string> keyId_ {};
   };
 
   } // namespace Models

@@ -36,49 +36,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dryRun_ == nullptr
-        && return this->encryptionContext_ == nullptr && return this->keyId_ == nullptr && return this->plaintext_ == nullptr; };
+        && this->encryptionContext_ == nullptr && this->keyId_ == nullptr && this->plaintext_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline string dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
+    inline string getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
     inline EncryptRequest& setDryRun(string dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // encryptionContext Field Functions 
     bool hasEncryptionContext() const { return this->encryptionContext_ != nullptr;};
     void deleteEncryptionContext() { this->encryptionContext_ = nullptr;};
-    inline     const Darabonba::Json & encryptionContext() const { DARABONBA_GET(encryptionContext_) };
-    Darabonba::Json & encryptionContext() { DARABONBA_GET(encryptionContext_) };
+    inline     const Darabonba::Json & getEncryptionContext() const { DARABONBA_GET(encryptionContext_) };
+    Darabonba::Json & getEncryptionContext() { DARABONBA_GET(encryptionContext_) };
     inline EncryptRequest& setEncryptionContext(const Darabonba::Json & encryptionContext) { DARABONBA_SET_VALUE(encryptionContext_, encryptionContext) };
-    inline EncryptRequest& setEncryptionContext(Darabonba::Json & encryptionContext) { DARABONBA_SET_RVALUE(encryptionContext_, encryptionContext) };
+    inline EncryptRequest& setEncryptionContext(Darabonba::Json && encryptionContext) { DARABONBA_SET_RVALUE(encryptionContext_, encryptionContext) };
 
 
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline EncryptRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // plaintext Field Functions 
     bool hasPlaintext() const { return this->plaintext_ != nullptr;};
     void deletePlaintext() { this->plaintext_ = nullptr;};
-    inline string plaintext() const { DARABONBA_PTR_GET_DEFAULT(plaintext_, "") };
+    inline string getPlaintext() const { DARABONBA_PTR_GET_DEFAULT(plaintext_, "") };
     inline EncryptRequest& setPlaintext(string plaintext) { DARABONBA_PTR_SET_VALUE(plaintext_, plaintext) };
 
 
   protected:
-    std::shared_ptr<string> dryRun_ = nullptr;
-    // A JSON string that consists of key-value pairs. If you specify this parameter, an equivalent value is required when you call the Decrypt operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
-    Darabonba::Json encryptionContext_ = nullptr;
-    // The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](https://help.aliyun.com/document_detail/68522.html).
+    // Specifies whether to enable the dry run feature.
+    // 
+    // - true: enables the dry run feature.
+    // 
+    // - false (default): disables the dry run feature.
+    // 
+    // The dry run feature is used to test API calls and verify the permissions on the resources that you have and the validity of the request parameters. You can view the check results in the response.
+    // 
+    // - DryRunOperationError: The permissions and parameters are valid. If you do not specify the DryRun parameter, the request is successful.
+    // 
+    // - ValidationError: The parameters in the request are invalid.
+    // 
+    // - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+    shared_ptr<string> dryRun_ {};
+    // A JSON string that consists of key-value pairs. If you specify this parameter, you must specify the same parameter when you call the Decrypt operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
+    Darabonba::Json encryptionContext_ {};
+    // The ID of the key. You can also specify the alias or Amazon Resource Name (ARN) of the key. For more information about aliases, see [Manage aliases](https://help.aliyun.com/document_detail/480655.html).
+    // 
+    // > When you access a key in another Alibaba Cloud account, you must specify the ARN of the key. The ARN of a key is in the `acs:kms:${region}:${account}:key/${keyid}` format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
-    // The plaintext to be encrypted. The plaintext must be Base64 encoded.
+    shared_ptr<string> keyId_ {};
+    // The plaintext to be encrypted. The plaintext must be Base64-encoded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> plaintext_ = nullptr;
+    shared_ptr<string> plaintext_ {};
   };
 
   } // namespace Models

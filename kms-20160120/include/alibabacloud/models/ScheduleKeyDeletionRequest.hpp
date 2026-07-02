@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyId_ == nullptr
-        && return this->pendingWindowInDays_ == nullptr; };
+        && this->pendingWindowInDays_ == nullptr; };
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline ScheduleKeyDeletionRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // pendingWindowInDays Field Functions 
     bool hasPendingWindowInDays() const { return this->pendingWindowInDays_ != nullptr;};
     void deletePendingWindowInDays() { this->pendingWindowInDays_ = nullptr;};
-    inline int32_t pendingWindowInDays() const { DARABONBA_PTR_GET_DEFAULT(pendingWindowInDays_, 0) };
+    inline int32_t getPendingWindowInDays() const { DARABONBA_PTR_GET_DEFAULT(pendingWindowInDays_, 0) };
     inline ScheduleKeyDeletionRequest& setPendingWindowInDays(int32_t pendingWindowInDays) { DARABONBA_PTR_SET_VALUE(pendingWindowInDays_, pendingWindowInDays) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The ID of the customer master key (CMK). The ID must be globally unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
+    shared_ptr<string> keyId_ {};
     // The scheduled period after which the CMK is deleted. During this period, the CMK is in the PendingDeletion state. After this period ends, you cannot cancel the key deletion task.
     // 
     // Valid values: 7 to 366.
@@ -59,7 +59,7 @@ namespace Models
     // Unit: days.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pendingWindowInDays_ = nullptr;
+    shared_ptr<int32_t> pendingWindowInDays_ {};
   };
 
   } // namespace Models

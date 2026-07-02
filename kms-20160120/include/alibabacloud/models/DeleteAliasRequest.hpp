@@ -33,7 +33,7 @@ namespace Models
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
-    inline string aliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+    inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
     inline DeleteAliasRequest& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // The value must be 1 to 255 characters in length and must include the alias/ prefix.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aliasName_ = nullptr;
+    shared_ptr<string> aliasName_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forceDeleteWithoutRecovery_ == nullptr
-        && return this->recoveryWindowInDays_ == nullptr && return this->secretName_ == nullptr; };
+        && this->recoveryWindowInDays_ == nullptr && this->secretName_ == nullptr; };
     // forceDeleteWithoutRecovery Field Functions 
     bool hasForceDeleteWithoutRecovery() const { return this->forceDeleteWithoutRecovery_ != nullptr;};
     void deleteForceDeleteWithoutRecovery() { this->forceDeleteWithoutRecovery_ = nullptr;};
-    inline string forceDeleteWithoutRecovery() const { DARABONBA_PTR_GET_DEFAULT(forceDeleteWithoutRecovery_, "") };
+    inline string getForceDeleteWithoutRecovery() const { DARABONBA_PTR_GET_DEFAULT(forceDeleteWithoutRecovery_, "") };
     inline DeleteSecretRequest& setForceDeleteWithoutRecovery(string forceDeleteWithoutRecovery) { DARABONBA_PTR_SET_VALUE(forceDeleteWithoutRecovery_, forceDeleteWithoutRecovery) };
 
 
     // recoveryWindowInDays Field Functions 
     bool hasRecoveryWindowInDays() const { return this->recoveryWindowInDays_ != nullptr;};
     void deleteRecoveryWindowInDays() { this->recoveryWindowInDays_ = nullptr;};
-    inline string recoveryWindowInDays() const { DARABONBA_PTR_GET_DEFAULT(recoveryWindowInDays_, "") };
+    inline string getRecoveryWindowInDays() const { DARABONBA_PTR_GET_DEFAULT(recoveryWindowInDays_, "") };
     inline DeleteSecretRequest& setRecoveryWindowInDays(string recoveryWindowInDays) { DARABONBA_PTR_SET_VALUE(recoveryWindowInDays_, recoveryWindowInDays) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline DeleteSecretRequest& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
@@ -63,13 +63,13 @@ namespace Models
     // 
     // *   **true**
     // *   **false** (default value)
-    std::shared_ptr<string> forceDeleteWithoutRecovery_ = nullptr;
+    shared_ptr<string> forceDeleteWithoutRecovery_ {};
     // Specifies the recovery period of the secret if you do not forcibly delete it. Default value: 30. Unit: Days.
-    std::shared_ptr<string> recoveryWindowInDays_ = nullptr;
+    shared_ptr<string> recoveryWindowInDays_ {};
     // The name of the secret.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretName_ = nullptr;
+    shared_ptr<string> secretName_ {};
   };
 
   } // namespace Models

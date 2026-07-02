@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->sourcePrivateIp_ == nullptr; };
+        && this->name_ == nullptr && this->sourcePrivateIp_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateNetworkRuleRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateNetworkRuleRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // sourcePrivateIp Field Functions 
     bool hasSourcePrivateIp() const { return this->sourcePrivateIp_ != nullptr;};
     void deleteSourcePrivateIp() { this->sourcePrivateIp_ = nullptr;};
-    inline string sourcePrivateIp() const { DARABONBA_PTR_GET_DEFAULT(sourcePrivateIp_, "") };
+    inline string getSourcePrivateIp() const { DARABONBA_PTR_GET_DEFAULT(sourcePrivateIp_, "") };
     inline UpdateNetworkRuleRequest& setSourcePrivateIp(string sourcePrivateIp) { DARABONBA_PTR_SET_VALUE(sourcePrivateIp_, sourcePrivateIp) };
 
 
   protected:
-    // The description after the update.
-    std::shared_ptr<string> description_ = nullptr;
-    // The name of the access control rule that you want to update.
+    // The updated description.
+    shared_ptr<string> description_ {};
+    // The name of the network control rule that you want to update.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    // The private IP address or CIDR block after the update. Separate multiple items with commas (,).
-    std::shared_ptr<string> sourcePrivateIp_ = nullptr;
+    shared_ptr<string> name_ {};
+    // The updated private IP addresses or private CIDR blocks. Separate multiple IP addresses or private CIDR blocks with a comma (,).
+    shared_ptr<string> sourcePrivateIp_ {};
   };
 
   } // namespace Models

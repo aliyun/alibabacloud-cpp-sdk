@@ -33,13 +33,13 @@ namespace Models
     // aapName Field Functions 
     bool hasAapName() const { return this->aapName_ != nullptr;};
     void deleteAapName() { this->aapName_ = nullptr;};
-    inline string aapName() const { DARABONBA_PTR_GET_DEFAULT(aapName_, "") };
+    inline string getAapName() const { DARABONBA_PTR_GET_DEFAULT(aapName_, "") };
     inline ListClientKeysRequest& setAapName(string aapName) { DARABONBA_PTR_SET_VALUE(aapName_, aapName) };
 
 
   protected:
     // The name of the application access point (AAP).
-    std::shared_ptr<string> aapName_ = nullptr;
+    shared_ptr<string> aapName_ {};
   };
 
   } // namespace Models

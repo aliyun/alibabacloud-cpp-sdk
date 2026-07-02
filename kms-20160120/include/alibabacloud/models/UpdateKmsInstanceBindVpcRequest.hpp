@@ -32,37 +32,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindVpcs_ == nullptr
-        && return this->kmsInstanceId_ == nullptr; };
+        && this->kmsInstanceId_ == nullptr; };
     // bindVpcs Field Functions 
     bool hasBindVpcs() const { return this->bindVpcs_ != nullptr;};
     void deleteBindVpcs() { this->bindVpcs_ = nullptr;};
-    inline string bindVpcs() const { DARABONBA_PTR_GET_DEFAULT(bindVpcs_, "") };
+    inline string getBindVpcs() const { DARABONBA_PTR_GET_DEFAULT(bindVpcs_, "") };
     inline UpdateKmsInstanceBindVpcRequest& setBindVpcs(string bindVpcs) { DARABONBA_PTR_SET_VALUE(bindVpcs_, bindVpcs) };
 
 
     // kmsInstanceId Field Functions 
     bool hasKmsInstanceId() const { return this->kmsInstanceId_ != nullptr;};
     void deleteKmsInstanceId() { this->kmsInstanceId_ = nullptr;};
-    inline string kmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
+    inline string getKmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
     inline UpdateKmsInstanceBindVpcRequest& setKmsInstanceId(string kmsInstanceId) { DARABONBA_PTR_SET_VALUE(kmsInstanceId_, kmsInstanceId) };
 
 
   protected:
-    // The VPC configuration. The configuration of each VPC contains the following content:
+    // The VPC configuration. Each VPC configuration contains the following parameters:
     // 
-    // *   VpcId: the ID of the VPC.
-    // *   VSwitchId: the vSwitch in the VPC.
-    // *   RegionID: the ID of the region to which the VPC belongs.
-    // *   VpcOwnerId: the Alibaba Cloud account to which the VPC belongs.
+    // - VpcId: The ID of the VPC.
     // 
-    // Format: `[{"VpcId":"${VpcId}","VSwitchId":"${VSwitchId}","RegionId":"${RegionId}","VpcOwnerId":${VpcOwnerId}},..]`.
+    // - VSwitchId: The vSwitch in the VPC.
+    // 
+    // - RegionID: The region where the VPC resides.
+    // 
+    // - VpcOwnerId: The Alibaba Cloud account that owns the VPC.
+    // 
+    // The value is a JSON string in the following format: `[{"VpcId":"${VpcId}","VSwitchId":"${VSwitchId}","RegionId":"${RegionId}","VpcOwnerId":${VpcOwnerId}},...]`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bindVpcs_ = nullptr;
+    shared_ptr<string> bindVpcs_ {};
     // The ID of the KMS instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> kmsInstanceId_ = nullptr;
+    shared_ptr<string> kmsInstanceId_ {};
   };
 
   } // namespace Models

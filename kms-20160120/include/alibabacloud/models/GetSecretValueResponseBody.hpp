@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETSECRETVALUERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETSECRETVALUERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetSecretValueResponseBodyVersionStages.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -54,165 +54,196 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class VersionStages : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const VersionStages& obj) { 
+        DARABONBA_PTR_TO_JSON(VersionStage, versionStage_);
+      };
+      friend void from_json(const Darabonba::Json& j, VersionStages& obj) { 
+        DARABONBA_PTR_FROM_JSON(VersionStage, versionStage_);
+      };
+      VersionStages() = default ;
+      VersionStages(const VersionStages &) = default ;
+      VersionStages(VersionStages &&) = default ;
+      VersionStages(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~VersionStages() = default ;
+      VersionStages& operator=(const VersionStages &) = default ;
+      VersionStages& operator=(VersionStages &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->versionStage_ == nullptr; };
+      // versionStage Field Functions 
+      bool hasVersionStage() const { return this->versionStage_ != nullptr;};
+      void deleteVersionStage() { this->versionStage_ = nullptr;};
+      inline const vector<string> & getVersionStage() const { DARABONBA_PTR_GET_CONST(versionStage_, vector<string>) };
+      inline vector<string> getVersionStage() { DARABONBA_PTR_GET(versionStage_, vector<string>) };
+      inline VersionStages& setVersionStage(const vector<string> & versionStage) { DARABONBA_PTR_SET_VALUE(versionStage_, versionStage) };
+      inline VersionStages& setVersionStage(vector<string> && versionStage) { DARABONBA_PTR_SET_RVALUE(versionStage_, versionStage) };
+
+
+    protected:
+      shared_ptr<vector<string>> versionStage_ {};
+    };
+
     virtual bool empty() const override { return this->automaticRotation_ == nullptr
-        && return this->createTime_ == nullptr && return this->extendedConfig_ == nullptr && return this->lastRotationDate_ == nullptr && return this->nextRotationDate_ == nullptr && return this->requestId_ == nullptr
-        && return this->rotationInterval_ == nullptr && return this->secretData_ == nullptr && return this->secretDataType_ == nullptr && return this->secretName_ == nullptr && return this->secretType_ == nullptr
-        && return this->versionId_ == nullptr && return this->versionStages_ == nullptr; };
+        && this->createTime_ == nullptr && this->extendedConfig_ == nullptr && this->lastRotationDate_ == nullptr && this->nextRotationDate_ == nullptr && this->requestId_ == nullptr
+        && this->rotationInterval_ == nullptr && this->secretData_ == nullptr && this->secretDataType_ == nullptr && this->secretName_ == nullptr && this->secretType_ == nullptr
+        && this->versionId_ == nullptr && this->versionStages_ == nullptr; };
     // automaticRotation Field Functions 
     bool hasAutomaticRotation() const { return this->automaticRotation_ != nullptr;};
     void deleteAutomaticRotation() { this->automaticRotation_ = nullptr;};
-    inline string automaticRotation() const { DARABONBA_PTR_GET_DEFAULT(automaticRotation_, "") };
+    inline string getAutomaticRotation() const { DARABONBA_PTR_GET_DEFAULT(automaticRotation_, "") };
     inline GetSecretValueResponseBody& setAutomaticRotation(string automaticRotation) { DARABONBA_PTR_SET_VALUE(automaticRotation_, automaticRotation) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetSecretValueResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // extendedConfig Field Functions 
     bool hasExtendedConfig() const { return this->extendedConfig_ != nullptr;};
     void deleteExtendedConfig() { this->extendedConfig_ = nullptr;};
-    inline string extendedConfig() const { DARABONBA_PTR_GET_DEFAULT(extendedConfig_, "") };
+    inline string getExtendedConfig() const { DARABONBA_PTR_GET_DEFAULT(extendedConfig_, "") };
     inline GetSecretValueResponseBody& setExtendedConfig(string extendedConfig) { DARABONBA_PTR_SET_VALUE(extendedConfig_, extendedConfig) };
 
 
     // lastRotationDate Field Functions 
     bool hasLastRotationDate() const { return this->lastRotationDate_ != nullptr;};
     void deleteLastRotationDate() { this->lastRotationDate_ = nullptr;};
-    inline string lastRotationDate() const { DARABONBA_PTR_GET_DEFAULT(lastRotationDate_, "") };
+    inline string getLastRotationDate() const { DARABONBA_PTR_GET_DEFAULT(lastRotationDate_, "") };
     inline GetSecretValueResponseBody& setLastRotationDate(string lastRotationDate) { DARABONBA_PTR_SET_VALUE(lastRotationDate_, lastRotationDate) };
 
 
     // nextRotationDate Field Functions 
     bool hasNextRotationDate() const { return this->nextRotationDate_ != nullptr;};
     void deleteNextRotationDate() { this->nextRotationDate_ = nullptr;};
-    inline string nextRotationDate() const { DARABONBA_PTR_GET_DEFAULT(nextRotationDate_, "") };
+    inline string getNextRotationDate() const { DARABONBA_PTR_GET_DEFAULT(nextRotationDate_, "") };
     inline GetSecretValueResponseBody& setNextRotationDate(string nextRotationDate) { DARABONBA_PTR_SET_VALUE(nextRotationDate_, nextRotationDate) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSecretValueResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rotationInterval Field Functions 
     bool hasRotationInterval() const { return this->rotationInterval_ != nullptr;};
     void deleteRotationInterval() { this->rotationInterval_ = nullptr;};
-    inline string rotationInterval() const { DARABONBA_PTR_GET_DEFAULT(rotationInterval_, "") };
+    inline string getRotationInterval() const { DARABONBA_PTR_GET_DEFAULT(rotationInterval_, "") };
     inline GetSecretValueResponseBody& setRotationInterval(string rotationInterval) { DARABONBA_PTR_SET_VALUE(rotationInterval_, rotationInterval) };
 
 
     // secretData Field Functions 
     bool hasSecretData() const { return this->secretData_ != nullptr;};
     void deleteSecretData() { this->secretData_ = nullptr;};
-    inline string secretData() const { DARABONBA_PTR_GET_DEFAULT(secretData_, "") };
+    inline string getSecretData() const { DARABONBA_PTR_GET_DEFAULT(secretData_, "") };
     inline GetSecretValueResponseBody& setSecretData(string secretData) { DARABONBA_PTR_SET_VALUE(secretData_, secretData) };
 
 
     // secretDataType Field Functions 
     bool hasSecretDataType() const { return this->secretDataType_ != nullptr;};
     void deleteSecretDataType() { this->secretDataType_ = nullptr;};
-    inline string secretDataType() const { DARABONBA_PTR_GET_DEFAULT(secretDataType_, "") };
+    inline string getSecretDataType() const { DARABONBA_PTR_GET_DEFAULT(secretDataType_, "") };
     inline GetSecretValueResponseBody& setSecretDataType(string secretDataType) { DARABONBA_PTR_SET_VALUE(secretDataType_, secretDataType) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline GetSecretValueResponseBody& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
     // secretType Field Functions 
     bool hasSecretType() const { return this->secretType_ != nullptr;};
     void deleteSecretType() { this->secretType_ = nullptr;};
-    inline string secretType() const { DARABONBA_PTR_GET_DEFAULT(secretType_, "") };
+    inline string getSecretType() const { DARABONBA_PTR_GET_DEFAULT(secretType_, "") };
     inline GetSecretValueResponseBody& setSecretType(string secretType) { DARABONBA_PTR_SET_VALUE(secretType_, secretType) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline GetSecretValueResponseBody& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
     // versionStages Field Functions 
     bool hasVersionStages() const { return this->versionStages_ != nullptr;};
     void deleteVersionStages() { this->versionStages_ = nullptr;};
-    inline const GetSecretValueResponseBodyVersionStages & versionStages() const { DARABONBA_PTR_GET_CONST(versionStages_, GetSecretValueResponseBodyVersionStages) };
-    inline GetSecretValueResponseBodyVersionStages versionStages() { DARABONBA_PTR_GET(versionStages_, GetSecretValueResponseBodyVersionStages) };
-    inline GetSecretValueResponseBody& setVersionStages(const GetSecretValueResponseBodyVersionStages & versionStages) { DARABONBA_PTR_SET_VALUE(versionStages_, versionStages) };
-    inline GetSecretValueResponseBody& setVersionStages(GetSecretValueResponseBodyVersionStages && versionStages) { DARABONBA_PTR_SET_RVALUE(versionStages_, versionStages) };
+    inline const GetSecretValueResponseBody::VersionStages & getVersionStages() const { DARABONBA_PTR_GET_CONST(versionStages_, GetSecretValueResponseBody::VersionStages) };
+    inline GetSecretValueResponseBody::VersionStages getVersionStages() { DARABONBA_PTR_GET(versionStages_, GetSecretValueResponseBody::VersionStages) };
+    inline GetSecretValueResponseBody& setVersionStages(const GetSecretValueResponseBody::VersionStages & versionStages) { DARABONBA_PTR_SET_VALUE(versionStages_, versionStages) };
+    inline GetSecretValueResponseBody& setVersionStages(GetSecretValueResponseBody::VersionStages && versionStages) { DARABONBA_PTR_SET_RVALUE(versionStages_, versionStages) };
 
 
   protected:
-    // Indicates whether automatic rotation is enabled. Valid values:
+    // Indicates whether automatic rotation is enabled. Valid values:  
+    // - Enabled: Automatic rotation is enabled.  
+    // - Disabled: Automatic rotation is disabled.  
+    // - Invalid: The rotation status is abnormal, and KMS cannot automatically rotate the credential for you.  
     // 
-    // *   Enabled: indicates that automatic rotation is enabled.
-    // *   Disabled: indicates that automatic rotation is disabled.
-    // *   Invalid: indicates that the status of automatic rotation is abnormal. In this case, Secrets Manager cannot automatically rotate the secret.
+    // > This parameter is returned only for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, or ECS credentials.
+    shared_ptr<string> automaticRotation_ {};
+    // The time when the credential was created.
+    shared_ptr<string> createTime_ {};
+    // The extended configuration of the credential.  
     // 
-    // >  This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
-    std::shared_ptr<string> automaticRotation_ = nullptr;
-    // The time when the secret was created.
-    std::shared_ptr<string> createTime_ = nullptr;
-    // The extended configuration of the secret.
+    // > This parameter is returned only for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, or ECS credentials when FetchExtendedConfig is set to true.
+    shared_ptr<string> extendedConfig_ {};
+    // The time of the most recent rotation.  
     // 
-    // >  This parameter is returned if you set the FetchExtendedConfig parameter to true. This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
-    std::shared_ptr<string> extendedConfig_ = nullptr;
-    // The time when the last rotation was performed.
+    // > This parameter is returned only if the credential has been rotated.
+    shared_ptr<string> lastRotationDate_ {};
+    // The time of the next rotation.  
     // 
-    // >  This parameter is returned if the secret was rotated.
-    std::shared_ptr<string> lastRotationDate_ = nullptr;
-    // The time when the next rotation will be performed.
+    // > This parameter is returned only when automatic rotation is enabled.
+    shared_ptr<string> nextRotationDate_ {};
+    // The ID of the current request. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and issue tracking.
+    shared_ptr<string> requestId_ {};
+    // The epoch for automatic credential rotation.    
+    // The format is `integer[unit]`, where `integer` indicates the time duration and `unit` indicates the time unit. Valid value for `unit`: s (seconds). For example, a 7-day rotation epoch is 604800s.
     // 
-    // >  This parameter is returned if automatic rotation is enabled.
-    std::shared_ptr<string> nextRotationDate_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
-    // The interval for automatic rotation.
+    // > This parameter is returned only when automatic rotation is enabled.
+    shared_ptr<string> rotationInterval_ {};
+    // The value of the credential. KMS decrypts the stored ciphertext and returns this parameter.  
     // 
-    // The value is in the `integer[unit]` format. The `unit` field has a fixed value of s. For example, if the value is 604800s, automatic rotation is performed at a 7-day interval.
+    // - For generic secrets, the credential value you specified is returned.  
     // 
-    // >  This parameter is returned if automatic rotation is enabled.
-    std::shared_ptr<string> rotationInterval_ = nullptr;
-    // The secret value. Secrets Manager decrypts the ciphertext of the secret value and returns the plaintext of the secret value in this parameter.
+    // - For RDS credentials and Redis/Tair credentials, the credential value is in the format: `{"AccountName":"","AccountPassword":""}`.  
     // 
-    // *   For a generic secret, the secret value of the specified version is returned.
+    // - For RAM credentials, the credential value is in the format: `{"AccessKeyId":"Adfdsfd","AccessKeySecret":"fdsfdsf","GenerateTimestamp": "2023-03-25T10:42:40Z"}`.  
     // 
-    // *   For a managed ApsaraDB RDS secret, the value is returned in the following format:`{"AccountName":"","AccountPassword":""}` .
+    // - For ECS credentials, the credential value is in one of the following formats:  
+    //   - Security token type: `{"UserName":"ecs-user","Password":"H5asdasdsads****"}`.  
+    //   - Public-private key pair type (private key in PEM format): `{"UserName":"ecs-user","PublicKey":"ssh-rsa ****mKwnVix9YTFY9Rs= imported-openssh-key","PrivateKey": "d6bee1cb-2e14-4277-ba6b-73786b21****"}`.  
     // 
-    // *   For a managed RAM secret, the secret value is returned in the following format: `{"AccessKeyId":"Adfdsfd","AccessKeySecret":"fdsfdsf","GenerateTimestamp": "2016-03-25T10:42:40Z"}`.
-    // 
-    // *   For a managed ECS secret, the secret value is returned in one of the following formats:
-    // 
-    //     *   `{"UserName":"root","Password":"H5asdasdsads****"}`: The secret value is returned in this format if the ECS secret is a password.
-    //     *   `{"UserName":"root","PublicKey":"ssh-rsa ****mKwnVix9YTFY9Rs= imported-openssh-key","PrivateKey": "d6bee1cb-2e14-4277-ba6b-73786b21****"}`: The secret value is returned in this format is the ECS secret is a pair of SSH keys. The private key is in the Privacy Enhanced Mail (PEM) format.
-    std::shared_ptr<string> secretData_ = nullptr;
-    // The type of the secret value. Valid values:
-    // 
-    // *   text
-    // *   binary
-    std::shared_ptr<string> secretDataType_ = nullptr;
-    // The name of the secret.
-    std::shared_ptr<string> secretName_ = nullptr;
-    // The type of the secret. Valid values:
-    // 
-    // *   Generic: indicates a generic secret.
-    // *   Rds: indicates a managed ApsaraDB RDS secret.
-    // *   RAMCredentials: indicates a managed RAM secret.
-    // *   ECS: indicates a managed ECS secret.
-    std::shared_ptr<string> secretType_ = nullptr;
-    // The version number of the secret value.
-    std::shared_ptr<string> versionId_ = nullptr;
-    // The stage labels that mark the secret versions.
-    std::shared_ptr<GetSecretValueResponseBodyVersionStages> versionStages_ = nullptr;
+    // - For PolarDB credentials, the credential value is in the format: `{"AccountName":"","AccountPassword":""}`.
+    shared_ptr<string> secretData_ {};
+    // The value type of the credential. Valid values:
+    // - text
+    // - binary
+    shared_ptr<string> secretDataType_ {};
+    // The name of the credential.
+    shared_ptr<string> secretName_ {};
+    // The type of the credential. Valid values:
+    // - Generic: generic secret.  
+    // - Rds: RDS credential.  
+    // - Redis: Redis/Tair credential.
+    // - RAMCredentials: RAM credential.  
+    // - ECS: ECS credential.
+    // - PolarDB: PolarDB credential.
+    shared_ptr<string> secretType_ {};
+    // The version number of the credential.
+    shared_ptr<string> versionId_ {};
+    shared_ptr<GetSecretValueResponseBody::VersionStages> versionStages_ {};
   };
 
   } // namespace Models

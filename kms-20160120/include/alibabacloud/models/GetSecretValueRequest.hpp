@@ -38,65 +38,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dryRun_ == nullptr
-        && return this->fetchExtendedConfig_ == nullptr && return this->secretName_ == nullptr && return this->versionId_ == nullptr && return this->versionStage_ == nullptr; };
+        && this->fetchExtendedConfig_ == nullptr && this->secretName_ == nullptr && this->versionId_ == nullptr && this->versionStage_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline string dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
+    inline string getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
     inline GetSecretValueRequest& setDryRun(string dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // fetchExtendedConfig Field Functions 
     bool hasFetchExtendedConfig() const { return this->fetchExtendedConfig_ != nullptr;};
     void deleteFetchExtendedConfig() { this->fetchExtendedConfig_ = nullptr;};
-    inline bool fetchExtendedConfig() const { DARABONBA_PTR_GET_DEFAULT(fetchExtendedConfig_, false) };
+    inline bool getFetchExtendedConfig() const { DARABONBA_PTR_GET_DEFAULT(fetchExtendedConfig_, false) };
     inline GetSecretValueRequest& setFetchExtendedConfig(bool fetchExtendedConfig) { DARABONBA_PTR_SET_VALUE(fetchExtendedConfig_, fetchExtendedConfig) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline GetSecretValueRequest& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline GetSecretValueRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
     // versionStage Field Functions 
     bool hasVersionStage() const { return this->versionStage_ != nullptr;};
     void deleteVersionStage() { this->versionStage_ = nullptr;};
-    inline string versionStage() const { DARABONBA_PTR_GET_DEFAULT(versionStage_, "") };
+    inline string getVersionStage() const { DARABONBA_PTR_GET_DEFAULT(versionStage_, "") };
     inline GetSecretValueRequest& setVersionStage(string versionStage) { DARABONBA_PTR_SET_VALUE(versionStage_, versionStage) };
 
 
   protected:
-    std::shared_ptr<string> dryRun_ = nullptr;
-    // Specifies whether to obtain the extended configuration of the secret. Valid values:
+    // Indicates whether to enable DryRun mode.
     // 
-    // *   true
-    // *   false: This is the default value.
+    // - true: Enabled  
+    // - false (Default Value): Disabled  
     // 
-    // >  This parameter is ignored for a generic secret.
-    std::shared_ptr<bool> fetchExtendedConfig_ = nullptr;
-    // The name of the secret.
+    // DryRun mode is used for Testing API Calls to authenticate whether you have the required permissions on the specified resource and whether the Request Parameters are correctly configured. When DryRun mode is enabled, KMS always returns a failed response along with the failure reason. Possible failure reasons include:
+    // 
+    // - DryRunOperationError: The request would succeed if the DryRun parameter were not specified.  
+    // - ValidationError: One or more parameters in the request are invalid.  
+    // - AccessDeniedError: You do not have permission to execute this operation on the KMS resource.
+    shared_ptr<string> dryRun_ {};
+    // Indicates whether to retrieve the extended configuration of the credential. Valid values:
+    // 
+    // - true: Retrieve  
+    // - false (Default Value): Do not retrieve  
+    // 
+    // > Generic secrets do not support extended configuration. If you specify this parameter, it will be ignored.
+    shared_ptr<bool> fetchExtendedConfig_ {};
+    // The name or ARN of the credential.  
+    // > When accessing a credential under another Alibaba Cloud account, you must specify the credential ARN. The ARN format is `acs:kms:${region}:${account}:secret/${secret-name}`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretName_ = nullptr;
-    // The version number of the secret value. If you specify this parameter, Secrets Manager returns the secret value of the specified version.
+    shared_ptr<string> secretName_ {};
+    // Version number.
     // 
-    // >  This parameter is ignored for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
-    std::shared_ptr<string> versionId_ = nullptr;
-    // The stage label that marks the secret version. If you specify this parameter, Secrets Manager returns the secret value of the version that is marked with the specified stage label.
+    // > The VersionId parameter is not supported for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, and ECS credentials. If you specify this parameter, it will be ignored.
+    shared_ptr<string> versionId_ {};
+    // The version stage. Default value: ACSCurrent.  
     // 
-    // Default value: ACSCurrent.
-    // 
-    // >  For a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret, Secrets Manager can return only the secret value of the version marked with ACSPrevious or ACSCurrent.
-    std::shared_ptr<string> versionStage_ = nullptr;
+    // If you specify this parameter, the credential value of the specified version stage is returned. If you do not specify this parameter, the credential value of the ACSCurrent version stage is returned.  
+    // > For RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, and ECS credentials, you can retrieve only the credential values corresponding to the ACSPrevious or ACSCurrent version stages.
+    shared_ptr<string> versionStage_ {};
   };
 
   } // namespace Models

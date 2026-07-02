@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arn_ == nullptr
-        && return this->requestId_ == nullptr && return this->secretName_ == nullptr && return this->versionId_ == nullptr; };
+        && this->requestId_ == nullptr && this->secretName_ == nullptr && this->versionId_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
-    inline string arn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
+    inline string getArn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
     inline RotateSecretResponseBody& setArn(string arn) { DARABONBA_PTR_SET_VALUE(arn_, arn) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline RotateSecretResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline RotateSecretResponseBody& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline RotateSecretResponseBody& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
   protected:
     // The Alibaba Cloud Resource Name (ARN) of the secret.
-    std::shared_ptr<string> arn_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> arn_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
     // The name of the secret.
-    std::shared_ptr<string> secretName_ = nullptr;
+    shared_ptr<string> secretName_ {};
     // The version number of the secret after the secret is rotated.
-    std::shared_ptr<string> versionId_ = nullptr;
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models

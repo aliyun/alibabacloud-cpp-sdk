@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arn_ == nullptr
-        && return this->authenticationMethod_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr && return this->policies_ == nullptr && return this->requestId_ == nullptr; };
+        && this->authenticationMethod_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->policies_ == nullptr && this->requestId_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
-    inline string arn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
+    inline string getArn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
     inline DescribeApplicationAccessPointResponseBody& setArn(string arn) { DARABONBA_PTR_SET_VALUE(arn_, arn) };
 
 
     // authenticationMethod Field Functions 
     bool hasAuthenticationMethod() const { return this->authenticationMethod_ != nullptr;};
     void deleteAuthenticationMethod() { this->authenticationMethod_ = nullptr;};
-    inline string authenticationMethod() const { DARABONBA_PTR_GET_DEFAULT(authenticationMethod_, "") };
+    inline string getAuthenticationMethod() const { DARABONBA_PTR_GET_DEFAULT(authenticationMethod_, "") };
     inline DescribeApplicationAccessPointResponseBody& setAuthenticationMethod(string authenticationMethod) { DARABONBA_PTR_SET_VALUE(authenticationMethod_, authenticationMethod) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeApplicationAccessPointResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeApplicationAccessPointResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policies Field Functions 
     bool hasPolicies() const { return this->policies_ != nullptr;};
     void deletePolicies() { this->policies_ = nullptr;};
-    inline string policies() const { DARABONBA_PTR_GET_DEFAULT(policies_, "") };
+    inline string getPolicies() const { DARABONBA_PTR_GET_DEFAULT(policies_, "") };
     inline DescribeApplicationAccessPointResponseBody& setPolicies(string policies) { DARABONBA_PTR_SET_VALUE(policies_, policies) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeApplicationAccessPointResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The ARN of the AAP.
-    std::shared_ptr<string> arn_ = nullptr;
+    // The Alibaba Cloud Resource Name (ARN) of the AAP.
+    shared_ptr<string> arn_ {};
     // The authentication method.
-    std::shared_ptr<string> authenticationMethod_ = nullptr;
+    shared_ptr<string> authenticationMethod_ {};
     // The description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the AAP.
-    std::shared_ptr<string> name_ = nullptr;
-    // The permission policy that is bound to the AAP.
-    std::shared_ptr<string> policies_ = nullptr;
-    // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> name_ {};
+    // The attached access policies.
+    shared_ptr<string> policies_ {};
+    // The ID of the request. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot issues.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

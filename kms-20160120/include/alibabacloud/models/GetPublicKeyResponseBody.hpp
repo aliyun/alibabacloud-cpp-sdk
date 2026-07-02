@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyId_ == nullptr
-        && return this->keyVersionId_ == nullptr && return this->publicKey_ == nullptr && return this->requestId_ == nullptr; };
+        && this->keyVersionId_ == nullptr && this->publicKey_ == nullptr && this->requestId_ == nullptr; };
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline GetPublicKeyResponseBody& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // keyVersionId Field Functions 
     bool hasKeyVersionId() const { return this->keyVersionId_ != nullptr;};
     void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
-    inline string keyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
+    inline string getKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
     inline GetPublicKeyResponseBody& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
 
 
     // publicKey Field Functions 
     bool hasPublicKey() const { return this->publicKey_ != nullptr;};
     void deletePublicKey() { this->publicKey_ = nullptr;};
-    inline string publicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
+    inline string getPublicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
     inline GetPublicKeyResponseBody& setPublicKey(string publicKey) { DARABONBA_PTR_SET_VALUE(publicKey_, publicKey) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetPublicKeyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The globally unique ID of the CMK.
+    // The globally unique identifier of the CMK.
     // 
-    // >  If you set the KeyId parameter to the alias of the CMK, the ID of the CMK to which the alias is bound is returned.
-    std::shared_ptr<string> keyId_ = nullptr;
-    // The version of the CMK that is used to encrypt the plaintext.
-    std::shared_ptr<string> keyVersionId_ = nullptr;
-    // The public key returned in the PEM format.
-    std::shared_ptr<string> publicKey_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    // > If you specify an alias of the CMK for the KeyId parameter in the request, the ID of the CMK to which the alias is bound is returned.
+    shared_ptr<string> keyId_ {};
+    // The globally unique identifier of the key version.
+    shared_ptr<string> keyVersionId_ {};
+    // The public key in the PEM format.
+    shared_ptr<string> publicKey_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

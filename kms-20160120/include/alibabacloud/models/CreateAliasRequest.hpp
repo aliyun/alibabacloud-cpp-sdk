@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliasName_ == nullptr
-        && return this->keyId_ == nullptr; };
+        && this->keyId_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
-    inline string aliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
+    inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
     inline CreateAliasRequest& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
 
 
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline CreateAliasRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // The alias must be 1 to 255 characters in length and must contain the prefix `alias/`. The alias cannot be prefixed with the reserved word `alias/acs`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aliasName_ = nullptr;
+    shared_ptr<string> aliasName_ {};
     // The ID of the CMK. The ID must be globally unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
+    shared_ptr<string> keyId_ {};
   };
 
   } // namespace Models

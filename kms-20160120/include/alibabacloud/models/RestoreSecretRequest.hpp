@@ -33,7 +33,7 @@ namespace Models
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline RestoreSecretRequest& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the secret you want to restore.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretName_ = nullptr;
+    shared_ptr<string> secretName_ {};
   };
 
   } // namespace Models

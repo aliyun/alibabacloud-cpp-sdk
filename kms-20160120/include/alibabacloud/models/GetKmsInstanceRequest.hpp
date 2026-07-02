@@ -33,15 +33,15 @@ namespace Models
     // kmsInstanceId Field Functions 
     bool hasKmsInstanceId() const { return this->kmsInstanceId_ != nullptr;};
     void deleteKmsInstanceId() { this->kmsInstanceId_ = nullptr;};
-    inline string kmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
+    inline string getKmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
     inline GetKmsInstanceRequest& setKmsInstanceId(string kmsInstanceId) { DARABONBA_PTR_SET_VALUE(kmsInstanceId_, kmsInstanceId) };
 
 
   protected:
-    // The ID of the KMS instance that you want to query.
+    // The ID of the KMS instance to query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> kmsInstanceId_ = nullptr;
+    shared_ptr<string> kmsInstanceId_ {};
   };
 
   } // namespace Models

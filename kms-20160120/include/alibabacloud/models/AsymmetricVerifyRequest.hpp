@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->digest_ == nullptr && return this->dryRun_ == nullptr && return this->keyId_ == nullptr && return this->keyVersionId_ == nullptr && return this->value_ == nullptr; };
+        && this->digest_ == nullptr && this->dryRun_ == nullptr && this->keyId_ == nullptr && this->keyVersionId_ == nullptr && this->value_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
-    inline string algorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline AsymmetricVerifyRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
     // digest Field Functions 
     bool hasDigest() const { return this->digest_ != nullptr;};
     void deleteDigest() { this->digest_ = nullptr;};
-    inline string digest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
+    inline string getDigest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
     inline AsymmetricVerifyRequest& setDigest(string digest) { DARABONBA_PTR_SET_VALUE(digest_, digest) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline string dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
+    inline string getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
     inline AsymmetricVerifyRequest& setDryRun(string dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline AsymmetricVerifyRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // keyVersionId Field Functions 
     bool hasKeyVersionId() const { return this->keyVersionId_ != nullptr;};
     void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
-    inline string keyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
+    inline string getKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
     inline AsymmetricVerifyRequest& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline AsymmetricVerifyRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
@@ -87,30 +87,43 @@ namespace Models
     // The signature algorithm.
     // 
     // This parameter is required.
-    std::shared_ptr<string> algorithm_ = nullptr;
-    // The digest that is generated for the original message by using a hash algorithm. The hash algorithm is specified by the **Algorithm** parameter.
+    shared_ptr<string> algorithm_ {};
+    // The digest that is generated using the hash algorithm that corresponds to the value of **Algorithm** to hash the original message.
     // 
-    // >  The value is encoded in Base64.
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> digest_ = nullptr;
-    std::shared_ptr<string> dryRun_ = nullptr;
-    // The ID of the CMK. The ID must be globally unique.
-    // 
-    // >  You can also set this parameter to an alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
+    // > The value is Base64-encoded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
-    // The version ID of the CMK. The ID must be globally unique.
+    shared_ptr<string> digest_ {};
+    // Specifies whether to perform a dry run.
+    // 
+    // - true: performs a dry run.
+    // 
+    // - false (default): does not perform a dry run.
+    // 
+    // A dry run is used to test API calls and verify whether you have the permissions to access the specified resources and whether the request parameters are valid. If you perform a dry run, KMS always returns a failure response that indicates the cause of the failure. The following failure causes are included:
+    // 
+    // - DryRunOperationError: The request would have succeeded if the DryRun parameter is not specified.
+    // 
+    // - ValidationError: The specified parameters in the request are invalid.
+    // 
+    // - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+    shared_ptr<string> dryRun_ {};
+    // The globally unique identifier (GUID) of the customer master key (CMK).
+    // 
+    // > You can also specify the alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyVersionId_ = nullptr;
+    shared_ptr<string> keyId_ {};
+    // The ID of the key version. The ID must be the GUID of the key version.
+    // 
+    // This parameter is required.
+    shared_ptr<string> keyVersionId_ {};
     // The signature value to be verified.
     // 
-    // >  The value is encoded in Base64.
+    // > The value is Base64-encoded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

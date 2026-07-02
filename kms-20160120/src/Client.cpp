@@ -23,6 +23,42 @@ AlibabaCloud::Kms20160120::Client::Client(Config &config): OpenApiClient(config)
   shared_ptr<POP> gatewayClient = make_shared<POP>();
   this->_spi = gatewayClient;
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "kms.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "kms.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "kms.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "kms.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "kms.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "kms.eu-central-1.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "kms.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-zhangjiakou" , "kms.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "kms.cn-wulanchabu.aliyuncs.com"},
+    {"cn-wuhan-lr" , "kms.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "kms.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "kms.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "kms.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "kms.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "kms.cn-qingdao.aliyuncs.com"},
+    {"cn-huhehaote" , "kms.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "kms.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "kms.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "kms.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "kms.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "kms.cn-guangzhou.aliyuncs.com"},
+    {"cn-fuzhou" , "kms.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "kms.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "kms.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "kms.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "kms.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "kms.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "kms.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "kms.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "kms.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "kms.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "kms.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2" , "kms.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "kms.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("kms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -41,17 +77,26 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Decrypts data by using an asymmetric key.
+ * @summary Decrypts data by using the private key of an asymmetric CMK.
  *
- * @description This operation supports only asymmetric keys for which the **Usage** parameter is set to **ENCRYPT/DECRYPT**. The following table lists supported encryption algorithms. 
- * | KeySpec | Algorithm | Description | Maximum length in bytes |
- * | ------- | --------- | ----------- | ----------------------- |
- * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 256 |
- * | RSA_2048 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 256 |
- * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 384 |
- * | RSA_3072 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 384 |
- * | EC_SM2 | SM2PKE | SM2 public key encryption algorithm based on elliptic curves | 6144 |
- * In this example, the asymmetric key whose ID is `5c438b18-05be-40ad-b6c2-3be6752c****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` and the decryption algorithm `RSAES_OAEP_SHA_1` are used to decrypt the ciphertext `BQKP+1zK6+ZEMxTP5qaVzcsgXtWplYBKm0NXdSnB5FzliFxE1bSiu4dnEIlca2JpeH7yz1/S6fed630H+hIH6DoM25fTLNcKj+mFB0Xnh9m2+HN59Mn4qyTfcUeadnfCXSWcGBouhXFwcdd2rJ3n337bzTf4jm659gZu3L0i6PLuxM9p7mqdwO0cKJPfGVfhnfMz+f4alMg79WB/NNyE2lyX7/qxvV49ObNrrJbKSFiz8Djocaf0IESNLMbfYI5bXjWkJlX92DQbKhibtQW8ZOJ//ZC6t0AWcUoKL6QDm/dg5koQalcleRinpB+QadFm894sLbVZ9+N4GVsv1W****==`.
+ * @description ### Usage notes
+ * - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To access KMS over the Internet, you must enable the public endpoint. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway, the queries per second (QPS) limit for each Alibaba Cloud account is 200. If the QPS exceeds the limit, the API call is throttled. This can affect your business. We recommend that you plan your calls to avoid exceeding this limit.
+ * - If you use a dedicated gateway, the QPS limit for each Alibaba Cloud account is subject to the performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys for which the **Usage** parameter is set to **ENCRYPT/DECRYPT**. The following table describes the supported encryption algorithms.
+ * | KeySpec   | Algorithm             | Description                                        | Ciphertext length (bytes) |
+ * | --------- | --------------------- | -------------------------------------------------- | ------------------------- |
+ * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 256                       |
+ * | RSA_2048 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 256                       |
+ * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 384                       |
+ * | RSA_3072 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 384                       |
+ * | EC_SM2   | SM2PKE                | SM2 elliptic curve public key encryption algorithm | Maximum 6,144             |
+ * This topic provides an example of how to use the asymmetric key whose ID is `key-hzz630494463ejqjx****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` to decrypt the ciphertext `BQKP+1zK6+ZEMxTP5qaVzcsgXtWplYBKm0NXdSnB5FzliFxE1bSiu4dnEIlca2JpeH7yz1/S6fed630H+hIH6DoM25fTLNcKj+mFB0Xnh9m2+HN59Mn4qyTfcUeadnfCXSWcGBouhXFwcdd2rJ3n337bzTf4jm659gZu3L0i6PLuxM9p7mqdwO0cKJPfGVfhnfMz+f4alMg79WB/NNyE2lyX7/qxvV49ObNrrJbKSFiz8Djocaf0IESNLMbfYI5bXjWkJlX92DQbKhibtQW8ZOJ//ZC6t0AWcUoKL6QDm/dg5koQalcleRinpB+QadFm894sLbVZ9+N4GVsv1W****==` using the `RSAES_OAEP_SHA_1` decryption algorithm.
  *
  * @param request AsymmetricDecryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -61,23 +106,23 @@ AsymmetricDecryptResponse Client::asymmetricDecryptWithOptions(const AsymmetricD
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasCiphertextBlob()) {
-    query["CiphertextBlob"] = request.ciphertextBlob();
+    query["CiphertextBlob"] = request.getCiphertextBlob();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeyVersionId()) {
-    query["KeyVersionId"] = request.keyVersionId();
+    query["KeyVersionId"] = request.getKeyVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -98,17 +143,26 @@ AsymmetricDecryptResponse Client::asymmetricDecryptWithOptions(const AsymmetricD
 }
 
 /**
- * @summary Decrypts data by using an asymmetric key.
+ * @summary Decrypts data by using the private key of an asymmetric CMK.
  *
- * @description This operation supports only asymmetric keys for which the **Usage** parameter is set to **ENCRYPT/DECRYPT**. The following table lists supported encryption algorithms. 
- * | KeySpec | Algorithm | Description | Maximum length in bytes |
- * | ------- | --------- | ----------- | ----------------------- |
- * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 256 |
- * | RSA_2048 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 256 |
- * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 384 |
- * | RSA_3072 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 384 |
- * | EC_SM2 | SM2PKE | SM2 public key encryption algorithm based on elliptic curves | 6144 |
- * In this example, the asymmetric key whose ID is `5c438b18-05be-40ad-b6c2-3be6752c****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` and the decryption algorithm `RSAES_OAEP_SHA_1` are used to decrypt the ciphertext `BQKP+1zK6+ZEMxTP5qaVzcsgXtWplYBKm0NXdSnB5FzliFxE1bSiu4dnEIlca2JpeH7yz1/S6fed630H+hIH6DoM25fTLNcKj+mFB0Xnh9m2+HN59Mn4qyTfcUeadnfCXSWcGBouhXFwcdd2rJ3n337bzTf4jm659gZu3L0i6PLuxM9p7mqdwO0cKJPfGVfhnfMz+f4alMg79WB/NNyE2lyX7/qxvV49ObNrrJbKSFiz8Djocaf0IESNLMbfYI5bXjWkJlX92DQbKhibtQW8ZOJ//ZC6t0AWcUoKL6QDm/dg5koQalcleRinpB+QadFm894sLbVZ9+N4GVsv1W****==`.
+ * @description ### Usage notes
+ * - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To access KMS over the Internet, you must enable the public endpoint. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway, the queries per second (QPS) limit for each Alibaba Cloud account is 200. If the QPS exceeds the limit, the API call is throttled. This can affect your business. We recommend that you plan your calls to avoid exceeding this limit.
+ * - If you use a dedicated gateway, the QPS limit for each Alibaba Cloud account is subject to the performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys for which the **Usage** parameter is set to **ENCRYPT/DECRYPT**. The following table describes the supported encryption algorithms.
+ * | KeySpec   | Algorithm             | Description                                        | Ciphertext length (bytes) |
+ * | --------- | --------------------- | -------------------------------------------------- | ------------------------- |
+ * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 256                       |
+ * | RSA_2048 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 256                       |
+ * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 384                       |
+ * | RSA_3072 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 384                       |
+ * | EC_SM2   | SM2PKE                | SM2 elliptic curve public key encryption algorithm | Maximum 6,144             |
+ * This topic provides an example of how to use the asymmetric key whose ID is `key-hzz630494463ejqjx****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` to decrypt the ciphertext `BQKP+1zK6+ZEMxTP5qaVzcsgXtWplYBKm0NXdSnB5FzliFxE1bSiu4dnEIlca2JpeH7yz1/S6fed630H+hIH6DoM25fTLNcKj+mFB0Xnh9m2+HN59Mn4qyTfcUeadnfCXSWcGBouhXFwcdd2rJ3n337bzTf4jm659gZu3L0i6PLuxM9p7mqdwO0cKJPfGVfhnfMz+f4alMg79WB/NNyE2lyX7/qxvV49ObNrrJbKSFiz8Djocaf0IESNLMbfYI5bXjWkJlX92DQbKhibtQW8ZOJ//ZC6t0AWcUoKL6QDm/dg5koQalcleRinpB+QadFm894sLbVZ9+N4GVsv1W****==` using the `RSAES_OAEP_SHA_1` decryption algorithm.
  *
  * @param request AsymmetricDecryptRequest
  * @return AsymmetricDecryptResponse
@@ -119,17 +173,26 @@ AsymmetricDecryptResponse Client::asymmetricDecrypt(const AsymmetricDecryptReque
 }
 
 /**
- * @summary Encrypts data by using an asymmetric customer master key (CMK).
+ * @summary Encrypts data by using the public key of an asymmetric CMK.
  *
- * @description This operation is supported only for asymmetric keys for which the **Usage** parameter is set to **ENCRYPT/DECRYPT**. The following table lists the supported encryption algorithms: 
- * | KeySpec | Algorithm | Description | Maximum number of bytes that can be encrypted |
- * | ------- | --------- | ----------- | --------------------------------------------- |
- * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 190 |
- * | RSA_2048 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 214 |
- * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 318 |
- * | RSA_3072 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 342 |
- * | EC_SM2 | SM2PKE | SM2 public key encryption algorithm based on elliptic curves | 6047 |
- * You can use the asymmetric CMK whose ID is `5c438b18-05be-40ad-b6c2-3be6752c****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` and the algorithm `RSAES_OAEP_SHA_1` to encrypt the plaintext `SGVsbG8gd29ybGQ=` based on the parameter settings provided in this topic.
+ * @description ### Precautions
+ * - For information about the permissions that are required to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or using a VPC domain name. To access KMS over the Internet, you must enable Internet access. For more information, see [Access a key in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway: The number of queries per second (QPS) for a single user is limited to 200. If the limit is exceeded, API calls are throttled. This may affect your business. We recommend that you plan your API calls to avoid exceeding this limit.
+ * - If you use a dedicated gateway: The QPS limit for a single user depends on the computing performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys that have the **Usage** parameter set to **ENCRYPT/DECRYPT**. The following table describes the supported encryption algorithms.
+ * | KeySpec   | Algorithm             | Description                                        | Maximum number of bytes that can be encrypted |
+ * | --------- | --------------------- | -------------------------------------------------- | --------------------------------------------- |
+ * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 190                                           |
+ * | RSA_2048 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 214                                           |
+ * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 318                                           |
+ * | RSA_3072 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 342                                           |
+ * | EC_SM2   | SM2PKE                | SM2 elliptic curve public key encryption algorithm | 6047                                          |
+ * In this example, the plaintext `SGVsbG8gd29ybGQ=` is encrypted using an asymmetric key with the key ID `key-hzz630494463ejqjx****`, the key version ID `2ab1a983-7072-4bbc-a582-584b5bd8****`, and the `RSAES_OAEP_SHA_1` encryption algorithm.
  *
  * @param request AsymmetricEncryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -139,23 +202,23 @@ AsymmetricEncryptResponse Client::asymmetricEncryptWithOptions(const AsymmetricE
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeyVersionId()) {
-    query["KeyVersionId"] = request.keyVersionId();
+    query["KeyVersionId"] = request.getKeyVersionId();
   }
 
   if (!!request.hasPlaintext()) {
-    query["Plaintext"] = request.plaintext();
+    query["Plaintext"] = request.getPlaintext();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -176,17 +239,26 @@ AsymmetricEncryptResponse Client::asymmetricEncryptWithOptions(const AsymmetricE
 }
 
 /**
- * @summary Encrypts data by using an asymmetric customer master key (CMK).
+ * @summary Encrypts data by using the public key of an asymmetric CMK.
  *
- * @description This operation is supported only for asymmetric keys for which the **Usage** parameter is set to **ENCRYPT/DECRYPT**. The following table lists the supported encryption algorithms: 
- * | KeySpec | Algorithm | Description | Maximum number of bytes that can be encrypted |
- * | ------- | --------- | ----------- | --------------------------------------------- |
- * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 190 |
- * | RSA_2048 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 214 |
- * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256 | 318 |
- * | RSA_3072 | RSAES_OAEP_SHA_1 | RSAES-OAEP using SHA1 and MGF1 with SHA1 | 342 |
- * | EC_SM2 | SM2PKE | SM2 public key encryption algorithm based on elliptic curves | 6047 |
- * You can use the asymmetric CMK whose ID is `5c438b18-05be-40ad-b6c2-3be6752c****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` and the algorithm `RSAES_OAEP_SHA_1` to encrypt the plaintext `SGVsbG8gd29ybGQ=` based on the parameter settings provided in this topic.
+ * @description ### Precautions
+ * - For information about the permissions that are required to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or using a VPC domain name. To access KMS over the Internet, you must enable Internet access. For more information, see [Access a key in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway: The number of queries per second (QPS) for a single user is limited to 200. If the limit is exceeded, API calls are throttled. This may affect your business. We recommend that you plan your API calls to avoid exceeding this limit.
+ * - If you use a dedicated gateway: The QPS limit for a single user depends on the computing performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys that have the **Usage** parameter set to **ENCRYPT/DECRYPT**. The following table describes the supported encryption algorithms.
+ * | KeySpec   | Algorithm             | Description                                        | Maximum number of bytes that can be encrypted |
+ * | --------- | --------------------- | -------------------------------------------------- | --------------------------------------------- |
+ * | RSA_2048 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 190                                           |
+ * | RSA_2048 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 214                                           |
+ * | RSA_3072 | RSAES_OAEP_SHA_256 | RSAES-OAEP using SHA-256 and MGF1 with SHA-256     | 318                                           |
+ * | RSA_3072 | RSAES_OAEP_SHA_1   | RSAES-OAEP using SHA1 and MGF1 with SHA1           | 342                                           |
+ * | EC_SM2   | SM2PKE                | SM2 elliptic curve public key encryption algorithm | 6047                                          |
+ * In this example, the plaintext `SGVsbG8gd29ybGQ=` is encrypted using an asymmetric key with the key ID `key-hzz630494463ejqjx****`, the key version ID `2ab1a983-7072-4bbc-a582-584b5bd8****`, and the `RSAES_OAEP_SHA_1` encryption algorithm.
  *
  * @param request AsymmetricEncryptRequest
  * @return AsymmetricEncryptResponse
@@ -197,9 +269,29 @@ AsymmetricEncryptResponse Client::asymmetricEncrypt(const AsymmetricEncryptReque
 }
 
 /**
- * @summary AsymmetricSign
+ * @summary Generates a digital signature by using an asymmetric CMK.
  *
- * @description Generates a signature by using an asymmetric key.
+ * @description ### Precautions
+ * - For information about the access policies that are required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. This method requires you to enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - Shared gateway: This operation is limited to 200 queries per second (QPS) for each user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
+ * - Dedicated gateway: The QPS for each user is limited by the performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys for which the **Usage** parameter is set to **SIGN/VERIFY**. The following table describes the supported signature algorithms.
+ * | KeySpec   | Algorithm            | Description                                                |
+ * | --------- | -------------------- | ---------------------------------------------------------- |
+ * | RSA_2048 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_2048 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | RSA_3072 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_3072 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | EC_P256  | ECDSA_SHA_256      | ECDSA on the P-256 Curve(secp256r1) with a SHA-256 digest  |
+ * | EC_P256K | ECDSA_SHA_256      | ECDSA on the P-256K Curve(secp256k1) with a SHA-256 digest |
+ * | EC_SM2   | SM2DSA               | SM2 elliptic curve digital signature algorithm             |
+ * > According to the GB/T 32918.2 standard "Information security technology - SM2 elliptic curve public key cryptography - Part 2: Digital signature algorithm", when you calculate an SM2 signature, the value of the **Digest** parameter is not the SM3 hash value of the original message. Instead, the value is the SM3 hash value of the result of concatenating Z(A) and M. M is the original message to be signed. Z(A) is the hash value of user A, as defined in GB/T 32918.2.
+ * This topic provides an example of how to use an asymmetric key with the key ID `5c438b18-05be-40ad-b6c2-3be6752c****` and the key version ID `2ab1a983-7072-4bbc-a582-584b5bd8****` to sign the digest `ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuy****=` using the `RSA_PSS_SHA_256` signature algorithm.
  *
  * @param request AsymmetricSignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -209,23 +301,23 @@ AsymmetricSignResponse Client::asymmetricSignWithOptions(const AsymmetricSignReq
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasDigest()) {
-    query["Digest"] = request.digest();
+    query["Digest"] = request.getDigest();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeyVersionId()) {
-    query["KeyVersionId"] = request.keyVersionId();
+    query["KeyVersionId"] = request.getKeyVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -246,9 +338,29 @@ AsymmetricSignResponse Client::asymmetricSignWithOptions(const AsymmetricSignReq
 }
 
 /**
- * @summary AsymmetricSign
+ * @summary Generates a digital signature by using an asymmetric CMK.
  *
- * @description Generates a signature by using an asymmetric key.
+ * @description ### Precautions
+ * - For information about the access policies that are required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. This method requires you to enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - Shared gateway: This operation is limited to 200 queries per second (QPS) for each user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
+ * - Dedicated gateway: The QPS for each user is limited by the performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys for which the **Usage** parameter is set to **SIGN/VERIFY**. The following table describes the supported signature algorithms.
+ * | KeySpec   | Algorithm            | Description                                                |
+ * | --------- | -------------------- | ---------------------------------------------------------- |
+ * | RSA_2048 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_2048 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | RSA_3072 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_3072 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | EC_P256  | ECDSA_SHA_256      | ECDSA on the P-256 Curve(secp256r1) with a SHA-256 digest  |
+ * | EC_P256K | ECDSA_SHA_256      | ECDSA on the P-256K Curve(secp256k1) with a SHA-256 digest |
+ * | EC_SM2   | SM2DSA               | SM2 elliptic curve digital signature algorithm             |
+ * > According to the GB/T 32918.2 standard "Information security technology - SM2 elliptic curve public key cryptography - Part 2: Digital signature algorithm", when you calculate an SM2 signature, the value of the **Digest** parameter is not the SM3 hash value of the original message. Instead, the value is the SM3 hash value of the result of concatenating Z(A) and M. M is the original message to be signed. Z(A) is the hash value of user A, as defined in GB/T 32918.2.
+ * This topic provides an example of how to use an asymmetric key with the key ID `5c438b18-05be-40ad-b6c2-3be6752c****` and the key version ID `2ab1a983-7072-4bbc-a582-584b5bd8****` to sign the digest `ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuy****=` using the `RSA_PSS_SHA_256` signature algorithm.
  *
  * @param request AsymmetricSignRequest
  * @return AsymmetricSignResponse
@@ -259,19 +371,29 @@ AsymmetricSignResponse Client::asymmetricSign(const AsymmetricSignRequest &reque
 }
 
 /**
- * @summary Verifies a signature by using an asymmetric key.
+ * @summary Verifies a digital signature by using the public key of an asymmetric CMK.
  *
- * @description This operation supports only asymmetric keys for which the **Usage** parameter is set to **SIGN/VERIFY**. The following table describes the supported signature algorithms. 
- * | KeySpec | Algorithm | Description |
- * | ------- | --------- | ----------- |
- * | RSA_2048 | RSA_PSS_SHA_256 | RSASSA-PSS using SHA-256 and MGF1 with SHA-256 |
- * | RSA_2048 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256 |
- * | RSA_3072 | RSA_PSS_SHA_256 | RSASSA-PSS using SHA-256 and MGF1 with SHA-256 |
- * | RSA_3072 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256 |
- * | EC_P256 | ECDSA_SHA_256 | ECDSA on the P-256 Curve(secp256r1) with a SHA-256 digest |
- * | EC_P256K | ECDSA_SHA_256 | ECDSA on the P-256K Curve(secp256k1) with a SHA-256 digest |
- * | EC_SM2 | SM2DSA | SM2 elliptic curve public key encryption algorithm |
- * >  When you calculate the SM2 signature based on GB/T 32918, the **Digest** parameter is used to calculate the digest value of the combination of Z(A) and M, rather than the SM3 digest value. M indicates the original message to be signed. Z(A) indicates the hash value for User A. The hash value is defined in GB/T 32918.  In this example, the asymmetric key whose ID is `5c438b18-05be-40ad-b6c2-3be6752c****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` and the signature algorithm RSA_PSS_SHA_256 are used to verify the signature `M2CceNZH00ZgL9ED/ZHFp21YRAvYeZHknJUc207OCZ0N9wNn9As4z2bON3FF3je+1Nu+2+/8Zj50HpMTpzYpMp2R93cYmACCmhaYoKydxylbyGzJR8y9likZRCrkD38lRoS40aBBvv/6iRKzQuo9EGYVcel36cMNg00VmYNBy3pa1rwg3gA4l3cy6kjayZja1WGPkVhrVKsrJMdbpl0ApLjXKuD8rw1n1XLCwCUEL5eLPljTZaAveqdOFQOiZnZEGI27qIiZe7I1fN8tcz6anS/gTM7xRKE++5egEvRWlTQQTJeApnPSiUPA+8ZykNdelQsOQh5SrGoyI4A5pq****==` of the digest `ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw=`.
+ * @description ### Precautions
+ * - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or through a VPC. To access KMS over the Internet, you must enable the public endpoint. For more information, see [Access KMS instances over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway, the queries per second (QPS) limit for this operation is 200 for a single user. If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you manage your call frequency to stay within the QPS limit.
+ * - If you use a dedicated gateway, the QPS limit for this operation for a single user is determined by the computing performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys for which the **Usage** parameter is set to **SIGN/VERIFY**. The following table lists the supported signature algorithms.
+ * | KeySpec   | Algorithm            | Description                                                |
+ * | --------- | -------------------- | ---------------------------------------------------------- |
+ * | RSA_2048 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_2048 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | RSA_3072 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_3072 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | EC_P256  | ECDSA_SHA_256      | ECDSA on the P-256 Curve(secp256r1) with a SHA-256 digest  |
+ * | EC_P256K | ECDSA_SHA_256      | ECDSA on the P-256K Curve(secp256k1) with a SHA-256 digest |
+ * | EC_SM2   | SM2DSA               | SM2 elliptic curve digital signature algorithm             |
+ * > In accordance with the GBT32918 standard, when an SM2 signature is calculated, the value of the **Digest** parameter is not the SM3 hash value of the original message. Instead, the value is the SM3 hash value of the result generated by concatenating Z(A) and M. In this formula, M is the original message to be signed, and Z(A) is the hash value of user A as defined in GBT32918.
+ * This topic provides an example of how to use an asymmetric key with the key ID \\`5c438b18-05be-40ad-b6c2-3be6752c\\*\\*\\*\\*\\` and the key version ID \\`2ab1a983-7072-4bbc-a582-584b5bd8\\*\\*\\*\\*\\` to verify the signature \\`M2CceNZH00ZgL9ED/ZHFp21YRAvYeZHknJUc207OCZ0N9wNn9As4z2bON3FF3je+1Nu+2+/8Zj50HpMTpzYpMp2R93cYmACCmhaYoKydxylbyGzJR8y9likZRCrkD38lRoS40aBBvv/6iRKzQuo9EGYVcel36cMNg00VmYNBy3pa1rwg3gA4l3cy6kjayZja1WGPkVhrVKsrJMdbpl0ApLjXKuD8rw1n1XLCwCUEL5eLPljTZaAveqdOFQOiZnZEGI27qIiZe7I1fN8tcz6anS/gTM7xRKE++5egEvRWlTQQTJeApnPSiUPA+8ZykNdelQsOQh5SrGoyI4A5pq\\*\\*\\*\\*==\\` for the digest \\`ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw=\\` using the RSA_PSS_SHA_256 signature algorithm.
  *
  * @param request AsymmetricVerifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -281,27 +403,27 @@ AsymmetricVerifyResponse Client::asymmetricVerifyWithOptions(const AsymmetricVer
   request.validate();
   json query = {};
   if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
+    query["Algorithm"] = request.getAlgorithm();
   }
 
   if (!!request.hasDigest()) {
-    query["Digest"] = request.digest();
+    query["Digest"] = request.getDigest();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeyVersionId()) {
-    query["KeyVersionId"] = request.keyVersionId();
+    query["KeyVersionId"] = request.getKeyVersionId();
   }
 
   if (!!request.hasValue()) {
-    query["Value"] = request.value();
+    query["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -322,19 +444,29 @@ AsymmetricVerifyResponse Client::asymmetricVerifyWithOptions(const AsymmetricVer
 }
 
 /**
- * @summary Verifies a signature by using an asymmetric key.
+ * @summary Verifies a digital signature by using the public key of an asymmetric CMK.
  *
- * @description This operation supports only asymmetric keys for which the **Usage** parameter is set to **SIGN/VERIFY**. The following table describes the supported signature algorithms. 
- * | KeySpec | Algorithm | Description |
- * | ------- | --------- | ----------- |
- * | RSA_2048 | RSA_PSS_SHA_256 | RSASSA-PSS using SHA-256 and MGF1 with SHA-256 |
- * | RSA_2048 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256 |
- * | RSA_3072 | RSA_PSS_SHA_256 | RSASSA-PSS using SHA-256 and MGF1 with SHA-256 |
- * | RSA_3072 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256 |
- * | EC_P256 | ECDSA_SHA_256 | ECDSA on the P-256 Curve(secp256r1) with a SHA-256 digest |
- * | EC_P256K | ECDSA_SHA_256 | ECDSA on the P-256K Curve(secp256k1) with a SHA-256 digest |
- * | EC_SM2 | SM2DSA | SM2 elliptic curve public key encryption algorithm |
- * >  When you calculate the SM2 signature based on GB/T 32918, the **Digest** parameter is used to calculate the digest value of the combination of Z(A) and M, rather than the SM3 digest value. M indicates the original message to be signed. Z(A) indicates the hash value for User A. The hash value is defined in GB/T 32918.  In this example, the asymmetric key whose ID is `5c438b18-05be-40ad-b6c2-3be6752c****` and version ID is `2ab1a983-7072-4bbc-a582-584b5bd8****` and the signature algorithm RSA_PSS_SHA_256 are used to verify the signature `M2CceNZH00ZgL9ED/ZHFp21YRAvYeZHknJUc207OCZ0N9wNn9As4z2bON3FF3je+1Nu+2+/8Zj50HpMTpzYpMp2R93cYmACCmhaYoKydxylbyGzJR8y9likZRCrkD38lRoS40aBBvv/6iRKzQuo9EGYVcel36cMNg00VmYNBy3pa1rwg3gA4l3cy6kjayZja1WGPkVhrVKsrJMdbpl0ApLjXKuD8rw1n1XLCwCUEL5eLPljTZaAveqdOFQOiZnZEGI27qIiZe7I1fN8tcz6anS/gTM7xRKE++5egEvRWlTQQTJeApnPSiUPA+8ZykNdelQsOQh5SrGoyI4A5pq****==` of the digest `ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw=`.
+ * @description ### Precautions
+ * - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or through a VPC. To access KMS over the Internet, you must enable the public endpoint. For more information, see [Access KMS instances over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway, the queries per second (QPS) limit for this operation is 200 for a single user. If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you manage your call frequency to stay within the QPS limit.
+ * - If you use a dedicated gateway, the QPS limit for this operation for a single user is determined by the computing performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation supports only asymmetric keys for which the **Usage** parameter is set to **SIGN/VERIFY**. The following table lists the supported signature algorithms.
+ * | KeySpec   | Algorithm            | Description                                                |
+ * | --------- | -------------------- | ---------------------------------------------------------- |
+ * | RSA_2048 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_2048 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | RSA_3072 | RSA_PSS_SHA_256   | RSASSA-PSS using SHA-256 and MGF1 with SHA-256             |
+ * | RSA_3072 | RSA_PKCS1_SHA_256 | RSASSA-PKCS1-v1_5 using SHA-256                           |
+ * | EC_P256  | ECDSA_SHA_256      | ECDSA on the P-256 Curve(secp256r1) with a SHA-256 digest  |
+ * | EC_P256K | ECDSA_SHA_256      | ECDSA on the P-256K Curve(secp256k1) with a SHA-256 digest |
+ * | EC_SM2   | SM2DSA               | SM2 elliptic curve digital signature algorithm             |
+ * > In accordance with the GBT32918 standard, when an SM2 signature is calculated, the value of the **Digest** parameter is not the SM3 hash value of the original message. Instead, the value is the SM3 hash value of the result generated by concatenating Z(A) and M. In this formula, M is the original message to be signed, and Z(A) is the hash value of user A as defined in GBT32918.
+ * This topic provides an example of how to use an asymmetric key with the key ID \\`5c438b18-05be-40ad-b6c2-3be6752c\\*\\*\\*\\*\\` and the key version ID \\`2ab1a983-7072-4bbc-a582-584b5bd8\\*\\*\\*\\*\\` to verify the signature \\`M2CceNZH00ZgL9ED/ZHFp21YRAvYeZHknJUc207OCZ0N9wNn9As4z2bON3FF3je+1Nu+2+/8Zj50HpMTpzYpMp2R93cYmACCmhaYoKydxylbyGzJR8y9likZRCrkD38lRoS40aBBvv/6iRKzQuo9EGYVcel36cMNg00VmYNBy3pa1rwg3gA4l3cy6kjayZja1WGPkVhrVKsrJMdbpl0ApLjXKuD8rw1n1XLCwCUEL5eLPljTZaAveqdOFQOiZnZEGI27qIiZe7I1fN8tcz6anS/gTM7xRKE++5egEvRWlTQQTJeApnPSiUPA+8ZykNdelQsOQh5SrGoyI4A5pq\\*\\*\\*\\*==\\` for the digest \\`ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw=\\` using the RSA_PSS_SHA_256 signature algorithm.
  *
  * @param request AsymmetricVerifyRequest
  * @return AsymmetricVerifyResponse
@@ -345,6 +477,8 @@ AsymmetricVerifyResponse Client::asymmetricVerify(const AsymmetricVerifyRequest 
 }
 
 /**
+ * @summary Cancels the deletion task of a CMK.
+ *
  * @description If the deletion task of a CMK is canceled, the CMK returns to the Enabled state.
  *
  * @param request CancelKeyDeletionRequest
@@ -355,7 +489,7 @@ CancelKeyDeletionResponse Client::cancelKeyDeletionWithOptions(const CancelKeyDe
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -376,6 +510,8 @@ CancelKeyDeletionResponse Client::cancelKeyDeletionWithOptions(const CancelKeyDe
 }
 
 /**
+ * @summary Cancels the deletion task of a CMK.
+ *
  * @description If the deletion task of a CMK is canceled, the CMK returns to the Enabled state.
  *
  * @param request CancelKeyDeletionRequest
@@ -384,290 +520,6 @@ CancelKeyDeletionResponse Client::cancelKeyDeletionWithOptions(const CancelKeyDe
 CancelKeyDeletionResponse Client::cancelKeyDeletion(const CancelKeyDeletionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cancelKeyDeletionWithOptions(request, runtime);
-}
-
-/**
- * @summary Decrypts data by using a specific certificate.
- *
- * @description Limit: The encryption algorithm in the request parameters must match the key type. 
- * The following table describes the mapping between encryption algorithms and key types.
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSAES_OAEP_SHA_1 | RSA_2048 |
- * | RSAES_OAEP_SHA_256 | RSA_2048 |
- * | SM2PKE | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the encryption algorithm `RSAES_OAEP_SHA_256` are used to decrypt the data `ZOyIygCyaOW6Gj****MlNKiuyjfzw=`.
- *
- * @param request CertificatePrivateKeyDecryptRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return CertificatePrivateKeyDecryptResponse
- */
-CertificatePrivateKeyDecryptResponse Client::certificatePrivateKeyDecryptWithOptions(const CertificatePrivateKeyDecryptRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
-  }
-
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
-  }
-
-  if (!!request.hasCiphertextBlob()) {
-    query["CiphertextBlob"] = request.ciphertextBlob();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "CertificatePrivateKeyDecrypt"},
-    {"version" , "2016-01-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CertificatePrivateKeyDecryptResponse>();
-}
-
-/**
- * @summary Decrypts data by using a specific certificate.
- *
- * @description Limit: The encryption algorithm in the request parameters must match the key type. 
- * The following table describes the mapping between encryption algorithms and key types.
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSAES_OAEP_SHA_1 | RSA_2048 |
- * | RSAES_OAEP_SHA_256 | RSA_2048 |
- * | SM2PKE | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the encryption algorithm `RSAES_OAEP_SHA_256` are used to decrypt the data `ZOyIygCyaOW6Gj****MlNKiuyjfzw=`.
- *
- * @param request CertificatePrivateKeyDecryptRequest
- * @return CertificatePrivateKeyDecryptResponse
- */
-CertificatePrivateKeyDecryptResponse Client::certificatePrivateKeyDecrypt(const CertificatePrivateKeyDecryptRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return certificatePrivateKeyDecryptWithOptions(request, runtime);
-}
-
-/**
- * @summary Generates a signature by using a specified certificate.
- *
- * @description The signature algorithm in the request parameters must match the key type. The following table describes the mapping between signature algorithms and key types.  
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSA_PKCS1_SHA_256 | RSA_2048 |
- * | RSA_PSS_SHA_256 | RSA_2048 |
- * | ECDSA_SHA_256 | EC_P256 |
- * | SM2DSA | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the signature algorithm `ECDSA_SHA_256` are used to generate a signature for the raw data `VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4=`.
- *
- * @param request CertificatePrivateKeySignRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return CertificatePrivateKeySignResponse
- */
-CertificatePrivateKeySignResponse Client::certificatePrivateKeySignWithOptions(const CertificatePrivateKeySignRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
-  }
-
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
-  }
-
-  if (!!request.hasMessage()) {
-    query["Message"] = request.message();
-  }
-
-  if (!!request.hasMessageType()) {
-    query["MessageType"] = request.messageType();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "CertificatePrivateKeySign"},
-    {"version" , "2016-01-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CertificatePrivateKeySignResponse>();
-}
-
-/**
- * @summary Generates a signature by using a specified certificate.
- *
- * @description The signature algorithm in the request parameters must match the key type. The following table describes the mapping between signature algorithms and key types.  
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSA_PKCS1_SHA_256 | RSA_2048 |
- * | RSA_PSS_SHA_256 | RSA_2048 |
- * | ECDSA_SHA_256 | EC_P256 |
- * | SM2DSA | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the signature algorithm `ECDSA_SHA_256` are used to generate a signature for the raw data `VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4=`.
- *
- * @param request CertificatePrivateKeySignRequest
- * @return CertificatePrivateKeySignResponse
- */
-CertificatePrivateKeySignResponse Client::certificatePrivateKeySign(const CertificatePrivateKeySignRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return certificatePrivateKeySignWithOptions(request, runtime);
-}
-
-/**
- * @summary Encrypts data by using a specific certificate.
- *
- * @description Limit: The encryption algorithm in the request parameters must match the key type. 
- * The following table describes the mapping between encryption algorithms and key types.
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSAES_OAEP_SHA_1 | RSA_2048 |
- * | RSAES_OAEP_SHA_256 | RSA_2048 |
- * | SM2PKE | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the encryption algorithm `RSAES_OAEP_SHA_256` are used to encrypt the data `VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4=`.
- *
- * @param request CertificatePublicKeyEncryptRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return CertificatePublicKeyEncryptResponse
- */
-CertificatePublicKeyEncryptResponse Client::certificatePublicKeyEncryptWithOptions(const CertificatePublicKeyEncryptRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
-  }
-
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
-  }
-
-  if (!!request.hasPlaintext()) {
-    query["Plaintext"] = request.plaintext();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "CertificatePublicKeyEncrypt"},
-    {"version" , "2016-01-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CertificatePublicKeyEncryptResponse>();
-}
-
-/**
- * @summary Encrypts data by using a specific certificate.
- *
- * @description Limit: The encryption algorithm in the request parameters must match the key type. 
- * The following table describes the mapping between encryption algorithms and key types.
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSAES_OAEP_SHA_1 | RSA_2048 |
- * | RSAES_OAEP_SHA_256 | RSA_2048 |
- * | SM2PKE | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the encryption algorithm `RSAES_OAEP_SHA_256` are used to encrypt the data `VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4=`.
- *
- * @param request CertificatePublicKeyEncryptRequest
- * @return CertificatePublicKeyEncryptResponse
- */
-CertificatePublicKeyEncryptResponse Client::certificatePublicKeyEncrypt(const CertificatePublicKeyEncryptRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return certificatePublicKeyEncryptWithOptions(request, runtime);
-}
-
-/**
- * @summary Verifies a digital signature by using a specified certificate.
- *
- * @description The signature algorithm in the request parameters must match the key type. The following table describes the mapping between signature algorithms and key types.  
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSA_PKCS1_SHA_256 | RSA_2048 |
- * | RSA_PSS_SHA_256 | RSA_2048 |
- * | ECDSA_SHA_256 | EC_P256 |
- * | SM2DSA | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the signature algorithm `ECDSA_SHA_256` are used to verify the digital signature `ZOyIygCyaOW6Gj****MlNKiuyjfzw=` of the raw data `VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4=`.
- *
- * @param request CertificatePublicKeyVerifyRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return CertificatePublicKeyVerifyResponse
- */
-CertificatePublicKeyVerifyResponse Client::certificatePublicKeyVerifyWithOptions(const CertificatePublicKeyVerifyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasAlgorithm()) {
-    query["Algorithm"] = request.algorithm();
-  }
-
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
-  }
-
-  if (!!request.hasMessage()) {
-    query["Message"] = request.message();
-  }
-
-  if (!!request.hasMessageType()) {
-    query["MessageType"] = request.messageType();
-  }
-
-  if (!!request.hasSignatureValue()) {
-    query["SignatureValue"] = request.signatureValue();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "CertificatePublicKeyVerify"},
-    {"version" , "2016-01-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CertificatePublicKeyVerifyResponse>();
-}
-
-/**
- * @summary Verifies a digital signature by using a specified certificate.
- *
- * @description The signature algorithm in the request parameters must match the key type. The following table describes the mapping between signature algorithms and key types.  
- * | Algorithm | Key Spec |
- * | --------- | -------- |
- * | RSA_PKCS1_SHA_256 | RSA_2048 |
- * | RSA_PSS_SHA_256 | RSA_2048 |
- * | ECDSA_SHA_256 | EC_P256 |
- * | SM2DSA | EC_SM2 |
- * In this example, the certificate whose ID is `12345678-1234-1234-1234-12345678****` and the signature algorithm `ECDSA_SHA_256` are used to verify the digital signature `ZOyIygCyaOW6Gj****MlNKiuyjfzw=` of the raw data `VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZy4=`.
- *
- * @param request CertificatePublicKeyVerifyRequest
- * @return CertificatePublicKeyVerifyResponse
- */
-CertificatePublicKeyVerifyResponse Client::certificatePublicKeyVerify(const CertificatePublicKeyVerifyRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return certificatePublicKeyVerifyWithOptions(request, runtime);
 }
 
 /**
@@ -684,23 +536,23 @@ ConnectKmsInstanceResponse Client::connectKmsInstanceWithOptions(const ConnectKm
   request.validate();
   json query = {};
   if (!!request.hasKMProvider()) {
-    query["KMProvider"] = request.KMProvider();
+    query["KMProvider"] = request.getKMProvider();
   }
 
   if (!!request.hasKmsInstanceId()) {
-    query["KmsInstanceId"] = request.kmsInstanceId();
+    query["KmsInstanceId"] = request.getKmsInstanceId();
   }
 
   if (!!request.hasVSwitchIds()) {
-    query["VSwitchIds"] = request.vSwitchIds();
+    query["VSwitchIds"] = request.getVSwitchIds();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasZoneIds()) {
-    query["ZoneIds"] = request.zoneIds();
+    query["ZoneIds"] = request.getZoneIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -735,6 +587,8 @@ ConnectKmsInstanceResponse Client::connectKmsInstance(const ConnectKmsInstanceRe
 }
 
 /**
+ * @summary Creates an alias for a key.
+ *
  * @description *   Each alias can be bound to only one CMK at a time.
  * *   The aliases of CMKs in the same region must be unique.
  * In this topic, an alias named `alias/example` is created for a CMK named `7906979c-8e06-46a2-be2d-68e3ccbc****`.
@@ -747,11 +601,11 @@ CreateAliasResponse Client::createAliasWithOptions(const CreateAliasRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAliasName()) {
-    query["AliasName"] = request.aliasName();
+    query["AliasName"] = request.getAliasName();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -772,6 +626,8 @@ CreateAliasResponse Client::createAliasWithOptions(const CreateAliasRequest &req
 }
 
 /**
+ * @summary Creates an alias for a key.
+ *
  * @description *   Each alias can be bound to only one CMK at a time.
  * *   The aliases of CMKs in the same region must be unique.
  * In this topic, an alias named `alias/example` is created for a CMK named `7906979c-8e06-46a2-be2d-68e3ccbc****`.
@@ -801,19 +657,19 @@ CreateApplicationAccessPointResponse Client::createApplicationAccessPointWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAuthenticationMethod()) {
-    query["AuthenticationMethod"] = request.authenticationMethod();
+    query["AuthenticationMethod"] = request.getAuthenticationMethod();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPolicies()) {
-    query["Policies"] = request.policies();
+    query["Policies"] = request.getPolicies();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -869,19 +725,19 @@ CreateClientKeyResponse Client::createClientKeyWithOptions(const CreateClientKey
   request.validate();
   json query = {};
   if (!!request.hasAapName()) {
-    query["AapName"] = request.aapName();
+    query["AapName"] = request.getAapName();
   }
 
   if (!!request.hasNotAfter()) {
-    query["NotAfter"] = request.notAfter();
+    query["NotAfter"] = request.getNotAfter();
   }
 
   if (!!request.hasNotBefore()) {
-    query["NotBefore"] = request.notBefore();
+    query["NotBefore"] = request.getNotBefore();
   }
 
   if (!!request.hasPassword()) {
-    query["Password"] = request.password();
+    query["Password"] = request.getPassword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -921,9 +777,10 @@ CreateClientKeyResponse Client::createClientKey(const CreateClientKeyRequest &re
 }
 
 /**
- * @summary Creates a customer master key (CMK).
+ * @summary Creates a customer master key (CMK) for envelope encryption, digital signatures, or other cryptographic operations.
  *
- * @description KMS supports common symmetric keys and asymmetric keys. For more information, see [Key types and specifications](https://help.aliyun.com/document_detail/480161.html).
+ * @description - For information about the access policies required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Alibaba Cloud Key Management Service (KMS) supports common specifications for symmetric and asymmetric keys. For more information, see [Key management types and key specifications](https://help.aliyun.com/document_detail/480161.html).
  *
  * @param request CreateKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -933,47 +790,47 @@ CreateKeyResponse Client::createKeyWithOptions(const CreateKeyRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasDKMSInstanceId()) {
-    query["DKMSInstanceId"] = request.DKMSInstanceId();
+    query["DKMSInstanceId"] = request.getDKMSInstanceId();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnableAutomaticRotation()) {
-    query["EnableAutomaticRotation"] = request.enableAutomaticRotation();
+    query["EnableAutomaticRotation"] = request.getEnableAutomaticRotation();
   }
 
   if (!!request.hasKeySpec()) {
-    query["KeySpec"] = request.keySpec();
+    query["KeySpec"] = request.getKeySpec();
   }
 
   if (!!request.hasKeyStorageMechanism()) {
-    query["KeyStorageMechanism"] = request.keyStorageMechanism();
+    query["KeyStorageMechanism"] = request.getKeyStorageMechanism();
   }
 
   if (!!request.hasKeyUsage()) {
-    query["KeyUsage"] = request.keyUsage();
+    query["KeyUsage"] = request.getKeyUsage();
   }
 
   if (!!request.hasOrigin()) {
-    query["Origin"] = request.origin();
+    query["Origin"] = request.getOrigin();
   }
 
   if (!!request.hasPolicy()) {
-    query["Policy"] = request.policy();
+    query["Policy"] = request.getPolicy();
   }
 
   if (!!request.hasProtectionLevel()) {
-    query["ProtectionLevel"] = request.protectionLevel();
+    query["ProtectionLevel"] = request.getProtectionLevel();
   }
 
   if (!!request.hasRotationInterval()) {
-    query["RotationInterval"] = request.rotationInterval();
+    query["RotationInterval"] = request.getRotationInterval();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -994,9 +851,10 @@ CreateKeyResponse Client::createKeyWithOptions(const CreateKeyRequest &request, 
 }
 
 /**
- * @summary Creates a customer master key (CMK).
+ * @summary Creates a customer master key (CMK) for envelope encryption, digital signatures, or other cryptographic operations.
  *
- * @description KMS supports common symmetric keys and asymmetric keys. For more information, see [Key types and specifications](https://help.aliyun.com/document_detail/480161.html).
+ * @description - For information about the access policies required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Alibaba Cloud Key Management Service (KMS) supports common specifications for symmetric and asymmetric keys. For more information, see [Key management types and key specifications](https://help.aliyun.com/document_detail/480161.html).
  *
  * @param request CreateKeyRequest
  * @return CreateKeyResponse
@@ -1007,13 +865,14 @@ CreateKeyResponse Client::createKey(const CreateKeyRequest &request) {
 }
 
 /**
- * @summary 为密钥创建新的密钥版本。
+ * @summary Creates a version for a customer master key (CMK).
  *
- * @description *   You can create a version only for an asymmetric CMK that is in the Enabled state. You can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation to create an asymmetric CMK and the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK. The status is specified by the KeyState parameter.
- * *   The minimum interval for creating a version of the same CMK is seven days. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the time when the last version of a CMK was created. The time is specified by the LastRotationDate parameter.
- * *   If a CMK is in a private key store, you cannot create a version for the CMK.
- * *   You can create a maximum of 50 versions for a CMK in the same region.
+ * @description - You can create a version only for an asymmetric CMK that is in the Enabled state. You can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation to create an asymmetric CMK and the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK. The status is specified by the KeyState parameter.
+ * - The minimum interval for creating a version of the same CMK is seven days. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the time when the last version of a CMK was created. The time is specified by the LastRotationDate parameter.
+ * - If a CMK is in a private key store, you cannot create a version for the CMK.
+ * - You can create a maximum of 50 versions for a CMK in the same region.
  * You can create a version for the CMK whose ID is `0b30658a-ed1a-4922-b8f7-a673ca9c****` by using the parameter settings provided in this topic.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request CreateKeyVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1023,7 +882,7 @@ CreateKeyVersionResponse Client::createKeyVersionWithOptions(const CreateKeyVers
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1044,13 +903,14 @@ CreateKeyVersionResponse Client::createKeyVersionWithOptions(const CreateKeyVers
 }
 
 /**
- * @summary 为密钥创建新的密钥版本。
+ * @summary Creates a version for a customer master key (CMK).
  *
- * @description *   You can create a version only for an asymmetric CMK that is in the Enabled state. You can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation to create an asymmetric CMK and the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK. The status is specified by the KeyState parameter.
- * *   The minimum interval for creating a version of the same CMK is seven days. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the time when the last version of a CMK was created. The time is specified by the LastRotationDate parameter.
- * *   If a CMK is in a private key store, you cannot create a version for the CMK.
- * *   You can create a maximum of 50 versions for a CMK in the same region.
+ * @description - You can create a version only for an asymmetric CMK that is in the Enabled state. You can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation to create an asymmetric CMK and the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK. The status is specified by the KeyState parameter.
+ * - The minimum interval for creating a version of the same CMK is seven days. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the time when the last version of a CMK was created. The time is specified by the LastRotationDate parameter.
+ * - If a CMK is in a private key store, you cannot create a version for the CMK.
+ * - You can create a maximum of 50 versions for a CMK in the same region.
  * You can create a version for the CMK whose ID is `0b30658a-ed1a-4922-b8f7-a673ca9c****` by using the parameter settings provided in this topic.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request CreateKeyVersionRequest
  * @return CreateKeyVersionResponse
@@ -1061,7 +921,7 @@ CreateKeyVersionResponse Client::createKeyVersion(const CreateKeyVersionRequest 
 }
 
 /**
- * @summary Creates an access control rule to configure the private IP addresses or CIDR blocks that are allowed to access a Key Management Service (KMS) instance.
+ * @summary Creates a network access rule to configure the private IP addresses or private CIDR blocks that are allowed to access a Key Management Service (KMS) instance.
  *
  * @description To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a KMS instance. The following process shows how to create a client key-based application access point (AAP):
  * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance.
@@ -1077,19 +937,19 @@ CreateNetworkRuleResponse Client::createNetworkRuleWithOptions(const CreateNetwo
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasSourcePrivateIp()) {
-    query["SourcePrivateIp"] = request.sourcePrivateIp();
+    query["SourcePrivateIp"] = request.getSourcePrivateIp();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1110,7 +970,7 @@ CreateNetworkRuleResponse Client::createNetworkRuleWithOptions(const CreateNetwo
 }
 
 /**
- * @summary Creates an access control rule to configure the private IP addresses or CIDR blocks that are allowed to access a Key Management Service (KMS) instance.
+ * @summary Creates a network access rule to configure the private IP addresses or private CIDR blocks that are allowed to access a Key Management Service (KMS) instance.
  *
  * @description To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a KMS instance. The following process shows how to create a client key-based application access point (AAP):
  * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance.
@@ -1143,27 +1003,27 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasAccessControlRules()) {
-    query["AccessControlRules"] = request.accessControlRules();
+    query["AccessControlRules"] = request.getAccessControlRules();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasKmsInstance()) {
-    query["KmsInstance"] = request.kmsInstance();
+    query["KmsInstance"] = request.getKmsInstance();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPermissions()) {
-    query["Permissions"] = request.permissions();
+    query["Permissions"] = request.getPermissions();
   }
 
   if (!!request.hasResources()) {
-    query["Resources"] = request.resources();
+    query["Resources"] = request.getResources();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1201,13 +1061,14 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary 创建凭据并存入凭据的初始版本。
+ * @summary Creates a secret and stores its initial version.
  *
- * @description The name of the secret.
- * The value must be 1 to 64 characters in length and can contain letters, digits, underscores (_), forward slashes (/), plus signs (+), equal signs (=), periods (.), hyphens (-), and at signs (@). The following list describes the name requirements for different types of secrets:
- * *   If the SecretType parameter is set to Generic or Rds, the name cannot start with `acs/`.
- * *   If the SecretType parameter is set to RAMCredentials, set the SecretName parameter to `$Auto`. In this case, KMS automatically generates a secret name that starts with `acs/ram/user/`. The name includes the display name of RAM user.
- * *   If the SecretType parameter is set to ECS, the name must start with `acs/ecs/`.
+ * @description - For information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Specify the secret name, the secret value for the initial version, and the version number. The initial version is marked with the ACSCurrent stage label.
+ * - Key Management Service (KMS) uses the key that you specify to encrypt the secret value. The key and the secret must be in the same KMS instance. The key must be a symmetric key.
+ *   > KMS encrypts the secret value of each version. Metadata such as the secret name, version number, and version stage labels are not encrypted.
+ * - Before you encrypt the secret value, you must have the `kms:GenerateDataKey` permission on the key.
+ * This topic provides an example of how to create an RDS secret. The secret is named `mydbconninfo`. The `VersionId` of the initial version is `v1`. The `SecretData` is `{"Accounts":[{"AccountName":"user1","AccountPassword":"****"}]}`.
  *
  * @param tmpReq CreateSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1218,60 +1079,60 @@ CreateSecretResponse Client::createSecretWithOptions(const CreateSecretRequest &
   CreateSecretShrinkRequest request = CreateSecretShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExtendedConfig()) {
-    request.setExtendedConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extendedConfig(), "ExtendedConfig", "json"));
+    request.setExtendedConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtendedConfig(), "ExtendedConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasDKMSInstanceId()) {
-    query["DKMSInstanceId"] = request.DKMSInstanceId();
+    query["DKMSInstanceId"] = request.getDKMSInstanceId();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnableAutomaticRotation()) {
-    query["EnableAutomaticRotation"] = request.enableAutomaticRotation();
+    query["EnableAutomaticRotation"] = request.getEnableAutomaticRotation();
   }
 
   if (!!request.hasEncryptionKeyId()) {
-    query["EncryptionKeyId"] = request.encryptionKeyId();
+    query["EncryptionKeyId"] = request.getEncryptionKeyId();
   }
 
   if (!!request.hasExtendedConfigShrink()) {
-    query["ExtendedConfig"] = request.extendedConfigShrink();
+    query["ExtendedConfig"] = request.getExtendedConfigShrink();
   }
 
   if (!!request.hasPolicy()) {
-    query["Policy"] = request.policy();
+    query["Policy"] = request.getPolicy();
   }
 
   if (!!request.hasRotationInterval()) {
-    query["RotationInterval"] = request.rotationInterval();
+    query["RotationInterval"] = request.getRotationInterval();
   }
 
   if (!!request.hasSecretData()) {
-    query["SecretData"] = request.secretData();
+    query["SecretData"] = request.getSecretData();
   }
 
   if (!!request.hasSecretDataType()) {
-    query["SecretDataType"] = request.secretDataType();
+    query["SecretDataType"] = request.getSecretDataType();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasSecretType()) {
-    query["SecretType"] = request.secretType();
+    query["SecretType"] = request.getSecretType();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1292,13 +1153,14 @@ CreateSecretResponse Client::createSecretWithOptions(const CreateSecretRequest &
 }
 
 /**
- * @summary 创建凭据并存入凭据的初始版本。
+ * @summary Creates a secret and stores its initial version.
  *
- * @description The name of the secret.
- * The value must be 1 to 64 characters in length and can contain letters, digits, underscores (_), forward slashes (/), plus signs (+), equal signs (=), periods (.), hyphens (-), and at signs (@). The following list describes the name requirements for different types of secrets:
- * *   If the SecretType parameter is set to Generic or Rds, the name cannot start with `acs/`.
- * *   If the SecretType parameter is set to RAMCredentials, set the SecretName parameter to `$Auto`. In this case, KMS automatically generates a secret name that starts with `acs/ram/user/`. The name includes the display name of RAM user.
- * *   If the SecretType parameter is set to ECS, the name must start with `acs/ecs/`.
+ * @description - For information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Specify the secret name, the secret value for the initial version, and the version number. The initial version is marked with the ACSCurrent stage label.
+ * - Key Management Service (KMS) uses the key that you specify to encrypt the secret value. The key and the secret must be in the same KMS instance. The key must be a symmetric key.
+ *   > KMS encrypts the secret value of each version. Metadata such as the secret name, version number, and version stage labels are not encrypted.
+ * - Before you encrypt the secret value, you must have the `kms:GenerateDataKey` permission on the key.
+ * This topic provides an example of how to create an RDS secret. The secret is named `mydbconninfo`. The `VersionId` of the initial version is `v1`. The `SecretData` is `{"Accounts":[{"AccountName":"user1","AccountPassword":"****"}]}`.
  *
  * @param request CreateSecretRequest
  * @return CreateSecretResponse
@@ -1309,7 +1171,16 @@ CreateSecretResponse Client::createSecret(const CreateSecretRequest &request) {
 }
 
 /**
- * @summary 调用Decrypt接口解密CiphertextBlob中的密文。
+ * @summary Decrypts ciphertext that was encrypted by using a CMK.
+ *
+ * @description ### Precautions
+ * - For information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or using a VPC domain name. To use a shared gateway, you must enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - Shared gateway: The queries per second (QPS) limit for a single user for this operation is 1,000. If this limit is exceeded, API calls are throttled, which may affect your business. We recommend that you plan your calls accordingly.
+ * - Dedicated gateway: The QPS limit for a single user for this operation is subject to the performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
  *
  * @param tmpReq DecryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1320,20 +1191,24 @@ DecryptResponse Client::decryptWithOptions(const DecryptRequest &tmpReq, const D
   DecryptShrinkRequest request = DecryptShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEncryptionContext()) {
-    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext(), "EncryptionContext", "json"));
+    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEncryptionContext(), "EncryptionContext", "json"));
   }
 
   json query = {};
   if (!!request.hasCiphertextBlob()) {
-    query["CiphertextBlob"] = request.ciphertextBlob();
+    query["CiphertextBlob"] = request.getCiphertextBlob();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEncryptionContextShrink()) {
-    query["EncryptionContext"] = request.encryptionContextShrink();
+    query["EncryptionContext"] = request.getEncryptionContextShrink();
+  }
+
+  if (!!request.hasRecipient()) {
+    query["Recipient"] = request.getRecipient();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1354,7 +1229,16 @@ DecryptResponse Client::decryptWithOptions(const DecryptRequest &tmpReq, const D
 }
 
 /**
- * @summary 调用Decrypt接口解密CiphertextBlob中的密文。
+ * @summary Decrypts ciphertext that was encrypted by using a CMK.
+ *
+ * @description ### Precautions
+ * - For information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or using a VPC domain name. To use a shared gateway, you must enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - Shared gateway: The queries per second (QPS) limit for a single user for this operation is 1,000. If this limit is exceeded, API calls are throttled, which may affect your business. We recommend that you plan your calls accordingly.
+ * - Dedicated gateway: The QPS limit for a single user for this operation is subject to the performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
  *
  * @param request DecryptRequest
  * @return DecryptResponse
@@ -1365,6 +1249,8 @@ DecryptResponse Client::decrypt(const DecryptRequest &request) {
 }
 
 /**
+ * @summary Deletes an alias.
+ *
  * @param request DeleteAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAliasResponse
@@ -1373,7 +1259,7 @@ DeleteAliasResponse Client::deleteAliasWithOptions(const DeleteAliasRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAliasName()) {
-    query["AliasName"] = request.aliasName();
+    query["AliasName"] = request.getAliasName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1394,6 +1280,8 @@ DeleteAliasResponse Client::deleteAliasWithOptions(const DeleteAliasRequest &req
 }
 
 /**
+ * @summary Deletes an alias.
+ *
  * @param request DeleteAliasRequest
  * @return DeleteAliasResponse
  */
@@ -1405,7 +1293,8 @@ DeleteAliasResponse Client::deleteAlias(const DeleteAliasRequest &request) {
 /**
  * @summary Deletes an application access point (AAP).
  *
- * @description Before you delete an AAP, make sure that the AAP is no longer in use. If you delete an AAP that is in use, applications that use the AAP cannot access Key Management Service (KMS). Exercise caution when you delete an AAP.
+ * @description - For information about the access policy that a RAM user or RAM role requires to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Before you delete an AAP, make sure that it is no longer in use. If you delete an AAP that is in use, related applications cannot access KMS. Proceed with caution.
  *
  * @param request DeleteApplicationAccessPointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1415,7 +1304,7 @@ DeleteApplicationAccessPointResponse Client::deleteApplicationAccessPointWithOpt
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1438,7 +1327,8 @@ DeleteApplicationAccessPointResponse Client::deleteApplicationAccessPointWithOpt
 /**
  * @summary Deletes an application access point (AAP).
  *
- * @description Before you delete an AAP, make sure that the AAP is no longer in use. If you delete an AAP that is in use, applications that use the AAP cannot access Key Management Service (KMS). Exercise caution when you delete an AAP.
+ * @description - For information about the access policy that a RAM user or RAM role requires to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Before you delete an AAP, make sure that it is no longer in use. If you delete an AAP that is in use, related applications cannot access KMS. Proceed with caution.
  *
  * @param request DeleteApplicationAccessPointRequest
  * @return DeleteApplicationAccessPointResponse
@@ -1449,51 +1339,10 @@ DeleteApplicationAccessPointResponse Client::deleteApplicationAccessPoint(const 
 }
 
 /**
- * @description After the certificate and its private key and certificate chain are deleted, they cannot be restored. Proceed with caution.
- * In this example, the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` and its private key and certificate chain are deleted.
+ * @summary Deletes a client key.
  *
- * @param request DeleteCertificateRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DeleteCertificateResponse
- */
-DeleteCertificateResponse Client::deleteCertificateWithOptions(const DeleteCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DeleteCertificate"},
-    {"version" , "2016-01-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DeleteCertificateResponse>();
-}
-
-/**
- * @description After the certificate and its private key and certificate chain are deleted, they cannot be restored. Proceed with caution.
- * In this example, the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` and its private key and certificate chain are deleted.
- *
- * @param request DeleteCertificateRequest
- * @return DeleteCertificateResponse
- */
-DeleteCertificateResponse Client::deleteCertificate(const DeleteCertificateRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return deleteCertificateWithOptions(request, runtime);
-}
-
-/**
- * @description Before you delete a client key, make sure that the client key is no longer in use. If you delete a client key that is in use, applications that use the client key cannot access Key Management Service (KMS). Exercise caution when you delete a client key.
+ * @description - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Before you delete a ClientKey, make sure that it is no longer in use. Deleting a ClientKey that is in use prevents related applications from accessing KMS. Proceed with caution.
  *
  * @param request DeleteClientKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1503,7 +1352,7 @@ DeleteClientKeyResponse Client::deleteClientKeyWithOptions(const DeleteClientKey
   request.validate();
   json query = {};
   if (!!request.hasClientKeyId()) {
-    query["ClientKeyId"] = request.clientKeyId();
+    query["ClientKeyId"] = request.getClientKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1524,7 +1373,10 @@ DeleteClientKeyResponse Client::deleteClientKeyWithOptions(const DeleteClientKey
 }
 
 /**
- * @description Before you delete a client key, make sure that the client key is no longer in use. If you delete a client key that is in use, applications that use the client key cannot access Key Management Service (KMS). Exercise caution when you delete a client key.
+ * @summary Deletes a client key.
+ *
+ * @description - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Before you delete a ClientKey, make sure that it is no longer in use. Deleting a ClientKey that is in use prevents related applications from accessing KMS. Proceed with caution.
  *
  * @param request DeleteClientKeyRequest
  * @return DeleteClientKeyResponse
@@ -1535,9 +1387,12 @@ DeleteClientKeyResponse Client::deleteClientKey(const DeleteClientKeyRequest &re
 }
 
 /**
+ * @summary Deletes the imported key material from a CMK. After deletion, the CMK enters the PendingImport state until you re-import key material.
+ *
  * @description This operation does not delete the CMK that is created by using the key material.
  * If the CMK is in the PendingDeletion state, the state of the CMK and the scheduled deletion time do not change after you call this operation. If the CMK is not in the PendingDeletion state, the state of the CMK changes to PendingImport after you call this operation.
  * After you delete the key material, you can upload only the same key material into the CMK.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DeleteKeyMaterialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1547,7 +1402,7 @@ DeleteKeyMaterialResponse Client::deleteKeyMaterialWithOptions(const DeleteKeyMa
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1568,9 +1423,12 @@ DeleteKeyMaterialResponse Client::deleteKeyMaterialWithOptions(const DeleteKeyMa
 }
 
 /**
+ * @summary Deletes the imported key material from a CMK. After deletion, the CMK enters the PendingImport state until you re-import key material.
+ *
  * @description This operation does not delete the CMK that is created by using the key material.
  * If the CMK is in the PendingDeletion state, the state of the CMK and the scheduled deletion time do not change after you call this operation. If the CMK is not in the PendingDeletion state, the state of the CMK changes to PendingImport after you call this operation.
  * After you delete the key material, you can upload only the same key material into the CMK.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DeleteKeyMaterialRequest
  * @return DeleteKeyMaterialResponse
@@ -1583,7 +1441,8 @@ DeleteKeyMaterialResponse Client::deleteKeyMaterial(const DeleteKeyMaterialReque
 /**
  * @summary Deletes a network access rule.
  *
- * @description Before you delete a network access rule, make sure that the network access rule is not bound to permission policies. Otherwise, related applications cannot access Key Management Service (KMS).
+ * @description - For information about the access policy that is required to call this OpenAPI as a Resource Access Management (RAM) user or RAM role, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Before deleting the network control rule, ensure that it is not attached to any access policies. Otherwise, related applications cannot access KMS as expected.
  *
  * @param request DeleteNetworkRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1593,7 +1452,7 @@ DeleteNetworkRuleResponse Client::deleteNetworkRuleWithOptions(const DeleteNetwo
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1616,7 +1475,8 @@ DeleteNetworkRuleResponse Client::deleteNetworkRuleWithOptions(const DeleteNetwo
 /**
  * @summary Deletes a network access rule.
  *
- * @description Before you delete a network access rule, make sure that the network access rule is not bound to permission policies. Otherwise, related applications cannot access Key Management Service (KMS).
+ * @description - For information about the access policy that is required to call this OpenAPI as a Resource Access Management (RAM) user or RAM role, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Before deleting the network control rule, ensure that it is not attached to any access policies. Otherwise, related applications cannot access KMS as expected.
  *
  * @param request DeleteNetworkRuleRequest
  * @return DeleteNetworkRuleResponse
@@ -1639,7 +1499,7 @@ DeletePolicyResponse Client::deletePolicyWithOptions(const DeletePolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1673,6 +1533,8 @@ DeletePolicyResponse Client::deletePolicy(const DeletePolicyRequest &request) {
 }
 
 /**
+ * @summary Deletes a secret.
+ *
  * @description If you call this operation without specifying a recovery period, the deleted secret can be recovered within 30 days.
  * If you specify a recovery period, the deleted secret can be recovered within the recovery period. You can also forcibly delete a secret. A forcibly deleted secret cannot be recovered.
  *
@@ -1684,15 +1546,15 @@ DeleteSecretResponse Client::deleteSecretWithOptions(const DeleteSecretRequest &
   request.validate();
   json query = {};
   if (!!request.hasForceDeleteWithoutRecovery()) {
-    query["ForceDeleteWithoutRecovery"] = request.forceDeleteWithoutRecovery();
+    query["ForceDeleteWithoutRecovery"] = request.getForceDeleteWithoutRecovery();
   }
 
   if (!!request.hasRecoveryWindowInDays()) {
-    query["RecoveryWindowInDays"] = request.recoveryWindowInDays();
+    query["RecoveryWindowInDays"] = request.getRecoveryWindowInDays();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1713,6 +1575,8 @@ DeleteSecretResponse Client::deleteSecretWithOptions(const DeleteSecretRequest &
 }
 
 /**
+ * @summary Deletes a secret.
+ *
  * @description If you call this operation without specifying a recovery period, the deleted secret can be recovered within 30 days.
  * If you specify a recovery period, the deleted secret can be recovered within the recovery period. You can also forcibly delete a secret. A forcibly deleted secret cannot be recovered.
  *
@@ -1725,7 +1589,10 @@ DeleteSecretResponse Client::deleteSecret(const DeleteSecretRequest &request) {
 }
 
 /**
- * @param request DescribeAccountKmsStatusRequest
+ * @summary Queries the status of Key Management Service (KMS) within your Alibaba Cloud account.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAccountKmsStatusResponse
  */
@@ -1746,6 +1613,10 @@ DescribeAccountKmsStatusResponse Client::describeAccountKmsStatusWithOptions(con
 }
 
 /**
+ * @summary Queries the status of Key Management Service (KMS) within your Alibaba Cloud account.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @return DescribeAccountKmsStatusResponse
  */
 DescribeAccountKmsStatusResponse Client::describeAccountKmsStatus() {
@@ -1754,7 +1625,9 @@ DescribeAccountKmsStatusResponse Client::describeAccountKmsStatus() {
 }
 
 /**
- * @summary Queries the details of an application access point (AAP).
+ * @summary Retrieves the details of an application access point (AAP).
+ *
+ * @description For information about the access policy that a Resource Access Management (RAM) user or RAM role must have to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeApplicationAccessPointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1764,7 +1637,7 @@ DescribeApplicationAccessPointResponse Client::describeApplicationAccessPointWit
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1785,7 +1658,9 @@ DescribeApplicationAccessPointResponse Client::describeApplicationAccessPointWit
 }
 
 /**
- * @summary Queries the details of an application access point (AAP).
+ * @summary Retrieves the details of an application access point (AAP).
+ *
+ * @description For information about the access policy that a Resource Access Management (RAM) user or RAM role must have to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeApplicationAccessPointRequest
  * @return DescribeApplicationAccessPointResponse
@@ -1796,51 +1671,10 @@ DescribeApplicationAccessPointResponse Client::describeApplicationAccessPoint(co
 }
 
 /**
- * @description In this example, the information about the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is queried. The certificate information includes the certificate ID, creation time, certificate issuer, validity period, serial number, and signature algorithm.
- *
- * @param request DescribeCertificateRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeCertificateResponse
- */
-DescribeCertificateResponse Client::describeCertificateWithOptions(const DescribeCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeCertificate"},
-    {"version" , "2016-01-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeCertificateResponse>();
-}
-
-/**
- * @description In this example, the information about the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is queried. The certificate information includes the certificate ID, creation time, certificate issuer, validity period, serial number, and signature algorithm.
- *
- * @param request DescribeCertificateRequest
- * @return DescribeCertificateResponse
- */
-DescribeCertificateResponse Client::describeCertificate(const DescribeCertificateRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeCertificateWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries the information about a customer master key (CMK).
+ * @summary Queries the metadata of a CMK, such as the key state, usage, and rotation configuration.
  *
  * @description You can query the information about the CMK `05754286-3ba2-4fa6-8d41-4323aca6****` by using parameter settings provided in this topic. The information includes the creator, creation time, status, and deletion protection status of the CMK.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1850,7 +1684,7 @@ DescribeKeyResponse Client::describeKeyWithOptions(const DescribeKeyRequest &req
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1871,9 +1705,10 @@ DescribeKeyResponse Client::describeKeyWithOptions(const DescribeKeyRequest &req
 }
 
 /**
- * @summary Queries the information about a customer master key (CMK).
+ * @summary Queries the metadata of a CMK, such as the key state, usage, and rotation configuration.
  *
  * @description You can query the information about the CMK `05754286-3ba2-4fa6-8d41-4323aca6****` by using parameter settings provided in this topic. The information includes the creator, creation time, status, and deletion protection status of the CMK.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeKeyRequest
  * @return DescribeKeyResponse
@@ -1884,7 +1719,10 @@ DescribeKeyResponse Client::describeKey(const DescribeKeyRequest &request) {
 }
 
 /**
+ * @summary Queries the metadata of a specific CMK version.
+ *
  * @description This topic provides an example on how to query the information about a version of the CMK `1234abcd-12ab-34cd-56ef-12345678****`. The ID of the CMK version is `2ab1a983-7072-4bbc-a582-584b5bd8****`. The response shows that the creation time of the CMK version is `2016-03-25T10:42:40Z`.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeKeyVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1894,11 +1732,11 @@ DescribeKeyVersionResponse Client::describeKeyVersionWithOptions(const DescribeK
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeyVersionId()) {
-    query["KeyVersionId"] = request.keyVersionId();
+    query["KeyVersionId"] = request.getKeyVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1919,7 +1757,10 @@ DescribeKeyVersionResponse Client::describeKeyVersionWithOptions(const DescribeK
 }
 
 /**
+ * @summary Queries the metadata of a specific CMK version.
+ *
  * @description This topic provides an example on how to query the information about a version of the CMK `1234abcd-12ab-34cd-56ef-12345678****`. The ID of the CMK version is `2ab1a983-7072-4bbc-a582-584b5bd8****`. The response shows that the creation time of the CMK version is `2016-03-25T10:42:40Z`.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeKeyVersionRequest
  * @return DescribeKeyVersionResponse
@@ -1930,7 +1771,9 @@ DescribeKeyVersionResponse Client::describeKeyVersion(const DescribeKeyVersionRe
 }
 
 /**
- * @summary Queries the details of an access control rule.
+ * @summary Retrieves the details of a network access rule.
+ *
+ * @description For information about the required access policy for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeNetworkRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1940,7 +1783,7 @@ DescribeNetworkRuleResponse Client::describeNetworkRuleWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1961,7 +1804,9 @@ DescribeNetworkRuleResponse Client::describeNetworkRuleWithOptions(const Describ
 }
 
 /**
- * @summary Queries the details of an access control rule.
+ * @summary Retrieves the details of a network access rule.
+ *
+ * @description For information about the required access policy for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribeNetworkRuleRequest
  * @return DescribeNetworkRuleResponse
@@ -1972,7 +1817,9 @@ DescribeNetworkRuleResponse Client::describeNetworkRule(const DescribeNetworkRul
 }
 
 /**
- * @summary Queries the details of a permission policy.
+ * @summary Retrieves the details of a permission policy.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1982,7 +1829,7 @@ DescribePolicyResponse Client::describePolicyWithOptions(const DescribePolicyReq
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2003,7 +1850,9 @@ DescribePolicyResponse Client::describePolicyWithOptions(const DescribePolicyReq
 }
 
 /**
- * @summary Queries the details of a permission policy.
+ * @summary Retrieves the details of a permission policy.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request DescribePolicyRequest
  * @return DescribePolicyResponse
@@ -2014,12 +1863,8 @@ DescribePolicyResponse Client::describePolicy(const DescribePolicyRequest &reque
 }
 
 /**
- * @summary Queries available regions.
+ * @summary Queries the regions where KMS is available.
  *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Kms\\&api=DescribeRegions\\&type=RPC\\&version=2016-01-20)
- *
- * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
  */
@@ -2040,10 +1885,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const Darabonba::Runt
 }
 
 /**
- * @summary Queries available regions.
- *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Kms\\&api=DescribeRegions\\&type=RPC\\&version=2016-01-20)
+ * @summary Queries the regions where KMS is available.
  *
  * @return DescribeRegionsResponse
  */
@@ -2053,6 +1895,8 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
+ * @summary Queries the metadata of a secret.
+ *
  * @description This operation returns the metadata of a secret. This operation does not return the secret value.
  * In this example, the metadata of the secret named `secret001` is queried.
  *
@@ -2064,11 +1908,11 @@ DescribeSecretResponse Client::describeSecretWithOptions(const DescribeSecretReq
   request.validate();
   json query = {};
   if (!!request.hasFetchTags()) {
-    query["FetchTags"] = request.fetchTags();
+    query["FetchTags"] = request.getFetchTags();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2089,6 +1933,8 @@ DescribeSecretResponse Client::describeSecretWithOptions(const DescribeSecretReq
 }
 
 /**
+ * @summary Queries the metadata of a secret.
+ *
  * @description This operation returns the metadata of a secret. This operation does not return the secret value.
  * In this example, the metadata of the secret named `secret001` is queried.
  *
@@ -2101,6 +1947,8 @@ DescribeSecretResponse Client::describeSecret(const DescribeSecretRequest &reque
 }
 
 /**
+ * @summary Disables a key.
+ *
  * @description If a customer master key (CMK) is disabled, the ciphertext encrypted by using this CMK cannot be decrypted until you re-enable it. You can call the [EnableKey](https://help.aliyun.com/document_detail/35150.html) operation to enable the CMK.
  * In this example, the CMK whose ID is `1234abcd-12ab-34cd-56ef-12345678****` is disabled.
  *
@@ -2112,7 +1960,7 @@ DisableKeyResponse Client::disableKeyWithOptions(const DisableKeyRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2133,6 +1981,8 @@ DisableKeyResponse Client::disableKeyWithOptions(const DisableKeyRequest &reques
 }
 
 /**
+ * @summary Disables a key.
+ *
  * @description If a customer master key (CMK) is disabled, the ciphertext encrypted by using this CMK cannot be decrypted until you re-enable it. You can call the [EnableKey](https://help.aliyun.com/document_detail/35150.html) operation to enable the CMK.
  * In this example, the CMK whose ID is `1234abcd-12ab-34cd-56ef-12345678****` is disabled.
  *
@@ -2145,6 +1995,8 @@ DisableKeyResponse Client::disableKey(const DisableKeyRequest &request) {
 }
 
 /**
+ * @summary Enables a key to encrypt and decrypt data.
+ *
  * @param request EnableKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableKeyResponse
@@ -2153,7 +2005,7 @@ EnableKeyResponse Client::enableKeyWithOptions(const EnableKeyRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2174,6 +2026,8 @@ EnableKeyResponse Client::enableKeyWithOptions(const EnableKeyRequest &request, 
 }
 
 /**
+ * @summary Enables a key to encrypt and decrypt data.
+ *
  * @param request EnableKeyRequest
  * @return EnableKeyResponse
  */
@@ -2183,9 +2037,20 @@ EnableKeyResponse Client::enableKey(const EnableKeyRequest &request) {
 }
 
 /**
- * @description *   KMS uses the primary version of a specified CMK to encrypt data.
- * *   Only data of 6 KB or less can be encrypted. For example, you can call this operation to encrypt RSA keys, database access passwords, or other sensitive information.
- * *   When you migrate encrypted data across regions, you can call this operation in the destination region to encrypt the plaintext of the data key that is used to encrypt the migrated data in the source region. This way, the ciphertext of the data key is generated in the destination region. You can also call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the data key.
+ * @summary Encrypts plaintext by using a symmetric CMK.
+ *
+ * @description ### Precautions
+ * - For information about the access policy required to allow a RAM user or RAM role to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To use this method, you must enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - When accessed through a shared gateway, the queries per second (QPS) limit for a single user is 1,000. If the limit is exceeded, requests are throttled, which can affect your business. We recommend that you stay within this limit to avoid throttling.
+ * - When accessed through a dedicated gateway, the QPS limit for a single user is subject to the computing performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * - KMS encrypts the specified data using the primary version of a specified key.
+ * - You can encrypt a maximum of 6 KB of data, such as an RSA key, a database password, or other sensitive information.
+ * - If you migrate encrypted data from one region to another, you can call the Encrypt operation in the destination region to re-encrypt the plaintext data key from the source region. This generates a new encrypted data key. You can then call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt this new key in the destination region.
  *
  * @param tmpReq EncryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2196,24 +2061,24 @@ EncryptResponse Client::encryptWithOptions(const EncryptRequest &tmpReq, const D
   EncryptShrinkRequest request = EncryptShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEncryptionContext()) {
-    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext(), "EncryptionContext", "json"));
+    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEncryptionContext(), "EncryptionContext", "json"));
   }
 
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEncryptionContextShrink()) {
-    query["EncryptionContext"] = request.encryptionContextShrink();
+    query["EncryptionContext"] = request.getEncryptionContextShrink();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasPlaintext()) {
-    query["Plaintext"] = request.plaintext();
+    query["Plaintext"] = request.getPlaintext();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2234,9 +2099,20 @@ EncryptResponse Client::encryptWithOptions(const EncryptRequest &tmpReq, const D
 }
 
 /**
- * @description *   KMS uses the primary version of a specified CMK to encrypt data.
- * *   Only data of 6 KB or less can be encrypted. For example, you can call this operation to encrypt RSA keys, database access passwords, or other sensitive information.
- * *   When you migrate encrypted data across regions, you can call this operation in the destination region to encrypt the plaintext of the data key that is used to encrypt the migrated data in the source region. This way, the ciphertext of the data key is generated in the destination region. You can also call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the data key.
+ * @summary Encrypts plaintext by using a symmetric CMK.
+ *
+ * @description ### Precautions
+ * - For information about the access policy required to allow a RAM user or RAM role to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To use this method, you must enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - When accessed through a shared gateway, the queries per second (QPS) limit for a single user is 1,000. If the limit is exceeded, requests are throttled, which can affect your business. We recommend that you stay within this limit to avoid throttling.
+ * - When accessed through a dedicated gateway, the QPS limit for a single user is subject to the computing performance specifications of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * - KMS encrypts the specified data using the primary version of a specified key.
+ * - You can encrypt a maximum of 6 KB of data, such as an RSA key, a database password, or other sensitive information.
+ * - If you migrate encrypted data from one region to another, you can call the Encrypt operation in the destination region to re-encrypt the plaintext data key from the source region. This generates a new encrypted data key. You can then call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt this new key in the destination region.
  *
  * @param request EncryptRequest
  * @return EncryptResponse
@@ -2247,8 +2123,16 @@ EncryptResponse Client::encrypt(const EncryptRequest &request) {
 }
 
 /**
- * @description You can call the [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html) operation to generate a data key, which is encrypted by a CMK. If you want to distribute the data key to other regions or cryptographic modules, you can call the ExportDataKey operation to use a public key to encrypt the data key.
- * Then, you can import the ciphertext of the data key to the cryptographic module where the private key is stored. This way, the data key is securely distributed from KMS to the cryptographic module. After the data key is imported to the cryptographic module, you can use it to encrypt or decrypt data.
+ * @summary Exports a data key encrypted by a CMK. The data key is re-encrypted by a public key that you specify for secure transmission.
+ *
+ * @description ### Precautions
+ * - For information about the access policy required for a RAM user or RAM role to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS using the public endpoint or a VPC endpoint. To use the public endpoint, you must first enable it. For more information, see [Access the key in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of the KMS instance: `<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`.
+ * ### Description
+ * After you call the [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html) operation to obtain a data key encrypted by a master key (CMK), you can use the ExportDataKey operation to distribute the data key to other regions or cryptographic modules. The ExportDataKey operation returns the ciphertext of the data key, re-encrypted with the specified public key.
+ * You can import the exported ciphertext into the cryptographic module that holds the corresponding private key. This process lets you securely distribute the data key from KMS to a cryptographic module. After the data key is imported into the cryptographic module, you can use it to encrypt or decrypt data.
  *
  * @param tmpReq ExportDataKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2259,32 +2143,32 @@ ExportDataKeyResponse Client::exportDataKeyWithOptions(const ExportDataKeyReques
   ExportDataKeyShrinkRequest request = ExportDataKeyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEncryptionContext()) {
-    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext(), "EncryptionContext", "json"));
+    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEncryptionContext(), "EncryptionContext", "json"));
   }
 
   json query = {};
   if (!!request.hasCiphertextBlob()) {
-    query["CiphertextBlob"] = request.ciphertextBlob();
+    query["CiphertextBlob"] = request.getCiphertextBlob();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEncryptionContextShrink()) {
-    query["EncryptionContext"] = request.encryptionContextShrink();
+    query["EncryptionContext"] = request.getEncryptionContextShrink();
   }
 
   if (!!request.hasPublicKeyBlob()) {
-    query["PublicKeyBlob"] = request.publicKeyBlob();
+    query["PublicKeyBlob"] = request.getPublicKeyBlob();
   }
 
   if (!!request.hasWrappingAlgorithm()) {
-    query["WrappingAlgorithm"] = request.wrappingAlgorithm();
+    query["WrappingAlgorithm"] = request.getWrappingAlgorithm();
   }
 
   if (!!request.hasWrappingKeySpec()) {
-    query["WrappingKeySpec"] = request.wrappingKeySpec();
+    query["WrappingKeySpec"] = request.getWrappingKeySpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2305,8 +2189,16 @@ ExportDataKeyResponse Client::exportDataKeyWithOptions(const ExportDataKeyReques
 }
 
 /**
- * @description You can call the [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html) operation to generate a data key, which is encrypted by a CMK. If you want to distribute the data key to other regions or cryptographic modules, you can call the ExportDataKey operation to use a public key to encrypt the data key.
- * Then, you can import the ciphertext of the data key to the cryptographic module where the private key is stored. This way, the data key is securely distributed from KMS to the cryptographic module. After the data key is imported to the cryptographic module, you can use it to encrypt or decrypt data.
+ * @summary Exports a data key encrypted by a CMK. The data key is re-encrypted by a public key that you specify for secure transmission.
+ *
+ * @description ### Precautions
+ * - For information about the access policy required for a RAM user or RAM role to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS using the public endpoint or a VPC endpoint. To use the public endpoint, you must first enable it. For more information, see [Access the key in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of the KMS instance: `<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`.
+ * ### Description
+ * After you call the [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html) operation to obtain a data key encrypted by a master key (CMK), you can use the ExportDataKey operation to distribute the data key to other regions or cryptographic modules. The ExportDataKey operation returns the ciphertext of the data key, re-encrypted with the specified public key.
+ * You can import the exported ciphertext into the cryptographic module that holds the corresponding private key. This process lets you securely distribute the data key from KMS to a cryptographic module. After the data key is imported into the cryptographic module, you can use it to encrypt or decrypt data.
  *
  * @param request ExportDataKeyRequest
  * @return ExportDataKeyResponse
@@ -2317,11 +2209,19 @@ ExportDataKeyResponse Client::exportDataKey(const ExportDataKeyRequest &request)
 }
 
 /**
- * @description We recommend that you perform the following steps to import your data key to a cryptographic module:
- * *   Call the GenerateAndExportDataKey operation to generate a data key and obtain both the ciphertext of the data key encrypted by using the CMK and that encrypted by using the public key.
- * *   Store the ciphertext of the data key encrypted by using the CMK in KMS Secrets Manager or in a storage service such as ApsaraDB. This ciphertext is used for backup and restoration.
- * *   Import the ciphertext of the data key encrypted by using the public key to the cryptographic module where the private key is stored. Then, you can use the data key to encrypt or decrypt data.
- * >  The CMK that you specify in the request of this operation is only used to encrypt the data key and is not involved in the generation of the data key. KMS does not record or store the data keys randomly generated by calling this operation. You must take note of the data keys and the returned ciphertext.
+ * @summary Generates a random data key, encrypts it by using a CMK and a public key that you specify, and returns both ciphertexts.
+ *
+ * @description ### Notes
+ * - For more information about the access policy required for a RAM user or RAM role to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To access KMS over the Internet, you must enable Internet access. For more information, see [Access KMS instances over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### Description
+ * We recommend that you import the data key to a cryptographic module for data encryption and data decryption as follows:
+ * 1\\. Call the GenerateAndExportDataKey operation to obtain the data key encrypted by a KMS key and a specified public key.
+ * 2\\. Save the ciphertext of the data key that is encrypted by the KMS key to KMS or a storage service, such as ApsaraDB, for key backup and recovery.
+ * 3\\. Import the ciphertext of the data key that is encrypted by the public key to the cryptographic module that contains the corresponding private key. This process distributes the key from KMS to the cryptographic module. You can then use the data key to encrypt and decrypt data.
+ * > The KMS key that you specify in the request is used only to encrypt the data key and is not used to generate the data key. KMS does not record or store the randomly generated data key. You are responsible for recording the data key or its ciphertext.
  *
  * @param tmpReq GenerateAndExportDataKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2332,40 +2232,40 @@ GenerateAndExportDataKeyResponse Client::generateAndExportDataKeyWithOptions(con
   GenerateAndExportDataKeyShrinkRequest request = GenerateAndExportDataKeyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEncryptionContext()) {
-    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext(), "EncryptionContext", "json"));
+    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEncryptionContext(), "EncryptionContext", "json"));
   }
 
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEncryptionContextShrink()) {
-    query["EncryptionContext"] = request.encryptionContextShrink();
+    query["EncryptionContext"] = request.getEncryptionContextShrink();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeySpec()) {
-    query["KeySpec"] = request.keySpec();
+    query["KeySpec"] = request.getKeySpec();
   }
 
   if (!!request.hasNumberOfBytes()) {
-    query["NumberOfBytes"] = request.numberOfBytes();
+    query["NumberOfBytes"] = request.getNumberOfBytes();
   }
 
   if (!!request.hasPublicKeyBlob()) {
-    query["PublicKeyBlob"] = request.publicKeyBlob();
+    query["PublicKeyBlob"] = request.getPublicKeyBlob();
   }
 
   if (!!request.hasWrappingAlgorithm()) {
-    query["WrappingAlgorithm"] = request.wrappingAlgorithm();
+    query["WrappingAlgorithm"] = request.getWrappingAlgorithm();
   }
 
   if (!!request.hasWrappingKeySpec()) {
-    query["WrappingKeySpec"] = request.wrappingKeySpec();
+    query["WrappingKeySpec"] = request.getWrappingKeySpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2386,11 +2286,19 @@ GenerateAndExportDataKeyResponse Client::generateAndExportDataKeyWithOptions(con
 }
 
 /**
- * @description We recommend that you perform the following steps to import your data key to a cryptographic module:
- * *   Call the GenerateAndExportDataKey operation to generate a data key and obtain both the ciphertext of the data key encrypted by using the CMK and that encrypted by using the public key.
- * *   Store the ciphertext of the data key encrypted by using the CMK in KMS Secrets Manager or in a storage service such as ApsaraDB. This ciphertext is used for backup and restoration.
- * *   Import the ciphertext of the data key encrypted by using the public key to the cryptographic module where the private key is stored. Then, you can use the data key to encrypt or decrypt data.
- * >  The CMK that you specify in the request of this operation is only used to encrypt the data key and is not involved in the generation of the data key. KMS does not record or store the data keys randomly generated by calling this operation. You must take note of the data keys and the returned ciphertext.
+ * @summary Generates a random data key, encrypts it by using a CMK and a public key that you specify, and returns both ciphertexts.
+ *
+ * @description ### Notes
+ * - For more information about the access policy required for a RAM user or RAM role to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To access KMS over the Internet, you must enable Internet access. For more information, see [Access KMS instances over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### Description
+ * We recommend that you import the data key to a cryptographic module for data encryption and data decryption as follows:
+ * 1\\. Call the GenerateAndExportDataKey operation to obtain the data key encrypted by a KMS key and a specified public key.
+ * 2\\. Save the ciphertext of the data key that is encrypted by the KMS key to KMS or a storage service, such as ApsaraDB, for key backup and recovery.
+ * 3\\. Import the ciphertext of the data key that is encrypted by the public key to the cryptographic module that contains the corresponding private key. This process distributes the key from KMS to the cryptographic module. You can then use the data key to encrypt and decrypt data.
+ * > The KMS key that you specify in the request is used only to encrypt the data key and is not used to generate the data key. KMS does not record or store the randomly generated data key. You are responsible for recording the data key or its ciphertext.
  *
  * @param request GenerateAndExportDataKeyRequest
  * @return GenerateAndExportDataKeyResponse
@@ -2401,18 +2309,26 @@ GenerateAndExportDataKeyResponse Client::generateAndExportDataKey(const Generate
 }
 
 /**
- * @summary 生成一个数据密钥
+ * @summary Generates a random data key for envelope encryption. The data key is returned in both plaintext and ciphertext forms.
  *
- * @description This operation creates a random data key, encrypts the data key by using the specified customer master key (CMK), and returns the plaintext and ciphertext of the data key. You can use the plaintext of the data key to locally encrypt your data without using KMS and store the encrypted data together with the ciphertext of the data key. You can obtain the plaintext of the data key from the Plaintext parameter in the response and the ciphertext of the data key from the CiphertextBlob parameter in the response.
- * The CMK that you specify in the request of this operation is only used to encrypt the data key and is not involved in the generation of the data key. KMS does not record or store the generated data key. Therefore, you need to store the ciphertext of the data key in persistent storage.
- * We recommend that you locally encrypt data by performing the following steps:
- * 1\\. Call the GenerateDataKey operation.
- * 2\\. Use the plaintext of the data key that you obtain to locally encrypt data without using KMS. Then, delete the plaintext of the data key from the memory.
- * 3\\. Store the encrypted data together with the ciphertext of the data key that you obtain.
- * We recommend that you locally decrypt data by performing the following steps:
- * *   Call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the locally stored ciphertext of the data key. The plaintext of data key is then returned.
- * *   Use the plaintext of the data key to locally decrypt data and then delete the plaintext of the data key from the memory.
- * In this example, a random data key is generated for the CMK whose ID is `7906979c-8e06-46a2-be2d-68e3ccbc****`.
+ * @description - For information about the permissions that are required to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called using a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To access KMS over the Internet, you must enable the public endpoint. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway to call this operation, the queries per second (QPS) limit for a single user is 1,000. If the limit is exceeded, API calls are throttled. This may affect your business. We recommend that you call this operation at a reasonable rate.
+ * - If you use a dedicated gateway to call this operation, the QPS limit for a single user is based on the computing performance of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation generates a random data key, encrypts the data key using the specified customer master key (CMK), and returns the plaintext and ciphertext of the data key. You can use the plaintext of the data key to encrypt data locally and outside of KMS. When you store the encrypted data, you must also store the ciphertext of the data key. You can obtain the plaintext of the data key from the Plaintext field and the ciphertext of the data key from the CiphertextBlob field in the response.
+ * The CMK that you specify in the request is used only to encrypt the data key. It is not involved in the generation of the data key. KMS does not record or store the randomly generated data key. You are responsible for the persistence of the ciphertext of the data key.
+ * We recommend that you perform the following steps to encrypt data locally:
+ * 1\\. Call the GenerateDataKey operation to obtain a data key for data encryption.
+ * 2\\. Use the plaintext of the data key returned in the Plaintext field of the response to encrypt data locally. Then, clear the plaintext of the data key from memory.
+ * 3\\. Store the ciphertext of the data key returned in the CiphertextBlob field of the response together with the encrypted data.
+ * To decrypt data locally:
+ * - Call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the stored ciphertext of the data key. This operation returns the plaintext of the data key.
+ * - Use the plaintext of the data key to decrypt data locally. Then, clear the plaintext of the data key from memory.
+ * This topic provides an example of how to generate a random data key for a key with the ID `key-hzz630494463ejqjx****`.
  *
  * @param tmpReq GenerateDataKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2423,28 +2339,32 @@ GenerateDataKeyResponse Client::generateDataKeyWithOptions(const GenerateDataKey
   GenerateDataKeyShrinkRequest request = GenerateDataKeyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEncryptionContext()) {
-    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext(), "EncryptionContext", "json"));
+    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEncryptionContext(), "EncryptionContext", "json"));
   }
 
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEncryptionContextShrink()) {
-    query["EncryptionContext"] = request.encryptionContextShrink();
+    query["EncryptionContext"] = request.getEncryptionContextShrink();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeySpec()) {
-    query["KeySpec"] = request.keySpec();
+    query["KeySpec"] = request.getKeySpec();
   }
 
   if (!!request.hasNumberOfBytes()) {
-    query["NumberOfBytes"] = request.numberOfBytes();
+    query["NumberOfBytes"] = request.getNumberOfBytes();
+  }
+
+  if (!!request.hasRecipient()) {
+    query["Recipient"] = request.getRecipient();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2465,18 +2385,26 @@ GenerateDataKeyResponse Client::generateDataKeyWithOptions(const GenerateDataKey
 }
 
 /**
- * @summary 生成一个数据密钥
+ * @summary Generates a random data key for envelope encryption. The data key is returned in both plaintext and ciphertext forms.
  *
- * @description This operation creates a random data key, encrypts the data key by using the specified customer master key (CMK), and returns the plaintext and ciphertext of the data key. You can use the plaintext of the data key to locally encrypt your data without using KMS and store the encrypted data together with the ciphertext of the data key. You can obtain the plaintext of the data key from the Plaintext parameter in the response and the ciphertext of the data key from the CiphertextBlob parameter in the response.
- * The CMK that you specify in the request of this operation is only used to encrypt the data key and is not involved in the generation of the data key. KMS does not record or store the generated data key. Therefore, you need to store the ciphertext of the data key in persistent storage.
- * We recommend that you locally encrypt data by performing the following steps:
- * 1\\. Call the GenerateDataKey operation.
- * 2\\. Use the plaintext of the data key that you obtain to locally encrypt data without using KMS. Then, delete the plaintext of the data key from the memory.
- * 3\\. Store the encrypted data together with the ciphertext of the data key that you obtain.
- * We recommend that you locally decrypt data by performing the following steps:
- * *   Call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the locally stored ciphertext of the data key. The plaintext of data key is then returned.
- * *   Use the plaintext of the data key to locally decrypt data and then delete the plaintext of the data key from the memory.
- * In this example, a random data key is generated for the CMK whose ID is `7906979c-8e06-46a2-be2d-68e3ccbc****`.
+ * @description - For information about the permissions that are required to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation can be called using a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or a VPC. To access KMS over the Internet, you must enable the public endpoint. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - If you use a shared gateway to call this operation, the queries per second (QPS) limit for a single user is 1,000. If the limit is exceeded, API calls are throttled. This may affect your business. We recommend that you call this operation at a reasonable rate.
+ * - If you use a dedicated gateway to call this operation, the QPS limit for a single user is based on the computing performance of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Description
+ * This operation generates a random data key, encrypts the data key using the specified customer master key (CMK), and returns the plaintext and ciphertext of the data key. You can use the plaintext of the data key to encrypt data locally and outside of KMS. When you store the encrypted data, you must also store the ciphertext of the data key. You can obtain the plaintext of the data key from the Plaintext field and the ciphertext of the data key from the CiphertextBlob field in the response.
+ * The CMK that you specify in the request is used only to encrypt the data key. It is not involved in the generation of the data key. KMS does not record or store the randomly generated data key. You are responsible for the persistence of the ciphertext of the data key.
+ * We recommend that you perform the following steps to encrypt data locally:
+ * 1\\. Call the GenerateDataKey operation to obtain a data key for data encryption.
+ * 2\\. Use the plaintext of the data key returned in the Plaintext field of the response to encrypt data locally. Then, clear the plaintext of the data key from memory.
+ * 3\\. Store the ciphertext of the data key returned in the CiphertextBlob field of the response together with the encrypted data.
+ * To decrypt data locally:
+ * - Call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the stored ciphertext of the data key. This operation returns the plaintext of the data key.
+ * - Use the plaintext of the data key to decrypt data locally. Then, clear the plaintext of the data key from memory.
+ * This topic provides an example of how to generate a random data key for a key with the ID `key-hzz630494463ejqjx****`.
  *
  * @param request GenerateDataKeyRequest
  * @return GenerateDataKeyResponse
@@ -2487,12 +2415,22 @@ GenerateDataKeyResponse Client::generateDataKey(const GenerateDataKeyRequest &re
 }
 
 /**
- * @summary Generates a random data key, which can be used to encrypt local data.
+ * @summary Generates a random data key in only ciphertext form, without the plaintext copy.
  *
- * @description This operation creates a random data key, encrypts the data key by using a specific symmetric CMK, and returns the ciphertext of the data key. This operation serves the same purpose as the [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html) operation. The only difference is that this operation does not return the plaintext of the data key.
- * The CMK that you specify in the request of this operation is only used to encrypt the data key and is not involved in the generation of the data key. KMS does not record or store the generated data key.
- * > * This operation applies to the scenario when you do not need to use the data key to immediately encrypt data. Before you can use the data key to encrypt data, you must call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the ciphertext of the data key.
- * > * This operation is also suitable for a distributed system with different trust levels. For example, a system stores data in different partitions based on a preset trust policy. A module creates different partitions and generates different data keys for each partition in advance. This module is not involved in data production and consumption after it completes initialization of the control plane. This module is the key provider. When producing and consuming data, modules on the control plane obtain the ciphertext of the data key for a partition first. After decrypting the ciphertext of the data key, modules on the control plane use the plaintext of the data key to encrypt or decrypt data and then clear the plaintext of the data key from the memory. In such a system, the key provider does not need to obtain the plaintext of the data key. It only needs to have the permissions to call the GenerateDataKeyWithoutPlaintext operation. The data producers or consumers do not need to generate new data keys. They only need to have the permissions to call the Decrypt operation.
+ * @description ### Precautions
+ * - For information about the access policy that a RAM user or RAM role needs to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: Access KMS over the Internet or through a VPC domain name. This method requires Internet access to be enabled. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: Access KMS through a KMS private endpoint (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - Calls through a shared gateway: The queries per second (QPS) limit for a single user is 1,000. If you exceed this limit, requests are throttled, which may affect your business. We recommend that you stay within this limit.
+ * - Calls through a dedicated gateway: The QPS limit for a single user depends on the computing performance of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Details
+ * This operation generates a random data key, encrypts it with a specified symmetric customer master key (CMK), and returns the ciphertext of the data key. This operation provides the same features as [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html). The only difference is that this operation does not return the plaintext of the data key.
+ * The CMK that you specify in the request is used only to encrypt the data key. It is not used to generate the data key. KMS does not record or store the randomly generated data key.
+ * > - This operation is suitable for systems that do not need to immediately use the data key for data encryption. When encryption is required, the system calls the [Decrypt](https://help.aliyun.com/document_detail/28950.html) API to decrypt the ciphertext of the data key.
+ * >
+ * > - This operation is also suitable for distributed systems with different trust levels. For example, your system stores data in different partitions based on a defined policy. A module pre-creates these data partitions and generates a unique data key for each one. After this module initializes the control plane, it acts as a key distributor and does not produce or consume data. When data plane modules produce and consume data, they first retrieve the ciphertext of the data key for a partition. They then decrypt the ciphertext and use the plaintext data key to encrypt or decrypt data. Finally, they purge the plaintext data key from memory. In such a system, the key distributor does not need to access the plaintext of the data key. It only requires the \\`GenerateDataKeyWithoutPlaintext\\` permission for the relevant CMK. Data producers and consumers do not need to generate new data keys. They only require the \\`Decrypt\\` permission for the relevant CMK.
  *
  * @param tmpReq GenerateDataKeyWithoutPlaintextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2503,28 +2441,28 @@ GenerateDataKeyWithoutPlaintextResponse Client::generateDataKeyWithoutPlaintextW
   GenerateDataKeyWithoutPlaintextShrinkRequest request = GenerateDataKeyWithoutPlaintextShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEncryptionContext()) {
-    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext(), "EncryptionContext", "json"));
+    request.setEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEncryptionContext(), "EncryptionContext", "json"));
   }
 
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEncryptionContextShrink()) {
-    query["EncryptionContext"] = request.encryptionContextShrink();
+    query["EncryptionContext"] = request.getEncryptionContextShrink();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeySpec()) {
-    query["KeySpec"] = request.keySpec();
+    query["KeySpec"] = request.getKeySpec();
   }
 
   if (!!request.hasNumberOfBytes()) {
-    query["NumberOfBytes"] = request.numberOfBytes();
+    query["NumberOfBytes"] = request.getNumberOfBytes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2545,12 +2483,22 @@ GenerateDataKeyWithoutPlaintextResponse Client::generateDataKeyWithoutPlaintextW
 }
 
 /**
- * @summary Generates a random data key, which can be used to encrypt local data.
+ * @summary Generates a random data key in only ciphertext form, without the plaintext copy.
  *
- * @description This operation creates a random data key, encrypts the data key by using a specific symmetric CMK, and returns the ciphertext of the data key. This operation serves the same purpose as the [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html) operation. The only difference is that this operation does not return the plaintext of the data key.
- * The CMK that you specify in the request of this operation is only used to encrypt the data key and is not involved in the generation of the data key. KMS does not record or store the generated data key.
- * > * This operation applies to the scenario when you do not need to use the data key to immediately encrypt data. Before you can use the data key to encrypt data, you must call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation to decrypt the ciphertext of the data key.
- * > * This operation is also suitable for a distributed system with different trust levels. For example, a system stores data in different partitions based on a preset trust policy. A module creates different partitions and generates different data keys for each partition in advance. This module is not involved in data production and consumption after it completes initialization of the control plane. This module is the key provider. When producing and consuming data, modules on the control plane obtain the ciphertext of the data key for a partition first. After decrypting the ciphertext of the data key, modules on the control plane use the plaintext of the data key to encrypt or decrypt data and then clear the plaintext of the data key from the memory. In such a system, the key provider does not need to obtain the plaintext of the data key. It only needs to have the permissions to call the GenerateDataKeyWithoutPlaintext operation. The data producers or consumers do not need to generate new data keys. They only need to have the permissions to call the Decrypt operation.
+ * @description ### Precautions
+ * - For information about the access policy that a RAM user or RAM role needs to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible through a shared gateway or a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: Access KMS over the Internet or through a VPC domain name. This method requires Internet access to be enabled. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: Access KMS through a KMS private endpoint (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ * ### QPS limits
+ * - Calls through a shared gateway: The queries per second (QPS) limit for a single user is 1,000. If you exceed this limit, requests are throttled, which may affect your business. We recommend that you stay within this limit.
+ * - Calls through a dedicated gateway: The QPS limit for a single user depends on the computing performance of your KMS instance. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/480120.html).
+ * ### Details
+ * This operation generates a random data key, encrypts it with a specified symmetric customer master key (CMK), and returns the ciphertext of the data key. This operation provides the same features as [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html). The only difference is that this operation does not return the plaintext of the data key.
+ * The CMK that you specify in the request is used only to encrypt the data key. It is not used to generate the data key. KMS does not record or store the randomly generated data key.
+ * > - This operation is suitable for systems that do not need to immediately use the data key for data encryption. When encryption is required, the system calls the [Decrypt](https://help.aliyun.com/document_detail/28950.html) API to decrypt the ciphertext of the data key.
+ * >
+ * > - This operation is also suitable for distributed systems with different trust levels. For example, your system stores data in different partitions based on a defined policy. A module pre-creates these data partitions and generates a unique data key for each one. After this module initializes the control plane, it acts as a key distributor and does not produce or consume data. When data plane modules produce and consume data, they first retrieve the ciphertext of the data key for a partition. They then decrypt the ciphertext and use the plaintext data key to encrypt or decrypt data. Finally, they purge the plaintext data key from memory. In such a system, the key distributor does not need to access the plaintext of the data key. It only requires the \\`GenerateDataKeyWithoutPlaintext\\` permission for the relevant CMK. Data producers and consumers do not need to generate new data keys. They only require the \\`Decrypt\\` permission for the relevant CMK.
  *
  * @param request GenerateDataKeyWithoutPlaintextRequest
  * @return GenerateDataKeyWithoutPlaintextResponse
@@ -2561,24 +2509,41 @@ GenerateDataKeyWithoutPlaintextResponse Client::generateDataKeyWithoutPlaintext(
 }
 
 /**
- * @description In this example, the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is queried. The certificate, certificate chain, certificate ID, and certificate signing request (CSR) are returned.
+ * @summary Generates an HMAC message authentication code for a message by using a specified key.
  *
- * @param request GetCertificateRequest
+ * @description For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+ * This operation can be invoked through a shared gateway or a dedicated gateway. For more information, refer to Alibaba Cloud SDK.
+ * - Shared gateway: Access KMS through a public or VPC endpoint. This method requires you to enable the public network access switch. For more information, refer to accessing keys in a KMS instance over the Internet.
+ * - Dedicated gateway: Access KMS through a KMS private endpoint (<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com).
+ *
+ * @param request GenerateMacRequest
  * @param runtime runtime options for this request RuntimeOptions
- * @return GetCertificateResponse
+ * @return GenerateMacResponse
  */
-GetCertificateResponse Client::getCertificateWithOptions(const GetCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+GenerateMacResponse Client::generateMacWithOptions(const GenerateMacRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
+  if (!!request.hasAlgorithm()) {
+    query["Algorithm"] = request.getAlgorithm();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasKeyId()) {
+    query["KeyId"] = request.getKeyId();
+  }
+
+  if (!!request.hasMessage()) {
+    query["Message"] = request.getMessage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
-    {"action" , "GetCertificate"},
+    {"action" , "GenerateMac"},
     {"version" , "2016-01-20"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
@@ -2588,22 +2553,29 @@ GetCertificateResponse Client::getCertificateWithOptions(const GetCertificateReq
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetCertificateResponse>();
+  return json(callApi(params, req, runtime)).get<GenerateMacResponse>();
 }
 
 /**
- * @description In this example, the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is queried. The certificate, certificate chain, certificate ID, and certificate signing request (CSR) are returned.
+ * @summary Generates an HMAC message authentication code for a message by using a specified key.
  *
- * @param request GetCertificateRequest
- * @return GetCertificateResponse
+ * @description For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+ * This operation can be invoked through a shared gateway or a dedicated gateway. For more information, refer to Alibaba Cloud SDK.
+ * - Shared gateway: Access KMS through a public or VPC endpoint. This method requires you to enable the public network access switch. For more information, refer to accessing keys in a KMS instance over the Internet.
+ * - Dedicated gateway: Access KMS through a KMS private endpoint (<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com).
+ *
+ * @param request GenerateMacRequest
+ * @return GenerateMacResponse
  */
-GetCertificateResponse Client::getCertificate(const GetCertificateRequest &request) {
+GenerateMacResponse Client::generateMac(const GenerateMacRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getCertificateWithOptions(request, runtime);
+  return generateMacWithOptions(request, runtime);
 }
 
 /**
- * @summary Queries the information about a client key.
+ * @summary Retrieves information about a client key.
+ *
+ * @description For information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request GetClientKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2630,7 +2602,9 @@ GetClientKeyResponse Client::getClientKeyWithOptions(const GetClientKeyRequest &
 }
 
 /**
- * @summary Queries the information about a client key.
+ * @summary Retrieves information about a client key.
+ *
+ * @description For information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request GetClientKeyRequest
  * @return GetClientKeyResponse
@@ -2641,9 +2615,11 @@ GetClientKeyResponse Client::getClientKey(const GetClientKeyRequest &request) {
 }
 
 /**
- * @summary 获取默认KMS实例
+ * @summary Queries the default KMS instance in a specified region.
  *
- * @param request GetDefaultKmsInstanceRequest
+ * @description - For information about the access policy that is required to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This API is for users who migrate from KMS 1.0 to KMS 3.0. After the migration is complete, if you create an Asset without specifying a KMS instance, the Asset is created in the default KMS instance.
+ *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDefaultKmsInstanceResponse
  */
@@ -2664,7 +2640,10 @@ GetDefaultKmsInstanceResponse Client::getDefaultKmsInstanceWithOptions(const Dar
 }
 
 /**
- * @summary 获取默认KMS实例
+ * @summary Queries the default KMS instance in a specified region.
+ *
+ * @description - For information about the access policy that is required to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This API is for users who migrate from KMS 1.0 to KMS 3.0. After the migration is complete, if you create an Asset without specifying a KMS instance, the Asset is created in the default KMS instance.
  *
  * @return GetDefaultKmsInstanceResponse
  */
@@ -2674,7 +2653,10 @@ GetDefaultKmsInstanceResponse Client::getDefaultKmsInstance() {
 }
 
 /**
- * @summary 仅可查询名称为 default 的 Key Policy，否则提示 Not Found。
+ * @summary Queries the key policy of a CMK in a KMS instance.
+ *
+ * @description - For more information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Because the key policy name can only be set to default, you must set the PolicyName parameter to default when you query the key policy. Otherwise, a `Not Found` error is returned.
  *
  * @param request GetKeyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2684,11 +2666,11 @@ GetKeyPolicyResponse Client::getKeyPolicyWithOptions(const GetKeyPolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2709,7 +2691,10 @@ GetKeyPolicyResponse Client::getKeyPolicyWithOptions(const GetKeyPolicyRequest &
 }
 
 /**
- * @summary 仅可查询名称为 default 的 Key Policy，否则提示 Not Found。
+ * @summary Queries the key policy of a CMK in a KMS instance.
+ *
+ * @description - For more information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Because the key policy name can only be set to default, you must set the PolicyName parameter to default when you query the key policy. Otherwise, a `Not Found` error is returned.
  *
  * @param request GetKeyPolicyRequest
  * @return GetKeyPolicyResponse
@@ -2720,7 +2705,9 @@ GetKeyPolicyResponse Client::getKeyPolicy(const GetKeyPolicyRequest &request) {
 }
 
 /**
- * @summary Queries the details of a Key Management Service (KMS) instance.
+ * @summary Retrieves the details of a KMS instance.
+ *
+ * @description Refer to [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html) for the access policy required to call this OpenAPI as a RAM user or RAM role.
  *
  * @param request GetKmsInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2730,7 +2717,7 @@ GetKmsInstanceResponse Client::getKmsInstanceWithOptions(const GetKmsInstanceReq
   request.validate();
   json query = {};
   if (!!request.hasKmsInstanceId()) {
-    query["KmsInstanceId"] = request.kmsInstanceId();
+    query["KmsInstanceId"] = request.getKmsInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2751,7 +2738,9 @@ GetKmsInstanceResponse Client::getKmsInstanceWithOptions(const GetKmsInstanceReq
 }
 
 /**
- * @summary Queries the details of a Key Management Service (KMS) instance.
+ * @summary Retrieves the details of a KMS instance.
+ *
+ * @description Refer to [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html) for the access policy required to call this OpenAPI as a RAM user or RAM role.
  *
  * @param request GetKmsInstanceRequest
  * @return GetKmsInstanceResponse
@@ -2762,7 +2751,7 @@ GetKmsInstanceResponse Client::getKmsInstance(const GetKmsInstanceRequest &reque
 }
 
 /**
- * @summary 获取实例配额信息
+ * @summary Queries the quota usage and limits for a KMS instance.
  *
  * @param request GetKmsInstanceQuotaInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2772,11 +2761,11 @@ GetKmsInstanceQuotaInfosResponse Client::getKmsInstanceQuotaInfosWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasKmsInstanceId()) {
-    query["KmsInstanceId"] = request.kmsInstanceId();
+    query["KmsInstanceId"] = request.getKmsInstanceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2797,7 +2786,7 @@ GetKmsInstanceQuotaInfosResponse Client::getKmsInstanceQuotaInfosWithOptions(con
 }
 
 /**
- * @summary 获取实例配额信息
+ * @summary Queries the quota usage and limits for a KMS instance.
  *
  * @param request GetKmsInstanceQuotaInfosRequest
  * @return GetKmsInstanceQuotaInfosResponse
@@ -2832,15 +2821,15 @@ GetParametersForImportResponse Client::getParametersForImportWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasWrappingAlgorithm()) {
-    query["WrappingAlgorithm"] = request.wrappingAlgorithm();
+    query["WrappingAlgorithm"] = request.getWrappingAlgorithm();
   }
 
   if (!!request.hasWrappingKeySpec()) {
-    query["WrappingKeySpec"] = request.wrappingKeySpec();
+    query["WrappingKeySpec"] = request.getWrappingKeySpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2886,6 +2875,13 @@ GetParametersForImportResponse Client::getParametersForImport(const GetParameter
 }
 
 /**
+ * @summary Retrieves the public key of an asymmetric key. You can use the public key to encrypt data or verify a signature on your device.
+ *
+ * @description - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation supports both shared gateways and dedicated gateways. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or using a VPC domain name. If you access KMS over the Internet, you must enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ *
  * @param request GetPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPublicKeyResponse
@@ -2894,15 +2890,15 @@ GetPublicKeyResponse Client::getPublicKeyWithOptions(const GetPublicKeyRequest &
   request.validate();
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeyVersionId()) {
-    query["KeyVersionId"] = request.keyVersionId();
+    query["KeyVersionId"] = request.getKeyVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2923,6 +2919,13 @@ GetPublicKeyResponse Client::getPublicKeyWithOptions(const GetPublicKeyRequest &
 }
 
 /**
+ * @summary Retrieves the public key of an asymmetric key. You can use the public key to encrypt data or verify a signature on your device.
+ *
+ * @description - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation supports both shared gateways and dedicated gateways. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   - Shared gateway: You can access KMS over the Internet or using a VPC domain name. If you access KMS over the Internet, you must enable Internet access. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ *   - Dedicated gateway: You can access KMS using the private endpoint of KMS (`<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com`).
+ *
  * @param request GetPublicKeyRequest
  * @return GetPublicKeyResponse
  */
@@ -2932,6 +2935,10 @@ GetPublicKeyResponse Client::getPublicKey(const GetPublicKeyRequest &request) {
 }
 
 /**
+ * @summary Generates a random password string.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request GetRandomPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRandomPasswordResponse
@@ -2940,31 +2947,31 @@ GetRandomPasswordResponse Client::getRandomPasswordWithOptions(const GetRandomPa
   request.validate();
   json query = {};
   if (!!request.hasExcludeCharacters()) {
-    query["ExcludeCharacters"] = request.excludeCharacters();
+    query["ExcludeCharacters"] = request.getExcludeCharacters();
   }
 
   if (!!request.hasExcludeLowercase()) {
-    query["ExcludeLowercase"] = request.excludeLowercase();
+    query["ExcludeLowercase"] = request.getExcludeLowercase();
   }
 
   if (!!request.hasExcludeNumbers()) {
-    query["ExcludeNumbers"] = request.excludeNumbers();
+    query["ExcludeNumbers"] = request.getExcludeNumbers();
   }
 
   if (!!request.hasExcludePunctuation()) {
-    query["ExcludePunctuation"] = request.excludePunctuation();
+    query["ExcludePunctuation"] = request.getExcludePunctuation();
   }
 
   if (!!request.hasExcludeUppercase()) {
-    query["ExcludeUppercase"] = request.excludeUppercase();
+    query["ExcludeUppercase"] = request.getExcludeUppercase();
   }
 
   if (!!request.hasPasswordLength()) {
-    query["PasswordLength"] = request.passwordLength();
+    query["PasswordLength"] = request.getPasswordLength();
   }
 
   if (!!request.hasRequireEachIncludedType()) {
-    query["RequireEachIncludedType"] = request.requireEachIncludedType();
+    query["RequireEachIncludedType"] = request.getRequireEachIncludedType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2985,6 +2992,10 @@ GetRandomPasswordResponse Client::getRandomPasswordWithOptions(const GetRandomPa
 }
 
 /**
+ * @summary Generates a random password string.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request GetRandomPasswordRequest
  * @return GetRandomPasswordResponse
  */
@@ -2994,7 +3005,10 @@ GetRandomPasswordResponse Client::getRandomPassword(const GetRandomPasswordReque
 }
 
 /**
- * @summary 仅可查询名称为 default 的 Secret Policy，否则提示 Not Found。
+ * @summary Queries the access policy of a specified secret in a KMS instance.
+ *
+ * @description - For information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - A credential policy name can be set only to default. Therefore, you must set the PolicyName parameter to default when you query the credential policy. Otherwise, a `Not Found` error is returned.
  *
  * @param request GetSecretPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3004,11 +3018,11 @@ GetSecretPolicyResponse Client::getSecretPolicyWithOptions(const GetSecretPolicy
   request.validate();
   json query = {};
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3029,7 +3043,10 @@ GetSecretPolicyResponse Client::getSecretPolicyWithOptions(const GetSecretPolicy
 }
 
 /**
- * @summary 仅可查询名称为 default 的 Secret Policy，否则提示 Not Found。
+ * @summary Queries the access policy of a specified secret in a KMS instance.
+ *
+ * @description - For information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - A credential policy name can be set only to default. Therefore, you must set the PolicyName parameter to default when you query the credential policy. Otherwise, a `Not Found` error is returned.
  *
  * @param request GetSecretPolicyRequest
  * @return GetSecretPolicyResponse
@@ -3040,11 +3057,12 @@ GetSecretPolicyResponse Client::getSecretPolicy(const GetSecretPolicyRequest &re
 }
 
 /**
- * @summary 调用GetSecretValue接口获取凭据值。
+ * @summary Retrieve the credential value.
  *
- * @description If you do not specify a version number or stage label, Secrets Manager returns the secret value of the version marked with ACSCurrent.
- * If a customer master key (CMK) is specified to encrypt the secret value, you must also have the `kms:Decrypt` permission on the CMK to call the GetSecretValue operation.
- * In this example, the value of the secret named `secret001` is obtained. The secret value is returned in the `SecretData` parameter. The secret value is `testdata1`.
+ * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
+ * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+ * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
  *
  * @param request GetSecretValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3054,23 +3072,23 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const GetSecretValueReq
   request.validate();
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasFetchExtendedConfig()) {
-    query["FetchExtendedConfig"] = request.fetchExtendedConfig();
+    query["FetchExtendedConfig"] = request.getFetchExtendedConfig();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   if (!!request.hasVersionStage()) {
-    query["VersionStage"] = request.versionStage();
+    query["VersionStage"] = request.getVersionStage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3091,11 +3109,12 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const GetSecretValueReq
 }
 
 /**
- * @summary 调用GetSecretValue接口获取凭据值。
+ * @summary Retrieve the credential value.
  *
- * @description If you do not specify a version number or stage label, Secrets Manager returns the secret value of the version marked with ACSCurrent.
- * If a customer master key (CMK) is specified to encrypt the secret value, you must also have the `kms:Decrypt` permission on the CMK to call the GetSecretValue operation.
- * In this example, the value of the secret named `secret001` is obtained. The secret value is returned in the `SecretData` parameter. The secret value is `testdata1`.
+ * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
+ * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+ * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
  *
  * @param request GetSecretValueRequest
  * @return GetSecretValueResponse
@@ -3106,16 +3125,21 @@ GetSecretValueResponse Client::getSecretValue(const GetSecretValueRequest &reque
 }
 
 /**
- * @summary Call the ImportKeyMaterial operation to import the key material.
+ * @summary Imports externally generated key material into a CMK whose origin is EXTERNAL.
  *
- * @description Call [CreateKey](https://help.aliyun.com/document_detail/28947.html) when creating a CMK, you can select its key material source as external. **Origin** set to **EXTERNAL**. This API is used to import the key material into the CMK.
- * *   To view the CMK **Origin**, see [DescribeKey](https://help.aliyun.com/document_detail/28952.html).
- * *   Before importing key material, you need to call the [GetParametersForImport](https://help.aliyun.com/document_detail/68621.html) obtain the parameters required to import the key material, including the public key and import token.
- * > *   The key type of the pair is **Aliyun_AES_256** the key material must be 256 bits. The key type must be **Aliyun_SM4** the CMK and key material must be 128 bits.
- * > *   You can set the expiration time for the key material, or you can set it to never expire.
- * > *   You can reimport the key material and reset the expiration time for the specified CMK at any time, but the same key material must be imported.
- * > *   After the imported key material expires or is deleted, the specified CMK is unavailable until the same key material are imported again.
- * > *   A Key material can be imported to multiple cmks, but any Data or Data Key encrypted by one CMK cannot be decrypted by another CMK.
+ * @description When you call [CreateKey](https://help.aliyun.com/document_detail/28947.html) to create a CMK, you can set **Origin** to **EXTERNAL** to specify that the key material comes from an external source. Use this operation to import the key material into such a CMK.
+ * - To view the CMK **Origin**, see [DescribeKey](https://help.aliyun.com/document_detail/28952.html).
+ * - Before importing key material, call [GetParametersForImport](https://help.aliyun.com/document_detail/68621.html) to obtain the parameters required for the import, including the public key and import token.
+ * > * For a CMK of type **Aliyun_AES_256**, the key material must be 256 bits. For a CMK of type **Aliyun_SM4**, the key material must be 128 bits.
+ * >
+ * > * You can set the expiration time for the key material, or you can set it to never expire.
+ * >
+ * > * You can reimport the key material and reset the expiration time for the specified CMK at any time, but the same key material must be imported.
+ * >
+ * > * After the imported key material expires or is deleted, the specified CMK becomes unavailable until the same key material is imported again.
+ * >
+ * > * The same key material can be imported into multiple CMKs, but data or data keys encrypted by one CMK cannot be decrypted by another CMK.
+ * For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ImportKeyMaterialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3125,19 +3149,19 @@ ImportKeyMaterialResponse Client::importKeyMaterialWithOptions(const ImportKeyMa
   request.validate();
   json query = {};
   if (!!request.hasEncryptedKeyMaterial()) {
-    query["EncryptedKeyMaterial"] = request.encryptedKeyMaterial();
+    query["EncryptedKeyMaterial"] = request.getEncryptedKeyMaterial();
   }
 
   if (!!request.hasImportToken()) {
-    query["ImportToken"] = request.importToken();
+    query["ImportToken"] = request.getImportToken();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasKeyMaterialExpireUnix()) {
-    query["KeyMaterialExpireUnix"] = request.keyMaterialExpireUnix();
+    query["KeyMaterialExpireUnix"] = request.getKeyMaterialExpireUnix();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3158,16 +3182,21 @@ ImportKeyMaterialResponse Client::importKeyMaterialWithOptions(const ImportKeyMa
 }
 
 /**
- * @summary Call the ImportKeyMaterial operation to import the key material.
+ * @summary Imports externally generated key material into a CMK whose origin is EXTERNAL.
  *
- * @description Call [CreateKey](https://help.aliyun.com/document_detail/28947.html) when creating a CMK, you can select its key material source as external. **Origin** set to **EXTERNAL**. This API is used to import the key material into the CMK.
- * *   To view the CMK **Origin**, see [DescribeKey](https://help.aliyun.com/document_detail/28952.html).
- * *   Before importing key material, you need to call the [GetParametersForImport](https://help.aliyun.com/document_detail/68621.html) obtain the parameters required to import the key material, including the public key and import token.
- * > *   The key type of the pair is **Aliyun_AES_256** the key material must be 256 bits. The key type must be **Aliyun_SM4** the CMK and key material must be 128 bits.
- * > *   You can set the expiration time for the key material, or you can set it to never expire.
- * > *   You can reimport the key material and reset the expiration time for the specified CMK at any time, but the same key material must be imported.
- * > *   After the imported key material expires or is deleted, the specified CMK is unavailable until the same key material are imported again.
- * > *   A Key material can be imported to multiple cmks, but any Data or Data Key encrypted by one CMK cannot be decrypted by another CMK.
+ * @description When you call [CreateKey](https://help.aliyun.com/document_detail/28947.html) to create a CMK, you can set **Origin** to **EXTERNAL** to specify that the key material comes from an external source. Use this operation to import the key material into such a CMK.
+ * - To view the CMK **Origin**, see [DescribeKey](https://help.aliyun.com/document_detail/28952.html).
+ * - Before importing key material, call [GetParametersForImport](https://help.aliyun.com/document_detail/68621.html) to obtain the parameters required for the import, including the public key and import token.
+ * > * For a CMK of type **Aliyun_AES_256**, the key material must be 256 bits. For a CMK of type **Aliyun_SM4**, the key material must be 128 bits.
+ * >
+ * > * You can set the expiration time for the key material, or you can set it to never expire.
+ * >
+ * > * You can reimport the key material and reset the expiration time for the specified CMK at any time, but the same key material must be imported.
+ * >
+ * > * After the imported key material expires or is deleted, the specified CMK becomes unavailable until the same key material is imported again.
+ * >
+ * > * The same key material can be imported into multiple CMKs, but data or data keys encrypted by one CMK cannot be decrypted by another CMK.
+ * For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ImportKeyMaterialRequest
  * @return ImportKeyMaterialResponse
@@ -3180,6 +3209,8 @@ ImportKeyMaterialResponse Client::importKeyMaterial(const ImportKeyMaterialReque
 /**
  * @summary Queries all aliases in the current region for the current account.
  *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request ListAliasesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAliasesResponse
@@ -3188,11 +3219,11 @@ ListAliasesResponse Client::listAliasesWithOptions(const ListAliasesRequest &req
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3215,6 +3246,8 @@ ListAliasesResponse Client::listAliasesWithOptions(const ListAliasesRequest &req
 /**
  * @summary Queries all aliases in the current region for the current account.
  *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request ListAliasesRequest
  * @return ListAliasesResponse
  */
@@ -3224,6 +3257,8 @@ ListAliasesResponse Client::listAliases(const ListAliasesRequest &request) {
 }
 
 /**
+ * @summary Queries all aliases that are bound to a key.
+ *
  * @param request ListAliasesByKeyIdRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAliasesByKeyIdResponse
@@ -3232,15 +3267,15 @@ ListAliasesByKeyIdResponse Client::listAliasesByKeyIdWithOptions(const ListAlias
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3261,6 +3296,8 @@ ListAliasesByKeyIdResponse Client::listAliasesByKeyIdWithOptions(const ListAlias
 }
 
 /**
+ * @summary Queries all aliases that are bound to a key.
+ *
  * @param request ListAliasesByKeyIdRequest
  * @return ListAliasesByKeyIdResponse
  */
@@ -3270,7 +3307,9 @@ ListAliasesByKeyIdResponse Client::listAliasesByKeyId(const ListAliasesByKeyIdRe
 }
 
 /**
- * @summary Queries a list of application access points (AAPs).
+ * @summary Queries all application access points (AAPs) in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListApplicationAccessPointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3280,11 +3319,11 @@ ListApplicationAccessPointsResponse Client::listApplicationAccessPointsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3305,7 +3344,9 @@ ListApplicationAccessPointsResponse Client::listApplicationAccessPointsWithOptio
 }
 
 /**
- * @summary Queries a list of application access points (AAPs).
+ * @summary Queries all application access points (AAPs) in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListApplicationAccessPointsRequest
  * @return ListApplicationAccessPointsResponse
@@ -3316,6 +3357,10 @@ ListApplicationAccessPointsResponse Client::listApplicationAccessPoints(const Li
 }
 
 /**
+ * @summary Queries all client keys within an AAP.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request ListClientKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListClientKeysResponse
@@ -3341,6 +3386,10 @@ ListClientKeysResponse Client::listClientKeysWithOptions(const ListClientKeysReq
 }
 
 /**
+ * @summary Queries all client keys within an AAP.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request ListClientKeysRequest
  * @return ListClientKeysResponse
  */
@@ -3352,6 +3401,8 @@ ListClientKeysResponse Client::listClientKeys(const ListClientKeysRequest &reque
 /**
  * @summary Queries all versions of a specified CMK.
  *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request ListKeyVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListKeyVersionsResponse
@@ -3360,15 +3411,15 @@ ListKeyVersionsResponse Client::listKeyVersionsWithOptions(const ListKeyVersions
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3391,6 +3442,8 @@ ListKeyVersionsResponse Client::listKeyVersionsWithOptions(const ListKeyVersions
 /**
  * @summary Queries all versions of a specified CMK.
  *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ *
  * @param request ListKeyVersionsRequest
  * @return ListKeyVersionsResponse
  */
@@ -3400,7 +3453,9 @@ ListKeyVersionsResponse Client::listKeyVersions(const ListKeyVersionsRequest &re
 }
 
 /**
- * @summary Queries all customer master keys (CMKs) of the current Alibaba Cloud account in the current region.
+ * @summary Queries the IDs and ARNs of all CMKs in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3410,15 +3465,15 @@ ListKeysResponse Client::listKeysWithOptions(const ListKeysRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasFilters()) {
-    query["Filters"] = request.filters();
+    query["Filters"] = request.getFilters();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3439,7 +3494,9 @@ ListKeysResponse Client::listKeysWithOptions(const ListKeysRequest &request, con
 }
 
 /**
- * @summary Queries all customer master keys (CMKs) of the current Alibaba Cloud account in the current region.
+ * @summary Queries the IDs and ARNs of all CMKs in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListKeysRequest
  * @return ListKeysResponse
@@ -3450,7 +3507,9 @@ ListKeysResponse Client::listKeys(const ListKeysRequest &request) {
 }
 
 /**
- * @summary Queries a list of Key Management Service (KMS) instances.
+ * @summary Queries all KMS instances in the current region.
+ *
+ * @description For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListKmsInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3460,15 +3519,15 @@ ListKmsInstancesResponse Client::listKmsInstancesWithOptions(const ListKmsInstan
   request.validate();
   json query = {};
   if (!!request.hasFilters()) {
-    query["Filters"] = request.filters();
+    query["Filters"] = request.getFilters();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3489,7 +3548,9 @@ ListKmsInstancesResponse Client::listKmsInstancesWithOptions(const ListKmsInstan
 }
 
 /**
- * @summary Queries a list of Key Management Service (KMS) instances.
+ * @summary Queries all KMS instances in the current region.
+ *
+ * @description For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListKmsInstancesRequest
  * @return ListKmsInstancesResponse
@@ -3500,7 +3561,9 @@ ListKmsInstancesResponse Client::listKmsInstances(const ListKmsInstancesRequest 
 }
 
 /**
- * @summary Queries a list of access control rules.
+ * @summary Queries all network access rules in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListNetworkRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3510,11 +3573,11 @@ ListNetworkRulesResponse Client::listNetworkRulesWithOptions(const ListNetworkRu
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3535,7 +3598,9 @@ ListNetworkRulesResponse Client::listNetworkRulesWithOptions(const ListNetworkRu
 }
 
 /**
- * @summary Queries a list of access control rules.
+ * @summary Queries all network access rules in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListNetworkRulesRequest
  * @return ListNetworkRulesResponse
@@ -3546,7 +3611,9 @@ ListNetworkRulesResponse Client::listNetworkRules(const ListNetworkRulesRequest 
 }
 
 /**
- * @summary Queries a list of permission policies.
+ * @summary Queries all permission policies in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3556,11 +3623,11 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3581,7 +3648,9 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 }
 
 /**
- * @summary Queries a list of permission policies.
+ * @summary Queries all permission policies in the current region.
+ *
+ * @description For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListPoliciesRequest
  * @return ListPoliciesResponse
@@ -3592,6 +3661,8 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
+ * @summary Queries the tags of a customer master key (CMK).
+ *
  * @description Request format: KeyId="string"
  *
  * @param request ListResourceTagsRequest
@@ -3602,7 +3673,7 @@ ListResourceTagsResponse Client::listResourceTagsWithOptions(const ListResourceT
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3623,6 +3694,8 @@ ListResourceTagsResponse Client::listResourceTagsWithOptions(const ListResourceT
 }
 
 /**
+ * @summary Queries the tags of a customer master key (CMK).
+ *
  * @description Request format: KeyId="string"
  *
  * @param request ListResourceTagsRequest
@@ -3634,7 +3707,10 @@ ListResourceTagsResponse Client::listResourceTags(const ListResourceTagsRequest 
 }
 
 /**
- * @description The secret value is not included in the returned version information. By default, deprecated secret versions are not returned.
+ * @summary Queries all version IDs and stage labels of a specified secret.
+ *
+ * @description - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - The version information does not include the secret value. By default, this operation returns only the secret versions that are marked with a version stage.
  *
  * @param request ListSecretVersionIdsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3644,19 +3720,19 @@ ListSecretVersionIdsResponse Client::listSecretVersionIdsWithOptions(const ListS
   request.validate();
   json query = {};
   if (!!request.hasIncludeDeprecated()) {
-    query["IncludeDeprecated"] = request.includeDeprecated();
+    query["IncludeDeprecated"] = request.getIncludeDeprecated();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3677,7 +3753,10 @@ ListSecretVersionIdsResponse Client::listSecretVersionIdsWithOptions(const ListS
 }
 
 /**
- * @description The secret value is not included in the returned version information. By default, deprecated secret versions are not returned.
+ * @summary Queries all version IDs and stage labels of a specified secret.
+ *
+ * @description - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - The version information does not include the secret value. By default, this operation returns only the secret versions that are marked with a version stage.
  *
  * @param request ListSecretVersionIdsRequest
  * @return ListSecretVersionIdsResponse
@@ -3688,9 +3767,11 @@ ListSecretVersionIdsResponse Client::listSecretVersionIds(const ListSecretVersio
 }
 
 /**
- * @description Specifies whether to return the resource tags of the secret. Valid values:
- * *   true: returns the resource tags.
- * *   false: does not return the resource tags. This is the default value.
+ * @summary Queries all secrets in the current region.
+ *
+ * @description - To call this operation, the RAM user or RAM role must be granted the required policy. For more information, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation returns only secret metadata, not the secret values.
+ * This example shows how to query secrets created by the current user in the current region. `PageNumber` is set to `1` and `PageSize` is set to `2`, returning metadata for two secrets.
  *
  * @param request ListSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3700,19 +3781,19 @@ ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &req
   request.validate();
   json query = {};
   if (!!request.hasFetchTags()) {
-    query["FetchTags"] = request.fetchTags();
+    query["FetchTags"] = request.getFetchTags();
   }
 
   if (!!request.hasFilters()) {
-    query["Filters"] = request.filters();
+    query["Filters"] = request.getFilters();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3733,9 +3814,11 @@ ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &req
 }
 
 /**
- * @description Specifies whether to return the resource tags of the secret. Valid values:
- * *   true: returns the resource tags.
- * *   false: does not return the resource tags. This is the default value.
+ * @summary Queries all secrets in the current region.
+ *
+ * @description - To call this operation, the RAM user or RAM role must be granted the required policy. For more information, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation returns only secret metadata, not the secret values.
+ * This example shows how to query secrets created by the current user in the current region. `PageNumber` is set to `1` and `PageSize` is set to `2`, returning metadata for two secrets.
  *
  * @param request ListSecretsRequest
  * @return ListSecretsResponse
@@ -3746,7 +3829,9 @@ ListSecretsResponse Client::listSecrets(const ListSecretsRequest &request) {
 }
 
 /**
- * @summary Queries the tags of a key or a secret.
+ * @summary Lists the tags that are bound to a key or a secret.
+ *
+ * @description For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3756,23 +3841,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3793,7 +3878,9 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags of a key or a secret.
+ * @summary Lists the tags that are bound to a key or a secret.
+ *
+ * @description For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -3804,14 +3891,13 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Activates Key Management Service (KMS) under your Alibaba cloud account.
+ * @summary Activates Key Management Service (KMS) for your Alibaba Cloud account.
  *
- * @description When you call this operation, note that:
- * - KMS is a paid service. For more information about the billing method, see [Billing description](https://www.alibabacloud.com/help/en/key-management-service/latest/billing-billing).
- * - An Alibaba Cloud account can activate KMS only once.
- * - Make sure that your Alibaba Cloud account has passed real-name authentication.
+ * @description - For more information about the access policies that a RAM user or RAM role needs to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - KMS is a paid service. For more information about billing, see [Billing](https://help.aliyun.com/document_detail/52608.html).
+ * - You can activate the service for an Alibaba Cloud account only once.
+ * - Make sure that your Alibaba Cloud account has completed real-name verification.
  *
- * @param request OpenKmsServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenKmsServiceResponse
  */
@@ -3832,12 +3918,12 @@ OpenKmsServiceResponse Client::openKmsServiceWithOptions(const Darabonba::Runtim
 }
 
 /**
- * @summary Activates Key Management Service (KMS) under your Alibaba cloud account.
+ * @summary Activates Key Management Service (KMS) for your Alibaba Cloud account.
  *
- * @description When you call this operation, note that:
- * - KMS is a paid service. For more information about the billing method, see [Billing description](https://www.alibabacloud.com/help/en/key-management-service/latest/billing-billing).
- * - An Alibaba Cloud account can activate KMS only once.
- * - Make sure that your Alibaba Cloud account has passed real-name authentication.
+ * @description - For more information about the access policies that a RAM user or RAM role needs to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - KMS is a paid service. For more information about billing, see [Billing](https://help.aliyun.com/document_detail/52608.html).
+ * - You can activate the service for an Alibaba Cloud account only once.
+ * - Make sure that your Alibaba Cloud account has completed real-name verification.
  *
  * @return OpenKmsServiceResponse
  */
@@ -3847,14 +3933,15 @@ OpenKmsServiceResponse Client::openKmsService() {
 }
 
 /**
- * @description This operation is used to store the secret values of new versions. It cannot be used to modify the secret value of an existing version.
- * By default, the newly stored secret value is marked with ACSCurrent, and the mark for the previous version of the secret value is changed from ACSCurrent to ACSPrevious. If you specify the VersionStage parameter, the newly stored secret value is marked with the stage label that you specify.
- * You must specify a version number when you call the operation. Secrets Manager performs operations based on the following rules:
- * *   If the specified version number does not exist in the secret, Secrets Manager creates the version and stores the secret value.
- * *   If the specified version number already exists in the secret and the secret value of the existing version is the same as the secret value that you specify, Secrets Manager ignores the request and returns a success message. The request is idempotent.
- * *   If the specified version number already exists in the secret but the secret value of the existing version is different from the secret value that you specify, Secrets Manager rejects the request and returns a failure message.
- * Limits: This operation is available only for standard secrets.
- * In this example, the secret value of a new version is stored into the `secret001` secret. The `VersionId` parameter is set to `00000000000000000000000000000000203` as the new version, and the `SecretData` parameter is set to `importantdata`.
+ * @summary Stores a new version of a secret value for a generic secret.
+ *
+ * @description - For information about the access policy required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation supports only generic secrets. Each generic secret can have a maximum of 10 versions. If the number of versions exceeds the limit, KMS deletes the earliest version.
+ * - By default, the new secret value is marked with ACSCurrent, and the previous version that was marked with ACSCurrent is marked with ACSPrevious. You can specify the VersionStage parameter to overwrite this default behavior.
+ * - This operation stores a new version of a secret value. You cannot use it to modify an existing version of a secret value. You must specify a version number when you store a new version. KMS processes requests based on the following rules:
+ *   - If the version number does not exist in the secret, KMS creates a new version and stores the secret value.
+ *   - If the version number already exists in the secret, KMS compares the secret value in the request with the stored value. If the values are the same, the request is ignored and a success message is returned. This makes the operation idempotent. If the values are different, the request is rejected.
+ * This topic provides an example of how to store a new version of a secret value for the secret named `secret001`. The new version number (`VersionId`) is `v3` and the secret value (`SecretData`) is `importantdata`.
  *
  * @param request PutSecretValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3864,23 +3951,23 @@ PutSecretValueResponse Client::putSecretValueWithOptions(const PutSecretValueReq
   request.validate();
   json query = {};
   if (!!request.hasSecretData()) {
-    query["SecretData"] = request.secretData();
+    query["SecretData"] = request.getSecretData();
   }
 
   if (!!request.hasSecretDataType()) {
-    query["SecretDataType"] = request.secretDataType();
+    query["SecretDataType"] = request.getSecretDataType();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   if (!!request.hasVersionStages()) {
-    query["VersionStages"] = request.versionStages();
+    query["VersionStages"] = request.getVersionStages();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3901,14 +3988,15 @@ PutSecretValueResponse Client::putSecretValueWithOptions(const PutSecretValueReq
 }
 
 /**
- * @description This operation is used to store the secret values of new versions. It cannot be used to modify the secret value of an existing version.
- * By default, the newly stored secret value is marked with ACSCurrent, and the mark for the previous version of the secret value is changed from ACSCurrent to ACSPrevious. If you specify the VersionStage parameter, the newly stored secret value is marked with the stage label that you specify.
- * You must specify a version number when you call the operation. Secrets Manager performs operations based on the following rules:
- * *   If the specified version number does not exist in the secret, Secrets Manager creates the version and stores the secret value.
- * *   If the specified version number already exists in the secret and the secret value of the existing version is the same as the secret value that you specify, Secrets Manager ignores the request and returns a success message. The request is idempotent.
- * *   If the specified version number already exists in the secret but the secret value of the existing version is different from the secret value that you specify, Secrets Manager rejects the request and returns a failure message.
- * Limits: This operation is available only for standard secrets.
- * In this example, the secret value of a new version is stored into the `secret001` secret. The `VersionId` parameter is set to `00000000000000000000000000000000203` as the new version, and the `SecretData` parameter is set to `importantdata`.
+ * @summary Stores a new version of a secret value for a generic secret.
+ *
+ * @description - For information about the access policy required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation supports only generic secrets. Each generic secret can have a maximum of 10 versions. If the number of versions exceeds the limit, KMS deletes the earliest version.
+ * - By default, the new secret value is marked with ACSCurrent, and the previous version that was marked with ACSCurrent is marked with ACSPrevious. You can specify the VersionStage parameter to overwrite this default behavior.
+ * - This operation stores a new version of a secret value. You cannot use it to modify an existing version of a secret value. You must specify a version number when you store a new version. KMS processes requests based on the following rules:
+ *   - If the version number does not exist in the secret, KMS creates a new version and stores the secret value.
+ *   - If the version number already exists in the secret, KMS compares the secret value in the request with the stored value. If the values are the same, the request is ignored and a success message is returned. This makes the operation idempotent. If the values are different, the request is rejected.
+ * This topic provides an example of how to store a new version of a secret value for the secret named `secret001`. The new version number (`VersionId`) is `v3` and the secret value (`SecretData`) is `importantdata`.
  *
  * @param request PutSecretValueRequest
  * @return PutSecretValueResponse
@@ -3919,14 +4007,23 @@ PutSecretValueResponse Client::putSecretValue(const PutSecretValueRequest &reque
 }
 
 /**
- * @description You can call this operation in the following scenarios:
- * *   After the CMK that was used to encrypt your data is rotated, you can call this operation to use the latest CMK version to re-encrypt the data. For more information about automatic key rotation, see [Configure automatic key rotation](https://help.aliyun.com/document_detail/134270.html).
- * *   The CMK that was used to encrypt your data remains unchanged, but EncryptionContext is changed. In this scenario, you can call this operation to re-encrypt the data.
- * *   You can call this operation to use a CMK in KMS to re-encrypt data or a data key that was previously encrypted by a different CMK.
- * To use the ReEncrypt operation, you must have two permissions:
- * *   kms:ReEncryptFrom on the source CMK
- * *   kms:ReEncryptTo on the destination CMK
- * *   For simplicity, you can specify kms:ReEncrypt\\* to allow both of the preceding permissions.
+ * @summary Re-encrypts ciphertext under a different CMK without exposing the plaintext.
+ *
+ * @description ### Notes
+ * - For more information about the access policy required to grant a RAM user or RAM role the permission to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible only through a shared gateway, not a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   When using a shared gateway, you access KMS through an Internet or a VPC domain name. This method requires Internet access to be enabled. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ * ### QPS limits
+ * This operation is accessible only through a shared gateway. The single-user queries per second (QPS) limit is 750. If this limit is exceeded, requests are throttled, which may affect your business. We recommend that you stay within the specified limit.
+ * ### Details
+ * You can use the ReEncrypt operation in the following scenarios:
+ * - After a customer master key (CMK) is rotated, you can use the latest key version to re-encrypt data. For more information about automatic key rotation, see [Automatic key rotation](https://help.aliyun.com/document_detail/134270.html).
+ * - You can re-encrypt data by changing the encryption context without changing the master key.
+ * - You can re-encrypt data or a data key that is encrypted by one master key with another master key in KMS.
+ * The ReEncrypt operation requires the following permissions:
+ * - The kms:ReEncryptFrom permission for the source master key.
+ * - The kms:ReEncryptTo permission for the destination master key.
+ * - You can use kms:ReEncrypt\\* to grant both permissions.
  *
  * @param tmpReq ReEncryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3937,44 +4034,44 @@ ReEncryptResponse Client::reEncryptWithOptions(const ReEncryptRequest &tmpReq, c
   ReEncryptShrinkRequest request = ReEncryptShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDestinationEncryptionContext()) {
-    request.setDestinationEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.destinationEncryptionContext(), "DestinationEncryptionContext", "json"));
+    request.setDestinationEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDestinationEncryptionContext(), "DestinationEncryptionContext", "json"));
   }
 
   if (!!tmpReq.hasSourceEncryptionContext()) {
-    request.setSourceEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceEncryptionContext(), "SourceEncryptionContext", "json"));
+    request.setSourceEncryptionContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceEncryptionContext(), "SourceEncryptionContext", "json"));
   }
 
   json query = {};
   if (!!request.hasCiphertextBlob()) {
-    query["CiphertextBlob"] = request.ciphertextBlob();
+    query["CiphertextBlob"] = request.getCiphertextBlob();
   }
 
   if (!!request.hasDestinationEncryptionContextShrink()) {
-    query["DestinationEncryptionContext"] = request.destinationEncryptionContextShrink();
+    query["DestinationEncryptionContext"] = request.getDestinationEncryptionContextShrink();
   }
 
   if (!!request.hasDestinationKeyId()) {
-    query["DestinationKeyId"] = request.destinationKeyId();
+    query["DestinationKeyId"] = request.getDestinationKeyId();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasSourceEncryptionAlgorithm()) {
-    query["SourceEncryptionAlgorithm"] = request.sourceEncryptionAlgorithm();
+    query["SourceEncryptionAlgorithm"] = request.getSourceEncryptionAlgorithm();
   }
 
   if (!!request.hasSourceEncryptionContextShrink()) {
-    query["SourceEncryptionContext"] = request.sourceEncryptionContextShrink();
+    query["SourceEncryptionContext"] = request.getSourceEncryptionContextShrink();
   }
 
   if (!!request.hasSourceKeyId()) {
-    query["SourceKeyId"] = request.sourceKeyId();
+    query["SourceKeyId"] = request.getSourceKeyId();
   }
 
   if (!!request.hasSourceKeyVersionId()) {
-    query["SourceKeyVersionId"] = request.sourceKeyVersionId();
+    query["SourceKeyVersionId"] = request.getSourceKeyVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3995,14 +4092,23 @@ ReEncryptResponse Client::reEncryptWithOptions(const ReEncryptRequest &tmpReq, c
 }
 
 /**
- * @description You can call this operation in the following scenarios:
- * *   After the CMK that was used to encrypt your data is rotated, you can call this operation to use the latest CMK version to re-encrypt the data. For more information about automatic key rotation, see [Configure automatic key rotation](https://help.aliyun.com/document_detail/134270.html).
- * *   The CMK that was used to encrypt your data remains unchanged, but EncryptionContext is changed. In this scenario, you can call this operation to re-encrypt the data.
- * *   You can call this operation to use a CMK in KMS to re-encrypt data or a data key that was previously encrypted by a different CMK.
- * To use the ReEncrypt operation, you must have two permissions:
- * *   kms:ReEncryptFrom on the source CMK
- * *   kms:ReEncryptTo on the destination CMK
- * *   For simplicity, you can specify kms:ReEncrypt\\* to allow both of the preceding permissions.
+ * @summary Re-encrypts ciphertext under a different CMK without exposing the plaintext.
+ *
+ * @description ### Notes
+ * - For more information about the access policy required to grant a RAM user or RAM role the permission to use this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation is accessible only through a shared gateway, not a dedicated gateway. For more information, see [Alibaba Cloud SDK](https://help.aliyun.com/document_detail/601559.html).
+ *   When using a shared gateway, you access KMS through an Internet or a VPC domain name. This method requires Internet access to be enabled. For more information, see [Access keys in a KMS instance over the Internet](https://help.aliyun.com/document_detail/2856718.html).
+ * ### QPS limits
+ * This operation is accessible only through a shared gateway. The single-user queries per second (QPS) limit is 750. If this limit is exceeded, requests are throttled, which may affect your business. We recommend that you stay within the specified limit.
+ * ### Details
+ * You can use the ReEncrypt operation in the following scenarios:
+ * - After a customer master key (CMK) is rotated, you can use the latest key version to re-encrypt data. For more information about automatic key rotation, see [Automatic key rotation](https://help.aliyun.com/document_detail/134270.html).
+ * - You can re-encrypt data by changing the encryption context without changing the master key.
+ * - You can re-encrypt data or a data key that is encrypted by one master key with another master key in KMS.
+ * The ReEncrypt operation requires the following permissions:
+ * - The kms:ReEncryptFrom permission for the source master key.
+ * - The kms:ReEncryptTo permission for the destination master key.
+ * - You can use kms:ReEncrypt\\* to grant both permissions.
  *
  * @param request ReEncryptRequest
  * @return ReEncryptResponse
@@ -4013,7 +4119,14 @@ ReEncryptResponse Client::reEncrypt(const ReEncryptRequest &request) {
 }
 
 /**
- * @summary 仅后付费实例支持释放，预付费实例需要从用户中心-退订管理释放。
+ * @summary Releases a pay-as-you-go KMS instance.
+ *
+ * @description - For information about the access policy that is required to allow a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Subscription instances cannot be manually released. You can only unsubscribe from them under specific conditions. To unsubscribe, go to the Expenses and Costs page in the console and choose Unsubscribe. For more information, see [Unsubscription policy](https://help.aliyun.com/document_detail/600418.html).
+ * - After you release an instance, all resources in the instance are also released. Resources that are encrypted using keys in the instance cannot be decrypted, and credentials cannot be retrieved. Before you release an instance, make sure that no data is encrypted by the keys in the instance and no services call the credentials. This prevents service interruptions.
+ * - If your instance is a software key management instance, we recommend that you back up the resources of the instance before you release it. The backed-up resources can be recovered. For more information, see [Backup management](https://help.aliyun.com/document_detail/2357488.html).
+ * - The billing epoch is daily. Therefore, after you release a pay-as-you-go instance, the bill for the previous day is pushed before 12:00 on the next day.
+ * - Before you release a KMS instance, we recommend that you check whether deletion protection is enabled for the instance in the console. If deletion protection is enabled, disable it in the console before you release the instance. For more information, see [Manage a KMS instance](https://help.aliyun.com/document_detail/604735.html).
  *
  * @param request ReleaseKmsInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4023,11 +4136,11 @@ ReleaseKmsInstanceResponse Client::releaseKmsInstanceWithOptions(const ReleaseKm
   request.validate();
   json query = {};
   if (!!request.hasForceDeleteWithoutBackup()) {
-    query["ForceDeleteWithoutBackup"] = request.forceDeleteWithoutBackup();
+    query["ForceDeleteWithoutBackup"] = request.getForceDeleteWithoutBackup();
   }
 
   if (!!request.hasKmsInstanceId()) {
-    query["KmsInstanceId"] = request.kmsInstanceId();
+    query["KmsInstanceId"] = request.getKmsInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4048,7 +4161,14 @@ ReleaseKmsInstanceResponse Client::releaseKmsInstanceWithOptions(const ReleaseKm
 }
 
 /**
- * @summary 仅后付费实例支持释放，预付费实例需要从用户中心-退订管理释放。
+ * @summary Releases a pay-as-you-go KMS instance.
+ *
+ * @description - For information about the access policy that is required to allow a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - Subscription instances cannot be manually released. You can only unsubscribe from them under specific conditions. To unsubscribe, go to the Expenses and Costs page in the console and choose Unsubscribe. For more information, see [Unsubscription policy](https://help.aliyun.com/document_detail/600418.html).
+ * - After you release an instance, all resources in the instance are also released. Resources that are encrypted using keys in the instance cannot be decrypted, and credentials cannot be retrieved. Before you release an instance, make sure that no data is encrypted by the keys in the instance and no services call the credentials. This prevents service interruptions.
+ * - If your instance is a software key management instance, we recommend that you back up the resources of the instance before you release it. The backed-up resources can be recovered. For more information, see [Backup management](https://help.aliyun.com/document_detail/2357488.html).
+ * - The billing epoch is daily. Therefore, after you release a pay-as-you-go instance, the bill for the previous day is pushed before 12:00 on the next day.
+ * - Before you release a KMS instance, we recommend that you check whether deletion protection is enabled for the instance in the console. If deletion protection is enabled, disable it in the console before you release the instance. For more information, see [Manage a KMS instance](https://help.aliyun.com/document_detail/604735.html).
  *
  * @param request ReleaseKmsInstanceRequest
  * @return ReleaseKmsInstanceResponse
@@ -4059,6 +4179,8 @@ ReleaseKmsInstanceResponse Client::releaseKmsInstance(const ReleaseKmsInstanceRe
 }
 
 /**
+ * @summary Restores a deleted secret.
+ *
  * @description You can only use this operation to restore a deleted secret that is within its recovery period. If you set **ForceDeleteWithoutRecovery** to **true** when you delete the secret, you cannot restore it.
  *
  * @param request RestoreSecretRequest
@@ -4069,7 +4191,7 @@ RestoreSecretResponse Client::restoreSecretWithOptions(const RestoreSecretReques
   request.validate();
   json query = {};
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4090,6 +4212,8 @@ RestoreSecretResponse Client::restoreSecretWithOptions(const RestoreSecretReques
 }
 
 /**
+ * @summary Restores a deleted secret.
+ *
  * @description You can only use this operation to restore a deleted secret that is within its recovery period. If you set **ForceDeleteWithoutRecovery** to **true** when you delete the secret, you cannot restore it.
  *
  * @param request RestoreSecretRequest
@@ -4101,10 +4225,13 @@ RestoreSecretResponse Client::restoreSecret(const RestoreSecretRequest &request)
 }
 
 /**
+ * @summary Immediately rotates a secret.
+ *
  * @description Limits:
  * • A secret of each Alibaba Cloud account can be rotated for a maximum of 50 times per hour.
  * • The RotateSecret operation is unavailable for standard secrets.
  * In this example, the `RdsSecret/Mysql5.4/MyCred` secret is manually rotated, and the version number of the secret is set to `000000123` after the secret is rotated.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request RotateSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4114,11 +4241,11 @@ RotateSecretResponse Client::rotateSecretWithOptions(const RotateSecretRequest &
   request.validate();
   json query = {};
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4139,10 +4266,13 @@ RotateSecretResponse Client::rotateSecretWithOptions(const RotateSecretRequest &
 }
 
 /**
+ * @summary Immediately rotates a secret.
+ *
  * @description Limits:
  * • A secret of each Alibaba Cloud account can be rotated for a maximum of 50 times per hour.
  * • The RotateSecret operation is unavailable for standard secrets.
  * In this example, the `RdsSecret/Mysql5.4/MyCred` secret is manually rotated, and the version number of the secret is set to `000000123` after the secret is rotated.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request RotateSecretRequest
  * @return RotateSecretResponse
@@ -4153,6 +4283,8 @@ RotateSecretResponse Client::rotateSecret(const RotateSecretRequest &request) {
 }
 
 /**
+ * @summary Deletes a specified customer master key (CMK).
+ *
  * @description During the scheduled period, the CMK is in the PendingDeletion state and cannot be used to encrypt data, decrypt data, or generate data keys.
  * After a CMK is deleted, it cannot be recovered. Data that is encrypted and data keys that are generated by using the CMK cannot be decrypted. To prevent accidental deletion of CMKs, Key Management Service (KMS) allows you to only schedule key deletion tasks. You cannot directly delete CMKs. If you want to delete a CMK, call the [DisableKey](https://help.aliyun.com/document_detail/35151.html) operation to disable the CMK.
  * When you call this operation, you must specify a scheduled period between 7 days to 366 days. The scheduled period starts from the time when you submit the request. You can call the [CancelKeyDeletion](https://help.aliyun.com/document_detail/44197.html) operation to cancel the key deletion task before the scheduled period ends.
@@ -4165,11 +4297,11 @@ ScheduleKeyDeletionResponse Client::scheduleKeyDeletionWithOptions(const Schedul
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasPendingWindowInDays()) {
-    query["PendingWindowInDays"] = request.pendingWindowInDays();
+    query["PendingWindowInDays"] = request.getPendingWindowInDays();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4190,6 +4322,8 @@ ScheduleKeyDeletionResponse Client::scheduleKeyDeletionWithOptions(const Schedul
 }
 
 /**
+ * @summary Deletes a specified customer master key (CMK).
+ *
  * @description During the scheduled period, the CMK is in the PendingDeletion state and cannot be used to encrypt data, decrypt data, or generate data keys.
  * After a CMK is deleted, it cannot be recovered. Data that is encrypted and data keys that are generated by using the CMK cannot be decrypted. To prevent accidental deletion of CMKs, Key Management Service (KMS) allows you to only schedule key deletion tasks. You cannot directly delete CMKs. If you want to delete a CMK, call the [DisableKey](https://help.aliyun.com/document_detail/35151.html) operation to disable the CMK.
  * When you call this operation, you must specify a scheduled period between 7 days to 366 days. The scheduled period starts from the time when you submit the request. You can call the [CancelKeyDeletion](https://help.aliyun.com/document_detail/44197.html) operation to cancel the key deletion task before the scheduled period ends.
@@ -4205,9 +4339,9 @@ ScheduleKeyDeletionResponse Client::scheduleKeyDeletion(const ScheduleKeyDeletio
 /**
  * @summary Enables or disables deletion protection for a customer master key (CMK).
  *
- * @description *   After you enable deletion protection for a CMK, you cannot delete the CMK. If you want to delete the CMK, you must first disable deletion protection for the CMK.
- * *   Before you can call the SetDeletionProtection operation, make sure that the required CMK is not in the Pending Deletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the CMK status, which is specified by the KeyState parameter.
- * You can enable deletion protection for the CMK whose Alibaba Cloud Resource Name (ARN) is `acs:kms:cn-hangzhou:123213123****:key/0225f411-b21d-46d1-be5b-93931c82****` by using parameter settings provided in this topic. The CMK ARN is specified by the ProtectedResourceArn parameter.
+ * @description - For more information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - After you enable deletion protection for a CMK, you cannot delete it. To delete the CMK, you must first disable deletion protection.
+ * - Before you call the SetDeletionProtection operation, ensure that the CMK is not in the PendingDeletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK.
  *
  * @param request SetDeletionProtectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4217,19 +4351,23 @@ SetDeletionProtectionResponse Client::setDeletionProtectionWithOptions(const Set
   request.validate();
   json query = {};
   if (!!request.hasDeletionProtectionDescription()) {
-    query["DeletionProtectionDescription"] = request.deletionProtectionDescription();
+    query["DeletionProtectionDescription"] = request.getDeletionProtectionDescription();
   }
 
   if (!!request.hasEnableDeletionProtection()) {
-    query["EnableDeletionProtection"] = request.enableDeletionProtection();
+    query["EnableDeletionProtection"] = request.getEnableDeletionProtection();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
+  }
+
+  if (!!request.hasKmsInstanceId()) {
+    query["KmsInstanceId"] = request.getKmsInstanceId();
   }
 
   if (!!request.hasProtectedResourceArn()) {
-    query["ProtectedResourceArn"] = request.protectedResourceArn();
+    query["ProtectedResourceArn"] = request.getProtectedResourceArn();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4252,9 +4390,9 @@ SetDeletionProtectionResponse Client::setDeletionProtectionWithOptions(const Set
 /**
  * @summary Enables or disables deletion protection for a customer master key (CMK).
  *
- * @description *   After you enable deletion protection for a CMK, you cannot delete the CMK. If you want to delete the CMK, you must first disable deletion protection for the CMK.
- * *   Before you can call the SetDeletionProtection operation, make sure that the required CMK is not in the Pending Deletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the CMK status, which is specified by the KeyState parameter.
- * You can enable deletion protection for the CMK whose Alibaba Cloud Resource Name (ARN) is `acs:kms:cn-hangzhou:123213123****:key/0225f411-b21d-46d1-be5b-93931c82****` by using parameter settings provided in this topic. The CMK ARN is specified by the ProtectedResourceArn parameter.
+ * @description - For more information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - After you enable deletion protection for a CMK, you cannot delete it. To delete the CMK, you must first disable deletion protection.
+ * - Before you call the SetDeletionProtection operation, ensure that the CMK is not in the PendingDeletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK.
  *
  * @param request SetDeletionProtectionRequest
  * @return SetDeletionProtectionResponse
@@ -4265,7 +4403,10 @@ SetDeletionProtectionResponse Client::setDeletionProtection(const SetDeletionPro
 }
 
 /**
- * @summary 可以设置一条 Key Policy，且名称必须为 default。
+ * @summary Sets the key policy for a CMK in a KMS instance.
+ *
+ * @description - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - For more information about key policies, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html).
  *
  * @param request SetKeyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4275,15 +4416,15 @@ SetKeyPolicyResponse Client::setKeyPolicyWithOptions(const SetKeyPolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasPolicy()) {
-    query["Policy"] = request.policy();
+    query["Policy"] = request.getPolicy();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4304,7 +4445,10 @@ SetKeyPolicyResponse Client::setKeyPolicyWithOptions(const SetKeyPolicyRequest &
 }
 
 /**
- * @summary 可以设置一条 Key Policy，且名称必须为 default。
+ * @summary Sets the key policy for a CMK in a KMS instance.
+ *
+ * @description - For information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - For more information about key policies, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html).
  *
  * @param request SetKeyPolicyRequest
  * @return SetKeyPolicyResponse
@@ -4315,7 +4459,10 @@ SetKeyPolicyResponse Client::setKeyPolicy(const SetKeyPolicyRequest &request) {
 }
 
 /**
- * @summary 可以设置一条 Secret Policy，且名称必须为 default。
+ * @summary Sets the access policy for a secret in a KMS instance.
+ *
+ * @description - For information about the access policy that a RAM user or RAM role requires to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - For more information about secret policies, see [Secret policy overview](https://help.aliyun.com/document_detail/2716465.html).
  *
  * @param request SetSecretPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4325,15 +4472,15 @@ SetSecretPolicyResponse Client::setSecretPolicyWithOptions(const SetSecretPolicy
   request.validate();
   json query = {};
   if (!!request.hasPolicy()) {
-    query["Policy"] = request.policy();
+    query["Policy"] = request.getPolicy();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4354,7 +4501,10 @@ SetSecretPolicyResponse Client::setSecretPolicyWithOptions(const SetSecretPolicy
 }
 
 /**
- * @summary 可以设置一条 Secret Policy，且名称必须为 default。
+ * @summary Sets the access policy for a secret in a KMS instance.
+ *
+ * @description - For information about the access policy that a RAM user or RAM role requires to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - For more information about secret policies, see [Secret policy overview](https://help.aliyun.com/document_detail/2716465.html).
  *
  * @param request SetSecretPolicyRequest
  * @return SetSecretPolicyResponse
@@ -4365,8 +4515,11 @@ SetSecretPolicyResponse Client::setSecretPolicy(const SetSecretPolicyRequest &re
 }
 
 /**
+ * @summary Adds tags to a CMK, secret, or certificate.
+ *
  * @description You can add up to 10 tags to a CMK, secret, or certificate.
  * In this example, the tags `[{"TagKey":"S1key1","TagValue":"S1val1"},{"TagKey":"S1key2","TagValue":"S2val2"}]` are added to the CMK whose ID is `08c33a6f-4e0a-4a1b-a3fa-7ddf****`.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request TagResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4376,19 +4529,19 @@ TagResourceResponse Client::tagResourceWithOptions(const TagResourceRequest &req
   request.validate();
   json query = {};
   if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
+    query["CertificateId"] = request.getCertificateId();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4409,8 +4562,11 @@ TagResourceResponse Client::tagResourceWithOptions(const TagResourceRequest &req
 }
 
 /**
+ * @summary Adds tags to a CMK, secret, or certificate.
+ *
  * @description You can add up to 10 tags to a CMK, secret, or certificate.
  * In this example, the tags `[{"TagKey":"S1key1","TagValue":"S1val1"},{"TagKey":"S1key2","TagValue":"S2val2"}]` are added to the CMK whose ID is `08c33a6f-4e0a-4a1b-a3fa-7ddf****`.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request TagResourceRequest
  * @return TagResourceResponse
@@ -4421,9 +4577,10 @@ TagResourceResponse Client::tagResource(const TagResourceRequest &request) {
 }
 
 /**
- * @summary Adds tags to keys or secrets.
+ * @summary Adds tags to one or more keys or secrets.
  *
  * @description You can add multiple tags to multiple keys or multiple secrets at a time.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4433,19 +4590,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4466,9 +4623,10 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to keys or secrets.
+ * @summary Adds tags to one or more keys or secrets.
  *
  * @description You can add multiple tags to multiple keys or multiple secrets at a time.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -4479,9 +4637,10 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @description One or more tag keys. Separate multiple tag keys with commas (,).
- * You need to specify only the tag keys, not the tag values.
- * Each tag key must be 1 to 128 bytes in length.
+ * @summary Removes tags from a CMK, secret, or certificate.
+ *
+ * @description For information about the access policy that is required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * This topic provides an example of how to detach tags with the tag keys tagkey1 and tagkey2 from the key with the ID `08c33a6f-4e0a-4a1b-a3fa-7ddf****`.
  *
  * @param request UntagResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4491,19 +4650,19 @@ UntagResourceResponse Client::untagResourceWithOptions(const UntagResourceReques
   request.validate();
   json query = {};
   if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
+    query["CertificateId"] = request.getCertificateId();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasTagKeys()) {
-    query["TagKeys"] = request.tagKeys();
+    query["TagKeys"] = request.getTagKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4524,9 +4683,10 @@ UntagResourceResponse Client::untagResourceWithOptions(const UntagResourceReques
 }
 
 /**
- * @description One or more tag keys. Separate multiple tag keys with commas (,).
- * You need to specify only the tag keys, not the tag values.
- * Each tag key must be 1 to 128 bytes in length.
+ * @summary Removes tags from a CMK, secret, or certificate.
+ *
+ * @description For information about the access policy that is required for a RAM user or RAM role to call this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * This topic provides an example of how to detach tags with the tag keys tagkey1 and tagkey2 from the key with the ID `08c33a6f-4e0a-4a1b-a3fa-7ddf****`.
  *
  * @param request UntagResourceRequest
  * @return UntagResourceResponse
@@ -4550,23 +4710,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4601,6 +4761,8 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
+ * @summary Binds an existing alias to a different customer master key (CMK) ID.
+ *
  * @param request UpdateAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateAliasResponse
@@ -4609,11 +4771,11 @@ UpdateAliasResponse Client::updateAliasWithOptions(const UpdateAliasRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAliasName()) {
-    query["AliasName"] = request.aliasName();
+    query["AliasName"] = request.getAliasName();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4634,6 +4796,8 @@ UpdateAliasResponse Client::updateAliasWithOptions(const UpdateAliasRequest &req
 }
 
 /**
+ * @summary Binds an existing alias to a different customer master key (CMK) ID.
+ *
  * @param request UpdateAliasRequest
  * @return UpdateAliasResponse
  */
@@ -4643,6 +4807,8 @@ UpdateAliasResponse Client::updateAlias(const UpdateAliasRequest &request) {
 }
 
 /**
+ * @summary Updates the information about an application access point (AAP).
+ *
  * @description The update takes effect immediately after an AAP information is updated. Exercise caution when you perform this operation. You can update the description of an AAP and the permission policies that are associated with the AAP. You cannot update the name of the AAP.
  *
  * @param request UpdateApplicationAccessPointRequest
@@ -4653,15 +4819,15 @@ UpdateApplicationAccessPointResponse Client::updateApplicationAccessPointWithOpt
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPolicies()) {
-    query["Policies"] = request.policies();
+    query["Policies"] = request.getPolicies();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4682,6 +4848,8 @@ UpdateApplicationAccessPointResponse Client::updateApplicationAccessPointWithOpt
 }
 
 /**
+ * @summary Updates the information about an application access point (AAP).
+ *
  * @description The update takes effect immediately after an AAP information is updated. Exercise caution when you perform this operation. You can update the description of an AAP and the permission policies that are associated with the AAP. You cannot update the name of the AAP.
  *
  * @param request UpdateApplicationAccessPointRequest
@@ -4693,55 +4861,10 @@ UpdateApplicationAccessPointResponse Client::updateApplicationAccessPoint(const 
 }
 
 /**
- * @description In this example, the status of the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is updated to INACTIVE.
+ * @summary Updates the description of a CMK.
  *
- * @param request UpdateCertificateStatusRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return UpdateCertificateStatusResponse
- */
-UpdateCertificateStatusResponse Client::updateCertificateStatusWithOptions(const UpdateCertificateStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
-  }
-
-  if (!!request.hasStatus()) {
-    query["Status"] = request.status();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "UpdateCertificateStatus"},
-    {"version" , "2016-01-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UpdateCertificateStatusResponse>();
-}
-
-/**
- * @description In this example, the status of the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is updated to INACTIVE.
- *
- * @param request UpdateCertificateStatusRequest
- * @return UpdateCertificateStatusResponse
- */
-UpdateCertificateStatusResponse Client::updateCertificateStatus(const UpdateCertificateStatusRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return updateCertificateStatusWithOptions(request, runtime);
-}
-
-/**
- * @summary 调用UpdateKeyDescription接口更新主密钥的描述信息。
- *
- * @description This operation replaces the description of a customer master key (CMK) with the description that you specify. The original description of the CMK is specified by the Description parameter when you call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation. You can call this operation to add, modify, or delete the description of a CMK.
+ * @description This operation replaces the description of a customer master key (CMK) with the description that you specify. The original description of the CMK is specified by the Description parameter when you call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation. Use this operation to add, modify, or delete the description of a CMK.
+ * For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request UpdateKeyDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4751,11 +4874,11 @@ UpdateKeyDescriptionResponse Client::updateKeyDescriptionWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4776,9 +4899,10 @@ UpdateKeyDescriptionResponse Client::updateKeyDescriptionWithOptions(const Updat
 }
 
 /**
- * @summary 调用UpdateKeyDescription接口更新主密钥的描述信息。
+ * @summary Updates the description of a CMK.
  *
- * @description This operation replaces the description of a customer master key (CMK) with the description that you specify. The original description of the CMK is specified by the Description parameter when you call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation. You can call this operation to add, modify, or delete the description of a CMK.
+ * @description This operation replaces the description of a customer master key (CMK) with the description that you specify. The original description of the CMK is specified by the Description parameter when you call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation. Use this operation to add, modify, or delete the description of a CMK.
+ * For more information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request UpdateKeyDescriptionRequest
  * @return UpdateKeyDescriptionResponse
@@ -4789,11 +4913,12 @@ UpdateKeyDescriptionResponse Client::updateKeyDescription(const UpdateKeyDescrip
 }
 
 /**
- * @summary Updates the virtual private cloud (VPC) that is associated with a Key Management Service (KMS) instance.
+ * @summary Updates the VPC bindings of a KMS instance.
  *
- * @description If your own applications are deployed in multiple VPCs in the same region, you can associate the VPCs except the VPC in which the KMS instance resides with the KMS instance. This topic describes how to configure the VPCs.
- * The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, the applications in these VPCs can access the KMS instance.
- * > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitches of other Alibaba Cloud accounts with the Alibaba Cloud account to which the KMS instance belongs. For more information, see [Access a KMS instance from multiple VPCs in the same region](https://help.aliyun.com/document_detail/2393236.html).
+ * @description - For information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - If your self-managed application is deployed in multiple VPCs in the same region, you can bind the KMS instance to additional VPCs. These VPCs are in addition to the one that you specified when you enabled the instance.
+ *   These VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, self-managed applications in these VPCs can access the specified KMS instance.
+ *   > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitch resources from those accounts with the Alibaba Cloud account that owns the KMS instance. For more information, see [Access a KMS instance from multiple VPCs in the same region](https://help.aliyun.com/document_detail/2393236.html).
  *
  * @param request UpdateKmsInstanceBindVpcRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4803,11 +4928,11 @@ UpdateKmsInstanceBindVpcResponse Client::updateKmsInstanceBindVpcWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBindVpcs()) {
-    query["BindVpcs"] = request.bindVpcs();
+    query["BindVpcs"] = request.getBindVpcs();
   }
 
   if (!!request.hasKmsInstanceId()) {
-    query["KmsInstanceId"] = request.kmsInstanceId();
+    query["KmsInstanceId"] = request.getKmsInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4828,11 +4953,12 @@ UpdateKmsInstanceBindVpcResponse Client::updateKmsInstanceBindVpcWithOptions(con
 }
 
 /**
- * @summary Updates the virtual private cloud (VPC) that is associated with a Key Management Service (KMS) instance.
+ * @summary Updates the VPC bindings of a KMS instance.
  *
- * @description If your own applications are deployed in multiple VPCs in the same region, you can associate the VPCs except the VPC in which the KMS instance resides with the KMS instance. This topic describes how to configure the VPCs.
- * The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, the applications in these VPCs can access the KMS instance.
- * > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitches of other Alibaba Cloud accounts with the Alibaba Cloud account to which the KMS instance belongs. For more information, see [Access a KMS instance from multiple VPCs in the same region](https://help.aliyun.com/document_detail/2393236.html).
+ * @description - For information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - If your self-managed application is deployed in multiple VPCs in the same region, you can bind the KMS instance to additional VPCs. These VPCs are in addition to the one that you specified when you enabled the instance.
+ *   These VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, self-managed applications in these VPCs can access the specified KMS instance.
+ *   > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitch resources from those accounts with the Alibaba Cloud account that owns the KMS instance. For more information, see [Access a KMS instance from multiple VPCs in the same region](https://help.aliyun.com/document_detail/2393236.html).
  *
  * @param request UpdateKmsInstanceBindVpcRequest
  * @return UpdateKmsInstanceBindVpcResponse
@@ -4843,10 +4969,11 @@ UpdateKmsInstanceBindVpcResponse Client::updateKmsInstanceBindVpc(const UpdateKm
 }
 
 /**
- * @summary Updates an access control rule.
+ * @summary Updates a network access rule.
  *
- * @description - You can update only private IP addresses and description of an access control rule. You cannot update the name and network type of an access control rule.
- * - Updating an access control rule affects all permission policies that are bound to the access control rule. Exercise caution when you perform this operation.
+ * @description - For more information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+ * - You can only modify the private IP addresses and description of a network control rule. The name and network type cannot be modified.
+ * - When you update a network control rule, the access policies attached to it are also updated. Proceed with caution.
  *
  * @param request UpdateNetworkRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4856,15 +4983,15 @@ UpdateNetworkRuleResponse Client::updateNetworkRuleWithOptions(const UpdateNetwo
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasSourcePrivateIp()) {
-    query["SourcePrivateIp"] = request.sourcePrivateIp();
+    query["SourcePrivateIp"] = request.getSourcePrivateIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4885,10 +5012,11 @@ UpdateNetworkRuleResponse Client::updateNetworkRuleWithOptions(const UpdateNetwo
 }
 
 /**
- * @summary Updates an access control rule.
+ * @summary Updates a network access rule.
  *
- * @description - You can update only private IP addresses and description of an access control rule. You cannot update the name and network type of an access control rule.
- * - Updating an access control rule affects all permission policies that are bound to the access control rule. Exercise caution when you perform this operation.
+ * @description - For more information about the access policy required for a Resource Access Management (RAM) user or RAM role to call this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+ * - You can only modify the private IP addresses and description of a network control rule. The name and network type cannot be modified.
+ * - When you update a network control rule, the access policies attached to it are also updated. Proceed with caution.
  *
  * @param request UpdateNetworkRuleRequest
  * @return UpdateNetworkRuleResponse
@@ -4899,7 +5027,7 @@ UpdateNetworkRuleResponse Client::updateNetworkRule(const UpdateNetworkRuleReque
 }
 
 /**
- * @summary 更新一个权限策略
+ * @summary Updates a permission policy.
  *
  * @description - You can update the role-based access control (RBAC) permissions, accessible resources, access control rules, and description of a permission policy. You cannot update the name or scope of a permission policy.
  * - Updating a permission policy affects all application access points (AAPs) that are bound to the permission policy. Exercise caution when you perform this operation.
@@ -4912,23 +5040,23 @@ UpdatePolicyResponse Client::updatePolicyWithOptions(const UpdatePolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasAccessControlRules()) {
-    query["AccessControlRules"] = request.accessControlRules();
+    query["AccessControlRules"] = request.getAccessControlRules();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPermissions()) {
-    query["Permissions"] = request.permissions();
+    query["Permissions"] = request.getPermissions();
   }
 
   if (!!request.hasResources()) {
-    query["Resources"] = request.resources();
+    query["Resources"] = request.getResources();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4949,7 +5077,7 @@ UpdatePolicyResponse Client::updatePolicyWithOptions(const UpdatePolicyRequest &
 }
 
 /**
- * @summary 更新一个权限策略
+ * @summary Updates a permission policy.
  *
  * @description - You can update the role-based access control (RBAC) permissions, accessible resources, access control rules, and description of a permission policy. You cannot update the name or scope of a permission policy.
  * - Updating a permission policy affects all application access points (AAPs) that are bound to the permission policy. Exercise caution when you perform this operation.
@@ -4963,13 +5091,16 @@ UpdatePolicyResponse Client::updatePolicy(const UpdatePolicyRequest &request) {
 }
 
 /**
+ * @summary Updates the automatic rotation policy of a CMK.
+ *
  * @description When automatic key rotation is enabled, KMS automatically creates a key version after the preset rotation period arrives. In addition, KMS sets the new key version as the primary key version.
  * An automatic key rotation policy cannot be configured for the following keys:
- * *   Asymmetric key
- * *   Service-managed key
- * *   Bring your own key (BYOK) that is imported into KMS
- * *   Key that is not in the **Enabled** state
+ * - Asymmetric key
+ * - Service-managed key
+ * - Bring your own key (BYOK) that is imported into KMS
+ * - Key that is not in the **Enabled** state
  * In this example, automatic key rotation is enabled for a CMK whose ID is `1234abcd-12ab-34cd-56ef-12345678****`. The automatic rotation period is 30 days.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request UpdateRotationPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4979,15 +5110,15 @@ UpdateRotationPolicyResponse Client::updateRotationPolicyWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasEnableAutomaticRotation()) {
-    query["EnableAutomaticRotation"] = request.enableAutomaticRotation();
+    query["EnableAutomaticRotation"] = request.getEnableAutomaticRotation();
   }
 
   if (!!request.hasKeyId()) {
-    query["KeyId"] = request.keyId();
+    query["KeyId"] = request.getKeyId();
   }
 
   if (!!request.hasRotationInterval()) {
-    query["RotationInterval"] = request.rotationInterval();
+    query["RotationInterval"] = request.getRotationInterval();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5008,13 +5139,16 @@ UpdateRotationPolicyResponse Client::updateRotationPolicyWithOptions(const Updat
 }
 
 /**
+ * @summary Updates the automatic rotation policy of a CMK.
+ *
  * @description When automatic key rotation is enabled, KMS automatically creates a key version after the preset rotation period arrives. In addition, KMS sets the new key version as the primary key version.
  * An automatic key rotation policy cannot be configured for the following keys:
- * *   Asymmetric key
- * *   Service-managed key
- * *   Bring your own key (BYOK) that is imported into KMS
- * *   Key that is not in the **Enabled** state
+ * - Asymmetric key
+ * - Service-managed key
+ * - Bring your own key (BYOK) that is imported into KMS
+ * - Key that is not in the **Enabled** state
  * In this example, automatic key rotation is enabled for a CMK whose ID is `1234abcd-12ab-34cd-56ef-12345678****`. The automatic rotation period is 30 days.
+ * For more information about the access policy required by a RAM user or RAM role to call this API, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
  *
  * @param request UpdateRotationPolicyRequest
  * @return UpdateRotationPolicyResponse
@@ -5037,15 +5171,15 @@ UpdateSecretResponse Client::updateSecretWithOptions(const UpdateSecretRequest &
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasExtendedConfig()) {
-    query["ExtendedConfig"] = request.extendedConfig();
+    query["ExtendedConfig"] = request.getExtendedConfig();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5079,6 +5213,8 @@ UpdateSecretResponse Client::updateSecret(const UpdateSecretRequest &request) {
 }
 
 /**
+ * @summary Updates the rotation policy of a secret.
+ *
  * @description After automatic rotation is enabled, Secrets Manager schedules the first automatic rotation by adding the preset rotation interval to the timestamp of the last rotation.
  * Limits: The UpdateSecretRotationPolicy operation cannot be used to update the rotation policy of generic secrets.
  * In this example, the rotation policy of the `RdsSecret/Mysql5.4/MyCred` secret is updated. The following settings are modified:
@@ -5093,15 +5229,15 @@ UpdateSecretRotationPolicyResponse Client::updateSecretRotationPolicyWithOptions
   request.validate();
   json query = {};
   if (!!request.hasEnableAutomaticRotation()) {
-    query["EnableAutomaticRotation"] = request.enableAutomaticRotation();
+    query["EnableAutomaticRotation"] = request.getEnableAutomaticRotation();
   }
 
   if (!!request.hasRotationInterval()) {
-    query["RotationInterval"] = request.rotationInterval();
+    query["RotationInterval"] = request.getRotationInterval();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5122,6 +5258,8 @@ UpdateSecretRotationPolicyResponse Client::updateSecretRotationPolicyWithOptions
 }
 
 /**
+ * @summary Updates the rotation policy of a secret.
+ *
  * @description After automatic rotation is enabled, Secrets Manager schedules the first automatic rotation by adding the preset rotation interval to the timestamp of the last rotation.
  * Limits: The UpdateSecretRotationPolicy operation cannot be used to update the rotation policy of generic secrets.
  * In this example, the rotation policy of the `RdsSecret/Mysql5.4/MyCred` secret is updated. The following settings are modified:
@@ -5137,9 +5275,15 @@ UpdateSecretRotationPolicyResponse Client::updateSecretRotationPolicy(const Upda
 }
 
 /**
- * @summary UpdateSecretVersionStage
+ * @summary Moves a version stage label to a different version of a secret.
  *
- * @description Updates the stage label that marks a secret version.
+ * @description - For more information about the access policy that is required to call this operation as a Resource Access Management (RAM) user or RAM role, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation supports only generic secrets. You can perform the following operations:
+ *   - Add a version stage to a specified secret version.
+ *   - Remove a version stage from a specified secret version.
+ *   - Remove a version stage from a specified secret version and attach it to another secret version.
+ * - The total number of version stages for each generic secret cannot exceed 8.
+ * This topic provides an example of how to update the version stage of the secret named `secret001`. In this example, the `ACSCurrent` stage is used to mark version `002`.
  *
  * @param request UpdateSecretVersionStageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5149,19 +5293,19 @@ UpdateSecretVersionStageResponse Client::updateSecretVersionStageWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasMoveToVersion()) {
-    query["MoveToVersion"] = request.moveToVersion();
+    query["MoveToVersion"] = request.getMoveToVersion();
   }
 
   if (!!request.hasRemoveFromVersion()) {
-    query["RemoveFromVersion"] = request.removeFromVersion();
+    query["RemoveFromVersion"] = request.getRemoveFromVersion();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasVersionStage()) {
-    query["VersionStage"] = request.versionStage();
+    query["VersionStage"] = request.getVersionStage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5182,9 +5326,15 @@ UpdateSecretVersionStageResponse Client::updateSecretVersionStageWithOptions(con
 }
 
 /**
- * @summary UpdateSecretVersionStage
+ * @summary Moves a version stage label to a different version of a secret.
  *
- * @description Updates the stage label that marks a secret version.
+ * @description - For more information about the access policy that is required to call this operation as a Resource Access Management (RAM) user or RAM role, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
+ * - This operation supports only generic secrets. You can perform the following operations:
+ *   - Add a version stage to a specified secret version.
+ *   - Remove a version stage from a specified secret version.
+ *   - Remove a version stage from a specified secret version and attach it to another secret version.
+ * - The total number of version stages for each generic secret cannot exceed 8.
+ * This topic provides an example of how to update the version stage of the secret named `secret001`. In this example, the `ACSCurrent` stage is used to mark version `002`.
  *
  * @param request UpdateSecretVersionStageRequest
  * @return UpdateSecretVersionStageResponse
@@ -5195,32 +5345,45 @@ UpdateSecretVersionStageResponse Client::updateSecretVersionStage(const UpdateSe
 }
 
 /**
- * @description In this example, a certificate issued by a CA is imported into Certificates Manager. The ID of the certificate in Certificates Manager is `12345678-1234-1234-1234-12345678****`.
+ * @summary Verifies the HMAC message authentication code of a specific message by using a specified key.
  *
- * @param request UploadCertificateRequest
+ * @description For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+ * This operation can be invoked through a shared gateway or a dedicated gateway. For more information, refer to Alibaba Cloud SDK.
+ * - Shared gateway: Access KMS through a public or VPC endpoint. This method requires you to enable the public network access switch. For more information, refer to accessing keys in a KMS instance over the Internet.
+ * - Dedicated gateway: Access KMS through a KMS private endpoint (<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com).
+ *
+ * @param request VerifyMacRequest
  * @param runtime runtime options for this request RuntimeOptions
- * @return UploadCertificateResponse
+ * @return VerifyMacResponse
  */
-UploadCertificateResponse Client::uploadCertificateWithOptions(const UploadCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+VerifyMacResponse Client::verifyMacWithOptions(const VerifyMacRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasCertificate()) {
-    query["Certificate"] = request.certificate();
+  if (!!request.hasAlgorithm()) {
+    query["Algorithm"] = request.getAlgorithm();
   }
 
-  if (!!request.hasCertificateChain()) {
-    query["CertificateChain"] = request.certificateChain();
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
-  if (!!request.hasCertificateId()) {
-    query["CertificateId"] = request.certificateId();
+  if (!!request.hasKeyId()) {
+    query["KeyId"] = request.getKeyId();
+  }
+
+  if (!!request.hasMac()) {
+    query["Mac"] = request.getMac();
+  }
+
+  if (!!request.hasMessage()) {
+    query["Message"] = request.getMessage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
-    {"action" , "UploadCertificate"},
+    {"action" , "VerifyMac"},
     {"version" , "2016-01-20"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
@@ -5230,18 +5393,23 @@ UploadCertificateResponse Client::uploadCertificateWithOptions(const UploadCerti
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UploadCertificateResponse>();
+  return json(callApi(params, req, runtime)).get<VerifyMacResponse>();
 }
 
 /**
- * @description In this example, a certificate issued by a CA is imported into Certificates Manager. The ID of the certificate in Certificates Manager is `12345678-1234-1234-1234-12345678****`.
+ * @summary Verifies the HMAC message authentication code of a specific message by using a specified key.
  *
- * @param request UploadCertificateRequest
- * @return UploadCertificateResponse
+ * @description For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+ * This operation can be invoked through a shared gateway or a dedicated gateway. For more information, refer to Alibaba Cloud SDK.
+ * - Shared gateway: Access KMS through a public or VPC endpoint. This method requires you to enable the public network access switch. For more information, refer to accessing keys in a KMS instance over the Internet.
+ * - Dedicated gateway: Access KMS through a KMS private endpoint (<YOUR_KMS_INSTANCE_ID>.cryptoservice.kms.aliyuncs.com).
+ *
+ * @param request VerifyMacRequest
+ * @return VerifyMacResponse
  */
-UploadCertificateResponse Client::uploadCertificate(const UploadCertificateRequest &request) {
+VerifyMacResponse Client::verifyMac(const VerifyMacRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return uploadCertificateWithOptions(request, runtime);
+  return verifyMacWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Kms20160120

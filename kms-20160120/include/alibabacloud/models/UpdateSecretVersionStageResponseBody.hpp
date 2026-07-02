@@ -32,29 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->secretName_ == nullptr; };
+        && this->secretName_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateSecretVersionStageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline UpdateSecretVersionStageResponseBody& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
   protected:
+    // The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+    shared_ptr<string> requestId_ {};
     // The name of the secret.
-    std::shared_ptr<string> requestId_ = nullptr;
-    // The version to which you want to apply the specified stage label.
-    // 
-    // > * You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
-    // > * If the VersionStage parameter is set to ACSCurrent or ACSPrevious, this parameter is required.
-    std::shared_ptr<string> secretName_ = nullptr;
+    shared_ptr<string> secretName_ {};
   };
 
   } // namespace Models

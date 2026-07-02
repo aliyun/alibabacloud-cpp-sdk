@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyId_ == nullptr
-        && return this->wrappingAlgorithm_ == nullptr && return this->wrappingKeySpec_ == nullptr; };
+        && this->wrappingAlgorithm_ == nullptr && this->wrappingKeySpec_ == nullptr; };
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline GetParametersForImportRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // wrappingAlgorithm Field Functions 
     bool hasWrappingAlgorithm() const { return this->wrappingAlgorithm_ != nullptr;};
     void deleteWrappingAlgorithm() { this->wrappingAlgorithm_ = nullptr;};
-    inline string wrappingAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(wrappingAlgorithm_, "") };
+    inline string getWrappingAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(wrappingAlgorithm_, "") };
     inline GetParametersForImportRequest& setWrappingAlgorithm(string wrappingAlgorithm) { DARABONBA_PTR_SET_VALUE(wrappingAlgorithm_, wrappingAlgorithm) };
 
 
     // wrappingKeySpec Field Functions 
     bool hasWrappingKeySpec() const { return this->wrappingKeySpec_ != nullptr;};
     void deleteWrappingKeySpec() { this->wrappingKeySpec_ = nullptr;};
-    inline string wrappingKeySpec() const { DARABONBA_PTR_GET_DEFAULT(wrappingKeySpec_, "") };
+    inline string getWrappingKeySpec() const { DARABONBA_PTR_GET_DEFAULT(wrappingKeySpec_, "") };
     inline GetParametersForImportRequest& setWrappingKeySpec(string wrappingKeySpec) { DARABONBA_PTR_SET_VALUE(wrappingKeySpec_, wrappingKeySpec) };
 
 
@@ -62,15 +62,15 @@ namespace Models
     // >  You can import key material only for CMKs whose Origin parameter is set to EXTERNAL.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
+    shared_ptr<string> keyId_ {};
     // The algorithm that is used to encrypt key material.
     // 
     // This parameter is required.
-    std::shared_ptr<string> wrappingAlgorithm_ = nullptr;
+    shared_ptr<string> wrappingAlgorithm_ {};
     // The type of the public key that is used to encrypt key material.
     // 
     // This parameter is required.
-    std::shared_ptr<string> wrappingKeySpec_ = nullptr;
+    shared_ptr<string> wrappingKeySpec_ {};
   };
 
   } // namespace Models

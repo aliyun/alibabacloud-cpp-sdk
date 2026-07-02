@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientKeyId_ == nullptr
-        && return this->keyAlgorithm_ == nullptr && return this->notAfter_ == nullptr && return this->notBefore_ == nullptr && return this->privateKeyData_ == nullptr && return this->requestId_ == nullptr; };
+        && this->keyAlgorithm_ == nullptr && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->privateKeyData_ == nullptr && this->requestId_ == nullptr; };
     // clientKeyId Field Functions 
     bool hasClientKeyId() const { return this->clientKeyId_ != nullptr;};
     void deleteClientKeyId() { this->clientKeyId_ = nullptr;};
-    inline string clientKeyId() const { DARABONBA_PTR_GET_DEFAULT(clientKeyId_, "") };
+    inline string getClientKeyId() const { DARABONBA_PTR_GET_DEFAULT(clientKeyId_, "") };
     inline CreateClientKeyResponseBody& setClientKeyId(string clientKeyId) { DARABONBA_PTR_SET_VALUE(clientKeyId_, clientKeyId) };
 
 
     // keyAlgorithm Field Functions 
     bool hasKeyAlgorithm() const { return this->keyAlgorithm_ != nullptr;};
     void deleteKeyAlgorithm() { this->keyAlgorithm_ = nullptr;};
-    inline string keyAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(keyAlgorithm_, "") };
+    inline string getKeyAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(keyAlgorithm_, "") };
     inline CreateClientKeyResponseBody& setKeyAlgorithm(string keyAlgorithm) { DARABONBA_PTR_SET_VALUE(keyAlgorithm_, keyAlgorithm) };
 
 
     // notAfter Field Functions 
     bool hasNotAfter() const { return this->notAfter_ != nullptr;};
     void deleteNotAfter() { this->notAfter_ = nullptr;};
-    inline string notAfter() const { DARABONBA_PTR_GET_DEFAULT(notAfter_, "") };
+    inline string getNotAfter() const { DARABONBA_PTR_GET_DEFAULT(notAfter_, "") };
     inline CreateClientKeyResponseBody& setNotAfter(string notAfter) { DARABONBA_PTR_SET_VALUE(notAfter_, notAfter) };
 
 
     // notBefore Field Functions 
     bool hasNotBefore() const { return this->notBefore_ != nullptr;};
     void deleteNotBefore() { this->notBefore_ = nullptr;};
-    inline string notBefore() const { DARABONBA_PTR_GET_DEFAULT(notBefore_, "") };
+    inline string getNotBefore() const { DARABONBA_PTR_GET_DEFAULT(notBefore_, "") };
     inline CreateClientKeyResponseBody& setNotBefore(string notBefore) { DARABONBA_PTR_SET_VALUE(notBefore_, notBefore) };
 
 
     // privateKeyData Field Functions 
     bool hasPrivateKeyData() const { return this->privateKeyData_ != nullptr;};
     void deletePrivateKeyData() { this->privateKeyData_ = nullptr;};
-    inline string privateKeyData() const { DARABONBA_PTR_GET_DEFAULT(privateKeyData_, "") };
+    inline string getPrivateKeyData() const { DARABONBA_PTR_GET_DEFAULT(privateKeyData_, "") };
     inline CreateClientKeyResponseBody& setPrivateKeyData(string privateKeyData) { DARABONBA_PTR_SET_VALUE(privateKeyData_, privateKeyData) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateClientKeyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> clientKeyId_ = nullptr;
+    shared_ptr<string> clientKeyId_ {};
     // The ID of the client key.
-    std::shared_ptr<string> keyAlgorithm_ = nullptr;
+    shared_ptr<string> keyAlgorithm_ {};
     // The beginning of the validity period of the client key.
-    std::shared_ptr<string> notAfter_ = nullptr;
+    shared_ptr<string> notAfter_ {};
     // The private key of the client key.
-    std::shared_ptr<string> notBefore_ = nullptr;
+    shared_ptr<string> notBefore_ {};
     // The algorithm that is used to encrypt the private key of the client key. Currently, only RSA_2048 is supported.
-    std::shared_ptr<string> privateKeyData_ = nullptr;
+    shared_ptr<string> privateKeyData_ {};
     // The beginning of the validity period of the client key.
     // 
     // Specify the time in the ISO 8601 standard. The time must be in UTC. The time must be in the yyyy-MM-ddTHH:mm:ssZ format.
@@ -102,7 +102,7 @@ namespace Models
     // 
     // *   If you do not configure NotBefore, the default value is the time when the client key was created.
     // *   If you configure NotBefore, you must configure NotAfter.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

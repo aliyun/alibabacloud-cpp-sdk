@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->ciphertextBlob_ == nullptr && return this->dryRun_ == nullptr && return this->keyId_ == nullptr && return this->keyVersionId_ == nullptr; };
+        && this->ciphertextBlob_ == nullptr && this->dryRun_ == nullptr && this->keyId_ == nullptr && this->keyVersionId_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
-    inline string algorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline AsymmetricDecryptRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
     // ciphertextBlob Field Functions 
     bool hasCiphertextBlob() const { return this->ciphertextBlob_ != nullptr;};
     void deleteCiphertextBlob() { this->ciphertextBlob_ = nullptr;};
-    inline string ciphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
+    inline string getCiphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
     inline AsymmetricDecryptRequest& setCiphertextBlob(string ciphertextBlob) { DARABONBA_PTR_SET_VALUE(ciphertextBlob_, ciphertextBlob) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline string dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
+    inline string getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
     inline AsymmetricDecryptRequest& setDryRun(string dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline AsymmetricDecryptRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // keyVersionId Field Functions 
     bool hasKeyVersionId() const { return this->keyVersionId_ != nullptr;};
     void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
-    inline string keyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
+    inline string getKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
     inline AsymmetricDecryptRequest& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
 
 
@@ -78,25 +78,37 @@ namespace Models
     // The decryption algorithm.
     // 
     // This parameter is required.
-    std::shared_ptr<string> algorithm_ = nullptr;
-    // The ciphertext that you want to decrypt.
+    shared_ptr<string> algorithm_ {};
+    // The ciphertext to be decrypted. The ciphertext is encoded in Base64.
     // 
-    // > * The value is encoded in Base64.
-    // > * You can call the [AsymmetricEncrypt](https://help.aliyun.com/document_detail/148131.html) operation to generate the ciphertext.
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> ciphertextBlob_ = nullptr;
-    std::shared_ptr<string> dryRun_ = nullptr;
-    // The ID of the customer master key (CMK). The ID must be globally unique.
-    // 
-    // >  You can also set this parameter to an alias that is bound to the CMK. For more information, see [Alias overview](https://help.aliyun.com/document_detail/68522.html).
+    // > You can generate a ciphertext by calling the [AsymmetricEncrypt](https://help.aliyun.com/document_detail/148131.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
-    // The version ID of the CMK. The ID must be globally unique.
+    shared_ptr<string> ciphertextBlob_ {};
+    // Specifies whether to enable the dry run feature.
+    // 
+    // - true: enables the dry run feature.
+    // 
+    // - false: disables the dry run feature. This is the default value.
+    // 
+    // The dry run feature is used to test API calls, verify the permissions on the specified resources, and check the validity of the request parameters. If you enable the dry run feature, KMS always returns a failure response and the cause of the failure. The causes of the failure include the following:
+    // 
+    // - DryRunOperationError: The request would have succeeded if the DryRun parameter is not specified.
+    // 
+    // - ValidationError: The specified parameter in the request is invalid.
+    // 
+    // - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+    shared_ptr<string> dryRun_ {};
+    // The ID of the key. You can also specify the alias or Amazon Resource Name (ARN) of the key. For more information about aliases, see [Manage aliases](https://help.aliyun.com/document_detail/480655.html).
+    // 
+    // > When you access a key in another Alibaba Cloud account, you must specify the ARN of the key. The ARN of a key is in the `acs:kms:${region}:${account}:key/${keyid}` format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyVersionId_ = nullptr;
+    shared_ptr<string> keyId_ {};
+    // The ID of the key version. The globally unique identifier of the key version.
+    // 
+    // This parameter is required.
+    shared_ptr<string> keyVersionId_ {};
   };
 
   } // namespace Models

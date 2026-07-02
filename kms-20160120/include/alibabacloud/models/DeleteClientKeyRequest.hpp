@@ -33,7 +33,7 @@ namespace Models
     // clientKeyId Field Functions 
     bool hasClientKeyId() const { return this->clientKeyId_ != nullptr;};
     void deleteClientKeyId() { this->clientKeyId_ = nullptr;};
-    inline string clientKeyId() const { DARABONBA_PTR_GET_DEFAULT(clientKeyId_, "") };
+    inline string getClientKeyId() const { DARABONBA_PTR_GET_DEFAULT(clientKeyId_, "") };
     inline DeleteClientKeyRequest& setClientKeyId(string clientKeyId) { DARABONBA_PTR_SET_VALUE(clientKeyId_, clientKeyId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the client key.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clientKeyId_ = nullptr;
+    shared_ptr<string> clientKeyId_ {};
   };
 
   } // namespace Models

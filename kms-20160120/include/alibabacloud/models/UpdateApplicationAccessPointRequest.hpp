@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->policies_ == nullptr; };
+        && this->name_ == nullptr && this->policies_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateApplicationAccessPointRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateApplicationAccessPointRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policies Field Functions 
     bool hasPolicies() const { return this->policies_ != nullptr;};
     void deletePolicies() { this->policies_ = nullptr;};
-    inline string policies() const { DARABONBA_PTR_GET_DEFAULT(policies_, "") };
+    inline string getPolicies() const { DARABONBA_PTR_GET_DEFAULT(policies_, "") };
     inline UpdateApplicationAccessPointRequest& setPolicies(string policies) { DARABONBA_PTR_SET_VALUE(policies_, policies) };
 
 
   protected:
     // The description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the AAP that you want to update.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The permission policy that you want to update.
     // > You can associate up to three permission policies with each AAP.
-    std::shared_ptr<string> policies_ = nullptr;
+    shared_ptr<string> policies_ {};
   };
 
   } // namespace Models

@@ -32,25 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyName_ == nullptr
-        && return this->secretName_ == nullptr; };
+        && this->secretName_ == nullptr; };
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline GetSecretPolicyRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // secretName Field Functions 
     bool hasSecretName() const { return this->secretName_ != nullptr;};
     void deleteSecretName() { this->secretName_ = nullptr;};
-    inline string secretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
+    inline string getSecretName() const { DARABONBA_PTR_GET_DEFAULT(secretName_, "") };
     inline GetSecretPolicyRequest& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
   protected:
-    std::shared_ptr<string> policyName_ = nullptr;
+    // The name of the credential policy. Only the static field default is supported.
+    shared_ptr<string> policyName_ {};
+    // The name or Alibaba Cloud Resource Name (ARN) of the credential.
+    // 
+    // > If you access a credential that belongs to another Alibaba Cloud account, you must specify the ARN of the credential. The ARN of a credential must be in the `acs:kms:${region}:${account}:secret/${secret-name}` format.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> secretName_ = nullptr;
+    shared_ptr<string> secretName_ {};
   };
 
   } // namespace Models

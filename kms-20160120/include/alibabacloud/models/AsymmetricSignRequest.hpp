@@ -38,62 +38,79 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->digest_ == nullptr && return this->dryRun_ == nullptr && return this->keyId_ == nullptr && return this->keyVersionId_ == nullptr; };
+        && this->digest_ == nullptr && this->dryRun_ == nullptr && this->keyId_ == nullptr && this->keyVersionId_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
-    inline string algorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline AsymmetricSignRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
     // digest Field Functions 
     bool hasDigest() const { return this->digest_ != nullptr;};
     void deleteDigest() { this->digest_ = nullptr;};
-    inline string digest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
+    inline string getDigest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
     inline AsymmetricSignRequest& setDigest(string digest) { DARABONBA_PTR_SET_VALUE(digest_, digest) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline string dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
+    inline string getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
     inline AsymmetricSignRequest& setDryRun(string dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
-    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
     inline AsymmetricSignRequest& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
 
 
     // keyVersionId Field Functions 
     bool hasKeyVersionId() const { return this->keyVersionId_ != nullptr;};
     void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
-    inline string keyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
+    inline string getKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
     inline AsymmetricSignRequest& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
 
 
   protected:
-    // The version ID of the CMK. The ID must be globally unique.
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> algorithm_ = nullptr;
     // The signature algorithm.
     // 
     // This parameter is required.
-    std::shared_ptr<string> digest_ = nullptr;
-    std::shared_ptr<string> dryRun_ = nullptr;
-    // The operation that you want to perform. Set the value to **AsymmetricSign**.
+    shared_ptr<string> algorithm_ {};
+    // The digest of the original message. The digest is generated using the hash algorithm that corresponds to the value of the Algorithm parameter.
+    // 
+    // > - The value is Base64-encoded.
+    // 
+    // - For information about how to calculate a message digest, see the "Pre-signing: calculate a message digest" section of the [Asymmetric digital signature](https://help.aliyun.com/document_detail/148146.html) topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyId_ = nullptr;
-    // The ID of the customer master key (CMK). The ID must be globally unique.
+    shared_ptr<string> digest_ {};
+    // Specifies whether to enable the dry-run feature.
     // 
-    // >  You can also set this parameter to an alias that is bound to the CMK. For more information, see [Alias overview](https://help.aliyun.com/document_detail/68522.html).
+    // - true: enables the feature.
+    // 
+    // - false (default): disables the feature.
+    // 
+    // The dry-run feature is used to test API calls and verify the permissions on the resources that you have and the validity of the request parameters. If you enable the dry-run feature, KMS always returns a failure response and a failure reason. The failure reasons include the following:
+    // 
+    // - DryRunOperationError: The request would have succeeded if the DryRun parameter is not configured.
+    // 
+    // - ValidationError: The specified parameters in the request are invalid.
+    // 
+    // - AccessDeniedError: You are not authorized to perform the operation on the KMS resource.
+    shared_ptr<string> dryRun_ {};
+    // The globally unique identifier (GUID) of the customer master key (CMK).
+    // 
+    // > You can also specify the alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyVersionId_ = nullptr;
+    shared_ptr<string> keyId_ {};
+    // The ID of the key version. The ID must be the GUID of the key version.
+    // 
+    // This parameter is required.
+    shared_ptr<string> keyVersionId_ {};
   };
 
   } // namespace Models
