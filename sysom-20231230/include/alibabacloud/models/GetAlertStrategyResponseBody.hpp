@@ -122,10 +122,10 @@ namespace Models
 
 
       protected:
-        // Set of clusters that accept alerts
+        // The collection of clusters for which alerts are received.
         shared_ptr<vector<string>> clusters_ {};
         Darabonba::Json destinations_ {};
-        // List of abnormal items that accept alerts
+        // 接收告警的异常项列表
         Darabonba::Json items_ {};
       };
 
@@ -191,21 +191,21 @@ namespace Models
 
 
     protected:
-      // Creation Time.
+      // The creation time.
       shared_ptr<int64_t> createdAt_ {};
-      // Indicates whether the alert policy is enabled
+      // Indicates whether the alert policy is enabled.
       shared_ptr<bool> enabled_ {};
-      // Alert policy ID
+      // The alert policy ID.
       shared_ptr<int64_t> id_ {};
-      // k8s label
+      // The Kubernetes label.
       shared_ptr<bool> k8sLabel_ {};
-      // Policy Name
+      // The policy name.
       shared_ptr<string> name_ {};
-      // Details of the alert policy
+      // The alert policy details.
       shared_ptr<Data::Strategy> strategy_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> uid_ {};
-      // Update Time.
+      // The update time.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -242,14 +242,14 @@ namespace Models
 
 
   protected:
-    // Status code:  
-    // - `code == Success` indicates successful authorization;  
-    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message.
+    // The status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault message.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The response data.
     shared_ptr<GetAlertStrategyResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty;  
+    // The error message.
+    // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request

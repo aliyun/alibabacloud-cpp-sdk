@@ -124,13 +124,13 @@ namespace Models
 
 
       protected:
-        // mailbox
+        // The email address.
         shared_ptr<string> email_ {};
-        // Phone
+        // The phone number.
         shared_ptr<string> phone_ {};
-        // Robot key
+        // The secret key of the chatbot.
         shared_ptr<string> sec_ {};
-        // Robot address
+        // The webhook URL of the chatbot.
         shared_ptr<string> webhook_ {};
       };
 
@@ -196,21 +196,21 @@ namespace Models
 
 
     protected:
-      // Creation Time.
+      // The creation time.
       shared_ptr<int64_t> createdAt_ {};
-      // Policy ID
+      // The policy ID.
       shared_ptr<int32_t> id_ {};
-      // Policy Name
+      // The policy name.
       shared_ptr<string> name_ {};
-      // Configuration Parameter of alert contact
+      // The configuration parameters of the alert contact.
       shared_ptr<Data::Params> params_ {};
-      // Configuration Source
+      // The configuration source.
       shared_ptr<string> source_ {};
-      // Push Target. Currently, only DingTalk Robot is supported.
+      // The notification target. Currently, only DingTalk chatbots are supported.
       shared_ptr<string> target_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> uid_ {};
-      // Update Time
+      // The update time.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -247,15 +247,15 @@ namespace Models
 
 
   protected:
-    // error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<CreateAlertDestinationResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the error message of the request.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

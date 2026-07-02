@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Widget ID
+    // The component ID.
     shared_ptr<string> agentId_ {};
-    // Widget version
+    // The component version.
     shared_ptr<string> agentVersion_ {};
-    // Cluster ID.  
+    // The cluster ID.
     // 
-    // > This cluster ID must be the ID of an ACK cluster.
+    // > This parameter must be set to the ID of an ACK cluster.
     shared_ptr<string> clusterId_ {};
   };
 

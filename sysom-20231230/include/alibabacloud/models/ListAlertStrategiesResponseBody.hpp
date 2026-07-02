@@ -128,10 +128,10 @@ namespace Models
 
 
       protected:
-        // Set of clusters that accept alerts
+        // The collection of clusters for which alerts are received.
         shared_ptr<vector<string>> clusters_ {};
         shared_ptr<vector<int32_t>> destinations_ {};
-        // List of abnormal items that accept alerts
+        // 接收告警的异常项列表
         shared_ptr<vector<string>> items_ {};
       };
 
@@ -197,20 +197,20 @@ namespace Models
 
 
     protected:
-      // Creation Time.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Whether the alert policy is enabled
+      // Indicates whether the alert policy is enabled.
       shared_ptr<bool> enabled_ {};
-      // Policy ID
+      // The policy ID.
       shared_ptr<int64_t> id_ {};
       shared_ptr<bool> k8sLabel_ {};
-      // Policy Name
+      // The policy name.
       shared_ptr<string> name_ {};
-      // Details of the alert policy
+      // The alert policy details.
       shared_ptr<Data::Strategy> strategy_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> uid_ {};
-      // Update Time
+      // The update time.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -269,23 +269,23 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+    // The status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result.
+    // The returned result.
     shared_ptr<vector<ListAlertStrategiesResponseBody::Data>> data_ {};
-    // Maximum number of returned records
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty;  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the error information for the request.
     shared_ptr<string> message_ {};
-    // Pagination token for the next request.
+    // The pagination token for the next request.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Total number of records
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

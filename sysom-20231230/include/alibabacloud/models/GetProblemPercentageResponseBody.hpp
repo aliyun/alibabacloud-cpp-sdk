@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // Type of abnormal item
+      // Abnormal item type.
       shared_ptr<string> type_ {};
-      // Quantity of abnormal types
+      // Number of abnormal items.
       shared_ptr<int64_t> value_ {};
     };
 
@@ -122,19 +122,19 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - `code == Success` indicates successful authorization;  
-    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message;
+    // Status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failure. Check the `message` field for detailed error information.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // Response data.
     shared_ptr<vector<GetProblemPercentageResponseBody::Data>> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty;  
-    // - Otherwise, this field contains the request error message.
+    // Error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Request RequestId
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Total data volume.
+    // Total number of data entries.
     shared_ptr<int64_t> total_ {};
   };
 

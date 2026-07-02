@@ -130,21 +130,21 @@ namespace Models
 
 
     protected:
-      // Creation Time.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Alert contact ID
+      // The alert contact ID.
       shared_ptr<int32_t> id_ {};
-      // Alert contact name
+      // The alert contact name.
       shared_ptr<string> name_ {};
-      // Configuration Parameter
+      // The configuration parameters.
       Darabonba::Json params_ {};
-      // Configuration source
+      // The configuration source.
       shared_ptr<string> source_ {};
-      // Alert push target. Currently, only DingTalk Robot is supported.
+      // The alert notification target. Currently, only DingTalk chatbots are supported.
       shared_ptr<string> target_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> uid_ {};
-      // Update Time.
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -181,17 +181,17 @@ namespace Models
 
 
   protected:
-    // Status code.  
-    // - If `code == Success`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error information.
+    // The status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<GetAlertDestinationResponseBody::Data> data_ {};
-    // Error message.  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

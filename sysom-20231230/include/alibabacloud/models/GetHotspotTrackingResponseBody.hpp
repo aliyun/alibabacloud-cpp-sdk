@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // List of column names
+        // The list of field names.
         shared_ptr<vector<string>> columns_ {};
-        // List of hot spot metric data
+        // The list of hot spot time series data.
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -147,9 +147,9 @@ namespace Models
 
 
       protected:
-        // List of column names
+        // The list of field names.
         shared_ptr<vector<string>> columns_ {};
-        // List of flame graph data
+        // The list of flame graph data.
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -174,9 +174,9 @@ namespace Models
 
 
     protected:
-      // Flame graph data
+      // The flame graph data.
       shared_ptr<Data::Flame> flame_ {};
-      // Data list
+      // The data list.
       shared_ptr<Data::Series> series_ {};
     };
 
@@ -213,13 +213,13 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The returned data.
     shared_ptr<GetHotspotTrackingResponseBody::Data> data_ {};
-    // Return message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

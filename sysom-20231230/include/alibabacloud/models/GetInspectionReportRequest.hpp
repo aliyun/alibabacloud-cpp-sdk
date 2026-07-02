@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The inspection report ID.
     shared_ptr<string> reportId_ {};
   };
 

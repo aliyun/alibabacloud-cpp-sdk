@@ -91,10 +91,10 @@ namespace Models
 
 
     protected:
-      // Set of clusters that receive alerts
+      // The collection of clusters for which alerts are received.
       shared_ptr<vector<string>> clusters_ {};
       shared_ptr<vector<int32_t>> destinations_ {};
-      // Set of abnormal items that receive alerts
+      // 接收告警的异常项合计
       shared_ptr<vector<string>> items_ {};
     };
 
@@ -138,20 +138,20 @@ namespace Models
 
 
   protected:
-    // Whether the alert policy is enabled
+    // Specifies whether the alert policy is enabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enabled_ {};
-    // Alert policy ID
+    // The ID of the alert policy.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
     shared_ptr<bool> k8sLabel_ {};
-    // Alert policy name
+    // The Policy Name of the alerting policy.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Alert policy details
+    // The details of the alert policy.
     // 
     // This parameter is required.
     shared_ptr<UpdateAlertStrategyRequest::Strategy> strategy_ {};

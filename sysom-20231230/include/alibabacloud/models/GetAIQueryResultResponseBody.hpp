@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Return Result, with large Data Volume
+    // The returned results. The data volume can be large.
     shared_ptr<string> data_ {};
-    // error message.
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

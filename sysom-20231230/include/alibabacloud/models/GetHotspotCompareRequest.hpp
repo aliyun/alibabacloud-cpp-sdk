@@ -137,7 +137,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> beg2Start_ {};
-    // Hot spot type
+    // Hotspot type
     shared_ptr<string> hotType_ {};
     // Instance 1
     // 
@@ -147,9 +147,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instance2_ {};
-    // Process of instance 1
+    // Instance 1 process
     shared_ptr<int64_t> pid1_ {};
-    // Process of instance 2
+    // Instance 2 process
     shared_ptr<int64_t> pid2_ {};
     // Query table name
     // 

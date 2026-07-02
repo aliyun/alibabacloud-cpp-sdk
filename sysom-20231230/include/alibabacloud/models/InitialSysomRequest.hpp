@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to only check if the service role exists
+    // Specifies whether to only check whether the service-linked role exists.
     shared_ptr<bool> checkOnly_ {};
-    // Source, which is fixed as console.
+    // The source. Set this parameter to console.
     shared_ptr<string> source_ {};
   };
 

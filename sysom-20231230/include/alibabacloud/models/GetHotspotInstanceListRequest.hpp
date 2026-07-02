@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // stop time
+    // End time
     // 
     // This parameter is required.
     shared_ptr<int64_t> begEnd_ {};
-    // start time
+    // Start time
     // 
     // This parameter is required.
     shared_ptr<int64_t> begStart_ {};

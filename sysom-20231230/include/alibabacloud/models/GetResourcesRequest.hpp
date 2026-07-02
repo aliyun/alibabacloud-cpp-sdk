@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Cluster ID
+    // The cluster ID.
     shared_ptr<string> cluster_ {};
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> instance_ {};
-    // Resource type
+    // The resource type.
     shared_ptr<string> type_ {};
   };
 

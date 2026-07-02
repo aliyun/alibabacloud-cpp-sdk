@@ -13,12 +13,16 @@ namespace Models
   class GetListRecordRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetListRecordRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(analysisId, analysisId_);
       DARABONBA_PTR_TO_JSON(current, current_);
+      DARABONBA_PTR_TO_JSON(customId, customId_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(region, region_);
     };
     friend void from_json(const Darabonba::Json& j, GetListRecordRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(analysisId, analysisId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
+      DARABONBA_PTR_FROM_JSON(customId, customId_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(region, region_);
     };
@@ -33,13 +37,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->current_ == nullptr
-        && this->pageSize_ == nullptr && this->region_ == nullptr; };
+    virtual bool empty() const override { return this->analysisId_ == nullptr
+        && this->current_ == nullptr && this->customId_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr; };
+    // analysisId Field Functions 
+    bool hasAnalysisId() const { return this->analysisId_ != nullptr;};
+    void deleteAnalysisId() { this->analysisId_ = nullptr;};
+    inline string getAnalysisId() const { DARABONBA_PTR_GET_DEFAULT(analysisId_, "") };
+    inline GetListRecordRequest& setAnalysisId(string analysisId) { DARABONBA_PTR_SET_VALUE(analysisId_, analysisId) };
+
+
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
     inline int64_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0L) };
     inline GetListRecordRequest& setCurrent(int64_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
+
+
+    // customId Field Functions 
+    bool hasCustomId() const { return this->customId_ != nullptr;};
+    void deleteCustomId() { this->customId_ = nullptr;};
+    inline int64_t getCustomId() const { DARABONBA_PTR_GET_DEFAULT(customId_, 0L) };
+    inline GetListRecordRequest& setCustomId(int64_t customId) { DARABONBA_PTR_SET_VALUE(customId_, customId) };
 
 
     // pageSize Field Functions 
@@ -57,11 +75,13 @@ namespace Models
 
 
   protected:
-    // Current page number
+    shared_ptr<string> analysisId_ {};
+    // The current page number.
     shared_ptr<int64_t> current_ {};
-    // Number of data entries per page.
+    shared_ptr<int64_t> customId_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> region_ {};
   };
 

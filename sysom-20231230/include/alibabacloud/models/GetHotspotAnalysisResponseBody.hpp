@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Returned Data
+    // The returned data.
     shared_ptr<string> data_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the invocation is successful
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

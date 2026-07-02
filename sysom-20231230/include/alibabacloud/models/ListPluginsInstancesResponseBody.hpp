@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // Name of the tag.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // Tag value.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -186,23 +186,23 @@ namespace Models
 
 
     protected:
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Widget instance name.
+      // The component instance name.
       shared_ptr<string> instanceName_ {};
-      // Tags of instances
+      // The instance tag.
       shared_ptr<vector<Data::InstanceTag>> instanceTag_ {};
-      // Operating system name of the instance
+      // The operating system name of the instance.
       shared_ptr<string> osName_ {};
-      // Private IP address
+      // The private IP address.
       shared_ptr<string> privateIp_ {};
-      // Internet IP address
+      // The public IP address.
       shared_ptr<string> publicIp_ {};
-      // Area where the instance resides
+      // The region where the instance resides.
       shared_ptr<string> region_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Resource group name
+      // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
     };
 
@@ -246,17 +246,17 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - `code == Success` indicates successful authorization;  
-    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error information.
+    // The status code.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result.
+    // The returned result.
     shared_ptr<vector<ListPluginsInstancesResponseBody::Data>> data_ {};
-    // Description
+    // The description.
     shared_ptr<string> message_ {};
-    // Request RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of query results.
+    // The total number of entries returned.
     shared_ptr<int64_t> total_ {};
   };
 

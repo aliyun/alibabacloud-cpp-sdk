@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // Time point
+      // The point in time.
       shared_ptr<int64_t> time_ {};
-      // Metric type
+      // The metric type.
       shared_ptr<string> type_ {};
-      // Score
+      // The score.
       shared_ptr<int64_t> value_ {};
     };
 
@@ -133,19 +133,19 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+    // The status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<GetRangeScoreResponseBody::Data>> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Request RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total data volume.
+    // The total amount of data.
     shared_ptr<float> total_ {};
   };
 

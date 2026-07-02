@@ -170,29 +170,29 @@ namespace Models
 
 
     protected:
-      // Cluster ID
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // ECS instance ID
+      // The ECS instance ID.
       shared_ptr<string> instance_ {};
-      // Milvus version of the instance
+      // The current kernel version of the instance.
       shared_ptr<string> kernelVersion_ {};
-      // Metadata of the instance
+      // The metadata of the instance.
       Darabonba::Json meta_ {};
-      // Architecture of the ECS instance
+      // The architecture of the ECS instance.
       shared_ptr<string> osArch_ {};
-      // Health score of the instance
+      // The health score of the instance.
       shared_ptr<string> osHealthScore_ {};
-      // Operating system name of the instance (retrieved from /etc/os-release)
+      // The operating system name of the instance (obtained from /etc/os-release).
       shared_ptr<string> osName_ {};
-      // Operating system name ID of the instance (retrieved from /etc/os-release)
+      // The operating system name ID of the instance (obtained from /etc/os-release).
       shared_ptr<string> osNameId_ {};
-      // Operating system version of the instance (obtained from /etc/os-release)
+      // The operating system version of the instance (obtained from /etc/os-release).
       shared_ptr<string> osVersion_ {};
-      // Operating system version ID of the instance (retrieved from /etc/os-release)
+      // The operating system version ID of the instance (obtained from /etc/os-release).
       shared_ptr<string> osVersionId_ {};
-      // Region where the instance is located
+      // The region where the instance resides.
       shared_ptr<string> region_ {};
-      // Status of the instance
+      // The status of the instance.
       shared_ptr<string> status_ {};
     };
 
@@ -236,19 +236,19 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - `code == Success` indicates that authorization succeeded.  
-    // - Any other status code indicates that authorization failed. When authorization fails, check the `message` field for detailed error information.
+    // The status code.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result.
+    // The returned result.
     shared_ptr<vector<ListInstancesResponseBody::Data>> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Request RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

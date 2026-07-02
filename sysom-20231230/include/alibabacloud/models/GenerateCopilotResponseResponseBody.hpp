@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // error code
+    // Error code
     shared_ptr<string> code_ {};
-    // Data returned by the LLM service, in string format. If it is a dict, you must perform conversion and parsing yourself.
+    // Data returned by the LLM service, in string type. If it is a dict, you need to convert and parse it yourself
     shared_ptr<string> data_ {};
-    // Description of the error code. This field is empty if there is no error.
+    // Error code description, empty if no error occurs
     shared_ptr<string> massage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

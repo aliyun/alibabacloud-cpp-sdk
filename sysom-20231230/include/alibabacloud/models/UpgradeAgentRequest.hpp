@@ -72,11 +72,11 @@ namespace Models
 
 
     protected:
-      // Instance ID.
+      // The instance ID.
       // 
       // This parameter is required.
       shared_ptr<string> instance_ {};
-      // Region ID.
+      // The region ID.
       // 
       // This parameter is required.
       shared_ptr<string> region_ {};
@@ -108,15 +108,15 @@ namespace Models
 
 
   protected:
-    // ID of the widget to update
+    // The ID of the component to update.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // Version of the widget to update
+    // The version to which the component is updated.
     // 
     // This parameter is required.
     shared_ptr<string> agentVersion_ {};
-    // List of instances on which to update the widget
+    // The list of instances for which you want to update the component.
     // 
     // This parameter is required.
     shared_ptr<vector<UpgradeAgentRequest::Instances>> instances_ {};

@@ -103,9 +103,9 @@ namespace Models
 
 
       protected:
-        // List of column names
+        // Field name list
         shared_ptr<vector<string>> columns_ {};
-        // List of hot spot metric data
+        // Hotspot time series data list
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -151,9 +151,9 @@ namespace Models
 
 
       protected:
-        // List of column names
+        // Field name list
         shared_ptr<vector<string>> columns_ {};
-        // List of hot spot metric data
+        // Hotspot time series data list
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -199,9 +199,9 @@ namespace Models
 
 
       protected:
-        // List of column names
+        // Field name list
         shared_ptr<vector<string>> columns_ {};
-        // List of flame graph data
+        // Flame graph data list
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -237,9 +237,9 @@ namespace Models
     protected:
       // Differential flame graph data
       shared_ptr<Data::Flame> flame_ {};
-      // Hot spot timing series 1
+      // Hotspot time series 1
       shared_ptr<Data::SeriesInstance1> seriesInstance1_ {};
-      // Hot spot metric series 2
+      // Hotspot time series 2
       shared_ptr<Data::SeriesInstance2> seriesInstance2_ {};
     };
 
@@ -283,15 +283,15 @@ namespace Models
 
 
   protected:
-    // error code
+    // Error code
     shared_ptr<string> code_ {};
-    // Returned data
+    // Response data
     shared_ptr<GetHotspotCompareResponseBody::Data> data_ {};
-    // Return message
+    // Response message
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // true indicates that the API call succeeded; false indicates that the API call failed.
+    // true: API call succeeded; false: API call failed
     shared_ptr<bool> success_ {};
   };
 

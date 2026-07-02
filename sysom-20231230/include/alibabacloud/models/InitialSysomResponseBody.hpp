@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the service role exists
+      // Indicates whether the service-linked role exists.
       shared_ptr<bool> roleExist_ {};
     };
 
@@ -100,17 +100,17 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end diagnosis
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Any other status code indicates a failed authorization. In such cases, view the `message` field for detailed error information.
+    // The status code.
+    // - `code == Success`: The authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result.
+    // The response data.
     shared_ptr<InitialSysomResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
   };
 

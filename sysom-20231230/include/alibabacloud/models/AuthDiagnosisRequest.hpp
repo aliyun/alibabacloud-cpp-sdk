@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instance_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> region_ {};
     };
 
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // Automatic creation of role
+    // Specifies whether to enable automatic creation of the service-linked role.
     shared_ptr<bool> autoCreateRole_ {};
-    // Automatic installation of agent
+    // Specifies whether to automatically install the agent.
     shared_ptr<bool> autoInstallAgent_ {};
-    // List of instances to authorize for diagnosis
+    // The list of instances to authorize for diagnostics.
     shared_ptr<vector<AuthDiagnosisRequest::Instances>> instances_ {};
   };
 

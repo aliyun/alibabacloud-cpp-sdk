@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // UUID corresponding to the anomalous activity
+    // The UUID of the anomaly event.
     shared_ptr<string> uuid_ {};
   };
 

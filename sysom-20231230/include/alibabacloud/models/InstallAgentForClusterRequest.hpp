@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // Widget ID
+    // The component ID.
     shared_ptr<string> agentId_ {};
-    // Widget version
+    // The component version.
     shared_ptr<string> agentVersion_ {};
-    // Cluster ID.  
+    // The cluster ID.
     // 
-    // > You must pass the ID of the ACK cluster here.
+    // > The cluster ID here must be an ACK cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Widget configuration ID
+    // The component configuration ID.
     shared_ptr<string> configId_ {};
-    // Canary release environment
+    // The canary release configuration.
     shared_ptr<string> grayscaleConfig_ {};
   };
 

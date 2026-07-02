@@ -143,17 +143,17 @@ namespace Models
 
 
       protected:
-        // Creation Time of the Agent version
+        // Agent version creation time
         shared_ptr<string> createdAt_ {};
-        // Installation script for this version of the Agent
+        // Installation script for this agent version
         shared_ptr<string> installScript_ {};
-        // Uninstall script for this Agent version
+        // Uninstallation script for this agent version
         shared_ptr<string> uninstallScript_ {};
-        // Update Time of the Agent version
+        // Agent version update time
         shared_ptr<string> updatedAt_ {};
-        // Upgrade script for this Agent version
+        // Upgrade script for this agent version
         shared_ptr<string> upgradeScript_ {};
-        // Version number of the Agent
+        // Agent version number
         shared_ptr<string> version_ {};
       };
 
@@ -219,21 +219,21 @@ namespace Models
 
 
     protected:
-      // Creation Time of the widget
+      // Agent creation time
       shared_ptr<string> createdAt_ {};
-      // Description of the widget
+      // Agent description
       shared_ptr<string> description_ {};
-      // Widget ID
+      // Agent ID
       shared_ptr<string> id_ {};
-      // Name of the widget
+      // Agent name
       shared_ptr<string> name_ {};
-      // Supported architecture
+      // Supported architectures
       shared_ptr<string> supportArch_ {};
-      // Type of the Agent
+      // Agent type
       shared_ptr<string> type_ {};
-      // Update Time
+      // Update time
       shared_ptr<string> updatedAt_ {};
-      // Widget version information
+      // Agent version information
       shared_ptr<vector<Data::Versions>> versions_ {};
     };
 
@@ -270,17 +270,17 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end Diagnosis
+    // Request ID, which can be used for end-to-end diagnostics
     shared_ptr<string> requestId_ {};
-    // Status code  
-    // - `code == Success` indicates that authorization succeeded.  
-    // - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+    // Status code
+    // - `code == Success` indicates the authorization is successful;
+    // - Other status codes indicate authorization failure. Check the `message` field for detailed error information when authorization fails;
     shared_ptr<string> code_ {};
-    // Returned data.
+    // Response data.
     shared_ptr<GetAgentResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty;  
-    // - Otherwise, this field contains the Request error message.
+    // Error message
+    // - If `code == Success`, this field is empty;
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
   };
 

@@ -161,32 +161,32 @@ namespace Models
 
 
     protected:
-      // Error code (0 indicates no error)
+      // The error code. A value of 0 indicates no error.
       shared_ptr<int32_t> code_ {};
-      // Diagnosis command
+      // The diagnostic command.
       Darabonba::Json command_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Error message
+      // The error message.
       shared_ptr<string> errMsg_ {};
-      // Diagnosis parameters
+      // The diagnostic parameters.
       Darabonba::Json params_ {};
-      // Diagnosis result
+      // The diagnostic result.
       Darabonba::Json result_ {};
-      // Diagnosis Type
+      // The diagnostic type.
       shared_ptr<string> serviceName_ {};
-      // The execution status of the diagnostic task.  
-      // Valid values:  
-      // - **Ready**: Ready  
-      // - **Running**: Running  
-      // - **Success**: Succeeded  
-      // - **Fail**: Failed
+      // The execution status of the diagnostic task.
+      // Valid values:
+      // - **Ready**: ready
+      // - **Running**: running
+      // - **Success**: succeeded
+      // - **Fail**: failed.
       shared_ptr<string> status_ {};
-      // Job ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Update Time
+      // The update time.
       shared_ptr<string> updatedAt_ {};
-      // Diagnosis details URL
+      // The URL of the diagnostic details.
       shared_ptr<string> url_ {};
     };
 
@@ -223,17 +223,17 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - If `code == "Success"`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+    // The status code.
+    // - `code == Success` indicates that the authorization was successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The response data.
     shared_ptr<GetDiagnosisResultResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Request RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

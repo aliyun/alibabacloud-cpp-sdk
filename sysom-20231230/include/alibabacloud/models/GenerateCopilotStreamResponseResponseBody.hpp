@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Data returned by the LLM service, in string format. If it represents a dictionary, you must convert and parse it yourself.
+    // The data returned by the LLM service. The value is of the string type. Convert and parse it yourself if the value is a dictionary.
     shared_ptr<string> data_ {};
-    // Description of the error code. This field is empty if no error occurs.
+    // The description of the error code. This value is empty if no error occurs.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

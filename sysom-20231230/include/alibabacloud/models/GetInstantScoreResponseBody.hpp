@@ -100,15 +100,15 @@ namespace Models
 
 
     protected:
-      // Error score
+      // Error score.
       shared_ptr<float> error_ {};
-      // Latency score
+      // Latency score.
       shared_ptr<float> latency_ {};
-      // Load score
+      // Load score.
       shared_ptr<float> load_ {};
-      // Saturation score
+      // Saturation score.
       shared_ptr<float> saturation_ {};
-      // Total score
+      // Total score.
       shared_ptr<float> total_ {};
     };
 
@@ -145,14 +145,14 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+    // Status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failure. Check the `message` field for detailed error information when authorization fails.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // Response data.
     shared_ptr<GetInstantScoreResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
+    // Error message.
+    // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request

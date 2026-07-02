@@ -100,7 +100,7 @@ namespace Models
     shared_ptr<int64_t> pid_ {};
     // Table name
     shared_ptr<string> table_ {};
-    // Identity flag
+    // Identifier flag
     // 
     // This parameter is required.
     shared_ptr<string> uniq_ {};

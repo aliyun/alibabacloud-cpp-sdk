@@ -150,11 +150,11 @@ namespace Models
 
 
       protected:
-        // information key
+        // Information key.
         shared_ptr<string> infoKey_ {};
-        // information type
+        // Information type.
         shared_ptr<string> infoType_ {};
-        // information value
+        // Information value.
         shared_ptr<string> infoValue_ {};
       };
 
@@ -321,53 +321,55 @@ namespace Models
 
 
     protected:
-      // Agent configuration ID
+      // Agent configuration ID.
       shared_ptr<string> agentConfigId_ {};
-      // Agent configuration name
+      // Agent configuration name.
       shared_ptr<string> agentConfigName_ {};
-      // Extension information.
+      // Extended information.
       shared_ptr<vector<Data::Attributes>> attributes_ {};
-      // Cluster ID
+      // Cluster ID.
       shared_ptr<string> clusterId_ {};
-      // Cluster name
+      // Cluster name.
       shared_ptr<string> clusterName_ {};
       // Image ID.
       shared_ptr<string> imageId_ {};
-      // Installation level
+      // Installation level.
       shared_ptr<string> installLevel_ {};
-      // Installation type
+      // Installation type.
       shared_ptr<string> installType_ {};
-      // Instance ID
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
       // Instance name.
       shared_ptr<string> instanceName_ {};
-      // Instance type
+      // Instance type.
       shared_ptr<string> instanceType_ {};
-      // Milvus version
+      // Kernel version.
       shared_ptr<string> kernelVersion_ {};
-      // Management level
+      // Management level.
       shared_ptr<string> manageLevel_ {};
-      // Management type
+      // Management type.
       shared_ptr<string> manageType_ {};
-      // Operating system architecture
+      // Operating system architecture.
       shared_ptr<string> osArch_ {};
-      // Operating system health score
+      // Operating system health score.
       shared_ptr<int32_t> osHealthScore_ {};
-      // Operating system name
+      // Operating system name.
       shared_ptr<string> osName_ {};
       // Private IP address.
       shared_ptr<string> privateIp_ {};
       // Public IP address.
       shared_ptr<string> publicIp_ {};
-      // The resource group ID.
+      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Resource group name
+      // Resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // The running status of the instance. Valid values:
+      // Running status of the instance. Valid values:
       // - **Running**: The instance is running.
       // - **Offline**: The instance is offline.
       // 
-      // > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM Server has been lost. It does not mean that the corresponding ECS instance is not running.
+      // 
+      // 
+      // > An instance in the Offline status indicates that the heartbeat from the node to the SysOM server is lost. It does not necessarily mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -426,19 +428,19 @@ namespace Models
 
 
   protected:
-    // Status code
+    // Status code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // Returned data.
     shared_ptr<vector<ListAllInstancesResponseBody::Data>> data_ {};
-    // Maximum number of returned items
+    // Maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
-    // Error message:
+    // Error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error message of the request.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
-    // Paging cursor.
+    // Pagination token.
     // 
-    // > If not empty, more data is available.
+    // > A non-empty value indicates that more data is available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

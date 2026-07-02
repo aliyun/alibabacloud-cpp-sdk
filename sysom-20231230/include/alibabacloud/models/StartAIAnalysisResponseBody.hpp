@@ -100,9 +100,9 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // Response code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // Response data
     shared_ptr<StartAIAnalysisResponseBody::Data> data_ {};
     // Error message.
     shared_ptr<string> message_ {};

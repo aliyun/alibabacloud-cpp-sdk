@@ -145,17 +145,17 @@ namespace Models
 
 
       protected:
-        // Widget version creation time
+        // The time when the component version was created.
         shared_ptr<string> createdAt_ {};
-        // The widget\\"s install script
+        // The installation script of the component.
         shared_ptr<string> installScript_ {};
-        // Widget uninstall script
+        // The uninstallation script of the component.
         shared_ptr<string> uninstallScript_ {};
-        // Widget version update time
+        // The time when the component version was last updated.
         shared_ptr<string> updatedAt_ {};
-        // Widget upgrade script
+        // The update script of the component.
         shared_ptr<string> upgradeScript_ {};
-        // Widget version number
+        // The component version number.
         shared_ptr<string> version_ {};
       };
 
@@ -221,23 +221,23 @@ namespace Models
 
 
     protected:
-      // Widget creation time
+      // The time when the component was created.
       shared_ptr<string> createdAt_ {};
-      // Widget description
+      // The component description.
       shared_ptr<string> description_ {};
-      // Widget ID
+      // The component ID.
       shared_ptr<string> id_ {};
-      // Widget name
+      // The component name.
       shared_ptr<string> name_ {};
-      // Supported architecture (multiple architectures separated by commas)
+      // The supported architectures. Multiple architectures are separated by commas.
       shared_ptr<string> supportArch_ {};
-      // Widget type  
-      // - Control: control-type widget  
-      // - AI: AI widget
+      // The type of the component. Valid values:
+      // - Control: control-type component.
+      // - AI: AI component.
       shared_ptr<string> type_ {};
-      // Widget Update Time
+      // The time when the component was last updated.
       shared_ptr<string> updatedAt_ {};
-      // Widget Version List
+      // The list of component versions.
       shared_ptr<vector<Data::Versions>> versions_ {};
     };
 
@@ -281,19 +281,19 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end Diagnosis
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code  
-    // - `code == Success` indicates successful authorization;  
-    // - Other status codes indicate authorization failure. When authorization fails, view the `message` field to obtain detailed error message;
+    // The status code.
+    // - If code is Success, the authorization is successful.
+    // - Other status codes indicate authorization failed. Check the message field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned Data
+    // The returned data.
     shared_ptr<vector<ListAgentsResponseBody::Data>> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
+    // The error message.
+    // - If code is Success, this field is empty.
     // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

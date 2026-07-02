@@ -164,23 +164,23 @@ namespace Models
 
 
       protected:
-        // Configuration process
+        // The configuration process.
         shared_ptr<string> addCmd_ {};
-        // ONCPU tracing Toggle
+        // The ONCPU tracing switch.
         shared_ptr<string> cpu_ {};
-        // Duration in seconds (s)
+        // The start duration, in seconds (s).
         shared_ptr<int32_t> duration_ {};
-        // Storage Path
+        // The storage path.
         shared_ptr<string> javaStorePath_ {};
-        // Edit Lock tracing Toggle
+        // The lock tracing switch.
         shared_ptr<string> locks_ {};
-        // Tracing epoch
+        // The tracing cycle.
         shared_ptr<int32_t> loop_ {};
-        // Memory tracing Toggle
+        // The memory tracing switch.
         shared_ptr<string> mem_ {};
-        // Process PID
+        // The process PID.
         shared_ptr<int32_t> pid_ {};
-        // System tracing toggle
+        // The system tracing switch.
         shared_ptr<string> systemProfiling_ {};
       };
 
@@ -231,19 +231,19 @@ namespace Models
 
 
     protected:
-      // Configuration Parameter
+      // The configuration parameters.
       shared_ptr<Params::Args> args_ {};
-      // Feature Name
+      // The feature name.
       // 
       // This parameter is required.
       shared_ptr<string> functionName_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instance_ {};
-      // Operation Type
+      // The operation type.
       shared_ptr<string> op_ {};
-      // Region to which the instance belongs. Ensure that all instance IDs passed in the instances field belong to the same region.
+      // The region to which the instance belongs. All instance IDs passed in instances must belong to the same region.
       shared_ptr<string> region_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> uid_ {};
     };
 
@@ -273,15 +273,15 @@ namespace Models
 
 
   protected:
-    // Diagnosis channel (currently fixed to the ecs channel)
+    // The diagnostic channel. Currently, this parameter is fixed to the ECS channel.
     // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
-    // Diagnosis parameters. Different diagnosis types require different diagnosis parameters. You can use this field to filter records whose parameters match specified values.
+    // The diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
     // 
     // This parameter is required.
     shared_ptr<UpdateFuncSwitchRecordRequest::Params> params_ {};
-    // Service Name
+    // The service name.
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};

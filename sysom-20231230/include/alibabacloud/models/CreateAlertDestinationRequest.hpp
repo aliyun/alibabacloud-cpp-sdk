@@ -91,13 +91,13 @@ namespace Models
 
 
     protected:
-      // Email
+      // The email address.
       shared_ptr<string> email_ {};
-      // Phone number
+      // The phone number.
       shared_ptr<string> phone_ {};
-      // Robot key
+      // The secret key of the chatbot.
       shared_ptr<string> sec_ {};
-      // Robot link
+      // The webhook URL of the chatbot.
       shared_ptr<string> webhook_ {};
     };
 
@@ -134,13 +134,13 @@ namespace Models
 
 
   protected:
-    // Alert contact name
+    // The name of the alert contact.
     shared_ptr<string> name_ {};
-    // Configuration parameters for the alert contact
+    // The configuration parameters of the alert contact.
     shared_ptr<CreateAlertDestinationRequest::Params> params_ {};
-    // Configuration source
+    // The configuration source.
     shared_ptr<string> source_ {};
-    // Push Target. Currently, only DingTalk Robot is supported.
+    // The notification target. Currently, only DingTalk chatbots are supported.
     shared_ptr<string> target_ {};
   };
 

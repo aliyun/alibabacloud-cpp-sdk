@@ -119,9 +119,9 @@ namespace Models
 
 
       protected:
-        // Name of the tag.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // Tag value.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -223,35 +223,37 @@ namespace Models
 
 
     protected:
-      // Cluster ID
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Instance Name.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
-      // tags of instances
+      // The instance tags.
       shared_ptr<vector<Data::InstanceTag>> instanceTag_ {};
-      // Milvus version
+      // The kernel version.
       shared_ptr<string> kernelVersion_ {};
-      // ECS instance architecture
+      // The architecture of the ECS instance.
       shared_ptr<string> osArch_ {};
-      // Instance health score
+      // The health score of the instance.
       shared_ptr<string> osHealthScore_ {};
-      // The operating system name of the instance
+      // The operating system name of the instance.
       shared_ptr<string> osName_ {};
-      // Instance private IP
+      // The private IP address of the instance.
       shared_ptr<string> privateIp_ {};
-      // Instance Internet IP
+      // The public IP address of the instance.
       shared_ptr<string> publicIp_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Resource group name
+      // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // The running status of the instance. Valid values:  
-      // - **Running**: The instance is running.  
-      // - **Offline**: The instance is offline.  
+      // The running status of the instance. Valid values:
+      // - **Running**: The instance is running.
+      // - **Offline**: The instance is offline.
       // 
-      // > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM Server has been lost. This does not mean that the corresponding ECS instance is not running.
+      // 
+      // 
+      // > An instance in the Offline state indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance has stopped running.
       shared_ptr<string> status_ {};
     };
 
@@ -295,15 +297,15 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<ListInstancesWithEcsInfoResponseBody::Data>> data_ {};
-    // Error message. An empty value indicates that the data has been read completely.
+    // The error message. An empty value indicates that all data has been read.
     shared_ptr<string> message_ {};
-    // Request RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

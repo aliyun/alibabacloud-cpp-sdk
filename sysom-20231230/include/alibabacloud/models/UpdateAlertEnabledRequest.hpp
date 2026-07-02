@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the alert policy is enabled
+    // Specifies whether the alert policy is enabled.
     shared_ptr<bool> enabled_ {};
-    // Alert policy ID
+    // The ID of the alert policy.
     shared_ptr<int64_t> id_ {};
   };
 

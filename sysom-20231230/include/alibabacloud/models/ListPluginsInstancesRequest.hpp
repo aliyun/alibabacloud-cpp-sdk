@@ -94,23 +94,23 @@ namespace Models
 
 
   protected:
-    // This field exists when paging is used and indicates the current page number.
+    // The current page number. This field is present when pagination is used.
     shared_ptr<int64_t> current_ {};
-    // Filter by instance ID or instance name. Fuzzy query is supported.
+    // Filters instances by instance ID or instance name. Fuzzy match is supported.
     shared_ptr<string> instanceIdName_ {};
-    // Filter by instance tags.
+    // Filters instances by instance tag.
     shared_ptr<string> instanceTag_ {};
-    // Filter instances by plugin installation status.
+    // Filters instances by plug-in installation status.
     // 
     // This parameter is required.
     shared_ptr<string> operationType_ {};
-    // Page size. Default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // If this parameter is specified, the response filters and returns the instance list for the specified agent.
+    // Filters the instance list by the specified agent. If this parameter is specified, only instances associated with the specified agent are returned.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
-    // Filter instances by area.
+    // Filters instances by region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};

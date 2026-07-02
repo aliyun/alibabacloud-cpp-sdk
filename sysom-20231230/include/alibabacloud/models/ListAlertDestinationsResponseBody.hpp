@@ -96,23 +96,23 @@ namespace Models
 
 
   protected:
-    // Status code.  
-    // - If `code == Success`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. If authorization failed, view the `message` field to obtain detailed error message.
+    // Status code
+    // - `code == Success` indicates that the authorization was successful;
+    // - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information;
     shared_ptr<string> code_ {};
-    // Returned data.
+    // Response data.
     Darabonba::Json data_ {};
-    // Maximum number of records retrieved in a single request.
+    // Maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
-    // Error message.  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // Error message
+    // - If `code == Success`, this field is empty;
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Paging token for the next request.
+    // Pagination token for the next request.
     shared_ptr<string> nextToken_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // MaxResults is the maximum number of records returned in this request.
+    // Maximum number of records returned by this request
     shared_ptr<int32_t> total_ {};
   };
 

@@ -94,24 +94,24 @@ namespace Models
 
 
   protected:
-    // Filter by cluster ID  
+    // Filter by cluster ID.
     // 
-    // > This cluster ID is not the ACK cluster ID, but the `id` field in the data returned by this API
+    // > This cluster ID is not the ACK cluster ID, but the `id` field in the data returned by this API.
     shared_ptr<string> clusterId_ {};
-    // - `Running`: Cluster management is Normal;  
-    // - `Installing`: An install Job is in progress for the cluster;  
-    // - `Uninstalling`: An uninstall Job is in progress for the cluster;  
-    // - `Upgrading`: An Update Job is in progress for the cluster;  
+    // - `Running`: The cluster is managed normally.
+    // - `Installing`: The cluster has an installation task in progress.
+    // - `Uninstalling`: The cluster has an uninstallation task in progress.
+    // - `Upgrading`: The cluster has an upgrade task in progress.
     // - `Offline`: The cluster is offline and management is abnormal.
     shared_ptr<string> clusterStatus_ {};
-    // - `ACK`: ACK cluster  
-    // - `CUSTOM`: Custom cluster (default clusters are classified as custom clusters)
+    // - `ACK`: ACK cluster.
+    // - `CUSTOM`: Custom cluster (the default cluster belongs to custom clusters).
     shared_ptr<string> clusterType_ {};
     // Current page number (starting from page 1)
     shared_ptr<int64_t> current_ {};
-    // This field is deprecated. Use the `cluster_id` field for filtering instead.
+    // This field is deprecated. Use the cluster_id field to filter instead.
     shared_ptr<string> id_ {};
-    // Filter plugins by plugin name
+    // Filter by plugin name
     shared_ptr<string> name_ {};
     // Page size
     shared_ptr<int64_t> pageSize_ {};

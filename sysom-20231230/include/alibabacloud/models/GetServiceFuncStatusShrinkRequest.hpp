@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // channel name
+    // The channel name.
     // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
-    // Diagnosis parameters. Different types of diagnosis require different diagnosis parameters. You can use this field to filter records whose parameter values match the specified values.
+    // The diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
     // 
     // This parameter is required.
     shared_ptr<string> paramsShrink_ {};
-    // Service Name
+    // The service name.
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};

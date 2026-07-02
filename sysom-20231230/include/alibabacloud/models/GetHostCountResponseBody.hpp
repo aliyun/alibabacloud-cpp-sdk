@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // Time point
+      // The point in time.
       shared_ptr<int64_t> time_ {};
-      // Quantity
+      // The count.
       shared_ptr<int32_t> value_ {};
     };
 
@@ -122,19 +122,19 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+    // The status code.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<GetHostCountResponseBody::Data>> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Request RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of entries.
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 

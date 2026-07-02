@@ -84,25 +84,25 @@ namespace Models
 
 
   protected:
-    // End time
+    // The end time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> begEnd_ {};
-    // Start time
+    // The start time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> begStart_ {};
-    // Hot spot type
+    // The hot spot type.
     // 
     // This parameter is required.
     shared_ptr<string> hotType_ {};
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instance_ {};
-    // Process PID
+    // The process PID.
     shared_ptr<int64_t> pid_ {};
-    // Query table name
+    // The name of the table to query.
     // 
     // This parameter is required.
     shared_ptr<string> table_ {};

@@ -95,9 +95,9 @@ namespace Models
 
 
     protected:
-      // Tag key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // Tag value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -213,37 +213,37 @@ namespace Models
 
 
   protected:
-    // This field exists when using paging and indicates the current page.
+    // The page number for pagination. This parameter specifies the current page.
     shared_ptr<int32_t> current_ {};
-    // Filter instances by health status.
+    // Filters instances by health status.
     shared_ptr<string> healthStatus_ {};
-    // If this field is specified, filter the Agent installation status for the specified instance.
+    // Specifies an instance ID to filter the Agent installation status of the specified instance.
     shared_ptr<string> instanceId_ {};
-    // Filter by instance name or instance ID. Fuzzy query is supported.
+    // Filters instances by instance name or instance ID. Fuzzy match is supported.
     shared_ptr<string> instanceIdName_ {};
-    // Widget instance name.
+    // The name of the component instance.
     shared_ptr<string> instanceName_ {};
-    // Filter by tags of instances.
+    // Filters instances by instance tag.
     shared_ptr<ListInstancesWithEcsInfoRequest::InstanceTag> instanceTag_ {};
-    // Filter instances by managed status.
+    // Filters instances by management status.
     shared_ptr<int32_t> isManaged_ {};
-    // Filter instances by operating system name.
+    // Filters instances by operating system name.
     shared_ptr<string> osName_ {};
-    // Page size. Default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Filter instances by private IP address.
+    // Filters instances by private IP address.
     shared_ptr<string> privateIp_ {};
-    // Filter instances by public IP address.
+    // Filters instances by public IP address.
     shared_ptr<string> publicIp_ {};
-    // Filter instances by region.
+    // Filters instances by region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // Filter instances by resource group ID.
+    // Filters instances by resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Filter by resource group name or resource group ID. Fuzzy query is supported.
+    // Filters instances by resource group name or resource group ID. Fuzzy match is supported.
     shared_ptr<string> resourceGroupIdName_ {};
-    // Filter instances by resource group name.
+    // Filters instances by resource group name.
     shared_ptr<string> resourceGroupName_ {};
   };
 

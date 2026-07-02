@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // AI analysis ID
+    // The AI analysis ID.
     shared_ptr<string> analysisId_ {};
   };
 

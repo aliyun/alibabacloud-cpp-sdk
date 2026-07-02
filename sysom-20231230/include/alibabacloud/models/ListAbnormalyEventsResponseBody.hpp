@@ -130,11 +130,11 @@ namespace Models
 
 
       protected:
-        // End Time
+        // The end time.
         shared_ptr<float> endTime_ {};
-        // List of metric values.
+        // The list of metric values.
         shared_ptr<vector<string>> metrics_ {};
-        // Start Time
+        // The start time.
         shared_ptr<float> startTime_ {};
       };
 
@@ -199,9 +199,9 @@ namespace Models
 
 
         protected:
-          // Diagnosis status
+          // The diagnostic status.
           shared_ptr<string> status_ {};
-          // Diagnosis details URL
+          // The URL of the diagnostic details.
           shared_ptr<string> url_ {};
         };
 
@@ -231,11 +231,11 @@ namespace Models
 
 
       protected:
-        // Operation Type
+        // The operation type.
         shared_ptr<string> label_ {};
-        // Diagnosis result of the abnormal item
+        // The diagnostic result of the anomaly item.
         shared_ptr<Opts::Result> result_ {};
-        // Diagnosis Type
+        // The diagnostic type.
         shared_ptr<string> type_ {};
       };
 
@@ -346,33 +346,38 @@ namespace Models
 
 
     protected:
-      // Creation Time
+      // The creation time.
       shared_ptr<int64_t> createdAt_ {};
-      // Detailed description of the anomalous item.
+      // The detailed description of the anomaly item.
       shared_ptr<string> description_ {};
-      // Diagnosis status (1 indicates diagnosis ready, 2 indicates running, 3 indicates completed, 4 indicates undiagnosable, 5 indicates failed)
+      // The diagnostic status. Valid values:
+      // - 1: diagnosis ready.
+      // - 2: diagnosis in progress.
+      // - 3: diagnosis completed.
+      // - 4: not diagnosable.
+      // - 5: diagnosis failed.
       shared_ptr<int32_t> diagStatus_ {};
-      // End time of the anomalous activity.
+      // The end time of the anomaly event.
       shared_ptr<int64_t> endAt_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instance_ {};
-      // Name of the anomalous item.
+      // The name of the anomaly item.
       shared_ptr<string> item_ {};
-      // Level of the anomalous item.
+      // The level of the anomaly item.
       shared_ptr<string> level_ {};
-      // Namespace where the pod is located
+      // The namespace of the pod.
       shared_ptr<string> namespace_ {};
-      // List of operations for the abnormal item
+      // The list of operations for the anomaly item.
       shared_ptr<vector<Data::Opts>> opts_ {};
-      // Pod name.
+      // The pod name.
       shared_ptr<string> pod_ {};
-      // Raw metrics
+      // The raw metrics.
       shared_ptr<Data::RawMetrics> rawMetrics_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Type of abnormal item
+      // The type of the anomaly item.
       shared_ptr<string> type_ {};
-      // UUID corresponding to the anomalous activity
+      // The UUID of the anomaly event.
       shared_ptr<string> uuid_ {};
     };
 
@@ -409,15 +414,15 @@ namespace Models
 
 
   protected:
-    // Status code.  
-    // - If `code == Success`, authorization succeeded.  
-    // - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error message.
+    // The status code.
+    // - `code == Success` indicates that the authorization was successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result.
+    // The returned result.
     shared_ptr<vector<ListAbnormalyEventsResponseBody::Data>> data_ {};
-    // Error code description; empty if no error
+    // The error code description. This value is empty if no error occurred.
     shared_ptr<string> message_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

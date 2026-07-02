@@ -112,17 +112,17 @@ namespace Models
 
 
     protected:
-      // Creation Time
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // widget ID
+      // The component ID.
       shared_ptr<string> pluginId_ {};
-      // plugin Version
+      // The plug-in version.
       shared_ptr<string> pluginVersion_ {};
-      // widget status
+      // The component status.
       shared_ptr<string> status_ {};
-      // Updated At
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -166,19 +166,19 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end Diagnosis
+    // The request ID, which is active for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code  
-    // - `code == Success` indicates successful authorization;  
-    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message;
+    // The status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result.
+    // The returned results.
     shared_ptr<vector<ListAgentInstallRecordsResponseBody::Data>> data_ {};
-    // error message  
-    // - If `code == Success`, this field is empty;  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the error message for the request.
     shared_ptr<string> message_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

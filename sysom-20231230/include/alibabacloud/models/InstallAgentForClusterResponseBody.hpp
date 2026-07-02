@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Job ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -100,16 +100,16 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end diagnosis
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error information.
+    // The status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Any other status code indicates authorization failure. Check the `message` field for detailed error information.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The response data.
     shared_ptr<InstallAgentForClusterResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
+    // The error message.
+    // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
   };

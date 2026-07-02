@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Cluster identity
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Current page number (starting from 1)
+    // The current page number. Pages start from page 1.
     shared_ptr<int64_t> current_ {};
-    // instance ID.
+    // The instance ID.
     shared_ptr<string> instance_ {};
-    // Page size; default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
   };
 

@@ -122,13 +122,13 @@ namespace Models
 
 
       protected:
-        // Download link for the debuginfo-common RPM package
+        // The download URL of the debuginfo-common RPM package.
         shared_ptr<string> debuginfoCommonUrl_ {};
-        // Link to download the debuginfo RPM package
+        // The download URL of the debuginfo RPM package.
         shared_ptr<string> debuginfoUrl_ {};
-        // Download link for the dmesg log
+        // The download URL of the dmesg log.
         shared_ptr<string> dmesgUrl_ {};
-        // Download link for the vmcore file
+        // The download URL of the vmcore file.
         shared_ptr<string> vmcoreUrl_ {};
       };
 
@@ -187,19 +187,19 @@ namespace Models
 
 
     protected:
-      // Creation Time
+      // The time when the task was created.
       shared_ptr<string> createdAt_ {};
-      // Diagnosis Result
+      // The diagnostic result.
       shared_ptr<string> diagnoseResult_ {};
-      // Diagnosis error message
+      // The diagnostic error message.
       shared_ptr<string> errorMsg_ {};
-      // Job ID
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Task Status
+      // The task status.
       shared_ptr<string> taskStatus_ {};
-      // Task Type
+      // The task type.
       shared_ptr<string> taskType_ {};
-      // Download links for files associated with the job
+      // The download URLs of related files associated with the task.
       shared_ptr<Data::Urls> urls_ {};
     };
 
@@ -236,15 +236,15 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - `code == Success` indicates successful authorization;  
-    // - Other status codes indicate authorization failure. When authorization fails, view the `message` field to obtain detailed error information.
+    // The status code.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result
+    // The returned result.
     shared_ptr<GetVmcoreDiagnosisTaskResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

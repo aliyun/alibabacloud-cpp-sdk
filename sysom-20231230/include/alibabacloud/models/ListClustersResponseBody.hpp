@@ -131,29 +131,29 @@ namespace Models
 
 
     protected:
-      // Actual cluster ID.  
+      // Actual cluster ID.
       // 
-      // > - For `ACK` type clusters, this ID is the ACK cluster ID.  
-      // > - For `CUSTOM` type clusters, this ID serves as a UUID and has no additional meaning.
+      // > - For `ACK` type clusters, this cluster ID is the ACK cluster ID.
+      // > - For `CUSTOM` type clusters, this cluster ID serves as a unique identifier with no additional meaning.
       shared_ptr<string> clusterId_ {};
-      // - `Running`: Cluster management is normal.  
-      // - `Installing`: An install job is in progress for the cluster.  
-      // - `Uninstalling`: An uninstall job is in progress for the cluster.  
-      // - `Upgrading`: An update job is in progress for the cluster.  
-      // - `Offline`: The cluster is offline and cluster management is abnormal.
+      // - `Running`: The cluster is managed normally.
+      // - `Installing`: The cluster has an installation task in progress.
+      // - `Uninstalling`: The cluster has an uninstallation task in progress.
+      // - `Upgrading`: The cluster has an upgrade task in progress.
+      // - `Offline`: The cluster is offline and management is abnormal.
       shared_ptr<string> clusterStatus_ {};
-      // - `ACK`: ACK cluster  
-      // - `CUSTOM`: Custom cluster (default clusters are classified as custom clusters)
+      // - `ACK`: ACK cluster.
+      // - `CUSTOM`: Custom cluster (the default cluster belongs to custom clusters).
       shared_ptr<string> clusterType_ {};
-      // Creation Time
+      // Creation time.
       shared_ptr<string> createdAt_ {};
-      // Cluster ID
+      // Cluster ID.
       shared_ptr<string> id_ {};
-      // Cluster Name
+      // Cluster name.
       shared_ptr<string> name_ {};
       // Region ID.
       shared_ptr<string> region_ {};
-      // Update Time
+      // Update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -197,19 +197,19 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end diagnosis
+    // Request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error message.
+    // Status code.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failure. Check the `message` field for detailed error information.
     shared_ptr<string> code_ {};
-    // Returned data
+    // Response data.
     shared_ptr<vector<ListClustersResponseBody::Data>> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty;  
-    // - Otherwise, this field contains the request error message.
+    // Error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Total number of records
+    // Total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

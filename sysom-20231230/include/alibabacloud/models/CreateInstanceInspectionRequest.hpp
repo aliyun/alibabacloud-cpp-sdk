@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instance_ {};
+    // 异常项
     shared_ptr<vector<string>> items_ {};
+    // The metric source.
     shared_ptr<string> metricSource_ {};
+    // The region to which the instance belongs.
     shared_ptr<string> region_ {};
+    // The source.
     shared_ptr<string> source_ {};
   };
 

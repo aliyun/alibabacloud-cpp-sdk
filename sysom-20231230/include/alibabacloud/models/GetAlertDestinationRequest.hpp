@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Alert contact ID
+    // The alert contact ID.
     shared_ptr<int32_t> id_ {};
   };
 

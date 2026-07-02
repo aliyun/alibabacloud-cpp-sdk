@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // ID of the created diagnostic task
+      // The ID of the created diagnostic task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -100,17 +100,17 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - If `code == Success`, authorization succeeded.  
-    // - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error information.
+    // The status code.
+    // - If code is Success, the authorization is successful.
+    // - Other status codes indicate that the authorization has failed. Check the message field for the detailed fault message.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<CreateVmcoreDiagnosisTaskResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If code is Success, this field is empty.
+    // - Otherwise, this field contains the error message for the request.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

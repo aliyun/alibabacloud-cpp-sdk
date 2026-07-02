@@ -138,19 +138,19 @@ namespace Models
 
 
       protected:
-        // Configuration process
+        // The configuration process.
         shared_ptr<string> addCmd_ {};
-        // ONCPU tracing Toggle
+        // The ONCPU tracing switch.
         shared_ptr<string> cpu_ {};
-        // Storage Path
+        // The storage path.
         shared_ptr<string> javaStorePath_ {};
-        // Edit Lock tracing Toggle
+        // The lock tracing switch.
         shared_ptr<string> locks_ {};
-        // Tracing epoch
+        // The tracing cycle.
         shared_ptr<int32_t> loop_ {};
-        // Memory tracing Toggle
+        // The memory tracing switch.
         shared_ptr<string> mem_ {};
-        // System profiling Toggle
+        // The system profiling switch.
         shared_ptr<string> systemProfiling_ {};
       };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
     protected:
-      // Configuration Parameter
+      // The configuration parameters.
       shared_ptr<Data::Args> args_ {};
     };
 
@@ -202,15 +202,15 @@ namespace Models
 
 
   protected:
-    // Status code  
-    // - `code == Success` indicates that authorization succeeded.  
-    // - Any other status code indicates that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+    // The status code.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Return Result
+    // The returned result.
     shared_ptr<GetServiceFuncStatusResponseBody::Data> data_ {};
-    // error message  
-    // - If `code == Success`, this field is empty;  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

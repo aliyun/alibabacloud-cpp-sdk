@@ -18,7 +18,10 @@ namespace SysOM20231230
 {
 
 AlibabaCloud::SysOM20231230::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-hangzhou" , "sysom.cn-hangzhou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("sysom", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,13 +40,13 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary This API is used to authorize SysOM to diagnose ECS instances under your account. You can only invoke the InvokeDiagnosis API to initiate diagnosis on a specific ECS instance after authorizing it through this API.
+ * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics for a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
  *
- * @description >Notice: The diagnosis feature requires a service-linked role to be created under a Resource Access Management (RAM) user. When you call this API, it automatically checks whether the service-linked role exists. If the role does not exist, the API automatically creates it. This requires the RAM user invoking this API to have the ram:CreateServiceLinkedRole permission.</notice>
- * When calling this API to authorize SysOM to diagnose ECS instances, note the following:
- * - Each authorization is valid for 7 days. After 7 days, the authorization expires, and you must call this API again to re-authorize.
- * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you call this API, it will be automatically created. This requires the RAM user invoking this API to have the `ram:CreateServiceLinkedRole` permission.
- * - When you authorize a specific instance through this API, the system automatically adds the label `sysom:diagnosis` to the target ECS instance. SysOM can only diagnose instances that have this label.
+ * @description >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. This operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+ * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
+ * - Each authorization is valid for 7 days. After the authorization expires, invoke this operation again to re-authorize.
+ * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The RAM user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
+ * - When you invoke this operation to authorize diagnostics for a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
  *
  * @param request AuthDiagnosisRequest
  * @param headers map
@@ -84,13 +87,13 @@ AuthDiagnosisResponse Client::authDiagnosisWithOptions(const AuthDiagnosisReques
 }
 
 /**
- * @summary This API is used to authorize SysOM to diagnose ECS instances under your account. You can only invoke the InvokeDiagnosis API to initiate diagnosis on a specific ECS instance after authorizing it through this API.
+ * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics for a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
  *
- * @description >Notice: The diagnosis feature requires a service-linked role to be created under a Resource Access Management (RAM) user. When you call this API, it automatically checks whether the service-linked role exists. If the role does not exist, the API automatically creates it. This requires the RAM user invoking this API to have the ram:CreateServiceLinkedRole permission.</notice>
- * When calling this API to authorize SysOM to diagnose ECS instances, note the following:
- * - Each authorization is valid for 7 days. After 7 days, the authorization expires, and you must call this API again to re-authorize.
- * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you call this API, it will be automatically created. This requires the RAM user invoking this API to have the `ram:CreateServiceLinkedRole` permission.
- * - When you authorize a specific instance through this API, the system automatically adds the label `sysom:diagnosis` to the target ECS instance. SysOM can only diagnose instances that have this label.
+ * @description >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. This operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+ * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
+ * - Each authorization is valid for 7 days. After the authorization expires, invoke this operation again to re-authorize.
+ * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The RAM user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
+ * - When you invoke this operation to authorize diagnostics for a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
  *
  * @param request AuthDiagnosisRequest
  * @return AuthDiagnosisResponse
@@ -102,9 +105,9 @@ AuthDiagnosisResponse Client::authDiagnosis(const AuthDiagnosisRequest &request)
 }
 
 /**
- * @summary Check whether the target instance is supported by SysOM
+ * @summary Checks whether a target instance is supported by SysOM.
  *
- * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request CheckInstanceSupportRequest
  * @param headers map
@@ -141,9 +144,9 @@ CheckInstanceSupportResponse Client::checkInstanceSupportWithOptions(const Check
 }
 
 /**
- * @summary Check whether the target instance is supported by SysOM
+ * @summary Checks whether a target instance is supported by SysOM.
  *
- * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request CheckInstanceSupportRequest
  * @return CheckInstanceSupportResponse
@@ -155,7 +158,7 @@ CheckInstanceSupportResponse Client::checkInstanceSupport(const CheckInstanceSup
 }
 
 /**
- * @summary High-CPU agent streaming API
+ * @summary Calls the CPU High Agent streaming SSE interface.
  *
  * @param request CpuHighAgentStreamResponseRequest
  * @param headers map
@@ -202,7 +205,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary High-CPU agent streaming API
+ * @summary Calls the CPU High Agent streaming SSE interface.
  *
  * @param request CpuHighAgentStreamResponseRequest
  * @param headers map
@@ -235,7 +238,7 @@ CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponseWithOptions
 }
 
 /**
- * @summary High-CPU agent streaming API
+ * @summary Calls the CPU High Agent streaming SSE interface.
  *
  * @param request CpuHighAgentStreamResponseRequest
  * @return CpuHighAgentStreamResponseResponse
@@ -247,7 +250,7 @@ CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponse(const CpuH
 }
 
 /**
- * @summary This API is used to create an alert contact for push notifications.
+ * @summary Creates a contact for alert notifications.
  *
  * @param request CreateAlertDestinationRequest
  * @param headers map
@@ -292,7 +295,7 @@ CreateAlertDestinationResponse Client::createAlertDestinationWithOptions(const C
 }
 
 /**
- * @summary This API is used to create an alert contact for push notifications.
+ * @summary Creates a contact for alert notifications.
  *
  * @param request CreateAlertDestinationRequest
  * @return CreateAlertDestinationResponse
@@ -304,7 +307,7 @@ CreateAlertDestinationResponse Client::createAlertDestination(const CreateAlertD
 }
 
 /**
- * @summary Create an alert policy for push notifications
+ * @summary Creates an alert push strategy.
  *
  * @param request CreateAlertStrategyRequest
  * @param headers map
@@ -349,7 +352,7 @@ CreateAlertStrategyResponse Client::createAlertStrategyWithOptions(const CreateA
 }
 
 /**
- * @summary Create an alert policy for push notifications
+ * @summary Creates an alert push strategy.
  *
  * @param request CreateAlertStrategyRequest
  * @return CreateAlertStrategyResponse
@@ -422,7 +425,7 @@ CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConne
 }
 
 /**
- * @summary 创建实例巡检
+ * @summary Creates a SysOM instance inspection.
  *
  * @param request CreateInstanceInspectionRequest
  * @param headers map
@@ -471,7 +474,7 @@ CreateInstanceInspectionResponse Client::createInstanceInspectionWithOptions(con
 }
 
 /**
- * @summary 创建实例巡检
+ * @summary Creates a SysOM instance inspection.
  *
  * @param request CreateInstanceInspectionRequest
  * @return CreateInstanceInspectionResponse
@@ -483,7 +486,7 @@ CreateInstanceInspectionResponse Client::createInstanceInspection(const CreateIn
 }
 
 /**
- * @summary This API creates an intelligent breakdown diagnosis task to diagnose the vmcore or dmesg log file provided in the parameters.
+ * @summary Creates an intelligent breakdown diagnostic node that diagnoses the specified vmcore or dmesg log file based on the input parameters.
  *
  * @param request CreateVmcoreDiagnosisTaskRequest
  * @param headers map
@@ -532,7 +535,7 @@ CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTaskWithOptions(c
 }
 
 /**
- * @summary This API creates an intelligent breakdown diagnosis task to diagnose the vmcore or dmesg log file provided in the parameters.
+ * @summary Creates an intelligent breakdown diagnostic node that diagnoses the specified vmcore or dmesg log file based on the input parameters.
  *
  * @param request CreateVmcoreDiagnosisTaskRequest
  * @return CreateVmcoreDiagnosisTaskResponse
@@ -544,7 +547,7 @@ CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTask(const Create
 }
 
 /**
- * @summary This API is used to delete an alert contact.
+ * @summary Deletes an alert contact.
  *
  * @param request DeleteAlertDestinationRequest
  * @param headers map
@@ -577,7 +580,7 @@ DeleteAlertDestinationResponse Client::deleteAlertDestinationWithOptions(const D
 }
 
 /**
- * @summary This API is used to delete an alert contact.
+ * @summary Deletes an alert contact.
  *
  * @param request DeleteAlertDestinationRequest
  * @return DeleteAlertDestinationResponse
@@ -589,7 +592,7 @@ DeleteAlertDestinationResponse Client::deleteAlertDestination(const DeleteAlertD
 }
 
 /**
- * @summary User deletes the alert policy for push notifications.
+ * @summary Deletes an alert policy for push notifications.
  *
  * @param request DeleteAlertStrategyRequest
  * @param headers map
@@ -622,7 +625,7 @@ DeleteAlertStrategyResponse Client::deleteAlertStrategyWithOptions(const DeleteA
 }
 
 /**
- * @summary User deletes the alert policy for push notifications.
+ * @summary Deletes an alert policy for push notifications.
  *
  * @param request DeleteAlertStrategyRequest
  * @return DeleteAlertStrategyResponse
@@ -634,9 +637,9 @@ DeleteAlertStrategyResponse Client::deleteAlertStrategy(const DeleteAlertStrateg
 }
 
 /**
- * @summary Query metrics
+ * @summary Queries metric data.
  *
- * @description The instance list obtained by this API includes only the machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description The instance list returned by this operation contains only instances that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request DescribeMetricListRequest
  * @param headers map
@@ -681,9 +684,9 @@ DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeM
 }
 
 /**
- * @summary Query metrics
+ * @summary Queries metric data.
  *
- * @description The instance list obtained by this API includes only the machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description The instance list returned by this operation contains only instances that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request DescribeMetricListRequest
  * @return DescribeMetricListResponse
@@ -695,10 +698,10 @@ DescribeMetricListResponse Client::describeMetricList(const DescribeMetricListRe
 }
 
 /**
- * @summary Obtain the Return Result of the copilot service
+ * @summary Get the response result of the copilot service
  *
- * @description - You must fill in the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
- * - The returned data must be converted from a string to a dict before use. Refer to the standard LLM service return format.
+ * @description - Parameters need to be filled in according to the standard LLM service input parameters, converted to a string, and assigned to llmParamString
+ * - The returned data needs to be converted from string to dict before use. Refer to the standard LLM service response format
  *
  * @param request GenerateCopilotResponseRequest
  * @param headers map
@@ -731,10 +734,10 @@ GenerateCopilotResponseResponse Client::generateCopilotResponseWithOptions(const
 }
 
 /**
- * @summary Obtain the Return Result of the copilot service
+ * @summary Get the response result of the copilot service
  *
- * @description - You must fill in the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
- * - The returned data must be converted from a string to a dict before use. Refer to the standard LLM service return format.
+ * @description - Parameters need to be filled in according to the standard LLM service input parameters, converted to a string, and assigned to llmParamString
+ * - The returned data needs to be converted from string to dict before use. Refer to the standard LLM service response format
  *
  * @param request GenerateCopilotResponseRequest
  * @return GenerateCopilotResponseResponse
@@ -746,11 +749,11 @@ GenerateCopilotResponseResponse Client::generateCopilotResponse(const GenerateCo
 }
 
 /**
- * @summary Stream Copilot service API
+ * @summary Calls the streaming SSE endpoint of the OS Copilot service.
  *
- * @description - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
- * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
- * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
+ * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
+ * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotStreamResponseRequest
  * @param headers map
@@ -797,11 +800,11 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Stream Copilot service API
+ * @summary Calls the streaming SSE endpoint of the OS Copilot service.
  *
- * @description - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
- * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
- * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
+ * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
+ * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotStreamResponseRequest
  * @param headers map
@@ -834,11 +837,11 @@ GenerateCopilotStreamResponseResponse Client::generateCopilotStreamResponseWithO
 }
 
 /**
- * @summary Stream Copilot service API
+ * @summary Calls the streaming SSE endpoint of the OS Copilot service.
  *
- * @description - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
- * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
- * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
+ * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
+ * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotStreamResponseRequest
  * @return GenerateCopilotStreamResponseResponse
@@ -850,7 +853,7 @@ GenerateCopilotStreamResponseResponse Client::generateCopilotStreamResponse(cons
 }
 
 /**
- * @summary View AI Infra Analysis Result
+ * @summary Queries the AI Infra analysis results.
  *
  * @param request GetAIQueryResultRequest
  * @param headers map
@@ -883,7 +886,7 @@ GetAIQueryResultResponse Client::getAIQueryResultWithOptions(const GetAIQueryRes
 }
 
 /**
- * @summary View AI Infra Analysis Result
+ * @summary Queries the AI Infra analysis results.
  *
  * @param request GetAIQueryResultRequest
  * @return GetAIQueryResultResponse
@@ -895,7 +898,7 @@ GetAIQueryResultResponse Client::getAIQueryResult(const GetAIQueryResultRequest 
 }
 
 /**
- * @summary Obtain the quantity of unprocessed (undiagnosed) anomalous activity at different Levels for edge zones/pods.
+ * @summary Get the count of unhandled (undiagnosed) abnormal events of different levels for nodes/Pods
  *
  * @param request GetAbnormalEventsCountRequest
  * @param headers map
@@ -956,7 +959,7 @@ GetAbnormalEventsCountResponse Client::getAbnormalEventsCountWithOptions(const G
 }
 
 /**
- * @summary Obtain the quantity of unprocessed (undiagnosed) anomalous activity at different Levels for edge zones/pods.
+ * @summary Get the count of unhandled (undiagnosed) abnormal events of different levels for nodes/Pods
  *
  * @param request GetAbnormalEventsCountRequest
  * @return GetAbnormalEventsCountResponse
@@ -968,7 +971,7 @@ GetAbnormalEventsCountResponse Client::getAbnormalEventsCount(const GetAbnormalE
 }
 
 /**
- * @summary Retrieve the details of a widget
+ * @summary Get details of a specific agent
  *
  * @param request GetAgentRequest
  * @param headers map
@@ -1001,7 +1004,7 @@ GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, con
 }
 
 /**
- * @summary Retrieve the details of a widget
+ * @summary Get details of a specific agent
  *
  * @param request GetAgentRequest
  * @return GetAgentResponse
@@ -1013,7 +1016,7 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 }
 
 /**
- * @summary Obtain the task execution status of Agent installation
+ * @summary Retrieves the execution status of an Agent installation task.
  *
  * @param request GetAgentTaskRequest
  * @param headers map
@@ -1046,7 +1049,7 @@ GetAgentTaskResponse Client::getAgentTaskWithOptions(const GetAgentTaskRequest &
 }
 
 /**
- * @summary Obtain the task execution status of Agent installation
+ * @summary Retrieves the execution status of an Agent installation task.
  *
  * @param request GetAgentTaskRequest
  * @return GetAgentTaskResponse
@@ -1058,7 +1061,7 @@ GetAgentTaskResponse Client::getAgentTask(const GetAgentTaskRequest &request) {
 }
 
 /**
- * @summary This API is used to obtain the specified alert contact information.
+ * @summary Retrieves the information of a specified alert contact.
  *
  * @param request GetAlertDestinationRequest
  * @param headers map
@@ -1091,7 +1094,7 @@ GetAlertDestinationResponse Client::getAlertDestinationWithOptions(const GetAler
 }
 
 /**
- * @summary This API is used to obtain the specified alert contact information.
+ * @summary Retrieves the information of a specified alert contact.
  *
  * @param request GetAlertDestinationRequest
  * @return GetAlertDestinationResponse
@@ -1103,7 +1106,7 @@ GetAlertDestinationResponse Client::getAlertDestination(const GetAlertDestinatio
 }
 
 /**
- * @summary Obtain an alert for a user by policy ID.
+ * @summary Retrieves an alert for a user based on the policy ID.
  *
  * @param request GetAlertStrategyRequest
  * @param headers map
@@ -1136,7 +1139,7 @@ GetAlertStrategyResponse Client::getAlertStrategyWithOptions(const GetAlertStrat
 }
 
 /**
- * @summary Obtain an alert for a user by policy ID.
+ * @summary Retrieves an alert for a user based on the policy ID.
  *
  * @param request GetAlertStrategyRequest
  * @return GetAlertStrategyResponse
@@ -1148,7 +1151,7 @@ GetAlertStrategyResponse Client::getAlertStrategy(const GetAlertStrategyRequest 
 }
 
 /**
- * @summary Retrieve copilot chat history
+ * @summary Retrieves the chat history of Copilot.
  *
  * @param request GetCopilotHistoryRequest
  * @param headers map
@@ -1181,7 +1184,7 @@ GetCopilotHistoryResponse Client::getCopilotHistoryWithOptions(const GetCopilotH
 }
 
 /**
- * @summary Retrieve copilot chat history
+ * @summary Retrieves the chat history of Copilot.
  *
  * @param request GetCopilotHistoryRequest
  * @return GetCopilotHistoryResponse
@@ -1193,9 +1196,9 @@ GetCopilotHistoryResponse Client::getCopilotHistory(const GetCopilotHistoryReque
 }
 
 /**
- * @summary Obtain the diagnosis result.
+ * @summary Retrieves the diagnostic result.
  *
- * @description The diagnosis flow is asynchronous. Therefore, when you invoke this API, the diagnosis may still be executing and not yet ended. You can check the `data.status` field in the returned data to determine the status. When `data.status == "Success"`, it indicates that the diagnosis succeeded, and you can read the diagnosis result from `data.result`.
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
  *
  * @param request GetDiagnosisResultRequest
  * @param headers map
@@ -1228,9 +1231,9 @@ GetDiagnosisResultResponse Client::getDiagnosisResultWithOptions(const GetDiagno
 }
 
 /**
- * @summary Obtain the diagnosis result.
+ * @summary Retrieves the diagnostic result.
  *
- * @description The diagnosis flow is asynchronous. Therefore, when you invoke this API, the diagnosis may still be executing and not yet ended. You can check the `data.status` field in the returned data to determine the status. When `data.status == "Success"`, it indicates that the diagnosis succeeded, and you can read the diagnosis result from `data.result`.
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
  *
  * @param request GetDiagnosisResultRequest
  * @return GetDiagnosisResultResponse
@@ -1242,7 +1245,7 @@ GetDiagnosisResultResponse Client::getDiagnosisResult(const GetDiagnosisResultRe
 }
 
 /**
- * @summary Obtain the proportion of edge zone/pod health statuses over a period of time
+ * @summary Retrieves the health status distribution of nodes or pods over a specified time period.
  *
  * @param request GetHealthPercentageRequest
  * @param headers map
@@ -1287,7 +1290,7 @@ GetHealthPercentageResponse Client::getHealthPercentageWithOptions(const GetHeal
 }
 
 /**
- * @summary Obtain the proportion of edge zone/pod health statuses over a period of time
+ * @summary Retrieves the health status distribution of nodes or pods over a specified time period.
  *
  * @param request GetHealthPercentageRequest
  * @return GetHealthPercentageResponse
@@ -1299,7 +1302,7 @@ GetHealthPercentageResponse Client::getHealthPercentage(const GetHealthPercentag
 }
 
 /**
- * @summary Obtain the number of edge zones in a cluster or the number of pods in an edge zone
+ * @summary Retrieves the number of nodes or the number of Pods on nodes in a cluster.
  *
  * @param request GetHostCountRequest
  * @param headers map
@@ -1344,7 +1347,7 @@ GetHostCountResponse Client::getHostCountWithOptions(const GetHostCountRequest &
 }
 
 /**
- * @summary Obtain the number of edge zones in a cluster or the number of pods in an edge zone
+ * @summary Retrieves the number of nodes or the number of Pods on nodes in a cluster.
  *
  * @param request GetHostCountRequest
  * @return GetHostCountResponse
@@ -1356,7 +1359,7 @@ GetHostCountResponse Client::getHostCount(const GetHostCountRequest &request) {
 }
 
 /**
- * @summary Obtain the list of a specific field under an instance.
+ * @summary Get the list of a specific field under an instance.
  *
  * @param request GetHotSpotUniqListRequest
  * @param headers map
@@ -1409,7 +1412,7 @@ GetHotSpotUniqListResponse Client::getHotSpotUniqListWithOptions(const GetHotSpo
 }
 
 /**
- * @summary Obtain the list of a specific field under an instance.
+ * @summary Get the list of a specific field under an instance.
  *
  * @param request GetHotSpotUniqListRequest
  * @return GetHotSpotUniqListResponse
@@ -1421,7 +1424,7 @@ GetHotSpotUniqListResponse Client::getHotSpotUniqList(const GetHotSpotUniqListRe
 }
 
 /**
- * @summary Obtain hot spot analysis results
+ * @summary Retrieves hot spot analysis results.
  *
  * @param request GetHotspotAnalysisRequest
  * @param headers map
@@ -1474,7 +1477,7 @@ GetHotspotAnalysisResponse Client::getHotspotAnalysisWithOptions(const GetHotspo
 }
 
 /**
- * @summary Obtain hot spot analysis results
+ * @summary Retrieves hot spot analysis results.
  *
  * @param request GetHotspotAnalysisRequest
  * @return GetHotspotAnalysisResponse
@@ -1486,7 +1489,7 @@ GetHotspotAnalysisResponse Client::getHotspotAnalysis(const GetHotspotAnalysisRe
 }
 
 /**
- * @summary Obtain hot spot comparison tracing results
+ * @summary Get Hotspot Comparison Tracing Results
  *
  * @param request GetHotspotCompareRequest
  * @param headers map
@@ -1555,7 +1558,7 @@ GetHotspotCompareResponse Client::getHotspotCompareWithOptions(const GetHotspotC
 }
 
 /**
- * @summary Obtain hot spot comparison tracing results
+ * @summary Get Hotspot Comparison Tracing Results
  *
  * @param request GetHotspotCompareRequest
  * @return GetHotspotCompareResponse
@@ -1567,7 +1570,7 @@ GetHotspotCompareResponse Client::getHotspotCompare(const GetHotspotCompareReque
 }
 
 /**
- * @summary Obtain the hot spot instance list
+ * @summary Get Hotspot Instance List
  *
  * @param request GetHotspotInstanceListRequest
  * @param headers map
@@ -1608,7 +1611,7 @@ GetHotspotInstanceListResponse Client::getHotspotInstanceListWithOptions(const G
 }
 
 /**
- * @summary Obtain the hot spot instance list
+ * @summary Get Hotspot Instance List
  *
  * @param request GetHotspotInstanceListRequest
  * @return GetHotspotInstanceListResponse
@@ -1620,7 +1623,7 @@ GetHotspotInstanceListResponse Client::getHotspotInstanceList(const GetHotspotIn
 }
 
 /**
- * @summary Obtain the PID list of a specific instance
+ * @summary Retrieves the PID list of a specified instance.
  *
  * @param request GetHotspotPidListRequest
  * @param headers map
@@ -1665,7 +1668,7 @@ GetHotspotPidListResponse Client::getHotspotPidListWithOptions(const GetHotspotP
 }
 
 /**
- * @summary Obtain the PID list of a specific instance
+ * @summary Retrieves the PID list of a specified instance.
  *
  * @param request GetHotspotPidListRequest
  * @return GetHotspotPidListResponse
@@ -1677,7 +1680,7 @@ GetHotspotPidListResponse Client::getHotspotPidList(const GetHotspotPidListReque
 }
 
 /**
- * @summary Obtain hot spot tracing results
+ * @summary Retrieves hot spot tracking results.
  *
  * @param request GetHotspotTrackingRequest
  * @param headers map
@@ -1730,7 +1733,7 @@ GetHotspotTrackingResponse Client::getHotspotTrackingWithOptions(const GetHotspo
 }
 
 /**
- * @summary Obtain hot spot tracing results
+ * @summary Retrieves hot spot tracking results.
  *
  * @param request GetHotspotTrackingRequest
  * @return GetHotspotTrackingResponse
@@ -1742,7 +1745,7 @@ GetHotspotTrackingResponse Client::getHotspotTracking(const GetHotspotTrackingRe
 }
 
 /**
- * @summary 获取巡检报告
+ * @summary Retrieves a SysOM inspection report.
  *
  * @param request GetInspectionReportRequest
  * @param headers map
@@ -1775,7 +1778,7 @@ GetInspectionReportResponse Client::getInspectionReportWithOptions(const GetInsp
 }
 
 /**
- * @summary 获取巡检报告
+ * @summary Retrieves a SysOM inspection report.
  *
  * @param request GetInspectionReportRequest
  * @return GetInspectionReportResponse
@@ -1787,7 +1790,7 @@ GetInspectionReportResponse Client::getInspectionReport(const GetInspectionRepor
 }
 
 /**
- * @summary Obtain real-time cluster/edge zone health degree score
+ * @summary Get real-time cluster/node health score
  *
  * @param request GetInstantScoreRequest
  * @param headers map
@@ -1824,7 +1827,7 @@ GetInstantScoreResponse Client::getInstantScoreWithOptions(const GetInstantScore
 }
 
 /**
- * @summary Obtain real-time cluster/edge zone health degree score
+ * @summary Get real-time cluster/node health score
  *
  * @param request GetInstantScoreRequest
  * @return GetInstantScoreResponse
@@ -1836,7 +1839,7 @@ GetInstantScoreResponse Client::getInstantScore(const GetInstantScoreRequest &re
 }
 
 /**
- * @summary AI Infra retrieves the list of analysis records
+ * @summary Retrieves a list of AI Infra analysis records.
  *
  * @param request GetListRecordRequest
  * @param headers map
@@ -1846,8 +1849,16 @@ GetInstantScoreResponse Client::getInstantScore(const GetInstantScoreRequest &re
 GetListRecordResponse Client::getListRecordWithOptions(const GetListRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAnalysisId()) {
+    query["analysisId"] = request.getAnalysisId();
+  }
+
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
+  }
+
+  if (!!request.hasCustomId()) {
+    query["customId"] = request.getCustomId();
   }
 
   if (!!request.hasPageSize()) {
@@ -1877,7 +1888,7 @@ GetListRecordResponse Client::getListRecordWithOptions(const GetListRecordReques
 }
 
 /**
- * @summary AI Infra retrieves the list of analysis records
+ * @summary Retrieves a list of AI Infra analysis records.
  *
  * @param request GetListRecordRequest
  * @return GetListRecordResponse
@@ -1889,7 +1900,7 @@ GetListRecordResponse Client::getListRecord(const GetListRecordRequest &request)
 }
 
 /**
- * @summary Obtain the proportion of abnormal issues in pods within edge zones or in an edge zone within a cluster over a specified period of time.
+ * @summary Get the proportion of abnormal issues in cluster nodes/pods within a specified time range
  *
  * @param request GetProblemPercentageRequest
  * @param headers map
@@ -1934,7 +1945,7 @@ GetProblemPercentageResponse Client::getProblemPercentageWithOptions(const GetPr
 }
 
 /**
- * @summary Obtain the proportion of abnormal issues in pods within edge zones or in an edge zone within a cluster over a specified period of time.
+ * @summary Get the proportion of abnormal issues in cluster nodes/pods within a specified time range
  *
  * @param request GetProblemPercentageRequest
  * @return GetProblemPercentageResponse
@@ -1946,7 +1957,7 @@ GetProblemPercentageResponse Client::getProblemPercentage(const GetProblemPercen
 }
 
 /**
- * @summary Retrieve the health score trend
+ * @summary Retrieves the health score trend.
  *
  * @param request GetRangeScoreRequest
  * @param headers map
@@ -1991,7 +2002,7 @@ GetRangeScoreResponse Client::getRangeScoreWithOptions(const GetRangeScoreReques
 }
 
 /**
- * @summary Retrieve the health score trend
+ * @summary Retrieves the health score trend.
  *
  * @param request GetRangeScoreRequest
  * @return GetRangeScoreResponse
@@ -2003,7 +2014,7 @@ GetRangeScoreResponse Client::getRangeScore(const GetRangeScoreRequest &request)
 }
 
 /**
- * @summary Obtain real-time resource usage of clusters or edge zones
+ * @summary Retrieves the real-time resource usage of a cluster or node.
  *
  * @param request GetResourcesRequest
  * @param headers map
@@ -2044,7 +2055,7 @@ GetResourcesResponse Client::getResourcesWithOptions(const GetResourcesRequest &
 }
 
 /**
- * @summary Obtain real-time resource usage of clusters or edge zones
+ * @summary Retrieves the real-time resource usage of a cluster or node.
  *
  * @param request GetResourcesRequest
  * @return GetResourcesResponse
@@ -2056,9 +2067,9 @@ GetResourcesResponse Client::getResources(const GetResourcesRequest &request) {
 }
 
 /**
- * @summary Obtain Function Modules Configuration
+ * @summary Retrieves the configuration of a feature module.
  *
- * @description This API is used to retrieve the service configuration status.
+ * @description Retrieves the service configuration status.
  *
  * @param tmpReq GetServiceFuncStatusRequest
  * @param headers map
@@ -2105,9 +2116,9 @@ GetServiceFuncStatusResponse Client::getServiceFuncStatusWithOptions(const GetSe
 }
 
 /**
- * @summary Obtain Function Modules Configuration
+ * @summary Retrieves the configuration of a feature module.
  *
- * @description This API is used to retrieve the service configuration status.
+ * @description Retrieves the service configuration status.
  *
  * @param request GetServiceFuncStatusRequest
  * @return GetServiceFuncStatusResponse
@@ -2119,7 +2130,7 @@ GetServiceFuncStatusResponse Client::getServiceFuncStatus(const GetServiceFuncSt
 }
 
 /**
- * @summary This API queries the task execution status and diagnosis result based on the job ID.
+ * @summary Queries the execution status and diagnostic result of a diagnostic task by task ID.
  *
  * @param request GetVmcoreDiagnosisTaskRequest
  * @param headers map
@@ -2152,7 +2163,7 @@ GetVmcoreDiagnosisTaskResponse Client::getVmcoreDiagnosisTaskWithOptions(const G
 }
 
 /**
- * @summary This API queries the task execution status and diagnosis result based on the job ID.
+ * @summary Queries the execution status and diagnostic result of a diagnostic task by task ID.
  *
  * @param request GetVmcoreDiagnosisTaskRequest
  * @return GetVmcoreDiagnosisTaskResponse
@@ -2164,12 +2175,12 @@ GetVmcoreDiagnosisTaskResponse Client::getVmcoreDiagnosisTask(const GetVmcoreDia
 }
 
 /**
- * @summary Initialize SysOM and ensure that the service role exists.
+ * @summary Initializes SysOM to ensure that the service-linked role exists.
  *
- * @description Some SysOM APIs require role assumption based on the `AliyunServiceRoleForSysom` service role. Therefore, before using SysOM features, you must invoke this API to perform initialization and ensure that the service role has been created.  
- * - `check_only`: If this parameter is set to True, the API only checks whether the service role exists and does not create it. If this parameter is set to False or omitted, the API automatically creates the service role if it does not exist.
- * >  
- * > Note: When you invoke this API to initialize the role, you are deemed to have accepted the User Agreement of the operating system console by default. For more information, see [Overview of the Operating System Console](https://help.aliyun.com/zh/alinux/product-overview/os-console-overview?spm=a2c4g.11186623.help-menu-2632541.d_0_7.35a829ffLjQtgg) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
+ * @description Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
+ * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, the operation performs automatic creation of the service-linked role if it does not exist.
+ * > 
+ * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
  *
  * @param request InitialSysomRequest
  * @param headers map
@@ -2206,12 +2217,12 @@ InitialSysomResponse Client::initialSysomWithOptions(const InitialSysomRequest &
 }
 
 /**
- * @summary Initialize SysOM and ensure that the service role exists.
+ * @summary Initializes SysOM to ensure that the service-linked role exists.
  *
- * @description Some SysOM APIs require role assumption based on the `AliyunServiceRoleForSysom` service role. Therefore, before using SysOM features, you must invoke this API to perform initialization and ensure that the service role has been created.  
- * - `check_only`: If this parameter is set to True, the API only checks whether the service role exists and does not create it. If this parameter is set to False or omitted, the API automatically creates the service role if it does not exist.
- * >  
- * > Note: When you invoke this API to initialize the role, you are deemed to have accepted the User Agreement of the operating system console by default. For more information, see [Overview of the Operating System Console](https://help.aliyun.com/zh/alinux/product-overview/os-console-overview?spm=a2c4g.11186623.help-menu-2632541.d_0_7.35a829ffLjQtgg) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
+ * @description Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
+ * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, the operation performs automatic creation of the service-linked role if it does not exist.
+ * > 
+ * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
  *
  * @param request InitialSysomRequest
  * @return InitialSysomResponse
@@ -2223,9 +2234,9 @@ InitialSysomResponse Client::initialSysom(const InitialSysomRequest &request) {
 }
 
 /**
- * @summary Install an agent on the specified instance
+ * @summary Installs an Agent on a specified instance.
  *
- * @description The API call to install an agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the job execution status.
+ * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
  *
  * @param request InstallAgentRequest
  * @param headers map
@@ -2270,9 +2281,9 @@ InstallAgentResponse Client::installAgentWithOptions(const InstallAgentRequest &
 }
 
 /**
- * @summary Install an agent on the specified instance
+ * @summary Installs an Agent on a specified instance.
  *
- * @description The API call to install an agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the job execution status.
+ * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
  *
  * @param request InstallAgentRequest
  * @return InstallAgentResponse
@@ -2284,11 +2295,11 @@ InstallAgentResponse Client::installAgent(const InstallAgentRequest &request) {
 }
 
 /**
- * @summary Install widgets on a cluster
+ * @summary Install component for cluster
  *
- * @description After you install widgets on the specified ACK cluster:  
- * 1. When the cluster is first enrolled, widgets are installed on all ECS instances in the cluster (if the cluster contains more than 50 nodes, widgets are installed on only 50 nodes in the first batch).  
- * 2. The operating system console periodically checks for scale-in or scale-out events in the enrolled cluster. Whenever new ECS instances are added to the cluster, the operating system console automatically installs widgets on them without requiring user intervention.
+ * @description After installing a component for the target ACK cluster:
+ * 1. First, when the cluster is managed for the first time, the component will be installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances will be covered in the first batch.
+ * 2. Then, the SysOM console periodically checks the scaling status of the managed cluster. Once a new ECS instance is added to the cluster, the SysOM console automatically installs the component on it without user intervention.
  *
  * @param request InstallAgentForClusterRequest
  * @param headers map
@@ -2337,11 +2348,11 @@ InstallAgentForClusterResponse Client::installAgentForClusterWithOptions(const I
 }
 
 /**
- * @summary Install widgets on a cluster
+ * @summary Install component for cluster
  *
- * @description After you install widgets on the specified ACK cluster:  
- * 1. When the cluster is first enrolled, widgets are installed on all ECS instances in the cluster (if the cluster contains more than 50 nodes, widgets are installed on only 50 nodes in the first batch).  
- * 2. The operating system console periodically checks for scale-in or scale-out events in the enrolled cluster. Whenever new ECS instances are added to the cluster, the operating system console automatically installs widgets on them without requiring user intervention.
+ * @description After installing a component for the target ACK cluster:
+ * 1. First, when the cluster is managed for the first time, the component will be installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances will be covered in the first batch.
+ * 2. Then, the SysOM console periodically checks the scaling status of the managed cluster. Once a new ECS instance is added to the cluster, the SysOM console automatically installs the component on it without user intervention.
  *
  * @param request InstallAgentForClusterRequest
  * @return InstallAgentForClusterResponse
@@ -2353,7 +2364,7 @@ InstallAgentForClusterResponse Client::installAgentForCluster(const InstallAgent
 }
 
 /**
- * @summary Initiate diagnosis for anomalous activity
+ * @summary Initiates an anomaly diagnostics task.
  *
  * @param request InvokeAnomalyDiagnosisRequest
  * @param headers map
@@ -2386,7 +2397,7 @@ InvokeAnomalyDiagnosisResponse Client::invokeAnomalyDiagnosisWithOptions(const I
 }
 
 /**
- * @summary Initiate diagnosis for anomalous activity
+ * @summary Initiates an anomaly diagnostics task.
  *
  * @param request InvokeAnomalyDiagnosisRequest
  * @return InvokeAnomalyDiagnosisResponse
@@ -2398,13 +2409,13 @@ InvokeAnomalyDiagnosisResponse Client::invokeAnomalyDiagnosis(const InvokeAnomal
 }
 
 /**
- * @summary Initiate a diagnosis.
+ * @summary Initiate Diagnosis.
  *
- * @description Diagnosing the target ECS instance has the following requirements:  
- * - The instance status of the target ECS instance must be running.  
- * - The Cloud Assistant Agent must already be installed on the target ECS instance. If it is not installed, install it by referring to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent).  
- * - You must invoke the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If this authorization is not granted, the API call will fail immediately.  
- * - This API depends on the existence of the SysOM service-linked role (AliyunServiceRoleForSysom). This API does not create the service-linked role automatically. If the service-linked role does not exist, you must first call AuthDiagnosis to perform authorization, which will create the aforementioned service-linked role.
+ * @description The following requirements must be met to diagnose a target ECS instance:
+ * - The target ECS instance must be in the Running state.
+ * - The Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
+ * - You must call the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this API will fail directly.
+ * - This API requires that the SysOM service-linked role (AliyunServiceRoleForSysom) has been created. This API does not automatically create the service role. If the service role does not exist, you must first call AuthDiagnosis for authorization, which will create the aforementioned service role.
  *
  * @param request InvokeDiagnosisRequest
  * @param headers map
@@ -2445,13 +2456,13 @@ InvokeDiagnosisResponse Client::invokeDiagnosisWithOptions(const InvokeDiagnosis
 }
 
 /**
- * @summary Initiate a diagnosis.
+ * @summary Initiate Diagnosis.
  *
- * @description Diagnosing the target ECS instance has the following requirements:  
- * - The instance status of the target ECS instance must be running.  
- * - The Cloud Assistant Agent must already be installed on the target ECS instance. If it is not installed, install it by referring to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent).  
- * - You must invoke the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If this authorization is not granted, the API call will fail immediately.  
- * - This API depends on the existence of the SysOM service-linked role (AliyunServiceRoleForSysom). This API does not create the service-linked role automatically. If the service-linked role does not exist, you must first call AuthDiagnosis to perform authorization, which will create the aforementioned service-linked role.
+ * @description The following requirements must be met to diagnose a target ECS instance:
+ * - The target ECS instance must be in the Running state.
+ * - The Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
+ * - You must call the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this API will fail directly.
+ * - This API requires that the SysOM service-linked role (AliyunServiceRoleForSysom) has been created. This API does not automatically create the service role. If the service role does not exist, you must first call AuthDiagnosis for authorization, which will create the aforementioned service role.
  *
  * @param request InvokeDiagnosisRequest
  * @return InvokeDiagnosisResponse
@@ -2463,7 +2474,7 @@ InvokeDiagnosisResponse Client::invokeDiagnosis(const InvokeDiagnosisRequest &re
 }
 
 /**
- * @summary Obtain anomalous activity information for clusters, edge zones, or pods within a specified time period.
+ * @summary Retrieves anomaly event information for a cluster, node, or pod within a specified time range.
  *
  * @param request ListAbnormalyEventsRequest
  * @param headers map
@@ -2536,7 +2547,7 @@ ListAbnormalyEventsResponse Client::listAbnormalyEventsWithOptions(const ListAbn
 }
 
 /**
- * @summary Obtain anomalous activity information for clusters, edge zones, or pods within a specified time period.
+ * @summary Retrieves anomaly event information for a cluster, node, or pod within a specified time range.
  *
  * @param request ListAbnormalyEventsRequest
  * @return ListAbnormalyEventsResponse
@@ -2548,7 +2559,7 @@ ListAbnormalyEventsResponse Client::listAbnormalyEvents(const ListAbnormalyEvent
 }
 
 /**
- * @summary List installation records of the agent
+ * @summary Lists the installation records of an Agent.
  *
  * @param request ListAgentInstallRecordsRequest
  * @param headers map
@@ -2605,7 +2616,7 @@ ListAgentInstallRecordsResponse Client::listAgentInstallRecordsWithOptions(const
 }
 
 /**
- * @summary List installation records of the agent
+ * @summary Lists the installation records of an Agent.
  *
  * @param request ListAgentInstallRecordsRequest
  * @return ListAgentInstallRecordsResponse
@@ -2617,7 +2628,7 @@ ListAgentInstallRecordsResponse Client::listAgentInstallRecords(const ListAgentI
 }
 
 /**
- * @summary Retrieve the Agent List
+ * @summary Retrieves a list of agents.
  *
  * @param request ListAgentsRequest
  * @param headers map
@@ -2662,7 +2673,7 @@ ListAgentsResponse Client::listAgentsWithOptions(const ListAgentsRequest &reques
 }
 
 /**
- * @summary Retrieve the Agent List
+ * @summary Retrieves a list of agents.
  *
  * @param request ListAgentsRequest
  * @return ListAgentsResponse
@@ -2674,7 +2685,7 @@ ListAgentsResponse Client::listAgents(const ListAgentsRequest &request) {
 }
 
 /**
- * @summary This API is used to obtain the alert contact list.
+ * @summary This API is used to get the list of alert contacts
  *
  * @param request ListAlertDestinationsRequest
  * @param headers map
@@ -2723,7 +2734,7 @@ ListAlertDestinationsResponse Client::listAlertDestinationsWithOptions(const Lis
 }
 
 /**
- * @summary This API is used to obtain the alert contact list.
+ * @summary This API is used to get the list of alert contacts
  *
  * @param request ListAlertDestinationsRequest
  * @return ListAlertDestinationsResponse
@@ -2735,7 +2746,7 @@ ListAlertDestinationsResponse Client::listAlertDestinations(const ListAlertDesti
 }
 
 /**
- * @summary Retrieve all alerting items
+ * @summary Retrieves all alert metrics.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2760,7 +2771,7 @@ ListAlertItemsResponse Client::listAlertItemsWithOptions(const map<string, strin
 }
 
 /**
- * @summary Retrieve all alerting items
+ * @summary Retrieves all alert metrics.
  *
  * @return ListAlertItemsResponse
  */
@@ -2771,7 +2782,7 @@ ListAlertItemsResponse Client::listAlertItems() {
 }
 
 /**
- * @summary Used to obtain all alert policies for push notifications of a user
+ * @summary Retrieves all push alert policies for the current user.
  *
  * @param request ListAlertStrategiesRequest
  * @param headers map
@@ -2820,7 +2831,7 @@ ListAlertStrategiesResponse Client::listAlertStrategiesWithOptions(const ListAle
 }
 
 /**
- * @summary Used to obtain all alert policies for push notifications of a user
+ * @summary Retrieves all push alert policies for the current user.
  *
  * @param request ListAlertStrategiesRequest
  * @return ListAlertStrategiesResponse
@@ -2832,7 +2843,7 @@ ListAlertStrategiesResponse Client::listAlertStrategies(const ListAlertStrategie
 }
 
 /**
- * @summary This API is used to obtain a list of managed or unmanaged instances along with instance information.
+ * @summary This API is used to retrieve a list of managed/unmanaged instances along with their instance information.
  *
  * @param request ListAllInstancesRequest
  * @param headers map
@@ -2897,7 +2908,7 @@ ListAllInstancesResponse Client::listAllInstancesWithOptions(const ListAllInstan
 }
 
 /**
- * @summary This API is used to obtain a list of managed or unmanaged instances along with instance information.
+ * @summary This API is used to retrieve a list of managed/unmanaged instances along with their instance information.
  *
  * @param request ListAllInstancesRequest
  * @return ListAllInstancesResponse
@@ -2909,7 +2920,7 @@ ListAllInstancesResponse Client::listAllInstances(const ListAllInstancesRequest 
 }
 
 /**
- * @summary Obtain cluster widget installation records
+ * @summary Get cluster component installation records
  *
  * @param request ListClusterAgentInstallRecordsRequest
  * @param headers map
@@ -2962,7 +2973,7 @@ ListClusterAgentInstallRecordsResponse Client::listClusterAgentInstallRecordsWit
 }
 
 /**
- * @summary Obtain cluster widget installation records
+ * @summary Get cluster component installation records
  *
  * @param request ListClusterAgentInstallRecordsRequest
  * @return ListClusterAgentInstallRecordsResponse
@@ -2974,7 +2985,7 @@ ListClusterAgentInstallRecordsResponse Client::listClusterAgentInstallRecords(co
 }
 
 /**
- * @summary Retrieve all clusters managed by the current user
+ * @summary Retrieve all managed clusters of the current user
  *
  * @param request ListClustersRequest
  * @param headers map
@@ -3031,7 +3042,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary Retrieve all clusters managed by the current user
+ * @summary Retrieve all managed clusters of the current user
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -3043,7 +3054,7 @@ ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
 }
 
 /**
- * @summary Obtain the diagnosis history list.
+ * @summary Obtain the list of diagnostic history.
  *
  * @param request ListDiagnosisRequest
  * @param headers map
@@ -3092,7 +3103,7 @@ ListDiagnosisResponse Client::listDiagnosisWithOptions(const ListDiagnosisReques
 }
 
 /**
- * @summary Obtain the diagnosis history list.
+ * @summary Obtain the list of diagnostic history.
  *
  * @param request ListDiagnosisRequest
  * @return ListDiagnosisResponse
@@ -3104,7 +3115,7 @@ ListDiagnosisResponse Client::listDiagnosis(const ListDiagnosisRequest &request)
 }
 
 /**
- * @summary Obtain a list of cluster node or pod health scores within a specified time period.
+ * @summary Retrieves the health status list of cluster nodes or Pods within a specified time range.
  *
  * @param request ListInstanceHealthRequest
  * @param headers map
@@ -3157,7 +3168,7 @@ ListInstanceHealthResponse Client::listInstanceHealthWithOptions(const ListInsta
 }
 
 /**
- * @summary Obtain a list of cluster node or pod health scores within a specified time period.
+ * @summary Retrieves the health status list of cluster nodes or Pods within a specified time range.
  *
  * @param request ListInstanceHealthRequest
  * @return ListInstanceHealthResponse
@@ -3169,9 +3180,9 @@ ListInstanceHealthResponse Client::listInstanceHealth(const ListInstanceHealthRe
 }
 
 /**
- * @summary Obtain instance status
+ * @summary Retrieves instance statuses.
  *
- * @description This API is used to obtain the list of machines managed by SysOM.
+ * @description Retrieves the list of machines managed by SysOM.
  *
  * @param request ListInstanceStatusRequest
  * @param headers map
@@ -3220,9 +3231,9 @@ ListInstanceStatusResponse Client::listInstanceStatusWithOptions(const ListInsta
 }
 
 /**
- * @summary Obtain instance status
+ * @summary Retrieves instance statuses.
  *
- * @description This API is used to obtain the list of machines managed by SysOM.
+ * @description Retrieves the list of machines managed by SysOM.
  *
  * @param request ListInstanceStatusRequest
  * @return ListInstanceStatusResponse
@@ -3234,9 +3245,9 @@ ListInstanceStatusResponse Client::listInstanceStatus(const ListInstanceStatusRe
 }
 
 /**
- * @summary Obtain the instance list
+ * @summary Retrieves a list of instances.
  *
- * @description The instance list returned by this API includes only the machines that have been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
+ * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request ListInstancesRequest
  * @param headers map
@@ -3289,9 +3300,9 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Obtain the instance list
+ * @summary Retrieves a list of instances.
  *
- * @description The instance list returned by this API includes only the machines that have been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
+ * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -3303,9 +3314,9 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Obtain a list of ECS information, such as the tag list, public IP address list, and so on.
+ * @summary Retrieves lists of ECS information for instances, such as tag lists and public IP address lists.
  *
- * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request ListInstancesEcsInfoListRequest
  * @param headers map
@@ -3354,9 +3365,9 @@ ListInstancesEcsInfoListResponse Client::listInstancesEcsInfoListWithOptions(con
 }
 
 /**
- * @summary Obtain a list of ECS information, such as the tag list, public IP address list, and so on.
+ * @summary Retrieves lists of ECS information for instances, such as tag lists and public IP address lists.
  *
- * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request ListInstancesEcsInfoListRequest
  * @return ListInstancesEcsInfoListResponse
@@ -3368,9 +3379,9 @@ ListInstancesEcsInfoListResponse Client::listInstancesEcsInfoList(const ListInst
 }
 
 /**
- * @summary Obtain information about managed or unmanaged instances, including ECS information.
+ * @summary Retrieves information about managed and unmanaged instances, including ECS information.
  *
- * @description The current API returns a list of instances that have already been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
+ * @description The instance list returned by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param tmpReq ListInstancesWithEcsInfoRequest
  * @param headers map
@@ -3465,9 +3476,9 @@ ListInstancesWithEcsInfoResponse Client::listInstancesWithEcsInfoWithOptions(con
 }
 
 /**
- * @summary Obtain information about managed or unmanaged instances, including ECS information.
+ * @summary Retrieves information about managed and unmanaged instances, including ECS information.
  *
- * @description The current API returns a list of instances that have already been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
+ * @description The instance list returned by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request ListInstancesWithEcsInfoRequest
  * @return ListInstancesWithEcsInfoResponse
@@ -3479,9 +3490,9 @@ ListInstancesWithEcsInfoResponse Client::listInstancesWithEcsInfo(const ListInst
 }
 
 /**
- * @summary Obtain the list of instances for plugin installation, update, or uninstallation
+ * @summary Retrieves the list of instances for plug-in installation, update, or uninstallation.
  *
- * @description The instance list returned by this API consists of machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request ListPluginsInstancesRequest
  * @param headers map
@@ -3538,9 +3549,9 @@ ListPluginsInstancesResponse Client::listPluginsInstancesWithOptions(const ListP
 }
 
 /**
- * @summary Obtain the list of instances for plugin installation, update, or uninstallation
+ * @summary Retrieves the list of instances for plug-in installation, update, or uninstallation.
  *
- * @description The instance list returned by this API consists of machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
+ * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request ListPluginsInstancesRequest
  * @return ListPluginsInstancesResponse
@@ -3552,7 +3563,7 @@ ListPluginsInstancesResponse Client::listPluginsInstances(const ListPluginsInsta
 }
 
 /**
- * @summary Retrieve the list of pods in a cluster or instance
+ * @summary Retrieves the list of pods in a cluster or instance.
  *
  * @param request ListPodsOfInstanceRequest
  * @param headers map
@@ -3597,7 +3608,7 @@ ListPodsOfInstanceResponse Client::listPodsOfInstanceWithOptions(const ListPodsO
 }
 
 /**
- * @summary Retrieve the list of pods in a cluster or instance
+ * @summary Retrieves the list of pods in a cluster or instance.
  *
  * @param request ListPodsOfInstanceRequest
  * @return ListPodsOfInstanceResponse
@@ -3609,9 +3620,9 @@ ListPodsOfInstanceResponse Client::listPodsOfInstance(const ListPodsOfInstanceRe
 }
 
 /**
- * @summary List all areas where machines are managed
+ * @summary Lists all regions that contain managed instances.
  *
- * @description This API retrieves the list of areas where the current user has machines managed by SysOM. If the user has ECS instances in an area but those instances are not managed by SysOM, that area will not appear in the API response.
+ * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If a user has ECS instances in a region but none of them are managed by SysOM, that region is not included in the response.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3636,9 +3647,9 @@ ListRegionsResponse Client::listRegionsWithOptions(const map<string, string> &he
 }
 
 /**
- * @summary List all areas where machines are managed
+ * @summary Lists all regions that contain managed instances.
  *
- * @description This API retrieves the list of areas where the current user has machines managed by SysOM. If the user has ECS instances in an area but those instances are not managed by SysOM, that area will not appear in the API response.
+ * @description This operation retrieves the list of regions where the current user has instances managed by SysOM. If a user has ECS instances in a region but none of them are managed by SysOM, that region is not included in the response.
  *
  * @return ListRegionsResponse
  */
@@ -3649,7 +3660,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary Query the history list of breakdown diagnosis jobs.
+ * @summary Query the historical crash diagnosis task list.
  *
  * @param request ListVmcoreDiagnosisTaskRequest
  * @param headers map
@@ -3682,7 +3693,7 @@ ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTaskWithOptions(const
 }
 
 /**
- * @summary Query the history list of breakdown diagnosis jobs.
+ * @summary Query the historical crash diagnosis task list.
  *
  * @param request ListVmcoreDiagnosisTaskRequest
  * @return ListVmcoreDiagnosisTaskResponse
@@ -3694,7 +3705,7 @@ ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTask(const ListVmcore
 }
 
 /**
- * @summary Start an AI job analysis.
+ * @summary Start AI job analysis.
  *
  * @param request StartAIAnalysisRequest
  * @param headers map
@@ -3779,7 +3790,7 @@ StartAIAnalysisResponse Client::startAIAnalysisWithOptions(const StartAIAnalysis
 }
 
 /**
- * @summary Start an AI job analysis.
+ * @summary Start AI job analysis.
  *
  * @param request StartAIAnalysisRequest
  * @return StartAIAnalysisResponse
@@ -3791,9 +3802,9 @@ StartAIAnalysisResponse Client::startAIAnalysis(const StartAIAnalysisRequest &re
 }
 
 /**
- * @summary Start AI Infra differential analysis.
+ * @summary Starts an AI Infra differential analysis.
  *
- * @description Currently, only comparative analysis between different steps under the same AI Infra analysis record and the same pid is supported.
+ * @description Currently, only comparative analysis of the same pid across different steps within the same AI Infra analysis record is supported.
  *
  * @param request StartAIDiffAnalysisRequest
  * @param headers map
@@ -3830,9 +3841,9 @@ StartAIDiffAnalysisResponse Client::startAIDiffAnalysisWithOptions(const StartAI
 }
 
 /**
- * @summary Start AI Infra differential analysis.
+ * @summary Starts an AI Infra differential analysis.
  *
- * @description Currently, only comparative analysis between different steps under the same AI Infra analysis record and the same pid is supported.
+ * @description Currently, only comparative analysis of the same pid across different steps within the same AI Infra analysis record is supported.
  *
  * @param request StartAIDiffAnalysisRequest
  * @return StartAIDiffAnalysisResponse
@@ -3844,9 +3855,9 @@ StartAIDiffAnalysisResponse Client::startAIDiffAnalysis(const StartAIDiffAnalysi
 }
 
 /**
- * @summary Uninstall a specified version of the widget
+ * @summary Uninstalls a specified version of a component.
  *
- * @description The API call to uninstall an Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
+ * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UninstallAgentRequest
  * @param headers map
@@ -3887,9 +3898,9 @@ UninstallAgentResponse Client::uninstallAgentWithOptions(const UninstallAgentReq
 }
 
 /**
- * @summary Uninstall a specified version of the widget
+ * @summary Uninstalls a specified version of a component.
  *
- * @description The API call to uninstall an Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
+ * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UninstallAgentRequest
  * @return UninstallAgentResponse
@@ -3901,7 +3912,7 @@ UninstallAgentResponse Client::uninstallAgent(const UninstallAgentRequest &reque
 }
 
 /**
- * @summary Uninstall a widget from a cluster
+ * @summary Uninstalls a component from a cluster.
  *
  * @param request UninstallAgentForClusterRequest
  * @param headers map
@@ -3942,7 +3953,7 @@ UninstallAgentForClusterResponse Client::uninstallAgentForClusterWithOptions(con
 }
 
 /**
- * @summary Uninstall a widget from a cluster
+ * @summary Uninstalls a component from a cluster.
  *
  * @param request UninstallAgentForClusterRequest
  * @return UninstallAgentForClusterResponse
@@ -3954,9 +3965,9 @@ UninstallAgentForClusterResponse Client::uninstallAgentForCluster(const Uninstal
 }
 
 /**
- * @summary This API is used to update an alert contact.
+ * @summary Updates an alert contact.
  *
- * @description 、
+ * @description .
  *
  * @param request UpdateAlertDestinationRequest
  * @param headers map
@@ -4005,9 +4016,9 @@ UpdateAlertDestinationResponse Client::updateAlertDestinationWithOptions(const U
 }
 
 /**
- * @summary This API is used to update an alert contact.
+ * @summary Updates an alert contact.
  *
- * @description 、
+ * @description .
  *
  * @param request UpdateAlertDestinationRequest
  * @return UpdateAlertDestinationResponse
@@ -4019,7 +4030,7 @@ UpdateAlertDestinationResponse Client::updateAlertDestination(const UpdateAlertD
 }
 
 /**
- * @summary User updates the status of a push alert policy
+ * @summary Updates the status of a push alert policy.
  *
  * @param request UpdateAlertEnabledRequest
  * @param headers map
@@ -4056,7 +4067,7 @@ UpdateAlertEnabledResponse Client::updateAlertEnabledWithOptions(const UpdateAle
 }
 
 /**
- * @summary User updates the status of a push alert policy
+ * @summary Updates the status of a push alert policy.
  *
  * @param request UpdateAlertEnabledRequest
  * @return UpdateAlertEnabledResponse
@@ -4068,7 +4079,7 @@ UpdateAlertEnabledResponse Client::updateAlertEnabled(const UpdateAlertEnabledRe
 }
 
 /**
- * @summary Update push alert policy
+ * @summary Updates a push alert policy.
  *
  * @param request UpdateAlertStrategyRequest
  * @param headers map
@@ -4117,7 +4128,7 @@ UpdateAlertStrategyResponse Client::updateAlertStrategyWithOptions(const UpdateA
 }
 
 /**
- * @summary Update push alert policy
+ * @summary Updates a push alert policy.
  *
  * @param request UpdateAlertStrategyRequest
  * @return UpdateAlertStrategyResponse
@@ -4129,7 +4140,7 @@ UpdateAlertStrategyResponse Client::updateAlertStrategy(const UpdateAlertStrateg
 }
 
 /**
- * @summary Update the follow level of an anomalous activity to adjust the sensitivity of the anomaly detection algorithm by modifying the follow level.
+ * @summary Updates the attention level of an anomaly item. Adjusting the attention level affects the sensitivity of the anomaly detection algorithm.
  *
  * @param request UpdateEventsAttentionRequest
  * @param headers map
@@ -4170,7 +4181,7 @@ UpdateEventsAttentionResponse Client::updateEventsAttentionWithOptions(const Upd
 }
 
 /**
- * @summary Update the follow level of an anomalous activity to adjust the sensitivity of the anomaly detection algorithm by modifying the follow level.
+ * @summary Updates the attention level of an anomaly item. Adjusting the attention level affects the sensitivity of the anomaly detection algorithm.
  *
  * @param request UpdateEventsAttentionRequest
  * @return UpdateEventsAttentionResponse
@@ -4182,10 +4193,10 @@ UpdateEventsAttentionResponse Client::updateEventsAttention(const UpdateEventsAt
 }
 
 /**
- * @summary Update the service function module configuration.
+ * @summary Updates the configuration of a service feature module.
  *
- * @description - You must fill in the parameters according to the input parameters of the general LLM service, convert them to a string, and assign the result to `llmParamString`.  
- * - To use the returned data, convert the string back to a dictionary, following the response format of the general LLM service.
+ * @description - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
  *
  * @param tmpReq UpdateFuncSwitchRecordRequest
  * @param headers map
@@ -4232,10 +4243,10 @@ UpdateFuncSwitchRecordResponse Client::updateFuncSwitchRecordWithOptions(const U
 }
 
 /**
- * @summary Update the service function module configuration.
+ * @summary Updates the configuration of a service feature module.
  *
- * @description - You must fill in the parameters according to the input parameters of the general LLM service, convert them to a string, and assign the result to `llmParamString`.  
- * - To use the returned data, convert the string back to a dictionary, following the response format of the general LLM service.
+ * @description - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
  *
  * @param request UpdateFuncSwitchRecordRequest
  * @return UpdateFuncSwitchRecordResponse
@@ -4247,9 +4258,9 @@ UpdateFuncSwitchRecordResponse Client::updateFuncSwitchRecord(const UpdateFuncSw
 }
 
 /**
- * @summary Update the version of the installed widget to the specified version.
+ * @summary Updates an installed component to a specified version.
  *
- * @description The API call to update the Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
+ * @description Updating the Agent by calling this operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the execution status of the task.
  *
  * @param request UpgradeAgentRequest
  * @param headers map
@@ -4290,9 +4301,9 @@ UpgradeAgentResponse Client::upgradeAgentWithOptions(const UpgradeAgentRequest &
 }
 
 /**
- * @summary Update the version of the installed widget to the specified version.
+ * @summary Updates an installed component to a specified version.
  *
- * @description The API call to update the Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
+ * @description Updating the Agent by calling this operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the execution status of the task.
  *
  * @param request UpgradeAgentRequest
  * @return UpgradeAgentResponse
@@ -4304,7 +4315,7 @@ UpgradeAgentResponse Client::upgradeAgent(const UpgradeAgentRequest &request) {
 }
 
 /**
- * @summary Update widget for cluster
+ * @summary Updates components for a cluster.
  *
  * @param request UpgradeAgentForClusterRequest
  * @param headers map
@@ -4345,7 +4356,7 @@ UpgradeAgentForClusterResponse Client::upgradeAgentForClusterWithOptions(const U
 }
 
 /**
- * @summary Update widget for cluster
+ * @summary Updates components for a cluster.
  *
  * @param request UpgradeAgentForClusterRequest
  * @return UpgradeAgentForClusterResponse

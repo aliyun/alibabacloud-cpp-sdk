@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Sensitivity of the anomalous activity. Valid values are -1 to 3. A value of -1 decreases sensitivity by 1 degree, and a value of 0 increases sensitivity by 1 degree.
+    // The sensitivity of the anomaly event. Valid values: -1 to 3. A value of -1 indicates that the sensitivity is decreased by 1. A value of 0 indicates that the sensitivity is increased by 1.
     shared_ptr<int32_t> mode_ {};
-    // Scope of effect: cluster or edge zone
+    // The scope in which the update takes effect. Valid values: cluster and node.
     shared_ptr<string> range_ {};
-    // UUID corresponding to the anomalous activity
+    // The UUID of the anomaly event.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

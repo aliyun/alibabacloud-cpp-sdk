@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Updated follow level value
+      // The updated attention level value.
       shared_ptr<int32_t> mode_ {};
     };
 
@@ -100,15 +100,15 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end diagnosis
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code:  
-    // - `code == Success` indicates that authorization succeeded;  
-    // - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain the detailed error message.
+    // The status code. Valid values:
+    // - Success: The authorization is successful.
+    // - Other values: The authorization failed. Check the message field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The response data.
     shared_ptr<UpdateEventsAttentionResponseBody::Data> data_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
   };
 

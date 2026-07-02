@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Job ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -100,17 +100,17 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end diagnosis
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code  
-    // - `code == Success` indicates that authorization succeeded.  
-    // - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+    // The status code.
+    // - If code is Success, the authorization is successful.
+    // - Other status codes indicate that the authorization has failed. Check the message field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The response data.
     shared_ptr<UninstallAgentResponseBody::Data> data_ {};
-    // Error message  
-    // - If `code == Success`, this field is empty.  
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If code is Success, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
   };
 
