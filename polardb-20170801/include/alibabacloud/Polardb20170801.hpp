@@ -636,7 +636,7 @@ namespace Polardb20170801
       Models::CreateAINodesResponse createAINodes(const Models::CreateAINodesRequest &request);
 
       /**
-       * @summary Creates a database account for a PolarDB cluster.
+       * @summary Creates a PolarDB database account.
        *
        * @param request CreateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -645,7 +645,7 @@ namespace Polardb20170801
       Models::CreateAccountResponse createAccountWithOptions(const Models::CreateAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a database account for a PolarDB cluster.
+       * @summary Creates a PolarDB database account.
        *
        * @param request CreateAccountRequest
        * @return CreateAccountResponse
@@ -2687,7 +2687,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBClustersResponse describeAgenticDBClusters(const Models::DescribeAgenticDBClustersRequest &request);
 
       /**
-       * @summary 查询 AgenticDB 计算实例列表
+       * @summary Queries the list of AgenticDB compute instances.
        *
        * @param request DescribeAgenticDBComputeClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2696,7 +2696,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBComputeClustersResponse describeAgenticDBComputeClustersWithOptions(const Models::DescribeAgenticDBComputeClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 AgenticDB 计算实例列表
+       * @summary Queries the list of AgenticDB compute instances.
        *
        * @param request DescribeAgenticDBComputeClustersRequest
        * @return DescribeAgenticDBComputeClustersResponse
@@ -4694,6 +4694,23 @@ namespace Polardb20170801
        * @return DescribePolarClawTaskResponse
        */
       Models::DescribePolarClawTaskResponse describePolarClawTask(const Models::DescribePolarClawTaskRequest &request);
+
+      /**
+       * @summary 查看polarfs信息
+       *
+       * @param request DescribePolarFsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarFsResponse
+       */
+      Models::DescribePolarFsResponse describePolarFsWithOptions(const Models::DescribePolarFsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看polarfs信息
+       *
+       * @param request DescribePolarFsRequest
+       * @return DescribePolarFsResponse
+       */
+      Models::DescribePolarFsResponse describePolarFs(const Models::DescribePolarFsRequest &request);
 
       /**
        * @summary Retrieves the details of a PolarLakebase instance.
@@ -7772,7 +7789,7 @@ namespace Polardb20170801
       Models::UpgradePolarClawSkillsResponse upgradePolarClawSkills(const Models::UpgradePolarClawSkillsRequest &request);
 
       /**
-       * @summary 校验 AgenticDB 租户 API Key
+       * @summary Validates an AgenticDB tenant API key.
        *
        * @param request VerifyAgenticDBTenantApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7781,7 +7798,7 @@ namespace Polardb20170801
       Models::VerifyAgenticDBTenantApiKeyResponse verifyAgenticDBTenantApiKeyWithOptions(const Models::VerifyAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验 AgenticDB 租户 API Key
+       * @summary Validates an AgenticDB tenant API key.
        *
        * @param request VerifyAgenticDBTenantApiKeyRequest
        * @return VerifyAgenticDBTenantApiKeyResponse

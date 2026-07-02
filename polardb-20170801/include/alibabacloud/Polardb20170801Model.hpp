@@ -767,6 +767,9 @@
 #include <alibabacloud/models/DescribePolarClawTaskRequest.hpp>
 #include <alibabacloud/models/DescribePolarClawTaskResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarClawTaskResponse.hpp>
+#include <alibabacloud/models/DescribePolarFsRequest.hpp>
+#include <alibabacloud/models/DescribePolarFsResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarFsResponse.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeRequest.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeResponse.hpp>

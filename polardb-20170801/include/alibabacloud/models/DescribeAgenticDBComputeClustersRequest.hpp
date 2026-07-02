@@ -85,12 +85,19 @@ namespace Models
 
   protected:
     shared_ptr<string> computeClusterId_ {};
+    // The AgenticDB cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 30. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The status filter. Valid values: Running, Stopped, and Waiting.
     shared_ptr<string> status_ {};
   };
 

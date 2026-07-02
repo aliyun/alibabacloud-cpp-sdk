@@ -2219,7 +2219,7 @@ CreateAINodesResponse Client::createAINodes(const CreateAINodesRequest &request)
 }
 
 /**
- * @summary Creates a database account for a PolarDB cluster.
+ * @summary Creates a PolarDB database account.
  *
  * @param request CreateAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2302,7 +2302,7 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
 }
 
 /**
- * @summary Creates a database account for a PolarDB cluster.
+ * @summary Creates a PolarDB database account.
  *
  * @param request CreateAccountRequest
  * @return CreateAccountResponse
@@ -10105,7 +10105,7 @@ DescribeAgenticDBClustersResponse Client::describeAgenticDBClusters(const Descri
 }
 
 /**
- * @summary 查询 AgenticDB 计算实例列表
+ * @summary Queries the list of AgenticDB compute instances.
  *
  * @param request DescribeAgenticDBComputeClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10156,7 +10156,7 @@ DescribeAgenticDBComputeClustersResponse Client::describeAgenticDBComputeCluster
 }
 
 /**
- * @summary 查询 AgenticDB 计算实例列表
+ * @summary Queries the list of AgenticDB compute instances.
  *
  * @param request DescribeAgenticDBComputeClustersRequest
  * @return DescribeAgenticDBComputeClustersResponse
@@ -17448,6 +17448,80 @@ DescribePolarClawTaskResponse Client::describePolarClawTaskWithOptions(const Des
 DescribePolarClawTaskResponse Client::describePolarClawTask(const DescribePolarClawTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolarClawTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看polarfs信息
+ *
+ * @param request DescribePolarFsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarFsResponse
+ */
+DescribePolarFsResponse Client::describePolarFsWithOptions(const DescribePolarFsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPolarFsInstanceDescription()) {
+    query["PolarFsInstanceDescription"] = request.getPolarFsInstanceDescription();
+  }
+
+  if (!!request.hasPolarFsInstanceIds()) {
+    query["PolarFsInstanceIds"] = request.getPolarFsInstanceIds();
+  }
+
+  if (!!request.hasPolarFsType()) {
+    query["PolarFsType"] = request.getPolarFsType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRelativeDbClusterId()) {
+    query["RelativeDbClusterId"] = request.getRelativeDbClusterId();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarFs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarFsResponse>();
+}
+
+/**
+ * @summary 查看polarfs信息
+ *
+ * @param request DescribePolarFsRequest
+ * @return DescribePolarFsResponse
+ */
+DescribePolarFsResponse Client::describePolarFs(const DescribePolarFsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarFsWithOptions(request, runtime);
 }
 
 /**
@@ -29298,7 +29372,7 @@ UpgradePolarClawSkillsResponse Client::upgradePolarClawSkills(const UpgradePolar
 }
 
 /**
- * @summary 校验 AgenticDB 租户 API Key
+ * @summary Validates an AgenticDB tenant API key.
  *
  * @param request VerifyAgenticDBTenantApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29333,7 +29407,7 @@ VerifyAgenticDBTenantApiKeyResponse Client::verifyAgenticDBTenantApiKeyWithOptio
 }
 
 /**
- * @summary 校验 AgenticDB 租户 API Key
+ * @summary Validates an AgenticDB tenant API key.
  *
  * @param request VerifyAgenticDBTenantApiKeyRequest
  * @return VerifyAgenticDBTenantApiKeyResponse

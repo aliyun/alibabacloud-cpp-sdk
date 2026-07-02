@@ -232,24 +232,40 @@ namespace Models
 
 
     protected:
+      // The ID of the associated branch.
       shared_ptr<string> branchId_ {};
+      // The name of the associated branch.
       shared_ptr<string> branchName_ {};
+      // The compute instance ID.
       shared_ptr<string> computeClusterId_ {};
+      // The number of compute nodes. The value is fixed to 1 in the first phase.
       shared_ptr<int32_t> computeNodeCount_ {};
+      // The time when the compute instance was created.
       shared_ptr<string> createTime_ {};
+      // The description of the compute instance.
       shared_ptr<string> description_ {};
       shared_ptr<bool> isDefaultBranch_ {};
+      // The time when the compute instance was last activated.
       shared_ptr<string> lastActivatedAt_ {};
+      // The maximum compute unit.
       shared_ptr<string> maxCU_ {};
+      // The minimum compute unit.
       shared_ptr<string> minCU_ {};
+      // The operator type.
       shared_ptr<string> operatorType_ {};
       shared_ptr<string> parentBranchId_ {};
       shared_ptr<string> parentBranchName_ {};
+      // The ID of the associated project.
       shared_ptr<string> projectId_ {};
+      // The name of the associated project.
       shared_ptr<string> projectName_ {};
+      // The status of the compute instance.
       shared_ptr<string> status_ {};
+      // The amount of used data, in bytes.
       shared_ptr<int64_t> storageSize_ {};
+      // The ID of the associated tenant.
       shared_ptr<string> tenantId_ {};
+      // The name of the associated tenant.
       shared_ptr<string> tenantName_ {};
     };
 
@@ -293,10 +309,15 @@ namespace Models
 
 
   protected:
+    // The list of compute instances.
     shared_ptr<vector<DescribeAgenticDBComputeClustersResponseBody::Items>> items_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

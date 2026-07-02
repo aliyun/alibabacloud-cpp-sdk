@@ -112,14 +112,22 @@ namespace Models
 
 
   protected:
+    // The key ID. This parameter is empty if the API key is invalid.
     shared_ptr<string> apiKeyId_ {};
+    // The ID of the associated AgenticDB cluster.
     shared_ptr<string> DBClusterId_ {};
+    // The expiration time of the API key. This parameter is empty if the API key is permanently valid.
     shared_ptr<string> expireTime_ {};
+    // The reason why the validation failed. Valid values: NotFound, Expired, and Revoked. This parameter is empty if the API key is valid.
     shared_ptr<string> reason_ {};
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the tenant to which the API key belongs. This parameter is empty if the API key is invalid.
     shared_ptr<string> tenantId_ {};
+    // The name of the tenant to which the API key belongs. This parameter is empty if the API key is invalid.
     shared_ptr<string> tenantName_ {};
+    // Indicates whether the API key is valid.
     shared_ptr<bool> valid_ {};
   };
 

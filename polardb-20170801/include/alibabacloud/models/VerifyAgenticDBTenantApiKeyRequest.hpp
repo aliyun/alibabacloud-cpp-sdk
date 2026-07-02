@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The plaintext API key to validate.
+    // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
