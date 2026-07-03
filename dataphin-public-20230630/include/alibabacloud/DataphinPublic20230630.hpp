@@ -904,6 +904,23 @@ namespace DataphinPublic20230630
       Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
 
       /**
+       * @summary Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+       *
+       * @param tmpReq CreateWorkFlowByJsonRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkFlowByJsonResponse
+       */
+      Models::CreateWorkFlowByJsonResponse createWorkFlowByJsonWithOptions(const Models::CreateWorkFlowByJsonRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+       *
+       * @param request CreateWorkFlowByJsonRequest
+       * @return CreateWorkFlowByJsonResponse
+       */
+      Models::CreateWorkFlowByJsonResponse createWorkFlowByJson(const Models::CreateWorkFlowByJsonRequest &request);
+
+      /**
        * @summary Deletes an ad hoc query file from the menu tree.
        *
        * @param request DeleteAdHocFileRequest

@@ -195,6 +195,10 @@
 #include <alibabacloud/models/CreateUserGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreateUserGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateUserGroupResponse.hpp>
+#include <alibabacloud/models/CreateWorkFlowByJsonRequest.hpp>
+#include <alibabacloud/models/CreateWorkFlowByJsonShrinkRequest.hpp>
+#include <alibabacloud/models/CreateWorkFlowByJsonResponseBody.hpp>
+#include <alibabacloud/models/CreateWorkFlowByJsonResponse.hpp>
 #include <alibabacloud/models/DeleteAdHocFileRequest.hpp>
 #include <alibabacloud/models/DeleteAdHocFileResponseBody.hpp>
 #include <alibabacloud/models/DeleteAdHocFileResponse.hpp>

@@ -2747,6 +2747,68 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
+ * @summary Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+ *
+ * @param tmpReq CreateWorkFlowByJsonRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkFlowByJsonResponse
+ */
+CreateWorkFlowByJsonResponse Client::createWorkFlowByJsonWithOptions(const CreateWorkFlowByJsonRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateWorkFlowByJsonShrinkRequest request = CreateWorkFlowByJsonShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.getContextShrink();
+  }
+
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkFlowByJson"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkFlowByJsonResponse>();
+}
+
+/**
+ * @summary Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+ *
+ * @param request CreateWorkFlowByJsonRequest
+ * @return CreateWorkFlowByJsonResponse
+ */
+CreateWorkFlowByJsonResponse Client::createWorkFlowByJson(const CreateWorkFlowByJsonRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWorkFlowByJsonWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an ad hoc query file from the menu tree.
  *
  * @param request DeleteAdHocFileRequest
