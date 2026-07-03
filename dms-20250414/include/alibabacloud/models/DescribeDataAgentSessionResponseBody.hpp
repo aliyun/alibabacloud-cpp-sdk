@@ -222,16 +222,16 @@ namespace Models
         // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The stage of the custom agent. Valid values:
-        // - **debug**: the debugging stage.
-        // - **prod**: the production stage.
+        // - **debug**: test stage.
+        // - **prod**: production stage.
         shared_ptr<string> customAgentStage_ {};
         // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
-        // The encryption key for storing artifacts in OSS (including built-in and user-specified OSS). This is typically specified in CreateDataAgentSession.
+        // The encryption key for storing artifacts in OSS (both built-in and user-specified). This is typically specified in CreateDataAgentSession.
         shared_ptr<string> encryptKey_ {};
-        // The encryption type for storing artifacts in OSS (including built-in and user-specified OSS).
+        // The encryption type for storing artifacts in OSS (both built-in and user-specified).
         shared_ptr<string> encryptType_ {};
-        // The list of knowledge base IDs for this session.
+        // The list of knowledge base IDs for the current session.
         shared_ptr<vector<string>> kbUuidList_ {};
         // The language. Valid values:
         // - **CHINESE**: Chinese.
@@ -240,15 +240,16 @@ namespace Models
         // The list of MCP server IDs in the session configuration.
         shared_ptr<vector<string>> mcpServerIds_ {};
         // The mode. Valid values:
-        // - **ASK_DATA**: the data query mode.
-        // - **ANALYSIS**: the analysis mode.
-        // - **INSIGHT**: the insight mode.
+        //  - **ASK_DATA**: ask data mode.
+        //  - **ANALYSIS**: analysis mode.
+        //  - **INSIGHT**: insight mode.
         shared_ptr<string> mode_ {};
         // The report page width.
         shared_ptr<int64_t> reportPageWidth_ {};
         // The report watermark.
         shared_ptr<string> reportWaterMark_ {};
-        // The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+        // The name of the user OSS bucket.
+        // - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -303,7 +304,7 @@ namespace Models
         shared_ptr<string> content_ {};
         // The similarity score of this data entry. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
         shared_ptr<double> score_ {};
-        // The type of recalled knowledge.
+        // The type of the recalled knowledge.
         shared_ptr<string> type_ {};
       };
 
@@ -498,9 +499,9 @@ namespace Models
         shared_ptr<string> description_ {};
         // The time when the backend completed the artifact task. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> finishTime_ {};
-        // The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId returned by the SendChatMessage operation.
+        // The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId in the response of the SendChatMessage operation.
         shared_ptr<string> id_ {};
-        // The artifact name. This is typically a string concatenated by the system. It is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
+        // The artifact name. This is typically a string concatenated by the system and is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
         shared_ptr<string> name_ {};
         // The time when the backend received the artifact request. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> receiveTime_ {};
@@ -516,7 +517,7 @@ namespace Models
         // 
         // - FAILED: The task failed.
         shared_ptr<string> status_ {};
-        // The artifact type. Valid values: TextReport and WebReport.
+        // The artifact type. Valid values: TextReport, WebReport.
         shared_ptr<string> type_ {};
       };
 
@@ -652,13 +653,13 @@ namespace Models
       shared_ptr<int64_t> createTime_ {};
       // The list of data sources used in the current session.
       shared_ptr<vector<Data::DataSources>> dataSources_ {};
-      // Indicates whether the session is saved to favorites in the workspace by the current user.
+      // Indicates whether the session is saved as a favorite in the workspace by the current logged-in user.
       shared_ptr<string> favoriteInWorkspace_ {};
       // The file ID.
       shared_ptr<string> file_ {};
-      // The recall results from the knowledge base and memory for this session.
+      // The recall results from the knowledge base and memory for the current session.
       shared_ptr<vector<Data::RecallResults>> recallResults_ {};
-      // Indicates whether the session is saved to favorites by the current user.
+      // Indicates whether the session is saved as a favorite by the current logged-in user.
       shared_ptr<bool> saved_ {};
       // The session configuration item.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
@@ -716,14 +717,14 @@ namespace Models
     shared_ptr<DescribeDataAgentSessionResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The return value. Valid values:
     // 
-    // - **true**: The operation was successful.
-    // - **false**: The operation failed.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -657,6 +657,96 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
+ * @summary Creates an accuracy test instance.
+ *
+ * @param request CreateDataAgentAccuracyTestRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataAgentAccuracyTestResponse
+ */
+CreateDataAgentAccuracyTestResponse Client::createDataAgentAccuracyTestWithOptions(const CreateDataAgentAccuracyTestRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.getCustomAgentId();
+  }
+
+  if (!!request.hasDataset()) {
+    query["Dataset"] = request.getDataset();
+  }
+
+  if (!!request.hasDesc()) {
+    query["Desc"] = request.getDesc();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasEvaluationPrompt()) {
+    query["EvaluationPrompt"] = request.getEvaluationPrompt();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasMaxConcurrent()) {
+    query["MaxConcurrent"] = request.getMaxConcurrent();
+  }
+
+  if (!!request.hasMode()) {
+    query["Mode"] = request.getMode();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNeedDelete()) {
+    query["NeedDelete"] = request.getNeedDelete();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataAgentAccuracyTest"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataAgentAccuracyTestResponse>();
+}
+
+/**
+ * @summary Creates an accuracy test instance.
+ *
+ * @param request CreateDataAgentAccuracyTestRequest
+ * @return CreateDataAgentAccuracyTestResponse
+ */
+CreateDataAgentAccuracyTestResponse Client::createDataAgentAccuracyTest(const CreateDataAgentAccuracyTestRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataAgentAccuracyTestWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
  *
  * @param request CreateDataAgentKnowledgeBaseRequest
@@ -1208,6 +1298,64 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an accuracy test configuration item.
+ *
+ * @description Deletes an accuracy test item.
+ *
+ * @param request DeleteDataAgentAccuracyTestRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataAgentAccuracyTestResponse
+ */
+DeleteDataAgentAccuracyTestResponse Client::deleteDataAgentAccuracyTestWithOptions(const DeleteDataAgentAccuracyTestRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccuracyTestInsId()) {
+    query["AccuracyTestInsId"] = request.getAccuracyTestInsId();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataAgentAccuracyTest"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataAgentAccuracyTestResponse>();
+}
+
+/**
+ * @summary Deletes an accuracy test configuration item.
+ *
+ * @description Deletes an accuracy test item.
+ *
+ * @param request DeleteDataAgentAccuracyTestRequest
+ * @return DeleteDataAgentAccuracyTestResponse
+ */
+DeleteDataAgentAccuracyTestResponse Client::deleteDataAgentAccuracyTest(const DeleteDataAgentAccuracyTestRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataAgentAccuracyTestWithOptions(request, runtime);
 }
 
 /**
@@ -3134,6 +3282,226 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 }
 
 /**
+ * @summary Lists accuracy test configuration items that meet the specified conditions.
+ *
+ * @description Lists accuracy test configuration items that meet the specified conditions.
+ *
+ * @param request ListDataAgentAccuracyTestInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentAccuracyTestInstancesResponse
+ */
+ListDataAgentAccuracyTestInstancesResponse Client::listDataAgentAccuracyTestInstancesWithOptions(const ListDataAgentAccuracyTestInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccuracyTestInsId()) {
+    query["AccuracyTestInsId"] = request.getAccuracyTestInsId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentAccuracyTestInstances"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentAccuracyTestInstancesResponse>();
+}
+
+/**
+ * @summary Lists accuracy test configuration items that meet the specified conditions.
+ *
+ * @description Lists accuracy test configuration items that meet the specified conditions.
+ *
+ * @param request ListDataAgentAccuracyTestInstancesRequest
+ * @return ListDataAgentAccuracyTestInstancesResponse
+ */
+ListDataAgentAccuracyTestInstancesResponse Client::listDataAgentAccuracyTestInstances(const ListDataAgentAccuracyTestInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentAccuracyTestInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the execution results of a self-test task.
+ *
+ * @description Retrieves the execution results of a self-test task.
+ *
+ * @param request ListDataAgentAccuracyTestResultsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentAccuracyTestResultsResponse
+ */
+ListDataAgentAccuracyTestResultsResponse Client::listDataAgentAccuracyTestResultsWithOptions(const ListDataAgentAccuracyTestResultsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccuracyTestInsId()) {
+    query["AccuracyTestInsId"] = request.getAccuracyTestInsId();
+  }
+
+  if (!!request.hasAccuracyTestResultId()) {
+    query["AccuracyTestResultId"] = request.getAccuracyTestResultId();
+  }
+
+  if (!!request.hasAccuracyTestSubtaskId()) {
+    query["AccuracyTestSubtaskId"] = request.getAccuracyTestSubtaskId();
+  }
+
+  if (!!request.hasAccuracyTestTaskId()) {
+    query["AccuracyTestTaskId"] = request.getAccuracyTestTaskId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentAccuracyTestResults"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentAccuracyTestResultsResponse>();
+}
+
+/**
+ * @summary Retrieves the execution results of a self-test task.
+ *
+ * @description Retrieves the execution results of a self-test task.
+ *
+ * @param request ListDataAgentAccuracyTestResultsRequest
+ * @return ListDataAgentAccuracyTestResultsResponse
+ */
+ListDataAgentAccuracyTestResultsResponse Client::listDataAgentAccuracyTestResults(const ListDataAgentAccuracyTestResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentAccuracyTestResultsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the running status of self-test tasks by paging.
+ *
+ * @description Queries the running status of self-test tasks by paging.
+ * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+ *
+ * @param request ListDataAgentAccuracyTestTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentAccuracyTestTasksResponse
+ */
+ListDataAgentAccuracyTestTasksResponse Client::listDataAgentAccuracyTestTasksWithOptions(const ListDataAgentAccuracyTestTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccuracyTestInsId()) {
+    query["AccuracyTestInsId"] = request.getAccuracyTestInsId();
+  }
+
+  if (!!request.hasAccuracyTestTaskId()) {
+    query["AccuracyTestTaskId"] = request.getAccuracyTestTaskId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentAccuracyTestTasks"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentAccuracyTestTasksResponse>();
+}
+
+/**
+ * @summary Queries the running status of self-test tasks by paging.
+ *
+ * @description Queries the running status of self-test tasks by paging.
+ * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+ *
+ * @param request ListDataAgentAccuracyTestTasksRequest
+ * @return ListDataAgentAccuracyTestTasksResponse
+ */
+ListDataAgentAccuracyTestTasksResponse Client::listDataAgentAccuracyTestTasks(const ListDataAgentAccuracyTestTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentAccuracyTestTasksWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of historical session descriptions for a Data Agent.
  *
  * @param request ListDataAgentSessionRequest
@@ -4846,7 +5214,7 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBase(const RetrieveKnowle
 /**
  * @summary Saves workspace code. If the file does not exist, a new file is automatically created.
  *
- * @description 发布工作空间的代码
+ * @description Publishes workspace code.
  *
  * @param request SaveWorkspaceCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4905,7 +5273,7 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCodeWithOptions(const SaveWorkspa
 /**
  * @summary Saves workspace code. If the file does not exist, a new file is automatically created.
  *
- * @description 发布工作空间的代码
+ * @description Publishes workspace code.
  *
  * @param request SaveWorkspaceCodeRequest
  * @return SaveWorkspaceCodeResponse
@@ -4916,15 +5284,15 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
 }
 
 /**
- * @summary Send a user message to a specified session or cancel the session.
+ * @summary Sends a user message to a specified session or cancels a session.
  *
  * @description ## Request description
  * - `agent_id` and `session_id` are required fields.
- * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+ * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
  * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote the content of the user\\"s previous message.
- * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+ * - `quoted_message` can be used to quote the content of a previous user message.
+ * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5003,6 +5371,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
     query["TaskConfig"] = request.getTaskConfigShrink();
   }
 
+  if (!!request.hasUserOssBucket()) {
+    query["UserOssBucket"] = request.getUserOssBucket();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -5025,15 +5397,15 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
 }
 
 /**
- * @summary Send a user message to a specified session or cancel the session.
+ * @summary Sends a user message to a specified session or cancels a session.
  *
  * @description ## Request description
  * - `agent_id` and `session_id` are required fields.
- * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+ * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
  * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote the content of the user\\"s previous message.
- * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+ * - `quoted_message` can be used to quote the content of a previous user message.
+ * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -5158,6 +5530,122 @@ SetWorkspaceQuotaResponse Client::setWorkspaceQuota(const SetWorkspaceQuotaReque
 }
 
 /**
+ * @summary Initiates an accuracy self-test task.
+ *
+ * @description Initiates an accuracy self-test task.
+ *
+ * @param request StartDataAgentAccuracyTestTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartDataAgentAccuracyTestTaskResponse
+ */
+StartDataAgentAccuracyTestTaskResponse Client::startDataAgentAccuracyTestTaskWithOptions(const StartDataAgentAccuracyTestTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccuracyTestInsId()) {
+    query["AccuracyTestInsId"] = request.getAccuracyTestInsId();
+  }
+
+  if (!!request.hasCsvFile()) {
+    query["CsvFile"] = request.getCsvFile();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartDataAgentAccuracyTestTask"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartDataAgentAccuracyTestTaskResponse>();
+}
+
+/**
+ * @summary Initiates an accuracy self-test task.
+ *
+ * @description Initiates an accuracy self-test task.
+ *
+ * @param request StartDataAgentAccuracyTestTaskRequest
+ * @return StartDataAgentAccuracyTestTaskResponse
+ */
+StartDataAgentAccuracyTestTaskResponse Client::startDataAgentAccuracyTestTask(const StartDataAgentAccuracyTestTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startDataAgentAccuracyTestTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Stops an accuracy self-test task.
+ *
+ * @description Stops an accuracy self-test task.
+ *
+ * @param request StopDataAgentAccuracyTestTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopDataAgentAccuracyTestTaskResponse
+ */
+StopDataAgentAccuracyTestTaskResponse Client::stopDataAgentAccuracyTestTaskWithOptions(const StopDataAgentAccuracyTestTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccuracyTestTaskId()) {
+    query["AccuracyTestTaskId"] = request.getAccuracyTestTaskId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopDataAgentAccuracyTestTask"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopDataAgentAccuracyTestTaskResponse>();
+}
+
+/**
+ * @summary Stops an accuracy self-test task.
+ *
+ * @description Stops an accuracy self-test task.
+ *
+ * @param request StopDataAgentAccuracyTestTaskRequest
+ * @return StopDataAgentAccuracyTestTaskResponse
+ */
+StopDataAgentAccuracyTestTaskResponse Client::stopDataAgentAccuracyTestTask(const StopDataAgentAccuracyTestTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopDataAgentAccuracyTestTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the properties of an Airflow instance.
  *
  * @param tmpReq UpdateAirflowRequest
@@ -5255,6 +5743,100 @@ UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowReques
 UpdateAirflowResponse Client::updateAirflow(const UpdateAirflowRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAirflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the content of an accuracy test item.
+ *
+ * @description Updates the content of an accuracy test item.
+ *
+ * @param request UpdateDataAgentAccuracyTestRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataAgentAccuracyTestResponse
+ */
+UpdateDataAgentAccuracyTestResponse Client::updateDataAgentAccuracyTestWithOptions(const UpdateDataAgentAccuracyTestRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccuracyTestInsId()) {
+    query["AccuracyTestInsId"] = request.getAccuracyTestInsId();
+  }
+
+  if (!!request.hasCustomerAgentId()) {
+    query["CustomerAgentId"] = request.getCustomerAgentId();
+  }
+
+  if (!!request.hasDataset()) {
+    query["Dataset"] = request.getDataset();
+  }
+
+  if (!!request.hasDesc()) {
+    query["Desc"] = request.getDesc();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasEvaluationPrompt()) {
+    query["EvaluationPrompt"] = request.getEvaluationPrompt();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasMaxConcurrent()) {
+    query["MaxConcurrent"] = request.getMaxConcurrent();
+  }
+
+  if (!!request.hasMode()) {
+    query["Mode"] = request.getMode();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNeedDelete()) {
+    query["NeedDelete"] = request.getNeedDelete();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataAgentAccuracyTest"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataAgentAccuracyTestResponse>();
+}
+
+/**
+ * @summary Updates the content of an accuracy test item.
+ *
+ * @description Updates the content of an accuracy test item.
+ *
+ * @param request UpdateDataAgentAccuracyTestRequest
+ * @return UpdateDataAgentAccuracyTestResponse
+ */
+UpdateDataAgentAccuracyTestResponse Client::updateDataAgentAccuracyTest(const UpdateDataAgentAccuracyTestRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataAgentAccuracyTestWithOptions(request, runtime);
 }
 
 /**

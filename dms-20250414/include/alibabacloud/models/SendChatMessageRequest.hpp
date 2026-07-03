@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SessionConfig, sessionConfig_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(TaskConfig, taskConfig_);
+      DARABONBA_PTR_TO_JSON(UserOssBucket, userOssBucket_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, SendChatMessageRequest& obj) { 
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SessionConfig, sessionConfig_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(TaskConfig, taskConfig_);
+      DARABONBA_PTR_FROM_JSON(UserOssBucket, userOssBucket_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     SendChatMessageRequest() = default ;
@@ -122,11 +124,11 @@ namespace Models
 
 
       protected:
-        // The prompt that this report should follow.
+        // The prompt that the report must follow.
         shared_ptr<string> reportPrompt_ {};
-        // The report theme. Currently supported values: [default, journal, legacy, neobrutalism].
+        // The report theme. Valid values: [default, journal, legacy, neobrutalism].
         shared_ptr<string> reportTheme_ {};
-        // The service type. Valid values: TextReport and WebReport, which indicate whether this task generates a text report or a web report. Currently, only the WebReport type is supported.
+        // The service type. Valid values: TextReport and WebReport, indicating that the task generates a text report or a web report. Only WebReport is supported.
         shared_ptr<string> reportType_ {};
       };
 
@@ -141,7 +143,7 @@ namespace Models
 
 
     protected:
-      // The report rule configuration. Only when MessageType is REPORT, a report task will be executed based on this configuration.
+      // The report rule configuration. Only when MessageType is REPORT, a report task is executed based on this configuration.
       shared_ptr<TaskConfig::ReportConfig> reportConfig_ {};
     };
 
@@ -150,8 +152,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const SessionConfig& obj) { 
         DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_TO_JSON(CustomAgentStage, customAgentStage_);
+        DARABONBA_PTR_TO_JSON(EnableSearch, enableSearch_);
+        DARABONBA_PTR_TO_JSON(KbUuidList, kbUuidList_);
         DARABONBA_PTR_TO_JSON(Language, language_);
+        DARABONBA_PTR_TO_JSON(McpServerIds, mcpServerIds_);
         DARABONBA_PTR_TO_JSON(Mode, mode_);
+        DARABONBA_PTR_TO_JSON(PlanMode, planMode_);
         DARABONBA_PTR_TO_JSON(ReportWaterMark, reportWaterMark_);
         DARABONBA_PTR_TO_JSON(SkipAskHuman, skipAskHuman_);
         DARABONBA_PTR_TO_JSON(SkipPlan, skipPlan_);
@@ -161,8 +167,12 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, SessionConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_FROM_JSON(CustomAgentStage, customAgentStage_);
+        DARABONBA_PTR_FROM_JSON(EnableSearch, enableSearch_);
+        DARABONBA_PTR_FROM_JSON(KbUuidList, kbUuidList_);
         DARABONBA_PTR_FROM_JSON(Language, language_);
+        DARABONBA_PTR_FROM_JSON(McpServerIds, mcpServerIds_);
         DARABONBA_PTR_FROM_JSON(Mode, mode_);
+        DARABONBA_PTR_FROM_JSON(PlanMode, planMode_);
         DARABONBA_PTR_FROM_JSON(ReportWaterMark, reportWaterMark_);
         DARABONBA_PTR_FROM_JSON(SkipAskHuman, skipAskHuman_);
         DARABONBA_PTR_FROM_JSON(SkipPlan, skipPlan_);
@@ -181,8 +191,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->customAgentStage_ == nullptr && this->language_ == nullptr && this->mode_ == nullptr && this->reportWaterMark_ == nullptr && this->skipAskHuman_ == nullptr
-        && this->skipPlan_ == nullptr && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr; };
+        && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->kbUuidList_ == nullptr && this->language_ == nullptr && this->mcpServerIds_ == nullptr
+        && this->mode_ == nullptr && this->planMode_ == nullptr && this->reportWaterMark_ == nullptr && this->skipAskHuman_ == nullptr && this->skipPlan_ == nullptr
+        && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -197,6 +208,20 @@ namespace Models
       inline SessionConfig& setCustomAgentStage(string customAgentStage) { DARABONBA_PTR_SET_VALUE(customAgentStage_, customAgentStage) };
 
 
+      // enableSearch Field Functions 
+      bool hasEnableSearch() const { return this->enableSearch_ != nullptr;};
+      void deleteEnableSearch() { this->enableSearch_ = nullptr;};
+      inline string getEnableSearch() const { DARABONBA_PTR_GET_DEFAULT(enableSearch_, "") };
+      inline SessionConfig& setEnableSearch(string enableSearch) { DARABONBA_PTR_SET_VALUE(enableSearch_, enableSearch) };
+
+
+      // kbUuidList Field Functions 
+      bool hasKbUuidList() const { return this->kbUuidList_ != nullptr;};
+      void deleteKbUuidList() { this->kbUuidList_ = nullptr;};
+      inline string getKbUuidList() const { DARABONBA_PTR_GET_DEFAULT(kbUuidList_, "") };
+      inline SessionConfig& setKbUuidList(string kbUuidList) { DARABONBA_PTR_SET_VALUE(kbUuidList_, kbUuidList) };
+
+
       // language Field Functions 
       bool hasLanguage() const { return this->language_ != nullptr;};
       void deleteLanguage() { this->language_ = nullptr;};
@@ -204,11 +229,25 @@ namespace Models
       inline SessionConfig& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
+      // mcpServerIds Field Functions 
+      bool hasMcpServerIds() const { return this->mcpServerIds_ != nullptr;};
+      void deleteMcpServerIds() { this->mcpServerIds_ = nullptr;};
+      inline string getMcpServerIds() const { DARABONBA_PTR_GET_DEFAULT(mcpServerIds_, "") };
+      inline SessionConfig& setMcpServerIds(string mcpServerIds) { DARABONBA_PTR_SET_VALUE(mcpServerIds_, mcpServerIds) };
+
+
       // mode Field Functions 
       bool hasMode() const { return this->mode_ != nullptr;};
       void deleteMode() { this->mode_ = nullptr;};
       inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
       inline SessionConfig& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+      // planMode Field Functions 
+      bool hasPlanMode() const { return this->planMode_ != nullptr;};
+      void deletePlanMode() { this->planMode_ = nullptr;};
+      inline string getPlanMode() const { DARABONBA_PTR_GET_DEFAULT(planMode_, "") };
+      inline SessionConfig& setPlanMode(string planMode) { DARABONBA_PTR_SET_VALUE(planMode_, planMode) };
 
 
       // reportWaterMark Field Functions 
@@ -247,18 +286,22 @@ namespace Models
 
 
     protected:
-      // Deprecated. The value specified in CreateAgentSession takes precedence.
+      // Deprecated. Use the input parameter of CreateAgentSession instead.
       shared_ptr<string> customAgentId_ {};
-      // Deprecated. The value specified in CreateAgentSession takes precedence.
+      // Deprecated. Use the input parameter of CreateAgentSession instead.
       shared_ptr<string> customAgentStage_ {};
-      // Currently only Chinese and English are supported. The default is Chinese. Only uppercase values are supported.
+      shared_ptr<string> enableSearch_ {};
+      shared_ptr<string> kbUuidList_ {};
+      // Only Chinese and English are supported. Default value: Chinese. Only uppercase values are supported.
       shared_ptr<string> language_ {};
-      // The mode:
-      //  - **ASK_DATA**: Ask Data mode
-      //  - **ANALYSIS**: Analysis mode
-      //  - **INSIGHT**: Insight mode
+      shared_ptr<string> mcpServerIds_ {};
+      // The mode. Valid values:
+      //  - **ASK_DATA**: data query mode.
+      //  - **ANALYSIS**: analysis mode.
+      //  - **INSIGHT**: insight mode.
       shared_ptr<string> mode_ {};
-      // You can enter text of up to 64 characters, which will be used as a watermark in the generated PDF report.
+      shared_ptr<string> planMode_ {};
+      // The text of up to 64 characters that is used as a watermark in the generated PDF report.
       shared_ptr<string> reportWaterMark_ {};
       // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
@@ -394,15 +437,15 @@ namespace Models
     protected:
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values: [remote_data_center, database], which indicate whether the current analysis is for a file or a database respectively.
+      // The data source type. Valid values: [remote_data_center, database], indicating that the analysis is performed on a file or a database.
       shared_ptr<string> dataSourceType_ {};
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
-      // The ID of the database in DMS.
+      // The ID of the database in Data Management.
       shared_ptr<string> dmsDatabaseId_ {};
-      // The ID of the instance in DMS.
+      // The ID of the instance in Data Management.
       shared_ptr<string> dmsInstanceId_ {};
       // The database engine type.
       shared_ptr<string> engine_ {};
@@ -540,15 +583,15 @@ namespace Models
     protected:
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values: `[remote_data_center, database]`, which indicate whether the current analysis is for a file or a database respectively.
+      // The data source type. Valid values: `[remote_data_center, database]`, indicating that the analysis is performed on a file or a database.
       shared_ptr<string> dataSourceType_ {};
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
-      // The ID of the database in DMS.
+      // The ID of the database in Data Management.
       shared_ptr<string> dmsDatabaseId_ {};
-      // The ID of the instance in DMS.
+      // The ID of the instance in Data Management.
       shared_ptr<string> dmsInstanceId_ {};
       // The database engine type.
       shared_ptr<string> engine_ {};
@@ -565,7 +608,7 @@ namespace Models
     virtual bool empty() const override { return this->agentId_ == nullptr
         && this->DMSUnit_ == nullptr && this->dataSource_ == nullptr && this->dataSources_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr
         && this->parentSessionId_ == nullptr && this->question_ == nullptr && this->quotedMessage_ == nullptr && this->replyTo_ == nullptr && this->sessionConfig_ == nullptr
-        && this->sessionId_ == nullptr && this->taskConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->sessionId_ == nullptr && this->taskConfig_ == nullptr && this->userOssBucket_ == nullptr && this->workspaceId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -665,6 +708,13 @@ namespace Models
     inline SendChatMessageRequest& setTaskConfig(SendChatMessageRequest::TaskConfig && taskConfig) { DARABONBA_PTR_SET_RVALUE(taskConfig_, taskConfig) };
 
 
+    // userOssBucket Field Functions 
+    bool hasUserOssBucket() const { return this->userOssBucket_ != nullptr;};
+    void deleteUserOssBucket() { this->userOssBucket_ = nullptr;};
+    inline string getUserOssBucket() const { DARABONBA_PTR_GET_DEFAULT(userOssBucket_, "") };
+    inline SendChatMessageRequest& setUserOssBucket(string userOssBucket) { DARABONBA_PTR_SET_VALUE(userOssBucket_, userOssBucket) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -673,50 +723,47 @@ namespace Models
 
 
   protected:
-    // The agent ID. This is a required field. You can obtain the current AgentId from the return value of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to pass in each request may change.
-    // 
-    // This parameter is required.
+    // The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
     shared_ptr<string> agentId_ {};
-    // The DMS unit you are currently in. If you choose to analyze a database, this information will be used to correctly connect to your DMS instance through DMS. You can go to the DMS console to check your current DMS unit. If you are a China site user of Alibaba Cloud, you can directly enter cn-hangzhou.
+    // The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can view your current Data Management unit in the Data Management console. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to cn-hangzhou.
     shared_ptr<string> DMSUnit_ {};
-    // The data source information. This parameter can be left empty. Only one data source can be passed in through this parameter. We recommend that you use the DataSources parameter instead.
+    // The data source information. This parameter is optional. Only one data source can be specified for this parameter. Use the DataSources parameter instead.
     shared_ptr<SendChatMessageRequest::DataSource> dataSource_ {};
-    // The detailed data source information. This parameter can be left empty.
+    // The detailed data source information. This parameter is optional.
     shared_ptr<vector<SendChatMessageRequest::DataSources>> dataSources_ {};
-    // The content of the message to be sent to the Agent.
+    // The message content to send to the Agent.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The message type. Default value: `[primary]`.
+    // The message type. Default value: `[primary]`.  
     // 
-    // - In normal cases, when interacting with the Agent, the message type is `[primary]`.
+    // - For regular interactions with the Agent, set the message type to `[primary]`.
     // 
-    // - When the message is a response to the Agent\\"s Human-in-Loop question, the type should be `[additional]`.
+    // - When the message is a response to the Agent\\"s Human-in-Loop question, set the type to `[additional]`.
     // 
-    // - When the message is intended to trigger a report generation, the type should be `[report]`.
+    // - When the message is intended to trigger report generation, set the type to `[report]`.
     // 
-    // - When the message is intended to cancel the current session, the type should be `[cancel]`.
+    // - When the message is intended to cancel the current session, set the type to `[cancel]`.
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // This field is required when the message type is `additional`. Pass in the specific question that the Agent asked the user through Human-in-Loop.
+    // The specific question that the Agent asks the user through Human-in-Loop. This parameter is required when the message type is `additional`.
     shared_ptr<string> question_ {};
-    // Pass in the current quoted content, typically used when interacting with the Agent.
+    // The quoted content. This parameter is typically used during interactions with the Agent.
     shared_ptr<string> quotedMessage_ {};
     // **Important**
     // 
-    // When this message is a reply to an Agent message (for example, when the Agent asks for clarification through ASK_HUMAN), reply_to must be set to the exact Checkpoint number carried in that Agent message. If this message is not a specific reply, such as requesting the Agent for further in-depth analysis after analysis is completed, reply_to can be left empty or set to "0".
+    // When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried by that Agent message. If this message is not a targeted reply, for example, requesting the Agent to perform further in-depth analysis after analysis is complete, leave reply_to empty or set it to "0".  
     // 
     // This field affects how the Agent decides to process the message. Passing an incorrect value may lead to analysis results that do not meet expectations.
     shared_ptr<string> replyTo_ {};
-    // The special configuration for this session. For the same session, only the configuration passed in the first SendMessage call takes effect.
+    // The special configuration for this session. Only the configuration sent with the first SendMessage call in the same session takes effect.
     shared_ptr<SendChatMessageRequest::SessionConfig> sessionConfig_ {};
-    // The session ID. This is a required field. You can obtain the SessionId by calling CreateAgentSession.
-    // 
-    // This parameter is required.
+    // The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
     shared_ptr<string> sessionId_ {};
-    // The configuration items that only affect the current task.
+    // The configuration items that affect only the current task.
     shared_ptr<SendChatMessageRequest::TaskConfig> taskConfig_ {};
+    shared_ptr<string> userOssBucket_ {};
     shared_ptr<string> workspaceId_ {};
   };
 

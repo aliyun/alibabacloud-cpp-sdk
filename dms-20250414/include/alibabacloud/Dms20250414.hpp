@@ -165,6 +165,23 @@ namespace Dms20250414
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
 
       /**
+       * @summary Creates an accuracy test instance.
+       *
+       * @param request CreateDataAgentAccuracyTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataAgentAccuracyTestResponse
+       */
+      Models::CreateDataAgentAccuracyTestResponse createDataAgentAccuracyTestWithOptions(const Models::CreateDataAgentAccuracyTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an accuracy test instance.
+       *
+       * @param request CreateDataAgentAccuracyTestRequest
+       * @return CreateDataAgentAccuracyTestResponse
+       */
+      Models::CreateDataAgentAccuracyTestResponse createDataAgentAccuracyTest(const Models::CreateDataAgentAccuracyTestRequest &request);
+
+      /**
        * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
        *
        * @param request CreateDataAgentKnowledgeBaseRequest
@@ -316,6 +333,27 @@ namespace Dms20250414
        * @return DeleteCustomAgentResponse
        */
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
+
+      /**
+       * @summary Deletes an accuracy test configuration item.
+       *
+       * @description Deletes an accuracy test item.
+       *
+       * @param request DeleteDataAgentAccuracyTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataAgentAccuracyTestResponse
+       */
+      Models::DeleteDataAgentAccuracyTestResponse deleteDataAgentAccuracyTestWithOptions(const Models::DeleteDataAgentAccuracyTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an accuracy test configuration item.
+       *
+       * @description Deletes an accuracy test item.
+       *
+       * @param request DeleteDataAgentAccuracyTestRequest
+       * @return DeleteDataAgentAccuracyTestResponse
+       */
+      Models::DeleteDataAgentAccuracyTestResponse deleteDataAgentAccuracyTest(const Models::DeleteDataAgentAccuracyTestRequest &request);
 
       /**
        * @summary Deletes a DataAgent knowledge base.
@@ -954,6 +992,71 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
 
       /**
+       * @summary Lists accuracy test configuration items that meet the specified conditions.
+       *
+       * @description Lists accuracy test configuration items that meet the specified conditions.
+       *
+       * @param request ListDataAgentAccuracyTestInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentAccuracyTestInstancesResponse
+       */
+      Models::ListDataAgentAccuracyTestInstancesResponse listDataAgentAccuracyTestInstancesWithOptions(const Models::ListDataAgentAccuracyTestInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists accuracy test configuration items that meet the specified conditions.
+       *
+       * @description Lists accuracy test configuration items that meet the specified conditions.
+       *
+       * @param request ListDataAgentAccuracyTestInstancesRequest
+       * @return ListDataAgentAccuracyTestInstancesResponse
+       */
+      Models::ListDataAgentAccuracyTestInstancesResponse listDataAgentAccuracyTestInstances(const Models::ListDataAgentAccuracyTestInstancesRequest &request);
+
+      /**
+       * @summary Retrieves the execution results of a self-test task.
+       *
+       * @description Retrieves the execution results of a self-test task.
+       *
+       * @param request ListDataAgentAccuracyTestResultsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentAccuracyTestResultsResponse
+       */
+      Models::ListDataAgentAccuracyTestResultsResponse listDataAgentAccuracyTestResultsWithOptions(const Models::ListDataAgentAccuracyTestResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the execution results of a self-test task.
+       *
+       * @description Retrieves the execution results of a self-test task.
+       *
+       * @param request ListDataAgentAccuracyTestResultsRequest
+       * @return ListDataAgentAccuracyTestResultsResponse
+       */
+      Models::ListDataAgentAccuracyTestResultsResponse listDataAgentAccuracyTestResults(const Models::ListDataAgentAccuracyTestResultsRequest &request);
+
+      /**
+       * @summary Queries the running status of self-test tasks by paging.
+       *
+       * @description Queries the running status of self-test tasks by paging.
+       * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+       *
+       * @param request ListDataAgentAccuracyTestTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentAccuracyTestTasksResponse
+       */
+      Models::ListDataAgentAccuracyTestTasksResponse listDataAgentAccuracyTestTasksWithOptions(const Models::ListDataAgentAccuracyTestTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the running status of self-test tasks by paging.
+       *
+       * @description Queries the running status of self-test tasks by paging.
+       * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+       *
+       * @param request ListDataAgentAccuracyTestTasksRequest
+       * @return ListDataAgentAccuracyTestTasksResponse
+       */
+      Models::ListDataAgentAccuracyTestTasksResponse listDataAgentAccuracyTestTasks(const Models::ListDataAgentAccuracyTestTasksRequest &request);
+
+      /**
        * @summary Retrieves the list of historical session descriptions for a Data Agent.
        *
        * @param request ListDataAgentSessionRequest
@@ -1389,7 +1492,7 @@ namespace Dms20250414
       /**
        * @summary Saves workspace code. If the file does not exist, a new file is automatically created.
        *
-       * @description 发布工作空间的代码
+       * @description Publishes workspace code.
        *
        * @param request SaveWorkspaceCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1400,7 +1503,7 @@ namespace Dms20250414
       /**
        * @summary Saves workspace code. If the file does not exist, a new file is automatically created.
        *
-       * @description 发布工作空间的代码
+       * @description Publishes workspace code.
        *
        * @param request SaveWorkspaceCodeRequest
        * @return SaveWorkspaceCodeResponse
@@ -1408,15 +1511,15 @@ namespace Dms20250414
       Models::SaveWorkspaceCodeResponse saveWorkspaceCode(const Models::SaveWorkspaceCodeRequest &request);
 
       /**
-       * @summary Send a user message to a specified session or cancel the session.
+       * @summary Sends a user message to a specified session or cancels a session.
        *
        * @description ## Request description
        * - `agent_id` and `session_id` are required fields.
-       * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
        * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote the content of the user\\"s previous message.
-       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+       * - `quoted_message` can be used to quote the content of a previous user message.
+       * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1425,15 +1528,15 @@ namespace Dms20250414
       Models::SendChatMessageResponse sendChatMessageWithOptions(const Models::SendChatMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Send a user message to a specified session or cancel the session.
+       * @summary Sends a user message to a specified session or cancels a session.
        *
        * @description ## Request description
        * - `agent_id` and `session_id` are required fields.
-       * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
        * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote the content of the user\\"s previous message.
-       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+       * - `quoted_message` can be used to quote the content of a previous user message.
+       * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse
@@ -1483,6 +1586,48 @@ namespace Dms20250414
       Models::SetWorkspaceQuotaResponse setWorkspaceQuota(const Models::SetWorkspaceQuotaRequest &request);
 
       /**
+       * @summary Initiates an accuracy self-test task.
+       *
+       * @description Initiates an accuracy self-test task.
+       *
+       * @param request StartDataAgentAccuracyTestTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartDataAgentAccuracyTestTaskResponse
+       */
+      Models::StartDataAgentAccuracyTestTaskResponse startDataAgentAccuracyTestTaskWithOptions(const Models::StartDataAgentAccuracyTestTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Initiates an accuracy self-test task.
+       *
+       * @description Initiates an accuracy self-test task.
+       *
+       * @param request StartDataAgentAccuracyTestTaskRequest
+       * @return StartDataAgentAccuracyTestTaskResponse
+       */
+      Models::StartDataAgentAccuracyTestTaskResponse startDataAgentAccuracyTestTask(const Models::StartDataAgentAccuracyTestTaskRequest &request);
+
+      /**
+       * @summary Stops an accuracy self-test task.
+       *
+       * @description Stops an accuracy self-test task.
+       *
+       * @param request StopDataAgentAccuracyTestTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopDataAgentAccuracyTestTaskResponse
+       */
+      Models::StopDataAgentAccuracyTestTaskResponse stopDataAgentAccuracyTestTaskWithOptions(const Models::StopDataAgentAccuracyTestTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops an accuracy self-test task.
+       *
+       * @description Stops an accuracy self-test task.
+       *
+       * @param request StopDataAgentAccuracyTestTaskRequest
+       * @return StopDataAgentAccuracyTestTaskResponse
+       */
+      Models::StopDataAgentAccuracyTestTaskResponse stopDataAgentAccuracyTestTask(const Models::StopDataAgentAccuracyTestTaskRequest &request);
+
+      /**
        * @summary Updates the properties of an Airflow instance.
        *
        * @param tmpReq UpdateAirflowRequest
@@ -1498,6 +1643,27 @@ namespace Dms20250414
        * @return UpdateAirflowResponse
        */
       Models::UpdateAirflowResponse updateAirflow(const Models::UpdateAirflowRequest &request);
+
+      /**
+       * @summary Updates the content of an accuracy test item.
+       *
+       * @description Updates the content of an accuracy test item.
+       *
+       * @param request UpdateDataAgentAccuracyTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataAgentAccuracyTestResponse
+       */
+      Models::UpdateDataAgentAccuracyTestResponse updateDataAgentAccuracyTestWithOptions(const Models::UpdateDataAgentAccuracyTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the content of an accuracy test item.
+       *
+       * @description Updates the content of an accuracy test item.
+       *
+       * @param request UpdateDataAgentAccuracyTestRequest
+       * @return UpdateDataAgentAccuracyTestResponse
+       */
+      Models::UpdateDataAgentAccuracyTestResponse updateDataAgentAccuracyTest(const Models::UpdateDataAgentAccuracyTestRequest &request);
 
       /**
        * @summary Updates workspace information.

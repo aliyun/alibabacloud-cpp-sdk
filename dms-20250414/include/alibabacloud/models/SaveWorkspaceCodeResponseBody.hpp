@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // 返回数据
+    // The response data.
     shared_ptr<string> data_ {};
-    // 错误码
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // http状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息，在接口失败时，返回具体错误信息，成功时则为空
+    // The error message. This parameter is returned with a specific error message when the request fails, and is empty when the request succeeds.
     shared_ptr<string> message_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功。
-    // - **true**：调用成功。
-    // - **false**：调用失败。
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 
