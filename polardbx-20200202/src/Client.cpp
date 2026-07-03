@@ -523,6 +523,41 @@ CheckCloudResourceAuthorizedResponse Client::checkCloudResourceAuthorized(const 
 }
 
 /**
+ * @summary Performs a service health check.
+ *
+ * @param request CheckHealthRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckHealthResponse
+ */
+CheckHealthResponse Client::checkHealthWithOptions(const CheckHealthRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "CheckHealth"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckHealthResponse>();
+}
+
+/**
+ * @summary Performs a service health check.
+ *
+ * @param request CheckHealthRequest
+ * @return CheckHealthResponse
+ */
+CheckHealthResponse Client::checkHealth(const CheckHealthRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkHealthWithOptions(request, runtime);
+}
+
+/**
  * @summary Checks whether SQL audit logs of a specified database instance have been successfully connected to Simple Log Service (SLS).
  * After the call, the system returns the connection status between the SQL audit feature and SLS for the current instance, the project and Logstore configuration information, and whether synchronization is normal.
  *
@@ -1517,6 +1552,104 @@ CreateMem0Response Client::createMem0(const CreateMem0Request &request) {
 }
 
 /**
+ * @summary Creates a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request CreatePolardbxSupabaseInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolardbxSupabaseInstanceResponse
+ */
+CreatePolardbxSupabaseInstanceResponse Client::createPolardbxSupabaseInstanceWithOptions(const CreatePolardbxSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDashboardPassword()) {
+    query["DashboardPassword"] = request.getDashboardPassword();
+  }
+
+  if (!!request.hasDbInstanceDescription()) {
+    query["DbInstanceDescription"] = request.getDbInstanceDescription();
+  }
+
+  if (!!request.hasDbPassword()) {
+    query["DbPassword"] = request.getDbPassword();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTenantMode()) {
+    query["TenantMode"] = request.getTenantMode();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolardbxSupabaseInstance"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolardbxSupabaseInstanceResponse>();
+}
+
+/**
+ * @summary Creates a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request CreatePolardbxSupabaseInstanceRequest
+ * @return CreatePolardbxSupabaseInstanceResponse
+ */
+CreatePolardbxSupabaseInstanceResponse Client::createPolardbxSupabaseInstance(const CreatePolardbxSupabaseInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolardbxSupabaseInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Performs a health check on the replication task during data migration.
  *
  * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
@@ -1795,7 +1928,7 @@ CreateStructureImportTaskResponse Client::createStructureImportTask(const Create
 }
 
 /**
- * @summary 创建自定义地址
+ * @summary Creates a custom endpoint.
  *
  * @description ****
  *
@@ -1840,7 +1973,7 @@ CreateSubCNInstanceResponse Client::createSubCNInstanceWithOptions(const CreateS
 }
 
 /**
- * @summary 创建自定义地址
+ * @summary Creates a custom endpoint.
  *
  * @description ****
  *
@@ -1850,6 +1983,60 @@ CreateSubCNInstanceResponse Client::createSubCNInstanceWithOptions(const CreateS
 CreateSubCNInstanceResponse Client::createSubCNInstance(const CreateSubCNInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createSubCNInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables the public endpoint for a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request CreateSupabaseNetTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSupabaseNetTypeResponse
+ */
+CreateSupabaseNetTypeResponse Client::createSupabaseNetTypeWithOptions(const CreateSupabaseNetTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionString()) {
+    query["ConnectionString"] = request.getConnectionString();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSupabaseNetType"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSupabaseNetTypeResponse>();
+}
+
+/**
+ * @summary Enables the public endpoint for a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request CreateSupabaseNetTypeRequest
+ * @return CreateSupabaseNetTypeResponse
+ */
+CreateSupabaseNetTypeResponse Client::createSupabaseNetType(const CreateSupabaseNetTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSupabaseNetTypeWithOptions(request, runtime);
 }
 
 /**
@@ -2315,6 +2502,56 @@ DeleteMem0Response Client::deleteMem0(const DeleteMem0Request &request) {
 }
 
 /**
+ * @summary Deletes a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request DeletePolardbxSupabaseInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolardbxSupabaseInstanceResponse
+ */
+DeletePolardbxSupabaseInstanceResponse Client::deletePolardbxSupabaseInstanceWithOptions(const DeletePolardbxSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolardbxSupabaseInstance"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolardbxSupabaseInstanceResponse>();
+}
+
+/**
+ * @summary Deletes a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request DeletePolardbxSupabaseInstanceRequest
+ * @return DeletePolardbxSupabaseInstanceResponse
+ */
+DeletePolardbxSupabaseInstanceResponse Client::deletePolardbxSupabaseInstance(const DeletePolardbxSupabaseInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolardbxSupabaseInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除自定义地址
  *
  * @description ****
@@ -2366,6 +2603,56 @@ DeleteSubCNInstanceResponse Client::deleteSubCNInstanceWithOptions(const DeleteS
 DeleteSubCNInstanceResponse Client::deleteSubCNInstance(const DeleteSubCNInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteSubCNInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Releases the public endpoint of a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request DeleteSupabaseNetTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSupabaseNetTypeResponse
+ */
+DeleteSupabaseNetTypeResponse Client::deleteSupabaseNetTypeWithOptions(const DeleteSupabaseNetTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSupabaseNetType"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSupabaseNetTypeResponse>();
+}
+
+/**
+ * @summary Releases the public endpoint of a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request DeleteSupabaseNetTypeRequest
+ * @return DeleteSupabaseNetTypeResponse
+ */
+DeleteSupabaseNetTypeResponse Client::deleteSupabaseNetType(const DeleteSupabaseNetTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSupabaseNetTypeWithOptions(request, runtime);
 }
 
 /**
@@ -5325,6 +5612,238 @@ DescribeStructureImportTaskInfoResponse Client::describeStructureImportTaskInfo(
 }
 
 /**
+ * @summary Queries the Supabase API key.
+ *
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ *
+ * @param request DescribeSupabaseApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSupabaseApiKeyResponse
+ */
+DescribeSupabaseApiKeyResponse Client::describeSupabaseApiKeyWithOptions(const DescribeSupabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSupabaseApiKey"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSupabaseApiKeyResponse>();
+}
+
+/**
+ * @summary Queries the Supabase API key.
+ *
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ *
+ * @param request DescribeSupabaseApiKeyRequest
+ * @return DescribeSupabaseApiKeyResponse
+ */
+DescribeSupabaseApiKeyResponse Client::describeSupabaseApiKey(const DescribeSupabaseApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSupabaseApiKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request DescribeSupabaseInstanceAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSupabaseInstanceAttributeResponse
+ */
+DescribeSupabaseInstanceAttributeResponse Client::describeSupabaseInstanceAttributeWithOptions(const DescribeSupabaseInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSupabaseInstanceAttribute"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSupabaseInstanceAttributeResponse>();
+}
+
+/**
+ * @summary Queries the details of a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request DescribeSupabaseInstanceAttributeRequest
+ * @return DescribeSupabaseInstanceAttributeResponse
+ */
+DescribeSupabaseInstanceAttributeResponse Client::describeSupabaseInstanceAttribute(const DescribeSupabaseInstanceAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSupabaseInstanceAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of Supabase instances.
+ *
+ * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+ *
+ * @param request DescribeSupabaseInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSupabaseInstancesResponse
+ */
+DescribeSupabaseInstancesResponse Client::describeSupabaseInstancesWithOptions(const DescribeSupabaseInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSupabaseInstances"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSupabaseInstancesResponse>();
+}
+
+/**
+ * @summary Queries a list of Supabase instances.
+ *
+ * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+ *
+ * @param request DescribeSupabaseInstancesRequest
+ * @return DescribeSupabaseInstancesResponse
+ */
+DescribeSupabaseInstancesResponse Client::describeSupabaseInstances(const DescribeSupabaseInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSupabaseInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the IP whitelist of a Supabase instance.
+ *
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ *
+ * @param request DescribeSupabaseIpWhitelistRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSupabaseIpWhitelistResponse
+ */
+DescribeSupabaseIpWhitelistResponse Client::describeSupabaseIpWhitelistWithOptions(const DescribeSupabaseIpWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSupabaseIpWhitelist"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSupabaseIpWhitelistResponse>();
+}
+
+/**
+ * @summary Queries the IP whitelist of a Supabase instance.
+ *
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ *
+ * @param request DescribeSupabaseIpWhitelistRequest
+ * @return DescribeSupabaseIpWhitelistResponse
+ */
+DescribeSupabaseIpWhitelistResponse Client::describeSupabaseIpWhitelist(const DescribeSupabaseIpWhitelistRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSupabaseIpWhitelistWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves tag information.
  *
  * @param request DescribeTagsRequest
@@ -7067,6 +7586,122 @@ ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsReque
 }
 
 /**
+ * @summary Modifies the Supabase Dashboard password.
+ *
+ * @description ****
+ *
+ * @param request ModifySupabaseDashboardPasswordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySupabaseDashboardPasswordResponse
+ */
+ModifySupabaseDashboardPasswordResponse Client::modifySupabaseDashboardPasswordWithOptions(const ModifySupabaseDashboardPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasNewPassword()) {
+    query["NewPassword"] = request.getNewPassword();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySupabaseDashboardPassword"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySupabaseDashboardPasswordResponse>();
+}
+
+/**
+ * @summary Modifies the Supabase Dashboard password.
+ *
+ * @description ****
+ *
+ * @param request ModifySupabaseDashboardPasswordRequest
+ * @return ModifySupabaseDashboardPasswordResponse
+ */
+ModifySupabaseDashboardPasswordResponse Client::modifySupabaseDashboardPassword(const ModifySupabaseDashboardPasswordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySupabaseDashboardPasswordWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the IP whitelist of a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request ModifySupabaseSecurityIPListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySupabaseSecurityIPListResponse
+ */
+ModifySupabaseSecurityIPListResponse Client::modifySupabaseSecurityIPListWithOptions(const ModifySupabaseSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasModifyMode()) {
+    query["ModifyMode"] = request.getModifyMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySupabaseSecurityIPList"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySupabaseSecurityIPListResponse>();
+}
+
+/**
+ * @summary Modifies the IP whitelist of a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request ModifySupabaseSecurityIPListRequest
+ * @return ModifySupabaseSecurityIPListResponse
+ */
+ModifySupabaseSecurityIPListResponse Client::modifySupabaseSecurityIPList(const ModifySupabaseSecurityIPListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySupabaseSecurityIPListWithOptions(request, runtime);
+}
+
+/**
  * @summary Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
  *
  * @param request PreCheckSqlFlashbackTaskRequest
@@ -7604,6 +8239,56 @@ RestartDataImportTaskResponse Client::restartDataImportTaskWithOptions(const Res
 RestartDataImportTaskResponse Client::restartDataImportTask(const RestartDataImportTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartDataImportTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Restarts a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request RestartSupabaseInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartSupabaseInstanceResponse
+ */
+RestartSupabaseInstanceResponse Client::restartSupabaseInstanceWithOptions(const RestartSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartSupabaseInstance"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartSupabaseInstanceResponse>();
+}
+
+/**
+ * @summary Restarts a Supabase instance.
+ *
+ * @description ****
+ *
+ * @param request RestartSupabaseInstanceRequest
+ * @return RestartSupabaseInstanceResponse
+ */
+RestartSupabaseInstanceResponse Client::restartSupabaseInstance(const RestartSupabaseInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartSupabaseInstanceWithOptions(request, runtime);
 }
 
 /**

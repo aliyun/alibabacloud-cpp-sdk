@@ -622,17 +622,17 @@ namespace Models
       shared_ptr<string> cdcInstanceName_ {};
       // The CN node specifications. Valid values:
       // 
-      // - **polarx.x4.medium.2e**: 2 cores, 8 GB memory
-      // - **polarx.x4.large.2e**: 4 cores, 16 GB memory
-      // - **polarx.x8.large.2e**: 4 cores, 32 GB memory
-      // - **polarx.x4.xlarge.2e**: 8 cores, 32 GB memory
-      // - **polarx.x8.xlarge.2e**: 8 cores, 64 GB memory
-      // - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB memory
-      // - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB memory
-      // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB memory
-      // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB memory
-      // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB memory
-      // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB memory.
+      // - **polarx.x4.medium.2e**: 2 cores, 8 GB
+      // - **polarx.x4.large.2e**: 4 cores, 16 GB
+      // - **polarx.x8.large.2e**: 4 cores, 32 GB
+      // - **polarx.x4.xlarge.2e**: 8 cores, 32 GB
+      // - **polarx.x8.xlarge.2e**: 8 cores, 64 GB
+      // - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB
+      // - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB
+      // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
+      // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
+      // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
+      // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
       shared_ptr<string> cnNodeClassCode_ {};
       // The number of CN nodes.
       shared_ptr<int32_t> cnNodeCount_ {};
@@ -650,7 +650,7 @@ namespace Models
       shared_ptr<string> cpuType_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
-      // The name of the database instance.
+      // The database instance name.
       shared_ptr<string> DBInstanceName_ {};
       // The database type.
       shared_ptr<string> DBType_ {};
@@ -659,21 +659,21 @@ namespace Models
       // The database description.
       shared_ptr<string> description_ {};
       // The DN node specifications. Valid values:
-      // - **mysql.n2.medium.25**: 2 cores, 4 GB memory
-      // - **mysql.n4.medium.25**: 2 cores, 8 GB memory
-      // - **mysql.x8.medium.25**: 2 cores, 16 GB memory
-      // - **mysql.n2.large.25**: 4 cores, 8 GB memory
-      // - **mysql.n4.large.25**: 4 cores, 16 GB memory
-      // - **mysql.x8.large.25**: 4 cores, 32 GB memory
-      // - **mysql.n2.xlarge.25**: 8 cores, 16 GB memory
-      // - **mysql.n4.xlarge.25**: 8 cores, 32 GB memory
-      // - **mysql.x8.xlarge.25**: 8 cores, 64 GB memory
-      // - **mysql.n4.2xlarge.25**: 16 cores, 64 GB memory
-      // - **mysql.x8.2xlarge.25**: 16 cores, 128 GB memory
-      // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB memory
-      // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB memory
-      // - **mysql.st.8xlarge.25**: 60 cores, 470 GB memory
-      // - **mysql.st.12xlarge.25**: 90 cores, 720 GB memory.
+      // - **mysql.n2.medium.25**: 2 cores, 4 GB
+      // - **mysql.n4.medium.25**: 2 cores, 8 GB
+      // - **mysql.x8.medium.25**: 2 cores, 16 GB
+      // - **mysql.n2.large.25**: 4 cores, 8 GB
+      // - **mysql.n4.large.25**: 4 cores, 16 GB
+      // - **mysql.x8.large.25**: 4 cores, 32 GB
+      // - **mysql.n2.xlarge.25**: 8 cores, 16 GB
+      // - **mysql.n4.xlarge.25**: 8 cores, 32 GB
+      // - **mysql.x8.xlarge.25**: 8 cores, 64 GB
+      // - **mysql.n4.2xlarge.25**: 16 cores, 64 GB
+      // - **mysql.x8.2xlarge.25**: 16 cores, 128 GB
+      // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
+      // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
+      // - **mysql.st.8xlarge.25**: 60 cores, 470 GB
+      // - **mysql.st.12xlarge.25**: 90 cores, 720 GB.
       shared_ptr<string> dnNodeClassCode_ {};
       // The number of DN nodes.
       shared_ptr<int32_t> dnNodeCount_ {};
@@ -688,7 +688,7 @@ namespace Models
       shared_ptr<string> id_ {};
       // Indicates whether the instance is locked.
       shared_ptr<string> lockMode_ {};
-      // The reason why the instance is locked.
+      // The lock reason.
       shared_ptr<string> lockReason_ {};
       // The current Milvus version.
       shared_ptr<string> minorVersion_ {};

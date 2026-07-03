@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<bool> mustHasCdc_ {};
     // The page number. Starts from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The page size. Valid values:
     // 
     // - 30
     // - 50

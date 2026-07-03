@@ -165,6 +165,23 @@ namespace Polardbx20200202
       Models::CheckCloudResourceAuthorizedResponse checkCloudResourceAuthorized(const Models::CheckCloudResourceAuthorizedRequest &request);
 
       /**
+       * @summary Performs a service health check.
+       *
+       * @param request CheckHealthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckHealthResponse
+       */
+      Models::CheckHealthResponse checkHealthWithOptions(const Models::CheckHealthRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a service health check.
+       *
+       * @param request CheckHealthRequest
+       * @return CheckHealthResponse
+       */
+      Models::CheckHealthResponse checkHealth(const Models::CheckHealthRequest &request);
+
+      /**
        * @summary Checks whether SQL audit logs of a specified database instance have been successfully connected to Simple Log Service (SLS).
        * After the call, the system returns the connection status between the SQL audit feature and SLS for the current instance, the project and Logstore configuration information, and whether synchronization is normal.
        *
@@ -420,6 +437,27 @@ namespace Polardbx20200202
       Models::CreateMem0Response createMem0(const Models::CreateMem0Request &request);
 
       /**
+       * @summary Creates a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request CreatePolardbxSupabaseInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePolardbxSupabaseInstanceResponse
+       */
+      Models::CreatePolardbxSupabaseInstanceResponse createPolardbxSupabaseInstanceWithOptions(const Models::CreatePolardbxSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request CreatePolardbxSupabaseInstanceRequest
+       * @return CreatePolardbxSupabaseInstanceResponse
+       */
+      Models::CreatePolardbxSupabaseInstanceResponse createPolardbxSupabaseInstance(const Models::CreatePolardbxSupabaseInstanceRequest &request);
+
+      /**
        * @summary Performs a health check on the replication task during data migration.
        *
        * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
@@ -492,7 +530,7 @@ namespace Polardbx20200202
       Models::CreateStructureImportTaskResponse createStructureImportTask(const Models::CreateStructureImportTaskRequest &request);
 
       /**
-       * @summary 创建自定义地址
+       * @summary Creates a custom endpoint.
        *
        * @description ****
        *
@@ -503,7 +541,7 @@ namespace Polardbx20200202
       Models::CreateSubCNInstanceResponse createSubCNInstanceWithOptions(const Models::CreateSubCNInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义地址
+       * @summary Creates a custom endpoint.
        *
        * @description ****
        *
@@ -511,6 +549,27 @@ namespace Polardbx20200202
        * @return CreateSubCNInstanceResponse
        */
       Models::CreateSubCNInstanceResponse createSubCNInstance(const Models::CreateSubCNInstanceRequest &request);
+
+      /**
+       * @summary Enables the public endpoint for a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request CreateSupabaseNetTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSupabaseNetTypeResponse
+       */
+      Models::CreateSupabaseNetTypeResponse createSupabaseNetTypeWithOptions(const Models::CreateSupabaseNetTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables the public endpoint for a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request CreateSupabaseNetTypeRequest
+       * @return CreateSupabaseNetTypeResponse
+       */
+      Models::CreateSupabaseNetTypeResponse createSupabaseNetType(const Models::CreateSupabaseNetTypeRequest &request);
 
       /**
        * @summary Creates a privileged user. Each instance can have only one privileged user.
@@ -678,6 +737,27 @@ namespace Polardbx20200202
       Models::DeleteMem0Response deleteMem0(const Models::DeleteMem0Request &request);
 
       /**
+       * @summary Deletes a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request DeletePolardbxSupabaseInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolardbxSupabaseInstanceResponse
+       */
+      Models::DeletePolardbxSupabaseInstanceResponse deletePolardbxSupabaseInstanceWithOptions(const Models::DeletePolardbxSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request DeletePolardbxSupabaseInstanceRequest
+       * @return DeletePolardbxSupabaseInstanceResponse
+       */
+      Models::DeletePolardbxSupabaseInstanceResponse deletePolardbxSupabaseInstance(const Models::DeletePolardbxSupabaseInstanceRequest &request);
+
+      /**
        * @summary 删除自定义地址
        *
        * @description ****
@@ -697,6 +777,27 @@ namespace Polardbx20200202
        * @return DeleteSubCNInstanceResponse
        */
       Models::DeleteSubCNInstanceResponse deleteSubCNInstance(const Models::DeleteSubCNInstanceRequest &request);
+
+      /**
+       * @summary Releases the public endpoint of a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request DeleteSupabaseNetTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSupabaseNetTypeResponse
+       */
+      Models::DeleteSupabaseNetTypeResponse deleteSupabaseNetTypeWithOptions(const Models::DeleteSupabaseNetTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Releases the public endpoint of a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request DeleteSupabaseNetTypeRequest
+       * @return DeleteSupabaseNetTypeResponse
+       */
+      Models::DeleteSupabaseNetTypeResponse deleteSupabaseNetType(const Models::DeleteSupabaseNetTypeRequest &request);
 
       /**
        * @summary Queries the list of accounts by calling the DescribeAccountList operation.
@@ -1746,6 +1847,98 @@ namespace Polardbx20200202
       Models::DescribeStructureImportTaskInfoResponse describeStructureImportTaskInfo(const Models::DescribeStructureImportTaskInfoRequest &request);
 
       /**
+       * @summary Queries the Supabase API key.
+       *
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       *
+       * @param request DescribeSupabaseApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSupabaseApiKeyResponse
+       */
+      Models::DescribeSupabaseApiKeyResponse describeSupabaseApiKeyWithOptions(const Models::DescribeSupabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Supabase API key.
+       *
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       *
+       * @param request DescribeSupabaseApiKeyRequest
+       * @return DescribeSupabaseApiKeyResponse
+       */
+      Models::DescribeSupabaseApiKeyResponse describeSupabaseApiKey(const Models::DescribeSupabaseApiKeyRequest &request);
+
+      /**
+       * @summary Queries the details of a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request DescribeSupabaseInstanceAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSupabaseInstanceAttributeResponse
+       */
+      Models::DescribeSupabaseInstanceAttributeResponse describeSupabaseInstanceAttributeWithOptions(const Models::DescribeSupabaseInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request DescribeSupabaseInstanceAttributeRequest
+       * @return DescribeSupabaseInstanceAttributeResponse
+       */
+      Models::DescribeSupabaseInstanceAttributeResponse describeSupabaseInstanceAttribute(const Models::DescribeSupabaseInstanceAttributeRequest &request);
+
+      /**
+       * @summary Queries a list of Supabase instances.
+       *
+       * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+       *
+       * @param request DescribeSupabaseInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSupabaseInstancesResponse
+       */
+      Models::DescribeSupabaseInstancesResponse describeSupabaseInstancesWithOptions(const Models::DescribeSupabaseInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of Supabase instances.
+       *
+       * @description Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+       *
+       * @param request DescribeSupabaseInstancesRequest
+       * @return DescribeSupabaseInstancesResponse
+       */
+      Models::DescribeSupabaseInstancesResponse describeSupabaseInstances(const Models::DescribeSupabaseInstancesRequest &request);
+
+      /**
+       * @summary Queries the IP whitelist of a Supabase instance.
+       *
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       *
+       * @param request DescribeSupabaseIpWhitelistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSupabaseIpWhitelistResponse
+       */
+      Models::DescribeSupabaseIpWhitelistResponse describeSupabaseIpWhitelistWithOptions(const Models::DescribeSupabaseIpWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the IP whitelist of a Supabase instance.
+       *
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       *
+       * @param request DescribeSupabaseIpWhitelistRequest
+       * @return DescribeSupabaseIpWhitelistResponse
+       */
+      Models::DescribeSupabaseIpWhitelistResponse describeSupabaseIpWhitelist(const Models::DescribeSupabaseIpWhitelistRequest &request);
+
+      /**
        * @summary Retrieves tag information.
        *
        * @param request DescribeTagsRequest
@@ -2279,6 +2472,48 @@ namespace Polardbx20200202
       Models::ModifySecurityIpsResponse modifySecurityIps(const Models::ModifySecurityIpsRequest &request);
 
       /**
+       * @summary Modifies the Supabase Dashboard password.
+       *
+       * @description ****
+       *
+       * @param request ModifySupabaseDashboardPasswordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySupabaseDashboardPasswordResponse
+       */
+      Models::ModifySupabaseDashboardPasswordResponse modifySupabaseDashboardPasswordWithOptions(const Models::ModifySupabaseDashboardPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the Supabase Dashboard password.
+       *
+       * @description ****
+       *
+       * @param request ModifySupabaseDashboardPasswordRequest
+       * @return ModifySupabaseDashboardPasswordResponse
+       */
+      Models::ModifySupabaseDashboardPasswordResponse modifySupabaseDashboardPassword(const Models::ModifySupabaseDashboardPasswordRequest &request);
+
+      /**
+       * @summary Modifies the IP whitelist of a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request ModifySupabaseSecurityIPListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySupabaseSecurityIPListResponse
+       */
+      Models::ModifySupabaseSecurityIPListResponse modifySupabaseSecurityIPListWithOptions(const Models::ModifySupabaseSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the IP whitelist of a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request ModifySupabaseSecurityIPListRequest
+       * @return ModifySupabaseSecurityIPListResponse
+       */
+      Models::ModifySupabaseSecurityIPListResponse modifySupabaseSecurityIPList(const Models::ModifySupabaseSecurityIPListRequest &request);
+
+      /**
        * @summary Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
        *
        * @param request PreCheckSqlFlashbackTaskRequest
@@ -2459,6 +2694,27 @@ namespace Polardbx20200202
        * @return RestartDataImportTaskResponse
        */
       Models::RestartDataImportTaskResponse restartDataImportTask(const Models::RestartDataImportTaskRequest &request);
+
+      /**
+       * @summary Restarts a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request RestartSupabaseInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartSupabaseInstanceResponse
+       */
+      Models::RestartSupabaseInstanceResponse restartSupabaseInstanceWithOptions(const Models::RestartSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Restarts a Supabase instance.
+       *
+       * @description ****
+       *
+       * @param request RestartSupabaseInstanceRequest
+       * @return RestartSupabaseInstanceResponse
+       */
+      Models::RestartSupabaseInstanceResponse restartSupabaseInstance(const Models::RestartSupabaseInstanceRequest &request);
 
       /**
        * @summary 克隆PolarDB-X实例
