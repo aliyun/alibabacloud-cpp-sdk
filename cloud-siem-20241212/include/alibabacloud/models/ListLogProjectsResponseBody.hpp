@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The list of Simple Log Service projects.
     shared_ptr<vector<string>> logProjects_ {};
+    // The maximum number of entries returned on this call.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. If this parameter is not returned, no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -140,17 +140,59 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that specifies the position from which to start the query. If you do not specify this parameter, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The deployment region of the data management center for threat analysis. You must select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
+    // 
+    // - ap-southeast-1: Your assets are in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The action configuration, specified as a JSON string.
     shared_ptr<string> responseActionConfig_ {};
+    // The action type for the automatic response rule. Valid values:
+    // 
+    // - doPlaybook: Runs a playbook.
+    // 
+    // - changeEventStatus: Changes the status of an event.
+    // 
+    // - changeThreatLevel: Changes the threat level of an event.
+    // 
+    // - addEventTag: Adds a tag to an event.
+    // 
+    // - deleteEventTag: Deletes a tag from an event.
+    // 
+    // - alertWhitelist: Adds an alert to the allowlist.
     shared_ptr<string> responseActionType_ {};
+    // The trigger conditions for the rule, specified as a JSON string.
     shared_ptr<string> responseExecutionCondition_ {};
+    // The name of the automatic response rule.
     shared_ptr<string> responseRuleName_ {};
+    // The execution priority of the automatic response rule.
     shared_ptr<string> responseRulePriority_ {};
+    // The trigger type for the automatic response rule. Valid values:
+    // 
+    // - event: An event is generated.
+    // 
+    // - event_update: An event is updated.
+    // 
+    // - alert: An alert is generated.
     shared_ptr<string> responseTriggerType_ {};
+    // The ID of the member account. An administrator uses this parameter to operate on behalf of the specified member.
     shared_ptr<int64_t> roleFor_ {};
+    // The operational scope. Valid values:
+    // 
+    // - 0: Sets the scope to the current Alibaba Cloud account.
+    // 
+    // - 1: Sets the scope to all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

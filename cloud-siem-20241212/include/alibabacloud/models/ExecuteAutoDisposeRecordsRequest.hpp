@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The unique ID of the investigation record.
       shared_ptr<string> autoDisposeRecordId_ {};
+      // The UUID of the entity.
       shared_ptr<string> entityUuid_ {};
     };
 
@@ -114,7 +116,9 @@ namespace Models
 
 
     protected:
+      // The unique ID of the investigation record.
       shared_ptr<string> autoDisposeRecordId_ {};
+      // The UUID of the entity.
       shared_ptr<string> entityUuid_ {};
     };
 
@@ -146,9 +150,15 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // - **zh** (default): Chinese.
+    // - **en**: English.
+    // 
     // This parameter is required.
     shared_ptr<string> lang_ {};
+    // The list of entities selected for manual handling.
     shared_ptr<vector<ExecuteAutoDisposeRecordsRequest::SelectedEntityList>> selectedEntityList_ {};
+    // The list of entities not selected for manual handling.
     shared_ptr<vector<ExecuteAutoDisposeRecordsRequest::UnSelectedEntityList>> unSelectedEntityList_ {};
   };
 

@@ -66,9 +66,21 @@ namespace Models
 
 
   protected:
+    // The data ingestion ID.
     shared_ptr<string> dataIngestionId_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region of the Data Management center for threat analysis. Select the region of the management center based on the region where your asset is located. Valid values:
+    // 
+    // - cn-hangzhou: Your asset is in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your asset is outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member account that the administrator wants to switch to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

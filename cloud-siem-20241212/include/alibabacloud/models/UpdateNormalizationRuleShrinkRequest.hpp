@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NormalizationRuleName, normalizationRuleName_);
       DARABONBA_PTR_TO_JSON(NormalizationRuleType, normalizationRuleType_);
       DARABONBA_PTR_TO_JSON(NormalizationSchemaId, normalizationSchemaId_);
+      DARABONBA_PTR_TO_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
       DARABONBA_PTR_TO_JSON(OrderField, orderField_);
       DARABONBA_PTR_TO_JSON(ProductId, productId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NormalizationRuleName, normalizationRuleName_);
       DARABONBA_PTR_FROM_JSON(NormalizationRuleType, normalizationRuleType_);
       DARABONBA_PTR_FROM_JSON(NormalizationSchemaId, normalizationSchemaId_);
+      DARABONBA_PTR_FROM_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
       DARABONBA_PTR_FROM_JSON(OrderField, orderField_);
       DARABONBA_PTR_FROM_JSON(ProductId, productId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -66,8 +68,8 @@ namespace Models
     virtual bool empty() const override { return this->extendContentPacked_ == nullptr
         && this->extendFieldStoreMode_ == nullptr && this->lang_ == nullptr && this->normalizationCategoryId_ == nullptr && this->normalizationRuleDescription_ == nullptr && this->normalizationRuleExpression_ == nullptr
         && this->normalizationRuleFormat_ == nullptr && this->normalizationRuleId_ == nullptr && this->normalizationRuleIdsShrink_ == nullptr && this->normalizationRuleMode_ == nullptr && this->normalizationRuleName_ == nullptr
-        && this->normalizationRuleType_ == nullptr && this->normalizationSchemaId_ == nullptr && this->orderField_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr
-        && this->roleFor_ == nullptr && this->vendorId_ == nullptr; };
+        && this->normalizationRuleType_ == nullptr && this->normalizationSchemaId_ == nullptr && this->normalizationSecurityDomainId_ == nullptr && this->orderField_ == nullptr && this->productId_ == nullptr
+        && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->vendorId_ == nullptr; };
     // extendContentPacked Field Functions 
     bool hasExtendContentPacked() const { return this->extendContentPacked_ != nullptr;};
     void deleteExtendContentPacked() { this->extendContentPacked_ = nullptr;};
@@ -159,6 +161,13 @@ namespace Models
     inline UpdateNormalizationRuleShrinkRequest& setNormalizationSchemaId(string normalizationSchemaId) { DARABONBA_PTR_SET_VALUE(normalizationSchemaId_, normalizationSchemaId) };
 
 
+    // normalizationSecurityDomainId Field Functions 
+    bool hasNormalizationSecurityDomainId() const { return this->normalizationSecurityDomainId_ != nullptr;};
+    void deleteNormalizationSecurityDomainId() { this->normalizationSecurityDomainId_ = nullptr;};
+    inline string getNormalizationSecurityDomainId() const { DARABONBA_PTR_GET_DEFAULT(normalizationSecurityDomainId_, "") };
+    inline UpdateNormalizationRuleShrinkRequest& setNormalizationSecurityDomainId(string normalizationSecurityDomainId) { DARABONBA_PTR_SET_VALUE(normalizationSecurityDomainId_, normalizationSecurityDomainId) };
+
+
     // orderField Field Functions 
     bool hasOrderField() const { return this->orderField_ != nullptr;};
     void deleteOrderField() { this->orderField_ = nullptr;};
@@ -195,23 +204,68 @@ namespace Models
 
 
   protected:
+    // Specifies whether to package non-standard fields into the extend_content extension field. Valid values:
+    // 
+    // - enabled: The feature is enabled.
+    // 
+    // - disabled: The feature is disabled.
     shared_ptr<string> extendContentPacked_ {};
+    // The storage mode for extension fields. Valid values: flat, pack, and reject.
     shared_ptr<string> extendFieldStoreMode_ {};
+    // The language of the content within the request and response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The normalization category.
     shared_ptr<string> normalizationCategoryId_ {};
+    // The description of the normalization rule.
     shared_ptr<string> normalizationRuleDescription_ {};
+    // The expression for the normalization rule.
     shared_ptr<string> normalizationRuleExpression_ {};
+    // The format of the normalization rule.
     shared_ptr<string> normalizationRuleFormat_ {};
+    // The ID of the normalization rule.
     shared_ptr<string> normalizationRuleId_ {};
+    // The list of normalization rule IDs.
     shared_ptr<string> normalizationRuleIdsShrink_ {};
+    // The mode of the normalization rule. Valid values:
+    // 
+    // - both
+    // 
+    // - scan
+    // 
+    // - realtime
     shared_ptr<string> normalizationRuleMode_ {};
+    // The name of the normalization rule.
     shared_ptr<string> normalizationRuleName_ {};
+    // The type of the normalization rule. Valid values:
+    // 
+    // - predefined: predefined normalization rule.
+    // 
+    // - custom: custom normalization rule.
     shared_ptr<string> normalizationRuleType_ {};
+    // The ID of the normalization structure.
     shared_ptr<string> normalizationSchemaId_ {};
+    shared_ptr<string> normalizationSecurityDomainId_ {};
+    // The field to use for sorting the rule list. Valid values:
+    // 
+    // - GmtModified: Sorts by modification time.
+    // 
+    // - Id: Sorts by rule ID (default).
     shared_ptr<string> orderField_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The region where the Data Management center of threat analysis is located. Select a region based on the region where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: an asset in the Chinese mainland.
+    // 
+    // - ap-southeast-1: an asset outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. This parameter is used when an administrator switches to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
+    // The vendor ID that corresponds to the normalization rule.
     shared_ptr<string> vendorId_ {};
   };
 

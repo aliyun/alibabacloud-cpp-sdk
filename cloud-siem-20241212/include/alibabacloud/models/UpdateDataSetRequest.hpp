@@ -93,8 +93,37 @@ namespace Models
 
 
     protected:
+      // The automatic detection status. Valid values:
+      // 
+      // - enabled: Enabled.
+      // 
+      // - disabled: Disabled.
       shared_ptr<string> autoRecognizeStatus_ {};
+      // The IP address type that the recognizer can detect. Valid values:
+      // 
+      // - sas_vulnerability_scanner_ip: The IP addresses of the Security Center web vulnerability scanner.
+      // 
+      // - waf_back_source_ip: The back-to-origin IP addresses of Web Application Firewall (WAF).
+      // 
+      // - ddos_back_source_ip: The back-to-origin IP addresses of Anti-DDoS.
+      // 
+      // - esa_back_source_ip: The back-to-origin IP addresses of Edge Security Acceleration (ESA) nodes.
+      // 
+      // - ecs_public_ip: The public IP addresses of Elastic Compute Service (ECS) instances.
+      // 
+      // - slb_public_ip: The public IP addresses of Server Load Balancer (SLB).
+      // 
+      // - vpc_eip: The elastic IP addresses (EIPs).
+      // 
+      // - cdn_back_source_ip: The back-to-origin IP addresses of Alibaba Cloud CDN.
+      // 
+      // - ga_back_source_ip: The back-to-origin IP addresses of Global Accelerator (GA).
       shared_ptr<string> ipWhitelistRecognizerType_ {};
+      // The detection scope. Valid values:
+      // 
+      // - current_account: The current account only.
+      // 
+      // - rd_accounts: Multiple accounts are enabled.
       shared_ptr<string> recognizeScope_ {};
     };
 
@@ -167,15 +196,37 @@ namespace Models
 
 
   protected:
+    // The description of the dataset.
     shared_ptr<string> dataSetDescription_ {};
+    // The name of the uploaded dataset file.
     shared_ptr<string> dataSetFileName_ {};
+    // The ID of the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSetId_ {};
+    // The name of the dataset.
     shared_ptr<string> dataSetName_ {};
+    // The status of the dataset. Valid values:
+    // 
+    // - 0: Delete.
+    // 
+    // - 1: Enable.
     shared_ptr<int32_t> dataSetStatus_ {};
+    // The IP address types that the recognizer can detect.
     shared_ptr<vector<UpdateDataSetRequest::IpWhitelistRecognizers>> ipWhitelistRecognizers_ {};
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region where the Data Management center for threat analysis is located. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can use this parameter to switch to the member\\"s view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

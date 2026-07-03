@@ -103,13 +103,33 @@ namespace Models
 
 
   protected:
+    // An array of data ingestion policy IDs.
     shared_ptr<string> dataIngestionIdsShrink_ {};
+    // The data ingestion status. Valid values:
+    // 
+    // - `enabled`: Enabled.
+    // 
+    // - `disabled`: Disabled.
     shared_ptr<string> dataIngestionStatus_ {};
+    // An array of data ingestion template IDs.
     shared_ptr<string> dataIngestionTemplateIdsShrink_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // An array of normalization schema IDs.
     shared_ptr<string> normalizationSchemaIdsShrink_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The region where the threat analysis feature is deployed. Select the region that corresponds to the location of your asset. Valid values:
+    // 
+    // - `cn-hangzhou`: Your asset is in the Chinese mainland.
+    // 
+    // - `ap-southeast-1`: Your asset is in a region outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can use this parameter to query data as the specified member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

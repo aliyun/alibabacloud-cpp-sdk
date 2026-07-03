@@ -162,16 +162,53 @@ namespace Models
 
 
     protected:
+      // The time when the rule was created.
       shared_ptr<int64_t> createTime_ {};
+      // The configuration of the action that is performed if the automated response rule is triggered.
       shared_ptr<string> responseActionConfig_ {};
+      // The type of the action. Valid values:
+      // 
+      // - `doPlaybook`: executes a playbook.
+      // 
+      // - `changeEventStatus`: changes the status of an event.
+      // 
+      // - `changeThreatLevel`: changes the threat level of an event.
+      // 
+      // - `addEventTag`: adds a tag to an event.
+      // 
+      // - `deleteEventTag`: removes a tag from an event.
+      // 
+      // - `alertWhitelist`: adds an alert to the whitelist.
       shared_ptr<string> responseActionType_ {};
+      // The trigger condition of the rule.
       shared_ptr<string> responseExecutionCondition_ {};
+      // The ID of the automated response rule.
       shared_ptr<string> responseRuleId_ {};
+      // The name of the automated response rule.
       shared_ptr<string> responseRuleName_ {};
+      // The priority of the automated response rule.
       shared_ptr<int32_t> responseRulePriority_ {};
+      // The status of the automated response rule. Valid values:
+      // 
+      // - `0`: disabled.
+      // 
+      // - `100`: enabled.
       shared_ptr<int32_t> responseRuleStatus_ {};
+      // The type of the response rule. Valid values:
+      // 
+      // - `preset`: a predefined rule.
+      // 
+      // - `custom`: a custom rule.
       shared_ptr<string> responseRuleType_ {};
+      // The trigger type of the automated response rule. Valid values:
+      // 
+      // - `event`: triggered when an event occurs.
+      // 
+      // - `event_update`: triggered when an event is updated.
+      // 
+      // - `alert`: triggered when an alert is generated.
       shared_ptr<string> responseTriggerType_ {};
+      // The time when the rule was updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -230,14 +267,21 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The position where the current query ends. If this parameter is empty, all data is returned.
+    // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of automated response rules.
     shared_ptr<vector<ListResponseRulesResponseBody::ResponseRules>> responseRules_ {};
+    // The total number of entries that match the query conditions. This parameter is optional and may not always be returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

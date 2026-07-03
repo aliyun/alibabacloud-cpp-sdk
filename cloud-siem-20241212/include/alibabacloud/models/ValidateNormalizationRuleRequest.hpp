@@ -140,17 +140,37 @@ namespace Models
 
 
   protected:
+    // The rule ID.
     shared_ptr<string> data_ {};
+    // The storage mode for extended fields. Valid values: \\`flat\\`, \\`pack\\`, and \\`reject\\`.
     shared_ptr<string> extendFieldStoreMode_ {};
+    // The language of the response messages. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The sample log. The value must be in the JSON format.
     shared_ptr<string> logSample_ {};
+    // The normalization category of the rule.
     shared_ptr<string> normalizationCategoryId_ {};
+    // The expression for the normalization rule.
     shared_ptr<string> normalizationRuleExpression_ {};
+    // The mode of the normalization rule. Valid values: \\`both\\` and \\`realtime\\`.
     shared_ptr<string> normalizationRuleMode_ {};
+    // The ID of the normalization pattern for the rule.
     shared_ptr<string> normalizationSchemaId_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The region where the Data Management center for threat analysis is deployed. Select the region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. An administrator uses this parameter to switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
+    // The vendor ID.
     shared_ptr<string> vendorId_ {};
   };
 

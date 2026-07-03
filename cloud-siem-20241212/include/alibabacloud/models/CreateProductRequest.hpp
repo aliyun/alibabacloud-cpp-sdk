@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The name of the product.
     shared_ptr<string> productName_ {};
+    // The region of the Data Management center. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. This parameter is used when an administrator operates as another member.
     shared_ptr<int64_t> roleFor_ {};
+    // The name of the vendor.
     shared_ptr<string> vendorName_ {};
   };
 

@@ -213,25 +213,75 @@ namespace Models
 
 
   protected:
+    // The source of the data. Valid values:
+    // 
+    // - center
+    // 
+    // - custom
     shared_ptr<string> dataSourceFrom_ {};
+    // The IDs of the data sources.
     shared_ptr<string> dataSourceIdsShrink_ {};
+    // The name of the data source.
     shared_ptr<string> dataSourceName_ {};
+    // The status of the data source. Valid values:
+    // 
+    // - unconfigured
+    // 
+    // - normal
+    // 
+    // - abnormal
     shared_ptr<string> dataSourceStatus_ {};
+    // The status of the Logstore. Valid values:
+    // 
+    // - normal
+    // 
+    // - abnormal
     shared_ptr<string> dataSourceStoreStatus_ {};
+    // The IDs of the data source templates.
     shared_ptr<string> dataSourceTemplateIdsShrink_ {};
+    // The type of the data source. Valid values:
+    // 
+    // - preset
+    // 
+    // - custom
     shared_ptr<string> dataSourceType_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The name of the Simple Log Service project.
     shared_ptr<string> logProjectName_ {};
+    // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStoreName_ {};
+    // The IDs of the users who can access the data.
     shared_ptr<string> logUserIdsShrink_ {};
+    // The maximum number of entries to return for a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken that is returned in the response to the previous query. Leave this parameter empty for the first query.
     shared_ptr<string> nextToken_ {};
+    // The sorting order. Valid values:
+    // 
+    // - desc
+    // 
+    // - asc
     shared_ptr<string> order_ {};
+    // The sorting field.
     shared_ptr<string> orderField_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The region where the Data Management Center of your threat analysis feature is located. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. You can use this parameter to switch the perspective to a member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

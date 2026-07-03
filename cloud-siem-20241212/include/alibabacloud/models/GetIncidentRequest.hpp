@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The UUID of the event.
     shared_ptr<string> incidentUuid_ {};
+    // The language of the response. Valid values:
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region where the data management center of the threat analysis feature is located. Specify this parameter based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Your assets reside outside China.
     shared_ptr<string> regionId_ {};
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

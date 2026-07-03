@@ -75,11 +75,22 @@ namespace Models
 
 
   protected:
+    // The conclusion of the automatic alert analysis.
     shared_ptr<string> autoDecisionConclusion_ {};
+    // The list of entities for analysis.
     shared_ptr<string> autoDecisionEntityList_ {};
+    // The analysis result.
     shared_ptr<string> autoDecisionResult_ {};
+    // The unique ID of the analysis record.
+    // 
     // This parameter is required.
     shared_ptr<string> autoDisposeRecordId_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
+    // 
     // This parameter is required.
     shared_ptr<string> lang_ {};
   };

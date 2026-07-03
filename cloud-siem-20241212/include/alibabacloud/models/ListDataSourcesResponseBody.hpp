@@ -204,15 +204,33 @@ namespace Models
 
 
       protected:
+        // The time when the check was performed.
         shared_ptr<int64_t> checkTime_ {};
+        // The time when the log storage was created.
         shared_ptr<int64_t> createTime_ {};
+        // The source of the data. Valid values:
+        // 
+        // - center
+        // 
+        // - custom
         shared_ptr<string> dataSourceStoreFrom_ {};
+        // The ID of the log storage.
         shared_ptr<string> dataSourceStoreId_ {};
+        // The status of the log storage. Valid values:
+        // 
+        // - normal
+        // 
+        // - abnormal
         shared_ptr<string> dataSourceStoreStatus_ {};
+        // The status code of the log storage.
         shared_ptr<string> dataSourceStoreStatusCode_ {};
+        // The name of the Simple Log Service project.
         shared_ptr<string> logProjectName_ {};
+        // The ID of the log storage region.
         shared_ptr<string> logRegionId_ {};
+        // The name of the Simple Log Service Logstore.
         shared_ptr<string> logStoreName_ {};
+        // The time when the log storage was last updated.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -244,6 +262,7 @@ namespace Models
 
 
       protected:
+        // The data ingestion ID.
         shared_ptr<string> dataIngestionId_ {};
       };
 
@@ -368,21 +387,51 @@ namespace Models
 
 
     protected:
+      // The time when the data source was created.
       shared_ptr<int64_t> createTime_ {};
+      // The source of the data. Valid values:
+      // 
+      // - center
+      // 
+      // - custom
       shared_ptr<string> dataSourceFrom_ {};
+      // The ID of the data source.
       shared_ptr<string> dataSourceId_ {};
+      // The name of the data source.
       shared_ptr<string> dataSourceName_ {};
+      // Indicates whether new Logstores are automatically discovered.
       shared_ptr<bool> dataSourceRecognizeEnabled_ {};
+      // The data source recognizer.
       shared_ptr<string> dataSourceRecognizer_ {};
+      // The list of data ingestion IDs that are associated with the data source.
       shared_ptr<vector<DataSources::DataSourceReferences>> dataSourceReferences_ {};
+      // The status of the data source. Valid values:
+      // 
+      // - unconfigured
+      // 
+      // - normal
+      // 
+      // - abnormal
       shared_ptr<string> dataSourceStatus_ {};
+      // The list of Logstores.
       shared_ptr<vector<DataSources::DataSourceStores>> dataSourceStores_ {};
+      // The ID of the data source template.
       shared_ptr<string> dataSourceTemplateId_ {};
+      // The type of the data source. Valid values:
+      // 
+      // - preset
+      // 
+      // - custom
       shared_ptr<string> dataSourceType_ {};
+      // The name of the Simple Log Service project.
       shared_ptr<string> logProjectName_ {};
+      // The ID of the log storage region.
       shared_ptr<string> logRegionId_ {};
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> logStoreName_ {};
+      // The ID of the user who can access the data.
       shared_ptr<int64_t> logUserId_ {};
+      // The time when the data source was last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -448,13 +497,21 @@ namespace Models
 
 
   protected:
+    // The data sources.
     shared_ptr<vector<ListDataSourcesResponseBody::DataSources>> dataSources_ {};
+    // The maximum number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. If a value is returned, it indicates that not all results have been returned. You can use this token in the next query to continue retrieving results.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

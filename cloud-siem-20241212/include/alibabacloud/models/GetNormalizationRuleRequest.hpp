@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetNormalizationRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(NormalizationRuleId, normalizationRuleId_);
+      DARABONBA_PTR_TO_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
     };
     friend void from_json(const Darabonba::Json& j, GetNormalizationRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(NormalizationRuleId, normalizationRuleId_);
+      DARABONBA_PTR_FROM_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && this->normalizationRuleId_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
+        && this->normalizationRuleId_ == nullptr && this->normalizationSecurityDomainId_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteNormalizationRuleId() { this->normalizationRuleId_ = nullptr;};
     inline string getNormalizationRuleId() const { DARABONBA_PTR_GET_DEFAULT(normalizationRuleId_, "") };
     inline GetNormalizationRuleRequest& setNormalizationRuleId(string normalizationRuleId) { DARABONBA_PTR_SET_VALUE(normalizationRuleId_, normalizationRuleId) };
+
+
+    // normalizationSecurityDomainId Field Functions 
+    bool hasNormalizationSecurityDomainId() const { return this->normalizationSecurityDomainId_ != nullptr;};
+    void deleteNormalizationSecurityDomainId() { this->normalizationSecurityDomainId_ = nullptr;};
+    inline string getNormalizationSecurityDomainId() const { DARABONBA_PTR_GET_DEFAULT(normalizationSecurityDomainId_, "") };
+    inline GetNormalizationRuleRequest& setNormalizationSecurityDomainId(string normalizationSecurityDomainId) { DARABONBA_PTR_SET_VALUE(normalizationSecurityDomainId_, normalizationSecurityDomainId) };
 
 
     // regionId Field Functions 
@@ -66,9 +75,18 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The normalization rule ID.
     shared_ptr<string> normalizationRuleId_ {};
+    shared_ptr<string> normalizationSecurityDomainId_ {};
+    // The region where the data management center of threat analysis is located. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: the asset is in the Chinese mainland.
+    // - ap-southeast-1: the asset is outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The user ID that the administrator uses to switch to the view of another member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

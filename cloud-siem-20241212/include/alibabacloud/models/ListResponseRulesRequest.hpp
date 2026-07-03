@@ -149,20 +149,73 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. If you leave this parameter empty, the first page of results is returned.
     shared_ptr<string> nextToken_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The region of the data management center for threat analysis. Select the region where your assets are located. Valid values:
+    // 
+    // - `cn-hangzhou`: Your assets are in the Chinese mainland or China (Hong Kong).
+    // 
+    // - `ap-southeast-1`: Your assets are in international regions.
     shared_ptr<string> regionId_ {};
+    // The action of the automated response rule. Valid values:
+    // 
+    // - `doPlaybook`: Executes a playbook.
+    // 
+    // - `changeEventStatus`: Updates the status of an event.
+    // 
+    // - `changeThreatLevel`: Updates the threat level of an event.
+    // 
+    // - `addEventTag`: Adds a tag to an event.
+    // 
+    // - `deleteEventTag`: Removes a tag from an event.
+    // 
+    // - `alertWhitelist`: Adds an alert to the allowlist.
     shared_ptr<string> responseActionType_ {};
+    // The name of the automated response rule.
     shared_ptr<string> responseRuleName_ {};
+    // The status of the automated response rule. Valid values:
+    // 
+    // - `0`: disabled
+    // 
+    // - `100`: enabled
     shared_ptr<int32_t> responseRuleStatus_ {};
+    // The type of the automated response rule. Valid values:
+    // 
+    // - `preset`: A preset rule.
+    // 
+    // - `custom`: A custom rule.
     shared_ptr<string> responseRuleType_ {};
+    // The trigger type of the automated response rule. Valid values:
+    // 
+    // - `event`: An event is generated.
+    // 
+    // - `event_update`: An event is updated.
+    // 
+    // - `alert`: An alert is generated.
     shared_ptr<string> responseTriggerType_ {};
+    // The ID of a member. An administrator can use this parameter to view data as the specified member.
     shared_ptr<int64_t> roleFor_ {};
+    // The view type. Valid values:
+    // 
+    // - `0`: Displays data from the current Alibaba Cloud account.
+    // 
+    // - `1`: Displays data from all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

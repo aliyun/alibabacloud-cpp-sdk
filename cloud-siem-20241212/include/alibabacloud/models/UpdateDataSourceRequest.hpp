@@ -119,10 +119,19 @@ namespace Models
 
 
     protected:
+      // The source of the data. Valid values:
+      // 
+      // - center
+      // 
+      // - custom
       shared_ptr<string> dataSourceStoreFrom_ {};
+      // The ID of the log storage.
       shared_ptr<string> dataSourceStoreId_ {};
+      // The name of the Simple Log Service project.
       shared_ptr<string> logProjectName_ {};
+      // The ID of the log storage region.
       shared_ptr<string> logRegionId_ {};
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> logStoreName_ {};
     };
 
@@ -224,18 +233,47 @@ namespace Models
 
 
   protected:
+    // The source of the data. Valid values:
+    // 
+    // - center
+    // 
+    // - custom
     shared_ptr<string> dataSourceFrom_ {};
+    // The ID of the data source.
     shared_ptr<string> dataSourceId_ {};
+    // The name of the data source.
     shared_ptr<string> dataSourceName_ {};
+    // Specifies whether to automatically discover new Logstores.
     shared_ptr<bool> dataSourceRecognizeEnabled_ {};
+    // The list of Simple Log Service Logstores.
     shared_ptr<vector<UpdateDataSourceRequest::DataSourceStores>> dataSourceStores_ {};
+    // The language of the response messages. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The name of the Simple Log Service project.
     shared_ptr<string> logProjectName_ {};
+    // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStoreName_ {};
+    // The user ID for data access.
     shared_ptr<int64_t> logUserId_ {};
+    // The field to use for sorting the rule list. Valid values:
+    // 
+    // - GmtModified: Sorts the list by modification time.
+    // 
+    // - Id: Sorts the list by rule ID. This is the default value.
     shared_ptr<string> orderField_ {};
+    // The region of the Data Management center for threat analysis. Select a region based on the location of the assets. Valid values:
+    // 
+    // - cn-hangzhou: Assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

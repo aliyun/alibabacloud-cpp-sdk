@@ -84,11 +84,29 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Set this parameter to the NextToken value returned in the previous API call to retrieve the next page of results. You do not need to specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
+    // The type of the normalization rule category. Valid values:
+    // 
+    // - log
+    // 
+    // - entity
     shared_ptr<string> normalizationCategoryType_ {};
+    // The region of the Data Management center for threat analysis. Select the region for the Data Management center based on the region where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: Assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. An administrator can use this parameter to switch to the perspective of this member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RelateAssetCount, relateAssetCount_);
         DARABONBA_ANY_TO_JSON(RelateDataSourceIds, relateDataSourceIds_);
         DARABONBA_ANY_TO_JSON(RelateUserIds, relateUserIds_);
+        DARABONBA_PTR_TO_JSON(ResponseTime, responseTime_);
         DARABONBA_PTR_TO_JSON(ThreatLevel, threatLevel_);
         DARABONBA_PTR_TO_JSON(ThreatScore, threatScore_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(RelateAssetCount, relateAssetCount_);
         DARABONBA_ANY_FROM_JSON(RelateDataSourceIds, relateDataSourceIds_);
         DARABONBA_ANY_FROM_JSON(RelateUserIds, relateUserIds_);
+        DARABONBA_PTR_FROM_JSON(ResponseTime, responseTime_);
         DARABONBA_PTR_FROM_JSON(ThreatLevel, threatLevel_);
         DARABONBA_PTR_FROM_JSON(ThreatScore, threatScore_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
@@ -87,8 +89,8 @@ namespace Models
       virtual bool empty() const override { return this->attckTactics_ == nullptr
         && this->createTime_ == nullptr && this->detectionRuleId_ == nullptr && this->incidentAggregationType_ == nullptr && this->incidentDescription_ == nullptr && this->incidentName_ == nullptr
         && this->incidentRemark_ == nullptr && this->incidentStatus_ == nullptr && this->incidentTags_ == nullptr && this->incidentUuid_ == nullptr && this->owner_ == nullptr
-        && this->relateAlertCount_ == nullptr && this->relateAssetCount_ == nullptr && this->relateDataSourceIds_ == nullptr && this->relateUserIds_ == nullptr && this->threatLevel_ == nullptr
-        && this->threatScore_ == nullptr && this->updateTime_ == nullptr; };
+        && this->relateAlertCount_ == nullptr && this->relateAssetCount_ == nullptr && this->relateDataSourceIds_ == nullptr && this->relateUserIds_ == nullptr && this->responseTime_ == nullptr
+        && this->threatLevel_ == nullptr && this->threatScore_ == nullptr && this->updateTime_ == nullptr; };
       // attckTactics Field Functions 
       bool hasAttckTactics() const { return this->attckTactics_ != nullptr;};
       void deleteAttckTactics() { this->attckTactics_ = nullptr;};
@@ -200,6 +202,13 @@ namespace Models
       inline Incident& setRelateUserIds(Darabonba::Json && relateUserIds) { DARABONBA_SET_RVALUE(relateUserIds_, relateUserIds) };
 
 
+      // responseTime Field Functions 
+      bool hasResponseTime() const { return this->responseTime_ != nullptr;};
+      void deleteResponseTime() { this->responseTime_ = nullptr;};
+      inline int64_t getResponseTime() const { DARABONBA_PTR_GET_DEFAULT(responseTime_, 0L) };
+      inline Incident& setResponseTime(int64_t responseTime) { DARABONBA_PTR_SET_VALUE(responseTime_, responseTime) };
+
+
       // threatLevel Field Functions 
       bool hasThreatLevel() const { return this->threatLevel_ != nullptr;};
       void deleteThreatLevel() { this->threatLevel_ = nullptr;};
@@ -222,23 +231,58 @@ namespace Models
 
 
     protected:
+      // The count of attack stages associated with the event alerts.
       Darabonba::Json attckTactics_ {};
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The ID of the detection rule.
       shared_ptr<string> detectionRuleId_ {};
+      // The event summaries type. Valid values:
+      // 
+      // - none: no event is generated.
+      // - graph_compute: graph computing (supported by predefined rules).
+      // - expert: expert rule.
+      // - passthrough: alerting pass-through (one-to-one).
+      // - window: same-type aggregation (window).
       shared_ptr<string> incidentAggregationType_ {};
+      // The description of the event.
       shared_ptr<string> incidentDescription_ {};
+      // The name of the event.
       shared_ptr<string> incidentName_ {};
+      // The remarks of the event.
       shared_ptr<string> incidentRemark_ {};
+      // The status of the event. Valid values:
+      // - 0: unhandled.
+      // - 1: handling.
+      // - 5: handling failed.
+      // - 10: handled.
       shared_ptr<int32_t> incidentStatus_ {};
+      // The tags of the event.
       shared_ptr<string> incidentTags_ {};
+      // The UUID of the event.
       shared_ptr<string> incidentUuid_ {};
+      // The owner of the event.
       shared_ptr<string> owner_ {};
+      // The number of alerts associated with the event.
       shared_ptr<int32_t> relateAlertCount_ {};
+      // The number of assets associated with the event.
       shared_ptr<int32_t> relateAssetCount_ {};
+      // The list of associated data sources.
       Darabonba::Json relateDataSourceIds_ {};
+      // The list of user IDs associated with the event.
       Darabonba::Json relateUserIds_ {};
+      // The response time. Unit: milliseconds (ms).
+      shared_ptr<int64_t> responseTime_ {};
+      // The threat level. Valid values:
+      // - 5: critical.
+      // - 4: high.
+      // - 3: medium.
+      // - 2: low.
+      // - 1: informational.
       shared_ptr<string> threatLevel_ {};
+      // The threat score of the event. Valid values: 0 to 100. A higher score indicates a higher risk level.
       shared_ptr<string> threatScore_ {};
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -261,7 +305,9 @@ namespace Models
 
 
   protected:
+    // The event information.
     shared_ptr<GetIncidentResponseBody::Incident> incident_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

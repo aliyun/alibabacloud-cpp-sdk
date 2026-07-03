@@ -108,13 +108,37 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically discover new users.
+    // 
+    // - enabled: Enables the feature.
+    // 
+    // - disabled: Disables the feature.
     shared_ptr<string> autoScanNew_ {};
+    // The mode for batch data ingestion. Valid values:
+    // 
+    // - full
+    // 
+    // - increment
     shared_ptr<string> dataBatchIngestionMode_ {};
+    // The list of ingestion policy IDs.
     shared_ptr<vector<string>> dataIngestionIds_ {};
+    // Specifies whether to automatically discover new Logstores.
     shared_ptr<bool> dataSourceRecognizeEnabled_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The list of user IDs for batch data ingestion.
     shared_ptr<vector<int64_t>> logUserIds_ {};
+    // The region of the Data Management hub for threat analysis. Select a region for the management hub based on the region of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member whose perspective the administrator wants to switch to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

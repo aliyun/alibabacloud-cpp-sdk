@@ -135,13 +135,35 @@ namespace Models
 
 
     protected:
+      // The alert rule ID.
       shared_ptr<string> alertId_ {};
+      // The disposal method. Valid values:
+      // 
+      // - `ignore`: Ignore.
+      // 
+      // - `dispose`: Playbook-based disposal.
       shared_ptr<string> disposalMethod_ {};
+      // The disposal ID.
       shared_ptr<string> disposeRecordId_ {};
+      // The entity name.
       shared_ptr<string> entityName_ {};
+      // The entity type. Valid values:
+      // 
+      // - `ip`: An IP address.
+      // 
+      // - `domain`: A domain.
+      // 
+      // - `process`: A process.
+      // 
+      // - `file`: A file.
+      // 
+      // - `host`: A host.
       shared_ptr<string> entityType_ {};
+      // The entity UUID.
       shared_ptr<string> entityUuid_ {};
+      // The playbook UUID.
       shared_ptr<string> playbookUuid_ {};
+      // The unique identifier (UUID) of the entry.
       shared_ptr<string> uuid_ {};
     };
 
@@ -200,13 +222,19 @@ namespace Models
 
 
   protected:
+    // A list of AI-powered automated analysis entities.
     shared_ptr<vector<ListAutoDisposeEntitiesResponseBody::AutoDecisionEntities>> autoDecisionEntities_ {};
+    // The current page number. The value must be greater than or equal to 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The maximum number of entries returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. An empty value indicates that all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

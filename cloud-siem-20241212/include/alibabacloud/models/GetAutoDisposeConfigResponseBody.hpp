@@ -69,7 +69,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether automatic response is enabled. Valid values:
+      // 
+      // - enabled: Enabled.
+      // 
+      // - disabled: Disabled.
       shared_ptr<string> autoDecisionStatus_ {};
+      // The code for the cloud product.
       shared_ptr<string> productCode_ {};
     };
 
@@ -92,8 +98,9 @@ namespace Models
 
 
   protected:
+    // The automatic response configuration.
     shared_ptr<GetAutoDisposeConfigResponseBody::AutoDisposeConfig> autoDisposeConfig_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

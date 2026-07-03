@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ticket for Simple Log Service.
     shared_ptr<string> logTicket_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

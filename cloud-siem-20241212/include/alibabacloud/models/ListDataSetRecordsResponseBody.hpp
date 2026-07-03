@@ -116,11 +116,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The dataset ID.
       shared_ptr<string> dataSetId_ {};
+      // The dataset name.
       shared_ptr<string> dataSetName_ {};
+      // The dataset record ID.
       shared_ptr<string> dataSetRecordId_ {};
+      // The dataset record value.
       shared_ptr<string> dataSetRecordValues_ {};
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -179,12 +185,19 @@ namespace Models
 
 
   protected:
+    // A list of dataset records.
     shared_ptr<vector<ListDataSetRecordsResponseBody::DataSetRecords>> dataSetRecords_ {};
+    // The maximum number of results to return per page for token-based pagination. Valid values: 1 to 100. Default: 50.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

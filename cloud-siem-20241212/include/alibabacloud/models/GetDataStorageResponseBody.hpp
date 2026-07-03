@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(LogProject, logProject_);
         DARABONBA_PTR_TO_JSON(NormalizationLogStores, normalizationLogStores_);
         DARABONBA_PTR_TO_JSON(NormalizationLogViews, normalizationLogViews_);
+        DARABONBA_PTR_TO_JSON(RecordLogStores, recordLogStores_);
         DARABONBA_PTR_TO_JSON(SasLogStores, sasLogStores_);
         DARABONBA_PTR_TO_JSON(UnusedLogStores, unusedLogStores_);
       };
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(LogProject, logProject_);
         DARABONBA_PTR_FROM_JSON(NormalizationLogStores, normalizationLogStores_);
         DARABONBA_PTR_FROM_JSON(NormalizationLogViews, normalizationLogViews_);
+        DARABONBA_PTR_FROM_JSON(RecordLogStores, recordLogStores_);
         DARABONBA_PTR_FROM_JSON(SasLogStores, sasLogStores_);
         DARABONBA_PTR_FROM_JSON(UnusedLogStores, unusedLogStores_);
       };
@@ -118,8 +120,11 @@ namespace Models
 
 
       protected:
+        // The Logstore name.
         shared_ptr<string> logStoreName_ {};
+        // The data storage duration.
         shared_ptr<int32_t> logStoreTtl_ {};
+        // The hot storage capacity used.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -243,16 +248,90 @@ namespace Models
 
 
       protected:
+        // The log code.
         shared_ptr<string> logCode_ {};
+        // The group to which the log belongs. Valid values:
+        // - host: host logs.
+        // - security: security logs.
         shared_ptr<string> logDeliveryGroup_ {};
+        // Indicates whether log delivery can be toggled. Log delivery cannot be enabled if the service is not purchased. Valid values:
+        // - allow: Allowed.
+        // - deny: Not allowed.
         shared_ptr<string> logDeliveryPermission_ {};
+        // The log delivery status. Valid values:
+        // - enable: log delivery is enabled.
+        // - disable: log delivery is disabled.
         shared_ptr<string> logDeliveryStatus_ {};
+        // The time when the log delivery was last modified.
         shared_ptr<string> logDeliveryUpdateTime_ {};
+        // The log name.
         shared_ptr<string> logName_ {};
+        // The default log query conditions for the log. When multiple logs are stored in the same Logstore, log query conditions are required to query individual logs.
         shared_ptr<string> logSearchConditions_ {};
+        // Indicates whether the Logstore where the log is stored exists. Valid values:
+        // - true: The Logstore exists.
+        // - false: The Logstore does not exist.
         shared_ptr<bool> logStoreExisted_ {};
+        // The name of the Logstore where the log is stored.
         shared_ptr<string> logStoreName_ {};
+        // The storage duration of the Logstore where the log is stored. Logs are stored for at least 30 days.
         shared_ptr<int32_t> logStoreTtl_ {};
+        // The hot storage capacity used.
+        shared_ptr<double> usedCapacity_ {};
+      };
+
+      class RecordLogStores : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RecordLogStores& obj) { 
+          DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
+          DARABONBA_PTR_TO_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_TO_JSON(UsedCapacity, usedCapacity_);
+        };
+        friend void from_json(const Darabonba::Json& j, RecordLogStores& obj) { 
+          DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
+          DARABONBA_PTR_FROM_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_FROM_JSON(UsedCapacity, usedCapacity_);
+        };
+        RecordLogStores() = default ;
+        RecordLogStores(const RecordLogStores &) = default ;
+        RecordLogStores(RecordLogStores &&) = default ;
+        RecordLogStores(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RecordLogStores() = default ;
+        RecordLogStores& operator=(const RecordLogStores &) = default ;
+        RecordLogStores& operator=(RecordLogStores &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->logStoreName_ == nullptr
+        && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
+        // logStoreName Field Functions 
+        bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
+        void deleteLogStoreName() { this->logStoreName_ = nullptr;};
+        inline string getLogStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
+        inline RecordLogStores& setLogStoreName(string logStoreName) { DARABONBA_PTR_SET_VALUE(logStoreName_, logStoreName) };
+
+
+        // logStoreTtl Field Functions 
+        bool hasLogStoreTtl() const { return this->logStoreTtl_ != nullptr;};
+        void deleteLogStoreTtl() { this->logStoreTtl_ = nullptr;};
+        inline int32_t getLogStoreTtl() const { DARABONBA_PTR_GET_DEFAULT(logStoreTtl_, 0) };
+        inline RecordLogStores& setLogStoreTtl(int32_t logStoreTtl) { DARABONBA_PTR_SET_VALUE(logStoreTtl_, logStoreTtl) };
+
+
+        // usedCapacity Field Functions 
+        bool hasUsedCapacity() const { return this->usedCapacity_ != nullptr;};
+        void deleteUsedCapacity() { this->usedCapacity_ = nullptr;};
+        inline double getUsedCapacity() const { DARABONBA_PTR_GET_DEFAULT(usedCapacity_, 0.0) };
+        inline RecordLogStores& setUsedCapacity(double usedCapacity) { DARABONBA_PTR_SET_VALUE(usedCapacity_, usedCapacity) };
+
+
+      protected:
+        // The Logstore name.
+        shared_ptr<string> logStoreName_ {};
+        // The time-to-live (TTL) of the Logstore.
+        shared_ptr<int32_t> logStoreTtl_ {};
+        // The used capacity of the Logstore.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -351,13 +430,23 @@ namespace Models
 
 
       protected:
+        // The log type of the normalized log.
         shared_ptr<string> activityName_ {};
+        // The category of the normalized log.
         shared_ptr<string> categoryName_ {};
+        // The number of times the normalized dataset is referenced in the threat analysis access center.
         shared_ptr<int32_t> detectionRuleReferenceCount_ {};
+        // The list of products that reference the normalized dataset in the threat analysis access center.
         shared_ptr<vector<string>> detectionRuleReferenceProductIds_ {};
+        // The query statement used to query the log type in the normalized dataset.
         shared_ptr<string> logSearchConditions_ {};
+        // The Logstore where threat analysis stores normalized logs.
         shared_ptr<string> logStoreName_ {};
+        // Indicates whether the normalized dataset exists. Valid values:
+        // - true: The normalized dataset exists.
+        // - false: The normalized dataset does not exist.
         shared_ptr<bool> logViewExisted_ {};
+        // The name of the normalized dataset.
         shared_ptr<string> logViewName_ {};
       };
 
@@ -408,14 +497,18 @@ namespace Models
 
 
       protected:
+        // The name of the Logstore that stores normalized data.
         shared_ptr<string> logStoreName_ {};
+        // The storage duration of normalized data.
         shared_ptr<int32_t> logStoreTtl_ {};
+        // The hot storage capacity used.
         shared_ptr<double> usedCapacity_ {};
       };
 
       virtual bool empty() const override { return this->coldStorageUsedCapacity_ == nullptr
         && this->dataStorageRegionId_ == nullptr && this->dataStorageRegionPermission_ == nullptr && this->dataStorageTotalCapacity_ == nullptr && this->dataStorageUsedCapacity_ == nullptr && this->dataStorageUsedCapacityDetail_ == nullptr
-        && this->logProject_ == nullptr && this->normalizationLogStores_ == nullptr && this->normalizationLogViews_ == nullptr && this->sasLogStores_ == nullptr && this->unusedLogStores_ == nullptr; };
+        && this->logProject_ == nullptr && this->normalizationLogStores_ == nullptr && this->normalizationLogViews_ == nullptr && this->recordLogStores_ == nullptr && this->sasLogStores_ == nullptr
+        && this->unusedLogStores_ == nullptr; };
       // coldStorageUsedCapacity Field Functions 
       bool hasColdStorageUsedCapacity() const { return this->coldStorageUsedCapacity_ != nullptr;};
       void deleteColdStorageUsedCapacity() { this->coldStorageUsedCapacity_ = nullptr;};
@@ -483,6 +576,15 @@ namespace Models
       inline Data& setNormalizationLogViews(vector<Data::NormalizationLogViews> && normalizationLogViews) { DARABONBA_PTR_SET_RVALUE(normalizationLogViews_, normalizationLogViews) };
 
 
+      // recordLogStores Field Functions 
+      bool hasRecordLogStores() const { return this->recordLogStores_ != nullptr;};
+      void deleteRecordLogStores() { this->recordLogStores_ = nullptr;};
+      inline const vector<Data::RecordLogStores> & getRecordLogStores() const { DARABONBA_PTR_GET_CONST(recordLogStores_, vector<Data::RecordLogStores>) };
+      inline vector<Data::RecordLogStores> getRecordLogStores() { DARABONBA_PTR_GET(recordLogStores_, vector<Data::RecordLogStores>) };
+      inline Data& setRecordLogStores(const vector<Data::RecordLogStores> & recordLogStores) { DARABONBA_PTR_SET_VALUE(recordLogStores_, recordLogStores) };
+      inline Data& setRecordLogStores(vector<Data::RecordLogStores> && recordLogStores) { DARABONBA_PTR_SET_RVALUE(recordLogStores_, recordLogStores) };
+
+
       // sasLogStores Field Functions 
       bool hasSasLogStores() const { return this->sasLogStores_ != nullptr;};
       void deleteSasLogStores() { this->sasLogStores_ = nullptr;};
@@ -502,16 +604,31 @@ namespace Models
 
 
     protected:
+      // The cold storage capacity used by user logs.
       shared_ptr<double> coldStorageUsedCapacity_ {};
+      // The storage region of user logs.
       shared_ptr<string> dataStorageRegionId_ {};
+      // Indicates whether the storage region can be modified. By default, the storage region cannot be modified. Contact your account manager to reset the region. The region can be reset only once. Valid values:
+      // - allow: The storage region can be modified.
+      // - deny: The storage region cannot be modified.
       shared_ptr<string> dataStorageRegionPermission_ {};
+      // The storage capacity purchased in the subscription scenario.
       shared_ptr<int64_t> dataStorageTotalCapacity_ {};
+      // The storage capacity used in user log management.
       shared_ptr<double> dataStorageUsedCapacity_ {};
+      // The storage usage details in log management.
       shared_ptr<string> dataStorageUsedCapacityDetail_ {};
+      // The name of the Simple Log Service project that stores user logs.
       shared_ptr<string> logProject_ {};
+      // The details of the Logstores for normalized data.
       shared_ptr<vector<Data::NormalizationLogStores>> normalizationLogStores_ {};
+      // The details of normalized datasets.
       shared_ptr<vector<Data::NormalizationLogViews>> normalizationLogViews_ {};
+      // The list of record Logstores.
+      shared_ptr<vector<Data::RecordLogStores>> recordLogStores_ {};
+      // The details of raw log storage in Security Center.
       shared_ptr<vector<Data::SasLogStores>> sasLogStores_ {};
+      // The list of legacy SIEM V1 Logstores.
       shared_ptr<vector<Data::UnusedLogStores>> unusedLogStores_ {};
     };
 
@@ -534,7 +651,9 @@ namespace Models
 
 
   protected:
+    // The returned details.
     shared_ptr<GetDataStorageResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

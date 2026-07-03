@@ -87,11 +87,25 @@ namespace Models
 
 
   protected:
+    // The list of data source template IDs.
     shared_ptr<vector<string>> dataSourceTemplateIds_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The region of the Data Management center for threat analysis. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

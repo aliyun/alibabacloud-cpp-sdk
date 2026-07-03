@@ -75,12 +75,27 @@ namespace Models
 
 
   protected:
+    // The ID of the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSetId_ {};
+    // A list of dataset record IDs in a JSON array format.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSetRecordIds_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region of the Data Management center for Threat Analysis. Select a region based on where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can specify this parameter to operate as the member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

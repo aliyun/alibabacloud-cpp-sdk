@@ -75,11 +75,29 @@ namespace Models
 
 
   protected:
+    // The log storage region.
+    // 
     // This parameter is required.
     shared_ptr<string> dataStorageRegionId_ {};
+    // The global switch for log delivery in Log Management. This parameter is not yet available. Valid values:
+    // 
+    // - enable: Enables global delivery.
+    // 
+    // - disable: Disables global delivery.
     shared_ptr<string> deliveryStatus_ {};
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region where the Data Management center for threat analysis is located. This region must be the same as the region where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: The assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: The assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can specify this parameter to switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

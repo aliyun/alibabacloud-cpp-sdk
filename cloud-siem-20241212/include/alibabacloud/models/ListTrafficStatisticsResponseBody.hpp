@@ -91,7 +91,9 @@ namespace Models
 
 
       protected:
+        // The statistic time.
         shared_ptr<int64_t> trafficStatisticTime_ {};
+        // The statistic value.
         shared_ptr<double> trafficStatisticValue_ {};
       };
 
@@ -114,7 +116,9 @@ namespace Models
 
 
     protected:
+      // The statistics information.
       shared_ptr<vector<TrafficStatistics::TrafficStatisticData>> trafficStatisticData_ {};
+      // The statistic target.
       shared_ptr<string> trafficStatisticTarget_ {};
     };
 
@@ -137,7 +141,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of traffic statistics.
     shared_ptr<vector<ListTrafficStatisticsResponseBody::TrafficStatistics>> trafficStatistics_ {};
   };
 

@@ -170,17 +170,37 @@ namespace Models
 
 
     protected:
+      // Indicates whether to automatically discover new users. Valid values:
+      // 
+      // - enabled: enabled.
+      // 
+      // - disabled: disabled.
       shared_ptr<string> autoScanNew_ {};
+      // The time when the template was created.
       shared_ptr<int64_t> createTime_ {};
+      // The source of the data. Valid values:
+      // 
+      // - center
+      // 
+      // - custom
       shared_ptr<string> dataSourceFrom_ {};
+      // Indicates whether to automatically discover new data sources.
       shared_ptr<bool> dataSourceRecognizeEnabled_ {};
+      // The data source recognizer.
       shared_ptr<string> dataSourceRecognizer_ {};
+      // The ID of the data source template.
       shared_ptr<string> dataSourceTemplateId_ {};
+      // The name of the data source template.
       shared_ptr<string> dataSourceTemplateName_ {};
+      // The rule for matching the name of the Simple Log Service project.
       shared_ptr<string> logProjectPattern_ {};
+      // The list of log storage region IDs.
       shared_ptr<vector<string>> logRegionIds_ {};
+      // The rule for matching the name of the Simple Log Service Logstore.
       shared_ptr<string> logStorePattern_ {};
+      // The list of user IDs for batch data ingestion.
       shared_ptr<vector<string>> logUserIds_ {};
+      // The time when the template was updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -217,9 +237,13 @@ namespace Models
 
 
   protected:
+    // The list of data source templates.
     shared_ptr<vector<ListDataSourceTemplatesResponseBody::DataSourceTemplates>> dataSourceTemplates_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

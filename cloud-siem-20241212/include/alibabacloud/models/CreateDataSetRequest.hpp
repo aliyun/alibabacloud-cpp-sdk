@@ -95,8 +95,37 @@ namespace Models
 
 
     protected:
+      // The automatic detection status. Valid values:
+      // 
+      // - enabled: enabled.
+      // 
+      // - disabled: disabled.
       shared_ptr<string> autoRecognizeStatus_ {};
+      // The type of IP address that the recognizer detects. Valid values:
+      // 
+      // - sas_vulnerability_scanner_ip: The IP address of the Security Center web vulnerability scanner.
+      // 
+      // - waf_back_source_ip: The back-to-origin IP address of Web Application Firewall (WAF).
+      // 
+      // - ddos_back_source_ip: The back-to-origin IP address of Anti-DDoS.
+      // 
+      // - esa_back_source_ip: The back-to-origin IP address of an Edge Security Acceleration (ESA) node.
+      // 
+      // - ecs_public_ip: The public IP address of an Elastic Compute Service (ECS) instance.
+      // 
+      // - slb_public_ip: The public IP address of a Server Load Balancer (SLB) instance.
+      // 
+      // - vpc_eip: An Elastic IP Address (EIP).
+      // 
+      // - cdn_back_source_ip: The back-to-origin IP address of a content delivery network (CDN).
+      // 
+      // - ga_back_source_ip: The back-to-origin IP address of Global Accelerator (GA).
       shared_ptr<string> ipWhitelistRecognizerType_ {};
+      // The detection scope. Valid values:
+      // 
+      // - current_account: the current account only.
+      // 
+      // - rd_accounts: all accounts in your resource directory.
       shared_ptr<string> recognizeScope_ {};
     };
 
@@ -176,18 +205,47 @@ namespace Models
 
 
   protected:
+    // The description of the dataset.
     shared_ptr<string> dataSetDescription_ {};
+    // The name of the unique key for the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSetFieldKeyName_ {};
+    // The name of the uploaded dataset file.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSetFileName_ {};
+    // The name of the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSetName_ {};
+    // The status of the dataset. Valid values:
+    // 
+    // - 0: deleted.
+    // 
+    // - 1: enabled.
     shared_ptr<int32_t> dataSetStatus_ {};
+    // The type of the dataset. Valid values:
+    // 
+    // - custom: custom.
+    // 
+    // - preset: predefined.
     shared_ptr<string> dataSetType_ {};
+    // The list of recognizers.
     shared_ptr<vector<CreateDataSetRequest::IpWhitelistRecognizers>> ipWhitelistRecognizers_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region of the Data Management center for threat analysis. Select a region based on where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member whose permissions are used to perform the operation. This parameter is used when an administrator acts on behalf of a member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

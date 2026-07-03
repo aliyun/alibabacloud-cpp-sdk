@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the detection rule.
     shared_ptr<string> detectionRuleId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

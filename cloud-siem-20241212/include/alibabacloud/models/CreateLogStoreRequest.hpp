@@ -94,12 +94,27 @@ namespace Models
 
 
   protected:
+    // The language of the response messages. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The name of the Simple Log Service project.
     shared_ptr<string> logProjectName_ {};
+    // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStoreName_ {};
+    // The user ID for data access.
     shared_ptr<int64_t> logUserId_ {};
+    // The region of the Data Management Center for threat analysis. Select a region for the Management Center based on the region of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can specify this parameter to switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

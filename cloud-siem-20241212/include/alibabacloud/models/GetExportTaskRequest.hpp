@@ -66,9 +66,21 @@ namespace Models
 
 
   protected:
+    // The ID of the export task.
     shared_ptr<int64_t> exportId_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region where the threat analysis data management center is deployed. Select a region based on your asset location. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member account. An administrator can use this parameter to operate as the specified member account.
     shared_ptr<int64_t> roleFor_ {};
   };
 

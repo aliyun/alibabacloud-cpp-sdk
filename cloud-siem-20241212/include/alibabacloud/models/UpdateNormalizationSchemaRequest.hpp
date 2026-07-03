@@ -163,13 +163,22 @@ namespace Models
 
 
       protected:
+        // The key description of the JSON-type normalization field.
         shared_ptr<string> normalizationFieldDescription_ {};
+        // The key example of the JSON-type normalization field.
         shared_ptr<string> normalizationFieldExample_ {};
+        // The key source of the JSON-type normalization field.
         shared_ptr<string> normalizationFieldFrom_ {};
+        // The key name of the JSON-type normalization field.
+        // 
         // This parameter is required.
         shared_ptr<string> normalizationFieldName_ {};
+        // Specifies whether the key of the JSON-type normalization field is required.
         shared_ptr<bool> normalizationFieldRequired_ {};
+        // Specifies whether the key of the JSON-type normalization field is tokenized.
         shared_ptr<bool> normalizationFieldTokenize_ {};
+        // The key type of the JSON-type normalization field. Valid values: text, long, double, and json.
+        // 
         // This parameter is required.
         shared_ptr<string> normalizationFieldType_ {};
       };
@@ -243,15 +252,26 @@ namespace Models
 
 
     protected:
+      // The normalization field description.
       shared_ptr<string> normalizationFieldDescription_ {};
+      // The normalization field example.
       shared_ptr<string> normalizationFieldExample_ {};
+      // The key source of the JSON-type normalization field.
       shared_ptr<string> normalizationFieldFrom_ {};
+      // Specifies whether indexes are created for all keys of the JSON-type normalization field.
       shared_ptr<bool> normalizationFieldJsonIndexAll_ {};
+      // The key list of the JSON-type normalization field.
       shared_ptr<vector<NormalizationFields::NormalizationFieldJsonKeys>> normalizationFieldJsonKeys_ {};
+      // The normalization field name.
+      // 
       // This parameter is required.
       shared_ptr<string> normalizationFieldName_ {};
+      // Specifies whether the normalization field is required.
       shared_ptr<bool> normalizationFieldRequired_ {};
+      // Specifies whether the normalization field is tokenized.
       shared_ptr<bool> normalizationFieldTokenize_ {};
+      // The normalization field type. Valid values: text, long, double, and json.
+      // 
       // This parameter is required.
       shared_ptr<string> normalizationFieldType_ {};
     };
@@ -318,16 +338,33 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The normalization fields.
     shared_ptr<vector<UpdateNormalizationSchemaRequest::NormalizationFields>> normalizationFields_ {};
+    // The normalization schema description.
     shared_ptr<string> normalizationSchemaDescription_ {};
+    // The normalization schema ID.
+    // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaId_ {};
+    // The normalization schema name.
+    // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaName_ {};
+    // The normalization schema type. Valid values:
+    // - log: Log.
+    // - entity: Entity.
+    // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaType_ {};
+    // The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Your assets reside outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

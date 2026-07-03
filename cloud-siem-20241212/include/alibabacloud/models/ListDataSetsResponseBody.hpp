@@ -139,9 +139,39 @@ namespace Models
 
 
       protected:
+        // The status of automatic detection. Valid values:
+        // 
+        // - enabled: enabled.
+        // 
+        // - disabled: disabled.
         shared_ptr<string> autoRecognizeStatus_ {};
+        // The type of IP address that the recognizer detects. Valid values:
+        // 
+        // - sas_vulnerability_scanner_ip: Security Center web vulnerability scanner IP address.
+        // 
+        // - waf_back_source_ip: Web Application Firewall back-to-origin IP address.
+        // 
+        // - ddos_back_source_ip: Anti-DDoS back-to-origin IP address.
+        // 
+        // - esa_back_source_ip: Edge Security Acceleration (ESA) back-to-origin node IP address.
+        // 
+        // - ecs_public_ip: Elastic Compute Service (ECS) public IP address.
+        // 
+        // - slb_public_ip: Server Load Balancer (SLB) public IP address.
+        // 
+        // - vpc_eip: Elastic IP Address (EIP).
+        // 
+        // - cdn_back_source_ip: Alibaba Cloud CDN back-to-origin IP address.
+        // 
+        // - ga_back_source_ip: Global Accelerator (GA) back-to-origin IP address.
         shared_ptr<string> ipWhitelistRecognizerType_ {};
+        // The detection scope. Valid values:
+        // 
+        // - current_account: current account only.
+        // 
+        // - rd_accounts: multiple accounts.
         shared_ptr<string> recognizeScope_ {};
+        // The time when the dataset was updated.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -201,9 +231,17 @@ namespace Models
 
 
       protected:
+        // The ID of the dataset.
         shared_ptr<string> dataSetId_ {};
+        // The ID of the rule or playbook that is associated with the dataset.
         shared_ptr<string> dataSetReferenceId_ {};
+        // The name of the rule or playbook that is associated with the dataset.
         shared_ptr<string> dataSetReferenceName_ {};
+        // The type of the service that is associated with the dataset. Valid values:
+        // 
+        // - custom_rule: custom rule.
+        // 
+        // - playbook: playbook.
         shared_ptr<string> dataSetReferenceType_ {};
       };
 
@@ -300,17 +338,37 @@ namespace Models
 
 
     protected:
+      // The time when the dataset was created.
       shared_ptr<int64_t> createTime_ {};
+      // The description of the dataset.
       shared_ptr<string> dataSetDescription_ {};
+      // The name of the unique key for the dataset.
       shared_ptr<string> dataSetFieldKeyName_ {};
+      // The names of the fields in the dataset.
       shared_ptr<string> dataSetFieldNames_ {};
+      // The name of the uploaded dataset file.
       shared_ptr<string> dataSetFileName_ {};
+      // The ID of the dataset.
       shared_ptr<string> dataSetId_ {};
+      // The name of the dataset.
       shared_ptr<string> dataSetName_ {};
+      // The dataset references.
       shared_ptr<vector<DataSets::DataSetReferences>> dataSetReferences_ {};
+      // The status of the dataset. Valid values:
+      // 
+      // - 0: deleted.
+      // 
+      // - 1: enabled.
       shared_ptr<int32_t> dataSetStatus_ {};
+      // The type of the dataset. Valid values:
+      // 
+      // - custom: custom.
+      // 
+      // - preset: predefined.
       shared_ptr<string> dataSetType_ {};
+      // The list of recognizers.
       shared_ptr<vector<DataSets::IpWhitelistRecognizers>> ipWhitelistRecognizers_ {};
+      // The time when the dataset was updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -369,12 +427,19 @@ namespace Models
 
 
   protected:
+    // The list of datasets.
     shared_ptr<vector<ListDataSetsResponseBody::DataSets>> dataSets_ {};
+    // The maximum number of results to return for the request. This parameter is used for queries that use NextToken. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

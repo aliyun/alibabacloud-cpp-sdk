@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Leave this parameter empty for the first request. To retrieve the next page, set this parameter to the NextToken value from the previous response.
     shared_ptr<string> nextToken_ {};
+    // The region where the Data Management center is located. Select a region based on where your assets are. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. An administrator can use this parameter to switch to the member\\"s view.
     shared_ptr<string> roleFor_ {};
   };
 

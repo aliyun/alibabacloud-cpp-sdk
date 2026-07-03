@@ -55,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NormalizationFieldTokenize, normalizationFieldTokenize_);
         DARABONBA_PTR_TO_JSON(NormalizationFieldType, normalizationFieldType_);
         DARABONBA_PTR_TO_JSON(NormalizationSchemaId, normalizationSchemaId_);
+        DARABONBA_PTR_TO_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, NormalizationFields& obj) { 
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NormalizationFieldTokenize, normalizationFieldTokenize_);
         DARABONBA_PTR_FROM_JSON(NormalizationFieldType, normalizationFieldType_);
         DARABONBA_PTR_FROM_JSON(NormalizationSchemaId, normalizationSchemaId_);
+        DARABONBA_PTR_FROM_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       NormalizationFields() = default ;
@@ -196,22 +198,32 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
+        // The description of the JSON-type normalization field key.
         shared_ptr<string> normalizationFieldDescription_ {};
+        // The example value of the JSON-type normalization field key.
         shared_ptr<string> normalizationFieldExample_ {};
+        // The source of the normalization field key of the JSON type.
         shared_ptr<string> normalizationFieldFrom_ {};
+        // The name of the JSON-type normalization field key.
         shared_ptr<string> normalizationFieldName_ {};
+        // Indicates whether the JSON-type normalization field key is required.
         shared_ptr<bool> normalizationFieldRequired_ {};
+        // Indicates whether the normalization field key is a built-in system field key.
         shared_ptr<bool> normalizationFieldReserved_ {};
+        // Indicates whether the JSON-type normalization field key is tokenized.
         shared_ptr<bool> normalizationFieldTokenize_ {};
+        // The type of the JSON-type normalization field key.
         shared_ptr<string> normalizationFieldType_ {};
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->normalizationCategoryId_ == nullptr && this->normalizationFieldDescription_ == nullptr && this->normalizationFieldExample_ == nullptr && this->normalizationFieldFrom_ == nullptr && this->normalizationFieldJsonIndexAll_ == nullptr
         && this->normalizationFieldJsonKeys_ == nullptr && this->normalizationFieldName_ == nullptr && this->normalizationFieldRequired_ == nullptr && this->normalizationFieldRequirement_ == nullptr && this->normalizationFieldReserved_ == nullptr
-        && this->normalizationFieldTokenize_ == nullptr && this->normalizationFieldType_ == nullptr && this->normalizationSchemaId_ == nullptr && this->updateTime_ == nullptr; };
+        && this->normalizationFieldTokenize_ == nullptr && this->normalizationFieldType_ == nullptr && this->normalizationSchemaId_ == nullptr && this->normalizationSecurityDomainId_ == nullptr && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -312,6 +324,13 @@ namespace Models
       inline NormalizationFields& setNormalizationSchemaId(string normalizationSchemaId) { DARABONBA_PTR_SET_VALUE(normalizationSchemaId_, normalizationSchemaId) };
 
 
+      // normalizationSecurityDomainId Field Functions 
+      bool hasNormalizationSecurityDomainId() const { return this->normalizationSecurityDomainId_ != nullptr;};
+      void deleteNormalizationSecurityDomainId() { this->normalizationSecurityDomainId_ = nullptr;};
+      inline string getNormalizationSecurityDomainId() const { DARABONBA_PTR_GET_DEFAULT(normalizationSecurityDomainId_, "") };
+      inline NormalizationFields& setNormalizationSecurityDomainId(string normalizationSecurityDomainId) { DARABONBA_PTR_SET_VALUE(normalizationSecurityDomainId_, normalizationSecurityDomainId) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -320,20 +339,39 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The ID of the normalization category.
       shared_ptr<string> normalizationCategoryId_ {};
+      // The description of the normalization field.
       shared_ptr<string> normalizationFieldDescription_ {};
+      // The example value of the normalization field.
       shared_ptr<string> normalizationFieldExample_ {};
+      // The source of the normalization field key of the JSON type.
       shared_ptr<string> normalizationFieldFrom_ {};
+      // Indicates whether indexes are created for all keys of the JSON-type normalization field.
       shared_ptr<bool> normalizationFieldJsonIndexAll_ {};
+      // The list of keys for the JSON-type normalization field.
       shared_ptr<vector<NormalizationFields::NormalizationFieldJsonKeys>> normalizationFieldJsonKeys_ {};
+      // The name of the normalization field.
       shared_ptr<string> normalizationFieldName_ {};
+      // Indicates whether the normalization field key is required.
       shared_ptr<bool> normalizationFieldRequired_ {};
+      // Indicates whether the normalization field is required.
       shared_ptr<bool> normalizationFieldRequirement_ {};
+      // Indicates whether the normalization field is reserved.
       shared_ptr<bool> normalizationFieldReserved_ {};
+      // Indicates whether the normalization field is tokenized.
       shared_ptr<bool> normalizationFieldTokenize_ {};
+      // The type of the normalization field. Valid values:
+      // - varchar
+      // - bigint
+      // - double.
       shared_ptr<string> normalizationFieldType_ {};
+      // The ID of the normalization schema.
       shared_ptr<string> normalizationSchemaId_ {};
+      shared_ptr<string> normalizationSecurityDomainId_ {};
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -377,10 +415,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // Specifies whether a next query token exists. You do not need to specify this parameter for the first query or if no next query exists. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
+    // The list of normalization fields.
     shared_ptr<vector<ListNormalizationFieldsResponseBody::NormalizationFields>> normalizationFields_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

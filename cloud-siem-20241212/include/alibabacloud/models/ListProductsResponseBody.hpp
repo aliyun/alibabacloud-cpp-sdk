@@ -186,19 +186,41 @@ namespace Models
 
 
     protected:
+      // The number of abnormal data ingestion configurations.
       shared_ptr<int32_t> abnormalDataIngestionCount_ {};
+      // The activation time.
       shared_ptr<int64_t> activeTime_ {};
+      // Indicates whether data collection configurations can be added.
       shared_ptr<bool> allowAddDataIngestion_ {};
+      // The time when the product was created.
       shared_ptr<int64_t> createTime_ {};
+      // The data ingestion status. Valid values:
+      // 
+      // - true: enabled.
+      // 
+      // - false: disabled.
       shared_ptr<bool> dataIngestionStatus_ {};
+      // The number of enabled data ingestion configurations.
       shared_ptr<int32_t> enabledDataIngestionCount_ {};
+      // The product alias.
       shared_ptr<string> productAlias_ {};
+      // The product ID.
       shared_ptr<string> productId_ {};
+      // This parameter is deprecated.
       shared_ptr<string> productName_ {};
+      // The product type. Valid values:
+      // 
+      // - preset
+      // 
+      // - custom
       shared_ptr<string> productType_ {};
+      // The total number of data ingestion configurations.
       shared_ptr<int32_t> totalDataIngestionCount_ {};
+      // The time when the product was updated.
       shared_ptr<int64_t> updateTime_ {};
+      // The vendor ID.
       shared_ptr<string> vendorId_ {};
+      // The vendor name.
       shared_ptr<string> vendorName_ {};
     };
 
@@ -242,10 +264,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. If the value of this parameter is not empty, more results are available. You can use this token in the next request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The list of products.
     shared_ptr<vector<ListProductsResponseBody::Products>> products_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

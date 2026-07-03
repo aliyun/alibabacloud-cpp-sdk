@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The normalization rule ID.
     shared_ptr<string> normalizationRuleId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

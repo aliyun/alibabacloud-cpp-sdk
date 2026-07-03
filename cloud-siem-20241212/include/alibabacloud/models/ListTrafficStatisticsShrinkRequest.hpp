@@ -121,15 +121,45 @@ namespace Models
 
 
   protected:
+    // The language of the response messages. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // A list of user IDs for batch data ingestion.
     shared_ptr<string> logUserIdsShrink_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The region of the Data Management center for threat analysis. Select a region based on the location of your asset. Valid values:
+    // 
+    // - cn-hangzhou: Your asset is in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your asset is outside China.
     shared_ptr<string> regionId_ {};
+    // The region.
     shared_ptr<int32_t> regionTag_ {};
+    // The user ID of a member. This parameter is used by an administrator to switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
+    // The statistical period.
     shared_ptr<string> trafficStatisticPeriod_ {};
+    // The statistic granularity. Valid values:
+    // 
+    // - day: day. This is the default value.
+    // 
+    // - hour: hour.
     shared_ptr<string> trafficStatisticPeriodType_ {};
+    // The statistic dimension. Valid values:
+    // 
+    // - Region
+    // 
+    // - Product
+    // 
+    // - DataIngetion
+    // 
+    // - logUserId
     shared_ptr<string> trafficStatisticType_ {};
+    // The type of the log traffic.
     shared_ptr<string> trafficType_ {};
   };
 

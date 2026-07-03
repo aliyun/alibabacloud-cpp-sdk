@@ -169,7 +169,9 @@ namespace Models
 
 
       protected:
+        // The configuration of the input parameters for invoking the playbook.
         shared_ptr<string> config_ {};
+        // The flow configuration of the playbook.
         shared_ptr<string> flow_ {};
       };
 
@@ -241,8 +243,11 @@ namespace Models
 
 
         protected:
+          // The mapped field.
           shared_ptr<string> mappingFieldName_ {};
+          // The standard entity field.
           shared_ptr<string> normalizationFieldName_ {};
+          // The data type of the standard entity field.
           shared_ptr<string> normalizationFieldType_ {};
         };
 
@@ -265,7 +270,9 @@ namespace Models
 
 
       protected:
+        // The entity mapping configuration.
         shared_ptr<vector<EntityMappings::NormalizationFieldMappings>> normalizationFieldMappings_ {};
+        // The entity type ID.
         shared_ptr<string> normalizationSchemaId_ {};
       };
 
@@ -534,41 +541,118 @@ namespace Models
 
 
     protected:
+      // The ATT\\&CK technique of the alert.
       shared_ptr<string> alertAttCk_ {};
       shared_ptr<string> alertAttCkMapping_ {};
+      // The alert description. You can use $$ to reference the output fields of the query.
       shared_ptr<string> alertDescription_ {};
+      // The threat level of the alert. Valid values:
+      // 
+      // - 5: critical.
+      // 
+      // - 4: important.
+      // 
+      // - 3: medium.
+      // 
+      // - 2: low.
+      // 
+      // - 1: informational.
       shared_ptr<string> alertLevel_ {};
       shared_ptr<string> alertLevelMapping_ {};
+      // The alert name. You can use $$ to reference the output fields of the query.
       shared_ptr<string> alertName_ {};
+      // The ID of the alert template for the detection rule. Valid values:
+      // 
+      // - ALERT_ACTIVITY: other alerts.
+      // 
+      // - EDR_ALERT_ACTIVITY: Endpoint Detection and Response (EDR) alerts.
+      // 
+      // - FIREWALL_ALERT_ACTIVITY: firewall alerts.
+      // 
+      // - WAF_ALERT_ACTIVITY: Web Application Firewall (WAF) alerts.
       shared_ptr<string> alertSchemaId_ {};
+      // The alert tactic phase.
       shared_ptr<string> alertTacticId_ {};
+      // The number of alert thresholds.
       shared_ptr<int32_t> alertThresholdCount_ {};
+      // The list of alert threshold fields, separated by commas.
       shared_ptr<string> alertThresholdGroup_ {};
+      // The length of the alert threshold period.
       shared_ptr<string> alertThresholdPeriod_ {};
+      // The alert type.
       shared_ptr<string> alertType_ {};
       shared_ptr<string> alertTypeMapping_ {};
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The content of the detection rule expression.
       shared_ptr<string> detectionExpressionContent_ {};
+      // The type of the detection rule expression.
       shared_ptr<string> detectionExpressionType_ {};
+      // The description of the detection rule.
       shared_ptr<string> detectionRuleDescription_ {};
+      // The ID of the detection rule.
       shared_ptr<string> detectionRuleId_ {};
+      // The name of the detection rule.
       shared_ptr<string> detectionRuleName_ {};
+      // The status of the detection rule. Valid values:
+      // 
+      // - enabled: The rule is enabled.
+      // 
+      // - disabled: The rule is disabled.
+      // 
+      // - testing: The rule is being tested.
       shared_ptr<string> detectionRuleStatus_ {};
+      // The type of the detection rule. Valid values:
+      // 
+      // - preset: a built-in detection rule.
+      // 
+      // - custom: a custom detection rule.
+      // 
+      // - custom_template: a rule template.
       shared_ptr<string> detectionRuleType_ {};
+      // The entity mapping configuration.
       shared_ptr<vector<DetectionRules::EntityMappings>> entityMappings_ {};
+      // The configuration of the event aggregation period.
       shared_ptr<string> incidentAggregationExpression_ {};
+      // The event aggregation type. Valid values:
+      // 
+      // - none: No events are generated.
+      // 
+      // - graph_compute: graph computing (supported by predefined rules).
+      // 
+      // - expert: expert rule.
+      // 
+      // - passthrough: alert passthrough (one-to-one).
+      // 
+      // - window: aggregation of similar alerts (by window).
       shared_ptr<string> incidentAggregationType_ {};
+      // The ID of the log normalization category.
       shared_ptr<string> logCategoryId_ {};
+      // The ID of the log normalization schema.
       shared_ptr<string> logSchemaId_ {};
+      // The configuration of the playbook.
       shared_ptr<DetectionRules::Playbook> playbook_ {};
+      // The custom parameters of the playbook.
       shared_ptr<string> playbookParameters_ {};
+      // The UUID of the playbook.
       shared_ptr<string> playbookUuid_ {};
+      // The start time of the scheduling. This is a 13-digit timestamp.
       shared_ptr<int64_t> scheduleBeginTime_ {};
+      // The cron expression for scheduling. This parameter is required when ScheduleType is set to cron.
       shared_ptr<string> scheduleExpression_ {};
+      // The maximum number of retries after a timeout. The value can be from 1 to 100.
       shared_ptr<int32_t> scheduleMaxRetries_ {};
+      // The maximum timeout period, in seconds. The value can be from 60 to 1800.
       shared_ptr<int32_t> scheduleMaxTimeout_ {};
+      // The scheduling type. Valid values:
+      // 
+      // - fixed_rate: fixed interval
+      // 
+      // - cron: cron expression
       shared_ptr<string> scheduleType_ {};
+      // The length of the scheduling window.
       shared_ptr<string> scheduleWindow_ {};
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -627,12 +711,19 @@ namespace Models
 
 
   protected:
+    // The list of detection rules.
     shared_ptr<vector<ListDetectionRulesResponseBody::DetectionRules>> detectionRules_ {};
+    // The maximum number of data entries to read.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The pagination parameter. This specifies the current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The pagination parameter. This specifies the number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

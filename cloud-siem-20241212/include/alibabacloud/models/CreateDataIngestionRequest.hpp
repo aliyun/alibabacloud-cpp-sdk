@@ -167,20 +167,51 @@ namespace Models
 
 
   protected:
+    // The number of associated security capabilities.
     shared_ptr<int32_t> capacityCount_ {};
+    // The data ingestion mode. Valid values:
+    // 
+    // - realtime
+    // 
+    // - scan
     shared_ptr<string> dataIngestionMode_ {};
+    // The error code for the data ingestion status.
     shared_ptr<string> dataIngestionStateCode_ {};
+    // The data ingestion type. Valid values:
+    // 
+    // - preset
+    // 
+    // - custom
     shared_ptr<string> dataIngestionType_ {};
+    // Specifies whether the data source can be edited.
     shared_ptr<bool> dataSourceEditable_ {};
+    // The ID of the data source.
     shared_ptr<string> dataSourceId_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // Specifies whether the normalization rule can be edited.
     shared_ptr<bool> normalizationRuleEditable_ {};
+    // The ID of the normalization rule.
     shared_ptr<string> normalizationRuleId_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The region where the Data Management hub for threat analysis is located. Select a region for the management hub based on the region of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can use this parameter to assume the permissions of the specified member.
     shared_ptr<int64_t> roleFor_ {};
+    // The ID of the data source for the scan mode.
     shared_ptr<string> scanDataSourceId_ {};
+    // The ID of the stream job.
     shared_ptr<string> streamJobId_ {};
+    // The update time.
     shared_ptr<int64_t> updateTime_ {};
   };
 

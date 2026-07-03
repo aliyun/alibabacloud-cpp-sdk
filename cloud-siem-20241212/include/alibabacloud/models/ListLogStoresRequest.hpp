@@ -103,13 +103,29 @@ namespace Models
 
 
   protected:
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The name of the Simple Log Service project.
     shared_ptr<string> logProjectName_ {};
+    // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
+    // The ID of the user who ingests the data.
     shared_ptr<int64_t> logUserId_ {};
+    // The maximum number of entries to return on this call.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query. You do not need to specify this parameter for the first query. If a subsequent query is required, set the value to the NextToken value that is returned from the previous API call.
     shared_ptr<string> nextToken_ {};
+    // The region of the Data Management center. Select the region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member whose permissions are assumed by the administrator.
     shared_ptr<int64_t> roleFor_ {};
   };
 

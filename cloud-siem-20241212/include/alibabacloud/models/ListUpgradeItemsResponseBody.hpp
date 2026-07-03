@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // The ID of the upgrade item.
       shared_ptr<string> upgradeItemId_ {};
     };
 
@@ -109,10 +110,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. If the value is not empty, more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of upgrade items.
     shared_ptr<vector<ListUpgradeItemsResponseBody::UpgradeItems>> upgradeItems_ {};
   };
 

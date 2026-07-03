@@ -103,13 +103,27 @@ namespace Models
 
 
   protected:
+    // The status of the task. Valid values:
+    // 
+    // - success: The task is successful.
+    // 
+    // - exporting: The task is in progress.
     shared_ptr<string> exportStatus_ {};
+    // The type of the export task. Valid value:
+    // 
+    // - incident_list: event list.
     shared_ptr<string> exportType_ {};
+    // The name of the file.
     shared_ptr<string> fileName_ {};
+    // The time when the task was created.
     shared_ptr<string> gmtCreate_ {};
+    // The ID of the export task.
     shared_ptr<int64_t> id_ {};
+    // The download link for the exported Excel file.
     shared_ptr<string> link_ {};
+    // The progress of the export task.
     shared_ptr<int32_t> progress_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

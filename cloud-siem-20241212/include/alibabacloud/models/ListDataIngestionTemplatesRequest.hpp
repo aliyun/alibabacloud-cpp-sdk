@@ -103,13 +103,37 @@ namespace Models
 
 
   protected:
+    // The status of the data ingestion template. Valid values:
+    // 
+    // - pending
+    // 
+    // - running
+    // 
+    // - success
+    // 
+    // - failed
     shared_ptr<string> dataIngestionTemplateStatus_ {};
+    // A list of data source template IDs.
     shared_ptr<string> dataSourceTemplateIds_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The region where the Data Management center of threat analysis is located. You must select a region based on the region where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member whose perspective you want to use. This parameter is available only for administrators.
     shared_ptr<int64_t> roleFor_ {};
   };
 

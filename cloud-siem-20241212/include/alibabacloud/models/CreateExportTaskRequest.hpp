@@ -75,10 +75,25 @@ namespace Models
 
 
   protected:
+    // The parameters for the export task. The value is a JSON string that is generated based on the query conditions.
     shared_ptr<string> exportTaskParameter_ {};
+    // The type of data to export. Valid values:
+    // 
+    // - incident_list: event list.
     shared_ptr<string> exportTaskType_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region of the Data Management center. Select a region based on where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: The Chinese mainland.
+    // 
+    // - ap-southeast-1: Regions outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can use this parameter to switch to the perspective of a member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

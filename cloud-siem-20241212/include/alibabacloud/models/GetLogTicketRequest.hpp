@@ -66,9 +66,21 @@ namespace Models
 
 
   protected:
+    // The language of the response messages. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The user ID for data access.
     shared_ptr<int64_t> logUserId_ {};
+    // The region of the Data Management hub for threat analysis. Select the region based on the location of your asset. Valid values:
+    // 
+    // - cn-hangzhou: The asset is in the Chinese mainland.
+    // 
+    // - ap-southeast-1: The asset is in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. This parameter lets an administrator switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

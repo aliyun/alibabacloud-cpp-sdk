@@ -133,16 +133,39 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically discover new users.
+    // 
+    // - enabled: Enabled.
+    // 
+    // - disabled: Disabled.
     shared_ptr<string> autoScanNew_ {};
+    // Specifies whether to automatically discover new data sources.
     shared_ptr<bool> dataSourceRecognizeEnabled_ {};
+    // The ID of the data source template.
     shared_ptr<string> dataSourceTemplateId_ {};
+    // The name of the data source template.
     shared_ptr<string> dataSourceTemplateName_ {};
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The matching rule for the names of Simple Log Service projects.
     shared_ptr<string> logProjectPattern_ {};
+    // The list of IDs of log storage regions.
     shared_ptr<string> logRegionIds_ {};
+    // The matching rule for the names of Simple Log Service Logstores.
     shared_ptr<string> logStorePattern_ {};
+    // The list of user IDs for batch data access.
     shared_ptr<vector<string>> logUserIds_ {};
+    // The region where the Management Hub of threat analysis is located. Select a region based on the region where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: Assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Assets are outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. This parameter lets an administrator switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

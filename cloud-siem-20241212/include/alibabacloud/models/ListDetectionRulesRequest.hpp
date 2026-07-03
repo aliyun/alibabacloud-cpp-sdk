@@ -235,27 +235,91 @@ namespace Models
 
 
   protected:
+    // The ATT\\&CK technique of the alert.
     shared_ptr<string> alertAttCk_ {};
+    // The threat level of the alert. Valid values:
+    // 
+    // - 5: critical.
+    // 
+    // - 4: important.
+    // 
+    // - 3: medium.
+    // 
+    // - 2: low.
+    // 
+    // - 1: informational.
     shared_ptr<string> alertLevel_ {};
+    // The alert tactic phase.
     shared_ptr<string> alertTacticId_ {};
+    // The alert type.
     shared_ptr<string> alertType_ {};
+    // The type of the detection rule expression.
     shared_ptr<string> detectionExpressionType_ {};
+    // The ID of the detection rule.
     shared_ptr<string> detectionRuleId_ {};
+    // The list of detection rule IDs.
     shared_ptr<vector<string>> detectionRuleIds_ {};
+    // The name of the detection rule.
     shared_ptr<string> detectionRuleName_ {};
+    // The status of the detection rule.
     shared_ptr<string> detectionRuleStatus_ {};
+    // The type of the detection rule. Valid values:
+    // 
+    // - preset: a built-in detection rule.
+    // 
+    // - custom: a custom detection rule.
+    // 
+    // - custom_template: a rule template.
     shared_ptr<string> detectionRuleType_ {};
+    // The event aggregation type. Valid values:
+    // 
+    // - none: No events are generated.
+    // 
+    // - graph_compute: graph computing (supported by predefined rules).
+    // 
+    // - expert: expert rule.
+    // 
+    // - passthrough: alert passthrough (one-to-one).
+    // 
+    // - window: aggregation of similar alerts (by window).
     shared_ptr<string> incidentAggregationType_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The ID of the log normalization category.
     shared_ptr<string> logCategoryId_ {};
+    // The ID of the log normalization schema.
     shared_ptr<string> logSchemaId_ {};
+    // The maximum number of data entries to read.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The sort order. Valid values:
+    // 
+    // - **asc**: ascending order. This is the default value.
+    // 
+    // - **desc**: descending order.
     shared_ptr<string> orderDirection_ {};
+    // The field to sort by. Valid values:
+    // 
+    // - GmtCreate: the creation time.
+    // 
+    // - GmtModified: the update time.
     shared_ptr<string> orderFieldName_ {};
+    // The pagination parameter. This specifies the current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The pagination parameter. This specifies the number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region where the Data Management center of threat analysis is located. Select a region based on the region where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID that the administrator uses to switch to the perspective of another member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

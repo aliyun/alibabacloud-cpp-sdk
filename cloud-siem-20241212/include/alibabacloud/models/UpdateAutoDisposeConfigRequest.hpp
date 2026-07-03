@@ -57,10 +57,24 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable auto decision. Valid values:
+    // 
+    // - `enabled`: Enables auto decision.
+    // 
+    // - `disabled`: Disables auto decision.
+    // 
     // This parameter is required.
     shared_ptr<string> autoDecisionStatus_ {};
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
+    // 
     // This parameter is required.
     shared_ptr<string> lang_ {};
+    // The code for the cloud product.
+    // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
   };

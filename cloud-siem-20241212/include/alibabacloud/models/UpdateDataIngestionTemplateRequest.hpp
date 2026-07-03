@@ -94,12 +94,31 @@ namespace Models
 
 
   protected:
+    // The status of data ingestion. Valid values:
+    // 
+    // - enabled: Enabled.
+    // 
+    // - disabled: Disabled.
     shared_ptr<string> dataIngestionStatus_ {};
+    // The ID of the data ingestion template.
     shared_ptr<string> dataIngestionTemplateId_ {};
+    // The name of the data source template.
     shared_ptr<string> dataIngestionTemplateName_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The ID of the normalization rule.
     shared_ptr<string> normalizationRuleId_ {};
+    // The region where the Data Management center for threat analysis is located. Select a region for the management center based on the region of your asset. Valid values:
+    // 
+    // - cn-hangzhou: The asset is in the Chinese mainland.
+    // 
+    // - ap-southeast-1: The asset is outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. This parameter is used by an administrator to switch to the perspective of the member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

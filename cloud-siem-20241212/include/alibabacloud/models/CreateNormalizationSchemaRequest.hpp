@@ -16,26 +16,34 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateNormalizationSchemaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(NormalizationCategoryId, normalizationCategoryId_);
+      DARABONBA_PTR_TO_JSON(NormalizationFieldSource, normalizationFieldSource_);
       DARABONBA_PTR_TO_JSON(NormalizationFields, normalizationFields_);
       DARABONBA_PTR_TO_JSON(NormalizationSchemaDescription, normalizationSchemaDescription_);
       DARABONBA_PTR_TO_JSON(NormalizationSchemaId, normalizationSchemaId_);
       DARABONBA_PTR_TO_JSON(NormalizationSchemaName, normalizationSchemaName_);
       DARABONBA_PTR_TO_JSON(NormalizationSchemaType, normalizationSchemaType_);
+      DARABONBA_PTR_TO_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
+      DARABONBA_PTR_TO_JSON(ProductId, productId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_TO_JSON(TargetLogStore, targetLogStore_);
+      DARABONBA_PTR_TO_JSON(VendorId, vendorId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNormalizationSchemaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(NormalizationCategoryId, normalizationCategoryId_);
+      DARABONBA_PTR_FROM_JSON(NormalizationFieldSource, normalizationFieldSource_);
       DARABONBA_PTR_FROM_JSON(NormalizationFields, normalizationFields_);
       DARABONBA_PTR_FROM_JSON(NormalizationSchemaDescription, normalizationSchemaDescription_);
       DARABONBA_PTR_FROM_JSON(NormalizationSchemaId, normalizationSchemaId_);
       DARABONBA_PTR_FROM_JSON(NormalizationSchemaName, normalizationSchemaName_);
       DARABONBA_PTR_FROM_JSON(NormalizationSchemaType, normalizationSchemaType_);
+      DARABONBA_PTR_FROM_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
+      DARABONBA_PTR_FROM_JSON(ProductId, productId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_FROM_JSON(TargetLogStore, targetLogStore_);
+      DARABONBA_PTR_FROM_JSON(VendorId, vendorId_);
     };
     CreateNormalizationSchemaRequest() = default ;
     CreateNormalizationSchemaRequest(const CreateNormalizationSchemaRequest &) = default ;
@@ -171,13 +179,22 @@ namespace Models
 
 
       protected:
+        // The description of the key for a normalization field of the json type.
         shared_ptr<string> normalizationFieldDescription_ {};
+        // An example of the key for a normalization field of the json type.
         shared_ptr<string> normalizationFieldExample_ {};
+        // The source of the key for a normalization field of the json type.
         shared_ptr<string> normalizationFieldFrom_ {};
+        // The name of the key for a normalization field of the json type.
+        // 
         // This parameter is required.
         shared_ptr<string> normalizationFieldName_ {};
+        // Indicates whether the key for a normalization field of the json type is required.
         shared_ptr<bool> normalizationFieldRequired_ {};
+        // Indicates whether to tokenize the key for a normalization field of the json type.
         shared_ptr<bool> normalizationFieldTokenize_ {};
+        // The type of the key for a normalization field of the json type. Supported types: text, long, double, and json.
+        // 
         // This parameter is required.
         shared_ptr<string> normalizationFieldType_ {};
       };
@@ -265,24 +282,38 @@ namespace Models
 
 
     protected:
+      // The description of the normalization field.
       shared_ptr<string> normalizationFieldDescription_ {};
+      // An example of the normalization field.
       shared_ptr<string> normalizationFieldExample_ {};
+      // The source of the key for a normalization field of the json type.
       shared_ptr<string> normalizationFieldFrom_ {};
+      // Indicates whether to create an index for all keys of a json type normalization field.
       shared_ptr<bool> normalizationFieldJsonIndexAll_ {};
+      // The list of keys for a normalization field of the json type.
       shared_ptr<vector<NormalizationFields::NormalizationFieldJsonKeys>> normalizationFieldJsonKeys_ {};
+      // The name of the normalization field.
+      // 
       // This parameter is required.
       shared_ptr<string> normalizationFieldName_ {};
+      // Indicates whether the normalization field is required.
       shared_ptr<bool> normalizationFieldRequired_ {};
+      // Indicates whether the normalization field is required.
       shared_ptr<bool> normalizationFieldRequirement_ {};
+      // Indicates whether the normalization field is reserved.
       shared_ptr<bool> normalizationFieldReserved_ {};
+      // Indicates whether to tokenize the normalization field.
       shared_ptr<bool> normalizationFieldTokenize_ {};
+      // The type of the normalization field. Supported types: text, long, double, and json.
+      // 
       // This parameter is required.
       shared_ptr<string> normalizationFieldType_ {};
     };
 
     virtual bool empty() const override { return this->lang_ == nullptr
-        && this->normalizationCategoryId_ == nullptr && this->normalizationFields_ == nullptr && this->normalizationSchemaDescription_ == nullptr && this->normalizationSchemaId_ == nullptr && this->normalizationSchemaName_ == nullptr
-        && this->normalizationSchemaType_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->targetLogStore_ == nullptr; };
+        && this->normalizationCategoryId_ == nullptr && this->normalizationFieldSource_ == nullptr && this->normalizationFields_ == nullptr && this->normalizationSchemaDescription_ == nullptr && this->normalizationSchemaId_ == nullptr
+        && this->normalizationSchemaName_ == nullptr && this->normalizationSchemaType_ == nullptr && this->normalizationSecurityDomainId_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr
+        && this->roleFor_ == nullptr && this->targetLogStore_ == nullptr && this->vendorId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -295,6 +326,13 @@ namespace Models
     void deleteNormalizationCategoryId() { this->normalizationCategoryId_ = nullptr;};
     inline string getNormalizationCategoryId() const { DARABONBA_PTR_GET_DEFAULT(normalizationCategoryId_, "") };
     inline CreateNormalizationSchemaRequest& setNormalizationCategoryId(string normalizationCategoryId) { DARABONBA_PTR_SET_VALUE(normalizationCategoryId_, normalizationCategoryId) };
+
+
+    // normalizationFieldSource Field Functions 
+    bool hasNormalizationFieldSource() const { return this->normalizationFieldSource_ != nullptr;};
+    void deleteNormalizationFieldSource() { this->normalizationFieldSource_ = nullptr;};
+    inline string getNormalizationFieldSource() const { DARABONBA_PTR_GET_DEFAULT(normalizationFieldSource_, "") };
+    inline CreateNormalizationSchemaRequest& setNormalizationFieldSource(string normalizationFieldSource) { DARABONBA_PTR_SET_VALUE(normalizationFieldSource_, normalizationFieldSource) };
 
 
     // normalizationFields Field Functions 
@@ -334,6 +372,20 @@ namespace Models
     inline CreateNormalizationSchemaRequest& setNormalizationSchemaType(string normalizationSchemaType) { DARABONBA_PTR_SET_VALUE(normalizationSchemaType_, normalizationSchemaType) };
 
 
+    // normalizationSecurityDomainId Field Functions 
+    bool hasNormalizationSecurityDomainId() const { return this->normalizationSecurityDomainId_ != nullptr;};
+    void deleteNormalizationSecurityDomainId() { this->normalizationSecurityDomainId_ = nullptr;};
+    inline string getNormalizationSecurityDomainId() const { DARABONBA_PTR_GET_DEFAULT(normalizationSecurityDomainId_, "") };
+    inline CreateNormalizationSchemaRequest& setNormalizationSecurityDomainId(string normalizationSecurityDomainId) { DARABONBA_PTR_SET_VALUE(normalizationSecurityDomainId_, normalizationSecurityDomainId) };
+
+
+    // productId Field Functions 
+    bool hasProductId() const { return this->productId_ != nullptr;};
+    void deleteProductId() { this->productId_ = nullptr;};
+    inline string getProductId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
+    inline CreateNormalizationSchemaRequest& setProductId(string productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -355,22 +407,58 @@ namespace Models
     inline CreateNormalizationSchemaRequest& setTargetLogStore(string targetLogStore) { DARABONBA_PTR_SET_VALUE(targetLogStore_, targetLogStore) };
 
 
+    // vendorId Field Functions 
+    bool hasVendorId() const { return this->vendorId_ != nullptr;};
+    void deleteVendorId() { this->vendorId_ = nullptr;};
+    inline string getVendorId() const { DARABONBA_PTR_GET_DEFAULT(vendorId_, "") };
+    inline CreateNormalizationSchemaRequest& setVendorId(string vendorId) { DARABONBA_PTR_SET_VALUE(vendorId_, vendorId) };
+
+
   protected:
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // This parameter is required.
+    // The ID of the normalization classification.
     shared_ptr<string> normalizationCategoryId_ {};
+    shared_ptr<string> normalizationFieldSource_ {};
+    // The normalization fields.
     shared_ptr<vector<CreateNormalizationSchemaRequest::NormalizationFields>> normalizationFields_ {};
+    // The description of the normalization structure.
     shared_ptr<string> normalizationSchemaDescription_ {};
+    // The ID of the normalization structure.
+    // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaId_ {};
+    // The name of the normalization structure.
+    // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaName_ {};
+    // The type of the normalization structure. Valid values:
+    // 
+    // - log: a log
+    // 
+    // - entity: an entity
+    // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaType_ {};
+    shared_ptr<string> normalizationSecurityDomainId_ {};
+    shared_ptr<string> productId_ {};
+    // The region where the Data Management center for threat analysis is located. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: for assets in the Chinese mainland and China (Hong Kong)
+    // 
+    // - ap-southeast-1: for assets in regions outside China
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can use this ID to switch to the member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
+    // The Simple Log Service Logstore.
+    // 
     // This parameter is required.
     shared_ptr<string> targetLogStore_ {};
+    shared_ptr<string> vendorId_ {};
   };
 
   } // namespace Models

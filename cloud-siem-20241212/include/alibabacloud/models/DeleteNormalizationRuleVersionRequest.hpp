@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The ID of the normalization rule.
     shared_ptr<string> normalizationRuleId_ {};
+    // The version of the normalization rule.
     shared_ptr<int32_t> normalizationRuleVersion_ {};
+    // The region of the Data Management center. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. An administrator can specify this parameter to switch to the member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
   };
 

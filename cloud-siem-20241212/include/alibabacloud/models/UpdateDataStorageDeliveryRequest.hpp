@@ -75,11 +75,29 @@ namespace Models
 
 
   protected:
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The log code.
+    // 
     // This parameter is required.
     shared_ptr<string> logCode_ {};
+    // The status of log delivery. Valid values:
+    // 
+    // - enable: Enables log delivery.
+    // 
+    // - disable: Disables log delivery.
     shared_ptr<string> logDeliveryStatus_ {};
+    // The region where the Data Management hub for Threat Analysis is located. Select the region of the management hub based on the region of your asset. Valid values:
+    // 
+    // - cn-hangzhou: Your asset is in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your asset is in a region outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. This parameter is used when an administrator switches to the perspective of a member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

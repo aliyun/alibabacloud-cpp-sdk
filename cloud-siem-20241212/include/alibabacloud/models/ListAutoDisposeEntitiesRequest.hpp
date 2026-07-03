@@ -106,16 +106,31 @@ namespace Models
 
 
   protected:
+    // The IDs of automated disposal records.
     shared_ptr<vector<string>> autoDisposeRecordIds_ {};
+    // The page number. The value must be 1 or greater.
+    // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
+    // The type of the data source.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. You can obtain this token from the response to a previous call.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to return on each page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The unique identifier of the playbook.
     shared_ptr<string> uuid_ {};
   };
 

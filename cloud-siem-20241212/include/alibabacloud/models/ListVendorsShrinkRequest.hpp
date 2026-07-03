@@ -103,13 +103,33 @@ namespace Models
 
 
   protected:
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. If this is your first query or if no next page exists, you do not need to specify this parameter. If a next page exists, set the value to the NextToken value that is returned in the last response.
     shared_ptr<string> nextToken_ {};
+    // The region where the Data Management center for threat analysis is located. Select a region for the Management Hub based on the region where your asset resides. Valid values:
+    // 
+    // - cn-hangzhou: Your asset is in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your asset is outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of a member. An administrator can use this ID to switch to the member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
+    // A list of vendors.
     shared_ptr<string> vendorIdsShrink_ {};
+    // The vendor name.
     shared_ptr<string> vendorName_ {};
+    // The vendor type. Valid values:
+    // 
+    // - preset
+    // 
+    // - custom
     shared_ptr<string> vendorType_ {};
   };
 

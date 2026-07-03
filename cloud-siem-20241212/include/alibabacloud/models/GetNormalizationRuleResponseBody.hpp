@@ -39,6 +39,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExtendContentPacked, extendContentPacked_);
         DARABONBA_PTR_TO_JSON(ExtendFieldStoreMode, extendFieldStoreMode_);
         DARABONBA_PTR_TO_JSON(NormalizationCategoryId, normalizationCategoryId_);
+        DARABONBA_PTR_TO_JSON(NormalizationFieldSource, normalizationFieldSource_);
         DARABONBA_PTR_TO_JSON(NormalizationRuleDescription, normalizationRuleDescription_);
         DARABONBA_PTR_TO_JSON(NormalizationRuleExpression, normalizationRuleExpression_);
         DARABONBA_PTR_TO_JSON(NormalizationRuleFormat, normalizationRuleFormat_);
@@ -50,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NormalizationRuleType, normalizationRuleType_);
         DARABONBA_PTR_TO_JSON(NormalizationRuleVersion, normalizationRuleVersion_);
         DARABONBA_PTR_TO_JSON(NormalizationSchemaId, normalizationSchemaId_);
+        DARABONBA_PTR_TO_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
         DARABONBA_PTR_TO_JSON(OrderField, orderField_);
         DARABONBA_PTR_TO_JSON(ProductId, productId_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
@@ -60,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExtendContentPacked, extendContentPacked_);
         DARABONBA_PTR_FROM_JSON(ExtendFieldStoreMode, extendFieldStoreMode_);
         DARABONBA_PTR_FROM_JSON(NormalizationCategoryId, normalizationCategoryId_);
+        DARABONBA_PTR_FROM_JSON(NormalizationFieldSource, normalizationFieldSource_);
         DARABONBA_PTR_FROM_JSON(NormalizationRuleDescription, normalizationRuleDescription_);
         DARABONBA_PTR_FROM_JSON(NormalizationRuleExpression, normalizationRuleExpression_);
         DARABONBA_PTR_FROM_JSON(NormalizationRuleFormat, normalizationRuleFormat_);
@@ -71,6 +74,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NormalizationRuleType, normalizationRuleType_);
         DARABONBA_PTR_FROM_JSON(NormalizationRuleVersion, normalizationRuleVersion_);
         DARABONBA_PTR_FROM_JSON(NormalizationSchemaId, normalizationSchemaId_);
+        DARABONBA_PTR_FROM_JSON(NormalizationSecurityDomainId, normalizationSecurityDomainId_);
         DARABONBA_PTR_FROM_JSON(OrderField, orderField_);
         DARABONBA_PTR_FROM_JSON(ProductId, productId_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
@@ -88,10 +92,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->extendContentPacked_ == nullptr && this->extendFieldStoreMode_ == nullptr && this->normalizationCategoryId_ == nullptr && this->normalizationRuleDescription_ == nullptr && this->normalizationRuleExpression_ == nullptr
-        && this->normalizationRuleFormat_ == nullptr && this->normalizationRuleId_ == nullptr && this->normalizationRuleIds_ == nullptr && this->normalizationRuleMode_ == nullptr && this->normalizationRuleName_ == nullptr
-        && this->normalizationRuleStatus_ == nullptr && this->normalizationRuleType_ == nullptr && this->normalizationRuleVersion_ == nullptr && this->normalizationSchemaId_ == nullptr && this->orderField_ == nullptr
-        && this->productId_ == nullptr && this->updateTime_ == nullptr && this->vendorId_ == nullptr; };
+        && this->extendContentPacked_ == nullptr && this->extendFieldStoreMode_ == nullptr && this->normalizationCategoryId_ == nullptr && this->normalizationFieldSource_ == nullptr && this->normalizationRuleDescription_ == nullptr
+        && this->normalizationRuleExpression_ == nullptr && this->normalizationRuleFormat_ == nullptr && this->normalizationRuleId_ == nullptr && this->normalizationRuleIds_ == nullptr && this->normalizationRuleMode_ == nullptr
+        && this->normalizationRuleName_ == nullptr && this->normalizationRuleStatus_ == nullptr && this->normalizationRuleType_ == nullptr && this->normalizationRuleVersion_ == nullptr && this->normalizationSchemaId_ == nullptr
+        && this->normalizationSecurityDomainId_ == nullptr && this->orderField_ == nullptr && this->productId_ == nullptr && this->updateTime_ == nullptr && this->vendorId_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -118,6 +122,13 @@ namespace Models
       void deleteNormalizationCategoryId() { this->normalizationCategoryId_ = nullptr;};
       inline string getNormalizationCategoryId() const { DARABONBA_PTR_GET_DEFAULT(normalizationCategoryId_, "") };
       inline NormalizationRule& setNormalizationCategoryId(string normalizationCategoryId) { DARABONBA_PTR_SET_VALUE(normalizationCategoryId_, normalizationCategoryId) };
+
+
+      // normalizationFieldSource Field Functions 
+      bool hasNormalizationFieldSource() const { return this->normalizationFieldSource_ != nullptr;};
+      void deleteNormalizationFieldSource() { this->normalizationFieldSource_ = nullptr;};
+      inline string getNormalizationFieldSource() const { DARABONBA_PTR_GET_DEFAULT(normalizationFieldSource_, "") };
+      inline NormalizationRule& setNormalizationFieldSource(string normalizationFieldSource) { DARABONBA_PTR_SET_VALUE(normalizationFieldSource_, normalizationFieldSource) };
 
 
       // normalizationRuleDescription Field Functions 
@@ -199,6 +210,13 @@ namespace Models
       inline NormalizationRule& setNormalizationSchemaId(string normalizationSchemaId) { DARABONBA_PTR_SET_VALUE(normalizationSchemaId_, normalizationSchemaId) };
 
 
+      // normalizationSecurityDomainId Field Functions 
+      bool hasNormalizationSecurityDomainId() const { return this->normalizationSecurityDomainId_ != nullptr;};
+      void deleteNormalizationSecurityDomainId() { this->normalizationSecurityDomainId_ = nullptr;};
+      inline string getNormalizationSecurityDomainId() const { DARABONBA_PTR_GET_DEFAULT(normalizationSecurityDomainId_, "") };
+      inline NormalizationRule& setNormalizationSecurityDomainId(string normalizationSecurityDomainId) { DARABONBA_PTR_SET_VALUE(normalizationSecurityDomainId_, normalizationSecurityDomainId) };
+
+
       // orderField Field Functions 
       bool hasOrderField() const { return this->orderField_ != nullptr;};
       void deleteOrderField() { this->orderField_ = nullptr;};
@@ -228,24 +246,57 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // Specifies whether to pack non-standard fields into the extend_content field. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> extendContentPacked_ {};
+      // The storage mode for extended fields. Valid values:
+      // - flat: ingested as-is.
+      // - reject: not ingested.
+      // - pack: packed into the extend_content field.
       shared_ptr<string> extendFieldStoreMode_ {};
+      // The category ID of the normalization rule.
       shared_ptr<string> normalizationCategoryId_ {};
+      shared_ptr<string> normalizationFieldSource_ {};
+      // The description of the normalization rule.
       shared_ptr<string> normalizationRuleDescription_ {};
+      // The expression of the normalization rule.
       shared_ptr<string> normalizationRuleExpression_ {};
+      // The format of the normalization rule.
       shared_ptr<string> normalizationRuleFormat_ {};
+      // The normalization rule ID.
       shared_ptr<string> normalizationRuleId_ {};
+      // The list of normalization rule IDs.
       shared_ptr<vector<string>> normalizationRuleIds_ {};
+      // The mode of the normalization rule. Valid values:
+      // - both
+      // - scan
+      // - realtime.
       shared_ptr<string> normalizationRuleMode_ {};
+      // The name of the normalization rule.
       shared_ptr<string> normalizationRuleName_ {};
+      // The status of the normalization rule.
       shared_ptr<string> normalizationRuleStatus_ {};
+      // The type of the normalization rule. Valid values:
+      // - predefined: predefined normalization rule.
+      // - custom: custom normalization rule.
       shared_ptr<string> normalizationRuleType_ {};
+      // The version of the normalization rule.
       shared_ptr<int32_t> normalizationRuleVersion_ {};
+      // The normalization schema ID.
       shared_ptr<string> normalizationSchemaId_ {};
+      shared_ptr<string> normalizationSecurityDomainId_ {};
+      // The field used to sort the rule list. Valid values:
+      // - GmtModified: sorted by modification time.
+      // - Id: sorted by rule ID (default).
       shared_ptr<string> orderField_ {};
+      // The product ID.
       shared_ptr<string> productId_ {};
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
+      // The vendor ID associated with the normalization rule.
       shared_ptr<string> vendorId_ {};
     };
 
@@ -268,7 +319,9 @@ namespace Models
 
 
   protected:
+    // The normalization rule.
     shared_ptr<GetNormalizationRuleResponseBody::NormalizationRule> normalizationRule_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

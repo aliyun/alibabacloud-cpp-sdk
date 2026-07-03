@@ -87,9 +87,21 @@ namespace Models
 
 
     protected:
+      // The current CTDR version.
       shared_ptr<string> ctdrVersion_ {};
+      // The upgrade status. Valid values:
+      // 
+      // - pending: The upgrade is pending.
+      // 
+      // - upgrading: The upgrade is in progress.
+      // 
+      // - success: The upgrade is successful.
+      // 
+      // - failed: The upgrade failed.
       shared_ptr<string> dataStorageVersion_ {};
+      // The version of Log Management.
       shared_ptr<string> upgradeCtdrVersion_ {};
+      // The target CTDR version for the upgrade.
       shared_ptr<string> upgradeStatus_ {};
     };
 
@@ -112,7 +124,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The user.
     shared_ptr<GetUserConfigResponseBody::User> user_ {};
   };
 

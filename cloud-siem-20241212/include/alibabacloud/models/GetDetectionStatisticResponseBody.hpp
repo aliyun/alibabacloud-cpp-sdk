@@ -34,6 +34,7 @@ namespace Models
     class DetectionStatistic : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const DetectionStatistic& obj) { 
+        DARABONBA_PTR_TO_JSON(AiPoweredAggregationRuleCount, aiPoweredAggregationRuleCount_);
         DARABONBA_PTR_TO_JSON(DetectionRuleOnlineCount, detectionRuleOnlineCount_);
         DARABONBA_PTR_TO_JSON(DetectionRuleTemplateCount, detectionRuleTemplateCount_);
         DARABONBA_PTR_TO_JSON(DetectionRuleTestCount, detectionRuleTestCount_);
@@ -42,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(WindowRuleCount, windowRuleCount_);
       };
       friend void from_json(const Darabonba::Json& j, DetectionStatistic& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiPoweredAggregationRuleCount, aiPoweredAggregationRuleCount_);
         DARABONBA_PTR_FROM_JSON(DetectionRuleOnlineCount, detectionRuleOnlineCount_);
         DARABONBA_PTR_FROM_JSON(DetectionRuleTemplateCount, detectionRuleTemplateCount_);
         DARABONBA_PTR_FROM_JSON(DetectionRuleTestCount, detectionRuleTestCount_);
@@ -60,8 +62,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->detectionRuleOnlineCount_ == nullptr
-        && this->detectionRuleTemplateCount_ == nullptr && this->detectionRuleTestCount_ == nullptr && this->graphComputeRuleCount_ == nullptr && this->passthroughRuleCount_ == nullptr && this->windowRuleCount_ == nullptr; };
+      virtual bool empty() const override { return this->aiPoweredAggregationRuleCount_ == nullptr
+        && this->detectionRuleOnlineCount_ == nullptr && this->detectionRuleTemplateCount_ == nullptr && this->detectionRuleTestCount_ == nullptr && this->graphComputeRuleCount_ == nullptr && this->passthroughRuleCount_ == nullptr
+        && this->windowRuleCount_ == nullptr; };
+      // aiPoweredAggregationRuleCount Field Functions 
+      bool hasAiPoweredAggregationRuleCount() const { return this->aiPoweredAggregationRuleCount_ != nullptr;};
+      void deleteAiPoweredAggregationRuleCount() { this->aiPoweredAggregationRuleCount_ = nullptr;};
+      inline int32_t getAiPoweredAggregationRuleCount() const { DARABONBA_PTR_GET_DEFAULT(aiPoweredAggregationRuleCount_, 0) };
+      inline DetectionStatistic& setAiPoweredAggregationRuleCount(int32_t aiPoweredAggregationRuleCount) { DARABONBA_PTR_SET_VALUE(aiPoweredAggregationRuleCount_, aiPoweredAggregationRuleCount) };
+
+
       // detectionRuleOnlineCount Field Functions 
       bool hasDetectionRuleOnlineCount() const { return this->detectionRuleOnlineCount_ != nullptr;};
       void deleteDetectionRuleOnlineCount() { this->detectionRuleOnlineCount_ = nullptr;};
@@ -105,11 +115,18 @@ namespace Models
 
 
     protected:
+      shared_ptr<int32_t> aiPoweredAggregationRuleCount_ {};
+      // The number of online rules.
       shared_ptr<int32_t> detectionRuleOnlineCount_ {};
+      // The number of rule templates.
       shared_ptr<int32_t> detectionRuleTemplateCount_ {};
+      // The number of test rules.
       shared_ptr<int32_t> detectionRuleTestCount_ {};
+      // The number of graph computing rules.
       shared_ptr<int32_t> graphComputeRuleCount_ {};
+      // The number of alert pass-through rules.
       shared_ptr<int32_t> passthroughRuleCount_ {};
+      // The number of similar aggregation rules.
       shared_ptr<int32_t> windowRuleCount_ {};
     };
 
@@ -132,7 +149,9 @@ namespace Models
 
 
   protected:
+    // The detection rule count result.
     shared_ptr<GetDetectionStatisticResponseBody::DetectionStatistic> detectionStatistic_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

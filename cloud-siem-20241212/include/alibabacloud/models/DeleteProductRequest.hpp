@@ -66,9 +66,21 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The region of the Data Management center for Threat Analysis. Select a region for the Management Hub based on the region of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member. An administrator can use this parameter to switch to the member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
   };
 

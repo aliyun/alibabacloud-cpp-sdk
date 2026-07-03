@@ -97,12 +97,27 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next query. Leave this parameter empty for the first query. If the response is truncated, use the \\`NextToken\\` value from the previous response.
     shared_ptr<string> nextToken_ {};
+    // The ID of the normalization rule.
     shared_ptr<string> normalizationRuleId_ {};
+    // A list of normalization rule IDs.
     shared_ptr<vector<string>> normalizationRuleIds_ {};
+    // The region of the threat analysis Data Management Center. Select the region where your assets are located. Valid values:
+    // 
+    // - cn-hangzhou: Your assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Your assets are outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The user ID that an administrator uses to switch to a member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
   };
 

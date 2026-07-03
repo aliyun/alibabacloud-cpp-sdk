@@ -136,11 +136,25 @@ namespace Models
 
 
     protected:
+      // The source of the data. Valid values:
+      // 
+      // - center
+      // 
+      // - custom
       shared_ptr<string> dataSourceStoreFrom_ {};
+      // The ID of the log storage.
       shared_ptr<string> dataSourceStoreId_ {};
+      // The status of the log storage. Valid values:
+      // 
+      // - normal
+      // 
+      // - abnormal
       shared_ptr<string> dataSourceStoreStatus_ {};
+      // The name of the Simple Log Service project.
       shared_ptr<string> logProjectName_ {};
+      // The ID of the log storage region.
       shared_ptr<string> logRegionId_ {};
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> logStoreName_ {};
     };
 
@@ -275,22 +289,59 @@ namespace Models
 
 
   protected:
+    // The source of the data. Valid values:
+    // 
+    // - center
+    // 
+    // - custom
     shared_ptr<string> dataSourceFrom_ {};
+    // A list of data source IDs.
     shared_ptr<vector<string>> dataSourceIds_ {};
+    // The name of the data source.
     shared_ptr<string> dataSourceName_ {};
+    // Specifies whether to automatically discover new data sources.
     shared_ptr<bool> dataSourceRecognizeEnabled_ {};
+    // The data source recognizer.
     shared_ptr<string> dataSourceRecognizer_ {};
+    // The IDs of associated data access instances.
     shared_ptr<vector<string>> dataSourceReferences_ {};
+    // The list of Simple Log Service projects.
     shared_ptr<vector<CreateDataSourceRequest::DataSourceStores>> dataSourceStores_ {};
+    // The ID of the data source template.
     shared_ptr<string> dataSourceTemplateId_ {};
+    // The type of the data source. Valid values:
+    // 
+    // - preset
+    // 
+    // - custom
     shared_ptr<string> dataSourceType_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The name of the Simple Log Service project.
     shared_ptr<string> logProjectName_ {};
+    // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStoreName_ {};
+    // The user ID for data ingestion.
     shared_ptr<int64_t> logUserId_ {};
+    // The sort order. Valid values:
+    // 
+    // - desc: descending.
+    // 
+    // - asc: ascending.
     shared_ptr<string> order_ {};
+    // The region of the Management Hub. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: Assets are in the Chinese mainland.
+    // 
+    // - ap-southeast-1: Assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member whose perspective the administrator assumes.
     shared_ptr<int64_t> roleFor_ {};
   };
 

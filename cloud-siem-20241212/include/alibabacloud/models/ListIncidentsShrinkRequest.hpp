@@ -227,28 +227,70 @@ namespace Models
 
 
   protected:
+    // The alert ID.
     shared_ptr<string> alertUuid_ {};
+    // The end time as a timestamp in milliseconds (ms).
     shared_ptr<int64_t> endTime_ {};
+    // The name of the incident.
     shared_ptr<string> incidentName_ {};
+    // The status of the incident. Valid values:
+    // - 0: unhandled.
+    // - 1: handling.
+    // - 5: handling failed.
+    // - 10: handled.
     shared_ptr<int32_t> incidentStatus_ {};
+    // The tags of the incident.
     shared_ptr<string> incidentTags_ {};
+    // The list of incident UUIDs, separated by commas (,).
     shared_ptr<string> incidentUuidsShrink_ {};
+    // The language of the response. Valid values:
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
+    // The sort direction. Valid values:
+    // - **desc** (default): descending order.
+    // - **asc**: ascending order.
     shared_ptr<string> orderDirection_ {};
+    // The field name used to sort the list. Valid values:
+    // - GmtModified: sorts by incident update time (default).
+    // - ThreatScore: sorts by threat score.
     shared_ptr<string> orderFieldName_ {};
+    // The UID of the account that owns the incident.
     shared_ptr<vector<string>> owners_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Your assets reside outside China.
     shared_ptr<string> regionId_ {};
+    // The ID of the asset associated with the incident.
     shared_ptr<string> relateAssetId_ {};
+    // The ID of the entity associated with the incident.
     shared_ptr<string> relateEntityId_ {};
+    // The user ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
+    // The view type. Valid values:
+    // - 0: the view of the current Alibaba Cloud account.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
+    // The start time as a timestamp in milliseconds (ms).
     shared_ptr<int64_t> startTime_ {};
+    // The threat level. Valid values:
+    // - 5: critical.
+    // - 4: high.
+    // - 3: medium.
+    // - 2: low.
+    // - 1: informational.
     shared_ptr<vector<string>> threatLevel_ {};
   };
 

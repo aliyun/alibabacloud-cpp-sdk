@@ -226,24 +226,61 @@ namespace Models
 
 
     protected:
+      // The time when the data ingestion was enabled.
       shared_ptr<int64_t> activeTime_ {};
+      // The number of associated security capabilities.
       shared_ptr<int32_t> capacityCount_ {};
+      // The time when the data ingestion was created.
       shared_ptr<int64_t> createTime_ {};
+      // The ID of the data ingestion.
       shared_ptr<string> dataIngestionId_ {};
+      // The mode of the data ingestion. Valid values:
+      // 
+      // - realtime
+      // 
+      // - scan
       shared_ptr<string> dataIngestionMode_ {};
+      // Indicates whether the data ingestion mode is editable.
       shared_ptr<bool> dataIngestionModeEditable_ {};
+      // The state of the data ingestion. Valid values:
+      // 
+      // - ingested
+      // 
+      // - uningested
+      // 
+      // - abnormal
       shared_ptr<string> dataIngestionState_ {};
+      // The error code for the data ingestion anomaly.
       shared_ptr<string> dataIngestionStateCode_ {};
+      // The status of the data ingestion. Valid values:
+      // 
+      // - enabled: The data ingestion is enabled.
+      // 
+      // - disabled: The data ingestion is disabled.
       shared_ptr<string> dataIngestionStatus_ {};
+      // The ID of the data ingestion template.
       shared_ptr<string> dataIngestionTemplateId_ {};
+      // The type of the data ingestion. Valid values:
+      // 
+      // - preset
+      // 
+      // - custom
       shared_ptr<string> dataIngestionType_ {};
+      // Indicates whether the data source is editable.
       shared_ptr<bool> dataSourceEditable_ {};
+      // The ID of the data source.
       shared_ptr<string> dataSourceId_ {};
+      // Indicates whether the normalization rule is editable.
       shared_ptr<bool> normalizationRuleEditable_ {};
+      // The ID of the normalization rule.
       shared_ptr<string> normalizationRuleId_ {};
+      // The ID of the data source for real-time ingestion.
       shared_ptr<string> realtimeDataSourceId_ {};
+      // The ID of the data source for scan-based ingestion.
       shared_ptr<string> scanDataSourceId_ {};
+      // The job ID of the stream processing task.
       shared_ptr<string> streamJobId_ {};
+      // The time when the data ingestion was last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -266,7 +303,9 @@ namespace Models
 
 
   protected:
+    // The list of data ingestions.
     shared_ptr<vector<ListDataIngestionsResponseBody::DataIngestions>> dataIngestions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

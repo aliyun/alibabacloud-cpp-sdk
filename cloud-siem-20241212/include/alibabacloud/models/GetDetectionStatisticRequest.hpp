@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: China (Hangzhou). Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Singapore. Your assets reside outside China.
     shared_ptr<string> regionId_ {};
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

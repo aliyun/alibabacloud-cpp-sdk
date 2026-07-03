@@ -140,17 +140,59 @@ namespace Models
 
 
   protected:
+    // The language of the response messages. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The maximum number of results to return for a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. If you do not specify this parameter, the query starts from the first page.
     shared_ptr<string> nextToken_ {};
+    // The region where the data management center of Cloud SIEM is located. Select a region based on the location of your assets. Valid values:
+    // 
+    // - `cn-hangzhou`: China (Hangzhou). For assets in the Chinese mainland.
+    // 
+    // - `ap-southeast-1`: Asia Pacific SE 1 (Singapore). For assets in overseas regions.
     shared_ptr<string> regionId_ {};
+    // The action configuration for the automatic response rule.
     shared_ptr<string> responseActionConfig_ {};
+    // The action for the automatic response rule. Valid values:
+    // 
+    // - `doPlaybook`: Executes a playbook.
+    // 
+    // - `changeEventStatus`: Updates the event status.
+    // 
+    // - `changeThreatLevel`: Updates the event threat level.
+    // 
+    // - `addEventTag`: Adds an event tag.
+    // 
+    // - `deleteEventTag`: Deletes an event tag.
+    // 
+    // - `alertWhitelist`: Adds the alert to a whitelist.
     shared_ptr<string> responseActionType_ {};
+    // The trigger conditions for the rule.
     shared_ptr<string> responseExecutionCondition_ {};
+    // The ID of the automatic response rule.
     shared_ptr<string> responseRuleId_ {};
+    // The name of the automatic response rule.
     shared_ptr<string> responseRuleName_ {};
+    // The execution priority of the automatic response rule.
     shared_ptr<int32_t> responseRulePriority_ {};
+    // The status of the rule. Valid values:
+    // 
+    // - `0`: disabled
+    // 
+    // - `100`: enabled
     shared_ptr<int32_t> responseRuleStatus_ {};
+    // The trigger for the automatic response rule. Valid values:
+    // 
+    // - `event`: The rule is triggered when an event occurs.
+    // 
+    // - `event_update`: The rule is triggered when an event is updated.
+    // 
+    // - `alert`: The rule is triggered when an alert is generated.
     shared_ptr<string> responseTriggerType_ {};
   };
 
