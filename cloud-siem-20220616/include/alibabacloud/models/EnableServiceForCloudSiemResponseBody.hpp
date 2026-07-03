@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the threat analysis feature is authorized to access the resource directory. Valid values:
+    // The return value. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The service is enabled.
+    // 
+    // - false: The service failed to be enabled.
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

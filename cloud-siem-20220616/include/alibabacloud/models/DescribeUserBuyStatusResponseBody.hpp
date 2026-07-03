@@ -161,31 +161,37 @@ namespace Models
 
 
     protected:
-      // Indicates whether the logon Alibaba Cloud account can be used to place orders for the threat analysis feature, such as purchase, upgrade, and specifications change orders. Valid values:
+      // Indicates whether the current account can perform operations on threat analysis orders. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The account can purchase, upgrade, or downgrade threat analysis.
+      // 
+      // - false: The account cannot perform operations on threat analysis orders.
       shared_ptr<bool> canBuy_ {};
-      // The log storage capacity that is purchased for the threat analysis feature. Unit: GB.
+      // The purchased capacity of Simple Log Service (SLS) for threat analysis. Unit: GB.
       shared_ptr<int32_t> capacity_ {};
-      // The number of days before the expiration time of the threat analysis feature.
+      // The number of days before threat analysis expires.
       shared_ptr<int64_t> durationDays_ {};
-      // The timestamp when the threat analysis feature expires. Unit: milliseconds.
+      // The expiration time of threat analysis. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+      // The ID of the Alibaba Cloud account that purchased threat analysis.
       shared_ptr<int64_t> mainUserId_ {};
-      // The username of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+      // The name of the Alibaba Cloud account that purchased threat analysis.
       shared_ptr<string> mainUserName_ {};
-      // The ID of the management account of the resource directory.
+      // The ID of the master account of the resource directory.
       shared_ptr<int64_t> masterUserId_ {};
-      // The display name of the management account of the resource directory.
+      // The display name of the master account of the resource directory.
       shared_ptr<string> masterUserName_ {};
+      // The type of the current order.
+      // 
+      // - 0: The order includes threat analysis traffic and capacity.
+      // 
+      // - 1: The order includes only threat analysis capacity.
       shared_ptr<int32_t> rdOrder_ {};
-      // The instance ID of Security Center.
+      // The ID of the Security Center instance.
       shared_ptr<string> sasInstanceId_ {};
-      // The ID of the logon Alibaba Cloud account.
+      // The ID of the currently logged-on Alibaba Cloud account.
       shared_ptr<int64_t> subUserId_ {};
-      // The username of the logon Alibaba Cloud account.
+      // The name of the currently logged-on Alibaba Cloud account.
       shared_ptr<string> subUserName_ {};
     };
 
@@ -208,9 +214,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response parameters.
     shared_ptr<DescribeUserBuyStatusResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

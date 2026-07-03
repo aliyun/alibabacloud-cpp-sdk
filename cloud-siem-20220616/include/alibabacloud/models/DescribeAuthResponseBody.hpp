@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the SIEM system is granted the required permissions. Valid values:
+    // Indicates whether the permissions are granted.
     // 
-    // *   true
-    // *   false
+    // - true: The permissions are granted.
+    // 
+    // - false: The permissions are not granted.
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

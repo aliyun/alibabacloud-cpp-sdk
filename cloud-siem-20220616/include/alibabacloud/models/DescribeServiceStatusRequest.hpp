@@ -38,10 +38,11 @@ namespace Models
 
 
   protected:
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region of the Data Management hub. Select a region based on the location of your assets. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: For assets in the Chinese mainland and China (Hong Kong).
+    // 
+    // - ap-southeast-1: For assets in regions outside China.
     shared_ptr<string> regionId_ {};
   };
 

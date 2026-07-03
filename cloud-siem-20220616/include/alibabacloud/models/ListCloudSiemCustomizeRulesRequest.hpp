@@ -176,58 +176,69 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. Unit: milliseconds.
+    // The end time of the query. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the custom rule.
     shared_ptr<string> id_ {};
-    // The sort method. Valid values:
+    // The order in which you want to sort the custom rules. Valid values:
     // 
-    // *   desc: descending order.
-    // *   asc: ascending order.
+    // - desc: descending order
+    // 
+    // - asc: ascending order
     shared_ptr<string> order_ {};
-    // The field that is used to sort the rules. Valid values:
+    // The field that you use to sort the custom rules. Valid values:
     // 
-    // *   GmtModified: The rules are sorted based on the modification time.
-    // *   Id (default): The rules are sorted based on the rule ID.
+    // - GmtModified: sorts the rules by modification time.
+    // 
+    // - Id: sorts the rules by rule ID. This is the default value.
     shared_ptr<string> orderField_ {};
-    // The number of entries per page. The value can be up to 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The data management center of the threat analysis feature. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the data management center of Threat Analysis is deployed. You must select the region where your assets reside. Valid values:
     // 
-    // *   **cn-hangzhou**: Your assets reside in regions in China.
-    // *   **ap-southeast-1**: Your assets reside in regions outside China.
+    // - **cn-hangzhou**: your assets are in the Chinese mainland or Hong Kong (China).
+    // 
+    // - **ap-southeast-1**: your assets are outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the destination account to which you switch the view from the management account.
+    // The user ID that is used to switch the administrator\\"s view to the view of a member.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
+    // The view type.
     // 
-    // *   0: view of the current Alibaba Cloud account.
-    // *   1: view of all accounts for the enterprise.
+    // - 0: the view of the current Alibaba Cloud account.
+    // 
+    // - 1: the view of all members in the enterprise.
     shared_ptr<int32_t> roleType_ {};
     // The name of the rule. The name can contain letters, digits, underscores (_), and periods (.).
     shared_ptr<string> ruleName_ {};
     // The type of the rule. Valid values:
     // 
-    // *   **predefine**
-    // *   **customize**
+    // - **predefine**: predefined
+    // 
+    // - **customize**: custom
     shared_ptr<string> ruleType_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The start time of the query. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The status of the rule. Valid values:
     // 
-    // *   **0**: The rule is in the initial state.
-    // *   **10**: The simulation data is tested.
-    // *   **15**: The business data is being tested.
-    // *   **20**: The business data test is complete.
-    // *   **100**: The rule is in effect.
-    shared_ptr<int32_t> status_ {};
-    // The threat level. The value must be a JSON array. Valid values:
+    // - **0**: initial
     // 
-    // *   **serious**: high-risk.
-    // *   **suspicious**: medium-risk.
-    // *   **remind**: low-risk.
+    // - **10**: testing with simulated data
+    // 
+    // - **15**: testing with business data
+    // 
+    // - **20**: testing with business data is complete
+    // 
+    // - **100**: published
+    shared_ptr<int32_t> status_ {};
+    // The threat level. The value is a JSON array. Valid values:
+    // 
+    // - **serious**: high
+    // 
+    // - **suspicious**: medium
+    // 
+    // - **remind**: low
     shared_ptr<vector<string>> threatLevel_ {};
   };
 

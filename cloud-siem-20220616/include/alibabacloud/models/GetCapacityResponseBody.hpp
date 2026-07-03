@@ -96,16 +96,19 @@ namespace Models
 
 
     protected:
+      // Purchased quota for Agent-managed instances.
       shared_ptr<int64_t> agentManagedAssetQuota_ {};
+      // Used quota for Agent-managed instances.
       shared_ptr<int64_t> agentManagedAssetUsed_ {};
-      // Indicates whether the Logstores for the threat analysis feature exist on the user side. Valid values:
+      // Indicates whether the LogStore for threat analysis exists.
       // 
-      // *   true: The logs are in the normal state. The log analysis feature is available.
-      // *   false: The logs are being cleared. The log analysis feature is unavailable.
+      // - true: Logs are normal and log analysis is available.
+      // 
+      // - false: Logs are being cleaned up and log analysis is unavailable.
       shared_ptr<bool> existLogStore_ {};
-      // The purchased storage capacity of the threat analysis feature. Unit: GB.
+      // Purchased storage capacity for threat analysis, in GB.
       shared_ptr<int64_t> preservedCapacity_ {};
-      // The billable storage capacity of the threat analysis feature. Unit: GB.
+      // Current billable storage usage for threat analysis, in GB.
       shared_ptr<double> usedCapacity_ {};
     };
 
@@ -128,9 +131,9 @@ namespace Models
 
 
   protected:
-    // The information about the storage capacity.
+    // Storage capacity details.
     shared_ptr<GetCapacityResponseBody::Data> data_ {};
-    // The request ID.
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

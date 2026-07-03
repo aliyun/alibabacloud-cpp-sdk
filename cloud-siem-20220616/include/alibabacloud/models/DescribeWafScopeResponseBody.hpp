@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account in SIEM.
+      // The ID of the Alibaba Cloud account.
       shared_ptr<int64_t> aliuid_ {};
-      // The domain names that are protected by the WAF instance.
+      // The list of domain names that are protected by the WAF instance.
       shared_ptr<vector<string>> domains_ {};
       // The ID of the WAF instance.
       shared_ptr<string> instanceId_ {};
@@ -135,18 +135,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<vector<DescribeWafScopeResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

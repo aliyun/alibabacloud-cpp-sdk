@@ -134,31 +134,35 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud account.
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
-      // The username of the cloud account.
+      // The name of the multicloud account.
       shared_ptr<string> accountName_ {};
-      // The code of the cloud service provider. Valid values:
+      // The code of the multicloud environment. Valid values:
       // 
-      // *   qcloud: Tencent Cloud
-      // *   aliyun: Alibaba Cloud
-      // *   hcloud: Huawei Cloud
+      // - qcloud: Tencent Cloud.
+      // 
+      // - aliyun: Alibaba Cloud.
+      // 
+      // - hcloud: Huawei Cloud.
       shared_ptr<string> cloudCode_ {};
-      // The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+      // The ID of the data source. This ID is an MD5 hash value that is calculated by Threat Analysis based on specific parameters.
       shared_ptr<string> dataSourceInstanceId_ {};
       // The name of the data source.
       shared_ptr<string> dataSourceName_ {};
-      // The remarks on the data source.
+      // The remarks of the data source.
       shared_ptr<string> dataSourceRemark_ {};
       // The type of the data source. Valid values:
       // 
-      // *   obs: Huawei Cloud Object Storage Service (OBS)
-      // *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
-      // *   ckafka: Tencent Cloud Kafka (CKafka)
+      // - obs: Huawei Cloud OBS.
+      // 
+      // - wafApi: Tencent Cloud WAF download API.
+      // 
+      // - ckafka: Tencent Cloud CKafka.
       shared_ptr<string> dataSourceType_ {};
-      // The number of logs that are added within the data source.
+      // The number of logs added to the data source.
       shared_ptr<int32_t> logCount_ {};
-      // The number of existing tasks that are created to add logs within the data source.
+      // The number of log collection tasks created for the data source.
       shared_ptr<int32_t> taskCount_ {};
     };
 

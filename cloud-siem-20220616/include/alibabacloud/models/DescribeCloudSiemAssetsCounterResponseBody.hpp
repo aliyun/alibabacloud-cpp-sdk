@@ -80,12 +80,17 @@ namespace Models
       shared_ptr<int32_t> assetNum_ {};
       // The type of the asset. Valid values:
       // 
-      // *   ip
-      // *   domain
-      // *   url
-      // *   process
-      // *   file
-      // *   host
+      // - ip: IP address
+      // 
+      // - domain: domain name
+      // 
+      // - url: URL
+      // 
+      // - process: process
+      // 
+      // - file: file
+      // 
+      // - host: host
       shared_ptr<string> assetType_ {};
     };
 
@@ -129,18 +134,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code returned.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<vector<DescribeCloudSiemAssetsCounterResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

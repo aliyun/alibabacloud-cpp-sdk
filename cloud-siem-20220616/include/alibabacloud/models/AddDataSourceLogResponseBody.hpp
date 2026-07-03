@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The number of logs that are added. The value 1 indicates that the log is added, and a value less than or equal to 0 indicates that the log failed to be added.
+      // The number of added logs. A value of 1 indicates success. A value of 0 or less indicates failure.
       shared_ptr<int32_t> count_ {};
-      // The ID of the log. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+      // The ID of the log. Threat Analysis calculates this ID as an MD5 hash value based on specific parameters.
       shared_ptr<string> logInstanceId_ {};
     };
 

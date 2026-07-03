@@ -217,18 +217,19 @@ namespace Models
 
 
             protected:
-              // Indicates whether the right operand is a constant or a runtime variable that is obtained from the runtime context. Valid values:
+              // Specifies whether the right operand is a constant or a runtime variable. A runtime variable obtains a value from the runtime context. Valid values:
               // 
-              // *   true: runtime variable.
-              // *   false: constant.
+              // - true: runtime variable
+              // 
+              // - false: constant
               shared_ptr<bool> isVar_ {};
-              // The remarks on the right operand.
+              // The remarks.
               shared_ptr<string> modifier_ {};
-              // The key-value pair information of the remarks.
+              // The key-value pair for the remarks.
               Darabonba::Json modifierParam_ {};
-              // The data type of the right operand.
+              // The data type.
               shared_ptr<string> type_ {};
-              // The right operand.
+              // The value of the right operand.
               shared_ptr<string> value_ {};
             };
 
@@ -301,17 +302,19 @@ namespace Models
             protected:
               // Indicates whether the left operand is a variable. Valid values:
               // 
-              // *   true: variable.
-              // *   false: constant.
-              shared_ptr<bool> isVar_ {};
-              // The remarks on the right operand.
-              shared_ptr<string> modifier_ {};
-              // The key-value pair information of the remarks.
-              Darabonba::Json modifierParam_ {};
-              // Indicates whether the left operand is a constant. Valid values:
+              // - true: variable
               // 
-              // *   true
-              // *   false
+              // - false: constant
+              shared_ptr<bool> isVar_ {};
+              // The remarks.
+              shared_ptr<string> modifier_ {};
+              // The key-value pair for the remarks.
+              Darabonba::Json modifierParam_ {};
+              // Specifies whether the value is a constant. Valid values:
+              // 
+              // - true: The value is a constant.
+              // 
+              // - false: The value is not a constant.
               shared_ptr<string> type_ {};
               // The variable of the left operand.
               shared_ptr<string> value_ {};
@@ -359,25 +362,31 @@ namespace Models
 
 
           protected:
-            // Indicates whether the result is inverted. Valid values:
+            // Indicates whether to negate the result. Valid values:
             // 
-            // *   true
-            // *   false
+            // - true: The result is negated.
+            // 
+            // - false: The result is not negated.
             shared_ptr<bool> isNot_ {};
-            // The ID of the rule condition.
+            // The condition ID.
             shared_ptr<int32_t> itemId_ {};
-            // The left operand of the rule condition.
+            // The left operand of the condition.
             shared_ptr<Conditions::Left> left_ {};
-            // The logical operator of the rule condition. Valid values:
+            // The operator. Valid values:
             // 
-            // *   `=`: equals to.
-            // *   `<>`: does not equal to.
-            // *   `in`: contains.
-            // *   `not in`: does not contain.
-            // *   `REGEXP`: matches a regular expression.
-            // *   `NOT REGEXP`: does not match a regular expression.
+            // - `=`: equals
+            // 
+            // - `<>`: does not equal
+            // 
+            // - `in`: includes
+            // 
+            // - `not in`: does not include
+            // 
+            // - `REGEXP`: matches a regular expression
+            // 
+            // - `NOT REGEXP`: does not match a regular expression
             shared_ptr<string> operator_ {};
-            // The right operand of the rule condition.
+            // The right operand.
             shared_ptr<Conditions::Right> right_ {};
           };
 
@@ -400,9 +409,9 @@ namespace Models
 
 
         protected:
-          // The rule conditions.
+          // The array of rule conditions.
           shared_ptr<vector<Expression::Conditions>> conditions_ {};
-          // The logical relationships among the rule conditions.
+          // The logical relation for the conditions.
           shared_ptr<string> logic_ {};
         };
 
@@ -514,24 +523,25 @@ namespace Models
         shared_ptr<string> alertTypeId_ {};
         // The UUID of the alert.
         shared_ptr<string> alertUuid_ {};
-        // The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+        // The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
         shared_ptr<int64_t> aliuid_ {};
-        // The conditions in the rule. The value is a JSON array.
+        // The rule conditions, which are in the JSON array format.
         shared_ptr<ResponseData::Expression> expression_ {};
-        // The time when the whitelist rule was created.
+        // The time when the rule was created.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the whitelist rule was modified.
+        // The time when the rule was last modified.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the whitelist rule.
+        // The unique ID of the whitelist rule.
         shared_ptr<int64_t> id_ {};
         // The UUID of the event.
         shared_ptr<string> incidentUuid_ {};
-        // The status of the whitelist rule. Valid values:
+        // The status of the rule. Valid values:
         // 
-        // *   1: enabled.
-        // *   0: disabled.
+        // - 1: enabled
+        // 
+        // - 0: disabled
         shared_ptr<int32_t> status_ {};
-        // The ID of the Alibaba Cloud account that is used to create the whitelist rule.
+        // The ID of the Alibaba Cloud account that is used to create the rule.
         shared_ptr<int64_t> subAliuid_ {};
       };
 
@@ -584,9 +594,9 @@ namespace Models
       protected:
         // The current page number.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries returned.
+        // The total number of entries.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -657,9 +667,9 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The return value.
     shared_ptr<DescribeWhiteRuleListResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -667,8 +677,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

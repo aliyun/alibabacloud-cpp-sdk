@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The code of the parameter.
+        // The parameter code.
         shared_ptr<string> paraCode_ {};
-        // The value of the parameter.
+        // The parameter value.
         shared_ptr<string> paraValue_ {};
       };
 
@@ -134,17 +134,19 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud account.
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
-      // The code of the cloud service provider. Valid values:
+      // The code for the multicloud environment. Valid values:
       // 
-      // *   qcloud: Tencent Cloud
-      // *   aliyun: Alibaba Cloud
-      // *   hcloud: Huawei Cloud
+      // - qcloud: Tencent Cloud.
+      // 
+      // - aliyun: Alibaba Cloud.
+      // 
+      // - hcloud: Huawei Cloud.
       shared_ptr<string> cloudCode_ {};
-      // The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+      // The ID of the data source. The threat analysis service generates the ID by calculating the MD5 hash of specific parameters.
       shared_ptr<string> dataSourceInstanceId_ {};
-      // The parameters of the data source.
+      // The list of detailed parameters for the data source.
       shared_ptr<vector<Data::DataSourceInstanceParams>> dataSourceInstanceParams_ {};
     };
 
@@ -169,7 +171,7 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<DescribeDataSourceInstanceResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

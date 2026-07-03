@@ -114,17 +114,19 @@ namespace Models
 
 
     protected:
-      // The ID of the security information and event management (SIEM) user.
+      // The user ID in Security Information and Event Management (SIEM).
       shared_ptr<int64_t> aliUid_ {};
-      // 云code。  取值：
-      // - qcloud：腾讯云
-      // - hcloud：华为云
+      // The cloud code. Valid values:
+      // 
+      // - qcloud: Tencent Cloud
+      // 
+      // - hcloud: Huawei Cloud
       shared_ptr<string> cloudCode_ {};
-      // An array consisting of the domain names that are protected by the WAF instance.
+      // The list of domain names protected by the WAF instance.
       shared_ptr<vector<string>> domains_ {};
       // The ID of the Web Application Firewall (WAF) instance.
       shared_ptr<string> instanceId_ {};
-      // 多云用户ID。
+      // The multicloud user ID.
       shared_ptr<string> userId_ {};
       // The username.
       shared_ptr<string> userName_ {};
@@ -170,18 +172,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<vector<DescribeScopeUsersResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -87,26 +87,31 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Unit: milliseconds.
+    // The end of the query time range. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The risk levels. The value is a JSON array. Valid values:
+    // The threat levels. Valid values:
     // 
-    // *   serious: high
-    // *   suspicious: medium
-    // *   remind: low
+    // - `serious`: High
+    // 
+    // - `suspicious`: Medium
+    // 
+    // - `remind`: Low
     shared_ptr<vector<string>> level_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region of the data management center for threat analysis. Select the data management center that corresponds to the region where your assets are located. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - `cn-hangzhou`: for assets in the Chinese mainland and Hong Kong (China).
+    // 
+    // - `ap-southeast-1`: for assets in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The user ID of the member whose data you want to view. An administrator uses this parameter to view data from the perspective of a specific member.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The type of view. Valid values:
+    // 
+    // - `0`: View data for the current Alibaba Cloud account.
+    // 
+    // - `1`: View data for all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The start of the query time range. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

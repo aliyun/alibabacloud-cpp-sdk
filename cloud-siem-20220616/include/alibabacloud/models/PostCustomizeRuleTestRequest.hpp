@@ -84,25 +84,29 @@ namespace Models
 
 
   protected:
-    // The ID of the rule.
+    // The ID of the custom rule.
     shared_ptr<int64_t> id_ {};
-    // The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+    // The region where the Data Management center of threat analysis is located. Select the region based on the region where your assets are located. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions inside China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
+    // 
+    // - ap-southeast-1: Your assets are in regions outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The user ID of the member that the administrator wants to impersonate to view data.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The view type.
+    // 
+    // - 0: the view of the current Alibaba Cloud account.
+    // 
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The simulation data for the test. This parameter is available only when TestType is set to simulate.
+    // The simulated data for the test. This parameter is required only when TestType is set to simulate.
     shared_ptr<string> simulatedData_ {};
     // The test type. Valid values:
     // 
-    // *   simulate: simulation data test
-    // *   business: business data test
+    // - simulate: tests the rule with simulated data
+    // 
+    // - business: tests the rule with business data
     shared_ptr<string> testType_ {};
   };
 

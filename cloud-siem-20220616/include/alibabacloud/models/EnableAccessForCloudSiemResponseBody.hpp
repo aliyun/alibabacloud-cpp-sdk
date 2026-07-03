@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The return value of the request.
     shared_ptr<bool> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

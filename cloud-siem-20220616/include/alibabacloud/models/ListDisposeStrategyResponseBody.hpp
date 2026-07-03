@@ -285,66 +285,77 @@ namespace Models
 
 
       protected:
-        // The UUID of the alert.
+        // Alert UUID.
         shared_ptr<string> alertUuid_ {};
-        // The ID of the Alibaba Cloud account that is associated with the policy in SIEM.
+        // SIEM root account ID associated with the strategy.
         shared_ptr<int64_t> aliuid_ {};
-        // The status of the policy. Valid values:
+        // Strategy status. Valid values:
         // 
-        // *   0: invalid
-        // *   1: valid
+        // - 0: disabled
+        // 
+        // - 1: enabled
         shared_ptr<int32_t> effectiveStatus_ {};
-        // The details of the entity. The value is a JSON array.
+        // Entity details in JSON array format.
         shared_ptr<vector<Darabonba::Json>> entity_ {};
-        // The ID of the entity.
+        // Entity ID.
         shared_ptr<int64_t> entityId_ {};
-        // The type of the entity. Valid values:
+        // Entity type. Valid values:
         // 
-        // *   ip
-        // *   process
-        // *   file
+        // - ip
+        // 
+        // - process
+        // 
+        // - file
         shared_ptr<string> entityType_ {};
-        // The summary information about the failed task.
+        // Summary of task failure.
         shared_ptr<string> errorMessage_ {};
-        // The end time of the task.
+        // Task completion time.
         shared_ptr<string> finishTime_ {};
-        // The creation time.
+        // Creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The update time.
+        // Last modified time.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the policy.
+        // Strategy ID.
         shared_ptr<int64_t> id_ {};
-        // The name of the event.
+        // Event name.
         shared_ptr<string> incidentName_ {};
-        // The UUID of the event.
+        // Global unique UUID of the event.
         shared_ptr<string> incidentUuid_ {};
-        // The name of the playbook, which is the unique identifier of the playbook.
+        // Unique name of the playbook.
         shared_ptr<string> playbookName_ {};
-        // The type of the playbook. Valid values:
+        // Playbook type. Valid values:
         // 
-        // *   system: user-triggered playbook
-        // *   custom: event-triggered playbook
-        // *   custom_alert: alert-triggered playbook
-        // *   soar-manual: user-run playbook
-        // *   soar-mdr: MDR-run playbook
+        // - system: manual disposal
+        // 
+        // - custom: event-triggered playbook
+        // 
+        // - custom_alert: alert-triggered playbook
+        // 
+        // - soar-manual: manually run playbook
+        // 
+        // - soar-mdr: MDR-run playbook
         shared_ptr<string> playbookType_ {};
-        // The UUID of the playbook.
+        // UUID of the playbook.
         shared_ptr<string> playbookUuid_ {};
-        // The scope of the policy.
+        // Disposal scope.
         shared_ptr<vector<Darabonba::Json>> scope_ {};
-        // The ID of the SOAR handling policy.
+        // ID of the security orchestration and automated response disposal strategy.
         shared_ptr<string> sophonTaskId_ {};
-        // The running status of the playbook. Valid values:
+        // Playbook invocation status. Valid values:
         // 
-        // *   200: successful
-        // *   10: deleted
-        // *   5: failed
-        // *   0: initial
+        // - 200: succeeded
+        // 
+        // - 10: deleted
+        // 
+        // - 5: failed
+        // 
+        // - 0: initial state
         shared_ptr<int32_t> status_ {};
-        // The ID of the Alibaba account that is used to configure the policy.
+        // The Alibaba Cloud account ID associated with the configuration policy.
         shared_ptr<int64_t> subAliuid_ {};
-        // The parameters that are used to trigger the playbook. The value is in the JSON format.
+        // Parameters used to trigger the playbook, in JSON format.
         shared_ptr<string> taskParam_ {};
+        // Playbook URL.
         shared_ptr<string> taskUrl_ {};
       };
 
@@ -395,11 +406,11 @@ namespace Models
 
 
       protected:
-        // The current page number.
+        // Current page number.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // Number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries returned.
+        // Total number of entries.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -424,9 +435,9 @@ namespace Models
 
 
     protected:
-      // The pagination information.
+      // Paging information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
-      // The detailed data.
+      // Detailed data.
       shared_ptr<vector<Data::ResponseData>> responseData_ {};
     };
 
@@ -470,18 +481,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // Response data.
     shared_ptr<ListDisposeStrategyResponseBody::Data> data_ {};
-    // The returned message.
+    // Response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request succeeded. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

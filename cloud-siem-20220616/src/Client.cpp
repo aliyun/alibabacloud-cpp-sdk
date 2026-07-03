@@ -17,7 +17,11 @@ namespace CloudSiem20220616
 {
 
 AlibabaCloud::CloudSiem20220616::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shanghai" , "cloud-siem.cn-shanghai.aliyuncs.com"},
+    {"ap-southeast-1" , "cloud-siem.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloud-siem", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a data source to a cloud account that is added to the threat analysis feature.
+ * @summary Adds a data source to an attached multicloud account.
  *
  * @param request AddDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -91,7 +95,7 @@ AddDataSourceResponse Client::addDataSourceWithOptions(const AddDataSourceReques
 }
 
 /**
- * @summary Adds a data source to a cloud account that is added to the threat analysis feature.
+ * @summary Adds a data source to an attached multicloud account.
  *
  * @param request AddDataSourceRequest
  * @return AddDataSourceResponse
@@ -102,7 +106,7 @@ AddDataSourceResponse Client::addDataSource(const AddDataSourceRequest &request)
 }
 
 /**
- * @summary Adds logs of a cloud account to the threat analysis feature.
+ * @summary Adds a log for a data source.
  *
  * @param request AddDataSourceLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -153,7 +157,7 @@ AddDataSourceLogResponse Client::addDataSourceLogWithOptions(const AddDataSource
 }
 
 /**
- * @summary Adds logs of a cloud account to the threat analysis feature.
+ * @summary Adds a log for a data source.
  *
  * @param request AddDataSourceLogRequest
  * @return AddDataSourceLogResponse
@@ -164,7 +168,7 @@ AddDataSourceLogResponse Client::addDataSourceLog(const AddDataSourceLogRequest 
 }
 
 /**
- * @summary Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+ * @summary Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
  *
  * @param request AddUserSourceLogConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -219,7 +223,7 @@ AddUserSourceLogConfigResponse Client::addUserSourceLogConfigWithOptions(const A
 }
 
 /**
- * @summary Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+ * @summary Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
  *
  * @param request AddUserSourceLogConfigRequest
  * @return AddUserSourceLogConfigResponse
@@ -230,7 +234,7 @@ AddUserSourceLogConfigResponse Client::addUserSourceLogConfig(const AddUserSourc
 }
 
 /**
- * @summary Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+ * @summary Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
  *
  * @param request BindAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +289,7 @@ BindAccountResponse Client::bindAccountWithOptions(const BindAccountRequest &req
 }
 
 /**
- * @summary Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+ * @summary Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
  *
  * @param request BindAccountRequest
  * @return BindAccountResponse
@@ -296,7 +300,7 @@ BindAccountResponse Client::bindAccount(const BindAccountRequest &request) {
 }
 
 /**
- * @summary Disables the log delivery feature for a cloud service.
+ * @summary Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
  *
  * @param request CloseDeliveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -343,7 +347,7 @@ CloseDeliveryResponse Client::closeDeliveryWithOptions(const CloseDeliveryReques
 }
 
 /**
- * @summary Disables the log delivery feature for a cloud service.
+ * @summary Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
  *
  * @param request CloseDeliveryRequest
  * @return CloseDeliveryResponse
@@ -354,7 +358,7 @@ CloseDeliveryResponse Client::closeDelivery(const CloseDeliveryRequest &request)
 }
 
 /**
- * @summary Deletes the automated response rule with a specified ID.
+ * @summary Deletes an automated response rule by its ID.
  *
  * @param request DeleteAutomateResponseConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -397,7 +401,7 @@ DeleteAutomateResponseConfigResponse Client::deleteAutomateResponseConfigWithOpt
 }
 
 /**
- * @summary Deletes the automated response rule with a specified ID.
+ * @summary Deletes an automated response rule by its ID.
  *
  * @param request DeleteAutomateResponseConfigRequest
  * @return DeleteAutomateResponseConfigResponse
@@ -408,7 +412,7 @@ DeleteAutomateResponseConfigResponse Client::deleteAutomateResponseConfig(const 
 }
 
 /**
- * @summary Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+ * @summary Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
  *
  * @param request DeleteBindAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -463,7 +467,7 @@ DeleteBindAccountResponse Client::deleteBindAccountWithOptions(const DeleteBindA
 }
 
 /**
- * @summary Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+ * @summary Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
  *
  * @param request DeleteBindAccountRequest
  * @return DeleteBindAccountResponse
@@ -474,7 +478,7 @@ DeleteBindAccountResponse Client::deleteBindAccount(const DeleteBindAccountReque
 }
 
 /**
- * @summary Deletes a rule by rule ID.
+ * @summary You can customize rules for a specific ID.
  *
  * @param request DeleteCustomizeRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -517,7 +521,7 @@ DeleteCustomizeRuleResponse Client::deleteCustomizeRuleWithOptions(const DeleteC
 }
 
 /**
- * @summary Deletes a rule by rule ID.
+ * @summary You can customize rules for a specific ID.
  *
  * @param request DeleteCustomizeRuleRequest
  * @return DeleteCustomizeRuleResponse
@@ -528,7 +532,7 @@ DeleteCustomizeRuleResponse Client::deleteCustomizeRule(const DeleteCustomizeRul
 }
 
 /**
- * @summary Removes a data source that is no longer required.
+ * @summary Call this operation to delete a data source that is no longer required.
  *
  * @param request DeleteDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -571,7 +575,7 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
 }
 
 /**
- * @summary Removes a data source that is no longer required.
+ * @summary Call this operation to delete a data source that is no longer required.
  *
  * @param request DeleteDataSourceRequest
  * @return DeleteDataSourceResponse
@@ -640,7 +644,7 @@ DeleteDataSourceLogResponse Client::deleteDataSourceLog(const DeleteDataSourceLo
 }
 
 /**
- * @summary Deletes an alert whitelist rule with a specified ID.
+ * @summary Deletes an alert whitelist rule with the specified ID.
  *
  * @param request DeleteWhiteRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -683,7 +687,7 @@ DeleteWhiteRuleListResponse Client::deleteWhiteRuleListWithOptions(const DeleteW
 }
 
 /**
- * @summary Deletes an alert whitelist rule with a specified ID.
+ * @summary Deletes an alert whitelist rule with the specified ID.
  *
  * @param request DeleteWhiteRuleListRequest
  * @return DeleteWhiteRuleListResponse
@@ -694,7 +698,7 @@ DeleteWhiteRuleListResponse Client::deleteWhiteRuleList(const DeleteWhiteRuleLis
 }
 
 /**
- * @summary Queries the aggregate functions that are supported for a custom rule.
+ * @summary Describes the aggregate functions that are supported by custom rules.
  *
  * @param request DescribeAggregateFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -733,7 +737,7 @@ DescribeAggregateFunctionResponse Client::describeAggregateFunctionWithOptions(c
 }
 
 /**
- * @summary Queries the aggregate functions that are supported for a custom rule.
+ * @summary Describes the aggregate functions that are supported by custom rules.
  *
  * @param request DescribeAggregateFunctionRequest
  * @return DescribeAggregateFunctionResponse
@@ -744,7 +748,7 @@ DescribeAggregateFunctionResponse Client::describeAggregateFunction(const Descri
 }
 
 /**
- * @summary Queries the scenarios in which an alert needs to be added to the whitelist.
+ * @summary Queries the scenarios in which alerts can be whitelisted.
  *
  * @param request DescribeAlertSceneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -783,7 +787,7 @@ DescribeAlertSceneResponse Client::describeAlertSceneWithOptions(const DescribeA
 }
 
 /**
- * @summary Queries the scenarios in which an alert needs to be added to the whitelist.
+ * @summary Queries the scenarios in which alerts can be whitelisted.
  *
  * @param request DescribeAlertSceneRequest
  * @return DescribeAlertSceneResponse
@@ -794,7 +798,7 @@ DescribeAlertSceneResponse Client::describeAlertScene(const DescribeAlertSceneRe
 }
 
 /**
- * @summary Queries the scenarios and objects that can be added to an alert whitelist rule.
+ * @summary Retrieves a list of alert whitelisting scenarios and objects.
  *
  * @param request DescribeAlertSceneByEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -837,7 +841,7 @@ DescribeAlertSceneByEventResponse Client::describeAlertSceneByEventWithOptions(c
 }
 
 /**
- * @summary Queries the scenarios and objects that can be added to an alert whitelist rule.
+ * @summary Retrieves a list of alert whitelisting scenarios and objects.
  *
  * @param request DescribeAlertSceneByEventRequest
  * @return DescribeAlertSceneByEventResponse
@@ -848,7 +852,7 @@ DescribeAlertSceneByEventResponse Client::describeAlertSceneByEvent(const Descri
 }
 
 /**
- * @summary Queries alert data sources.
+ * @summary Retrieves a list of alert sources.
  *
  * @param request DescribeAlertSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -899,7 +903,7 @@ DescribeAlertSourceResponse Client::describeAlertSourceWithOptions(const Describ
 }
 
 /**
- * @summary Queries alert data sources.
+ * @summary Retrieves a list of alert sources.
  *
  * @param request DescribeAlertSourceRequest
  * @return DescribeAlertSourceResponse
@@ -910,7 +914,7 @@ DescribeAlertSourceResponse Client::describeAlertSource(const DescribeAlertSourc
 }
 
 /**
- * @summary Queries the data sources of the alert that is associated with an event.
+ * @summary Retrieves the alert data sources associated with an event.
  *
  * @param request DescribeAlertSourceWithEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -953,7 +957,7 @@ DescribeAlertSourceWithEventResponse Client::describeAlertSourceWithEventWithOpt
 }
 
 /**
- * @summary Queries the data sources of the alert that is associated with an event.
+ * @summary Retrieves the alert data sources associated with an event.
  *
  * @param request DescribeAlertSourceWithEventRequest
  * @return DescribeAlertSourceWithEventResponse
@@ -964,7 +968,7 @@ DescribeAlertSourceWithEventResponse Client::describeAlertSourceWithEvent(const 
 }
 
 /**
- * @summary Queries the threat types that you can select when you create a custom rule.
+ * @summary Retrieves a list of threat types for custom rules.
  *
  * @param request DescribeAlertTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1007,7 +1011,7 @@ DescribeAlertTypeResponse Client::describeAlertTypeWithOptions(const DescribeAle
 }
 
 /**
- * @summary Queries the threat types that you can select when you create a custom rule.
+ * @summary Retrieves a list of threat types for custom rules.
  *
  * @param request DescribeAlertTypeRequest
  * @return DescribeAlertTypeResponse
@@ -1018,7 +1022,7 @@ DescribeAlertTypeResponse Client::describeAlertType(const DescribeAlertTypeReque
 }
 
 /**
- * @summary Queries alerts within your account.
+ * @summary Gets the list of alerts for a user.
  *
  * @param request DescribeAlertsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1129,7 +1133,7 @@ DescribeAlertsResponse Client::describeAlertsWithOptions(const DescribeAlertsReq
 }
 
 /**
- * @summary Queries alerts within your account.
+ * @summary Gets the list of alerts for a user.
  *
  * @param request DescribeAlertsRequest
  * @return DescribeAlertsResponse
@@ -1140,7 +1144,7 @@ DescribeAlertsResponse Client::describeAlerts(const DescribeAlertsRequest &reque
 }
 
 /**
- * @summary Queries the number of alerts of different severities.
+ * @summary Queries the count of alerts for different severity levels.
  *
  * @param request DescribeAlertsCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1191,7 +1195,7 @@ DescribeAlertsCountResponse Client::describeAlertsCountWithOptions(const Describ
 }
 
 /**
- * @summary Queries the number of alerts of different severities.
+ * @summary Queries the count of alerts for different severity levels.
  *
  * @param request DescribeAlertsCountRequest
  * @return DescribeAlertsCountResponse
@@ -1202,7 +1206,7 @@ DescribeAlertsCountResponse Client::describeAlertsCount(const DescribeAlertsCoun
 }
 
 /**
- * @summary Queries the alerts that are associated with an entity.
+ * @summary Queries for alerts that are associated with an entity.
  *
  * @param request DescribeAlertsWithEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1273,7 +1277,7 @@ DescribeAlertsWithEntityResponse Client::describeAlertsWithEntityWithOptions(con
 }
 
 /**
- * @summary Queries the alerts that are associated with an entity.
+ * @summary Queries for alerts that are associated with an entity.
  *
  * @param request DescribeAlertsWithEntityRequest
  * @return DescribeAlertsWithEntityResponse
@@ -1284,7 +1288,7 @@ DescribeAlertsWithEntityResponse Client::describeAlertsWithEntity(const Describe
 }
 
 /**
- * @summary Queries the alerts that are associated with an event.
+ * @summary Retrieves alerts associated with a specific event.
  *
  * @param request DescribeAlertsWithEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1387,7 +1391,7 @@ DescribeAlertsWithEventResponse Client::describeAlertsWithEventWithOptions(const
 }
 
 /**
- * @summary Queries the alerts that are associated with an event.
+ * @summary Retrieves alerts associated with a specific event.
  *
  * @param request DescribeAlertsWithEventRequest
  * @return DescribeAlertsWithEventResponse
@@ -1398,7 +1402,7 @@ DescribeAlertsWithEventResponse Client::describeAlertsWithEvent(const DescribeAl
 }
 
 /**
- * @summary Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+ * @summary Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
  *
  * @param request DescribeAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1429,7 +1433,7 @@ DescribeAuthResponse Client::describeAuthWithOptions(const DescribeAuthRequest &
 }
 
 /**
- * @summary Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+ * @summary Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
  *
  * @param request DescribeAuthRequest
  * @return DescribeAuthResponse
@@ -1440,7 +1444,7 @@ DescribeAuthResponse Client::describeAuth(const DescribeAuthRequest &request) {
 }
 
 /**
- * @summary Queries the number of automated response rules.
+ * @summary Returns the number of automated response rules.
  *
  * @param request DescribeAutomateResponseConfigCounterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1479,7 +1483,7 @@ DescribeAutomateResponseConfigCounterResponse Client::describeAutomateResponseCo
 }
 
 /**
- * @summary Queries the number of automated response rules.
+ * @summary Returns the number of automated response rules.
  *
  * @param request DescribeAutomateResponseConfigCounterRequest
  * @return DescribeAutomateResponseConfigCounterResponse
@@ -1490,7 +1494,7 @@ DescribeAutomateResponseConfigCounterResponse Client::describeAutomateResponseCo
 }
 
 /**
- * @summary Queries the configurable fields and operators of an automated response rule.
+ * @summary Retrieves the configurable fields and operators for automated response rules.
  *
  * @param request DescribeAutomateResponseConfigFeatureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1533,7 +1537,7 @@ DescribeAutomateResponseConfigFeatureResponse Client::describeAutomateResponseCo
 }
 
 /**
- * @summary Queries the configurable fields and operators of an automated response rule.
+ * @summary Retrieves the configurable fields and operators for automated response rules.
  *
  * @param request DescribeAutomateResponseConfigFeatureRequest
  * @return DescribeAutomateResponseConfigFeatureResponse
@@ -1544,7 +1548,7 @@ DescribeAutomateResponseConfigFeatureResponse Client::describeAutomateResponseCo
 }
 
 /**
- * @summary Queries the assets that are associated with an event.
+ * @summary Queries a list of assets that are associated with an event.
  *
  * @param request DescribeCloudSiemAssetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1607,7 +1611,7 @@ DescribeCloudSiemAssetsResponse Client::describeCloudSiemAssetsWithOptions(const
 }
 
 /**
- * @summary Queries the assets that are associated with an event.
+ * @summary Queries a list of assets that are associated with an event.
  *
  * @param request DescribeCloudSiemAssetsRequest
  * @return DescribeCloudSiemAssetsResponse
@@ -1618,7 +1622,7 @@ DescribeCloudSiemAssetsResponse Client::describeCloudSiemAssets(const DescribeCl
 }
 
 /**
- * @summary Queries the number of assets that are associated with an event by asset type.
+ * @summary Queries the number of assets of each type that are associated with an event.
  *
  * @param request DescribeCloudSiemAssetsCounterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1661,7 +1665,7 @@ DescribeCloudSiemAssetsCounterResponse Client::describeCloudSiemAssetsCounterWit
 }
 
 /**
- * @summary Queries the number of assets that are associated with an event by asset type.
+ * @summary Queries the number of assets of each type that are associated with an event.
  *
  * @param request DescribeCloudSiemAssetsCounterRequest
  * @return DescribeCloudSiemAssetsCounterResponse
@@ -1672,7 +1676,7 @@ DescribeCloudSiemAssetsCounterResponse Client::describeCloudSiemAssetsCounter(co
 }
 
 /**
- * @summary Queries the details of an event.
+ * @summary Retrieves the details of an event.
  *
  * @param request DescribeCloudSiemEventDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1715,7 +1719,7 @@ DescribeCloudSiemEventDetailResponse Client::describeCloudSiemEventDetailWithOpt
 }
 
 /**
- * @summary Queries the details of an event.
+ * @summary Retrieves the details of an event.
  *
  * @param request DescribeCloudSiemEventDetailRequest
  * @return DescribeCloudSiemEventDetailResponse
@@ -1726,7 +1730,7 @@ DescribeCloudSiemEventDetailResponse Client::describeCloudSiemEventDetail(const 
 }
 
 /**
- * @summary Queries events in SIEM.
+ * @summary Retrieves a list of threat analysis events.
  *
  * @param request DescribeCloudSiemEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1813,7 +1817,7 @@ DescribeCloudSiemEventsResponse Client::describeCloudSiemEventsWithOptions(const
 }
 
 /**
- * @summary Queries events in SIEM.
+ * @summary Retrieves a list of threat analysis events.
  *
  * @param request DescribeCloudSiemEventsRequest
  * @return DescribeCloudSiemEventsResponse
@@ -1824,7 +1828,7 @@ DescribeCloudSiemEventsResponse Client::describeCloudSiemEvents(const DescribeCl
 }
 
 /**
- * @summary Queries the number of custom rules.
+ * @summary Retrieves the count of custom rules.
  *
  * @param request DescribeCustomizeRuleCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1863,7 +1867,7 @@ DescribeCustomizeRuleCountResponse Client::describeCustomizeRuleCountWithOptions
 }
 
 /**
- * @summary Queries the number of custom rules.
+ * @summary Retrieves the count of custom rules.
  *
  * @param request DescribeCustomizeRuleCountRequest
  * @return DescribeCustomizeRuleCountResponse
@@ -1874,7 +1878,7 @@ DescribeCustomizeRuleCountResponse Client::describeCustomizeRuleCount(const Desc
 }
 
 /**
- * @summary Queries the historical simulation data that is used in a simulation test scenario.
+ * @summary Retrieves historical simulated data from a test scenario.
  *
  * @param request DescribeCustomizeRuleTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1917,7 +1921,7 @@ DescribeCustomizeRuleTestResponse Client::describeCustomizeRuleTestWithOptions(c
 }
 
 /**
- * @summary Queries the historical simulation data that is used in a simulation test scenario.
+ * @summary Retrieves historical simulated data from a test scenario.
  *
  * @param request DescribeCustomizeRuleTestRequest
  * @return DescribeCustomizeRuleTestResponse
@@ -1928,7 +1932,7 @@ DescribeCustomizeRuleTestResponse Client::describeCustomizeRuleTest(const Descri
 }
 
 /**
- * @summary Queries the chart that displays the test results of business data for a custom rule.
+ * @summary Retrieves the chart of test results for a custom rule.
  *
  * @param request DescribeCustomizeRuleTestHistogramRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1971,7 +1975,7 @@ DescribeCustomizeRuleTestHistogramResponse Client::describeCustomizeRuleTestHist
 }
 
 /**
- * @summary Queries the chart that displays the test results of business data for a custom rule.
+ * @summary Retrieves the chart of test results for a custom rule.
  *
  * @param request DescribeCustomizeRuleTestHistogramRequest
  * @return DescribeCustomizeRuleTestHistogramResponse
@@ -2036,7 +2040,7 @@ DescribeDataSourceInstanceResponse Client::describeDataSourceInstance(const Desc
 }
 
 /**
- * @summary Queries the parameters of a data source.
+ * @summary Describes the parameters for a data source.
  *
  * @param request DescribeDataSourceParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2075,7 +2079,7 @@ DescribeDataSourceParametersResponse Client::describeDataSourceParametersWithOpt
 }
 
 /**
- * @summary Queries the parameters of a data source.
+ * @summary Describes the parameters for a data source.
  *
  * @param request DescribeDataSourceParametersRequest
  * @return DescribeDataSourceParametersResponse
@@ -2086,7 +2090,7 @@ DescribeDataSourceParametersResponse Client::describeDataSourceParameters(const 
 }
 
 /**
- * @summary Queries the list of entities and playbooks that need to be handled.
+ * @summary Retrieves entities to be remediated and a list of playbooks.
  *
  * @param request DescribeDisposeAndPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2145,7 +2149,7 @@ DescribeDisposeAndPlaybookResponse Client::describeDisposeAndPlaybookWithOptions
 }
 
 /**
- * @summary Queries the list of entities and playbooks that need to be handled.
+ * @summary Retrieves entities to be remediated and a list of playbooks.
  *
  * @param request DescribeDisposeAndPlaybookRequest
  * @return DescribeDisposeAndPlaybookResponse
@@ -2156,7 +2160,7 @@ DescribeDisposeAndPlaybookResponse Client::describeDisposeAndPlaybook(const Desc
 }
 
 /**
- * @summary Queries the list of playbooks that are used by a handling policy.
+ * @summary Retrieves the list of playbooks used in a disposal policy.
  *
  * @param request DescribeDisposeStrategyPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2203,7 +2207,7 @@ DescribeDisposeStrategyPlaybookResponse Client::describeDisposeStrategyPlaybookW
 }
 
 /**
- * @summary Queries the list of playbooks that are used by a handling policy.
+ * @summary Retrieves the list of playbooks used in a disposal policy.
  *
  * @param request DescribeDisposeStrategyPlaybookRequest
  * @return DescribeDisposeStrategyPlaybookResponse
@@ -2214,7 +2218,7 @@ DescribeDisposeStrategyPlaybookResponse Client::describeDisposeStrategyPlaybook(
 }
 
 /**
- * @summary Queries the details of an entity.
+ * @summary Retrieves the details of an entity.
  *
  * @param request DescribeEntityInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2269,7 +2273,7 @@ DescribeEntityInfoResponse Client::describeEntityInfoWithOptions(const DescribeE
 }
 
 /**
- * @summary Queries the details of an entity.
+ * @summary Retrieves the details of an entity.
  *
  * @param request DescribeEntityInfoRequest
  * @return DescribeEntityInfoResponse
@@ -2280,7 +2284,7 @@ DescribeEntityInfoResponse Client::describeEntityInfo(const DescribeEntityInfoRe
 }
 
 /**
- * @summary Queries the number of events by type.
+ * @summary You can obtain the count for each event type.
  *
  * @param request DescribeEventCountByThreatLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2327,7 +2331,7 @@ DescribeEventCountByThreatLevelResponse Client::describeEventCountByThreatLevelW
 }
 
 /**
- * @summary Queries the number of events by type.
+ * @summary You can obtain the count for each event type.
  *
  * @param request DescribeEventCountByThreatLevelRequest
  * @return DescribeEventCountByThreatLevelResponse
@@ -2338,7 +2342,7 @@ DescribeEventCountByThreatLevelResponse Client::describeEventCountByThreatLevel(
 }
 
 /**
- * @summary Queries the handling policies of a historical event.
+ * @summary Queries the policy handling history for an event.
  *
  * @param request DescribeEventDisposeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2389,7 +2393,7 @@ DescribeEventDisposeResponse Client::describeEventDisposeWithOptions(const Descr
 }
 
 /**
- * @summary Queries the handling policies of a historical event.
+ * @summary Queries the policy handling history for an event.
  *
  * @param request DescribeEventDisposeRequest
  * @return DescribeEventDisposeResponse
@@ -2400,7 +2404,7 @@ DescribeEventDisposeResponse Client::describeEventDispose(const DescribeEventDis
 }
 
 /**
- * @summary Queries the number of logs that are added to the threat analysis feature.
+ * @summary Queries the number of imported logs.
  *
  * @param request DescribeImportedLogCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2439,7 +2443,7 @@ DescribeImportedLogCountResponse Client::describeImportedLogCountWithOptions(con
 }
 
 /**
- * @summary Queries the number of logs that are added to the threat analysis feature.
+ * @summary Queries the number of imported logs.
  *
  * @param request DescribeImportedLogCountRequest
  * @return DescribeImportedLogCountResponse
@@ -2450,7 +2454,7 @@ DescribeImportedLogCountResponse Client::describeImportedLogCount(const Describe
 }
 
 /**
- * @summary Queries the fields that can be configured for a custom rule.
+ * @summary Retrieves the list of configurable fields for custom rules.
  *
  * @param request DescribeLogFieldsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2497,7 +2501,7 @@ DescribeLogFieldsResponse Client::describeLogFieldsWithOptions(const DescribeLog
 }
 
 /**
- * @summary Queries the fields that can be configured for a custom rule.
+ * @summary Retrieves the list of configurable fields for custom rules.
  *
  * @param request DescribeLogFieldsRequest
  * @return DescribeLogFieldsResponse
@@ -2508,7 +2512,7 @@ DescribeLogFieldsResponse Client::describeLogFields(const DescribeLogFieldsReque
 }
 
 /**
- * @summary Queries the log sources that can be configured for a custom rule.
+ * @summary Retrieves a list of configurable log sources for custom rules.
  *
  * @param request DescribeLogSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2551,7 +2555,7 @@ DescribeLogSourceResponse Client::describeLogSourceWithOptions(const DescribeLog
 }
 
 /**
- * @summary Queries the log sources that can be configured for a custom rule.
+ * @summary Retrieves a list of configurable log sources for custom rules.
  *
  * @param request DescribeLogSourceRequest
  * @return DescribeLogSourceResponse
@@ -2562,7 +2566,7 @@ DescribeLogSourceResponse Client::describeLogSource(const DescribeLogSourceReque
 }
 
 /**
- * @summary Queries the log types that can be configured for a custom rule.
+ * @summary Retrieves the log types that can be configured for custom rules.
  *
  * @param request DescribeLogTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2601,7 +2605,7 @@ DescribeLogTypeResponse Client::describeLogTypeWithOptions(const DescribeLogType
 }
 
 /**
- * @summary Queries the log types that can be configured for a custom rule.
+ * @summary Retrieves the log types that can be configured for custom rules.
  *
  * @param request DescribeLogTypeRequest
  * @return DescribeLogTypeResponse
@@ -2612,7 +2616,7 @@ DescribeLogTypeResponse Client::describeLogType(const DescribeLogTypeRequest &re
 }
 
 /**
- * @summary Queries the operator of a custom rule.
+ * @summary Retrieves the list of operators for custom rules.
  *
  * @param request DescribeOperatorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2655,7 +2659,7 @@ DescribeOperatorsResponse Client::describeOperatorsWithOptions(const DescribeOpe
 }
 
 /**
- * @summary Queries the operator of a custom rule.
+ * @summary Retrieves the list of operators for custom rules.
  *
  * @param request DescribeOperatorsRequest
  * @return DescribeOperatorsResponse
@@ -2666,7 +2670,7 @@ DescribeOperatorsResponse Client::describeOperators(const DescribeOperatorsReque
 }
 
 /**
- * @summary Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+ * @summary Queries the number of Alibaba Cloud, Tencent Cloud, and Huawei Cloud products that can be integrated with Threat Analysis.
  *
  * @param request DescribeProdCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2705,7 +2709,7 @@ DescribeProdCountResponse Client::describeProdCountWithOptions(const DescribePro
 }
 
 /**
- * @summary Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+ * @summary Queries the number of Alibaba Cloud, Tencent Cloud, and Huawei Cloud products that can be integrated with Threat Analysis.
  *
  * @param request DescribeProdCountRequest
  * @return DescribeProdCountResponse
@@ -2716,7 +2720,7 @@ DescribeProdCountResponse Client::describeProdCount(const DescribeProdCountReque
 }
 
 /**
- * @summary Queries the list of users in the playbook scope.
+ * @summary Retrieves the list of users in the playbook scope.
  *
  * @param request DescribeScopeUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2755,7 +2759,7 @@ DescribeScopeUsersResponse Client::describeScopeUsersWithOptions(const DescribeS
 }
 
 /**
- * @summary Queries the list of users in the playbook scope.
+ * @summary Retrieves the list of users in the playbook scope.
  *
  * @param request DescribeScopeUsersRequest
  * @return DescribeScopeUsersResponse
@@ -2766,7 +2770,7 @@ DescribeScopeUsersResponse Client::describeScopeUsers(const DescribeScopeUsersRe
 }
 
 /**
- * @summary Checks whether the threat analysis feature is authorized to access a resource directory.
+ * @summary Checks whether a resource directory is authorized for threat analysis.
  *
  * @param request DescribeServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2797,7 +2801,7 @@ DescribeServiceStatusResponse Client::describeServiceStatusWithOptions(const Des
 }
 
 /**
- * @summary Checks whether the threat analysis feature is authorized to access a resource directory.
+ * @summary Checks whether a resource directory is authorized for threat analysis.
  *
  * @param request DescribeServiceStatusRequest
  * @return DescribeServiceStatusResponse
@@ -2808,7 +2812,7 @@ DescribeServiceStatusResponse Client::describeServiceStatus(const DescribeServic
 }
 
 /**
- * @summary Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+ * @summary Checks the status of the storage for the threat analysis feature. The storage is a Logstore in Simple Log Service.
  *
  * @param request DescribeStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2847,7 +2851,7 @@ DescribeStorageResponse Client::describeStorageWithOptions(const DescribeStorage
 }
 
 /**
- * @summary Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+ * @summary Checks the status of the storage for the threat analysis feature. The storage is a Logstore in Simple Log Service.
  *
  * @param request DescribeStorageRequest
  * @return DescribeStorageResponse
@@ -2858,7 +2862,7 @@ DescribeStorageResponse Client::describeStorage(const DescribeStorageRequest &re
 }
 
 /**
- * @summary Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+ * @summary Checks whether the current Alibaba Cloud account or its associated enterprise organization has purchased threat analysis.
  *
  * @param request DescribeUserBuyStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2893,7 +2897,7 @@ DescribeUserBuyStatusResponse Client::describeUserBuyStatusWithOptions(const Des
 }
 
 /**
- * @summary Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+ * @summary Checks whether the current Alibaba Cloud account or its associated enterprise organization has purchased threat analysis.
  *
  * @param request DescribeUserBuyStatusRequest
  * @return DescribeUserBuyStatusResponse
@@ -2904,7 +2908,7 @@ DescribeUserBuyStatusResponse Client::describeUserBuyStatus(const DescribeUserBu
 }
 
 /**
- * @summary Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+ * @summary Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
  *
  * @param request DescribeWafScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2947,7 +2951,7 @@ DescribeWafScopeResponse Client::describeWafScopeWithOptions(const DescribeWafSc
 }
 
 /**
- * @summary Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+ * @summary Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
  *
  * @param request DescribeWafScopeRequest
  * @return DescribeWafScopeResponse
@@ -2958,7 +2962,7 @@ DescribeWafScopeResponse Client::describeWafScope(const DescribeWafScopeRequest 
 }
 
 /**
- * @summary Queries a list of whitelist rules for alerts.
+ * @summary Queries the rules in the alert whitelist.
  *
  * @param request DescribeWhiteRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3017,7 +3021,7 @@ DescribeWhiteRuleListResponse Client::describeWhiteRuleListWithOptions(const Des
 }
 
 /**
- * @summary Queries a list of whitelist rules for alerts.
+ * @summary Queries the rules in the alert whitelist.
  *
  * @param request DescribeWhiteRuleListRequest
  * @return DescribeWhiteRuleListResponse
@@ -3028,7 +3032,7 @@ DescribeWhiteRuleListResponse Client::describeWhiteRuleList(const DescribeWhiteR
 }
 
 /**
- * @summary Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+ * @summary Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
  *
  * @param request EnableAccessForCloudSiemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3071,7 +3075,7 @@ EnableAccessForCloudSiemResponse Client::enableAccessForCloudSiemWithOptions(con
 }
 
 /**
- * @summary Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+ * @summary Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
  *
  * @param request EnableAccessForCloudSiemRequest
  * @return EnableAccessForCloudSiemResponse
@@ -3082,7 +3086,7 @@ EnableAccessForCloudSiemResponse Client::enableAccessForCloudSiem(const EnableAc
 }
 
 /**
- * @summary Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+ * @summary Enables resource directory authorization for threat analysis. This operation can be called only by a resource directory administrator.
  *
  * @param request EnableServiceForCloudSiemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3113,7 +3117,7 @@ EnableServiceForCloudSiemResponse Client::enableServiceForCloudSiemWithOptions(c
 }
 
 /**
- * @summary Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+ * @summary Enables resource directory authorization for threat analysis. This operation can be called only by a resource directory administrator.
  *
  * @param request EnableServiceForCloudSiemRequest
  * @return EnableServiceForCloudSiemResponse
@@ -3124,7 +3128,7 @@ EnableServiceForCloudSiemResponse Client::enableServiceForCloudSiem(const Enable
 }
 
 /**
- * @summary Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
+ * @summary Retrieves the current billable storage usage and subscription purchase volume for threat analysis. Units are in GB.
  *
  * @param request GetCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3163,7 +3167,7 @@ GetCapacityResponse Client::getCapacityWithOptions(const GetCapacityRequest &req
 }
 
 /**
- * @summary Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
+ * @summary Retrieves the current billable storage usage and subscription purchase volume for threat analysis. Units are in GB.
  *
  * @param request GetCapacityRequest
  * @return GetCapacityResponse
@@ -3174,7 +3178,97 @@ GetCapacityResponse Client::getCapacity(const GetCapacityRequest &request) {
 }
 
 /**
- * @summary Queries the storage configurations for the threat analysis feature on the user side.
+ * @summary Queries entity counts.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ *
+ * @param request GetEntitiyStatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEntitiyStatResponse
+ */
+GetEntitiyStatResponse Client::getEntitiyStatWithOptions(const GetEntitiyStatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAssetName()) {
+    body["AssetName"] = request.getAssetName();
+  }
+
+  if (!!request.hasAssetUuid()) {
+    body["AssetUuid"] = request.getAssetUuid();
+  }
+
+  if (!!request.hasEntityName()) {
+    body["EntityName"] = request.getEntityName();
+  }
+
+  if (!!request.hasEntityType()) {
+    body["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasEntityUuid()) {
+    body["EntityUuid"] = request.getEntityUuid();
+  }
+
+  if (!!request.hasIncidentUuid()) {
+    body["IncidentUuid"] = request.getIncidentUuid();
+  }
+
+  if (!!request.hasIsAsset()) {
+    body["IsAsset"] = request.getIsAsset();
+  }
+
+  if (!!request.hasIsMalwareEntity()) {
+    body["IsMalwareEntity"] = request.getIsMalwareEntity();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasRoleType()) {
+    body["RoleType"] = request.getRoleType();
+  }
+
+  if (!!request.hasTags()) {
+    body["Tags"] = request.getTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetEntitiyStat"},
+    {"version" , "2022-06-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEntitiyStatResponse>();
+}
+
+/**
+ * @summary Queries entity counts.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ *
+ * @param request GetEntitiyStatRequest
+ * @return GetEntitiyStatResponse
+ */
+GetEntitiyStatResponse Client::getEntitiyStat(const GetEntitiyStatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getEntitiyStatWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the storage settings created by the Threat Analysis and Response product in your Simple Log Service (SLS). These settings include the storage duration and storage region.
  *
  * @param request GetStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3213,7 +3307,7 @@ GetStorageResponse Client::getStorageWithOptions(const GetStorageRequest &reques
 }
 
 /**
- * @summary Queries the storage configurations for the threat analysis feature on the user side.
+ * @summary Retrieves the storage settings created by the Threat Analysis and Response product in your Simple Log Service (SLS). These settings include the storage duration and storage region.
  *
  * @param request GetStorageRequest
  * @return GetStorageResponse
@@ -3224,7 +3318,7 @@ GetStorageResponse Client::getStorage(const GetStorageRequest &request) {
 }
 
 /**
- * @summary Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+ * @summary Lists the AccessKey IDs for attached multicloud accounts.
  *
  * @param request ListAccountAccessIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3267,7 +3361,7 @@ ListAccountAccessIdResponse Client::listAccountAccessIdWithOptions(const ListAcc
 }
 
 /**
- * @summary Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+ * @summary Lists the AccessKey IDs for attached multicloud accounts.
  *
  * @param request ListAccountAccessIdRequest
  * @return ListAccountAccessIdResponse
@@ -3278,7 +3372,7 @@ ListAccountAccessIdResponse Client::listAccountAccessId(const ListAccountAccessI
 }
 
 /**
- * @summary Query accounts by log.
+ * @summary Queries the accounts associated with a log.
  *
  * @param request ListAccountsByLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3329,7 +3423,7 @@ ListAccountsByLogResponse Client::listAccountsByLogWithOptions(const ListAccount
 }
 
 /**
- * @summary Query accounts by log.
+ * @summary Queries the accounts associated with a log.
  *
  * @param request ListAccountsByLogRequest
  * @return ListAccountsByLogResponse
@@ -3340,7 +3434,7 @@ ListAccountsByLogResponse Client::listAccountsByLog(const ListAccountsByLogReque
 }
 
 /**
- * @summary Queries a list of cloud services that can be added to the threat analysis feature.
+ * @summary Lists the cloud products supported by Threat Analysis for data ingestion.
  *
  * @param request ListAllProdsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3379,7 +3473,7 @@ ListAllProdsResponse Client::listAllProdsWithOptions(const ListAllProdsRequest &
 }
 
 /**
- * @summary Queries a list of cloud services that can be added to the threat analysis feature.
+ * @summary Lists the cloud products supported by Threat Analysis for data ingestion.
  *
  * @param request ListAllProdsRequest
  * @return ListAllProdsResponse
@@ -3390,7 +3484,7 @@ ListAllProdsResponse Client::listAllProds(const ListAllProdsRequest &request) {
 }
 
 /**
- * @summary Queries automated response rules.
+ * @summary Retrieves a list of automated response rules.
  *
  * @param request ListAutomateResponseConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3469,7 +3563,7 @@ ListAutomateResponseConfigsResponse Client::listAutomateResponseConfigsWithOptio
 }
 
 /**
- * @summary Queries automated response rules.
+ * @summary Retrieves a list of automated response rules.
  *
  * @param request ListAutomateResponseConfigsRequest
  * @return ListAutomateResponseConfigsResponse
@@ -3480,7 +3574,7 @@ ListAutomateResponseConfigsResponse Client::listAutomateResponseConfigs(const Li
 }
 
 /**
- * @summary Queries a list of cloud accounts that are added to the threat analysis feature.
+ * @summary Lists multicloud accounts bound to Threat Analysis.
  *
  * @param request ListBindAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3523,7 +3617,7 @@ ListBindAccountResponse Client::listBindAccountWithOptions(const ListBindAccount
 }
 
 /**
- * @summary Queries a list of cloud accounts that are added to the threat analysis feature.
+ * @summary Lists multicloud accounts bound to Threat Analysis.
  *
  * @param request ListBindAccountRequest
  * @return ListBindAccountResponse
@@ -3534,7 +3628,7 @@ ListBindAccountResponse Client::listBindAccount(const ListBindAccountRequest &re
 }
 
 /**
- * @summary Queries a list of data sources that are added to the threat analysis feature.
+ * @summary Queries all bound data sources.
  *
  * @param request ListBindDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3573,7 +3667,7 @@ ListBindDataSourcesResponse Client::listBindDataSourcesWithOptions(const ListBin
 }
 
 /**
- * @summary Queries a list of data sources that are added to the threat analysis feature.
+ * @summary Queries all bound data sources.
  *
  * @param request ListBindDataSourcesRequest
  * @return ListBindDataSourcesResponse
@@ -3584,7 +3678,7 @@ ListBindDataSourcesResponse Client::listBindDataSources(const ListBindDataSource
 }
 
 /**
- * @summary Queries custom rules.
+ * @summary Retrieves a list of custom rules.
  *
  * @param request ListCloudSiemCustomizeRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3671,7 +3765,7 @@ ListCloudSiemCustomizeRulesResponse Client::listCloudSiemCustomizeRulesWithOptio
 }
 
 /**
- * @summary Queries custom rules.
+ * @summary Retrieves a list of custom rules.
  *
  * @param request ListCloudSiemCustomizeRulesRequest
  * @return ListCloudSiemCustomizeRulesResponse
@@ -3682,7 +3776,7 @@ ListCloudSiemCustomizeRulesResponse Client::listCloudSiemCustomizeRules(const Li
 }
 
 /**
- * @summary Queries predefined rules.
+ * @summary Retrieves a list of predefined rules.
  *
  * @param request ListCloudSiemPredefinedRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3781,7 +3875,7 @@ ListCloudSiemPredefinedRulesResponse Client::listCloudSiemPredefinedRulesWithOpt
 }
 
 /**
- * @summary Queries predefined rules.
+ * @summary Retrieves a list of predefined rules.
  *
  * @param request ListCloudSiemPredefinedRulesRequest
  * @return ListCloudSiemPredefinedRulesResponse
@@ -3792,7 +3886,7 @@ ListCloudSiemPredefinedRulesResponse Client::listCloudSiemPredefinedRules(const 
 }
 
 /**
- * @summary Queries the test results of a custom rule.
+ * @summary Retrieves the list of test results for a custom rule.
  *
  * @param request ListCustomizeRuleTestResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3859,7 +3953,7 @@ ListCustomizeRuleTestResultResponse Client::listCustomizeRuleTestResultWithOptio
 }
 
 /**
- * @summary Queries the test results of a custom rule.
+ * @summary Retrieves the list of test results for a custom rule.
  *
  * @param request ListCustomizeRuleTestResultRequest
  * @return ListCustomizeRuleTestResultResponse
@@ -3870,7 +3964,7 @@ ListCustomizeRuleTestResultResponse Client::listCustomizeRuleTestResult(const Li
 }
 
 /**
- * @summary Queries the logs of a data source.
+ * @summary Lists the logs for a data source.
  *
  * @param request ListDataSourceLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3913,7 +4007,7 @@ ListDataSourceLogsResponse Client::listDataSourceLogsWithOptions(const ListDataS
 }
 
 /**
- * @summary Queries the logs of a data source.
+ * @summary Lists the logs for a data source.
  *
  * @param request ListDataSourceLogsRequest
  * @return ListDataSourceLogsResponse
@@ -3924,7 +4018,7 @@ ListDataSourceLogsResponse Client::listDataSourceLogs(const ListDataSourceLogsRe
 }
 
 /**
- * @summary Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+ * @summary Lists the types of multicloud data sources that Threat Analysis supports.
  *
  * @param request ListDataSourceTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3959,7 +4053,7 @@ ListDataSourceTypesResponse Client::listDataSourceTypesWithOptions(const ListDat
 }
 
 /**
- * @summary Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+ * @summary Lists the types of multicloud data sources that Threat Analysis supports.
  *
  * @param request ListDataSourceTypesRequest
  * @return ListDataSourceTypesResponse
@@ -3970,7 +4064,7 @@ ListDataSourceTypesResponse Client::listDataSourceTypes(const ListDataSourceType
 }
 
 /**
- * @summary Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+ * @summary Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
  *
  * @param request ListDeliveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4009,7 +4103,7 @@ ListDeliveryResponse Client::listDeliveryWithOptions(const ListDeliveryRequest &
 }
 
 /**
- * @summary Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+ * @summary Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
  *
  * @param request ListDeliveryRequest
  * @return ListDeliveryResponse
@@ -4020,7 +4114,7 @@ ListDeliveryResponse Client::listDelivery(const ListDeliveryRequest &request) {
 }
 
 /**
- * @summary Queries handling policies.
+ * @summary Retrieve a list of system-recommended disposal strategies.
  *
  * @param request ListDisposeStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4119,7 +4213,7 @@ ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDis
 }
 
 /**
- * @summary Queries handling policies.
+ * @summary Retrieve a list of system-recommended disposal strategies.
  *
  * @param request ListDisposeStrategyRequest
  * @return ListDisposeStrategyResponse
@@ -4130,7 +4224,7 @@ ListDisposeStrategyResponse Client::listDisposeStrategy(const ListDisposeStrateg
 }
 
 /**
- * @summary Queries entities.
+ * @summary Queries a list of entities.
  *
  * @param request ListEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4209,7 +4303,7 @@ ListEntitiesResponse Client::listEntitiesWithOptions(const ListEntitiesRequest &
 }
 
 /**
- * @summary Queries entities.
+ * @summary Queries a list of entities.
  *
  * @param request ListEntitiesRequest
  * @return ListEntitiesResponse
@@ -4220,7 +4314,7 @@ ListEntitiesResponse Client::listEntities(const ListEntitiesRequest &request) {
 }
 
 /**
- * @summary Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+ * @summary Queries the log ingestion details for a specific product.
  *
  * @param request ListImportedLogsByProdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4267,7 +4361,7 @@ ListImportedLogsByProdResponse Client::listImportedLogsByProdWithOptions(const L
 }
 
 /**
- * @summary Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+ * @summary Queries the log ingestion details for a specific product.
  *
  * @param request ListImportedLogsByProdRequest
  * @return ListImportedLogsByProdResponse
@@ -4278,7 +4372,7 @@ ListImportedLogsByProdResponse Client::listImportedLogsByProd(const ListImported
 }
 
 /**
- * @summary Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+ * @summary Queries projects and Logstores based on the name patterns of the default SLS project and Logstore for an Alibaba Cloud service.
  *
  * @param request ListProjectLogStoresRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4321,7 +4415,7 @@ ListProjectLogStoresResponse Client::listProjectLogStoresWithOptions(const ListP
 }
 
 /**
- * @summary Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+ * @summary Queries projects and Logstores based on the name patterns of the default SLS project and Logstore for an Alibaba Cloud service.
  *
  * @param request ListProjectLogStoresRequest
  * @return ListProjectLogStoresResponse
@@ -4332,7 +4426,7 @@ ListProjectLogStoresResponse Client::listProjectLogStores(const ListProjectLogSt
 }
 
 /**
- * @summary Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+ * @summary Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
  *
  * @param request ListRdUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4363,7 +4457,7 @@ ListRdUsersResponse Client::listRdUsersWithOptions(const ListRdUsersRequest &req
 }
 
 /**
- * @summary Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+ * @summary Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
  *
  * @param request ListRdUsersRequest
  * @return ListRdUsersResponse
@@ -4374,7 +4468,7 @@ ListRdUsersResponse Client::listRdUsers(const ListRdUsersRequest &request) {
 }
 
 /**
- * @summary Modifies a third-party cloud account that is added to the threat analysis feature.
+ * @summary Modifies a bound Alibaba Cloud account.
  *
  * @param request ModifyBindAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4433,7 +4527,7 @@ ModifyBindAccountResponse Client::modifyBindAccountWithOptions(const ModifyBindA
 }
 
 /**
- * @summary Modifies a third-party cloud account that is added to the threat analysis feature.
+ * @summary Modifies a bound Alibaba Cloud account.
  *
  * @param request ModifyBindAccountRequest
  * @return ModifyBindAccountResponse
@@ -4444,7 +4538,7 @@ ModifyBindAccountResponse Client::modifyBindAccount(const ModifyBindAccountReque
 }
 
 /**
- * @summary Modifies a data source that is added to the threat analysis feature.
+ * @summary Modifies the description of an existing data source.
  *
  * @param request ModifyDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4503,7 +4597,7 @@ ModifyDataSourceResponse Client::modifyDataSourceWithOptions(const ModifyDataSou
 }
 
 /**
- * @summary Modifies a data source that is added to the threat analysis feature.
+ * @summary Modifies the description of an existing data source.
  *
  * @param request ModifyDataSourceRequest
  * @return ModifyDataSourceResponse
@@ -4514,7 +4608,7 @@ ModifyDataSourceResponse Client::modifyDataSource(const ModifyDataSourceRequest 
 }
 
 /**
- * @summary Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+ * @summary Modifies the description of a data source log.
  *
  * @param request ModifyDataSourceLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4573,7 +4667,7 @@ ModifyDataSourceLogResponse Client::modifyDataSourceLogWithOptions(const ModifyD
 }
 
 /**
- * @summary Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+ * @summary Modifies the description of a data source log.
  *
  * @param request ModifyDataSourceLogRequest
  * @return ModifyDataSourceLogResponse
@@ -4584,7 +4678,7 @@ ModifyDataSourceLogResponse Client::modifyDataSourceLog(const ModifyDataSourceLo
 }
 
 /**
- * @summary Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+ * @summary Enables log delivery for integrated cloud services.
  *
  * @param request OpenDeliveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4631,7 +4725,7 @@ OpenDeliveryResponse Client::openDeliveryWithOptions(const OpenDeliveryRequest &
 }
 
 /**
- * @summary Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+ * @summary Enables log delivery for integrated cloud services.
  *
  * @param request OpenDeliveryRequest
  * @return OpenDeliveryResponse
@@ -4642,7 +4736,7 @@ OpenDeliveryResponse Client::openDelivery(const OpenDeliveryRequest &request) {
 }
 
 /**
- * @summary Creates or updates an automatic response rule.
+ * @summary Adds or updates an automated response rule.
  *
  * @param request PostAutomateResponseConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4709,7 +4803,7 @@ PostAutomateResponseConfigResponse Client::postAutomateResponseConfigWithOptions
 }
 
 /**
- * @summary Creates or updates an automatic response rule.
+ * @summary Adds or updates an automated response rule.
  *
  * @param request PostAutomateResponseConfigRequest
  * @return PostAutomateResponseConfigResponse
@@ -4720,7 +4814,7 @@ PostAutomateResponseConfigResponse Client::postAutomateResponseConfig(const Post
 }
 
 /**
- * @summary Creates or updates a custom rule.
+ * @summary Adds or updates a custom rule.
  *
  * @param request PostCustomizeRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4831,7 +4925,7 @@ PostCustomizeRuleResponse Client::postCustomizeRuleWithOptions(const PostCustomi
 }
 
 /**
- * @summary Creates or updates a custom rule.
+ * @summary Adds or updates a custom rule.
  *
  * @param request PostCustomizeRuleRequest
  * @return PostCustomizeRuleResponse
@@ -4904,7 +4998,7 @@ PostCustomizeRuleTestResponse Client::postCustomizeRuleTest(const PostCustomizeR
 }
 
 /**
- * @summary Submits event handling information.
+ * @summary Submit incident response information to update the incident status and severity level.
  *
  * @param request PostEventDisposeAndWhiteruleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4979,7 +5073,7 @@ PostEventDisposeAndWhiteruleListResponse Client::postEventDisposeAndWhiteruleLis
 }
 
 /**
- * @summary Submits event handling information.
+ * @summary Submit incident response information to update the incident status and severity level.
  *
  * @param request PostEventDisposeAndWhiteruleListRequest
  * @return PostEventDisposeAndWhiteruleListResponse
@@ -4990,7 +5084,7 @@ PostEventDisposeAndWhiteruleListResponse Client::postEventDisposeAndWhiteruleLis
 }
 
 /**
- * @summary Submits an alert whitelist rule.
+ * @summary Submits alert whitelisting rules.
  *
  * @param request PostEventWhiteruleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5037,7 +5131,7 @@ PostEventWhiteruleListResponse Client::postEventWhiteruleListWithOptions(const P
 }
 
 /**
- * @summary Submits an alert whitelist rule.
+ * @summary Submits alert whitelisting rules.
  *
  * @param request PostEventWhiteruleListRequest
  * @return PostEventWhiteruleListResponse
@@ -5048,7 +5142,7 @@ PostEventWhiteruleListResponse Client::postEventWhiteruleList(const PostEventWhi
 }
 
 /**
- * @summary Ends the test of a custom rule.
+ * @summary Finishes the test for a custom rule.
  *
  * @param request PostFinishCustomizeRuleTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5091,7 +5185,7 @@ PostFinishCustomizeRuleTestResponse Client::postFinishCustomizeRuleTestWithOptio
 }
 
 /**
- * @summary Ends the test of a custom rule.
+ * @summary Finishes the test for a custom rule.
  *
  * @param request PostFinishCustomizeRuleTestRequest
  * @return PostFinishCustomizeRuleTestResponse
@@ -5102,7 +5196,7 @@ PostFinishCustomizeRuleTestResponse Client::postFinishCustomizeRuleTest(const Po
 }
 
 /**
- * @summary Updates the status of a custom rule.
+ * @summary Updates the statuses of custom rules.
  *
  * @param request PostRuleStatusChangeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5153,7 +5247,7 @@ PostRuleStatusChangeResponse Client::postRuleStatusChangeWithOptions(const PostR
 }
 
 /**
- * @summary Updates the status of a custom rule.
+ * @summary Updates the statuses of custom rules.
  *
  * @param request PostRuleStatusChangeRequest
  * @return PostRuleStatusChangeResponse
@@ -5164,7 +5258,7 @@ PostRuleStatusChangeResponse Client::postRuleStatusChange(const PostRuleStatusCh
 }
 
 /**
- * @summary Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+ * @summary Releases storage space. This operation is irreversible and causes data loss. Use with caution.
  *
  * @param request RestoreCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5203,7 +5297,7 @@ RestoreCapacityResponse Client::restoreCapacityWithOptions(const RestoreCapacity
 }
 
 /**
- * @summary Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+ * @summary Releases storage space. This operation is irreversible and causes data loss. Use with caution.
  *
  * @param request RestoreCapacityRequest
  * @return RestoreCapacityResponse
@@ -5214,7 +5308,7 @@ RestoreCapacityResponse Client::restoreCapacity(const RestoreCapacityRequest &re
 }
 
 /**
- * @summary Configures the settings of log storage, such as the storage duration and storage region.
+ * @summary Sets user settings, such as the storage duration and storage region.
  *
  * @param request SetStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5261,7 +5355,7 @@ SetStorageResponse Client::setStorageWithOptions(const SetStorageRequest &reques
 }
 
 /**
- * @summary Configures the settings of log storage, such as the storage duration and storage region.
+ * @summary Sets user settings, such as the storage duration and storage region.
  *
  * @param request SetStorageRequest
  * @return SetStorageResponse
@@ -5272,7 +5366,7 @@ SetStorageResponse Client::setStorage(const SetStorageRequest &request) {
 }
 
 /**
- * @summary Submits log collection tasks at a time.
+ * @summary Submits a batch of log ingestion tasks.
  *
  * @param request SubmitImportLogTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5331,7 +5425,7 @@ SubmitImportLogTasksResponse Client::submitImportLogTasksWithOptions(const Submi
 }
 
 /**
- * @summary Submits log collection tasks at a time.
+ * @summary Submits a batch of log ingestion tasks.
  *
  * @param request SubmitImportLogTasksRequest
  * @return SubmitImportLogTasksResponse
@@ -5342,7 +5436,7 @@ SubmitImportLogTasksResponse Client::submitImportLogTasks(const SubmitImportLogT
 }
 
 /**
- * @summary Updates the status of an automatic response rule.
+ * @summary Updates the status of an automated response rule.
  *
  * @param request UpdateAutomateResponseConfigStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5389,7 +5483,7 @@ UpdateAutomateResponseConfigStatusResponse Client::updateAutomateResponseConfigS
 }
 
 /**
- * @summary Updates the status of an automatic response rule.
+ * @summary Updates the status of an automated response rule.
  *
  * @param request UpdateAutomateResponseConfigStatusRequest
  * @return UpdateAutomateResponseConfigStatusResponse
@@ -5400,7 +5494,7 @@ UpdateAutomateResponseConfigStatusResponse Client::updateAutomateResponseConfigS
 }
 
 /**
- * @summary Creates or updates an alert whitelist rule.
+ * @summary Adds or updates alert whitelist rules.
  *
  * @param request UpdateWhiteRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5451,7 +5545,7 @@ UpdateWhiteRuleListResponse Client::updateWhiteRuleListWithOptions(const UpdateW
 }
 
 /**
- * @summary Creates or updates an alert whitelist rule.
+ * @summary Adds or updates alert whitelist rules.
  *
  * @param request UpdateWhiteRuleListRequest
  * @return UpdateWhiteRuleListResponse

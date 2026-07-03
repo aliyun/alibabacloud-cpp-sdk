@@ -103,30 +103,33 @@ namespace Models
 
 
   protected:
-    // The name of the alert.
+    // The alert name.
     shared_ptr<string> alertName_ {};
-    // The type of the alert.
+    // The alert type.
     shared_ptr<string> alertType_ {};
-    // The page number. Pages start from page 1.
+    // The page number. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The UUID of the event.
+    // The universally unique identifier (UUID) of the event.
     shared_ptr<string> incidentUuid_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of entries per page. The maximum value is 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the data management center of Threat Analysis is deployed. You must select the region where your assets are located. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: Your assets are deployed in the Chinese mainland or in the China (Hong Kong) region.
+    // 
+    // - ap-southeast-1: Your assets are deployed in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The ID of the member. This parameter is used in a multi-account management scenario. An administrator can specify this parameter to query the data of a member.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The view type.
+    // 
+    // - 0: the view of the current Alibaba Cloud account.
+    // 
+    // - 1: the view of all accounts that are managed by the administrator account.
     shared_ptr<int32_t> roleType_ {};
   };
 

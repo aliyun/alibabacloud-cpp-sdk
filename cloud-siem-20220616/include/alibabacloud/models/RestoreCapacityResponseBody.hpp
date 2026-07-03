@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the release command has been sent. Valid values:
+    // Indicates whether the delete command was sent. Valid values:
     // 
-    // *   true: The command has been sent and the storage space is being released.
-    // *   false: The command failed to be sent.
+    // - true: The delete command was sent and the cleanup is in progress.
+    // 
+    // - false: The command failed to send.
     shared_ptr<bool> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

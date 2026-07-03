@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the log delivery feature is enabled. Valid values:
+    // Indicates whether log delivery is enabled. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enabled
+    // 
+    // - false: Failed
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

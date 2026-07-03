@@ -57,16 +57,19 @@ namespace Models
 
 
   protected:
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region of the Data Management center for threat analysis. Select a region for the center based on the location of your assets. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: Select this value if your assets are in the Chinese mainland or the China (Hong Kong) region.
+    // 
+    // - ap-southeast-1: Select this value if your assets are in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The user ID of the member whose view you want to use. This parameter is available only for administrators.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The type of view. Valid values:
+    // 
+    // - 0: The view of the current Alibaba Cloud account.
+    // 
+    // - 1: The view of all accounts in your enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

@@ -118,8 +118,11 @@ namespace Models
 
 
       protected:
+        // Date.
         shared_ptr<string> date_ {};
+        // Total number of security events.
         shared_ptr<int64_t> eventNum_ {};
+        // Number of unhandled security events.
         shared_ptr<int64_t> undealEventNum_ {};
       };
 
@@ -185,18 +188,21 @@ namespace Models
 
 
     protected:
+      // Daily event statistics.
       shared_ptr<vector<Data::EventDailyNum>> eventDailyNum_ {};
-      // The total number of events.
+      // Total number of events.
       shared_ptr<int64_t> eventNum_ {};
-      // The number of high-risk events.
+      // Number of high-risk events.
       shared_ptr<int64_t> highLevelEventNum_ {};
+      // Number of informational events.
       shared_ptr<int64_t> infoLevelEventNum_ {};
-      // The number of low-risk events.
+      // Number of low-risk events.
       shared_ptr<int64_t> lowLevelEventNum_ {};
-      // The number of medium-risk events.
+      // Number of medium-risk events.
       shared_ptr<int64_t> mediumLevelEventNum_ {};
+      // Number of critical events.
       shared_ptr<int64_t> seriousLevelEventNum_ {};
-      // The number of unhandled events.
+      // Number of unhandled events.
       shared_ptr<int64_t> undealEventNum_ {};
     };
 
@@ -240,18 +246,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // Response data.
     shared_ptr<DescribeEventCountByThreatLevelResponseBody::Data> data_ {};
-    // The returned message.
+    // Response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request succeeded. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request succeeded.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

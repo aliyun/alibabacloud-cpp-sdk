@@ -68,18 +68,27 @@ namespace Models
   protected:
     // The code of the cloud service provider. Valid values:
     // 
-    // *   qcloud: Tencent Cloud
-    // *   aliyun: Alibaba Cloud
-    // *   hcloud: Huawei Cloud
+    // - qcloud: Tencent Cloud.
+    // 
+    // - aliyun: Alibaba Cloud.
+    // 
+    // - hcloud: Huawei Cloud.
     // 
     // This parameter is required.
     shared_ptr<string> cloudCode_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the data management center of Threat Analysis is deployed. Select the region of the data management center based on the region of your assets. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
+    // 
+    // - ap-southeast-1: Your assets are outside China.
     shared_ptr<string> regionId_ {};
+    // The user ID of the member whose perspective the administrator wants to switch to.
     shared_ptr<int64_t> roleFor_ {};
+    // The view type.
+    // 
+    // - 0: The view of the current Alibaba Cloud account.
+    // 
+    // - 1: The view of all accounts that are managed by the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

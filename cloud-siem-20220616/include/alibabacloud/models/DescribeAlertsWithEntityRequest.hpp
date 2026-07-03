@@ -130,33 +130,39 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1.
+    // The number of the page to return. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The end time of the query. The unit is milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the entity.
     shared_ptr<int64_t> entityId_ {};
+    // The ID of the entity.
     shared_ptr<string> entityUuid_ {};
-    // The UUID of the event.
+    // The globally unique ID of the event.
     shared_ptr<string> incidentUuid_ {};
-    // The number of entries per page. Maximum value: 100.
+    // The number of entries to return on each page. The maximum value is 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region of the data management center for threat analysis. Select a region based on the location of your assets. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: your assets are in the Chinese mainland and China (Hong Kong).
+    // 
+    // - ap-southeast-1: your assets are outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The user ID of the member to which the administrator switches.
     shared_ptr<int64_t> roleFor_ {};
     // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // 
+    // - 0: the view of the current Alibaba Cloud account.
+    // 
+    // - 1: the view of all accounts that are managed by your enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The ID of the SOAR handing policy.
+    // The ID of the Security Orchestration, Automation, and Response (SOAR) handling policy.
     shared_ptr<string> sophonTaskId_ {};
+    // The start time of the query. The unit is milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

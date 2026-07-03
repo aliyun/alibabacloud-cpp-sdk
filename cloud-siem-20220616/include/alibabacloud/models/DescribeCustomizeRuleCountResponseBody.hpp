@@ -167,29 +167,29 @@ namespace Models
 
 
     protected:
-      // 同类聚合规则数。
+      // The number of rules for intra-class aggregation.
       shared_ptr<int32_t> aggregationRuleNum_ {};
-      // 自定义规则数。
+      // The number of custom rules.
       shared_ptr<int32_t> customizeRuleNum_ {};
-      // 专家规则数。
+      // The number of expert rules.
       shared_ptr<int32_t> expertRuleNum_ {};
-      // 图计算规则数。
+      // The number of graph computing rules.
       shared_ptr<int32_t> graphComputingRuleNum_ {};
-      // The number of rules that are used to identify high-risk threats.
+      // The number of high-risk rules.
       shared_ptr<int32_t> highRuleNum_ {};
-      // The total number of rules.
+      // The number of rules in use.
       shared_ptr<int32_t> inUseRuleNum_ {};
-      // The number of rules that are used to identify low-risk threats.
+      // The number of low-risk rules.
       shared_ptr<int32_t> lowRuleNum_ {};
-      // The number of rules that are used to identify medium-risk threats.
+      // The number of medium-risk rules.
       shared_ptr<int32_t> mediumRuleNum_ {};
-      // 预定义规则数。
+      // The number of predefined rules.
       shared_ptr<int32_t> predefinedRuleNum_ {};
-      // 告警透传规则数。
+      // The number of alert pass-through rules.
       shared_ptr<int32_t> singleAlertRuleNum_ {};
-      // 总规则数。
+      // The total number of rules.
       shared_ptr<int32_t> totalRuleNum_ {};
-      // 不产生事件规则数。
+      // The number of rules that do not generate events.
       shared_ptr<int32_t> unEventRuleNum_ {};
     };
 
@@ -233,18 +233,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<DescribeCustomizeRuleCountResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

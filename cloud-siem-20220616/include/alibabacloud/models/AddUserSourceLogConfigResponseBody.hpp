@@ -124,21 +124,21 @@ namespace Models
 
 
     protected:
-      // The display details of the Logstore.
+      // The detailed information about the SLS log.
       shared_ptr<string> diplayLine_ {};
-      // Indicates whether the details of added logs are returned. Valid values: true false
+      // Indicates whether the details of the log collection task are returned. Valid values:
       shared_ptr<bool> displayed_ {};
-      // Indicates whether the logs are added to the threat analysis feature. Valid values: true false
+      // Indicates whether the log is collected. Valid values:
       shared_ptr<bool> imported_ {};
-      // The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+      // The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
       shared_ptr<int64_t> mainUserId_ {};
-      // The log code.
+      // The code of the log.
       shared_ptr<string> sourceLogCode_ {};
-      // The code of the cloud service.
+      // The code of the product.
       shared_ptr<string> sourceProdCode_ {};
-      // The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+      // The ID of the Alibaba Cloud account for which the logs are collected.
       shared_ptr<int64_t> subUserId_ {};
-      // The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+      // The name of the Alibaba Cloud account for which the logs are collected.
       shared_ptr<string> subUserName_ {};
     };
 
@@ -161,9 +161,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The return value of the request.
     shared_ptr<AddUserSourceLogConfigResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

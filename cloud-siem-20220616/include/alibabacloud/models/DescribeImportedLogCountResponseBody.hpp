@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The number of logs that are added.
+      // The number of ingested logs.
       shared_ptr<int32_t> importedLogCount_ {};
       // The total number of logs.
       shared_ptr<int32_t> totalLogCount_ {};
-      // The number of logs that are not added.
+      // The number of logs that are not ingested.
       shared_ptr<int32_t> unImportedLogCount_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeImportedLogCountResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

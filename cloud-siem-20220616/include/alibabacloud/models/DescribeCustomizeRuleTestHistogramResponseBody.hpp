@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The number of alerts that are generated in the query time range.
+      // The number of alerts generated in the subinterval.
       shared_ptr<int64_t> count_ {};
-      // The start of the time range for querying alerts. The value is a UNIX timestamp. Unit: seconds.
+      // The start of the time range for the alert. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> from_ {};
-      // The end of the time range for querying alerts. The value is a UNIX timestamp. Unit: seconds.
+      // The end of the time range for the alert. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> to_ {};
     };
 
@@ -133,18 +133,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
-    // The return value for the request.
+    // The data returned.
     shared_ptr<vector<DescribeCustomizeRuleTestHistogramResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

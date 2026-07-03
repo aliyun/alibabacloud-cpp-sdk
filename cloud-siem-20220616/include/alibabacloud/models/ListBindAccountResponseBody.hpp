@@ -125,25 +125,27 @@ namespace Models
 
 
     protected:
-      // The AccessKey ID of the cloud account.
+      // The AccessKey ID of the account.
       shared_ptr<string> accessId_ {};
       // The ID of the cloud account.
       shared_ptr<string> accountId_ {};
-      // The username of the cloud account.
+      // The name of the account.
       shared_ptr<string> accountName_ {};
-      // The ID that is generated when the cloud account is added.
+      // The binding ID.
       shared_ptr<int64_t> bindId_ {};
       // The code of the cloud service provider. Valid values:
       // 
-      // *   qcloud: Tencent Cloud
-      // *   aliyun: Alibaba Cloud
-      // *   hcloud: Huawei Cloud
+      // - qcloud: Tencent Cloud.
+      // 
+      // - aliyun: Alibaba Cloud.
+      // 
+      // - hcloud: Huawei Cloud.
       shared_ptr<string> cloudCode_ {};
-      // The ID of the account that is used to add the cloud account.
+      // The user who bound the account.
       shared_ptr<string> createUser_ {};
-      // The number of data sources that are added to the threat analysis feature within the cloud account.
+      // The number of data sources that are bound to the account.
       shared_ptr<int64_t> dataSourceCount_ {};
-      // The modification time.
+      // The time when the binding was modified.
       shared_ptr<string> modifyTime_ {};
     };
 
@@ -166,7 +168,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The result set.
     shared_ptr<vector<ListBindAccountResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -62,9 +62,11 @@ namespace Models
       class ResponseData : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ResponseData& obj) { 
+          DARABONBA_PTR_TO_JSON(AgentAnalysisReason, agentAnalysisReason_);
           DARABONBA_PTR_TO_JSON(AgentConfidence, agentConfidence_);
           DARABONBA_PTR_TO_JSON(AgentDisposalMethod, agentDisposalMethod_);
           DARABONBA_PTR_TO_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
+          DARABONBA_PTR_TO_JSON(AgentDisposalReason, agentDisposalReason_);
           DARABONBA_PTR_TO_JSON(AgentDisposalSuggestion, agentDisposalSuggestion_);
           DARABONBA_PTR_TO_JSON(AgentDisposes, agentDisposes_);
           DARABONBA_PTR_TO_JSON(AlertNum, alertNum_);
@@ -88,9 +90,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Tags, tags_);
         };
         friend void from_json(const Darabonba::Json& j, ResponseData& obj) { 
+          DARABONBA_PTR_FROM_JSON(AgentAnalysisReason, agentAnalysisReason_);
           DARABONBA_PTR_FROM_JSON(AgentConfidence, agentConfidence_);
           DARABONBA_PTR_FROM_JSON(AgentDisposalMethod, agentDisposalMethod_);
           DARABONBA_PTR_FROM_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
+          DARABONBA_PTR_FROM_JSON(AgentDisposalReason, agentDisposalReason_);
           DARABONBA_PTR_FROM_JSON(AgentDisposalSuggestion, agentDisposalSuggestion_);
           DARABONBA_PTR_FROM_JSON(AgentDisposes, agentDisposes_);
           DARABONBA_PTR_FROM_JSON(AlertNum, alertNum_);
@@ -129,10 +133,12 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const AgentDisposes& obj) { 
             DARABONBA_PTR_TO_JSON(AgentDisposalMethod, agentDisposalMethod_);
             DARABONBA_PTR_TO_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
+            DARABONBA_PTR_TO_JSON(AgentDisposalReason, agentDisposalReason_);
           };
           friend void from_json(const Darabonba::Json& j, AgentDisposes& obj) { 
             DARABONBA_PTR_FROM_JSON(AgentDisposalMethod, agentDisposalMethod_);
             DARABONBA_PTR_FROM_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
+            DARABONBA_PTR_FROM_JSON(AgentDisposalReason, agentDisposalReason_);
           };
           AgentDisposes() = default ;
           AgentDisposes(const AgentDisposes &) = default ;
@@ -146,7 +152,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->agentDisposalMethod_ == nullptr
-        && this->agentDisposalPlaybookUuid_ == nullptr; };
+        && this->agentDisposalPlaybookUuid_ == nullptr && this->agentDisposalReason_ == nullptr; };
           // agentDisposalMethod Field Functions 
           bool hasAgentDisposalMethod() const { return this->agentDisposalMethod_ != nullptr;};
           void deleteAgentDisposalMethod() { this->agentDisposalMethod_ = nullptr;};
@@ -161,17 +167,34 @@ namespace Models
           inline AgentDisposes& setAgentDisposalPlaybookUuid(string agentDisposalPlaybookUuid) { DARABONBA_PTR_SET_VALUE(agentDisposalPlaybookUuid_, agentDisposalPlaybookUuid) };
 
 
+          // agentDisposalReason Field Functions 
+          bool hasAgentDisposalReason() const { return this->agentDisposalReason_ != nullptr;};
+          void deleteAgentDisposalReason() { this->agentDisposalReason_ = nullptr;};
+          inline string getAgentDisposalReason() const { DARABONBA_PTR_GET_DEFAULT(agentDisposalReason_, "") };
+          inline AgentDisposes& setAgentDisposalReason(string agentDisposalReason) { DARABONBA_PTR_SET_VALUE(agentDisposalReason_, agentDisposalReason) };
+
+
         protected:
+          // The disposal suggestion recommended by the agent.
           shared_ptr<string> agentDisposalMethod_ {};
+          // The UUID of the playbook recommended by the agent for disposal.
           shared_ptr<string> agentDisposalPlaybookUuid_ {};
+          shared_ptr<string> agentDisposalReason_ {};
         };
 
-        virtual bool empty() const override { return this->agentConfidence_ == nullptr
-        && this->agentDisposalMethod_ == nullptr && this->agentDisposalPlaybookUuid_ == nullptr && this->agentDisposalSuggestion_ == nullptr && this->agentDisposes_ == nullptr && this->alertNum_ == nullptr
-        && this->alertUuid_ == nullptr && this->aliuid_ == nullptr && this->cloudCode_ == nullptr && this->entityId_ == nullptr && this->entityInfo_ == nullptr
-        && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->eventNum_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->incidentUuid_ == nullptr && this->isAsset_ == nullptr && this->isMalware_ == nullptr
-        && this->malwareType_ == nullptr && this->subUserId_ == nullptr && this->tags_ == nullptr; };
+        virtual bool empty() const override { return this->agentAnalysisReason_ == nullptr
+        && this->agentConfidence_ == nullptr && this->agentDisposalMethod_ == nullptr && this->agentDisposalPlaybookUuid_ == nullptr && this->agentDisposalReason_ == nullptr && this->agentDisposalSuggestion_ == nullptr
+        && this->agentDisposes_ == nullptr && this->alertNum_ == nullptr && this->alertUuid_ == nullptr && this->aliuid_ == nullptr && this->cloudCode_ == nullptr
+        && this->entityId_ == nullptr && this->entityInfo_ == nullptr && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr
+        && this->eventNum_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->incidentUuid_ == nullptr
+        && this->isAsset_ == nullptr && this->isMalware_ == nullptr && this->malwareType_ == nullptr && this->subUserId_ == nullptr && this->tags_ == nullptr; };
+        // agentAnalysisReason Field Functions 
+        bool hasAgentAnalysisReason() const { return this->agentAnalysisReason_ != nullptr;};
+        void deleteAgentAnalysisReason() { this->agentAnalysisReason_ = nullptr;};
+        inline string getAgentAnalysisReason() const { DARABONBA_PTR_GET_DEFAULT(agentAnalysisReason_, "") };
+        inline ResponseData& setAgentAnalysisReason(string agentAnalysisReason) { DARABONBA_PTR_SET_VALUE(agentAnalysisReason_, agentAnalysisReason) };
+
+
         // agentConfidence Field Functions 
         bool hasAgentConfidence() const { return this->agentConfidence_ != nullptr;};
         void deleteAgentConfidence() { this->agentConfidence_ = nullptr;};
@@ -191,6 +214,13 @@ namespace Models
         void deleteAgentDisposalPlaybookUuid() { this->agentDisposalPlaybookUuid_ = nullptr;};
         inline string getAgentDisposalPlaybookUuid() const { DARABONBA_PTR_GET_DEFAULT(agentDisposalPlaybookUuid_, "") };
         inline ResponseData& setAgentDisposalPlaybookUuid(string agentDisposalPlaybookUuid) { DARABONBA_PTR_SET_VALUE(agentDisposalPlaybookUuid_, agentDisposalPlaybookUuid) };
+
+
+        // agentDisposalReason Field Functions 
+        bool hasAgentDisposalReason() const { return this->agentDisposalReason_ != nullptr;};
+        void deleteAgentDisposalReason() { this->agentDisposalReason_ = nullptr;};
+        inline string getAgentDisposalReason() const { DARABONBA_PTR_GET_DEFAULT(agentDisposalReason_, "") };
+        inline ResponseData& setAgentDisposalReason(string agentDisposalReason) { DARABONBA_PTR_SET_VALUE(agentDisposalReason_, agentDisposalReason) };
 
 
         // agentDisposalSuggestion Field Functions 
@@ -343,29 +373,73 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> agentAnalysisReason_ {};
+        // The confidence level of the entity as determined by the agent.
         shared_ptr<string> agentConfidence_ {};
+        // The disposal method recommended by the agent.
         shared_ptr<string> agentDisposalMethod_ {};
+        // The UUID of the playbook recommended by the agent for disposal.
         shared_ptr<string> agentDisposalPlaybookUuid_ {};
+        shared_ptr<string> agentDisposalReason_ {};
+        // The disposal suggestion recommended by the agent.
         shared_ptr<string> agentDisposalSuggestion_ {};
+        // The list of disposal suggestions recommended by the agent.
         shared_ptr<vector<ResponseData::AgentDisposes>> agentDisposes_ {};
+        // The number of alerts associated with the entity.
         shared_ptr<int32_t> alertNum_ {};
+        // The alert UUID.
         shared_ptr<string> alertUuid_ {};
+        // The Alibaba Cloud account ID.
         shared_ptr<int64_t> aliuid_ {};
+        // The code of the cloud service provider from which the entity originates. Valid values:
+        // - aliyun: Alibaba Cloud
+        // - qcloud: Tencent Cloud
+        // - hcloud: Huawei Cloud.
         shared_ptr<string> cloudCode_ {};
+        // The logical ID of the entity.
         shared_ptr<string> entityId_ {};
+        // The display information of the entity in JSON format.
         shared_ptr<string> entityInfo_ {};
+        // The entity name.
         shared_ptr<string> entityName_ {};
+        // The entity type. Valid values:
+        // - ip: IP address
+        // - domain: domain name
+        // - url: URL
+        // - process: process
+        // - file: file
+        // - host: host
+        // - cloud_account: cloud account
+        // - container: container
+        // - bucket: Object Storage Service (OSS) bucket.
         shared_ptr<string> entityType_ {};
+        // The entity UUID.
         shared_ptr<string> entityUuid_ {};
+        // The number of events associated with the entity.
         shared_ptr<int32_t> eventNum_ {};
+        // The time when the entity was collected.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the entity was last updated.
         shared_ptr<string> gmtModified_ {};
+        // The entity ID.
         shared_ptr<int64_t> id_ {};
+        // The incident UUID. You can obtain this value from the incident list operation.
         shared_ptr<string> incidentUuid_ {};
+        // Indicates whether the entity is an asset. Valid values:
+        // + 0: No.
+        // + 1: Yes.
         shared_ptr<string> isAsset_ {};
+        // Indicates whether the entity is malicious. Valid values:
+        // + 0: No.
+        // + 1: Yes.
         shared_ptr<string> isMalware_ {};
+        // The malware type of the entity.
         shared_ptr<string> malwareType_ {};
+        // The linked account ID associated with the entity.
         shared_ptr<int64_t> subUserId_ {};
+        // The entity tags. The value is a JSON array string:
+        // 
+        // `"[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]"`.
         shared_ptr<string> tags_ {};
       };
 
@@ -416,8 +490,11 @@ namespace Models
 
 
       protected:
+        // The page number of the current page.
         shared_ptr<int32_t> currentPage_ {};
+        // The number of entries per page.
         shared_ptr<int32_t> pageSize_ {};
+        // The total number of entries.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -442,7 +519,9 @@ namespace Models
 
 
     protected:
+      // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
+      // The detailed data.
       shared_ptr<vector<Data::ResponseData>> responseData_ {};
     };
 
@@ -486,10 +565,17 @@ namespace Models
 
 
   protected:
+    // The HTTP status code of the request.
     shared_ptr<int32_t> code_ {};
+    // The response data.
     shared_ptr<ListEntitiesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - true: successful.
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

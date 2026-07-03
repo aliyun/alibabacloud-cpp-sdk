@@ -106,20 +106,21 @@ namespace Models
 
 
     protected:
-      // Indicates whether the account can be used to view the logs and alerts within the account.
+      // Indicates whether the account is delegated to view its own resources.
       shared_ptr<bool> delegatedOrNot_ {};
-      // Indicates whether the account is added to the threat analysis feature for centralized management. Valid values:
+      // Indicates whether the account is managed by the multi-account control feature of Threat Analysis. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The account is managed.
+      // 
+      // - false: The account is not managed.
       shared_ptr<bool> joined_ {};
-      // The time when the account was added to the threat analysis feature.
+      // The time when the account was added.
       shared_ptr<string> joinedTime_ {};
-      // The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+      // The ID of the Alibaba Cloud account that purchased Threat Analysis.
       shared_ptr<int64_t> mainUserId_ {};
-      // The ID of the Alibaba Cloud account that is used to perform operations supported by the threat analysis feature.
+      // The ID of the member Alibaba Cloud account.
       shared_ptr<int64_t> subUserId_ {};
-      // The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+      // The name of the member Alibaba Cloud account.
       shared_ptr<string> subUserName_ {};
     };
 

@@ -128,15 +128,15 @@ namespace Models
       shared_ptr<int32_t> index_ {};
       // The operator.
       shared_ptr<string> operator_ {};
-      // The description of the operator in Chinese.
+      // The Chinese description of the operator.
       shared_ptr<string> operatorDescCn_ {};
-      // The description of the operator in English.
+      // The English description of the operator.
       shared_ptr<string> operatorDescEn_ {};
-      // The name of the operator.
+      // The display name of the operator.
       shared_ptr<string> operatorName_ {};
-      // The data types that are supported by the operator. The data types are separated by commas (,).
+      // The data types that the operator supports. Multiple data types are separated by commas.
       shared_ptr<string> supportDataType_ {};
-      // The scenarios that are supported by the operator. Multiple scenarios are separated by commas (,), such as AGGREGATE scenarios. By default, this parameter is empty.
+      // The scenarios that the operator supports. Multiple scenarios are separated by commas, such as aggregation (AGGREGATE). The default value is empty.
       shared_ptr<vector<string>> supportTag_ {};
     };
 
@@ -180,18 +180,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<vector<DescribeOperatorsResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

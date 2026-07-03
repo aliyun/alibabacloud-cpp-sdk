@@ -122,19 +122,21 @@ namespace Models
 
 
       protected:
-        // The code of the cloud service provider. Valid values:
+        // The multicloud code. Valid values:
         // 
-        // *   qcloud: Tencent Cloud.
-        // *   aliyun: Alibaba Cloud.
-        // *   hcloud: Huawei Cloud.
+        // - qcloud: Tencent Cloud.
+        // 
+        // - aliyun: Alibaba Cloud.
+        // 
+        // - hcloud: Huawei Cloud.
         shared_ptr<string> cloudCode_ {};
-        // The number of logs within the cloud service that are added to the threat analysis feature.
+        // The number of ingested logs for the product.
         shared_ptr<int32_t> importedLogCount_ {};
-        // The time when the logs within the cloud service were last added to the threat analysis feature.
+        // The time when logs were last ingested for the product.
         shared_ptr<string> modifyTime_ {};
-        // The code of the cloud service.
+        // The code of the cloud product.
         shared_ptr<string> prodCode_ {};
-        // The total number of logs within the cloud service.
+        // The total number of logs for the product.
         shared_ptr<int32_t> totalLogCount_ {};
       };
 
@@ -171,11 +173,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The cloud services.
+      // The list of products.
       shared_ptr<vector<Data::ProdList>> prodList_ {};
       // The total number of logs.
       shared_ptr<int32_t> totalCount_ {};

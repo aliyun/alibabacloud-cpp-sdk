@@ -152,40 +152,45 @@ namespace Models
 
 
     protected:
-      // Indicates whether the log is automatically added to the threat analysis feature within newly added accounts. Valid values:
+      // Indicates whether logs are automatically ingested for new accounts. Valid values:
       // 
-      // *   1: yes.
-      // *   0: no.
+      // - 1: Logs are automatically ingested.
+      // 
+      // - 0: Logs are not automatically ingested.
       shared_ptr<int32_t> autoImported_ {};
-      // The code of the cloud service provider. Valid values:
+      // The multicloud code. Valid values:
       // 
-      // *   qcloud: Tencent Cloud.
-      // *   aliyun: Alibaba Cloud.
-      // *   hcloud: Huawei Cloud.
+      // - qcloud: Tencent Cloud.
+      // 
+      // - aliyun: Alibaba Cloud.
+      // 
+      // - hcloud: Huawei Cloud.
       shared_ptr<string> cloudCode_ {};
-      // Indicates whether the log is added to the threat analysis feature. Valid values:
+      // Indicates whether the log is ingested. Valid values:
       // 
-      // *   1: yes.
-      // *   0: no.
+      // - 1: The log is ingested.
+      // 
+      // - 0: The log is not ingested.
       shared_ptr<int32_t> imported_ {};
-      // The number of users who have added the log.
+      // The number of users who have ingested the log.
       shared_ptr<int32_t> importedUserCount_ {};
       // The code of the log.
       shared_ptr<string> logCode_ {};
       // The display code of the log.
       shared_ptr<string> logMdsCode_ {};
-      // The type of log. Valid values:
-      //  - 1: the log produced by other product
-      //  - 2: the predefined log
-      //  - 3: the custom log
+      // The log type. Valid values:
+      // 
+      // - 1: Ingested on the threat analysis side.
+      // 
+      // - 2: Predefined Simple Log Service log. -3: Custom Simple Log Service log.
       shared_ptr<int32_t> logType_ {};
-      // The time when the log was last added.
+      // The time when the log was last ingested.
       shared_ptr<string> modifyTime_ {};
-      // The code of the cloud service to which the log belongs.
+      // The code of the product to which the log belongs.
       shared_ptr<string> prodCode_ {};
-      // The total number of users who have the log.
+      // The total number of users for the log.
       shared_ptr<int32_t> totalUserCount_ {};
-      // The number of users who have not added the log.
+      // The number of users who have not ingested the log.
       shared_ptr<int32_t> unImportedUserCount_ {};
     };
 

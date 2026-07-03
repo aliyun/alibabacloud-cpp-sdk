@@ -125,21 +125,21 @@ namespace Models
 
 
     protected:
-      // The endpoint of the Simple Log Service project.
+      // The endpoint of the SLS project.
       shared_ptr<string> endPoint_ {};
-      // The name of the region in which the Simple Log Service project resides.
+      // The name of the region where the SLS project resides.
       shared_ptr<string> localName_ {};
-      // The name of the Simple Log Service Logstore.
+      // The name of the SLS Logstore.
       shared_ptr<string> logStore_ {};
-      // The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+      // The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
       shared_ptr<int64_t> mainUserId_ {};
-      // The name of the Simple Log Service project.
+      // The name of the SLS project.
       shared_ptr<string> project_ {};
-      // The ID of the region in which the Simple Log Service project resides.
+      // The region where the SLS project resides.
       shared_ptr<string> regionId_ {};
-      // The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+      // The ID of the member account for which threat analysis is performed.
       shared_ptr<int64_t> subUserId_ {};
-      // The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+      // The name of the member account.
       shared_ptr<string> subUserName_ {};
     };
 

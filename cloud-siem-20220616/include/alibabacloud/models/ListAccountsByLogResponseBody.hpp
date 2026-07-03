@@ -116,19 +116,21 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud account.
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
-      // The name of the cloud account.
+      // The name of the Alibaba Cloud account.
       shared_ptr<string> accountName_ {};
-      // Indicates whether the account is added. Valid values: -1: yes -0: no
+      // Indicates whether the account has been added. Valid values:
+      // -1: The account has been added.
+      // -0: The account has not been added.
       shared_ptr<int32_t> imported_ {};
-      // The code of the log.
+      // The log code.
       shared_ptr<string> logCode_ {};
-      // The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+      // The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
       shared_ptr<int64_t> mainUserId_ {};
-      // The code of the service.
+      // The code of the product that corresponds to the log.
       shared_ptr<string> prodCode_ {};
-      // The ID of the Alibaba Cloud account for which the threat analysis feature is enabled.
+      // The ID of the Alibaba Cloud account that is used for Threat Analysis.
       shared_ptr<int64_t> subUserId_ {};
     };
 
@@ -151,7 +153,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The return value of the request.
     shared_ptr<vector<ListAccountsByLogResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

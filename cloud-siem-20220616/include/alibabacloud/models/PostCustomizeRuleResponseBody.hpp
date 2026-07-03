@@ -277,28 +277,31 @@ namespace Models
 
 
     protected:
-      // The risk type.
+      // The threat type.
       shared_ptr<string> alertType_ {};
-      // The internal code of the risk type.
+      // The Medusa code of the threat type.
       shared_ptr<string> alertTypeMds_ {};
-      // The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+      // The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
       shared_ptr<int64_t> aliuid_ {};
-      // 告警附加字段attck
+      // The ATT\\&CK attack technique.
       shared_ptr<string> attCk_ {};
-      // 自动化响应规则条件字段数据类型。
+      // The data type of the condition field in the automated response rule.
       shared_ptr<int32_t> dataType_ {};
-      // The extended information about event generation. If eventTransferType is set to allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
+      // The extended information for event generation. This parameter is returned only when EventTransferType is set to allToSingle. The value indicates the length and unit of the alert aggregation window. You must unescape the HTML escape characters.
       shared_ptr<string> eventTransferExt_ {};
-      // Indicates whether the system generates an event for the alert. Valid values:
+      // Indicates whether alerts are converted into events. Valid values:
       // 
-      // *   0: no
-      // *   1: yes
+      // - 0: no
+      // 
+      // - 1: yes
       shared_ptr<int32_t> eventTransferSwitch_ {};
       // The event generation method. Valid values:
       // 
-      // *   default: The default method is used.
-      // *   singleToSingle: The system generates an event for each alert.
-      // *   allToSingle: The system generates an event for alerts within a period of time.
+      // - default: the default method
+      // 
+      // - singleToSingle: An event is generated for each alert.
+      // 
+      // - allToSingle: An event is generated for all alerts in a period.
       shared_ptr<string> eventTransferType_ {};
       // The time when the custom rule was created.
       shared_ptr<string> gmtCreate_ {};
@@ -308,42 +311,49 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // The log source of the rule.
       shared_ptr<string> logSource_ {};
-      // The internal code of the log source.
+      // The Medusa code of the log source.
       shared_ptr<string> logSourceMds_ {};
       // The log type of the rule.
       shared_ptr<string> logType_ {};
-      // The internal code of the log type.
+      // The Medusa code of the log type.
       shared_ptr<string> logTypeMds_ {};
-      // The window length of the rule. The HTML escape characters are reversed.
+      // The length of the rule window. You must unescape the HTML escape characters.
       shared_ptr<string> queryCycle_ {};
-      // The query condition of the rule. The value is in the JSON format. The HTML escape characters are reversed.
+      // The query condition of the rule in the JSON format. You must unescape the HTML escape characters.
       shared_ptr<string> ruleCondition_ {};
       // The description of the rule.
       shared_ptr<string> ruleDesc_ {};
-      // The log aggregation field of the rule. The value is a JSON string. The HTML escape characters are reversed.
+      // The fields that are used to group logs. The value is a JSON array. You must unescape the HTML escape characters.
       shared_ptr<string> ruleGroup_ {};
       // The name of the rule.
       shared_ptr<string> ruleName_ {};
-      // The threshold configuration of the rule. The value is in the JSON format. The HTML escape characters are reversed.
+      // The threshold configuration of the rule in the JSON format. You must unescape the HTML escape characters.
       shared_ptr<string> ruleThreshold_ {};
-      // The type of the rule. Valid values:
+      // The rule type. Valid values:
       // 
-      // *   predefine
-      // *   customize
+      // - predefine: predefined
+      // 
+      // - customize: custom
       shared_ptr<string> ruleType_ {};
-      // The rule status. Valid values:
+      // The status of the rule. Valid values:
       // 
-      // *   0: The rule is in the initial state.
-      // *   10: The simulation data is tested.
-      // *   15: The business data is being tested.
-      // *   20: The business data test ends.
-      // *   100: The rule takes effect.
+      // - 0: initial
+      // 
+      // - 10: testing with simulated data
+      // 
+      // - 15: testing with business data
+      // 
+      // - 20: test with business data ends
+      // 
+      // - 100: published
       shared_ptr<int32_t> status_ {};
-      // The risk level. Valid values:
+      // The threat level. Valid values:
       // 
-      // *   serious: high
-      // *   suspicious: medium
-      // *   remind: low
+      // - serious: high
+      // 
+      // - suspicious: medium
+      // 
+      // - remind: low
       shared_ptr<string> threatLevel_ {};
     };
 
@@ -397,8 +407,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

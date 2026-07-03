@@ -140,35 +140,51 @@ namespace Models
 
 
   protected:
+    // A comma-separated list of response strategy IDs.
     shared_ptr<string> disposeStrategyIds_ {};
-    // The configuration of event handling. The value is a JSON object.
+    // A JSON object that defines the incident response configuration.
     shared_ptr<string> eventDispose_ {};
-    // The UUID of the event.
+    // The globally unique UUID of the incident.
     shared_ptr<string> incidentUuid_ {};
+    // The UID of the incident owner.
     shared_ptr<string> owner_ {};
-    // The configuration of the alert recipient. The value is a JSON object.
+    // A JSON object that defines the alert recipient configuration.
     shared_ptr<string> receiverInfo_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the Data Management service for threat analysis is deployed. Select a region based on where your assets are located. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: Assets in the Chinese mainland or Hong Kong (China)
+    // 
+    // - ap-southeast-1: Assets outside China
     shared_ptr<string> regionId_ {};
-    // The remarks of the event.
+    // A note about the incident.
     shared_ptr<string> remark_ {};
+    // The source of the response policy.
     shared_ptr<string> responseSource_ {};
-    // The ID of the account that you switch from the management account.
+    // The UID of the member whose perspective an administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
-    shared_ptr<int32_t> roleType_ {};
-    // The status of the event. Valid values:
+    // The view type. Valid values:
     // 
-    // *   0: unhandled
-    // *   1: handing
-    // *   5: handling failed
-    // *   10: handled
+    // - 0: Current Alibaba Cloud account view
+    // 
+    // - 1: View for all accounts in your enterprise
+    shared_ptr<int32_t> roleType_ {};
+    // The incident status. Valid values:
+    // 
+    // - 0: Not handled
+    // 
+    // - 1: Handling
+    // 
+    // - 5: Failed
+    // 
+    // - 10: Handled
     shared_ptr<int32_t> status_ {};
+    // The threat level. Valid values:
+    // 
+    // - serious: Important
+    // 
+    // - suspicious: Medium
+    // 
+    // - remind: Low
     shared_ptr<string> threatLevel_ {};
   };
 

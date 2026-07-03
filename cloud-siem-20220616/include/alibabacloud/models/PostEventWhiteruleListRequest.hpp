@@ -75,20 +75,23 @@ namespace Models
 
 
   protected:
-    // The UUID of the event.
+    // The globally unique ID of the event.
     shared_ptr<string> incidentUuid_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the threat analysis feature is deployed. Select the region where your assets are located. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: For assets in the Chinese mainland or China (Hong Kong).
+    // 
+    // - ap-southeast-1: For assets in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The ID of a member account. An administrator can use this parameter to switch to the perspective of the member account.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The account scope to which the rule applies. Valid values:
+    // 
+    // - 0: The current Alibaba Cloud account.
+    // 
+    // - 1: All accounts within the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The alert whitelist rule. The value is a JSON object.
+    // The alert whitelisting rule, which is a JSON object.
     // 
     // This parameter is required.
     shared_ptr<string> whiteruleList_ {};

@@ -94,34 +94,31 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud account.
+    // The ID of the Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
-    // The code of the cloud service provider.
-    // 
-    // Valid values:
-    // 
-    // *   qcloud
-    // *   hcloud
-    // *   aliyun
+    // The code for the multicloud service.
     // 
     // This parameter is required.
     shared_ptr<string> cloudCode_ {};
     // The name of the data source.
     shared_ptr<string> dataSourceInstanceName_ {};
-    // The parameters of the data source. Set this parameter to a JSON array.
+    // The parameters for the data source. The value must be a JSON array.
     shared_ptr<string> dataSourceInstanceParams_ {};
     // The remarks on the data source.
     shared_ptr<string> dataSourceInstanceRemark_ {};
     // The type of the data source. Valid values:
     // 
-    // *   obs: Huawei Cloud Object Storage Service (OBS)
-    // *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
-    // *   ckafka: Tencent Cloud Kafka (CKafka)
-    shared_ptr<string> dataSourceType_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // - obs: Huawei Cloud Object Storage Service (OBS).
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - wafApi: Tencent Cloud Web Application Firewall (WAF) download API.
+    // 
+    // - ckafka: Tencent Cloud CKafka.
+    shared_ptr<string> dataSourceType_ {};
+    // The region of the data management center for threat analysis. Select a region based on the location of your assets. Valid values:
+    // 
+    // - cn-hangzhou: For assets in the Chinese mainland or China (Hong Kong).
+    // 
+    // - ap-southeast-1: For assets in regions outside China.
     shared_ptr<string> regionId_ {};
   };
 

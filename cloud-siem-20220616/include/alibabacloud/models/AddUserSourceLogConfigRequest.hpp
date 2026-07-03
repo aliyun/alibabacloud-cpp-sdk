@@ -94,27 +94,29 @@ namespace Models
 
 
   protected:
-    // Specifies whether to add logs or delete added logs. Valid values:
+    // Specifies whether to add or delete the log collection task. Valid values:
     // 
-    // *   \\-1: deletes added logs.
-    // *   0: adds logs.
+    // - -1: Deletes the task.
+    // 
+    // - 0: Adds the task.
     shared_ptr<int32_t> deleted_ {};
-    // The display details of the Logstore.
+    // The detailed information about the SLS log to be collected.
     shared_ptr<string> disPlayLine_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the Data Management center of Threat Analysis is located. Select a region based on the region where your assets reside. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
+    // 
+    // - ap-southeast-1: Your assets are in regions outside China.
     shared_ptr<string> regionId_ {};
-    // The log code.
+    // The code of the log.
     shared_ptr<string> sourceLogCode_ {};
-    // The details of the Logstore that you want to use in the JSON string format.
+    // The detailed information about the Simple Log Service (SLS) log to be collected. The value is a JSON string.
     // 
     // This parameter is required.
     shared_ptr<string> sourceLogInfo_ {};
-    // The code of the cloud service.
+    // The code of the product.
     shared_ptr<string> sourceProdCode_ {};
-    // The ID of the Alibaba Cloud account.
+    // The ID of the Alibaba Cloud account for which you want to collect logs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> subUserId_ {};

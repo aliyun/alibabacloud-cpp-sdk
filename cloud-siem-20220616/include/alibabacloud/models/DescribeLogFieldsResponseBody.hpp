@@ -103,16 +103,17 @@ namespace Models
 
 
     protected:
-      // The type of the log to which the field belongs.
+      // The log type to which the field belongs.
       shared_ptr<string> activityName_ {};
-      // The internal code of the field description.
+      // The Medusa code for the field description.
       shared_ptr<string> fieldDesc_ {};
-      // The name of the field.
+      // The name of the rule field.
       shared_ptr<string> fieldName_ {};
       // The data type of the field. Valid values:
       // 
-      // *   varchar
-      // *   bigint
+      // - varchar: string
+      // 
+      // - bigint: number
       shared_ptr<string> fieldType_ {};
       // The log source to which the field belongs.
       shared_ptr<string> logCode_ {};
@@ -158,18 +159,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<vector<DescribeLogFieldsResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

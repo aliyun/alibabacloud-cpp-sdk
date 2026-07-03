@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The log source of the rule.
       shared_ptr<string> logSource_ {};
-      // The internal code of the log source.
+      // The Medusa code of the log source for the rule.
       shared_ptr<string> logSourceName_ {};
     };
 
@@ -122,18 +122,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<vector<DescribeLogSourceResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

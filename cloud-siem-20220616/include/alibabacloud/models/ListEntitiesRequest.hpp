@@ -149,21 +149,55 @@ namespace Models
 
 
   protected:
+    // The page number of the current page. The value must be greater than or equal to 1.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The entity name.
     shared_ptr<string> entityName_ {};
+    // The entity type. Valid values:
+    // - ip: IP address
+    // - domain: domain name
+    // - url: URL
+    // - process: process
+    // - file: file
+    // - host: host
+    // - cloud_account: cloud account
+    // - container: container
+    // - bucket: Object Storage Service (OSS) bucket.
     shared_ptr<string> entityType_ {};
+    // The entity UUID.
     shared_ptr<string> entityUuid_ {};
+    // The list of entity UUIDs.
     shared_ptr<string> entityUuids_ {};
+    // The incident ID.
+    // 
     // This parameter is required.
     shared_ptr<string> incidentUuid_ {};
+    // Specifies whether the entity is malicious. Valid values:
+    // - 0: No.
+    // - 1: Yes.
     shared_ptr<string> isMalwareEntity_ {};
+    // The malicious entity type.
     shared_ptr<string> malwareType_ {};
+    // The number of entries per page. Maximum value: 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The region in which the data management center of the threat analysis feature resides. Select the region based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: the assets reside in the Chinese mainland or Hong Kong (China).
+    // - ap-southeast-1: the assets reside in regions outside China.
     shared_ptr<string> regionId_ {};
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
+    // The view type. Valid values:
+    // 
+    // - 0: the view of the current Alibaba Cloud account.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
+    // The entity tags. The value is a JSON array string:
+    // 
+    // `"[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]"`.
     shared_ptr<string> tags_ {};
   };
 

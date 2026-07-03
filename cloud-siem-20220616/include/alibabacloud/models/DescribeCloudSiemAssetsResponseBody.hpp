@@ -147,11 +147,11 @@ namespace Models
 
 
         protected:
-          // The attribute key.
+          // The key of the alert property.
           shared_ptr<string> key_ {};
-          // The name of the key.
+          // The name of the alert property.
           shared_ptr<string> keyName_ {};
-          // The value of the key.
+          // The value of the alert property.
           shared_ptr<string> values_ {};
         };
 
@@ -246,40 +246,47 @@ namespace Models
 
 
       protected:
-        // The UUID of the alert associated with the event.
+        // The UUID of the alert that is associated with the event.
         shared_ptr<string> alertUuid_ {};
-        // The ID of the Alibaba Cloud account in SIEM.
+        // The ID of the Alibaba Cloud account.
         shared_ptr<int64_t> aliuid_ {};
         // The logical ID of the asset.
         shared_ptr<string> assetId_ {};
-        // The display information of the asset is in the JSON format.
+        // The asset information, in a JSON array.
         shared_ptr<vector<ResponseData::AssetInfo>> assetInfo_ {};
-        // The name of the asset.
+        // The asset name.
         shared_ptr<string> assetName_ {};
-        // The type of the asset. Valid values:
+        // The asset type. Valid values:
         // 
-        // *   ip
-        // *   domain
-        // *   url
-        // *   process
-        // *   file
-        // *   host
+        // - ip: IP address
+        // 
+        // - domain: domain name
+        // 
+        // - url: URL
+        // 
+        // - process: process
+        // 
+        // - file: file
+        // 
+        // - host: host
         shared_ptr<string> assetType_ {};
-        // The cloud code of the entity. Valid values:
+        // The cloud service provider of the entity. Valid values:
         // 
-        // *   aliyun: Alibaba Cloud
-        // *   qcloud: Tencent Cloud
-        // *   hcloud: Huawei Cloud
+        // - aliyun: Alibaba Cloud
+        // 
+        // - qcloud: Tencent Cloud
+        // 
+        // - hcloud: Huawei Cloud
         shared_ptr<string> cloudCode_ {};
         // The time when the asset was synchronized.
         shared_ptr<string> gmtCreate_ {};
         // The time when the asset was last updated.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the asset.
+        // The asset ID.
         shared_ptr<int64_t> id_ {};
         // The UUID of the event.
         shared_ptr<string> incidentUuid_ {};
-        // The ID of the associated account to which the asset belongs.
+        // The ID of the linked account.
         shared_ptr<int64_t> subUserId_ {};
       };
 
@@ -330,11 +337,11 @@ namespace Models
 
 
       protected:
-        // The current page number.
+        // The page number of the returned page.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries returned.
+        // The total number of entries.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -415,8 +422,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,18 +66,21 @@ namespace Models
 
 
   protected:
-    // The ID of the rule.
+    // The ID of the custom rule.
     shared_ptr<int64_t> id_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region of the Data Management center for threat analysis. Select the region based on the location of your assets. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: The assets are in the Chinese mainland or China (Hong Kong).
+    // 
+    // - ap-southeast-1: The assets are outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The user ID of the member. This parameter is used when an administrator switches to a member\\"s view.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The type of the view.
+    // 
+    // - 0: The view of the current Alibaba Cloud account.
+    // 
+    // - 1: The view of all accounts within the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

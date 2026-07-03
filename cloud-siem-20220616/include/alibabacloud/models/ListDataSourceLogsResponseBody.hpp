@@ -128,9 +128,9 @@ namespace Models
 
 
         protected:
-          // The parameter code of the log.
+          // The code of the log parameter.
           shared_ptr<string> paraCode_ {};
-          // The parameter value of the log.
+          // The value of the log parameter.
           shared_ptr<string> paraValue_ {};
         };
 
@@ -176,16 +176,17 @@ namespace Models
       protected:
         // The code of the log.
         shared_ptr<string> logCode_ {};
-        // The ID of the log. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
+        // The ID of the log. This ID is an MD5 hash value that is calculated by threat analysis based on specific parameters.
         shared_ptr<string> logInstanceId_ {};
         // The display code of the log.
         shared_ptr<string> logMdsCode_ {};
-        // The parameters of the log.
+        // The detailed parameters for the log.
         shared_ptr<vector<DataSourceInstanceLogs::LogParams>> logParams_ {};
-        // Indicates whether the task for which logs are collected is enabled. Valid values:
+        // The status of the log collection task. Valid values:
         // 
-        // *   1: yes
-        // *   0: no
+        // - 1: collected.
+        // 
+        // - 0: not collected.
         shared_ptr<int32_t> taskStatus_ {};
       };
 
@@ -244,23 +245,25 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud account.
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
-      // The code that is used for multi-cloud environments. Valid values:
+      // The code for the cloud service provider. Valid values:
       // 
-      // *   qcloud: Tencent Cloud
-      // *   aliyun: Alibaba Cloud
-      // *   hcloud: Huawei Cloud
+      // - qcloud: Tencent Cloud.
+      // 
+      // - aliyun: Alibaba Cloud.
+      // 
+      // - hcloud: Huawei Cloud
       shared_ptr<string> cloudCode_ {};
-      // The ID of the data source. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
+      // The ID of the data source. This ID is an MD5 hash value that is calculated by threat analysis based on specific parameters.
       shared_ptr<string> dataSourceInstanceId_ {};
-      // The logs of the data source.
+      // The list of logs for the data source.
       shared_ptr<vector<Data::DataSourceInstanceLogs>> dataSourceInstanceLogs_ {};
       // The name of the data source.
       shared_ptr<string> dataSourceInstanceName_ {};
-      // The remarks of the data source.
+      // The remarks on the data source.
       shared_ptr<string> dataSourceInstanceRemark_ {};
-      // The ID of the Alibaba Cloud account.
+      // The ID of the Alibaba Cloud account to which the log belongs.
       shared_ptr<int64_t> subUserId_ {};
     };
 
@@ -285,7 +288,7 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<ListDataSourceLogsResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

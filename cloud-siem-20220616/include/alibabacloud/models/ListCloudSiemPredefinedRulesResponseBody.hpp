@@ -207,44 +207,49 @@ namespace Models
 
 
       protected:
-        // The type of the risk.
+        // The threat type.
         shared_ptr<string> alertType_ {};
-        // The alert additional field for ATT\\&CK.
+        // The ATT\\&CK technique.
         shared_ptr<string> attCk_ {};
-        // The method that is used to generate an event. Valid values:
+        // The event generation method. Valid values:
         // 
-        // *   default: built-in method.
-        // *   singleToSingle: The system generates an event for each alert.
-        // *   allToSingle: The system generates an event for alerts within a period of time.
+        // - default: the default built-in method
+        // 
+        // - singleToSingle: An event is generated for each alert.
+        // 
+        // - allToSingle: An event is generated for all alerts in an epoch.
         shared_ptr<string> eventTransferType_ {};
         // The time when the rule was created.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the rule was modified.
+        // The time when the rule was last modified.
         shared_ptr<string> gmtModified_ {};
         // The ID of the predefined rule.
         shared_ptr<int64_t> id_ {};
-        // The internal code of the rule description.
+        // The Medusa code of the rule description.
         shared_ptr<string> ruleDescMds_ {};
-        // The name of the rule.
+        // The rule name.
         shared_ptr<string> ruleName_ {};
-        // The rule name in Chinese.
+        // The Chinese name of the rule.
         shared_ptr<string> ruleNameCn_ {};
-        // The rule name in English.
+        // The English name of the rule.
         shared_ptr<string> ruleNameEn_ {};
-        // The internal code of the rule name.
+        // The Medusa code of the rule name.
         shared_ptr<string> ruleNameMds_ {};
         // The log source of the rule.
         shared_ptr<string> source_ {};
         // The status of the predefined rule. Valid values:
         // 
-        // *   0: The rule is in the initial state.
-        // *   100: The rule takes effect.
-        shared_ptr<int32_t> status_ {};
-        // The risk level. Valid values:
+        // - 0: initial
         // 
-        // *   serious: high.
-        // *   suspicious: medium.
-        // *   remind: low.
+        // - 100: published
+        shared_ptr<int32_t> status_ {};
+        // The threat level. Valid values:
+        // 
+        // - serious: high
+        // 
+        // - suspicious: medium
+        // 
+        // - remind: low
         shared_ptr<string> threatLevel_ {};
       };
 
@@ -295,11 +300,11 @@ namespace Models
 
 
       protected:
-        // The current page number.
+        // The page number.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries returned.
+        // The total number of entries.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -380,8 +385,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

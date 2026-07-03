@@ -159,9 +159,9 @@ namespace Models
 
 
           protected:
-            // The ID of the extended parameter.
+            // The key of the additional parameter.
             shared_ptr<string> key_ {};
-            // The value of the extended parameter.
+            // The value of the additional parameter.
             shared_ptr<string> value_ {};
           };
 
@@ -227,27 +227,29 @@ namespace Models
 
 
         protected:
-          // Indicates whether the log delivery feature can be enabled or disabled. The feature can be enabled or disabled only by the administrator of the threat analysis feature. Valid values:
+          // Indicates whether the log delivery switch can be operated. Only the delegated administrator for threat analysis can operate the switch. Valid values:
           // 
-          // *   true
-          // *   false
+          // - true: The switch can be operated.
+          // 
+          // - false: The switch cannot be operated.
           shared_ptr<bool> canOperateOrNot_ {};
-          // The extended parameter.
+          // Additional parameters.
           shared_ptr<vector<LogList::ExtraParameters>> extraParameters_ {};
-          // The code of the log.
+          // The log code.
           shared_ptr<string> logCode_ {};
-          // This parameter is deprecated.
+          // This parameter is deprecated. You can ignore it.
           shared_ptr<string> logName_ {};
-          // This parameter is deprecated.
+          // This parameter is deprecated. You can ignore it.
           shared_ptr<string> logNameEn_ {};
-          // The language code of the log that is used to indicate the language in which the log is displayed.
+          // The language key of the log name. This key is used to display the log name in different languages.
           shared_ptr<string> logNameKey_ {};
-          // The status of the log delivery. Valid values:
+          // The log delivery status. Valid values:
           // 
-          // *   true: The logs are being delivered.
-          // *   false: The log delivery feature is disabled.
+          // - true: Delivery is in progress.
+          // 
+          // - false: Delivery is disabled.
           shared_ptr<bool> status_ {};
-          // The topic of the log in the Logstore. The value is an index field in the Logstore that can be used to distinguish different logs.
+          // The topic of the log in the LogStore. This parameter is an index field in the LogStore and is used to differentiate logs.
           shared_ptr<string> topic_ {};
         };
 
@@ -286,37 +288,59 @@ namespace Models
 
 
       protected:
-        // The logs of the cloud services.
+        // A list of logs for cloud products that do not have subcategories.
         shared_ptr<vector<ProductList::LogList>> logList_ {};
-        // The log group. For example, in Security Center, the logs of hosts and networks are stored in different groups. Key indicates the group information, and value indicates the logs in the group.
+        // A list of logs that are categorized. For example, Security Center logs are categorized into groups such as Host and Network. The group is the key, and the logs in the group are the value.
         shared_ptr<map<string, vector<DataProductListLogMapValue>>> logMap_ {};
-        // The code of the cloud service. Valid values:
+        // The code of the cloud product. Valid values:
         // 
-        // *   qcloud_waf
-        // *   qlcoud_cfw
-        // *   hcloud_waf
-        // *   hcloud_cfw
-        // *   ddos
-        // *   sas
-        // *   cfw
-        // *   config
-        // *   csk
-        // *   fc
-        // *   rds
-        // *   nas
-        // *   apigateway
-        // *   cdn
-        // *   mongodb
-        // *   eip
-        // *   slb
-        // *   vpc
-        // *   actiontrail
-        // *   waf
-        // *   bastionhost
-        // *   oss
-        // *   polardb
+        // - qcloud_waf
+        // 
+        // - qcloud_cfw
+        // 
+        // - hcloud_waf
+        // 
+        // - hcloud_cfw
+        // 
+        // - ddos
+        // 
+        // - sas
+        // 
+        // - cfw
+        // 
+        // - config
+        // 
+        // - csk
+        // 
+        // - fc
+        // 
+        // - rds
+        // 
+        // - nas
+        // 
+        // - apigateway
+        // 
+        // - cdn
+        // 
+        // - mongodb
+        // 
+        // - eip
+        // 
+        // - slb
+        // 
+        // - vpc
+        // 
+        // - actiontrail
+        // 
+        // - waf
+        // 
+        // - bastionhost
+        // 
+        // - oss
+        // 
+        // - polardb
         shared_ptr<string> productCode_ {};
-        // This parameter is deprecated.
+        // This parameter is deprecated. You can ignore it.
         shared_ptr<string> productName_ {};
       };
 
@@ -367,20 +391,21 @@ namespace Models
 
 
     protected:
-      // The URL that is displayed in charts.
+      // The URL of the dashboard on the log analysis page.
       shared_ptr<string> dashboardUrl_ {};
-      // Indicates whether the log delivery switch is displayed. Default value: true. Valid values:
+      // Indicates whether to display the delivery switch. The default value is true. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The delivery switch is displayed.
+      // 
+      // - false: The delivery switch is hidden.
       shared_ptr<bool> displaySwitchOrNot_ {};
-      // The name of the Logstore for the threat analysis feature on the user side. The value is in the cloud_siem format.
+      // The name of your LogStore for threat analysis. The format is \\`cloud_siem\\`.
       shared_ptr<string> logStoreName_ {};
-      // The cloud services.
+      // A list of products.
       shared_ptr<vector<Data::ProductList>> productList_ {};
-      // The name of the project for the threat analysis feature in Simple Log service on the user side. The value is in the aliyun-cloudsiem-data-${aliUid}-${region} format.
+      // The name of your Simple Log Service (SLS) project for threat analysis. The format is \\`aliyun-cloudsiem-data-${aliUid}-${region}\\`.
       shared_ptr<string> projectName_ {};
-      // The URL that is used for log analysis.
+      // The URL of the Search & Analysis page in the SLS console.
       shared_ptr<string> searchUrl_ {};
     };
 
@@ -403,7 +428,7 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<ListDeliveryResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

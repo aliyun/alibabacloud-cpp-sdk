@@ -66,21 +66,25 @@ namespace Models
 
 
   protected:
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region of the Data Management center for threat analysis. Select a region based on your asset location. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: Assets in the Chinese mainland and China (Hong Kong).
+    // 
+    // - ap-southeast-1: Assets outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The user ID of the member. An administrator can use this parameter to switch to the perspective of this member.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
-    shared_ptr<int32_t> roleType_ {};
-    // The type of the scenario in which the operator is used. Valid values:
+    // The view type.
     // 
-    // *   If you do not specify this parameter, the default scenario is used.
-    // *   AGGREGATE: AGGREGATE scenario.
+    // - 0: The view of the current Alibaba Cloud account.
+    // 
+    // - 1: The view of all accounts that are managed by your enterprise.
+    shared_ptr<int32_t> roleType_ {};
+    // The scenario for the operator. Valid values:
+    // 
+    // - If you leave this parameter empty, the default scenario is used.
+    // 
+    // - AGGREGATE: The aggregate function scenario.
     shared_ptr<string> sceneType_ {};
   };
 

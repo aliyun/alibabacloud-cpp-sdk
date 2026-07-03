@@ -127,13 +127,13 @@ namespace Models
 
 
       protected:
-        // The display name of the attribute for the entity.
+        // The display name of the field of the entity that can be added to the whitelist.
         shared_ptr<string> name_ {};
-        // The attribute of the entity.
+        // The field of the entity that can be added to the whitelist.
         shared_ptr<string> type_ {};
-        // The right operand that is displayed by default in the whitelist rule.
+        // The default right operand that is displayed for the whitelist rule.
         shared_ptr<string> value_ {};
-        // The right operands supported by the whitelist rule.
+        // The available right operands for the whitelist rule.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -192,19 +192,19 @@ namespace Models
 
 
     protected:
-      // The name of the alert. The value varies based on the display language (Chinese or English) of the Security Center console.
+      // The display name of the alert. The value varies based on the language of the environment.
       shared_ptr<string> alertName_ {};
       // The ID of the alert name.
       shared_ptr<string> alertNameId_ {};
-      // The title of the alert notification. The value varies based on the display language (Chinese or English) of the Security Center console.
+      // The display title of the alert. The value varies based on the language of the environment.
       shared_ptr<string> alertTile_ {};
       // The ID of the alert title.
       shared_ptr<string> alertTileId_ {};
-      // The type of the alert. The value varies based on the display language (Chinese or English) of the Security Center console.
+      // The display name of the alert type. The value varies based on the language of the environment.
       shared_ptr<string> alertType_ {};
       // The ID of the alert type.
       shared_ptr<string> alertTypeId_ {};
-      // The information about the entities for which you need to add the alert to the whitelist.
+      // The objects that can be added to the whitelist.
       shared_ptr<vector<Data::Targets>> targets_ {};
     };
 
@@ -248,7 +248,7 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<vector<DescribeAlertSceneResponseBody::Data>> data_ {};
@@ -258,8 +258,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

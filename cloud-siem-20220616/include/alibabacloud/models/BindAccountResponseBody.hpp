@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of the cloud accounts that are added to the threat analysis feature.
+      // The number of account bindings that are added.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The detailed information returned by the Threat Analysis service.
     shared_ptr<BindAccountResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

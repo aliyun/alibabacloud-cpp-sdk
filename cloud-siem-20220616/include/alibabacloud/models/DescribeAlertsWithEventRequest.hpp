@@ -207,52 +207,65 @@ namespace Models
 
 
   protected:
+    // The name of the alert.
     shared_ptr<string> alertName_ {};
     // The title of the alert.
     shared_ptr<string> alertTitle_ {};
+    // The type of the alert.
     shared_ptr<string> alertType_ {};
+    // The ID of the asset.
     shared_ptr<string> assetId_ {};
+    // The name of the asset.
     shared_ptr<string> assetName_ {};
     // The page number. Pages start from page 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
+    // The ID of the entity.
     shared_ptr<string> entityId_ {};
+    // The name of the entity.
     shared_ptr<string> entityName_ {};
-    // The ID of the event.
+    // The incident ID.
     shared_ptr<string> incidentUuid_ {};
-    // Specifies whether an attack is defended. Valid values:
+    // Indicates whether the attack is defended. Valid values:
     // 
-    // *   0: detected
-    // *   1: blocked
+    // - `0`: detected
+    // 
+    // - `1`: blocked
     shared_ptr<string> isDefend_ {};
-    // The risk levels. The value is a JSON array. Valid values:
+    // The threat level. The value is a JSON array. Valid values:
     // 
-    // *   serious: high
-    // *   suspicious: medium
-    // *   remind: low
+    // - `serious`: high
+    // 
+    // - `suspicious`: medium
+    // 
+    // - `remind`: low
     shared_ptr<vector<string>> level_ {};
     // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region in which the data management center of Threat Analysis resides. You can determine the region based on the region in which your assets reside. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - `cn-hangzhou`: Your assets reside in the Chinese mainland or Hong Kong (China).
+    // 
+    // - `ap-southeast-1`: Your assets reside in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the member in the resource directory.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view.
+    // The entity of the alert. Valid values:
     // 
-    // *   0: view of the current Alibaba Cloud account.
-    // *   1: view of all accounts for the enterprise.
+    // - `0`: the current Alibaba Cloud account.
+    // 
+    // - `1`: all members in the resource directory.
     shared_ptr<int32_t> roleType_ {};
     // The data source of the alert.
     shared_ptr<string> source_ {};
+    // The start of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> startTime_ {};
-    // The ID of the account within which the alert is generated.
+    // The ID of the account that is associated with the alert.
     shared_ptr<int64_t> subUserId_ {};
   };
 

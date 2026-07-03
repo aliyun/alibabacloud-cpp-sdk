@@ -87,10 +87,11 @@ namespace Models
 
 
     protected:
+      // The list of modules.
       shared_ptr<vector<string>> modules_ {};
-      // The internal code of the alert data source.
+      // The internal code for the alert source.
       shared_ptr<string> source_ {};
-      // The name of the alert data source.
+      // The name of the alert source.
       shared_ptr<string> sourceName_ {};
     };
 
@@ -134,18 +135,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the response. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The list of alert sources.
     shared_ptr<vector<DescribeAlertSourceResponseBody::Data>> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

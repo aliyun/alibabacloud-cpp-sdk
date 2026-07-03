@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The log type of the rule.
+      // The log type for the rule.
       shared_ptr<string> logType_ {};
-      // The internal code of the log type.
+      // The code for the log type name.
       shared_ptr<string> logTypeName_ {};
     };
 
@@ -122,18 +122,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<vector<DescribeLogTypeResponseBody::Data>> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

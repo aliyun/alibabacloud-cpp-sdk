@@ -124,16 +124,21 @@ namespace Models
 
 
     protected:
+      // The number of automatically connected Alibaba Cloud products.
       shared_ptr<int32_t> aliyunImportedCount_ {};
-      // The number of Alibaba Cloud services.
+      // The number of Alibaba Cloud products.
       shared_ptr<int32_t> aliyunProdCount_ {};
+      // The number of automatically connected Huawei Cloud products.
       shared_ptr<int32_t> hcloudImportedCount_ {};
-      // The number of Huawei Cloud services.
+      // The number of Huawei Cloud products.
       shared_ptr<int32_t> hcloudProdCount_ {};
+      // The number of automatically connected IDC products.
       shared_ptr<int32_t> idcImportedCount_ {};
+      // The number of IDC products.
       shared_ptr<int32_t> idcProdCount_ {};
+      // The number of automatically connected Tencent Cloud products.
       shared_ptr<int32_t> qcloudImportedCount_ {};
-      // The number of Tencent Cloud services.
+      // The number of Tencent Cloud products.
       shared_ptr<int32_t> qcloudProdCount_ {};
     };
 
@@ -158,7 +163,7 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<DescribeProdCountResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

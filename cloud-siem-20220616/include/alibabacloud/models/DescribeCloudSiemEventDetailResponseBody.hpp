@@ -144,8 +144,11 @@ namespace Models
 
 
       protected:
+        // The number of alerts that are associated with the tactic.
         shared_ptr<int32_t> alertNum_ {};
+        // The ID of the ATT\\&CK tactic.
         shared_ptr<string> tacticId_ {};
+        // The name of the tactic.
         shared_ptr<string> tacticName_ {};
       };
 
@@ -314,16 +317,17 @@ namespace Models
       shared_ptr<int64_t> aliuid_ {};
       // The number of assets that are associated with the event.
       shared_ptr<int32_t> assetNum_ {};
-      // The tags of the ATT\\&CK attacks.
+      // The ATT\\&CK technique labels.
       shared_ptr<vector<string>> attCkLabels_ {};
+      // The attack stages.
       shared_ptr<vector<Data::AttckStages>> attckStages_ {};
-      // The source of the alert.
+      // The cloud services that generated the alerts associated with the event.
       shared_ptr<vector<string>> dataSources_ {};
       // The description of the event.
       shared_ptr<string> description_ {};
-      // The description of the event in English.
+      // The English description of the event.
       shared_ptr<string> descriptionEn_ {};
-      // The extended information of the event in the JSON format.
+      // The extended information about the event, in JSON format.
       shared_ptr<string> extContent_ {};
       // The time when the event occurred.
       shared_ptr<string> gmtCreate_ {};
@@ -331,30 +335,45 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The name of the event.
       shared_ptr<string> incidentName_ {};
-      // The name of the event in English.
+      // The English name of the event.
       shared_ptr<string> incidentNameEn_ {};
+      // The type of the event.
+      // 
+      // - net-attack: Expert rule
+      // 
+      // - graph: Graph computing
+      // 
+      // - singleToSingle: Alert pass-through
+      // 
+      // - allToSingle: Alert aggregation
       shared_ptr<string> incidentType_ {};
-      // The UUID of the event.
+      // The globally unique ID of the event.
       shared_ptr<string> incidentUuid_ {};
-      // Users associated with the event.
+      // The linked accounts.
       shared_ptr<string> referAccount_ {};
-      // The remarks of the event.
+      // The remarks for the event.
       shared_ptr<string> remark_ {};
+      // The rule that is used to generate the event.
       shared_ptr<string> ruleId_ {};
       // The status of the event. Valid values:
       // 
-      // *   0: not handled
-      // *   1: handing
-      // *   5: handling failed
-      // *   10: handled
-      shared_ptr<int32_t> status_ {};
-      // The risk level. Valid values:
+      // - 0: unhandled
       // 
-      // *   serious: high
-      // *   suspicious: medium
-      // *   remind: low
+      // - 1: handling
+      // 
+      // - 5: handling failed
+      // 
+      // - 10: handled
+      shared_ptr<int32_t> status_ {};
+      // The threat level. Valid values:
+      // 
+      // - serious: high
+      // 
+      // - suspicious: medium
+      // 
+      // - remind: low
       shared_ptr<string> threatLevel_ {};
-      // The risk score of the event. The score ranges from 0 to 100. A higher score indicates a higher risk level.
+      // The threat score of the event. The score is a value from 0 to 100. A higher score indicates a higher threat level.
       shared_ptr<float> threatScore_ {};
     };
 
@@ -398,9 +417,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeCloudSiemEventDetailResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -408,8 +427,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -156,27 +156,29 @@ namespace Models
 
 
       protected:
-        // The channel of the contact information. Valid values:
+        // The channel to send the notification. Valid values:
         // 
-        // *   message
-        // *   mail
+        // - message: text message
+        // 
+        // - mail: email
         shared_ptr<string> channel_ {};
-        // The creation time.
+        // The time when the record was created.
         shared_ptr<string> gmtCreate_ {};
-        // The modification time.
+        // The time when the record was last modified.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the recipient who receives the event handling result.
+        // The record ID of the recipient for the event handling result.
         shared_ptr<int64_t> id_ {};
-        // The UUID of the event.
+        // The globally unique UUID of the event.
         shared_ptr<string> incidentUuid_ {};
-        // The message title.
+        // The title of the message.
         shared_ptr<string> messageTitle_ {};
         // The contact information of the recipient.
         shared_ptr<string> receiver_ {};
-        // Indicates whether the message is sent. Valid values:
+        // The sending status of the notification. Valid values:
         // 
-        // *   0: not sent
-        // *   1: sent
+        // - 0: not sent
+        // 
+        // - 1: sent
         shared_ptr<int32_t> status_ {};
       };
 
@@ -215,18 +217,21 @@ namespace Models
 
 
     protected:
-      // An array consisting of JSON objects that are configured for event handling.
+      // The JSON object of the event handling configuration.
       shared_ptr<vector<Darabonba::Json>> eventDispose_ {};
-      // The JSON object that is configured for an alert recipient.
+      // The JSON object of the alert recipient configuration.
       shared_ptr<Data::ReceiverInfo> receiverInfo_ {};
-      // The description of the event.
+      // The remarks on the event.
       shared_ptr<string> remark_ {};
       // The status of the event. Valid values:
       // 
-      // *   0: not handled
-      // *   1: handing
-      // *   5: handling failed
-      // *   10: handled
+      // - 0: unhandled
+      // 
+      // - 1: handling
+      // 
+      // - 5: failed
+      // 
+      // - 10: handled
       shared_ptr<int32_t> status_ {};
     };
 
@@ -270,18 +275,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<DescribeEventDisposeResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

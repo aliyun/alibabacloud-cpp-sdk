@@ -84,17 +84,21 @@ namespace Models
 
 
     protected:
-      // The ID of the rule.
+      // The ID of the custom rule.
       shared_ptr<int64_t> id_ {};
-      // The historical data that is used in the simulation test.
+      // The historical data of the simulated test case.
       shared_ptr<string> simulateData_ {};
       // The status of the rule. Valid values:
       // 
-      // *   0: The rule is in the initial state.
-      // *   10: The simulation data is tested.
-      // *   15: The business data is being tested.
-      // *   20: The business data test ends.
-      // *   100: The rule takes effect.
+      // - 0: initial
+      // 
+      // - 10: simulated data test
+      // 
+      // - 15: real-time data test in progress
+      // 
+      // - 20: real-time data test complete
+      // 
+      // - 100: published
       shared_ptr<int32_t> status_ {};
     };
 
@@ -138,7 +142,7 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The HTTP status code returned.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<DescribeCustomizeRuleTestResponseBody::Data> data_ {};
@@ -148,8 +152,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

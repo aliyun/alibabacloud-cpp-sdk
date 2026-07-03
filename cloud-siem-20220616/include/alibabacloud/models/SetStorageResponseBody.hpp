@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the settings are saved. Valid values:
+    // Indicates whether the settings were saved. Valid values:
     // 
-    // *   true:
-    // *   false:
+    // - true: The settings were saved.
+    // 
+    // - false: The settings failed to be saved.
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

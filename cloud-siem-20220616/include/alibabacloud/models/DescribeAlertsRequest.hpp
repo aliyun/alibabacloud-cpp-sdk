@@ -227,55 +227,81 @@ namespace Models
 
 
   protected:
+    // The name of the alert.
     shared_ptr<string> alertName_ {};
+    // The status of the alert.
     shared_ptr<vector<string>> alertStatus_ {};
     // The title of the alert.
     shared_ptr<string> alertTitle_ {};
+    // The type of the alert.
     shared_ptr<string> alertType_ {};
-    // The UUID of the alert.
+    // The unique ID of the alert.
     shared_ptr<string> alertUuid_ {};
+    // The ID of the asset.
     shared_ptr<string> assetId_ {};
+    // The name of the asset.
     shared_ptr<string> assetName_ {};
-    // The page number. Pages start from page 1.
+    // The page number. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. Unit: milliseconds.
+    // The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
+    // The ID of the entity.
     shared_ptr<string> entityId_ {};
+    // The name of the entity.
     shared_ptr<string> entityName_ {};
-    // Specifies whether an attack is defended. Valid values:
+    // Specifies whether the threat is defended. Valid values:
     // 
-    // *   0: detected.
-    // *   1: blocked.
+    // - `0`: detected
+    // 
+    // - `1`: blocked
     shared_ptr<string> isDefend_ {};
-    shared_ptr<string> labelType_ {};
-    // The risk level. The value is a JSON array. Valid values:
+    // The alert type. Valid values:
     // 
-    // *   serious: high
-    // *   suspicious: medium
-    // *   remind: low
+    // - `system`: An alert generated from aggregated analysis
+    // 
+    // - `custom`: An alert generated from custom analysis
+    // 
+    // - `cfw`: firewall
+    // 
+    // - `waf`: web application firewall
+    // 
+    // - `edr`: endpoint detection and response
+    // 
+    // - `other`: other
+    shared_ptr<string> labelType_ {};
+    // The threat levels. This parameter is a JSON array. Valid values:
+    // 
+    // - `serious`: high
+    // 
+    // - `suspicious`: medium
+    // 
+    // - `remind`: low
     shared_ptr<vector<string>> level_ {};
     // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the data management center of the threat analysis feature resides. You are required to specify this parameter based on the region where your assets reside. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - `cn-hangzhou`: Your assets reside in the Chinese mainland or Hong Kong (China).
+    // 
+    // - `ap-southeast-1`: Your assets reside outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The ID of the user who is used to switch the account to view the data of the member.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The view type of the alert. Valid values:
+    // 
+    // - `0`: current account
+    // 
+    // - `1`: all accounts
     shared_ptr<int32_t> roleType_ {};
     // The source of the alert.
     shared_ptr<string> source_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> startTime_ {};
-    // The ID of the Alibaba Cloud account within which the alert is generated.
+    // The ID of the Alibaba Cloud account that is associated with the alert.
     shared_ptr<string> subUserId_ {};
   };
 

@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the threat analysis feature was disabled. Valid values:
+    // The result of the request. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

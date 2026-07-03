@@ -195,72 +195,87 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1.
+    // Current page number. Must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The status of the policy. Valid values:
+    // Strategy status. Valid values:
     // 
-    // *   0: invalid
-    // *   1: valid
+    // - 0: disabled
+    // 
+    // - 1: enabled
     shared_ptr<int32_t> effectiveStatus_ {};
-    // The end of the time range to query. Unit: milliseconds.
+    // End time of the query, in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The feature value of the entity. Fuzzy match is supported.
+    // Entity feature value. Use this to perform a fuzzy search on entities.
     shared_ptr<string> entityIdentity_ {};
-    // The entity type of the playbook. Valid values:
+    // Entity type. Valid values:
     // 
-    // *   ip
-    // *   process
-    // *   file
+    // - ip
+    // 
+    // - process
+    // 
+    // - file
     shared_ptr<string> entityType_ {};
+    // Event ID.
     shared_ptr<string> incidentUuid_ {};
-    // The sort order. Valid values:
+    // Sort order. Valid values:
     // 
-    // *   desc: descending order.
-    // *   asc: ascending order.
+    // - desc: descending
+    // 
+    // - asc: ascending
     shared_ptr<string> order_ {};
-    // The sort field. Valid values:
+    // Sort field. Valid values:
     // 
-    // *   GmtModified: sorts the policies by update time.
-    // *   GmtCreate: sorts the policies by creation time.
-    // *   FinishTime: sorts the policies by end time.
+    // - GmtModified: sort by last modified time
+    // 
+    // - GmtCreate: sort by creation time
+    // 
+    // - FinishTime: sort by strategy end time
     shared_ptr<string> orderField_ {};
-    // The number of entries per page. Maximum value: 100.
+    // Number of entries per page. Maximum value is 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the playbook, which is the unique identifier of the playbook.
+    // Unique name of the playbook.
     shared_ptr<string> playbookName_ {};
-    // The type of the playbook. Valid values:
+    // Playbook type. Valid values:
     // 
-    // *   system: user-triggered playbook
-    // *   custom: event-triggered playbook
-    // *   custom_alert: alert-triggered playbook
-    // *   soar-manual: user-run playbook
-    // *   soar-mdr: MDR-run playbook
+    // - system: manual disposal
+    // 
+    // - custom: event-triggered playbook
+    // 
+    // - custom_alert: alert-triggered playbook
+    // 
+    // - soar-manual: manually run playbook
+    // 
+    // - soar-mdr: MDR-run playbook
     shared_ptr<string> playbookTypes_ {};
-    // The UUID of the playbook.
+    // UUID of the playbook.
     shared_ptr<string> playbookUuid_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // Location of the Data Management center for Threat Analysis and Response. Select the location based on where your assets are deployed. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: assets in the Chinese mainland or Hong Kong (China)
+    // 
+    // - ap-southeast-1: assets outside China
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // Alibaba Cloud account ID when an administrator switches to another member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // View type. Valid values:
+    // 
+    // - 0: view for the current Alibaba Cloud account
+    // 
+    // - 1: view for all accounts under the enterprise
     shared_ptr<int32_t> roleType_ {};
-    // The ID of the SOAR handling policy.
+    // ID of the security orchestration and automated response disposal strategy.
     shared_ptr<string> sophonTaskId_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // Start time of the query, in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // Disposal strategy status.
     shared_ptr<int32_t> status_ {};
   };
 

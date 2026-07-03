@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // The display value.
+        // The displayed content.
         shared_ptr<string> label_ {};
-        // The actual value.
+        // The actual value of the parameter.
         shared_ptr<string> value_ {};
       };
 
@@ -226,53 +226,61 @@ namespace Models
 
 
     protected:
-      // Indicates whether the edit operation is supported. Valid values:
+      // Indicates whether the parameter is editable. Valid values:
       // 
-      // *   **0**
-      // *   **1**
+      // - **0**: The parameter cannot be modified.
+      // 
+      // - **1**: The parameter can be modified.
       shared_ptr<int32_t> canEditted_ {};
-      // The code of the cloud service provider. Valid values:
+      // The code for the multicloud environment. Valid values:
       // 
-      // *   **qcloud**: Tencent Cloud
-      // *   **aliyun**: Alibaba Cloud
-      // *   **hcloud**: Huawei Cloud
+      // - **qcloud**: Tencent Cloud.
+      // 
+      // - **aliyun**: Alibaba Cloud.
+      // 
+      // - **hcloud**: Huawei Cloud.
       shared_ptr<string> cloudCode_ {};
       // The type of the data source. Valid values:
       // 
-      // *   **obs**: Huawei Cloud Object Storage Service (OBS)
-      // *   **wafApi**: download API of Tencent Cloud Web Application Firewall (WAF)
-      // *   **ckafka**: Tencent Cloud TDMQ for CKafka
+      // - **obs**: Huawei Cloud OBS.
+      // 
+      // - **wafApi**: Tencent Cloud WAF download API.
+      // 
+      // - **ckafka**: Tencent Cloud CKafka.
       shared_ptr<string> dataSourceType_ {};
       // The default value of the parameter.
       shared_ptr<string> defaultValue_ {};
-      // Indicates whether the modification operation is forbidden. Valid values:
+      // Indicates whether the parameter can be modified. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The parameter cannot be modified.
+      // 
+      // - **false**: The parameter can be modified.
       shared_ptr<bool> disabled_ {};
-      // The method that is used to check the parameter format.
+      // The format check method.
       shared_ptr<string> formatCheck_ {};
-      // The additional information.
+      // Additional information.
       shared_ptr<string> hit_ {};
       // The code of the parameter.
       shared_ptr<string> paraCode_ {};
-      // The parameter level. Valid values:
+      // The level of the parameter. Valid values:
       // 
-      // *   **1**: the parameters of the data source
-      // *   **2**: the parameters of the log
+      // - **1**: data source parameter.
+      // 
+      // - **2**: log parameter.
       shared_ptr<int32_t> paraLevel_ {};
       // The name of the parameter.
       shared_ptr<string> paraName_ {};
-      // The data type of the parameter.
+      // The type of the parameter.
       shared_ptr<string> paraType_ {};
-      // The value of the parameter.
+      // The list of parameters.
       shared_ptr<vector<Data::ParamValue>> paramValue_ {};
       // Indicates whether the parameter is required. Valid values:
       // 
-      // *   **1**: required
-      // *   **0**: optional
+      // - **1**: The parameter is required.
+      // 
+      // - **0**: The parameter is optional.
       shared_ptr<int32_t> required_ {};
-      // The note for the parameter value.
+      // The prompt for the parameter value.
       shared_ptr<string> title_ {};
     };
 
@@ -297,7 +305,7 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<vector<DescribeDataSourceParametersResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

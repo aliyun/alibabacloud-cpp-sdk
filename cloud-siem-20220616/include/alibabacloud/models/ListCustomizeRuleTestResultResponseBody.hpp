@@ -227,41 +227,49 @@ namespace Models
       protected:
         // The description of the alert.
         shared_ptr<string> alertDesc_ {};
-        // The alert details in the JSON format.
+        // The details of the alert, in JSON format.
         shared_ptr<string> alertDetail_ {};
-        // The source of the alert.
+        // The source product of the alert that is associated with the event.
         shared_ptr<string> alertSrcProd_ {};
-        // The sub-module of the source.
+        // The sub-module of the source product of the alert that is associated with the event.
         shared_ptr<string> alertSrcProdModule_ {};
-        // The tag of the ATT\\&CK attack.
+        // The ATT\\&CK attack technique tag.
         shared_ptr<string> attCk_ {};
-        // The name of the alert, which corresponds to the name of the custom rule.
+        // The name of the alert. This value corresponds to the name of the custom rule.
         shared_ptr<string> eventName_ {};
-        // The threat type, which indicates the alert type.
+        // The threat type. This parameter is equivalent to the alert type.
         shared_ptr<string> eventType_ {};
         // The threat level. Valid values:
         // 
-        // *   serious: high.
-        // *   suspicious: medium.
-        // *   remind: low.
+        // - serious: high
+        // 
+        // - suspicious: medium
+        // 
+        // - remind: low
         shared_ptr<string> level_ {};
-        // The log source of the rule.
+        // The log source that corresponds to the rule.
         shared_ptr<string> logSource_ {};
         // The time when the alert was recorded.
         shared_ptr<string> logTime_ {};
-        // The log type of the rule.
+        // The log type that corresponds to the rule.
         shared_ptr<string> logType_ {};
-        // The ID of the Alibaba Cloud account that is associated with the alert in SIEM.
+        // The ID of the main Alibaba Cloud account for Security Information and Event Management (SIEM) that is associated with the alert.
         shared_ptr<string> mainUserId_ {};
         // The status of the alert data. Valid values:
         // 
-        // *   test: business test data.
-        // *   online: online data.
+        // - test: business test
+        // 
+        // - online: published
         shared_ptr<string> onlineStatus_ {};
-        // The ID of the Alibaba Cloud account within which the alert is generated.
+        // The ID of the member account that is associated with the alert.
         shared_ptr<string> subUserId_ {};
         // The UUID of the alert.
         shared_ptr<string> uuid_ {};
+        // The result of verifying the alert based on the alert template.
+        // 
+        // - true: The verification is passed.
+        // 
+        // - false: The verification failed.
         shared_ptr<string> verifyType_ {};
       };
 
@@ -323,10 +331,11 @@ namespace Models
       protected:
         // The current page number.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries returned.
+        // The total number of entries.
         shared_ptr<int64_t> totalCount_ {};
+        // The number of alerts that passed the verification.
         shared_ptr<int64_t> verifiedCount_ {};
       };
 
@@ -397,18 +406,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code of the request.
     shared_ptr<int32_t> code_ {};
     // The data returned.
     shared_ptr<ListCustomizeRuleTestResultResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

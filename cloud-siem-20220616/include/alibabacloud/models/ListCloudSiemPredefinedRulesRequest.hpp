@@ -200,72 +200,85 @@ namespace Models
   protected:
     // The alert type.
     shared_ptr<string> alertType_ {};
-    // The ATT\\&CK information.
+    // The ATT\\&CK technique.
     shared_ptr<string> attCk_ {};
-    // The page number. Pages start from page 1.
+    // The page number. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. Unit: milliseconds.
+    // The end of the time range to query. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The method that is used to generate an event. Valid values:
+    // The event generation method. Valid values:
     // 
-    // *   default: built-in method.
-    // *   singleToSingle: The system generates an event for each alert.
-    // *   allToSingle: The system generates an event for alerts within a period of time.
+    // - default: the default built-in method
+    // 
+    // - singleToSingle: An event is generated for each alert.
+    // 
+    // - allToSingle: An event is generated for all alerts in an epoch.
     shared_ptr<string> eventTransferType_ {};
-    // The ID of the rule.
+    // The rule ID.
     shared_ptr<string> id_ {};
     // The log source.
     shared_ptr<string> logSource_ {};
-    // The sort method. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   desc: descending order.
-    // *   asc: ascending order.
+    // - desc: descending
+    // 
+    // - asc: ascending
     shared_ptr<string> order_ {};
-    // The field that is used to sort the rules. Valid values:
+    // The field to sort the rules by. Valid values:
     // 
-    // *   GmtModified: The rules are sorted based on the modification time.
-    // *   Id (default): The rules are sorted based on the rule ID.
+    // - GmtModified: Sorts by modification time.
+    // 
+    // - Id: Sorts by rule ID. This is the default value.
     shared_ptr<string> orderField_ {};
-    // The number of entries per page. Maximum value: 100.
+    // The number of entries per page. The maximum value is 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the Data Management center of the threat analysis feature is located. Select the region where your assets are located. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: assets in the Chinese mainland or China (Hong Kong)
+    // 
+    // - ap-southeast-1: assets outside China
     shared_ptr<string> regionId_ {};
-    // The ID of the destination account to which you switch the view from the management account.
+    // The user ID that the administrator uses to switch to the perspective of a member.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view.
+    // The view type.
     // 
-    // *   0: view of the current Alibaba Cloud account.
-    // *   1: view of all accounts for the enterprise.
+    // - 0: the view of the current Alibaba Cloud account.
+    // 
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The name of the rule. The name can contain letters, digits, underscores (_), and periods (.).
+    // The rule name. The name can contain only letters, digits, underscores (_), and periods (.).
     shared_ptr<string> ruleName_ {};
-    // The type of the rule. Valid values:
+    // The rule type. Valid values:
     // 
-    // *   predefine
-    // *   customize
+    // - predefine: predefined
+    // 
+    // - customize: custom
     shared_ptr<string> ruleType_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The start of the time range to query. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the rule. Valid values:
+    // The rule status. Valid values:
     // 
-    // *   0: The rule is in the initial state.
-    // *   10: The simulation data is tested.
-    // *   15: The business data is being tested.
-    // *   20: The business data test ends.
-    // *   100: The rule takes effect.
+    // - 0: initial
+    // 
+    // - 10: testing with simulated data
+    // 
+    // - 15: testing with production data
+    // 
+    // - 20: testing with production data is complete
+    // 
+    // - 100: published
     shared_ptr<int32_t> status_ {};
-    // The risk level. The value is a JSON array. Valid values:
+    // The threat level. The value is a JSON array. Valid values:
     // 
-    // *   serious: high
-    // *   suspicious: medium
-    // *   remind: low
+    // - serious: high
+    // 
+    // - suspicious: medium
+    // 
+    // - remind: low
     shared_ptr<vector<string>> threatLevel_ {};
   };
 

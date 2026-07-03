@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The number of logs that are modified. The value 1 indicates that the modification is successful, and a value less than or equal to 0 indicates that the modification failed.
+      // The number of modified logs. A value of 1 indicates success. A value of 0 or less indicates failure.
       shared_ptr<int32_t> count_ {};
-      // The ID of the log. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+      // The ID of the log. The threat analysis feature generates this ID by calculating an MD5 hash of the parameters.
       shared_ptr<string> logInstanceId_ {};
     };
 
@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<ModifyDataSourceLogResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

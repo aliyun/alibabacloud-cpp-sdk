@@ -103,29 +103,35 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1.
+    // 列表当前页号， 大于等于 1。
     shared_ptr<int32_t> currentPage_ {};
     // The entity type. Valid values:
     // 
-    // *   ip
-    // *   process
-    // *   file
-    shared_ptr<string> entityType_ {};
-    shared_ptr<string> entityUuid_ {};
-    // The UUID of the event.
-    shared_ptr<string> incidentUuid_ {};
-    // The number of entries to return on each page. Maximum value: 100.
-    shared_ptr<int32_t> pageSize_ {};
-    // The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+    // - `ip`: IP address
     // 
-    // *   cn-hangzhou: Your assets reside in regions inside China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - `process`: process
+    // 
+    // - `file`: file
+    shared_ptr<string> entityType_ {};
+    // 实体 uuid。
+    shared_ptr<string> entityUuid_ {};
+    // The incident UUID.
+    shared_ptr<string> incidentUuid_ {};
+    // 列表每页条数， 最大不超过 100。
+    shared_ptr<int32_t> pageSize_ {};
+    // 威胁分析的数据管理中心所在地。您需要根据资产所在地域，选择管理中心所在地。取值：
+    // 
+    // - cn-hangzhou：资产属于中国内地与中国香港
+    // 
+    // - ap-southeast-1：资产属于海外地域
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // 管理员切换成其他成员视角的用户 ID。
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // 视图类型。
+    // 
+    // - 0：当前阿里云账号视图。
+    // 
+    // - 1：企业下所有账号的视图。
     shared_ptr<int32_t> roleType_ {};
   };
 

@@ -70,13 +70,15 @@ namespace Models
 
 
     protected:
-      // The code of the third-party cloud service.
+      // The code of the multicloud service.
       shared_ptr<string> cloudCode_ {};
       // The type of the data source. Valid values:
       // 
-      // *   obs: Huawei Cloud Object Storage Service (OBS)
-      // *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
-      // *   ckafka: Tencent Cloud Kafka (CKafka)
+      // - obs: Huawei Cloud OBS.
+      // 
+      // - wafApi: Tencent Cloud WAF download API.
+      // 
+      // - ckafka: Tencent Cloud CKafka.
       shared_ptr<string> dataSourceType_ {};
     };
 
@@ -101,7 +103,7 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<vector<ListDataSourceTypesResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

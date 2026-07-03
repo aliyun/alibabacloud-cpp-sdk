@@ -222,63 +222,71 @@ namespace Models
 
 
   protected:
-    // The risk type.
+    // The threat type.
     shared_ptr<string> alertType_ {};
-    // The internal code of the risk type.
+    // The Medusa code of the threat type.
     shared_ptr<string> alertTypeMds_ {};
-    // att&ck.
+    // The ATT\\&CK technique.
     shared_ptr<string> attCk_ {};
-    // The extended information about event generation. If eventTransferType is set to allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window.
+    // The extended information for event generation. This parameter is returned only when EventTransferType is set to allToSingle. The value indicates the length and unit of the alert aggregation window.
     shared_ptr<string> eventTransferExt_ {};
-    // Specifies whether to convert an alert to an event. Valid values:
+    // Specifies whether to convert alerts into events. Valid values:
     // 
-    // *   0: no
-    // *   1: yes
+    // - 0: no
+    // 
+    // - 1: yes
     shared_ptr<int32_t> eventTransferSwitch_ {};
     // The event generation method. Valid values:
     // 
-    // *   default: The default method is used.
-    // *   singleToSingle: The system generates an event for each alert.
-    // *   allToSingle: The system generates an event for alerts within a period of time.
+    // - default: the default method
+    // 
+    // - singleToSingle: An event is generated for each alert.
+    // 
+    // - allToSingle: An event is generated for all alerts in a period.
     shared_ptr<string> eventTransferType_ {};
-    // The ID of the rule.
+    // The ID of the custom rule.
     shared_ptr<int64_t> id_ {};
     // The log source of the rule.
     shared_ptr<string> logSource_ {};
-    // The internal code of the log source.
+    // The Medusa code of the log source.
     shared_ptr<string> logSourceMds_ {};
     // The log type of the rule.
     shared_ptr<string> logType_ {};
-    // The internal code of the log type.
+    // The Medusa code of the log type.
     shared_ptr<string> logTypeMds_ {};
-    // The window length of the rule.
+    // The length of the rule window.
     shared_ptr<string> queryCycle_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+    // The region where the data management center of Threat Analysis is located. Select the region where your assets are located. Valid values:
     // 
-    // *   cn-hangzhou: Your assets reside in regions in China.
-    // *   ap-southeast-1: Your assets reside in regions outside China.
+    // - cn-hangzhou: assets in the Chinese mainland and China (Hong Kong)
+    // 
+    // - ap-southeast-1: assets outside China
     shared_ptr<string> regionId_ {};
-    // The ID of the account that you switch from the management account.
+    // The user ID that is used to switch the administrator\\"s perspective to a member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
-    // - 0: the current Alibaba Cloud account
-    // - 1: the global account
+    // The view type.
+    // 
+    // - 0: the view of the current Alibaba Cloud account.
+    // 
+    // - 1: the view of all accounts that are managed by the administrator.
     shared_ptr<int32_t> roleType_ {};
-    // The query condition of the rule. The value is in the JSON format.
+    // The query condition of the rule. The value is a JSON string.
     shared_ptr<string> ruleCondition_ {};
     // The description of the rule.
     shared_ptr<string> ruleDesc_ {};
-    // The log aggregation field of the rule. The value is a JSON string.
+    // The fields that are used to group logs. The value is a JSON array.
     shared_ptr<string> ruleGroup_ {};
     // The name of the rule.
     shared_ptr<string> ruleName_ {};
-    // The threshold configuration of the rule. The value is in the JSON format.
+    // The threshold configuration of the rule. The value is a JSON string.
     shared_ptr<string> ruleThreshold_ {};
-    // The risk level. Valid values:
+    // The threat level. Valid values:
     // 
-    // *   serious: high
-    // *   suspicious: medium
-    // *   remind: low
+    // - serious: high
+    // 
+    // - suspicious: medium
+    // 
+    // - remind: low
     shared_ptr<string> threatLevel_ {};
   };
 
