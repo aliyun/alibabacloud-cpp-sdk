@@ -130,37 +130,39 @@ namespace Models
 
 
   protected:
-    // The description of the traffic throttling rule.
+    // The description of the QoS rate limiting rule.
     shared_ptr<string> description_ {};
-    // The type of the traffic throttling rule. Valid values:
+    // The type of rate limiting. Valid values:
     // 
-    // *   **Absolute**: throttles traffic based on a specific range of bandwidth.
-    // *   **Percent**: throttles traffic based on a specific range of bandwidth percentage.
+    // - **Absolute**: by bandwidth value.
+    // 
+    // - **Percent**: by percentage.
     shared_ptr<string> limitType_ {};
     // The maximum bandwidth value. Unit: Mbit/s.
     // 
-    // This parameter is returned when **LimitType** is set to **Absolute**.
+    // This parameter is required when **LimitType** is set to **Absolute**.
     shared_ptr<int32_t> maxBandwidthAbs_ {};
     // The maximum bandwidth percentage. Unit: percent (%).
     shared_ptr<int32_t> maxBandwidthPercent_ {};
     // The minimum bandwidth value. Unit: Mbit/s.
     // 
-    // This parameter is returned when **LimitType** is set to **Absolute**.
+    // This parameter is required when **LimitType** is set to **Absolute**.
     shared_ptr<int32_t> minBandwidthAbs_ {};
     // The minimum bandwidth percentage. Unit: percent (%).
     shared_ptr<int32_t> minBandwidthPercent_ {};
-    // The type of bandwidth when traffic is throttled based on bandwidth percentage. Valid values:
+    // The bandwidth type when rate limiting by percentage. Valid values:
     // 
-    // *   **CcnBandwidth**: CCN bandwidth
-    // *   **InternetUpBandwidth**: total Internet bandwidth
+    // - **CcnBandwidth**: CCN bandwidth.
+    // 
+    // - **InternetUpBandwidth**: total Internet bandwidth.
     shared_ptr<string> percentSourceType_ {};
-    // The priority value of the traffic throttling rule.
+    // The priority of the rule.
     shared_ptr<int32_t> priority_ {};
-    // The ID of the traffic throttling rule.
+    // The instance ID of the QoS rate limiting rule.
     shared_ptr<string> qosCarId_ {};
-    // The ID of the QoS policy.
+    // The instance ID of the QoS policy.
     shared_ptr<string> qosId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

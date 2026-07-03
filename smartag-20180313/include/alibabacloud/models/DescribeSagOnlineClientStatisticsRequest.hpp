@@ -89,12 +89,13 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the SAG app instance is deployed.
+    // The region ID of the SAG app instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The IDs of the SAG app instances. The list can contain up to 50 instance IDs.
     shared_ptr<vector<string>> smartAGIds_ {};
   };
 

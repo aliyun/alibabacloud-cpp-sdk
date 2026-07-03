@@ -77,9 +77,11 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   **zh-CN** (default): Chinese
-    // *   **en-US**: English
-    // *   **ja**: Japanese
+    // - **zh-CN** (default): Chinese
+    // 
+    // - **en-US**: English
+    // 
+    // - **ja**: Japanese
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -121,41 +121,41 @@ namespace Models
 
 
   protected:
-    // The control status of the SAG device. Valid values:
+    // The control status of the Smart Access Gateway device. Valid values:
     // 
-    // *   **Normal**: normal
-    // *   **Abnormal**: abnormal
+    // - **Normal**: Normal.
+    // - **Abnormal**: Abnormal.
     shared_ptr<string> controllerState_ {};
-    // The last time when the SAG device was connected to Alibaba Cloud.
+    // The most recent time when the Smart Access Gateway device connected to the controller.
     shared_ptr<string> lastConnectedControllerTime_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the reset button of the SAG device is enabled. Valid values:
+    // Indicates whether the reset button of the Smart Access Gateway device is enabled. Valid values:
     // 
-    // *   **Enabled**: enabled
-    // *   **Disabled**: disabled
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     shared_ptr<string> resettableStatus_ {};
-    // The IP address of the SAG device.
+    // The service IP address of the Smart Access Gateway device.
     shared_ptr<string> serviceIP_ {};
-    // The model of the SAG device. Valid values:
+    // The type of the Smart Access Gateway device. Valid values:
     // 
-    // *   **sag-100wm**
-    // *   **sag-1000**
+    // - **sag-100wm**.
+    // - **sag-1000**.
     shared_ptr<string> smartAGType_ {};
-    // The time when the SAG device was started.
+    // The startup time of the Smart Access Gateway device.
     shared_ptr<string> startupTime_ {};
-    // Indicates whether the settings of the SAG device are synchronized to Alibaba Cloud. Valid values:
+    // The synchronization status between the local Smart Access Gateway device and the cloud. Valid values:
     // 
-    // *   **Synchronized**: synchronized
-    // *   **Unsynchronized**: unsynchronized
-    // *   **Synchronizing**: being synchronized
+    // - **Synchronized**: Synchronization is complete.
+    // - **Unsynchronized**: Not synchronized.
+    // - **Synchronizing**: Synchronization is in progress.
     shared_ptr<string> synStatus_ {};
-    // The version of the SAG device.
+    // The software version that runs on the Smart Access Gateway device.
     shared_ptr<string> version_ {};
-    // The VPN connection status of the SAG device. Valid values:
+    // The VPN connection status of the Smart Access Gateway device. Valid values:
     // 
-    // *   **Normal**: normal
-    // *   **Abnormal**: abnormal
+    // - **Normal**: Normal.
+    // - **Abnormal**: Abnormal.
     shared_ptr<string> vpnState_ {};
   };
 

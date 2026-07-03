@@ -114,21 +114,21 @@ namespace Models
   protected:
     // The private CIDR block.
     shared_ptr<string> cidrBlock_ {};
-    // The description of the CCN instance.
+    // The description of the Cloud Connect Network (CCN) instance. 
     // 
-    // The description must be 2 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The description must start with a letter.
+    // The description must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
     shared_ptr<string> description_ {};
-    // The name of the CCN instance.
+    // The name of the Cloud Connect Network (CCN) instance. 
     // 
-    // The name must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (_),and hyphens (-). The name must start with a letter.
+    // The name must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the CCN instance is deployed.
+    // The region ID of the Cloud Connect Network (CCN) instance.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The private CIDR block used for Source Network Address Translation (SNAT).
+    // The SNAT private CIDR block.
     shared_ptr<string> snatCidrBlock_ {};
   };
 

@@ -195,30 +195,93 @@ namespace Models
 
 
   protected:
+    // The OSPF area ID.
+    // 
+    // The value must be an integer from **1** to **2147483647**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> areaId_ {};
+    // The authentication method. Valid values:
+    // 
+    // - **NONE**: No authentication is configured.
+    // - **CLEARTEXT**: Plaintext authentication is used.
+    // - **MD5**: MD5 authentication is used.
+    // 
     // This parameter is required.
     shared_ptr<string> authenticationType_ {};
+    // Specifies whether to query only the SAG instances that belong to other Alibaba Cloud accounts. Valid values:
+    // 
+    // - **false** (default): No.
+    // - **true**: Yes.
     shared_ptr<bool> crossAccount_ {};
+    // The dead interval. Unit: seconds.
+    // 
+    // The value must be an integer from **1** to **65535**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> deadTime_ {};
+    // The interval at which Hello packets are sent. Unit: seconds.
+    // 
+    // The value must be an integer from **1** to **65535**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> helloTime_ {};
+    // The port name.
+    // 
+    // > This parameter is not in use.
     shared_ptr<string> interfaceName_ {};
+    // The MD5 key.
+    // 
+    // The value must be 1 to **47** characters in length.
+    // 
+    // > This parameter is required only when you set **AuthenticationType** to **MD5**.
     shared_ptr<string> md5Key_ {};
+    // The MD5 key ID.
+    // 
+    // The value must be an integer from 1 to **2147483647**.
+    // 
+    // > This parameter is required only when you set **AuthenticationType** to **MD5**.
     shared_ptr<int32_t> md5KeyId_ {};
+    // The network segment.
+    // 
+    // > This parameter is not in use.
     shared_ptr<string> networks_ {};
+    // The cost of the OSPF route.
+    // 
+    // > This parameter is not in use.
     shared_ptr<int32_t> ospfCost_ {};
+    // The OSPF network type.
+    // 
+    // > This parameter is not in use.
     shared_ptr<string> ospfNetworkType_ {};
+    // The password for plaintext authentication.
+    // 
+    // The password must be 1 to 8 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+    // 
+    // > This parameter is required only when you set **AuthenticationType** to **CLEARTEXT**.
     shared_ptr<string> password_ {};
+    // The route redistribution protocol.
+    // 
+    // > This parameter is not in use.
     shared_ptr<string> redistributeProtocol_ {};
+    // The ID of the region where the SAG instance is deployed.
+    // 
+    // For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/69813.html).
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud account to which the resource belongs.
     shared_ptr<string> resourceUid_ {};
+    // The OSPF router ID.
+    // 
     // This parameter is required.
     shared_ptr<string> routerId_ {};
+    // The ID of the SAG instance.
+    // 
     // This parameter is required.
     shared_ptr<string> sagInsId_ {};
+    // The serial number of the SAG device.
+    // 
     // This parameter is required.
     shared_ptr<string> sagSn_ {};
   };

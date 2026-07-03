@@ -86,11 +86,11 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the SAG instance belongs.
+    // The region ID of the Smart Access Gateway instance.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> sagId_ {};

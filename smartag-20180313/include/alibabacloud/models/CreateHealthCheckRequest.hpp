@@ -204,9 +204,9 @@ namespace Models
 
 
   protected:
-    // The description of the health check.
+    // The description of the health check instance.
     // 
-    // The description must be 2 to 256 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+    // The description must be 2 to 256 characters in length, and must start with a letter or a Chinese character. The description can contain digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> description_ {};
     // The destination IP address of the health check.
     // 
@@ -214,29 +214,29 @@ namespace Models
     shared_ptr<string> dstIpAddr_ {};
     // The destination port of the health check.
     // 
-    // >  This parameter is not supported.
+    // > This feature is currently not supported.
     shared_ptr<int32_t> dstPort_ {};
-    // The maximum number of failed probes before a health check is declared failed.
+    // The threshold for the number of consecutive probe failures.
     // 
-    // Valid values: **1 to 15**.
+    // Valid values: **1** to **15**.
     // 
     // Default value: **3**.
     shared_ptr<int32_t> failCountThreshold_ {};
-    // The name of the health check.
+    // The name of the health check instance.
     // 
-    // The name must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+    // The name must be 2 to 100 characters in length, and must start with a letter or a Chinese character. The name can contain digits, periods (.), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of probes performed per health check.
+    // The number of probes per health check.
     // 
     // Valid values: **1** to **20**.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> probeCount_ {};
-    // The time interval at which probes are performed. The next probe does not start before the current one is completed.
+    // The interval between health check probes. The next probe will not be initiated until the current probe is complete.
     // 
     // Valid values: **1000** to **60000**.
     // 
@@ -244,7 +244,7 @@ namespace Models
     // 
     // Unit: milliseconds.
     shared_ptr<int32_t> probeInterval_ {};
-    // The timeout period of a probe.
+    // The timeout period for a single probe.
     // 
     // Valid values: **10** to **30000**.
     // 
@@ -252,41 +252,41 @@ namespace Models
     // 
     // Unit: milliseconds.
     shared_ptr<int32_t> probeTimeout_ {};
-    // The region ID of the SAG instance.
+    // The ID of the region where the Smart Access Gateway instance is deployed.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The number of times that the maximum RTT is exceeded before an alert is triggered.
+    // The number of times that the RTT threshold can be reached.
     // 
     // Valid values: **1** to **15**.
     // 
     // Default value: **3**.
     shared_ptr<int32_t> rttFailThreshold_ {};
-    // The maximum round-trip time (RTT).
+    // The round-trip time (RTT) threshold.
     // 
-    // Valid values: **-1** and **1** to **5000**.
+    // Valid values: **-1** or **1** to **5000**.
     // 
-    // Default value: **-1**. This value indicates that the maximum RTT is not specified.
+    // Default value: **-1**, which indicates that no RTT threshold is set.
     // 
     // Unit: milliseconds.
     shared_ptr<int32_t> rttThreshold_ {};
-    // The ID of the SAG instance.
+    // The ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The source IP address of the health check.
+    // The source IP address of the health check instance.
     // 
     // This parameter is required.
     shared_ptr<string> srcIpAddr_ {};
     // The source port of the health check.
     // 
-    // >  This parameter is not supported.
+    // > This feature is currently not supported.
     shared_ptr<int32_t> srcPort_ {};
-    // The type of packets used in the health check.
+    // The type of health check packets.
     // 
-    // >  Only **ICMP_ECHO** is supported.
+    // > Only **ICMP_ECHO** is supported.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

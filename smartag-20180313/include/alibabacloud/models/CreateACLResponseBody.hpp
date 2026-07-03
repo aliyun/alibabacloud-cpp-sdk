@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL.
+    // The access control instance ID.
     shared_ptr<string> aclId_ {};
-    // The type of SAG instance to be associated with the ACL.
+    // The type of the Smart Access Gateway instance associated with the access control instance.
     shared_ptr<string> aclType_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the ACL belongs.
+    // The resource group ID of the access control instance.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The region ID of the SAG instance.
+    // The ID of the region where the Smart Access Gateway instance is deployed.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+    // Call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the SAG instance.
+    // The ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> sagId_ {};

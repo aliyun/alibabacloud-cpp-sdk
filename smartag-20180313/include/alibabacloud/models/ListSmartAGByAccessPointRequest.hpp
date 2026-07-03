@@ -132,8 +132,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The status of the SAG instance. Valid values:
     // 
-    // *   **Active**: The SAG device is connected to Alibaba Cloud.
-    // *   **offline**: The SAG device is disconnected from Alibaba Cloud.
+    // - **Active**: The SAG device is connected to Alibaba Cloud.
+    // 
+    // - **offline**: The SAG device is disconnected from Alibaba Cloud.
     shared_ptr<string> smartAGStatus_ {};
   };
 

@@ -108,17 +108,26 @@ namespace Models
 
 
   protected:
+    // The IP addresses of the primary and secondary DNS servers that the client uses when it connects to a private network.
+    // 
+    // > - If the client uses PrivateZone to access Alibaba Cloud, the DNS server IP addresses are 100.100.2.136 and 100.100.2.138.
+    // 
+    // - DNS configuration is supported only on Android and macOS clients, version 2.1.1 or later.
+    // - This parameter is optional. If you do not specify this parameter, the system deletes the existing DNS configuration.
     shared_ptr<vector<string>> appDNS_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The IP addresses of the primary and secondary DNS servers to use after the client disconnects from the private network.
+    // 
+    // > This feature is not yet available.
     shared_ptr<vector<string>> recoveredDNS_ {};
-    // The ID of the region where the SAG app instance is deployed.
+    // The region ID of the Smart Access Gateway app instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG app instance.
+    // The ID of the Smart Access Gateway app instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};

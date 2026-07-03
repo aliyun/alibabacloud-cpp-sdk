@@ -103,13 +103,13 @@ namespace Models
     protected:
       // The ID of the application group to which the application belongs.
       shared_ptr<string> dpiGroupId_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> dpiSignatureId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> dpiSignatureName_ {};
-      // The earliest version of engine that supports the application.
+      // The minimum version of the deep packet inspection (DPI) engine that supports the application.
       shared_ptr<string> minEngineVersion_ {};
-      // The earliest version of signature database that supports the application.
+      // The minimum version of the signature library that supports the application.
       shared_ptr<string> minSignatureDbVersion_ {};
     };
 
@@ -146,13 +146,13 @@ namespace Models
 
 
   protected:
-    // The information about the application.
+    // A list of applications.
     shared_ptr<vector<ListDpiSignaturesResponseBody::DpiSignature>> dpiSignature_ {};
-    // The token returned for the next query.
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned on the current page.
+    // The total number of applications returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

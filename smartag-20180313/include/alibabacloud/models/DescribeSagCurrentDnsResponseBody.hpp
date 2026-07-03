@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The IP address of the primary DNS server.
     shared_ptr<string> masterDns_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The IP address of the secondary DNS server.
     shared_ptr<string> slaveDns_ {};

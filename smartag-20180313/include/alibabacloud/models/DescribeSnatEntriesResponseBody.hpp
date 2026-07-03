@@ -173,11 +173,11 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the instance status list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnatEntriesResponseBody::SnatEntries> snatEntries_ {};
     // The total number of SNAT entries.

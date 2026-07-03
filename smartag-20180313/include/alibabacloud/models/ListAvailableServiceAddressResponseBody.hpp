@@ -76,7 +76,7 @@ namespace Models
     protected:
       // The service address.
       shared_ptr<string> address_ {};
-      // The type of service address.
+      // The type of the service address.
       shared_ptr<string> addressType_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<vector<ListAvailableServiceAddressResponseBody::Data>> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

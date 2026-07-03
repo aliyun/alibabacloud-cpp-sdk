@@ -167,7 +167,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeFlowLogSagsResponseBody::Sags> sags_ {};
     // The total number of entries.

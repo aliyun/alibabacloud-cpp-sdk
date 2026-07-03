@@ -88,7 +88,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The ID of the region where the SAG instance is deployed.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

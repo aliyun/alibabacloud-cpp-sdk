@@ -208,9 +208,11 @@ namespace Models
     shared_ptr<string> netflowVersion_ {};
     // The location where the flow log is stored. Valid values:
     // 
-    // *   **sls**: The flow log is stored in Log Service.
-    // *   **netflow**: The flow log is stored on a NetFlow collector.
-    // *   **all**: The flow log is stored both in Log Service and on a NetFlow collector.
+    // - **sls**: The flow log is stored in Log Service.
+    // 
+    // - **netflow**: The flow log is stored on a NetFlow collector.
+    // 
+    // - **all**: The flow log is stored both in Log Service and on a NetFlow collector.
     shared_ptr<string> outputType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

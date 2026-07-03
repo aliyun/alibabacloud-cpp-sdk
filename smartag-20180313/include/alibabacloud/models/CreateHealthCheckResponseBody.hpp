@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the health check.
+    // The ID of the health check instance.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

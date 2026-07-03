@@ -18,6 +18,18 @@ namespace Smartag20180313
 
 AlibabaCloud::Smartag20180313::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"eu-central-1" , "smartag.eu-central-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "smartag.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "smartag.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "smartag.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "smartag.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-5" , "smartag.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "smartag.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "smartag.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "smartag.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "smartag.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("smartag", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -160,7 +172,7 @@ ActiveFlowLogResponse Client::activeFlowLog(const ActiveFlowLogRequest &request)
 }
 
 /**
- * @summary Creates an access control list (ACL) rule.
+ * @summary Adds an access control rule.
  *
  * @param request AddACLRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +275,7 @@ AddACLRuleResponse Client::addACLRuleWithOptions(const AddACLRuleRequest &reques
 }
 
 /**
- * @summary Creates an access control list (ACL) rule.
+ * @summary Adds an access control rule.
  *
  * @param request AddACLRuleRequest
  * @return AddACLRuleResponse
@@ -438,7 +450,7 @@ AddSmartAccessGatewayDnsForwardResponse Client::addSmartAccessGatewayDnsForward(
 }
 
 /**
- * @summary You can call this operation to add a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
+ * @summary Adds a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
  *
  * @param request AddSnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -497,7 +509,7 @@ AddSnatEntryResponse Client::addSnatEntryWithOptions(const AddSnatEntryRequest &
 }
 
 /**
- * @summary You can call this operation to add a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
+ * @summary Adds a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
  *
  * @param request AddSnatEntryRequest
  * @return AddSnatEntryResponse
@@ -574,7 +586,7 @@ AssociateACLResponse Client::associateACL(const AssociateACLRequest &request) {
 }
 
 /**
- * @summary Associates a flow log with a Smart Access Gateway (SAG) instance.
+ * @summary Associates a Smart Access Gateway instance.
  *
  * @param request AssociateFlowLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -629,7 +641,7 @@ AssociateFlowLogResponse Client::associateFlowLogWithOptions(const AssociateFlow
 }
 
 /**
- * @summary Associates a flow log with a Smart Access Gateway (SAG) instance.
+ * @summary Associates a Smart Access Gateway instance.
  *
  * @param request AssociateFlowLogRequest
  * @return AssociateFlowLogResponse
@@ -778,7 +790,65 @@ AssociateSmartAGWithApplicationBandwidthPackageResponse Client::associateSmartAG
 }
 
 /**
- * @summary Associates a Smart Access Gateway (SAG) device with an SAG instance.
+ * @summary Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+ *
+ * @description Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+ *
+ * @param request AttachCcnInstanceToCenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AttachCcnInstanceToCenResponse
+ */
+AttachCcnInstanceToCenResponse Client::attachCcnInstanceToCenWithOptions(const AttachCcnInstanceToCenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCcnId()) {
+    query["CcnId"] = request.getCcnId();
+  }
+
+  if (!!request.hasCenId()) {
+    query["CenId"] = request.getCenId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSubnet()) {
+    query["Subnet"] = request.getSubnet();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AttachCcnInstanceToCen"},
+    {"version" , "2018-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AttachCcnInstanceToCenResponse>();
+}
+
+/**
+ * @summary Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+ *
+ * @description Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+ *
+ * @param request AttachCcnInstanceToCenRequest
+ * @return AttachCcnInstanceToCenResponse
+ */
+AttachCcnInstanceToCenResponse Client::attachCcnInstanceToCen(const AttachCcnInstanceToCenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return attachCcnInstanceToCenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Binds a Smart Access Gateway device to a Smart Access Gateway instance.
  *
  * @param request BindSerialNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -833,7 +903,7 @@ BindSerialNumberResponse Client::bindSerialNumberWithOptions(const BindSerialNum
 }
 
 /**
- * @summary Associates a Smart Access Gateway (SAG) device with an SAG instance.
+ * @summary Binds a Smart Access Gateway device to a Smart Access Gateway instance.
  *
  * @param request BindSerialNumberRequest
  * @return BindSerialNumberResponse
@@ -914,7 +984,7 @@ BindSmartAccessGatewayResponse Client::bindSmartAccessGateway(const BindSmartAcc
 }
 
 /**
- * @summary Associates a Smart Access Gateway (SAG) instance with a virtual border router (VBR).
+ * @summary Binds a virtual border router (VBR) to a Smart Access Gateway instance.
  *
  * @param request BindVbrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -977,7 +1047,7 @@ BindVbrResponse Client::bindVbrWithOptions(const BindVbrRequest &request, const 
 }
 
 /**
- * @summary Associates a Smart Access Gateway (SAG) instance with a virtual border router (VBR).
+ * @summary Binds a virtual border router (VBR) to a Smart Access Gateway instance.
  *
  * @param request BindVbrRequest
  * @return BindVbrResponse
@@ -1054,7 +1124,7 @@ ClearSagCipherResponse Client::clearSagCipher(const ClearSagCipherRequest &reque
 }
 
 /**
- * @summary Clears the routable IP addresses of a Smart Access Gateway (SAG) instance.
+ * @summary Purges the routable addresses of a Smart Access Gateway instance.
  *
  * @param request ClearSagRouteableAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1105,7 +1175,7 @@ ClearSagRouteableAddressResponse Client::clearSagRouteableAddressWithOptions(con
 }
 
 /**
- * @summary Clears the routable IP addresses of a Smart Access Gateway (SAG) instance.
+ * @summary Purges the routable addresses of a Smart Access Gateway instance.
  *
  * @param request ClearSagRouteableAddressRequest
  * @return ClearSagRouteableAddressResponse
@@ -1116,7 +1186,7 @@ ClearSagRouteableAddressResponse Client::clearSagRouteableAddress(const ClearSag
 }
 
 /**
- * @summary Creates an access control list (ACL).
+ * @summary Creates an access control instance by calling the CreateACL operation.
  *
  * @param request CreateACLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1171,7 +1241,7 @@ CreateACLResponse Client::createACLWithOptions(const CreateACLRequest &request, 
 }
 
 /**
- * @summary Creates an access control list (ACL).
+ * @summary Creates an access control instance by calling the CreateACL operation.
  *
  * @param request CreateACLRequest
  * @return CreateACLResponse
@@ -1182,9 +1252,9 @@ CreateACLResponse Client::createACL(const CreateACLRequest &request) {
 }
 
 /**
- * @summary Creates a Cloud Connect Network (CCN) instance.
+ * @summary Calls the CreateCloudConnectNetwork operation to create a Cloud Connect Network (CCN) instance.
  *
- * @description CCN is a matrix consisting of Alibaba Cloud distributed access gateways. It is an important component of Smart Access Gateway (SAG). After you associate an SAG instance with a CCN instance, the SAG instance connects the private networks associated with Alibaba Cloud. For more information, see [Overview of Cloud Connect Network](https://help.aliyun.com/document_detail/93667.html).
+ * @description A Cloud Connect Network (CCN) is a device access matrix that consists of Alibaba Cloud distributed access gateways. CCN is another important component of Smart Access Gateway. After you attach Smart Access Gateway to a CCN, Smart Access Gateway can connect your on-premises network to Alibaba Cloud through the CCN via network connectivity. For more information, see [Cloud Connect Network overview](https://help.aliyun.com/document_detail/93667.html).
  *
  * @param request CreateCloudConnectNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,9 +1317,9 @@ CreateCloudConnectNetworkResponse Client::createCloudConnectNetworkWithOptions(c
 }
 
 /**
- * @summary Creates a Cloud Connect Network (CCN) instance.
+ * @summary Calls the CreateCloudConnectNetwork operation to create a Cloud Connect Network (CCN) instance.
  *
- * @description CCN is a matrix consisting of Alibaba Cloud distributed access gateways. It is an important component of Smart Access Gateway (SAG). After you associate an SAG instance with a CCN instance, the SAG instance connects the private networks associated with Alibaba Cloud. For more information, see [Overview of Cloud Connect Network](https://help.aliyun.com/document_detail/93667.html).
+ * @description A Cloud Connect Network (CCN) is a device access matrix that consists of Alibaba Cloud distributed access gateways. CCN is another important component of Smart Access Gateway. After you attach Smart Access Gateway to a CCN, Smart Access Gateway can connect your on-premises network to Alibaba Cloud through the CCN via network connectivity. For more information, see [Cloud Connect Network overview](https://help.aliyun.com/document_detail/93667.html).
  *
  * @param request CreateCloudConnectNetworkRequest
  * @return CreateCloudConnectNetworkResponse
@@ -1260,7 +1330,7 @@ CreateCloudConnectNetworkResponse Client::createCloudConnectNetwork(const Create
 }
 
 /**
- * @summary Creates an enterprise code.
+ * @summary Creates an enterprise code by calling CreateEnterpriseCode.
  *
  * @param request CreateEnterpriseCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1299,7 +1369,7 @@ CreateEnterpriseCodeResponse Client::createEnterpriseCodeWithOptions(const Creat
 }
 
 /**
- * @summary Creates an enterprise code.
+ * @summary Creates an enterprise code by calling CreateEnterpriseCode.
  *
  * @param request CreateEnterpriseCodeRequest
  * @return CreateEnterpriseCodeResponse
@@ -1412,7 +1482,7 @@ CreateFlowLogResponse Client::createFlowLog(const CreateFlowLogRequest &request)
 }
 
 /**
- * @summary Creates a health check for a Smart Access Gateway (SAG) instance.
+ * @summary Calls CreateHealthCheck to create a health check for a Smart Access Gateway instance.
  *
  * @param request CreateHealthCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1515,7 +1585,7 @@ CreateHealthCheckResponse Client::createHealthCheckWithOptions(const CreateHealt
 }
 
 /**
- * @summary Creates a health check for a Smart Access Gateway (SAG) instance.
+ * @summary Calls CreateHealthCheck to create a health check for a Smart Access Gateway instance.
  *
  * @param request CreateHealthCheckRequest
  * @return CreateHealthCheckResponse
@@ -1526,10 +1596,10 @@ CreateHealthCheckResponse Client::createHealthCheck(const CreateHealthCheckReque
 }
 
 /**
- * @summary Creates a probing task for a Smart Access Gateway (SAG) device.
+ * @summary Creates a probe task for a specified Smart Access Gateway device.
  *
- * @description *   Only SAG-1000 devices whose software version is 2.7.0 or later support the probing feature.
- * *   The SAG instance must have the deep packet inspection (DPI) feature enabled. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to enable or disable the DPI feature.
+ * @description - Currently, only SAG-1000 devices with software version 2.7.0 or later support the probe monitoring feature.
+ * - Before creating a probe task, enable the advanced monitoring feature for the Smart Access Gateway instance. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to set the advanced monitoring status.
  *
  * @param request CreateProbeTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1600,10 +1670,10 @@ CreateProbeTaskResponse Client::createProbeTaskWithOptions(const CreateProbeTask
 }
 
 /**
- * @summary Creates a probing task for a Smart Access Gateway (SAG) device.
+ * @summary Creates a probe task for a specified Smart Access Gateway device.
  *
- * @description *   Only SAG-1000 devices whose software version is 2.7.0 or later support the probing feature.
- * *   The SAG instance must have the deep packet inspection (DPI) feature enabled. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to enable or disable the DPI feature.
+ * @description - Currently, only SAG-1000 devices with software version 2.7.0 or later support the probe monitoring feature.
+ * - Before creating a probe task, enable the advanced monitoring feature for the Smart Access Gateway instance. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to set the advanced monitoring status.
  *
  * @param request CreateProbeTaskRequest
  * @return CreateProbeTaskResponse
@@ -1614,7 +1684,7 @@ CreateProbeTaskResponse Client::createProbeTask(const CreateProbeTaskRequest &re
 }
 
 /**
- * @summary Creates a quality of service (QoS) policy.
+ * @summary Creates a quality of service (QoS) policy instance by calling the CreateQos operation.
  *
  * @param request CreateQosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1669,7 +1739,7 @@ CreateQosResponse Client::createQosWithOptions(const CreateQosRequest &request, 
 }
 
 /**
- * @summary Creates a quality of service (QoS) policy.
+ * @summary Creates a quality of service (QoS) policy instance by calling the CreateQos operation.
  *
  * @param request CreateQosRequest
  * @return CreateQosResponse
@@ -1680,7 +1750,7 @@ CreateQosResponse Client::createQos(const CreateQosRequest &request) {
 }
 
 /**
- * @summary Creates a traffic throttling rule for a quality of service (QoS) policy.
+ * @summary Creates a rate limiting rule for a quality of service (QoS) policy by calling the CreateQosCar operation.
  *
  * @param request CreateQosCarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1767,7 +1837,7 @@ CreateQosCarResponse Client::createQosCarWithOptions(const CreateQosCarRequest &
 }
 
 /**
- * @summary Creates a traffic throttling rule for a quality of service (QoS) policy.
+ * @summary Creates a rate limiting rule for a quality of service (QoS) policy by calling the CreateQosCar operation.
  *
  * @param request CreateQosCarRequest
  * @return CreateQosCarResponse
@@ -1778,10 +1848,9 @@ CreateQosCarResponse Client::createQosCar(const CreateQosCarRequest &request) {
 }
 
 /**
- * @summary Creates a traffic classification rule for a quality of service (QoS) policy.
+ * @summary Creates a traffic classification rule for a QoS policy by calling the CreateQosPolicy operation.
  *
- * @description ## Prerequisites
- * A traffic throttling rule is created. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
+ * @description Before you create a 5-tuple rule for a QoS policy, make sure that you have created a rate limiting rule for the QoS policy. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
  *
  * @param request CreateQosPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1880,10 +1949,9 @@ CreateQosPolicyResponse Client::createQosPolicyWithOptions(const CreateQosPolicy
 }
 
 /**
- * @summary Creates a traffic classification rule for a quality of service (QoS) policy.
+ * @summary Creates a traffic classification rule for a QoS policy by calling the CreateQosPolicy operation.
  *
- * @description ## Prerequisites
- * A traffic throttling rule is created. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
+ * @description Before you create a 5-tuple rule for a QoS policy, make sure that you have created a rate limiting rule for the QoS policy. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
  *
  * @param request CreateQosPolicyRequest
  * @return CreateQosPolicyResponse
@@ -2058,7 +2126,7 @@ CreateSagStaticRouteResponse Client::createSagStaticRoute(const CreateSagStaticR
 }
 
 /**
- * @summary Configures a service address for a Smart Access Gateway (SAG) device.
+ * @summary Configures a service address for a specified Smart Access Gateway device.
  *
  * @param request CreateServiceAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2105,7 +2173,7 @@ CreateServiceAddressResponse Client::createServiceAddressWithOptions(const Creat
 }
 
 /**
- * @summary Configures a service address for a Smart Access Gateway (SAG) device.
+ * @summary Configures a service address for a specified Smart Access Gateway device.
  *
  * @param request CreateServiceAddressRequest
  * @return CreateServiceAddressResponse
@@ -2744,13 +2812,13 @@ DeleteDnatEntryResponse Client::deleteDnatEntry(const DeleteDnatEntryRequest &re
 }
 
 /**
- * @summary Deletes a specified enterprise code.
+ * @summary Deletes a specified enterprise code by calling DeleteEnterpriseCode.
  *
- * @description Before you call this operation, take note of the following rules:
- * *   You cannot delete default enterprise codes.
- *     To delete a default enterprise code, change it to a custom enterprise code and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
- * *   You cannot delete enterprise codes that are associated with a Smart Access Gateway (SAG) APP instance.
- *     To delete an enterprise code that is associated with an SAG APP instance, associate the SAG APP instance with another enterprise code, and then delete the enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
+ * @description Before you delete an enterprise code, note the following information:
+ * - Default enterprise codes cannot be deleted.
+ * If the enterprise code that you want to delete is a default enterprise code, change it to a common enterprise code first, and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
+ * - Enterprise codes that are attached to Smart Access Gateway app instances cannot be deleted.
+ * If the enterprise code that you want to delete is attached to Smart Access Gateway app instances, change the enterprise code of the Smart Access Gateway app instances to another enterprise code first, and then delete the current enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
  *
  * @param request DeleteEnterpriseCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2789,13 +2857,13 @@ DeleteEnterpriseCodeResponse Client::deleteEnterpriseCodeWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a specified enterprise code.
+ * @summary Deletes a specified enterprise code by calling DeleteEnterpriseCode.
  *
- * @description Before you call this operation, take note of the following rules:
- * *   You cannot delete default enterprise codes.
- *     To delete a default enterprise code, change it to a custom enterprise code and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
- * *   You cannot delete enterprise codes that are associated with a Smart Access Gateway (SAG) APP instance.
- *     To delete an enterprise code that is associated with an SAG APP instance, associate the SAG APP instance with another enterprise code, and then delete the enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
+ * @description Before you delete an enterprise code, note the following information:
+ * - Default enterprise codes cannot be deleted.
+ * If the enterprise code that you want to delete is a default enterprise code, change it to a common enterprise code first, and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
+ * - Enterprise codes that are attached to Smart Access Gateway app instances cannot be deleted.
+ * If the enterprise code that you want to delete is attached to Smart Access Gateway app instances, change the enterprise code of the Smart Access Gateway app instances to another enterprise code first, and then delete the current enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
  *
  * @param request DeleteEnterpriseCodeRequest
  * @return DeleteEnterpriseCodeResponse
@@ -2868,7 +2936,7 @@ DeleteFlowLogResponse Client::deleteFlowLog(const DeleteFlowLogRequest &request)
 }
 
 /**
- * @summary You can call this operation to delete a health check instance.
+ * @summary Deletes a health check instance.
  *
  * @param request DeleteHealthCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2919,7 +2987,7 @@ DeleteHealthCheckResponse Client::deleteHealthCheckWithOptions(const DeleteHealt
 }
 
 /**
- * @summary You can call this operation to delete a health check instance.
+ * @summary Deletes a health check instance.
  *
  * @param request DeleteHealthCheckRequest
  * @return DeleteHealthCheckResponse
@@ -3046,7 +3114,7 @@ DeleteQosResponse Client::deleteQos(const DeleteQosRequest &request) {
 }
 
 /**
- * @summary Deletes a speed limiting rule of a Quality of Service (QoS) policy.
+ * @summary Deletes a QoS car (bandwidth throttling rule) by calling the DeleteQosCar operation.
  *
  * @param request DeleteQosCarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3101,7 +3169,7 @@ DeleteQosCarResponse Client::deleteQosCarWithOptions(const DeleteQosCarRequest &
 }
 
 /**
- * @summary Deletes a speed limiting rule of a Quality of Service (QoS) policy.
+ * @summary Deletes a QoS car (bandwidth throttling rule) by calling the DeleteQosCar operation.
  *
  * @param request DeleteQosCarRequest
  * @return DeleteQosCarResponse
@@ -3326,7 +3394,7 @@ DeleteSagExpressConnectInterfaceResponse Client::deleteSagExpressConnectInterfac
 }
 
 /**
- * @summary You can call this operation to delete a static route.
+ * @summary Deletes a static route.
  *
  * @param request DeleteSagStaticRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3393,7 +3461,7 @@ DeleteSagStaticRouteResponse Client::deleteSagStaticRouteWithOptions(const Delet
 }
 
 /**
- * @summary You can call this operation to delete a static route.
+ * @summary Deletes a static route.
  *
  * @param request DeleteSagStaticRouteRequest
  * @return DeleteSagStaticRouteResponse
@@ -3404,7 +3472,7 @@ DeleteSagStaticRouteResponse Client::deleteSagStaticRoute(const DeleteSagStaticR
 }
 
 /**
- * @summary Deletes a service address from a Smart Access Gateway (SAG) device.
+ * @summary Deletes a service address configured on a Smart Access Gateway device.
  *
  * @param request DeleteServiceAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3451,7 +3519,7 @@ DeleteServiceAddressResponse Client::deleteServiceAddressWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a service address from a Smart Access Gateway (SAG) device.
+ * @summary Deletes a service address configured on a Smart Access Gateway device.
  *
  * @param request DeleteServiceAddressRequest
  * @return DeleteServiceAddressResponse
@@ -3586,7 +3654,7 @@ DeleteSmartAccessGatewayClientUserResponse Client::deleteSmartAccessGatewayClien
 }
 
 /**
- * @summary Disables DNS forwarding for SCG5000 or SCG5000-5G devices whose software version is 3.4.2 or later.
+ * @summary Deletes a DNS forwarding rule. This operation is applicable only to Smart Access Gateway (SAG) instances that are created using an SCG5000 or SCG5000-5G device with firmware version 3.4.2 or later.
  *
  * @param request DeleteSmartAccessGatewayDnsForwardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3629,7 +3697,7 @@ DeleteSmartAccessGatewayDnsForwardResponse Client::deleteSmartAccessGatewayDnsFo
 }
 
 /**
- * @summary Disables DNS forwarding for SCG5000 or SCG5000-5G devices whose software version is 3.4.2 or later.
+ * @summary Deletes a DNS forwarding rule. This operation is applicable only to Smart Access Gateway (SAG) instances that are created using an SCG5000 or SCG5000-5G device with firmware version 3.4.2 or later.
  *
  * @param request DeleteSmartAccessGatewayDnsForwardRequest
  * @return DeleteSmartAccessGatewayDnsForwardResponse
@@ -3706,7 +3774,7 @@ DeleteSnatEntryResponse Client::deleteSnatEntry(const DeleteSnatEntryRequest &re
 }
 
 /**
- * @summary Queries the information about an access control list (ACL).
+ * @summary Calls DescribeACLAttribute to query the information about a specified access control list (ACL) instance.
  *
  * @param request DescribeACLAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3777,7 +3845,7 @@ DescribeACLAttributeResponse Client::describeACLAttributeWithOptions(const Descr
 }
 
 /**
- * @summary Queries the information about an access control list (ACL).
+ * @summary Calls DescribeACLAttribute to query the information about a specified access control list (ACL) instance.
  *
  * @param request DescribeACLAttributeRequest
  * @return DescribeACLAttributeResponse
@@ -3788,7 +3856,7 @@ DescribeACLAttributeResponse Client::describeACLAttribute(const DescribeACLAttri
 }
 
 /**
- * @summary Queries access control lists (ACLs) in a specified region.
+ * @summary Calls DescribeACLs to query the information about access control instances in a specified region.
  *
  * @param request DescribeACLsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3855,7 +3923,7 @@ DescribeACLsResponse Client::describeACLsWithOptions(const DescribeACLsRequest &
 }
 
 /**
- * @summary Queries access control lists (ACLs) in a specified region.
+ * @summary Calls DescribeACLs to query the information about access control instances in a specified region.
  *
  * @param request DescribeACLsRequest
  * @return DescribeACLsResponse
@@ -4010,7 +4078,7 @@ DescribeClientUserDNSResponse Client::describeClientUserDNS(const DescribeClient
 }
 
 /**
- * @summary Queries Cloud Connect Network (CCN) instances that you have created in a specific region.
+ * @summary Retrieves Cloud Connect Network (CCN) instances in a specified region.
  *
  * @param request DescribeCloudConnectNetworksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4077,7 +4145,7 @@ DescribeCloudConnectNetworksResponse Client::describeCloudConnectNetworksWithOpt
 }
 
 /**
- * @summary Queries Cloud Connect Network (CCN) instances that you have created in a specific region.
+ * @summary Retrieves Cloud Connect Network (CCN) instances in a specified region.
  *
  * @param request DescribeCloudConnectNetworksRequest
  * @return DescribeCloudConnectNetworksResponse
@@ -4232,7 +4300,7 @@ DescribeDnatEntriesResponse Client::describeDnatEntries(const DescribeDnatEntrie
 }
 
 /**
- * @summary Queries Smart Access Gateway (SAG) instances that are associated with a specified flow log.
+ * @summary Queries the Smart Access Gateway instances associated with a flow log by calling DescribeFlowLogSags.
  *
  * @param request DescribeFlowLogSagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4291,7 +4359,7 @@ DescribeFlowLogSagsResponse Client::describeFlowLogSagsWithOptions(const Describ
 }
 
 /**
- * @summary Queries Smart Access Gateway (SAG) instances that are associated with a specified flow log.
+ * @summary Queries the Smart Access Gateway instances associated with a flow log by calling DescribeFlowLogSags.
  *
  * @param request DescribeFlowLogSagsRequest
  * @return DescribeFlowLogSagsResponse
@@ -4828,7 +4896,7 @@ DescribeQosCarsResponse Client::describeQosCars(const DescribeQosCarsRequest &re
 }
 
 /**
- * @summary Queries quality of service (QoS) rules that contain 5-tuples.
+ * @summary You can call the DescribeQosPolicies operation to query the quintuple rule configurations for a Quality of Service (QoS) policy.
  *
  * @param request DescribeQosPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4899,7 +4967,7 @@ DescribeQosPoliciesResponse Client::describeQosPoliciesWithOptions(const Describ
 }
 
 /**
- * @summary Queries quality of service (QoS) rules that contain 5-tuples.
+ * @summary You can call the DescribeQosPolicies operation to query the quintuple rule configurations for a Quality of Service (QoS) policy.
  *
  * @param request DescribeQosPoliciesRequest
  * @return DescribeQosPoliciesResponse
@@ -5116,7 +5184,7 @@ DescribeRouteDistributionStrategiesResponse Client::describeRouteDistributionStr
 }
 
 /**
- * @summary Queries a Smart Access Gateway (SAG) device.
+ * @summary Queries information about a Smart Access Gateway device by calling the DescribeSAGDeviceInfo operation.
  *
  * @param request DescribeSAGDeviceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5171,7 +5239,7 @@ DescribeSAGDeviceInfoResponse Client::describeSAGDeviceInfoWithOptions(const Des
 }
 
 /**
- * @summary Queries a Smart Access Gateway (SAG) device.
+ * @summary Queries information about a Smart Access Gateway device by calling the DescribeSAGDeviceInfo operation.
  *
  * @param request DescribeSAGDeviceInfoRequest
  * @return DescribeSAGDeviceInfoResponse
@@ -5182,7 +5250,7 @@ DescribeSAGDeviceInfoResponse Client::describeSAGDeviceInfo(const DescribeSAGDev
 }
 
 /**
- * @summary Queries the DNS servers used by a Smart Access Gateway (SAG) device.
+ * @summary Queries the DNS settings that are currently in effect on a Smart Access Gateway device.
  *
  * @param request DescribeSagCurrentDnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5237,7 +5305,7 @@ DescribeSagCurrentDnsResponse Client::describeSagCurrentDnsWithOptions(const Des
 }
 
 /**
- * @summary Queries the DNS servers used by a Smart Access Gateway (SAG) device.
+ * @summary Queries the DNS settings that are currently in effect on a Smart Access Gateway device.
  *
  * @param request DescribeSagCurrentDnsRequest
  * @return DescribeSagCurrentDnsResponse
@@ -5248,7 +5316,7 @@ DescribeSagCurrentDnsResponse Client::describeSagCurrentDns(const DescribeSagCur
 }
 
 /**
- * @summary You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest packet loss rates in a specific region.
+ * @summary Queries the top 10 Smart Access Gateway instances with the highest packet loss rate in a specified region.
  *
  * @param request DescribeSagDropTopNRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5299,7 +5367,7 @@ DescribeSagDropTopNResponse Client::describeSagDropTopNWithOptions(const Describ
 }
 
 /**
- * @summary You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest packet loss rates in a specific region.
+ * @summary Queries the top 10 Smart Access Gateway instances with the highest packet loss rate in a specified region.
  *
  * @param request DescribeSagDropTopNRequest
  * @return DescribeSagDropTopNResponse
@@ -5310,7 +5378,7 @@ DescribeSagDropTopNResponse Client::describeSagDropTopN(const DescribeSagDropTop
 }
 
 /**
- * @summary Queries sub-interfaces added to an Express Connect circuit port.
+ * @summary Queries the sub-interfaces of a dedicated connection port by calling DescribeSagExpressConnectInterfaceList.
  *
  * @param request DescribeSagExpressConnectInterfaceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5369,7 +5437,7 @@ DescribeSagExpressConnectInterfaceListResponse Client::describeSagExpressConnect
 }
 
 /**
- * @summary Queries sub-interfaces added to an Express Connect circuit port.
+ * @summary Queries the sub-interfaces of a dedicated connection port by calling DescribeSagExpressConnectInterfaceList.
  *
  * @param request DescribeSagExpressConnectInterfaceListRequest
  * @return DescribeSagExpressConnectInterfaceListResponse
@@ -5446,7 +5514,7 @@ DescribeSagGlobalRouteProtocolResponse Client::describeSagGlobalRouteProtocol(co
 }
 
 /**
- * @summary You can call this operation to query the high availability (HA) configuration of a Smart Access Gateway (SAG) instance.
+ * @summary Queries the high-availability configuration of a Smart Access Gateway instance by calling DescribeSagHa.
  *
  * @param request DescribeSagHaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5501,7 +5569,7 @@ DescribeSagHaResponse Client::describeSagHaWithOptions(const DescribeSagHaReques
 }
 
 /**
- * @summary You can call this operation to query the high availability (HA) configuration of a Smart Access Gateway (SAG) instance.
+ * @summary Queries the high-availability configuration of a Smart Access Gateway instance by calling DescribeSagHa.
  *
  * @param request DescribeSagHaRequest
  * @return DescribeSagHaResponse
@@ -5644,7 +5712,7 @@ DescribeSagManagementPortResponse Client::describeSagManagementPort(const Descri
 }
 
 /**
- * @summary Queries the number of clients connected to Alibaba Cloud through a Smart Access Gateway (SAG) app instance.
+ * @summary Queries online client statistics for Smart Access Gateway (SAG) app instances.
  *
  * @param request DescribeSagOnlineClientStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5695,7 +5763,7 @@ DescribeSagOnlineClientStatisticsResponse Client::describeSagOnlineClientStatist
 }
 
 /**
- * @summary Queries the number of clients connected to Alibaba Cloud through a Smart Access Gateway (SAG) app instance.
+ * @summary Queries online client statistics for Smart Access Gateway (SAG) app instances.
  *
  * @param request DescribeSagOnlineClientStatisticsRequest
  * @return DescribeSagOnlineClientStatisticsResponse
@@ -5706,7 +5774,7 @@ DescribeSagOnlineClientStatisticsResponse Client::describeSagOnlineClientStatist
 }
 
 /**
- * @summary You can call this operation to query the information of a physical port.
+ * @summary Queries the information about a physical port.
  *
  * @param request DescribeSagPortListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5761,7 +5829,7 @@ DescribeSagPortListResponse Client::describeSagPortListWithOptions(const Describ
 }
 
 /**
- * @summary You can call this operation to query the information of a physical port.
+ * @summary Queries the information about a physical port.
  *
  * @param request DescribeSagPortListRequest
  * @return DescribeSagPortListResponse
@@ -5772,7 +5840,7 @@ DescribeSagPortListResponse Client::describeSagPortList(const DescribeSagPortLis
 }
 
 /**
- * @summary Queries the ports for which the specified routing protocol is enabled.
+ * @summary Invokes DescribeSagPortRouteProtocolList to obtain the list of ports on which routing protocols are enabled.
  *
  * @param request DescribeSagPortRouteProtocolListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5827,7 +5895,7 @@ DescribeSagPortRouteProtocolListResponse Client::describeSagPortRouteProtocolLis
 }
 
 /**
- * @summary Queries the ports for which the specified routing protocol is enabled.
+ * @summary Invokes DescribeSagPortRouteProtocolList to obtain the list of ports on which routing protocols are enabled.
  *
  * @param request DescribeSagPortRouteProtocolListRequest
  * @return DescribeSagPortRouteProtocolListResponse
@@ -6168,7 +6236,7 @@ DescribeSagStaticRouteListResponse Client::describeSagStaticRouteList(const Desc
 }
 
 /**
- * @summary You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
+ * @summary Queries the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
  *
  * @param request DescribeSagTrafficTopNRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6219,7 +6287,7 @@ DescribeSagTrafficTopNResponse Client::describeSagTrafficTopNWithOptions(const D
 }
 
 /**
- * @summary You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
+ * @summary Queries the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
  *
  * @param request DescribeSagTrafficTopNRequest
  * @return DescribeSagTrafficTopNResponse
@@ -6560,7 +6628,7 @@ DescribeSagWanSnatResponse Client::describeSagWanSnat(const DescribeSagWanSnatRe
 }
 
 /**
- * @summary You can call this operation to query the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
+ * @summary Queries the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
  *
  * @param request DescribeSagWifiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6615,7 +6683,7 @@ DescribeSagWifiResponse Client::describeSagWifiWithOptions(const DescribeSagWifi
 }
 
 /**
- * @summary You can call this operation to query the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
+ * @summary Queries the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
  *
  * @param request DescribeSagWifiRequest
  * @return DescribeSagWifiResponse
@@ -6626,7 +6694,7 @@ DescribeSagWifiResponse Client::describeSagWifi(const DescribeSagWifiRequest &re
 }
 
 /**
- * @summary Queries the information about a Smart Access Gateway (SAG) instance.
+ * @summary Calls the DescribeSmartAccessGatewayAttribute operation to query the information about a specified Smart Access Gateway (SAG) instance.
  *
  * @param request DescribeSmartAccessGatewayAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6677,7 +6745,7 @@ DescribeSmartAccessGatewayAttributeResponse Client::describeSmartAccessGatewayAt
 }
 
 /**
- * @summary Queries the information about a Smart Access Gateway (SAG) instance.
+ * @summary Calls the DescribeSmartAccessGatewayAttribute operation to query the information about a specified Smart Access Gateway (SAG) instance.
  *
  * @param request DescribeSmartAccessGatewayAttributeRequest
  * @return DescribeSmartAccessGatewayAttributeResponse
@@ -6688,7 +6756,7 @@ DescribeSmartAccessGatewayAttributeResponse Client::describeSmartAccessGatewayAt
 }
 
 /**
- * @summary Queries client accounts added to a Smart Access Gateway (SAG) app instance.
+ * @summary Invokes DescribeSmartAccessGatewayClientUsers to query the client account information of a Smart Access Gateway app instance.
  *
  * @param request DescribeSmartAccessGatewayClientUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6755,7 +6823,7 @@ DescribeSmartAccessGatewayClientUsersResponse Client::describeSmartAccessGateway
 }
 
 /**
- * @summary Queries client accounts added to a Smart Access Gateway (SAG) app instance.
+ * @summary Invokes DescribeSmartAccessGatewayClientUsers to query the client account information of a Smart Access Gateway app instance.
  *
  * @param request DescribeSmartAccessGatewayClientUsersRequest
  * @return DescribeSmartAccessGatewayClientUsersResponse
@@ -7028,7 +7096,7 @@ DescribeSmartAccessGatewaysResponse Client::describeSmartAccessGateways(const De
 }
 
 /**
- * @summary You can call this operation to query source network address translation (SNAT) entries associated with a Smart Access Gateway (SAG) instance.
+ * @summary Queries SNAT entries bound to a Smart Access Gateway instance by calling DescribeSnatEntries.
  *
  * @param request DescribeSnatEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7087,7 +7155,7 @@ DescribeSnatEntriesResponse Client::describeSnatEntriesWithOptions(const Describ
 }
 
 /**
- * @summary You can call this operation to query source network address translation (SNAT) entries associated with a Smart Access Gateway (SAG) instance.
+ * @summary Queries SNAT entries bound to a Smart Access Gateway instance by calling DescribeSnatEntries.
  *
  * @param request DescribeSnatEntriesRequest
  * @return DescribeSnatEntriesResponse
@@ -7226,7 +7294,7 @@ DescribeUserFlowStatisticsResponse Client::describeUserFlowStatistics(const Desc
 }
 
 /**
- * @summary Queries the number of clients that are connected to Alibaba Cloud through a specific Smart Access Gateway (SAG) app instance.
+ * @summary Queries a specified user\\"s online connection statistics from a Smart Access Gateway (SAG) app instance.
  *
  * @param request DescribeUserOnlineClientStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7281,7 +7349,7 @@ DescribeUserOnlineClientStatisticsResponse Client::describeUserOnlineClientStati
 }
 
 /**
- * @summary Queries the number of clients that are connected to Alibaba Cloud through a specific Smart Access Gateway (SAG) app instance.
+ * @summary Queries a specified user\\"s online connection statistics from a Smart Access Gateway (SAG) app instance.
  *
  * @param request DescribeUserOnlineClientStatisticsRequest
  * @return DescribeUserOnlineClientStatisticsResponse
@@ -7292,7 +7360,7 @@ DescribeUserOnlineClientStatisticsResponse Client::describeUserOnlineClientStati
 }
 
 /**
- * @summary You can call this operation to query the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
+ * @summary Queries the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
  *
  * @param request DescribeUserOnlineClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7347,7 +7415,7 @@ DescribeUserOnlineClientsResponse Client::describeUserOnlineClientsWithOptions(c
 }
 
 /**
- * @summary You can call this operation to query the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
+ * @summary Queries the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
  *
  * @param request DescribeUserOnlineClientsRequest
  * @return DescribeUserOnlineClientsResponse
@@ -7355,6 +7423,60 @@ DescribeUserOnlineClientsResponse Client::describeUserOnlineClientsWithOptions(c
 DescribeUserOnlineClientsResponse Client::describeUserOnlineClients(const DescribeUserOnlineClientsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeUserOnlineClientsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+ *
+ * @description Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+ *
+ * @param request DetachCcnInstanceFromCenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DetachCcnInstanceFromCenResponse
+ */
+DetachCcnInstanceFromCenResponse Client::detachCcnInstanceFromCenWithOptions(const DetachCcnInstanceFromCenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCcnId()) {
+    query["CcnId"] = request.getCcnId();
+  }
+
+  if (!!request.hasCenId()) {
+    query["CenId"] = request.getCenId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DetachCcnInstanceFromCen"},
+    {"version" , "2018-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DetachCcnInstanceFromCenResponse>();
+}
+
+/**
+ * @summary Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+ *
+ * @description Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+ *
+ * @param request DetachCcnInstanceFromCenRequest
+ * @return DetachCcnInstanceFromCenResponse
+ */
+DetachCcnInstanceFromCenResponse Client::detachCcnInstanceFromCen(const DetachCcnInstanceFromCenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return detachCcnInstanceFromCenWithOptions(request, runtime);
 }
 
 /**
@@ -7494,7 +7616,7 @@ DisableSmartAGDpiMonitorResponse Client::disableSmartAGDpiMonitor(const DisableS
 }
 
 /**
- * @summary Disables a client account of a Smart Access Gateway (SAG) app instance.
+ * @summary Disables a user of a Smart Access Gateway instance.
  *
  * @param request DisableSmartAccessGatewayUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7549,7 +7671,7 @@ DisableSmartAccessGatewayUserResponse Client::disableSmartAccessGatewayUserWithO
 }
 
 /**
- * @summary Disables a client account of a Smart Access Gateway (SAG) app instance.
+ * @summary Disables a user of a Smart Access Gateway instance.
  *
  * @param request DisableSmartAccessGatewayUserRequest
  * @return DisableSmartAccessGatewayUserResponse
@@ -7758,7 +7880,7 @@ DisassociateQosResponse Client::disassociateQos(const DisassociateQosRequest &re
 }
 
 /**
- * @summary Generates a diagnosis report for a Smart Access Gateway (SAG) device.
+ * @summary Queries the diagnosis report of a Smart Access Gateway (SAG) device by calling the DiscribeSmartAccessGatewayDiagnosisReport operation.
  *
  * @param request DiscribeSmartAccessGatewayDiagnosisReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7813,7 +7935,7 @@ DiscribeSmartAccessGatewayDiagnosisReportResponse Client::discribeSmartAccessGat
 }
 
 /**
- * @summary Generates a diagnosis report for a Smart Access Gateway (SAG) device.
+ * @summary Queries the diagnosis report of a Smart Access Gateway (SAG) device by calling the DiscribeSmartAccessGatewayDiagnosisReport operation.
  *
  * @param request DiscribeSmartAccessGatewayDiagnosisReportRequest
  * @return DiscribeSmartAccessGatewayDiagnosisReportResponse
@@ -8236,7 +8358,7 @@ GetAclAttributeResponse Client::getAclAttribute(const GetAclAttributeRequest &re
 }
 
 /**
- * @summary Queries the status of the deep packet inspection (DPI) feature of a Smart Access Gateway (SAG) instance.
+ * @summary Queries the status of the advanced monitoring feature for a specified Smart Access Gateway instance.
  *
  * @param request GetAdvancedMonitorStateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8271,7 +8393,7 @@ GetAdvancedMonitorStateResponse Client::getAdvancedMonitorStateWithOptions(const
 }
 
 /**
- * @summary Queries the status of the deep packet inspection (DPI) feature of a Smart Access Gateway (SAG) instance.
+ * @summary Queries the status of the advanced monitoring feature for a specified Smart Access Gateway instance.
  *
  * @param request GetAdvancedMonitorStateRequest
  * @return GetAdvancedMonitorStateResponse
@@ -8930,7 +9052,7 @@ ListAccessPointsResponse Client::listAccessPoints(const ListAccessPointsRequest 
 }
 
 /**
- * @summary Queries the service addresses of a Smart Access Gateway (SAG) device.
+ * @summary Lists the configured service addresses for a specified Smart Access Gateway device.
  *
  * @param request ListAvailableServiceAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8973,7 +9095,7 @@ ListAvailableServiceAddressResponse Client::listAvailableServiceAddressWithOptio
 }
 
 /**
- * @summary Queries the service addresses of a Smart Access Gateway (SAG) device.
+ * @summary Lists the configured service addresses for a specified Smart Access Gateway device.
  *
  * @param request ListAvailableServiceAddressRequest
  * @return ListAvailableServiceAddressResponse
@@ -8984,10 +9106,9 @@ ListAvailableServiceAddressResponse Client::listAvailableServiceAddress(const Li
 }
 
 /**
- * @summary Queries configuration errors of the deep packet inspection (DPI) feature.
+ * @summary Queries for deep packet inspection (DPI) configuration errors.
  *
- * @description ## Background information
- * If you have configured an application-aware access control list (ACL) or a quality of service (QoS) policy and associated it with a Smart Access Gateway (SAG) instance, you can call this operation to query whether the ACL rules or 5-tuples in the QoS policy are applied to the SAG instance. If settings are not applied to the SAG instance, the error information is returned.
+ * @description If you configure an application-based Resource Access Management instance or a Quality of Service (QoS) policy instance and associate it with a Smart Access Gateway instance, you can call this operation to check whether the access control rules or QoS quintuple rules are successfully applied to the target Smart Access Gateway instance. If a configuration fails to apply, this operation returns information about the error.
  *
  * @param request ListDpiConfigErrorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9038,10 +9159,9 @@ ListDpiConfigErrorResponse Client::listDpiConfigErrorWithOptions(const ListDpiCo
 }
 
 /**
- * @summary Queries configuration errors of the deep packet inspection (DPI) feature.
+ * @summary Queries for deep packet inspection (DPI) configuration errors.
  *
- * @description ## Background information
- * If you have configured an application-aware access control list (ACL) or a quality of service (QoS) policy and associated it with a Smart Access Gateway (SAG) instance, you can call this operation to query whether the ACL rules or 5-tuples in the QoS policy are applied to the SAG instance. If settings are not applied to the SAG instance, the error information is returned.
+ * @description If you configure an application-based Resource Access Management instance or a Quality of Service (QoS) policy instance and associate it with a Smart Access Gateway instance, you can call this operation to check whether the access control rules or QoS quintuple rules are successfully applied to the target Smart Access Gateway instance. If a configuration fails to apply, this operation returns information about the error.
  *
  * @param request ListDpiConfigErrorRequest
  * @return ListDpiConfigErrorResponse
@@ -9052,7 +9172,7 @@ ListDpiConfigErrorResponse Client::listDpiConfigError(const ListDpiConfigErrorRe
 }
 
 /**
- * @summary Queries the information about application groups supported by Smart Access Gateway (SAG) instances in a specified region.
+ * @summary Lists the application groups that Smart Access Gateway supports in a specified region.
  *
  * @param request ListDpiGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9115,7 +9235,7 @@ ListDpiGroupsResponse Client::listDpiGroupsWithOptions(const ListDpiGroupsReques
 }
 
 /**
- * @summary Queries the information about application groups supported by Smart Access Gateway (SAG) instances in a specified region.
+ * @summary Lists the application groups that Smart Access Gateway supports in a specified region.
  *
  * @param request ListDpiGroupsRequest
  * @return ListDpiGroupsResponse
@@ -9126,14 +9246,14 @@ ListDpiGroupsResponse Client::listDpiGroups(const ListDpiGroupsRequest &request)
 }
 
 /**
- * @summary Queries the information about an application or an application group in a region, or about the applications supported by Smart Access Gateway (SAG) in a region.
+ * @summary Queries all applications, specific applications, or specific application groups supported by Smart Access Gateway (SAG) in a specified region.
  *
- * @description This operation supports the following features:
- * *   Queries the information about all applications supported by the SAG instance in a specified region.
- * *   Queries the information about an application by application ID in a specified region.
- * *   Queries the information about an application by application name in a specified region.
- * *   Queries the information about an application group by group ID in a specified region.
- * If this is the first time you call this operation, we recommend that you query all applications supported by the SAG instance in the specified region by region ID. Then, you can query the information about a specified application.
+ * @description This operation lets you:
+ * - Query all applications supported by SAG in a specified region.
+ * - Query a specific application by its ID in a specified region.
+ * - Query a specific application by its name in a specified region.
+ * - Query all applications in a specific application group by the group ID in a specified region.
+ * If this is the first time you call this operation, we recommend that you query all applications supported by SAG in a region. This helps you obtain the information required for subsequent queries of specific applications.
  *
  * @param request ListDpiSignaturesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9200,14 +9320,14 @@ ListDpiSignaturesResponse Client::listDpiSignaturesWithOptions(const ListDpiSign
 }
 
 /**
- * @summary Queries the information about an application or an application group in a region, or about the applications supported by Smart Access Gateway (SAG) in a region.
+ * @summary Queries all applications, specific applications, or specific application groups supported by Smart Access Gateway (SAG) in a specified region.
  *
- * @description This operation supports the following features:
- * *   Queries the information about all applications supported by the SAG instance in a specified region.
- * *   Queries the information about an application by application ID in a specified region.
- * *   Queries the information about an application by application name in a specified region.
- * *   Queries the information about an application group by group ID in a specified region.
- * If this is the first time you call this operation, we recommend that you query all applications supported by the SAG instance in the specified region by region ID. Then, you can query the information about a specified application.
+ * @description This operation lets you:
+ * - Query all applications supported by SAG in a specified region.
+ * - Query a specific application by its ID in a specified region.
+ * - Query a specific application by its name in a specified region.
+ * - Query all applications in a specific application group by the group ID in a specified region.
+ * If this is the first time you call this operation, we recommend that you query all applications supported by SAG in a region. This helps you obtain the information required for subsequent queries of specific applications.
  *
  * @param request ListDpiSignaturesRequest
  * @return ListDpiSignaturesResponse
@@ -9420,7 +9540,7 @@ ListSmartAGApiUnsupportedFeatureResponse Client::listSmartAGApiUnsupportedFeatur
 }
 
 /**
- * @summary Queries information about Smart Access Gateway (SAG) instances within specific access points in a specific region.
+ * @summary Queries Smart Access Gateway (SAG) instances associated with specific access points in a region.
  *
  * @param request ListSmartAGByAccessPointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9483,7 +9603,7 @@ ListSmartAGByAccessPointResponse Client::listSmartAGByAccessPointWithOptions(con
 }
 
 /**
- * @summary Queries information about Smart Access Gateway (SAG) instances within specific access points in a specific region.
+ * @summary Queries Smart Access Gateway (SAG) instances associated with specific access points in a region.
  *
  * @param request ListSmartAGByAccessPointRequest
  * @return ListSmartAGByAccessPointResponse
@@ -9560,7 +9680,7 @@ ModifyACLResponse Client::modifyACL(const ModifyACLRequest &request) {
 }
 
 /**
- * @summary Modifies an access control list (ACL) rule.
+ * @summary The ModifyACLRule operation modifies an access control rule.
  *
  * @param request ModifyACLRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9667,7 +9787,7 @@ ModifyACLRuleResponse Client::modifyACLRuleWithOptions(const ModifyACLRuleReques
 }
 
 /**
- * @summary Modifies an access control list (ACL) rule.
+ * @summary The ModifyACLRule operation modifies an access control rule.
  *
  * @param request ModifyACLRuleRequest
  * @return ModifyACLRuleResponse
@@ -9678,7 +9798,7 @@ ModifyACLRuleResponse Client::modifyACLRule(const ModifyACLRuleRequest &request)
 }
 
 /**
- * @summary Modifies the DNS settings of a Smart Access Gateway (SAG) app instance.
+ * @summary Modifies the DNS configuration of a Smart Access Gateway (SAG) application instance.
  *
  * @param request ModifyClientUserDNSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9737,7 +9857,7 @@ ModifyClientUserDNSResponse Client::modifyClientUserDNSWithOptions(const ModifyC
 }
 
 /**
- * @summary Modifies the DNS settings of a Smart Access Gateway (SAG) app instance.
+ * @summary Modifies the DNS configuration of a Smart Access Gateway (SAG) application instance.
  *
  * @param request ModifyClientUserDNSRequest
  * @return ModifyClientUserDNSResponse
@@ -9748,7 +9868,7 @@ ModifyClientUserDNSResponse Client::modifyClientUserDNS(const ModifyClientUserDN
 }
 
 /**
- * @summary Modifies the configurations of a Cloud Connect Network (CCN) instance.
+ * @summary Updates the configurations of a Cloud Connect Network (CCN) instance.
  *
  * @param request ModifyCloudConnectNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9815,7 +9935,7 @@ ModifyCloudConnectNetworkResponse Client::modifyCloudConnectNetworkWithOptions(c
 }
 
 /**
- * @summary Modifies the configurations of a Cloud Connect Network (CCN) instance.
+ * @summary Updates the configurations of a Cloud Connect Network (CCN) instance.
  *
  * @param request ModifyCloudConnectNetworkRequest
  * @return ModifyCloudConnectNetworkResponse
@@ -9912,7 +10032,7 @@ ModifyDeviceAutoUpgradePolicyResponse Client::modifyDeviceAutoUpgradePolicy(cons
 }
 
 /**
- * @summary Modifies the settings of a flow log.
+ * @summary Updates the settings of a flow log.
  *
  * @param request ModifyFlowLogAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10007,7 +10127,7 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttributeWithOptions(const M
 }
 
 /**
- * @summary Modifies the settings of a flow log.
+ * @summary Updates the settings of a flow log.
  *
  * @param request ModifyFlowLogAttributeRequest
  * @return ModifyFlowLogAttributeResponse
@@ -10136,7 +10256,7 @@ ModifyHealthCheckResponse Client::modifyHealthCheck(const ModifyHealthCheckReque
 }
 
 /**
- * @summary You can call this operation to modify a quality of service (QoS) policy, for example, its name.
+ * @summary Modifies a quality of service (QoS) policy, such as its name.
  *
  * @param request ModifyQosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10195,7 +10315,7 @@ ModifyQosResponse Client::modifyQosWithOptions(const ModifyQosRequest &request, 
 }
 
 /**
- * @summary You can call this operation to modify a quality of service (QoS) policy, for example, its name.
+ * @summary Modifies a quality of service (QoS) policy, such as its name.
  *
  * @param request ModifyQosRequest
  * @return ModifyQosResponse
@@ -10308,7 +10428,7 @@ ModifyQosCarResponse Client::modifyQosCar(const ModifyQosCarRequest &request) {
 }
 
 /**
- * @summary Modifies a traffic classification rule of a quality of service (QoS) policy.
+ * @summary You can call the ModifyQosPolicy operation to modify the stream classification rules in a Quality of Service (QoS) policy.
  *
  * @param request ModifyQosPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10411,7 +10531,7 @@ ModifyQosPolicyResponse Client::modifyQosPolicyWithOptions(const ModifyQosPolicy
 }
 
 /**
- * @summary Modifies a traffic classification rule of a quality of service (QoS) policy.
+ * @summary You can call the ModifyQosPolicy operation to modify the stream classification rules in a Quality of Service (QoS) policy.
  *
  * @param request ModifyQosPolicyRequest
  * @return ModifyQosPolicyResponse
@@ -10804,7 +10924,7 @@ ModifySagHaResponse Client::modifySagHa(const ModifySagHaRequest &request) {
 }
 
 /**
- * @summary You can call this operation to modify the LAN port configurations of a Smart Access Gateway (SAG) device.
+ * @summary Modifies the LAN port configurations of a Smart Access Gateway (SAG) device.
  *
  * @param request ModifySagLanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10887,7 +11007,7 @@ ModifySagLanResponse Client::modifySagLanWithOptions(const ModifySagLanRequest &
 }
 
 /**
- * @summary You can call this operation to modify the LAN port configurations of a Smart Access Gateway (SAG) device.
+ * @summary Modifies the LAN port configurations of a Smart Access Gateway (SAG) device.
  *
  * @param request ModifySagLanRequest
  * @return ModifySagLanResponse
@@ -10898,7 +11018,7 @@ ModifySagLanResponse Client::modifySagLan(const ModifySagLanRequest &request) {
 }
 
 /**
- * @summary Modifies the settings of a Smart Access Gateway (SAG) device port.
+ * @summary Updates the settings of a Smart Access Gateway (SAG) device port.
  *
  * @param request ModifySagManagementPortRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10965,7 +11085,7 @@ ModifySagManagementPortResponse Client::modifySagManagementPortWithOptions(const
 }
 
 /**
- * @summary Modifies the settings of a Smart Access Gateway (SAG) device port.
+ * @summary Updates the settings of a Smart Access Gateway (SAG) device port.
  *
  * @param request ModifySagManagementPortRequest
  * @return ModifySagManagementPortResponse
@@ -11054,7 +11174,7 @@ ModifySagPortRoleResponse Client::modifySagPortRole(const ModifySagPortRoleReque
 }
 
 /**
- * @summary You can call this operation to modify the routing protocol of a port.
+ * @summary Modifies the routing protocol of a port.
  *
  * @param request ModifySagPortRouteProtocolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11129,7 +11249,7 @@ ModifySagPortRouteProtocolResponse Client::modifySagPortRouteProtocolWithOptions
 }
 
 /**
- * @summary You can call this operation to modify the routing protocol of a port.
+ * @summary Modifies the routing protocol of a port.
  *
  * @param request ModifySagPortRouteProtocolRequest
  * @return ModifySagPortRouteProtocolResponse
@@ -11656,7 +11776,7 @@ ModifySagWanResponse Client::modifySagWan(const ModifySagWanRequest &request) {
 }
 
 /**
- * @summary You can call this operation to modify the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
+ * @summary Modifies the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
  *
  * @param request ModifySagWanSnatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11715,7 +11835,7 @@ ModifySagWanSnatResponse Client::modifySagWanSnatWithOptions(const ModifySagWanS
 }
 
 /**
- * @summary You can call this operation to modify the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
+ * @summary Modifies the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
  *
  * @param request ModifySagWanSnatRequest
  * @return ModifySagWanSnatResponse
@@ -11726,7 +11846,7 @@ ModifySagWanSnatResponse Client::modifySagWanSnat(const ModifySagWanSnatRequest 
 }
 
 /**
- * @summary You can call this operation to modify the Wi-Fi settings of a Smart Access Gateway (SAG) device.
+ * @summary Modifies the Wi-Fi settings of a Smart Access Gateway (SAG) device.
  *
  * @param request ModifySagWifiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11817,7 +11937,7 @@ ModifySagWifiResponse Client::modifySagWifiWithOptions(const ModifySagWifiReques
 }
 
 /**
- * @summary You can call this operation to modify the Wi-Fi settings of a Smart Access Gateway (SAG) device.
+ * @summary Modifies the Wi-Fi settings of a Smart Access Gateway (SAG) device.
  *
  * @param request ModifySagWifiRequest
  * @return ModifySagWifiResponse
@@ -13784,7 +13904,9 @@ UpdateSmartAccessGatewayGlobalRouteProtocolResponse Client::updateSmartAccessGat
 }
 
 /**
- * @summary Modifies the OSPF configurations for an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+ * @summary Modifies the Open Shortest Path First (OSPF) dynamic routing protocol configuration of a Smart Access Gateway (SAG) device. This operation is supported only for SAG instances that use the SCG5000 or SCG5000-5G device model and run device version 3.4.2 or later.
+ *
+ * @description You can modify the OSPF dynamic routing protocol configuration only for SCG5000 and SCG5000-5G devices that run device version 3.4.2 or later.
  *
  * @param request UpdateSmartAccessGatewayOspfRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13883,7 +14005,9 @@ UpdateSmartAccessGatewayOspfRouteResponse Client::updateSmartAccessGatewayOspfRo
 }
 
 /**
- * @summary Modifies the OSPF configurations for an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+ * @summary Modifies the Open Shortest Path First (OSPF) dynamic routing protocol configuration of a Smart Access Gateway (SAG) device. This operation is supported only for SAG instances that use the SCG5000 or SCG5000-5G device model and run device version 3.4.2 or later.
+ *
+ * @description You can modify the OSPF dynamic routing protocol configuration only for SCG5000 and SCG5000-5G devices that run device version 3.4.2 or later.
  *
  * @param request UpdateSmartAccessGatewayOspfRouteRequest
  * @return UpdateSmartAccessGatewayOspfRouteResponse
@@ -14558,7 +14682,9 @@ ViewSmartAccessGatewayOspfRouteResponse Client::viewSmartAccessGatewayOspfRoute(
 }
 
 /**
- * @summary Queries the ports that have routing protocols enabled on an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+ * @summary Queries the list of ports on a Smart Access Gateway (SAG) device that have a routable protocol enabled. This operation is applicable to SAG instances that are associated with an SCG5000 or SCG5000-5G device of version 3.4.2 or later.
+ *
+ * @description You can query the list of ports that have a routable protocol enabled only on SCG5000 and SCG5000-5G devices of version 3.4.2 or later.
  *
  * @param request ViewSmartAccessGatewayPortRouteProtocolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14605,7 +14731,9 @@ ViewSmartAccessGatewayPortRouteProtocolResponse Client::viewSmartAccessGatewayPo
 }
 
 /**
- * @summary Queries the ports that have routing protocols enabled on an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+ * @summary Queries the list of ports on a Smart Access Gateway (SAG) device that have a routable protocol enabled. This operation is applicable to SAG instances that are associated with an SCG5000 or SCG5000-5G device of version 3.4.2 or later.
+ *
+ * @description You can query the list of ports that have a routable protocol enabled only on SCG5000 and SCG5000-5G devices of version 3.4.2 or later.
  *
  * @param request ViewSmartAccessGatewayPortRouteProtocolRequest
  * @return ViewSmartAccessGatewayPortRouteProtocolResponse

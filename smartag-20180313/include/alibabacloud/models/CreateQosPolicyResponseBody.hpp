@@ -238,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The description of the traffic classification rule.
+    // The description of the traffic classification rule for the QoS policy.
     shared_ptr<string> description_ {};
     // The destination CIDR block.
     shared_ptr<string> destCidr_ {};
@@ -248,17 +248,17 @@ namespace Models
     shared_ptr<CreateQosPolicyResponseBody::DpiSignatureIds> dpiSignatureIds_ {};
     // The time when the traffic classification rule expires.
     shared_ptr<string> endTime_ {};
-    // The protocol that applies to the traffic classification rule.
+    // The protocol type to which the traffic classification rule applies.
     shared_ptr<string> ipProtocol_ {};
-    // The name of the traffic classification rule.
+    // The name of the traffic classification rule for the QoS policy.
     shared_ptr<string> name_ {};
-    // The priority of the traffic throttling policy to which the traffic classification rule belongs.
+    // The priority of the rate limiting rule to which the traffic classification rule belongs.
     shared_ptr<int32_t> priority_ {};
-    // The ID of the QoS policy.
+    // The instance ID of the QoS policy.
     shared_ptr<string> qosId_ {};
-    // The ID of the traffic classification rule.
+    // The instance ID of the traffic classification rule for the QoS policy.
     shared_ptr<string> qosPolicyId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The source CIDR block.
     shared_ptr<string> sourceCidr_ {};

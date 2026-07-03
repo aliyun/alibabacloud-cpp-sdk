@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The packet loss rate of the SAG instance. Unit: packets per second (PPS).
+      // The packet loss rate of the Smart Access Gateway instance. Unit: pps.
       shared_ptr<string> dropRate_ {};
-      // The ID of the SAG instance.
+      // The ID of the Smart Access Gateway instance.
       shared_ptr<string> instanceId_ {};
-      // The name of the SAG instance.
+      // The name of the Smart Access Gateway instance.
       shared_ptr<string> name_ {};
-      // The ID of the region where the SAG instance is deployed.
+      // The region ID of the Smart Access Gateway instance.
       shared_ptr<string> regionId_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The information about packets dropped by the SAG instance.
+    // The list of packet loss information about Smart Access Gateway instances.
     shared_ptr<vector<DescribeSagDropTopNResponseBody::DropTopN>> dropTopN_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

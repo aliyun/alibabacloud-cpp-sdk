@@ -94,22 +94,22 @@ namespace Models
 
 
   protected:
-    // The type of SAG instance to be associated with the ACL. Valid values:
+    // The type of the Smart Access Gateway instance to be associated with the access control instance. Valid values:
     // 
-    // *   **acl-hardware** (default): SAG CPE instance
-    // *   **acl-software**: SAG app instance
+    // - **acl-hardware** (default): Smart Access Gateway device instance.
+    // - **acl-software**: SAG app instance.
     shared_ptr<string> aclType_ {};
-    // The name of the ACL.
+    // The name of the access control instance.
     // 
-    // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where you want to create the ACL.
+    // The region ID of the access control instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

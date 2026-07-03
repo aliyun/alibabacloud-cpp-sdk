@@ -103,15 +103,15 @@ namespace Models
 
 
   protected:
-    // The instance ID of the flow log.
+    // The flow log instance ID.
     shared_ptr<string> flowLogId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the SAG instance list. Minimum value: **1**. Default value: **1**
+    // The page number of the query list. Minimum value: **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in the case of a paged query result. Maximum value: **50**. Default value: **10**
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region to which the flow log belongs.
+    // The region ID of the flow log.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

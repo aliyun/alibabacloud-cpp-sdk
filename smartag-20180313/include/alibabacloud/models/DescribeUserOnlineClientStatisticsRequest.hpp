@@ -109,6 +109,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
+    // The usernames. You can query up to 50 users at a time. Separate multiple usernames with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> userNames_ {};
   };

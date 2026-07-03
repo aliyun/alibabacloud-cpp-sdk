@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag that is bound to the CCN instance.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag that is bound to the CCN instance.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -168,24 +168,25 @@ namespace Models
 
 
   protected:
-    // The ID of the CCN instance.
+    // The ID of the CCN.
     shared_ptr<string> ccnId_ {};
-    // The name of the CCN instance.
+    // The name of the CCN.
     // 
-    // The name must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (_),and hyphens (-). The name must start with a letter.
+    // The name must be 2 to 100 characters long, start with a letter or a Chinese character, and can contain digits, underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: **10**. Maximum value: **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the CCN instances are deployed.
+    // The ID of the region where the CCN is located.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The tags to filter CCN instances.
     shared_ptr<vector<DescribeCloudConnectNetworksRequest::Tag>> tag_ {};
   };
 

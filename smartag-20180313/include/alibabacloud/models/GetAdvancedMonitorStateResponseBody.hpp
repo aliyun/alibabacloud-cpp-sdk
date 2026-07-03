@@ -64,10 +64,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the DPI feature is enabled. Valid values:
+      // Indicates whether the advanced monitoring feature is enabled. Valid values:
       // 
-      // *   **true**: enabled
-      // *   **false**: disabled
+      // - **true**: The feature is enabled.
+      // 
+      // - **false**: The feature is disabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -109,7 +110,7 @@ namespace Models
     shared_ptr<vector<GetAdvancedMonitorStateResponseBody::Data>> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

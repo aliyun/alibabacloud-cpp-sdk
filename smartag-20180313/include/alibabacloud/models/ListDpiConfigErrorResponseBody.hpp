@@ -114,18 +114,14 @@ namespace Models
 
 
       protected:
-        // The IDs of the application groups that have configuration errors.
-        // 
-        // You can call the [ListDpiGroups](https://help.aliyun.com/document_detail/196754.html) operation to query application group IDs and information about the applications.
+        // A list of IDs of application groups that have configuration errors.
         shared_ptr<vector<string>> dpiGroupIds_ {};
-        // The IDs of applications that have configuration errors.
-        // 
-        // You can call the [ListDpiSignatures](https://help.aliyun.com/document_detail/196630.html) operation to query application IDs and information about the applications.
+        // A list of IDs of applications that have configuration errors.
         shared_ptr<vector<string>> dpiSignatureIds_ {};
-        // The IDs of rules that are applied to applications with configuration errors.
+        // The ID of the rule that is associated with the application that has a configuration error.
         // 
-        // *   If you make the request to query configuration errors of ACLs, the IDs of ACL rules that have configuration errors are returned.
-        // *   If you make the request to query configuration errors of QoS polices, the IDs of the 5-tuples in the QoS polices that have configuration errors are returned.
+        // - If you query DPI configuration errors for Resource Access Management, this parameter indicates the ID of the Resource Access Management rule instance that has a configuration error.
+        // - If you query DPI configuration errors for a QoS policy, this parameter indicates the ID of the quintuple rule instance that has a configuration error.
         shared_ptr<string> ruleId_ {};
       };
 
@@ -162,17 +158,17 @@ namespace Models
 
 
     protected:
-      // The type of the configuration error. Valid values:
+      // The type of the configuration error.
       // 
-      // *   **DeviceNotSupported**: The SAG instance does not support the DPI feature.
-      // *   **VersionNotSupported**: The version of the DPI feature is outdated.
-      // *   **NotEnable**: The DPI feature is disabled on the SAG instance.
+      // - DeviceNotSupported: The Smart Access Gateway device does not support the DPI feature.
+      // - VersionNotSupported: The DPI version of the Smart Access Gateway device is too old.
+      // - **NotEnable**: The DPI feature is disabled for the Smart Access Gateway device.
       shared_ptr<string> errorType_ {};
-      // The information about the configuration errors.
+      // A list of rule configuration errors.
       shared_ptr<vector<DpiConfigError::RuleConfigErrorList>> ruleConfigErrorList_ {};
-      // The serial number of the SAG instance.
+      // The serial number of the Smart Access Gateway device.
       shared_ptr<string> SN_ {};
-      // The ID of the SAG instance.
+      // The ID of the Smart Access Gateway instance.
       shared_ptr<string> smartAGId_ {};
     };
 
@@ -216,15 +212,15 @@ namespace Models
 
 
   protected:
-    // The information about the configuration errors.
+    // A list of DPI configuration errors.
     shared_ptr<vector<ListDpiConfigErrorResponseBody::DpiConfigError>> dpiConfigError_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of configuration errors to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that was used to query the next page.
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of DPI configuration errors.
     shared_ptr<int32_t> total_ {};
   };
 

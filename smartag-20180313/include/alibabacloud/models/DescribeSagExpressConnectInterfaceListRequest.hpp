@@ -105,23 +105,23 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the Express Connect circuit port.
+    // The name of the dedicated connection port.
     // 
     // This parameter is required.
     shared_ptr<string> portName_ {};
-    // The ID of the region where the Smart Access Gateway (SAG) instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) to query the regions supported by Smart Access Gateway and the corresponding region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The serial number of the SAG device associated with the SAG instance.
+    // The serial number of the associated Smart Access Gateway device.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGSn_ {};

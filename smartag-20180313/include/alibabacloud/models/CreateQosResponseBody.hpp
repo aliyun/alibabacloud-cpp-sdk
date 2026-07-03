@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the QoS policy.
+    // The instance ID of the QoS policy.
     shared_ptr<string> qosId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the QoS policy belongs.
+    // The ID of the resource group to which the QoS policy instance belongs.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -377,13 +377,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeACLAttributeResponseBody::Acrs> acrs_ {};
-    // The page number of the returned page.
+    // The page number in a paginated query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of access control rule entries displayed per page in a paginated query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of access control rule entries in the current ACL instance.
     shared_ptr<int32_t> totalCount_ {};
   };
 

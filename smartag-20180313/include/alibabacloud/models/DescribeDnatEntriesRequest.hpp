@@ -126,14 +126,15 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the SAG instance.
     // 
-    // >  Only SAG customer-premises equipment (CPE) instances are supported.
+    // > Only SAG customer-premises equipment (CPE) instances are supported.
     // 
     // This parameter is required.
     shared_ptr<string> sagId_ {};
     // The type of the DNAT entry. Valid values:
     // 
-    // *   **Intranet**: translates the IP address to a specific internal IP address. This is the default value.
-    // *   **Internet**: translates the IP address to a specific public IP address.
+    // - **Intranet**: translates the IP address to a specific internal IP address. This is the default value.
+    // 
+    // - **Internet**: translates the IP address to a specific public IP address.
     shared_ptr<string> type_ {};
   };
 

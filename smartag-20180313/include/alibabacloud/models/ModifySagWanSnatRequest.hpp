@@ -121,8 +121,9 @@ namespace Models
     shared_ptr<string> smartAGSn_ {};
     // Specifies whether to enable SNAT. Valid values:
     // 
-    // *   **ENABLE**: enables SNAT.
-    // *   **DISABLE**: disables SNAT.
+    // - **ENABLE**: enables SNAT.
+    // 
+    // - **DISABLE**: disables SNAT.
     // 
     // This parameter is required.
     shared_ptr<string> snat_ {};

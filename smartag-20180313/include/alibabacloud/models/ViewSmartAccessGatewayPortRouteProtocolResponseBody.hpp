@@ -90,9 +90,25 @@ namespace Models
 
 
     protected:
+      // The time when the query task was created.
+      // 
+      // This is a UNIX timestamp that represents the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
       shared_ptr<string> createTime_ {};
+      // The error code. \\`200\\` indicates that the query task is successful.
       shared_ptr<string> errorCode_ {};
+      // The error message. \\`Successful\\` indicates that the query task is successful.
       shared_ptr<string> errorMessage_ {};
+      // The status of the asynchronous task:
+      // 
+      // - **Initialized**: The query task is being initialized.
+      // - **Offline**: The SAG device is offline and the query task is not sent. The task will be sent after the device goes online.
+      // - **Succeed**: The query task is sent.
+      // - **Processing**: The query task is being sent.
+      // - **VersionNotSupport**: The current version of the SAG device is not supported.
+      // - **BuildRequestError**: The management plane does not support the operation.
+      // - **HardwareError**: The query task failed to be sent due to a device error.
+      // - **TaskNotExist**: The query task does not exist.
+      // - **OfflineNotConfiged**: The SAG device is offline and the query task is not sent. The task will not be sent even after the device goes online.
       shared_ptr<string> state_ {};
     };
 
@@ -180,12 +196,26 @@ namespace Models
 
 
     protected:
+      // The IP address of the neighbor.
       shared_ptr<string> neighborIp_ {};
+      // The name of the port.
       shared_ptr<string> portName_ {};
+      // The autonomous system (AS) number of the BGP peer.
       shared_ptr<string> remoteAs_ {};
+      // The IP address of the peer.
       shared_ptr<string> remoteIp_ {};
+      // The routable protocol of the port. Valid values:
+      // 
+      // - **STATIC**: static routing protocol.
+      // - **OSPF**: Open Shortest Path First (OSPF) dynamic routing protocol.
+      // - **BGP**: Border Gateway Protocol (BGP) dynamic routing protocol.
       shared_ptr<string> routeProtocol_ {};
+      // The status of the port. Valid values:
+      // 
+      // - **UP**: The port is enabled.
+      // - **DOWN**: The port is disabled.
       shared_ptr<string> status_ {};
+      // The VLAN ID.
       shared_ptr<string> vlan_ {};
     };
 
@@ -217,8 +247,11 @@ namespace Models
 
 
   protected:
+    // The list of port information.
     shared_ptr<vector<ViewSmartAccessGatewayPortRouteProtocolResponseBody::Ports>> ports_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the query task.
     shared_ptr<vector<ViewSmartAccessGatewayPortRouteProtocolResponseBody::TaskStates>> taskStates_ {};
   };
 

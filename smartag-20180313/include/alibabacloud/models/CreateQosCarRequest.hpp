@@ -167,59 +167,61 @@ namespace Models
 
 
   protected:
-    // The description of the traffic throttling rule.
+    // The description of the QoS rate limiting rule.
     shared_ptr<string> description_ {};
-    // The type of the traffic throttling rule. Valid values:
+    // The type of rate limiting. Valid values:
     // 
-    // *   **Absolute**: throttles traffic based on a specific range of bandwidth values.
-    // *   **Percent**: throttles traffic based on a specific range of bandwidth percentage.
+    // - **Absolute**: by bandwidth value.
+    // 
+    // - **Percent**: by percentage.
     // 
     // This parameter is required.
     shared_ptr<string> limitType_ {};
     // The maximum bandwidth value. The value must be an integer. Unit: Mbit/s.
     // 
-    // This parameter is returned when **LimitType** is set to **Absolute**.
+    // This parameter is required when **LimitType** is set to **Absolute**.
     // 
-    // >  The maximum bandwidth value must be greater than the minimum bandwidth value.
+    // > The maximum bandwidth value must be greater than the minimum bandwidth value.
     shared_ptr<int32_t> maxBandwidthAbs_ {};
-    // The maximum bandwidth percentage. Unit: percent (%). Valid values: **1 to 100**.
+    // The maximum bandwidth percentage. Unit: percent (%). Valid values: **1** to **100**.
     // 
-    // This parameter is required when you set **LimitType** to **Percent**.
+    // This parameter is required when **LimitType** is set to **Percent**.
     // 
-    // >  The maximum bandwidth percentage must be greater than the minimum bandwidth percentage.
+    // > The maximum bandwidth percentage must be greater than the minimum bandwidth percentage.
     shared_ptr<int32_t> maxBandwidthPercent_ {};
     // The minimum bandwidth value. The value must be an integer. Unit: Mbit/s.
     // 
-    // This parameter is returned when **LimitType** is set to **Absolute**.
+    // This parameter is required when **LimitType** is set to **Absolute**.
     shared_ptr<int32_t> minBandwidthAbs_ {};
-    // The minimum bandwidth percentage. Unit: percent (%). Valid values: **1 to 100**.
+    // The minimum bandwidth percentage. Unit: percent (%). Valid values: **1** to **100**.
     // 
-    // This parameter is required when you set **LimitType** to **Percent**.
+    // This parameter is required when **LimitType** is set to **Percent**.
     shared_ptr<int32_t> minBandwidthPercent_ {};
-    // The name of the traffic throttling rule.
+    // The name of the QoS rate limiting rule.
     // 
-    // The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The type of bandwidth when traffic is throttled based on bandwidth percentage. Valid values:
+    // The bandwidth type when rate limiting by percentage. Valid values:
     // 
-    // *   **CcnBandwidth**: CCN bandwidth
-    // *   **InternetUpBandwidth**: total Internet bandwidth
+    // - **CcnBandwidth**: CCN bandwidth.
+    // 
+    // - **InternetUpBandwidth**: total Internet bandwidth.
     shared_ptr<string> percentSourceType_ {};
-    // The priority of the traffic throttling rule.
+    // The priority of the rate limiting rule. 
     // 
-    // Valid values: **1** to **3**. A smaller value indicates a higher priority. If rules have the same priority, the one created the earliest is applied.
+    // Valid values: **1** to **3**. A smaller value indicates a higher priority. If two rules have the same priority, the rule that is created first takes effect.
     // 
     // This parameter is required.
     shared_ptr<int32_t> priority_ {};
-    // The ID of the QoS policy.
+    // The instance ID of the QoS policy.
     // 
     // This parameter is required.
     shared_ptr<string> qosId_ {};
-    // The ID of the region to which the QoS policy belongs.
+    // The region ID of the QoS policy instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

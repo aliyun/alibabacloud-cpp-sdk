@@ -159,8 +159,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to audit the network connection logs of the SAS app instance.
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: yes
+    // 
+    // - **false**: no
     shared_ptr<bool> enableSoftwareConnectionAudit_ {};
     // The name of the SAG instance.
     // 
@@ -178,8 +179,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The policy that is used to advertise routes to Alibaba Cloud. Valid values:
     // 
-    // *   **static**: static routing
-    // *   **dynamic**: dynamic routing
+    // - **static**: static routing
+    // 
+    // - **dynamic**: dynamic routing
     shared_ptr<string> routingStrategy_ {};
     // The time during which the disconnected SAG instance remains locked. Valid values: an integer that is greater than or equal to 0.
     // 

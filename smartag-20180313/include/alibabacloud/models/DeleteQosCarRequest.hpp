@@ -96,7 +96,7 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The instance ID of the QoS speed limiting rule.
+    // The instance ID of the QoS bandwidth throttling rule.
     // 
     // This parameter is required.
     shared_ptr<string> qosCarId_ {};
@@ -104,7 +104,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> qosId_ {};
-    // The ID of the region to which the QoS policy belongs.
+    // The region ID of the quality of service (QoS) policy instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

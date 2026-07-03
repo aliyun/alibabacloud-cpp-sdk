@@ -75,12 +75,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether to query only the Smart Access Gateway instances that belong to other accounts. Valid values:
+    // 
+    // - **false** (default): No.
+    // - **true**: Yes.
     shared_ptr<bool> crossAccount_ {};
+    // The ID of the region where the Smart Access Gateway instance is deployed.
+    // 
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to obtain the region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud account to which the Smart Access Gateway instance belongs.
     shared_ptr<string> resourceUid_ {};
+    // The ID of the Smart Access Gateway instance.
+    // 
     // This parameter is required.
     shared_ptr<string> sagInsId_ {};
+    // The serial number (SN) of the Smart Access Gateway device.
+    // 
     // This parameter is required.
     shared_ptr<string> sagSn_ {};
   };

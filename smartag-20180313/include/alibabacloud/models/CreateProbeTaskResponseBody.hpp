@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The ID of the probe task.
+    // The ID of the probe task that was created.
     shared_ptr<string> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

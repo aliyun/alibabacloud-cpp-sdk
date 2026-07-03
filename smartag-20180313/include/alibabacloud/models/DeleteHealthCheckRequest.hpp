@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the health check instance.
+    // The health check instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> hcInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the health check instance is deployed.
+    // The region ID of the health check instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

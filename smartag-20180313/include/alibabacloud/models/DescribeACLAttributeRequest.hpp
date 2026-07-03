@@ -130,34 +130,33 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL.
+    // The ID of the access control list (ACL) instance.
     // 
     // This parameter is required.
     shared_ptr<string> aclId_ {};
-    // The direction of traffic in which the ACL rule is applied. Valid values:
+    // The direction of the access control rule. Valid values:
     // 
-    // *   **in**: The ACL rule controls inbound network traffic of the on-premises network that is associated with the Smart Access Gateway (SAG) instance.
-    // *   **out**: The ACL rule controls outbound network traffic of the on-premises network that is associated with the SAG instance.
+    // - **in**: inbound. Refers to traffic from external sources accessing the local branch where the Smart Access Gateway (SAG) instance is deployed.
+    // - **out**: outbound. Refers to traffic from the local branch where the SAG instance is deployed accessing external destinations.
     shared_ptr<string> direction_ {};
-    // The name of the ACL.
+    // The name of the ACL instance.
     // 
-    // The name must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
-    // 
-    // >  This parameter supports fuzzy match.
+    // The name must be 2 to 100 characters in length and must start with an uppercase letter, a lowercase letter, or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
+    // > This parameter supports fuzzy search.
     shared_ptr<string> name_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> order_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number in a paginated query. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of access control rule entries to display per page in a paginated query.
     // 
     // Valid values: **1** to **50**.
     // 
     // Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the ACL is deployed.
+    // The region ID of the access control list (ACL) instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The ID of the DNS forwarding rule.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

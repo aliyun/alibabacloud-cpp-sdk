@@ -152,19 +152,21 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The BGP autonomous system number (ASN) of the peer device.
     // 
-    // >  You must set this parameter when you enable BGP.
+    // > You must set this parameter when you enable BGP.
     shared_ptr<string> remoteAs_ {};
     // The IP address of the peer device.
     // 
-    // >  You must set this parameter when you enable BGP.
+    // > You must set this parameter when you enable BGP.
     shared_ptr<string> remoteIp_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The routing protocol. Valid values:
     // 
-    // *   **STATIC**: uses a static routing protocol.
-    // *   **OSPF**: uses the Open Shortest Path First protocol (OSPF).
-    // *   **BGP**: uses the Border Gateway Protocol (BGP).
+    // - **STATIC**: uses a static routing protocol.
+    // 
+    // - **OSPF**: uses the Open Shortest Path First protocol (OSPF).
+    // 
+    // - **BGP**: uses the Border Gateway Protocol (BGP).
     // 
     // This parameter is required.
     shared_ptr<string> routeProtocol_ {};

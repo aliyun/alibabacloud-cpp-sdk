@@ -178,15 +178,19 @@ namespace Models
   protected:
     // The authentication type. Valid values:
     // 
-    // *   **NONE**
-    // *   **WPA-PSK**
-    // *   **WPA2-PSK**
+    // - **NONE**
+    // 
+    // - **WPA-PSK**
+    // 
+    // - **WPA2-PSK**
     shared_ptr<string> authenticationType_ {};
     // The bandwidth of the channel. Valid values:
     // 
-    // *   **Automatic**
-    // *   **20 MHz**
-    // *   **40 MHz**
+    // - **Automatic**
+    // 
+    // - **20 MHz**
+    // 
+    // - **40 MHz**
     shared_ptr<string> bandwidth_ {};
     // The Wi-Fi channel.
     // 
@@ -194,26 +198,31 @@ namespace Models
     shared_ptr<string> channel_ {};
     // The encryption algorithm. Valid values:
     // 
-    // *   **AUTO**: automatically selects the encryption algorithm.
-    // *   **TKIP**: uses the Temporal Key Integrity Protocol (TKIP).
-    // *   **AES**: uses the Advanced Encryption Standard authorized by Wi-Fi®.
+    // - **AUTO**: automatically selects the encryption algorithm.
+    // 
+    // - **TKIP**: uses the Temporal Key Integrity Protocol (TKIP).
+    // 
+    // - **AES**: uses the Advanced Encryption Standard authorized by Wi-Fi®.
     shared_ptr<string> encryptAlgorithm_ {};
     // Specifies whether wireless security is enabled. Valid values:
     // 
-    // *   **true**: enables wireless security.
-    // *   **False**: disables wireless security.
+    // - **true**: enables wireless security.
+    // 
+    // - **False**: disables wireless security.
     shared_ptr<string> isAuth_ {};
     // Specifies whether broadcast over Wi-Fi is enabled. Valid values:
     // 
-    // *   **true**: enables broadcast.
-    // *   **False**: disables broadcast.
+    // - **true**: enables broadcast.
     // 
-    // >  Only after you enable broadcast, terminals that support wireless connections can search the Wi-Fi network by its SSID and receive Wi-Fi signals.
+    // - **False**: disables broadcast.
+    // 
+    // > Only after you enable broadcast, terminals that support wireless connections can search the Wi-Fi network by its SSID and receive Wi-Fi signals.
     shared_ptr<string> isBroadcast_ {};
     // Specifies whether Wi-Fi is enabled. Valid values:
     // 
-    // *   **true**: enables Wi-Fi.
-    // *   **False**: disables Wi-Fi.
+    // - **true**: enables Wi-Fi.
+    // 
+    // - **False**: disables Wi-Fi.
     // 
     // This parameter is required.
     shared_ptr<string> isEnable_ {};

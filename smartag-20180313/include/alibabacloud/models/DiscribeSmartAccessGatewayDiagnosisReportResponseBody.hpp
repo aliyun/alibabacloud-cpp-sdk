@@ -143,13 +143,13 @@ namespace Models
 
 
       protected:
-        // The number of items of the **ERROR** level.
+        // The total number of diagnosis items with the **Error** severity level.
         shared_ptr<int32_t> error_ {};
-        // The number of items of the **INFO** level.
+        // The total number of diagnosis items with the **Info** severity level.
         shared_ptr<int32_t> info_ {};
-        // The total number of items.
+        // The total number of all diagnosis items.
         shared_ptr<int32_t> total_ {};
-        // The number of items of the **WARNING** level.
+        // The total number of diagnosis items with the **Warning** severity level.
         shared_ptr<int32_t> warning_ {};
       };
 
@@ -200,15 +200,15 @@ namespace Models
 
 
       protected:
-        // The diagnosis level of the service quality.
+        // The diagnosis result level for service quality.
         shared_ptr<string> biz_ {};
-        // The diagnosis level of the SAG configuration.
+        // The diagnosis result level for SAG configuration.
         shared_ptr<string> configuration_ {};
-        // The overall diagnosis level.
+        // The overall diagnosis result level.
         // 
-        // *   **error**: severe
-        // *   **warning**: warning
-        // *   **info**: normal
+        // - **error**: Critical.
+        // - **warning**: Warning.
+        // - **info**: Normal.
         shared_ptr<string> total_ {};
       };
 
@@ -291,13 +291,13 @@ namespace Models
 
 
         protected:
-          // The number of items of the **ERROR** level.
+          // The number of diagnosis items with the **Error** severity level.
           shared_ptr<int32_t> error_ {};
-          // The number of items of the **INFO** level.
+          // The number of diagnosis items with the **Info** severity level.
           shared_ptr<int32_t> info_ {};
-          // The total number of items for the current diagnosis type.
+          // The total number of diagnosis items under the current diagnosis type.
           shared_ptr<int32_t> total_ {};
-          // The number of items of the **WARNING** level.
+          // The number of diagnosis items with the **Warning** severity level.
           shared_ptr<int32_t> warning_ {};
         };
 
@@ -401,23 +401,23 @@ namespace Models
 
 
           protected:
-            // The suggestion for the diagnosis.
+            // The diagnosis suggestion.
             shared_ptr<vector<string>> advice_ {};
-            // The diagnosis.
+            // The diagnosis result.
             shared_ptr<vector<string>> details_ {};
-            // The diagnosis level of the item. Valid values:
+            // The severity level of the diagnosis result for the diagnosis item.
             // 
-            // *   **ERROR**: indicates that the item has an issue that may affect your services. We recommend that you handle the issue at the earliest opportunity.
-            // *   **WARNING**: indicates that the item has an issue. You can handle the issue based on your business requirements.
-            // *   **INFO**: indicates that the item is working as expected. No additional operation is required.
+            // - **ERROR**: indicates that the issue of the diagnosis item may affect service running. We recommend that you handle the issue at the earliest opportunity.
+            // - **WARNING**: indicates that the diagnosis item has an issue. Handle the issue based on the suggestion.
+            // - **INFO**: indicates that the diagnosis item is running as expected. No action is required.
             shared_ptr<string> itemLevel_ {};
-            // The name of the item.
+            // The name of the diagnosis item.
             shared_ptr<string> itemName_ {};
-            // The type of the item. Valid values:
+            // The diagnosis type to which the diagnosis item belongs.
             // 
-            // *   **Config**: **SAG configuration**
-            // *   **Service**: **service quality**
-            // *   **Internet**: **quality of connections to the Internet**
+            // - **Config**: indicates the **SAG configuration** type.
+            // - **Service**: indicates the **service quality** type.
+            // - **Internet**: indicates the **Internet quality** type.
             shared_ptr<string> itemType_ {};
           };
 
@@ -490,23 +490,23 @@ namespace Models
 
 
           protected:
-            // The suggestion for the diagnosis.
+            // The diagnosis suggestion.
             shared_ptr<vector<string>> advice_ {};
-            // The diagnosis.
+            // The diagnosis result.
             shared_ptr<vector<string>> details_ {};
-            // The diagnosis level of the item. Valid values:
+            // The severity level of the diagnosis result for the diagnosis item.
             // 
-            // *   **ERROR**: indicates that the item has an issue that may affect your services. We recommend that you handle the issue at the earliest opportunity.
-            // *   **WARNING**: indicates that the item has an issue. You can handle the issue based on your business requirements.
-            // *   **INFO**: indicates that the item is working as expected. No additional operation is required.
+            // - **严重** (Critical): indicates that the issue of the diagnosis item may affect service running. We recommend that you handle the issue at the earliest opportunity.
+            // - **警告** (Warning): indicates that the diagnosis item has an issue. Handle the issue based on the suggestion.
+            // - **正常** (Normal): indicates that the diagnosis item is running as expected. No action is required.
             shared_ptr<string> itemLevel_ {};
-            // The name of the item.
+            // The name of the diagnosis item.
             shared_ptr<string> itemName_ {};
-            // The type of the item. Valid values:
+            // The diagnosis type to which the diagnosis item belongs.
             // 
-            // *   **Config**: **SAG configuration**
-            // *   **Service**: **service quality**
-            // *   **Internet**: **quality of connections to the Internet**
+            // - **配置** (Configuration): indicates the **SAG configuration** type.
+            // - **业务** (Service): indicates the **service quality** type.
+            // - **公网** (Internet): indicates the **Internet quality** type.
             shared_ptr<string> itemType_ {};
           };
 
@@ -567,27 +567,27 @@ namespace Models
 
 
         protected:
-          // The diagnosis report in Chinese.
+          // The diagnosis result in Chinese.
           shared_ptr<Items::CN> CN_ {};
-          // The diagnosis report in English.
+          // The diagnosis result in English.
           shared_ptr<Items::EN> EN_ {};
-          // The timestamp when the system finishes diagnosing the item.
+          // The timestamp when the diagnosis of the diagnosis item ended.
           shared_ptr<int64_t> endTime_ {};
-          // The name of the item, which is the unique identifier of the item.
+          // The name of the diagnosis item, which is the unique identifier of the diagnosis item.
           shared_ptr<string> itemName_ {};
-          // The diagnosis level of the item. Valid values:
+          // The severity level of the diagnosis result for the diagnosis item.
           // 
-          // *   **error**: severe
-          // *   **warning**: warning
-          // *   **info**: normal
+          // - **error**: Critical.
+          // - **warning**: Warning.
+          // - **info**: Normal.
           shared_ptr<string> level_ {};
-          // The timestamp when the system starts to diagnose the item.
+          // The timestamp when the diagnosis of the diagnosis item started.
           shared_ptr<int64_t> startTime_ {};
-          // The type of the item. Valid values:
+          // The diagnosis type to which the diagnosis item belongs.
           // 
-          // *   **config**: SAG configuration
-          // *   **internet**: quality of connections to the Internet
-          // *   **biz**: service quality
+          // - **config**: SAG configuration.
+          // - **internet**: Internet quality.
+          // - **biz**: Service quality.
           shared_ptr<string> type_ {};
         };
 
@@ -619,15 +619,15 @@ namespace Models
 
 
       protected:
-        // The list of items diagnosed.
+        // The list of detailed information about diagnosis items.
         shared_ptr<vector<Details::Items>> items_ {};
-        // The information about items of each diagnosis level for the current diagnosis type.
+        // The statistics on the severity levels of diagnosis items under the current diagnosis type.
         shared_ptr<Details::Statistics> statistics_ {};
-        // The type of the diagnosis. Valid values:
+        // The diagnosis type.
         // 
-        // *   **config**: SAG configuration
-        // *   **internet**: quality of connections to the Internet
-        // *   **biz**: service quality
+        // - **config**: SAG configuration.
+        // - **internet**: Internet quality.
+        // - **biz**: Service quality.
         shared_ptr<string> type_ {};
       };
 
@@ -776,57 +776,57 @@ namespace Models
 
 
     protected:
-      // The model of the SAG device.
+      // The type of the Smart Access Gateway device.
       // 
-      // *   **sag-1000**
-      // *   **sag-100WM**
+      // - **sag-1000**
+      // - **sag-100WM**
       shared_ptr<string> boxType_ {};
-      // The version of the SAG device.
+      // The software version that runs on the Smart Access Gateway device.
       shared_ptr<string> boxVersion_ {};
-      // The list of diagnoses that are returned.
+      // The list of diagnosis results.
       shared_ptr<vector<DiagnoseResult::Details>> details_ {};
-      // The ID of the diagnosis.
+      // The diagnosis ID.
       shared_ptr<string> diagnoseId_ {};
-      // The timestamp when the system finishes diagnosing the item.
+      // The timestamp when the diagnosis ended.
       shared_ptr<int32_t> endTime_ {};
-      // The number of items that are diagnosed.
+      // The number of completed diagnosis items.
       shared_ptr<int32_t> finishedNumber_ {};
-      // The ID of the SAG instance.
+      // The ID of the Smart Access Gateway instance.
       shared_ptr<string> instanceId_ {};
-      // The diagnosis level.
+      // The diagnosis result level.
       shared_ptr<DiagnoseResult::Level> level_ {};
-      // The version of the monitoring feature that is used by the SAG device.
+      // The monitoring version used by the Smart Access Gateway device.
       shared_ptr<string> monitorVersion_ {};
       // The completion percentage of the diagnosis report.
       shared_ptr<int32_t> percent_ {};
-      // The status of the diagnosis report to be uploaded to Log Service.
+      // The status of uploading the diagnosis report to SLS.
       // 
-      // *   **0**: The system failed to upload the report.
-      // *   **1**: The system has uploaded the report to Log Service.
+      // - **0**: The upload failed.
+      // - **1**: The upload was successful.
       shared_ptr<int32_t> reportSLSSuccess_ {};
-      // The serial number of the SAG device.
+      // The serial number of the Smart Access Gateway device.
       shared_ptr<string> SN_ {};
-      // The timestamp when the system starts to diagnose the item.
+      // The timestamp when the diagnosis started.
       shared_ptr<int32_t> startTime_ {};
-      // The diagnosis status. Valid values:
+      // The diagnosis state.
       // 
-      // *   **processing**: The SAG device is being diagnosed.
-      // *   **finished**: The SAG device is diagnosed.
-      // *   **failed**: The system failed to diagnose the SAG device.
-      // *   **error**: A diagnostic error occurred.
-      // *   **upload_to_sls_fail**: The system failed to upload the diagnosis report.
+      // - **processing**: The diagnosis is in progress.
+      // - **finished**: The diagnosis is successful.
+      // - **failed**: The diagnosis failed.
+      // - **error**: An error occurred during the diagnosis.
+      // - **upload_to_sls_fail**: The diagnosis report failed to be uploaded.
       shared_ptr<string> state_ {};
-      // The overall diagnosis level.
+      // The overall statistics of diagnosis item results.
       shared_ptr<DiagnoseResult::Statistics> statistics_ {};
       // The storage type.
       // 
-      // The value is set to **both**, which indicates that the data is stored in the SAG device and Log Service.
+      // Value: **both**, which indicates that the diagnosis report is stored on both the Smart Access Gateway device and in Log Service (SLS).
       shared_ptr<string> storeType_ {};
-      // The total number of entries returned.
+      // The total number of diagnosis result entries.
       shared_ptr<int32_t> totalNumber_ {};
-      // The user ID (UID) of the Alibaba Cloud account to which the SAG instance belongs.
+      // The ID of the account to which the Smart Access Gateway instance belongs.
       shared_ptr<string> UId_ {};
-      // The type of user that initiated the diagnostics. The value is set to **user**.
+      // The type of user who initiated the diagnosis. Value: **user**.
       shared_ptr<string> userLevel_ {};
     };
 
@@ -849,9 +849,9 @@ namespace Models
 
 
   protected:
-    // The diagnosis report of the SAG device.
+    // The diagnosis report of the Smart Access Gateway device.
     shared_ptr<DiscribeSmartAccessGatewayDiagnosisReportResponseBody::DiagnoseResult> diagnoseResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

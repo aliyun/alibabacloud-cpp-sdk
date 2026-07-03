@@ -114,23 +114,23 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SAG instance.
+    // The instance ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> smartAGId_ {};
-    // The ID of the Alibaba Cloud account to which the SAG instance belongs.
+    // The Alibaba Cloud account ID that owns the Smart Access Gateway instance.
     shared_ptr<int64_t> smartAGUid_ {};
-    // The ID of the VBR that you want to associate with the SAG instance.
+    // The instance ID of the virtual border routing instance to bind.
     // 
     // This parameter is required.
     shared_ptr<string> vbrId_ {};
-    // The ID of the region where the VBR is deployed.
+    // The region ID of the virtual border router (VBR) to bind.
     // 
     // This parameter is required.
     shared_ptr<string> vbrRegionId_ {};

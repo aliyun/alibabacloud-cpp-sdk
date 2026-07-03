@@ -103,24 +103,24 @@ namespace Models
 
 
   protected:
-    // The ID of the CCN instance.
+    // The instance ID of the Cloud Connect Network (CCN).
     shared_ptr<string> ccnId_ {};
     // The private CIDR block.
     shared_ptr<string> cidrBlock_ {};
-    // The description about the CCN instance.
+    // The description of the Cloud Connect Network (CCN) instance.
     shared_ptr<string> description_ {};
-    // The name of the CCN instance.
+    // The name of the Cloud Connect Network (CCN) instance.
     shared_ptr<string> name_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the CCN instance belongs.
+    // The ID of the resource group to which the Cloud Connect Network (CCN) instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The private CIDR block used for SNAT.
+    // The SNAT private CIDR block.
     shared_ptr<string> snatCidrBlock_ {};
-    // The status of the CCN instance. Valid values:
+    // The instance status of the Cloud Connect Network (CCN). Valid values:
     // 
-    // *   **Active**: indicates the CNN instance running as expected.
-    // *   **Pending**: indicates the CCN instance is to be created.
+    // - **Active**: Normal.
+    // - **Pending**: Pending creation.
     shared_ptr<string> status_ {};
   };
 

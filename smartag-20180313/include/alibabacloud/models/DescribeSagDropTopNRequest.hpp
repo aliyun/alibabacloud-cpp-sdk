@@ -86,13 +86,13 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the SAG instance is deployed.
+    // The region ID of the Smart Access Gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The number of SAG instances to be queried. Default value:**10**. This value cannot be modified.
+    // The number of Smart Access Gateway instances to query. Default value: **10**. This value cannot be modified.
     shared_ptr<int32_t> size_ {};
   };
 
