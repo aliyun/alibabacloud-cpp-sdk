@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(dnsServers, dnsServers_);
         DARABONBA_PTR_TO_JSON(expressType, expressType_);
         DARABONBA_PTR_TO_JSON(groupName, groupName_);
+        DARABONBA_PTR_TO_JSON(modelProviderId, modelProviderId_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(namespace, namespace_);
         DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
@@ -62,6 +63,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(dnsServers, dnsServers_);
         DARABONBA_PTR_FROM_JSON(expressType, expressType_);
         DARABONBA_PTR_FROM_JSON(groupName, groupName_);
+        DARABONBA_PTR_FROM_JSON(modelProviderId, modelProviderId_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(namespace, namespace_);
         DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
@@ -113,7 +115,8 @@ namespace Models
 
       virtual bool empty() const override { return this->addresses_ == nullptr
         && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->dnsServers_ == nullptr && this->expressType_ == nullptr && this->groupName_ == nullptr
-        && this->name_ == nullptr && this->namespace_ == nullptr && this->qualifier_ == nullptr && this->sourceId_ == nullptr && this->validationOptions_ == nullptr; };
+        && this->modelProviderId_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->qualifier_ == nullptr && this->sourceId_ == nullptr
+        && this->validationOptions_ == nullptr; };
       // addresses Field Functions 
       bool hasAddresses() const { return this->addresses_ != nullptr;};
       void deleteAddresses() { this->addresses_ = nullptr;};
@@ -164,6 +167,13 @@ namespace Models
       inline ServiceConfigs& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
+      // modelProviderId Field Functions 
+      bool hasModelProviderId() const { return this->modelProviderId_ != nullptr;};
+      void deleteModelProviderId() { this->modelProviderId_ = nullptr;};
+      inline string getModelProviderId() const { DARABONBA_PTR_GET_DEFAULT(modelProviderId_, "") };
+      inline ServiceConfigs& setModelProviderId(string modelProviderId) { DARABONBA_PTR_SET_VALUE(modelProviderId_, modelProviderId) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -204,19 +214,20 @@ namespace Models
     protected:
       // The list of domain names or fixed addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The Agent service configuration. This parameter is required when sourceType is set to AGENT.
+      // The Agent service configuration. This parameter is required when `sourceType` is set to `AGENT`.
       shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
       // The AI service configuration.
       shared_ptr<AiServiceConfig> aiServiceConfig_ {};
       // The list of DNS server addresses.
       shared_ptr<vector<string>> dnsServers_ {};
-      // The service expression type that identifies the special type or mode of the service.
+      // The service expression type. Identifies the special type or mode of the service.
       shared_ptr<string> expressType_ {};
       // The service group name. This parameter is required when sourceType is set to MSE_NACOS.
       shared_ptr<string> groupName_ {};
+      shared_ptr<string> modelProviderId_ {};
       // The service name.
       shared_ptr<string> name_ {};
-      // The namespace of the service.
+      // The namespace of the service:
       // 
       // - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
       // - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.
@@ -227,7 +238,7 @@ namespace Models
       shared_ptr<string> qualifier_ {};
       // The service source ID. This parameter is required in multi-Nacos instance scenarios.
       shared_ptr<string> sourceId_ {};
-      // The validation options for service verification configuration.
+      // The validation options. Configuration options related to service validation.
       shared_ptr<ServiceConfigs::ValidationOptions> validationOptions_ {};
     };
 

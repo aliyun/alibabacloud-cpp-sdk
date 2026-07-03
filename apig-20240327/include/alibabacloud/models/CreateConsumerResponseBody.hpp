@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<CreateConsumerResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

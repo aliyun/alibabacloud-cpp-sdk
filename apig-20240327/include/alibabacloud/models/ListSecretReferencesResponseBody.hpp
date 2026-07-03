@@ -137,7 +137,7 @@ namespace Models
 
 
         protected:
-          // The HTTP API ID.
+          // HTTP API ID。
           shared_ptr<string> httpApiId_ {};
           // The route name.
           shared_ptr<string> name_ {};
@@ -341,17 +341,17 @@ namespace Models
 
 
       protected:
-        // The information about the plug-in that references the current key.
+        // The plug-in information that references the current secret.
         shared_ptr<Items::PluginConfig> pluginConfig_ {};
-        // The service information that references the current key.
+        // The service information that references the current secret.
         shared_ptr<Items::ServiceConfig> serviceConfig_ {};
-        // The consumer information that references the current key.
+        // The consumer information that references the current secret.
         shared_ptr<Items::ConsumerConfig> consumerConfig_ {};
         // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
-        // MCP service information that references the current key.
+        // The MCP server information that references the current secret.
         shared_ptr<Items::McpServerConfig> mcpServerConfig_ {};
-        // The type of resource.
+        // The resource type.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -394,7 +394,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -431,9 +431,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<ListSecretReferencesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // Response status code.
+    // The response status code.
     shared_ptr<string> code_ {};
     // The API information.
     shared_ptr<HttpApiApiInfo> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

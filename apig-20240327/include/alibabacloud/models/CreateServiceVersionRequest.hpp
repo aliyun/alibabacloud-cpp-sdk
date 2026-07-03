@@ -70,11 +70,11 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The label key.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The label value.
       shared_ptr<string> value_ {};
     };
 
@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The service tags.
+    // The service labels.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateServiceVersionRequest::Labels>> labels_ {};

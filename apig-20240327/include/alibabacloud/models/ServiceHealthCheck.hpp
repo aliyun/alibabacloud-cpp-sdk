@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the health check.
     shared_ptr<bool> enable_ {};
+    // The healthy threshold for the health check.
     shared_ptr<int32_t> healthyThreshold_ {};
+    // The health check domain name. This parameter is optional when the health check protocol is HTTP.
     shared_ptr<string> httpHost_ {};
+    // The health check path. This parameter is required when the health check protocol is HTTP.
     shared_ptr<string> httpPath_ {};
+    // The health check interval.
     shared_ptr<int32_t> interval_ {};
+    // The health check protocol. Valid values: TCP, HTTP, and GRPC.
     shared_ptr<string> protocol_ {};
+    // The health check response timeout period.
     shared_ptr<int32_t> timeout_ {};
+    // The unhealthy threshold for the health check.
     shared_ptr<int32_t> unhealthyThreshold_ {};
   };
 

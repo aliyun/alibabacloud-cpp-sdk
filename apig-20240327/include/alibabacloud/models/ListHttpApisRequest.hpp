@@ -186,39 +186,43 @@ namespace Models
 
 
   protected:
-    // Specifies whether to include policy configurations.
+    // The ID of the cloud-native API gateway.
     shared_ptr<string> gatewayId_ {};
-    // The API information.
+    // The gateway type filter. Valid values: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
-    // The consumer authentication policy in the specified environment in each returned API.
+    // The search keyword. Supports fuzzy match by API name or exact search by API ID.
     shared_ptr<string> keyword_ {};
-    // Specifies whether authentication is enabled.
+    // The exact name to search for.
     shared_ptr<string> name_ {};
-    // The environment information.
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The resource group ID.
+    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The returned message.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The Ingress information.
+    // The type of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
+    // - Http
+    // - Rest
+    // - WebSocket
+    // - HttpIngress
     shared_ptr<string> types_ {};
-    // Whether to return all APIs published to a specific environment
+    // Specifies whether to return information about APIs published to the specified environment.
     shared_ptr<bool> withAPIsPublishedToEnvironment_ {};
-    // The gateway type to filter. Valid values: **AI** and **API**.
+    // The environment ID. If specified, the response includes consumer authentication policy information for each API in the specified environment.
     shared_ptr<string> withAuthPolicyInEnvironmentId_ {};
-    // The page number of the returned page.
+    // Specifies whether authentication policies are enabled.
     shared_ptr<bool> withAuthPolicyList_ {};
-    // The response body.
+    // The consumer ID. If specified, the response includes the authorization rule list for the specified consumer for each API.
     shared_ptr<string> withConsumerInfoById_ {};
-    // The request ID.
+    // The environment context.
     shared_ptr<bool> withEnvironmentInfo_ {};
-    // The APIs.
+    // The environment ID.
     shared_ptr<string> withEnvironmentInfoById_ {};
-    // The number of entries per page.
+    // Specifies whether to include ingress information.
     shared_ptr<bool> withIngressInfo_ {};
-    // The status code.
+    // The plug-in ID. If specified, the response includes the plug-in publishing information for the specified plug-in.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
-    // The total number of entries returned.
+    // Specifies whether to include policy information.
     shared_ptr<bool> withPolicyConfigs_ {};
   };
 

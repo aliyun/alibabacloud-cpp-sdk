@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Specifies whether to clear historical quota usage when enabling or disabling the rule.
     shared_ptr<bool> clearHistory_ {};
+    // Specifies whether to enable or disable the rule.
     shared_ptr<bool> enable_ {};
   };
 

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Gateway type for filtering secrets of specific gateway type
+    // The gateway type used to filter results. Valid values: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
-    // Secret name for fuzzy matching, supports filtering secrets by name
+    // The key name. Fuzzy match is supported.
     shared_ptr<string> nameLike_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items per page
+    // The page size. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

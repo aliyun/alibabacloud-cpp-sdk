@@ -121,8 +121,14 @@ namespace Models
 
 
   protected:
-    // The gateway DPI engine database engine version.
+    // The gateway DPI engine version.
     shared_ptr<string> engineVersion_ {};
+    // The gateway instance edition. Valid values:
+    // 
+    // - Professional: standard instance.
+    // - Serverless: Serverless.
+    // - MultiTenantServerless: multi-tenant Serverless.
+    // - Unknown: unknown.
     shared_ptr<string> gatewayEdition_ {};
     // The gateway ID.
     shared_ptr<string> gatewayId_ {};

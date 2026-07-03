@@ -175,33 +175,23 @@ namespace Models
 
 
       protected:
-        // The types of resource attachments.
-        // 
-        // - HttpApi
-        // 
-        // - Operation
-        // 
-        // - GatewayRoute
-        // 
-        // - GatewayDomain
-        // 
-        // - Gateway
+        // The plug-in mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
         shared_ptr<string> attachResourceType_ {};
-        // Indicates if enabled.
+        // Indicates whether the plug-in mount is enabled.
         shared_ptr<bool> enable_ {};
-        // The environment metadata.
+        // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
-        // The parent resource metadata.
+        // The parent resource information.
         shared_ptr<ParentResourceInfo> parentResourceInfo_ {};
-        // The ID of the resource attachment.
+        // The plug-in mount ID.
         shared_ptr<string> pluginAttachmentId_ {};
-        // The plug-in type metadata.
+        // The plug-in type information.
         shared_ptr<PluginClassInfo> pluginClassInfo_ {};
-        // The plug-in configurations (Base64-encoded).
+        // The Base64-encoded content of the original plug-in configuration.
         shared_ptr<string> pluginConfig_ {};
         // The plug-in ID.
         shared_ptr<string> pluginId_ {};
-        // The information of resource attachments.
+        // The mount resource information.
         shared_ptr<vector<ResourceInfo>> resourceInfos_ {};
       };
 
@@ -238,13 +228,13 @@ namespace Models
 
 
     protected:
-      // The details of resource attachments.
+      // The item details.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -281,13 +271,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<ListPluginAttachmentsResponseBody::Data> data_ {};
-    // The status message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

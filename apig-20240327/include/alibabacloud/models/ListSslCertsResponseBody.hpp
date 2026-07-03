@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The list of certificate information.
+      // The list of certificates.
       shared_ptr<vector<SslCertMetaInfo>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the resources to which the plug-in is attached.
+    // The list of mount point IDs.
     shared_ptr<vector<string>> attachResourceIds_ {};
-    // Specifies whether to enable the plug-in.
+    // Specifies whether to enable the plugin.
     shared_ptr<bool> enable_ {};
-    // The Base64-encoded configurations of the plug-in.
+    // The Base64-encoded content of the original plugin configuration.
     shared_ptr<string> pluginConfig_ {};
   };
 

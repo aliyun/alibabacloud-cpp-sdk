@@ -313,7 +313,7 @@ namespace Models
     // The list of protocols supported by the agent.
     shared_ptr<vector<string>> agentProtocols_ {};
     // The AI API protocols. The following protocols are supported:
-    // - OpenAI/v1.
+    // - OpenAI/v1
     shared_ptr<vector<string>> aiProtocols_ {};
     // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
@@ -323,19 +323,19 @@ namespace Models
     shared_ptr<string> belongGatewayId_ {};
     // The API deployment configurations. Currently, only AI APIs support deployment configurations, and only a single deployment configuration can be specified.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The API description.
+    // The description of the API.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run without executing the operation.
+    // Specifies whether to perform a dry run without actually executing the operation.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
     // The timeout period for waiting for the first byte from the backend.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The HTTP Ingress API configuration.
+    // The configuration of the HTTP Ingress API.
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
     // The model category.
     shared_ptr<string> modelCategory_ {};
-    // The API name.
+    // The name of the API.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -353,9 +353,9 @@ namespace Models
     // - WebSocket
     // - HttpIngress
     // - LLM
-    // - Agent.
+    // - Agent
     shared_ptr<string> type_ {};
-    // The API versioning configuration.
+    // The versioning configuration of the API.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
   };
 

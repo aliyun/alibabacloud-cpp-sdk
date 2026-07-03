@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The label key.
       shared_ptr<string> key_ {};
+      // The label value.
       shared_ptr<string> value_ {};
     };
 
@@ -104,8 +106,11 @@ namespace Models
 
 
   protected:
+    // The resource IDs. You can specify up to 50 subkeys.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The list of labels.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 

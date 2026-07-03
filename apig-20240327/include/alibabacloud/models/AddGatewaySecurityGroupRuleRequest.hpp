@@ -62,7 +62,7 @@ namespace Models
   protected:
     // The description of the security group rule.
     shared_ptr<string> description_ {};
-    // The port range.
+    // The port ranges.
     shared_ptr<vector<string>> portRanges_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};

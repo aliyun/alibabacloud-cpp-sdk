@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The status code of the response.
+    // The response status code.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};

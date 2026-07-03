@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // Gateway ID.
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The operation ID.
     shared_ptr<string> operationId_ {};
-    // The route ID. You must specify this parameter when you unpublish the route of an HTTP API.
+    // The route ID. This parameter is required when you offline a route of an HTTP API.
     shared_ptr<string> routeId_ {};
   };
 

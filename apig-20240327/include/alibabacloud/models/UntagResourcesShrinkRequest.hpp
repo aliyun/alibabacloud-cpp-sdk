@@ -66,9 +66,20 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete all tags. This parameter takes effect only when tags are empty. Valid values:
+    // 
+    // - true
+    // - false
+    // - True
+    // - False
+    // 
+    // Default value: false.
     shared_ptr<bool> all_ {};
+    // The resource IDs. You can specify up to 50 subkeys.
     shared_ptr<string> resourceIdShrink_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The list of tag keys. You can specify up to 20 subkeys.
     shared_ptr<string> tagKeyShrink_ {};
   };
 

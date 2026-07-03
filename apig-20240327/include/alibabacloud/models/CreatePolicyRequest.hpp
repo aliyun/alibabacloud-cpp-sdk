@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Policy type, including RateLimit, ConcurrencyLimit, CircuitBreaker, HttpRewrite, HeaderModify, Cors, Authentication, FlowCopy, Timeout, Retry, IpAccessControl, DirectResponse, Redirect, Fallback, ServiceTls, ServiceLb, ServicePortTls, Waf, JWTAuth, OIDCAuth, ExternalZAuth, AiProxy, ModelRouter, AiStatistics, AiSecurityGuard, AiFallback, ModelMapper, AiTokenRateLimit, AiCache, DynamicRoute
+    // The policy type. Valid values: RateLimit, ConcurrencyLimit, CircuitBreaker, HttpRewrite, HeaderModify, Cors, Authentication, FlowCopy, Timeout, Retry, IpAccessControl, DirectResponse, Redirect, Fallback, ServiceTls, ServiceLb, ServicePortTls, Waf, JWTAuth, OIDCAuth, ExternalZAuth, AiProxy, ModelRouter, AiStatistics, AiSecurityGuard, AiFallback, ModelMapper, AiTokenRateLimit, AiCache, DynamicRoute.
     // 
     // This parameter is required.
     shared_ptr<string> className_ {};
-    // Policy configuration
+    // The policy configuration.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // Policy description
+    // The description of the policy.
     shared_ptr<string> description_ {};
-    // Policy name
+    // The policy name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

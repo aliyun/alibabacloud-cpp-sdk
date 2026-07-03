@@ -143,7 +143,9 @@ namespace Models
 
 
     protected:
-      // The zone selection option.
+      // The zone selection option. Valid values:
+      // - Auto: automatic.
+      // - Manual: manual.
       shared_ptr<string> selectOption_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -223,7 +225,10 @@ namespace Models
 
 
     protected:
-      // The network access type.
+      // The network access type. Valid values:
+      // - InternetAndIntranet: public and internal network.
+      // - Intranet: internal network.
+      // - Internet: public network.
       shared_ptr<string> type_ {};
     };
 
@@ -382,19 +387,23 @@ namespace Models
 
 
   protected:
-    // The billing method.
+    // The billing method. Valid values:
+    // - POSTPAY: subscription.
+    // - PREPAY: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
     // The gateway instance edition. Valid values:
     // 
-    // - Professional: Standard instance.
+    // - Professional: standard instance.
     // 
     // - Serverless: Serverless instance.
     // 
-    // - MultiTenantServerless: Multi-tenant Serverless instance.
+    // - MultiTenantServerless: multi-tenant Serverless instance.
     // 
-    // - Unknown: Unknown.
+    // - Unknown: unknown.
     shared_ptr<string> gatewayEdition_ {};
-    // The gateway type.
+    // The gateway type. Valid values:
+    // - AI: AI gateway.
+    // - API: cloud-native API gateway.
     shared_ptr<string> gatewayType_ {};
     // The gateway log configuration.
     shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};

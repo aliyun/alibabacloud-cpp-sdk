@@ -98,11 +98,11 @@ namespace Models
 
 
     protected:
-      // The JWT key configuration.
+      // The key configuration of the JWT.
       shared_ptr<string> key_ {};
-      // Specifies whether to pass through.
+      // Indicates whether the request is passed through.
       shared_ptr<bool> pass_ {};
-      // The storage location of the JWT.
+      // The location where the JWT is stored.
       shared_ptr<string> position_ {};
       // The prefix configuration.
       shared_ptr<string> prefix_ {};
@@ -199,11 +199,11 @@ namespace Models
 
 
     protected:
-      // The claim.
+      // The claim name in the JWT payload.
       shared_ptr<string> claim_ {};
-      // The header.
+      // The HTTP header name after conversion.
       shared_ptr<string> header_ {};
-      // The override.
+      // Specifies whether to overwrite an existing header with the same name.
       shared_ptr<bool> override_ {};
     };
 
@@ -266,7 +266,7 @@ namespace Models
 
 
   protected:
-    // The claims-to-headers configurations.
+    // The list of claim-to-header configurations.
     shared_ptr<vector<JwtIdentityConfig::ClaimsToHeadersConfigs>> claimsToHeadersConfigs_ {};
     // The JWKS configuration.
     shared_ptr<string> jwks_ {};
@@ -274,11 +274,11 @@ namespace Models
     shared_ptr<JwtIdentityConfig::JwtPayloadConfig> jwtPayloadConfig_ {};
     // The JWT token configuration.
     shared_ptr<JwtIdentityConfig::JwtTokenConfig> jwtTokenConfig_ {};
-    // The remote JWKS.
+    // The remote JWKS configuration (JSON string).
     shared_ptr<string> remoteJwks_ {};
     // The secret type.
     shared_ptr<string> secretType_ {};
-    // The type of authentication configuration.
+    // The authentication configuration type.
     shared_ptr<string> type_ {};
   };
 

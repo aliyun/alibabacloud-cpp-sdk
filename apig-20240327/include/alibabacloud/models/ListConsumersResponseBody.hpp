@@ -149,15 +149,15 @@ namespace Models
         shared_ptr<string> consumerId_ {};
         // The creation timestamp.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The deployment status of the API in the current environment.
+        // The publish status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // Indicates if enabled.
+        // Indicates whether the consumer is enabled.
         shared_ptr<bool> enable_ {};
         // The consumer name.
         shared_ptr<string> name_ {};
-        // The last update timestamp.
+        // The update timestamp.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -194,13 +194,13 @@ namespace Models
 
 
     protected:
-      // The list of consumer information.
+      // The list of consumers.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -237,13 +237,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<ListConsumersResponseBody::Data> data_ {};
-    // The status message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

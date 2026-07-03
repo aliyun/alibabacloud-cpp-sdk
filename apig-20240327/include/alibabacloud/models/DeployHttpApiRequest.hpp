@@ -331,7 +331,7 @@ namespace Models
       shared_ptr<vector<RestApiConfig::OperationDeployments>> operationDeployments_ {};
       // The operation IDs.
       shared_ptr<vector<string>> operationIds_ {};
-      // The historical version number. If this parameter is specified, the publish information is based on the historical version.
+      // The historical version number. If this field is specified, the publish information is based on the historical version.
       shared_ptr<string> revisionId_ {};
     };
 
@@ -411,9 +411,9 @@ namespace Models
   protected:
     // The HTTP API deployment configuration.
     shared_ptr<DeployHttpApiRequest::HttpApiConfig> httpApiConfig_ {};
-    // The deployment configuration for the REST API. This parameter is required when the HTTP API to be published is a REST API.
+    // The REST API deployment configuration. Required when the HTTP API being published is a REST API.
     shared_ptr<DeployHttpApiRequest::RestApiConfig> restApiConfig_ {};
-    // The route ID. This parameter is required when you publish a route of an HTTP API.
+    // The route ID. Required when publishing a route of an HTTP API.
     shared_ptr<string> routeId_ {};
   };
 

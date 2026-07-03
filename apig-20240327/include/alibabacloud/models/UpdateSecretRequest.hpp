@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The key value.
+    // The key pair value.
     shared_ptr<string> secretData_ {};
   };
 

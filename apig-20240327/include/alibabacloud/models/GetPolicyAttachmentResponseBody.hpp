@@ -119,19 +119,19 @@ namespace Models
 
 
     protected:
-      // Attached Resource ID
+      // The ID of the attached resource.
       shared_ptr<string> attachResourceId_ {};
-      // Attached resource type, HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, Domain
+      // The type of the attached resource. Valid values: HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, and Domain.
       shared_ptr<string> attachResourceType_ {};
-      // Policy attachment configuration
+      // The configuration of the attached policy.
       shared_ptr<string> config_ {};
-      // Environment ID
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // Gateway Instance ID
+      // The gateway instance ID.
       shared_ptr<string> gatewayId_ {};
-      // Policy Attachment ID
+      // The policy attachment ID.
       shared_ptr<string> policyAttachmentId_ {};
-      // Policy ID
+      // The policy ID.
       shared_ptr<string> policyId_ {};
     };
 
@@ -168,13 +168,13 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The response data.
     shared_ptr<GetPolicyAttachmentResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

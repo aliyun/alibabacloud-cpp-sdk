@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Schema of Response
+    // The alias of the environment.
     // 
     // This parameter is required.
     shared_ptr<string> alias_ {};
-    // The status code returned.
+    // The description of the environment. You can specify information such as the purpose and owner of the environment.
     shared_ptr<string> description_ {};
   };
 

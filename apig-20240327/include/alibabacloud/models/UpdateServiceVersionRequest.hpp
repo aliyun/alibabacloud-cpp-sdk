@@ -68,11 +68,11 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The label key.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The label value.
       shared_ptr<string> value_ {};
     };
 
@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The list of tags.
+    // The list of labels.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateServiceVersionRequest::Labels>> labels_ {};

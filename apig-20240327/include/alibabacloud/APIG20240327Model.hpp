@@ -25,6 +25,7 @@
 #include <alibabacloud/models/Backend.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResult.hpp>
 #include <alibabacloud/models/ConsumerConfig.hpp>
+#include <alibabacloud/models/ConsumerGroupInfo.hpp>
 #include <alibabacloud/models/ConsumerInfo.hpp>
 #include <alibabacloud/models/DashboardFilter.hpp>
 #include <alibabacloud/models/DomainInfo.hpp>
@@ -87,6 +88,7 @@
 #include <alibabacloud/models/RiskCheckResults.hpp>
 #include <alibabacloud/models/ServiceHealthCheck.hpp>
 #include <alibabacloud/models/Service.hpp>
+#include <alibabacloud/models/ServiceInfo.hpp>
 #include <alibabacloud/models/ServiceLinkedRole.hpp>
 #include <alibabacloud/models/SslCertMetaInfo.hpp>
 #include <alibabacloud/models/TlsCipherSuitesConfig.hpp>
@@ -105,6 +107,9 @@
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
+#include <alibabacloud/models/CreateAiModelProviderRequest.hpp>
+#include <alibabacloud/models/CreateAiModelProviderResponseBody.hpp>
+#include <alibabacloud/models/CreateAiModelProviderResponse.hpp>
 #include <alibabacloud/models/CreateAndAttachPolicyRequest.hpp>
 #include <alibabacloud/models/CreateAndAttachPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateAndAttachPolicyResponse.hpp>
@@ -141,6 +146,9 @@
 #include <alibabacloud/models/CreatePluginAttachmentRequest.hpp>
 #include <alibabacloud/models/CreatePluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/CreatePluginAttachmentResponse.hpp>
+#include <alibabacloud/models/CreatePluginClassRequest.hpp>
+#include <alibabacloud/models/CreatePluginClassResponseBody.hpp>
+#include <alibabacloud/models/CreatePluginClassResponse.hpp>
 #include <alibabacloud/models/CreatePolicyRequest.hpp>
 #include <alibabacloud/models/CreatePolicyResponseBody.hpp>
 #include <alibabacloud/models/CreatePolicyResponse.hpp>
@@ -240,6 +248,9 @@
 #include <alibabacloud/models/GetMcpServerResponse.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponse.hpp>
+#include <alibabacloud/models/GetPluginClassRequest.hpp>
+#include <alibabacloud/models/GetPluginClassResponseBody.hpp>
+#include <alibabacloud/models/GetPluginClassResponse.hpp>
 #include <alibabacloud/models/GetPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetPolicyResponse.hpp>
 #include <alibabacloud/models/GetPolicyAttachmentResponseBody.hpp>

@@ -196,8 +196,8 @@ namespace Models
 
         protected:
           // The action to be performed after the dry run. Valid values:
-          // - Create: Create.
-          // - Update: Update.
+          // - Create: create.
+          // - Update: update.
           shared_ptr<string> action_ {};
           // The operation method.
           shared_ptr<string> method_ {};
@@ -246,8 +246,8 @@ namespace Models
 
         protected:
           // The action to be performed after the dry run. Valid values:
-          // - Create: Create.
-          // - Update: Update.
+          // - Create: create.
+          // - Update: update.
           shared_ptr<string> action_ {};
           // The data structure name.
           shared_ptr<string> name_ {};
@@ -486,7 +486,7 @@ namespace Models
 
 
       protected:
-        // The error messages. If error messages are not empty, the API cannot be imported.
+        // The error messages. If error messages are not empty, the API cannot be imported successfully.
         shared_ptr<vector<string>> errorMessages_ {};
         // The information about the existing API. If this field is not empty, the import updates this API.
         shared_ptr<HttpApiApiInfo> existHttpApiInfo_ {};
@@ -501,7 +501,7 @@ namespace Models
         // The list of operations that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessOperations>> successOperations_ {};
         shared_ptr<vector<DryRunInfo::SuccessRoutes>> successRoutes_ {};
-        // The warning messages. If warning messages are not empty, some operations or data structures may not be imported.
+        // The warning messages. If warning messages are not empty, some operations or data structures may not be imported successfully.
         shared_ptr<vector<string>> warningMessages_ {};
       };
 

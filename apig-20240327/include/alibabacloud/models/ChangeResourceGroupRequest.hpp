@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Target resource group ID.
+    // The ID of the destination resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // Resource ID
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
-    // Resource type
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Service name, fixed value apig
+    // The service name. Set this parameter to apig.
     shared_ptr<string> service_ {};
   };
 

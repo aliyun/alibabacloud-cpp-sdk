@@ -5,6 +5,7 @@
 #include <alibabacloud/models/HttpApiOperationInfo.hpp>
 #include <alibabacloud/models/HttpRoute.hpp>
 #include <alibabacloud/models/HttpApiApiInfo.hpp>
+#include <alibabacloud/models/ConsumerGroupInfo.hpp>
 #include <alibabacloud/models/ConsumerInfo.hpp>
 #include <alibabacloud/models/EnvironmentInfo.hpp>
 #include <alibabacloud/models/GatewayInfo.hpp>
@@ -72,6 +73,8 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Items& obj) { 
           DARABONBA_PTR_TO_JSON(apiInfo, apiInfo_);
           DARABONBA_PTR_TO_JSON(consumerAuthorizationRuleId, consumerAuthorizationRuleId_);
+          DARABONBA_PTR_TO_JSON(consumerGroupId, consumerGroupId_);
+          DARABONBA_PTR_TO_JSON(consumerGroupInfo, consumerGroupInfo_);
           DARABONBA_PTR_TO_JSON(consumerId, consumerId_);
           DARABONBA_PTR_TO_JSON(consumerInfo, consumerInfo_);
           DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
@@ -81,6 +84,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(expireStatus, expireStatus_);
           DARABONBA_PTR_TO_JSON(expireTimestamp, expireTimestamp_);
           DARABONBA_PTR_TO_JSON(gatewayInfo, gatewayInfo_);
+          DARABONBA_PTR_TO_JSON(principalType, principalType_);
           DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
           DARABONBA_PTR_TO_JSON(resourceInfo, resourceInfo_);
           DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
@@ -89,6 +93,8 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Items& obj) { 
           DARABONBA_PTR_FROM_JSON(apiInfo, apiInfo_);
           DARABONBA_PTR_FROM_JSON(consumerAuthorizationRuleId, consumerAuthorizationRuleId_);
+          DARABONBA_PTR_FROM_JSON(consumerGroupId, consumerGroupId_);
+          DARABONBA_PTR_FROM_JSON(consumerGroupInfo, consumerGroupInfo_);
           DARABONBA_PTR_FROM_JSON(consumerId, consumerId_);
           DARABONBA_PTR_FROM_JSON(consumerInfo, consumerInfo_);
           DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
@@ -98,6 +104,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(expireStatus, expireStatus_);
           DARABONBA_PTR_FROM_JSON(expireTimestamp, expireTimestamp_);
           DARABONBA_PTR_FROM_JSON(gatewayInfo, gatewayInfo_);
+          DARABONBA_PTR_FROM_JSON(principalType, principalType_);
           DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
           DARABONBA_PTR_FROM_JSON(resourceInfo, resourceInfo_);
           DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
@@ -156,16 +163,17 @@ namespace Models
 
 
         protected:
-          // 接口信息。
+          // The operation information.
           shared_ptr<HttpApiOperationInfo> operationInfo_ {};
-          // 路由规则。
+          // The routing rule.
           shared_ptr<HttpRoute> route_ {};
         };
 
         virtual bool empty() const override { return this->apiInfo_ == nullptr
-        && this->consumerAuthorizationRuleId_ == nullptr && this->consumerId_ == nullptr && this->consumerInfo_ == nullptr && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr
-        && this->environmentInfo_ == nullptr && this->expireMode_ == nullptr && this->expireStatus_ == nullptr && this->expireTimestamp_ == nullptr && this->gatewayInfo_ == nullptr
-        && this->resourceId_ == nullptr && this->resourceInfo_ == nullptr && this->resourceType_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->consumerAuthorizationRuleId_ == nullptr && this->consumerGroupId_ == nullptr && this->consumerGroupInfo_ == nullptr && this->consumerId_ == nullptr && this->consumerInfo_ == nullptr
+        && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr && this->environmentInfo_ == nullptr && this->expireMode_ == nullptr && this->expireStatus_ == nullptr
+        && this->expireTimestamp_ == nullptr && this->gatewayInfo_ == nullptr && this->principalType_ == nullptr && this->resourceId_ == nullptr && this->resourceInfo_ == nullptr
+        && this->resourceType_ == nullptr && this->updateTimestamp_ == nullptr; };
         // apiInfo Field Functions 
         bool hasApiInfo() const { return this->apiInfo_ != nullptr;};
         void deleteApiInfo() { this->apiInfo_ = nullptr;};
@@ -180,6 +188,22 @@ namespace Models
         void deleteConsumerAuthorizationRuleId() { this->consumerAuthorizationRuleId_ = nullptr;};
         inline string getConsumerAuthorizationRuleId() const { DARABONBA_PTR_GET_DEFAULT(consumerAuthorizationRuleId_, "") };
         inline Items& setConsumerAuthorizationRuleId(string consumerAuthorizationRuleId) { DARABONBA_PTR_SET_VALUE(consumerAuthorizationRuleId_, consumerAuthorizationRuleId) };
+
+
+        // consumerGroupId Field Functions 
+        bool hasConsumerGroupId() const { return this->consumerGroupId_ != nullptr;};
+        void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
+        inline string getConsumerGroupId() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupId_, "") };
+        inline Items& setConsumerGroupId(string consumerGroupId) { DARABONBA_PTR_SET_VALUE(consumerGroupId_, consumerGroupId) };
+
+
+        // consumerGroupInfo Field Functions 
+        bool hasConsumerGroupInfo() const { return this->consumerGroupInfo_ != nullptr;};
+        void deleteConsumerGroupInfo() { this->consumerGroupInfo_ = nullptr;};
+        inline const ConsumerGroupInfo & getConsumerGroupInfo() const { DARABONBA_PTR_GET_CONST(consumerGroupInfo_, ConsumerGroupInfo) };
+        inline ConsumerGroupInfo getConsumerGroupInfo() { DARABONBA_PTR_GET(consumerGroupInfo_, ConsumerGroupInfo) };
+        inline Items& setConsumerGroupInfo(const ConsumerGroupInfo & consumerGroupInfo) { DARABONBA_PTR_SET_VALUE(consumerGroupInfo_, consumerGroupInfo) };
+        inline Items& setConsumerGroupInfo(ConsumerGroupInfo && consumerGroupInfo) { DARABONBA_PTR_SET_RVALUE(consumerGroupInfo_, consumerGroupInfo) };
 
 
         // consumerId Field Functions 
@@ -251,6 +275,13 @@ namespace Models
         inline Items& setGatewayInfo(GatewayInfo && gatewayInfo) { DARABONBA_PTR_SET_RVALUE(gatewayInfo_, gatewayInfo) };
 
 
+        // principalType Field Functions 
+        bool hasPrincipalType() const { return this->principalType_ != nullptr;};
+        void deletePrincipalType() { this->principalType_ = nullptr;};
+        inline string getPrincipalType() const { DARABONBA_PTR_GET_DEFAULT(principalType_, "") };
+        inline Items& setPrincipalType(string principalType) { DARABONBA_PTR_SET_VALUE(principalType_, principalType) };
+
+
         // resourceId Field Functions 
         bool hasResourceId() const { return this->resourceId_ != nullptr;};
         void deleteResourceId() { this->resourceId_ = nullptr;};
@@ -282,35 +313,40 @@ namespace Models
 
 
       protected:
-        // API信息详情。
+        // The API information.
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
-        // 消费者授权规则ID。
+        // The consumer authorization rule ID.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
-        // 消费者ID。
+        shared_ptr<string> consumerGroupId_ {};
+        shared_ptr<ConsumerGroupInfo> consumerGroupInfo_ {};
+        // The consumer ID.
         shared_ptr<string> consumerId_ {};
-        // 消费者信息详情。
+        // The consumer information.
         shared_ptr<ConsumerInfo> consumerInfo_ {};
-        // 创建时间戳。单位: 毫秒。
+        // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // API在当前环境的发布状态
+        // The publish status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
-        // 环境信息。
+        // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
-        // 失效模式。LongTerm、ShortTerm，二选一。
+        // The expiration mode. Valid values:
+        // - LongTerm
+        // - ShortTerm
         shared_ptr<string> expireMode_ {};
-        // 失效状态。
+        // The expiration status.
         shared_ptr<string> expireStatus_ {};
-        // 到期时间。
+        // The expiration time.
         shared_ptr<int64_t> expireTimestamp_ {};
-        // 网关信息。
+        // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};
-        // 资源ID。
+        shared_ptr<string> principalType_ {};
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // 资源信息详情。
+        // The resource information.
         shared_ptr<Items::ResourceInfo> resourceInfo_ {};
-        // 资源类型。
+        // The resource type.
         shared_ptr<string> resourceType_ {};
-        // 更新时间戳。单位: 毫秒。
+        // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -347,7 +383,7 @@ namespace Models
 
 
     protected:
-      // 消费者规则列表。
+      // The list of consumer rules.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

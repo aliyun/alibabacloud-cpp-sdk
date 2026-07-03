@@ -140,9 +140,13 @@ namespace Models
 
 
         protected:
+          // The period type of the existing conflicting rule on the consumer. Valid values: day (daily period), week (weekly period), or month (monthly period).
           shared_ptr<string> conflictPeriodType_ {};
+          // The type of the existing conflicting rule on the consumer. Valid values: calendar (the conflicting rule uses a calendar period) and epoch (the conflicting rule uses a custom period).
           shared_ptr<string> conflictType_ {};
+          // The consumer ID.
           shared_ptr<string> consumerId_ {};
+          // The consumer name.
           shared_ptr<string> consumerName_ {};
         };
 
@@ -172,8 +176,11 @@ namespace Models
 
 
       protected:
+        // The conflict hash.
         shared_ptr<string> conflictHash_ {};
+        // The list of conflicting entities (consumers).
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
+        // The total number of conflicts.
         shared_ptr<int32_t> totalConflictCount_ {};
       };
 
@@ -210,9 +217,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether the write request semantics are accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
       shared_ptr<bool> accepted_ {};
+      // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
+      // Indicates whether this is a dry run.
       shared_ptr<bool> dryRun_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -249,9 +260,13 @@ namespace Models
 
 
   protected:
+    // The status code or error code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ResetGatewayQuotaRuleResponseBody::Data> data_ {};
+    // The message content.
     shared_ptr<string> message_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

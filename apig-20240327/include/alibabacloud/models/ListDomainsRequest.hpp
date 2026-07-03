@@ -94,6 +94,7 @@ namespace Models
 
 
   protected:
+    // The domain name scope.
     shared_ptr<string> domainScope_ {};
     // The gateway ID.
     shared_ptr<string> gatewayId_ {};

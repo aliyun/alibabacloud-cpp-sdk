@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The gateway ID. This parameter is optional.
     shared_ptr<string> gatewayId_ {};
+    // The rule name keyword, used for fuzzy match.
     shared_ptr<string> keyword_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

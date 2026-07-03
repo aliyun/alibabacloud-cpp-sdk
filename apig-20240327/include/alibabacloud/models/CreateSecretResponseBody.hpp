@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The ID of the key.
+      // The key ID.
       shared_ptr<string> secretId_ {};
     };
 
@@ -100,11 +100,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<CreateSecretResponseBody::Data> data_ {};
-    // The error message.
+    // The error details.
     shared_ptr<string> message_ {};
     // ID of the request.
     shared_ptr<string> requestId_ {};

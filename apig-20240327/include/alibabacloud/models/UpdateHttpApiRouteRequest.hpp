@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The exposed URI path.
       shared_ptr<string> exposedUriPath_ {};
+      // Specifies whether to enable MCP statistics.
       shared_ptr<bool> mcpStatisticsEnable_ {};
+      // The MCP protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -182,19 +185,17 @@ namespace Models
 
 
       protected:
-        // The service port. This parameter is not required for dynamic ports.
+        // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
         // The service protocol. Valid values:
-        // 
         // - HTTP
-        // 
         // - HTTPS
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
         // The service version.
         shared_ptr<string> version_ {};
-        // The percentage of traffic.
+        // The percentage value of the traffic ratio.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -219,7 +220,7 @@ namespace Models
     protected:
       // The backend service scenario.
       shared_ptr<string> scene_ {};
-      // A list of backend services.
+      // The list of backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};
     };
 
@@ -286,17 +287,19 @@ namespace Models
 
 
   protected:
-    // The configuration of the backend service for the route.
+    // The backend service configuration of the route.
     shared_ptr<UpdateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
-    // The description of the route.
+    // The route description.
     shared_ptr<string> description_ {};
-    // A list of domain name IDs.
+    // The list of domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The route matching rule.
+    // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
+    // The MCP route configuration.
     shared_ptr<UpdateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};
+    // The route-level policy configurations.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
   };
 

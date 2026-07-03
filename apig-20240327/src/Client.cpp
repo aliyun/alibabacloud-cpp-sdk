@@ -64,17 +64,17 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 新增网关配额限流规则
+ * @summary Creates a gateway quota throttling rule.
  *
- * @description 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ * @description This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
  * > 
- * >  推荐调用逻辑：
- * > - 一、先 dryRun 预检检验是否存在规则冲突
- * > - - 传dryRun=true
- * > - - 返回含conflictHash的冲突预览
- * > - 二、确认后正式提交
- * > - - 无冲突：dryRun=false,overwrite=false
- * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflict: dryRun=false, overwrite=false.
+ * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request AddGatewayQuotaRuleRequest
  * @param headers map
@@ -151,17 +151,17 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
 }
 
 /**
- * @summary 新增网关配额限流规则
+ * @summary Creates a gateway quota throttling rule.
  *
- * @description 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ * @description This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
  * > 
- * >  推荐调用逻辑：
- * > - 一、先 dryRun 预检检验是否存在规则冲突
- * > - - 传dryRun=true
- * > - - 返回含conflictHash的冲突预览
- * > - 二、确认后正式提交
- * > - - 无冲突：dryRun=false,overwrite=false
- * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflict: dryRun=false, overwrite=false.
+ * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request AddGatewayQuotaRuleRequest
  * @return AddGatewayQuotaRuleResponse
@@ -226,7 +226,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRule(const st
 }
 
 /**
- * @summary Revokes API consumer authorization rules in batches.
+ * @summary Revokes consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @param headers map
@@ -259,7 +259,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary Revokes API consumer authorization rules in batches.
+ * @summary Revokes consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @return BatchDeleteConsumerAuthorizationRuleResponse
@@ -271,7 +271,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary Moves a resource from one resource group to another.
+ * @summary Transfers a resource to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -316,7 +316,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Moves a resource from one resource group to another.
+ * @summary Transfers a resource to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -325,6 +325,63 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return changeResourceGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建AI模型供应商
+ *
+ * @param request CreateAiModelProviderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAiModelProviderResponse
+ */
+CreateAiModelProviderResponse Client::createAiModelProviderWithOptions(const CreateAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasProvider()) {
+    body["provider"] = request.getProvider();
+  }
+
+  if (!!request.hasServiceIds()) {
+    body["serviceIds"] = request.getServiceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAiModelProvider"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-providers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAiModelProviderResponse>();
+}
+
+/**
+ * @summary 创建AI模型供应商
+ *
+ * @param request CreateAiModelProviderRequest
+ * @return CreateAiModelProviderResponse
+ */
+CreateAiModelProviderResponse Client::createAiModelProvider(const CreateAiModelProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAiModelProviderWithOptions(request, headers, runtime);
 }
 
 /**
@@ -940,7 +997,7 @@ CreateHttpApiResponse Client::createHttpApi(const CreateHttpApiRequest &request)
 }
 
 /**
- * @summary Create an Operation for HTTP API
+ * @summary Creates operations for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @param headers map
@@ -973,7 +1030,7 @@ CreateHttpApiOperationResponse Client::createHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Create an Operation for HTTP API
+ * @summary Creates operations for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @return CreateHttpApiOperationResponse
@@ -1228,6 +1285,87 @@ CreatePluginAttachmentResponse Client::createPluginAttachment(const CreatePlugin
 }
 
 /**
+ * @summary Creates a custom plugin class.
+ *
+ * @param request CreatePluginClassRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePluginClassResponse
+ */
+CreatePluginClassResponse Client::createPluginClassWithOptions(const CreatePluginClassRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAlias()) {
+    body["alias"] = request.getAlias();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExecutePriority()) {
+    body["executePriority"] = request.getExecutePriority();
+  }
+
+  if (!!request.hasExecuteStage()) {
+    body["executeStage"] = request.getExecuteStage();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasSupportedMinGatewayVersion()) {
+    body["supportedMinGatewayVersion"] = request.getSupportedMinGatewayVersion();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  if (!!request.hasVersionDescription()) {
+    body["versionDescription"] = request.getVersionDescription();
+  }
+
+  if (!!request.hasWasmLanguage()) {
+    body["wasmLanguage"] = request.getWasmLanguage();
+  }
+
+  if (!!request.hasWasmUrl()) {
+    body["wasmUrl"] = request.getWasmUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePluginClass"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-classes")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePluginClassResponse>();
+}
+
+/**
+ * @summary Creates a custom plugin class.
+ *
+ * @param request CreatePluginClassRequest
+ * @return CreatePluginClassResponse
+ */
+CreatePluginClassResponse Client::createPluginClass(const CreatePluginClassRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPluginClassWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a policy.
  *
  * @param request CreatePolicyRequest
@@ -1411,7 +1549,7 @@ CreateSecretResponse Client::createSecret(const CreateSecretRequest &request) {
 }
 
 /**
- * @summary Creates a service.
+ * @summary Creates services.
  *
  * @description This operation supports creating multiple services.
  *
@@ -1464,7 +1602,7 @@ CreateServiceResponse Client::createServiceWithOptions(const CreateServiceReques
 }
 
 /**
- * @summary Creates a service.
+ * @summary Creates services.
  *
  * @description This operation supports creating multiple services.
  *
@@ -1772,9 +1910,9 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 }
 
 /**
- * @summary 删除网关配额限流规则
+ * @summary Deletes a quota throttling rule from a gateway.
  *
- * @description 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ * @description Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @param headers map
@@ -1801,9 +1939,9 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary 删除网关配额限流规则
+ * @summary Deletes a quota throttling rule from a gateway.
  *
- * @description 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ * @description Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @return DeleteGatewayQuotaRuleResponse
@@ -1860,7 +1998,7 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRule(co
 }
 
 /**
- * @summary Deletes an HTTP API.
+ * @summary Deletes a specified HTTP API.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1885,7 +2023,7 @@ DeleteHttpApiResponse Client::deleteHttpApiWithOptions(const string &httpApiId, 
 }
 
 /**
- * @summary Deletes an HTTP API.
+ * @summary Deletes a specified HTTP API.
  *
  * @return DeleteHttpApiResponse
  */
@@ -1932,7 +2070,7 @@ DeleteHttpApiOperationResponse Client::deleteHttpApiOperation(const string &http
 }
 
 /**
- * @summary Deletes a route in an HTTP API.
+ * @summary Deletes a route of an HTTP API.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1957,7 +2095,7 @@ DeleteHttpApiRouteResponse Client::deleteHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Deletes a route in an HTTP API.
+ * @summary Deletes a route of an HTTP API.
  *
  * @return DeleteHttpApiRouteResponse
  */
@@ -2114,7 +2252,7 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachment(const string &poli
 /**
  * @summary Deletes a key value.
  *
- * @description 接口支持创建多个服务。
+ * @description The operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2141,7 +2279,7 @@ DeleteSecretResponse Client::deleteSecretWithOptions(const string &secretId, con
 /**
  * @summary Deletes a key value.
  *
- * @description 接口支持创建多个服务。
+ * @description The operation supports creating multiple services.
  *
  * @return DeleteSecretResponse
  */
@@ -2313,7 +2451,7 @@ DeployHttpApiResponse Client::deployHttpApi(const string &httpApiId, const Deplo
 }
 
 /**
- * @summary Deploys an MCP server.
+ * @summary Publishes an MCP server.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2338,7 +2476,7 @@ DeployMcpServerResponse Client::deployMcpServerWithOptions(const string &mcpServ
 }
 
 /**
- * @summary Deploys an MCP server.
+ * @summary Publishes an MCP server.
  *
  * @return DeployMcpServerResponse
  */
@@ -2349,7 +2487,7 @@ DeployMcpServerResponse Client::deployMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary 查询当前账号可见的云原生API网关开服地域
+ * @summary Queries the regions where the cloud-native API gateway is available for the current account.
  *
  * @param request DescribeRegionsRequest
  * @param headers map
@@ -2382,7 +2520,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary 查询当前账号可见的云原生API网关开服地域
+ * @summary Queries the regions where the cloud-native API gateway is available for the current account.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -2736,9 +2874,9 @@ GetGatewayResponse Client::getGateway(const string &gatewayId) {
 }
 
 /**
- * @summary 查询网关配额限流规则详情
+ * @summary Queries the details of a gateway quota rate limiting rule.
  *
- * @description 该接口用于查询 AI 网关上某条消费者配额规则。
+ * @description This operation queries a specific consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @param headers map
@@ -2779,9 +2917,9 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRuleWithOptions(const string 
 }
 
 /**
- * @summary 查询网关配额限流规则详情
+ * @summary Queries the details of a gateway quota rate limiting rule.
  *
- * @description 该接口用于查询 AI 网关上某条消费者配额规则。
+ * @description This operation queries a specific consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @return GetGatewayQuotaRuleResponse
@@ -2793,9 +2931,9 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 }
 
 /**
- * @summary 查询网关配额限流规则主体用量详情
+ * @summary Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -2832,9 +2970,9 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 }
 
 /**
- * @summary 查询网关配额限流规则主体用量详情
+ * @summary Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -2846,7 +2984,7 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(
 }
 
 /**
- * @summary Read HttpApi
+ * @summary Retrieves HTTP API information.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2871,7 +3009,7 @@ GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const 
 }
 
 /**
- * @summary Read HttpApi
+ * @summary Retrieves HTTP API information.
  *
  * @return GetHttpApiResponse
  */
@@ -2954,9 +3092,9 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 }
 
 /**
- * @summary Get MCP Server.
+ * @summary Retrieves an MCP server.
  *
- * @description The API supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2981,9 +3119,9 @@ GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, 
 }
 
 /**
- * @summary Get MCP Server.
+ * @summary Retrieves an MCP server.
  *
- * @description The API supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @return GetMcpServerResponse
  */
@@ -2994,7 +3132,7 @@ GetMcpServerResponse Client::getMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Queries a plugin attachment.
+ * @summary Queries a plugin mount.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3019,7 +3157,7 @@ GetPluginAttachmentResponse Client::getPluginAttachmentWithOptions(const string 
 }
 
 /**
- * @summary Queries a plugin attachment.
+ * @summary Queries a plugin mount.
  *
  * @return GetPluginAttachmentResponse
  */
@@ -3027,6 +3165,45 @@ GetPluginAttachmentResponse Client::getPluginAttachment(const string &pluginAtta
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getPluginAttachmentWithOptions(pluginAttachmentId, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a custom plugin class.
+ *
+ * @param request GetPluginClassRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPluginClassResponse
+ */
+GetPluginClassResponse Client::getPluginClassWithOptions(const string &pluginClassId, const GetPluginClassRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPluginClass"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-classes/" , Darabonba::Encode::Encoder::percentEncode(pluginClassId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPluginClassResponse>();
+}
+
+/**
+ * @summary Retrieves a custom plugin class.
+ *
+ * @param request GetPluginClassRequest
+ * @return GetPluginClassResponse
+ */
+GetPluginClassResponse Client::getPluginClass(const string &pluginClassId, const GetPluginClassRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPluginClassWithOptions(pluginClassId, request, headers, runtime);
 }
 
 /**
@@ -3066,7 +3243,7 @@ GetPolicyResponse Client::getPolicy(const string &policyId) {
 }
 
 /**
- * @summary Queries a policy attachment.
+ * @summary Queries the resource attachment of a policy.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3091,7 +3268,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachmentWithOptions(const string 
 }
 
 /**
- * @summary Queries a policy attachment.
+ * @summary Queries the resource attachment of a policy.
  *
  * @return GetPolicyAttachmentResponse
  */
@@ -3102,7 +3279,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachment(const string &policyAtta
 }
 
 /**
- * @summary Get resource overview information
+ * @summary Retrieves resource overview information.
  *
  * @param request GetResourceOverviewRequest
  * @param headers map
@@ -3135,7 +3312,7 @@ GetResourceOverviewResponse Client::getResourceOverviewWithOptions(const GetReso
 }
 
 /**
- * @summary Get resource overview information
+ * @summary Retrieves resource overview information.
  *
  * @param request GetResourceOverviewRequest
  * @return GetResourceOverviewResponse
@@ -3147,9 +3324,9 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
 }
 
 /**
- * @summary Obtains the key.
+ * @summary Retrieves a key.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description The operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3174,9 +3351,9 @@ GetSecretResponse Client::getSecretWithOptions(const string &secretId, const map
 }
 
 /**
- * @summary Obtains the key.
+ * @summary Retrieves a key.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description The operation supports creating multiple services.
  *
  * @return GetSecretResponse
  */
@@ -3187,9 +3364,9 @@ GetSecretResponse Client::getSecret(const string &secretId) {
 }
 
 /**
- * @summary Gets the key value.
+ * @summary Retrieves the value of a key.
  *
- * @description 接口支持创建多个服务。
+ * @description The operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3214,9 +3391,9 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const string &name, con
 }
 
 /**
- * @summary Gets the key value.
+ * @summary Retrieves the value of a key.
  *
- * @description 接口支持创建多个服务。
+ * @description The operation supports creating multiple services.
  *
  * @return GetSecretValueResponse
  */
@@ -3227,7 +3404,7 @@ GetSecretValueResponse Client::getSecretValue(const string &name) {
 }
 
 /**
- * @summary Gets service details.
+ * @summary Retrieves the details of a service.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3252,7 +3429,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &serviceId, const 
 }
 
 /**
- * @summary Gets service details.
+ * @summary Retrieves the details of a service.
  *
  * @return GetServiceResponse
  */
@@ -3543,7 +3720,7 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRules(co
 }
 
 /**
- * @summary 查询消费者配额限流规则列表
+ * @summary Queries the list of quota rules configured for a specific consumer.
  *
  * @param request ListConsumerQuotaRulesRequest
  * @param headers map
@@ -3588,7 +3765,7 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRulesWithOptions(const s
 }
 
 /**
- * @summary 查询消费者配额限流规则列表
+ * @summary Queries the list of quota rules configured for a specific consumer.
  *
  * @param request ListConsumerQuotaRulesRequest
  * @return ListConsumerQuotaRulesResponse
@@ -3600,7 +3777,7 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRules(const string &cons
 }
 
 /**
- * @summary Queries a list of consumers.
+ * @summary Retrieves a list of consumers.
  *
  * @param request ListConsumersRequest
  * @param headers map
@@ -3645,7 +3822,7 @@ ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersReques
 }
 
 /**
- * @summary Queries a list of consumers.
+ * @summary Retrieves a list of consumers.
  *
  * @param request ListConsumersRequest
  * @return ListConsumersResponse
@@ -3728,7 +3905,7 @@ ListDomainsResponse Client::listDomains(const ListDomainsRequest &request) {
 /**
  * @deprecated OpenAPI ListEnvironments is deprecated
  *
- * @summary Queries a list of environments.
+ * @summary Queries the list of environments.
  *
  * @param request ListEnvironmentsRequest
  * @param headers map
@@ -3791,7 +3968,7 @@ ListEnvironmentsResponse Client::listEnvironmentsWithOptions(const ListEnvironme
 /**
  * @deprecated OpenAPI ListEnvironments is deprecated
  *
- * @summary Queries a list of environments.
+ * @summary Queries the list of environments.
  *
  * @param request ListEnvironmentsRequest
  * @return ListEnvironmentsResponse
@@ -3803,9 +3980,9 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
 }
 
 /**
- * @summary 获取网关外的服务信息
+ * @summary Retrieves the external service information of a gateway.
  *
- * @description 接口支持创建多个服务。
+ * @description This operation supports creating multiple services.
  *
  * @param request ListExternalServicesRequest
  * @param headers map
@@ -3854,9 +4031,9 @@ ListExternalServicesResponse Client::listExternalServicesWithOptions(const strin
 }
 
 /**
- * @summary 获取网关外的服务信息
+ * @summary Retrieves the external service information of a gateway.
  *
- * @description 接口支持创建多个服务。
+ * @description This operation supports creating multiple services.
  *
  * @param request ListExternalServicesRequest
  * @return ListExternalServicesResponse
@@ -3868,7 +4045,7 @@ ListExternalServicesResponse Client::listExternalServices(const string &gatewayI
 }
 
 /**
- * @summary Queries the feature parameter configurations of an instance.
+ * @summary Queries the list of gateway attribute parameter settings.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3893,7 +4070,7 @@ ListGatewayFeaturesResponse Client::listGatewayFeaturesWithOptions(const string 
 }
 
 /**
- * @summary Queries the feature parameter configurations of an instance.
+ * @summary Queries the list of gateway attribute parameter settings.
  *
  * @return ListGatewayFeaturesResponse
  */
@@ -3904,9 +4081,9 @@ ListGatewayFeaturesResponse Client::listGatewayFeatures(const string &gatewayId)
 }
 
 /**
- * @summary 查询网关周期配额规则列表
+ * @summary Queries the list of API consumer quota rules bound to a gateway.
  *
- * @description 该接口用于查询网关上绑定的消费者配额规则列表
+ * @description Queries the list of API consumer quota rules bound to a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @param headers map
@@ -3955,9 +4132,9 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRulesWithOptions(const str
 }
 
 /**
- * @summary 查询网关周期配额规则列表
+ * @summary Queries the list of API consumer quota rules bound to a gateway.
  *
- * @description 该接口用于查询网关上绑定的消费者配额规则列表
+ * @description Queries the list of API consumer quota rules bound to a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @return ListGatewayQuotaRulesResponse
@@ -3969,7 +4146,7 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRules(const string &gatewa
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Queries a list of gateways.
  *
  * @param tmpReq ListGatewaysRequest
  * @param headers map
@@ -4036,7 +4213,7 @@ ListGatewaysResponse Client::listGatewaysWithOptions(const ListGatewaysRequest &
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Queries a list of gateways.
  *
  * @param request ListGatewaysRequest
  * @return ListGatewaysResponse
@@ -4048,7 +4225,7 @@ ListGatewaysResponse Client::listGateways(const ListGatewaysRequest &request) {
 }
 
 /**
- * @summary List Operations
+ * @summary Retrieves a list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @param headers map
@@ -4129,7 +4306,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperationsWithOptions(const str
 }
 
 /**
- * @summary List Operations
+ * @summary Retrieves a list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @return ListHttpApiOperationsResponse
@@ -4242,7 +4419,7 @@ ListHttpApiRoutesResponse Client::listHttpApiRoutes(const string &httpApiId, con
 }
 
 /**
- * @summary Queries a list of HTTP APIs.
+ * @summary Retrieves a list of HTTP APIs.
  *
  * @param request ListHttpApisRequest
  * @param headers map
@@ -4339,7 +4516,7 @@ ListHttpApisResponse Client::listHttpApisWithOptions(const ListHttpApisRequest &
 }
 
 /**
- * @summary Queries a list of HTTP APIs.
+ * @summary Retrieves a list of HTTP APIs.
  *
  * @param request ListHttpApisRequest
  * @return ListHttpApisResponse
@@ -4353,7 +4530,7 @@ ListHttpApisResponse Client::listHttpApis(const ListHttpApisRequest &request) {
 /**
  * @summary Retrieves a list of MCP servers.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListMcpServersRequest
  * @param headers map
@@ -4412,7 +4589,7 @@ ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersReq
 /**
  * @summary Retrieves a list of MCP servers.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListMcpServersRequest
  * @return ListMcpServersResponse
@@ -4424,7 +4601,7 @@ ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &reque
 }
 
 /**
- * @summary Retrieves a list of plug-in attachments.
+ * @summary Retrieves the list of plug-in mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @param headers map
@@ -4489,7 +4666,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves a list of plug-in attachments.
+ * @summary Retrieves the list of plug-in mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @return ListPluginAttachmentsResponse
@@ -4501,9 +4678,9 @@ ListPluginAttachmentsResponse Client::listPluginAttachments(const ListPluginAtta
 }
 
 /**
- * @summary Obtains a plugin.
+ * @summary Retrieves plug-ins.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListPluginClassesRequest
  * @param headers map
@@ -4576,9 +4753,9 @@ ListPluginClassesResponse Client::listPluginClassesWithOptions(const ListPluginC
 }
 
 /**
- * @summary Obtains a plugin.
+ * @summary Retrieves plug-ins.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListPluginClassesRequest
  * @return ListPluginClassesResponse
@@ -4590,7 +4767,7 @@ ListPluginClassesResponse Client::listPluginClasses(const ListPluginClassesReque
 }
 
 /**
- * @summary Queries plug-ins.
+ * @summary Retrieves a list of plugins.
  *
  * @param request ListPluginsRequest
  * @param headers map
@@ -4659,7 +4836,7 @@ ListPluginsResponse Client::listPluginsWithOptions(const ListPluginsRequest &req
 }
 
 /**
- * @summary Queries plug-ins.
+ * @summary Retrieves a list of plugins.
  *
  * @param request ListPluginsRequest
  * @return ListPluginsResponse
@@ -4671,7 +4848,7 @@ ListPluginsResponse Client::listPlugins(const ListPluginsRequest &request) {
 }
 
 /**
- * @summary Queries policies.
+ * @summary Queries a list of policies.
  *
  * @param request ListPoliciesRequest
  * @param headers map
@@ -4724,7 +4901,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 }
 
 /**
- * @summary Queries policies.
+ * @summary Queries a list of policies.
  *
  * @param request ListPoliciesRequest
  * @return ListPoliciesResponse
@@ -4805,9 +4982,9 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
 }
 
 /**
- * @summary Lists key references.
+ * @summary Lists secret references.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description This operation supports creating multiple services.
  *
  * @param request ListSecretReferencesRequest
  * @param headers map
@@ -4844,9 +5021,9 @@ ListSecretReferencesResponse Client::listSecretReferencesWithOptions(const strin
 }
 
 /**
- * @summary Lists key references.
+ * @summary Lists secret references.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description This operation supports creating multiple services.
  *
  * @param request ListSecretReferencesRequest
  * @return ListSecretReferencesResponse
@@ -4858,9 +5035,9 @@ ListSecretReferencesResponse Client::listSecretReferences(const string &secretId
 }
 
 /**
- * @summary List keys.
+ * @summary Lists keys.
  *
- * @description The API supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListSecretsRequest
  * @param headers map
@@ -4905,9 +5082,9 @@ ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &req
 }
 
 /**
- * @summary List keys.
+ * @summary Lists keys.
  *
- * @description The API supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListSecretsRequest
  * @return ListSecretsResponse
@@ -5045,7 +5222,7 @@ ListSslCertsResponse Client::listSslCerts(const ListSslCertsRequest &request) {
 }
 
 /**
- * @summary 查标签接口
+ * @summary Retrieves the list of resource labels.
  *
  * @param tmpReq ListTagResourcesRequest
  * @param headers map
@@ -5100,7 +5277,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary 查标签接口
+ * @summary Retrieves the list of resource labels.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -5112,7 +5289,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Retrieve the availability zones under a cloud-native API gateway region
+ * @summary Retrieves the zones available for a cloud-native API gateway in a specified region.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5137,7 +5314,7 @@ ListZonesResponse Client::listZonesWithOptions(const map<string, string> &header
 }
 
 /**
- * @summary Retrieve the availability zones under a cloud-native API gateway region
+ * @summary Retrieves the zones available for a cloud-native API gateway in a specified region.
  *
  * @return ListZonesResponse
  */
@@ -5160,6 +5337,10 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRulesW
   json query = {};
   if (!!request.hasApiNameLike()) {
     query["apiNameLike"] = request.getApiNameLike();
+  }
+
+  if (!!request.hasConsumerGroupId()) {
+    query["consumerGroupId"] = request.getConsumerGroupId();
   }
 
   if (!!request.hasConsumerId()) {
@@ -5188,6 +5369,10 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRulesW
 
   if (!!request.hasParentResourceId()) {
     query["parentResourceId"] = request.getParentResourceId();
+  }
+
+  if (!!request.hasPrincipalType()) {
+    query["principalType"] = request.getPrincipalType();
   }
 
   if (!!request.hasResourceId()) {
@@ -5233,7 +5418,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRules(
 }
 
 /**
- * @summary Deletes a consumer authorization rule.
+ * @summary Deletes an API consumer authorization rule.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5258,7 +5443,7 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRuleW
 }
 
 /**
- * @summary Deletes a consumer authorization rule.
+ * @summary Deletes an API consumer authorization rule.
  *
  * @return RemoveConsumerAuthorizationRuleResponse
  */
@@ -5269,17 +5454,17 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
 }
 
 /**
- * @summary 重置网关配额限流规则
+ * @summary Resets a quota rate limiting rule on a gateway.
  *
- * @description 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+ * @description Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
  * > 
- * >  推荐调用逻辑：
- * > - 一、先 dryRun 预检检验是否存在规则冲突
- * > - - 传dryRun=true
- * > - - 返回含conflictHash的冲突预览
- * > - 二、确认后正式提交
- * > - - 无冲突：dryRun=false,overwrite=false
- * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflict: dryRun=false, overwrite=false.
+ * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @param headers map
@@ -5340,17 +5525,17 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
 }
 
 /**
- * @summary 重置网关配额限流规则
+ * @summary Resets a quota rate limiting rule on a gateway.
  *
- * @description 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+ * @description Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
  * > 
- * >  推荐调用逻辑：
- * > - 一、先 dryRun 预检检验是否存在规则冲突
- * > - - 传dryRun=true
- * > - - 返回含conflictHash的冲突预览
- * > - 二、确认后正式提交
- * > - - 无冲突：dryRun=false,overwrite=false
- * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflict: dryRun=false, overwrite=false.
+ * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @return ResetGatewayQuotaRuleResponse
@@ -5362,7 +5547,7 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRule(const string &gatewa
 }
 
 /**
- * @summary Restarts an instance.
+ * @summary Restarts a gateway.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5387,7 +5572,7 @@ RestartGatewayResponse Client::restartGatewayWithOptions(const string &gatewayId
 }
 
 /**
- * @summary Restarts an instance.
+ * @summary Restarts a gateway.
  *
  * @return RestartGatewayResponse
  */
@@ -5398,7 +5583,7 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
 }
 
 /**
- * @summary Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
+ * @summary Syncs an external MCP server.
  *
  * @param request SyncMCPServersRequest
  * @param headers map
@@ -5447,7 +5632,7 @@ SyncMCPServersResponse Client::syncMCPServersWithOptions(const SyncMCPServersReq
 }
 
 /**
- * @summary Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
+ * @summary Syncs an external MCP server.
  *
  * @param request SyncMCPServersRequest
  * @return SyncMCPServersResponse
@@ -5459,7 +5644,7 @@ SyncMCPServersResponse Client::syncMCPServers(const SyncMCPServersRequest &reque
 }
 
 /**
- * @summary 打标签接口
+ * @summary Adds labels to resources.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -5500,7 +5685,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary 打标签接口
+ * @summary Adds labels to resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -5512,7 +5697,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Undeploys an MCP server.
+ * @summary Cancels the publication of an MCP server.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5537,7 +5722,7 @@ UnDeployMcpServerResponse Client::unDeployMcpServerWithOptions(const string &mcp
 }
 
 /**
- * @summary Undeploys an MCP server.
+ * @summary Cancels the publication of an MCP server.
  *
  * @return UnDeployMcpServerResponse
  */
@@ -5548,7 +5733,7 @@ UnDeployMcpServerResponse Client::unDeployMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Unpublishes an HTTP API.
+ * @summary Cancels the deployment of an HTTP API.
  *
  * @param request UndeployHttpApiRequest
  * @param headers map
@@ -5593,7 +5778,7 @@ UndeployHttpApiResponse Client::undeployHttpApiWithOptions(const string &httpApi
 }
 
 /**
- * @summary Unpublishes an HTTP API.
+ * @summary Cancels the deployment of an HTTP API.
  *
  * @param request UndeployHttpApiRequest
  * @return UndeployHttpApiResponse
@@ -5605,7 +5790,7 @@ UndeployHttpApiResponse Client::undeployHttpApi(const string &httpApiId, const U
 }
 
 /**
- * @summary Uninstalls a plug-in.
+ * @summary Uninstalls a plugin.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5630,7 +5815,7 @@ UninstallPluginResponse Client::uninstallPluginWithOptions(const string &pluginI
 }
 
 /**
- * @summary Uninstalls a plug-in.
+ * @summary Uninstalls a plugin.
  *
  * @return UninstallPluginResponse
  */
@@ -5641,7 +5826,7 @@ UninstallPluginResponse Client::uninstallPlugin(const string &pluginId) {
 }
 
 /**
- * @summary 删标签接口
+ * @summary Removes tags from resources.
  *
  * @param tmpReq UntagResourcesRequest
  * @param headers map
@@ -5696,7 +5881,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary 删标签接口
+ * @summary Removes tags from resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -5777,7 +5962,7 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicy(const string &policy
 }
 
 /**
- * @summary Updates a consumer.
+ * @summary Updates an API consumer.
  *
  * @param request UpdateConsumerRequest
  * @param headers map
@@ -5826,7 +6011,7 @@ UpdateConsumerResponse Client::updateConsumerWithOptions(const string &consumerI
 }
 
 /**
- * @summary Updates a consumer.
+ * @summary Updates an API consumer.
  *
  * @param request UpdateConsumerRequest
  * @return UpdateConsumerResponse
@@ -5982,7 +6167,7 @@ UpdateDomainResponse Client::updateDomain(const string &domainId, const UpdateDo
 /**
  * @deprecated OpenAPI UpdateEnvironment is deprecated
  *
- * @summary UpdateEnvironment
+ * @summary Updates an environment.
  *
  * @param request UpdateEnvironmentRequest
  * @param headers map
@@ -6021,7 +6206,7 @@ UpdateEnvironmentResponse Client::updateEnvironmentWithOptions(const string &env
 /**
  * @deprecated OpenAPI UpdateEnvironment is deprecated
  *
- * @summary UpdateEnvironment
+ * @summary Updates an environment.
  *
  * @param request UpdateEnvironmentRequest
  * @return UpdateEnvironmentResponse
@@ -6033,7 +6218,7 @@ UpdateEnvironmentResponse Client::updateEnvironment(const string &environmentId,
 }
 
 /**
- * @summary Updates the configuration of an instance feature parameter.
+ * @summary Updates the attribute parameters of a gateway.
  *
  * @param request UpdateGatewayFeatureRequest
  * @param headers map
@@ -6066,7 +6251,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeatureWithOptions(const strin
 }
 
 /**
- * @summary Updates the configuration of an instance feature parameter.
+ * @summary Updates the attribute parameters of a gateway.
  *
  * @param request UpdateGatewayFeatureRequest
  * @return UpdateGatewayFeatureResponse
@@ -6080,7 +6265,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeature(const string &gatewayI
 /**
  * @deprecated OpenAPI UpdateGatewayName is deprecated
  *
- * @summary The response message returned.
+ * @summary Modifies the name of a gateway.
  *
  * @param request UpdateGatewayNameRequest
  * @param headers map
@@ -6115,7 +6300,7 @@ UpdateGatewayNameResponse Client::updateGatewayNameWithOptions(const string &gat
 /**
  * @deprecated OpenAPI UpdateGatewayName is deprecated
  *
- * @summary The response message returned.
+ * @summary Modifies the name of a gateway.
  *
  * @param request UpdateGatewayNameRequest
  * @return UpdateGatewayNameResponse
@@ -6127,16 +6312,16 @@ UpdateGatewayNameResponse Client::updateGatewayName(const string &gatewayId, con
 }
 
 /**
- * @summary 更新网关配额限流规则
+ * @summary Edits a quota throttling rule on a gateway.
  *
- * @description 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
- * >  推荐调用逻辑：
- * > - 一、先 dryRun 预检检验是否存在规则冲突
- * > - - 传dryRun=true
- * > - - 返回含conflictHash的冲突预览
- * > - 二、确认后正式提交
- * > - - 无冲突：dryRun=false,overwrite=false
- * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+ * >  Recommended call logic:
+ * > - Step 1: Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun to true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - Step 2: Submit the request after confirmation.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @param headers map
@@ -6197,16 +6382,16 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary 更新网关配额限流规则
+ * @summary Edits a quota throttling rule on a gateway.
  *
- * @description 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
- * >  推荐调用逻辑：
- * > - 一、先 dryRun 预检检验是否存在规则冲突
- * > - - 传dryRun=true
- * > - - 返回含conflictHash的冲突预览
- * > - 二、确认后正式提交
- * > - - 无冲突：dryRun=false,overwrite=false
- * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+ * >  Recommended call logic:
+ * > - Step 1: Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun to true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - Step 2: Submit the request after confirmation.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @return UpdateGatewayQuotaRuleResponse
@@ -6218,9 +6403,9 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRule(const string &gate
 }
 
 /**
- * @summary 启/停用网关配额限流规则
+ * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ * @description Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @param headers map
@@ -6257,9 +6442,9 @@ UpdateGatewayQuotaRuleStatusResponse Client::updateGatewayQuotaRuleStatusWithOpt
 }
 
 /**
- * @summary 启/停用网关配额限流规则
+ * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ * @description Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @return UpdateGatewayQuotaRuleStatusResponse
@@ -6409,7 +6594,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperation(const string &http
 }
 
 /**
- * @summary Updates a route of an HTTP API.
+ * @summary Updates a route of an HttpApi.
  *
  * @param request UpdateHttpApiRouteRequest
  * @param headers map
@@ -6466,7 +6651,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Updates a route of an HTTP API.
+ * @summary Updates a route of an HttpApi.
  *
  * @param request UpdateHttpApiRouteRequest
  * @return UpdateHttpApiRouteResponse
@@ -6480,7 +6665,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRoute(const string &httpApiId, c
 /**
  * @summary Updates an MCP server.
  *
- * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
+ * @description Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
  *
  * @param request UpdateMcpServerRequest
  * @param headers map
@@ -6559,7 +6744,7 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Updates an MCP server.
  *
- * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
+ * @description Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
  *
  * @param request UpdateMcpServerRequest
  * @return UpdateMcpServerResponse
@@ -6571,7 +6756,7 @@ UpdateMcpServerResponse Client::updateMcpServer(const string &mcpServerId, const
 }
 
 /**
- * @summary Updates a plug-in attachment.
+ * @summary Updates a plugin mount.
  *
  * @param request UpdatePluginAttachmentRequest
  * @param headers map
@@ -6612,7 +6797,7 @@ UpdatePluginAttachmentResponse Client::updatePluginAttachmentWithOptions(const s
 }
 
 /**
- * @summary Updates a plug-in attachment.
+ * @summary Updates a plugin mount.
  *
  * @param request UpdatePluginAttachmentRequest
  * @return UpdatePluginAttachmentResponse
@@ -6677,9 +6862,9 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
 }
 
 /**
- * @summary Updates the key.
+ * @summary Updates a key pair.
  *
- * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
+ * @description Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
  *
  * @param request UpdateSecretRequest
  * @param headers map
@@ -6712,9 +6897,9 @@ UpdateSecretResponse Client::updateSecretWithOptions(const string &secretId, con
 }
 
 /**
- * @summary Updates the key.
+ * @summary Updates a key pair.
  *
- * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
+ * @description Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
  *
  * @param request UpdateSecretRequest
  * @return UpdateSecretResponse
@@ -6726,7 +6911,7 @@ UpdateSecretResponse Client::updateSecret(const string &secretId, const UpdateSe
 }
 
 /**
- * @summary Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
+ * @summary Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
  *
  * @param request UpdateServiceRequest
  * @param headers map
@@ -6760,6 +6945,10 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, 
     body["healthyPanicThreshold"] = request.getHealthyPanicThreshold();
   }
 
+  if (!!request.hasModelProviderId()) {
+    body["modelProviderId"] = request.getModelProviderId();
+  }
+
   if (!!request.hasOutlierDetectionConfig()) {
     body["outlierDetectionConfig"] = request.getOutlierDetectionConfig();
   }
@@ -6791,7 +6980,7 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, 
 }
 
 /**
- * @summary Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
+ * @summary Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
  *
  * @param request UpdateServiceRequest
  * @return UpdateServiceResponse
@@ -6848,7 +7037,7 @@ UpdateServiceVersionResponse Client::updateServiceVersion(const string &serviceI
 }
 
 /**
- * @summary Updates the version of a Cloud-native API Gateway instance.
+ * @summary Upgrades the gateway version.
  *
  * @param request UpgradeGatewayRequest
  * @param headers map
@@ -6881,7 +7070,7 @@ UpgradeGatewayResponse Client::upgradeGatewayWithOptions(const string &gatewayId
 }
 
 /**
- * @summary Updates the version of a Cloud-native API Gateway instance.
+ * @summary Upgrades the gateway version.
  *
  * @param request UpgradeGatewayRequest
  * @return UpgradeGatewayResponse

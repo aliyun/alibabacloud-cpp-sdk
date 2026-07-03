@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(healthCheck, healthCheck_);
       DARABONBA_PTR_TO_JSON(healthStatus, healthStatus_);
       DARABONBA_PTR_TO_JSON(labelDetails, labelDetails_);
+      DARABONBA_PTR_TO_JSON(modelProviderId, modelProviderId_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
       DARABONBA_PTR_TO_JSON(outlierEndpoints, outlierEndpoints_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(healthCheck, healthCheck_);
       DARABONBA_PTR_FROM_JSON(healthStatus, healthStatus_);
       DARABONBA_PTR_FROM_JSON(labelDetails, labelDetails_);
+      DARABONBA_PTR_FROM_JSON(modelProviderId, modelProviderId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(outlierEndpoints, outlierEndpoints_);
@@ -135,9 +137,9 @@ namespace Models
 
 
       protected:
-        // The key of the label.
+        // The label key.
         shared_ptr<string> key_ {};
-        // The value of the label.
+        // The label value.
         shared_ptr<string> value_ {};
       };
 
@@ -160,7 +162,7 @@ namespace Models
 
 
     protected:
-      // The labels of the version.
+      // The list of version labels.
       shared_ptr<vector<Versions::Labels>> labels_ {};
       // The version name.
       shared_ptr<string> name_ {};
@@ -217,16 +219,16 @@ namespace Models
       shared_ptr<string> name_ {};
       // The port number.
       shared_ptr<int32_t> port_ {};
-      // The protocol. Valid values: `TCP` or `UDP`.
+      // The protocol. Valid values: TCP and UDP.
       shared_ptr<string> protocol_ {};
     };
 
     virtual bool empty() const override { return this->addresses_ == nullptr
         && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->createTimestamp_ == nullptr && this->expressType_ == nullptr && this->gatewayId_ == nullptr
-        && this->groupName_ == nullptr && this->healthCheck_ == nullptr && this->healthStatus_ == nullptr && this->labelDetails_ == nullptr && this->name_ == nullptr
-        && this->namespace_ == nullptr && this->outlierEndpoints_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr && this->qualifier_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr && this->updateTimestamp_ == nullptr
-        && this->versions_ == nullptr; };
+        && this->groupName_ == nullptr && this->healthCheck_ == nullptr && this->healthStatus_ == nullptr && this->labelDetails_ == nullptr && this->modelProviderId_ == nullptr
+        && this->name_ == nullptr && this->namespace_ == nullptr && this->outlierEndpoints_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr
+        && this->qualifier_ == nullptr && this->resourceGroupId_ == nullptr && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr
+        && this->updateTimestamp_ == nullptr && this->versions_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -305,6 +307,13 @@ namespace Models
     inline vector<LabelDetail> getLabelDetails() { DARABONBA_PTR_GET(labelDetails_, vector<LabelDetail>) };
     inline Service& setLabelDetails(const vector<LabelDetail> & labelDetails) { DARABONBA_PTR_SET_VALUE(labelDetails_, labelDetails) };
     inline Service& setLabelDetails(vector<LabelDetail> && labelDetails) { DARABONBA_PTR_SET_RVALUE(labelDetails_, labelDetails) };
+
+
+    // modelProviderId Field Functions 
+    bool hasModelProviderId() const { return this->modelProviderId_ != nullptr;};
+    void deleteModelProviderId() { this->modelProviderId_ = nullptr;};
+    inline string getModelProviderId() const { DARABONBA_PTR_GET_DEFAULT(modelProviderId_, "") };
+    inline Service& setModelProviderId(string modelProviderId) { DARABONBA_PTR_SET_VALUE(modelProviderId_, modelProviderId) };
 
 
     // name Field Functions 
@@ -400,33 +409,34 @@ namespace Models
 
 
   protected:
-    // A list of service addresses, such as IP addresses or domain names.
+    // The address information, including IP addresses or domain name lists.
     shared_ptr<vector<string>> addresses_ {};
     // The agent service configuration.
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
     // The AI service configuration.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
-    // The creation timestamp.
+    // The creation time.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The execution type for the cloud workflow.
+    // The CloudFlow execution mode.
     shared_ptr<string> expressType_ {};
     // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
-    // The name of the service group.
+    // The service group name.
     shared_ptr<string> groupName_ {};
     // The health check configuration.
     shared_ptr<ServiceHealthCheck> healthCheck_ {};
-    // The health status. Valid values: `Healthy` or `Unhealthy`.
+    // The health check status. Valid values: Healthy and Unhealthy.
     shared_ptr<string> healthStatus_ {};
-    // A list of labels for the service.
+    // The label information of the service.
     shared_ptr<vector<LabelDetail>> labelDetails_ {};
+    shared_ptr<string> modelProviderId_ {};
     // The service name.
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // A list of outlier endpoints.
+    // The circuit-broken endpoints.
     shared_ptr<vector<string>> outlierEndpoints_ {};
-    // A list of port configurations.
+    // The list of port information.
     shared_ptr<vector<Service::Ports>> ports_ {};
     // The service protocol.
     shared_ptr<string> protocol_ {};
@@ -434,15 +444,15 @@ namespace Models
     shared_ptr<string> qualifier_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The unique service ID.
+    // The unique ID of the service.
     shared_ptr<string> serviceId_ {};
     // The source type of the service.
     shared_ptr<string> sourceType_ {};
-    // A list of unhealthy endpoints.
+    // The unhealthy endpoints.
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
-    // The update timestamp.
+    // The update time.
     shared_ptr<int64_t> updateTimestamp_ {};
-    // A list of service versions.
+    // The list of service versions.
     shared_ptr<vector<Service::Versions>> versions_ {};
   };
 

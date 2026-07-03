@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The page number of the detailed consumption (request) records of the consumer within the cycle.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of detailed consumption (request) records per page for the consumer within the cycle. Maximum value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

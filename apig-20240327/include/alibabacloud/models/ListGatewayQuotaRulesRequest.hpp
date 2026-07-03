@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The rule name keyword, used for fuzzy match.
     shared_ptr<string> keyword_ {};
+    // The maximum number of records to retrieve in a single request. This parameter is not supported.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. This parameter is not supported.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

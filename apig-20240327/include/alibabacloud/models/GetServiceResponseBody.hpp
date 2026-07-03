@@ -75,7 +75,7 @@ namespace Models
     shared_ptr<Service> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

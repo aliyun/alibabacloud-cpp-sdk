@@ -116,7 +116,9 @@ namespace Models
 
 
         protected:
+          // The name.
           shared_ptr<string> name_ {};
+          // The namespace.
           shared_ptr<string> namespace_ {};
         };
 
@@ -146,8 +148,11 @@ namespace Models
 
 
       protected:
+        // The namespace.
         shared_ptr<string> namespace_ {};
+        // The display name of the namespace.
         shared_ptr<string> namespaceShowName_ {};
+        // The backend services.
         shared_ptr<vector<Items::Services>> services_ {};
       };
 
@@ -162,6 +167,7 @@ namespace Models
 
 
     protected:
+      // The service information.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -198,8 +204,11 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of APIs.
     shared_ptr<ListExternalServicesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

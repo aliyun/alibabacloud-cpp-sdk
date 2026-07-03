@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The request ID, which is used to trace the call link.
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The resource group ID.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Schema of Response
+    // The response data.
     shared_ptr<CreateEnvironmentResponseBody::Data> data_ {};
-    // rg-acfmycs5expl7oq
+    // The response message.
     shared_ptr<string> message_ {};
-    // The instance ID.
+    // The request ID, which is used to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

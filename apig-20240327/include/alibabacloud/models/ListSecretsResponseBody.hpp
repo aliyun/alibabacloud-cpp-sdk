@@ -166,23 +166,26 @@ namespace Models
 
 
       protected:
-        // Unix timestamp when the secret was created
+        // The creation timestamp.
         shared_ptr<int64_t> createTimestamp_ {};
-        // Gateway type associated with the secret
+        // The gateway type.
         shared_ptr<string> gatewayType_ {};
-        // KMS configuration object
+        // The KMS configuration information.
         shared_ptr<KMSConfig> kmsConfig_ {};
-        // Name of the secret
+        // The key name.
         shared_ptr<string> name_ {};
-        // Number of resources referencing this secret
+        // The resource count of resources that reference the current key.
         shared_ptr<int32_t> referenceCount_ {};
-        // Source of the ID
+        // The key ID.
         shared_ptr<string> secretId_ {};
-        // Source of the secret
+        // The key source.
         shared_ptr<string> secretSource_ {};
-        // Current status of the secret
+        // The key status. Valid values:
+        // - ENABLE: Enabled.
+        // - DISABLE: Disabled.
+        // - DELETED: Deleted.
         shared_ptr<string> status_ {};
-        // Unix timestamp when the secret was last updated
+        // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -219,13 +222,13 @@ namespace Models
 
 
     protected:
-      // Array of secret details
+      // The list of key details.
       shared_ptr<vector<Data::Items>> items_ {};
-      // Page number
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // Number of items per page
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of records matching the query
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -262,11 +265,11 @@ namespace Models
 
 
   protected:
-    // Code of the request
+    // The response status code.
     shared_ptr<string> code_ {};
-    // Data
+    // The list of key information.
     shared_ptr<ListSecretsResponseBody::Data> data_ {};
-    // message
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

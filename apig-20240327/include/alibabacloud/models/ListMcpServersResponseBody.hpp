@@ -172,7 +172,7 @@ namespace Models
         protected:
           // The Nacos instance.
           shared_ptr<string> importInstanceId_ {};
-          // The synchronized MCP server ID.
+          // The synced MCP server ID.
           shared_ptr<string> importMcpServerId_ {};
           // The Nacos namespace.
           shared_ptr<string> importNamespace_ {};
@@ -227,9 +227,9 @@ namespace Models
 
 
         protected:
-          // The MCP server ID.
+          // MCP Server ID
           shared_ptr<string> mcpServerId_ {};
-          // The name of the MCP server.
+          // The MCP server name.
           shared_ptr<string> mcpServerName_ {};
           // The list of MCP tools.
           shared_ptr<vector<string>> tools_ {};
@@ -400,53 +400,53 @@ namespace Models
 
 
       protected:
-        // The API ID.
+        // API ID。
         shared_ptr<string> apiId_ {};
-        // The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
+        // The list of assembly sources. This parameter is required when type is AssemblyMCP.
         shared_ptr<vector<Items::AssembledSources>> assembledSources_ {};
         // The backend service of the route.
         shared_ptr<Backend> backend_ {};
-        // The type of source for MCP server creation. Valid values: 
+        // The creation source type. Valid values:
         // 
-        // ApiGatewayHttpToMCP 
-        // ApiGatewayMcpHosting 
-        // ApiGatewayAssembly 
-        // NacosHttpToMCP 
-        // NacosMcpHosting
+        // - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+        // - ApiGatewayMcpHosting: gateway-managed MCP direct proxy.
+        // - ApiGatewayAssembly: gateway MCP assembly.
+        // - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+        // - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
         shared_ptr<string> createFromType_ {};
-        // The publishing status of the API in the current environment.
+        // The deployment status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The domain name IDs.
+        // The list of domain name IDs.
         shared_ptr<vector<string>> domainIds_ {};
-        // The list of domain information.
+        // The list of domain name information.
         shared_ptr<vector<HttpApiDomainInfo>> domainInfos_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP, and the type parameter is set to RealMCP.
+        // The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
         shared_ptr<string> exposedUriPath_ {};
         // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
         // The route match rule.
         shared_ptr<HttpRouteMatch> match_ {};
-        // The HTTP-to-MCP configurations.
+        // The HTTP-to-MCP configuration.
         shared_ptr<string> mcpServerConfig_ {};
-        // The MCP server ID.
+        // MCP Server ID
         shared_ptr<string> mcpServerId_ {};
         // The MCP server access path provided by the gateway.
         shared_ptr<string> mcpServerPath_ {};
         // Indicates whether MCP observability is enabled. Default value: false.
         shared_ptr<bool> mcpStatisticsEnable_ {};
-        // The MCP information synchronized and managed by Nacos.
+        // The Nacos-synced managed MCP information.
         shared_ptr<Items::NacosMcpSyncInfo> nacosMcpSyncInfo_ {};
-        // The name of the MCP server.
+        // The MCP server name.
         shared_ptr<string> name_ {};
         // The service protocol.
         shared_ptr<string> protocol_ {};
-        // The ID of the MCP server associated route.
+        // The route ID associated with the MCP server.
         shared_ptr<string> routeId_ {};
-        // The type of the MCP server. Valid values: RealMCP and AssemblyMCP.
+        // The MCP server type.
         shared_ptr<string> type_ {};
       };
 
@@ -489,7 +489,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -526,13 +526,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<ListMcpServersResponseBody::Data> data_ {};
-    // The status message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

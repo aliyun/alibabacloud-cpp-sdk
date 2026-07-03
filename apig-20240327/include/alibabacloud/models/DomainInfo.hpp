@@ -149,27 +149,28 @@ namespace Models
 
 
   protected:
-    // The China Security certificate identity.
+    // The SSL Certificates Service certificate identity.
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
-    // The source from which the domain name was created.
+    // The source from which the domain name is created.
     shared_ptr<string> createFrom_ {};
     // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
     // The domain name ID.
     shared_ptr<string> domainId_ {};
+    // domainScope
     shared_ptr<string> domainScope_ {};
     // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
     shared_ptr<bool> forceHttps_ {};
-    // Specifies whether to enable mTLS mutual authentication.
+    // Indicates whether MTLS mutual authentication is enabled.
     shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     shared_ptr<string> name_ {};
-    // The protocol type supported by the domain name. Valid values:
+    // The protocol type supported by the domain name.
     // 
-    // - HTTP: Only HTTP is supported.
-    // - HTTPS: Only HTTPS is supported.
+    // - HTTP: Only the HTTP protocol is supported.
+    // - HTTP: Only the HTTPS protocol is supported.
     shared_ptr<string> protocol_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

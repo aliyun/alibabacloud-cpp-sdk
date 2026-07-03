@@ -174,7 +174,7 @@ namespace Models
 
 
           protected:
-            // The second-level domain name.
+            // The vSwitch ID.
             shared_ptr<string> vSwitchId_ {};
           };
 
@@ -197,9 +197,9 @@ namespace Models
 
 
         protected:
-          // The second-level domain names.
+          // The vSwitch.
           shared_ptr<Zones::VSwitch> vSwitch_ {};
-          // The tag value.
+          // The zone ID.
           shared_ptr<string> zoneId_ {};
         };
 
@@ -231,7 +231,7 @@ namespace Models
 
 
         protected:
-          // The VPC ID
+          // The VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -263,7 +263,7 @@ namespace Models
 
 
         protected:
-          // List Gateways
+          // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
         };
 
@@ -305,9 +305,9 @@ namespace Models
 
 
         protected:
-          // The tag key
+          // The tag key.
           shared_ptr<string> key_ {};
-          // The tag value
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -339,7 +339,7 @@ namespace Models
 
 
         protected:
-          // The tags.
+          // The security group ID.
           shared_ptr<string> securityGroupId_ {};
         };
 
@@ -420,9 +420,11 @@ namespace Models
 
 
           protected:
-            // The resource group ID.
+            // The port number.
             shared_ptr<int32_t> port_ {};
-            // vpc-xxxxx
+            // The protocol. Valid values:
+            // - TCP
+            // - UDP
             shared_ptr<string> protocol_ {};
           };
 
@@ -513,27 +515,36 @@ namespace Models
 
 
         protected:
-          // vsw-xxxxx
+          // The load balancing address.
           shared_ptr<string> address_ {};
-          // The vSwitch information.
+          // The protocol version. Valid values:
+          // - ipv4: IPv4.
+          // - ipv6: IPv6.
           shared_ptr<string> addressIpVersion_ {};
-          // sg-xxxx
+          // The load balancing address type. Valid values:
+          // - Internet: public network.
+          // - Intranet: private network.
           shared_ptr<string> addressType_ {};
-          // vsw-xxxxx
+          // Indicates whether this is the default entry address of the gateway.
           shared_ptr<bool> gatewayDefault_ {};
-          // The IPv4 addresses
+          // The list of IPv4 addresses.
           shared_ptr<vector<string>> ipv4Addresses_ {};
-          // The IPv6 addresses
+          // The list of IPv6 addresses.
           shared_ptr<vector<string>> ipv6Addresses_ {};
-          // The security group ID.
+          // The load balancing instance ID.
           shared_ptr<string> loadBalancerId_ {};
-          // The vSwitch ID.
+          // The load balancing provisioning pattern of the gateway. Valid values:
+          // - Managed: Managed by Cloud-native API Gateway.
           shared_ptr<string> mode_ {};
-          // The virtual private cloud (VPC) information of the instance.
+          // The list of listening ports.
           shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
-          // The vSwitch ID.
+          // The load balancing status. Valid values:
+          // - Ready: Active.
+          // - NotCreate: No associated instance.
           shared_ptr<string> status_ {};
-          // The zone ID.
+          // The load balancing type of the gateway. Valid values:
+          // - NLB: Network load balancing.
+          // - CLB: Classic load balancing.
           shared_ptr<string> type_ {};
         };
 
@@ -719,75 +730,69 @@ namespace Models
 
 
       protected:
-        // The instance name.
+        // The billing type. Valid values:
+        // 
+        // - POSTPAY: Pay-as-you-go.
+        // - PREPAY: Subscription.
         shared_ptr<string> chargeType_ {};
-        // Indicates whether the address is the default ingress address of the instance.
+        // The source from which the gateway was created. Valid values:
+        // - Console: The gateway was created from the console.
         shared_ptr<string> createFrom_ {};
-        // The load balancer IP address.
+        // The creation timestamp, in milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The mode in which the load balancer is provided. Valid values:
-        // 
-        // *   Managed: Cloud-native API Gateway manages and provides the load balancer.
+        // The subscription expiration timestamp, in milliseconds.
         shared_ptr<int64_t> expireTimestamp_ {};
-        // The gateway edition
+        // The gateway instance edition. Valid values:
+        // 
+        // - Professional: Standard instance.
+        // 
+        // - Serverless: Serverless instance.
         shared_ptr<string> gatewayEdition_ {};
-        // The information about a gateway.
+        // The gateway ID.
         shared_ptr<string> gatewayId_ {};
-        // The instance state. Valid values:
-        // 
-        // *   Running: The instance is running.
-        // *   Creating: The instance is being created.
-        // *   CreateFailed: The instance fails to be created.
-        // *   Upgrading: The instance is being upgraded.
-        // *   UpgradeFailed: The instance fails to be upgraded.
-        // *   Restarting: The instance is being restarted.
-        // *   RestartFailed: The instance fails to be restarted.
-        // *   Deleting: The instance is being released.
-        // *   DeleteFailed: The instance failed to be released.
+        // The gateway type.
         shared_ptr<string> gatewayType_ {};
-        // Whether the gateway is a legacy instance
+        // Indicates whether the gateway instance was created before the AI gateway feature was launched.
         shared_ptr<bool> legacy_ {};
-        // The port number.
+        // The list of gateway entry addresses.
         shared_ptr<vector<Items::LoadBalancers>> loadBalancers_ {};
-        // The instance ID.
+        // The gateway name.
         shared_ptr<string> name_ {};
-        // The load balancer status. Valid values:
-        // 
-        // *   Ready: The load balancer is available.
-        // *   NotCreate: The load balancer is not associated with the instance.
+        // The number of gateway instance nodes.
         shared_ptr<string> replicas_ {};
-        // The resource group ID
+        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // rg-xxx
+        // The security group information of the gateway.
         shared_ptr<Items::SecurityGroup> securityGroup_ {};
-        // The load balancer type. Valid values:
-        // 
-        // *   NLB: Network Load Balancer
-        // *   CLB: Classic Load Balancer
+        // The gateway specification. Valid values:
+        // - apigw.small.x1: small specification.
         shared_ptr<string> spec_ {};
-        // The time when the instance was created. This value is a UNIX timestamp. Unit: milliseconds.
+        // The gateway status. Valid values:
+        // - Running: The gateway is running.
+        // - Creating: The gateway is being created.
+        // - CreateFailed: The gateway failed to be created.
+        // - Upgrading: The gateway is being upgraded.
+        // - UpgradeFailed: The gateway failed to be upgraded.
+        // - Restarting: The gateway is being restarted.
+        // - RestartFailed: The gateway failed to be restarted.
+        // - Deleting: The gateway is being released.
+        // - DeleteFailed: The gateway failed to be released.
         shared_ptr<string> status_ {};
-        // The subdomain information
+        // The list of second-level domain names.
         shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};
-        // The tags
+        // The list of tags.
         shared_ptr<vector<Items::Tags>> tags_ {};
-        // The protocol. Valid values:
-        // 
-        // *   TCP
-        // *   UDP
+        // The target version of the gateway. When this value differs from version, a version upgrade can be performed.
         shared_ptr<string> targetVersion_ {};
-        // The IP version of the address. Valid values:
-        // 
-        // *   ipv4: IPv4
-        // *   ipv6: IPv6
+        // The update timestamp, in milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};
-        // Indicates whether the gateway instance was created before AI Gateway launch.
+        // The vSwitch information.
         shared_ptr<Items::VSwitch> vSwitch_ {};
-        // The information about the port.
+        // The gateway version.
         shared_ptr<string> version_ {};
-        // The VPC information
+        // The VPC information of the gateway.
         shared_ptr<Items::Vpc> vpc_ {};
-        // The tag.
+        // The zone information of the gateway.
         shared_ptr<vector<Items::Zones>> zones_ {};
       };
 
@@ -824,13 +829,13 @@ namespace Models
 
 
     protected:
-      // The total number of entries returned.
+      // The gateway list.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The gateway list query result.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page number of the returned page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The number of entries per page.
+      // The total number of gateways.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -867,13 +872,13 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned message.
+    // The query result of the gateway list.
     shared_ptr<ListGatewaysResponseBody::Data> data_ {};
-    // The status code.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Schema of Response
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

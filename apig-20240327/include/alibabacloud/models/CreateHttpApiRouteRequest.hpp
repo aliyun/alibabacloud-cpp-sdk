@@ -227,10 +227,10 @@ namespace Models
 
     protected:
       // The backend service scenario. Valid values:
-      // - SingleService: Single service.
-      // - MultiServiceByRatio: Multiple services with ratio-based canary release.
-      // - Mock: Mock service.
-      // - Redirect: Redirect service.
+      // - SingleService: single service.
+      // - MultiServiceByRatio: multiple services with ratio-based canary release.
+      // - Mock: mock service.
+      // - Redirect: redirect service.
       shared_ptr<string> scene_ {};
       // The list of backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};

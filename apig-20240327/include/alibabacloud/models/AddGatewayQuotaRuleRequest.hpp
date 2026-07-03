@@ -145,21 +145,41 @@ namespace Models
 
 
   protected:
+    // The conflict snapshot hash used to prevent concurrent dirty overwrites during confirmation. Obtain this value from the response of a previous dryRun=true call.
+    // 
+    // You do not need to specify this parameter in the following cases: no conflict exists, the request is a dry run (dryRun=true), or overwrite=false.
+    // 
+    // When dryRun=false and overwrite=true, if this parameter is not specified or the value has expired, the backend returns accepted=false with a new conflict preview. Perform a dry run again to confirm the new conflict.
     shared_ptr<string> conflictHash_ {};
+    // The list of consumer group IDs. This parameter is not supported.
     shared_ptr<vector<string>> consumerGroupIds_ {};
+    // The list of consumer IDs to bind to the rule.
     shared_ptr<vector<string>> consumerIds_ {};
+    // Specifies whether to perform only a dry run without persisting or applying the configuration. A dry run checks whether conflicting rules exist on the bound consumers. For example, a consumer that already has a daily calendar quota cannot have another daily calendar quota rule added.
     shared_ptr<bool> dryRun_ {};
+    // Specifies whether to allow overwriting on conflict. If overwriting is allowed, the conflicting principals (consumers) are unbound from the old rule and bound to the new rule.
     shared_ptr<bool> overwrite_ {};
+    // The period multiplier.
     shared_ptr<int64_t> periodMultiplier_ {};
+    // The period type. Valid values: day (calendar day), week (calendar week), and month (calendar month).
+    // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};
+    // The quota dimension or throttling type. Currently, only token is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> quotaDimension_ {};
+    // The total available quota per period.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> quotaLimit_ {};
+    // The name of the rule.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
+    // The time zone for the calendar period, in UTC+x format.
     shared_ptr<string> timezone_ {};
+    // The reset period alignment type. Currently, only calendar alignment is supported, which means windowAlignment="calendar".
     shared_ptr<string> windowAlignment_ {};
   };
 

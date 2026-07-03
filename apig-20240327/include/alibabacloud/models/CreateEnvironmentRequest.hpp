@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The request body.
+    // The environment alias.
     // 
     // This parameter is required.
     shared_ptr<string> alias_ {};
-    // The environment alias.
+    // The description of the environment. You can specify information such as the purpose and owner of the environment.
     shared_ptr<string> description_ {};
-    // The environment description, such as its purpose and owner.
+    // The gateway ID.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // Create environment.
+    // The environment name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Testing environment for xx project of xxx
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -181,27 +181,27 @@ namespace Models
 
 
       protected:
-        // The alias of the plugin.
+        // The plug-in alias.
         shared_ptr<string> alias_ {};
-        // The description of the plugin.
+        // The plug-in description.
         shared_ptr<string> description_ {};
-        // Indicates whether the plugin is installed.
+        // Indicates whether the plug-in is installed.
         shared_ptr<bool> installed_ {};
-        // The plugin name.
+        // The plug-in name.
         shared_ptr<string> name_ {};
-        // The plugin type ID.
+        // The plug-in type ID.
         shared_ptr<string> pluginClassId_ {};
-        // The plugin ID.
+        // The plug-in ID.
         shared_ptr<string> pluginId_ {};
-        // The publishing status.
+        // The publish status.
         shared_ptr<string> publishStatus_ {};
-        // The source of the plugin.
+        // The plug-in source.
         shared_ptr<string> source_ {};
-        // The minimum version of the gateway supported by the plugin.
+        // The minimum gateway version supported by the plug-in.
         shared_ptr<string> supportedMinGatewayVersion_ {};
-        // The type of the plugin.
+        // The plug-in type.
         shared_ptr<string> type_ {};
-        // The version.
+        // The plug-in version.
         shared_ptr<string> version_ {};
       };
 
@@ -238,7 +238,7 @@ namespace Models
 
 
     protected:
-      // The plugin details.
+      // The result objects.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -281,13 +281,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The response data.
     shared_ptr<ListPluginClassesResponseBody::Data> data_ {};
-    // The returned message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

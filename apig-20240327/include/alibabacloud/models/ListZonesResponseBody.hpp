@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // Whether QAT (Quality Assurance Testing) is supported in this zone
+        // Indicates whether QuickAssist Technology (QAT) is supported.
         shared_ptr<string> supportQat_ {};
-        // The zone identifier
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -110,7 +110,7 @@ namespace Models
 
 
     protected:
-      // The list of queried zones.
+      // The list of zones.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -147,13 +147,13 @@ namespace Models
 
 
   protected:
-    // Response status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<ListZonesResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

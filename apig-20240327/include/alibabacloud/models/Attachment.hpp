@@ -99,33 +99,27 @@ namespace Models
 
 
   protected:
-    // The attachment point ID.
+    // attachResourceId
     shared_ptr<string> attachResourceId_ {};
-    // A list of attached resource IDs.
+    // The list of mounted resource IDs.
     shared_ptr<vector<string>> attachResourceIds_ {};
-    // A list of parent resource IDs.
+    // The list of parent IDs of the mounted resource.
     shared_ptr<vector<string>> attachResourceParentIds_ {};
-    // The supported attachment point types for the policy.
+    // The type of mount point supported by the policy. Valid values:
     // 
-    // - `HttpApi`: An HTTP API.
-    // 
-    // - `Operation`: An operation of an HTTP API.
-    // 
-    // - `GatewayRoute`: A gateway route.
-    // 
-    // - `GatewayService`: A gateway service.
-    // 
-    // - `GatewayServicePort`: A gateway service port.
-    // 
-    // - `Domain`: A gateway domain.
-    // 
-    // - `Gateway`: A gateway.
+    // - HttpApi: HttpApi.
+    // - Operation: Operation of HttpApi.
+    // - GatewayRoute: gateway route.
+    // - GatewayService: gateway service.
+    // - GatewayServicePort: gateway service port.
+    // - Domain: gateway domain name.
+    // - Gateway: gateway.
     shared_ptr<string> attachResourceType_ {};
-    // The ID of the environment for the attached resource. An asterisk (`*`) indicates that the policy attachment is not environment-specific.
+    // The environment to which the mounted resource belongs. If the environment ID is *, the mounted resource of the policy is not associated with any environment.
     shared_ptr<string> environmentId_ {};
-    // The ID of the gateway for the attached resource.
+    // The gateway to which the mounted resource belongs.
     shared_ptr<string> gatewayId_ {};
-    // The policy attachment ID.
+    // The policy mount ID.
     shared_ptr<string> policyAttachmentId_ {};
   };
 

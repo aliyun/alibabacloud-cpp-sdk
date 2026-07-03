@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // The period type.
         shared_ptr<string> periodType_ {};
+        // The quota dimension.
         shared_ptr<string> quotaDimension_ {};
+        // The quota limit.
         shared_ptr<int64_t> quotaLimit_ {};
+        // The rule ID.
         shared_ptr<string> ruleId_ {};
+        // The rule name.
         shared_ptr<string> ruleName_ {};
+        // The rule status.
         shared_ptr<string> ruleStatus_ {};
+        // The time zone for the calendar period, in UTC+x format.
         shared_ptr<string> timezone_ {};
+        // The reset period type. Only calendar periods are supported, which means windowAlignment="calendar".
         shared_ptr<string> windowAlignment_ {};
       };
 
@@ -201,9 +209,13 @@ namespace Models
 
 
     protected:
+      // The list of rules.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The current page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -254,11 +266,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListGatewayQuotaRulesResponseBody::Data> data_ {};
+    // The maximum number of records to retrieve in a single request. This parameter is not supported.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token. This parameter is not supported.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of tag N.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -150,21 +150,21 @@ namespace Models
 
 
   protected:
-    // Retrieve the list of created cloud-native gateways
+    // The gateway ID for exact match query.
     shared_ptr<string> gatewayId_ {};
-    // The search keyword. A full match is performed. The search is case-insensitive.
+    // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The instance name. If you specify a name, an exact search is performed.
+    // The keyword for full match search. Case-insensitive.
     shared_ptr<string> keyword_ {};
-    // The number of entries per page.
+    // The gateway name for exact match query.
     shared_ptr<string> name_ {};
-    // The instance ID. If you specify an ID, an exact search is performed.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of the page to return.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // rg-aekz3wes3hnre5a
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags that you want to use for the search.
+    // The list of tags.
     shared_ptr<vector<ListGatewaysRequest::Tag>> tag_ {};
   };
 

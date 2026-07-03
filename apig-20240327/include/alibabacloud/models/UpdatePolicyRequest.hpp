@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Policy configuration
+    // The policy configuration.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // Description
+    // The description of the policy.
     shared_ptr<string> description_ {};
-    // Policy name
+    // The Policy Name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

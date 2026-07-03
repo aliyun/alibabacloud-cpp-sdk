@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dnsServers, dnsServers_);
       DARABONBA_PTR_TO_JSON(healthCheckConfig, healthCheckConfig_);
       DARABONBA_PTR_TO_JSON(healthyPanicThreshold, healthyPanicThreshold_);
+      DARABONBA_PTR_TO_JSON(modelProviderId, modelProviderId_);
       DARABONBA_PTR_TO_JSON(outlierDetectionConfig, outlierDetectionConfig_);
       DARABONBA_PTR_TO_JSON(ports, ports_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dnsServers, dnsServers_);
       DARABONBA_PTR_FROM_JSON(healthCheckConfig, healthCheckConfig_);
       DARABONBA_PTR_FROM_JSON(healthyPanicThreshold, healthyPanicThreshold_);
+      DARABONBA_PTR_FROM_JSON(modelProviderId, modelProviderId_);
       DARABONBA_PTR_FROM_JSON(outlierDetectionConfig, outlierDetectionConfig_);
       DARABONBA_PTR_FROM_JSON(ports, ports_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
@@ -97,7 +99,7 @@ namespace Models
     protected:
       // The port name.
       shared_ptr<string> name_ {};
-      // The port.
+      // The port number.
       shared_ptr<int32_t> port_ {};
       // The protocol.
       shared_ptr<string> protocol_ {};
@@ -168,15 +170,15 @@ namespace Models
 
 
     protected:
-      // The initial isolation duration after a node is isolated (e.g., 30 seconds). The isolation time is calculated as: k \\* base_ejection_time (with k initially set to 1). Each subsequent isolation increases the isolation time (k is incremented by 1), while consecutive healthy checks gradually decrease the isolation time (k is decremented by 1).
+      // The base ejection time, which is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated by using the following formula: k × base_ejection_time (the initial value of k is 1). Each ejection increases the isolation time (k is incremented by 1). If consecutive checks are healthy, the isolation time is gradually reduced (k is decremented by 1).
       shared_ptr<int32_t> baseEjectionTime_ {};
       // enable
       shared_ptr<bool> enable_ {};
       // The panic threshold.
       // 
-      // When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally, and requests are only sent to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled, and requests are sent to all nodes, including those that have been ejected nodes.
+      // When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally. Requests are sent only to healthy nodes and not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled. Requests are sent to all nodes, including ejected nodes.
       shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
-      // When the request failure rate of a node reaches this threshold, the system triggers the isolation mechanism of the node.
+      // The failure percentage threshold. When the percentage of failed requests on a node reaches this threshold, the system triggers the ejection mechanism for the node.
       shared_ptr<int32_t> failurePercentageThreshold_ {};
       // The detection interval.
       shared_ptr<int32_t> interval_ {};
@@ -286,34 +288,29 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable health checks.
+      // Specifies whether to enable health checks for the service.
       shared_ptr<bool> enable_ {};
-      // The normal status codes to be returned. This parameter is required if the health check protocol is HTTP.
+      // The list of expected HTTP status codes that indicate a healthy response. This parameter is required when the protocol is HTTP.
       shared_ptr<vector<string>> expectedStatuses_ {};
-      // The healthy threshold.
+      // The healthy threshold for health checks.
       shared_ptr<int32_t> healthyThreshold_ {};
-      // The domain name that you want to use for health checks. Optional. This parameter is available if the health check protocol is HTTP.
+      // The domain name for health checks. This parameter is optional and can be configured when the protocol is HTTP.
       shared_ptr<string> httpHost_ {};
-      // The request path of health checks. This parameter is required if the health check protocol is HTTP.
+      // The request path for health checks. This parameter is required when the protocol is HTTP.
       shared_ptr<string> httpPath_ {};
-      // The health check interval. Unit: seconds
+      // The health check interval. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
-      // The protocol over which the system performs health checks.
-      // 
-      // Valid values:
-      // 
-      // *   TCP
-      // *   HTTP
+      // The protocol used for health checks.
       shared_ptr<string> protocol_ {};
-      // The timeout period for a health check response. Unit: seconds
+      // The response timeout period for health checks. Unit: seconds.
       shared_ptr<int32_t> timeout_ {};
-      // The unhealthy threshold.
+      // The unhealthy threshold for health checks.
       shared_ptr<int32_t> unhealthyThreshold_ {};
     };
 
     virtual bool empty() const override { return this->addresses_ == nullptr
         && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->dnsServers_ == nullptr && this->healthCheckConfig_ == nullptr && this->healthyPanicThreshold_ == nullptr
-        && this->outlierDetectionConfig_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr; };
+        && this->modelProviderId_ == nullptr && this->outlierDetectionConfig_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -366,6 +363,13 @@ namespace Models
     inline UpdateServiceRequest& setHealthyPanicThreshold(float healthyPanicThreshold) { DARABONBA_PTR_SET_VALUE(healthyPanicThreshold_, healthyPanicThreshold) };
 
 
+    // modelProviderId Field Functions 
+    bool hasModelProviderId() const { return this->modelProviderId_ != nullptr;};
+    void deleteModelProviderId() { this->modelProviderId_ = nullptr;};
+    inline string getModelProviderId() const { DARABONBA_PTR_GET_DEFAULT(modelProviderId_, "") };
+    inline UpdateServiceRequest& setModelProviderId(string modelProviderId) { DARABONBA_PTR_SET_VALUE(modelProviderId_, modelProviderId) };
+
+
     // outlierDetectionConfig Field Functions 
     bool hasOutlierDetectionConfig() const { return this->outlierDetectionConfig_ != nullptr;};
     void deleteOutlierDetectionConfig() { this->outlierDetectionConfig_ = nullptr;};
@@ -394,21 +398,22 @@ namespace Models
   protected:
     // The list of domain names or fixed addresses.
     shared_ptr<vector<string>> addresses_ {};
-    // The agent service configurations.
+    // The agent service configuration.
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
-    // The AI service configurations.
+    // The AI service configuration.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
-    // A DNS service address.
+    // The DNS server addresses.
     shared_ptr<vector<string>> dnsServers_ {};
-    // The health check configurations.
+    // The health check configuration of the service.
     shared_ptr<UpdateServiceRequest::HealthCheckConfig> healthCheckConfig_ {};
     // The health check threshold.
     shared_ptr<float> healthyPanicThreshold_ {};
-    // The passive health check configurations.
+    shared_ptr<string> modelProviderId_ {};
+    // The passive health check parameter settings.
     shared_ptr<UpdateServiceRequest::OutlierDetectionConfig> outlierDetectionConfig_ {};
     // The port information.
     shared_ptr<vector<UpdateServiceRequest::Ports>> ports_ {};
-    // The service protocol.
+    // The protocol of the service.
     shared_ptr<string> protocol_ {};
   };
 

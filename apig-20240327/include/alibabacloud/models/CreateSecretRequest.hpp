@@ -89,15 +89,15 @@ namespace Models
   protected:
     // The description of the key.
     shared_ptr<string> description_ {};
-    // The type of the gateway.
+    // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The key configuration information of KMS.
+    // The KMS key configuration information.
     shared_ptr<KMSConfig> kmsConfig_ {};
-    // The key name. It can be up to 64 characters in length and can contain letters, digits, and underscores (_).
+    // The key name. The name can contain letters, digits, and underscores (_), and cannot exceed 64 characters in length.
     shared_ptr<string> name_ {};
-    // The value of the KMS credential.
+    // The KMS credential value.
     shared_ptr<string> secretData_ {};
-    // The source of the key.
+    // The key source.
     shared_ptr<string> secretSource_ {};
   };
 

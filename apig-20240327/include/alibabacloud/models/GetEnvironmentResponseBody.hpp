@@ -120,7 +120,7 @@ namespace Models
       protected:
         // The online resource count.
         shared_ptr<vector<ResourceStatistic>> resourceStatistics_ {};
-        // The total number of entries.
+        // The total count.
         shared_ptr<int32_t> totalCount_ {};
       };
 

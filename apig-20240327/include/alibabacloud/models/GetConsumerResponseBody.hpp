@@ -44,6 +44,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(akSkIdentityConfigs, akSkIdentityConfigs_);
         DARABONBA_PTR_TO_JSON(apiKeyIdentityConfig, apiKeyIdentityConfig_);
+        DARABONBA_PTR_TO_JSON(consumerGroups, consumerGroups_);
         DARABONBA_PTR_TO_JSON(consumerId, consumerId_);
         DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_TO_JSON(deployStatus, deployStatus_);
@@ -56,6 +57,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(akSkIdentityConfigs, akSkIdentityConfigs_);
         DARABONBA_PTR_FROM_JSON(apiKeyIdentityConfig, apiKeyIdentityConfig_);
+        DARABONBA_PTR_FROM_JSON(consumerGroups, consumerGroups_);
         DARABONBA_PTR_FROM_JSON(consumerId, consumerId_);
         DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_FROM_JSON(deployStatus, deployStatus_);
@@ -76,9 +78,71 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ConsumerGroups : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ConsumerGroups& obj) { 
+          DARABONBA_PTR_TO_JSON(consumerGroupId, consumerGroupId_);
+          DARABONBA_PTR_TO_JSON(description, description_);
+          DARABONBA_PTR_TO_JSON(joinTimestamp, joinTimestamp_);
+          DARABONBA_PTR_TO_JSON(name, name_);
+        };
+        friend void from_json(const Darabonba::Json& j, ConsumerGroups& obj) { 
+          DARABONBA_PTR_FROM_JSON(consumerGroupId, consumerGroupId_);
+          DARABONBA_PTR_FROM_JSON(description, description_);
+          DARABONBA_PTR_FROM_JSON(joinTimestamp, joinTimestamp_);
+          DARABONBA_PTR_FROM_JSON(name, name_);
+        };
+        ConsumerGroups() = default ;
+        ConsumerGroups(const ConsumerGroups &) = default ;
+        ConsumerGroups(ConsumerGroups &&) = default ;
+        ConsumerGroups(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ConsumerGroups() = default ;
+        ConsumerGroups& operator=(const ConsumerGroups &) = default ;
+        ConsumerGroups& operator=(ConsumerGroups &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->consumerGroupId_ == nullptr
+        && this->description_ == nullptr && this->joinTimestamp_ == nullptr && this->name_ == nullptr; };
+        // consumerGroupId Field Functions 
+        bool hasConsumerGroupId() const { return this->consumerGroupId_ != nullptr;};
+        void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
+        inline string getConsumerGroupId() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupId_, "") };
+        inline ConsumerGroups& setConsumerGroupId(string consumerGroupId) { DARABONBA_PTR_SET_VALUE(consumerGroupId_, consumerGroupId) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline ConsumerGroups& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // joinTimestamp Field Functions 
+        bool hasJoinTimestamp() const { return this->joinTimestamp_ != nullptr;};
+        void deleteJoinTimestamp() { this->joinTimestamp_ = nullptr;};
+        inline int64_t getJoinTimestamp() const { DARABONBA_PTR_GET_DEFAULT(joinTimestamp_, 0L) };
+        inline ConsumerGroups& setJoinTimestamp(int64_t joinTimestamp) { DARABONBA_PTR_SET_VALUE(joinTimestamp_, joinTimestamp) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline ConsumerGroups& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      protected:
+        shared_ptr<string> consumerGroupId_ {};
+        shared_ptr<string> description_ {};
+        shared_ptr<int64_t> joinTimestamp_ {};
+        shared_ptr<string> name_ {};
+      };
+
       virtual bool empty() const override { return this->akSkIdentityConfigs_ == nullptr
-        && this->apiKeyIdentityConfig_ == nullptr && this->consumerId_ == nullptr && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr
-        && this->enable_ == nullptr && this->jwtIdentityConfig_ == nullptr && this->name_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->apiKeyIdentityConfig_ == nullptr && this->consumerGroups_ == nullptr && this->consumerId_ == nullptr && this->createTimestamp_ == nullptr && this->deployStatus_ == nullptr
+        && this->description_ == nullptr && this->enable_ == nullptr && this->jwtIdentityConfig_ == nullptr && this->name_ == nullptr && this->updateTimestamp_ == nullptr; };
       // akSkIdentityConfigs Field Functions 
       bool hasAkSkIdentityConfigs() const { return this->akSkIdentityConfigs_ != nullptr;};
       void deleteAkSkIdentityConfigs() { this->akSkIdentityConfigs_ = nullptr;};
@@ -95,6 +159,15 @@ namespace Models
       inline ApiKeyIdentityConfig getApiKeyIdentityConfig() { DARABONBA_PTR_GET(apiKeyIdentityConfig_, ApiKeyIdentityConfig) };
       inline Data& setApiKeyIdentityConfig(const ApiKeyIdentityConfig & apiKeyIdentityConfig) { DARABONBA_PTR_SET_VALUE(apiKeyIdentityConfig_, apiKeyIdentityConfig) };
       inline Data& setApiKeyIdentityConfig(ApiKeyIdentityConfig && apiKeyIdentityConfig) { DARABONBA_PTR_SET_RVALUE(apiKeyIdentityConfig_, apiKeyIdentityConfig) };
+
+
+      // consumerGroups Field Functions 
+      bool hasConsumerGroups() const { return this->consumerGroups_ != nullptr;};
+      void deleteConsumerGroups() { this->consumerGroups_ = nullptr;};
+      inline const vector<Data::ConsumerGroups> & getConsumerGroups() const { DARABONBA_PTR_GET_CONST(consumerGroups_, vector<Data::ConsumerGroups>) };
+      inline vector<Data::ConsumerGroups> getConsumerGroups() { DARABONBA_PTR_GET(consumerGroups_, vector<Data::ConsumerGroups>) };
+      inline Data& setConsumerGroups(const vector<Data::ConsumerGroups> & consumerGroups) { DARABONBA_PTR_SET_VALUE(consumerGroups_, consumerGroups) };
+      inline Data& setConsumerGroups(vector<Data::ConsumerGroups> && consumerGroups) { DARABONBA_PTR_SET_RVALUE(consumerGroups_, consumerGroups) };
 
 
       // consumerId Field Functions 
@@ -156,11 +229,12 @@ namespace Models
 
 
     protected:
-      // The AK/SK identity authentication configurations.
+      // The AccessKey pair authentication configuration.
       shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
-      // The API key identity authentication configuration.
+      // The API key authentication configuration.
       shared_ptr<ApiKeyIdentityConfig> apiKeyIdentityConfig_ {};
-      // The consumer ID.
+      shared_ptr<vector<Data::ConsumerGroups>> consumerGroups_ {};
+      // The API consumer ID.
       shared_ptr<string> consumerId_ {};
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
@@ -168,11 +242,11 @@ namespace Models
       shared_ptr<string> deployStatus_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // Indicates whether the consumer is enabled.
+      // Indicates whether the API consumer is enabled.
       shared_ptr<bool> enable_ {};
-      // The JWT identity authentication configuration.
+      // The JWT authentication configuration.
       shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};
-      // The consumer name.
+      // The API consumer name.
       shared_ptr<string> name_ {};
       // The update timestamp.
       shared_ptr<int64_t> updateTimestamp_ {};

@@ -209,31 +209,33 @@ namespace Models
 
 
       protected:
-        // API信息。
+        // The API information.
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
-        // 消费者授权规则ID。
+        // The consumer authorization rule ID.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
-        // 消费者ID。
+        // The consumer ID.
         shared_ptr<string> consumerId_ {};
-        // 创建时间戳。
+        // The creation timestamp.
         shared_ptr<int64_t> createTimestamp_ {};
-        // API在当前环境的发布状态
+        // The publish status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
-        // 环境信息。
+        // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
-        // 失效模式。LongTerm、ShortTerm，二选一。
+        // The expiration mode. Valid values:
+        // - LongTerm
+        // - ShortTerm
         shared_ptr<string> expireMode_ {};
-        // 失效状态。
+        // The expiration status.
         shared_ptr<string> expireStatus_ {};
-        // 到期时间。
+        // The expiration time.
         shared_ptr<int64_t> expireTimestamp_ {};
-        // 网关信息。
+        // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};
-        // 资源ID。
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // 资源类型。
+        // The resource type.
         shared_ptr<string> resourceType_ {};
-        // 更新时间戳。单位: 毫秒。
+        // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -270,7 +272,7 @@ namespace Models
 
 
     protected:
-      // 消费者授权信息列表。
+      // The list of consumer authorization information.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

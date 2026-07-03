@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The resource attachment ID.
+    // The mount resource ID.
     shared_ptr<string> attachResourceId_ {};
-    // The resource attachment type (not yet in use).
+    // The plug-in mount point type. This parameter is not yet enabled.
     shared_ptr<string> attachResourceType_ {};
-    // The resource attachment types, separated by commas.
+    // The mount point types. Separate multiple types with commas.
     shared_ptr<string> attachResourceTypes_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
     // The gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The page number to return. Pages start from 1. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The plug-in ID.
     shared_ptr<string> pluginId_ {};
-    // Specifies whether to return parent resource attachments.
+    // Specifies whether to return parent resource mounts.
     shared_ptr<bool> withParentResource_ {};
   };
 

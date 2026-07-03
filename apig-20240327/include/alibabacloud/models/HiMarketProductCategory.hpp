@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The unique category ID.
+    // The categorization ID.
     shared_ptr<string> categoryId_ {};
-    // The category description.
+    // The categorization description.
     shared_ptr<string> description_ {};
-    // The category icon.
+    // The icon configuration.
     shared_ptr<HiMarketIcon> icon_ {};
-    // The category name.
+    // The categorization name.
     shared_ptr<string> name_ {};
   };
 

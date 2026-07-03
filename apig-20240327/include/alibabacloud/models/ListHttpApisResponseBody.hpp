@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // object
+      // The API information.
       shared_ptr<vector<HttpApiInfoByName>> items_ {};
-      // Page number.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // Page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of items.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -138,13 +138,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The API list.
     shared_ptr<ListHttpApisResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Get HTTP API List
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

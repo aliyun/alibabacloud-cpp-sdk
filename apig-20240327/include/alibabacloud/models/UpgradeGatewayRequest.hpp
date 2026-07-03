@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The destination instance version.
+    // The gateway version.
     shared_ptr<string> version_ {};
   };
 

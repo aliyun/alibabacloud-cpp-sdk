@@ -586,11 +586,11 @@ namespace Models
     shared_ptr<CreateMcpServerRequest::BackendConfig> backendConfig_ {};
     // The creation source type. Valid values:
     // 
-    // ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
-    // ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy.
-    // ApiGatewayAssembly: gateway MCP assembly.
-    // NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
-    // NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy.
+    // - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+    // - ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy.
+    // - ApiGatewayAssembly: gateway MCP assembly.
+    // - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+    // - NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy.
     shared_ptr<string> createFromType_ {};
     // The description of the MCP server.
     shared_ptr<string> description_ {};
@@ -602,7 +602,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The canary release route configurations.
+    // The canary release routing configurations.
     shared_ptr<vector<CreateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
     // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
@@ -618,7 +618,7 @@ namespace Models
     shared_ptr<string> protocol_ {};
     // The type. Valid values:
     // 
-    // RealMCP: standard MCP service.
+    // - RealMCP: standard MCP service.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

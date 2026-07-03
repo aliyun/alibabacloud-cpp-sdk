@@ -122,15 +122,15 @@ namespace Models
 
 
     protected:
-      // The authentication configuration.
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The response parameters.
+      // The Ingress Class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // The returned message.
+      // Specifies whether to update the address in the Ingress Status.
       shared_ptr<bool> overrideIngressIp_ {};
-      // json
+      // The source ID.
       shared_ptr<string> sourceId_ {};
-      // The request ID.
+      // The namespace to listen on.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -244,33 +244,33 @@ namespace Models
 
 
   protected:
-    // The list of agent protocols
+    // The list of Agent protocols.
     shared_ptr<vector<string>> agentProtocols_ {};
-    // The status code.
+    // The list of AI protocols.
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The authentication configuration
+    // The permission authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The list of API deployment configurations.
+    // The base path of the API. The value must start with a forward slash (/).
     // 
     // This parameter is required.
     shared_ptr<string> basePath_ {};
-    // The deployment configurations
+    // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The environment ID.
+    // The API description.
     shared_ptr<string> description_ {};
-    // Whether authentication is enabled
+    // Specifies whether to enable permission authentication.
     shared_ptr<bool> enableAuth_ {};
-    // The first byte timeout in nanoseconds
+    // The first byte timeout period.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // Specifies whether to enable authentication.
+    // The configuration of the HTTP Ingress API.
     shared_ptr<UpdateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // Whether to only change configuration without redeployment
+    // Specifies whether to only modify the configuration. A value of true indicates that only the configuration is modified without triggering redeployment.
     shared_ptr<bool> onlyChangeConfig_ {};
-    // The listened namespace.
+    // The list of API access protocols.
     shared_ptr<vector<string>> protocols_ {};
-    // Whether to remove base path when forwarding
+    // Specifies whether to remove the base path during forwarding.
     shared_ptr<bool> removeBasePathOnForward_ {};
-    // A deployment configuration.
+    // The API versioning configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
   };
 

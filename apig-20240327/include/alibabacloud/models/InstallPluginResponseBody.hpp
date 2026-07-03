@@ -110,7 +110,7 @@ namespace Models
 
 
     protected:
-      // The installation result.
+      // The installation results.
       shared_ptr<vector<Data::InstallPluginResults>> installPluginResults_ {};
     };
 
@@ -147,13 +147,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<InstallPluginResponseBody::Data> data_ {};
-    // The status message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

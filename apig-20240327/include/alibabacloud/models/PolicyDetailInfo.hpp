@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The policy class ID.
     shared_ptr<string> classId_ {};
+    // The policy type name.
     shared_ptr<string> className_ {};
+    // The policy configuration content (JSON string).
     shared_ptr<string> config_ {};
+    // The policy description.
     shared_ptr<string> description_ {};
+    // The policy name.
     shared_ptr<string> name_ {};
+    // The policy ID.
     shared_ptr<string> policyId_ {};
   };
 

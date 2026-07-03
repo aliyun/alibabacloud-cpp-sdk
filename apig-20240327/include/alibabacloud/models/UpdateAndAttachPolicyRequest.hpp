@@ -101,7 +101,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> attachResourceIds_ {};
-    // The type of mount point supported by the policy. Valid values:
+    // The type of mount point supported by the policy.
+    // 
+    // Valid values:
     // 
     // - HttpApi: HttpApi.
     // - Operation: Operation of HttpApi.

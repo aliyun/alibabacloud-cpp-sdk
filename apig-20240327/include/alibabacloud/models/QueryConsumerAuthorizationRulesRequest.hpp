@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QueryConsumerAuthorizationRulesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(apiNameLike, apiNameLike_);
+      DARABONBA_PTR_TO_JSON(consumerGroupId, consumerGroupId_);
       DARABONBA_PTR_TO_JSON(consumerId, consumerId_);
       DARABONBA_PTR_TO_JSON(consumerNameLike, consumerNameLike_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
@@ -21,12 +22,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(parentResourceId, parentResourceId_);
+      DARABONBA_PTR_TO_JSON(principalType, principalType_);
       DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(resourceTypes, resourceTypes_);
     };
     friend void from_json(const Darabonba::Json& j, QueryConsumerAuthorizationRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(apiNameLike, apiNameLike_);
+      DARABONBA_PTR_FROM_JSON(consumerGroupId, consumerGroupId_);
       DARABONBA_PTR_FROM_JSON(consumerId, consumerId_);
       DARABONBA_PTR_FROM_JSON(consumerNameLike, consumerNameLike_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
@@ -34,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(parentResourceId, parentResourceId_);
+      DARABONBA_PTR_FROM_JSON(principalType, principalType_);
       DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(resourceTypes, resourceTypes_);
@@ -50,13 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiNameLike_ == nullptr
-        && this->consumerId_ == nullptr && this->consumerNameLike_ == nullptr && this->environmentId_ == nullptr && this->groupByApi_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->parentResourceId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->resourceTypes_ == nullptr; };
+        && this->consumerGroupId_ == nullptr && this->consumerId_ == nullptr && this->consumerNameLike_ == nullptr && this->environmentId_ == nullptr && this->groupByApi_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->parentResourceId_ == nullptr && this->principalType_ == nullptr && this->resourceId_ == nullptr
+        && this->resourceType_ == nullptr && this->resourceTypes_ == nullptr; };
     // apiNameLike Field Functions 
     bool hasApiNameLike() const { return this->apiNameLike_ != nullptr;};
     void deleteApiNameLike() { this->apiNameLike_ = nullptr;};
     inline string getApiNameLike() const { DARABONBA_PTR_GET_DEFAULT(apiNameLike_, "") };
     inline QueryConsumerAuthorizationRulesRequest& setApiNameLike(string apiNameLike) { DARABONBA_PTR_SET_VALUE(apiNameLike_, apiNameLike) };
+
+
+    // consumerGroupId Field Functions 
+    bool hasConsumerGroupId() const { return this->consumerGroupId_ != nullptr;};
+    void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
+    inline string getConsumerGroupId() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupId_, "") };
+    inline QueryConsumerAuthorizationRulesRequest& setConsumerGroupId(string consumerGroupId) { DARABONBA_PTR_SET_VALUE(consumerGroupId_, consumerGroupId) };
 
 
     // consumerId Field Functions 
@@ -108,6 +120,13 @@ namespace Models
     inline QueryConsumerAuthorizationRulesRequest& setParentResourceId(string parentResourceId) { DARABONBA_PTR_SET_VALUE(parentResourceId_, parentResourceId) };
 
 
+    // principalType Field Functions 
+    bool hasPrincipalType() const { return this->principalType_ != nullptr;};
+    void deletePrincipalType() { this->principalType_ = nullptr;};
+    inline string getPrincipalType() const { DARABONBA_PTR_GET_DEFAULT(principalType_, "") };
+    inline QueryConsumerAuthorizationRulesRequest& setPrincipalType(string principalType) { DARABONBA_PTR_SET_VALUE(principalType_, principalType) };
+
+
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
@@ -132,6 +151,7 @@ namespace Models
   protected:
     // The API name.
     shared_ptr<string> apiNameLike_ {};
+    shared_ptr<string> consumerGroupId_ {};
     // The consumer ID.
     shared_ptr<string> consumerId_ {};
     // The consumer name.
@@ -146,6 +166,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The parent resource ID.
     shared_ptr<string> parentResourceId_ {};
+    shared_ptr<string> principalType_ {};
     // The resource ID.
     shared_ptr<string> resourceId_ {};
     // The resource type.

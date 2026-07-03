@@ -185,15 +185,15 @@ namespace Models
           shared_ptr<string> executePriority_ {};
           // The execution stage.
           shared_ptr<string> executeStage_ {};
-          // The name of the plug-in.
+          // The plugin name.
           shared_ptr<string> name_ {};
-          // The plug-in type ID.
+          // The plugin type ID.
           shared_ptr<string> pluginClassId_ {};
-          // The source of the plug-in.
+          // The plugin source.
           shared_ptr<string> source_ {};
           // The version.
           shared_ptr<string> version_ {};
-          // The description of the version.
+          // The version description.
           shared_ptr<string> versionDescription_ {};
         };
 
@@ -235,9 +235,9 @@ namespace Models
 
 
         protected:
-          // The instance ID.
+          // The gateway ID.
           shared_ptr<string> gatewayId_ {};
-          // The instance name.
+          // The gateway name.
           shared_ptr<string> name_ {};
         };
 
@@ -279,9 +279,9 @@ namespace Models
 
 
         protected:
-          // Indicates if enabled.
+          // Indicates whether the plugin is enabled.
           shared_ptr<string> enable_ {};
-          // The attachment ID.
+          // The plugin attachment ID.
           shared_ptr<string> pluginAttachmentId_ {};
         };
 
@@ -322,13 +322,13 @@ namespace Models
 
 
       protected:
-        // The attachment information.
+        // The plugin attachment information.
         shared_ptr<Items::AttachmentInfo> attachmentInfo_ {};
-        // The gateway instance information.
+        // The gateway information.
         shared_ptr<Items::GatewayInfo> gatewayInfo_ {};
-        // The plug-in type information.
+        // The plugin type information.
         shared_ptr<Items::PluginClassInfo> pluginClassInfo_ {};
-        // The plug-in ID.
+        // The plugin ID.
         shared_ptr<string> pluginId_ {};
       };
 
@@ -365,13 +365,13 @@ namespace Models
 
 
     protected:
-      // The list of plug-in information.
+      // The plugin list.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -408,11 +408,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The returned data.
     shared_ptr<ListPluginsResponseBody::Data> data_ {};
-    // The status message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The display name of the region.
       shared_ptr<string> localName_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -111,9 +113,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The list of regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Data>> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

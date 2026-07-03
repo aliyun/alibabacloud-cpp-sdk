@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The URL of the identity provider\\"s authorization endpoint. Your application redirects users to this URL to sign in and grant consent.
+    // The OAuth2 authorization endpoint URL.
     shared_ptr<string> authorizationEndpoint_ {};
-    // The unique identifier for your application. The identity provider assigns this ID when you register your application.
+    // The OAuth2 client ID.
     shared_ptr<string> clientId_ {};
-    // The secret key for your application. This secret authenticates your application with the identity provider.
+    // The OAuth2 client secret. The secret is AES-encrypted when stored.
     shared_ptr<string> clientSecret_ {};
-    // The URL of the identity provider that issues the tokens. This URL uniquely identifies the provider.
+    // The OIDC issuer URL.
     shared_ptr<string> issuer_ {};
-    // The URL of the identity provider\\"s JSON Web Key Set (JWKS) document. This document contains the public signing keys for token validation.
+    // The JWKS public key set URI, used for token signature verification.
     shared_ptr<string> jwkSetUri_ {};
-    // The URL where the identity provider redirects the user after authorizing your application. This URL must be registered in your application settings with the identity provider.
+    // The OAuth2 callback URL.
     shared_ptr<string> redirectUri_ {};
-    // A space-separated list of requested permissions. For example: `openid profile`.
+    // The OAuth2 authorization scopes, separated by spaces.
     shared_ptr<string> scopes_ {};
-    // The URL of the identity provider\\"s token endpoint. Your application uses this endpoint to exchange an authorization code for an access token.
+    // The OAuth2 token endpoint URL.
     shared_ptr<string> tokenEndpoint_ {};
-    // The URL of the identity provider\\"s user info endpoint. Your application can use this endpoint to retrieve the authenticated user\\"s profile information.
+    // The OIDC UserInfo endpoint URL.
     shared_ptr<string> userInfoEndpoint_ {};
   };
 

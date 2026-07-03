@@ -186,22 +186,39 @@ namespace Models
 
 
   protected:
+    // The plugin class alias.
     shared_ptr<string> alias_ {};
+    // The configuration example (JSON string).
     shared_ptr<string> configExample_ {};
+    // The plugin class description.
     shared_ptr<string> description_ {};
+    // The execution priority.
     shared_ptr<int32_t> executePriority_ {};
+    // The execution stage.
     shared_ptr<string> executeStage_ {};
+    // The Wasm image name.
     shared_ptr<string> imageName_ {};
+    // Indicates whether the plugin is a built-in plugin.
     shared_ptr<bool> innerPlugin_ {};
+    // The plugin running mode.
     shared_ptr<string> mode_ {};
+    // The plugin class name.
     shared_ptr<string> name_ {};
+    // The plugin class ID.
     shared_ptr<string> pluginClassId_ {};
+    // The plugin source.
     shared_ptr<string> source_ {};
+    // The minimum supported gateway DPI engine version.
     shared_ptr<string> supportedMinGatewayVersion_ {};
+    // The plugin type category.
     shared_ptr<string> type_ {};
+    // The plugin version number.
     shared_ptr<string> version_ {};
+    // The version description.
     shared_ptr<string> versionDescription_ {};
+    // The Wasm programming language.
     shared_ptr<string> wasmLanguage_ {};
+    // The Wasm file download URL.
     shared_ptr<string> wasmUrl_ {};
   };
 

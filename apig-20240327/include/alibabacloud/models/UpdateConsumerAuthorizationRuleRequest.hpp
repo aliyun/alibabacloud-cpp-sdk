@@ -63,7 +63,9 @@ namespace Models
   protected:
     // The list of resource authorization information.
     shared_ptr<vector<AuthorizationResourceInfo>> authorizationResourceInfos_ {};
-    // The expiry mode. Valid values: LongTerm and ShortTerm.
+    // The expiration mode. Valid values:
+    // - LongTerm
+    // - ShortTerm
     shared_ptr<string> expireMode_ {};
     // The expiration time.
     shared_ptr<int64_t> expireTimestamp_ {};

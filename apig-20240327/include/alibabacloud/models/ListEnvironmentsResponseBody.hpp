@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // 环境信息列表。
+      // The list of environment contexts.
       shared_ptr<vector<EnvironmentInfo>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

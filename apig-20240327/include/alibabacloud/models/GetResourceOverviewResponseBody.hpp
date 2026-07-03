@@ -155,7 +155,7 @@ namespace Models
           shared_ptr<string> gatewayName_ {};
           // The risk level.
           shared_ptr<string> riskLevel_ {};
-          // The risk name list.
+          // The list of risk names.
           shared_ptr<vector<string>> riskNames_ {};
           // The risk score.
           shared_ptr<string> score_ {};
@@ -187,9 +187,9 @@ namespace Models
 
 
       protected:
-        // The number of instances at a risk level.
+        // The number of instances at this risk level.
         shared_ptr<string> count_ {};
-        // The risk details list.
+        // The list of risk details.
         shared_ptr<vector<RiskOverview::RiskDetails>> riskDetails_ {};
         // The risk level.
         shared_ptr<string> riskLevel_ {};
@@ -233,9 +233,9 @@ namespace Models
 
 
       protected:
-        // Number of running gateways.
+        // The number of running gateways.
         shared_ptr<int64_t> runningCount_ {};
-        // Number of gateway instances.
+        // The total number of gateway instances.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -277,9 +277,9 @@ namespace Models
 
 
       protected:
-        // Number of published APIs.
+        // The number of published APIs.
         shared_ptr<int64_t> publishedCount_ {};
-        // Number of APIs.
+        // The total number of APIs.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -313,9 +313,9 @@ namespace Models
 
 
     protected:
-      // API information.
+      // The API information.
       shared_ptr<Data::Api> api_ {};
-      // Gateway information.
+      // The gateway information.
       shared_ptr<Data::Gateway> gateway_ {};
       // The risk overview.
       shared_ptr<vector<Data::RiskOverview>> riskOverview_ {};
@@ -354,13 +354,13 @@ namespace Models
 
 
   protected:
-    // Response status code.
+    // The response status code.
     shared_ptr<string> code_ {};
     // The resource information.
     shared_ptr<GetResourceOverviewResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

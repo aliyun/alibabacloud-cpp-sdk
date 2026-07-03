@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The value of the API key.
+      // The API key value.
       shared_ptr<string> apiKey_ {};
-      // The operational mode for the key, such as `test` or `production`.
+      // The generation mode.
       shared_ptr<string> mode_ {};
     };
 
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // An array of objects, each containing a valid API key and its associated mode.
+    // The list of credentials.
     shared_ptr<vector<HiMarketApiKeyConfig::Credentials>> credentials_ {};
-    // The name of the parameter that holds the API key. For example, if `source` is `HEADER`, this is the request header name, such as `X-API-Key`.
+    // The name of the location from which the API key is extracted.
     shared_ptr<string> key_ {};
-    // The location of the API key in the request. Valid values are `HEADER` and `QUERY`.
+    // The source type of the API key.
     shared_ptr<string> source_ {};
   };
 

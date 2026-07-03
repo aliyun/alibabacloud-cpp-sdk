@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The status code.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The MCP server ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

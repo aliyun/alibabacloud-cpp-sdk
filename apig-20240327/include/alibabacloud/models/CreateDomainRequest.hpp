@@ -167,12 +167,13 @@ namespace Models
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
+    // The domain name scope.
     shared_ptr<string> domainScope_ {};
     // Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS.
     shared_ptr<bool> forceHttps_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The HTTP/2 settings.
+    // The HTTP/2 setting.
     shared_ptr<string> http2Option_ {};
     // Specifies whether to enable mTLS mutual authentication.
     shared_ptr<bool> mTLSEnabled_ {};
@@ -180,10 +181,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocol type supported by the domain name.
+    // The protocol type supported by the domain name. Valid values:
     // 
-    // - HTTP: supports only HTTP.
-    // - HTTPS: supports only HTTPS.
+    // - HTTP: Only HTTP is supported.
+    // - HTTPS: Only HTTPS is supported.
     shared_ptr<string> protocol_ {};
     // The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};

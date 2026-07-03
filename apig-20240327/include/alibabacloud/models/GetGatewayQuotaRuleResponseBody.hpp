@@ -113,7 +113,9 @@ namespace Models
 
 
       protected:
+        // The principal (consumer) ID.
         shared_ptr<string> id_ {};
+        // The principal (consumer) name.
         shared_ptr<string> name_ {};
       };
 
@@ -200,16 +202,27 @@ namespace Models
 
 
     protected:
+      // The base timestamp of the period.
       shared_ptr<int64_t> baseTimestamp_ {};
+      // The number of consumers associated with the rule.
       shared_ptr<int64_t> consumerCount_ {};
+      // The list of principals (consumers) bound to this rule.
       shared_ptr<vector<Data::Consumers>> consumers_ {};
+      // The quota period type.
       shared_ptr<string> periodType_ {};
+      // The quota dimension.
       shared_ptr<string> quotaDimension_ {};
+      // The quota limit.
       shared_ptr<int64_t> quotaLimit_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The rule status.
       shared_ptr<string> ruleStatus_ {};
+      // The time zone corresponding to the calendar period, in UTC+x format.
       shared_ptr<string> timezone_ {};
+      // The reset period type. Currently, only calendar period is supported, which means windowAlignment="calendar".
       shared_ptr<string> windowAlignment_ {};
     };
 
@@ -246,9 +259,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetGatewayQuotaRuleResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

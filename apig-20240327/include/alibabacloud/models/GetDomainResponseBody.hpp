@@ -362,7 +362,7 @@ namespace Models
       shared_ptr<string> http2Option_ {};
       // The certification authority.
       shared_ptr<string> issuer_ {};
-      // Indicates whether mTLS mutual authentication is enabled.
+      // Indicates whether mutual TLS (mTLS) authentication is enabled.
       shared_ptr<bool> mTLSEnabled_ {};
       // The domain name.
       shared_ptr<string> name_ {};
@@ -372,9 +372,8 @@ namespace Models
       shared_ptr<int64_t> notBeforeTimestamp_ {};
       // The protocol type supported by the domain name.
       // 
-      // Valid values:
-      // - HTTP: Only the HTTP protocol is supported.
-      // - HTTPS: Only the HTTPS protocol is supported.
+      // - HTTP: supports only the HTTP protocol.
+      // - HTTPS: supports only the HTTPS protocol.
       shared_ptr<string> protocol_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};

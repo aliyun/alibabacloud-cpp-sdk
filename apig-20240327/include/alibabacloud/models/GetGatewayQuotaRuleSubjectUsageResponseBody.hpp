@@ -166,11 +166,17 @@ namespace Models
 
 
         protected:
+          // The cached token consumption.
           shared_ptr<int64_t> cachedAmount_ {};
+          // The input token consumption.
           shared_ptr<int64_t> inputAmount_ {};
+          // The model name.
           shared_ptr<string> model_ {};
+          // The output token consumption.
           shared_ptr<int64_t> outputAmount_ {};
+          // The consumption (request) time.
           shared_ptr<string> startTime_ {};
+          // The total consumption.
           shared_ptr<int64_t> usedAmount_ {};
         };
 
@@ -207,9 +213,13 @@ namespace Models
 
 
       protected:
+        // The list of usage details.
         shared_ptr<vector<Details::Items>> items_ {};
+        // The current page number.
         shared_ptr<int32_t> pageNumber_ {};
+        // The current page size.
         shared_ptr<int32_t> pageSize_ {};
+        // The total number of records.
         shared_ptr<int32_t> totalSize_ {};
       };
 
@@ -268,12 +278,19 @@ namespace Models
 
 
     protected:
+      // The total cached token consumption.
       shared_ptr<int64_t> cachedAmount_ {};
+      // The paginated consumption details.
       shared_ptr<Data::Details> details_ {};
+      // The total input token consumption.
       shared_ptr<int64_t> inputAmount_ {};
+      // The total output token consumption.
       shared_ptr<int64_t> outputAmount_ {};
+      // Indicates whether the quota limit is exceeded.
       shared_ptr<bool> overLimit_ {};
+      // The total quota of the subject.
       shared_ptr<int64_t> totalQuota_ {};
+      // The total used amount of the subject.
       shared_ptr<int64_t> usedAmount_ {};
     };
 
@@ -310,9 +327,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetGatewayQuotaRuleSubjectUsageResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

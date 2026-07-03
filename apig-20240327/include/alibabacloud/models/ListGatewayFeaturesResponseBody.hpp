@@ -161,7 +161,7 @@ namespace Models
 
 
           protected:
-            // The key to pass the parameter.
+            // The pass parameter key.
             shared_ptr<string> key_ {};
             // The display value.
             shared_ptr<string> label_ {};
@@ -279,51 +279,48 @@ namespace Models
 
 
         protected:
-          // The default value of the parameter.
+          // The default value.
           shared_ptr<string> defaultValue_ {};
           // The parameter description.
           shared_ptr<string> description_ {};
           // The display name of the parameter.
           shared_ptr<string> displayName_ {};
-          // The parameter group to which the parameter belongs. Valid values:
-          // 
-          // *   Telemetry: an observability parameter
-          // *   Engine: an engine parameter
+          // The parameter group. Valid values:
+          // - Telemetry: observability parameter.
+          // - Engine: engine parameter.
           shared_ptr<string> group_ {};
           // The input type of the parameter. Valid values:
-          // 
-          // *   Trigger
-          // *   Input
-          // *   SingleSelect
-          // *   MultiSelect
+          // - Trigger: toggle.
+          // - Input: input.
+          // - SingleSelect: single-select.
+          // - MultiSelect: multi-select.
           shared_ptr<string> inputType_ {};
-          // The maximum length of the value. This parameter is valid when the value type is string.
+          // The maximum length supported by the parameter value. This is valid only when the value type is string.
           shared_ptr<int32_t> maxLength_ {};
-          // The maximum value of the parameter. This parameter is valid when the value type is int32, int64, or float.
+          // The maximum value supported by the parameter. This is valid only when the value type is int32, int64, or float.
           shared_ptr<string> maxValue_ {};
-          // The minimum length of the value. This parameter is valid when the value type is string.
+          // The minimum length supported by the parameter value. This is valid only when the value type is string.
           shared_ptr<int32_t> minLength_ {};
-          // The minimum value of the parameter. This parameter is valid when the value type is int32, int64, or float.
+          // The minimum value supported by the parameter. This is valid only when the value type is int32, int64, or float.
           shared_ptr<string> minValue_ {};
           // The parameter name.
           shared_ptr<string> name_ {};
           // Indicates whether the parameter is read-only.
           shared_ptr<bool> readOnly_ {};
-          // The regular expression that the parameter value must fulfill. This parameter is valid when the value type is string.
+          // The regular expression that the parameter value must match. This is valid only when the parameter value type is string.
           shared_ptr<string> regex_ {};
           // The list of options supported by the parameter value.
           shared_ptr<vector<Definition::ValueOptions>> valueOptions_ {};
-          // The value type of the parameter. Valid values:
-          // 
-          // *   bool: boolean
-          // *   string
-          // *   int32: integer
-          // *   int64: long integer
-          // *   json
-          // *   array: JSON array
-          // *   float: floating point
+          // The type supported by the parameter value. Valid values:
+          // - bool: Boolean.
+          // - string: String.
+          // - int32: Integer.
+          // - int64: Long integer.
+          // - json: JSON format.
+          // - array: JSON array format.
+          // - float: Float.
           shared_ptr<string> valueType_ {};
-          // The value unit.
+          // The unit.
           shared_ptr<string> valueUnit_ {};
         };
 
@@ -363,7 +360,7 @@ namespace Models
 
 
     protected:
-      // The list of parameter configurations.
+      // The list of parameter settings.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -400,11 +397,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<ListGatewayFeaturesResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -181,16 +181,29 @@ namespace Models
 
 
       protected:
+        // The ID of the gateway to which the rule belongs.
         shared_ptr<string> gatewayId_ {};
+        // The name of the gateway to which the rule belongs.
         shared_ptr<string> gatewayName_ {};
+        // The period multiplier, which specifies the number of periods after which the quota is reset. This parameter is returned only when the rule uses a custom cycle. Minimum value: 1. Maximum value: 60.
         shared_ptr<string> periodMultiplier_ {};
+        // The period type.
         shared_ptr<string> periodType_ {};
+        // The quota dimension.
         shared_ptr<string> quotaDimension_ {};
+        // The quota limit.
         shared_ptr<int64_t> quotaLimit_ {};
+        // The rule ID.
         shared_ptr<string> ruleId_ {};
+        // The rule name.
         shared_ptr<string> ruleName_ {};
+        // The rule status.
         shared_ptr<string> ruleStatus_ {};
+        // The time zone corresponding to the natural cycle, in UTC+x format.
         shared_ptr<string> timezone_ {};
+        // The cycle type. Valid values:
+        // - calendar: Natural cycle.
+        // - epoch: Custom cycle.
         shared_ptr<string> windowAlignment_ {};
       };
 
@@ -227,9 +240,13 @@ namespace Models
 
 
     protected:
+      // The list of rules.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The current page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of configured quota rules.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -266,9 +283,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListConsumerQuotaRulesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

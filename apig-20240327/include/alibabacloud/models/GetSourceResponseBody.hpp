@@ -157,7 +157,7 @@ namespace Models
 
 
       protected:
-        // The container service cluster ID.
+        // The Container Service cluster ID.
         shared_ptr<string> clusterId_ {};
       };
 
@@ -254,7 +254,7 @@ namespace Models
       shared_ptr<string> gatewayId_ {};
       // The Kubernetes source information.
       shared_ptr<Data::K8SSourceInfo> k8SSourceInfo_ {};
-      // The Microservices Engine (MSE) Nacos source information.
+      // The MSE Nacos source information.
       shared_ptr<Data::NacosSourceInfo> nacosSourceInfo_ {};
       // The name.
       shared_ptr<string> name_ {};

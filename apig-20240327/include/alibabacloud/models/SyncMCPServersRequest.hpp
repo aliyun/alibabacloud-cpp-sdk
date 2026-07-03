@@ -105,15 +105,15 @@ namespace Models
 
 
     protected:
-      // The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP and the type parameter is set to RealMCP.
+      // The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
       shared_ptr<string> exposedUriPath_ {};
       // The Nacos instance ID.
       shared_ptr<string> instanceId_ {};
-      // The MCP server ID.
+      // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The name of the MCP server.
+      // The MCP Server name.
       shared_ptr<string> mcpServerName_ {};
-      // The protocol.
+      // The protocols.
       shared_ptr<vector<string>> protocols_ {};
     };
 
@@ -159,11 +159,11 @@ namespace Models
 
 
   protected:
-    // The domain ID.
+    // The domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
-    // The ID of the gateway.
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The synchronized Nacos MCP server list. If the synchronized MCP server is included, add the mcpServerId parameter.
+    // The list of Nacos MCP Servers to sync. If the list contains MCP Servers that have already been synced, include the mcpServerId.
     shared_ptr<vector<SyncMCPServersRequest::NacosMcpServers>> nacosMcpServers_ {};
     // The Nacos namespace.
     shared_ptr<string> namespace_ {};

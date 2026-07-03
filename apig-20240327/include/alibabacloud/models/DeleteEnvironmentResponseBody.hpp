@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to trace the request chain.
+    // The request ID, which is used to trace the request.
     shared_ptr<string> requestId_ {};
   };
 

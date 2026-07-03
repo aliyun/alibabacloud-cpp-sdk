@@ -33,16 +33,20 @@ namespace Models
     class AuthorizationRules : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const AuthorizationRules& obj) { 
+        DARABONBA_PTR_TO_JSON(consumerGroupId, consumerGroupId_);
         DARABONBA_PTR_TO_JSON(consumerId, consumerId_);
         DARABONBA_PTR_TO_JSON(expireMode, expireMode_);
         DARABONBA_PTR_TO_JSON(expireTimestamp, expireTimestamp_);
+        DARABONBA_PTR_TO_JSON(principalType, principalType_);
         DARABONBA_PTR_TO_JSON(resourceIdentifier, resourceIdentifier_);
         DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
       };
       friend void from_json(const Darabonba::Json& j, AuthorizationRules& obj) { 
+        DARABONBA_PTR_FROM_JSON(consumerGroupId, consumerGroupId_);
         DARABONBA_PTR_FROM_JSON(consumerId, consumerId_);
         DARABONBA_PTR_FROM_JSON(expireMode, expireMode_);
         DARABONBA_PTR_FROM_JSON(expireTimestamp, expireTimestamp_);
+        DARABONBA_PTR_FROM_JSON(principalType, principalType_);
         DARABONBA_PTR_FROM_JSON(resourceIdentifier, resourceIdentifier_);
         DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
       };
@@ -125,8 +129,16 @@ namespace Models
         shared_ptr<vector<string>> resources_ {};
       };
 
-      virtual bool empty() const override { return this->consumerId_ == nullptr
-        && this->expireMode_ == nullptr && this->expireTimestamp_ == nullptr && this->resourceIdentifier_ == nullptr && this->resourceType_ == nullptr; };
+      virtual bool empty() const override { return this->consumerGroupId_ == nullptr
+        && this->consumerId_ == nullptr && this->expireMode_ == nullptr && this->expireTimestamp_ == nullptr && this->principalType_ == nullptr && this->resourceIdentifier_ == nullptr
+        && this->resourceType_ == nullptr; };
+      // consumerGroupId Field Functions 
+      bool hasConsumerGroupId() const { return this->consumerGroupId_ != nullptr;};
+      void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
+      inline string getConsumerGroupId() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupId_, "") };
+      inline AuthorizationRules& setConsumerGroupId(string consumerGroupId) { DARABONBA_PTR_SET_VALUE(consumerGroupId_, consumerGroupId) };
+
+
       // consumerId Field Functions 
       bool hasConsumerId() const { return this->consumerId_ != nullptr;};
       void deleteConsumerId() { this->consumerId_ = nullptr;};
@@ -148,6 +160,13 @@ namespace Models
       inline AuthorizationRules& setExpireTimestamp(int64_t expireTimestamp) { DARABONBA_PTR_SET_VALUE(expireTimestamp_, expireTimestamp) };
 
 
+      // principalType Field Functions 
+      bool hasPrincipalType() const { return this->principalType_ != nullptr;};
+      void deletePrincipalType() { this->principalType_ = nullptr;};
+      inline string getPrincipalType() const { DARABONBA_PTR_GET_DEFAULT(principalType_, "") };
+      inline AuthorizationRules& setPrincipalType(string principalType) { DARABONBA_PTR_SET_VALUE(principalType_, principalType) };
+
+
       // resourceIdentifier Field Functions 
       bool hasResourceIdentifier() const { return this->resourceIdentifier_ != nullptr;};
       void deleteResourceIdentifier() { this->resourceIdentifier_ = nullptr;};
@@ -165,12 +184,14 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> consumerGroupId_ {};
       // The consumer ID.
       shared_ptr<string> consumerId_ {};
       // The expiration mode. Currently, only LongTerm is supported.
       shared_ptr<string> expireMode_ {};
       // The expiration time.
       shared_ptr<int64_t> expireTimestamp_ {};
+      shared_ptr<string> principalType_ {};
       // The resource identifier, which serves as a unique identifier for non-standard code sources for space reuse.
       shared_ptr<AuthorizationRules::ResourceIdentifier> resourceIdentifier_ {};
       // The resource type.

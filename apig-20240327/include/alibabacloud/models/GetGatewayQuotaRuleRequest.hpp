@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The page number of the consumer list.
     shared_ptr<string> consumerPageNumber_ {};
+    // The page size of the consumer list.
     shared_ptr<string> consumerPageSize_ {};
+    // Specifies whether to return the consumer list.
     shared_ptr<bool> withConsumers_ {};
   };
 
