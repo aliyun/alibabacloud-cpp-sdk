@@ -396,7 +396,7 @@ namespace CloudauthIntl20220809
       Models::DocOcrMaxResponse docOcrMax(const Models::DocOcrMaxRequest &request);
 
       /**
-       * @summary 全球证件ocr识别接口
+       * @summary Recognizes identity documents worldwide through OCR.
        *
        * @param request DocOcrMaxV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -405,7 +405,7 @@ namespace CloudauthIntl20220809
       Models::DocOcrMaxV2Response docOcrMaxV2WithOptions(const Models::DocOcrMaxV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 全球证件ocr识别接口
+       * @summary Recognizes identity documents worldwide through OCR.
        *
        * @param request DocOcrMaxV2Request
        * @return DocOcrMaxV2Response
@@ -468,7 +468,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyResponse ekycVerify(const Models::EkycVerifyRequest &request);
 
       /**
-       * @summary Server-side-only eKYC API
+       * @summary The eKYC solution server-side API.
        *
        * @param request EkycVerifyV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -477,7 +477,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyV2Response ekycVerifyV2WithOptions(const Models::EkycVerifyV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Server-side-only eKYC API
+       * @summary The eKYC solution server-side API.
        *
        * @param request EkycVerifyV2Request
        * @return EkycVerifyV2Response
@@ -487,7 +487,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyV2Response ekycVerifyV2Advance(const Models::EkycVerifyV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+       * @summary Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
        *
        * @param request FaceCompareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -496,7 +496,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareResponse faceCompareWithOptions(const Models::FaceCompareRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+       * @summary Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
        *
        * @param request FaceCompareRequest
        * @return FaceCompareResponse
@@ -540,7 +540,7 @@ namespace CloudauthIntl20220809
       Models::FaceCrossCompareIntlResponse faceCrossCompareIntl(const Models::FaceCrossCompareIntlRequest &request);
 
       /**
-       * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+       * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
        *
        * @param request FaceDuplicationCheckIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -549,7 +549,7 @@ namespace CloudauthIntl20220809
       Models::FaceDuplicationCheckIntlResponse faceDuplicationCheckIntlWithOptions(const Models::FaceDuplicationCheckIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+       * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
        *
        * @param request FaceDuplicationCheckIntlRequest
        * @return FaceDuplicationCheckIntlResponse
@@ -574,7 +574,7 @@ namespace CloudauthIntl20220809
       Models::FaceGuardRiskResponse faceGuardRisk(const Models::FaceGuardRiskRequest &request);
 
       /**
-       * @summary Calls the server-side API for passive liveness detection.
+       * @summary Provides the server-side passive liveness detection API.
        *
        * @param request FaceLivenessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -583,7 +583,7 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLivenessWithOptions(const Models::FaceLivenessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the server-side API for passive liveness detection.
+       * @summary Provides the server-side passive liveness detection API.
        *
        * @param request FaceLivenessRequest
        * @return FaceLivenessResponse
@@ -591,9 +591,9 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLiveness(const Models::FaceLivenessRequest &request);
 
       /**
-       * @summary 人脸活体验证
+       * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
        *
-       * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
+       * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
        *
        * @param request FaceLivenessV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -602,9 +602,9 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessV2Response faceLivenessV2WithOptions(const Models::FaceLivenessV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 人脸活体验证
+       * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
        *
-       * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
+       * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
        *
        * @param request FaceLivenessV2Request
        * @return FaceLivenessV2Response
@@ -614,9 +614,9 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessV2Response faceLivenessV2Advance(const Models::FaceLivenessV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 人脸活体验证
+       * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
        *
-       * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+       * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
        *
        * @param request FaceVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,9 +625,9 @@ namespace CloudauthIntl20220809
       Models::FaceVerifyIntlResponse faceVerifyIntlWithOptions(const Models::FaceVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 人脸活体验证
+       * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
        *
-       * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+       * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
        *
        * @param request FaceVerifyIntlRequest
        * @return FaceVerifyIntlResponse
@@ -692,6 +692,25 @@ namespace CloudauthIntl20220809
       Models::Id2MetaVerifyIntlResponse id2MetaVerifyIntl(const Models::Id2MetaVerifyIntlRequest &request);
 
       /**
+       * @summary Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+       *
+       * @param request IdnAuthorityVerifyIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IdnAuthorityVerifyIntlResponse
+       */
+      Models::IdnAuthorityVerifyIntlResponse idnAuthorityVerifyIntlWithOptions(const Models::IdnAuthorityVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+       *
+       * @param request IdnAuthorityVerifyIntlRequest
+       * @return IdnAuthorityVerifyIntlResponse
+       */
+      Models::IdnAuthorityVerifyIntlResponse idnAuthorityVerifyIntl(const Models::IdnAuthorityVerifyIntlRequest &request);
+
+      Models::IdnAuthorityVerifyIntlResponse idnAuthorityVerifyIntlAdvance(const Models::IdnAuthorityVerifyIntlAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @summary Initializes an authentication session.
        *
        * @param tmpReq InitializeRequest
@@ -709,7 +728,7 @@ namespace CloudauthIntl20220809
       Models::InitializeResponse initialize(const Models::InitializeRequest &request);
 
       /**
-       * @summary 认证初始化
+       * @summary Initializes an authentication session.
        *
        * @param tmpReq InitializeV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -718,7 +737,7 @@ namespace CloudauthIntl20220809
       Models::InitializeV2Response initializeV2WithOptions(const Models::InitializeV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 认证初始化
+       * @summary Initializes an authentication session.
        *
        * @param request InitializeV2Request
        * @return InitializeV2Response

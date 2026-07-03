@@ -566,63 +566,235 @@ namespace Models
 
 
   protected:
+    // <warning>This feature is **not supported by the Web SDK**. To use this feature, use the App SDK.</warning>
+    // 
+    // Specifies whether to enable strict face quality detection:
+    // - Y: enable (default)
+    // - N: disable.
     shared_ptr<string> appQualityCheck_ {};
+    // Specifies whether to enable authoritative identity verification. Currently, this applies only to second-generation ID cards in the Chinese mainland. This is an input parameter for the IDV product.
     shared_ptr<string> authorize_ {};
+    // Specifies whether to enable auto-registration.
     shared_ptr<string> autoRegistration_ {};
+    // The security token used for anti-replay and anti-tampering verification. If this parameter is passed in, the CallbackToken field is displayed in the callback URL.
     shared_ptr<string> callbackToken_ {};
+    // The callback URL for the authentication result. The callback request method is GET by default. The callback URL must start with https. After the authentication is complete, the platform calls back this URL and automatically appends the transactionId, passed, and subcode fields.
     shared_ptr<string> callbackUrl_ {};
+    // Specifies whether to enable the adaptive color-changing window frame.
+    // - **Y**: enable
+    // - **N**: disable.
     shared_ptr<string> chameleonFrameEnable_ {};
+    // Specifies whether to enable cropping. This is an input parameter for the IDV product.
     shared_ptr<string> crop_ {};
+    // The date of birth on the document.
+    // 
+    // Required when **MRTDInput = 2**.
     shared_ptr<string> dateOfBirth_ {};
+    // The expiration date on the document.
+    // 
+    // Required when **MRTDInput** = 2.
     shared_ptr<string> dateOfExpiry_ {};
+    // The real name of the user.
     shared_ptr<string> docName_ {};
+    // The document number of the user.
     shared_ptr<string> docNo_ {};
+    // The custom configuration for whether to capture additional pages.
     shared_ptr<vector<string>> docPageConfig_ {};
+    // The document capture photo mode.
+    // 
+    // - manual: manual photo capture.
+    // - auto: automatic photo capture (default).
     shared_ptr<string> docScanMode_ {};
+    // The document type.
+    // >For the eKYC_PRO and ID_OCR_MAX solutions, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
+    // 
+    // >For the ID_OCR, eKYC, and eKYC_MIN solutions, see the document type list in the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7.
     shared_ptr<string> docType_ {};
+    // Specifies whether to save an evidence video.
+    // 
+    // - N: not required (default).
+    // 
+    // - Y: a face scanning video (1 to 2 seconds) is captured during the authentication process and returned through the query operation.
+    // 
+    // > Because video files are large, the system discards video files when the network is unstable to prioritize the transmission of images required for authentication.
     shared_ptr<string> docVideo_ {};
+    // The document number.
+    // 
+    // Required when **MRTDInput = 2**.
     shared_ptr<string> documentNumber_ {};
+    // Specifies whether the recognition result page is editable during the document OCR recognition step:
+    // 
+    // - **0**: not editable
+    // 
+    // - **1** (default): editable.
     shared_ptr<string> editOcrResult_ {};
+    // The Indonesian email address. This field takes effect only when Authorize=T.
+    // 
+    // >Note:
+    // This field is required only when the Indonesian data source is enabled.
     shared_ptr<string> email_ {};
+    // The experience code.
     shared_ptr<string> experienceCode_ {};
+    // The face libraries for comparison.
     shared_ptr<string> faceGroupCodes_ {};
+    // The Base64-encoded face photo. If you use FacePictureBase64 to pass in the face photo, check the photo size and do not pass in an excessively large photo.
     shared_ptr<string> facePictureBase64_ {};
+    // The file stream of the face photo.
     shared_ptr<Darabonba::IStream> facePictureFileObject_ {};
+    // The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> facePictureUrl_ {};
+    // The face registration library.
     shared_ptr<string> faceRegisterGroupCode_ {};
+    // The face verification threshold.
     shared_ptr<string> faceVerifyThreshold_ {};
+    // The face image quality. This is an input parameter for the IDV product.
     shared_ptr<string> idFaceQuality_ {};
+    // Specifies whether to enable document anti-forgery detection. This is an input parameter for the IDV product.
     shared_ptr<string> idSpoof_ {};
+    // The custom OCR quality detection threshold mode:
+    // 
+    // - 0: system default
+    // - 1: strict mode
+    // - 2: loose mode
+    // - 3 (default): disable quality detection.
     shared_ptr<string> idThreshold_ {};
+    // The language configuration. This is an input parameter for the IDV product.
     shared_ptr<string> languageConfig_ {};
+    // The input source for MRTD verification parameters. This parameter is required to decrypt information when reading document chip information through NFC.
+    // 
+    // - **0**: user input
+    // 
+    // - **1**: OCR reading
+    // 
+    // - **2**: passed in through the operation.
     shared_ptr<string> MRTDInput_ {};
+    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
+    // A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you mask this field value in advance, for example, by hashing the value.
     shared_ptr<string> merchantUserId_ {};
+    // The Metainfo environment parameter. Obtain this value by using the client SDK.
     shared_ptr<string> metaInfo_ {};
+    // The Indonesian phone number. The format must start with +62 followed by 9 to 11 digits. This field takes effect only when Authorize=T.
+    // 
+    // > 
+    // > - This field is required only when the Indonesian data source is enabled.
     shared_ptr<string> mobile_ {};
+    // The type of liveness detection:
+    // 
+    // - **LIVENESS** (default): blink action liveness detection.
+    // 
+    // - **PHOTINUS_LIVENESS**: blink action liveness + colorful liveness dual detection.
+    // 
+    // > 
+    // > - For supported SDK versions, see [SDK release notes](https://www.alibabacloud.com/help/zh/ekyc/latest/sdk-publishing-record?spm=a2c63.p38356.0.i99).
+    // > - Colorful liveness dual detection is not supported on PC.
     shared_ptr<string> model_ {};
+    // Specifies whether to enable OCR. This is an input parameter for the IDV product.
     shared_ptr<string> ocr_ {};
+    // Specifies whether to return additional OCR recognition standardized format fields:
+    // 
+    // 0: no (default)
+    // 
+    // 1: yes.
     shared_ptr<string> ocrValueStandard_ {};
+    // The capture page configuration. Use commas to connect multiple pages. Valid values:
+    // - **01**: the portrait side of the document
+    // 
+    // - **01,02**: the portrait side and the back side of the document
+    // 
+    // > When this value is set to 01,02, only Chinese ID cards and Vietnamese ID cards are supported.
     shared_ptr<string> pages_ {};
+    // Specifies whether to allow a degraded processing method when compatibility issues occur during mobile H5 authentication.
+    // 
+    // - **url (default)**: degradation is supported. The page displays the authentication URL, and the user can copy the URL or switch browsers to continue authentication.
+    // 
+    // - **keep**: degradation is not supported. The error reason is returned directly, and the authentication flow ends.
+    // 
+    // 
+    // > 
+    // > - This switch is not supported on PC.
+    // > - If the common scenarios involve completing authentication within an in-app web page, set this parameter to keep to disallow URL degradation.
     shared_ptr<string> procedurePriority_ {};
+    // The product solution to use.
+    // 
+    // >Note: For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1.
     shared_ptr<string> productCode_ {};
+    // The order of document and face capture:
+    // 
+    // - DOC_FACE (default)
+    // - FACE_DOC
+    // 
+    // Note: Pass this parameter only when ProductCode is KYC_GLOBAL.
     shared_ptr<string> productFlow_ {};
+    // The number of duplicate faces returned.
     shared_ptr<string> returnFaces_ {};
+    // The client-side callback URL.
     shared_ptr<string> returnUrl_ {};
+    // Specifies whether to save the face picture.
     shared_ptr<string> saveFacePicture_ {};
+    // The scene code. This is an input parameter for the IDV product.
     shared_ptr<string> sceneCode_ {};
+    // The pattern that represents different security levels of the authentication flow. Valid values:
+    // 
+    // 01: normal pattern (default).
+    // 02: safe mode, a relatively strict pattern that is active for high-risk scenarios. This is an input parameter for the IDV product.
     shared_ptr<string> securityLevel_ {};
+    // Specifies whether to display the album upload entry during the document OCR recognition step:
+    // 
+    // - **1**: display (default)
+    // 
+    // - **0**: do not display.
     shared_ptr<string> showAlbumIcon_ {};
+    // Specifies whether to display the guide page:
+    // 
+    // - **1**: display (default)
+    // 
+    // - **0**: do not display.
     shared_ptr<string> showGuidePage_ {};
+    // Specifies whether to display the recognition result page during the document OCR recognition step:
+    // 
+    // - **1**: display (default)
+    // 
+    // - **0**: do not display.
     shared_ptr<string> showOcrResult_ {};
+    // The custom UI configuration. Convert your custom UI configuration to a JSON string based on the configuration template and pass it in through this parameter. For more information, see [IDV UI style customization](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
     shared_ptr<string> styleConfig_ {};
+    // The Base64-encoded portrait photo.
     shared_ptr<string> targetFacePicture_ {};
+    // The file stream of the reference face image.
     shared_ptr<Darabonba::IStream> targetFacePictureFileObject_ {};
+    // The URL of the portrait image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> targetFacePictureUrl_ {};
+    // The custom action pool configuration for liveness detection.
+    // Pass this parameter when Model is set to TEMPLATE.
+    // Configuration rule: separate multiple action codes with commas. Best practices: include at least one frontal face action (such as blink) and no more than 3 actions in total.
+    // Action lookup table:
+    // 
+    // - Blink: 01
+    // - Open Mouth: 02
+    // - Shake Head Left: 03
+    // - Shake Head Right: 04
+    // - Move Farther: 05
+    // - Move Closer: 06
+    // - Photinus: 07.
     shared_ptr<string> templateConfig_ {};
+    // The number of actions randomly selected from TemplateConfig.
+    // This parameter takes effect only when TemplateType is set to Ran.
+    // 
+    // - Validation rules:
+    // - The value must be greater than 1. The value must be less than or equal to the total number of actions configured in TemplateConfig. If not specified, the default value equals the total number of actions in TemplateConfig.
     shared_ptr<string> templateRanCount_ {};
+    // The execution order of liveness detection actions in TemplateConfig.
+    // Pass this parameter when Model is set to TEMPLATE.
+    // 
+    // - Seq: execute in the order configured in TemplateConfig from left to right.
+    // - Ran: execute in random order. When this option is selected, TemplateConfig must contain more than one action.
     shared_ptr<string> templateType_ {};
+    // Specifies whether to enable NFC verification when **DocType** = 01000000 (global passport).
+    // - **Y**: enable
+    // - **N**: disable.
     shared_ptr<string> useNFC_ {};
+    // The verification type.
     shared_ptr<string> verifyModel_ {};
   };
 

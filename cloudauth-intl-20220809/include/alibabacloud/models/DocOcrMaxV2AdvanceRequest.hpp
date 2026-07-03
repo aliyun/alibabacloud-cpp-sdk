@@ -158,19 +158,77 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable authoritative data source verification to enhance document anti-forgery capabilities. Valid values:
+    // 
+    // - **T**: enabled.
+    // 
+    // - **F** (default): disabled.
+    // 
+    // > 
+    // > - **Applicable document types**: China resident identity card (CHN01001) and China mainland driver\\"s license (CHN02001).
+    // > - **Data transmission statement**: Enabling this parameter indicates consent to transmit the user\\"s name and document number to an authoritative data source in the Chinese mainland for consistency verification.
+    // > - **Performance impact**: Enabling this parameter increases the API response time by approximately 1 to 2 seconds. Adjust the timeout settings accordingly.
     shared_ptr<string> authorize_ {};
+    // The expected page to recognize. Valid values:
+    // 
+    // - 01 (default): the portrait side of the document.
+    // 
+    // - 02: the back side of the document.
     shared_ptr<string> docPage_ {};
+    // The document type.
+    // - Format: country code + document type abbreviation + page (optional).
+    // 
+    // Note:
+    // - OcrModel = 0: DocType is required. Specify the document type. The existing logic remains unchanged.
+    // - OcrModel = 1 or 2: DocType must be left empty.
     shared_ptr<string> docType_ {};
+    // The Base64-encoded image of the identity document.
+    // 
+    // If you use IdOcrPictureBase64 to pass in the document image, check the image size and do not pass in an excessively large image.
     shared_ptr<string> idOcrPictureBase64_ {};
+    // The file stream of the document image.
     shared_ptr<Darabonba::IStream> idOcrPictureFileObject_ {};
+    // The URL of the identity document image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> idOcrPictureUrl_ {};
+    // Specifies whether to enable the document anti-forgery feature. Valid values:
+    // 
+    // - T: enabled.
+    // 
+    // - F (default): disabled.
     shared_ptr<string> idSpoof_ {};
+    // The custom OCR quality detection threshold mode. Valid values:
+    // 
+    // - 0: system default.
+    // - 1: strict mode.
+    // - 2: loose mode.
+    // - 3 (default): quality detection disabled.
     shared_ptr<string> idThreshold_ {};
+    // The merchant-defined unique business identifier, used for subsequent troubleshooting. The value can contain letters and digits, with a maximum length of 32 characters. Make sure the value is unique.
     shared_ptr<string> merchantBizId_ {};
+    // The custom user ID, or another identifier that can identify a specific user, such as a phone number or email address.
+    // 
+    // Hash or otherwise desensitize this field value before passing it in.
     shared_ptr<string> merchantUserId_ {};
+    // The OCR recognition mode. Valid values:
+    // 
+    // - 0: general document recognition mode (default).
+    // 
+    // - 1: automatic document classification mode.
+    // 
+    // - 2: automatic document classification and general recognition mode.
     shared_ptr<string> ocrModel_ {};
+    // Specifies whether to enable OCR key field standardization. Valid values:
+    // 
+    // - 0 (default): disabled.
+    // - 1: enabled.
     shared_ptr<string> ocrValueStandard_ {};
+    // The product solution to use.
+    // 
+    // Set this parameter to ID_OCR_MAX.
     shared_ptr<string> productCode_ {};
+    // The custom verification scenario ID. You can use this scenario ID to query related records in the console.
+    // 
+    // The value can contain letters, digits, and underscores, with a maximum length of 10 characters.
     shared_ptr<string> sceneCode_ {};
   };
 

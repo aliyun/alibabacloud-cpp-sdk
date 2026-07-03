@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_TO_JSON(FacePictureFile, facePictureFile_);
       DARABONBA_PTR_TO_JSON(FacePictureUrl, facePictureUrl_);
+      DARABONBA_PTR_TO_JSON(FaceQualityCheck, faceQualityCheck_);
       DARABONBA_PTR_TO_JSON(IdOcrPictureBase64, idOcrPictureBase64_);
       DARABONBA_PTR_TO_JSON(IdOcrPictureFile, idOcrPictureFile_);
       DARABONBA_PTR_TO_JSON(IdOcrPictureUrl, idOcrPictureUrl_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_FROM_JSON(FacePictureFile, facePictureFile_);
       DARABONBA_PTR_FROM_JSON(FacePictureUrl, facePictureUrl_);
+      DARABONBA_PTR_FROM_JSON(FaceQualityCheck, faceQualityCheck_);
       DARABONBA_PTR_FROM_JSON(IdOcrPictureBase64, idOcrPictureBase64_);
       DARABONBA_PTR_FROM_JSON(IdOcrPictureFile, idOcrPictureFile_);
       DARABONBA_PTR_FROM_JSON(IdOcrPictureUrl, idOcrPictureUrl_);
@@ -59,8 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorize_ == nullptr
         && this->crop_ == nullptr && this->docName_ == nullptr && this->docNo_ == nullptr && this->docType_ == nullptr && this->facePictureBase64_ == nullptr
-        && this->facePictureFile_ == nullptr && this->facePictureUrl_ == nullptr && this->idOcrPictureBase64_ == nullptr && this->idOcrPictureFile_ == nullptr && this->idOcrPictureUrl_ == nullptr
-        && this->idThreshold_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr && this->productCode_ == nullptr; };
+        && this->facePictureFile_ == nullptr && this->facePictureUrl_ == nullptr && this->faceQualityCheck_ == nullptr && this->idOcrPictureBase64_ == nullptr && this->idOcrPictureFile_ == nullptr
+        && this->idOcrPictureUrl_ == nullptr && this->idThreshold_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr && this->productCode_ == nullptr; };
     // authorize Field Functions 
     bool hasAuthorize() const { return this->authorize_ != nullptr;};
     void deleteAuthorize() { this->authorize_ = nullptr;};
@@ -117,6 +119,13 @@ namespace Models
     inline EkycVerifyV2Request& setFacePictureUrl(string facePictureUrl) { DARABONBA_PTR_SET_VALUE(facePictureUrl_, facePictureUrl) };
 
 
+    // faceQualityCheck Field Functions 
+    bool hasFaceQualityCheck() const { return this->faceQualityCheck_ != nullptr;};
+    void deleteFaceQualityCheck() { this->faceQualityCheck_ = nullptr;};
+    inline string getFaceQualityCheck() const { DARABONBA_PTR_GET_DEFAULT(faceQualityCheck_, "") };
+    inline EkycVerifyV2Request& setFaceQualityCheck(string faceQualityCheck) { DARABONBA_PTR_SET_VALUE(faceQualityCheck_, faceQualityCheck) };
+
+
     // idOcrPictureBase64 Field Functions 
     bool hasIdOcrPictureBase64() const { return this->idOcrPictureBase64_ != nullptr;};
     void deleteIdOcrPictureBase64() { this->idOcrPictureBase64_ = nullptr;};
@@ -167,51 +176,52 @@ namespace Models
 
 
   protected:
-    // Indicates whether to enable authoritative identity verification. This parameter currently applies only to second-generation ID cards issued in the Chinese mainland.
+    // Specifies whether to enable authoritative identity verification. Currently, this feature is applicable only to second-generation ID cards of mainland China.
     shared_ptr<string> authorize_ {};
-    // Indicates whether clipping is allowed. Clipping is disabled by default (T/F).
+    // Specifies whether cropping is allowed. Not allowed by default. Valid values: T and F.
     // 
-    // - T: Detection is required.
-    // - F: Detection is required (default is F).
+    // - T: Cropping is allowed.
+    // - F: Cropping is not allowed. (Default: F)
     shared_ptr<string> crop_ {};
-    // The user\\"s real name. When Authorize=\\"T\\" and the certificate type is a Chinese mainland ID card, you must provide at least one of the following: key certificate information (DocName, DocNo) or certificate image (IdOcrPictureBase64/URL). Note: It supports combinations of one or more Chinese characters, excluding special characters except for the interpunct 【·】 used in ethnic minority names.
+    // The real name of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, at least one of the following groups must be provided: document key information (DocName, DocNo) or document image (IdOcrPictureBase64/URL). Note: Supports combinations of Chinese characters with a length of at least 1 character. Special characters are not supported, except for the middle dot (·) used in ethnic minority names.
     shared_ptr<string> docName_ {};
-    // The user\\"s certificate number. When Authorize=\\"T\\" and the certificate type is a Chinese mainland ID card, you must provide at least one of the following: key certificate information (DocName, DocNo) or certificate image (IdOcrPictureBase64/URL). Note: It supports a combination of letters and digits with a length of 18 characters.
+    // The document number of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, at least one of the following groups must be provided: document key information (DocName, DocNo) or document image (IdOcrPictureBase64/URL). Note: Supports a combination of letters and digits with a length of 18 characters.
     shared_ptr<string> docNo_ {};
-    // Certificate type
+    // The document type.
     shared_ptr<string> docType_ {};
-    // Base64 encoding of the facial image.
+    // The Base64-encoded face image.
     // 
-    // Notes:
+    // Note:
     // 
-    // - If you choose this method to submit the certificate image, check the image size and avoid uploading excessively large images.
-    // - You must specify exactly one of FacePictureBase64, FacePictureUrl, or FacePictureFile.
+    // - If you use this method to pass the face image, check the photo size and do not pass an overly large photo.
+    // - You can only specify one of FacePictureBase64, FacePictureUrl, and FacePictureFile.
     shared_ptr<string> facePictureBase64_ {};
-    // File stream of the facial photo
+    // The file stream of the face photo.
     shared_ptr<string> facePictureFile_ {};
-    // URL of the facial photo
+    // The URL of the face photo.
     shared_ptr<string> facePictureUrl_ {};
-    // Base64-encoded certificate Image. Notes:
+    shared_ptr<string> faceQualityCheck_ {};
+    // The Base64-encoded document image. Note:
     // 
-    // - If you use this method to submit the certificate image, check the image size and avoid uploading excessively large images.
-    // - You must specify exactly one of IdOcrPictureBase64, IdOcrPictureUrl, or IdOcrPictureFile.
+    // - If you use this method to pass the document image, check the photo size and do not pass an overly large photo.
+    // - You can only specify one of IdOcrPictureBase64, IdOcrPictureUrl, and IdOcrPictureFile.
     shared_ptr<string> idOcrPictureBase64_ {};
-    // File stream of the front side of the certificate
+    // The file stream of the front side of the document image.
     shared_ptr<string> idOcrPictureFile_ {};
-    // URL of the front side of the certificate
+    // The URL of the front side of the document image.
     shared_ptr<string> idOcrPictureUrl_ {};
-    // Custom OCR quality detection threshold mode:
+    // The custom OCR quality detection threshold mode:
     // 
-    // - 0: System default
-    // - 1: Strict mode
-    // - 2: Loose mode
-    // - 3 (default): Shutdown quality detection
+    // - 0: System default.
+    // - 1: Strict mode.
+    // - 2: Lenient mode.
+    // - 3 (Default): Quality detection is disabled.
     shared_ptr<string> idThreshold_ {};
-    // A custom business UUID defined by the merchant, used for subsequent issue tracking and troubleshooting. It supports a combination of letters and digits with a length of 32 characters. Ensure its uniqueness.
+    // A unique business identifier customized by the merchant, used for subsequent troubleshooting. Supports a combination of letters and digits with a length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // Your custom user ID or another identifier that can uniquely identify a specific user, such as a mobile phone number or mailbox address. We strongly recommend pre-masking the value of this field—for example, by applying a hash function.
+    // A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
     shared_ptr<string> merchantUserId_ {};
-    // Product code
+    // The product code.
     shared_ptr<string> productCode_ {};
   };
 

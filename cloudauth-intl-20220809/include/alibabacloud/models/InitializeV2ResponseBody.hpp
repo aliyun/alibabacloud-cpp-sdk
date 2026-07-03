@@ -91,9 +91,15 @@ namespace Models
 
 
     protected:
+      // The client configuration.
       shared_ptr<string> clientCfg_ {};
+      // The standard authentication encryption protocol.
+      // 
+      // > This field is required when you use iframe embedding for H5 web page integration.
       shared_ptr<string> protocol_ {};
+      // The unique ID of the authentication request.
       shared_ptr<string> transactionId_ {};
+      // The web authentication URL.
       shared_ptr<string> transactionUrl_ {};
     };
 
@@ -130,9 +136,13 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The response result.
     shared_ptr<InitializeV2ResponseBody::Result> result_ {};
   };
 

@@ -65,6 +65,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const ExtFaceInfo& obj) { 
           DARABONBA_PTR_TO_JSON(FaceAge, faceAge_);
           DARABONBA_PTR_TO_JSON(FaceAttack, faceAttack_);
+          DARABONBA_PTR_TO_JSON(FaceAttributeInfo, faceAttributeInfo_);
           DARABONBA_PTR_TO_JSON(FaceGender, faceGender_);
           DARABONBA_PTR_TO_JSON(FaceQualityScore, faceQualityScore_);
           DARABONBA_PTR_TO_JSON(IlluminationScore, illuminationScore_);
@@ -76,6 +77,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, ExtFaceInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(FaceAge, faceAge_);
           DARABONBA_PTR_FROM_JSON(FaceAttack, faceAttack_);
+          DARABONBA_PTR_FROM_JSON(FaceAttributeInfo, faceAttributeInfo_);
           DARABONBA_PTR_FROM_JSON(FaceGender, faceGender_);
           DARABONBA_PTR_FROM_JSON(FaceQualityScore, faceQualityScore_);
           DARABONBA_PTR_FROM_JSON(IlluminationScore, illuminationScore_);
@@ -96,8 +98,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->faceAge_ == nullptr
-        && this->faceAttack_ == nullptr && this->faceGender_ == nullptr && this->faceQualityScore_ == nullptr && this->illuminationScore_ == nullptr && this->kaOcclusionScore_ == nullptr
-        && this->occlusionResult_ == nullptr && this->occlusionScore_ == nullptr && this->sharpnessScore_ == nullptr; };
+        && this->faceAttack_ == nullptr && this->faceAttributeInfo_ == nullptr && this->faceGender_ == nullptr && this->faceQualityScore_ == nullptr && this->illuminationScore_ == nullptr
+        && this->kaOcclusionScore_ == nullptr && this->occlusionResult_ == nullptr && this->occlusionScore_ == nullptr && this->sharpnessScore_ == nullptr; };
         // faceAge Field Functions 
         bool hasFaceAge() const { return this->faceAge_ != nullptr;};
         void deleteFaceAge() { this->faceAge_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
         void deleteFaceAttack() { this->faceAttack_ = nullptr;};
         inline string getFaceAttack() const { DARABONBA_PTR_GET_DEFAULT(faceAttack_, "") };
         inline ExtFaceInfo& setFaceAttack(string faceAttack) { DARABONBA_PTR_SET_VALUE(faceAttack_, faceAttack) };
+
+
+        // faceAttributeInfo Field Functions 
+        bool hasFaceAttributeInfo() const { return this->faceAttributeInfo_ != nullptr;};
+        void deleteFaceAttributeInfo() { this->faceAttributeInfo_ = nullptr;};
+        inline string getFaceAttributeInfo() const { DARABONBA_PTR_GET_DEFAULT(faceAttributeInfo_, "") };
+        inline ExtFaceInfo& setFaceAttributeInfo(string faceAttributeInfo) { DARABONBA_PTR_SET_VALUE(faceAttributeInfo_, faceAttributeInfo) };
 
 
         // faceGender Field Functions 
@@ -162,14 +171,27 @@ namespace Models
 
 
       protected:
+        // The predicted reference age of the face. The prediction may fail and return no value.
         shared_ptr<int64_t> faceAge_ {};
+        // The liveness detection result. Valid values: Y (attack detected) and N (Normal).
         shared_ptr<string> faceAttack_ {};
+        shared_ptr<string> faceAttributeInfo_ {};
+        // The predicted gender of the face image. The prediction may fail and return no value. Valid values:
+        // 
+        // - M: male.
+        // - F: female.
         shared_ptr<string> faceGender_ {};
+        // The quality score of the liveness face. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> faceQualityScore_ {};
+        // The algorithm score for illumination as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> illuminationScore_ {};
+        // The algorithm score for key area occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> kaOcclusionScore_ {};
+        // Indicates whether facial occlusion is detected. A value of Y indicates occlusion is detected. A value of N indicates no occlusion is detected.
         shared_ptr<string> occlusionResult_ {};
+        // The algorithm score for occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> occlusionScore_ {};
+        // The algorithm score for image sharpness as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> sharpnessScore_ {};
       };
 
@@ -206,9 +228,16 @@ namespace Models
 
 
     protected:
+      // The face result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
+      // Indicates whether the authentication is passed. Valid values:
+      // 
+      // - Y: passed.
+      // - N: not passed.
       shared_ptr<string> passed_ {};
+      // The sub-result code.
       shared_ptr<string> subCode_ {};
+      // The unique ID of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -245,9 +274,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<FaceLivenessV2ResponseBody::Result> result_ {};
   };
 

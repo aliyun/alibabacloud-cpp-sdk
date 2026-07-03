@@ -116,6 +116,10 @@
 #include <alibabacloud/models/Id2MetaVerifyIntlRequest.hpp>
 #include <alibabacloud/models/Id2MetaVerifyIntlResponseBody.hpp>
 #include <alibabacloud/models/Id2MetaVerifyIntlResponse.hpp>
+#include <alibabacloud/models/IdnAuthorityVerifyIntlRequest.hpp>
+#include <alibabacloud/models/IdnAuthorityVerifyIntlAdvanceRequest.hpp>
+#include <alibabacloud/models/IdnAuthorityVerifyIntlResponseBody.hpp>
+#include <alibabacloud/models/IdnAuthorityVerifyIntlResponse.hpp>
 #include <alibabacloud/models/InitializeRequest.hpp>
 #include <alibabacloud/models/InitializeShrinkRequest.hpp>
 #include <alibabacloud/models/InitializeResponseBody.hpp>

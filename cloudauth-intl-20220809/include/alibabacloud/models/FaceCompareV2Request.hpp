@@ -113,7 +113,7 @@ namespace Models
 
   protected:
     // Specifies whether to enable quality check for the input face images.
-    // >Danger: Deprecated.
+    // >Danger: Deprecated.</danger>.
     shared_ptr<string> facePictureQualityCheck_ {};
     // Specifies whether to enable face quality check.
     shared_ptr<string> faceQualityCheck_ {};

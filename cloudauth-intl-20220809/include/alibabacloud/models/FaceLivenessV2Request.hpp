@@ -94,12 +94,27 @@ namespace Models
 
 
   protected:
+    // The Base64-encoded face image.
+    // 
+    // > **Note**
+    // 
+    // - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // - Specify one of the following parameters: FacePictureBase64, FacePictureUrl, or FacePictureFile.
     shared_ptr<string> facePictureBase64_ {};
+    // The file stream of the face image.
     shared_ptr<string> facePictureFile_ {};
+    // The URL of the face image. The URL must be a publicly accessible HTTPS URL.
     shared_ptr<string> facePictureUrl_ {};
+    // Specifies whether to check the quality of the face image. Valid values:
+    // - Y: enabled.
+    // - N: disabled. This is the default value.
     shared_ptr<string> faceQualityCheck_ {};
+    // The merchant-defined unique business ID for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Make sure the value is unique.
     shared_ptr<string> merchantBizId_ {};
+    // The custom user ID or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
     shared_ptr<string> merchantUserId_ {};
+    // The product plan to use. Valid values: FACE_LIVENESS_MIN_PRO and FACE_LIVENESS_MIN.
+    // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
   };

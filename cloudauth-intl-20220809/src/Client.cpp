@@ -1640,7 +1640,7 @@ DocOcrMaxResponse Client::docOcrMax(const DocOcrMaxRequest &request) {
 }
 
 /**
- * @summary 全球证件ocr识别接口
+ * @summary Recognizes identity documents worldwide through OCR.
  *
  * @param request DocOcrMaxV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1725,7 +1725,7 @@ DocOcrMaxV2Response Client::docOcrMaxV2WithOptions(const DocOcrMaxV2Request &req
 }
 
 /**
- * @summary 全球证件ocr识别接口
+ * @summary Recognizes identity documents worldwide through OCR.
  *
  * @param request DocOcrMaxV2Request
  * @return DocOcrMaxV2Response
@@ -2087,6 +2087,10 @@ EkycVerifyResponse Client::ekycVerifyWithOptions(const EkycVerifyRequest &reques
     query["FacePictureUrl"] = request.getFacePictureUrl();
   }
 
+  if (!!request.hasFaceQualityCheck()) {
+    query["FaceQualityCheck"] = request.getFaceQualityCheck();
+  }
+
   if (!!request.hasIdOcrPictureUrl()) {
     query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
   }
@@ -2146,7 +2150,7 @@ EkycVerifyResponse Client::ekycVerify(const EkycVerifyRequest &request) {
 }
 
 /**
- * @summary Server-side-only eKYC API
+ * @summary The eKYC solution server-side API.
  *
  * @param request EkycVerifyV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2177,6 +2181,10 @@ EkycVerifyV2Response Client::ekycVerifyV2WithOptions(const EkycVerifyV2Request &
 
   if (!!request.hasFacePictureUrl()) {
     query["FacePictureUrl"] = request.getFacePictureUrl();
+  }
+
+  if (!!request.hasFaceQualityCheck()) {
+    query["FaceQualityCheck"] = request.getFaceQualityCheck();
   }
 
   if (!!request.hasIdOcrPictureUrl()) {
@@ -2235,7 +2243,7 @@ EkycVerifyV2Response Client::ekycVerifyV2WithOptions(const EkycVerifyV2Request &
 }
 
 /**
- * @summary Server-side-only eKYC API
+ * @summary The eKYC solution server-side API.
  *
  * @param request EkycVerifyV2Request
  * @return EkycVerifyV2Response
@@ -2355,7 +2363,7 @@ EkycVerifyV2Response Client::ekycVerifyV2Advance(const EkycVerifyV2AdvanceReques
 }
 
 /**
- * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+ * @summary Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
  *
  * @param request FaceCompareRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2412,7 +2420,7 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
 }
 
 /**
- * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+ * @summary Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
  *
  * @param request FaceCompareRequest
  * @return FaceCompareResponse
@@ -2692,7 +2700,7 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntl(const FaceCrossCompare
 }
 
 /**
- * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+ * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2789,7 +2797,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
 }
 
 /**
- * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+ * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @return FaceDuplicationCheckIntlResponse
@@ -2858,7 +2866,7 @@ FaceGuardRiskResponse Client::faceGuardRisk(const FaceGuardRiskRequest &request)
 }
 
 /**
- * @summary Calls the server-side API for passive liveness detection.
+ * @summary Provides the server-side passive liveness detection API.
  *
  * @param request FaceLivenessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2923,7 +2931,7 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
 }
 
 /**
- * @summary Calls the server-side API for passive liveness detection.
+ * @summary Provides the server-side passive liveness detection API.
  *
  * @param request FaceLivenessRequest
  * @return FaceLivenessResponse
@@ -2934,9 +2942,9 @@ FaceLivenessResponse Client::faceLiveness(const FaceLivenessRequest &request) {
 }
 
 /**
- * @summary 人脸活体验证
+ * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
  *
- * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
+ * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
  *
  * @param request FaceLivenessV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2993,9 +3001,9 @@ FaceLivenessV2Response Client::faceLivenessV2WithOptions(const FaceLivenessV2Req
 }
 
 /**
- * @summary 人脸活体验证
+ * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
  *
- * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
+ * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
  *
  * @param request FaceLivenessV2Request
  * @return FaceLivenessV2Response
@@ -3092,9 +3100,9 @@ FaceLivenessV2Response Client::faceLivenessV2Advance(const FaceLivenessV2Advance
 }
 
 /**
- * @summary 人脸活体验证
+ * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
  *
- * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+ * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
  *
  * @param request FaceVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3183,9 +3191,9 @@ FaceVerifyIntlResponse Client::faceVerifyIntlWithOptions(const FaceVerifyIntlReq
 }
 
 /**
- * @summary 人脸活体验证
+ * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
  *
- * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+ * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
  *
  * @param request FaceVerifyIntlRequest
  * @return FaceVerifyIntlResponse
@@ -3491,6 +3499,184 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntl(const Id2MetaVerifyIntlReque
 }
 
 /**
+ * @summary Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+ *
+ * @param request IdnAuthorityVerifyIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IdnAuthorityVerifyIntlResponse
+ */
+IdnAuthorityVerifyIntlResponse Client::idnAuthorityVerifyIntlWithOptions(const IdnAuthorityVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBirthDate()) {
+    query["BirthDate"] = request.getBirthDate();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasFullName()) {
+    query["FullName"] = request.getFullName();
+  }
+
+  if (!!request.hasIdNumber()) {
+    query["IdNumber"] = request.getIdNumber();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.getMerchantBizId();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    query["MerchantUserId"] = request.getMerchantUserId();
+  }
+
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.getMobile();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasSceneCode()) {
+    query["SceneCode"] = request.getSceneCode();
+  }
+
+  if (!!request.hasSourceFacePictureFile()) {
+    query["SourceFacePictureFile"] = request.getSourceFacePictureFile();
+  }
+
+  if (!!request.hasSourceFacePictureUrl()) {
+    query["SourceFacePictureUrl"] = request.getSourceFacePictureUrl();
+  }
+
+  if (!!request.hasTimestamp()) {
+    query["Timestamp"] = request.getTimestamp();
+  }
+
+  json body = {};
+  if (!!request.hasSourceFacePicture()) {
+    body["SourceFacePicture"] = request.getSourceFacePicture();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "IdnAuthorityVerifyIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IdnAuthorityVerifyIntlResponse>();
+}
+
+/**
+ * @summary Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+ *
+ * @param request IdnAuthorityVerifyIntlRequest
+ * @return IdnAuthorityVerifyIntlResponse
+ */
+IdnAuthorityVerifyIntlResponse Client::idnAuthorityVerifyIntl(const IdnAuthorityVerifyIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return idnAuthorityVerifyIntlWithOptions(request, runtime);
+}
+
+IdnAuthorityVerifyIntlResponse Client::idnAuthorityVerifyIntlAdvance(const IdnAuthorityVerifyIntlAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  IdnAuthorityVerifyIntlRequest idnAuthorityVerifyIntlReq = IdnAuthorityVerifyIntlRequest();
+  Utils::Utils::convert(request, idnAuthorityVerifyIntlReq);
+  if (!!request.hasSourceFacePictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getSourceFacePictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    idnAuthorityVerifyIntlReq.setSourceFacePictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  IdnAuthorityVerifyIntlResponse idnAuthorityVerifyIntlResp = idnAuthorityVerifyIntlWithOptions(idnAuthorityVerifyIntlReq, runtime);
+  return idnAuthorityVerifyIntlResp;
+}
+
+/**
  * @summary Initializes an authentication session.
  *
  * @param tmpReq InitializeRequest
@@ -3761,7 +3947,7 @@ InitializeResponse Client::initialize(const InitializeRequest &request) {
 }
 
 /**
- * @summary 认证初始化
+ * @summary Initializes an authentication session.
  *
  * @param tmpReq InitializeV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -4028,7 +4214,7 @@ InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &
 }
 
 /**
- * @summary 认证初始化
+ * @summary Initializes an authentication session.
  *
  * @param request InitializeV2Request
  * @return InitializeV2Response
