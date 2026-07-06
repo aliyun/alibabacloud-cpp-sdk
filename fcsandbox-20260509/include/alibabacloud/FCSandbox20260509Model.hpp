@@ -3,7 +3,11 @@
 #define ALIBABACLOUD_FCSANDBOX20260509MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ApiKey.hpp>
+#include <alibabacloud/models/CertConfig.hpp>
 #include <alibabacloud/models/CreateApiKeyInput.hpp>
+#include <alibabacloud/models/TLSConfig.hpp>
+#include <alibabacloud/models/CreateCustomDomainInput.hpp>
+#include <alibabacloud/models/CustomDomainResp.hpp>
 #include <alibabacloud/models/E2BLifecycle.hpp>
 #include <alibabacloud/models/E2BVolumeMount.hpp>
 #include <alibabacloud/models/E2BListedSandbox.hpp>
@@ -16,6 +20,7 @@
 #include <alibabacloud/models/E2BTemplate.hpp>
 #include <alibabacloud/models/Quota.hpp>
 #include <alibabacloud/models/UpdateApiKeyInput.hpp>
+#include <alibabacloud/models/UpdateCustomDomainInput.hpp>
 #include <alibabacloud/models/UpdateTemplateInput.hpp>
 #include <alibabacloud/models/DeleteQuotaRequest.hpp>
 #include <alibabacloud/models/DeleteQuotaResponseBody.hpp>
