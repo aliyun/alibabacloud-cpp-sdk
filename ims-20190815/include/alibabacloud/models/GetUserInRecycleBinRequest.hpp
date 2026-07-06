@@ -50,11 +50,11 @@ namespace Models
   protected:
     // The AccessKey ID of the RAM user.
     // 
-    // >  You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
+    // > You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
     shared_ptr<string> userAccessKeyId_ {};
     // The ID of the RAM user.
     // 
-    // >  You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
+    // > You must specify only one of the following parameters: `UserId` and `UserAccessKeyId`.
     shared_ptr<string> userId_ {};
   };
 

@@ -170,25 +170,33 @@ namespace Models
 
 
     protected:
-      // Indicates whether to disable logon after the password expires.
+      // Indicates whether logon is blocked after the password expires.
       shared_ptr<bool> hardExpire_ {};
+      // The validity period of the initial password.
       shared_ptr<int32_t> initialPasswordAge_ {};
+      // Indicates whether threat passwords are blocked when set using APIs.
+      // 
+      // Valid values:
+      // 
+      // - true
+      // 
+      // - false (default)
       shared_ptr<bool> interceptRiskPasswordOnApi_ {};
-      // The maximum number of password retries.
+      // Maximum number of failed password attempts.
       shared_ptr<int32_t> maxLoginAttemps_ {};
-      // The validity period of the password.
+      // The password validity period.
       shared_ptr<int32_t> maxPasswordAge_ {};
-      // The minimum number of unique characters in the password.
+      // The minimum number of different characters in the password.
       shared_ptr<int32_t> minimumPasswordDifferentCharacter_ {};
-      // The minimum required number of characters in a password.
+      // The minimum password length.
       shared_ptr<int32_t> minimumPasswordLength_ {};
-      // Indicates whether to exclude the username from the password.
+      // Indicates whether the password must not contain the user name.
       shared_ptr<bool> passwordNotContainUserName_ {};
-      // The policy for password history check.
+      // The password reuse prevention policy.
       shared_ptr<int32_t> passwordReusePrevention_ {};
       // Indicates whether the password must contain lowercase letters.
       shared_ptr<bool> requireLowercaseCharacters_ {};
-      // Indicates whether the password must contain digits.
+      // Indicates whether the password must contain numbers.
       shared_ptr<bool> requireNumbers_ {};
       // Indicates whether the password must contain special characters.
       shared_ptr<bool> requireSymbols_ {};
@@ -215,7 +223,7 @@ namespace Models
 
 
   protected:
-    // The details of the password policy.
+    // Details of the password policy.
     shared_ptr<GetPasswordPolicyResponseBody::PasswordPolicy> passwordPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

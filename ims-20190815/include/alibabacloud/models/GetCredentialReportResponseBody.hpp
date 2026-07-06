@@ -83,8 +83,9 @@ namespace Models
     shared_ptr<string> generatedTime_ {};
     // Indicates whether the response is truncated. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> isTruncated_ {};
     // The parameter that is used to obtain the truncated part. This parameter takes effect only when `IsTruncated` is set to true.
     shared_ptr<string> nextToken_ {};

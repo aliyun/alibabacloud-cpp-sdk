@@ -123,10 +123,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
+        // Specifies whether RAM users can bind or unbind their personal DingTalk accounts. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // 
+        // - false: Not allowed.
         shared_ptr<bool> allowUserToManagePersonalDingTalk_ {};
       };
 
@@ -168,9 +169,9 @@ namespace Models
 
 
       protected:
-        // The maximum number of days that the AccessKey pair of a RAM user can stay unused. If an AccessKey pair is not used in the previous specified number of days, the AccessKey pair is automatically disabled on the next day. The default value is 730. You cannot change the value.
+        // The maximum idle period, in days, for a RAM user\\"s AccessKey. If an AccessKey remains unused for this period, it is automatically disabled on the following day. The default value is 730.
         shared_ptr<int32_t> maxIdleDaysForAccessKeys_ {};
-        // The maximum number of days that a RAM user can stay idle. If a RAM user for whom console logon is enabled does not log on to the console in the previous specified number of days, console logon is automatically disabled for the RAM user on the next day. Single sign-on (SSO) is not involved. The default value is 730. You cannot change the value.
+        // The maximum idle period (in days) for RAM users. If a RAM user with console login enabled remains inactive (does not log in, excluding SSO logins) for this period, their console login access is automatically disabled on the following day. The default value is 730.
         shared_ptr<int32_t> maxIdleDaysForUsers_ {};
       };
 
@@ -202,10 +203,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether RAM users can manage their MFA devices. Valid values:
+        // Specifies whether RAM users can manage their own MFA devices. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // 
+        // - false: Not allowed.
         shared_ptr<bool> allowUserToManageMFADevices_ {};
       };
 
@@ -293,35 +295,41 @@ namespace Models
 
 
       protected:
-        // Indicates whether RAM users can change their passwords. Valid values:
+        // Specifies whether RAM users can manage their own passwords. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // 
+        // - false: Not allowed.
         shared_ptr<bool> allowUserToChangePassword_ {};
-        // Indicates whether a RAM user can use a passkey for logon. Valid values:
+        // Specifies whether RAM users can log in with passkeys. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // 
+        // - false: Not allowed.
         shared_ptr<bool> allowUserToLoginWithPasskey_ {};
-        // Indicates whether RAM users can remember the multi-factor authentication (MFA) devices for seven days. Valid values:
+        // Specifies whether to save the multi-factor authentication (MFA) status for 7 days after a RAM user passes MFA. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // 
+        // - false: Not allowed.
         shared_ptr<bool> enableSaveMFATicket_ {};
-        // The subnet mask.
+        // The login network mask.
         shared_ptr<string> loginNetworkMasks_ {};
-        // The validity period of the logon session of RAM users. Unit: hours.
+        // The login session duration for RAM users, in hours.
         shared_ptr<int32_t> loginSessionDuration_ {};
-        // Indicates whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. Valid values:
+        // Specifies whether MFA is required for logon. This parameter replaces `EnforceMFAForLogin`. Although `EnforceMFAForLogin` is still supported, using this new parameter is recommended. Valid values:
         // 
-        // *   mandatory: MFA is required for all RAM users. If you use EnforceMFAForLogin, set the value to true.
-        // *   independent (default): User-specific settings are applied. If you use EnforceMFAForLogin, set the value to false.
-        // *   adaptive: MFA is required only for RAM users who initiated unusual logons.
+        // - mandatory: MFA is required for all RAM users. This value corresponds to `true` for the `EnforceMFAForLogin` parameter.
+        // 
+        // - independent (default): The MFA setting for each RAM user is applied independently. This value corresponds to `false` for the `EnforceMFAForLogin` parameter.
+        // 
+        // - adaptive: MFA is required only for risky logons.
         shared_ptr<string> MFAOperationForLogin_ {};
-        // Indicates whether to enable MFA for RAM users who initiated unusual logons. Valid values:
+        // Specifies whether to require multi-factor authentication (MFA) for secondary authentication during a risky logon. Valid values:
         // 
-        // *   autonomous (default): yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA.
-        // *   enforceVerify: MFA is prompted for RAM users who initiated unusual logons and the RAM users cannot skip MFA.
+        // - autonomous (default): Secondary authentication is optional, and MFA device binding is not enforced.
+        // 
+        // - enforceVerify: Secondary authentication is enforced.
         shared_ptr<string> operationForRiskLogin_ {};
       };
 
@@ -363,11 +371,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether RAM users can manage their AccessKey pairs. Valid values:
+        // Specifies whether RAM users can manage their own AccessKey pairs. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // 
+        // - false: Not allowed.
         shared_ptr<bool> allowUserToManageAccessKeys_ {};
+        // Specifies whether RAM users can manage their own API keys. Valid values:
+        // 
+        // - true: Allowed.
+        // 
+        // - false: Not allowed.
         shared_ptr<bool> allowUserToManageServiceCredentials_ {};
       };
 
@@ -428,17 +442,17 @@ namespace Models
 
 
     protected:
-      // The AccessKey pair preference.
+      // The AccessKey preferences.
       shared_ptr<SecurityPreference::AccessKeyPreference> accessKeyPreference_ {};
-      // The logon preference.
+      // The login preferences.
       shared_ptr<SecurityPreference::LoginProfilePreference> loginProfilePreference_ {};
-      // The MFA preference.
+      // The MFA preferences.
       shared_ptr<SecurityPreference::MFAPreference> MFAPreference_ {};
-      // The maximum idle periods. Unit: days.
+      // The settings for the maximum idle period, in days.
       shared_ptr<SecurityPreference::MaxIdleDays> maxIdleDays_ {};
-      // The personal information preference.
+      // The personal information preferences.
       shared_ptr<SecurityPreference::PersonalInfoPreference> personalInfoPreference_ {};
-      // The MFA method preference.
+      // The preferences for MFA methods.
       shared_ptr<SecurityPreference::VerificationPreference> verificationPreference_ {};
     };
 
@@ -463,7 +477,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of security preferences.
+    // The security preferences.
     shared_ptr<GetSecurityPreferenceResponseBody::SecurityPreference> securityPreference_ {};
   };
 

@@ -44,7 +44,7 @@ namespace Models
     // 
     // The default domain name can contain up to 64 characters in length. The default domain name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
     // 
-    // >  The default domain name cannot start or end with a hyphen (-) and cannot contain two consecutive hyphens (-).
+    // > The default domain name cannot start or end with a hyphen (-) and cannot contain two consecutive hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> defaultDomainName_ {};

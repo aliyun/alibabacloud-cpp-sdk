@@ -129,8 +129,9 @@ namespace Models
       shared_ptr<string> userPrincipalName_ {};
       // Indicates whether the RAM user to which the AccessKey pair belongs is in the recycle bin. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> userRecycled_ {};
     };
 

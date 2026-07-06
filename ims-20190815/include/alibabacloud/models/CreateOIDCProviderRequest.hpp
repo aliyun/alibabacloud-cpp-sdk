@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The ID of the client, which is provided by the external IdP. If you want to specify multiple client IDs, separate the client IDs with commas (,).
     // 
-    // The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+    // The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.\\`\\`
     // 
     // The client ID can be up to 128 characters in length.
     shared_ptr<string> clientIds_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<string> issuerUrl_ {};
     // The name of the OIDC IdP.
     // 
-    // The name can contain letters, digits, and special characters and cannot start or end with the special characters. The special characters are `periods, (.), hyphens (-), and underscores (_)`.``
+    // The name can contain letters, digits, and special characters and cannot start or end with the special characters. The special characters are `periods, (.), hyphens (-), and underscores (_)`.\\`\\`
     // 
     // The name can be up to 128 characters in length.
     shared_ptr<string> OIDCProviderName_ {};

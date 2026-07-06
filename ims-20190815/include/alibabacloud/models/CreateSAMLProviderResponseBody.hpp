@@ -107,14 +107,19 @@ namespace Models
     protected:
       // The Alibaba Cloud Resource Name (ARN) of the IdP.
       shared_ptr<string> arn_ {};
+      // The supported signature algorithm. Valid values:
+      // 
+      // - rsa-sha256
+      // 
+      // - rsa-sha1 (default)
       shared_ptr<string> authnSignAlgo_ {};
-      // The creation time. The time is displayed in UTC.
+      // The time when the information was created. It is displayed in UTC.
       shared_ptr<string> createDate_ {};
-      // The description.
+      // The IdP description.
       shared_ptr<string> description_ {};
-      // The name of the IdP.
+      // The IdP name.
       shared_ptr<string> SAMLProviderName_ {};
-      // The update time. The time is displayed in UTC.
+      // The time when the information was last updated. It is displayed in UTC.
       shared_ptr<string> updateDate_ {};
     };
 

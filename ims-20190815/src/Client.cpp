@@ -17,7 +17,10 @@ namespace Ims20190815
 {
 
 AlibabaCloud::Ims20190815::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "central";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-hangzhou" , "ims.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ims", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +39,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+ * @summary Calls AddClientIdToOIDCProvider to add a specified client ID to an OIDC IdP.
+ *
+ * @description ### Usage notes
+ * This topic provides an example on how to add client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
  *
  * @param request AddClientIdToOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,7 +77,10 @@ AddClientIdToOIDCProviderResponse Client::addClientIdToOIDCProviderWithOptions(c
 }
 
 /**
- * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+ * @summary Calls AddClientIdToOIDCProvider to add a specified client ID to an OIDC IdP.
+ *
+ * @description ### Usage notes
+ * This topic provides an example on how to add client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
  *
  * @param request AddClientIdToOIDCProviderRequest
  * @return AddClientIdToOIDCProviderResponse
@@ -236,7 +245,7 @@ BindMFADeviceResponse Client::bindMFADevice(const BindMFADeviceRequest &request)
 /**
  * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
  *
- * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+ * @description > This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
  *
  * @param request ChangePasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -273,7 +282,7 @@ ChangePasswordResponse Client::changePasswordWithOptions(const ChangePasswordReq
 /**
  * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
  *
- * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+ * @description > This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
  *
  * @param request ChangePasswordRequest
  * @return ChangePasswordResponse
@@ -500,7 +509,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+ * @summary Creates a logon configuration for a Resource Access Management (RAM) user.
  *
  * @param request CreateLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -547,7 +556,7 @@ CreateLoginProfileResponse Client::createLoginProfileWithOptions(const CreateLog
 }
 
 /**
- * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+ * @summary Creates a logon configuration for a Resource Access Management (RAM) user.
  *
  * @param request CreateLoginProfileRequest
  * @return CreateLoginProfileResponse
@@ -563,9 +572,9 @@ CreateLoginProfileResponse Client::createLoginProfile(const CreateLoginProfileRe
  * @description ### [](#)Prerequisites
  * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
  * ### [](#)Limits
- * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
- * *   You can add a maximum of 50 client IDs to an OIDC IdP.
- * *   You can add a maximum of five fingerprints to an OIDC IdP.
+ * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+ * - You can add a maximum of 50 client IDs to an OIDC IdP.
+ * - You can add a maximum of five fingerprints to an OIDC IdP.
  * ### [](#)Operation description
  * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
  *
@@ -623,9 +632,9 @@ CreateOIDCProviderResponse Client::createOIDCProviderWithOptions(const CreateOID
  * @description ### [](#)Prerequisites
  * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
  * ### [](#)Limits
- * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
- * *   You can add a maximum of 50 client IDs to an OIDC IdP.
- * *   You can add a maximum of five fingerprints to an OIDC IdP.
+ * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+ * - You can add a maximum of 50 client IDs to an OIDC IdP.
+ * - You can add a maximum of five fingerprints to an OIDC IdP.
  * ### [](#)Operation description
  * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
  *
@@ -689,6 +698,60 @@ CreateSAMLProviderResponse Client::createSAMLProviderWithOptions(const CreateSAM
 CreateSAMLProviderResponse Client::createSAMLProvider(const CreateSAMLProviderRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createSAMLProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+ *
+ * @param request CreateServiceCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServiceCredentialResponse
+ */
+CreateServiceCredentialResponse Client::createServiceCredentialWithOptions(const CreateServiceCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialAgeDays()) {
+    query["CredentialAgeDays"] = request.getCredentialAgeDays();
+  }
+
+  if (!!request.hasServiceCredentialName()) {
+    query["ServiceCredentialName"] = request.getServiceCredentialName();
+  }
+
+  if (!!request.hasServiceName()) {
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasUserPrincipalName()) {
+    query["UserPrincipalName"] = request.getUserPrincipalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateServiceCredential"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServiceCredentialResponse>();
+}
+
+/**
+ * @summary Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+ *
+ * @param request CreateServiceCredentialRequest
+ * @return CreateServiceCredentialResponse
+ */
+CreateServiceCredentialResponse Client::createServiceCredential(const CreateServiceCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createServiceCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -1204,6 +1267,52 @@ DeleteSAMLProviderResponse Client::deleteSAMLProvider(const DeleteSAMLProviderRe
 }
 
 /**
+ * @summary Deletes a service credential of a Resource Access Management (RAM) user.
+ *
+ * @param request DeleteServiceCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteServiceCredentialResponse
+ */
+DeleteServiceCredentialResponse Client::deleteServiceCredentialWithOptions(const DeleteServiceCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServiceCredentialId()) {
+    query["ServiceCredentialId"] = request.getServiceCredentialId();
+  }
+
+  if (!!request.hasUserPrincipalName()) {
+    query["UserPrincipalName"] = request.getUserPrincipalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteServiceCredential"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteServiceCredentialResponse>();
+}
+
+/**
+ * @summary Deletes a service credential of a Resource Access Management (RAM) user.
+ *
+ * @param request DeleteServiceCredentialRequest
+ * @return DeleteServiceCredentialResponse
+ */
+DeleteServiceCredentialResponse Client::deleteServiceCredential(const DeleteServiceCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteServiceCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a Resource Access Management (RAM) user.
  *
  * @param request DeleteUserRequest
@@ -1337,7 +1446,7 @@ DeleteVirtualMFADeviceResponse Client::deleteVirtualMFADevice(const DeleteVirtua
  * @summary Uninstalls an external application or an internal application of the ServerApp type.
  *
  * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
- * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+ * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
  *
  * @param request DeprovisionApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1371,7 +1480,7 @@ DeprovisionApplicationResponse Client::deprovisionApplicationWithOptions(const D
  * @summary Uninstalls an external application or an internal application of the ServerApp type.
  *
  * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
- * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+ * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
  *
  * @param request DeprovisionApplicationRequest
  * @return DeprovisionApplicationResponse
@@ -1618,6 +1727,52 @@ GetAccessKeyLastUsedResponse Client::getAccessKeyLastUsed(const GetAccessKeyLast
 }
 
 /**
+ * @summary Queries the network access restriction policy of an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ *
+ * @param request GetAccessKeyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAccessKeyPolicyResponse
+ */
+GetAccessKeyPolicyResponse Client::getAccessKeyPolicyWithOptions(const GetAccessKeyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUserAccessKeyId()) {
+    query["UserAccessKeyId"] = request.getUserAccessKeyId();
+  }
+
+  if (!!request.hasUserPrincipalName()) {
+    query["UserPrincipalName"] = request.getUserPrincipalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAccessKeyPolicy"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAccessKeyPolicyResponse>();
+}
+
+/**
+ * @summary Queries the network access restriction policy of an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ *
+ * @param request GetAccessKeyPolicyRequest
+ * @return GetAccessKeyPolicyResponse
+ */
+GetAccessKeyPolicyResponse Client::getAccessKeyPolicy(const GetAccessKeyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAccessKeyPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -1682,7 +1837,7 @@ GetAccountSecurityPracticeReportResponse Client::getAccountSecurityPracticeRepor
 }
 
 /**
- * @summary Queries the overview information about an Alibaba Cloud account.
+ * @summary Retrieves the overview for an Alibaba Cloud account (root account).
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAccountSummaryResponse
@@ -1704,7 +1859,7 @@ GetAccountSummaryResponse Client::getAccountSummaryWithOptions(const Darabonba::
 }
 
 /**
- * @summary Queries the overview information about an Alibaba Cloud account.
+ * @summary Retrieves the overview for an Alibaba Cloud account (root account).
  *
  * @return GetAccountSummaryResponse
  */
@@ -1760,9 +1915,9 @@ GetAppSecretResponse Client::getAppSecret(const GetAppSecretRequest &request) {
 }
 
 /**
- * @summary Queries the configuration information about an application.
+ * @summary Queries the configuration information of an application.
  *
- * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+ * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
  *
  * @param request GetApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1793,9 +1948,9 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 }
 
 /**
- * @summary Queries the configuration information about an application.
+ * @summary Queries the configuration information of an application.
  *
- * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+ * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
  *
  * @param request GetApplicationRequest
  * @return GetApplicationResponse
@@ -1968,7 +2123,7 @@ GetExternalApplicationResponse Client::getExternalApplication(const GetExternalA
 }
 
 /**
- * @summary 查询用户的单项ram治理报告
+ * @summary Queries the details of a specific check item in an identity and access governance report.
  *
  * @param request GetGovernanceItemReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2007,7 +2162,7 @@ GetGovernanceItemReportResponse Client::getGovernanceItemReportWithOptions(const
 }
 
 /**
- * @summary 查询用户的单项ram治理报告
+ * @summary Queries the details of a specific check item in an identity and access governance report.
  *
  * @param request GetGovernanceItemReportRequest
  * @return GetGovernanceItemReportResponse
@@ -2018,7 +2173,7 @@ GetGovernanceItemReportResponse Client::getGovernanceItemReport(const GetGoverna
 }
 
 /**
- * @summary 查询成熟度报告状态
+ * @summary Retrieves the current generation status of an identity and access governance report.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetGovernanceReportStatusResponse
@@ -2040,7 +2195,7 @@ GetGovernanceReportStatusResponse Client::getGovernanceReportStatusWithOptions(c
 }
 
 /**
- * @summary 查询成熟度报告状态
+ * @summary Retrieves the current generation status of an identity and access governance report.
  *
  * @return GetGovernanceReportStatusResponse
  */
@@ -2092,7 +2247,7 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 }
 
 /**
- * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+ * @summary Queries the console logon settings for a Resource Access Management (RAM) user.
  *
  * @param request GetLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2123,7 +2278,7 @@ GetLoginProfileResponse Client::getLoginProfileWithOptions(const GetLoginProfile
 }
 
 /**
- * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+ * @summary Queries the console logon settings for a Resource Access Management (RAM) user.
  *
  * @param request GetLoginProfileRequest
  * @return GetLoginProfileResponse
@@ -2182,7 +2337,7 @@ GetOIDCProviderResponse Client::getOIDCProvider(const GetOIDCProviderRequest &re
 }
 
 /**
- * @summary Queries the details of the password policy for RAM users.
+ * @summary Queries the password policy for Resource Access Management (RAM) users.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPasswordPolicyResponse
@@ -2204,7 +2359,7 @@ GetPasswordPolicyResponse Client::getPasswordPolicyWithOptions(const Darabonba::
 }
 
 /**
- * @summary Queries the details of the password policy for RAM users.
+ * @summary Queries the password policy for Resource Access Management (RAM) users.
  *
  * @return GetPasswordPolicyResponse
  */
@@ -2256,7 +2411,7 @@ GetSAMLProviderResponse Client::getSAMLProvider(const GetSAMLProviderRequest &re
 }
 
 /**
- * @summary Queries the security preferences for RAM users.
+ * @summary Use `GetSecurityPreference` to query the global security preferences of a RAM user.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSecurityPreferenceResponse
@@ -2278,13 +2433,59 @@ GetSecurityPreferenceResponse Client::getSecurityPreferenceWithOptions(const Dar
 }
 
 /**
- * @summary Queries the security preferences for RAM users.
+ * @summary Use `GetSecurityPreference` to query the global security preferences of a RAM user.
  *
  * @return GetSecurityPreferenceResponse
  */
 GetSecurityPreferenceResponse Client::getSecurityPreference() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSecurityPreferenceWithOptions(runtime);
+}
+
+/**
+ * @summary Retrieves a specific service credential of a Resource Access Management (RAM) user.
+ *
+ * @param request GetServiceCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServiceCredentialResponse
+ */
+GetServiceCredentialResponse Client::getServiceCredentialWithOptions(const GetServiceCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServiceCredentialId()) {
+    query["ServiceCredentialId"] = request.getServiceCredentialId();
+  }
+
+  if (!!request.hasUserPrincipalName()) {
+    query["UserPrincipalName"] = request.getUserPrincipalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetServiceCredential"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServiceCredentialResponse>();
+}
+
+/**
+ * @summary Retrieves a specific service credential of a Resource Access Management (RAM) user.
+ *
+ * @param request GetServiceCredentialRequest
+ * @return GetServiceCredentialResponse
+ */
+GetServiceCredentialResponse Client::getServiceCredential(const GetServiceCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getServiceCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -2668,9 +2869,9 @@ ListApplicationProvisionInfosResponse Client::listApplicationProvisionInfos(cons
 }
 
 /**
- * @summary Lists the created applications.
+ * @summary Lists the applications that you have created.
  *
- * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+ * @description This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListApplicationsResponse
@@ -2692,9 +2893,9 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary Lists the created applications.
+ * @summary Lists the applications that you have created.
  *
- * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+ * @description This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
  *
  * @return ListApplicationsResponse
  */
@@ -3038,13 +3239,71 @@ ListSAMLProvidersResponse Client::listSAMLProviders(const ListSAMLProvidersReque
 }
 
 /**
+ * @summary Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+ *
+ * @param request ListServiceCredentialsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListServiceCredentialsResponse
+ */
+ListServiceCredentialsResponse Client::listServiceCredentialsWithOptions(const ListServiceCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllUsers()) {
+    query["AllUsers"] = request.getAllUsers();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasServiceName()) {
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasUserPrincipalName()) {
+    query["UserPrincipalName"] = request.getUserPrincipalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListServiceCredentials"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListServiceCredentialsResponse>();
+}
+
+/**
+ * @summary Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+ *
+ * @param request ListServiceCredentialsRequest
+ * @return ListServiceCredentialsResponse
+ */
+ListServiceCredentialsResponse Client::listServiceCredentials(const ListServiceCredentialsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listServiceCredentialsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the tags that are added resources.
  *
  * @description ###
  * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
- * *   `ResourceId.N`
- * *   `Tag.N.Key`
- * *   `Tag.N.Key` and `Tag.N.Value`
+ * - `ResourceId.N`
+ * - `Tag.N.Key`
+ * - `Tag.N.Key` and `Tag.N.Value`
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3099,9 +3358,9 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
  *
  * @description ###
  * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
- * *   `ResourceId.N`
- * *   `Tag.N.Key`
- * *   `Tag.N.Key` and `Tag.N.Value`
+ * - `ResourceId.N`
+ * - `Tag.N.Key`
+ * - `Tag.N.Key` and `Tag.N.Value`
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -3115,8 +3374,8 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
  * @summary Queries the basic information about all Resource Access Management (RAM) users.
  *
  * @description You can call the following API operations to query information about all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUserBasicInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3162,8 +3421,8 @@ ListUserBasicInfosResponse Client::listUserBasicInfosWithOptions(const ListUserB
  * @summary Queries the basic information about all Resource Access Management (RAM) users.
  *
  * @description You can call the following API operations to query information about all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUserBasicInfosRequest
  * @return ListUserBasicInfosResponse
@@ -3178,8 +3437,8 @@ ListUserBasicInfosResponse Client::listUserBasicInfos(const ListUserBasicInfosRe
  *
  * @description ### [](#)
  * You can call the following API operations to query the details of all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3226,8 +3485,8 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
  *
  * @description ### [](#)
  * You can call the following API operations to query the details of all RAM users:
- * *   ListUsers: queries the details of all RAM users.
- * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+ * - ListUsers: queries the details of all RAM users.
+ * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -3714,6 +3973,56 @@ RestoreUserFromRecycleBinResponse Client::restoreUserFromRecycleBin(const Restor
 }
 
 /**
+ * @summary Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ *
+ * @param request SetAccessKeyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAccessKeyPolicyResponse
+ */
+SetAccessKeyPolicyResponse Client::setAccessKeyPolicyWithOptions(const SetAccessKeyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessKeyPolicy()) {
+    query["AccessKeyPolicy"] = request.getAccessKeyPolicy();
+  }
+
+  if (!!request.hasUserAccessKeyId()) {
+    query["UserAccessKeyId"] = request.getUserAccessKeyId();
+  }
+
+  if (!!request.hasUserPrincipalName()) {
+    query["UserPrincipalName"] = request.getUserPrincipalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAccessKeyPolicy"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAccessKeyPolicyResponse>();
+}
+
+/**
+ * @summary Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ *
+ * @param request SetAccessKeyPolicyRequest
+ * @return SetAccessKeyPolicyResponse
+ */
+SetAccessKeyPolicyResponse Client::setAccessKeyPolicy(const SetAccessKeyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAccessKeyPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Configures the default domain name for an Alibaba Cloud account.
  *
  * @param request SetDefaultDomainRequest
@@ -3756,7 +4065,7 @@ SetDefaultDomainResponse Client::setDefaultDomain(const SetDefaultDomainRequest 
 }
 
 /**
- * @summary Configures the password policy for Resource Access Management (RAM) users.
+ * @summary Set the password policy for Resource Access Management (RAM) users.
  *
  * @param request SetPasswordPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3835,7 +4144,7 @@ SetPasswordPolicyResponse Client::setPasswordPolicyWithOptions(const SetPassword
 }
 
 /**
- * @summary Configures the password policy for Resource Access Management (RAM) users.
+ * @summary Set the password policy for Resource Access Management (RAM) users.
  *
  * @param request SetPasswordPolicyRequest
  * @return SetPasswordPolicyResponse
@@ -3846,10 +4155,7 @@ SetPasswordPolicyResponse Client::setPasswordPolicy(const SetPasswordPolicyReque
 }
 
 /**
- * @summary Configures security preferences for a RAM user.
- *
- * @description ###
- * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+ * @summary Configure the global security preferences for a RAM user.
  *
  * @param tmpReq SetSecurityPreferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3938,10 +4244,7 @@ SetSecurityPreferenceResponse Client::setSecurityPreferenceWithOptions(const Set
 }
 
 /**
- * @summary Configures security preferences for a RAM user.
- *
- * @description ###
- * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+ * @summary Configure the global security preferences for a RAM user.
  *
  * @param request SetSecurityPreferenceRequest
  * @return SetSecurityPreferenceResponse
@@ -4322,7 +4625,7 @@ UpdateAccessKeyResponse Client::updateAccessKey(const UpdateAccessKeyRequest &re
 }
 
 /**
- * @summary Modifies the information about a specified application.
+ * @summary Modifies the configuration information of an application.
  *
  * @param request UpdateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4385,7 +4688,7 @@ UpdateApplicationResponse Client::updateApplicationWithOptions(const UpdateAppli
 }
 
 /**
- * @summary Modifies the information about a specified application.
+ * @summary Modifies the configuration information of an application.
  *
  * @param request UpdateApplicationRequest
  * @return UpdateApplicationResponse
@@ -4450,7 +4753,7 @@ UpdateGroupResponse Client::updateGroup(const UpdateGroupRequest &request) {
 }
 
 /**
- * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+ * @summary Modifies the console logon settings for a Resource Access Management (RAM) user.
  *
  * @param request UpdateLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4497,7 +4800,7 @@ UpdateLoginProfileResponse Client::updateLoginProfileWithOptions(const UpdateLog
 }
 
 /**
- * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+ * @summary Modifies the console logon settings for a Resource Access Management (RAM) user.
  *
  * @param request UpdateLoginProfileRequest
  * @return UpdateLoginProfileResponse
@@ -4618,9 +4921,9 @@ UpdatePasskeyResponse Client::updatePasskey(const UpdatePasskeyRequest &request)
 }
 
 /**
- * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Updates the information about a specified identity provider for role-based single sign-on (SSO).
  *
- * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+ * @description This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
  *
  * @param request UpdateSAMLProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4663,9 +4966,9 @@ UpdateSAMLProviderResponse Client::updateSAMLProviderWithOptions(const UpdateSAM
 }
 
 /**
- * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Updates the information about a specified identity provider for role-based single sign-on (SSO).
  *
- * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+ * @description This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
  *
  * @param request UpdateSAMLProviderRequest
  * @return UpdateSAMLProviderResponse
@@ -4673,6 +4976,60 @@ UpdateSAMLProviderResponse Client::updateSAMLProviderWithOptions(const UpdateSAM
 UpdateSAMLProviderResponse Client::updateSAMLProvider(const UpdateSAMLProviderRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSAMLProviderWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+ *
+ * @param request UpdateServiceCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateServiceCredentialResponse
+ */
+UpdateServiceCredentialResponse Client::updateServiceCredentialWithOptions(const UpdateServiceCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServiceCredentialId()) {
+    query["ServiceCredentialId"] = request.getServiceCredentialId();
+  }
+
+  if (!!request.hasServiceCredentialName()) {
+    query["ServiceCredentialName"] = request.getServiceCredentialName();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUserPrincipalName()) {
+    query["UserPrincipalName"] = request.getUserPrincipalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateServiceCredential"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateServiceCredentialResponse>();
+}
+
+/**
+ * @summary Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+ *
+ * @param request UpdateServiceCredentialRequest
+ * @return UpdateServiceCredentialResponse
+ */
+UpdateServiceCredentialResponse Client::updateServiceCredential(const UpdateServiceCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateServiceCredentialWithOptions(request, runtime);
 }
 
 /**

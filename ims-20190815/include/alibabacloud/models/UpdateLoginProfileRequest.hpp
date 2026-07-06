@@ -75,24 +75,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether to forcefully enable multi-factor authentication (MFA) for the RAM user. Valid values:
+    // Specifies whether to enforce multi-factor authentication (MFA) for the RAM user. Valid values:
     // 
-    // *   true: forcefully enables MFA for the RAM user. The RAM user must bind an MFA device upon the next logon.
-    // *   false: does not forcefully enable MFA for the RAM user.
+    // - true: Enforce MFA. The RAM user must attach an MFA device at the next logon.
+    // 
+    // - false: Do not enforce MFA.
     shared_ptr<bool> MFABindRequired_ {};
-    // The new password that is used to log on to the console.
+    // The new console logon password for the RAM user.
     // 
-    // The new password must meet the complexity requirements.
+    // The password must meet the password policy.
     shared_ptr<string> password_ {};
-    // Specifies whether the RAM user is required to reset the password upon the next logon. Valid values:
+    // Specifies whether the RAM user must reset the password at the next logon. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> passwordResetRequired_ {};
-    // Specifies whether to enable password-based logons to the console. Valid values:
+    // Specifies whether to enable password-based logon to the console. Valid values:
     // 
-    // *   Active: enables password-based logons to the console.
-    // *   Inactive: disables password-based logons to the console.
+    // - Active: Enable
+    // 
+    // - Inactive: Disable
     shared_ptr<string> status_ {};
     // The logon name of the RAM user.
     // 

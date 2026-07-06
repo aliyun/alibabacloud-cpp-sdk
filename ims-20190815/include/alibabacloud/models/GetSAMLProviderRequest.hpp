@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the IdP.
+    // The name of the IdP whose information you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> SAMLProviderName_ {};

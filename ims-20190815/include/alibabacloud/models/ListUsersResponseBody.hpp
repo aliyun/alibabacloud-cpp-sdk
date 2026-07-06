@@ -325,8 +325,9 @@ namespace Models
   protected:
     // Indicates whether the response is truncated. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> isTruncated_ {};
     // The parameter that is used to obtain the truncated part. It takes effect only when `IsTruncated` is set to `true`.
     shared_ptr<string> marker_ {};

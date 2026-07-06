@@ -157,7 +157,7 @@ namespace Models
     shared_ptr<vector<string>> resourcePrincipalName_ {};
     // The type of the resource. Valid value:
     // 
-    // *   user: a RAM user
+    // - user: a RAM user
     shared_ptr<string> resourceType_ {};
     // The tag value.
     // 

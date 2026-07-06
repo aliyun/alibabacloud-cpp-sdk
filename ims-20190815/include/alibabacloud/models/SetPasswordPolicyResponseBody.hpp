@@ -170,29 +170,31 @@ namespace Models
 
 
     protected:
-      // Indicates whether to disable logon after the password expires.
+      // Indicates whether logon is blocked after a password expires.
       shared_ptr<bool> hardExpire_ {};
+      // The validity period for initial passwords.
       shared_ptr<int32_t> initialPasswordAge_ {};
+      // Indicates whether threat passwords are blocked when set using APIs.
       shared_ptr<bool> interceptRiskPasswordOnApi_ {};
-      // The maximum number of password retries.
+      // Maximum number of failed password attempts.
       shared_ptr<int32_t> maxLoginAttemps_ {};
-      // The validity period of the password.
+      // The password validity period.
       shared_ptr<int32_t> maxPasswordAge_ {};
-      // The minimum number of unique characters in the password.
+      // Minimum number of unique characters in a password.
       shared_ptr<int32_t> minimumPasswordDifferentCharacter_ {};
-      // The minimum number of characters in the password.
+      // Minimum password length.
       shared_ptr<int32_t> minimumPasswordLength_ {};
-      // Indicates whether to exclude the username from the password.
+      // Indicates whether passwords must not contain the user name.
       shared_ptr<bool> passwordNotContainUserName_ {};
-      // The policy for password history check.
+      // Prevents reuse of previous passwords.
       shared_ptr<int32_t> passwordReusePrevention_ {};
-      // Indicates whether the password must contain lowercase letters.
+      // Indicates whether passwords must contain lowercase letters.
       shared_ptr<bool> requireLowercaseCharacters_ {};
-      // Indicates whether the password must contain digits.
+      // Indicates whether passwords must contain numbers.
       shared_ptr<bool> requireNumbers_ {};
-      // Indicates whether the password must contain special characters.
+      // Indicates whether passwords must contain special characters.
       shared_ptr<bool> requireSymbols_ {};
-      // Indicates whether the password must contain uppercase letters.
+      // Indicates whether passwords must contain uppercase letters.
       shared_ptr<bool> requireUppercaseCharacters_ {};
     };
 
@@ -215,7 +217,7 @@ namespace Models
 
 
   protected:
-    // The details of the password policy.
+    // Details of the password policy.
     shared_ptr<SetPasswordPolicyResponseBody::PasswordPolicy> passwordPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

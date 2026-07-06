@@ -40,9 +40,11 @@ namespace Models
   protected:
     // The type of the application. Valid values:
     // 
-    // *   WebApp
-    // *   NativeApp
-    // *   ServerApp
+    // - WebApp
+    // 
+    // - NativeApp
+    // 
+    // - ServerApp
     // 
     // If this parameter is empty, the permissions on all types of applications are queried.
     shared_ptr<string> appType_ {};

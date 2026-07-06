@@ -95,8 +95,9 @@ namespace Models
       shared_ptr<string> createDate_ {};
       // The status of the AccessKey pair. Valid values:
       // 
-      // *   Active
-      // *   Inactive
+      // - Active
+      // 
+      // - Inactive
       shared_ptr<string> status_ {};
     };
 

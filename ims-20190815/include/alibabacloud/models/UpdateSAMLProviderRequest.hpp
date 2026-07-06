@@ -66,16 +66,21 @@ namespace Models
 
 
   protected:
+    // The signature algorithm supported by the Alibaba Cloud service provider (SP). Valid values:
+    // 
+    // - rsa-sha256
+    // 
+    // - rsa-sha1
     shared_ptr<string> authnSignAlgo_ {};
     // The new description.
     // 
-    // >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
+    // > Specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
     shared_ptr<string> newDescription_ {};
     // The new metadata file.
     // 
-    // >  You must specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
+    // > Specify at least one of the `NewDescription` and `NewEncodedSAMLMetadataDocument` parameters.
     shared_ptr<string> newEncodedSAMLMetadataDocument_ {};
-    // The name of the IdP whose information you want to modify.
+    // The name of the identity provider to modify.
     // 
     // This parameter is required.
     shared_ptr<string> SAMLProviderName_ {};

@@ -59,8 +59,9 @@ namespace Models
   protected:
     // The status of the AccessKey pair. Valid values:
     // 
-    // *   Active
-    // *   Inactive
+    // - Active
+    // 
+    // - Inactive
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

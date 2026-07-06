@@ -38,6 +38,9 @@
 #include <alibabacloud/models/CreateSAMLProviderRequest.hpp>
 #include <alibabacloud/models/CreateSAMLProviderResponseBody.hpp>
 #include <alibabacloud/models/CreateSAMLProviderResponse.hpp>
+#include <alibabacloud/models/CreateServiceCredentialRequest.hpp>
+#include <alibabacloud/models/CreateServiceCredentialResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceCredentialResponse.hpp>
 #include <alibabacloud/models/CreateUserRequest.hpp>
 #include <alibabacloud/models/CreateUserResponseBody.hpp>
 #include <alibabacloud/models/CreateUserResponse.hpp>
@@ -71,6 +74,9 @@
 #include <alibabacloud/models/DeleteSAMLProviderRequest.hpp>
 #include <alibabacloud/models/DeleteSAMLProviderResponseBody.hpp>
 #include <alibabacloud/models/DeleteSAMLProviderResponse.hpp>
+#include <alibabacloud/models/DeleteServiceCredentialRequest.hpp>
+#include <alibabacloud/models/DeleteServiceCredentialResponseBody.hpp>
+#include <alibabacloud/models/DeleteServiceCredentialResponse.hpp>
 #include <alibabacloud/models/DeleteUserRequest.hpp>
 #include <alibabacloud/models/DeleteUserResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserResponse.hpp>
@@ -99,6 +105,9 @@
 #include <alibabacloud/models/GetAccessKeyLastUsedRequest.hpp>
 #include <alibabacloud/models/GetAccessKeyLastUsedResponseBody.hpp>
 #include <alibabacloud/models/GetAccessKeyLastUsedResponse.hpp>
+#include <alibabacloud/models/GetAccessKeyPolicyRequest.hpp>
+#include <alibabacloud/models/GetAccessKeyPolicyResponseBody.hpp>
+#include <alibabacloud/models/GetAccessKeyPolicyResponse.hpp>
 #include <alibabacloud/models/GetAccountMFAInfoResponseBody.hpp>
 #include <alibabacloud/models/GetAccountMFAInfoResponse.hpp>
 #include <alibabacloud/models/GetAccountSecurityPracticeReportResponseBody.hpp>
@@ -143,6 +152,9 @@
 #include <alibabacloud/models/GetSAMLProviderResponse.hpp>
 #include <alibabacloud/models/GetSecurityPreferenceResponseBody.hpp>
 #include <alibabacloud/models/GetSecurityPreferenceResponse.hpp>
+#include <alibabacloud/models/GetServiceCredentialRequest.hpp>
+#include <alibabacloud/models/GetServiceCredentialResponseBody.hpp>
+#include <alibabacloud/models/GetServiceCredentialResponse.hpp>
 #include <alibabacloud/models/GetUserRequest.hpp>
 #include <alibabacloud/models/GetUserResponseBody.hpp>
 #include <alibabacloud/models/GetUserResponse.hpp>
@@ -193,6 +205,9 @@
 #include <alibabacloud/models/ListSAMLProvidersRequest.hpp>
 #include <alibabacloud/models/ListSAMLProvidersResponseBody.hpp>
 #include <alibabacloud/models/ListSAMLProvidersResponse.hpp>
+#include <alibabacloud/models/ListServiceCredentialsRequest.hpp>
+#include <alibabacloud/models/ListServiceCredentialsResponseBody.hpp>
+#include <alibabacloud/models/ListServiceCredentialsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -232,6 +247,9 @@
 #include <alibabacloud/models/RestoreUserFromRecycleBinRequest.hpp>
 #include <alibabacloud/models/RestoreUserFromRecycleBinResponseBody.hpp>
 #include <alibabacloud/models/RestoreUserFromRecycleBinResponse.hpp>
+#include <alibabacloud/models/SetAccessKeyPolicyRequest.hpp>
+#include <alibabacloud/models/SetAccessKeyPolicyResponseBody.hpp>
+#include <alibabacloud/models/SetAccessKeyPolicyResponse.hpp>
 #include <alibabacloud/models/SetDefaultDomainRequest.hpp>
 #include <alibabacloud/models/SetDefaultDomainResponseBody.hpp>
 #include <alibabacloud/models/SetDefaultDomainResponse.hpp>
@@ -281,6 +299,9 @@
 #include <alibabacloud/models/UpdateSAMLProviderRequest.hpp>
 #include <alibabacloud/models/UpdateSAMLProviderResponseBody.hpp>
 #include <alibabacloud/models/UpdateSAMLProviderResponse.hpp>
+#include <alibabacloud/models/UpdateServiceCredentialRequest.hpp>
+#include <alibabacloud/models/UpdateServiceCredentialResponseBody.hpp>
+#include <alibabacloud/models/UpdateServiceCredentialResponse.hpp>
 #include <alibabacloud/models/UpdateUserRequest.hpp>
 #include <alibabacloud/models/UpdateUserResponseBody.hpp>
 #include <alibabacloud/models/UpdateUserResponse.hpp>

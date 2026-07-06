@@ -75,6 +75,11 @@ namespace Models
 
 
   protected:
+    // The supported signature algorithm. Valid values:
+    // 
+    // - rsa-sha256
+    // 
+    // - rsa-sha1 (default)
     shared_ptr<string> authnSignAlgo_ {};
     // The auxiliary domain name.
     shared_ptr<string> auxiliaryDomain_ {};
@@ -84,15 +89,17 @@ namespace Models
     shared_ptr<string> metadataDocument_ {};
     // Specifies whether to enable SSO for the RAM user. Valid values:
     // 
-    // *   true
-    // *   false (default)
+    // - true
+    // 
+    // - false (default)
     shared_ptr<bool> ssoEnabled_ {};
-    // Specifies whether the SAML SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the IdP for SSO must have a domain name as the suffix.
+    // Specifies whether the SAML SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the IdP for SSO must have a domain name as the suffix.
     // 
-    // *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
-    // *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
+    // - If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
     // 
-    // Set the value to the default `true`.
+    // - If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
+    // 
+    // The default value is `true`.
     shared_ptr<bool> ssoLoginWithDomain_ {};
   };
 

@@ -84,8 +84,9 @@ namespace Models
   protected:
     // Specifies whether to remove all tags from the resource. Valid values:
     // 
-    // *   true: remove all tags from the resources.
-    // *   false (default): does not remove all tags from the resources.
+    // - true: remove all tags from the resources.
+    // 
+    // - false (default): does not remove all tags from the resources.
     // 
     // > This parameter takes effect only when TagKey.N is not set in the request.
     shared_ptr<bool> all_ {};
@@ -103,7 +104,7 @@ namespace Models
     shared_ptr<vector<string>> resourcePrincipalName_ {};
     // The type of the resource. Valid value:
     // 
-    // *   user: a RAM user
+    // - user: a RAM user
     shared_ptr<string> resourceType_ {};
     // The tag keys of resources.
     // 

@@ -136,7 +136,15 @@ namespace Models
 
   protected:
     shared_ptr<GetGovernanceReportStatusResponseBody::GovernanceItemsStatus> governanceItemsStatus_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The overall generation status of the report. Valid values:
+    // 
+    // - Started: The report generation has started.
+    // 
+    // - Progressing: The report is being generated.
+    // 
+    // - Completed: The report has been generated.
     shared_ptr<string> wholeReportStatus_ {};
   };
 

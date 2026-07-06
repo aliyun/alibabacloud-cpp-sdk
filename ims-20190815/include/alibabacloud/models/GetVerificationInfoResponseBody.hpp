@@ -86,8 +86,9 @@ namespace Models
       shared_ptr<string> phoneNumber_ {};
       // The status of the mobile phone. Valid values:
       // 
-      // *   active: The mobile phone is activated.
-      // *   pending: The mobile phone is pending for activation.
+      // - active: The mobile phone is activated.
+      // 
+      // - pending: The mobile phone is pending for activation.
       shared_ptr<string> status_ {};
     };
 
@@ -133,8 +134,9 @@ namespace Models
       shared_ptr<string> email_ {};
       // The status of the email. Valid values:
       // 
-      // *   active: The email is activated.
-      // *   pending: The email is pending for activation.
+      // - active: The email is activated.
+      // 
+      // - pending: The email is pending for activation.
       shared_ptr<string> status_ {};
     };
 

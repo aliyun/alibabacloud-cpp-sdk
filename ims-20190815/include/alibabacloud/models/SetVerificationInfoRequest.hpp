@@ -68,18 +68,19 @@ namespace Models
   protected:
     // The email address.
     // 
-    // >  If you set `VerifyType` to `email`, you must specify this parameter.
+    // > If you set `VerifyType` to `email`, you must specify this parameter.
     shared_ptr<string> email_ {};
     // The mobile phone number.
     // 
-    // >  If you set `VerifyType` to `sms`, you must specify this parameter.
+    // > If you set `VerifyType` to `sms`, you must specify this parameter.
     shared_ptr<string> mobilePhone_ {};
     // The logon name of the RAM user.
     shared_ptr<string> userPrincipalName_ {};
     // The multi-factor authentication (MFA) method. Valid values:
     // 
-    // *   sms: mobile phone.
-    // *   email: email.
+    // - sms: mobile phone.
+    // 
+    // - email: email.
     shared_ptr<string> verifyType_ {};
   };
 

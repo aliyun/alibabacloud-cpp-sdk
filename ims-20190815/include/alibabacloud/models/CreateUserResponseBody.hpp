@@ -247,9 +247,11 @@ namespace Models
       shared_ptr<string> mobilePhone_ {};
       // The source of the RAM user. Valid values:
       // 
-      // *   Manual: The RAM user is manually created in the RAM console.
-      // *   SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
-      // *   CloudSSO: The RAM user is mapped from a CloudSSO user.
+      // - Manual: The RAM user is manually created in the RAM console.
+      // 
+      // - SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
+      // 
+      // - CloudSSO: The RAM user is mapped from a CloudSSO user.
       shared_ptr<string> provisionType_ {};
       shared_ptr<User::Tags> tags_ {};
       // The time when the information about the RAM user was updated.

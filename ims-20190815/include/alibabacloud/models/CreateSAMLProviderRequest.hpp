@@ -66,16 +66,21 @@ namespace Models
 
 
   protected:
+    // The supported signature algorithm. Valid values:
+    // 
+    // - rsa-sha256
+    // 
+    // - rsa-sha1 (default)
     shared_ptr<string> authnSignAlgo_ {};
-    // The description.
+    // The IdP escription.
     shared_ptr<string> description_ {};
-    // The metadata file which is Base64-encoded.
+    // The metadata file, which is Base64-encoded.
     // 
     // The file is provided by an IdP that supports Security Assertion Markup Language (SAML) 2.0.
     shared_ptr<string> encodedSAMLMetadataDocument_ {};
-    // The name of the IdP.
+    // The IdP name.
     // 
-    // The name can be up to 128 characters in length. The name can contain letters, digits, `periods (.), hyphens (-), and underscores (_)`. The name cannot start or end with `periods (.), hyphens (-), or underscores (_)`.
+    // It can be up to 128 characters in length, and can contain letters, digits, `periods (.), hyphens (-), and underscores (_)`. The name cannot start or end with `periods (.), hyphens (-), or underscores (_)`.
     // 
     // This parameter is required.
     shared_ptr<string> SAMLProviderName_ {};

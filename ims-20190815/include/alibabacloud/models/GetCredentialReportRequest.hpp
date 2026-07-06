@@ -52,7 +52,7 @@ namespace Models
     // 
     // Valid values: 1 to 3501. Default value: 3501.
     shared_ptr<string> maxItems_ {};
-    // The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.``
+    // The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.\\`\\`
     shared_ptr<string> nextToken_ {};
   };
 

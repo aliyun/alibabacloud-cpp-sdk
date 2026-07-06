@@ -156,8 +156,9 @@ namespace Models
       protected:
         // Indicates whether multi-factor authentication (MFA) is enabled. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> bindMfa_ {};
         // The number of old AccessKey pairs for the Alibaba Cloud account.
         shared_ptr<int32_t> oldAkNum_ {};
@@ -169,9 +170,11 @@ namespace Models
         shared_ptr<int32_t> subUserBindMfa_ {};
         // The complexity level of the password for the RAM user. Valid values:
         // 
-        // *   low
-        // *   mid
-        // *   high
+        // - low
+        // 
+        // - mid
+        // 
+        // - high
         shared_ptr<string> subUserPwdLevel_ {};
         // The number of RAM users that use the old AccessKey pairs.
         shared_ptr<int32_t> subUserWithOldAccessKey_ {};
