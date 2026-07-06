@@ -20359,6 +20359,84 @@ SetRowsVisibilityResponse Client::setRowsVisibility(const SetRowsVisibilityReque
 }
 
 /**
+ * @summary 强制登出企业账号
+ *
+ * @param tmpReq SignOutOrgAccountRequest
+ * @param tmpHeader SignOutOrgAccountHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SignOutOrgAccountResponse
+ */
+SignOutOrgAccountResponse Client::signOutOrgAccountWithOptions(const SignOutOrgAccountRequest &tmpReq, const SignOutOrgAccountHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SignOutOrgAccountShrinkRequest request = SignOutOrgAccountShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  SignOutOrgAccountShrinkHeaders headers = SignOutOrgAccountShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasReasonI18nForEmployee()) {
+    request.setReasonI18nForEmployeeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReasonI18nForEmployee(), "ReasonI18nForEmployee", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasReason()) {
+    body["Reason"] = request.getReason();
+  }
+
+  if (!!request.hasReasonI18nForEmployeeShrink()) {
+    body["ReasonI18nForEmployee"] = request.getReasonI18nForEmployeeShrink();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SignOutOrgAccount"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/contact/signOutOrgAccount")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SignOutOrgAccountResponse>();
+}
+
+/**
+ * @summary 强制登出企业账号
+ *
+ * @param request SignOutOrgAccountRequest
+ * @return SignOutOrgAccountResponse
+ */
+SignOutOrgAccountResponse Client::signOutOrgAccount(const SignOutOrgAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  SignOutOrgAccountHeaders headers = SignOutOrgAccountHeaders();
+  return signOutOrgAccountWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取用户发送日志的概要信息
  *
  * @param tmpReq SimpleListReportRequest

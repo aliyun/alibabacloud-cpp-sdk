@@ -1413,6 +1413,12 @@
 #include <alibabacloud/models/SetRowsVisibilityShrinkRequest.hpp>
 #include <alibabacloud/models/SetRowsVisibilityResponseBody.hpp>
 #include <alibabacloud/models/SetRowsVisibilityResponse.hpp>
+#include <alibabacloud/models/SignOutOrgAccountHeaders.hpp>
+#include <alibabacloud/models/SignOutOrgAccountShrinkHeaders.hpp>
+#include <alibabacloud/models/SignOutOrgAccountRequest.hpp>
+#include <alibabacloud/models/SignOutOrgAccountShrinkRequest.hpp>
+#include <alibabacloud/models/SignOutOrgAccountResponseBody.hpp>
+#include <alibabacloud/models/SignOutOrgAccountResponse.hpp>
 #include <alibabacloud/models/SimpleListReportHeaders.hpp>
 #include <alibabacloud/models/SimpleListReportShrinkHeaders.hpp>
 #include <alibabacloud/models/SimpleListReportRequest.hpp>

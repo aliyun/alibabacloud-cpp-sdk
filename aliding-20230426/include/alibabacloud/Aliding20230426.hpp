@@ -4455,6 +4455,24 @@ namespace Aliding20230426
       Models::SetRowsVisibilityResponse setRowsVisibility(const Models::SetRowsVisibilityRequest &request);
 
       /**
+       * @summary 强制登出企业账号
+       *
+       * @param tmpReq SignOutOrgAccountRequest
+       * @param tmpHeader SignOutOrgAccountHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SignOutOrgAccountResponse
+       */
+      Models::SignOutOrgAccountResponse signOutOrgAccountWithOptions(const Models::SignOutOrgAccountRequest &tmpReq, const Models::SignOutOrgAccountHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 强制登出企业账号
+       *
+       * @param request SignOutOrgAccountRequest
+       * @return SignOutOrgAccountResponse
+       */
+      Models::SignOutOrgAccountResponse signOutOrgAccount(const Models::SignOutOrgAccountRequest &request);
+
+      /**
        * @summary 获取用户发送日志的概要信息
        *
        * @param tmpReq SimpleListReportRequest
