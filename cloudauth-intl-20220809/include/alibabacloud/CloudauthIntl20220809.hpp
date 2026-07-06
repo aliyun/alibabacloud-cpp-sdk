@@ -345,6 +345,23 @@ namespace CloudauthIntl20220809
       Models::DeleteFaceRecordResponse deleteFaceRecord(const Models::DeleteFaceRecordRequest &request);
 
       /**
+       * @summary Deletes a face record.
+       *
+       * @param request DeleteFaceRecordV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFaceRecordV2Response
+       */
+      Models::DeleteFaceRecordV2Response deleteFaceRecordV2WithOptions(const Models::DeleteFaceRecordV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a face record.
+       *
+       * @param request DeleteFaceRecordV2Request
+       * @return DeleteFaceRecordV2Response
+       */
+      Models::DeleteFaceRecordV2Response deleteFaceRecordV2(const Models::DeleteFaceRecordV2Request &request);
+
+      /**
        * @summary Deletes data related to a user authentication record.
        *
        * @param request DeleteVerifyResultRequest

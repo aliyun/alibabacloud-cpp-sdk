@@ -1406,6 +1406,52 @@ DeleteFaceRecordResponse Client::deleteFaceRecord(const DeleteFaceRecordRequest 
 }
 
 /**
+ * @summary Deletes a face record.
+ *
+ * @param request DeleteFaceRecordV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFaceRecordV2Response
+ */
+DeleteFaceRecordV2Response Client::deleteFaceRecordV2WithOptions(const DeleteFaceRecordV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFaceGroupCode()) {
+    query["FaceGroupCode"] = request.getFaceGroupCode();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    query["MerchantUserId"] = request.getMerchantUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFaceRecordV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFaceRecordV2Response>();
+}
+
+/**
+ * @summary Deletes a face record.
+ *
+ * @param request DeleteFaceRecordV2Request
+ * @return DeleteFaceRecordV2Response
+ */
+DeleteFaceRecordV2Response Client::deleteFaceRecordV2(const DeleteFaceRecordV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFaceRecordV2WithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes data related to a user authentication record.
  *
  * @param request DeleteVerifyResultRequest

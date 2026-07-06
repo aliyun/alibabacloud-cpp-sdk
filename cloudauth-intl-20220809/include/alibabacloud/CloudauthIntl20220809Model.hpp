@@ -53,6 +53,9 @@
 #include <alibabacloud/models/DeleteFaceRecordRequest.hpp>
 #include <alibabacloud/models/DeleteFaceRecordResponseBody.hpp>
 #include <alibabacloud/models/DeleteFaceRecordResponse.hpp>
+#include <alibabacloud/models/DeleteFaceRecordV2Request.hpp>
+#include <alibabacloud/models/DeleteFaceRecordV2ResponseBody.hpp>
+#include <alibabacloud/models/DeleteFaceRecordV2Response.hpp>
 #include <alibabacloud/models/DeleteVerifyResultRequest.hpp>
 #include <alibabacloud/models/DeleteVerifyResultResponseBody.hpp>
 #include <alibabacloud/models/DeleteVerifyResultResponse.hpp>
