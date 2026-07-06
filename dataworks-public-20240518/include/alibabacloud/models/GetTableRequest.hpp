@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetTableRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(IncludeBusinessMetadata, includeBusinessMetadata_);
+      DARABONBA_PTR_TO_JSON(IncludeExtendedProperties, includeExtendedProperties_);
     };
     friend void from_json(const Darabonba::Json& j, GetTableRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(IncludeBusinessMetadata, includeBusinessMetadata_);
+      DARABONBA_PTR_FROM_JSON(IncludeExtendedProperties, includeExtendedProperties_);
     };
     GetTableRequest() = default ;
     GetTableRequest(const GetTableRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && this->includeBusinessMetadata_ == nullptr; };
+        && this->includeBusinessMetadata_ == nullptr && this->includeExtendedProperties_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -47,18 +49,26 @@ namespace Models
     inline GetTableRequest& setIncludeBusinessMetadata(bool includeBusinessMetadata) { DARABONBA_PTR_SET_VALUE(includeBusinessMetadata_, includeBusinessMetadata) };
 
 
+    // includeExtendedProperties Field Functions 
+    bool hasIncludeExtendedProperties() const { return this->includeExtendedProperties_ != nullptr;};
+    void deleteIncludeExtendedProperties() { this->includeExtendedProperties_ = nullptr;};
+    inline bool getIncludeExtendedProperties() const { DARABONBA_PTR_GET_DEFAULT(includeExtendedProperties_, false) };
+    inline GetTableRequest& setIncludeExtendedProperties(bool includeExtendedProperties) { DARABONBA_PTR_SET_VALUE(includeExtendedProperties_, includeExtendedProperties) };
+
+
   protected:
-    // The ID. You can refer to the response of the ListTables operation and the [concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html)
+    // The ID. You can obtain this value from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
-    // The format: `${EntityType}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}:${Table name}`. Use empty strings as placeholders for levels that do not exist.
     // 
-    // > For the MaxCompute and DLF types, use an empty string as the placeholder for the instance ID.
+    // The format is `${EntityType}:${InstanceID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}:${SchemaName}:${TableName}`. Use an empty string as a placeholder for levels that do not exist.
     // 
-    // > The catalog identifier of the StarRocks is the catalog name, and the catalog identifier of the DLF type is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
+    // > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID.
     // 
-    // > For MaxCompute, the database name refers to the MaxCompute project name. If the project has schema enabled, you must specify the schema name. Otherwise, use an empty string as the placeholder for the schema name.
+    // > For StarRocks, the data catalog identifier is the catalog name. For DLF, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
     // 
-    // Examples of common ID formats
+    // > For MaxCompute, the database name is the MaxCompute project name. Projects with the three-layer model enabled require a schema name. For projects without the three-layer model enabled, use an empty string as a placeholder for the schema name.
+    // 
+    // The following examples show the ID formats for common types:
     // 
     // `maxcompute-table:::project_name:[schema_name]:table_name`
     // 
@@ -70,18 +80,20 @@ namespace Models
     // 
     // `mysql-table:(instance_id|encoded_jdbc_url)::database_name::table_name`
     // 
-    // > <br>`instance_id`: The instance ID, required when the data source is registered in instance mode.<br>
-    // > `encoded_jdbc_url`: The URL-encoded JDBC connection string, which is required when the data source is registered via a connection string.<br>
-    // > `catalog_id`: The DLF catalog ID.<br>
-    // > `project_name`: The MaxCompute project name.<br>
-    // > `database_name`: The database name.<br>
-    // > `schema_name`: The schema name. For the MaxCompute type, this is required only if the project has enabled schema. Otherwise, use an empty string as a placeholder.<br>
-    // > `table_name`: The table name.
+    // > Where  
+    // `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered using a connection string.   
+    // `catalog_id`: The DLF catalog ID.   
+    // `project_name`: The MaxCompute project name.   
+    // `database_name`: The database name.   
+    // `schema_name`: The schema name. For MaxCompute, this is required only when the three-layer model is enabled for the project. Use an empty string as a placeholder if the three-layer model is not enabled.   
+    // `table_name`: The table name.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // Specifies whether to include metadata. Default: false.
+    // Specifies whether to include business metadata. Default value: false.
     shared_ptr<bool> includeBusinessMetadata_ {};
+    shared_ptr<bool> includeExtendedProperties_ {};
   };
 
   } // namespace Models

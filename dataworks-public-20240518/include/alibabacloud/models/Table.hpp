@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(ParentMetaEntityId, parentMetaEntityId_);
       DARABONBA_PTR_TO_JSON(PartitionKeys, partitionKeys_);
+      DARABONBA_PTR_TO_JSON(StatisticsInfos, statisticsInfos_);
       DARABONBA_PTR_TO_JSON(TableType, tableType_);
       DARABONBA_PTR_TO_JSON(TechnicalMetadata, technicalMetadata_);
     };
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(ParentMetaEntityId, parentMetaEntityId_);
       DARABONBA_PTR_FROM_JSON(PartitionKeys, partitionKeys_);
+      DARABONBA_PTR_FROM_JSON(StatisticsInfos, statisticsInfos_);
       DARABONBA_PTR_FROM_JSON(TableType, tableType_);
       DARABONBA_PTR_FROM_JSON(TechnicalMetadata, technicalMetadata_);
     };
@@ -143,11 +145,11 @@ namespace Models
       shared_ptr<string> location_ {};
       // The output format.
       shared_ptr<string> outputFormat_ {};
-      // The table owner.
+      // The owner.
       shared_ptr<string> owner_ {};
       // The parameter information.
       shared_ptr<map<string, string>> parameters_ {};
-      // The class used by the serializer/deserializer (SerDe).
+      // The class used by SerDe.
       shared_ptr<string> serializationLibrary_ {};
     };
 
@@ -218,9 +220,9 @@ namespace Models
 
 
       protected:
-        // The task ID.
+        // The node ID.
         shared_ptr<int64_t> id_ {};
-        // The task name.
+        // The node name.
         shared_ptr<string> name_ {};
       };
 
@@ -262,9 +264,9 @@ namespace Models
 
 
       protected:
-        // The tag key. This value cannot be empty.
+        // The tag key. This parameter cannot be empty.
         shared_ptr<string> key_ {};
-        // The tag value. This can be an empty string.
+        // The tag value. This parameter can be empty.
         shared_ptr<string> value_ {};
       };
 
@@ -335,17 +337,16 @@ namespace Models
       protected:
         // The environment type. Valid values:
         // 
-        // - Prod: The production environment.
-        // 
-        // - Dev: The development environment.
+        // - Prod: Production environment.
+        // - Dev: Development environment.
         shared_ptr<string> envType_ {};
-        // The number of times the table was favorited.
+        // The favorite count.
         shared_ptr<int64_t> favorCount_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
-        // The number of reads.
+        // The read count.
         shared_ptr<int64_t> readCount_ {};
-        // The number of views.
+        // The view count.
         shared_ptr<int64_t> viewCount_ {};
       };
 
@@ -404,23 +405,23 @@ namespace Models
 
 
     protected:
-      // The list of categories to which the table belongs.
+      // The list of categories.
       shared_ptr<vector<vector<BusinessMetadata::Categories>>> categories_ {};
-      // A map of custom attribute identifiers to lists of their corresponding values.
+      // The custom attribute values, where key is the custom attribute identifier and value is the list of attribute values.
       shared_ptr<map<string, vector<string>>> customAttributes_ {};
-      // Extended information. This parameter is supported only for the MaxCompute data type.
+      // The extension information. Currently only supported for MaxCompute type.
       shared_ptr<BusinessMetadata::Extension> extension_ {};
-      // The instructions for use.
+      // The usage instructions.
       shared_ptr<string> readme_ {};
       // The list of tags.
       shared_ptr<vector<BusinessMetadata::Tags>> tags_ {};
-      // The list of upstream tasks.
+      // The list of upstream nodes.
       shared_ptr<vector<BusinessMetadata::UpstreamTasks>> upstreamTasks_ {};
     };
 
     virtual bool empty() const override { return this->businessMetadata_ == nullptr
         && this->comment_ == nullptr && this->createTime_ == nullptr && this->id_ == nullptr && this->modifyTime_ == nullptr && this->name_ == nullptr
-        && this->parentMetaEntityId_ == nullptr && this->partitionKeys_ == nullptr && this->tableType_ == nullptr && this->technicalMetadata_ == nullptr; };
+        && this->parentMetaEntityId_ == nullptr && this->partitionKeys_ == nullptr && this->statisticsInfos_ == nullptr && this->tableType_ == nullptr && this->technicalMetadata_ == nullptr; };
     // businessMetadata Field Functions 
     bool hasBusinessMetadata() const { return this->businessMetadata_ != nullptr;};
     void deleteBusinessMetadata() { this->businessMetadata_ = nullptr;};
@@ -481,6 +482,15 @@ namespace Models
     inline Table& setPartitionKeys(vector<string> && partitionKeys) { DARABONBA_PTR_SET_RVALUE(partitionKeys_, partitionKeys) };
 
 
+    // statisticsInfos Field Functions 
+    bool hasStatisticsInfos() const { return this->statisticsInfos_ != nullptr;};
+    void deleteStatisticsInfos() { this->statisticsInfos_ = nullptr;};
+    inline const map<string, string> & getStatisticsInfos() const { DARABONBA_PTR_GET_CONST(statisticsInfos_, map<string, string>) };
+    inline map<string, string> getStatisticsInfos() { DARABONBA_PTR_GET(statisticsInfos_, map<string, string>) };
+    inline Table& setStatisticsInfos(const map<string, string> & statisticsInfos) { DARABONBA_PTR_SET_VALUE(statisticsInfos_, statisticsInfos) };
+    inline Table& setStatisticsInfos(map<string, string> && statisticsInfos) { DARABONBA_PTR_SET_RVALUE(statisticsInfos_, statisticsInfos) };
+
+
     // tableType Field Functions 
     bool hasTableType() const { return this->tableType_ != nullptr;};
     void deleteTableType() { this->tableType_ = nullptr;};
@@ -498,21 +508,21 @@ namespace Models
 
 
   protected:
-    // The business metadata. This parameter is specific to DataWorks and includes instructions, tags, categories, upstream tasks, and extended information.
+    // The business metadata related to DataWorks, including usage instructions, tags, categories, upstream production nodes, and extended information.
     shared_ptr<Table::BusinessMetadata> businessMetadata_ {};
-    // The comment on the table.
+    // The comment.
     shared_ptr<string> comment_ {};
-    // The table creation time, provided as a Unix timestamp in milliseconds.
+    // The creation time, in millisecond-level timestamp.
     shared_ptr<int64_t> createTime_ {};
-    // The ID of the entity. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+    // The ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
-    // The format is `${EntityType}:${instance ID or escaped URL}:${data catalog identifier}:${database name}:${schema name}:${table name}`. Use an empty string as a placeholder for any non-existent level.
+    // The format is `${EntityType}:${instance ID or encoded URL}:${DataFolderIdentity}:${DatabaseName}:${PatternName}:${TableName}`. Use an empty character as a placeholder for levels that do not exist.
     // 
-    // > For MaxCompute and DLF data types, use an empty string as a placeholder for the instance ID. For MaxCompute, the database name is the MaxCompute project name. You must provide a schema name for projects where the three-layer model is enabled. If the model is not enabled, use an empty string as a placeholder for the schema name.
+    // > For maxcompute and dlf types, use an empty string as a placeholder for the instance ID. For the maxcompute type, the database name is the MaxCompute project name. Projects with the three-layer model enabled require a schema name. For projects without the three-layer model enabled, use an empty string as a placeholder for the schema name.
     // 
-    // > For StarRocks data types, the data catalog identifier is the catalog name. For DLF data types, the data catalog identifier is the catalog ID. Other data types do not support the catalog level. For these types, use an empty string as a placeholder.
+    // > For the starrocks type, the data catalog identifier is the catalog name. For the dlf type, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
     // 
-    // The following are the ID formats for several common data types:
+    // The following examples show the ID formats for common types:
     // 
     // `maxcompute-table:::project_name:[schema_name]:table_name`
     // 
@@ -523,35 +533,34 @@ namespace Models
     // `holo-table:instance_id::database_name:schema_name:table_name`
     // 
     // `mysql-table:(instance_id|encoded_jdbc_url)::database_name::table_name`
-    // 
-    // > Placeholder descriptions:<br>
-    // > `instance_id`: The instance ID. This is required when the data source is registered in instance mode.<br>
-    // > `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.<br>
-    // > `catalog_id`: The DLF catalog ID.<br>
-    // > `project_name`: The MaxCompute project name.<br>
-    // > `database_name`: The database name.<br>
-    // > `schema_name`: The schema name. For the MaxCompute data type, this is required only if the project has the three-layer model enabled. Otherwise, use an empty string as a placeholder.<br>
-    // > `table_name`: The table name.<br><br><br><br><br><br><br>
+    // > Where  
+    // `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.  
+    // `catalog_id`: The DLF catalog ID.  
+    // `project_name`: The MaxCompute project name.   
+    // `database_name`: The database name.   
+    // `schema_name`: The schema name. For the maxcompute type, this is required only when the three-layer model is enabled for the project. If the three-layer model is not enabled, use an empty string as a placeholder.   
+    // `table_name`: The table name.
     shared_ptr<string> id_ {};
-    // The time the table was last modified, provided as a Unix timestamp in milliseconds.
+    // The modification time, in millisecond-level timestamp.
     shared_ptr<int64_t> modifyTime_ {};
-    // The name of the table.
+    // The name.
     shared_ptr<string> name_ {};
-    // The ID of the parent metadata entity. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+    // The parent-level metadata entity ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
-    // - For data types that support schemas, such as `maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle`, `ParentMetaEntityId` specifies the table\\"s database schema. For the MaxCompute data type, this applies only to MaxCompute projects with the three-layer model enabled. The format is `${EntityType}:${instance ID or escaped URL}:${data catalog identifier}:${database name}:${schema name}`. Use an empty string as a placeholder for any non-existent level.
+    // - For types that support schemas (`maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle, where the maxcompute type requires the Layer 3 model to be enabled for the project`), ParentMetaEntityId is the database pattern to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataFolderIdentity}:${DatabaseName}:${PatternName}`. Use an empty character as a placeholder for levels that do not exist.
     // 
-    // - For other data types, `ParentMetaEntityId` specifies the table\\"s database. The format is `${EntityType}:${instance ID or escaped URL}:${data catalog identifier}:${database name}`. Use an empty string as a placeholder for any non-existent level.
+    // - For other types, ParentMetaEntityId is the database to which the table belongs. The format is `${EntityType}:${instance ID or encoded URL}:${DataFolderIdentity}:${DatabaseName}`. Use an empty character as a placeholder for levels that do not exist.
     // 
-    // > For MaxCompute and DLF data types, use an empty string as a placeholder for the instance ID. For the MaxCompute data type, the database name is the MaxCompute project name.
+    // > For maxcompute and dlf types, use an empty string as a placeholder for the instance ID. For the maxcompute type, the database name is the MaxCompute project name.
     // 
-    // > For StarRocks data types, the data catalog identifier is the catalog name. For DLF data types, the data catalog identifier is the catalog ID. Other data types do not support the catalog level. For these types, use an empty string as a placeholder.
+    // > For the starrocks type, the data catalog identifier is the catalog name. For the dlf type, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
     // 
-    // The following are the formats of `ParentMetaEntityId` for several common data types:
-    // 
+    // The following examples show the ParentMetaEntityId formats for common types:
+    // 	
     // `maxcompute-project:::project_name`
     // 
-    // `maxcompute-schema:::project_name:schema_name` (Only for projects with the three-layer model enabled)
+    // `maxcompute-schema:::project_name:schema_name` (only when the three-layer model is enabled for the project)
     // 
     // `dlf-database::catalog_id:database_name`
     // 
@@ -561,17 +570,18 @@ namespace Models
     // 
     // `mysql-database:(instance_id|encoded_jdbc_url)::database_name`
     // 
-    // > Placeholder descriptions:<br>
-    // > `instance_id`: The instance ID. This is required when the data source is registered in instance mode.<br>
-    // > `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.<br>
-    // > `catalog_id`: The DLF catalog ID.<br>
-    // > `project_name`: The MaxCompute project name.<br>
-    // > `database_name`: The database name.<br>
-    // > `schema_name`: The schema name.<br><br><br><br><br><br>
+    // > Where  
+    // `instance_id`: The instance ID. This is required when the data source is registered in instance mode.   
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.   
+    // `catalog_id`: The DLF catalog ID.   
+    // `project_name`: The MaxCompute project name.   
+    // `database_name`: The database name.   
+    // `schema_name`: The schema name.
     shared_ptr<string> parentMetaEntityId_ {};
-    // The list of partition keys. This parameter is empty for non-partitioned tables.
+    // The list of partition keys. This is empty for non-partitioned tables.
     shared_ptr<vector<string>> partitionKeys_ {};
-    // The table type. The value depends on the type of metadata collector.
+    shared_ptr<map<string, string>> statisticsInfos_ {};
+    // The table type. The valid values depend on the metadata collector type.
     shared_ptr<string> tableType_ {};
     // The technical metadata.
     shared_ptr<Table::TechnicalMetadata> technicalMetadata_ {};

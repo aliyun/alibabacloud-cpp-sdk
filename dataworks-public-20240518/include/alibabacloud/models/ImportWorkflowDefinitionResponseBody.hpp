@@ -126,37 +126,33 @@ namespace Models
     protected:
       // Indicates whether the asynchronous task is complete.
       shared_ptr<bool> completed_ {};
-      // The time when the asynchronous task was created. This value is a UNIX timestamp.
+      // The timestamp when the asynchronous task was created.
       shared_ptr<int64_t> createTime_ {};
-      // The error message returned if the asynchronous task fails.
+      // The error message returned when the asynchronous task fails.
       shared_ptr<string> error_ {};
       // The ID of the asynchronous task.
       shared_ptr<string> id_ {};
       // The progress of the asynchronous task. Valid values: 0 to 100.
       shared_ptr<int32_t> progress_ {};
-      // The response.
+      // The content that the asynchronous task is expected to return.
       // 
-      // > The workflow ID is returned.
+      // > This field currently contains the ID of the workflow created by the asynchronous task.
       shared_ptr<string> response_ {};
       // The status of the asynchronous task.
       // 
       // Valid values:
       // 
-      // - Running: The asynchronous task is running.
-      // 
-      // - Success: The asynchronous task is complete.
-      // 
-      // - Fail: The asynchronous task fails.
-      // 
-      // - Cancel: The asynchronous task is canceled.
+      // - Running: The task is running.
+      // - Success: The task succeeded.
+      // - Fail: The task failed.
+      // - Cancel: The task was canceled.
       shared_ptr<string> status_ {};
-      // The type of the asynchronous task.
+      // The operation type of the asynchronous task.
       // 
       // Valid values:
       // 
-      // - Create: The asynchronous task is used to create an object.
-      // 
-      // - Cancel: The asynchronous task is used to cancel an operation.
+      // - Create: creates a resource. 
+      // - Cancel: cancels a creation job.
       shared_ptr<string> type_ {};
     };
 
@@ -179,9 +175,9 @@ namespace Models
 
 
   protected:
-    // The status information of the asynchronous task.
+    // The asynchronous task status information.
     shared_ptr<ImportWorkflowDefinitionResponseBody::AsyncJob> asyncJob_ {};
-    // The request ID.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

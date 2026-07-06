@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListColumnsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Comment, comment_);
+      DARABONBA_PTR_TO_JSON(IncludeExtendedProperties, includeExtendedProperties_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListColumnsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
+      DARABONBA_PTR_FROM_JSON(IncludeExtendedProperties, includeExtendedProperties_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr
-        && this->tableId_ == nullptr; };
+        && this->includeExtendedProperties_ == nullptr && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->sortBy_ == nullptr && this->tableId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
     inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline ListColumnsRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
+    // includeExtendedProperties Field Functions 
+    bool hasIncludeExtendedProperties() const { return this->includeExtendedProperties_ != nullptr;};
+    void deleteIncludeExtendedProperties() { this->includeExtendedProperties_ = nullptr;};
+    inline bool getIncludeExtendedProperties() const { DARABONBA_PTR_GET_DEFAULT(includeExtendedProperties_, false) };
+    inline ListColumnsRequest& setIncludeExtendedProperties(bool includeExtendedProperties) { DARABONBA_PTR_SET_VALUE(includeExtendedProperties_, includeExtendedProperties) };
 
 
     // name Field Functions 
@@ -94,27 +103,24 @@ namespace Models
 
 
   protected:
-    // The column comment. Supports fuzzy match.
+    // The comment. Fuzzy match is supported.
     shared_ptr<string> comment_ {};
-    // The column name. Supports fuzzy match.
+    shared_ptr<bool> includeExtendedProperties_ {};
+    // The name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The sort order. Default: Asc. Valid values:
-    // 
-    // - Asc
-    // 
-    // - Desc
+    // The sort order. Default value: Asc. Valid values:
+    // - Asc: ascending order
+    // - Desc: descending order
     shared_ptr<string> order_ {};
-    // The page number. Default: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Default: 10. Maximum: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort field. Default: Position. Valid values:
-    // 
-    // - Name
-    // 
-    // - Position
+    // The sort field. Default value: Position. Valid values:
+    // - Name: name
+    // - Position: position
     shared_ptr<string> sortBy_ {};
-    // The table ID. Call the ListTables operation or refer to [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html) to obtain this value.
+    // The ID of the data table. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
     // This parameter is required.
     shared_ptr<string> tableId_ {};

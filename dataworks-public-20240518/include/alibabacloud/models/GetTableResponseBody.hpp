@@ -62,9 +62,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Detailed information about the table.
+    // The details of the data table.
     shared_ptr<Table> table_ {};
   };
 

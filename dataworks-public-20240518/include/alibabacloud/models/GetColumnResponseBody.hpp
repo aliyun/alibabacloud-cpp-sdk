@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The columns in the table.
+    // The column list.
     shared_ptr<Column> column_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

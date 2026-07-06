@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListTablesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Comment, comment_);
+      DARABONBA_PTR_TO_JSON(IncludeExtendedProperties, includeExtendedProperties_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListTablesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
+      DARABONBA_PTR_FROM_JSON(IncludeExtendedProperties, includeExtendedProperties_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -44,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->parentMetaEntityId_ == nullptr
-        && this->sortBy_ == nullptr && this->tableTypesShrink_ == nullptr; };
+        && this->includeExtendedProperties_ == nullptr && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->parentMetaEntityId_ == nullptr && this->sortBy_ == nullptr && this->tableTypesShrink_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
     inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline ListTablesShrinkRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
+    // includeExtendedProperties Field Functions 
+    bool hasIncludeExtendedProperties() const { return this->includeExtendedProperties_ != nullptr;};
+    void deleteIncludeExtendedProperties() { this->includeExtendedProperties_ = nullptr;};
+    inline bool getIncludeExtendedProperties() const { DARABONBA_PTR_GET_DEFAULT(includeExtendedProperties_, false) };
+    inline ListTablesShrinkRequest& setIncludeExtendedProperties(bool includeExtendedProperties) { DARABONBA_PTR_SET_VALUE(includeExtendedProperties_, includeExtendedProperties) };
 
 
     // name Field Functions 
@@ -103,37 +112,34 @@ namespace Models
 
 
   protected:
-    // The comment on the table. Fuzzy matching is supported.
+    // The comment. Fuzzy match is supported.
     shared_ptr<string> comment_ {};
-    // The name of the table. Fuzzy matching is supported.
+    shared_ptr<bool> includeExtendedProperties_ {};
+    // The name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The sort order. Default value: `Asc`. Valid values:
-    // 
-    // - `Asc`: ascending
-    // 
-    // - `Desc`: descending
+    // The sort order. Default value: Asc. Valid values:
+    // - Asc: ascending order
+    // - Desc: descending order
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the parent metadata entity. You can obtain this ID from the response of the ListDatabases or ListSchemas operation. For details, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+    // The ID of the parent-level metadata entity. You can obtain this value from the response of the ListDatabases or ListSchemas operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
-    // - The value can be the database to which the table belongs. The format is `${EntityType}:${instance ID or URL-encoded connection string}:${data catalog identifier}:${database name}`. Use an empty string as a placeholder for a hierarchy level that does not exist.
+    // - The value can be the database to which the table belongs. The ParentMetaEntityId format is `${EntityType}:${InstanceID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}`. Use an empty string as a placeholder for levels that do not exist.
     // 
-    // - The value can also be the schema to which the table belongs. The format is `${EntityType}:${instance ID or URL-encoded connection string}:${data catalog identifier}:${database name}:${schema name}`. Use an empty string as a placeholder for a hierarchy level that does not exist.
+    // - The value can also be the database schema to which the table belongs. The ParentMetaEntityId format is `${EntityType}:${InstanceID or encoded URL}:${DataCatalogIdentifier}:${DatabaseName}:${SchemaName}`. Use an empty string as a placeholder for levels that do not exist.
     // 
-    // > * You can specify a schema in `ParentMetaEntityId` only if the database type supports schemas, such as `maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle`. For the maxcompute type, the three-layer model must be enabled. Otherwise, you can only specify a database.
-    // >
-    // > * For `maxcompute` and `dlf` data types, use an empty string as a placeholder for the instance ID. For the maxcompute data type, the database name is the MaxCompute project name.
-    // >
-    // > * For the `starrocks` type, the data catalog identifier is the catalog name. For the `dlf` type, the data catalog identifier is the catalog ID. Other types do not support the catalog level, so you can use an empty string as a placeholder.
+    // > - You can set ParentMetaEntityId to a database schema only when the database type supports schemas (`maxcompute/holo/postgresql/sqlserver/hybriddb_for_postgresql/oracle`, and the three-level model must be enabled for the maxcompute type). Otherwise, you can set this parameter only to a database.
+    // > - For the maxcompute and dlf types, use an empty string as a placeholder for the instance ID. For the maxcompute type, the database name is the MaxCompute project name.
+    // > - For the starrocks type, the data catalog identifier is the catalog name. For the dlf type, the data catalog identifier is the catalog ID. Other types do not support the catalog level. Use an empty string as a placeholder.
     // 
-    // The following list shows the `ParentMetaEntityId` format for several common data source types:
+    // The following examples show the ParentMetaEntityId formats for common types:
     // 
     // - `maxcompute-project:::project_name`
     // 
-    // - `maxcompute-schema:::project_name:schema_name` (Only when the three-layer model is enabled for the project)
+    // - `maxcompute-schema:::project_name:schema_name` (only when the three-level model is enabled for the project)
     // 
     // - `dlf-database::catalog_id:database_name`
     // 
@@ -143,33 +149,23 @@ namespace Models
     // 
     // - `mysql-database:(instance_id|encoded_jdbc_url)::database_name`
     // 
-    // > In these formats:
-    // >
-    // > - `instance_id`: The instance ID. This parameter is required if the data source is registered in instance mode.
-    // >
-    // > - `encoded_jdbc_url`: The URL-encoded JDBC connection string. This parameter is required if the data source is registered by using a connection string.
-    // >
-    // > - `catalog_id`: The ID of the DLF data catalog.
-    // >
-    // > - `project_name`: The name of the MaxCompute project.
-    // >
-    // > - `database_name`: The name of the database.
-    // >
-    // > - `schema_name`: The name of the schema.
+    // > Where:  
+    // > - `instance_id`: The instance ID. This value is required when the data source is registered in instance mode.
+    // > - `encoded_jdbc_url`: The URL-encoded JDBC connection string. This value is required when the data source is registered by using a connection string.
+    // > - `catalog_id`: The DLF catalog ID.
+    // > - `project_name`: The MaxCompute project name.
+    // > - `database_name`: The database name.
+    // > - `schema_name`: The schema name.
     // 
     // This parameter is required.
     shared_ptr<string> parentMetaEntityId_ {};
-    // The sort field. Default value: `CreateTime`. Valid values:
-    // 
-    // - `CreateTime`: creation time
-    // 
-    // - `ModifyTime`: modification time
-    // 
-    // - `Name`: name
-    // 
-    // - `TableType`: table type
+    // The field by which to sort the results. Default value: CreateTime. Valid values:
+    // - CreateTime: creation time
+    // - ModifyTime: modification time
+    // - Name: name
+    // - TableType: table type
     shared_ptr<string> sortBy_ {};
-    // A list of table types to query. If you omit this parameter, tables of all types are returned.
+    // The list of table types to query. If this parameter is left empty, all types are queried.
     shared_ptr<string> tableTypesShrink_ {};
   };
 

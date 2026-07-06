@@ -93,11 +93,11 @@ namespace Models
 
 
     protected:
-      // The table columns.
+      // The list of columns.
       shared_ptr<vector<Column>> columns_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
@@ -129,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paging result.
     shared_ptr<ListColumnsResponseBody::PagingInfo> pagingInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the process.
+    // The unique identifier of the publish process.
     shared_ptr<string> id_ {};
-    // The request ID.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PartitionKey, partitionKey_);
       DARABONBA_PTR_TO_JSON(Position, position_);
       DARABONBA_PTR_TO_JSON(PrimaryKey, primaryKey_);
+      DARABONBA_PTR_TO_JSON(StatisticsInfos, statisticsInfos_);
       DARABONBA_PTR_TO_JSON(TableId, tableId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PartitionKey, partitionKey_);
       DARABONBA_PTR_FROM_JSON(Position, position_);
       DARABONBA_PTR_FROM_JSON(PrimaryKey, primaryKey_);
+      DARABONBA_PTR_FROM_JSON(StatisticsInfos, statisticsInfos_);
       DARABONBA_PTR_FROM_JSON(TableId, tableId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
@@ -89,15 +91,15 @@ namespace Models
 
 
     protected:
-      // Custom attribute values. The key is the custom attribute identifier, and the value is a list of attribute values.
+      // The custom attribute values, where key is the custom attribute identifier and value is the attribute value list.
       shared_ptr<map<string, vector<string>>> customAttributes_ {};
-      // The business description of the field. Supported only for MaxCompute, HMS (EMR cluster), and DLF types.
+      // The business description of the field. Currently, only MaxCompute, HMS (EMR cluster), and DLF types are supported.
       shared_ptr<string> description_ {};
     };
 
     virtual bool empty() const override { return this->businessMetadata_ == nullptr
         && this->comment_ == nullptr && this->foreignKey_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->partitionKey_ == nullptr
-        && this->position_ == nullptr && this->primaryKey_ == nullptr && this->tableId_ == nullptr && this->type_ == nullptr; };
+        && this->position_ == nullptr && this->primaryKey_ == nullptr && this->statisticsInfos_ == nullptr && this->tableId_ == nullptr && this->type_ == nullptr; };
     // businessMetadata Field Functions 
     bool hasBusinessMetadata() const { return this->businessMetadata_ != nullptr;};
     void deleteBusinessMetadata() { this->businessMetadata_ = nullptr;};
@@ -156,6 +158,15 @@ namespace Models
     inline Column& setPrimaryKey(bool primaryKey) { DARABONBA_PTR_SET_VALUE(primaryKey_, primaryKey) };
 
 
+    // statisticsInfos Field Functions 
+    bool hasStatisticsInfos() const { return this->statisticsInfos_ != nullptr;};
+    void deleteStatisticsInfos() { this->statisticsInfos_ = nullptr;};
+    inline const map<string, string> & getStatisticsInfos() const { DARABONBA_PTR_GET_CONST(statisticsInfos_, map<string, string>) };
+    inline map<string, string> getStatisticsInfos() { DARABONBA_PTR_GET(statisticsInfos_, map<string, string>) };
+    inline Column& setStatisticsInfos(const map<string, string> & statisticsInfos) { DARABONBA_PTR_SET_VALUE(statisticsInfos_, statisticsInfos) };
+    inline Column& setStatisticsInfos(map<string, string> && statisticsInfos) { DARABONBA_PTR_SET_RVALUE(statisticsInfos_, statisticsInfos) };
+
+
     // tableId Field Functions 
     bool hasTableId() const { return this->tableId_ != nullptr;};
     void deleteTableId() { this->tableId_ = nullptr;};
@@ -171,21 +182,21 @@ namespace Models
 
 
   protected:
-    // Business metadata.
+    // The business metadata.
     shared_ptr<Column::BusinessMetadata> businessMetadata_ {};
     // The comment.
     shared_ptr<string> comment_ {};
-    // Indicates whether the field is a foreign key. Only MaxCompute supports this property.
+    // Indicates whether the column is a foreign key. Currently, only MaxCompute is supported.
     shared_ptr<bool> foreignKey_ {};
     // The ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
-    // The format is `${EntityType}:${instance ID or URL-encoded connection string}:${data catalog identifier}:${database name}:${schema name}:${table name}:${field name}`. Use an empty string for any level that does not exist.
+    // The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentity}:${DatabaseName}:${PatternName}:${TableName}:${ColumnName}`. Use an empty character as a placeholder for levels that do not exist.
     // 
-    // > For MaxCompute and DLF types, use an empty string for the instance ID. For MaxCompute, the database name is the MaxCompute project name. If the project uses the three-layer model, provide the schema name. Otherwise, use an empty string for the schema name.
+    // > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID. For MaxCompute, the database name is the MaxCompute project name. Projects with the three-layer model enabled must include the schema name. For projects without the three-layer model enabled, use an empty string as a placeholder for the schema name.
     // 
-    // > For StarRocks, the data catalog identifier is the catalog name. For DLF, it is the catalog ID. Other types do not support the catalog level, so use an empty string.
+    // > For StarRocks, the data catalog identifier is the catalog name. For DLF, the data catalog identifier is the catalog ID. Other types do not support the catalog level, and you can use an empty string as a placeholder.
     // 
-    // Examples of common ID formats:
+    // The following examples show the ID formats for several common types:
     // 
     // `maxcompute-column:::project_name:[schema_name]:table_name:column_name`
     // 
@@ -197,25 +208,26 @@ namespace Models
     // 
     // `mysql-column:(instance_id|encoded_jdbc_url)::database_name::table_name:column_name`
     // 
-    // > Where:<br>
-    // > `instance_id`: The instance ID, required when the data source is registered in instance mode.<br>
-    // > `encoded_jdbc_url`: The URL-encoded JDBC connection string, required when the data source is registered using a connection string.<br>
-    // > `catalog_id`: The DLF catalog ID.<br>
-    // > `project_name`: The MaxCompute project name.<br>
-    // > `database_name`: The database name.<br>
-    // > `schema_name`: The schema name. For MaxCompute, provide this only if the project uses the three-layer model. Otherwise, use an empty string.<br>
-    // > `table_name`: The table name.<br>
-    // > `column_name`: The field name.<br><br><br><br><br><br><br><br>
+    // > Where   
+    // `instance_id`: The instance ID. This is required when the data source is registered in instance mode.   
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.   
+    // `catalog_id`: The DLF catalog ID.   
+    // `project_name`: The MaxCompute project name.   
+    // `database_name`: The database name.   
+    // `schema_name`: The schema name. For MaxCompute, this is required only when the three-layer model is enabled for the project. If the three-layer model is not enabled, use an empty string as a placeholder.    
+    // `table_name`: The table name.   
+    // `column_name`: The column name.
     shared_ptr<string> id_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // Indicates whether the field is a partition key.
+    // Indicates whether the column is a partition key.
     shared_ptr<bool> partitionKey_ {};
     // The position.
     shared_ptr<int32_t> position_ {};
-    // Indicates whether the field is a primary key. Only MaxCompute supports this property.
+    // Indicates whether the column is a primary key. Currently, only MaxCompute is supported.
     shared_ptr<bool> primaryKey_ {};
-    // The table ID. For details, see the `Table` object.
+    shared_ptr<map<string, string>> statisticsInfos_ {};
+    // The table ID. For more information, see the `Table` object.
     shared_ptr<string> tableId_ {};
     // The type.
     shared_ptr<string> type_ {};

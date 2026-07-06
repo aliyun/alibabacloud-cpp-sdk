@@ -1035,10 +1035,10 @@ namespace DataworksPublic20240518
       Models::CreateParameterResponse createParameter(const Models::CreateParameterRequest &request);
 
       /**
-       * @summary Creates a deployment process for entities in the Data Studio (new version).
+       * @summary Creates a publish process for an entity in the new-version DataStudio.
        *
-       * @description >Notice: This API does not support batch operations. If you specify multiple entities to be published, all entities except the first one are ignored.
-       * >Notice: This API may not be available in earlier versions of the SDK. In that case, use the CreateDeployment API, which accepts the same parameters.
+       * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+       * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
        *
        * @param tmpReq CreatePipelineRunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1047,10 +1047,10 @@ namespace DataworksPublic20240518
       Models::CreatePipelineRunResponse createPipelineRunWithOptions(const Models::CreatePipelineRunRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a deployment process for entities in the Data Studio (new version).
+       * @summary Creates a publish process for an entity in the new-version DataStudio.
        *
-       * @description >Notice: This API does not support batch operations. If you specify multiple entities to be published, all entities except the first one are ignored.
-       * >Notice: This API may not be available in earlier versions of the SDK. In that case, use the CreateDeployment API, which accepts the same parameters.
+       * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+       * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
        *
        * @param request CreatePipelineRunRequest
        * @return CreatePipelineRunResponse
@@ -2675,9 +2675,9 @@ namespace DataworksPublic20240518
       Models::GetCertificateResponse getCertificate(const Models::GetCertificateRequest &request);
 
       /**
-       * @summary Queries the information about a specific field of a table in Data Map.
+       * @summary Retrieves the details of a specified column in a Data Map table.
        *
-       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request GetColumnRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2686,9 +2686,9 @@ namespace DataworksPublic20240518
       Models::GetColumnResponse getColumnWithOptions(const Models::GetColumnRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a specific field of a table in Data Map.
+       * @summary Retrieves the details of a specified column in a Data Map table.
        *
-       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request GetColumnRequest
        * @return GetColumnResponse
@@ -3729,9 +3729,9 @@ namespace DataworksPublic20240518
       Models::GetSkillResponse getSkill(const Models::GetSkillRequest &request);
 
       /**
-       * @summary Queries the information about a specific table in Data Map.
+       * @summary Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
        *
-       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request GetTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3740,9 +3740,9 @@ namespace DataworksPublic20240518
       Models::GetTableResponse getTableWithOptions(const Models::GetTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a specific table in Data Map.
+       * @summary Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
        *
-       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request GetTableRequest
        * @return GetTableResponse
@@ -3914,11 +3914,11 @@ namespace DataworksPublic20240518
       Models::ImportCertificateResponse importCertificateAdvance(const Models::ImportCertificateAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+       * @summary Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
        *
        * @description >Notice: 
-       * - This API does not support importing multiple workflow definitions. If you define more than one workflow definition in the FlowSpec, all workflow definitions except the first one are ignored.
-       * - This is an asynchronous API. Calling this API returns an asynchronous task object. You must call the GetJobStatus API to query the execution status of the task.
+       * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
+       * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
        *
        * @param request ImportWorkflowDefinitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3927,11 +3927,11 @@ namespace DataworksPublic20240518
       Models::ImportWorkflowDefinitionResponse importWorkflowDefinitionWithOptions(const Models::ImportWorkflowDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+       * @summary Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
        *
        * @description >Notice: 
-       * - This API does not support importing multiple workflow definitions. If you define more than one workflow definition in the FlowSpec, all workflow definitions except the first one are ignored.
-       * - This is an asynchronous API. Calling this API returns an asynchronous task object. You must call the GetJobStatus API to query the execution status of the task.
+       * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
+       * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
        *
        * @param request ImportWorkflowDefinitionRequest
        * @return ImportWorkflowDefinitionResponse
@@ -4100,9 +4100,9 @@ namespace DataworksPublic20240518
       Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
 
       /**
-       * @summary Queries the column list of a specified table in Data Map.
+       * @summary Queries the column list of a specified data table in DataWorks Data Map.
        *
-       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request ListColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4111,9 +4111,9 @@ namespace DataworksPublic20240518
       Models::ListColumnsResponse listColumnsWithOptions(const Models::ListColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the column list of a specified table in Data Map.
+       * @summary Queries the column list of a specified data table in DataWorks Data Map.
        *
-       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request ListColumnsRequest
        * @return ListColumnsResponse
@@ -5610,9 +5610,9 @@ namespace DataworksPublic20240518
       Models::ListSkillsResponse listSkills(const Models::ListSkillsRequest &request);
 
       /**
-       * @summary Queries a list of tables in the data map. For data source types that do not support schemas, this operation queries tables within a specified database. For data source types that support schemas, you can query tables within a specified database, MaxCompute project, or schema. The response includes basic table information, technical metadata, and business metadata.
+       * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * @description 1. DataWorks Basic Edition or a higher edition is required.
        *
        * @param tmpReq ListTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5621,9 +5621,9 @@ namespace DataworksPublic20240518
       Models::ListTablesResponse listTablesWithOptions(const Models::ListTablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of tables in the data map. For data source types that do not support schemas, this operation queries tables within a specified database. For data source types that support schemas, you can query tables within a specified database, MaxCompute project, or schema. The response includes basic table information, technical metadata, and business metadata.
+       * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * @description 1. DataWorks Basic Edition or a higher edition is required.
        *
        * @param request ListTablesRequest
        * @return ListTablesResponse

@@ -13,10 +13,12 @@ namespace Models
   class ImportWorkflowDefinitionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImportWorkflowDefinitionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(Spec, spec_);
     };
     friend void from_json(const Darabonba::Json& j, ImportWorkflowDefinitionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(Spec, spec_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->projectId_ == nullptr
-        && this->spec_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->projectId_ == nullptr && this->spec_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ImportWorkflowDefinitionRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
@@ -48,19 +57,19 @@ namespace Models
 
 
   protected:
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    shared_ptr<bool> dryRun_ {};
+    // The ID of the DataWorks workspace. You can logon to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
     // 
-    // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+    // This parameter specifies the DataWorks workspace for this API invoke.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The FlowSpec information for this workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+    // The FlowSpec information that describes the workflow. For the specification details, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
     // 
-    // > How to quickly obtain a FlowSpec template?
+    // > How do I quickly obtain a FlowSpec template?
+    // > - Open a workflow in DataStudio, and then click **Show Spec** in the upper-right corner to obtain the FlowSpec description of the current workflow. You can use this FlowSpec description to quickly build a template that meets your requirements.
     // 
-    // - Open a workflow in Data Studio, then click "Show Spec" in the top-right corner to retrieve the FlowSpec description for the current workflow. You can use this FlowSpec description to quickly build a template that meets your requirements.
-    // 
-    // > This interface supports creating both the workflow and its internal nodes simultaneously. Therefore, please pay close attention to the ID specified in the FlowSpec. If the provided ID already exists, the operation will be treated as an update. A create operation is performed only if the ID is omitted or does not exist.
+    // >Notice: This operation supports creating a workflow and its internal nodes at the same time. Pay attention to the IDs specified in the FlowSpec. If an ID already exists, the operation becomes an update. The operation becomes a create only when no ID is specified or the ID does not exist.
     // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
