@@ -331,32 +331,32 @@ namespace Models
 
 
     protected:
-      // Indicates whether the lifecycle management rule is automatically executed.
+      // Indicates whether the rule runs automatically.
       shared_ptr<bool> auto_ {};
-      // The time when the lifecycle management rule was created.
+      // The creation time of the rule.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether lifecycle management is enabled for the artifact.
+      // Indicates whether the rule is configured to delete tags.
       shared_ptr<bool> enableDeleteTag_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the lifecycle management rule was last modified.
+      // The last modification time of the rule.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The name of the namespace.
+      // The namespace name.
       shared_ptr<string> namespaceName_ {};
-      // The time when the lifecycle management rule is next executed.
+      // The next execution time.
       shared_ptr<int64_t> nextTime_ {};
       shared_ptr<vector<Rules::Policies>> policies_ {};
-      // The name of the image repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The number of retained images.
+      // The number of image tags to retain.
       shared_ptr<int64_t> retentionTagCount_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
-      // The execution cycle of the lifecycle management rule.
+      // The execution schedule.
       shared_ptr<string> scheduleTime_ {};
-      // The deletion scope of artifacts.
+      // The scope of the rule.
       shared_ptr<string> scope_ {};
-      // The regular expression that indicates which image tags are retained.
+      // The regular expression that matches image tags to retain.
       shared_ptr<string> tagRegexp_ {};
     };
 
@@ -415,20 +415,21 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request succeeded. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The request succeeded.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // _
+    // The list of lifecycle management rules.
     shared_ptr<vector<ListArtifactLifecycleRuleResponseBody::Rules>> rules_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

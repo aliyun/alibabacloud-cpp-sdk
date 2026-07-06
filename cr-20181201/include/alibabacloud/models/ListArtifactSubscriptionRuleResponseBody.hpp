@@ -201,40 +201,34 @@ namespace Models
 
 
     protected:
-      // Indicates whether an acceleration link is enabled for image subscription. The subscription acceleration feature is in public preview. The feature is optimized based on scheduling policies and network links to accelerate image subscription.
+      // Indicates whether to enable the accelerated subscription channel. This feature is in public preview. Based on an optimized scheduling policy and network link, the speed of image subscription is improved.
       shared_ptr<bool> accelerate_ {};
-      // The time when the subscription rule was created.
+      // The time when the rule was created.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the subscription rule was modified.
+      // The time when the rule was last modified.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The name of the source namespace.
+      // The name of the namespace.
       shared_ptr<string> namespaceName_ {};
-      // Indicates whether the original image is overwritten.
+      // Indicates whether to overwrite the image.
       shared_ptr<bool> override_ {};
-      // The operating system and architecture. If the source repository contains a multi-arch image, only the images with the specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance.
+      // The operating system and architecture. If the source repository contains a multi-architecture image, only images that have a specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance.
       shared_ptr<vector<string>> platform_ {};
-      // The name of the source repository.
+      // The name of the repository.
       shared_ptr<string> repoName_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
       shared_ptr<string> sourceDomain_ {};
       // The source namespace.
       shared_ptr<string> sourceNamespaceName_ {};
-      // The source of the artifact.
-      // 
-      // Valid values:
-      // 
-      // *   DOCKER_HUB: Docker Hub
-      // *   GCR: GCR
-      // *   QUAY: Quay.io
+      // The source of the artifact. Valid values:
       shared_ptr<string> sourceProvider_ {};
       // The source repository.
       shared_ptr<string> sourceRepoName_ {};
       // The number of subscribed images.
       shared_ptr<int64_t> tagCount_ {};
-      // The image tag in the subscription source repository. Regular expressions are supported.
+      // The regular expression that is used to subscribe to the source repository.
       shared_ptr<string> tagRegexp_ {};
     };
 
@@ -293,22 +287,23 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`
-    // *   `false`
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried artifact subscription rules.
+    // The subscription rules.
     shared_ptr<vector<ListArtifactSubscriptionRuleResponseBody::Rules>> rules_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

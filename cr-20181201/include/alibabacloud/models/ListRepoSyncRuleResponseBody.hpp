@@ -236,12 +236,13 @@ namespace Models
 
 
     protected:
-      // The time when the synchronization rule was created.
+      // The time when the synchronization rule was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether the synchronization is performed across Alibaba Cloud accounts. Valid values:
+      // Indicates whether images are synchronized across different Alibaba Cloud accounts. Valid values:
       // 
-      // *   `true`: Images are synchronized across Alibaba Cloud accounts.
-      // *   `false`: Images are synchronized within the same Alibaba Cloud account.
+      // - `true`
+      // 
+      // - `false`
       // 
       // Default value: `false`.
       shared_ptr<bool> crossUser_ {};
@@ -254,16 +255,17 @@ namespace Models
       shared_ptr<string> localRegionId_ {};
       // The name of the repository in the source instance.
       shared_ptr<string> localRepoName_ {};
-      // The time when the synchronization rule was last modified.
+      // The time when the synchronization rule was last modified. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
       // The regular expression that is used to filter repositories.
       // 
-      // >  This parameter is valid only when SyncScope is set to `NAMESPACE`.
+      // > This parameter is valid only when `SyncScope` is set to `NAMESPACE`.
       shared_ptr<string> repoNameFilter_ {};
       // The synchronization direction. Valid values:
       // 
-      // *   `FROM`: Images are synchronized from the source instance to the destination instance.
-      // *   `TO`: Images are synchronized from the destination instance to the source instance.
+      // - `FROM`: from the source instance to the target instance.
+      // 
+      // - `TO`: from the target instance to the source instance.
       shared_ptr<string> syncDirection_ {};
       // The ID of the synchronization rule.
       shared_ptr<string> syncRuleId_ {};
@@ -271,23 +273,25 @@ namespace Models
       shared_ptr<string> syncRuleName_ {};
       // The synchronization scope. Valid values:
       // 
-      // *   `NAMESPACE`: synchronizes the image tags in a namespace that meet the synchronization rule.
-      // *   `REPO`: synchronizes the image tags in an image repository that meet the synchronization rule.
-      shared_ptr<string> syncScope_ {};
-      // The policy that is applied to trigger the synchronization rule. Valid values:
+      // - `NAMESPACE`: Synchronizes resources by namespace.
       // 
-      // *   `INITIATIVE`: The synchronization rule is positively triggered.
-      // *   `PASSIVE`: The synchronization rule is passively triggered.
+      // - `REPO`: Synchronizes resources by repository.
+      shared_ptr<string> syncScope_ {};
+      // The trigger policy. Valid values:
+      // 
+      // - `INITIATIVE`: The synchronization is actively triggered.
+      // 
+      // - `PASSIVE`: The synchronization is passively triggered.
       shared_ptr<string> syncTrigger_ {};
-      // The regular expression that is used to filter image tags.
+      // The regular expression that is used to filter tags.
       shared_ptr<string> tagFilter_ {};
-      // The ID of the destination instance.
+      // The ID of the target instance.
       shared_ptr<string> targetInstanceId_ {};
-      // The name of the namespace in the destination instance.
+      // The name of the namespace in the target instance.
       shared_ptr<string> targetNamespaceName_ {};
-      // The region ID of the destination instance.
+      // The region ID of the target instance.
       shared_ptr<string> targetRegionId_ {};
-      // The name of the repository in the destination instance.
+      // The name of the repository in the target instance.
       shared_ptr<string> targetRepoName_ {};
     };
 
@@ -346,7 +350,7 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The response code.
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
@@ -356,9 +360,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried synchronization rules.
+    // The list of synchronization rules.
     shared_ptr<vector<ListRepoSyncRuleResponseBody::SyncRules>> syncRules_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

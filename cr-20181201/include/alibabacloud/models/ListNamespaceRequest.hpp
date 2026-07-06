@@ -75,20 +75,21 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the Container Registry (ACR) instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The namespace name.
+    // The name of the namespace.
     shared_ptr<string> namespaceName_ {};
     // The status of the namespace. Valid values:
     // 
-    // *   `NORMAL`
-    // *   `DELETING`
+    // - `NORMAL`: The namespace is normal.
+    // 
+    // - `DELETING`: The namespace is being deleted.
     shared_ptr<string> namespaceStatus_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

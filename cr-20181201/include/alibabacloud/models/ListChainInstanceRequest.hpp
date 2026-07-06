@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set this parameter to **ListChainInstance**.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The time when the delivery chain started.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The name of the image repository.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The time when the delivery chain is completed.
+    // The image repository name.
     shared_ptr<string> repoName_ {};
-    // The name of the delivery chain.
+    // The namespace name.
     shared_ptr<string> repoNamespaceName_ {};
   };
 

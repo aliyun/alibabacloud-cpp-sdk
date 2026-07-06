@@ -328,41 +328,42 @@ namespace Models
 
 
   protected:
-    // Indicates whether the lifecycle management rule is automatically executed.
+    // Specifies if the rule is executed automatically.
     shared_ptr<bool> auto_ {};
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The time when the lifecycle management rule was created.
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
-    // Indicates whether lifecycle management is enabled for the artifact.
+    // Specifies if lifecycle management is enabled.
     shared_ptr<bool> enableDeleteTag_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the API request is successful. Valid values:
+    // Indicates whether the request succeeded. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The request succeeded.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> isSuccess_ {};
-    // The time when the lifecycle management rule was last modified.
+    // The last modified time.
     shared_ptr<int64_t> modifiedTime_ {};
-    // The name of the namespace.
+    // The namespace name.
     shared_ptr<string> namespaceName_ {};
-    // The time when the lifecycle management rule is next executed.
+    // The timestamp of the next scheduled execution.
     shared_ptr<int64_t> nextTime_ {};
     shared_ptr<vector<GetArtifactLifecycleRuleResponseBody::Policies>> policies_ {};
-    // The name of the image repository.
+    // The repository name.
     shared_ptr<string> repoName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of retained images.
+    // The number of image versions to retain.
     shared_ptr<int64_t> retentionTagCount_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The execution cycle of the lifecycle management rule.
+    // The execution schedule.
     shared_ptr<string> scheduleTime_ {};
-    // The deletion scope of artifacts.
+    // The scope of the rule.
     shared_ptr<string> scope_ {};
-    // The regular expression that indicates which image tags are retained.
+    // The regular expression that matches image tags to select versions for retention.
     shared_ptr<string> tagRegexp_ {};
   };
 

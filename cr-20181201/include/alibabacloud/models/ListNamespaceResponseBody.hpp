@@ -138,26 +138,28 @@ namespace Models
 
 
     protected:
-      // Indicates whether the automatically creating repositories feature is enabled for the namespace.
+      // Indicates whether a repository is automatically created when an image is pushed to the namespace.
       shared_ptr<bool> autoCreateRepo_ {};
       shared_ptr<RepoConfiguration> defaultRepoConfiguration_ {};
-      // The default type of repositories in the namespace. Valid values:
+      // The default type of the repository. Valid values:
       // 
-      // *   `PUBLIC`: public repositories.
-      // *   `PRIVATE`: private repositories.
+      // - `PUBLIC`: public
+      // 
+      // - `PRIVATE`: private
       shared_ptr<string> defaultRepoType_ {};
-      // The instance ID.
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
-      // The namespace ID.
+      // The ID of the namespace.
       shared_ptr<string> namespaceId_ {};
-      // The namespace name.
+      // The name of the namespace.
       shared_ptr<string> namespaceName_ {};
       // The status of the namespace. Valid values:
       // 
-      // *   `NORMAL`: The namespace is normal.
-      // *   `DELETING`: The namespace is being deleted.
+      // - `NORMAL`: The namespace is normal.
+      // 
+      // - `DELETING`: The namespace is being deleted.
       shared_ptr<string> namespaceStatus_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
     };
 
@@ -216,22 +218,23 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The request is successful.
+    // 
+    // - `false`: The request fails.
     shared_ptr<bool> isSuccess_ {};
-    // The queried namespaces.
+    // The list of namespaces.
     shared_ptr<vector<ListNamespaceResponseBody::Namespaces>> namespaces_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of the queried namespaces.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

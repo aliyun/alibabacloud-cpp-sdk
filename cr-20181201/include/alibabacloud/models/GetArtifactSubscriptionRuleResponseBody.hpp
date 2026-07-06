@@ -198,49 +198,45 @@ namespace Models
 
 
   protected:
-    // Indicates whether an acceleration link is enabled for image subscription. The subscription acceleration feature is in public preview. The feature is optimized based on scheduling policies and network links to accelerate image subscription.
+    // Indicates whether to enable the accelerated data transfer feature. This feature is in public preview. It optimizes scheduling policies and network paths to improve the speed of artifact subscription.
     shared_ptr<bool> accelerate_ {};
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The time when the subscription rule was created.
+    // The time when the rule was created.
     shared_ptr<int64_t> createTime_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the API request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The request succeeded.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> isSuccess_ {};
-    // The time when the subscription rule was modified.
+    // The time when the rule was last modified.
     shared_ptr<int64_t> modifiedTime_ {};
-    // The name of the Container Registry namespace.
+    // The destination ACR namespace.
     shared_ptr<string> namespaceName_ {};
-    // Indicates whether the original image is overwritten.
+    // Indicates whether to overwrite the existing images that have the same tag in the destination repository.
     shared_ptr<bool> override_ {};
-    // The operating system and architecture. If the source repository contains multi-arch images, only the images with the specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance.
+    // The operating systems and architectures. If a source repository contains multi-architecture images, only images that match the specified platforms are synchronized to the destination repository of the Enterprise Edition instance.
     shared_ptr<vector<string>> platform_ {};
-    // The name of the Container Registry repository.
+    // The destination ACR repository.
     shared_ptr<string> repoName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
+    // The domain name of the artifact source.
     shared_ptr<string> sourceDomain_ {};
-    // The name of the source namespace.
+    // The source namespace.
     shared_ptr<string> sourceNamespaceName_ {};
-    // The source of the artifact.
-    // 
-    // Valid values:
-    // 
-    // *   DOCKER_HUB: Docker Hub
-    // *   GCR: GCR
-    // *   QUAY: Quay.io
+    // The artifact source.
     shared_ptr<string> sourceProvider_ {};
     // The source repository.
     shared_ptr<string> sourceRepoName_ {};
-    // The number of subscribed images.
+    // The number of images to subscribe to.
     shared_ptr<int64_t> tagCount_ {};
-    // The image tag in the subscription source repository. Regular expressions are supported.
+    // The regular expression that is used to match the tags of images in the source repository for subscription.
     shared_ptr<string> tagRegexp_ {};
   };
 

@@ -106,9 +106,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The name of the image repository.
     shared_ptr<string> repoName_ {};
-    // The ID of the destination instance.
+    // The ID of the target instance.
     shared_ptr<string> targetInstanceId_ {};
-    // The region ID of the destination instance.
+    // The ID of the target region.
     shared_ptr<string> targetRegionId_ {};
   };
 

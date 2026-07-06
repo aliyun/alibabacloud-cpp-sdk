@@ -2,7 +2,10 @@
 #ifndef ALIBABACLOUD_CR20181201MODEL_HPP_
 #define ALIBABACLOUD_CR20181201MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AccessControlEntry.hpp>
 #include <alibabacloud/models/ArtifactLifecyclePolicy.hpp>
+#include <alibabacloud/models/DiagnosisIssue.hpp>
+#include <alibabacloud/models/DiagnosisTarget.hpp>
 #include <alibabacloud/models/RepoConfiguration.hpp>
 #include <alibabacloud/models/RouteItem.hpp>
 #include <alibabacloud/models/CancelArtifactBuildTaskRequest.hpp>
@@ -46,6 +49,7 @@
 #include <alibabacloud/models/CreateChartRepositoryResponseBody.hpp>
 #include <alibabacloud/models/CreateChartRepositoryResponse.hpp>
 #include <alibabacloud/models/CreateInstanceEndpointAclPolicyRequest.hpp>
+#include <alibabacloud/models/CreateInstanceEndpointAclPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/CreateInstanceEndpointAclPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceEndpointAclPolicyResponse.hpp>
 #include <alibabacloud/models/CreateInstanceVpcEndpointLinkedVpcRequest.hpp>
@@ -112,6 +116,7 @@
 #include <alibabacloud/models/DeleteEventCenterRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteEventCenterRuleResponse.hpp>
 #include <alibabacloud/models/DeleteInstanceEndpointAclPolicyRequest.hpp>
+#include <alibabacloud/models/DeleteInstanceEndpointAclPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteInstanceEndpointAclPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteInstanceEndpointAclPolicyResponse.hpp>
 #include <alibabacloud/models/DeleteInstanceVpcEndpointLinkedVpcRequest.hpp>

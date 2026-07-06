@@ -156,13 +156,13 @@ namespace Models
       protected:
         // The image tag.
         shared_ptr<string> imageTag_ {};
-        // The instance ID.
+        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The region ID.
+        // The ID of the region.
         shared_ptr<string> regionId_ {};
         // The repository name.
         shared_ptr<string> repoName_ {};
-        // The namespace to which the repository belongs.
+        // The repository namespace.
         shared_ptr<string> repoNamespaceName_ {};
       };
 
@@ -233,13 +233,13 @@ namespace Models
       protected:
         // The image tag.
         shared_ptr<string> imageTag_ {};
-        // The instance ID.
+        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The region ID.
+        // The ID of the region.
         shared_ptr<string> regionId_ {};
         // The repository name.
         shared_ptr<string> repoName_ {};
-        // The namespace to which the repository belongs.
+        // The repository namespace.
         shared_ptr<string> repoNamespaceName_ {};
       };
 
@@ -357,56 +357,51 @@ namespace Models
 
 
     protected:
-      // The time when the synchronization task was created.
+      // The creation time of the task.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether the synchronization task is performed across Alibaba Cloud accounts. Valid values:
+      // Whether the image is synchronized across accounts. Valid values:
       // 
-      // *   `true`: The image synchronization task is performed across accounts.
-      // *   `false`: The image synchronization task is performed within the same account.
+      // - `true`: The image is synchronized across accounts.
       // 
-      // Default value: `false`.
+      // - `false`: The image is synchronized within the same account.
+      // 
+      // Default value: `false`
       shared_ptr<bool> crossUser_ {};
-      // Indicates whether a custom synchronization link is used.
+      // Whether a custom sync link is used.
       shared_ptr<bool> customLink_ {};
-      // The information about the source image.
+      // The source image.
       shared_ptr<SyncTasks::ImageFrom> imageFrom_ {};
-      // The information about the destination image.
+      // The destination image.
       shared_ptr<SyncTasks::ImageTo> imageTo_ {};
+      // The ID of the custom sync link.
       shared_ptr<string> linkId_ {};
-      // The time when the synchronization task was last modified.
+      // This parameter is deprecated due to a typo. Use `ModifiedTime` instead.
       shared_ptr<int64_t> modifedTime_ {};
+      // The modification time of the task.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The ID of the image synchronization batch tasks, which is the same as the value of SyncRecordId in the request.
+      // The ID of the batch sync task. This ID is the same as the sync record ID (`SyncRecordId`).
       // 
-      // >  If an image meets multiple synchronization rules and multiple synchronization tasks are generated for the image, these synchronization tasks use the same SyncBatchTaskId.
+      // > If an image matches multiple sync rules, multiple sync tasks are generated. These tasks share the same `SyncBatchTaskId`.
       shared_ptr<string> syncBatchTaskId_ {};
-      // The ID of the synchronization rule.
+      // The ID of the sync rule.
       shared_ptr<string> syncRuleId_ {};
-      // The ID of the synchronization task.
+      // The ID of the sync task.
       shared_ptr<string> syncTaskId_ {};
-      // Indicates whether the synchronization transfer acceleration feature is enabled for the synchronization task.
+      // Whether transfer acceleration is enabled for the sync task.
       shared_ptr<bool> syncTransAccelerate_ {};
-      // The error message that is returned if the synchronization task fails.
+      // The task failure information.
       // 
-      // >  The system uses this parameter to return an error message if the synchronization task fails.
-      // 
-      // Valid value:
-      // 
-      // *   OSS_POLICY_UNAUTHORIZED: Container Registry is not granted permissions to access Object Storage Service (OSS).
-      // *   TAG_CONFLICT: The destination repository contains an image that has the same tag as the source image, and image tag immutability is enabled for the destination repository.
-      // *   UNSUPPORTED_FORMAT: The manifest or config format of the image to be synchronized is not supported.
-      // *   INTERNAL_ERROR: The synchronization task failed due to internal issues on the server.
-      // *   NETWORK_ERROR: The synchronization task failed due to unstable network connection.
-      // *   DATA_LENGTH_EXCEEDED: The manifest or config of the image is oversized.
+      // > If the sync task fails, this field returns details about the failure.
       shared_ptr<string> taskIssue_ {};
-      // The status of the synchronization task.
+      // The task status.
       shared_ptr<string> taskStatus_ {};
-      // The policy that is configured to trigger the synchronization task. Valid values:
+      // The trigger policy. Valid values:
       // 
-      // *   `PASSIVE`: automatically triggers the synchronization task.
-      // *   `INITIATIVE`: manually triggers the synchronization task.
+      // - `PASSIVE`: The sync task is automatically triggered.
       // 
-      // Default value: `PASSIVE`.
+      // - `INITIATIVE`: The sync task is manually triggered.
+      // 
+      // Default value: `PASSIVE`
       shared_ptr<string> taskTrigger_ {};
     };
 
@@ -465,19 +460,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful.
+    // Whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried synchronization tasks.
+    // A list of sync tasks.
     shared_ptr<vector<ListRepoSyncTaskResponseBody::SyncTasks>> syncTasks_ {};
-    // The total number of the queried synchronization tasks.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

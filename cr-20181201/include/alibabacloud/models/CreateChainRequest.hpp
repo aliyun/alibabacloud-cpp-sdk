@@ -97,11 +97,11 @@ namespace Models
 
 
   protected:
-    // The configuration of the delivery chain in the JSON format.
+    // The JSON-serialized entity object that describes the delivery chain.
     shared_ptr<string> chainConfig_ {};
     // The description of the delivery chain.
     shared_ptr<string> description_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -109,11 +109,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The name of the repository.
+    // The repository name.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace.
+    // The namespace name.
     shared_ptr<string> repoNamespaceName_ {};
-    // Repositories in which the delivery chain does not take effect.
+    // The collection of repositories excluded from the delivery chain execution.
     shared_ptr<vector<string>> scopeExclude_ {};
   };
 

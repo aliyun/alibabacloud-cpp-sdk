@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DELETEINSTANCEENDPOINTACLPOLICYREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DELETEINSTANCEENDPOINTACLPOLICYREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/AccessControlEntry.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,12 +16,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteInstanceEndpointAclPolicyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EndpointType, endpointType_);
+      DARABONBA_PTR_TO_JSON(Entries, entries_);
       DARABONBA_PTR_TO_JSON(Entry, entry_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(ModuleName, moduleName_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteInstanceEndpointAclPolicyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndpointType, endpointType_);
+      DARABONBA_PTR_FROM_JSON(Entries, entries_);
       DARABONBA_PTR_FROM_JSON(Entry, entry_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(ModuleName, moduleName_);
@@ -36,12 +40,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endpointType_ == nullptr
-        && this->entry_ == nullptr && this->instanceId_ == nullptr && this->moduleName_ == nullptr; };
+        && this->entries_ == nullptr && this->entry_ == nullptr && this->instanceId_ == nullptr && this->moduleName_ == nullptr; };
     // endpointType Field Functions 
     bool hasEndpointType() const { return this->endpointType_ != nullptr;};
     void deleteEndpointType() { this->endpointType_ = nullptr;};
     inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
     inline DeleteInstanceEndpointAclPolicyRequest& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
+
+
+    // entries Field Functions 
+    bool hasEntries() const { return this->entries_ != nullptr;};
+    void deleteEntries() { this->entries_ = nullptr;};
+    inline const vector<AccessControlEntry> & getEntries() const { DARABONBA_PTR_GET_CONST(entries_, vector<AccessControlEntry>) };
+    inline vector<AccessControlEntry> getEntries() { DARABONBA_PTR_GET(entries_, vector<AccessControlEntry>) };
+    inline DeleteInstanceEndpointAclPolicyRequest& setEntries(const vector<AccessControlEntry> & entries) { DARABONBA_PTR_SET_VALUE(entries_, entries) };
+    inline DeleteInstanceEndpointAclPolicyRequest& setEntries(vector<AccessControlEntry> && entries) { DARABONBA_PTR_SET_RVALUE(entries_, entries) };
 
 
     // entry Field Functions 
@@ -66,22 +79,22 @@ namespace Models
 
 
   protected:
-    // The type of the endpoint. Set the value to Internet.
+    // The endpoint type. Only Internet is supported.
     // 
     // This parameter is required.
     shared_ptr<string> endpointType_ {};
-    // The CIDR block.
-    // 
-    // This parameter is required.
+    shared_ptr<vector<AccessControlEntry>> entries_ {};
+    // The IP CIDR block.
     shared_ptr<string> entry_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the module that you want to access. Valid values:
+    // The module for which the access policy is set. Valid values:
     // 
-    // *   `Registry`: the image repository.
-    // *   `Chart`: a Helm chart.
+    // - `Registry`: access to the image repository
+    // 
+    // - `Chart`: access to Helm Chart
     shared_ptr<string> moduleName_ {};
   };
 

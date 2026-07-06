@@ -127,6 +127,7 @@ namespace Models
     shared_ptr<string> digest_ {};
     // crr-tquyps22md8p****
     shared_ptr<int64_t> imageCreate_ {};
+    // Image ID
     shared_ptr<string> imageId_ {};
     // The number of milliseconds that have elapsed since the image was last updated.
     shared_ptr<int64_t> imageSize_ {};

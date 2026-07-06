@@ -18,6 +18,51 @@ namespace Cr20181201
 
 AlibabaCloud::Cr20181201::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "cr.us-west-1.aliyuncs.com"},
+    {"us-southeast-1" , "cr.us-southeast-1.aliyuncs.com"},
+    {"us-east-1" , "cr.us-east-1.aliyuncs.com"},
+    {"na-south-1" , "cr.na-south-1.aliyuncs.com"},
+    {"me-east-1" , "cr.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "cr.me-central-1.aliyuncs.com"},
+    {"eu-west-2" , "cr.eu-west-2.aliyuncs.com"},
+    {"eu-west-1" , "cr.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "cr.eu-central-1.aliyuncs.com"},
+    {"cn-zhongwei" , "cr.cn-zhongwei.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "cr.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-zhangjiakou" , "cr.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "cr.cn-wulanchabu-gic-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "cr.cn-wulanchabu.aliyuncs.com"},
+    {"cn-wuhan-lr" , "cr.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "cr.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "cr.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "cr.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "cr.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "cr.cn-qingdao.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "cr.cn-north-2-gov-1.aliyuncs.com"},
+    {"cn-nanjing" , "cr.cn-nanjing.aliyuncs.com"},
+    {"cn-huhehaote" , "cr.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "cr.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "cr.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-heyuan" , "cr.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "cr.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "cr.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "cr.cn-guangzhou.aliyuncs.com"},
+    {"cn-fuzhou" , "cr.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "cr.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "cr.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "cr.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-8" , "cr.ap-southeast-8.aliyuncs.com"},
+    {"ap-southeast-7" , "cr.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "cr.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "cr.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "cr.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "cr.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "cr.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "cr.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2" , "cr.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "cr.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cr", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -778,14 +823,20 @@ CreateChartRepositoryResponse Client::createChartRepository(const CreateChartRep
 }
 
 /**
- * @summary Creates a whitelist policy for the public endpoint of the instance.
+ * @summary Creates a whitelist policy for an instance access endpoint (public network only).
  *
- * @param request CreateInstanceEndpointAclPolicyRequest
+ * @param tmpReq CreateInstanceEndpointAclPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateInstanceEndpointAclPolicyResponse
  */
-CreateInstanceEndpointAclPolicyResponse Client::createInstanceEndpointAclPolicyWithOptions(const CreateInstanceEndpointAclPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateInstanceEndpointAclPolicyResponse Client::createInstanceEndpointAclPolicyWithOptions(const CreateInstanceEndpointAclPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateInstanceEndpointAclPolicyShrinkRequest request = CreateInstanceEndpointAclPolicyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEntries()) {
+    request.setEntriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntries(), "Entries", "json"));
+  }
+
   json query = {};
   if (!!request.hasComment()) {
     query["Comment"] = request.getComment();
@@ -793,6 +844,10 @@ CreateInstanceEndpointAclPolicyResponse Client::createInstanceEndpointAclPolicyW
 
   if (!!request.hasEndpointType()) {
     query["EndpointType"] = request.getEndpointType();
+  }
+
+  if (!!request.hasEntriesShrink()) {
+    query["Entries"] = request.getEntriesShrink();
   }
 
   if (!!request.hasEntry()) {
@@ -825,7 +880,7 @@ CreateInstanceEndpointAclPolicyResponse Client::createInstanceEndpointAclPolicyW
 }
 
 /**
- * @summary Creates a whitelist policy for the public endpoint of the instance.
+ * @summary Creates a whitelist policy for an instance access endpoint (public network only).
  *
  * @param request CreateInstanceEndpointAclPolicyRequest
  * @return CreateInstanceEndpointAclPolicyResponse
@@ -898,7 +953,7 @@ CreateInstanceVpcEndpointLinkedVpcResponse Client::createInstanceVpcEndpointLink
 }
 
 /**
- * @summary Creates a namespace of image repositories.
+ * @summary Creates a repository namespace.
  *
  * @param tmpReq CreateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -951,7 +1006,7 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
 }
 
 /**
- * @summary Creates a namespace of image repositories.
+ * @summary Creates a repository namespace.
  *
  * @param request CreateNamespaceRequest
  * @return CreateNamespaceResponse
@@ -1200,7 +1255,7 @@ CreateRepoSyncRuleResponse Client::createRepoSyncRule(const CreateRepoSyncRuleRe
 }
 
 /**
- * @summary Manually creates an image synchronization task.
+ * @summary Manually create a sync task.
  *
  * @param request CreateRepoSyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1267,7 +1322,7 @@ CreateRepoSyncTaskResponse Client::createRepoSyncTaskWithOptions(const CreateRep
 }
 
 /**
- * @summary Manually creates an image synchronization task.
+ * @summary Manually create a sync task.
  *
  * @param request CreateRepoSyncTaskRequest
  * @return CreateRepoSyncTaskResponse
@@ -1390,7 +1445,7 @@ CreateRepoTagResponse Client::createRepoTag(const CreateRepoTagRequest &request)
 }
 
 /**
- * @summary Creates an image scan task.
+ * @summary Creates a security scan task for an image.
  *
  * @param request CreateRepoTagScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1496,7 @@ CreateRepoTagScanTaskResponse Client::createRepoTagScanTaskWithOptions(const Cre
 }
 
 /**
- * @summary Creates an image scan task.
+ * @summary Creates a security scan task for an image.
  *
  * @param request CreateRepoTagScanTaskRequest
  * @return CreateRepoTagScanTaskResponse
@@ -1666,7 +1721,7 @@ CreateScanRuleResponse Client::createScanRule(const CreateScanRuleRequest &reque
 /**
  * @summary Creates an instance store domain name routing rule.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param tmpReq CreateStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1709,7 +1764,7 @@ CreateStorageDomainRoutingRuleResponse Client::createStorageDomainRoutingRuleWit
 /**
  * @summary Creates an instance store domain name routing rule.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request CreateStorageDomainRoutingRuleRequest
  * @return CreateStorageDomainRoutingRuleResponse
@@ -1966,7 +2021,7 @@ DeleteChartReleaseResponse Client::deleteChartRelease(const DeleteChartReleaseRe
 }
 
 /**
- * @summary Deletes a chart repository from an instance.
+ * @summary Deletes a chart repository.
  *
  * @param request DeleteChartRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2005,7 +2060,7 @@ DeleteChartRepositoryResponse Client::deleteChartRepositoryWithOptions(const Del
 }
 
 /**
- * @summary Deletes a chart repository from an instance.
+ * @summary Deletes a chart repository.
  *
  * @param request DeleteChartRepositoryRequest
  * @return DeleteChartRepositoryResponse
@@ -2062,17 +2117,27 @@ DeleteEventCenterRuleResponse Client::deleteEventCenterRule(const DeleteEventCen
 }
 
 /**
- * @summary Deletes a whitelist policy for the public endpoint of an instance.
+ * @summary Deletes a whitelist policy from the public access endpoint of an instance.
  *
- * @param request DeleteInstanceEndpointAclPolicyRequest
+ * @param tmpReq DeleteInstanceEndpointAclPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteInstanceEndpointAclPolicyResponse
  */
-DeleteInstanceEndpointAclPolicyResponse Client::deleteInstanceEndpointAclPolicyWithOptions(const DeleteInstanceEndpointAclPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+DeleteInstanceEndpointAclPolicyResponse Client::deleteInstanceEndpointAclPolicyWithOptions(const DeleteInstanceEndpointAclPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteInstanceEndpointAclPolicyShrinkRequest request = DeleteInstanceEndpointAclPolicyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEntries()) {
+    request.setEntriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntries(), "Entries", "json"));
+  }
+
   json query = {};
   if (!!request.hasEndpointType()) {
     query["EndpointType"] = request.getEndpointType();
+  }
+
+  if (!!request.hasEntriesShrink()) {
+    query["Entries"] = request.getEntriesShrink();
   }
 
   if (!!request.hasEntry()) {
@@ -2105,7 +2170,7 @@ DeleteInstanceEndpointAclPolicyResponse Client::deleteInstanceEndpointAclPolicyW
 }
 
 /**
- * @summary Deletes a whitelist policy for the public endpoint of an instance.
+ * @summary Deletes a whitelist policy from the public access endpoint of an instance.
  *
  * @param request DeleteInstanceEndpointAclPolicyRequest
  * @return DeleteInstanceEndpointAclPolicyResponse
@@ -2476,7 +2541,7 @@ DeleteRepositoryResponse Client::deleteRepository(const DeleteRepositoryRequest 
 /**
  * @summary Deletes a scan rule.
  *
- * @description Deletes a scan rule.
+ * @description 删除扫描规则。
  *
  * @param request DeleteScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2513,7 +2578,7 @@ DeleteScanRuleResponse Client::deleteScanRuleWithOptions(const DeleteScanRuleReq
 /**
  * @summary Deletes a scan rule.
  *
- * @description Deletes a scan rule.
+ * @description 删除扫描规则。
  *
  * @param request DeleteScanRuleRequest
  * @return DeleteScanRuleResponse
@@ -2526,7 +2591,7 @@ DeleteScanRuleResponse Client::deleteScanRule(const DeleteScanRuleRequest &reque
 /**
  * @summary Deletes an instance store domain name routing rule.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request DeleteStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2563,7 +2628,7 @@ DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRuleWit
 /**
  * @summary Deletes an instance store domain name routing rule.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request DeleteStorageDomainRoutingRuleRequest
  * @return DeleteStorageDomainRoutingRuleResponse
@@ -2612,7 +2677,7 @@ GetArtifactBuildRuleResponse Client::getArtifactBuildRule(const GetArtifactBuild
 }
 
 /**
- * @summary Queries the details of an artifact building task.
+ * @summary Retrieves the details of an artifact build task.
  *
  * @param request GetArtifactBuildTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2639,7 +2704,7 @@ GetArtifactBuildTaskResponse Client::getArtifactBuildTaskWithOptions(const GetAr
 }
 
 /**
- * @summary Queries the details of an artifact building task.
+ * @summary Retrieves the details of an artifact build task.
  *
  * @param request GetArtifactBuildTaskRequest
  * @return GetArtifactBuildTaskResponse
@@ -2650,7 +2715,7 @@ GetArtifactBuildTaskResponse Client::getArtifactBuildTask(const GetArtifactBuild
 }
 
 /**
- * @summary Queries the lifecycle management rules of an artifact.
+ * @summary Lists artifact lifecycle management rules.
  *
  * @param request GetArtifactLifecycleRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2677,7 +2742,7 @@ GetArtifactLifecycleRuleResponse Client::getArtifactLifecycleRuleWithOptions(con
 }
 
 /**
- * @summary Queries the lifecycle management rules of an artifact.
+ * @summary Lists artifact lifecycle management rules.
  *
  * @param request GetArtifactLifecycleRuleRequest
  * @return GetArtifactLifecycleRuleResponse
@@ -2688,7 +2753,7 @@ GetArtifactLifecycleRuleResponse Client::getArtifactLifecycleRule(const GetArtif
 }
 
 /**
- * @summary Queries the information about an artifact subscription rule.
+ * @summary Retrieves the details of an artifact subscription rule.
  *
  * @param request GetArtifactSubscriptionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2715,7 +2780,7 @@ GetArtifactSubscriptionRuleResponse Client::getArtifactSubscriptionRuleWithOptio
 }
 
 /**
- * @summary Queries the information about an artifact subscription rule.
+ * @summary Retrieves the details of an artifact subscription rule.
  *
  * @param request GetArtifactSubscriptionRuleRequest
  * @return GetArtifactSubscriptionRuleResponse
@@ -2802,12 +2867,12 @@ GetArtifactSubscriptionTaskResultResponse Client::getArtifactSubscriptionTaskRes
 }
 
 /**
- * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
+ * @summary Retrieves a temporary account and temporary password for logging on to an instance.
  *
- * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
- * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
- * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
- * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
+ * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
+ * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+ * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
+ * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
  *
  * @param request GetAuthorizationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2838,12 +2903,12 @@ GetAuthorizationTokenResponse Client::getAuthorizationTokenWithOptions(const Get
 }
 
 /**
- * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
+ * @summary Retrieves a temporary account and temporary password for logging on to an instance.
  *
- * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
- * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
- * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
- * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
+ * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
+ * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+ * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
+ * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
  *
  * @param request GetAuthorizationTokenRequest
  * @return GetAuthorizationTokenResponse
@@ -2854,7 +2919,7 @@ GetAuthorizationTokenResponse Client::getAuthorizationToken(const GetAuthorizati
 }
 
 /**
- * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
+ * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
  *
  * @param request GetChainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2889,7 +2954,7 @@ GetChainResponse Client::getChainWithOptions(const GetChainRequest &request, con
 }
 
 /**
- * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
+ * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
  *
  * @param request GetChainRequest
  * @return GetChainResponse
@@ -2996,7 +3061,7 @@ GetChartRepositoryResponse Client::getChartRepository(const GetChartRepositoryRe
 }
 
 /**
- * @summary The ID of the resource group to which the instance belongs.
+ * @summary Query instance information.
  *
  * @param request GetInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3027,7 +3092,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
- * @summary The ID of the resource group to which the instance belongs.
+ * @summary Query instance information.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -3038,7 +3103,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary Queries the number of instances.
+ * @summary Queries the number of instances of a user.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceCountResponse
@@ -3060,7 +3125,7 @@ GetInstanceCountResponse Client::getInstanceCountWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary Queries the number of instances.
+ * @summary Queries the number of instances of a user.
  *
  * @return GetInstanceCountResponse
  */
@@ -3208,7 +3273,7 @@ GetInstanceVpcEndpointResponse Client::getInstanceVpcEndpoint(const GetInstanceV
 }
 
 /**
- * @summary Queries the information about a namespace.
+ * @summary Retrieves information about a namespace.
  *
  * @param request GetNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3247,7 +3312,7 @@ GetNamespaceResponse Client::getNamespaceWithOptions(const GetNamespaceRequest &
 }
 
 /**
- * @summary Queries the information about a namespace.
+ * @summary Retrieves information about a namespace.
  *
  * @param request GetNamespaceRequest
  * @return GetNamespaceResponse
@@ -3450,7 +3515,7 @@ GetRepoSyncTaskResponse Client::getRepoSyncTask(const GetRepoSyncTaskRequest &re
 }
 
 /**
- * @summary Queries the information about an image tag.
+ * @summary Retrieve information about a single image tag.
  *
  * @param request GetRepoTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3477,7 +3542,7 @@ GetRepoTagResponse Client::getRepoTagWithOptions(const GetRepoTagRequest &reques
 }
 
 /**
- * @summary Queries the information about an image tag.
+ * @summary Retrieve information about a single image tag.
  *
  * @param request GetRepoTagRequest
  * @return GetRepoTagResponse
@@ -3488,7 +3553,7 @@ GetRepoTagResponse Client::getRepoTag(const GetRepoTagRequest &request) {
 }
 
 /**
- * @summary Queries the scanning status of an image tag.
+ * @summary Retrieves the scan status of a specific image tag.
  *
  * @param request GetRepoTagScanStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3539,7 +3604,7 @@ GetRepoTagScanStatusResponse Client::getRepoTagScanStatusWithOptions(const GetRe
 }
 
 /**
- * @summary Queries the scanning status of an image tag.
+ * @summary Retrieves the scan status of a specific image tag.
  *
  * @param request GetRepoTagScanStatusRequest
  * @return GetRepoTagScanStatusResponse
@@ -3550,7 +3615,7 @@ GetRepoTagScanStatusResponse Client::getRepoTagScanStatus(const GetRepoTagScanSt
 }
 
 /**
- * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+ * @summary Obtain the number of scan results for an image version.
  *
  * @param request GetRepoTagScanSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3597,7 +3662,7 @@ GetRepoTagScanSummaryResponse Client::getRepoTagScanSummaryWithOptions(const Get
 }
 
 /**
- * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+ * @summary Obtain the number of scan results for an image version.
  *
  * @param request GetRepoTagScanSummaryRequest
  * @return GetRepoTagScanSummaryResponse
@@ -3662,9 +3727,9 @@ GetRepositoryResponse Client::getRepository(const GetRepositoryRequest &request)
 }
 
 /**
- * @summary Queries a scan rule.
+ * @summary Retrieves a scan rule.
  *
- * @description Get scan rule.
+ * @description Retrieves a scan rule.
  *
  * @param request GetScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3699,9 +3764,9 @@ GetScanRuleResponse Client::getScanRuleWithOptions(const GetScanRuleRequest &req
 }
 
 /**
- * @summary Queries a scan rule.
+ * @summary Retrieves a scan rule.
  *
- * @description Get scan rule.
+ * @description Retrieves a scan rule.
  *
  * @param request GetScanRuleRequest
  * @return GetScanRuleResponse
@@ -3712,9 +3777,9 @@ GetScanRuleResponse Client::getScanRule(const GetScanRuleRequest &request) {
 }
 
 /**
- * @summary Queries instance storage domain routing rules
+ * @summary Retrieves the instance storage domain name routing list.
  *
- * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
+ * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
  *
  * @param request GetStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3749,9 +3814,9 @@ GetStorageDomainRoutingRuleResponse Client::getStorageDomainRoutingRuleWithOptio
 }
 
 /**
- * @summary Queries instance storage domain routing rules
+ * @summary Retrieves the instance storage domain name routing list.
  *
- * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
+ * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
  *
  * @param request GetStorageDomainRoutingRuleRequest
  * @return GetStorageDomainRoutingRuleResponse
@@ -3800,7 +3865,7 @@ ListArtifactBuildTaskLogResponse Client::listArtifactBuildTaskLog(const ListArti
 }
 
 /**
- * @summary Queries the lifecycle management rules of an artifact.
+ * @summary Lists artifact lifecycle management rules.
  *
  * @param request ListArtifactLifecycleRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3827,7 +3892,7 @@ ListArtifactLifecycleRuleResponse Client::listArtifactLifecycleRuleWithOptions(c
 }
 
 /**
- * @summary Queries the lifecycle management rules of an artifact.
+ * @summary Lists artifact lifecycle management rules.
  *
  * @param request ListArtifactLifecycleRuleRequest
  * @return ListArtifactLifecycleRuleResponse
@@ -3838,7 +3903,7 @@ ListArtifactLifecycleRuleResponse Client::listArtifactLifecycleRule(const ListAr
 }
 
 /**
- * @summary Lists the subscription rules of artifacts.
+ * @summary List artifact subscription rules.
  *
  * @param request ListArtifactSubscriptionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3865,7 +3930,7 @@ ListArtifactSubscriptionRuleResponse Client::listArtifactSubscriptionRuleWithOpt
 }
 
 /**
- * @summary Lists the subscription rules of artifacts.
+ * @summary List artifact subscription rules.
  *
  * @param request ListArtifactSubscriptionRuleRequest
  * @return ListArtifactSubscriptionRuleResponse
@@ -3972,7 +4037,7 @@ ListChainResponse Client::listChain(const ListChainRequest &request) {
 }
 
 /**
- * @summary Queries execution records of delivery chains.
+ * @summary Queries the execution records of a delivery chain.
  *
  * @param request ListChainInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4019,7 +4084,7 @@ ListChainInstanceResponse Client::listChainInstanceWithOptions(const ListChainIn
 }
 
 /**
- * @summary Queries execution records of delivery chains.
+ * @summary Queries the execution records of a delivery chain.
  *
  * @param request ListChainInstanceRequest
  * @return ListChainInstanceResponse
@@ -4288,7 +4353,7 @@ ListEventCenterRuleNameResponse Client::listEventCenterRuleName(const ListEventC
 }
 
 /**
- * @summary Queries Container Registry instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4335,7 +4400,7 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
 }
 
 /**
- * @summary Queries Container Registry instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListInstanceRequest
  * @return ListInstanceResponse
@@ -4438,7 +4503,7 @@ ListInstanceRegionResponse Client::listInstanceRegion(const ListInstanceRegionRe
 }
 
 /**
- * @summary Queries namespaces in a Container Registry instance.
+ * @summary Lists namespaces.
  *
  * @param request ListNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4485,7 +4550,7 @@ ListNamespaceResponse Client::listNamespaceWithOptions(const ListNamespaceReques
 }
 
 /**
- * @summary Queries namespaces in a Container Registry instance.
+ * @summary Lists namespaces.
  *
  * @param request ListNamespaceRequest
  * @return ListNamespaceResponse
@@ -4604,7 +4669,7 @@ ListRepoBuildRecordLogResponse Client::listRepoBuildRecordLog(const ListRepoBuil
 }
 
 /**
- * @summary Queries image building rules of a repository.
+ * @summary Lists the build rules of an image repository.
  *
  * @param request ListRepoBuildRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4647,7 +4712,7 @@ ListRepoBuildRuleResponse Client::listRepoBuildRuleWithOptions(const ListRepoBui
 }
 
 /**
- * @summary Queries image building rules of a repository.
+ * @summary Lists the build rules of an image repository.
  *
  * @param request ListRepoBuildRuleRequest
  * @return ListRepoBuildRuleResponse
@@ -4658,7 +4723,7 @@ ListRepoBuildRuleResponse Client::listRepoBuildRule(const ListRepoBuildRuleReque
 }
 
 /**
- * @summary Queries image synchronization rules of a repository.
+ * @summary Returns a list of repository synchronization rules.
  *
  * @param request ListRepoSyncRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4713,7 +4778,7 @@ ListRepoSyncRuleResponse Client::listRepoSyncRuleWithOptions(const ListRepoSyncR
 }
 
 /**
- * @summary Queries image synchronization rules of a repository.
+ * @summary Returns a list of repository synchronization rules.
  *
  * @param request ListRepoSyncRuleRequest
  * @return ListRepoSyncRuleResponse
@@ -4724,7 +4789,7 @@ ListRepoSyncRuleResponse Client::listRepoSyncRule(const ListRepoSyncRuleRequest 
 }
 
 /**
- * @summary Queries image synchronization tasks in an image repository.
+ * @summary Lists repository synchronization tasks.
  *
  * @param request ListRepoSyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4779,7 +4844,7 @@ ListRepoSyncTaskResponse Client::listRepoSyncTaskWithOptions(const ListRepoSyncT
 }
 
 /**
- * @summary Queries image synchronization tasks in an image repository.
+ * @summary Lists repository synchronization tasks.
  *
  * @param request ListRepoSyncTaskRequest
  * @return ListRepoSyncTaskResponse
@@ -4972,7 +5037,7 @@ ListRepoTriggerResponse Client::listRepoTrigger(const ListRepoTriggerRequest &re
 }
 
 /**
- * @summary Queries image repositories.
+ * @summary Query the image repository list.
  *
  * @param request ListRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5023,7 +5088,7 @@ ListRepositoryResponse Client::listRepositoryWithOptions(const ListRepositoryReq
 }
 
 /**
- * @summary Queries image repositories.
+ * @summary Query the image repository list.
  *
  * @param request ListRepositoryRequest
  * @return ListRepositoryResponse
@@ -5120,7 +5185,7 @@ ListScanMaliciousFileByTaskResponse Client::listScanMaliciousFileByTask(const Li
 /**
  * @summary Lists the scan rules.
  *
- * @description Lists the scan rules.
+ * @description 列举扫描规则。
  *
  * @param request ListScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5149,7 +5214,7 @@ ListScanRuleResponse Client::listScanRuleWithOptions(const ListScanRuleRequest &
 /**
  * @summary Lists the scan rules.
  *
- * @description Lists the scan rules.
+ * @description 列举扫描规则。
  *
  * @param request ListScanRuleRequest
  * @return ListScanRuleResponse
@@ -5161,6 +5226,10 @@ ListScanRuleResponse Client::listScanRule(const ListScanRuleRequest &request) {
 
 /**
  * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
+ *
+ * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
+ * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
+ * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5208,6 +5277,10 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 
 /**
  * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
+ *
+ * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
+ * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
+ * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -5266,6 +5339,8 @@ ResetLoginPasswordResponse Client::resetLoginPassword(const ResetLoginPasswordRe
 /**
  * @summary Adds tags to resources. Instance resources are supported.
  *
+ * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+ *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TagResourcesResponse
@@ -5308,6 +5383,8 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 
 /**
  * @summary Adds tags to resources. Instance resources are supported.
+ *
+ * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -6138,7 +6215,7 @@ UpdateRepoTriggerResponse Client::updateRepoTrigger(const UpdateRepoTriggerReque
 }
 
 /**
- * @summary The ID of the request.
+ * @summary Updates repository information.
  *
  * @param request UpdateRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6197,7 +6274,7 @@ UpdateRepositoryResponse Client::updateRepositoryWithOptions(const UpdateReposit
 }
 
 /**
- * @summary The ID of the request.
+ * @summary Updates repository information.
  *
  * @param request UpdateRepositoryRequest
  * @return UpdateRepositoryResponse
@@ -6210,7 +6287,7 @@ UpdateRepositoryResponse Client::updateRepository(const UpdateRepositoryRequest 
 /**
  * @summary Updates a scan rule.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
  *
  * @param tmpReq UpdateScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6281,7 +6358,7 @@ UpdateScanRuleResponse Client::updateScanRuleWithOptions(const UpdateScanRuleReq
 /**
  * @summary Updates a scan rule.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
  *
  * @param request UpdateScanRuleRequest
  * @return UpdateScanRuleResponse
@@ -6294,7 +6371,7 @@ UpdateScanRuleResponse Client::updateScanRule(const UpdateScanRuleRequest &reque
 /**
  * @summary Updates a routing rule for an instance store domain name.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param tmpReq UpdateStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6341,7 +6418,7 @@ UpdateStorageDomainRoutingRuleResponse Client::updateStorageDomainRoutingRuleWit
 /**
  * @summary Updates a routing rule for an instance store domain name.
  *
- * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+ * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request UpdateStorageDomainRoutingRuleRequest
  * @return UpdateStorageDomainRoutingRuleResponse

@@ -98,7 +98,7 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
     // The creation time.
     shared_ptr<int64_t> createTime_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<vector<RouteItem>> routes_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // Indicates whether the request is successful.
+    // The request status identifier.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // Return value
     shared_ptr<string> code_ {};
+    // Indicates whether the invocation succeeded. Valid values:
+    // 
+    // - `true`: The invocation succeeded.
+    // 
+    // - `false`: Failed to invoke.
     shared_ptr<bool> isSuccess_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Sync task ID
     shared_ptr<string> syncTaskId_ {};
   };
 

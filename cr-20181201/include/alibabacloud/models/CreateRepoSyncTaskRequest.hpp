@@ -121,23 +121,45 @@ namespace Models
 
 
   protected:
+    // Source instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to overwrite an existing image:
+    // 
+    // - `true`: Overwrite the existing image.
+    // 
+    // - `false`: Do not overwrite the existing image.
     shared_ptr<bool> override_ {};
+    // Image repository ID in the source instance
+    // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};
+    // Image tag in the source instance
+    // 
     // This parameter is required.
     shared_ptr<string> tag_ {};
+    // Target instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> targetInstanceId_ {};
+    // Namespace in the target instance
+    // 
     // This parameter is required.
     shared_ptr<string> targetNamespace_ {};
+    // Region ID of the target instance
+    // 
     // This parameter is required.
     shared_ptr<string> targetRegionId_ {};
+    // Name of the image repository in the target instance
+    // 
     // This parameter is required.
     shared_ptr<string> targetRepoName_ {};
+    // Image tag in the target instance
+    // 
     // This parameter is required.
     shared_ptr<string> targetTag_ {};
+    // UID of the account to which the target instance belongs
     shared_ptr<string> targetUserId_ {};
   };
 

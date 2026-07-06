@@ -96,6 +96,15 @@ namespace Models
     shared_ptr<string> repoName_ {};
     // The name of the namespace to which the repository belongs.
     shared_ptr<string> repoNamespaceName_ {};
+    // Repository status. Valid values:
+    // 
+    // - `NORMAL`: Normal.
+    // 
+    // - `DELETING`: Deleting.
+    // 
+    // - `DELETED`: Deleted.
+    // 
+    // - `ALL`: All repository statuses.
     shared_ptr<string> repoStatus_ {};
   };
 

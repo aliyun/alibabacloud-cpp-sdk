@@ -133,32 +133,34 @@ namespace Models
 
 
   protected:
-    // Indicates whether a repository is automatically created when an image is pushed to the namespace.
+    // Indicates whether automatic repository creation is enabled.
     shared_ptr<bool> autoCreateRepo_ {};
-    // The return value.
+    // The response code.
     shared_ptr<string> code_ {};
     shared_ptr<RepoConfiguration> defaultRepoConfiguration_ {};
-    // The default type of repositories in the namespace. Valid values:
+    // The default repository type. Valid values:
     // 
-    // *   PUBLIC: public repositories.
-    // *   PRIVATE: private repositories.
+    // - `PUBLIC`: a public repository
+    // 
+    // - `PRIVATE`: a private repository
     shared_ptr<string> defaultRepoType_ {};
-    // The ID of the Container Registry instance.
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request succeeded.
     shared_ptr<bool> isSuccess_ {};
     // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};
     // The name of the namespace.
     shared_ptr<string> namespaceName_ {};
-    // The status of the namespace.
+    // The status of the namespace. Valid values:
     // 
-    // *   NORMAL
-    // *   DELETING
+    // - `NORMAL`: The namespace is running as expected.
+    // 
+    // - `DELETING`: The namespace is being deleted.
     shared_ptr<string> namespaceStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the namespace belongs.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

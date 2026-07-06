@@ -75,19 +75,20 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically create an image repository in the namespace.
+    // Specifies whether a repository is automatically created when an image is pushed to a repository that does not yet exist in the namespace.
     shared_ptr<bool> autoCreateRepo_ {};
     shared_ptr<string> defaultRepoConfigurationShrink_ {};
-    // The default type of the repositories that are automatically created in the namespace. Valid values:
+    // The default type of automatically created repositories. Valid values:
     // 
-    // *   `PUBLIC`: public repositories
-    // *   `PRIVATE`: private repositories.
+    // - `PUBLIC`: public
+    // 
+    // - `PRIVATE`: private
     shared_ptr<string> defaultRepoType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the namespace. The name must be 2 to 120 characters in length, and can contain lowercase letters, digits, and the following delimiters: underscores (_), hyphens (-), and periods (.). The name cannot start or end with a delimiter.
+    // The name of the namespace. The name must be 2 to 120 characters long and can contain only lowercase letters, digits, and the following separators: underscores (_), hyphens (-), and periods (.). A separator cannot be used as the first or last character.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};

@@ -84,23 +84,24 @@ namespace Models
 
 
   protected:
-    // The digest of the image.
+    // The image digest.
     shared_ptr<string> digest_ {};
-    // The ID of the Container Registry instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};
-    // The type of the scanning engine.
+    // The scan engine type:
     // 
-    // *   `SAS_SCAN_SERVICE`: Security Center scan engine (paid service)
-    // *   `ACR_SCAN_SERVICE`: Container Registry scan engine
+    // - `SAS_SCAN_SERVICE`: The cloud security scan engine. This is a paid service.
+    // 
+    // - `ACR_SCAN_SERVICE`: The ACR scan engine.
     shared_ptr<string> scanService_ {};
     shared_ptr<string> scanType_ {};
-    // The image version.
+    // The image tag.
     // 
     // This parameter is required.
     shared_ptr<string> tag_ {};

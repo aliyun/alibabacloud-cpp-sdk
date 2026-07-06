@@ -155,6 +155,9 @@ namespace Models
     shared_ptr<string> artifactType_ {};
     // The ID of the artifact building rule.
     shared_ptr<string> buildRuleId_ {};
+    // The API return code:
+    // - **200**: Indicates success.
+    // - Others: Indicate error codes.
     shared_ptr<string> code_ {};
     // Indicates whether the API request is successful. Valid values:
     // 

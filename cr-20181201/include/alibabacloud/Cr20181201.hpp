@@ -248,16 +248,16 @@ namespace Cr20181201
       Models::CreateChartRepositoryResponse createChartRepository(const Models::CreateChartRepositoryRequest &request);
 
       /**
-       * @summary Creates a whitelist policy for the public endpoint of the instance.
+       * @summary Creates a whitelist policy for an instance access endpoint (public network only).
        *
-       * @param request CreateInstanceEndpointAclPolicyRequest
+       * @param tmpReq CreateInstanceEndpointAclPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateInstanceEndpointAclPolicyResponse
        */
-      Models::CreateInstanceEndpointAclPolicyResponse createInstanceEndpointAclPolicyWithOptions(const Models::CreateInstanceEndpointAclPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateInstanceEndpointAclPolicyResponse createInstanceEndpointAclPolicyWithOptions(const Models::CreateInstanceEndpointAclPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a whitelist policy for the public endpoint of the instance.
+       * @summary Creates a whitelist policy for an instance access endpoint (public network only).
        *
        * @param request CreateInstanceEndpointAclPolicyRequest
        * @return CreateInstanceEndpointAclPolicyResponse
@@ -286,7 +286,7 @@ namespace Cr20181201
       Models::CreateInstanceVpcEndpointLinkedVpcResponse createInstanceVpcEndpointLinkedVpc(const Models::CreateInstanceVpcEndpointLinkedVpcRequest &request);
 
       /**
-       * @summary Creates a namespace of image repositories.
+       * @summary Creates a repository namespace.
        *
        * @param tmpReq CreateNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -295,7 +295,7 @@ namespace Cr20181201
       Models::CreateNamespaceResponse createNamespaceWithOptions(const Models::CreateNamespaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a namespace of image repositories.
+       * @summary Creates a repository namespace.
        *
        * @param request CreateNamespaceRequest
        * @return CreateNamespaceResponse
@@ -354,7 +354,7 @@ namespace Cr20181201
       Models::CreateRepoSyncRuleResponse createRepoSyncRule(const Models::CreateRepoSyncRuleRequest &request);
 
       /**
-       * @summary Manually creates an image synchronization task.
+       * @summary Manually create a sync task.
        *
        * @param request CreateRepoSyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -363,7 +363,7 @@ namespace Cr20181201
       Models::CreateRepoSyncTaskResponse createRepoSyncTaskWithOptions(const Models::CreateRepoSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manually creates an image synchronization task.
+       * @summary Manually create a sync task.
        *
        * @param request CreateRepoSyncTaskRequest
        * @return CreateRepoSyncTaskResponse
@@ -405,7 +405,7 @@ namespace Cr20181201
       Models::CreateRepoTagResponse createRepoTag(const Models::CreateRepoTagRequest &request);
 
       /**
-       * @summary Creates an image scan task.
+       * @summary Creates a security scan task for an image.
        *
        * @param request CreateRepoTagScanTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -414,7 +414,7 @@ namespace Cr20181201
       Models::CreateRepoTagScanTaskResponse createRepoTagScanTaskWithOptions(const Models::CreateRepoTagScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an image scan task.
+       * @summary Creates a security scan task for an image.
        *
        * @param request CreateRepoTagScanTaskRequest
        * @return CreateRepoTagScanTaskResponse
@@ -479,7 +479,7 @@ namespace Cr20181201
       /**
        * @summary Creates an instance store domain name routing rule.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param tmpReq CreateStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -490,7 +490,7 @@ namespace Cr20181201
       /**
        * @summary Creates an instance store domain name routing rule.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request CreateStorageDomainRoutingRuleRequest
        * @return CreateStorageDomainRoutingRuleResponse
@@ -587,7 +587,7 @@ namespace Cr20181201
       Models::DeleteChartReleaseResponse deleteChartRelease(const Models::DeleteChartReleaseRequest &request);
 
       /**
-       * @summary Deletes a chart repository from an instance.
+       * @summary Deletes a chart repository.
        *
        * @param request DeleteChartRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -596,7 +596,7 @@ namespace Cr20181201
       Models::DeleteChartRepositoryResponse deleteChartRepositoryWithOptions(const Models::DeleteChartRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a chart repository from an instance.
+       * @summary Deletes a chart repository.
        *
        * @param request DeleteChartRepositoryRequest
        * @return DeleteChartRepositoryResponse
@@ -621,16 +621,16 @@ namespace Cr20181201
       Models::DeleteEventCenterRuleResponse deleteEventCenterRule(const Models::DeleteEventCenterRuleRequest &request);
 
       /**
-       * @summary Deletes a whitelist policy for the public endpoint of an instance.
+       * @summary Deletes a whitelist policy from the public access endpoint of an instance.
        *
-       * @param request DeleteInstanceEndpointAclPolicyRequest
+       * @param tmpReq DeleteInstanceEndpointAclPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteInstanceEndpointAclPolicyResponse
        */
-      Models::DeleteInstanceEndpointAclPolicyResponse deleteInstanceEndpointAclPolicyWithOptions(const Models::DeleteInstanceEndpointAclPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteInstanceEndpointAclPolicyResponse deleteInstanceEndpointAclPolicyWithOptions(const Models::DeleteInstanceEndpointAclPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a whitelist policy for the public endpoint of an instance.
+       * @summary Deletes a whitelist policy from the public access endpoint of an instance.
        *
        * @param request DeleteInstanceEndpointAclPolicyRequest
        * @return DeleteInstanceEndpointAclPolicyResponse
@@ -767,7 +767,7 @@ namespace Cr20181201
       /**
        * @summary Deletes a scan rule.
        *
-       * @description Deletes a scan rule.
+       * @description 删除扫描规则。
        *
        * @param request DeleteScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +778,7 @@ namespace Cr20181201
       /**
        * @summary Deletes a scan rule.
        *
-       * @description Deletes a scan rule.
+       * @description 删除扫描规则。
        *
        * @param request DeleteScanRuleRequest
        * @return DeleteScanRuleResponse
@@ -788,7 +788,7 @@ namespace Cr20181201
       /**
        * @summary Deletes an instance store domain name routing rule.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request DeleteStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -799,7 +799,7 @@ namespace Cr20181201
       /**
        * @summary Deletes an instance store domain name routing rule.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request DeleteStorageDomainRoutingRuleRequest
        * @return DeleteStorageDomainRoutingRuleResponse
@@ -824,7 +824,7 @@ namespace Cr20181201
       Models::GetArtifactBuildRuleResponse getArtifactBuildRule(const Models::GetArtifactBuildRuleRequest &request);
 
       /**
-       * @summary Queries the details of an artifact building task.
+       * @summary Retrieves the details of an artifact build task.
        *
        * @param request GetArtifactBuildTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -833,7 +833,7 @@ namespace Cr20181201
       Models::GetArtifactBuildTaskResponse getArtifactBuildTaskWithOptions(const Models::GetArtifactBuildTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an artifact building task.
+       * @summary Retrieves the details of an artifact build task.
        *
        * @param request GetArtifactBuildTaskRequest
        * @return GetArtifactBuildTaskResponse
@@ -841,7 +841,7 @@ namespace Cr20181201
       Models::GetArtifactBuildTaskResponse getArtifactBuildTask(const Models::GetArtifactBuildTaskRequest &request);
 
       /**
-       * @summary Queries the lifecycle management rules of an artifact.
+       * @summary Lists artifact lifecycle management rules.
        *
        * @param request GetArtifactLifecycleRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -850,7 +850,7 @@ namespace Cr20181201
       Models::GetArtifactLifecycleRuleResponse getArtifactLifecycleRuleWithOptions(const Models::GetArtifactLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the lifecycle management rules of an artifact.
+       * @summary Lists artifact lifecycle management rules.
        *
        * @param request GetArtifactLifecycleRuleRequest
        * @return GetArtifactLifecycleRuleResponse
@@ -858,7 +858,7 @@ namespace Cr20181201
       Models::GetArtifactLifecycleRuleResponse getArtifactLifecycleRule(const Models::GetArtifactLifecycleRuleRequest &request);
 
       /**
-       * @summary Queries the information about an artifact subscription rule.
+       * @summary Retrieves the details of an artifact subscription rule.
        *
        * @param request GetArtifactSubscriptionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -867,7 +867,7 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionRuleResponse getArtifactSubscriptionRuleWithOptions(const Models::GetArtifactSubscriptionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an artifact subscription rule.
+       * @summary Retrieves the details of an artifact subscription rule.
        *
        * @param request GetArtifactSubscriptionRuleRequest
        * @return GetArtifactSubscriptionRuleResponse
@@ -909,12 +909,12 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionTaskResultResponse getArtifactSubscriptionTaskResult(const Models::GetArtifactSubscriptionTaskResultRequest &request);
 
       /**
-       * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
+       * @summary Retrieves a temporary account and temporary password for logging on to an instance.
        *
-       * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
-       * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
-       * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
-       * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
+       * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
+       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+       * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
+       * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -923,12 +923,12 @@ namespace Cr20181201
       Models::GetAuthorizationTokenResponse getAuthorizationTokenWithOptions(const Models::GetAuthorizationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
+       * @summary Retrieves a temporary account and temporary password for logging on to an instance.
        *
-       * @description The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
-       * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
-       * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
-       * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
+       * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
+       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+       * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
+       * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @return GetAuthorizationTokenResponse
@@ -936,7 +936,7 @@ namespace Cr20181201
       Models::GetAuthorizationTokenResponse getAuthorizationToken(const Models::GetAuthorizationTokenRequest &request);
 
       /**
-       * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
+       * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
        *
        * @param request GetChainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -945,7 +945,7 @@ namespace Cr20181201
       Models::GetChainResponse getChainWithOptions(const Models::GetChainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
+       * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
        *
        * @param request GetChainRequest
        * @return GetChainResponse
@@ -987,7 +987,7 @@ namespace Cr20181201
       Models::GetChartRepositoryResponse getChartRepository(const Models::GetChartRepositoryRequest &request);
 
       /**
-       * @summary The ID of the resource group to which the instance belongs.
+       * @summary Query instance information.
        *
        * @param request GetInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -996,7 +996,7 @@ namespace Cr20181201
       Models::GetInstanceResponse getInstanceWithOptions(const Models::GetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the resource group to which the instance belongs.
+       * @summary Query instance information.
        *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
@@ -1004,7 +1004,7 @@ namespace Cr20181201
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
 
       /**
-       * @summary Queries the number of instances.
+       * @summary Queries the number of instances of a user.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceCountResponse
@@ -1012,7 +1012,7 @@ namespace Cr20181201
       Models::GetInstanceCountResponse getInstanceCountWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of instances.
+       * @summary Queries the number of instances of a user.
        *
        * @return GetInstanceCountResponse
        */
@@ -1070,7 +1070,7 @@ namespace Cr20181201
       Models::GetInstanceVpcEndpointResponse getInstanceVpcEndpoint(const Models::GetInstanceVpcEndpointRequest &request);
 
       /**
-       * @summary Queries the information about a namespace.
+       * @summary Retrieves information about a namespace.
        *
        * @param request GetNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1079,7 +1079,7 @@ namespace Cr20181201
       Models::GetNamespaceResponse getNamespaceWithOptions(const Models::GetNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a namespace.
+       * @summary Retrieves information about a namespace.
        *
        * @param request GetNamespaceRequest
        * @return GetNamespaceResponse
@@ -1159,7 +1159,7 @@ namespace Cr20181201
       Models::GetRepoSyncTaskResponse getRepoSyncTask(const Models::GetRepoSyncTaskRequest &request);
 
       /**
-       * @summary Queries the information about an image tag.
+       * @summary Retrieve information about a single image tag.
        *
        * @param request GetRepoTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1168,7 +1168,7 @@ namespace Cr20181201
       Models::GetRepoTagResponse getRepoTagWithOptions(const Models::GetRepoTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an image tag.
+       * @summary Retrieve information about a single image tag.
        *
        * @param request GetRepoTagRequest
        * @return GetRepoTagResponse
@@ -1176,7 +1176,7 @@ namespace Cr20181201
       Models::GetRepoTagResponse getRepoTag(const Models::GetRepoTagRequest &request);
 
       /**
-       * @summary Queries the scanning status of an image tag.
+       * @summary Retrieves the scan status of a specific image tag.
        *
        * @param request GetRepoTagScanStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1185,7 +1185,7 @@ namespace Cr20181201
       Models::GetRepoTagScanStatusResponse getRepoTagScanStatusWithOptions(const Models::GetRepoTagScanStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scanning status of an image tag.
+       * @summary Retrieves the scan status of a specific image tag.
        *
        * @param request GetRepoTagScanStatusRequest
        * @return GetRepoTagScanStatusResponse
@@ -1193,7 +1193,7 @@ namespace Cr20181201
       Models::GetRepoTagScanStatusResponse getRepoTagScanStatus(const Models::GetRepoTagScanStatusRequest &request);
 
       /**
-       * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+       * @summary Obtain the number of scan results for an image version.
        *
        * @param request GetRepoTagScanSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1202,7 +1202,7 @@ namespace Cr20181201
       Models::GetRepoTagScanSummaryResponse getRepoTagScanSummaryWithOptions(const Models::GetRepoTagScanSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+       * @summary Obtain the number of scan results for an image version.
        *
        * @param request GetRepoTagScanSummaryRequest
        * @return GetRepoTagScanSummaryResponse
@@ -1227,9 +1227,9 @@ namespace Cr20181201
       Models::GetRepositoryResponse getRepository(const Models::GetRepositoryRequest &request);
 
       /**
-       * @summary Queries a scan rule.
+       * @summary Retrieves a scan rule.
        *
-       * @description Get scan rule.
+       * @description Retrieves a scan rule.
        *
        * @param request GetScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1238,9 +1238,9 @@ namespace Cr20181201
       Models::GetScanRuleResponse getScanRuleWithOptions(const Models::GetScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a scan rule.
+       * @summary Retrieves a scan rule.
        *
-       * @description Get scan rule.
+       * @description Retrieves a scan rule.
        *
        * @param request GetScanRuleRequest
        * @return GetScanRuleResponse
@@ -1248,9 +1248,9 @@ namespace Cr20181201
       Models::GetScanRuleResponse getScanRule(const Models::GetScanRuleRequest &request);
 
       /**
-       * @summary Queries instance storage domain routing rules
+       * @summary Retrieves the instance storage domain name routing list.
        *
-       * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
+       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
        *
        * @param request GetStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1259,9 +1259,9 @@ namespace Cr20181201
       Models::GetStorageDomainRoutingRuleResponse getStorageDomainRoutingRuleWithOptions(const Models::GetStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries instance storage domain routing rules
+       * @summary Retrieves the instance storage domain name routing list.
        *
-       * @description This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
+       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
        *
        * @param request GetStorageDomainRoutingRuleRequest
        * @return GetStorageDomainRoutingRuleResponse
@@ -1286,7 +1286,7 @@ namespace Cr20181201
       Models::ListArtifactBuildTaskLogResponse listArtifactBuildTaskLog(const Models::ListArtifactBuildTaskLogRequest &request);
 
       /**
-       * @summary Queries the lifecycle management rules of an artifact.
+       * @summary Lists artifact lifecycle management rules.
        *
        * @param request ListArtifactLifecycleRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1295,7 +1295,7 @@ namespace Cr20181201
       Models::ListArtifactLifecycleRuleResponse listArtifactLifecycleRuleWithOptions(const Models::ListArtifactLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the lifecycle management rules of an artifact.
+       * @summary Lists artifact lifecycle management rules.
        *
        * @param request ListArtifactLifecycleRuleRequest
        * @return ListArtifactLifecycleRuleResponse
@@ -1303,7 +1303,7 @@ namespace Cr20181201
       Models::ListArtifactLifecycleRuleResponse listArtifactLifecycleRule(const Models::ListArtifactLifecycleRuleRequest &request);
 
       /**
-       * @summary Lists the subscription rules of artifacts.
+       * @summary List artifact subscription rules.
        *
        * @param request ListArtifactSubscriptionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1312,7 +1312,7 @@ namespace Cr20181201
       Models::ListArtifactSubscriptionRuleResponse listArtifactSubscriptionRuleWithOptions(const Models::ListArtifactSubscriptionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the subscription rules of artifacts.
+       * @summary List artifact subscription rules.
        *
        * @param request ListArtifactSubscriptionRuleRequest
        * @return ListArtifactSubscriptionRuleResponse
@@ -1354,7 +1354,7 @@ namespace Cr20181201
       Models::ListChainResponse listChain(const Models::ListChainRequest &request);
 
       /**
-       * @summary Queries execution records of delivery chains.
+       * @summary Queries the execution records of a delivery chain.
        *
        * @param request ListChainInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1363,7 +1363,7 @@ namespace Cr20181201
       Models::ListChainInstanceResponse listChainInstanceWithOptions(const Models::ListChainInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries execution records of delivery chains.
+       * @summary Queries the execution records of a delivery chain.
        *
        * @param request ListChainInstanceRequest
        * @return ListChainInstanceResponse
@@ -1456,7 +1456,7 @@ namespace Cr20181201
       Models::ListEventCenterRuleNameResponse listEventCenterRuleName(const Models::ListEventCenterRuleNameRequest &request);
 
       /**
-       * @summary Queries Container Registry instances.
+       * @summary Queries a list of instances.
        *
        * @param request ListInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1465,7 +1465,7 @@ namespace Cr20181201
       Models::ListInstanceResponse listInstanceWithOptions(const Models::ListInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Container Registry instances.
+       * @summary Queries a list of instances.
        *
        * @param request ListInstanceRequest
        * @return ListInstanceResponse
@@ -1507,7 +1507,7 @@ namespace Cr20181201
       Models::ListInstanceRegionResponse listInstanceRegion(const Models::ListInstanceRegionRequest &request);
 
       /**
-       * @summary Queries namespaces in a Container Registry instance.
+       * @summary Lists namespaces.
        *
        * @param request ListNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1516,7 +1516,7 @@ namespace Cr20181201
       Models::ListNamespaceResponse listNamespaceWithOptions(const Models::ListNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries namespaces in a Container Registry instance.
+       * @summary Lists namespaces.
        *
        * @param request ListNamespaceRequest
        * @return ListNamespaceResponse
@@ -1558,7 +1558,7 @@ namespace Cr20181201
       Models::ListRepoBuildRecordLogResponse listRepoBuildRecordLog(const Models::ListRepoBuildRecordLogRequest &request);
 
       /**
-       * @summary Queries image building rules of a repository.
+       * @summary Lists the build rules of an image repository.
        *
        * @param request ListRepoBuildRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1567,7 +1567,7 @@ namespace Cr20181201
       Models::ListRepoBuildRuleResponse listRepoBuildRuleWithOptions(const Models::ListRepoBuildRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries image building rules of a repository.
+       * @summary Lists the build rules of an image repository.
        *
        * @param request ListRepoBuildRuleRequest
        * @return ListRepoBuildRuleResponse
@@ -1575,7 +1575,7 @@ namespace Cr20181201
       Models::ListRepoBuildRuleResponse listRepoBuildRule(const Models::ListRepoBuildRuleRequest &request);
 
       /**
-       * @summary Queries image synchronization rules of a repository.
+       * @summary Returns a list of repository synchronization rules.
        *
        * @param request ListRepoSyncRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1584,7 +1584,7 @@ namespace Cr20181201
       Models::ListRepoSyncRuleResponse listRepoSyncRuleWithOptions(const Models::ListRepoSyncRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries image synchronization rules of a repository.
+       * @summary Returns a list of repository synchronization rules.
        *
        * @param request ListRepoSyncRuleRequest
        * @return ListRepoSyncRuleResponse
@@ -1592,7 +1592,7 @@ namespace Cr20181201
       Models::ListRepoSyncRuleResponse listRepoSyncRule(const Models::ListRepoSyncRuleRequest &request);
 
       /**
-       * @summary Queries image synchronization tasks in an image repository.
+       * @summary Lists repository synchronization tasks.
        *
        * @param request ListRepoSyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1601,7 +1601,7 @@ namespace Cr20181201
       Models::ListRepoSyncTaskResponse listRepoSyncTaskWithOptions(const Models::ListRepoSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries image synchronization tasks in an image repository.
+       * @summary Lists repository synchronization tasks.
        *
        * @param request ListRepoSyncTaskRequest
        * @return ListRepoSyncTaskResponse
@@ -1660,7 +1660,7 @@ namespace Cr20181201
       Models::ListRepoTriggerResponse listRepoTrigger(const Models::ListRepoTriggerRequest &request);
 
       /**
-       * @summary Queries image repositories.
+       * @summary Query the image repository list.
        *
        * @param request ListRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1669,7 +1669,7 @@ namespace Cr20181201
       Models::ListRepositoryResponse listRepositoryWithOptions(const Models::ListRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries image repositories.
+       * @summary Query the image repository list.
        *
        * @param request ListRepositoryRequest
        * @return ListRepositoryResponse
@@ -1721,7 +1721,7 @@ namespace Cr20181201
       /**
        * @summary Lists the scan rules.
        *
-       * @description Lists the scan rules.
+       * @description 列举扫描规则。
        *
        * @param request ListScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1732,7 +1732,7 @@ namespace Cr20181201
       /**
        * @summary Lists the scan rules.
        *
-       * @description Lists the scan rules.
+       * @description 列举扫描规则。
        *
        * @param request ListScanRuleRequest
        * @return ListScanRuleResponse
@@ -1742,6 +1742,10 @@ namespace Cr20181201
       /**
        * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
        *
+       * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
+       * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
+       * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
+       *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTagResourcesResponse
@@ -1750,6 +1754,10 @@ namespace Cr20181201
 
       /**
        * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
+       *
+       * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
+       * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
+       * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1776,6 +1784,8 @@ namespace Cr20181201
       /**
        * @summary Adds tags to resources. Instance resources are supported.
        *
+       * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+       *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TagResourcesResponse
@@ -1784,6 +1794,8 @@ namespace Cr20181201
 
       /**
        * @summary Adds tags to resources. Instance resources are supported.
+       *
+       * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -1995,7 +2007,7 @@ namespace Cr20181201
       Models::UpdateRepoTriggerResponse updateRepoTrigger(const Models::UpdateRepoTriggerRequest &request);
 
       /**
-       * @summary The ID of the request.
+       * @summary Updates repository information.
        *
        * @param request UpdateRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2004,7 +2016,7 @@ namespace Cr20181201
       Models::UpdateRepositoryResponse updateRepositoryWithOptions(const Models::UpdateRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the request.
+       * @summary Updates repository information.
        *
        * @param request UpdateRepositoryRequest
        * @return UpdateRepositoryResponse
@@ -2014,7 +2026,7 @@ namespace Cr20181201
       /**
        * @summary Updates a scan rule.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
        *
        * @param tmpReq UpdateScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2025,7 +2037,7 @@ namespace Cr20181201
       /**
        * @summary Updates a scan rule.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
        *
        * @param request UpdateScanRuleRequest
        * @return UpdateScanRuleResponse
@@ -2035,7 +2047,7 @@ namespace Cr20181201
       /**
        * @summary Updates a routing rule for an instance store domain name.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param tmpReq UpdateStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2046,7 +2058,7 @@ namespace Cr20181201
       /**
        * @summary Updates a routing rule for an instance store domain name.
        *
-       * @description The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request UpdateStorageDomainRoutingRuleRequest
        * @return UpdateStorageDomainRoutingRuleResponse

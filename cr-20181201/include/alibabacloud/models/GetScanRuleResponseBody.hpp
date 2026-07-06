@@ -164,31 +164,31 @@ namespace Models
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Names of namespaces where the event is effective.
+      // The namespace names for which the event takes effect.
       shared_ptr<vector<string>> namespaces_ {};
-      // Names of repositories where the event is effective.
+      // The repository names for which the event takes effect.
       shared_ptr<vector<string>> repoNames_ {};
-      // Tag filter pattern for event triggering.
+      // The tag filtering rule that triggers the event.
       shared_ptr<string> repoTagFilterPattern_ {};
-      // The event rule name.
+      // The name of the event rule.
       shared_ptr<string> ruleName_ {};
       // The scan rule ID.
       shared_ptr<string> scanRuleId_ {};
       // The scan scope.
       shared_ptr<string> scanScope_ {};
-      // The vulnerability type: 
+      // The vulnerability type. Valid values:
       // 
-      // - `cve`: System vulnerability
+      // - `cve`: system vulnerability
       // 
-      // - `sca`: Application vulnerability
+      // - `sca`: application vulnerability
       shared_ptr<string> scanType_ {};
-      // The trigger type, valid values:
+      // The trigger type. Valid values:
       // 
-      // - `ALL`: All triggers
+      // - `ALL`: all triggers
       // 
-      // - `TAG_LISTTAG`: Trigger
+      // - `TAG_LISTTAG`: tag trigger
       // 
-      // - `TAG_REG_EXP`: Expression trigger
+      // - `TAG_REG_EXP`: expression trigger
       shared_ptr<string> triggerType_ {};
       // The update time.
       shared_ptr<int64_t> updateTime_ {};
@@ -227,13 +227,13 @@ namespace Models
 
 
   protected:
-    // Return value
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the API call was successful, valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // - `true`: The API call was successful
+    // - `true`: The API call is successful.
     // 
-    // - `false`: The API call failed
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

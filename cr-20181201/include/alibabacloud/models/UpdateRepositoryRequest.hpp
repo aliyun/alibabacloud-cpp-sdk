@@ -103,16 +103,35 @@ namespace Models
 
 
   protected:
+    // The repository description.
     shared_ptr<string> detail_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The repository ID.
     shared_ptr<string> repoId_ {};
+    // The repository name.
     shared_ptr<string> repoName_ {};
+    // The name of the repository namespace.
     shared_ptr<string> repoNamespaceName_ {};
+    // The repository type. Valid values:
+    // 
+    // - `PUBLIC`: public repository
+    // 
+    // - `PRIVATE`: private repository.
+    // 
     // This parameter is required.
     shared_ptr<string> repoType_ {};
+    // The summary.
+    // 
     // This parameter is required.
     shared_ptr<string> summary_ {};
+    // Specifies whether image tag immutability is enabled. Valid values:
+    // 
+    // - `true`: enabled
+    // 
+    // - `false`: disabled.
     shared_ptr<bool> tagImmutability_ {};
   };
 

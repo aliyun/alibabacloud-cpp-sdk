@@ -70,9 +70,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page.
+    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the image repository.
     // 

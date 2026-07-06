@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The password that you use to log on to the registry.
+    // The password used to log on to the Registry.
     shared_ptr<string> authorizationToken_ {};
-    // The HTTP status code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The timestamp when the temporary token expired. Unit: milliseconds.
+    // The expiration timestamp of the temporary token, in milliseconds.
     shared_ptr<int64_t> expireTime_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The username that you use to log on to the registry.
+    // The username used to log on to the Registry.
     shared_ptr<string> tempUsername_ {};
   };
 

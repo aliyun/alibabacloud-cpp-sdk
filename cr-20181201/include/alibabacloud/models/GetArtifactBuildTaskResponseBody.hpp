@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // The type of the artifact that is built in the task. The value can only be IMAGE.
+      // The artifact type. Currently, only `IMAGE` is supported.
       shared_ptr<string> artifactType_ {};
-      // The ID of the repository to which the artifact that is built in the task belongs. The repository can only be an image repository. The value is the same as the ID of the repository to which the source artifact belongs.
+      // The repository ID. It must be the same as the repository ID of the source artifact. Only image repositories are supported.
       shared_ptr<string> repoId_ {};
-      // The version of the artifact that is built in the task. The artifact can only be an image.
+      // The artifact version. Currently, only image versions are supported.
       shared_ptr<string> version_ {};
     };
 
@@ -152,11 +152,11 @@ namespace Models
 
 
     protected:
-      // The type of the artifact that is built in the task. The value can only be IMAGE.
+      // The artifact type. Currently, only `IMAGE` is supported.
       shared_ptr<string> artifactType_ {};
-      // The ID of the repository to which the source artifact belongs. The repository can only be an image repository.
+      // The repository ID. Currently, only image repositories are supported.
       shared_ptr<string> repoId_ {};
-      // The version of the artifact. The artifact can only be an image.
+      // The artifact version. Currently, only image versions are supported.
       shared_ptr<string> version_ {};
     };
 
@@ -247,34 +247,38 @@ namespace Models
 
 
   protected:
-    // The type of the artifact building task. Valid values:
+    // The artifact build type. Valid values:
     // 
-    // *   `IMAGE_TO_ACCELERATED_IMAGE`: builds accelerated images for Container Service for Kubernetes (ACK) clusters.
-    // *   `IMAGE_TO_ECI_ACCELERATED_IMAGE`: builds accelerated images for elastic container instances.
+    // - `IMAGE_TO_ACCELERATED_IMAGE`: an accelerated image for ACK.
+    // 
+    // - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: an accelerated image for ECI.
     shared_ptr<string> artifactBuildType_ {};
-    // The ID of the artifact building task.
+    // The ID of the artifact build task.
     shared_ptr<string> buildTaskId_ {};
-    // The return value.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The time when the artifact building task ends.
+    // The Unix timestamp in seconds when the task ended.
     shared_ptr<int32_t> endTime_ {};
     shared_ptr<vector<string>> instructions_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the source artifact.
+    // The source artifact.
     shared_ptr<GetArtifactBuildTaskResponseBody::SourceArtifact> sourceArtifact_ {};
-    // The time when the artifact building task starts.
+    // The Unix timestamp in seconds when the task started.
     shared_ptr<int32_t> startTime_ {};
-    // The artifact that is built in the task.
+    // The target artifact.
     shared_ptr<GetArtifactBuildTaskResponseBody::TargetArtifact> targetArtifact_ {};
-    // The status of the artifact that is built in the task. Valid values:
+    // The status of the artifact build task. Valid values:
     // 
-    // *   `PENDING`: The artifact is being scheduled.
-    // *   `BUILDING`: The artifact is being built.
-    // *   `SUCCESS`: The artifact is built.
-    // *   `FAILED`: The artifact fails to be built.
+    // - `PENDING`: The task is being scheduled.
+    // 
+    // - `BUILDING`: The task is in progress.
+    // 
+    // - `SUCCESS`: The task is successful.
+    // 
+    // - `FAILED`: The task failed.
     shared_ptr<string> taskStatus_ {};
   };
 

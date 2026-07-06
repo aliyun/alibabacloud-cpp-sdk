@@ -109,6 +109,7 @@ namespace Models
     shared_ptr<int32_t> highSeverity_ {};
     // The number of high-severity vulnerabilities.
     shared_ptr<bool> isSuccess_ {};
+    // Number of low-severity vulnerabilities
     shared_ptr<int32_t> lowSeverity_ {};
     // Indicates whether the request is successful. Valid values:
     // 

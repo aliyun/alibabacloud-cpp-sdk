@@ -199,23 +199,23 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The issue occurs on the instance.
+      // The instance issue.
       shared_ptr<string> instanceIssue_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
-      // The edition of the Container Registry Enterprise Edition instance.
+      // The Enterprise Edition specification.
       shared_ptr<string> instanceSpecification_ {};
-      // The status of the instance.
+      // The instance status.
       shared_ptr<string> instanceStatus_ {};
-      // The time when the instance was last modified.
+      // The last modification time.
       shared_ptr<string> modifiedTime_ {};
-      // The region ID of the instance.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the instance belongs.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The tags of the instance.
       shared_ptr<vector<Instances::Tags>> tags_ {};
@@ -278,17 +278,17 @@ namespace Models
   protected:
     // The return value.
     shared_ptr<string> code_ {};
-    // The queried instances.
+    // The instance information.
     shared_ptr<vector<ListInstanceResponseBody::Instances>> instances_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> isSuccess_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Default value: 30.
+    // The page size. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

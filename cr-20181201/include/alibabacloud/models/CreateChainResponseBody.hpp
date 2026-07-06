@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery chain.
+    // The delivery chain ID.
     shared_ptr<string> chainId_ {};
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

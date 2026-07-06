@@ -66,15 +66,17 @@ namespace Models
 
 
   protected:
-    // Return value
+    // The return value.
     shared_ptr<string> code_ {};
-    // Number of instances
+    // The number of instances.
     shared_ptr<int32_t> count_ {};
-    // Indicates whether the API call was successful. Values:
-    // - `true`: The API call was successful. 
-    // - `false`: The API call failed.
+    // Indicates whether the API call is successful. Valid values:
+    // 
+    // - `true`: The API call is successful.
+    // 
+    // - `false`: The API call fails.
     shared_ptr<bool> isSuccess_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

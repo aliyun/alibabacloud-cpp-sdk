@@ -124,11 +124,11 @@ namespace Models
 
 
       protected:
-        // The name of the namespace.
+        // The delivery chain ID.
         shared_ptr<string> chainId_ {};
-        // The number of entries returned on each page.
+        // The delivery chain name.
         shared_ptr<string> chainName_ {};
-        // The ID of the request.
+        // The delivery chain version.
         shared_ptr<int64_t> version_ {};
       };
 
@@ -194,31 +194,31 @@ namespace Models
 
 
     protected:
-      // The name of the namespace.
+      // The delivery chain execution record.
       shared_ptr<ChainInstances::Chain> chain_ {};
-      // 1
+      // The delivery chain instance ID.
       shared_ptr<string> chainInstanceId_ {};
-      // The ID of the Container Registry instance.
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
-      // The ID of the delivery chain.
+      // The repository name.
       shared_ptr<string> repoName_ {};
+      // The namespace.
+      shared_ptr<string> repoNamespaceName_ {};
       // The execution result of the delivery chain. Valid values:
       // 
-      // *   `SUCCESS`
-      // *   `FAILED`
-      // *   `CANCELED`
-      // *   `DENIED`
-      shared_ptr<string> repoNamespaceName_ {};
-      // The list of the execution records of delivery chains.
+      // - `SUCCESS`: Succeeded.
+      // - `FAILED`: Failed.
+      // - `CANCELED`: Canceled.
+      // - `DENIED`: Denied.
       shared_ptr<string> result_ {};
-      // test-repo
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the delivery chain. Valid values:
+      // The execution status of the delivery chain. Valid values:
       // 
-      // *   `RUNNING`
-      // *   `COMPLETE`
-      // *   `CANCELING`
-      // *   `CANCELED`
+      // - `RUNNING`: Running.
+      // - `COMPLETE`: Complete.
+      // - `CANCELING`: Canceling.
+      // - `CANCELED`: Canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -284,21 +284,21 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page.
+    // The list of delivery chain execution records.
     shared_ptr<vector<ListChainInstanceResponseBody::ChainInstances>> chainInstances_ {};
-    // The version of the delivery chain.
+    // The return value.
     shared_ptr<string> code_ {};
-    // The page number of the page to return.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The execution record of the delivery chain.
+    // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // 30
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // Indicates whether the operation is successful.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the Container Registry instance.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the repository.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

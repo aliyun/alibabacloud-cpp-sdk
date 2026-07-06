@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the repository.
+    // The repository name.
     // 
     // This parameter is required.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace to which the repository belongs.
+    // The namespace name.
     // 
     // This parameter is required.
     shared_ptr<string> repoNamespaceName_ {};

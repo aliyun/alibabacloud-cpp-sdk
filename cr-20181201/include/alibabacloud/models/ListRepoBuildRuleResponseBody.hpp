@@ -149,22 +149,24 @@ namespace Models
 
     protected:
       shared_ptr<vector<string>> buildArgs_ {};
-      // The ID of the image building rule.
+      // The ID of the build rule.
       shared_ptr<string> buildRuleId_ {};
       shared_ptr<string> destArtifactType_ {};
       // The directory of the Dockerfile.
       shared_ptr<string> dockerfileLocation_ {};
-      // The name of the Dockerfile.
+      // Dockerfile name
       shared_ptr<string> dockerfileName_ {};
-      // The tag of the image.
+      // Image Tag
       shared_ptr<string> imageTag_ {};
+      // Image operating system and platform
       shared_ptr<vector<string>> platforms_ {};
-      // The name of the push that triggers the building rule.
+      // Code push-triggered build name
       shared_ptr<string> pushName_ {};
-      // The type of the push that triggers the image building rule. Valid values:
+      // The type of the event that triggers the build rule. Valid values:
       // 
-      // *   GIT_BRANCH: branch push
-      // *   GIT_TAG: tag push
+      // - `GIT_BRANCH`: A code branch is pushed.
+      // 
+      // - GIT_TAG: Push source code from a tag.
       shared_ptr<string> pushType_ {};
     };
 
@@ -223,22 +225,23 @@ namespace Models
 
 
   protected:
-    // The list of image building rules.
+    // The build rules.
     shared_ptr<vector<ListRepoBuildRuleResponseBody::BuildRules>> buildRules_ {};
-    // The return value.
+    // The response code. A value of `success` indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> isSuccess_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of build rules.
     shared_ptr<string> totalCount_ {};
   };
 

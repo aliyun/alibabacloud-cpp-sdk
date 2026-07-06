@@ -100,15 +100,15 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The repository name.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace to which the repository belongs.
+    // The name of the repository namespace.
     shared_ptr<string> repoNamespaceName_ {};
-    // The ID of the synchronization task record, which is the same as SyncBatchTaskId in the response.
+    // The ID of the sync task. This ID is also the `SyncBatchTaskId` returned in the response, which identifies the image\\"s sync batch task.
     // 
-    // >  If an image meets multiple synchronization rules and multiple synchronization tasks are generated for the image, these synchronization tasks use the same SyncBatchTaskId.
+    // > An image that matches multiple sync rules generates multiple sync tasks, each with the same `SyncBatchTaskId`.
     shared_ptr<string> syncRecordId_ {};
     // The image tag.
     shared_ptr<string> tag_ {};

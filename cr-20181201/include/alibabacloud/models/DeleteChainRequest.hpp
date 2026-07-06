@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery pipeline.
+    // The delivery chain ID.
     // 
     // This parameter is required.
     shared_ptr<string> chainId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

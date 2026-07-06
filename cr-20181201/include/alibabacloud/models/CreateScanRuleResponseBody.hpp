@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The returned HTTP or HTTPS status code.
+    // The status code.
     shared_ptr<int64_t> code_ {};
     // Request Id
     shared_ptr<string> requestId_ {};

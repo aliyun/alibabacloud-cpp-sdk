@@ -187,6 +187,7 @@ namespace Models
 
 
   protected:
+    // Return value
     shared_ptr<string> code_ {};
     // The time when the instance was created.
     shared_ptr<int64_t> createTime_ {};

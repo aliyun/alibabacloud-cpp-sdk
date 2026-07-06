@@ -77,22 +77,29 @@ namespace Models
   protected:
     // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The status of the instance. Valid values:
+    // The instance status. Valid values:
     // 
-    // *   `PENDING`: The instance is being initialized.
-    // *   `INIT_ERROR`: The initialization of the instance fails.
-    // *   `STARTING`: The instance is being started.
-    // *   `RUNNING`: The instance is running.
-    // *   `STOPPING`: The instance is being stopped.
-    // *   `STOPPED`: The instance is stopped.
-    // *   `DELETING`: The instance is being deleted.
-    // *   `DELETED`: The instance is deleted.
+    // - `PENDING`: Initializing.
+    // 
+    // - `INIT_ERROR`: Initialization failed.
+    // 
+    // - `STARTING`: Starting.
+    // 
+    // - `RUNNING`: Running.
+    // 
+    // - `STOPPING`: Stopping.
+    // 
+    // - `STOPPED`: Stopped.
+    // 
+    // - `DELETING`: Deleting.
+    // 
+    // - `DELETED`: Deleted.
     shared_ptr<string> instanceStatus_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group to which the instance belongs.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the artifact building task.
+    // The ID of the artifact build task.
     // 
     // This parameter is required.
     shared_ptr<string> buildTaskId_ {};
