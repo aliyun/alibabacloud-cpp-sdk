@@ -75,6 +75,7 @@ namespace Models
 
 
   protected:
+    // The ID of the analysis record to query the status of.
     shared_ptr<string> analysisId_ {};
     // The current page number.
     shared_ptr<int64_t> current_ {};

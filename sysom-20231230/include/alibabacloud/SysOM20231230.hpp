@@ -1349,6 +1349,28 @@ namespace SysOM20231230
       Models::UninstallAgentForClusterResponse uninstallAgentForCluster(const Models::UninstallAgentForClusterRequest &request);
 
       /**
+       * @summary 卸载 SysOM Agent
+       *
+       * @description 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       *
+       * @param request UninstallAgentWithTypeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UninstallAgentWithTypeResponse
+       */
+      Models::UninstallAgentWithTypeResponse uninstallAgentWithTypeWithOptions(const Models::UninstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 卸载 SysOM Agent
+       *
+       * @description 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       *
+       * @param request UninstallAgentWithTypeRequest
+       * @return UninstallAgentWithTypeResponse
+       */
+      Models::UninstallAgentWithTypeResponse uninstallAgentWithType(const Models::UninstallAgentWithTypeRequest &request);
+
+      /**
        * @summary Updates an alert contact.
        *
        * @description .
@@ -1487,6 +1509,28 @@ namespace SysOM20231230
        * @return UpgradeAgentForClusterResponse
        */
       Models::UpgradeAgentForClusterResponse upgradeAgentForCluster(const Models::UpgradeAgentForClusterRequest &request);
+
+      /**
+       * @summary 更新 SysOM Agent
+       *
+       * @description 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       *
+       * @param request UpgradeAgentWithTypeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeAgentWithTypeResponse
+       */
+      Models::UpgradeAgentWithTypeResponse upgradeAgentWithTypeWithOptions(const Models::UpgradeAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 SysOM Agent
+       *
+       * @description 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       *
+       * @param request UpgradeAgentWithTypeRequest
+       * @return UpgradeAgentWithTypeResponse
+       */
+      Models::UpgradeAgentWithTypeResponse upgradeAgentWithType(const Models::UpgradeAgentWithTypeRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace SysOM20231230

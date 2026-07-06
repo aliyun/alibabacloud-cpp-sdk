@@ -200,6 +200,9 @@
 #include <alibabacloud/models/UninstallAgentForClusterRequest.hpp>
 #include <alibabacloud/models/UninstallAgentForClusterResponseBody.hpp>
 #include <alibabacloud/models/UninstallAgentForClusterResponse.hpp>
+#include <alibabacloud/models/UninstallAgentWithTypeRequest.hpp>
+#include <alibabacloud/models/UninstallAgentWithTypeResponseBody.hpp>
+#include <alibabacloud/models/UninstallAgentWithTypeResponse.hpp>
 #include <alibabacloud/models/UpdateAlertDestinationRequest.hpp>
 #include <alibabacloud/models/UpdateAlertDestinationResponseBody.hpp>
 #include <alibabacloud/models/UpdateAlertDestinationResponse.hpp>
@@ -222,5 +225,8 @@
 #include <alibabacloud/models/UpgradeAgentForClusterRequest.hpp>
 #include <alibabacloud/models/UpgradeAgentForClusterResponseBody.hpp>
 #include <alibabacloud/models/UpgradeAgentForClusterResponse.hpp>
+#include <alibabacloud/models/UpgradeAgentWithTypeRequest.hpp>
+#include <alibabacloud/models/UpgradeAgentWithTypeResponseBody.hpp>
+#include <alibabacloud/models/UpgradeAgentWithTypeResponse.hpp>
 
 #endif

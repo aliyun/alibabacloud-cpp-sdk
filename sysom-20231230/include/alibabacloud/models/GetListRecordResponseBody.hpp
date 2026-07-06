@@ -109,7 +109,7 @@ namespace Models
       shared_ptr<string> analysisTime_ {};
       // The analysis parameters of the AI job analysis.
       shared_ptr<string> arguments_ {};
-      // The analysis failure log.
+      // The failure log of the analysis.
       shared_ptr<string> failedLog_ {};
       // The analysis status.
       shared_ptr<string> status_ {};

@@ -4030,6 +4030,67 @@ UninstallAgentForClusterResponse Client::uninstallAgentForCluster(const Uninstal
 }
 
 /**
+ * @summary 卸载 SysOM Agent
+ *
+ * @description 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+ *
+ * @param request UninstallAgentWithTypeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UninstallAgentWithTypeResponse
+ */
+UninstallAgentWithTypeResponse Client::uninstallAgentWithTypeWithOptions(const UninstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAgentVersion()) {
+    body["agentVersion"] = request.getAgentVersion();
+  }
+
+  if (!!request.hasInstanceType()) {
+    body["instanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasInstances()) {
+    body["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UninstallAgentWithType"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/uninstallAgent")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UninstallAgentWithTypeResponse>();
+}
+
+/**
+ * @summary 卸载 SysOM Agent
+ *
+ * @description 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+ *
+ * @param request UninstallAgentWithTypeRequest
+ * @return UninstallAgentWithTypeResponse
+ */
+UninstallAgentWithTypeResponse Client::uninstallAgentWithType(const UninstallAgentWithTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return uninstallAgentWithTypeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Updates an alert contact.
  *
  * @description .
@@ -4430,6 +4491,67 @@ UpgradeAgentForClusterResponse Client::upgradeAgentForCluster(const UpgradeAgent
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return upgradeAgentForClusterWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新 SysOM Agent
+ *
+ * @description 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+ *
+ * @param request UpgradeAgentWithTypeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeAgentWithTypeResponse
+ */
+UpgradeAgentWithTypeResponse Client::upgradeAgentWithTypeWithOptions(const UpgradeAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAgentVersion()) {
+    body["agentVersion"] = request.getAgentVersion();
+  }
+
+  if (!!request.hasInstanceType()) {
+    body["instanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasInstances()) {
+    body["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpgradeAgentWithType"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/upgradeAgent")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeAgentWithTypeResponse>();
+}
+
+/**
+ * @summary 更新 SysOM Agent
+ *
+ * @description 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+ *
+ * @param request UpgradeAgentWithTypeRequest
+ * @return UpgradeAgentWithTypeResponse
+ */
+UpgradeAgentWithTypeResponse Client::upgradeAgentWithType(const UpgradeAgentWithTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return upgradeAgentWithTypeWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace SysOM20231230
