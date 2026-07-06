@@ -911,6 +911,23 @@ namespace CloudSiem20241212
       Models::ListAutoDisposeEntitiesResponse listAutoDisposeEntities(const Models::ListAutoDisposeEntitiesRequest &request);
 
       /**
+       * @summary Queries collectors by paging.
+       *
+       * @param tmpReq ListDataConnectorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataConnectorsResponse
+       */
+      Models::ListDataConnectorsResponse listDataConnectorsWithOptions(const Models::ListDataConnectorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries collectors by paging.
+       *
+       * @param request ListDataConnectorsRequest
+       * @return ListDataConnectorsResponse
+       */
+      Models::ListDataConnectorsResponse listDataConnectors(const Models::ListDataConnectorsRequest &request);
+
+      /**
        * @summary Queries data ingestion templates.
        *
        * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time frame.
@@ -1514,6 +1531,29 @@ namespace CloudSiem20241212
        * @return SetDefaultNormalizationRuleVersionResponse
        */
       Models::SetDefaultNormalizationRuleVersionResponse setDefaultNormalizationRuleVersion(const Models::SetDefaultNormalizationRuleVersionRequest &request);
+
+      /**
+       * @summary Updates an alert.
+       *
+       * @description Notifications are subject to frequency and time restrictions.
+       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       *
+       * @param request UpdateAlertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertResponse
+       */
+      Models::UpdateAlertResponse updateAlertWithOptions(const Models::UpdateAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an alert.
+       *
+       * @description Notifications are subject to frequency and time restrictions.
+       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+       *
+       * @param request UpdateAlertRequest
+       * @return UpdateAlertResponse
+       */
+      Models::UpdateAlertResponse updateAlert(const Models::UpdateAlertRequest &request);
 
       /**
        * @summary Updates the auto-dispose configuration.

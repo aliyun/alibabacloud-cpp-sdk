@@ -137,6 +137,10 @@
 #include <alibabacloud/models/ListAutoDisposeEntitiesShrinkRequest.hpp>
 #include <alibabacloud/models/ListAutoDisposeEntitiesResponseBody.hpp>
 #include <alibabacloud/models/ListAutoDisposeEntitiesResponse.hpp>
+#include <alibabacloud/models/ListDataConnectorsRequest.hpp>
+#include <alibabacloud/models/ListDataConnectorsShrinkRequest.hpp>
+#include <alibabacloud/models/ListDataConnectorsResponseBody.hpp>
+#include <alibabacloud/models/ListDataConnectorsResponse.hpp>
 #include <alibabacloud/models/ListDataIngestionTemplatesRequest.hpp>
 #include <alibabacloud/models/ListDataIngestionTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListDataIngestionTemplatesResponse.hpp>
@@ -235,6 +239,9 @@
 #include <alibabacloud/models/SetDefaultNormalizationRuleVersionRequest.hpp>
 #include <alibabacloud/models/SetDefaultNormalizationRuleVersionResponseBody.hpp>
 #include <alibabacloud/models/SetDefaultNormalizationRuleVersionResponse.hpp>
+#include <alibabacloud/models/UpdateAlertRequest.hpp>
+#include <alibabacloud/models/UpdateAlertResponseBody.hpp>
+#include <alibabacloud/models/UpdateAlertResponse.hpp>
 #include <alibabacloud/models/UpdateAutoDisposeConfigRequest.hpp>
 #include <alibabacloud/models/UpdateAutoDisposeConfigResponseBody.hpp>
 #include <alibabacloud/models/UpdateAutoDisposeConfigResponse.hpp>

@@ -3108,6 +3108,114 @@ ListAutoDisposeEntitiesResponse Client::listAutoDisposeEntities(const ListAutoDi
 }
 
 /**
+ * @summary Queries collectors by paging.
+ *
+ * @param tmpReq ListDataConnectorsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataConnectorsResponse
+ */
+ListDataConnectorsResponse Client::listDataConnectorsWithOptions(const ListDataConnectorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDataConnectorsShrinkRequest request = ListDataConnectorsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDataConnectorIds()) {
+    request.setDataConnectorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataConnectorIds(), "DataConnectorIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDataConnectorIdsShrink()) {
+    body["DataConnectorIds"] = request.getDataConnectorIdsShrink();
+  }
+
+  if (!!request.hasDataConnectorName()) {
+    body["DataConnectorName"] = request.getDataConnectorName();
+  }
+
+  if (!!request.hasDataConnectorStatus()) {
+    body["DataConnectorStatus"] = request.getDataConnectorStatus();
+  }
+
+  if (!!request.hasDataConnectorType()) {
+    body["DataConnectorType"] = request.getDataConnectorType();
+  }
+
+  if (!!request.hasDestDataSourceId()) {
+    body["DestDataSourceId"] = request.getDestDataSourceId();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderField()) {
+    body["OrderField"] = request.getOrderField();
+  }
+
+  if (!!request.hasOrderType()) {
+    body["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasSlsIngestionJobName()) {
+    body["SlsIngestionJobName"] = request.getSlsIngestionJobName();
+  }
+
+  if (!!request.hasSrcDataType()) {
+    body["SrcDataType"] = request.getSrcDataType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDataConnectors"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataConnectorsResponse>();
+}
+
+/**
+ * @summary Queries collectors by paging.
+ *
+ * @param request ListDataConnectorsRequest
+ * @return ListDataConnectorsResponse
+ */
+ListDataConnectorsResponse Client::listDataConnectors(const ListDataConnectorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataConnectorsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries data ingestion templates.
  *
  * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time frame.
@@ -5465,6 +5573,74 @@ SetDefaultNormalizationRuleVersionResponse Client::setDefaultNormalizationRuleVe
 SetDefaultNormalizationRuleVersionResponse Client::setDefaultNormalizationRuleVersion(const SetDefaultNormalizationRuleVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setDefaultNormalizationRuleVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates an alert.
+ *
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ *
+ * @param request UpdateAlertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAlertResponse
+ */
+UpdateAlertResponse Client::updateAlertWithOptions(const UpdateAlertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAlertStatus()) {
+    body["AlertStatus"] = request.getAlertStatus();
+  }
+
+  if (!!request.hasAlertUuid()) {
+    body["AlertUuid"] = request.getAlertUuid();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasRoleType()) {
+    body["RoleType"] = request.getRoleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateAlert"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAlertResponse>();
+}
+
+/**
+ * @summary Updates an alert.
+ *
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ *
+ * @param request UpdateAlertRequest
+ * @return UpdateAlertResponse
+ */
+UpdateAlertResponse Client::updateAlert(const UpdateAlertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAlertWithOptions(request, runtime);
 }
 
 /**
