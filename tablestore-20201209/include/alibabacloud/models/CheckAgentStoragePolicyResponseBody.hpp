@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEAGENTSTORAGERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREATEAGENTSTORAGERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CHECKAGENTSTORAGEPOLICYRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CHECKAGENTSTORAGEPOLICYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,25 +10,25 @@ namespace Tablestore20201209
 {
 namespace Models
 {
-  class CreateAgentStorageResponseBody : public Darabonba::Model {
+  class CheckAgentStoragePolicyResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateAgentStorageResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const CheckAgentStoragePolicyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateAgentStorageResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, CheckAgentStoragePolicyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    CreateAgentStorageResponseBody() = default ;
-    CreateAgentStorageResponseBody(const CreateAgentStorageResponseBody &) = default ;
-    CreateAgentStorageResponseBody(CreateAgentStorageResponseBody &&) = default ;
-    CreateAgentStorageResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateAgentStorageResponseBody() = default ;
-    CreateAgentStorageResponseBody& operator=(const CreateAgentStorageResponseBody &) = default ;
-    CreateAgentStorageResponseBody& operator=(CreateAgentStorageResponseBody &&) = default ;
+    CheckAgentStoragePolicyResponseBody() = default ;
+    CheckAgentStoragePolicyResponseBody(const CheckAgentStoragePolicyResponseBody &) = default ;
+    CheckAgentStoragePolicyResponseBody(CheckAgentStoragePolicyResponseBody &&) = default ;
+    CheckAgentStoragePolicyResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CheckAgentStoragePolicyResponseBody() = default ;
+    CheckAgentStoragePolicyResponseBody& operator=(const CheckAgentStoragePolicyResponseBody &) = default ;
+    CheckAgentStoragePolicyResponseBody& operator=(CheckAgentStoragePolicyResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,21 +39,21 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline CreateAgentStorageResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline CheckAgentStoragePolicyResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline CreateAgentStorageResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline CheckAgentStoragePolicyResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CreateAgentStorageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline CheckAgentStoragePolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:

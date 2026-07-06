@@ -138,11 +138,11 @@ namespace Models
 
 
     protected:
-      // agent storage description
+      // The description of the agent storage.
       shared_ptr<string> agentStorageDescription_ {};
-      // The agent storage name, which is a unique key.
+      // The name of the agent storage, which is a unique key.
       shared_ptr<string> agentStorageName_ {};
-      // The specifications of the agent storage.
+      // The specification of the agent storage.
       shared_ptr<string> agentStorageSpecification_ {};
       // The status of the agent storage. Valid values:
       // - normal: Normal.
@@ -151,7 +151,7 @@ namespace Models
       shared_ptr<string> agentStorageStatus_ {};
       // The alias of the agent storage.
       shared_ptr<string> aliasName_ {};
-      // The creation time of the agent storage.
+      // The time when the agent storage was created.
       shared_ptr<string> createTime_ {};
       // The region ID of the agent storage.
       shared_ptr<string> regionId_ {};
@@ -196,9 +196,9 @@ namespace Models
   protected:
     // The list of agent storage information.
     shared_ptr<vector<ListAgentStoragesResponseBody::AgentStorages>> agentStorages_ {};
-    // The token used to retrieve the next page of results when the total number of tag resources exceeds the value of MaxResults. This parameter has a value only when not all tag resources are returned.
+    // The pagination token for querying subsequent pages. This parameter has a value only when not all tag resources are returned. If the total number of expected tag resources exceeds the MaxResults value, use this token to retrieve the next page.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID, which can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The total number of agent storages returned.
     shared_ptr<int64_t> totalCount_ {};

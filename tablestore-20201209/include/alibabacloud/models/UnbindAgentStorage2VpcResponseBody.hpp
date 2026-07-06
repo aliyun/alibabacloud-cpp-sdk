@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETEAGENTSTORAGERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DELETEAGENTSTORAGERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_UNBINDAGENTSTORAGE2VPCRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UNBINDAGENTSTORAGE2VPCRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,21 +10,21 @@ namespace Tablestore20201209
 {
 namespace Models
 {
-  class DeleteAgentStorageResponseBody : public Darabonba::Model {
+  class UnbindAgentStorage2VpcResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteAgentStorageResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const UnbindAgentStorage2VpcResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteAgentStorageResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, UnbindAgentStorage2VpcResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    DeleteAgentStorageResponseBody() = default ;
-    DeleteAgentStorageResponseBody(const DeleteAgentStorageResponseBody &) = default ;
-    DeleteAgentStorageResponseBody(DeleteAgentStorageResponseBody &&) = default ;
-    DeleteAgentStorageResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteAgentStorageResponseBody() = default ;
-    DeleteAgentStorageResponseBody& operator=(const DeleteAgentStorageResponseBody &) = default ;
-    DeleteAgentStorageResponseBody& operator=(DeleteAgentStorageResponseBody &&) = default ;
+    UnbindAgentStorage2VpcResponseBody() = default ;
+    UnbindAgentStorage2VpcResponseBody(const UnbindAgentStorage2VpcResponseBody &) = default ;
+    UnbindAgentStorage2VpcResponseBody(UnbindAgentStorage2VpcResponseBody &&) = default ;
+    UnbindAgentStorage2VpcResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UnbindAgentStorage2VpcResponseBody() = default ;
+    UnbindAgentStorage2VpcResponseBody& operator=(const UnbindAgentStorage2VpcResponseBody &) = default ;
+    UnbindAgentStorage2VpcResponseBody& operator=(UnbindAgentStorage2VpcResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -34,7 +34,7 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DeleteAgentStorageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline UnbindAgentStorage2VpcResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:

@@ -240,11 +240,11 @@ namespace Models
 
 
   protected:
-    // agent storage description
+    // The description of the agent storage.
     shared_ptr<string> agentStorageDescription_ {};
-    // agent storage name
+    // The name of the agent storage.
     shared_ptr<string> agentStorageName_ {};
-    // The specification of the agent storage.
+    // The specifications of the agent storage.
     shared_ptr<string> agentStorageSpecification_ {};
     // The status of the agent storage. Valid values:
     // - normal: Normal.
@@ -257,15 +257,15 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // The list of network sources allowed for the agent storage. TRUST_PROXY: console.
     shared_ptr<vector<string>> networkSourceACL_ {};
-    // The list of network types allowed for the agent storage. CLASSIC: classic network. INTERNET: Internet. VPC: VPC network.
+    // The list of network types allowed for the agent storage. CLASSIC: classic network. INTERNET: public network. VPC: VPC network.
     shared_ptr<vector<string>> networkTypeACL_ {};
     // The access control policy of the agent storage.
     shared_ptr<string> policy_ {};
-    // The version of the agent storage policy.
+    // The version of the access control policy for the agent storage.
     shared_ptr<int64_t> policyVersion_ {};
     // The region ID of the agent storage.
     shared_ptr<string> regionId_ {};
-    // Id of the request
+    // The request ID, which can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

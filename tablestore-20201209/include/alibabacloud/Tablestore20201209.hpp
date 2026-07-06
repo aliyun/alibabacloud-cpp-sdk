@@ -21,6 +21,24 @@ namespace Tablestore20201209
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Binds agent storage to a VPC.
+       *
+       * @param request BindAgentStorage2VpcRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindAgentStorage2VpcResponse
+       */
+      Models::BindAgentStorage2VpcResponse bindAgentStorage2VpcWithOptions(const Models::BindAgentStorage2VpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Binds agent storage to a VPC.
+       *
+       * @param request BindAgentStorage2VpcRequest
+       * @return BindAgentStorage2VpcResponse
+       */
+      Models::BindAgentStorage2VpcResponse bindAgentStorage2Vpc(const Models::BindAgentStorage2VpcRequest &request);
+
+      /**
        * @summary Binds an instance to a VPC.
        *
        * @param request BindInstance2VpcRequest
@@ -57,6 +75,24 @@ namespace Tablestore20201209
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
+       * @summary Checks the validity of an agent storage access control policy.
+       *
+       * @param request CheckAgentStoragePolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckAgentStoragePolicyResponse
+       */
+      Models::CheckAgentStoragePolicyResponse checkAgentStoragePolicyWithOptions(const Models::CheckAgentStoragePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Checks the validity of an agent storage access control policy.
+       *
+       * @param request CheckAgentStoragePolicyRequest
+       * @return CheckAgentStoragePolicyResponse
+       */
+      Models::CheckAgentStoragePolicyResponse checkAgentStoragePolicy(const Models::CheckAgentStoragePolicyRequest &request);
+
+      /**
        * @summary Checks the validity of a Resource Access Management (RAM) policy for an instance.
        *
        * @param request CheckInstancePolicyRequest
@@ -75,12 +111,10 @@ namespace Tablestore20201209
       Models::CheckInstancePolicyResponse checkInstancePolicy(const Models::CheckInstancePolicyRequest &request);
 
       /**
-       * @summary Creates an agent storage instance.
+       * @summary Creates an agent storage.
        *
-       * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-       * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
-       * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
-       * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+       * @description - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
        *
        * @param request CreateAgentStorageRequest
        * @param headers map
@@ -90,12 +124,10 @@ namespace Tablestore20201209
       Models::CreateAgentStorageResponse createAgentStorageWithOptions(const Models::CreateAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an agent storage instance.
+       * @summary Creates an agent storage.
        *
-       * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-       * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
-       * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
-       * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+       * @description - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+       * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
        *
        * @param request CreateAgentStorageRequest
        * @return CreateAgentStorageResponse
@@ -155,10 +187,10 @@ namespace Tablestore20201209
       Models::CreateVCUInstanceResponse createVCUInstance(const Models::CreateVCUInstanceRequest &request);
 
       /**
-       * @summary Deletes an agent store.
+       * @summary Deletes an agent storage.
        *
-       * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
-       * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+       * @description - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+       * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
        *
        * @param request DeleteAgentStorageRequest
        * @param headers map
@@ -168,15 +200,39 @@ namespace Tablestore20201209
       Models::DeleteAgentStorageResponse deleteAgentStorageWithOptions(const Models::DeleteAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an agent store.
+       * @summary Deletes an agent storage.
        *
-       * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
-       * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+       * @description - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+       * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
        *
        * @param request DeleteAgentStorageRequest
        * @return DeleteAgentStorageResponse
        */
       Models::DeleteAgentStorageResponse deleteAgentStorage(const Models::DeleteAgentStorageRequest &request);
+
+      /**
+       * @summary Deletes an access control policy for agent storage.
+       *
+       * @description - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+       * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+       *
+       * @param request DeleteAgentStoragePolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgentStoragePolicyResponse
+       */
+      Models::DeleteAgentStoragePolicyResponse deleteAgentStoragePolicyWithOptions(const Models::DeleteAgentStoragePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an access control policy for agent storage.
+       *
+       * @description - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+       * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+       *
+       * @param request DeleteAgentStoragePolicyRequest
+       * @return DeleteAgentStoragePolicyResponse
+       */
+      Models::DeleteAgentStoragePolicyResponse deleteAgentStoragePolicy(const Models::DeleteAgentStoragePolicyRequest &request);
 
       /**
        * @summary Deletes an instance.
@@ -371,6 +427,24 @@ namespace Tablestore20201209
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
+       * @summary Retrieves the list of VPC information stored in an agent storage.
+       *
+       * @param request ListVpcInfoByAgentStorageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVpcInfoByAgentStorageResponse
+       */
+      Models::ListVpcInfoByAgentStorageResponse listVpcInfoByAgentStorageWithOptions(const Models::ListVpcInfoByAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of VPC information stored in an agent storage.
+       *
+       * @param request ListVpcInfoByAgentStorageRequest
+       * @return ListVpcInfoByAgentStorageResponse
+       */
+      Models::ListVpcInfoByAgentStorageResponse listVpcInfoByAgentStorage(const Models::ListVpcInfoByAgentStorageRequest &request);
+
+      /**
        * @summary Retrieves a list of VPC information for an instance.
        *
        * @param request ListVpcInfoByInstanceRequest
@@ -423,6 +497,24 @@ namespace Tablestore20201209
        * @return TagResourcesResponse
        */
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
+       * @summary Disassociates agent storage from a VPC.
+       *
+       * @param request UnbindAgentStorage2VpcRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindAgentStorage2VpcResponse
+       */
+      Models::UnbindAgentStorage2VpcResponse unbindAgentStorage2VpcWithOptions(const Models::UnbindAgentStorage2VpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disassociates agent storage from a VPC.
+       *
+       * @param request UnbindAgentStorage2VpcRequest
+       * @return UnbindAgentStorage2VpcResponse
+       */
+      Models::UnbindAgentStorage2VpcResponse unbindAgentStorage2Vpc(const Models::UnbindAgentStorage2VpcRequest &request);
 
       /**
        * @summary Detaches an instance from a VPC.
@@ -481,6 +573,24 @@ namespace Tablestore20201209
        * @return UpdateAgentStorageResponse
        */
       Models::UpdateAgentStorageResponse updateAgentStorage(const Models::UpdateAgentStorageRequest &request);
+
+      /**
+       * @summary Modifies the access control policy of agent storage.
+       *
+       * @param request UpdateAgentStoragePolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAgentStoragePolicyResponse
+       */
+      Models::UpdateAgentStoragePolicyResponse updateAgentStoragePolicyWithOptions(const Models::UpdateAgentStoragePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the access control policy of agent storage.
+       *
+       * @param request UpdateAgentStoragePolicyRequest
+       * @return UpdateAgentStoragePolicyResponse
+       */
+      Models::UpdateAgentStoragePolicyResponse updateAgentStoragePolicy(const Models::UpdateAgentStoragePolicyRequest &request);
 
       /**
        * @summary Updates instance information.

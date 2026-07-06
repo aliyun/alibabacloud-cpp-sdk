@@ -82,13 +82,11 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
-      // The key can be up to 64 characters in length.
+      // The key of the tag. The key can be up to 64 characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of the tag.
-      // The value can be up to 64 characters in length.
+      // The value of the tag. The value can be up to 64 characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -160,23 +158,33 @@ namespace Models
 
 
   protected:
-    // agent storage description
+    // The description of the agent storage. The description must be 3 to 256 characters in length.
     shared_ptr<string> agentStorageDescription_ {};
-    // agent storage name
+    // The name of the agent storage. The naming conventions are as follows:
+    // - The name can contain only letters, digits, and hyphens (-).
+    // - The name must start with a letter.
+    // - The name cannot end with a hyphen (-).
+    // - The name is case-insensitive.
+    // - The name must be 3 to 16 characters in length.
+    // - The name cannot contain the following words: ali, ay, ots, taobao, or admin.
     // 
     // This parameter is required.
     shared_ptr<string> agentStorageName_ {};
-    // （已弃用）智能体存储网络类型。NORMAL, VPC_CONSOLE。默认为NORMAL。
+    // (Deprecated) The network type of the agent storage. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
     shared_ptr<string> network_ {};
-    // The list of network sources allowed for the agent storage instance. By default, all network sources are allowed. Valid values: TRUST_PROXY: console.
+    // The list of allowed network sources for the agent storage. All sources are allowed by default. Valid values:
+    // - TRUST_PROXY: console.
     shared_ptr<vector<string>> networkSourceACL_ {};
-    // The list of network types allowed for the agent storage instance. By default, all network types are allowed. Valid values: CLASSIC: classic network. INTERNET: Internet. VPC: VPC.
+    // The list of allowed network types for the agent storage. All types are allowed by default. Valid values:
+    // - CLASSIC: classic network.
+    // - INTERNET: public network.
+    // - VPC: VPC network.
     shared_ptr<vector<string>> networkTypeACL_ {};
-    // The access control policy of the agent storage instance in JSON format. For the policy syntax, see https://www.alibabacloud.com/help/en/ram/user-guide/policy-structure-and-syntax.
+    // The access control policy for the agent storage in JSON format. For the syntax, see https://www.alibabacloud.com/help/en/ram/user-guide/policy-structure-and-syntax.
     shared_ptr<string> policy_ {};
-    // resource group id
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // tag
+    // The list of tags.
     shared_ptr<vector<CreateAgentStorageRequest::Tags>> tags_ {};
   };
 

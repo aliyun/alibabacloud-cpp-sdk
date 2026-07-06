@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // agent storage name
+    // The name of the agent storage.
     // 
     // This parameter is required.
     shared_ptr<string> agentStorageName_ {};

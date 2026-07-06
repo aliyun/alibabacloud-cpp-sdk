@@ -89,9 +89,9 @@ namespace Models
 
 
   protected:
-    // agent storage description
+    // The description of the agent storage.
     shared_ptr<string> agentStorageDescription_ {};
-    // agent storage name
+    // The name of the agent storage.
     // 
     // This parameter is required.
     shared_ptr<string> agentStorageName_ {};
@@ -99,10 +99,9 @@ namespace Models
     shared_ptr<string> aliasName_ {};
     // (Deprecated) The network type of the agent storage. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
     shared_ptr<string> network_ {};
-    // The list of network sources allowed for the agent storage. All sources are allowed by default. Valid values:
-    // - TRUST_PROXY: console.
+    // The list of allowed network sources for the agent storage. All sources are allowed by default. Must be used with TRUST_PROXY (console).
     shared_ptr<vector<string>> networkSourceACL_ {};
-    // The list of network types allowed for the agent storage. All types are allowed by default. Valid values:
+    // The list of allowed network types for the agent storage. All types are allowed by default. Valid values:
     // - CLASSIC: classic network.
     // - INTERNET: public network.
     // - VPC: VPC network.

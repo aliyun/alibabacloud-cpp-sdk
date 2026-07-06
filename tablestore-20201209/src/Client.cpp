@@ -64,6 +64,63 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Binds agent storage to a VPC.
+ *
+ * @param request BindAgentStorage2VpcRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindAgentStorage2VpcResponse
+ */
+BindAgentStorage2VpcResponse Client::bindAgentStorage2VpcWithOptions(const BindAgentStorage2VpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasAgentStorageVpcName()) {
+    body["AgentStorageVpcName"] = request.getAgentStorageVpcName();
+  }
+
+  if (!!request.hasVirtualSwitchId()) {
+    body["VirtualSwitchId"] = request.getVirtualSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    body["VpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BindAgentStorage2Vpc"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/bindagentstorage2vpc")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindAgentStorage2VpcResponse>();
+}
+
+/**
+ * @summary Binds agent storage to a VPC.
+ *
+ * @param request BindAgentStorage2VpcRequest
+ * @return BindAgentStorage2VpcResponse
+ */
+BindAgentStorage2VpcResponse Client::bindAgentStorage2Vpc(const BindAgentStorage2VpcRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return bindAgentStorage2VpcWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Binds an instance to a VPC.
  *
  * @param request BindInstance2VpcRequest
@@ -170,6 +227,55 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
+ * @summary Checks the validity of an agent storage access control policy.
+ *
+ * @param request CheckAgentStoragePolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckAgentStoragePolicyResponse
+ */
+CheckAgentStoragePolicyResponse Client::checkAgentStoragePolicyWithOptions(const CheckAgentStoragePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasPolicy()) {
+    body["Policy"] = request.getPolicy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CheckAgentStoragePolicy"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/checkagentstoragepolicy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckAgentStoragePolicyResponse>();
+}
+
+/**
+ * @summary Checks the validity of an agent storage access control policy.
+ *
+ * @param request CheckAgentStoragePolicyRequest
+ * @return CheckAgentStoragePolicyResponse
+ */
+CheckAgentStoragePolicyResponse Client::checkAgentStoragePolicy(const CheckAgentStoragePolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return checkAgentStoragePolicyWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Checks the validity of a Resource Access Management (RAM) policy for an instance.
  *
  * @param request CheckInstancePolicyRequest
@@ -219,12 +325,10 @@ CheckInstancePolicyResponse Client::checkInstancePolicy(const CheckInstancePolic
 }
 
 /**
- * @summary Creates an agent storage instance.
+ * @summary Creates an agent storage.
  *
- * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
- * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
- * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
- * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+ * @description - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
  *
  * @param request CreateAgentStorageRequest
  * @param headers map
@@ -285,12 +389,10 @@ CreateAgentStorageResponse Client::createAgentStorageWithOptions(const CreateAge
 }
 
 /**
- * @summary Creates an agent storage instance.
+ * @summary Creates an agent storage.
  *
- * @description - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
- * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
- * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
- * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+ * @description - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+ * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
  *
  * @param request CreateAgentStorageRequest
  * @return CreateAgentStorageResponse
@@ -484,10 +586,10 @@ CreateVCUInstanceResponse Client::createVCUInstance(const CreateVCUInstanceReque
 }
 
 /**
- * @summary Deletes an agent store.
+ * @summary Deletes an agent storage.
  *
- * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
- * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+ * @description - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+ * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
  *
  * @param request DeleteAgentStorageRequest
  * @param headers map
@@ -520,10 +622,10 @@ DeleteAgentStorageResponse Client::deleteAgentStorageWithOptions(const DeleteAge
 }
 
 /**
- * @summary Deletes an agent store.
+ * @summary Deletes an agent storage.
  *
- * @description - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
- * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+ * @description - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+ * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
  *
  * @param request DeleteAgentStorageRequest
  * @return DeleteAgentStorageResponse
@@ -532,6 +634,61 @@ DeleteAgentStorageResponse Client::deleteAgentStorage(const DeleteAgentStorageRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteAgentStorageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an access control policy for agent storage.
+ *
+ * @description - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+ * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+ *
+ * @param request DeleteAgentStoragePolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgentStoragePolicyResponse
+ */
+DeleteAgentStoragePolicyResponse Client::deleteAgentStoragePolicyWithOptions(const DeleteAgentStoragePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasPolicyVersion()) {
+    body["PolicyVersion"] = request.getPolicyVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteAgentStoragePolicy"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/deleteagentstoragepolicy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgentStoragePolicyResponse>();
+}
+
+/**
+ * @summary Deletes an access control policy for agent storage.
+ *
+ * @description - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+ * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+ *
+ * @param request DeleteAgentStoragePolicyRequest
+ * @return DeleteAgentStoragePolicyResponse
+ */
+DeleteAgentStoragePolicyResponse Client::deleteAgentStoragePolicy(const DeleteAgentStoragePolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAgentStoragePolicyWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1088,6 +1245,59 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
+ * @summary Retrieves the list of VPC information stored in an agent storage.
+ *
+ * @param request ListVpcInfoByAgentStorageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVpcInfoByAgentStorageResponse
+ */
+ListVpcInfoByAgentStorageResponse Client::listVpcInfoByAgentStorageWithOptions(const ListVpcInfoByAgentStorageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentStorageName()) {
+    query["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVpcInfoByAgentStorage"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/listvpcinfobyagentstorage")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVpcInfoByAgentStorageResponse>();
+}
+
+/**
+ * @summary Retrieves the list of VPC information stored in an agent storage.
+ *
+ * @param request ListVpcInfoByAgentStorageRequest
+ * @return ListVpcInfoByAgentStorageResponse
+ */
+ListVpcInfoByAgentStorageResponse Client::listVpcInfoByAgentStorage(const ListVpcInfoByAgentStorageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listVpcInfoByAgentStorageWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves a list of VPC information for an instance.
  *
  * @param request ListVpcInfoByInstanceRequest
@@ -1244,6 +1454,55 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return tagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Disassociates agent storage from a VPC.
+ *
+ * @param request UnbindAgentStorage2VpcRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnbindAgentStorage2VpcResponse
+ */
+UnbindAgentStorage2VpcResponse Client::unbindAgentStorage2VpcWithOptions(const UnbindAgentStorage2VpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasAgentStorageVpcName()) {
+    body["AgentStorageVpcName"] = request.getAgentStorageVpcName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UnbindAgentStorage2Vpc"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/unbindagentstorage2vpc")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnbindAgentStorage2VpcResponse>();
+}
+
+/**
+ * @summary Disassociates agent storage from a VPC.
+ *
+ * @param request UnbindAgentStorage2VpcRequest
+ * @return UnbindAgentStorage2VpcResponse
+ */
+UnbindAgentStorage2VpcResponse Client::unbindAgentStorage2Vpc(const UnbindAgentStorage2VpcRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return unbindAgentStorage2VpcWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1419,6 +1678,59 @@ UpdateAgentStorageResponse Client::updateAgentStorage(const UpdateAgentStorageRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAgentStorageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Modifies the access control policy of agent storage.
+ *
+ * @param request UpdateAgentStoragePolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAgentStoragePolicyResponse
+ */
+UpdateAgentStoragePolicyResponse Client::updateAgentStoragePolicyWithOptions(const UpdateAgentStoragePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentStorageName()) {
+    body["AgentStorageName"] = request.getAgentStorageName();
+  }
+
+  if (!!request.hasPolicy()) {
+    body["Policy"] = request.getPolicy();
+  }
+
+  if (!!request.hasPolicyVersion()) {
+    body["PolicyVersion"] = request.getPolicyVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAgentStoragePolicy"},
+    {"version" , "2020-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/openapi/updateagentstoragepolicy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAgentStoragePolicyResponse>();
+}
+
+/**
+ * @summary Modifies the access control policy of agent storage.
+ *
+ * @param request UpdateAgentStoragePolicyRequest
+ * @return UpdateAgentStoragePolicyResponse
+ */
+UpdateAgentStoragePolicyResponse Client::updateAgentStoragePolicy(const UpdateAgentStoragePolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAgentStoragePolicyWithOptions(request, headers, runtime);
 }
 
 /**
